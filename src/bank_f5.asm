@@ -1106,7 +1106,148 @@ Func_f5_45c1::
 	jr nz, .jump_45c3
 	ret
 
-	INCBIN "baserom.gbc", $3d45fb, $037d ; $45fb
+	INCBIN "baserom.gbc", $3d45fb, $0018 ; $45fb
+
+
+Func_f5_4613::
+	xor a
+	ld [$cbc2], a
+	ld [$cbc0], a
+	ld [$cbc1], a
+	ld [$cbca], a
+	ld [$cbb1], a
+	ld [$cbdc], a
+	ld [$cbdd], a
+	ld [$cbde], a
+	ld [$cbdf], a
+	ld [$cbe0], a
+	ld [$cbe1], a
+	ld [$cbe2], a
+	ld [$cbe3], a
+	ld [$cbe4], a
+	ld [$cbe5], a
+	ld [$cbe6], a
+	ld [$cbe7], a
+	ld [$cbe8], a
+	ld [$cbe9], a
+	ld [$cbea], a
+	ld [$cbeb], a
+	ld [$cbf8], a
+	ld [$cbc7], a
+	ld [$cbc8], a
+	ld [$cbf1], a
+	ld [$cbf2], a
+	ld [$cbf3], a
+	ld [$cbf4], a
+	ld [$cbf5], a
+	ld [$cbf6], a
+	ld [$cbf7], a
+	ld [$cbf0], a
+	ld [$cc07], a
+	ld [$cc09], a
+	ld [$cc0a], a
+	ld [$cbb4], a
+	ld [$cbb2], a
+	ld [$cbcc], a
+	ld [$cbd9], a
+	ld [$cbca], a
+	ld [$cbb7], a
+	ld [$cbb8], a
+	ld [$cbb9], a
+	ld a, $20
+	ld [$cbcd], a
+	xor a
+	ld hl, $cba0
+	ld c, $9d
+	ld b, $10
+.jump_46a2:
+	ld [hli], a
+	ldh [c], a
+	inc c
+	dec b
+	jr nz, .jump_46a2
+	ld hl, $ffad
+	ld c, $bd
+	ld b, $10
+.jump_46af:
+	ld [hli], a
+	ldh [c], a
+	inc c
+	dec b
+	jr nz, .jump_46af
+	ld a, $00
+	ld [$cbb3], a
+	xor a
+	ld hl, $db00
+	ld d, $20
+.jump_46c0:
+	ld [hli], a
+	dec d
+	jr nz, .jump_46c0
+	ret
+
+
+Func_f5_46c5::
+	ld a, $01
+	ldh [rSVBK], a
+	ld a, [$cbbf]
+	ld b, a
+	add a, a
+	add a, b
+	ld hl, $46d8
+	add a, l
+	ld l, a
+	jr nc, .jump_46d7
+	inc h
+.jump_46d7:
+	jp hl
+
+	INCBIN "baserom.gbc", $3d46d8, $00db ; $46d8
+
+
+Func_f5_47b3::
+	ld a, $01
+	ldh [rSVBK], a
+	ld a, [$cbbf]
+	ld b, a
+	add a, a
+	add a, b
+	ld hl, $47c6
+	add a, l
+	ld l, a
+	jr nc, .jump_47c5
+	inc h
+.jump_47c5:
+	jp hl
+
+	INCBIN "baserom.gbc", $3d47c6, $018a ; $47c6
+
+
+Func_f5_4950::
+	ld a, [$cbbf]
+	add a, a
+	ld hl, $45fb
+	add a, l
+	ld l, a
+	jr nc, .jump_495c
+	inc h
+.jump_495c:
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [hli]
+	push hl
+	ld b, a
+	ld a, $f5
+	ld hl, $4000
+	call FarCall_A_HL
+	ld a, $fe
+	ld hl, $5c0d
+	call FarCall_A_HL
+	pop hl
+	ld a, [hl]
+	ld [$cbcb], a
+	ret
 
 
 Func_f5_4978::

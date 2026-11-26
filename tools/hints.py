@@ -5,7 +5,8 @@ CODE = [
     (5, 0x4001), (7, 0x4001), (8, 0x4001), (9, 0x4001), (10, 0x4001), (15, 0x4001),
     (0, 0x0000), (0, 0x004B), (0, 0x0286), (0, 0x3FD5), (0, 0x00BC),
     (0, 0x0616), (0, 0x1CC2), (0, 0x2400),  # interrupt handlers installed at runtime
-    (0, 0x3995), (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),
+    (0, 0x3995),
+    (0x50, 0x4000),  # extra program, far-jumped to from bank $f2 ($736a, $7571) (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),
     (0, 0x0050), (0, 0x0058), (0, 0x0060), (0, 0x0063), (0, 0x00A1), (0, 0x0100),
 ]
 
@@ -67,7 +68,7 @@ NAMES = {
 KEEP = set()
 
 # Banks where unreached gaps may be traced speculatively (see tracer.Speculator).
-SPECULATE_BANKS = [0, 4, 5, 7, 8, 9, 10, 15] + list(range(0xF0, 0xFF))
+SPECULATE_BANKS = [0, 4, 5, 7, 8, 9, 10, 15] + list(range(0x50, 0x57)) + list(range(0xF0, 0xFF))
 
 # Bank-0 routines that apply an object initialiser list at hl to the object
 # in bc (see Func_00_188b).
@@ -122,7 +123,7 @@ OBJ_FIELD_TABLE = {
 
 # Banks of the separate program that has its own memory map (stack at
 # $cff6, different HRAM and WRAM use), so main-game RAM names don't apply.
-SECOND_PROGRAM_BANKS = set(range(0xF0, 0xFF))
+SECOND_PROGRAM_BANKS = set(range(0xF0, 0xFF)) | set(range(0x50, 0x70))
 
 # Main-game RAM variables (not used for SECOND_PROGRAM_BANKS): address -> name
 RAM_NAMES = {
@@ -189,3 +190,13 @@ FLOW_FUNCS = [0x38C7]
 # World map records: (bank, pointer table, count). The table is indexed by
 # [$c30a], which comes from the per-location table at $05:491e.
 WORLD_MAPS = (0x05, 0x4AA9, 8)
+
+# Far jump used by the extra programs: push the return address ($3fd5) and
+# the target address a byte at a time ("ld a, n / push af / inc sp"), put
+# the bank in a and jump here; it switches banks and returns into the target.
+FARJUMP_STACK = [0x3FDC]
+
+# Far jump of the program in banks $50+: its runtime (copied from $51:42f4
+# to $cb00) jumps through $cb99 with the bank in a and the target pushed
+# last (return address, bank and the cleanup routine $cba7 pushed before).
+FARJUMP_HL_STACK = [0xCB99]

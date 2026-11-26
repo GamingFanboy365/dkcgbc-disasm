@@ -52,6 +52,9 @@ OBJS := \
 	src/bank_4d.o \
 	src/bank_4e.o \
 	src/bank_4f.o \
+	src/bank_50.o \
+	src/bank_51.o \
+	src/bank_52.o \
 	src/bank_70.o \
 	src/bank_71.o \
 	src/bank_72.o \

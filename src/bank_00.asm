@@ -66,15 +66,9 @@ Rst38::
 	nop
 	nop
 	nop
-
-VBlankInterrupt::
 	jp $c32d
 
-	ds 5, $00 ; $0043
-
-
-LCDInterrupt::
-	jp $c330
+	db $00, $00, $00, $00, $00, $c3, $30, $c3
 
 
 Func_00_004b::

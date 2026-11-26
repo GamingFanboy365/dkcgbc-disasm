@@ -174,6 +174,8 @@ class Tracer:
         self.frame_headers = set()
         self.preload_funcs = set()
         self.flow_funcs = set()
+        self.farjump_stack = set()
+        self.farjump_hl_stack = set()
         self.field_stores = {}   # insn offset -> (object field, value, is player)
         self.palette_bank = 0x80
         self.candidates = []
@@ -209,6 +211,8 @@ class Tracer:
         hist = []
         hl_insn = None
         de_insn = None
+        pushbytes = []
+        pushwords = []
         objfield = None
         player = False
         prev = None
@@ -243,6 +247,31 @@ class Tracer:
                         self.add(a, h << 8 | l, "func", a)
                     else:
                         self.unresolved.append((None, 0, "farcall@%02x:%04x" % (bank, addr)))
+            # "ld a, n / push af / inc sp" pushes single bytes; the far jump at
+            # $3fdc switches to bank a and returns into the last two pushed
+            if i.op == 0x33 and prev is not None and prev.op == 0xF5:
+                pushbytes.append(regs["a"])
+            # "ld hl, target / push hl / ld a, bank / jp $cb99" (bank $50
+            # program): the last pushed word is the target; pushed words in
+            # this bank's ROM area are return points
+            if i.op == 0xE5:
+                pushwords.append(None if None in (regs["h"], regs["l"]) else regs["h"] << 8 | regs["l"])
+            if i.flow in ("jp", "call") and i.target in self.farjump_hl_stack and pushwords:
+                a = regs["a"]
+                if a is not None and pushwords[-1] is not None:
+                    self.add(a, pushwords[-1], "func", a)
+                    for w in pushwords[:-1]:
+                        if w is not None and 0x4000 <= w < 0x8000 and bank:
+                            self.candidates.append((bank, w))
+                else:
+                    self.unresolved.append((bank, addr, "farjump-hl"))
+                pushwords = []
+            if i.flow in ("jp", "call") and i.target in self.farjump_stack and len(pushbytes) >= 2:
+                hi, lo, a = pushbytes[-2], pushbytes[-1], regs["a"]
+                if None not in (hi, lo, a):
+                    self.add(a, hi << 8 | lo, "func", a)
+                else:
+                    self.unresolved.append((bank, addr, "farjump-stack"))
             if i.flow in ("call", "jp") and i.target in self.flow_funcs and de_insn is not None:
                 if off(0x0D, de_insn.imm) in self.data:
                     de_insn.dataref = (0x0D, de_insn.imm)
@@ -671,6 +700,8 @@ class Speculator:
         trial.second_program = t.second_program
         trial.list_only_banks = t.list_only_banks
         trial.flow_funcs = t.flow_funcs
+        trial.farjump_stack = t.farjump_stack
+        trial.farjump_hl_stack = t.farjump_hl_stack
         trial.preload_funcs = t.preload_funcs
         trial.insns = ChainMap({}, t.insns)
         trial.owner = ChainMap({}, t.owner)
@@ -689,7 +720,10 @@ class Speculator:
             return False
         nops = 0
         for o, i in new.items():
-            if i.op in self.BAD_OPS and not (i.op == 0x00 and rom_prev_is_halt(t.rom, o)):
+            if o // BANK_SIZE != off(bank, addr) // BANK_SIZE:
+                continue  # code in other banks was reached through a resolved far call
+            legit_stop = i.op == 0x10 and o >= 2 and t.rom[o - 2] == 0xE0 and t.rom[o - 1] in (0x00, 0x4D)
+            if i.op in self.BAD_OPS and not legit_stop and not (i.op == 0x00 and rom_prev_is_halt(t.rom, o)):
                 return False
             if i.flow == "rst" and i.target != 0x38:
                 return False

@@ -71,6 +71,8 @@ def make(rom):
         t.parse_frame_table(b, start, count)
     t.preload_funcs = set(hints.PRELOAD_FUNCS)
     t.flow_funcs = set(hints.FLOW_FUNCS)
+    t.farjump_stack = set(hints.FARJUMP_STACK)
+    t.farjump_hl_stack = set(hints.FARJUMP_HL_STACK)
     t.parse_palettes(hints.PALETTES)
     t.parse_levels(hints.LEVELS)
     for (b, start, end) in hints.ANIM_RUNS:

@@ -135,6 +135,25 @@ Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), store
 
 `python3 tools/backgrounds.py` renders every level map, world map and full screen to `gfx/backgrounds/` (gitignored). Each map is drawn with the BG palettes of its first descriptor, as stored in the ROM. Some levels change palettes while playing, so a render can differ from what's on screen.
 
+### The bonus and front-end programs
+
+Besides the adventure itself, the cartridge holds two more programs, each with its own stack, HRAM and WRAM use. They are therefore excluded from the main game's RAM names (`hints.SECOND_PROGRAM_BANKS`).
+
+**Banks `$F0`–`$FF`: the front end and bonus system.** The flow script enters it with state `$61` (`Func_00_3d28` calls `$F1:4000`). Its text is in bank `$FF`, in five languages, and shows what it covers:
+
+| Area | Contents |
+|---|---|
+| Main menu | Adventure, Bonus, Link, Print, Options |
+| Save files | three files, with copy and erase |
+| Options | sound test, view items, alphabet, make flag, language, and toggles such as "DK barrels on/off", "Neckys on/off" and "normal tyres" |
+| Bonus games | *Crosshair Cranky*, with its modes "Kremling Krackdown", "Kremlings and Kongs", "Barrel O'Kremlings", "Wanted" and "Buddies Beware" (instructions included), and *Funky's Fishing* |
+| Link play | link-cable two-player messages |
+| Game Boy Printer | printer support, with status messages, a picture album and unlockable print features |
+
+Code in these banks calls across banks in two ways. `FarCall_A_HL` (`$3FC0`) takes the bank in `a` and the target in `hl`. The other way pushes the return address `$3FD5` and the target a byte at a time (`ld a, n / push af / inc sp`), puts the bank in `a` and jumps to `$3FDC`.
+
+**Banks `$50`–`$6F`: a sub-program the front end launches.** Bank `$F2` far-jumps into it at `$50:4000` (`Func_f2_72d7` and one other place). It installs its own runtime in RAM: `$C800` copies `$51:42F4`–`$44F0` to `$CB00`. Its far calls push the return address, the bank, the cleanup routine `$CBA7` and the target, then jump to `$CB99` with the bank in `a`. Bank `$50` is code and `$51`–`$52` are mostly data tables with a few routines. `$53`, `$54` and `$56` are tile maps, `$58`–`$5B` font and text layouts, and `$5C`–`$6F` tile graphics. Among those graphics are words pre-drawn in several languages ("ADVENTURE", "ORIGINAL", "FUNKY"…), and bank `$50` has a pause menu in five languages ("CONTINUE", "QUIT?"…). Which bonus game or screen this is hasn't been pinned down yet; decoding its screen loader is the next step.
+
 ### Unused content
 
 `python3 tools/find_unused.py` lists sprite frames, animation scripts, palettes, level blocks and tiles that nothing decoded so far refers to. The findings, as text, are in [`docs/unused.md`](docs/unused.md). It writes a report and images to `unused/`, which is gitignored because the images are the game's graphics. Before calling anything unused, it searches the undecoded bytes of banks `$00`–`$0F` for its address and reports any hits. That search is how the frame and animation pointer tables in banks `$00` and `$08`–`$0A` were found. The tracer now decodes those tables (`FrameTable_…`, `AnimTable_…`), so they count as uses.
@@ -145,15 +164,15 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
-| Code disassembled into readable instructions | 68 KB | 2.5% |
+| Code disassembled into readable instructions | 91 KB | 3.4% |
 | Data decoded into readable structures | 102 KB | 3.8% |
 | Graphics converted to editable PNGs | 612 KB | 23.1% |
 | Located and labelled, format known, still raw bytes | 1114 KB | 42.0% |
-| Not identified yet | 757 KB | 28.5% |
+| Not identified yet | 734 KB | 27.7% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 
-Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Decoded so far:
+Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$50`–`$52`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Decoded so far:
 
 | Content | Coverage |
 |---|---|

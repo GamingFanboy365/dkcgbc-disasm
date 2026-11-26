@@ -1615,7 +1615,9 @@ Func_f0_4882::
 Func_f0_48f4::
 	ld a, d
 	cp $00
-	jp z, .jump_496d
+	jp z, Func_f0_48fa.jump_496d
+
+Func_f0_48fa::
 	ld a, b
 	call Func_f0_4a52
 	push bc
@@ -2663,7 +2665,14 @@ Func_f0_5313::
 	ld [rROMB0], a
 	ret
 
-	INCBIN "baserom.gbc", $3c1328, $17b2 ; $5328
+	INCBIN "baserom.gbc", $3c1328, $17ad ; $5328
+
+
+Func_f0_6ad5::
+	ld h, d
+	ld l, e
+	push bc
+	jr Func_f0_6ada.jump_6b02
 
 
 Func_f0_6ada::

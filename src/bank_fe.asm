@@ -9241,7 +9241,10 @@ Func_fe_755a::
 	ld [$cbb3], a
 	ret
 
-	INCBIN "baserom.gbc", $3fb61b, $0089 ; $761b
+
+RAMCopy_fe_761b_to_cc0e::
+	INCBIN "baserom.gbc", $3fb61b, $0086
+	db $c3, $0e, $cc
 
 
 Func_fe_76a4::

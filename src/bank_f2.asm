@@ -456,7 +456,163 @@ Func_f2_4376::
 	jr nz, .jump_4392
 	ret
 
-	INCBIN "baserom.gbc", $3c8397, $01ad ; $4397
+	INCBIN "baserom.gbc", $3c8397, $0034 ; $4397
+
+
+Func_f2_43cb::
+	ld a, $f1
+	ld hl, $51cc
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $438b
+	call FarCall_A_HL
+	ld a, $f2
+	ld hl, $4600
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $45dc
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $624d
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $52d4
+	call FarCall_A_HL
+	xor a
+	ldh [$ff80], a
+.jump_4406:
+	ldh a, [$ff80]
+	cp $01
+	jr nz, .jump_4406
+	call $ff87
+	ld b, $39
+	ld a, $f0
+	ld hl, $4882
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $433a
+	call FarCall_A_HL
+	ld a, $40
+	ldh [$ff82], a
+	ld de, $c806
+	ld bc, $db50
+	ld a, $f0
+	ld hl, $4283
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $4322
+	call FarCall_A_HL
+	ld a, $40
+	ldh [$ff82], a
+	ld de, $c806
+	ld bc, $da00
+	ld a, $f0
+	ld hl, $4283
+	call FarCall_A_HL
+	ld a, $80
+	ldh [$ff98], a
+	ld a, $09
+	ldh [$ff99], a
+	ld b, $14
+	ld c, $06
+	ld d, $00
+	ld e, $0c
+	ld a, $f0
+	ld hl, $6bb6
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $49ec
+	call FarCall_A_HL
+	call Func_f2_4946
+	ld a, $f1
+	ld hl, $43be
+	call FarCall_A_HL
+	call Func_f2_4714
+	ld hl, $ff40
+	res 4, [hl]
+	ld a, $f1
+	ld hl, $464b
+	call FarCall_A_HL
+	call Func_f2_4500
+	ld a, $f0
+	ld hl, $4256
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $430b
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $433a
+	call FarCall_A_HL
+	ld b, $00
+	ld a, $f0
+	ld hl, $4882
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $51cc
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $42fc
+	call FarCall_A_HL
+	ld a, $28
+	ldh [$ff82], a
+	ld de, $db00
+	ld bc, $dc10
+	ld a, $f0
+	ld hl, $4283
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $430b
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $4862
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $43a6
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $59bd
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $43e6
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $5162
+	call FarCall_A_HL
+	ret
+
+
+Func_f2_4500::
+	ld a, $f0
+	ld hl, $451a
+	call FarCall_A_HL
+	ldh a, [$ff91]
+	bit 1, a
+	call nz, Func_f2_466e
+	ldh a, [$ff91]
+	and $09
+	call nz, Func_f2_4626
+	ldh a, [$ff91]
+	bit 2, a
+	call nz, Func_f2_47c6
+	ldh a, [$ff91]
+	bit 7, a
+	call nz, Func_f2_45df
+	ldh a, [$ff91]
+	bit 6, a
+	call nz, Func_f2_45d4
+	ldh a, [$ff91]
+	bit 5, a
+	call nz, Func_f2_45ea
+	ldh a, [$ff91]
+	bit 4, a
+	call nz, Func_f2_45f5
+	call Func_f2_4544
+	call Func_f2_46b2
+	call $ff87
+	jr Func_f2_4500
 
 
 Func_f2_4544::
@@ -564,7 +720,7 @@ Func_f2_45d4::
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr Func_f2_45f5.jump_4600
+	jr Func_f2_4600
 
 
 Func_f2_45df::
@@ -572,7 +728,7 @@ Func_f2_45df::
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr Func_f2_45f5.jump_4600
+	jr Func_f2_4600
 
 
 Func_f2_45ea::
@@ -580,7 +736,7 @@ Func_f2_45ea::
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr Func_f2_45f5.jump_4600
+	jr Func_f2_4600
 
 
 Func_f2_45f5::
@@ -588,9 +744,10 @@ Func_f2_45f5::
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr .jump_4600
+	jr Func_f2_4600
 
-.jump_4600:
+
+Func_f2_4600::
 	ld hl, $4e0c
 	ld a, [$c9a0]
 	add a, a
@@ -841,7 +998,8 @@ Func_f2_4714::
 	call $ff87
 	ret
 
-.jump_47c6:
+
+Func_f2_47c6::
 	xor a
 	ld [$c994], a
 	ld a, $04
@@ -1314,7 +1472,7 @@ Func_f2_4a39::
 	call FarCall_A_HL
 	xor a
 	ld [$c96c], a
-	jp Func_f2_4714.jump_47c6
+	jp Func_f2_47c6
 
 
 Func_f2_4b37::
@@ -1472,7 +1630,7 @@ Func_f2_4c27::
 	ldh a, [$ff93]
 	and $09
 	and b
-	jp z, Func_f2_4cf8
+	jp z, Func_f2_4cba.jump_4cf8
 .jump_4c4f:
 	ldh a, [$ff91]
 	and $02
@@ -1566,8 +1724,7 @@ Func_f2_4cba::
 	ldh [rSCY], a
 	ret
 
-
-Func_f2_4cf8::
+.jump_4cf8:
 	call Func_f2_49a4
 	ld a, $f1
 	ld hl, $452c
@@ -1621,7 +1778,7 @@ Func_f2_4cf8::
 	ld [$c96c], a
 	call Func_f2_4fb0
 	pop hl
-	jp Func_f2_4714.jump_47c6
+	jp Func_f2_47c6
 
 
 Func_f2_4d7a::
@@ -2839,14 +2996,14 @@ Func_f2_6920::
 	ld [$dd1f], a
 	ret
 
-
-Func_f2_6929::
+.jump_6929:
 	ld a, [$dd1f]
 	or $04
 	ld [$dd1f], a
 	ret
 
-.jump_6932:
+
+Func_f2_6932::
 	xor a
 	ld [$de2b], a
 	ld [$de2c], a
@@ -2860,7 +3017,7 @@ Func_f2_6929::
 	pop hl
 	ld a, [$de29]
 	cp $5a
-	jp nz, Func_f2_6929
+	jp nz, Func_f2_6920.jump_6929
 	call Func_f2_698d
 	ld a, [$de2b]
 	ld d, a
@@ -2987,7 +3144,7 @@ Func_f2_6a12::
 
 Func_f2_6a17::
 	ld b, $00
-	jp Func_f2_6929.jump_6932
+	jp Func_f2_6932
 
 
 Func_f2_6a1c::
@@ -3324,7 +3481,356 @@ Func_f2_6c5a::
 .jump_6ca9:
 	jp hl
 
-	INCBIN "baserom.gbc", $3cacaa, $027c ; $6caa
+
+Func_f2_6caa::
+	jp Func_f2_6cb3.jump_6cb6
+
+
+Func_f2_6cad::
+	jp Func_f2_6cb3.jump_6d43
+
+
+Func_f2_6cb0::
+	jp Func_f2_6cb3.jump_6d9c
+
+
+Func_f2_6cb3::
+	jp .jump_6e68
+
+.jump_6cb6:
+	pop de
+	pop bc
+	ld a, b
+	cp c
+	jr z, .jump_6cc0
+	jr nc, .jump_6cd2
+	jr c, .jump_6ce4
+.jump_6cc0:
+	ld a, $09
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	call Func_f2_6edd
+	jr .jump_6cf4
+
+.jump_6cd2:
+	ld a, $09
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	call Func_f2_6ef5
+	jr .jump_6cf4
+
+.jump_6ce4:
+	ld a, $0a
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	call Func_f2_6f0d
+.jump_6cf4:
+	ld a, $f0
+	ld hl, $49ec
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $4223
+	call FarCall_A_HL
+	ld de, $0140
+.jump_6d07:
+	push de
+	xor a
+	ldh [$ff80], a
+.jump_6d0b:
+	ldh a, [$ff80]
+	cp $01
+	jr nz, .jump_6d0b
+	ld a, $f2
+	ld hl, $7987
+	call FarCall_A_HL
+	ld hl, $ff9a
+	inc [hl]
+	bit 4, [hl]
+	jr z, .jump_6d29
+	ld a, $f2
+	ld hl, $7971
+	call FarCall_A_HL
+.jump_6d29:
+	ld a, $f0
+	ld hl, $45da
+	call FarCall_A_HL
+	pop de
+	dec de
+	xor a
+	cp e
+	jr nz, .jump_6d07
+	cp d
+	jr nz, .jump_6d07
+	ld a, $f0
+	ld hl, $4256
+	call FarCall_A_HL
+	ret
+
+.jump_6d43:
+	pop de
+	pop bc
+	ld a, $09
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	call Func_f2_6f26
+	ld a, $f0
+	ld hl, $49ec
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $4223
+	call FarCall_A_HL
+	ld d, $00
+.jump_6d67:
+	xor a
+	ldh [$ff80], a
+.jump_6d6a:
+	ldh a, [$ff80]
+	cp $01
+	jr nz, .jump_6d6a
+	ld a, $f2
+	ld hl, $7987
+	call FarCall_A_HL
+	ld hl, $ff9a
+	inc [hl]
+	bit 4, [hl]
+	jr z, .jump_6d88
+	ld a, $f2
+	ld hl, $7971
+	call FarCall_A_HL
+.jump_6d88:
+	ld a, $f0
+	ld hl, $45da
+	call FarCall_A_HL
+	dec d
+	jr nz, .jump_6d67
+	ld a, $f0
+	ld hl, $4256
+	call FarCall_A_HL
+	ret
+
+.jump_6d9c:
+	pop de
+	pop bc
+	ld a, b
+	cp d
+	jr z, .jump_6da6
+	jr c, .jump_6dc9
+	jr .jump_6dfc
+
+.jump_6da6:
+	ld a, c
+	cp e
+	jr z, .jump_6dae
+	jr c, .jump_6dc9
+	jr .jump_6dfc
+
+.jump_6dae:
+	ld hl, $d508
+	call Func_f2_6ff2
+	ld a, $09
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	call Func_f2_6f6e
+	call Func_f2_6fb6
+	jr .jump_6e2d
+
+.jump_6dc9:
+	push de
+	push bc
+	ld a, $0a
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	pop bc
+	pop de
+	ldh a, [$ffad]
+	cp $66
+	jr nz, .jump_6dee
+	call Func_f2_6fce
+	call Func_f2_6fe7
+	call Func_f2_6f56
+	call Func_f2_6f86
+	jr .jump_6e2d
+
+.jump_6dee:
+	call Func_f2_6fd5
+	call Func_f2_6fe0
+	call Func_f2_6f3e
+	call Func_f2_6f9e
+	jr .jump_6e2d
+
+.jump_6dfc:
+	push de
+	push bc
+	ld a, $09
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	pop bc
+	pop de
+	ldh a, [$ffad]
+	cp $66
+	jr nz, .jump_6e21
+	call Func_f2_6fce
+	call Func_f2_6fe7
+	call Func_f2_6f3e
+	call Func_f2_6f9e
+	jr .jump_6e2d
+
+.jump_6e21:
+	call Func_f2_6fd5
+	call Func_f2_6fe0
+	call Func_f2_6f56
+	call Func_f2_6f86
+.jump_6e2d:
+	ld a, $f0
+	ld hl, $49ec
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $4223
+	call FarCall_A_HL
+	ld d, $00
+.jump_6e3f:
+	xor a
+	ldh [$ff80], a
+.jump_6e42:
+	ldh a, [$ff80]
+	cp $01
+	jr nz, .jump_6e42
+	call Func_f2_7987
+	ld hl, $ff9a
+	inc [hl]
+	bit 4, [hl]
+	call nz, Func_f2_7971
+	ld a, $f0
+	ld hl, $45da
+	call FarCall_A_HL
+	dec d
+	jr nz, .jump_6e3f
+	ld a, $f0
+	ld hl, $4256
+	call FarCall_A_HL
+	ret
+
+.jump_6e68:
+	pop de
+	pop bc
+	ld a, b
+	or a
+	jr nz, .jump_6e72
+	ld a, c
+	or a
+	jr z, .jump_6e7a
+.jump_6e72:
+	ld a, d
+	or a
+	jr nz, .jump_6e8f
+	ld a, e
+	or a
+	jr nz, .jump_6e8f
+.jump_6e7a:
+	call Func_f2_6f3e
+	call Func_f2_6f86
+	ld a, $09
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	jr .jump_6ea2
+
+.jump_6e8f:
+	call Func_f2_6f56
+	call Func_f2_6f9e
+	ld a, $0a
+	call $c94b
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+.jump_6ea2:
+	ld a, $f0
+	ld hl, $49ec
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $4223
+	call FarCall_A_HL
+	ld d, $00
+.jump_6eb4:
+	xor a
+	ldh [$ff80], a
+.jump_6eb7:
+	ldh a, [$ff80]
+	cp $01
+	jr nz, .jump_6eb7
+	call Func_f2_7987
+	ld hl, $ff9a
+	inc [hl]
+	bit 4, [hl]
+	call nz, Func_f2_7971
+	ld a, $f0
+	ld hl, $45da
+	call FarCall_A_HL
+	dec d
+	jr nz, .jump_6eb4
+	ld a, $f0
+	ld hl, $4256
+	call FarCall_A_HL
+	ret
+
+
+Func_f2_6edd::
+	ld a, $0f
+	ldh [$ff99], a
+	ld a, $80
+	ldh [$ff98], a
+	ld b, $03
+	ld c, $13
+	ld de, $0000
+	ld a, $f0
+	ld hl, $6ada
+	call FarCall_A_HL
+	ret
+
+
+Func_f2_6ef5::
+	ld a, $0f
+	ldh [$ff99], a
+	ld a, $80
+	ldh [$ff98], a
+	ld b, $03
+	ld c, $11
+	ld de, $0000
+	ld a, $f0
+	ld hl, $6ada
+	call FarCall_A_HL
+	ret
+
+
+Func_f2_6f0d::
+	ld a, $0f
+	ldh [$ff99], a
+	ld a, $80
+	ldh [$ff98], a
+	ld b, $03
+	ld c, $12
+	ld de, $0000
+	ld a, $f0
+	ld hl, $6ada
+	call FarCall_A_HL
+	ret
+
+	db $c9
 
 
 Func_f2_6f26::
@@ -3553,8 +4059,119 @@ Func_f2_701a::
 	call FarCall_A_HL
 	ret
 
-	INCBIN "baserom.gbc", $3cb0bd, $010a ; $70bd
 
+Func_f2_70bd::
+	ld a, $f1
+	ld hl, $51cc
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $45dc
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $52d4
+	call FarCall_A_HL
+	xor a
+	ldh [$ff80], a
+.jump_70e0:
+	ldh a, [$ff80]
+	cp $01
+	jr nz, .jump_70e0
+	call $ff87
+	ld b, $60
+	ld a, $f0
+	ld hl, $4882
+	call FarCall_A_HL
+	ld a, $40
+	ldh [$ff82], a
+	ld de, $c806
+	ld bc, $db50
+	ld a, $f0
+	ld hl, $4283
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $4322
+	call FarCall_A_HL
+	ld a, $40
+	ldh [$ff82], a
+	ld de, $c806
+	ld bc, $da00
+	ld a, $f0
+	ld hl, $4283
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $43be
+	call FarCall_A_HL
+	ld hl, $ff40
+	res 4, [hl]
+	ld a, $0c
+	ldh [$ff99], a
+	ld a, $80
+	ldh [$ff98], a
+	ld b, $03
+	ld c, $00
+	ld de, $0000
+	ld a, $f0
+	ld hl, $6ada
+	call FarCall_A_HL
+	ld b, $03
+	ld c, $01
+	ld de, $0000
+	ld a, $f0
+	ld hl, $6ada
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $49ec
+	call FarCall_A_HL
+	ld a, $0f
+	ldh [$ff99], a
+	ld a, $80
+	ldh [$ff98], a
+	ld b, $03
+	ld c, $02
+	ld de, $0000
+	ld a, $f0
+	ld hl, $6ada
+	call FarCall_A_HL
+	ld b, $03
+	ld c, $03
+	ld de, $0000
+	ld a, $f0
+	ld hl, $6ada
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $49ec
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $464b
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $451a
+	call FarCall_A_HL
+	call Func_f2_77a0
+	call Func_f2_77c5
+	ldh a, [$ff91]
+	push af
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $4256
+	call FarCall_A_HL
+	pop af
+	ldh [$ff91], a
+	ldh a, [$ffb1]
+	or a
+	jr nz, .jump_71c0
+	ldh a, [$ff91]
+	bit 1, a
+	jp nz, Func_f2_77c5.jump_7831
+.jump_71c0:
+	ldh a, [$ffac]
+	cp $66
+	jp z, Func_f2_73c9.jump_73eb
 .jump_71c7:
 	ld b, $60
 	ld a, $f0
@@ -4421,7 +5038,141 @@ Func_f2_7742::
 	ld a, $f1
 	jp Func_00_3fd5.jump_3fdc
 
-	INCBIN "baserom.gbc", $3cb7a0, $010e ; $77a0
+
+Func_f2_77a0::
+	xor a
+	ldh [$ffb1], a
+	ldh [$ffac], a
+	ldh [$ffaf], a
+	ldh [$ffb0], a
+	ld a, $bb
+	ldh [rSB], a
+	ld a, $02
+	ldh [rSC], a
+	ld a, $82
+	ldh [rSC], a
+	ld a, $9d
+	ldh [$ffa9], a
+	xor a
+	ldh [$ffaa], a
+	ld a, $f1
+	ld hl, $59fd
+	call FarCall_A_HL
+	ret
+
+
+Func_f2_77c5::
+	ldh a, [rSTAT]
+	and $03
+	dec a
+	jr z, Func_f2_77c5
+.jump_77cc:
+	ldh a, [rSTAT]
+	and $03
+	dec a
+	jr nz, .jump_77cc
+	call Func_f2_7987
+	ld hl, $ff9a
+	inc [hl]
+	bit 4, [hl]
+	call nz, Func_f2_7971
+	ld a, $f0
+	ld hl, $451a
+	call FarCall_A_HL
+	ldh a, [$ffb1]
+	or a
+	ret nz
+	ldh a, [$ff91]
+	bit 1, a
+	ret nz
+	ldh a, [$ff91]
+	bit 3, a
+	jr nz, .jump_7804
+	ld a, $bb
+	ldh [rSB], a
+	ld a, $02
+	ldh [rSC], a
+	ld a, $82
+	ldh [rSC], a
+	jr Func_f2_77c5
+
+.jump_7804:
+	ld a, $01
+	ldh [$ffaf], a
+	ld a, $66
+	ldh [rSB], a
+	ld a, $03
+	ldh [rSC], a
+	ld a, $83
+	ldh [rSC], a
+.jump_7814:
+	ldh a, [$ffb0]
+	or a
+	jr z, .jump_7814
+	xor a
+	ldh [$ffb0], a
+	ldh a, [$ffb1]
+	or a
+	ret nz
+	xor a
+	ldh [$ffaf], a
+	ld a, $bb
+	ldh [rSB], a
+	ld a, $02
+	ldh [rSC], a
+	ld a, $82
+	ldh [rSC], a
+	jr Func_f2_77c5
+
+.jump_7831:
+	ld a, $f1
+	ld hl, $59ce
+	call FarCall_A_HL
+	ld a, $f0
+	ld hl, $4256
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $430b
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $433a
+	call FarCall_A_HL
+	ld b, $00
+	ld a, $f0
+	ld hl, $4882
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $51cc
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $42fc
+	call FarCall_A_HL
+	ld a, $28
+	ldh [$ff82], a
+	ld de, $db00
+	ld bc, $dc10
+	ld a, $f0
+	ld hl, $4283
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $430b
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $4862
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $43a6
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $59bd
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $43e6
+	call FarCall_A_HL
+	ld a, $f1
+	ld hl, $5162
+	call FarCall_A_HL
+	ret
 
 
 Func_f2_78ae::
@@ -4595,7 +5346,7 @@ Func_f2_79a7::
 	ldh [$ffaa], a
 	ldh a, [$ffad]
 	cp $bb
-	jp z, Func_f2_701a.jump_71c7
+	jp z, Func_f2_70bd.jump_71c7
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, $f1

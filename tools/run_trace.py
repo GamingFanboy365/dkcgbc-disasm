@@ -581,6 +581,14 @@ def parse_banks(t, rom):
     for a in (0x63C6, 0x63D6):  # chosen by [$c445] (Func_09_6390 area), indexed by the terrain attribute
         t._claim(0x09, a, 16, "rows", hexrow("db", rom[off(9, a):off(9, a) + 16]), "TerrainTable")
     t._claim(0x09, 0x7F01, 0x8000 - 0x7F01, "rows", hexrow("db", rom[off(9, 0x7F01):off(9, 0x8000)]), "=RampTable_09_7f01")
+    # blocks the front end copies to RAM before use ("ld hl,src / ld bc,dest / ld d,n" loops)
+    for b, src, dst, n in ((0xF1, 0x57F0, 0xCCBA, 65), (0xF1, 0x5831, 0xCCFB, 8), (0xF1, 0x5839, 0xCD03, 68),
+                           (0xF1, 0x587D, 0xCD47, 147), (0xF1, 0x5910, 0xCDDA, 5), (0xF1, 0x5915, 0xCDDF, 16),
+                           (0xF1, 0x5925, 0xCDEF, 63), (0xF1, 0x5964, 0xCE80, 7), (0xF1, 0x596B, 0xCE2E, 82),
+                           (0xF1, 0x659A, 0xDB00, 80), (0xFE, 0x761B, 0xCC0E, 134)):
+        t._claim(b, src, n, "incbin", None, "=RAMCopy_%02x_%04x_to_%04x" % (b, src, dst))
+    t._claim(0xF1, 0x65E8, 64, "palette", 8, "=FrontEndObjPalettes")      # copied to $c846 (Func_f1_433a)
+    t._claim(0xF1, 0x5CC1, 16, "palette", 2, "=HiScoreObjPalettes")       # copied to $c846 (Func_f1_5cd1)
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

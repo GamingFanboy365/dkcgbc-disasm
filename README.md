@@ -305,7 +305,7 @@ Every bank now has a known purpose:
 
 This repository covers the retail ROM only. The goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. The earlier demo build (`Donkey Kong Country (U) [demo]`) will get a separate repository. The order of work:
 
-1. Finish identifying what's left (0.4%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
+1. Finish identifying what's left (0.4%, listed in [`docs/unused.md`](docs/unused.md) under Not identified yet): mostly small tables and blocks in the code banks `$04`, `$08`–`$0A` and `$F0`/`$F1`, the end of bank `$1B`, and the loaders of a few front-end graphics.
 2. Convert the located raw data (block banks, terrain, compressed maps, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 

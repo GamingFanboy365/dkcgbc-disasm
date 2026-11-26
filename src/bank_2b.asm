@@ -93,8 +93,9 @@ FrameSprites_2b_6fe0::
 	db 16, 0
 	db 0, 16
 	db 0, 8
-	db $e9, $01, $00, $10, $00, $00, $10, $00, $08, $dd, $01, $00, $21, $00
 
+FrameSpritesTail_2b_6ffc::
+	INCBIN "baserom.gbc", $0aeffc, $000e
 
 FrameSprites_2b_700a::
 	db -19, -38
@@ -112,8 +113,9 @@ FrameSprites_2b_700a::
 	db 0, 16
 	db 0, 8
 	db -34, 1
-	db $00, $10, $00, $00, $14, $00, $08, $dd, $01, $00, $10, $00, $00, $15, $00
 
+FrameSpritesTail_2b_7028::
+	INCBIN "baserom.gbc", $0af028, $000f
 
 FrameSprites_2b_7037::
 	db -30, -38
@@ -131,8 +133,9 @@ FrameSprites_2b_7037::
 	db 0, 16
 	db 0, 0
 	db 16, 0
-	db $08, $e7, $00, $00, $16, $00, $f8, $13, $00, $10, $f0, $00, $08, $00, $00
 
+FrameSpritesTail_2b_7055::
+	INCBIN "baserom.gbc", $0af055, $000f
 
 FrameSprites_2b_7064::
 	db -28, -32
@@ -150,8 +153,9 @@ FrameSprites_2b_7064::
 	db 0, 16
 	db 0, 0
 	db 16, 0
-	db $00, $10, $00, $08, $da, $00, $00, $16, $00, $08, $01, $00, $08, $ff, $00
 
+FrameSpritesTail_2b_7082::
+	INCBIN "baserom.gbc", $0af082, $000f
 
 FrameSprites_2b_7091::
 	db -19, -58
@@ -174,8 +178,9 @@ FrameSprites_2b_7091::
 	db 16, 0
 	db 8, -48
 	db 0, 0
-	INCBIN "baserom.gbc", $0af0b9, $0014 ; $70b9
 
+FrameSpritesTail_2b_70b9::
+	INCBIN "baserom.gbc", $0af0b9, $0014
 
 FrameSprites_2b_70cd::
 	db -19, -59
@@ -200,8 +205,9 @@ FrameSprites_2b_70cd::
 	db 0, 8
 	db 12, 0
 	db -7, 36
-	INCBIN "baserom.gbc", $0af0f9, $0016 ; $70f9
 
+FrameSpritesTail_2b_70f9::
+	INCBIN "baserom.gbc", $0af0f9, $0016
 
 FrameSprites_2b_710f::
 	db -12, -29
@@ -214,8 +220,9 @@ FrameSprites_2b_710f::
 	db 0, -4
 	db -16, 0
 	db 12, 16
-	db $00, $08, $00, $00, $0c, $f0, $00, $fc, $10, $00
 
+FrameSpritesTail_2b_7123::
+	INCBIN "baserom.gbc", $0af123, $000a
 
 FrameSprites_2b_712d::
 	db -27, -57
@@ -241,8 +248,9 @@ FrameSprites_2b_712d::
 	db 16, 0
 	db 8, -48
 	db 0, 0
-	INCBIN "baserom.gbc", $0af15b, $0017 ; $715b
 
+FrameSpritesTail_2b_715b::
+	INCBIN "baserom.gbc", $0af15b, $0017
 
 FrameSprites_2b_7172::
 	db -57, -33
@@ -260,8 +268,9 @@ FrameSprites_2b_7172::
 	db -8, 19
 	db 0, 16
 	db -23, 0
-	db $f8, $14, $00, $02, $0a, $00, $08, $02, $00, $08, $00, $00, $f6, $f0, $00
 
+FrameSpritesTail_2b_7190::
+	INCBIN "baserom.gbc", $0af190, $000f
 
 FrameSprites_2b_719f::
 	db -61, -24
@@ -277,8 +286,9 @@ FrameSprites_2b_719f::
 	db 0, 4
 	db -16, 0
 	db 4, 9
-	db $00, $08, $08, $00, $00, $10, $00, $08, $02, $00, $08, $03, $00
 
+FrameSpritesTail_2b_71b9::
+	INCBIN "baserom.gbc", $0af1b9, $000d
 
 FrameSprites_2b_71c6::
 	db -62, -13
@@ -294,8 +304,9 @@ FrameSprites_2b_71c6::
 	db 0, 4
 	db 16, 0
 	db 4, -9
-	db $00, $04, $0a, $00, $08, $05, $00, $08, $06, $00, $08, $02, $00
 
+FrameSpritesTail_2b_71e0::
+	INCBIN "baserom.gbc", $0af1e0, $000d
 
 FrameSprites_2b_71ed::
 	db -3, -3
@@ -310,8 +321,9 @@ FrameSprites_2b_71ed::
 	db 5, 16
 	db 0, 3
 	db -12, 0
-	db $05, $04, $00, $08, $04, $00, $08, $03, $00, $08, $03, $00
 
+FrameSpritesTail_2b_7205::
+	INCBIN "baserom.gbc", $0af205, $000c
 
 FrameSprites_2b_7211::
 	db -56, -9
@@ -325,8 +337,9 @@ FrameSprites_2b_7211::
 	db 16, 0
 	db 8, -14
 	db 0, 8
-	db $02, $00, $08, $00, $00, $08, $00, $00, $08, $00, $00
 
+FrameSpritesTail_2b_7227::
+	INCBIN "baserom.gbc", $0af227, $000b
 
 FrameSprites_2b_7232::
 	db -57, -16
@@ -340,8 +353,9 @@ FrameSprites_2b_7232::
 	db 16, 0
 	db 8, -12
 	db 0, 8
-	db $04, $00, $08, $01, $00, $08, $00, $00, $08, $00, $00
 
+FrameSpritesTail_2b_7248::
+	INCBIN "baserom.gbc", $0af248, $000b
 
 FrameSprites_2b_7253::
 	db -57, -34
@@ -358,8 +372,9 @@ FrameSprites_2b_7253::
 	db 16, 0
 	db 2, 16
 	db 0, 6
-	db $e7, $00, $00, $10, $00, $02, $0e, $00, $08, $03, $00, $08, $02, $00
 
+FrameSpritesTail_2b_726f::
+	INCBIN "baserom.gbc", $0af26f, $000e
 
 FrameSprites_2b_727d::
 	db -54, -36
@@ -377,8 +392,9 @@ FrameSprites_2b_727d::
 	db 0, 16
 	db 0, 8
 	db 5, 0
-	db $00, $f0, $00, $08, $07, $00, $fb, $19, $00, $08, $04, $00, $08, $03, $00
 
+FrameSpritesTail_2b_729b::
+	INCBIN "baserom.gbc", $0af29b, $000f
 
 FrameSprites_2b_72aa::
 	db -56, -37
@@ -398,8 +414,9 @@ FrameSprites_2b_72aa::
 	db 16, 0
 	db -4, 15
 	db 0, 6
-	INCBIN "baserom.gbc", $0af2cc, $0011 ; $72cc
 
+FrameSpritesTail_2b_72cc::
+	INCBIN "baserom.gbc", $0af2cc, $0011
 
 FrameSprites_2b_72dd::
 	db -54, -39
@@ -420,8 +437,9 @@ FrameSprites_2b_72dd::
 	db -5, 16
 	db 0, 3
 	db 16, 0
-	INCBIN "baserom.gbc", $0af301, $0012 ; $7301
 
+FrameSpritesTail_2b_7301::
+	INCBIN "baserom.gbc", $0af301, $0012
 
 FrameSprites_2b_7313::
 	db -51, -41
@@ -443,8 +461,9 @@ FrameSprites_2b_7313::
 	db 1, -8
 	db 17, 0
 	db -2, 12
-	INCBIN "baserom.gbc", $0af339, $0013 ; $7339
 
+FrameSpritesTail_2b_7339::
+	INCBIN "baserom.gbc", $0af339, $0013
 
 FrameSprites_2b_734c::
 	db -48, -42
@@ -466,8 +485,9 @@ FrameSprites_2b_734c::
 	db 1, 0
 	db 16, 1
 	db 0, 16
-	INCBIN "baserom.gbc", $0af372, $0013 ; $7372
 
+FrameSpritesTail_2b_7372::
+	INCBIN "baserom.gbc", $0af372, $0013
 
 FrameSprites_2b_7385::
 	db -58, -30
@@ -485,8 +505,9 @@ FrameSprites_2b_7385::
 	db 8, 8
 	db 0, 0
 	db -16, 0
-	db $08, $04, $00, $f4, $14, $00, $08, $02, $00, $08, $06, $00, $08, $03, $00
 
+FrameSpritesTail_2b_73a3::
+	INCBIN "baserom.gbc", $0af3a3, $000f
 
 FrameSprites_2b_73b2::
 	db -47, -40
@@ -503,8 +524,9 @@ FrameSprites_2b_73b2::
 	db -33, 1
 	db 2, 16
 	db 0, 0
-	db $10, $00, $d8, $ec, $00, $23, $24, $00, $08, $00, $00, $08, $ff, $00
 
+FrameSpritesTail_2b_73ce::
+	INCBIN "baserom.gbc", $0af3ce, $000e
 
 FrameSprites_2b_73dc::
 	db -40, -44
@@ -519,8 +541,9 @@ FrameSprites_2b_73dc::
 	db 8, -37
 	db 1, 0
 	db 16, 0
-	db $00, $10, $00, $08, $e9, $01, $00, $10, $00, $00, $15, $00
 
+FrameSpritesTail_2b_73f4::
+	INCBIN "baserom.gbc", $0af3f4, $000c
 
 FrameSprites_2b_7400::
 	db -42, -46
@@ -538,8 +561,9 @@ FrameSprites_2b_7400::
 	db 3, 16
 	db 0, 5
 	db -32, 1
-	db $f4, $20, $00, $03, $10, $00, $09, $e0, $00, $ff, $20, $00, $08, $00, $00
 
+FrameSpritesTail_2b_741e::
+	INCBIN "baserom.gbc", $0af41e, $000f
 
 FrameSprites_2b_742d::
 	db -54, -42
@@ -558,5 +582,8 @@ FrameSprites_2b_742d::
 	db 1, 0
 	db 16, 0
 	db 3, 16
-	INCBIN "baserom.gbc", $0af44d, $0bb3 ; $744d
+
+FrameSpritesTail_2b_744d::
+	INCBIN "baserom.gbc", $0af44d, $000f
+	ds 2980, $00 ; $745c
 

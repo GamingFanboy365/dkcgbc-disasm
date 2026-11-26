@@ -420,8 +420,9 @@ FrameSprites_31_6c9e::
 	db 0, 16
 	db 8, -15
 	db 8, 0
-	INCBIN "baserom.gbc", $0c6caa, $003e ; $6caa
 
+FrameSpritesTail_31_6caa::
+	INCBIN "baserom.gbc", $0c6caa, $003e
 
 FrameSprites_31_6ce8::
 	db -11, 0

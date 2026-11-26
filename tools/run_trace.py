@@ -467,6 +467,44 @@ def parse_banks(t, rom):
             t._claim(0xFE, x, y - x, "rows", hexrow("db", rom[off(0xFE, x):off(0xFE, y)], 6 if sub == "CrankyRecords" else 8), sub)
     t._claim(0xFE, 0x7891, 10, "incbin", None, "=CrankyData_fe_7891")
     t._claim(0xFE, 0x7BD9, 0x7E88 - 0x7BD9, "incbin", None, "=CrankyData_fe_7bd9")
+    # sound driver handler tables at $3f00: 5 SFX commands, then 82 music commands
+    ws = [rom[0x3F00 + 2 * k] | rom[0x3F01 + 2 * k] << 8 for k in range(87)]
+    t._claim(0, 0x3F00, 10, "rows", [("dw", [ref(0, w) for w in ws[:5]], "SFX commands $00-$08")], "=SFXCommandHandlers")
+    t._claim(0, 0x3F0A, 164, "rows", [("dw", [ref(0, w) if w else "0" for w in ws[5 + k:5 + k + 4]], "music commands $%02x-" % k)
+                                      for k in range(0, 82, 4)], "=MusicCommandHandlers")
+    # per-world flow script entries ($3976, see hints FLOW_ENTRIES)
+    t._claim(0, 0x3976, 10, "rows", [("dw", [ref(0x0D, rom[0x3976 + 2 * k] | rom[0x3977 + 2 * k] << 8) for k in range(5)], None)],
+             "=WorldFlowEntries")
+    # world map palette blocks no map uses, and the unused second halves of used ones
+    for a in (0x499C, 0x4A1C, 0x4A9C, 0x4D9C, 0x4E1C, 0x4E9C):
+        t._claim(0x0F, a, 128, "palette", 16, "=UnusedWorldPalettes_%04x" % a)
+    for a in (0x495C, 0x4B5C, 0x4BDC, 0x4C5C, 0x4CDC, 0x4D5C, 0x4F5C):
+        if not any(off(0x0F, a) + j in t.owner for j in range(64)):
+            t._claim(0x0F, a, 64, "palette", 8, "WorldPalettesTail")  # loaded with the block, never shown
+    for b, a in ((0x42, 0x72D0), (0x43, 0x60C0), (0x43, 0x6410)):  # Func_00_2c48 copies 128 bytes
+        t._claim(b, a, 64, "palette", 8, "ScreenPalettesTail")
+    # bank $03 16-byte blocks that no level object list points to
+    for a in range(0x4000, 0x4FF0, 16):
+        if not any(off(3, a) + j in t.owner for j in range(16)) and any(rom[off(3, a):off(3, a) + 16]):
+            t._claim(3, a, 16, "rows", hexrow("db", rom[off(3, a):off(3, a) + 16]), "LevelObjBlockUnused")
+    t._claim(0x0D, 0x4000, 1, "rows", [("db", ["$0d"], "bank number")], "=Bank0D_Number")
+    # bytes after a frame's sprite offset list that the draw code (Func_00_1037) never reads
+    for b in range(0x21, 0x3B):
+        spr = sorted(o for o, (k, bb, pl, ln) in t.data.items() if k == "sprites" and o // 0x4000 == b)
+        if not spr:
+            continue
+        d = rom[b * 0x4000:(b + 1) * 0x4000]
+        used = b * 0x4000 + len(d.rstrip(b"\xff").rstrip(b"\x00"))
+        i = spr[0]
+        while i < used:
+            if i in t.owner:
+                i += 1
+                continue
+            j = i
+            while j < used and j not in t.owner:
+                j += 1
+            t._claim(b, 0x4000 + i % 0x4000, j - i, "incbin", None, "FrameSpritesTail")
+            i = j
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

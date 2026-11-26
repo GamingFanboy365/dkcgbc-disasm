@@ -119,8 +119,9 @@ FrameSprites_37_69c0::
 	db 0, 8
 	db -30, 0
 	db -1, 12
-	db $00, $01, $04, $00, $ef, $03, $01, $08, $00, $01, $08, $02, $01
 
+FrameSpritesTail_37_69da::
+	INCBIN "baserom.gbc", $0de9da, $000d
 
 FrameSprites_37_69e7::
 	db -20, -11
@@ -134,8 +135,9 @@ FrameSprites_37_69e7::
 	db -23, 0
 	db -1, 29
 	db 0, 1
-	db $db, $00, $f4, $14, $01, $08, $00, $01, $03, $01, $01
 
+FrameSpritesTail_37_69fd::
+	INCBIN "baserom.gbc", $0de9fd, $000b
 
 FrameSprites_37_6a08::
 	db -4, -56
@@ -149,8 +151,9 @@ FrameSprites_37_6a08::
 	db 16, 0
 	db 0, 16
 	db 0, 8
-	db $ec, $00, $f0, $05, $01, $08, $00, $01, $08, $02, $01
 
+FrameSpritesTail_37_6a1e::
+	INCBIN "baserom.gbc", $0dea1e, $000b
 
 FrameSprites_37_6a29::
 	db -12, -47
@@ -165,8 +168,9 @@ FrameSprites_37_6a29::
 	db 8, -1
 	db 0, 8
 	db 2, 0
-	db $e2, $e8, $00, $06, $0d, $01, $08, $ff, $01, $03, $02, $01
 
+FrameSpritesTail_37_6a41::
+	INCBIN "baserom.gbc", $0dea41, $000c
 
 FrameSprites_37_6a4d::
 	db -16, -45
@@ -183,8 +187,9 @@ FrameSprites_37_6a4d::
 	db 9, 0
 	db 5, 21
 	db 0, 8
-	db $fc, $00, $08, $01, $00, $e9, $f6, $01, $08, $ff, $01, $08, $07, $01
 
+FrameSpritesTail_37_6a69::
+	INCBIN "baserom.gbc", $0dea69, $000e
 
 FrameSprites_37_6a77::
 	db -12, -52
@@ -198,8 +203,9 @@ FrameSprites_37_6a77::
 	db 16, 0
 	db 0, 16
 	db 0, 8
-	db $fd, $00, $08, $02, $00, $f2, $f2, $01, $08, $09, $01
 
+FrameSpritesTail_37_6a8d::
+	INCBIN "baserom.gbc", $0dea8d, $000b
 
 FrameSprites_37_6a98::
 	db -8, -40
@@ -212,8 +218,9 @@ FrameSprites_37_6a98::
 	db 0, 0
 	db 16, 0
 	db 0, 16
-	db $00, $08, $ec, $00, $f0, $08, $01, $0f, $ff, $01
 
+FrameSpritesTail_37_6aac::
+	INCBIN "baserom.gbc", $0deaac, $000a
 
 FrameSprites_37_6ab6::
 	db -13, -11
@@ -226,8 +233,9 @@ FrameSprites_37_6ab6::
 	db 0, 11
 	db -33, 0
 	db -1, 16
-	db $00, $fe, $10, $00, $f5, $f2, $01, $08, $02, $01
 
+FrameSpritesTail_37_6aca::
+	INCBIN "baserom.gbc", $0deaca, $000a
 
 FrameSprites_37_6ad4::
 	db -24, -23
@@ -243,8 +251,9 @@ FrameSprites_37_6ad4::
 	db 0, 0
 	db 16, 0
 	db 0, 16
-	db $00, $08, $f6, $00, $00, $10, $00, $08, $f1, $00, $08, $ff, $00
 
+FrameSpritesTail_37_6aee::
+	INCBIN "baserom.gbc", $0deaee, $000d
 
 FrameSprites_37_6afb::
 	db -24, -17
@@ -258,8 +267,9 @@ FrameSprites_37_6afb::
 	db -19, 0
 	db 0, 16
 	db 0, 8
-	db $f7, $00, $00, $10, $00, $08, $e8, $00, $00, $10, $00
 
+FrameSpritesTail_37_6b11::
+	INCBIN "baserom.gbc", $0deb11, $000b
 
 FrameSprites_37_6b1c::
 	db -25, -20
@@ -275,8 +285,9 @@ FrameSprites_37_6b1c::
 	db 0, 0
 	db 16, 0
 	db 8, -25
-	db $00, $00, $10, $00, $00, $10, $00, $08, $ea, $00, $00, $10, $00
 
+FrameSpritesTail_37_6b36::
+	INCBIN "baserom.gbc", $0deb36, $000d
 
 FrameSprites_37_6b43::
 	db -25, -12
@@ -291,8 +302,9 @@ FrameSprites_37_6b43::
 	db -2, 13
 	db 0, 10
 	db -24, 0
-	db $00, $10, $00, $fe, $0b, $00, $0a, $f3, $00, $00, $10, $00
 
+FrameSpritesTail_37_6b5b::
+	INCBIN "baserom.gbc", $0deb5b, $000c
 
 FrameSprites_37_6b67::
 	db -27, -13
@@ -306,8 +318,9 @@ FrameSprites_37_6b67::
 	db 16, 0
 	db 8, -16
 	db 0, 0
-	db $10, $00, $08, $e0, $00, $00, $10, $00, $00, $10, $00
 
+FrameSpritesTail_37_6b7d::
+	INCBIN "baserom.gbc", $0deb7d, $000b
 
 FrameSprites_37_6b88::
 	db -27, -6
@@ -319,8 +332,9 @@ FrameSprites_37_6b88::
 	db 8, -1
 	db 0, 0
 	db 16, 0
-	db $08, $ec, $00, $00, $10, $00, $08, $e8, $00
 
+FrameSpritesTail_37_6b9a::
+	INCBIN "baserom.gbc", $0deb9a, $0009
 
 FrameSprites_37_6ba3::
 	db -18, -31
@@ -339,8 +353,9 @@ FrameSprites_37_6ba3::
 	db 0, 9
 	db -48, 0
 	db 0, 16
-	db $00, $ff, $10, $00, $00, $12, $00, $08, $df, $00, $00, $10, $00, $08, $f8, $00
 
+FrameSpritesTail_37_6bc3::
+	INCBIN "baserom.gbc", $0debc3, $0010
 
 FrameSprites_37_6bd3::
 	db -18, -30
@@ -359,8 +374,9 @@ FrameSprites_37_6bd3::
 	db 0, 9
 	db -48, 0
 	db 0, 16
-	db $00, $ff, $10, $00, $00, $11, $00, $08, $e0, $00, $00, $10, $00, $08, $f8, $00
 
+FrameSpritesTail_37_6bf3::
+	INCBIN "baserom.gbc", $0debf3, $0010
 
 FrameSprites_37_6c03::
 	db -18, -29
@@ -379,8 +395,9 @@ FrameSprites_37_6c03::
 	db 0, 10
 	db -48, 0
 	db -8, 16
-	db $00, $06, $10, $00, $00, $10, $00, $02, $e0, $00, $06, $11, $00, $08, $f6, $00
 
+FrameSpritesTail_37_6c23::
+	INCBIN "baserom.gbc", $0dec23, $0010
 
 FrameSprites_37_6c33::
 	db 0, 0
@@ -390,8 +407,9 @@ FrameSprites_37_6c33::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6c41::
+	INCBIN "baserom.gbc", $0dec41, $0002
 
 FrameSprites_37_6c43::
 	db 0, 0
@@ -400,8 +418,9 @@ FrameSprites_37_6c43::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6c4f::
+	INCBIN "baserom.gbc", $0dec4f, $0002
 
 FrameSprites_37_6c51::
 	db 0, 0
@@ -413,8 +432,9 @@ FrameSprites_37_6c51::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6c63::
+	INCBIN "baserom.gbc", $0dec63, $0002
 
 FrameSprites_37_6c65::
 	db 0, 0
@@ -425,8 +445,9 @@ FrameSprites_37_6c65::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6c75::
+	INCBIN "baserom.gbc", $0dec75, $0002
 
 FrameSprites_37_6c77::
 	db 0, 0
@@ -436,8 +457,9 @@ FrameSprites_37_6c77::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6c85::
+	INCBIN "baserom.gbc", $0dec85, $0002
 
 FrameSprites_37_6c87::
 	db 0, 0
@@ -449,8 +471,9 @@ FrameSprites_37_6c87::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6c99::
+	INCBIN "baserom.gbc", $0dec99, $0002
 
 FrameSprites_37_6c9b::
 	db 0, 0
@@ -460,8 +483,9 @@ FrameSprites_37_6c9b::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6ca9::
+	INCBIN "baserom.gbc", $0deca9, $0002
 
 FrameSprites_37_6cab::
 	db 0, 0
@@ -480,8 +504,9 @@ FrameSprites_37_6cb3::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6cc7::
+	INCBIN "baserom.gbc", $0decc7, $0002
 
 FrameSprites_37_6cc9::
 	db 0, 0
@@ -492,8 +517,9 @@ FrameSprites_37_6cc9::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6cd9::
+	INCBIN "baserom.gbc", $0decd9, $0002
 
 FrameSprites_37_6cdb::
 	db 0, 0
@@ -511,8 +537,9 @@ FrameSprites_37_6ce5::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6cf5::
+	INCBIN "baserom.gbc", $0decf5, $0002
 
 FrameSprites_37_6cf7::
 	db 0, 0
@@ -521,8 +548,9 @@ FrameSprites_37_6cf7::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6d03::
+	INCBIN "baserom.gbc", $0ded03, $0002
 
 FrameSprites_37_6d05::
 	db 0, 0
@@ -532,8 +560,9 @@ FrameSprites_37_6d05::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6d13::
+	INCBIN "baserom.gbc", $0ded13, $0002
 
 FrameSprites_37_6d15::
 	db 0, 0
@@ -541,8 +570,9 @@ FrameSprites_37_6d15::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6d1f::
+	INCBIN "baserom.gbc", $0ded1f, $0002
 
 FrameSprites_37_6d21::
 	db 0, 0
@@ -555,8 +585,9 @@ FrameSprites_37_6d21::
 	db 8, 0
 	db 8, 0
 	db 8, 0
-	db $08, $00
 
+FrameSpritesTail_37_6d35::
+	INCBIN "baserom.gbc", $0ded35, $0002
 
 FrameSprites_37_6d37::
 	db -12, -32

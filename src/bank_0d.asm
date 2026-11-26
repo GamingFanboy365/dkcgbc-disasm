@@ -2,7 +2,10 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $0d", ROMX[$4000], BANK[$0d]
-	db $0d, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
+
+Bank0D_Number::
+	db $0d ; bank number
+	ds 15, $00 ; $4001
 
 
 BGTiles_0d_4010::

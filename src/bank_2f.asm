@@ -479,8 +479,9 @@ FrameSprites_2f_765c::
 	db 1, 0
 	db -16, 0
 	db -24, 12
-	db $01, $04, $10, $01, $08, $e7, $02, $00, $10, $02, $08, $f6, $02
 
+FrameSpritesTail_2f_7676::
+	INCBIN "baserom.gbc", $0bf676, $000d
 
 FrameSprites_2f_7683::
 	db -13, -32
@@ -496,8 +497,9 @@ FrameSprites_2f_7683::
 	db 0, 0
 	db 16, 1
 	db -19, 12
-	db $01, $fb, $f0, $01, $0b, $f7, $02, $00, $10, $02, $08, $f5, $02
 
+FrameSpritesTail_2f_769d::
+	INCBIN "baserom.gbc", $0bf69d, $000d
 
 FrameSprites_2f_76aa::
 	db -14, -32
@@ -513,8 +515,9 @@ FrameSprites_2f_76aa::
 	db 1, 12
 	db -13, 1
 	db 0, -16
-	db $00, $ec, $1d, $01, $06, $e7, $02, $08, $05, $02, $00, $10, $02
 
+FrameSpritesTail_2f_76c4::
+	INCBIN "baserom.gbc", $0bf6c4, $000d
 
 FrameSprites_2f_76d1::
 	db -16, -28
@@ -529,8 +532,9 @@ FrameSprites_2f_76d1::
 	db -2, 16
 	db 1, 8
 	db 2, 1
-	db $f3, $0c, $01, $ff, $e9, $02, $08, $04, $02, $00, $10, $02
 
+FrameSpritesTail_2f_76e9::
+	INCBIN "baserom.gbc", $0bf6e9, $000c
 
 FrameSprites_2f_76f5::
 	db -16, -28
@@ -545,8 +549,9 @@ FrameSprites_2f_76f5::
 	db -13, 14
 	db 1, 21
 	db -23, 0
-	db $00, $10, $01, $f2, $f0, $02, $08, $03, $02, $00, $10, $02
 
+FrameSpritesTail_2f_770d::
+	INCBIN "baserom.gbc", $0bf70d, $000c
 
 FrameSprites_2f_7719::
 	db -15, -29
@@ -561,8 +566,9 @@ FrameSprites_2f_7719::
 	db -3, 16
 	db 1, 8
 	db -13, 0
-	db $ef, $1c, $01, $04, $e9, $02, $08, $03, $02, $00, $10, $02
 
+FrameSpritesTail_2f_7731::
+	INCBIN "baserom.gbc", $0bf731, $000c
 
 FrameSprites_2f_773d::
 	db -14, -29
@@ -577,8 +583,9 @@ FrameSprites_2f_773d::
 	db -3, 16
 	db 1, 8
 	db 3, 1
-	db $00, $f0, $00, $f3, $03, $02, $08, $05, $02, $00, $10, $02
 
+FrameSpritesTail_2f_7755::
+	INCBIN "baserom.gbc", $0bf755, $000c
 
 FrameSprites_2f_7761::
 	db -13, -32
@@ -594,8 +601,9 @@ FrameSprites_2f_7761::
 	db 0, 0
 	db 16, 1
 	db -13, 12
-	db $01, $f8, $00, $01, $08, $e7, $02, $00, $10, $02, $08, $f5, $02
 
+FrameSpritesTail_2f_777b::
+	INCBIN "baserom.gbc", $0bf77b, $000d
 
 FrameSprites_2f_7788::
 	db -11, -32
@@ -610,8 +618,9 @@ FrameSprites_2f_7788::
 	db 3, 4
 	db 0, 0
 	db 16, 1
-	db $ec, $08, $01, $08, $eb, $02, $00, $10, $02, $08, $f6, $02
 
+FrameSpritesTail_2f_77a0::
+	INCBIN "baserom.gbc", $0bf7a0, $000c
 
 FrameSprites_2f_77ac::
 	db -18, -32

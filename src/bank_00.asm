@@ -442,11 +442,11 @@ NotGBC::
 
 
 Func_00_0301::
-	jp Func_00_2400.jump_249e
+	jp Func_00_241d.jump_249e
 
 
 Func_00_0304::
-	jp Func_00_2400.jump_2463
+	jp Func_00_241d.jump_2463
 
 
 Func_00_0307::
@@ -454,7 +454,7 @@ Func_00_0307::
 
 
 Func_00_030a::
-	jp Func_00_2400.jump_245c
+	jp Func_00_241d.jump_245c
 
 
 Func_00_030d::
@@ -526,7 +526,7 @@ Func_00_033d::
 
 
 Func_00_0340::
-	jp Func_00_2400.jump_2644
+	jp Func_00_241d.jump_2644
 
 
 Func_00_0343::
@@ -4920,7 +4920,63 @@ Func_00_1cc2::
 	pop af
 	reti
 
-	INCBIN "baserom.gbc", $001cec, $0043 ; $1cec
+
+Func_00_1cec::
+	push af
+	push hl
+	ldh a, [$ffc6]
+	ld l, a
+	ld h, $c5
+	ld a, [hli]
+	or a
+	jr nz, .jump_1d03
+	ld a, [hli]
+	call $ffc8
+	ldh a, [rLCDC]
+	set 2, a
+	ldh [rLCDC], a
+	jr .jump_1d26
+
+.jump_1d03:
+	push bc
+	ld c, $68
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	push hl
+	ld h, $c2
+	ld l, a
+	inc c
+.jump_1d0e:
+	ldh a, [rSTAT]
+	and $03
+	jr nz, .jump_1d0e
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	pop hl
+	pop bc
+.jump_1d26:
+	ld a, [hli]
+	ldh [rLYC], a
+	ld a, l
+	ldh [$ffc6], a
+	pop hl
+	pop af
+	reti
 
 
 Func_00_1d2f::
@@ -6142,7 +6198,58 @@ Func_00_2400::
 	pop af
 	reti
 
-	INCBIN "baserom.gbc", $00241d, $003f ; $241d
+
+Func_00_241d::
+	push af
+	push hl
+	push bc
+	push de
+	ldh a, [rLY]
+	ld c, a
+	ldh a, [rSCY]
+	add a, c
+	ld c, a
+	ld a, [$cf63]
+	ld l, a
+	ld h, $cf
+	ld a, [hli]
+	cp $ff
+	jr z, .jump_2457
+	cp c
+	jr nz, .jump_2457
+	ld d, $00
+	ld c, $68
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ldh [c], a
+	inc c
+	ld a, l
+	ld [$cf63], a
+	ld hl, wBGPalettesOut
+	add hl, de
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+.jump_2457:
+	pop de
+	pop bc
+	pop hl
+	pop af
+	reti
 
 .jump_245c:
 	rst_farcall Func_0f_45b1
@@ -9719,8 +9826,9 @@ Func_00_38cd::
 .jump_3973:
 	jp Func_00_38c7
 
-	db $9a, $61, $a5, $61, $8f, $61, $b0, $61, $bb, $61
 
+WorldFlowEntries::
+	dw Flow_0d_619a, Flow_0d_61a5, Flow_0d_618f, Flow_0d_61b0, Flow_0d_61bb
 
 RunObjects::
 	ld bc, $0000
@@ -10518,7 +10626,35 @@ Func_00_3ce1::
 	ei
 	jp Func_00_38cd
 
-	INCBIN "baserom.gbc", $003d92, $022e ; $3d92
+	ds 366, $00 ; $3d92
+
+
+SFXCommandHandlers::
+	dw Func_00_306b, Func_00_3072, Func_00_30b5, Func_00_309b, Func_00_30c9 ; SFX commands $00-$08
+
+MusicCommandHandlers::
+	dw Func_00_33c7, Func_00_33df, Func_00_33e6, Func_00_3418 ; music commands $00-
+	dw Func_00_3459, Func_00_34ca, Func_00_339b, Func_00_33a8 ; music commands $04-
+	dw Func_00_33af, Func_00_3360, Func_00_34f8, Func_00_3509 ; music commands $08-
+	dw Func_00_3519, Func_00_3533, Func_00_3367, Func_00_3367 ; music commands $0c-
+	dw Func_00_337f, Func_00_35ca, Func_00_35d1, Func_00_35e9 ; music commands $10-
+	dw Func_00_35f0, Func_00_35f8, Func_00_350f, Func_00_3581 ; music commands $14-
+	dw Func_00_35b9, Func_00_3585, Func_00_3589, Func_00_358d ; music commands $18-
+	dw Func_00_3591, Func_00_3595, Func_00_3599, Func_00_359d ; music commands $1c-
+	dw Func_00_35a1, Func_00_35a5, Func_00_35a9, Func_00_35ad ; music commands $20-
+	dw Func_00_35b1, Func_00_35b5, Func_00_343d, Func_00_3441 ; music commands $24-
+	dw Func_00_3449, Func_00_344d, Func_00_342e, Func_00_34e8 ; music commands $28-
+	dw Func_00_34e4, Func_00_3451, Func_00_34f0, Func_00_3455 ; music commands $2c-
+	dw 0, Func_00_3445, Func_00_34c5, Func_00_33f7 ; music commands $30-
+	dw Func_00_33f3, Func_00_33ef, Func_00_3573, Func_00_35c4 ; music commands $34-
+	dw Func_00_34ec, Func_00_34c0, Func_00_354e, Func_00_3393 ; music commands $38-
+	dw Func_00_356f, Func_00_356b, Func_00_34b4, Func_00_3405 ; music commands $3c-
+	dw Func_00_3411, Func_00_34f4, 0, Func_00_34ff ; music commands $40-
+	dw Func_00_355c, Func_00_3539, Func_00_3544, Func_00_3552 ; music commands $44-
+	dw Func_00_34ad, Func_00_3473, Func_00_34a6, Func_00_34a1 ; music commands $48-
+	dw Func_00_349c, Func_00_348c, Func_00_3481, Func_00_35dd ; music commands $4c-
+	dw Func_00_35e3, Func_00_3540 ; music commands $50-
+	ds 18, $00 ; $3fae
 
 
 FarCall_A_HL::

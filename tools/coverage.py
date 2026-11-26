@@ -41,6 +41,8 @@ def categorize(rom, t=None):
         c = "raw" if kind in RAW_KINDS else "graphics" if kind in GFX_KINDS else "data"
         for j in range(length):
             cat[o + j] = c
+    for k in range(0x104, 0x150):  # the cartridge header (written by emit.py's HEADER)
+        cat[k] = "data"
     i = 0
     while i < n:
         if cat[i] == "unknown" and rom[i] in (0x00, 0xFF):

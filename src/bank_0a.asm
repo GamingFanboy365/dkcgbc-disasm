@@ -311,9 +311,9 @@ Func_0a_4192::
 .jump_41b0:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $c8
+	ld [hl], LOW(Func_0a_41c8)
 	inc l
-	ld [hl], $41
+	ld [hl], HIGH(Func_0a_41c8)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $05
@@ -377,9 +377,9 @@ Func_0a_41c8::
 	ld [hl], d
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $ff
+	ld [hl], LOW(Anim_04_51ff)
 	inc l
-	ld [hl], $51
+	ld [hl], HIGH(Anim_04_51ff)
 	ld hl, wObjects + OBJ_ANIM_TIMER
 	add hl, bc
 	ld [hl], $00
@@ -388,9 +388,9 @@ Func_0a_41c8::
 	ld [hl], $80
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $70
+	ld [hl], LOW(Func_0a_4270)
 	inc l
-	ld [hl], $42
+	ld [hl], HIGH(Func_0a_4270)
 .jump_4235:
 	call Func_00_39fa
 	call Func_00_39b4
@@ -426,9 +426,9 @@ Func_0a_4270::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $c8
+	ld [hl], LOW(Func_0a_41c8)
 	inc l
-	ld [hl], $41
+	ld [hl], HIGH(Func_0a_41c8)
 .jump_429c:
 	call Func_00_39fa
 	call Func_00_39b4
@@ -578,7 +578,7 @@ Func_0a_448f::
 ObjInit_0a_4496::
 	obj_byte OBJ_BANK, BANK(Func_0a_44a3)
 	obj_word OBJ_HANDLER, Func_0a_44a3
-	obj_word OBJ_ANIM, $52dd
+	obj_word OBJ_ANIM, Anim_04_52dd
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_VAR_36, $01
 	obj_end
@@ -592,9 +592,9 @@ Func_0a_44a3::
 	ld [hl], $80
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $33
+	ld [hl], LOW(Func_0a_4533)
 	inc l
-	ld [hl], $45
+	ld [hl], HIGH(Func_0a_4533)
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	dec [hl]
@@ -660,7 +660,7 @@ ObjInit_0a_4519::
 	obj_byte OBJ_BANK, BANK(Func_0a_4621)
 	obj_word OBJ_HANDLER, Func_0a_4621
 	obj_word OBJ_TOUCH_HANDLER, $4001
-	obj_word OBJ_ANIM, $4eb1
+	obj_word OBJ_ANIM, Anim_04_4eb1
 	obj_byte OBJ_ANIM_PARAM, $33
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_PALETTE, $01
@@ -725,9 +725,9 @@ Func_0a_4582::
 	jr nz, .jump_4598
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $9a
+	ld [hl], LOW(Func_0a_459a)
 	inc l
-	ld [hl], $45
+	ld [hl], HIGH(Func_0a_459a)
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	ld [hl], $03
@@ -750,9 +750,9 @@ Func_0a_459a::
 	jr nz, ObjInit_0a_4550.jump_455c
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $01
+	ld [hl], LOW(Func_0a_4401)
 	inc l
-	ld [hl], $44
+	ld [hl], HIGH(Func_0a_4401)
 	jr ObjInit_0a_4550.jump_455c
 
 
@@ -890,14 +890,14 @@ Func_0a_4674::
 	call Func_0a_47fe
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $ae
+	ld [hl], LOW(Func_0a_4674.jump_46ae)
 	inc l
-	ld [hl], $46
+	ld [hl], HIGH(Func_0a_4674.jump_46ae)
 	jr .jump_46ae
 
 	db $00, $01, $80, $01, $00, $02, $80, $02, $00, $03
 
-.jump_46ae:
+.jump_46ae::
 	call Func_0a_40ad
 	jr z, .jump_46c3
 	ld hl, wObjects + OBJ_VAR_32
@@ -946,9 +946,9 @@ Func_0a_46e9::
 	call Func_0a_4849
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $29
+	ld [hl], LOW(Func_0a_4729)
 	inc l
-	ld [hl], $47
+	ld [hl], HIGH(Func_0a_4729)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $20
@@ -978,9 +978,9 @@ Func_0a_4729::
 	jr nz, .jump_4739
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $42
+	ld [hl], LOW(Func_0a_4742)
 	inc l
-	ld [hl], $47
+	ld [hl], HIGH(Func_0a_4742)
 .jump_4739:
 	call Func_00_39b4
 	call Func_00_127d
@@ -1031,9 +1031,9 @@ Func_0a_4742::
 	jr z, .jump_47aa
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $42
+	ld [hl], LOW(Func_0a_4742)
 	inc l
-	ld [hl], $47
+	ld [hl], HIGH(Func_0a_4742)
 .jump_478e:
 	add a, $40
 	ld e, a
@@ -1055,9 +1055,9 @@ Func_0a_4742::
 	call Func_0a_4852
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $74
+	ld [hl], LOW(Func_0a_4674)
 	inc l
-	ld [hl], $46
+	ld [hl], HIGH(Func_0a_4674)
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld [hl], $00
@@ -1193,9 +1193,9 @@ Func_0a_4881::
 	jr nz, .jump_4891
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $94
+	ld [hl], LOW(Func_0a_4894)
 	inc l
-	ld [hl], $48
+	ld [hl], HIGH(Func_0a_4894)
 .jump_4891:
 	jp NextObject
 
@@ -1217,7 +1217,7 @@ Func_0a_4894::
 ObjInit_0a_48ab::
 	obj_byte OBJ_BANK, BANK(Func_0a_48bb)
 	obj_word OBJ_HANDLER, Func_0a_48bb
-	obj_word OBJ_ANIM, $54a9
+	obj_word OBJ_ANIM, Anim_04_54a9
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_COLLISION, $40
 	obj_end
@@ -1265,9 +1265,9 @@ Func_0a_48e7::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $17
+	ld [hl], LOW(Func_0a_4917)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Func_0a_4917)
 .jump_4908:
 	call Func_00_39b4
 	call Func_00_127d
@@ -1283,9 +1283,9 @@ Func_0a_4917::
 	jr nz, .jump_4927
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $2d
+	ld [hl], LOW(Func_0a_492d)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Func_0a_492d)
 .jump_4927:
 	call Func_00_127d
 	jp NextObject
@@ -1301,9 +1301,9 @@ Func_0a_492d::
 	jr z, .jump_4951
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $57
+	ld [hl], LOW(Func_0a_4957)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Func_0a_4957)
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld [hl], $00
@@ -1313,10 +1313,12 @@ Func_0a_492d::
 	call Func_00_127d
 	jp NextObject
 
-	db $cd, $b4, $39, $21, $1e, $c8, $09, $7e
 
-
-Func_0a_495f::
+Func_0a_4957::
+	call Func_00_39b4
+	ld hl, wObjects + OBJ_Y + 1
+	add hl, bc
+	ld a, [hl]
 	rlca
 	jr nc, .jump_4976
 	ld hl, wObjects + OBJ_VAR_30
@@ -1350,7 +1352,7 @@ ObjInit_0a_4985::
 	obj_word OBJ_X, $0070
 	obj_byte OBJ_YSUB, $00
 	obj_word OBJ_Y, $fff8
-	obj_word OBJ_ANIM, $54b3
+	obj_word OBJ_ANIM, Anim_04_54b3
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_YVEL, $0200
 	obj_byte OBJ_COLLISION, $00
@@ -1363,9 +1365,9 @@ Func_0a_49a1::
 	jr nz, .jump_49ba
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $c3
+	ld [hl], LOW(Func_0a_49c3)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Func_0a_49c3)
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld [hl], $20
@@ -1376,14 +1378,55 @@ Func_0a_49a1::
 	call Func_00_127d
 	jp NextObject
 
-	INCBIN "baserom.gbc", $0289c3, $004a ; $49c3
 
-
-Func_0a_4a0d::
-	cp b
+Func_0a_49c3::
+	ld hl, wObjects + OBJ_VAR_2F
+	add hl, bc
+	dec [hl]
+	ld a, [hl]
+	jr nz, .jump_4a11
+	ld [hl], $20
+	ld a, $66
+	ld [$c32c], a
+	rst_farcall Func_0a_4063
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hl]
+	add a, a
+	ld hl, wObjects + OBJ_VAR_30
+	add hl, bc
+	dec [hl]
+	jr z, .jump_4a33
+	add a, [hl]
+	dec a
+	add a, a
+	ld e, a
+	ld d, $00
+	ld hl, wObjects + OBJ_SPAWN_INDEX
+	add hl, bc
+	ld a, [hl]
+	ldh [$ffb8], a
+	ld l, a
+	ld h, $af
+	inc [hl]
+	ld hl, $4a47
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	push bc
+	push hl
+	call AllocObject
+	pop hl
+	call InitObject
+	rst_farcall Func_0a_4086
+	ld hl, wObjects + OBJ_VAR_2D
+	add hl, bc
+	ldh a, [$ffb8]
 	ld [hl], a
 	pop bc
 	xor a
+.jump_4a11:
 	add a, a
 	add a, a
 	add a, a
@@ -1407,8 +1450,7 @@ Func_0a_4a0d::
 	ld [hl], d
 	jp NextObject
 
-
-Func_0a_4a33::
+.jump_4a33:
 	ld hl, ObjInit_0a_4a3c
 	call ApplyObjInit
 	jp NextObject
@@ -1430,9 +1472,9 @@ Func_0a_4b25::
 	jr nz, .jump_4b35
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $3b
+	ld [hl], LOW(Func_0a_4b3b)
 	inc l
-	ld [hl], $4b
+	ld [hl], HIGH(Func_0a_4b3b)
 .jump_4b35:
 	call Func_00_39b4
 	jp NextObject
@@ -1455,9 +1497,9 @@ Func_0a_4b3b::
 	jr z, .jump_4b5e
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $94
+	ld [hl], LOW(Func_0a_4894)
 	inc l
-	ld [hl], $48
+	ld [hl], HIGH(Func_0a_4894)
 .jump_4b5b:
 	jp NextObject
 
@@ -1470,7 +1512,7 @@ Func_0a_4b3b::
 ObjInit_0a_4b66::
 	obj_byte OBJ_BANK, BANK(Func_0a_47cf)
 	obj_word OBJ_HANDLER, Func_0a_47cf
-	obj_word OBJ_ANIM, $54bb
+	obj_word OBJ_ANIM, Anim_04_54bb
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_YVEL, $0000
 	obj_word OBJ_TARGET_XVEL, $0000
@@ -1511,9 +1553,9 @@ Func_0a_4b87::
 .jump_4bb4:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $89
+	ld [hl], LOW(Anim_04_5489)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Anim_04_5489)
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], $cc
@@ -1528,26 +1570,57 @@ Func_0a_4b87::
 	jr nz, .jump_4beb
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $f4
+	ld [hl], LOW(Func_0a_4bf4)
 	inc l
-	ld [hl], $4b
+	ld [hl], HIGH(Func_0a_4bf4)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $b3
+	ld [hl], LOW(Anim_04_53b3)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Anim_04_53b3)
 .jump_4beb:
 	call Func_00_127d
 	call Func_0a_5201
 	jp NextObject
 
-	INCBIN "baserom.gbc", $028bf4, $003b ; $4bf4
 
-
-Func_0a_4c2f::
+Func_0a_4bf4::
+	ld hl, wObjects + OBJ_ANIM_FLAGS
+	add hl, bc
+	ld a, [hl]
+	rlca
+	jp c, .jump_4c88
+	ld a, $52
+	ld [$c32c], a
+	ld hl, wObjects + OBJ_HANDLER
+	add hl, bc
+	ld [hl], LOW(Func_0a_4cc5)
+	inc l
+	ld [hl], HIGH(Func_0a_4cc5)
+	ld hl, wObjects + OBJ_VAR_2F
+	add hl, bc
+	ld [hl], $00
+	ld hl, wObjects + OBJ_SPAWN_INDEX
+	add hl, bc
+	ld a, [hl]
+	ldh [$ffb8], a
+	ld l, a
+	ld h, $af
+	inc [hl]
+	rst_farcall Func_0a_4063
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hl]
+	add a, a
+	ld e, a
+	ld d, $00
+	ld hl, $4cb1
+	add hl, de
+	ld a, [hli]
+	ld d, [hl]
 	ld e, a
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
@@ -1605,6 +1678,7 @@ Func_0a_4c2f::
 	ld [hli], a
 	ld [hl], b
 	pop bc
+.jump_4c88:
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ldh a, [$ffb4]
@@ -1622,15 +1696,57 @@ ObjInit_0a_4c9b::
 	obj_word OBJ_HANDLER, Func_0a_5198
 	obj_word OBJ_TOUCH_HANDLER, $4001
 	obj_byte OBJ_PALETTE, $2a
-	obj_word OBJ_ANIM, $5497
+	obj_word OBJ_ANIM, Anim_04_5497
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_VAR_2E, $96
 	obj_end
-	INCBIN "baserom.gbc", $028cb1, $005a ; $4cb1
+	INCBIN "baserom.gbc", $028cb1, $0014 ; $4cb1
 
 
-Func_0a_4d0b::
+Func_0a_4cc5::
+	ld hl, wObjects + OBJ_SPAWN_INDEX
+	add hl, bc
+	ld l, [hl]
+	ld h, $af
+	ld a, [hl]
+	or a
+	jr nz, .jump_4cd6
+	ld hl, ObjInit_0a_4cdf
+	call ApplyObjInit
+.jump_4cd6:
+	call Func_00_127d
+	call Func_0a_5201
+	jp NextObject
+
+
+ObjInit_0a_4cdf::
+	obj_byte OBJ_BANK, BANK(Func_0a_4cee)
+	obj_word OBJ_HANDLER, Func_0a_4cee
+	obj_word OBJ_ANIM, Anim_04_53db
+	obj_byte OBJ_ANIM_TIMER, $00
+	obj_byte OBJ_ANIM_FLAGS, $80
+	obj_byte OBJ_VAR_2F, $01
+	obj_end
+
+Func_0a_4cee::
+	ld hl, wObjects + OBJ_ANIM_FLAGS
+	add hl, bc
+	ld a, [hl]
+	rlca
+	jp nc, Func_0a_4b87.jump_4bb4
+	call Func_00_127d
+	call Func_0a_5201
+	jp NextObject
+
+
+Func_0a_4d00::
+	ld hl, wObjects + OBJ_ANIM_FLAGS
+	add hl, bc
+	ld a, [hl]
+	rlca
+	jr c, .jump_4d29
+	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $04
 	xor a
@@ -1648,6 +1764,7 @@ Func_0a_4d0b::
 	jr c, .jump_4d35
 	cp $0a
 	jr c, .jump_4d48
+.jump_4d29:
 	call Func_00_127d
 	call Func_0a_5201
 	jp NextObject
@@ -1680,9 +1797,9 @@ Func_0a_4d0b::
 	ld [hl], $1e
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $89
+	ld [hl], LOW(Anim_04_5489)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Anim_04_5489)
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], $66
@@ -1694,14 +1811,14 @@ Func_0a_4d0b::
 	jr nz, .jump_4d7f
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $88
+	ld [hl], LOW(Func_0a_4d88)
 	inc l
-	ld [hl], $4d
+	ld [hl], HIGH(Func_0a_4d88)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $81
+	ld [hl], LOW(Anim_04_5381)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Anim_04_5381)
 .jump_4d7f:
 	call Func_00_127d
 	call Func_0a_5201
@@ -1785,7 +1902,7 @@ Func_0a_4d88::
 	add hl, bc
 	dec [hl]
 	jp z, Func_0a_4b87.jump_4bb4
-	jp Func_0a_4d0b.jump_4d4e
+	jp Func_0a_4d00.jump_4d4e
 
 	db $00, $02, $00, $03, $00, $04
 
@@ -1794,9 +1911,9 @@ Func_0a_4d88::
 	ld [$c32a], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $f3
+	ld [hl], LOW(Anim_04_53f3)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Anim_04_53f3)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
@@ -1832,9 +1949,9 @@ Func_0a_4d88::
 .jump_4e4b:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $6f
+	ld [hl], LOW(Func_0a_4e6f)
 	inc l
-	ld [hl], $4e
+	ld [hl], HIGH(Func_0a_4e6f)
 	jr .jump_4e5c
 
 	db $00, $f8, $80, $f9, $00, $fb
@@ -1898,9 +2015,9 @@ Func_0a_4e6f::
 	ld [hl], $4f
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $89
+	ld [hl], LOW(Anim_04_5489)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Anim_04_5489)
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
@@ -1964,9 +2081,9 @@ Func_0a_4e6f::
 	jr nz, .jump_4f2e
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $3e
+	ld [hl], LOW(Func_0a_4f3e)
 	inc l
-	ld [hl], $4f
+	ld [hl], HIGH(Func_0a_4f3e)
 .jump_4f2e:
 	call Func_0a_4f50
 	ld hl, wObjects + OBJ_VAR_30
@@ -2027,7 +2144,7 @@ ObjInit_0a_4f77::
 	obj_word OBJ_Y, $fff8
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
-	obj_word OBJ_FRAME, $53b0
+	obj_word OBJ_FRAME, Frame_20_53b0
 	obj_end
 .jump_4f94:
 	ld hl, wObjects + OBJ_HANDLER
@@ -2081,14 +2198,14 @@ ObjInit_0a_4f77::
 	ld [hl], $fb
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $0b
+	ld [hl], LOW(Func_0a_500b)
 	inc l
-	ld [hl], $50
+	ld [hl], HIGH(Func_0a_500b)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $f3
+	ld [hl], LOW(Anim_04_53f3)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Anim_04_53f3)
 .jump_4ff2:
 	call Func_00_39fa
 	call Func_00_39b4
@@ -2174,7 +2291,13 @@ Func_0a_500b::
 	call Func_0a_5201
 	jp NextObject
 
-	INCBIN "baserom.gbc", $029090, $0068 ; $5090
+	INCBIN "baserom.gbc", $029090, $004e ; $5090
+
+.jump_50de:
+	call Func_00_127d
+	jp NextObject
+
+	INCBIN "baserom.gbc", $0290e4, $0014 ; $50e4
 
 
 Func_0a_50f8::
@@ -2216,8 +2339,53 @@ Func_0a_50f8::
 	call Func_00_127d
 	jp NextObject
 
-	INCBIN "baserom.gbc", $029141, $0057 ; $5141
 
+Func_0a_5141::
+	ld hl, wObjects + OBJ_SPAWN_INDEX
+	add hl, bc
+	ld l, [hl]
+	ld h, $af
+	ld a, [hl]
+	or a
+	jr nz, Func_0a_500b.jump_50de
+	push bc
+	ld a, $06
+	call PlaySong
+	ld bc, $0000
+	ld hl, wPlayer + OBJ_BANK
+	ld [hl], $09
+	inc l
+	ld [hl], $ff
+	inc l
+	ld [hl], $4a
+	ld a, [wPlayer + OBJ_FLAGS]
+	or $11
+	ld [wPlayer + OBJ_FLAGS], a
+	ld hl, wPlayer + OBJ_XACCEL
+	ld [hl], $80
+	inc l
+	ld [hl], $00
+	pop bc
+	ld hl, wObjects + OBJ_FLAGS
+	add hl, bc
+	ld a, [hl]
+	or $10
+	ld [hl], a
+	ld a, $4e
+	ld [$c32a], a
+	ld hl, ObjInit_0a_518a
+	call ApplyObjInit
+	call Func_00_127d
+	jp NextObject
+
+
+ObjInit_0a_518a::
+	obj_byte OBJ_BANK, BANK(Func_0a_4d00)
+	obj_word OBJ_HANDLER, Func_0a_4d00
+	obj_word OBJ_ANIM, Anim_04_5465
+	obj_byte OBJ_ANIM_FLAGS, $80
+	obj_word OBJ_VAR_30, $001e
+	obj_end
 
 Func_0a_5198::
 	ld hl, wObjects + OBJ_VAR_2E
@@ -2227,9 +2395,9 @@ Func_0a_5198::
 	ld [hl], $96
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $b3
+	ld [hl], LOW(Func_0a_51b3)
 	inc l
-	ld [hl], $51
+	ld [hl], HIGH(Func_0a_51b3)
 .jump_51aa:
 	call Func_00_39ba
 	call Func_00_127d
@@ -2356,7 +2524,7 @@ ObjInit_0a_5271::
 	obj_word OBJ_Y, $0000
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_PALETTE, $2e
-	obj_word OBJ_ANIM, $54c9
+	obj_word OBJ_ANIM, Anim_04_54c9
 	obj_end
 
 Func_0a_5285::
@@ -2433,9 +2601,9 @@ Func_0a_52a0::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $07
+	ld [hl], LOW(Func_0a_5307)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Func_0a_5307)
 	ld hl, $ff89
 	ld a, [hli]
 	ld d, [hl]
@@ -2446,10 +2614,93 @@ Func_0a_52a0::
 .jump_5304:
 	jp NextObject
 
-	INCBIN "baserom.gbc", $029307, $007a ; $5307
+
+Func_0a_5307::
+	ld hl, wObjects + OBJ_VAR_30
+	add hl, bc
+	ld a, [hl]
+	sub $01
+	ld [hli], a
+	ld e, a
+	ld a, [hl]
+	sbc a, $00
+	ld [hl], a
+	ld d, a
+	or e
+	jr z, .jump_535b
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hli]
+	ld e, a
+	ld a, [hl]
+	ld d, a
+	ld hl, wObjects + OBJ_VAR_34
+	add hl, bc
+	dec [hl]
+	jr nz, .jump_5340
+	ld [hl], $03
+	dec de
+	ld a, d
+	rlca
+	jr nc, .jump_5339
+	ld hl, wObjects + OBJ_VAR_32
+	add hl, bc
+	inc [hl]
+	ld hl, $0026
+	add hl, de
+	ld d, h
+	ld e, l
+.jump_5339:
+	ld a, e
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld [hli], a
+	ld [hl], d
+.jump_5340:
+	ld hl, $fff8
+	add hl, de
+	ld d, h
+	ld e, l
+	ld hl, wObjects + OBJ_VAR_32
+	add hl, bc
+	ld a, [hli]
+	ld [hl], a
+	call Func_0a_5369
+	call Func_0a_5369
+	call Func_0a_5369
+	call Func_0a_5369
+.jump_5358:
+	jp NextObject
+
+.jump_535b:
+	ld hl, wObjects + OBJ_BANK
+	add hl, bc
+	ld [hl], $0a
+	inc l
+	ld [hl], LOW(Func_0a_53ff)
+	inc l
+	ld [hl], HIGH(Func_0a_53ff)
+	jr .jump_5358
 
 
-Func_0a_5381::
+Func_0a_5369::
+	ld a, d
+	rlca
+	jr c, .jump_5371
+	ld a, e
+	cp $90
+	ret nc
+.jump_5371:
+	ld hl, wObjects + OBJ_Y
+	add hl, bc
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	ld hl, $0026
+	add hl, de
+	ld d, h
+	ld e, l
+	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
@@ -2493,7 +2744,56 @@ Func_0a_5381::
 	pop de
 	ret
 
-	INCBIN "baserom.gbc", $0293bf, $0081 ; $53bf
+	INCBIN "baserom.gbc", $0293bf, $0040 ; $53bf
+
+
+Func_0a_53ff::
+	ld hl, $ff89
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	ld hl, wObjects + OBJ_VAR_36
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	xor a
+	sub l
+	ld l, a
+	ld a, $00
+	sbc a, h
+	ld h, a
+	add hl, de
+	ld a, l
+	or h
+	jr z, .jump_5435
+	bit 7, h
+	jr z, .jump_5425
+	inc de
+	ldh a, [$ff88]
+	and $ef
+	ldh [$ff88], a
+	jr .jump_542c
+
+.jump_5425:
+	dec de
+	ldh a, [$ff88]
+	or $10
+	ldh [$ff88], a
+.jump_542c:
+	ld hl, $ff89
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+.jump_5432:
+	jp NextObject
+
+.jump_5435:
+	ldh a, [$ff88]
+	and $7f
+	ldh [$ff88], a
+	call Func_00_18f5
+	jr .jump_5432
 
 
 Func_0a_5440::
@@ -2504,9 +2804,9 @@ Func_0a_5440::
 	set 1, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $62
+	ld [hl], LOW(Func_0a_5462)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_5462)
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	ld [hli], a
@@ -2526,26 +2826,30 @@ Func_0a_5462::
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $7c
+	ld [hl], LOW(Func_0a_547c)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_547c)
 	jp NextObject
 
-	db $cd, $91, $13, $21, $32, $c8, $09, $fa, $41, $c4, $cb, $4f, $28
 
-
-Func_0a_5489::
-	rlca
+Func_0a_547c::
+	call Func_00_1391
+	ld hl, wObjects + OBJ_VAR_32
+	add hl, bc
+	ld a, [$c441]
+	bit 1, a
+	jr z, .jump_5491
 	res 1, a
 	ld [$c441], a
 	ld [hl], $3c
+.jump_5491:
 	dec [hl]
 	jr nz, .jump_549d
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $a0
+	ld [hl], LOW(Func_0a_54a0)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_54a0)
 .jump_549d:
 	jp NextObject
 
@@ -2562,9 +2866,9 @@ Func_0a_54a0::
 	res 1, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $40
+	ld [hl], LOW(Func_0a_5440)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_5440)
 	jp NextObject
 
 
@@ -2576,9 +2880,9 @@ Func_0a_54bf::
 	set 0, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $f0
+	ld [hl], LOW(Func_0a_54f0)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_54f0)
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	ld [hli], a
@@ -2606,9 +2910,9 @@ Func_0a_54f0::
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $0a
+	ld [hl], LOW(Func_0a_550a)
 	inc l
-	ld [hl], $55
+	ld [hl], HIGH(Func_0a_550a)
 	jp NextObject
 
 
@@ -2627,9 +2931,9 @@ Func_0a_550a::
 	jr nz, .jump_552b
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $2e
+	ld [hl], LOW(Func_0a_552e)
 	inc l
-	ld [hl], $55
+	ld [hl], HIGH(Func_0a_552e)
 .jump_552b:
 	jp NextObject
 
@@ -2650,9 +2954,9 @@ Func_0a_552e::
 	call Func_00_2d5a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $bf
+	ld [hl], LOW(Func_0a_54bf)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_54bf)
 	jp NextObject
 
 
@@ -2684,9 +2988,9 @@ Func_0a_5578::
 	set 2, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $01
+	ld [hl], LOW(Func_0a_5601)
 	inc l
-	ld [hl], $56
+	ld [hl], HIGH(Func_0a_5601)
 	xor a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
@@ -2721,49 +3025,49 @@ Func_0a_5578::
 .jump_55bf:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], $52
+	ld [hl], LOW(Frame_20_4b52)
 	inc l
-	ld [hl], $4b
+	ld [hl], HIGH(Frame_20_4b52)
 	jr .jump_55bc
 
 .jump_55ca:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], $f2
+	ld [hl], LOW(Frame_20_44f2)
 	inc l
-	ld [hl], $44
+	ld [hl], HIGH(Frame_20_44f2)
 	jr .jump_55bc
 
 .jump_55d5:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], $bc
+	ld [hl], LOW(Frame_20_44bc)
 	inc l
-	ld [hl], $44
+	ld [hl], HIGH(Frame_20_44bc)
 	jr .jump_55bc
 
 .jump_55e0:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], $84
+	ld [hl], LOW(Frame_20_4f84)
 	inc l
-	ld [hl], $4f
+	ld [hl], HIGH(Frame_20_4f84)
 	jr .jump_55bc
 
 .jump_55eb:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $0b
+	ld [hl], LOW(Anim_04_570b)
 	inc l
-	ld [hl], $57
+	ld [hl], HIGH(Anim_04_570b)
 	jr .jump_55bc
 
 .jump_55f6:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $17
+	ld [hl], LOW(Anim_04_5517)
 	inc l
-	ld [hl], $55
+	ld [hl], HIGH(Anim_04_5517)
 	jr .jump_55bc
 
 
@@ -2778,9 +3082,9 @@ Func_0a_5601::
 	jr nz, .jump_561a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $1d
+	ld [hl], LOW(Func_0a_561d)
 	inc l
-	ld [hl], $56
+	ld [hl], HIGH(Func_0a_561d)
 .jump_561a:
 	jp NextObject
 
@@ -2816,9 +3120,9 @@ Func_0a_561d::
 .jump_5650:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $80
+	ld [hl], LOW(Func_0a_5680)
 	inc l
-	ld [hl], $56
+	ld [hl], HIGH(Func_0a_5680)
 .jump_5659:
 	jp NextObject
 
@@ -2827,9 +3131,9 @@ Func_0a_561d::
 	set 0, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $f4
+	ld [hl], LOW(Func_0a_56f4)
 	inc l
-	ld [hl], $56
+	ld [hl], HIGH(Func_0a_56f4)
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	push bc
@@ -2859,9 +3163,9 @@ Func_0a_5680::
 	res 2, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $78
+	ld [hl], LOW(Func_0a_5578)
 	inc l
-	ld [hl], $55
+	ld [hl], HIGH(Func_0a_5578)
 .jump_569e:
 	jp NextObject
 
@@ -2927,11 +3231,20 @@ Func_0a_56a1::
 	ld [hl], a
 	ret
 
-	INCBIN "baserom.gbc", $0296f4, $0017 ; $56f4
 
-
-Func_0a_570b::
-	dec l
+Func_0a_56f4::
+	ld hl, $c441
+	set 0, [hl]
+	call Func_00_144e
+	ld hl, wObjects + OBJ_VAR_32
+	add hl, bc
+	dec [hl]
+	jr nz, .jump_5736
+	ld hl, wObjects + OBJ_VAR_2F
+	add hl, bc
+	ld a, [hl]
+	cp $0f
+	jr z, .jump_5739
 	cp $0e
 	jr z, .jump_5770
 	cp $0c
@@ -2951,13 +3264,27 @@ Func_0a_570b::
 	pop bc
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $78
+	ld [hl], LOW(Func_0a_5578)
 	inc l
-	ld [hl], $55
+	ld [hl], HIGH(Func_0a_5578)
+.jump_5736:
 	jp NextObject
 
-	INCBIN "baserom.gbc", $029739, $001b ; $5739
-
+.jump_5739:
+	res 0, [hl]
+	ld a, $01
+	ld [$c32a], a
+	ld hl, wObjects + OBJ_VAR_32
+	add hl, bc
+	ld [hl], $20
+	ld hl, wObjects + OBJ_VAR_33
+	add hl, bc
+	push bc
+	ld a, [hli]
+	ld b, [hl]
+	ld c, a
+	ld hl, ObjInit_0a_57c0
+	call ApplyObjInit
 .jump_5754:
 	ld hl, ObjInit_0a_57b5
 	call ApplyObjInit
@@ -3020,21 +3347,24 @@ ObjInit_0a_57b5::
 	obj_word OBJ_HANDLER, Func_0a_57dc
 	obj_word OBJ_Y, $000c
 	obj_end
-	db $60, $be, $4b, $54, $32, $00, $81
 
+ObjInit_0a_57c0::
+	obj_word OBJ_FRAME, Frame_20_4bbe
+	obj_word OBJ_X, $0032
+	obj_end
 
 ObjInit_0a_57c7::
-	obj_word OBJ_FRAME, $4bd6
+	obj_word OBJ_FRAME, Frame_20_4bd6
 	obj_word OBJ_X, $0046
 	obj_end
 
 ObjInit_0a_57ce::
-	obj_word OBJ_FRAME, $4bd0
+	obj_word OBJ_FRAME, Frame_20_4bd0
 	obj_word OBJ_X, $005a
 	obj_end
 
 ObjInit_0a_57d5::
-	obj_word OBJ_FRAME, $4ba6
+	obj_word OBJ_FRAME, Frame_20_4ba6
 	obj_word OBJ_X, $006e
 	obj_end
 
@@ -3082,9 +3412,9 @@ Func_0a_5810::
 	jr nz, .jump_5823
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $26
+	ld [hl], LOW(Func_0a_5826)
 	inc l
-	ld [hl], $58
+	ld [hl], HIGH(Func_0a_5826)
 .jump_5823:
 	jp NextObject
 
@@ -3127,9 +3457,9 @@ Func_0a_5855::
 	jr nz, .jump_5868
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $6e
+	ld [hl], LOW(Func_0a_586e)
 	inc l
-	ld [hl], $58
+	ld [hl], HIGH(Func_0a_586e)
 .jump_5868:
 	call Func_00_127d
 	jp NextObject
@@ -3315,9 +3645,9 @@ Func_0a_5989::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $a0
+	ld [hl], LOW(Func_0a_59a0)
 	inc l
-	ld [hl], $59
+	ld [hl], HIGH(Func_0a_59a0)
 	ld a, [$c30e]
 	bit 1, a
 	call nz, Func_00_18f0
@@ -3362,9 +3692,9 @@ Func_0a_59d4::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $a0
+	ld [hl], LOW(Func_0a_59a0)
 	inc l
-	ld [hl], $59
+	ld [hl], HIGH(Func_0a_59a0)
 	jp NextObject
 
 .jump_59ea:
@@ -3375,9 +3705,9 @@ Func_0a_59d4::
 Func_0a_59f0::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $43
+	ld [hl], LOW(Func_0a_5a43)
 	inc l
-	ld [hl], $5a
+	ld [hl], HIGH(Func_0a_5a43)
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $64
@@ -3407,7 +3737,7 @@ ObjInit_0a_5a27::
 	obj_word OBJ_HANDLER, Func_08_4028
 	obj_word OBJ_TOUCH_HANDLER, $6ccc
 	obj_byte OBJ_FLAGS, $15
-	obj_word OBJ_FRAME, $4b4c
+	obj_word OBJ_FRAME, Frame_20_4b4c
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
@@ -3431,9 +3761,9 @@ Func_0a_5a43::
 	jr nz, .jump_5a5e
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $f0
+	ld [hl], LOW(Func_0a_59f0)
 	inc l
-	ld [hl], $59
+	ld [hl], HIGH(Func_0a_59f0)
 .jump_5a5e:
 	jp NextObject
 
@@ -3540,9 +3870,9 @@ Func_0a_5ac6::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $a0
+	ld [hl], LOW(Func_0a_59a0)
 	inc l
-	ld [hl], $59
+	ld [hl], HIGH(Func_0a_59a0)
 	jr .jump_5b32
 
 .jump_5b12:
@@ -3618,9 +3948,9 @@ Func_0a_5b56::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $27
+	ld [hl], LOW(Func_0a_5c27)
 	inc l
-	ld [hl], $5c
+	ld [hl], HIGH(Func_0a_5c27)
 	pop hl
 	jp .jump_5c0e
 
@@ -3638,17 +3968,17 @@ Func_0a_5b56::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $38
+	ld [hl], LOW(Func_0a_5c38)
 	inc l
-	ld [hl], $5c
+	ld [hl], HIGH(Func_0a_5c38)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $00
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $47
+	ld [hl], LOW(Anim_04_4947)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Anim_04_4947)
 	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld [hl], $20
@@ -3670,9 +4000,9 @@ Func_0a_5b56::
 	ld [hl], d
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $4d
+	ld [hl], LOW(Func_0a_5c4d)
 	inc l
-	ld [hl], $5c
+	ld [hl], HIGH(Func_0a_5c4d)
 	pop hl
 	jr .jump_5c0e
 
@@ -3779,14 +4109,14 @@ Func_0a_5c4d::
 .jump_5c68:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $ab
+	ld [hl], LOW(Func_0a_5cab)
 	inc l
-	ld [hl], $5c
+	ld [hl], HIGH(Func_0a_5cab)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $5f
+	ld [hl], LOW(Anim_04_495f)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Anim_04_495f)
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	ld a, [hli]
@@ -3874,14 +4204,14 @@ Func_0a_5cab::
 Func_0a_5cfe::
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $5f
+	ld [hl], LOW(Anim_04_495f)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Anim_04_495f)
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $2e
+	ld [hl], LOW(Func_0a_5cfe.jump_5d2e)
 	inc l
-	ld [hl], $5d
+	ld [hl], HIGH(Func_0a_5cfe.jump_5d2e)
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -3902,7 +4232,7 @@ Func_0a_5cfe::
 
 .jump_5d2c:
 	set 5, [hl]
-.jump_5d2e:
+.jump_5d2e::
 	call Func_00_39fa
 	call Func_00_39b4
 	ld hl, wObjects + OBJ_SPAWN_INDEX
@@ -3929,9 +4259,9 @@ Func_0a_5cfe::
 	call Func_00_39ab
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $fe
+	ld [hl], LOW(Func_0a_5cfe)
 	inc l
-	ld [hl], $5c
+	ld [hl], HIGH(Func_0a_5cfe)
 .jump_5d5d:
 	call Func_00_127d
 	call Func_00_3ab5
@@ -4072,9 +4402,9 @@ Func_0a_5e1d::
 .jump_5e37:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $c9
+	ld [hl], LOW(Anim_04_49c9)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Anim_04_49c9)
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -4129,9 +4459,9 @@ Func_0a_5e65::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $d0
+	ld [hl], LOW(Func_0a_5ed0)
 	inc l
-	ld [hl], $5e
+	ld [hl], HIGH(Func_0a_5ed0)
 	pop hl
 	jr .jump_5ec7
 
@@ -4139,9 +4469,9 @@ Func_0a_5e65::
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $0d
+	ld [hl], LOW(Anim_04_4a0d)
 	inc l
-	ld [hl], $4a
+	ld [hl], HIGH(Anim_04_4a0d)
 	pop hl
 	jr .jump_5e6c
 
@@ -4160,14 +4490,14 @@ Func_0a_5e65::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $ee
+	ld [hl], LOW(Func_0a_5eee)
 	inc l
-	ld [hl], $5e
+	ld [hl], HIGH(Func_0a_5eee)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $15
+	ld [hl], LOW(Anim_04_4a15)
 	inc l
-	ld [hl], $4a
+	ld [hl], HIGH(Anim_04_4a15)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -4243,7 +4573,7 @@ ObjInit_0a_5f2a::
 	obj_byte OBJ_BANK, BANK(Func_0a_5f4a)
 	obj_word OBJ_HANDLER, Func_0a_5f4a
 	obj_word OBJ_TOUCH_HANDLER, $7150
-	obj_word OBJ_ANIM, $4eb1
+	obj_word OBJ_ANIM, Anim_04_4eb1
 	obj_byte OBJ_ANIM_PARAM, $33
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_PALETTE, $01
@@ -4308,9 +4638,9 @@ Func_0a_5f6d::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $4a
+	ld [hl], LOW(Func_0a_5f4a)
 	inc l
-	ld [hl], $5f
+	ld [hl], HIGH(Func_0a_5f4a)
 .jump_5fb1:
 	call Func_00_127d
 	call Func_00_3ab5
@@ -4398,9 +4728,9 @@ Func_0a_5fd9::
 	jr c, .jump_6054
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $ba
+	ld [hl], LOW(Func_0a_5fba)
 	inc l
-	ld [hl], $5f
+	ld [hl], HIGH(Func_0a_5fba)
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	set 1, [hl]
@@ -4460,9 +4790,9 @@ Func_0a_6088::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $d9
+	ld [hl], LOW(Func_0a_5fd9)
 	inc l
-	ld [hl], $5f
+	ld [hl], HIGH(Func_0a_5fd9)
 .jump_60b4:
 	jp NextObject
 
@@ -4577,9 +4907,9 @@ Func_0a_6245::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $e7
+	ld [hl], LOW(Func_0a_61e7)
 	inc l
-	ld [hl], $61
+	ld [hl], HIGH(Func_0a_61e7)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $08
@@ -4617,9 +4947,9 @@ Func_0a_627a::
 	jr nz, .jump_6299
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $7b
+	ld [hl], LOW(Anim_04_4a7b)
 	inc hl
-	ld [hl], $4a
+	ld [hl], HIGH(Anim_04_4a7b)
 	call Func_0a_6365
 	jr .jump_62dd
 
@@ -4701,17 +5031,17 @@ Func_0a_62f0::
 	jr c, .jump_6333
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $65
+	ld [hl], LOW(Anim_04_4a65)
 	inc hl
-	ld [hl], $4a
+	ld [hl], HIGH(Anim_04_4a65)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $7a
+	ld [hl], LOW(Func_0a_627a)
 	inc hl
-	ld [hl], $62
+	ld [hl], HIGH(Func_0a_627a)
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
@@ -4748,9 +5078,9 @@ Func_0a_6346::
 Func_0a_6365::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $f0
+	ld [hl], LOW(Func_0a_62f0)
 	inc hl
-	ld [hl], $62
+	ld [hl], HIGH(Func_0a_62f0)
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -4785,9 +5115,9 @@ Func_0a_6397::
 	call Func_0a_6386
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $b3
+	ld [hl], LOW(Func_0a_63a5.jump_63b3)
 	inc l
-	ld [hl], $63
+	ld [hl], HIGH(Func_0a_63a5.jump_63b3)
 	jr Func_0a_63a5.jump_63b3
 
 
@@ -4795,21 +5125,21 @@ Func_0a_63a5::
 	call Func_0a_6386
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $c3
+	ld [hl], LOW(Func_0a_63a5.jump_63c3)
 	inc l
-	ld [hl], $63
+	ld [hl], HIGH(Func_0a_63a5.jump_63c3)
 	jr .jump_63c3
 
-.jump_63b3:
+.jump_63b3::
 	call Func_0a_644c
 	rr e
 	jr nc, .jump_63c3
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $0b
+	ld [hl], LOW(Anim_04_4d0b)
 	inc l
-	ld [hl], $4d
-.jump_63c3:
+	ld [hl], HIGH(Anim_04_4d0b)
+.jump_63c3::
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	inc [hl]
@@ -4851,9 +5181,9 @@ Func_0a_63f4::
 	jr nc, .jump_6411
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $47
+	ld [hl], LOW(Anim_04_4d47)
 	inc l
-	ld [hl], $4d
+	ld [hl], HIGH(Anim_04_4d47)
 .jump_6411:
 	call Func_00_39fa
 	call Func_00_39b4
@@ -4874,9 +5204,9 @@ Func_0a_6420::
 	jr nc, .jump_643d
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $83
+	ld [hl], LOW(Anim_04_4d83)
 	inc l
-	ld [hl], $4d
+	ld [hl], HIGH(Anim_04_4d83)
 .jump_643d:
 	call Func_00_39fa
 	call Func_00_39b4
@@ -4955,9 +5285,9 @@ Func_0a_6477::
 	ld [hl], d
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $a7
+	ld [hl], LOW(Anim_04_4ca7)
 	inc l
-	ld [hl], $4c
+	ld [hl], HIGH(Anim_04_4ca7)
 	jr .jump_647f
 
 
@@ -4990,9 +5320,9 @@ Func_0a_64ba::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $56
+	ld [hl], LOW(Func_0a_6556)
 	inc l
-	ld [hl], $65
+	ld [hl], HIGH(Func_0a_6556)
 	pop hl
 	jp .jump_6539
 
@@ -5000,9 +5330,9 @@ Func_0a_64ba::
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $e3
+	ld [hl], LOW(Anim_04_4ce3)
 	inc l
-	ld [hl], $4c
+	ld [hl], HIGH(Anim_04_4ce3)
 	pop hl
 	jr .jump_64c1
 
@@ -5010,9 +5340,9 @@ Func_0a_64ba::
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $c7
+	ld [hl], LOW(Anim_04_4cc7)
 	inc l
-	ld [hl], $4c
+	ld [hl], HIGH(Anim_04_4cc7)
 	pop hl
 	jr .jump_64c1
 
@@ -5067,7 +5397,7 @@ ObjInit_0a_6542::
 	obj_byte OBJ_BANK, BANK(Func_09_740d)
 	obj_word OBJ_HANDLER, Func_09_740d
 	obj_word OBJ_TOUCH_HANDLER, $4001
-	obj_word OBJ_FRAME, $4ada
+	obj_word OBJ_FRAME, Frame_20_4ada
 	obj_byte OBJ_ANIM_PARAM, $02
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_PALETTE, $03
@@ -5110,9 +5440,9 @@ Func_0a_6579::
 Func_0a_658f::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $a5
+	ld [hl], LOW(Func_0a_65a5)
 	inc hl
-	ld [hl], $65
+	ld [hl], HIGH(Func_0a_65a5)
 	rst_farcall Func_09_4212
 	call Func_00_127d
 	call Func_00_3ab5
@@ -5394,9 +5724,9 @@ Func_0a_670a::
 	call Func_0a_6689
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $27
+	ld [hl], LOW(Func_0a_6727)
 	inc l
-	ld [hl], $67
+	ld [hl], HIGH(Func_0a_6727)
 .jump_671e:
 	call Func_00_127d
 	call Func_0a_68f8
@@ -5431,9 +5761,9 @@ Func_0a_6744::
 	ld [hl], $ff
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $64
+	ld [hl], LOW(Func_0a_6764)
 	inc l
-	ld [hl], $67
+	ld [hl], HIGH(Func_0a_6764)
 .jump_675e:
 	call Func_0a_68f8
 	jp NextObject
@@ -5457,9 +5787,9 @@ Func_0a_6764::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $d5
+	ld [hl], LOW(Func_0a_67d5)
 	inc l
-	ld [hl], $67
+	ld [hl], HIGH(Func_0a_67d5)
 	jr .jump_67ba
 
 .jump_6785:
@@ -5505,7 +5835,7 @@ Func_0a_6764::
 ObjInit_0a_67c0::
 	obj_byte OBJ_BANK, BANK(Func_0a_68e9)
 	obj_word OBJ_HANDLER, Func_0a_68e9
-	obj_word OBJ_FRAME, $5638
+	obj_word OBJ_FRAME, Frame_20_5638
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_XACCEL, $0003
@@ -5550,9 +5880,9 @@ Func_0a_67d5::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $64
+	ld [hl], LOW(Func_0a_6764)
 	inc l
-	ld [hl], $67
+	ld [hl], HIGH(Func_0a_6764)
 	jr .jump_67fb
 
 
@@ -5744,9 +6074,9 @@ Func_0a_68f8::
 Func_0a_6940::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $56
+	ld [hl], LOW(Func_0a_6956)
 	inc hl
-	ld [hl], $69
+	ld [hl], HIGH(Func_0a_6956)
 	rst_farcall Func_09_4212
 	call Func_00_127d
 	call Func_00_3ab5
@@ -5768,14 +6098,14 @@ Func_0a_6963::
 	jr nz, .jump_6989
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $56
+	ld [hl], LOW(Func_0a_6956)
 	inc hl
-	ld [hl], $69
+	ld [hl], HIGH(Func_0a_6956)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $ab
+	ld [hl], LOW(Anim_04_4bab)
 	inc hl
-	ld [hl], $4b
+	ld [hl], HIGH(Anim_04_4bab)
 	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld [hl], $20
@@ -5813,9 +6143,9 @@ Func_0a_6992::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $0a
+	ld [hl], LOW(Func_0a_6a0a)
 	inc l
-	ld [hl], $6a
+	ld [hl], HIGH(Func_0a_6a0a)
 	pop hl
 	jr .jump_69ec
 
@@ -5827,9 +6157,9 @@ Func_0a_6992::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $8b
+	ld [hl], LOW(Func_0a_6a8b)
 	inc l
-	ld [hl], $6a
+	ld [hl], HIGH(Func_0a_6a8b)
 	pop hl
 	jr .jump_69ec
 
@@ -5837,17 +6167,17 @@ Func_0a_6992::
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $2a
+	ld [hl], LOW(Func_0a_6a2a)
 	inc l
-	ld [hl], $6a
+	ld [hl], HIGH(Func_0a_6a2a)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $2f
+	ld [hl], LOW(Anim_04_4c2f)
 	inc l
-	ld [hl], $4c
+	ld [hl], HIGH(Anim_04_4c2f)
 	call Func_0a_6acf
 	pop hl
 	jr .jump_69ec
@@ -5943,7 +6273,7 @@ ObjInit_0a_6a77::
 	obj_byte OBJ_BANK, BANK(Func_09_78a3)
 	obj_word OBJ_HANDLER, Func_09_78a3
 	obj_word OBJ_TOUCH_HANDLER, $7882
-	obj_word OBJ_ANIM, $4ebf
+	obj_word OBJ_ANIM, Anim_04_4ebf
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $02
 	obj_byte OBJ_PALETTE, $01
@@ -6045,9 +6375,9 @@ Func_0a_6aec::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $18
+	ld [hl], LOW(Func_0a_6c18)
 	inc l
-	ld [hl], $6c
+	ld [hl], HIGH(Func_0a_6c18)
 	pop hl
 	jr .jump_6b6d
 
@@ -6125,7 +6455,7 @@ ObjInit_0a_6b76::
 	obj_word OBJ_HANDLER, Func_08_402e
 	obj_word OBJ_TOUCH_HANDLER, $78cd
 	obj_byte OBJ_LAYER, $02
-	obj_word OBJ_ANIM, $5019
+	obj_word OBJ_ANIM, Anim_04_5019
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
 	obj_byte OBJ_ANIM_PARAM, $07
@@ -6137,7 +6467,7 @@ ObjInit_0a_6b76::
 ObjInit_0a_6b94::
 	obj_byte OBJ_BANK, BANK(Func_0a_6ba8)
 	obj_word OBJ_HANDLER, Func_0a_6ba8
-	obj_word OBJ_ANIM, $4b63
+	obj_word OBJ_ANIM, Anim_04_4b63
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
@@ -6172,16 +6502,16 @@ Func_0a_6ba8::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, de
-	ld [hl], $49
+	ld [hl], LOW(Anim_04_5049)
 	inc l
-	ld [hl], $50
+	ld [hl], HIGH(Anim_04_5049)
 	ld hl, wObjects + OBJ_BANK
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], $3f
+	ld [hl], LOW(Func_0a_6c3f)
 	inc l
-	ld [hl], $6c
+	ld [hl], HIGH(Func_0a_6c3f)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, de
 	ld [hl], $04
@@ -6295,9 +6625,9 @@ Func_0a_6c60::
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $16
+	ld [hl], LOW(Func_0a_6d16)
 	inc l
-	ld [hl], $6d
+	ld [hl], HIGH(Func_0a_6d16)
 	call Func_0a_6cd6
 	pop hl
 	jr .jump_6ccd
@@ -6344,9 +6674,9 @@ Func_0a_6c60::
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $25
+	ld [hl], LOW(Func_0a_6d25)
 	inc l
-	ld [hl], $6d
+	ld [hl], HIGH(Func_0a_6d25)
 	call Func_0a_6ce9
 	pop hl
 	jr .jump_6ccd
@@ -6370,9 +6700,9 @@ Func_0a_6cd6::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $ad
+	ld [hl], LOW(Anim_04_4dad)
 	inc l
-	ld [hl], $4d
+	ld [hl], HIGH(Anim_04_4dad)
 	ret
 
 
@@ -6385,9 +6715,9 @@ Func_0a_6ce9::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $d5
+	ld [hl], LOW(Anim_04_4dd5)
 	inc l
-	ld [hl], $4d
+	ld [hl], HIGH(Anim_04_4dd5)
 	ret
 
 
@@ -6490,9 +6820,9 @@ Func_0a_6d65::
 .jump_6d96:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], $e0
+	ld [hl], LOW(Frame_20_4de0)
 	inc l
-	ld [hl], $4d
+	ld [hl], HIGH(Frame_20_4de0)
 	jr .jump_6dc6
 
 .jump_6da1:
@@ -6769,9 +7099,9 @@ Func_0a_6f2f::
 Func_0a_6f42::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $71
+	ld [hl], LOW(Func_0a_6f71)
 	inc l
-	ld [hl], $6f
+	ld [hl], HIGH(Func_0a_6f71)
 .jump_6f4b:
 	ld d, b
 	ld e, c
@@ -6793,7 +7123,7 @@ ObjInit_0a_6f62::
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
 	obj_byte OBJ_LAYER, $02
-	obj_word OBJ_ANIM, $498f
+	obj_word OBJ_ANIM, Anim_04_498f
 	obj_byte OBJ_PALETTE, $1a
 	obj_end
 
@@ -6962,9 +7292,9 @@ Func_0a_6fc5::
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $a2
+	ld [hl], LOW(Func_0a_70a2)
 	inc l
-	ld [hl], $70
+	ld [hl], HIGH(Func_0a_70a2)
 	pop hl
 	jr .jump_704c
 
@@ -6981,9 +7311,9 @@ Func_0a_6fc5::
 Func_0a_7055::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $61
+	ld [hl], LOW(Func_0a_7061)
 	inc l
-	ld [hl], $70
+	ld [hl], HIGH(Func_0a_7061)
 	jp Func_0a_6f42.jump_6f4b
 
 
@@ -7011,9 +7341,9 @@ Func_0a_7061::
 .jump_7082:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $90
+	ld [hl], LOW(Func_0a_7090)
 	inc l
-	ld [hl], $70
+	ld [hl], HIGH(Func_0a_7090)
 	call Func_0a_6fc5
 	jr .jump_707c
 
@@ -7071,9 +7401,9 @@ Func_0a_70d3::
 	jr nz, .jump_70d6
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $ec
+	ld [hl], LOW(Func_0a_70ec)
 	inc l
-	ld [hl], $70
+	ld [hl], HIGH(Func_0a_70ec)
 	jp NextObject
 
 
@@ -7236,9 +7566,9 @@ Func_0a_71b1::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $c3
+	ld [hl], LOW(Func_0a_71c3)
 	inc l
-	ld [hl], $71
+	ld [hl], HIGH(Func_0a_71c3)
 	call Func_0a_713c
 	jp NextObject
 
@@ -7371,27 +7701,27 @@ ObjInit_0a_726f::
 	obj_byte OBJ_BANK, BANK(Func_0a_72af)
 	obj_word OBJ_HANDLER, Func_0a_72af
 	obj_byte OBJ_ANIM_FLAGS, $80
-	obj_word OBJ_ANIM, $4f2d
+	obj_word OBJ_ANIM, Anim_04_4f2d
 	obj_end
 
 ObjInit_0a_727a::
 	obj_byte OBJ_BANK, BANK(Func_0a_72af)
 	obj_word OBJ_HANDLER, Func_0a_72af
 	obj_byte OBJ_ANIM_FLAGS, $80
-	obj_word OBJ_ANIM, $4f19
+	obj_word OBJ_ANIM, Anim_04_4f19
 	obj_end
 
 ObjInit_0a_7285::
 	obj_byte OBJ_BANK, BANK(Func_0a_729e)
 	obj_word OBJ_HANDLER, Func_0a_729e
-	obj_word OBJ_ANIM, $4efd
+	obj_word OBJ_ANIM, Anim_04_4efd
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
 ObjInit_0a_7290::
 	obj_byte OBJ_BANK, BANK(Func_0a_729e)
 	obj_word OBJ_HANDLER, Func_0a_729e
-	obj_word OBJ_ANIM, $4f11
+	obj_word OBJ_ANIM, Anim_04_4f11
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 

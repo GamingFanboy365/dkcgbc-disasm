@@ -68,9 +68,9 @@ Func_08_4046::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $28
+	ld [hl], LOW(Func_08_4028)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_08_4028)
 .jump_4064:
 	jp Func_08_4028
 
@@ -87,9 +87,9 @@ Func_08_4067::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $34
+	ld [hl], LOW(Func_08_4034)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_08_4034)
 .jump_4085:
 	jp Func_08_4034
 
@@ -145,9 +145,9 @@ Func_08_40d4::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $28
+	ld [hl], LOW(Func_08_4028)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_08_4028)
 	ret
 
 
@@ -584,9 +584,9 @@ Func_08_4344::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $39
+	ld [hl], LOW(Func_08_4439)
 	inc l
-	ld [hl], $44
+	ld [hl], HIGH(Func_08_4439)
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
@@ -719,7 +719,7 @@ ObjInit_08_441d::
 	obj_word OBJ_TOUCH_HANDLER, $455e
 	obj_byte OBJ_PALETTE, $05
 	obj_byte OBJ_VAR_33, $ff
-	obj_word OBJ_FRAME, $5f6e
+	obj_word OBJ_FRAME, Frame_20_5f6e
 	obj_end
 
 ObjInit_08_442b::
@@ -727,7 +727,7 @@ ObjInit_08_442b::
 	obj_word OBJ_TOUCH_HANDLER, $4571
 	obj_byte OBJ_PALETTE, $06
 	obj_byte OBJ_VAR_33, $ff
-	obj_word OBJ_FRAME, $5f6e
+	obj_word OBJ_FRAME, Frame_20_5f6e
 	obj_end
 
 Func_08_4439::
@@ -830,9 +830,9 @@ Func_08_44bc::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $f0
+	ld [hl], LOW(Func_08_44f0)
 	inc l
-	ld [hl], $44
+	ld [hl], HIGH(Func_08_44f0)
 	jp NextObject
 
 .jump_44de:
@@ -869,9 +869,9 @@ Func_08_44f0::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $55
+	ld [hl], LOW(Func_08_4555)
 	inc l
-	ld [hl], $45
+	ld [hl], HIGH(Func_08_4555)
 	jp NextObject
 
 .jump_4516:
@@ -879,9 +879,9 @@ Func_08_44f0::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $37
+	ld [hl], LOW(Func_08_4537)
 	inc l
-	ld [hl], $45
+	ld [hl], HIGH(Func_08_4537)
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hl]
@@ -911,9 +911,9 @@ Func_08_4537::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $55
+	ld [hl], LOW(Func_08_4555)
 	inc l
-	ld [hl], $45
+	ld [hl], HIGH(Func_08_4555)
 	jp NextObject
 
 
@@ -953,9 +953,9 @@ Func_08_4581::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $17
+	ld [hl], LOW(Func_08_4617)
 	inc l
-	ld [hl], $46
+	ld [hl], HIGH(Func_08_4617)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
@@ -1203,7 +1203,7 @@ ObjInit_08_4706::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
-	obj_word OBJ_ANIM, $4e25
+	obj_word OBJ_ANIM, Anim_04_4e25
 	obj_end
 
 ObjInit_08_4711::
@@ -1240,9 +1240,9 @@ Func_08_473a::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $fc
+	ld [hl], LOW(Func_08_47fc)
 	inc l
-	ld [hl], $47
+	ld [hl], HIGH(Func_08_47fc)
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	ld [hl], $14
@@ -1383,9 +1383,9 @@ Func_08_47fc::
 .jump_4820:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $2c
+	ld [hl], LOW(Func_08_482c)
 	inc l
-	ld [hl], $48
+	ld [hl], HIGH(Func_08_482c)
 .jump_4829:
 	jp NextObject
 
@@ -1484,9 +1484,9 @@ Func_08_4872::
 	jr nz, .jump_48b9
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $d5
+	ld [hl], LOW(Func_08_48d5)
 	inc l
-	ld [hl], $48
+	ld [hl], HIGH(Func_08_48d5)
 	jr .jump_48bd
 
 .jump_48b9:
@@ -1499,9 +1499,9 @@ Func_08_4872::
 	ld [hl], a
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], $5e
+	ld [hl], LOW(Frame_20_605e)
 	inc l
-	ld [hl], $60
+	ld [hl], HIGH(Frame_20_605e)
 	ld a, $1d
 	call Func_08_4ba8
 	jr .jump_489f
@@ -1553,9 +1553,9 @@ Func_08_4914::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $b3
+	ld [hl], LOW(Func_08_49b3)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Func_08_49b3)
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
@@ -1633,7 +1633,7 @@ ObjInit_08_4991::
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
-	obj_word OBJ_ANIM, $4c51
+	obj_word OBJ_ANIM, Anim_04_4c51
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_TARGET_XVEL, $00c0
 	obj_word OBJ_XACCEL, $0020
@@ -1749,7 +1749,7 @@ Func_08_49f3::
 ObjInit_08_4a61::
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
-	obj_word OBJ_ANIM, $4e25
+	obj_word OBJ_ANIM, Anim_04_4e25
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
@@ -1785,9 +1785,9 @@ Func_08_4a6c::
 	jr c, .jump_4b11
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $f3
+	ld [hl], LOW(Func_08_49f3)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Func_08_49f3)
 	ld hl, wObjects + OBJ_TARGET_XVEL + 1
 	add hl, bc
 	ld a, [hl]
@@ -1868,7 +1868,7 @@ ObjInit_08_4b17::
 	obj_word OBJ_HANDLER, Func_08_4b3c
 	obj_word OBJ_TOUCH_HANDLER, $46bb
 	obj_byte OBJ_PALETTE, $00
-	obj_word OBJ_ANIM, $4e0b
+	obj_word OBJ_ANIM, Anim_04_4e0b
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_word OBJ_YACCEL, $0050
@@ -1981,16 +1981,16 @@ Func_08_4bcd::
 	ld [hl], $13
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $25
+	ld [hl], LOW(Anim_04_4e25)
 	inc l
-	ld [hl], $4e
+	ld [hl], HIGH(Anim_04_4e25)
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $6c
+	ld [hl], LOW(Func_08_4b6c)
 	inc l
-	ld [hl], $4b
+	ld [hl], HIGH(Func_08_4b6c)
 	ld a, $04
 	call Func_08_4ba8
 	ld hl, wObjects + OBJ_SPAWN_INDEX
@@ -2195,9 +2195,9 @@ Func_08_5156::
 Func_08_5168::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $83
+	ld [hl], LOW(Func_08_5183)
 	inc l
-	ld [hl], $51
+	ld [hl], HIGH(Func_08_5183)
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
@@ -2476,9 +2476,9 @@ Func_08_5227::
 	ld [hl], $14
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $75
+	ld [hl], LOW(Func_08_5375)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Func_08_5375)
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 7, [hl]
@@ -2500,9 +2500,9 @@ Func_08_5375::
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $a1
+	ld [hl], LOW(Func_08_53a1)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Func_08_53a1)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $08
@@ -2524,9 +2524,9 @@ Func_08_53a1::
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $c1
+	ld [hl], LOW(Func_08_53c1)
 	inc l
-	ld [hl], $53
+	ld [hl], HIGH(Func_08_53c1)
 	jp NextObject
 
 
@@ -2565,9 +2565,9 @@ Func_08_53c1::
 .jump_53f4:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $83
+	ld [hl], LOW(Func_08_5183)
 	inc l
-	ld [hl], $51
+	ld [hl], HIGH(Func_08_5183)
 	jp NextObject
 
 
@@ -2613,9 +2613,9 @@ Func_08_5400::
 	ld [hl], $05
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $27
+	ld [hl], LOW(Func_08_5227)
 	inc l
-	ld [hl], $52
+	ld [hl], HIGH(Func_08_5227)
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 5, [hl]
@@ -2659,9 +2659,9 @@ Func_08_5458::
 .jump_548e:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $99
+	ld [hl], LOW(Func_08_5499)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_08_5499)
 	jr .jump_5488
 
 
@@ -2700,9 +2700,9 @@ Func_08_5499::
 .jump_54d0:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $58
+	ld [hl], LOW(Func_08_5458)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_08_5458)
 	jr .jump_54ca
 
 .jump_54db:
@@ -2711,9 +2711,9 @@ Func_08_5499::
 	ld [hl], $01
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $27
+	ld [hl], LOW(Func_08_5227)
 	inc l
-	ld [hl], $52
+	ld [hl], HIGH(Func_08_5227)
 	call Func_08_54f3
 	call Func_08_54fe
 	jp NextObject
@@ -2948,9 +2948,9 @@ Func_08_5665::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $28
+	ld [hl], LOW(Func_08_4028)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_08_4028)
 	jp NextObject
 
 
@@ -3002,9 +3002,9 @@ Func_08_56b8::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $34
+	ld [hl], LOW(Func_08_4034)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_08_4034)
 	jp NextObject
 
 
@@ -3250,9 +3250,9 @@ Func_08_5959::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $a0
+	ld [hl], LOW(Func_08_5aa0)
 	inc l
-	ld [hl], $5a
+	ld [hl], HIGH(Func_08_5aa0)
 	call Func_08_5ba3
 	call Func_00_127d
 	ld d, b
@@ -3275,7 +3275,7 @@ ObjInit_08_5982::
 	obj_byte OBJ_LAYER, $00
 	obj_byte OBJ_PALETTE, $0e
 	obj_byte OBJ_VAR_2C, $02
-	obj_word OBJ_FRAME, $5770
+	obj_word OBJ_FRAME, Frame_20_5770
 	obj_end
 
 Func_08_598e::
@@ -3283,9 +3283,9 @@ Func_08_598e::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $63
+	ld [hl], LOW(Func_08_5a63)
 	inc l
-	ld [hl], $5a
+	ld [hl], HIGH(Func_08_5a63)
 	ld d, b
 	ld e, c
 	push bc
@@ -3376,9 +3376,9 @@ Func_08_59d7::
 .jump_5a35:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $40
+	ld [hl], LOW(Func_08_5a40)
 	inc l
-	ld [hl], $5a
+	ld [hl], HIGH(Func_08_5a40)
 	jr .jump_5a2f
 
 
@@ -3605,7 +3605,7 @@ Func_08_5c71::
 ObjInit_08_5c93::
 	obj_byte OBJ_BANK, BANK(Func_08_5ca6)
 	obj_word OBJ_HANDLER, Func_08_5ca6
-	obj_word OBJ_ANIM, $4921
+	obj_word OBJ_ANIM, Anim_04_4921
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_PALETTE, $06
 	obj_word OBJ_XACCEL, $0040
@@ -3665,9 +3665,9 @@ Func_08_5ca6::
 	jr z, .jump_5d09
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], $35
+	ld [hl], LOW(Anim_04_4935)
 	inc l
-	ld [hl], $49
+	ld [hl], HIGH(Anim_04_4935)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -3981,9 +3981,9 @@ Func_08_5fe6::
 	ldh [$ffa6], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $63
+	ld [hl], LOW(Func_08_6163)
 	inc l
-	ld [hl], $61
+	ld [hl], HIGH(Func_08_6163)
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld [hl], $00

@@ -335,7 +335,7 @@ ObjInit_0e_4220::
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $45
-	obj_word OBJ_FRAME, $40a2
+	obj_word OBJ_FRAME, Frame_20_40a2
 	obj_end
 
 ObjInit_0e_4234::
@@ -366,7 +366,7 @@ ObjInit_0e_4259::
 	obj_word OBJ_TOUCH_HANDLER, $7b05
 	obj_byte OBJ_BANK, BANK(Func_0a_72c1)
 	obj_word OBJ_HANDLER, Func_0a_72c1
-	obj_word OBJ_ANIM, $4e8f
+	obj_word OBJ_ANIM, Anim_04_4e8f
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_LAYER, $01
@@ -418,7 +418,7 @@ ObjInit_0e_42a9::
 	obj_byte OBJ_VAR_2C, $01
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $42
-	obj_word OBJ_ANIM, $498f
+	obj_word OBJ_ANIM, Anim_04_498f
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -443,7 +443,7 @@ ObjInit_0e_42d4::
 	obj_byte OBJ_VAR_2C, $02
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_ANIM, $4947
+	obj_word OBJ_ANIM, Anim_04_4947
 	obj_word OBJ_YACCEL, $0025
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -484,7 +484,7 @@ ObjInit_0e_4318::
 	obj_byte OBJ_VAR_2C, $02
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_ANIM, $495f
+	obj_word OBJ_ANIM, Anim_04_495f
 	obj_word OBJ_YACCEL, $0025
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
@@ -499,7 +499,7 @@ ObjInit_0e_4334::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $43
 	obj_byte OBJ_PALETTE, $09
-	obj_word OBJ_ANIM, $49c9
+	obj_word OBJ_ANIM, Anim_04_49c9
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -515,7 +515,7 @@ ObjInit_0e_4355::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $47
 	obj_byte OBJ_PALETTE, $09
-	obj_word OBJ_ANIM, $4bab
+	obj_word OBJ_ANIM, Anim_04_4bab
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -531,7 +531,7 @@ ObjInit_0e_4376::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
 	obj_byte OBJ_PALETTE, $0f
-	obj_word OBJ_ANIM, $4acf
+	obj_word OBJ_ANIM, Anim_04_4acf
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0040
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -545,7 +545,7 @@ ObjInit_0e_4397::
 	obj_byte OBJ_ANIM_PARAM, $35
 	obj_byte OBJ_PALETTE, $0a
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_ANIM, $4a33
+	obj_word OBJ_ANIM, Anim_04_4a33
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
@@ -575,7 +575,7 @@ ObjInit_0e_43cb::
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $4c
 	obj_byte OBJ_PALETTE, $03
-	obj_word OBJ_ANIM, $4edb
+	obj_word OBJ_ANIM, Anim_04_4edb
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
@@ -605,7 +605,7 @@ ObjInit_0e_43fd::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $36
 	obj_byte OBJ_PALETTE, $13
-	obj_word OBJ_ANIM, $4cf7
+	obj_word OBJ_ANIM, Anim_04_4cf7
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_XACCEL, $0020
 	obj_end
@@ -630,7 +630,7 @@ ObjInit_0e_4423::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $3b
 	obj_byte OBJ_PALETTE, $15
-	obj_word OBJ_ANIM, $4d31
+	obj_word OBJ_ANIM, Anim_04_4d31
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_YACCEL, $0020
 	obj_word OBJ_XACCEL, $0020
@@ -644,7 +644,7 @@ ObjInit_0e_443f::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $44
 	obj_byte OBJ_PALETTE, $14
-	obj_word OBJ_ANIM, $4d6d
+	obj_word OBJ_ANIM, Anim_04_4d6d
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_YACCEL, $0020
 	obj_word OBJ_XACCEL, $0020
@@ -657,7 +657,7 @@ ObjInit_0e_445b::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $38
 	obj_byte OBJ_PALETTE, $07
-	obj_word OBJ_ANIM, $4c01
+	obj_word OBJ_ANIM, Anim_04_4c01
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_byte OBJ_LAYER, $01
 	obj_end
@@ -684,7 +684,7 @@ ObjInit_0e_4488::
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
-	obj_word OBJ_ANIM, $4c51
+	obj_word OBJ_ANIM, Anim_04_4c51
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -711,7 +711,7 @@ ObjInit_0e_44b5::
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $39
 	obj_byte OBJ_PALETTE, $11
-	obj_word OBJ_ANIM, $4b09
+	obj_word OBJ_ANIM, Anim_04_4b09
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0060
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -730,19 +730,19 @@ ObjInit_0e_44d6::
 ObjInit_0e_44e6::
 	obj_include ObjInit_0e_44d6
 	obj_byte OBJ_PALETTE, $11
-	obj_word OBJ_FRAME, $563e
+	obj_word OBJ_FRAME, Frame_20_563e
 	obj_end
 
 ObjInit_0e_44ef::
 	obj_include ObjInit_0e_44d6
 	obj_byte OBJ_PALETTE, $03
-	obj_word OBJ_FRAME, $4522
+	obj_word OBJ_FRAME, Frame_20_4522
 	obj_end
 
 ObjInit_0e_44f8::
 	obj_include ObjInit_0e_44d6
 	obj_byte OBJ_PALETTE, $11
-	obj_word OBJ_FRAME, $5614
+	obj_word OBJ_FRAME, Frame_20_5614
 	obj_end
 
 ObjInit_0e_4501::
@@ -761,7 +761,7 @@ ObjInit_0e_4514::
 	obj_byte OBJ_BANK, BANK(Func_0a_6477)
 	obj_word OBJ_HANDLER, Func_0a_6477
 	obj_word OBJ_TOUCH_HANDLER, $739e
-	obj_word OBJ_ANIM, $4ca7
+	obj_word OBJ_ANIM, Anim_04_4ca7
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $3a
 	obj_byte OBJ_PALETTE, $17
@@ -774,7 +774,7 @@ ObjInit_0e_452a::
 	obj_word OBJ_HANDLER, Func_0a_69f5
 	obj_word OBJ_TOUCH_HANDLER, $4007
 	obj_byte OBJ_VAR_2C, $09
-	obj_word OBJ_ANIM, $4c1b
+	obj_word OBJ_ANIM, Anim_04_4c1b
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $34
 	obj_byte OBJ_PALETTE, $07
@@ -787,7 +787,7 @@ ObjInit_0e_4542::
 	obj_word OBJ_HANDLER, Func_0a_6b9f
 	obj_word OBJ_TOUCH_HANDLER, $78af
 	obj_byte OBJ_VAR_2C, $0a
-	obj_word OBJ_ANIM, $4b57
+	obj_word OBJ_ANIM, Anim_04_4b57
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $4d
 	obj_byte OBJ_PALETTE, $01
@@ -804,7 +804,7 @@ ObjInit_0e_455c::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $37
 	obj_byte OBJ_PALETTE, $07
-	obj_word OBJ_ANIM, $4a0d
+	obj_word OBJ_ANIM, Anim_04_4a0d
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
@@ -815,7 +815,7 @@ ObjInit_0e_4574::
 	obj_word OBJ_TOUCH_HANDLER, $4001
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $41
-	obj_word OBJ_ANIM, $4cc7
+	obj_word OBJ_ANIM, Anim_04_4cc7
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $01
 	obj_end
@@ -825,7 +825,7 @@ ObjInit_0e_458a::
 	obj_byte OBJ_BANK, BANK(Func_0a_6cfc)
 	obj_word OBJ_HANDLER, Func_0a_6cfc
 	obj_word OBJ_TOUCH_HANDLER, $4001
-	obj_word OBJ_ANIM, $4dd5
+	obj_word OBJ_ANIM, Anim_04_4dd5
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $48
 	obj_byte OBJ_PALETTE, $16
@@ -837,7 +837,7 @@ ObjInit_0e_45a0::
 	obj_byte OBJ_BANK, BANK(Func_08_5156)
 	obj_word OBJ_HANDLER, Func_08_5156
 	obj_word OBJ_TOUCH_HANDLER, $7272
-	obj_word OBJ_ANIM, $4f83
+	obj_word OBJ_ANIM, Anim_04_4f83
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
@@ -882,7 +882,7 @@ ObjInit_0e_45f1::
 	obj_word OBJ_TOUCH_HANDLER, $4001
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $4a
-	obj_word OBJ_ANIM, $4ecd
+	obj_word OBJ_ANIM, Anim_04_4ecd
 	obj_byte OBJ_PALETTE, $1e
 	obj_byte OBJ_LAYER, $02
 	obj_end
@@ -922,7 +922,7 @@ ObjInit_0e_4627::
 ObjInit_0e_4636::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_FRAME, $5926
+	obj_word OBJ_FRAME, Frame_20_5926
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $03
 	obj_end
@@ -932,7 +932,7 @@ ObjInit_0e_4643::
 	obj_word OBJ_HANDLER, Func_08_4034
 	obj_word OBJ_TOUCH_HANDLER, $6b2e
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, $4e0b
+	obj_word OBJ_ANIM, Anim_04_4e0b
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_VAR_2E, $0a
@@ -950,7 +950,7 @@ ObjInit_0e_4660::
 	obj_word OBJ_TOUCH_HANDLER, $6e97
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_PALETTE, $02
-	obj_word OBJ_ANIM, $505f
+	obj_word OBJ_ANIM, Anim_04_505f
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $07
@@ -979,7 +979,7 @@ ObjInit_0e_4695::
 	obj_byte OBJ_BANK, BANK(Func_08_4034)
 	obj_word OBJ_HANDLER, Func_08_4034
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, $4fcd
+	obj_word OBJ_ANIM, Anim_04_4fcd
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
@@ -1027,7 +1027,7 @@ ObjInit_0e_46df::
 	obj_word OBJ_TOUCH_HANDLER, $756b
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_ANIM_PARAM, $11
-	obj_word OBJ_ANIM, $553d
+	obj_word OBJ_ANIM, Anim_04_553d
 	obj_end
 
 ObjInit_0e_46f1::
@@ -1038,7 +1038,7 @@ ObjInit_0e_46f1::
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $4f
-	obj_word OBJ_ANIM, $5217
+	obj_word OBJ_ANIM, Anim_04_5217
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
@@ -1070,7 +1070,7 @@ ObjInit_0e_4727::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $50
 	obj_byte OBJ_PALETTE, $2c
-	obj_word OBJ_ANIM, $5285
+	obj_word OBJ_ANIM, Anim_04_5285
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_VAR_32, $01
 	obj_byte OBJ_VAR_36, $2d
@@ -1085,7 +1085,7 @@ ObjInit_0e_4745::
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $4e
-	obj_word OBJ_ANIM, $52d5
+	obj_word OBJ_ANIM, Anim_04_52d5
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_VAR_35, $01
 	obj_end
@@ -1115,7 +1115,7 @@ ObjInit_0e_4775::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $51
 	obj_byte OBJ_PALETTE, $26
-	obj_word OBJ_ANIM, $54a9
+	obj_word OBJ_ANIM, Anim_04_54a9
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
@@ -1133,7 +1133,7 @@ ObjInit_0e_4799::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $52
 	obj_byte OBJ_PALETTE, $2a
-	obj_word OBJ_ANIM, $5407
+	obj_word OBJ_ANIM, Anim_04_5407
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
@@ -1148,7 +1148,7 @@ ObjInit_0e_47bf::
 	obj_word OBJ_TOUCH_HANDLER, $76c6
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $0b
-	obj_word OBJ_ANIM, $4efd
+	obj_word OBJ_ANIM, Anim_04_4efd
 	obj_byte OBJ_PALETTE, $1b
 	obj_byte OBJ_LAYER, $02
 	obj_end
@@ -1160,7 +1160,7 @@ ObjInit_0e_47d0::
 	obj_word OBJ_HANDLER, Func_08_4034
 	obj_byte OBJ_ANIM_PARAM, $0b
 	obj_byte OBJ_COLLISION, $04
-	obj_word OBJ_ANIM, $4efd
+	obj_word OBJ_ANIM, Anim_04_4efd
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $1b
 	obj_byte OBJ_VAR_2E, $84
@@ -1171,7 +1171,7 @@ ObjInit_0e_47e8::
 	obj_byte OBJ_BANK, BANK(Func_0a_670a)
 	obj_word OBJ_HANDLER, Func_0a_670a
 	obj_word OBJ_TOUCH_HANDLER, $769d
-	obj_word OBJ_ANIM, $4ee9
+	obj_word OBJ_ANIM, Anim_04_4ee9
 	obj_byte OBJ_COLLISION, $10
 	obj_byte OBJ_ANIM_PARAM, $06
 	obj_byte OBJ_PALETTE, $03
@@ -1184,8 +1184,8 @@ ObjInit_0e_4800::
 	obj_byte OBJ_BANK, BANK(Func_0a_6744)
 	obj_word OBJ_HANDLER, Func_0a_6744
 	obj_word OBJ_TOUCH_HANDLER, $769d
-	obj_word OBJ_FRAME, $561a
-	obj_word OBJ_ANIM, $4ef5
+	obj_word OBJ_FRAME, Frame_20_561a
+	obj_word OBJ_ANIM, Anim_04_4ef5
 	obj_byte OBJ_COLLISION, $10
 	obj_byte OBJ_ANIM_PARAM, $06
 	obj_byte OBJ_PALETTE, $1f
@@ -1210,7 +1210,7 @@ ObjInit_0e_482f::
 	obj_word OBJ_HANDLER, Func_0a_5989
 	obj_byte OBJ_VAR_2C, $0c
 	obj_byte OBJ_PALETTE, $02
-	obj_word OBJ_ANIM, $505f
+	obj_word OBJ_ANIM, Anim_04_505f
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_byte OBJ_VAR_2E, $00
@@ -1251,58 +1251,58 @@ ObjInit_0e_486f::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $03
-	obj_word OBJ_FRAME, $5920
+	obj_word OBJ_FRAME, Frame_20_5920
 	obj_end
 
 ObjInit_0e_487e::
 	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, $4bbe
+	obj_word OBJ_FRAME, Frame_20_4bbe
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
 ObjInit_0e_4887::
 	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, $4bd6
+	obj_word OBJ_FRAME, Frame_20_4bd6
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
 ObjInit_0e_4890::
 	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, $4bd0
+	obj_word OBJ_FRAME, Frame_20_4bd0
 	obj_byte OBJ_VAR_2E, $04
 	obj_end
 
 ObjInit_0e_4899::
 	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, $4ba6
+	obj_word OBJ_FRAME, Frame_20_4ba6
 	obj_byte OBJ_VAR_2E, $08
 	obj_end
 
 ObjInit_0e_48a2::
 	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, $4c5a
-	obj_word OBJ_ANIM, $5117
+	obj_word OBJ_FRAME, Frame_20_4c5a
+	obj_word OBJ_ANIM, Anim_04_5117
 	obj_word OBJ_VAR_2E, $0000
 	obj_end
 
 ObjInit_0e_48af::
 	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, $4a68
-	obj_word OBJ_ANIM, $512d
+	obj_word OBJ_FRAME, Frame_20_4a68
+	obj_word OBJ_ANIM, Anim_04_512d
 	obj_word OBJ_VAR_2E, $0001
 	obj_end
 
 ObjInit_0e_48bc::
 	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, $4c72
-	obj_word OBJ_ANIM, $5159
+	obj_word OBJ_FRAME, Frame_20_4c72
+	obj_word OBJ_ANIM, Anim_04_5159
 	obj_word OBJ_VAR_2E, $0002
 	obj_end
 
 ObjInit_0e_48c9::
 	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, $458e
-	obj_word OBJ_ANIM, $5143
+	obj_word OBJ_FRAME, Frame_20_458e
+	obj_word OBJ_ANIM, Anim_04_5143
 	obj_word OBJ_VAR_2E, $0003
 	obj_end
 
@@ -1315,22 +1315,22 @@ ObjInit_0e_48d6::
 	obj_byte OBJ_PALETTE, $00
 	obj_byte OBJ_ANIM_PARAM, $0a
 	obj_byte OBJ_COLLISION, $00
-	obj_word OBJ_FRAME, $4ace
-	obj_word OBJ_ANIM, $516f
+	obj_word OBJ_FRAME, Frame_20_4ace
+	obj_word OBJ_ANIM, Anim_04_516f
 	obj_end
 
 ObjInit_0e_48ef::
 	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, $4d4a
-	obj_word OBJ_ANIM, $5509
+	obj_word OBJ_FRAME, Frame_20_4d4a
+	obj_word OBJ_ANIM, Anim_04_5509
 	obj_byte OBJ_VAR_2F, $00
 	obj_byte OBJ_VAR_30, $04
 	obj_end
 
 ObjInit_0e_48fd::
 	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, $4d44
-	obj_word OBJ_ANIM, $54ed
+	obj_word OBJ_FRAME, Frame_20_4d44
+	obj_word OBJ_ANIM, Anim_04_54ed
 	obj_byte OBJ_VAR_2E, $08
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_30, $08
@@ -1338,38 +1338,38 @@ ObjInit_0e_48fd::
 
 ObjInit_0e_490d::
 	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, $4d3e
-	obj_word OBJ_ANIM, $54df
+	obj_word OBJ_FRAME, Frame_20_4d3e
+	obj_word OBJ_ANIM, Anim_04_54df
 	obj_byte OBJ_VAR_2F, $02
 	obj_byte OBJ_VAR_30, $10
 	obj_end
 
 ObjInit_0e_491b::
 	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, $4d50
-	obj_word OBJ_ANIM, $54fb
+	obj_word OBJ_FRAME, Frame_20_4d50
+	obj_word OBJ_ANIM, Anim_04_54fb
 	obj_byte OBJ_VAR_2F, $03
 	obj_byte OBJ_VAR_30, $20
 	obj_end
 
 ObjInit_0e_4929::
 	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, $4180
+	obj_word OBJ_FRAME, Frame_20_4180
 	obj_end
 
 ObjInit_0e_4930::
 	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, $417a
+	obj_word OBJ_FRAME, Frame_20_417a
 	obj_end
 
 ObjInit_0e_4937::
 	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, $4174
+	obj_word OBJ_FRAME, Frame_20_4174
 	obj_end
 
 ObjInit_0e_493e::
 	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, $4186
+	obj_word OBJ_FRAME, Frame_20_4186
 	obj_end
 
 ObjInit_0e_4945::
@@ -2708,7 +2708,7 @@ ObjInit_0e_52ac::
 	obj_word OBJ_TOUCH_HANDLER, $733f
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, $4a8f
+	obj_word OBJ_ANIM, Anim_04_4a8f
 	obj_word OBJ_PALETTE, $0000
 	obj_byte OBJ_LAYER, $01
 	obj_byte OBJ_OAM_ATTR, $20
@@ -5361,7 +5361,7 @@ ObjInit_0e_663f::
 	obj_word OBJ_TOUCH_HANDLER, $6e97
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_ANIM, $4df5
+	obj_word OBJ_ANIM, Anim_04_4df5
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $07
@@ -5383,46 +5383,46 @@ ObjInit_0e_6662::
 
 ObjInit_0e_666b::
 	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, $5986
+	obj_word OBJ_FRAME, Frame_20_5986
 	obj_word OBJ_VAR_2E, $0500
 	obj_end
 
 ObjInit_0e_6675::
 	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, $598c
+	obj_word OBJ_FRAME, Frame_20_598c
 	obj_word OBJ_VAR_2E, $0400
 	obj_end
 
 ObjInit_0e_667f::
 	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, $5998
+	obj_word OBJ_FRAME, Frame_20_5998
 	obj_word OBJ_VAR_2E, $0200
 	obj_end
 
 ObjInit_0e_6689::
 	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, $599e
+	obj_word OBJ_FRAME, Frame_20_599e
 	obj_word OBJ_VAR_2E, $0100
 	obj_end
 
 ObjInit_0e_6693::
 	obj_include ObjInit_0e_4844
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, $4ee8
+	obj_word OBJ_FRAME, Frame_20_4ee8
 	obj_byte OBJ_VAR_2E, $03
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
 ObjInit_0e_66a0::
 	obj_include ObjInit_0e_4844
-	obj_word OBJ_FRAME, $4b4c
+	obj_word OBJ_FRAME, Frame_20_4b4c
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
 ObjInit_0e_66ab::
 	obj_include ObjInit_0e_4844
-	obj_word OBJ_FRAME, $48c4
+	obj_word OBJ_FRAME, Frame_20_48c4
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
@@ -5518,19 +5518,19 @@ ObjInit_0e_6724::
 ObjInit_0e_672a::
 	obj_include ObjInit_0e_427b
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, $44ec
+	obj_word OBJ_FRAME, Frame_20_44ec
 	obj_end
 
 ObjInit_0e_6733::
 	obj_include ObjInit_0e_427b
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, $404e
+	obj_word OBJ_FRAME, Frame_20_404e
 	obj_end
 
 ObjInit_0e_673c::
 	obj_include ObjInit_0e_427b
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, $5968
+	obj_word OBJ_FRAME, Frame_20_5968
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
@@ -5557,7 +5557,7 @@ ObjInit_0e_6762::
 	obj_word OBJ_HANDLER, Func_08_50de
 	obj_word OBJ_TOUCH_HANDLER, $7216
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, $4f83
+	obj_word OBJ_ANIM, Anim_04_4f83
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $01
 	obj_byte OBJ_COLLISION, $08
@@ -7139,13 +7139,13 @@ ObjInit_0e_7280::
 	obj_word OBJ_VAR_30, $0035
 	obj_include ObjInit_0e_44d6
 	obj_byte OBJ_PALETTE, $1e
-	obj_word OBJ_FRAME, $5656
+	obj_word OBJ_FRAME, Frame_20_5656
 	obj_end
 
 ObjInit_0e_7292::
 	obj_include ObjInit_0e_44d6
 	obj_byte OBJ_PALETTE, $1e
-	obj_word OBJ_FRAME, $5656
+	obj_word OBJ_FRAME, Frame_20_5656
 	obj_end
 
 ObjInit_0e_729b::
@@ -7347,7 +7347,7 @@ ObjInit_0e_73ed::
 
 ObjInit_0e_73fa::
 	obj_include ObjInit_0e_4501
-	obj_word OBJ_FRAME, $5614
+	obj_word OBJ_FRAME, Frame_20_5614
 	obj_word OBJ_VAR_2E, $0001
 	obj_byte OBJ_PALETTE, $11
 	obj_end
@@ -7355,124 +7355,124 @@ ObjInit_0e_73fa::
 ObjInit_0e_7406::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $fec0
-	obj_word OBJ_FRAME, $540a
+	obj_word OBJ_FRAME, Frame_20_540a
 	obj_word OBJ_VAR_2E, $005a
 	obj_end
 
 ObjInit_0e_7413::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_38, $fec0
-	obj_word OBJ_FRAME, $5410
+	obj_word OBJ_FRAME, Frame_20_5410
 	obj_word OBJ_VAR_2E, $0014
 	obj_end
 
 ObjInit_0e_7420::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_38, $fec0
-	obj_word OBJ_FRAME, $5410
+	obj_word OBJ_FRAME, Frame_20_5410
 	obj_word OBJ_VAR_2E, $0050
 	obj_end
 
 ObjInit_0e_742d::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_38, $ff00
-	obj_word OBJ_FRAME, $5410
+	obj_word OBJ_FRAME, Frame_20_5410
 	obj_word OBJ_VAR_2E, $0082
 	obj_end
 
 ObjInit_0e_743a::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0180
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $0078
 	obj_end
 
 ObjInit_0e_7447::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0180
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $007d
 	obj_end
 
 ObjInit_0e_7454::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $0078
 	obj_end
 
 ObjInit_0e_7461::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $0060
 	obj_end
 
 ObjInit_0e_746e::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $0050
 	obj_end
 
 ObjInit_0e_747b::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $0050
 	obj_end
 
 ObjInit_0e_7488::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $00f0
 	obj_end
 
 ObjInit_0e_7495::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0100
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $00be
 	obj_end
 
 ObjInit_0e_74a2::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_36, $0100
-	obj_word OBJ_FRAME, $5416
+	obj_word OBJ_FRAME, Frame_20_5416
 	obj_word OBJ_VAR_2E, $00fa
 	obj_end
 
 ObjInit_0e_74af::
 	obj_include ObjInit_0e_4501
-	obj_word OBJ_FRAME, $541c
+	obj_word OBJ_FRAME, Frame_20_541c
 	obj_word OBJ_VAR_2E, $0016
 	obj_end
 
 ObjInit_0e_74b9::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_38, $0140
-	obj_word OBJ_FRAME, $541c
+	obj_word OBJ_FRAME, Frame_20_541c
 	obj_word OBJ_VAR_2E, $0016
 	obj_end
 
 ObjInit_0e_74c6::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_38, $0100
-	obj_word OBJ_FRAME, $541c
+	obj_word OBJ_FRAME, Frame_20_541c
 	obj_word OBJ_VAR_2E, $0016
 	obj_end
 
 ObjInit_0e_74d3::
 	obj_include ObjInit_0e_4501
 	obj_word OBJ_VAR_38, $0120
-	obj_word OBJ_FRAME, $541c
+	obj_word OBJ_FRAME, Frame_20_541c
 	obj_word OBJ_VAR_2E, $000f
 	obj_end
 
 ObjInit_0e_74e0::
 	obj_include ObjInit_0e_4501
-	obj_word OBJ_FRAME, $541c
+	obj_word OBJ_FRAME, Frame_20_541c
 	obj_word OBJ_VAR_2E, $0001
 	obj_end
 
@@ -8173,7 +8173,7 @@ ObjInit_0e_7977::
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_byte OBJ_PALETTE, $00
-	obj_word OBJ_ANIM, $570b
+	obj_word OBJ_ANIM, Anim_04_570b
 	obj_end
 
 ObjInit_0e_798d::

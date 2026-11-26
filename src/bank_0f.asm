@@ -68,7 +68,7 @@ ObjInit_0f_4073::
 	obj_word OBJ_HANDLER, Func_0f_424c
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_byte OBJ_PALETTE, $31
-	obj_word OBJ_ANIM, $5637
+	obj_word OBJ_ANIM, Anim_04_5637
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_X, $0082
 	obj_word OBJ_Y, $0067
@@ -78,7 +78,7 @@ ObjInit_0f_408a::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, $00
 	obj_word OBJ_HANDLER, NextObject
-	obj_word OBJ_FRAME, $40a2
+	obj_word OBJ_FRAME, Frame_20_40a2
 	obj_byte OBJ_PALETTE, $01
 	obj_word OBJ_X, $0064
 	obj_word OBJ_Y, $0046
@@ -144,7 +144,7 @@ ObjInit_0f_410b::
 	obj_word OBJ_HANDLER, Func_0f_42a6
 	obj_byte OBJ_PALETTE, $34
 	obj_byte OBJ_OAM_ATTR, $30
-	obj_word OBJ_ANIM, $556b
+	obj_word OBJ_ANIM, Anim_04_556b
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_X, $0050
 	obj_word OBJ_Y, $0064
@@ -205,7 +205,7 @@ ObjInit_0f_418d::
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
 	obj_byte OBJ_OAM_ATTR, $30
-	obj_word OBJ_ANIM, $55d3
+	obj_word OBJ_ANIM, Anim_04_55d3
 	obj_byte OBJ_PALETTE, $30
 	obj_word OBJ_X, $005a
 	obj_word OBJ_Y, $0064
@@ -217,7 +217,7 @@ ObjInit_0f_41a2::
 	obj_word OBJ_HANDLER, Func_0f_42c4
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_PALETTE, $37
-	obj_word OBJ_FRAME, $5d40
+	obj_word OBJ_FRAME, Frame_20_5d40
 	obj_word OBJ_X, $0030
 	obj_byte OBJ_VAR_2E, $3c
 	obj_end
@@ -247,7 +247,7 @@ ObjInit_0f_41dd::
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_ANIM, $431b
+	obj_word OBJ_ANIM, Anim_04_431b
 	obj_byte OBJ_ANIM_FLAGS, $00
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_word OBJ_X, $007c
@@ -257,7 +257,7 @@ ObjInit_0f_41dd::
 ObjInit_0f_41f4::
 	obj_byte OBJ_FLAGS, $18
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, $5968
+	obj_word OBJ_FRAME, Frame_20_5968
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_X, $0065
 	obj_word OBJ_Y, $007f
@@ -280,7 +280,7 @@ Func_0f_4204::
 ObjInit_0f_4223::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_PALETTE, $02
-	obj_word OBJ_ANIM, $437f
+	obj_word OBJ_ANIM, Anim_04_437f
 	obj_byte OBJ_ANIM_FLAGS, $01
 	obj_byte OBJ_LAYER, $01
 	obj_end
@@ -298,7 +298,7 @@ ObjInit_0f_4239::
 	obj_word OBJ_HANDLER, Func_08_402e
 	obj_word OBJ_X, $0094
 	obj_word OBJ_Y, $0014
-	obj_word OBJ_ANIM, $56fd
+	obj_word OBJ_ANIM, Anim_04_56fd
 	obj_byte OBJ_OAM_ATTR, $07
 	obj_end
 
@@ -323,7 +323,7 @@ ObjInit_0f_4267::
 	obj_byte OBJ_BANK, BANK(Func_0f_427f)
 	obj_word OBJ_HANDLER, Func_0f_427f
 	obj_byte OBJ_PALETTE, $33
-	obj_word OBJ_ANIM, $56f1
+	obj_word OBJ_ANIM, Anim_04_56f1
 	obj_word OBJ_XVEL, $fe80
 	obj_byte OBJ_VAR_2E, $2d
 	obj_word OBJ_X, $0074

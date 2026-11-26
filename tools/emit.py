@@ -85,6 +85,10 @@ class Emitter:
         self.names = {}      # file offset -> global label name
         self.locals = {}     # file offset -> (scope offset, local name)
         self.exported = set()  # locals referenced from other files
+        self.lohi_map = {}
+        for (lo, hi, tb, target) in self.t.lohi:
+            self.lohi_map[lo] = ("LOW", tb, target)
+            self.lohi_map[hi] = ("HIGH", tb, target)
         self._name_labels()
 
     # ---------------------------------------------------------------- labels
@@ -96,8 +100,8 @@ class Emitter:
             if o not in t.insns:
                 continue
             by_bank.setdefault(o // BANK_SIZE, []).append((o, kind))
-        for o in t.data:
-            by_bank.setdefault(o // BANK_SIZE, []).append((o, "data"))
+        for o, pfx in t.data_labels.items():
+            by_bank.setdefault(o // BANK_SIZE, []).append((o, "data:" + pfx))
         for bank, items in by_bank.items():
             items.sort()
             for o, kind in items:
@@ -106,8 +110,8 @@ class Emitter:
                     self.names[o] = overrides[o]
                 elif kind == "func":
                     self.names[o] = "Func_%02x_%04x" % (bank, addr)
-                elif kind == "data":
-                    self.names[o] = "ObjInit_%02x_%04x" % (bank, addr)
+                elif kind.startswith("data:"):
+                    self.names[o] = "%s_%02x_%04x" % (kind[5:], bank, addr)
             # Jump targets become locals of the preceding global label; a
             # jump target with no preceding global becomes global itself.
             globals_sorted = sorted(o for o, _ in items if o in self.names)
@@ -208,7 +212,13 @@ class Emitter:
             v = 0xFF00 | i.imm
             t = t.replace("{a8}", HW_REGS.get(v, hexw(v)))
         elif "{n8}" in t:
-            t = t.replace("{n8}", hexb(i.imm))
+            txt = None
+            if o in self.lohi_map:
+                part, tb, target = self.lohi_map[o]
+                lab = self.qref(tb, target)
+                if lab:
+                    txt = "%s(%s)" % (part, lab)
+            t = t.replace("{n8}", txt or hexb(i.imm))
         elif "{s8}" in t:
             v = i.imm - 0x100 if i.imm >= 0x80 else i.imm
             if "sp + " in t:
@@ -268,8 +278,10 @@ class Emitter:
                     if gap is not None:
                         self.emit_gap(out, gap, o, base, vbase)
                         gap = None
-                    out.append("\n%s::\n" % self.names[o])
-                    out.extend("\t%s\n" % x for x in self.fmt_objinit(t.data[o]))
+                    for (lo, line) in self.fmt_data(o, t.data[o]):
+                        if lo is not None and lo in self.names:
+                            out.append("\n%s::\n" % self.names[lo])
+                        out.append("\t%s\n" % line)
                     o += t.data[o][3]
                 else:
                     if gap is None:
@@ -278,6 +290,60 @@ class Emitter:
             if gap is not None:
                 self.emit_gap(out, gap, e, base, vbase)
         return "".join(out)
+
+    def fmt_data(self, o, item):
+        """Lines for a data item: list of (file offset or None, text)."""
+        kind, bank = item[0], item[1]
+        if kind == "objinit":
+            lines = self.fmt_objinit(item)
+            return [(o, lines[0])] + [(None, x) for x in lines[1:]]
+        if kind == "tiles":
+            return [(o, 'INCBIN "baserom.gbc", $%06x, $%04x' % (o, item[3]))]
+        if kind == "sprites":
+            sb = [b - 0x100 if b >= 0x80 else b for b in item[2]]
+            return [(o if k == 0 else None, "db %d, %d" % (sb[k], sb[k + 1])) for k in range(0, len(sb), 2)]
+        if kind == "frames":
+            res = []
+            for (a, tiles, spr, n, gb) in item[2]:
+                fo = off(bank, a)
+                if n == 0 and tiles == spr == gb == 0:
+                    res.append((fo, "frame_none"))
+                    continue
+                tl, sl = self.qref(gb, tiles), self.qref(gb, spr)
+                if tl and sl:
+                    res.append((fo, "frame %s, %s, %d" % (tl, sl, n)))
+                else:
+                    res.append((fo, "dw %s, %s\n\tdb %d, %s" % (hexw(tiles), hexw(spr), n, hexb(gb))))
+            return res
+        if kind == "anim":
+            res = []
+            for ent in item[2]:
+                fo = off(bank, ent[0])
+                if ent[1] == "frame":
+                    res.append((fo, "anim_frame %s" % (self.qref(self.t.frame_bank, ent[2]) or hexw(ent[2]))))
+                    continue
+                c, e, w = ent[2], ent[3], ent[4]
+                if c == 0:
+                    txt = "anim_jump %s" % (self.qref(bank, w) or hexw(w))
+                elif c == 1:
+                    txt = "anim_speed %d" % e
+                elif c == 2:
+                    txt = "anim_call %s" % (self.qref(bank if w >= 0x4000 else 0, w) or hexw(w))
+                elif c == 3:
+                    txt = "anim_clear_flag"
+                elif c == 4:
+                    txt = "anim_param %s" % hexb(e)
+                elif c == 5:
+                    txt = "anim_var38 %s" % hexw(w)
+                elif c == 6:
+                    txt = "anim_xor_attr %s" % hexb(e)
+                elif 7 <= c <= 10:
+                    txt = "anim_sfx %d, %s" % (c - 6, hexb(e))
+                else:
+                    txt = "db %s, %s" % (hexb(e), hexb(0x80 | c))
+                res.append((fo, txt))
+            return res
+        raise ValueError(kind)
 
     def fmt_objinit(self, item):
         _, bank, entries, _ = item
@@ -304,7 +370,12 @@ class Emitter:
                 lines.append("obj_byte %s, %s" % (obj_field(f), val))
             elif e[0] == "word":
                 f, v = e[1], e[2]
-                val = handler if (f == 2 and handler) else hexw(v)
+                val = handler if (f == 2 and handler) else None
+                if f == 0x22 and 0x4000 <= v < 0x8000:
+                    val = self.qref(self.t.anim_bank, v)
+                elif f == 0x20 and 0x4000 <= v < 0x8000:
+                    val = self.qref(self.t.frame_bank, v)
+                val = val or hexw(v)
                 lines.append("obj_word %s, %s" % (obj_field(f), val))
             elif e[0] == "include":
                 lab = self.qref(0 if e[1] < 0x4000 else bank, e[1])

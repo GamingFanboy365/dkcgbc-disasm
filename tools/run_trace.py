@@ -22,6 +22,11 @@ def make(rom):
             a = rom[o] | rom[o + 1] << 8
             if a:
                 t.add(b, a, "func", b)
+    t.second_program = set(hints.SECOND_PROGRAM_BANKS)
+    for (b, start, count) in hints.FRAME_TABLES:
+        t.parse_frame_table(b, start, count)
+    for (b, start, end) in hints.ANIM_RUNS:
+        t.parse_anim(b, start, end)
     t.list_only_banks = set(b for b, _, _ in hints.OBJ_LIST_RUNS)
     for (b, start, end) in hints.OBJ_LIST_RUNS:
         t.parse_obj_run(b, start, end)

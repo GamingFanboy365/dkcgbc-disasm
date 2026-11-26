@@ -40,4 +40,77 @@ MACRO obj_end
 	ENDC
 ENDM
 
+
+; Animation scripts (bank $04), run by Func_00_127d once every OBJ_ANIM_SPEED
+; frames. Each entry is a word: with bit 15 clear it is a frame to show (it
+; goes into OBJ_FRAME and ends the step); otherwise the low byte is an
+; argument and bits 8-14 select a command, which runs immediately.
+
+; anim_frame header: show a frame (a header in bank $20) for one step
+MACRO anim_frame
+	dw \1
+ENDM
+
+; anim_jump script: continue at another script (usually a loop)
+MACRO anim_jump
+	db $00, $80
+	dw \1
+ENDM
+
+; anim_speed n: set OBJ_ANIM_SPEED (frames per step) for following frames
+MACRO anim_speed
+	db \1, $81
+ENDM
+
+; anim_call routine: call a routine (with bank $04 mapped, bc = object)
+MACRO anim_call
+	db $00, $82
+	dw \1
+ENDM
+
+; anim_clear_flag: clear bit 7 of OBJ_ANIM_FLAGS (handlers poll it)
+MACRO anim_clear_flag
+	db $00, $83
+ENDM
+
+; anim_param n: set OBJ_ANIM_PARAM
+MACRO anim_param
+	db \1, $84
+ENDM
+
+; anim_var38 value: set the word OBJ_VAR_38
+MACRO anim_var38
+	db $00, $85
+	dw \1
+ENDM
+
+; anim_xor_attr mask: toggle OBJ_OAM_ATTR bits (e.g. OAM_XFLIP = $20)
+MACRO anim_xor_attr
+	db \1, $86
+ENDM
+
+; anim_sfx channel, id: play sound effect id on channel 1-4
+MACRO anim_sfx
+	ASSERT 1 <= (\1) && (\1) <= 4
+	db \2, $86 + (\1)
+ENDM
+
+; Frame headers (bank $20), drawn by Func_00_1037.
+; frame tiles, offsets, count: count 8x8 tiles at tiles are copied to VRAM by
+; HDMA, and each pair of tiles becomes one 8x16 sprite. offsets holds a
+; signed (dx, dy) byte pair per sprite; each pair moves from the previous
+; sprite's position (the first from the object's position), and the pairs
+; are mirrored when the object is flipped. Both must be in the same bank.
+MACRO frame
+	ASSERT BANK(\1) == BANK(\2)
+	dw \1, \2
+	db \3, BANK(\1)
+ENDM
+
+; frame_none: the empty frame (header 0)
+MACRO frame_none
+	dw 0, 0
+	db 0, 0
+ENDM
+
 ENDC

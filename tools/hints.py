@@ -57,7 +57,7 @@ NAMES = {
 KEEP = set()
 
 # Banks where unreached gaps may be traced speculatively (see tracer.Speculator).
-SPECULATE_BANKS = [0, 5, 7, 8, 9, 10, 15] + list(range(0xF0, 0xFF))
+SPECULATE_BANKS = [0, 4, 5, 7, 8, 9, 10, 15] + list(range(0xF0, 0xFF))
 
 # Bank-0 routines that apply an object initialiser list at hl to the object
 # in bc (see Func_00_188b).
@@ -119,3 +119,14 @@ RAM_NAMES = {
     0xC400: "wObjectFreeList",   # stack of free slot offsets (words)
     0xC440: "wObjectFreeCount",  # number of entries in wObjectFreeList
 }
+
+# Animation scripts (see Func_00_127d): runs of consecutive entries
+# (bank, start, end).
+ANIM_RUNS = [
+    (0x04, 0x4001, 0x5747),
+]
+
+# Frame header tables (see Func_00_1037): (bank, start, count)
+FRAME_TABLES = [
+    (0x20, 0x4000, 1415),
+]

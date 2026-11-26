@@ -59,6 +59,11 @@ for k, t in enumerate(CB):
     EXACT[t] = bytes([0xCB, k])
 
 
+ANIM_SIZES = {"anim_frame": 2, "anim_jump": 4, "anim_speed": 2, "anim_call": 4,
+              "anim_clear_flag": 2, "anim_param": 2, "anim_var38": 4, "anim_xor_attr": 2,
+              "anim_sfx": 2, "frame": 6, "frame_none": 6}
+
+
 class Asm:
     def __init__(self):
         self.syms = {}
@@ -75,6 +80,8 @@ class Asm:
     def eval(self, expr, pc=None, scope=None, bank_of=None):
         e = expr.strip()
         e = re.sub(r"BANK\(([\w.]+)\)", lambda m: str(self.label_bank(m.group(1), scope)), e)
+        e = re.sub(r"LOW\(([\w.]+)\)", lambda m: str(self.eval(m.group(1), pc, scope) & 0xFF), e)
+        e = re.sub(r"HIGH\(([\w.]+)\)", lambda m: str(self.eval(m.group(1), pc, scope) >> 8 & 0xFF), e)
         e = e.replace("@", str(pc) if pc is not None else "@")
 
         def name(m):
@@ -152,6 +159,8 @@ class Asm:
             return 3
         if m == "obj_end":
             return 1
+        if m in ANIM_SIZES:
+            return ANIM_SIZES[m]
         if s in EXACT:
             return len(EXACT[s])
         shp, _ = shape_of(s)
@@ -199,6 +208,27 @@ class Asm:
             a = split_args(rest)
             st, n = ev(a[1]), ev(a[2])
             return base[st:st + n]
+        if m in ANIM_SIZES:
+            a = split_args(rest)
+            if m == "anim_frame":
+                v = ev(a[0])
+                return bytes([v & 0xFF, v >> 8])
+            if m in ("anim_jump", "anim_call", "anim_var38"):
+                v = ev(a[0])
+                return bytes([0, {"anim_jump": 0x80, "anim_call": 0x82, "anim_var38": 0x85}[m], v & 0xFF, v >> 8])
+            if m == "anim_clear_flag":
+                return b"\x00\x83"
+            if m == "anim_sfx":
+                return bytes([ev(a[1]), 0x86 + ev(a[0])])
+            if m in ("anim_speed", "anim_param", "anim_xor_attr"):
+                return bytes([ev(a[0]), {"anim_speed": 0x81, "anim_param": 0x84, "anim_xor_attr": 0x86}[m]])
+            if m == "frame_none":
+                return bytes(6)
+            if m == "frame":
+                t, sp, n = ev(a[0]), ev(a[1]), ev(a[2])
+                tb = self.label_bank(a[0], scope)
+                assert tb == self.label_bank(a[1], scope), "frame: banks differ"
+                return bytes([t & 0xFF, t >> 8, sp & 0xFF, sp >> 8, n, tb])
         if m == "obj_byte":
             f, v = split_args(rest)
             return bytes([ev(f), ev(v) & 0xFF])

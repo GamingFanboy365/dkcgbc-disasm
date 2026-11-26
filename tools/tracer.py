@@ -130,6 +130,25 @@ def apply_regs(i, regs):
         regs["a"] = None
 
 
+OBJ_HANDLER, OBJ_TOUCH_HANDLER, OBJ_FRAME, OBJ_ANIM = 0x02, 0x04, 0x20, 0x22
+
+# Animation commands (word >> 8 & $7f): number of extra bytes after the word
+ANIM_EXTRA = {0: 2, 2: 2, 5: 2}
+ANIM_NCMDS = 11
+
+_HL_WRITERS = {0x21, 0x26, 0x2E, 0x24, 0x25, 0x2C, 0x2D, 0x23, 0x2B, 0x09, 0x19, 0x29,
+               0x39, 0xE1, 0xF8, 0x22, 0x2A, 0x32, 0x3A}
+
+
+def writes_hl(i):
+    if i.op in _HL_WRITERS or 0x60 <= i.op <= 0x6F:
+        return True
+    if i.op == 0xCB:
+        cb = i.raw[1]
+        return (cb & 7) in (4, 5) and not (0x40 <= cb < 0x80)
+    return i.flow in ("call", "callc", "rst", "farcall")
+
+
 class Tracer:
     """Follows control flow from entry points, tracking the active ROMX bank."""
 
@@ -147,7 +166,12 @@ class Tracer:
         self.speculated = []
         self.obj_init_funcs = set()
         self.list_only_banks = set()
-        self.data = {}           # file offset -> ('objinit', bank, entries, length)
+        self.data = {}           # file offset -> (kind, bank, entries, length)
+        self.data_labels = {}    # file offset -> label prefix ("ObjInit", "Anim", ...)
+        self.anim_entries = set()  # file offsets of every parsed animation entry
+        self.lohi = []           # (lo insn off, hi insn off, bank, target) pointer stores
+        self.second_program = set()
+        self.frame_headers = set()
         self.candidates = []
         self.fell_into_old = False
 
@@ -180,6 +204,8 @@ class Tracer:
         first = True
         hist = []
         hl_insn = None
+        objfield = None
+        prev = None
         while True:
             o = off(bank, addr)
             if o in self.insns:
@@ -227,11 +253,32 @@ class Tracer:
                 hl_insn = None
             # "ld [hl], LOW / inc l / ld [hl], HIGH" stores a pointer (often an
             # object handler); remember it as a candidate for speculation.
-            hist = (hist + [i])[-3:]
-            if len(hist) == 3 and hist[0].op == 0x36 and hist[1].op in (0x2C, 0x23) and hist[2].op == 0x36:
-                ptr = hist[0].imm | hist[2].imm << 8
-                if ptr < 0x4000 or (bank and ptr < 0x8000):
-                    self.candidates.append((bank if ptr >= 0x4000 else 0, ptr))
+            hist = (hist + [(o, i, objfield)])[-3:]
+            if len(hist) == 3 and hist[0][1].op == 0x36 and hist[1][1].op in (0x2C, 0x23) and hist[2][1].op == 0x36:
+                ptr = hist[0][1].imm | hist[2][1].imm << 8
+                fld = hist[0][2]
+                if fld in (OBJ_ANIM, OBJ_FRAME):
+                    tb = self.anim_bank if fld == OBJ_ANIM else self.frame_bank
+                    if 0x4000 <= ptr < 0x8000:
+                        (self.anim_ref if fld == OBJ_ANIM else self.frame_ref)(ptr)
+                        self.lohi.append((hist[0][0], hist[2][0], tb, ptr))
+                elif fld is None or fld in (OBJ_HANDLER, OBJ_TOUCH_HANDLER):
+                    if ptr < 0x4000 or (bank and ptr < 0x8000):
+                        tb = bank if ptr >= 0x4000 else 0
+                        self.candidates.append((tb, ptr))
+                        if fld is not None:
+                            self.lohi.append((hist[0][0], hist[2][0], tb, ptr))
+            # which object field (if any) hl points at
+            if i.op in (0x09, 0x19) and prev is not None and prev.op == 0x21 \
+                    and 0xC800 <= prev.imm < 0xC840 and bank not in self.second_program:
+                objfield = prev.imm - 0xC800
+            elif objfield is not None and i.op in (0x2C, 0x23, 0x22, 0x2A):
+                objfield += 1
+            elif objfield is not None and i.op in (0x2D, 0x2B, 0x32, 0x3A):
+                objfield -= 1
+            elif writes_hl(i):
+                objfield = None
+            prev = i
             f = i.flow
             if f in ("jp", "jpc", "jr", "jrc"):
                 t = i.target
@@ -300,6 +347,7 @@ class Tracer:
                 self.conflicts.append((bank, addr, "objlist-overlap"))
                 return
         self.data[o] = ("objinit", bank, entries, length)
+        self.data_labels[o] = "ObjInit"
         for k in range(length):
             self.owner[o + k] = -1
         if src is not None:
@@ -309,6 +357,11 @@ class Tracer:
                 ib = 0 if e[1] < 0x4000 else bank
                 if ib or e[1] < 0x4000:
                     self.parse_obj_list(ib, e[1], code_bank, None, fields)
+        for e in entries:
+            if e[0] == "word" and e[1] == OBJ_ANIM:
+                self.anim_ref(e[2])
+            elif e[0] == "word" and e[1] == OBJ_FRAME:
+                self.frame_ref(e[2])
         if 2 in fields and 3 in fields:
             handler = fields[2] | fields[3] << 8
             hb = fields.get(1)
@@ -319,6 +372,110 @@ class Tracer:
                     hb = bank or code_bank
                 if hb is not None:
                     self.add(hb, handler, "func", hb)
+
+    # ------------------------------------------------------------ animations
+    anim_bank = 0x04
+    frame_bank = 0x20
+
+    def parse_anim(self, bank, start, end=None):
+        """Parse animation script entries from start: up to end, or (without
+        end) up to and including the first jump. See Func_00_127d."""
+        rom = self.rom
+        entries = []
+        a = start
+        o0 = off(bank, start)
+        self.data_labels.setdefault(o0, "Anim")
+        while True:
+            if end is not None and a >= end:
+                break
+            if (a & 0x3FFF) + 2 > 0x4000:
+                self.conflicts.append((bank, a, "anim-end"))
+                return
+            o = off(bank, a)
+            if end is None and o in self.anim_entries:
+                break  # runs into a script we already have
+            e, d = rom[o], rom[o + 1]
+            if not d & 0x80:
+                entries.append((a, "frame", e | d << 8))
+                self.frame_ref(e | d << 8)
+                a += 2
+                continue
+            c = d & 0x7F
+            n = ANIM_EXTRA.get(c, 0)
+            w = rom[o + 2] | rom[o + 3] << 8 if n else None
+            entries.append((a, "cmd", c, e, w))
+            a += 2 + n
+            if c == 0:
+                if end is None:
+                    break
+                self.data_labels.setdefault(off(bank, a), "Anim")
+        length = a - start
+        for k in range(length):
+            if o0 + k in self.owner:
+                self.conflicts.append((bank, start, "anim-overlap"))
+                return
+        self.data[o0] = ("anim", bank, entries, length)
+        for k in range(length):
+            self.owner[o0 + k] = -1
+        for ent in entries:
+            self.anim_entries.add(off(bank, ent[0]))
+        for ent in entries:
+            if ent[1] != "cmd":
+                continue
+            c, w = ent[2], ent[4]
+            if c == 0:
+                self.anim_ref(w)
+            elif c == 2 and w < 0x8000:
+                self.add(bank if w >= 0x4000 else 0, w, "func", bank)
+
+    def anim_ref(self, ptr):
+        if not 0x4000 <= ptr < 0x8000:
+            return
+        o = off(self.anim_bank, ptr)
+        if o in self.anim_entries:
+            self.data_labels.setdefault(o, "Anim")
+        elif o in self.owner:
+            self.conflicts.append((self.anim_bank, ptr, "anim-ref-mid"))
+        else:
+            self.parse_anim(self.anim_bank, ptr)
+
+    def frame_ref(self, ptr):
+        o = off(self.frame_bank, ptr)
+        if o not in self.frame_headers:
+            self.conflicts.append((self.frame_bank, ptr, "frame-ref"))
+
+    def parse_frame_table(self, bank, start, count):
+        """Frame headers (see Func_00_1037): dw tiles, dw sprite offsets,
+        db tile count, db bank of both. Header 0 is an empty frame."""
+        rom = self.rom
+        entries = []
+        for k in range(count):
+            a = start + 6 * k
+            o = off(bank, a)
+            h = rom[o:o + 6]
+            tiles, spr, n, gb = h[0] | h[1] << 8, h[2] | h[3] << 8, h[4], h[5]
+            entries.append((a, tiles, spr, n, gb))
+            self.frame_headers.add(o)
+            self.data_labels[o] = "Frame"
+            if n == 0:
+                continue
+            for (addr, kind, length, prefix) in ((tiles, "tiles", n * 16, "FrameTiles"),
+                                                 (spr, "sprites", n, "FrameSprites")):
+                go = off(gb, addr)
+                if go in self.data:
+                    continue
+                if any(go + j in self.owner for j in range(length)):
+                    self.conflicts.append((gb, addr, "frame-" + kind))
+                    continue
+                payload = list(rom[go:go + length]) if kind == "sprites" else None
+                self.data[go] = (kind, gb, payload, length)
+                self.data_labels[go] = prefix
+                for j in range(length):
+                    self.owner[go + j] = -1
+        o0 = off(bank, start)
+        self.data[o0] = ("frames", bank, entries, 6 * count)
+        for j in range(6 * count):
+            self.owner[o0 + j] = -1
 
     def parse_obj_run(self, bank, start, end):
         """Parse consecutive object initialiser lists in [start, end)."""
@@ -356,6 +513,11 @@ class Speculator:
         trial.farcall_hl_a = t.farcall_hl_a
         trial.obj_init_funcs = t.obj_init_funcs
         trial.data = ChainMap({}, t.data)
+        trial.data_labels = ChainMap({}, t.data_labels)
+        trial.anim_entries = t.anim_entries
+        trial.frame_headers = t.frame_headers
+        trial.second_program = t.second_program
+        trial.list_only_banks = t.list_only_banks
         trial.insns = ChainMap({}, t.insns)
         trial.owner = ChainMap({}, t.owner)
         trial.labels = ChainMap({}, t.labels)
@@ -392,6 +554,8 @@ class Speculator:
             if t.labels.get(o) != "func":
                 t.labels[o] = k
         t.data.update(trial.data.maps[0])
+        t.data_labels.update(trial.data_labels.maps[0])
+        t.lohi += trial.lohi
         for (ib, ia), src in []:
             pass
         t.jphl += trial.jphl

@@ -11,9 +11,6 @@ SECTION "Bank $02", ROMX[$4000], BANK[$02]
 SECTION "Bank $03", ROMX[$4000], BANK[$03]
 	INCBIN "baserom.gbc", $03 * $4000, $4000
 
-SECTION "Bank $04", ROMX[$4000], BANK[$04]
-	INCBIN "baserom.gbc", $04 * $4000, $4000
-
 SECTION "Bank $06", ROMX[$4000], BANK[$06]
 	INCBIN "baserom.gbc", $06 * $4000, $4000
 
@@ -70,87 +67,6 @@ SECTION "Bank $1e", ROMX[$4000], BANK[$1e]
 
 SECTION "Bank $1f", ROMX[$4000], BANK[$1f]
 	ds $4000, $00
-
-SECTION "Bank $20", ROMX[$4000], BANK[$20]
-	INCBIN "baserom.gbc", $20 * $4000, $4000
-
-SECTION "Bank $21", ROMX[$4000], BANK[$21]
-	INCBIN "baserom.gbc", $21 * $4000, $4000
-
-SECTION "Bank $22", ROMX[$4000], BANK[$22]
-	INCBIN "baserom.gbc", $22 * $4000, $4000
-
-SECTION "Bank $23", ROMX[$4000], BANK[$23]
-	INCBIN "baserom.gbc", $23 * $4000, $4000
-
-SECTION "Bank $24", ROMX[$4000], BANK[$24]
-	INCBIN "baserom.gbc", $24 * $4000, $4000
-
-SECTION "Bank $25", ROMX[$4000], BANK[$25]
-	INCBIN "baserom.gbc", $25 * $4000, $4000
-
-SECTION "Bank $26", ROMX[$4000], BANK[$26]
-	INCBIN "baserom.gbc", $26 * $4000, $4000
-
-SECTION "Bank $27", ROMX[$4000], BANK[$27]
-	INCBIN "baserom.gbc", $27 * $4000, $4000
-
-SECTION "Bank $28", ROMX[$4000], BANK[$28]
-	INCBIN "baserom.gbc", $28 * $4000, $4000
-
-SECTION "Bank $29", ROMX[$4000], BANK[$29]
-	INCBIN "baserom.gbc", $29 * $4000, $4000
-
-SECTION "Bank $2a", ROMX[$4000], BANK[$2a]
-	INCBIN "baserom.gbc", $2a * $4000, $4000
-
-SECTION "Bank $2b", ROMX[$4000], BANK[$2b]
-	INCBIN "baserom.gbc", $2b * $4000, $4000
-
-SECTION "Bank $2c", ROMX[$4000], BANK[$2c]
-	INCBIN "baserom.gbc", $2c * $4000, $4000
-
-SECTION "Bank $2d", ROMX[$4000], BANK[$2d]
-	INCBIN "baserom.gbc", $2d * $4000, $4000
-
-SECTION "Bank $2e", ROMX[$4000], BANK[$2e]
-	INCBIN "baserom.gbc", $2e * $4000, $4000
-
-SECTION "Bank $2f", ROMX[$4000], BANK[$2f]
-	INCBIN "baserom.gbc", $2f * $4000, $4000
-
-SECTION "Bank $30", ROMX[$4000], BANK[$30]
-	INCBIN "baserom.gbc", $30 * $4000, $4000
-
-SECTION "Bank $31", ROMX[$4000], BANK[$31]
-	INCBIN "baserom.gbc", $31 * $4000, $4000
-
-SECTION "Bank $32", ROMX[$4000], BANK[$32]
-	INCBIN "baserom.gbc", $32 * $4000, $4000
-
-SECTION "Bank $33", ROMX[$4000], BANK[$33]
-	INCBIN "baserom.gbc", $33 * $4000, $4000
-
-SECTION "Bank $34", ROMX[$4000], BANK[$34]
-	INCBIN "baserom.gbc", $34 * $4000, $4000
-
-SECTION "Bank $35", ROMX[$4000], BANK[$35]
-	INCBIN "baserom.gbc", $35 * $4000, $4000
-
-SECTION "Bank $36", ROMX[$4000], BANK[$36]
-	INCBIN "baserom.gbc", $36 * $4000, $4000
-
-SECTION "Bank $37", ROMX[$4000], BANK[$37]
-	INCBIN "baserom.gbc", $37 * $4000, $4000
-
-SECTION "Bank $38", ROMX[$4000], BANK[$38]
-	INCBIN "baserom.gbc", $38 * $4000, $4000
-
-SECTION "Bank $39", ROMX[$4000], BANK[$39]
-	INCBIN "baserom.gbc", $39 * $4000, $4000
-
-SECTION "Bank $3a", ROMX[$4000], BANK[$3a]
-	INCBIN "baserom.gbc", $3a * $4000, $4000
 
 SECTION "Bank $3b", ROMX[$4000], BANK[$3b]
 	ds $4000, $00

@@ -12,7 +12,7 @@ ObjInit_0e_4000::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $06
 	obj_byte OBJ_VAR_34, $2a
-	obj_word OBJ_VAR_35, PartGroup_08_4e6f
+	obj_word OBJ_VAR_35, LetterWord_08_4e6f
 	obj_word OBJ_VAR_3B, ObjInit_08_507a
 	obj_end
 
@@ -25,7 +25,7 @@ ObjInit_0e_4019::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, PartGroup_08_4ea2
+	obj_word OBJ_VAR_35, LetterWord_08_4ea2
 	obj_end
 
 ObjInit_0e_402f::
@@ -37,7 +37,7 @@ ObjInit_0e_402f::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, PartGroup_08_4eca
+	obj_word OBJ_VAR_35, LetterWord_08_4eca
 	obj_end
 
 ObjInit_0e_4045::
@@ -49,7 +49,7 @@ ObjInit_0e_4045::
 	obj_word OBJ_VAR_31, $0180
 	obj_byte OBJ_VAR_33, $07
 	obj_byte OBJ_VAR_34, $24
-	obj_word OBJ_VAR_35, PartGroup_08_4f54
+	obj_word OBJ_VAR_35, LetterWord_08_4f54
 	obj_word OBJ_VAR_3B, ObjInit_08_50ac
 	obj_end
 
@@ -94,7 +94,7 @@ ObjInit_0e_4095::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, PartGroup_08_4ee2
+	obj_word OBJ_VAR_35, LetterWord_08_4ee2
 	obj_end
 
 ObjInit_0e_40ab::
@@ -156,7 +156,7 @@ ObjInit_0e_4100::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $05
 	obj_byte OBJ_VAR_34, $33
-	obj_word OBJ_VAR_35, PartGroup_08_4f31
+	obj_word OBJ_VAR_35, LetterWord_08_4f31
 	obj_word OBJ_VAR_3B, ObjInit_08_502f
 	obj_end
 
@@ -270,7 +270,7 @@ ObjInit_0e_41b2::
 	obj_word OBJ_VAR_31, $0200
 	obj_byte OBJ_VAR_33, $0a
 	obj_byte OBJ_VAR_34, $19
-	obj_word OBJ_VAR_35, PartGroup_08_4f40
+	obj_word OBJ_VAR_35, LetterWord_08_4f40
 	obj_end
 
 ObjInit_0e_41c8::

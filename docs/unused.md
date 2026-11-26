@@ -14,44 +14,27 @@ Something counts as unused when nothing the disassembly decodes refers to it. Th
 
 ## Sprite frames
 
-89 of the 1,414 sprite frames are never shown by any animation, object or table found so far. The 18 with no loose match anywhere are the strongest finds:
+56 of the 1,414 sprite frames are never shown by any animation, object, table or script found so far. Now that every byte of the main game's banks is identified, none of them has even a loose match left (its address turning up in undecoded bytes), so these are firm finds as far as the disassembly can tell.
 
 | Frames | What they show |
 |---|---|
-| `Frame_20_4dda`, `4de6`, `4dec` | "STOP", "ON" and "OFF" signs (next to used frames, so possibly picked by arithmetic) |
-| `Frame_20_5674`–`5686` | a mine cart tilting through four angles |
+| `Frame_20_4bac`, `4bb8`, `4bc4`, `4be2`, `4c00`, `4c18` | letter blocks H, J, L, Q, V and Z, the six letters none of the letter-block words uses (see Object data below) |
+| `Frame_20_4c1e`–`4c54` | a barrel turning, ten frames |
+| `Frame_20_5032`–`505c` | a DK barrel turning, eight frames |
+| `Frame_20_4c7e`–`4ca2` | character pictures, among them Donkey Kong, seven frames |
+| `Frame_20_4dda`, `4de6`, `4dec` | "STOP", "ON" and "OFF" signs |
+| `Frame_20_5476`, `547c`, `54d6` | Rambi in two poses and a fish (probably Enguarde) |
+| `Frame_20_5674`–`5686`, `56b0` | a mine cart tilting through four angles, and one more cart |
 | `Frame_20_57a6`–`57b8`, `581e` | a small creature (four frames plus one related frame) |
+| `Frame_20_592c`, `5932` | two thin vertical strips |
 | `Frame_20_5992`, `5cce` | a "FUEL" can and an "OIL" drum |
 | `Frame_20_5e18`, `5e1e` | a gorilla-like character |
 | `Frame_20_5ea8`, `5ec6` | a monkey-like character |
+| `Frame_20_4264` | a small cloud or splash |
 
-The other 71 have loose matches. They include letter sprites (A–Z, except the letters the game's own titles use), credits headings ("KREDITS", "KODING", "KARACTERS", "KOLORING", "KONCEPT", "KOMMANDER"), the ending caption in five languages ("THE END?", "FIN ?", "DAS ENDE(?)", "FINE…?", "¿FIN?"), a cast list ("KLAP TRAP", "KRUSHA", "KRITTER", "KLUMP", "KING K.ROOL") and rotating barrels. These are probably drawn through text or credits tables that aren't decoded yet.
+Earlier versions of this list had 89 frames. The rest turned out to be used once the tables in banks `$08` and `$0A` were decoded: the letter blocks A–Y that spell words, the credits headings ("KREDITS", "KODING", "KARACTERS", "KOLORING", "KONCEPT", "KOMMANDER"), the cast names ("KLAP TRAP", "KRUSHA", "KRITTER", "KLUMP", "KING K.ROOL") and "THE END?" in all five languages, all of which the ending draws from `CreditsCaptions` (`$0A:53BF`), and one frame in `CarrierObjectTable`.
 
-| Frames | Count | Graphics bank | Loose matches |
-|---|---|---|---|
-| `Frame_20_4264` | 1 | `$22` | loose match at 00:3820 |
-| `Frame_20_4b82`–`4ba0` | 6 | `$28` | loose match at 08:4e70, 08:4e76, 08:4e8e, 08:4eb6 … |
-| `Frame_20_4bac`–`4bb8` | 3 | `$28` | loose match at 08:4ed7, 08:4f29, 08:4f3b, 08:4f51 |
-| `Frame_20_4bc4`–`4bca` | 2 | `$28` | loose match at 08:4f26, 08:7942, 0b:4da2, 0b:4daa |
-| `Frame_20_4bdc`–`4c54` | 21 | `$28` | loose match at 00:386c, 02:4ba2, 02:4ba9, 02:4bb0 … |
-| `Frame_20_4c7e`–`4ca2` | 7 | `$28` | loose match at 05:44d6, 0b:477b, 0b:4a1c |
-| `Frame_20_4dda` | 1 | `$29` | none |
-| `Frame_20_4de6`–`4dec` | 2 | `$29` | none |
-| `Frame_20_5032`–`505c` | 8 | `$2A` | loose match at 01:4fc0, 01:6d09, 05:4ced, 05:4ec3 … |
-| `Frame_20_5476`–`547c` | 2 | `$31` | loose match at 00:3704 |
-| `Frame_20_54d6` | 1 | `$31` | loose match at 0d:5958 |
-| `Frame_20_5674`–`5686` | 4 | `$33` | none |
-| `Frame_20_56b0` | 1 | `$33` | loose match at 0b:5307, 0b:5867, 0b:5eb0, 0b:5eb8 … |
-| `Frame_20_57a6`–`57b8` | 4 | `$34` | none |
-| `Frame_20_581e` | 1 | `$34` | none |
-| `Frame_20_592c`–`5932` | 2 | `$34` | loose match at 08:583e, 0c:7b7f |
-| `Frame_20_5992` | 1 | `$35` | none |
-| `Frame_20_5cce` | 1 | `$37` | none |
-| `Frame_20_5d46`–`5da0` | 16 | `$37` | loose match at 02:5d57, 02:5d5a, 02:5d5d, 02:5d69 … |
-| `Frame_20_5e18`–`5e1e` | 2 | `$38` | none |
-| `Frame_20_5ea8` | 1 | `$39` | none |
-| `Frame_20_5ec6` | 1 | `$39` | none |
-| `Frame_20_5f68` | 1 | `$39` | loose match at 08:4ce0, 08:4d10, 08:4e04 |
+
 
 Since nothing uses these frames, the ROM doesn't say which palette they would be drawn with. The images `find_unused.py` writes to `unused/frames/` stay gray (or use the palette where one is known). A second set in `unused/frames_guessed_palette/` borrows the palette of the nearest frame in the same graphics bank that has a known palette, and the report lists, for every guess, which palette was used and which frame it came from. Those colors are guesses, not facts from the game.
 
@@ -203,6 +186,26 @@ The short phrases are probably leftovers of edits to those songs. The song `$18`
 
 The routines at `$F0:4707`–`$47A4` have no callers either. They step a point along a line: they take the absolute values of dx and dy and pick the direction. No call, jump, far call or table in the ROM reaches them.
 
+A few more pieces of code in the main game's banks can't be reached:
+
+| Where | What |
+|---|---|
+| `Func_09_487a` | an object handler (it checks `[$ffb0]`, then spawns objects from `ObjInit_09_4918`, `$4934` or `ObjInit_09_4927`). No list, table or code points to it |
+| `Func_00_2f09` | `rst_farcall Func_0f_4815` and `ret`, right after another `ret`, with no caller |
+| `Func_0a_48b8` | a lone `jp NextObject` after an initialiser list, with no caller |
+| `$09:4DFC` | the same `jp NextObject`, sharing its first byte (`$C3`) with the end byte of the list before it |
+| `$09:71F3` (`.unreached_71f3`) | 13 bytes inside `Func_09_71e4` that the `jr` before them always skips. They repeat the lines above them with different values (they test bit 7 of the player's y speed and set it to `$FD00` instead of `$0300`), so they look like an older version left in place |
+| `$00:03F5`, `$00:1DB5` | a `jr` and a `ret` that nothing reaches, at the end of other code |
+| `$00:00F6` | two bytes (`$29`, `$C3`) between the jump vectors at `$00F3` and `$00F8` |
+
+## Object data
+
+Bank `$08` holds words spelled in letter blocks (`LetterWord_08_…`, used by `Func_08_4344`): DONKEY, KONG, COUNTRY, NINTENDO, RARE, EXPRESSO, ENGUARDE, RAMBI, WINKY, DIDDY, CANDY, FUNKY and CRANKY. Right after KONG comes RAREWARE (`LetterWord_08_4eb2`), which no object spawns. The only object that uses the KONG list (`ObjInit_0e_4019`) stops after its 8 entries (four letters and four blocks), so the eight RAREWARE letters are never reached.
+
+8 of the 92 map patches in bank `$04` have no pointer to them (`MapPatch_04_6dcd`, `6e02`, `6e16`, `6f8e`, `6f9e`, `6fae`, `6fbe`, `6ffd`). The four at `$6F8E`–`$6FBE` are the same 2×2 patch with different positions. Two movement scripts in bank `$0A` (`ObjScript_0a_7495` and `ObjScript_0a_74ac`) have no pointer either. All of these could still be picked by code arithmetic, but no such code has turned up.
+
+Bank `$31` ends with 31 sparkle sprite tiles (8×16, at `$31:5CA0`) after the last frame's tiles, which no frame points to.
+
 ## Sprite offset lists
 
 After many of the sprite offset lists in banks `$2B`–`$38` come 9 to 23 bytes that the draw code never reads (`FrameSpritesTail_…`, about 2.3 KB in all). `Func_00_1037` reads exactly two bytes per sprite, and the frame header's tile count decides how many. The leftover bytes look like more offsets, perhaps from frames that once had more sprites, but nothing confirms that.
@@ -224,4 +227,4 @@ These turned up nothing unused, which is worth knowing too:
 
 ## Not identified yet
 
-About 0.4% of the ROM (10 KB) is still unidentified. The biggest pieces are a 1.9 KB block in bank `$0A` read during levels, a 935-byte run after the last level map header in bank `$04`, object records in bank `$08`, the end of bank `$1B`, menu tile maps in bank `$F0` (`$4B9D`, `$4D19`), a few small tables in bank `$F1` and the 560-byte tile map at `$5B:4708` that nothing points to. Several front-end graphics are identified but have no known loader yet: 256 tiles at `$F2:5760` and the sprite words at `$F1:6A40`. They need more emulator runs (Link-up, Print, the credits) before anything there can be called unused. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session either, but it's in the sample table, so it isn't unused on that evidence.
+About 0.1% of the ROM (3 KB) is still unidentified, all of it outside the main game's banks `$00`–`$3F`. The biggest pieces are menu tile maps in bank `$F0` (`$4B9D`, `$4D19`), the 560-byte tile map at `$5B:4708` that nothing points to, a few small tables in bank `$F1` and leftovers in banks `$50`, `$55`, `$58` and `$59`. Several front-end graphics are identified but have no known loader yet: 256 tiles at `$F2:5760` and the sprite words at `$F1:6A40`. They need more emulator runs (Link-up, Print, the credits) before anything there can be called unused. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session either, but it's in the sample table, so it isn't unused on that evidence.

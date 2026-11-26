@@ -54,8 +54,9 @@ FillMemory::
 	jr nz, .jump_002d
 	ret
 
-	db $00, $00, $00
 
+Padding_00_0035::
+	ds 3, $00 ; padding between restart vectors
 
 Rst38::
 	nop
@@ -70,8 +71,9 @@ Rst38::
 VBlankInterrupt::
 	jp $c32d
 
-	ds 5, $00 ; $0043
 
+Padding_00_0043::
+	ds 5, $00 ; padding between restart vectors
 
 LCDInterrupt::
 	jp $c330
@@ -80,20 +82,23 @@ LCDInterrupt::
 Func_00_004b::
 	reti
 
-	ds 4, $00 ; $004c
 
+Padding_00_004c::
+	ds 4, $00 ; padding between restart vectors
 
 TimerInterrupt::
 	jp $cff7
 
-	ds 5, $00 ; $0053
 
+Padding_00_0053::
+	ds 5, $00 ; padding between restart vectors
 
 SerialInterrupt::
 	jp $cffa
 
-	ds 5, $00 ; $005b
 
+Padding_00_005b::
+	ds 5, $00 ; padding between restart vectors
 
 JoypadInterrupt::
 	jp $cffd
@@ -185,14 +190,16 @@ Func_00_00f0::
 Func_00_00f3::
 	jp PlaySong
 
-	db $29, $c3
 
+Unused_00_00f6::
+	db $29, $c3 ; leftover bytes between the jump vectors
 
 Func_00_00f8::
 	jp Func_00_03e4.jump_041d
 
-	ds 5, $00 ; $00fb
 
+Padding_00_00fb::
+	ds 5, $00 ; padding between restart vectors
 
 SECTION "Entry", ROM0[$0100]
 
@@ -486,7 +493,7 @@ Func_00_031f::
 
 
 Func_00_0322::
-	jp Func_00_0420.jump_0533
+	jp CharTileTable.jump_0533
 
 
 Func_00_0325::
@@ -498,11 +505,11 @@ Func_00_0328::
 
 
 Func_00_032b::
-	jp Func_00_0420.jump_0512
+	jp CharTileTable.jump_0512
 
 
 Func_00_032e::
-	jp Func_00_0420.jump_050b
+	jp CharTileTable.jump_050b
 
 
 Func_00_0331::
@@ -510,7 +517,7 @@ Func_00_0331::
 
 
 Func_00_0334::
-	jp Func_00_0420.jump_0604
+	jp CharTileTable.jump_0604
 
 
 Func_00_0337::
@@ -688,8 +695,8 @@ Func_00_03e4::
 	jr nz, .jump_03ef
 	jr Func_00_03e4
 
-	db $18, $ed
-
+.unreached_03f5:
+	db $18, $ed ; jr $03e4, never reached
 .jump_03f7:
 	bit 6, a
 	jr nz, .jump_0406
@@ -729,7 +736,7 @@ Func_00_03e4::
 	jp FadePalettesToWhite.jump_2ef2
 
 
-Func_00_0420::
+CharToTile::
 	sub $20
 	add a, $2b
 	ld c, a
@@ -739,8 +746,22 @@ Func_00_0420::
 	ld a, [bc]
 	ret
 
-	INCBIN "baserom.gbc", $00042b, $00e0 ; $042b
 
+CharTileTable::
+	db $00, $2e, $00, $4f, $7a, $7b, $79, $34, $24, $25, $38, $3a, $2d, $35, $2c, $37 ; characters $20-$2f
+	db $6e, $6f, $70, $71, $72, $73, $74, $75, $76, $77, $32, $4c, $26, $39, $27, $2f ; characters $30-$3f
+	db $4e, $01, $02, $03, $04, $05, $06, $07, $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; characters $40-$4f
+	db $14, $15, $16, $17, $18, $19, $1a, $1b, $1c, $1d, $1e, $00, $00, $00, $00, $00 ; characters $50-$5f
+	db $00, $3d, $3e, $3f, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $4a, $4b ; characters $60-$6f
+	db $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $5a, $00, $00, $00, $00, $00 ; characters $70-$7f
+	db $00, $6c, $60, $5c, $5b, $5d, $00, $36, $61, $62, $5f, $64, $63, $7e, $1f, $00 ; characters $80-$8f
+	db $21, $00, $00, $66, $68, $7f, $6a, $69, $00, $28, $2a, $00, $4d, $00, $00, $00 ; characters $90-$9f
+	db $5e, $65, $67, $6b, $6d, $2b, $00, $00, $30, $00, $00, $00, $00, $31, $00, $00 ; characters $a0-$af
+	db $00, $00, $00, $00, $00, $20, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $b0-$bf
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $c0-$cf
+	db $00, $00, $00, $00, $7d, $00, $22, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $d0-$df
+	db $23, $78, $00, $00, $00, $00, $00, $00, $00, $29, $00, $00, $00, $00, $00, $00 ; characters $e0-$ef
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $f0-$ff
 .jump_050b:
 	ld a, $04
 	ld [$c30c], a
@@ -1020,7 +1041,7 @@ Func_00_06a3::
 	jr z, .jump_06e9
 	cp $20
 	jr z, .jump_06e6
-	call Func_00_0420
+	call CharToTile
 	or $80
 	ld [de], a
 .jump_06e6:
@@ -5065,8 +5086,8 @@ Func_00_1d2f::
 	ld de, Flow_0d_5f9c
 	jp Func_00_38c7
 
-	db $c9
-
+.unreached_1db5:
+	db $c9 ; ret, never reached
 .jump_1db6:
 	ld a, e
 	or a
@@ -5548,7 +5569,7 @@ Func_00_1ffe::
 	ld [hl], c
 	inc hl
 	push bc
-	call Func_00_0420
+	call CharToTile
 	pop bc
 	ld [hli], a
 	ldh a, [$ff9b]
@@ -7993,7 +8014,10 @@ Func_00_2f03::
 	rst_farcall Func_0f_4802
 	ret
 
-	db $c7, $15, $48, $0f, $c9
+
+Func_00_2f09::
+	rst_farcall Func_0f_4815
+	ret
 
 
 Func_00_2f0e::

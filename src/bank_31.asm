@@ -89,8 +89,10 @@ FrameTiles_31_5b00::
 
 FrameTiles_31_5be0::
 	INCBIN "gfx/frames/31/5be0.2bpp"
-	INCBIN "baserom.gbc", $0c5ca0, $03e0 ; $5ca0
 
+BGTiles_31_5ca0::
+	INCBIN "gfx/bgtiles/31/5ca0.2bpp"
+	INCBIN "gfx/bgtiles/31/5ca0_end.2bpp"
 
 FrameTiles_31_6080::
 	INCBIN "gfx/frames/31/6080.2bpp"

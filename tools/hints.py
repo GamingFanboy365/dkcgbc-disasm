@@ -9,6 +9,11 @@ CODE = [
     (0x50, 0x4000),  # extra program, far-jumped to from bank $f2 ($736a, $7571)
     (0, 0x36A7),  # sound hardware reset falling into Func_00_36b8; no caller found
     (0x55, 0x4000),  # Hi-Score screen, far-jumped to from bank $f1 ($4ec8, $4f31)
+    # code the tracer missed: a stub after a list (0a:48b8, no caller), a
+    # function nothing calls (09:487a), handlers set by lists in bank $09
+    (9, 0x487A), (0xA, 0x5090), (0xA, 0x50F8), (0xA, 0x48B8), (9, 0x71E4),
+    (0, 0x2F09),  # rst_farcall Func_0f_4815 / ret after a ret, no caller
+    (0xF, 0x456F),  # tail jumped to from Func_0f_44xx, after ByteTable_0f_4568
     (0, 0x1CEC), (0, 0x241D),  # interrupt handlers (push af/hl, read LY), installed at runtime
     (0xF2, 0x6760),  # infrared port routine (writes rRP), far-called from $f1:70f7
     (0xF2, 0x43CB),  # follows the PictureByItem table; not reached by the trace
@@ -62,6 +67,7 @@ NAMES = {
     (0, 0x028C): "NotGBC",           # shows the "GBC only" screen on DMG
     (0, 0x3FC0): "FarCall_A_HL",     # call a:hl, used by the banks $f0+ program
     (0, 0x0D74): "ApplyMapPatch",    # write a MapPatch (bank $04, at hl) into the level map
+    (0, 0x0420): "CharToTile",       # a = tile for character a (CharTileTable)
     (0, 0x167D): "InitObjectSlots",  # puts slots 1-31 on the free list
     (0, 0x182F): "InitObject",       # ApplyObjInit, then sets flags from field $2a
     (0, 0x188B): "ApplyObjInit",     # apply the initialiser list at hl to object bc
@@ -123,7 +129,7 @@ OBJ_LIST_TABLES = [
 ]
 
 # Single object initialiser lists the tracer misses (applied after a branch)
-OBJ_LISTS = [(0x09, 0x485E), (0x0A, 0x460F), (0x0A, 0x461B), (0x09, 0x47A4), (0x09, 0x47BF), (0x0F, 0x4217), (0x0F, 0x4357)]
+OBJ_LISTS = [(0x09, 0x4934), (0x0A, 0x50E4), (0x09, 0x485E), (0x0A, 0x460F), (0x0A, 0x461B), (0x09, 0x47A4), (0x09, 0x47BF), (0x0F, 0x4217), (0x0F, 0x4357)]
 
 # Object slot layout. Objects are $40-byte slots at wObjects ($c800) + bc;
 # slot 0 is the player (wPlayer). offset -> (name, size, description).
@@ -318,6 +324,7 @@ EXTRA_TILES = [
     # the strip runs on from BGTiles_1b_4000 ($5fd0); Func_05_4274 copies a
     # 20-tile window of it to VRAM $8200, picked by [$c607] (WorldMapTileSources)
     (0x1B, 0x6000, 79, "world map animated tiles (rest of the $5fd0 strip)"),
+    (0x31, 0x5CA0, 62, "sparkle sprite tiles (8x16) after the last frame tiles; no frame points here"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

@@ -443,8 +443,9 @@ Func_0a_4270::
 	call Func_0a_5201
 	jp NextObject
 
-	db $14, $12, $10, $0e, $0c, $0a, $08, $06, $04, $02
 
+Timers_0a_42af::
+	db 20, 18, 16, 14, 12, 10, 8, 6, 4, 2 ; OBJ_VAR_30 by OBJ_VAR_2E
 
 Func_0a_42b9::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
@@ -1059,13 +1060,14 @@ Func_0a_4674::
 	call Func_0a_47fe
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4674.jump_46ae)
+	ld [hl], LOW(Accel_0a_46a4.jump_46ae)
 	inc l
-	ld [hl], HIGH(Func_0a_4674.jump_46ae)
-	jr .jump_46ae
+	ld [hl], HIGH(Accel_0a_46a4.jump_46ae)
+	jr Accel_0a_46a4.jump_46ae
 
-	db $00, $01, $80, $01, $00, $02, $80, $02, $00, $03
 
+Accel_0a_46a4::
+	dw $0100, $0180, $0200, $0280, $0300 ; acceleration by OBJ_VAR_2E
 .jump_46ae::
 	call Func_0a_40ad
 	jr z, .jump_46c3
@@ -1356,8 +1358,9 @@ Func_0a_485c::
 	ld [hli], a
 	ret
 
-	db $ff, $03, $ff, $02, $fe, $01, $fe, $00, $1d, $00, $fe, $00, $fe, $01, $ff, $02
 
+Cycle_0a_4871::
+	dw $03ff, $02ff, $01fe, $00fe, $001d, $00fe, $01fe, $02ff ; by [$c336] & $0e (Func_0a_485c)
 
 Func_0a_4881::
 	ld hl, wObjects + OBJ_VAR_2F
@@ -1394,7 +1397,9 @@ ObjInit_0a_48ab::
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_COLLISION, $40
 	obj_end
-	db $c3, $95, $39
+
+Func_0a_48b8::
+	jp NextObject
 
 
 Func_0a_48bb::
@@ -1446,8 +1451,9 @@ Func_0a_48e7::
 	call Func_00_127d
 	jp NextObject
 
-	db $1e, $19, $14, $0f, $0a, $05
 
+Timers_0a_4911::
+	db 30, 25, 20, 15, 10, 5 ; OBJ_VAR_2F by index
 
 Func_0a_4917::
 	ld hl, wObjects + OBJ_VAR_2F
@@ -2081,7 +2087,7 @@ Func_0a_4d00::
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-	jp Func_0a_4d88.jump_4e0a
+	jp WordTable_0a_4e04.jump_4e0a
 
 .jump_4d48:
 	sub $06
@@ -2201,8 +2207,9 @@ Func_0a_4d88::
 	jp z, Func_0a_4b87.jump_4bb4
 	jp Func_0a_4d00.jump_4d4e
 
-	db $00, $02, $00, $03, $00, $04
 
+WordTable_0a_4e04::
+	dw $0200, $0300, $0400
 .jump_4e0a:
 	ld a, $82
 	ld [$c32a], a
@@ -2249,10 +2256,11 @@ Func_0a_4d88::
 	ld [hl], LOW(Func_0a_4e6f)
 	inc l
 	ld [hl], HIGH(Func_0a_4e6f)
-	jr .jump_4e5c
+	jr YSpeeds_0a_4e56.jump_4e5c
 
-	db $00, $f8, $80, $f9, $00, $fb
 
+YSpeeds_0a_4e56::
+	dw $f800, $f980, $fb00 ; y speeds
 .jump_4e5c:
 	call Func_00_39fa
 	call Func_00_39b4
@@ -2272,7 +2280,7 @@ Func_0a_4e6f::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jp nz, Func_0a_4d88.jump_4e0a
+	jp nz, WordTable_0a_4e04.jump_4e0a
 	jp .jump_4e96
 
 .jump_4e83:
@@ -2511,8 +2519,9 @@ ObjInit_0a_4f77::
 	call Func_0a_5201
 	jp NextObject
 
-	db $00, $03, $80, $02, $00, $02
 
+WordTable_0a_5005::
+	dw $0300, $0280, $0200
 
 Func_0a_500b::
 	ld hl, wObjects + OBJ_X
@@ -2588,13 +2597,105 @@ Func_0a_500b::
 	call Func_0a_5201
 	jp NextObject
 
-	INCBIN "baserom.gbc", $029090, $004e ; $5090
 
+Func_0a_5090::
+	ld hl, wObjects + OBJ_ANIM_FLAGS
+	add hl, bc
+	ld a, [hl]
+	rlca
+	jr c, .jump_50de
+	ld hl, $c310
+	bit 3, [hl]
+	jp nz, Func_0a_5141.jump_5179
+	set 3, [hl]
+	ldh a, [$ff88]
+	or $80
+	ldh [$ff88], a
+	ld hl, wObjects + OBJ_SPAWN_INDEX
+	add hl, bc
+	ld a, [hl]
+	ldh [$ffb8], a
+	ld l, a
+	ld h, $af
+	inc [hl]
+	ld hl, $ffa8
+	ld [hl], c
+	inc l
+	ld [hl], b
+	push bc
+	call AllocObject
+	ld hl, wObjects + OBJ_VAR_2D
+	add hl, bc
+	ldh a, [$ffb8]
+	ld [hl], a
+	ld hl, wObjects + OBJ_VAR_36
+	add hl, bc
+	ldh a, [$ffa8]
+	ld [hli], a
+	ldh a, [$ffa9]
+	ld [hl], a
+	ld hl, ObjInit_0a_50e4
+	call InitObject
+	pop bc
+	ld hl, wObjects + OBJ_HANDLER
+	add hl, bc
+	ld [hl], LOW(Func_0a_5141)
+	inc l
+	ld [hl], HIGH(Func_0a_5141)
 .jump_50de:
 	call Func_00_127d
 	jp NextObject
 
-	INCBIN "baserom.gbc", $0290e4, $005d ; $50e4
+
+ObjInit_0a_50e4::
+	obj_byte OBJ_FLAGS, $0f
+	obj_byte OBJ_BANK, BANK(Func_0a_52a0)
+	obj_word OBJ_HANDLER, Func_0a_52a0
+	obj_word OBJ_VAR_2E, $00ac
+	obj_word OBJ_VAR_30, $071a
+	obj_byte OBJ_VAR_32, $00
+	obj_byte OBJ_VAR_34, $01
+	obj_byte OBJ_PALETTE, $03
+	obj_end
+
+Func_0a_50f8::
+	call Func_00_39fa
+	call Func_00_39b4
+	rst_farcall Func_08_40e1
+	ld a, [wPlayer + OBJ_VAR_0A]
+	rrca
+	jr nc, .jump_513b
+	push bc
+	ld a, $09
+	call PlaySong
+	pop bc
+	ld a, [$c30f]
+	rrca
+	ld de, $431b
+	jr nc, .jump_511b
+	ld de, $4697
+.jump_511b:
+	ld hl, wPlayer + OBJ_ANIM
+	ld [hl], e
+	inc l
+	ld [hl], d
+	xor a
+	ld [wPlayer + OBJ_ANIM_TIMER], a
+	ld a, $7f
+	ld [wPlayer + OBJ_ANIM_FLAGS], a
+	ld hl, wPlayer + OBJ_BANK
+	ld [hl], $08
+	inc l
+	ld [hl], $2e
+	inc l
+	ld [hl], $40
+	xor a
+	ld hl, wPlayer + OBJ_XVEL
+	ld [hli], a
+	ld [hl], a
+.jump_513b:
+	call Func_00_127d
+	jp NextObject
 
 
 Func_0a_5141::
@@ -2604,7 +2705,7 @@ Func_0a_5141::
 	ld h, $af
 	ld a, [hl]
 	or a
-	jr nz, Func_0a_500b.jump_50de
+	jr nz, Func_0a_5090.jump_50de
 	push bc
 	ld a, $06
 	call PlaySong
@@ -2628,6 +2729,7 @@ Func_0a_5141::
 	ld a, [hl]
 	or $10
 	ld [hl], a
+.jump_5179:
 	ld a, $4e
 	ld [$c32a], a
 	ld hl, ObjInit_0a_518a
@@ -3001,8 +3103,24 @@ Func_0a_5369::
 	pop de
 	ret
 
-	INCBIN "baserom.gbc", $0293bf, $0040 ; $53bf
 
+CreditsCaptions::
+	dw $0034, Frame_20_5d46 ; KREDITS
+	dw $0008, Frame_20_5d4c ; KODING
+	dw $0050, Frame_20_5d88 ; KLAP TRAP
+	dw $0008, Frame_20_5d52 ; KARACTERS
+	dw $0068, Frame_20_5d8e ; KRUSHA
+	dw $0008, Frame_20_5d58 ; KOLORING
+	dw $0060, Frame_20_5d94 ; KRITTER
+	dw $0008, Frame_20_5d5e ; KONCEPT
+	dw $0070, Frame_20_5d9a ; KLUMP
+	dw $0008, Frame_20_5d64 ; KOMMANDER
+	dw $0040, Frame_20_5da0 ; KING K.ROOL
+	dw $0030, Frame_20_5d6a ; THE END? (English)
+	dw $0028, Frame_20_5d76 ; DAS ENDE(?) (German)
+	dw $003c, Frame_20_5d70 ; FIN ? (French)
+	dw $0030, Frame_20_5d7c ; FINE...? (Italian)
+	dw $003c, Frame_20_5d82 ; ¿FIN? (Spanish)
 
 Func_0a_53ff::
 	ld hl, $ff89
@@ -3772,8 +3890,9 @@ Func_0a_586e::
 .jump_58bd:
 	jp NextObject
 
-	db $1c, $5f, $3c, $5f, $e4, $59, $d4, $5e
 
+Entrances_0a_58c0::
+	dw LevelEntrance_04_5f1c, LevelEntrance_04_5f3c, LevelEntrance_04_59e4, LevelEntrance_04_5ed4 ; wLevelEntrance by OBJ_VAR_2F
 
 Func_0a_58c8::
 	call Func_00_1635
@@ -6262,8 +6381,9 @@ Func_0a_6813::
 	call Func_00_3ab5
 	jp NextObject
 
-	INCBIN "baserom.gbc", $02a894, $0014 ; $6894
 
+FadeColours_0a_6894::
+	dw $001f, $00bf, $015f, $01ff, $0277, $02ef, $0367, $03e0, $03e0, $03e0 ; colour 3 of the object's palette, red to green
 
 FrameTable_0a_68a8::
 	dw Frame_20_5638, Frame_20_5632, Frame_20_562c, Frame_20_5626

@@ -2342,232 +2342,234 @@ ObjInit_08_4e53::
 	obj_word OBJ_ANIM, Anim_04_570b
 	obj_end
 
-PartGroup_08_4e6f::
-	db $00
-	dw Frame_20_4b94
-	db $02
-	dw Frame_20_4bd0
-	db $04
-	dw Frame_20_4b9a
-	db $01
-	dw Frame_20_4bd6
-	db $03
-	dw Frame_20_4bbe
-	db $05
-	dw Frame_20_4c12
+LetterWord_08_4e6f::
+	db 0 ; spells DONKEY
+	dw Frame_20_4b94 ; letter D
+	db 2 ; position
+	dw Frame_20_4bd0 ; letter N
+	db 4 ; position
+	dw Frame_20_4b9a ; letter E
+	db 1 ; position
+	dw Frame_20_4bd6 ; letter O
+	db 3 ; position
+	dw Frame_20_4bbe ; letter K
+	db 5 ; position
+	dw Frame_20_4c12 ; letter Y
 
-PartGroup_08_4e81::
-	db $00
-	dw Frame_20_4bbe
-	db $02
-	dw Frame_20_4bd0
-	db $01
-	dw Frame_20_4bd6
-	db $03
-	dw Frame_20_4ba6
+LetterWord_08_4e81::
+	db 0 ; spells KONG
+	dw Frame_20_4bbe ; letter K
+	db 2 ; position
+	dw Frame_20_4bd0 ; letter N
+	db 1 ; position
+	dw Frame_20_4bd6 ; letter O
+	db 3 ; position
+	dw Frame_20_4ba6 ; letter G
 
-PartGroup_08_4e8d::
-	db $00
-	dw Frame_20_4b8e
-	db $02
-	dw Frame_20_4bfa
-	db $04
-	dw Frame_20_4bf4
-	db $06
-	dw Frame_20_4c12
-	db $01
-	dw Frame_20_4bd6
-	db $05
-	dw Frame_20_4be8
-	db $03
-	dw Frame_20_4bd0
+LetterWord_08_4e8d::
+	db 0 ; spells COUNTRY
+	dw Frame_20_4b8e ; letter C
+	db 2 ; position
+	dw Frame_20_4bfa ; letter U
+	db 4 ; position
+	dw Frame_20_4bf4 ; letter T
+	db 6 ; position
+	dw Frame_20_4c12 ; letter Y
+	db 1 ; position
+	dw Frame_20_4bd6 ; letter O
+	db 5 ; position
+	dw Frame_20_4be8 ; letter R
+	db 3 ; position
+	dw Frame_20_4bd0 ; letter N
 
-PartGroup_08_4ea2::
-	db $00
-	dw Frame_20_4bbe
+LetterWord_08_4ea2::
+	db 0 ; spells KONG
+	dw Frame_20_4bbe ; letter K
 	db $80 ; ObjInit_08_441d
-	db $01
-	dw Frame_20_4bd6
+	db 1 ; position
+	dw Frame_20_4bd6 ; letter O
 	db $80 ; ObjInit_08_441d
-	db $02
-	dw Frame_20_4bd0
+	db 2 ; position
+	dw Frame_20_4bd0 ; letter N
 	db $80 ; ObjInit_08_441d
-	db $03
-	dw Frame_20_4ba6
+	db 3 ; position
+	dw Frame_20_4ba6 ; letter G
 	db $80 ; ObjInit_08_441d
-	db $00
-	dw Frame_20_4be8
-	db $01
-	dw Frame_20_4b82
-	db $02
-	dw Frame_20_4be8
-	db $03
-	dw Frame_20_4b9a
-	db $04
-	dw Frame_20_4c06
-	db $05
-	dw Frame_20_4b82
-	db $06
-	dw Frame_20_4be8
-	db $07
-	dw Frame_20_4b9a
 
-PartGroup_08_4eca::
-	db $00
-	dw Frame_20_4bd0
-	db $02
-	dw Frame_20_4bd0
-	db $04
-	dw Frame_20_4b9a
-	db $06
-	dw Frame_20_4b94
-	db $01
-	dw Frame_20_4bb2
-	db $03
-	dw Frame_20_4bf4
-	db $05
-	dw Frame_20_4bd0
-	db $07
-	dw Frame_20_4bd6
+LetterWord_08_4eb2::
+	db 0 ; spells RAREWARE (no object spawns this)
+	dw Frame_20_4be8 ; letter R
+	db 1 ; position
+	dw Frame_20_4b82 ; letter A
+	db 2 ; position
+	dw Frame_20_4be8 ; letter R
+	db 3 ; position
+	dw Frame_20_4b9a ; letter E
+	db 4 ; position
+	dw Frame_20_4c06 ; letter W
+	db 5 ; position
+	dw Frame_20_4b82 ; letter A
+	db 6 ; position
+	dw Frame_20_4be8 ; letter R
+	db 7 ; position
+	dw Frame_20_4b9a ; letter E
 
-PartGroup_08_4ee2::
-	db $00
-	dw Frame_20_4be8
+LetterWord_08_4eca::
+	db 0 ; spells NINTENDO
+	dw Frame_20_4bd0 ; letter N
+	db 2 ; position
+	dw Frame_20_4bd0 ; letter N
+	db 4 ; position
+	dw Frame_20_4b9a ; letter E
+	db 6 ; position
+	dw Frame_20_4b94 ; letter D
+	db 1 ; position
+	dw Frame_20_4bb2 ; letter I
+	db 3 ; position
+	dw Frame_20_4bf4 ; letter T
+	db 5 ; position
+	dw Frame_20_4bd0 ; letter N
+	db 7 ; position
+	dw Frame_20_4bd6 ; letter O
+
+LetterWord_08_4ee2::
+	db 0 ; spells RARE
+	dw Frame_20_4be8 ; letter R
 	db $81 ; ObjInit_08_442b
-	db $01
-	dw Frame_20_4b82
+	db 1 ; position
+	dw Frame_20_4b82 ; letter A
 	db $81 ; ObjInit_08_442b
-	db $02
-	dw Frame_20_4be8
+	db 2 ; position
+	dw Frame_20_4be8 ; letter R
 	db $81 ; ObjInit_08_442b
-	db $03
-	dw Frame_20_4b9a
+	db 3 ; position
+	dw Frame_20_4b9a ; letter E
 	db $81 ; ObjInit_08_442b
 
-PartGroup_08_4ef2::
-	db $00
-	dw Frame_20_4b9a
-	db $02
-	dw Frame_20_4bdc
-	db $04
-	dw Frame_20_4b9a
-	db $06
-	dw Frame_20_4bee
-	db $01
-	dw Frame_20_4c0c
-	db $03
-	dw Frame_20_4be8
-	db $05
-	dw Frame_20_4bee
-	db $07
-	dw Frame_20_4bd6
+LetterWord_08_4ef2::
+	db 0 ; spells EXPRESSO
+	dw Frame_20_4b9a ; letter E
+	db 2 ; position
+	dw Frame_20_4bdc ; letter P
+	db 4 ; position
+	dw Frame_20_4b9a ; letter E
+	db 6 ; position
+	dw Frame_20_4bee ; letter S
+	db 1 ; position
+	dw Frame_20_4c0c ; letter X
+	db 3 ; position
+	dw Frame_20_4be8 ; letter R
+	db 5 ; position
+	dw Frame_20_4bee ; letter S
+	db 7 ; position
+	dw Frame_20_4bd6 ; letter O
 
-PartGroup_08_4f0a::
-	db $00
-	dw Frame_20_4b9a
-	db $02
-	dw Frame_20_4ba6
-	db $04
-	dw Frame_20_4b82
-	db $06
-	dw Frame_20_4b94
-	db $01
-	dw Frame_20_4bd0
-	db $03
-	dw Frame_20_4bfa
-	db $05
-	dw Frame_20_4be8
-	db $07
-	dw Frame_20_4b9a
+LetterWord_08_4f0a::
+	db 0 ; spells ENGUARDE
+	dw Frame_20_4b9a ; letter E
+	db 2 ; position
+	dw Frame_20_4ba6 ; letter G
+	db 4 ; position
+	dw Frame_20_4b82 ; letter A
+	db 6 ; position
+	dw Frame_20_4b94 ; letter D
+	db 1 ; position
+	dw Frame_20_4bd0 ; letter N
+	db 3 ; position
+	dw Frame_20_4bfa ; letter U
+	db 5 ; position
+	dw Frame_20_4be8 ; letter R
+	db 7 ; position
+	dw Frame_20_4b9a ; letter E
 
-PartGroup_08_4f22::
-	db $00
-	dw Frame_20_4be8
-	db $02
-	dw Frame_20_4bca
-	db $04
-	dw Frame_20_4bb2
-	db $01
-	dw Frame_20_4b82
-	db $03
-	dw Frame_20_4b88
+LetterWord_08_4f22::
+	db 0 ; spells RAMBI
+	dw Frame_20_4be8 ; letter R
+	db 2 ; position
+	dw Frame_20_4bca ; letter M
+	db 4 ; position
+	dw Frame_20_4bb2 ; letter I
+	db 1 ; position
+	dw Frame_20_4b82 ; letter A
+	db 3 ; position
+	dw Frame_20_4b88 ; letter B
 
-PartGroup_08_4f31::
-	db $00
-	dw Frame_20_4c06
-	db $02
-	dw Frame_20_4bd0
-	db $04
-	dw Frame_20_4c12
-	db $01
-	dw Frame_20_4bb2
-	db $03
-	dw Frame_20_4bbe
+LetterWord_08_4f31::
+	db 0 ; spells WINKY
+	dw Frame_20_4c06 ; letter W
+	db 2 ; position
+	dw Frame_20_4bd0 ; letter N
+	db 4 ; position
+	dw Frame_20_4c12 ; letter Y
+	db 1 ; position
+	dw Frame_20_4bb2 ; letter I
+	db 3 ; position
+	dw Frame_20_4bbe ; letter K
 
-PartGroup_08_4f40::
-	db $02
-	dw Frame_20_4b94
+LetterWord_08_4f40::
+	db 2 ; spells DIDDY
+	dw Frame_20_4b94 ; letter D
 	db $81 ; ObjInit_08_442b
-	db $00
-	dw Frame_20_4b94
+	db 0 ; position
+	dw Frame_20_4b94 ; letter D
 	db $80 ; ObjInit_08_441d
-	db $04
-	dw Frame_20_4c12
+	db 4 ; position
+	dw Frame_20_4c12 ; letter Y
 	db $81 ; ObjInit_08_442b
-	db $03
-	dw Frame_20_4b94
+	db 3 ; position
+	dw Frame_20_4b94 ; letter D
 	db $80 ; ObjInit_08_441d
-	db $01
-	dw Frame_20_4bb2
+	db 1 ; position
+	dw Frame_20_4bb2 ; letter I
 	db $80 ; ObjInit_08_441d
 
-PartGroup_08_4f54::
-	db $00
-	dw Frame_20_4b8e
+LetterWord_08_4f54::
+	db 0 ; spells CANDY
+	dw Frame_20_4b8e ; letter C
 	db $80 ; ObjInit_08_441d
-	db $02
-	dw Frame_20_4bd0
-	db $01
-	dw Frame_20_4b82
+	db 2 ; position
+	dw Frame_20_4bd0 ; letter N
+	db 1 ; position
+	dw Frame_20_4b82 ; letter A
 	db $80 ; ObjInit_08_441d
-	db $04
-	dw Frame_20_4c12
-	db $03
-	dw Frame_20_4b94
+	db 4 ; position
+	dw Frame_20_4c12 ; letter Y
+	db 3 ; position
+	dw Frame_20_4b94 ; letter D
 
-PartGroup_08_4f65::
-	db $00
-	dw Frame_20_4ba0
+LetterWord_08_4f65::
+	db 0 ; spells FUNKY
+	dw Frame_20_4ba0 ; letter F
 	db $80 ; ObjInit_08_441d
-	db $04
-	dw Frame_20_4c12
-	db $02
-	dw Frame_20_4bd0
+	db 4 ; position
+	dw Frame_20_4c12 ; letter Y
+	db 2 ; position
+	dw Frame_20_4bd0 ; letter N
 	db $80 ; ObjInit_08_441d
-	db $01
-	dw Frame_20_4bfa
-	db $03
-	dw Frame_20_4bbe
+	db 1 ; position
+	dw Frame_20_4bfa ; letter U
+	db 3 ; position
+	dw Frame_20_4bbe ; letter K
 	db $80 ; ObjInit_08_441d
 
-PartGroup_08_4f77::
-	db $00
-	dw Frame_20_4b8e
+LetterWord_08_4f77::
+	db 0 ; spells CRANKY
+	dw Frame_20_4b8e ; letter C
 	db $81 ; ObjInit_08_442b
-	db $05
-	dw Frame_20_4c12
+	db 5 ; position
+	dw Frame_20_4c12 ; letter Y
 	db $80 ; ObjInit_08_441d
-	db $04
-	dw Frame_20_4bbe
+	db 4 ; position
+	dw Frame_20_4bbe ; letter K
 	db $81 ; ObjInit_08_442b
-	db $02
-	dw Frame_20_4b82
+	db 2 ; position
+	dw Frame_20_4b82 ; letter A
 	db $80 ; ObjInit_08_441d
-	db $01
-	dw Frame_20_4be8
+	db 1 ; position
+	dw Frame_20_4be8 ; letter R
 	db $81 ; ObjInit_08_442b
-	db $03
-	dw Frame_20_4bd0
+	db 3 ; position
+	dw Frame_20_4bd0 ; letter N
 	db $80 ; ObjInit_08_441d
 
 StepPattern_08_4f8f::
@@ -2673,7 +2675,7 @@ ObjInit_08_502f::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $05
 	obj_byte OBJ_VAR_34, $33
-	obj_word OBJ_VAR_35, PartGroup_08_4f22
+	obj_word OBJ_VAR_35, LetterWord_08_4f22
 	obj_word OBJ_VAR_3B, ObjInit_08_5048
 	obj_end
 
@@ -2686,7 +2688,7 @@ ObjInit_08_5048::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, PartGroup_08_4f0a
+	obj_word OBJ_VAR_35, LetterWord_08_4f0a
 	obj_word OBJ_VAR_3B, ObjInit_08_5061
 	obj_end
 
@@ -2699,7 +2701,7 @@ ObjInit_08_5061::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, PartGroup_08_4ef2
+	obj_word OBJ_VAR_35, LetterWord_08_4ef2
 	obj_word OBJ_VAR_3B, $0000
 	obj_end
 
@@ -2712,7 +2714,7 @@ ObjInit_08_507a::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $04
 	obj_byte OBJ_VAR_34, $40
-	obj_word OBJ_VAR_35, PartGroup_08_4e81
+	obj_word OBJ_VAR_35, LetterWord_08_4e81
 	obj_word OBJ_VAR_3B, ObjInit_08_5093
 	obj_end
 
@@ -2725,7 +2727,7 @@ ObjInit_08_5093::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $07
 	obj_byte OBJ_VAR_34, $24
-	obj_word OBJ_VAR_35, PartGroup_08_4e8d
+	obj_word OBJ_VAR_35, LetterWord_08_4e8d
 	obj_word OBJ_VAR_3B, $0000
 	obj_end
 
@@ -2738,7 +2740,7 @@ ObjInit_08_50ac::
 	obj_word OBJ_VAR_31, $0200
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, PartGroup_08_4f65
+	obj_word OBJ_VAR_35, LetterWord_08_4f65
 	obj_word OBJ_VAR_3B, ObjInit_08_50c5
 	obj_end
 
@@ -2751,7 +2753,7 @@ ObjInit_08_50c5::
 	obj_word OBJ_VAR_31, $0280
 	obj_byte OBJ_VAR_33, $0c
 	obj_byte OBJ_VAR_34, $15
-	obj_word OBJ_VAR_35, PartGroup_08_4f77
+	obj_word OBJ_VAR_35, LetterWord_08_4f77
 	obj_word OBJ_VAR_3B, $0000
 	obj_end
 
@@ -3132,8 +3134,10 @@ Func_08_5227::
 	call nz, Func_00_18f0
 	jp NextObject
 
-	db $0c, $ac, $8c, $8e, $80, $8a, $88, $a8, $08, $e8, $c8, $ca, $c0, $ce, $cc, $ec
 
+Flags_08_5365::
+	db %00001100, %10101100, %10001100, %10001110, %10000000, %10001010, %10001000, %10101000
+	db %00001000, %11101000, %11001000, %11001010, %11000000, %11001110, %11001100, %11101100
 
 Func_08_5375::
 	ld hl, wObjects + OBJ_VAR_3C

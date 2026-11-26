@@ -167,6 +167,23 @@ Where songs are played, so far: levels take theirs from byte 10 of the level des
 
 **Level object lists (banks `$0B`/`$0C`).** The second pointer of each level descriptor names its object list (`LevelObjects_BB_XXXX`), read by `Func_00_1715`. The list is 8-byte records (id, flags, x, y, pointer) ending in a 0 byte, sorted by x. Bits 4–5 of the flags say what the pointer is: `$00` a 16-byte block in bank `$03`, `$10` a zero-terminated byte string in the same bank (`LevelObjString_…`), copied to WRAM at `$D800` + 16 × id, or `$30` a value used as is.
 
+**Object data in banks `$04`, `$08` and `$0A`.** Several object types carry a pointer to data of their own in an `OBJ_VAR_xx` field, set by their initialiser list in bank `$0E`. The sources now use labels for these pointers.
+
+| Data | Where | Format and user |
+|---|---|---|
+| `MapPatch_04_XXXX` (92) | `$04:6CB4`–`$705A` | block x, block y (bit 7: the second map layer), width, height, then width × height cells of block number, block attribute and terrain byte. `ApplyMapPatch` (`$0D74`) writes the patch into the level map in WRAM, so an object can open a wall or change the ground. Pointed to by `OBJ_VAR_2F`, `$30` or `$32` |
+| `ObjScript_0a_XXXX` | `$0A:7358`–`$7AF5` | small byte-code scripts, read by eleven handlers through ten interpreters (`tools/objscripts.py` lists the command sets). Command 0 jumps; the others wait, set speeds and accelerations, change the animation, throw or spawn objects. Pointed to by `OBJ_VAR_2E`, `$31` or `$32` |
+| `CarrierObjectTable` | `$08:4CA0` | 17 × 8 bytes, by `OBJ_VAR_2E`: sprite frame and palette of an object, and the y offset and initialiser of the object it releases (`Func_08_4652` and nearby) |
+| `LetterWord_08_XXXX` | `$08:4E6F` | words in letter blocks for `Func_08_4344` (`OBJ_VAR_35`, count in `OBJ_VAR_33`): `$80` or `$81` for two kinds of plain block, or a position byte and a letter frame (`Frame_20_4b82` + 6 × n is letter n). The words are DONKEY, KONG, COUNTRY, RAREWARE, NINTENDO, RARE, EXPRESSO, ENGUARDE, RAMBI, WINKY, DIDDY, CANDY, FUNKY and CRANKY |
+| `StepPattern_08_XXXX` | `$08:4F8F` | pairs of (frames, `CarrierObjectTable` index) that each part of a `Func_08_4581` row steps through (`OBJ_VAR_33`, length in `OBJ_VAR_32`) |
+| `AnimalMaskTable` | `$08:5D93` | four 1-bit masks, one per animal buddy (`[$c445]` bits 4–6), copied to WRAM bank 4 at `$D800`, 16 bytes a row. `Func_08_5fe6` tests the player's position against them |
+| `ObjectDigits` | `$08:62B6` | "×", "1", "2" and "3" as 8 × 5 bitmaps, drawn with one object per set bit (`Func_08_6246`) |
+| `SlopeVelocities` | `$08:5AE3` | x and y speeds by the slope under an object (`OBJ_TERRAIN_B`, `Func_08_5aba`) |
+| `CreditsCaptions` | `$0A:53BF` | the ending's captions: x position and sprite frame for the six credits headings, the five cast names and "THE END?", whose entry is 11 + the language number in `[$c30d]` |
+| `Hitboxes` | `$09:429E` | 83 × 4 bytes, by `OBJ_ANIM_PARAM`: width, height and signed x and y offsets (the x offset flips with the sprite) |
+
+Bank `$00` also holds `CharTileTable` (`$042B`), the tile number for each character from `$20` to `$FF`, used by `CharToTile`.
+
 **Text (banks `$10`–`$14`).** One bank per language: English, German, French, Italian and Spanish. Each starts with 16 group pointers (`TextGroups_BB`), each group a list of string pointers. Strings end in 0, `$0D` is a new line, and letters above `$7F` follow code page 437 (é = `$82`, ü = `$81`, ñ = `$A4`, ß = `$E1`). The groups hold Cranky's, Funky's and Candy's lines, the level and world names (group 15) and the menu words. All 259 strings in each bank are now readable `db` text.
 
 **Digitized samples.** Funky's Fishing plays speech and effects as 3-bit samples. Its timer interrupt (in the RAM runtime, at `$CCE2`) writes one byte per tick to NR50, the master volume, with every channel holding a constant tone. Both nibbles of a byte carry the same level, so 4 is silence. `SampleTable` (`$52:41C2`) gives the bank, address and length of each of the 11 samples: five in bank `$53`, four in `$54`, one at the end of `$55` and one filling `$56`.
@@ -234,7 +251,7 @@ Stickers are unlocked through a bitfield in save RAM at `$B0C2` (tested by `Func
 
 ### Unused content
 
-`python3 tools/find_unused.py` lists sprite frames, animation scripts, palettes, level blocks and tiles that nothing decoded so far refers to. The findings, as text, are in [`docs/unused.md`](docs/unused.md). It writes a report and images to `unused/`, which is gitignored because the images are the game's graphics. Before calling anything unused, it searches the undecoded bytes of banks `$00`–`$0F` for its address and reports any hits. That search is how the frame and animation pointer tables in banks `$00` and `$08`–`$0A` were found. The tracer now decodes those tables (`FrameTable_…`, `AnimTable_…`), so they count as uses.
+`python3 tools/find_unused.py` lists sprite frames, animation scripts, palettes, level blocks and tiles that nothing decoded so far refers to. The findings, as text, are in [`docs/unused.md`](docs/unused.md). It writes a report and images to `unused/`, which is gitignored because the images are the game's graphics. Before calling anything unused, it searches the undecoded bytes of banks `$00`–`$0F` for its address and reports any hits. That search is how the frame and animation pointer tables in banks `$00` and `$08`–`$0A` were found. The tracer now decodes those tables (`FrameTable_…`, `AnimTable_…`), so they count as uses, as do the frames named in other decoded tables such as `CreditsCaptions` and the letter-block words.
 
 ## Status
 
@@ -243,10 +260,10 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
 | Code disassembled into readable instructions | 107 KB | 4.0% |
-| Data decoded into readable structures | 325 KB | 12.1% |
-| Graphics converted to editable PNGs | 1051 KB | 39.2% |
+| Data decoded into readable structures | 331 KB | 12.3% |
+| Graphics converted to editable PNGs | 1052 KB | 39.2% |
 | Located and labelled, format known, still raw bytes | 1191 KB | 44.4% |
-| Not identified yet | 10 KB | 0.4% |
+| Not identified yet | 3 KB | 0.1% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 
@@ -305,7 +322,7 @@ Every bank now has a known purpose:
 
 This repository covers the retail ROM only. The goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. The earlier demo build (`Donkey Kong Country (U) [demo]`) will get a separate repository. The order of work:
 
-1. Finish identifying what's left (0.4%, listed in [`docs/unused.md`](docs/unused.md) under Not identified yet): mostly small tables and blocks in the code banks `$04`, `$08`–`$0A` and `$F0`/`$F1`, the end of bank `$1B`, and the loaders of a few front-end graphics.
+1. Finish identifying what's left (0.1%, listed in [`docs/unused.md`](docs/unused.md) under Not identified yet). The main game's banks `$00`–`$3F` are done. What remains is in the front-end and bonus banks (`$50`, `$55`, `$58`/`$59`/`$5B`, `$F0`–`$FE`), plus the loaders of a few front-end graphics.
 2. Convert the located raw data (block banks, terrain, compressed maps, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 

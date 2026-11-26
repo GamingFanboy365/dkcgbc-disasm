@@ -91,6 +91,11 @@ class Finder:
             elif item[0] == "framestruct":
                 recs, cols = item[2]
                 used |= set(r[j] for r in recs for j in cols)
+            elif item[0] == "rows":  # decoded tables that name sprite frames
+                for row in item[2]:
+                    for tok in row[1]:
+                        if isinstance(tok, tuple) and tok[0] == "ref" and tok[1] == fb:
+                            used.add(tok[2])
         return used
 
     def render_frame(self, a, pal=None):

@@ -118,10 +118,15 @@ class Emitter:
                     self.names[o] = pfx[1:] if pfx.startswith("=") else "%s_%02x_%04x" % (pfx, bank, addr)
             # Jump targets become locals of the preceding global label; a
             # jump target with no preceding global becomes global itself.
-            globals_sorted = sorted(o for o, _ in items if o in self.names)
             import bisect
+            # a data label written as "=.name" is local to the function around it
+            dotted = [o for o, _ in items if o in self.names and self.names[o].startswith(".")]
+            globals_sorted = sorted(o for o, _ in items if o in self.names and o not in dotted)
+            for o in dotted:
+                k = bisect.bisect_right(globals_sorted, o) - 1
+                self.locals[o] = (globals_sorted[k], self.names.pop(o))
             for o, kind in items:
-                if o in self.names:
+                if o in self.names or o in self.locals:
                     continue
                 addr = (o % BANK_SIZE) + (0x4000 if bank else 0)
                 k = bisect.bisect_right(globals_sorted, o) - 1
@@ -285,6 +290,8 @@ class Emitter:
                     for (lo, line) in self.fmt_data(o, t.data[o]):
                         if lo is not None and lo in self.names:
                             out.append("\n%s::\n" % self.names[lo])
+                        elif lo is not None and lo in self.locals:
+                            out.append("%s%s\n" % (self.locals[lo][1], "::" if lo in self.exported else ":"))
                         out.append("\t%s\n" % line)
                     o += t.data[o][3]
                 else:

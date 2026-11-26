@@ -2967,8 +2967,9 @@ LevelObjects_0b_6bce::
 	db $61, $b0
 	dw $0050, $0117, $643b ; x, y, value
 	db 0 ; end
-	db $00
 
+Padding_0b_6c1f::
+	db $00 ; padding
 
 LevelObjects_0b_6c20::
 	db $01, $80

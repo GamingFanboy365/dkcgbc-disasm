@@ -587,7 +587,8 @@ def parse_banks(t, rom):
                            (0xF1, 0x5925, 0xCDEF, 63), (0xF1, 0x5964, 0xCE80, 7), (0xF1, 0x596B, 0xCE2E, 82),
                            (0xF1, 0x659A, 0xDB00, 80), (0xFE, 0x761B, 0xCC0E, 134)):
         t._claim(b, src, n, "incbin", None, "=RAMCopy_%02x_%04x_to_%04x" % (b, src, dst))
-    t._claim(0xF1, 0x65E8, 64, "palette", 8, "=FrontEndObjPalettes")      # copied to $c846 (Func_f1_433a)
+    # 8 OBJ palettes copied to $c846 from $65e8 (Func_f1_433a); their first 2 bytes are the end of the block above
+    t._claim(0xF1, 0x65EA, 62, "rows", hexrow("db", rom[off(0xF1, 0x65EA):off(0xF1, 0x6628)], 8), "=FrontEndObjPalettesRest")
     t._claim(0xF1, 0x5CC1, 16, "palette", 2, "=HiScoreObjPalettes")       # copied to $c846 (Func_f1_5cd1)
     # bank $f2 tables
     t._claim(0xF2, 0x4397, 52, "rows", hexrow("db", rom[off(0xF2, 0x4397):off(0xF2, 0x4397 + 52)], 16),
@@ -625,6 +626,22 @@ def parse_banks(t, rom):
     # three bytes per front-end picture (Func_f0_4a40, Func_f0_4a49, Func_f0_4a52), 149 each
     for a, name in ((0x5328, "PictureInfoA"), (0x53BD, "PictureInfoB"), (0x5452, "PictureInfoC")):
         t._claim(0xF0, a, 149, "rows", hexrow("db", rom[off(0xF0, a):off(0xF0, a + 149)], 16), "=" + name)
+    # bank $f1 menu data
+    t._claim(0xF1, 0x64CB, 0x659A - 0x64CB, "rows", hexrow("db", rom[off(0xF1, 0x64CB):off(0xF1, 0x659A)], 16), "=MenuBytes_f1_64cb")
+    angles = [rom[off(0xF1, 0x6628 + 2 * k)] | rom[off(0xF1, 0x6628 + 2 * k) + 1] << 8 for k in range(6)]
+    t._claim(0xF1, 0x6628, 12, "rows", [("dw", [ref(0xF1, x) if x else "0" for x in angles], "by ring item count")], "=RingAngleLists")
+    for a, e in ((0x6634, 0x6639), (0x6639, 0x663D), (0x663D, 0x6640), (0x6640, 0x6642)):
+        t._claim(0xF1, a, e - a, "rows", hexrow("db", rom[off(0xF1, a):off(0xF1, e)]), "RingAngles")
+    t._claim(0xF1, 0x6642, 0x678A - 0x6642, "rows", [("db", ["%d" % (v - 256 if v > 127 else v) for v in rom[off(0xF1, a):off(0xF1, a) + 2]],
+                                                       "x, y" if a == 0x6642 else None) for a in range(0x6642, 0x678A, 2)], "=RingCircle")
+    rings = [rom[off(0xF1, 0x67BF + 2 * k)] | rom[off(0xF1, 0x67BF + 2 * k) + 1] << 8 for k in range(16)]
+    t._claim(0xF1, 0x67BF, 32, "rows", [("dw", [ref(0xF1, x) if x else "0" for x in rings[k:k + 4]], None) for k in range(0, 16, 4)],
+             "=RingTable")  # FE_LoadRing, by [$c96e]
+    starts = sorted(set(x for x in rings if x))
+    for i, x in enumerate(starts):
+        y = starts[i + 1] if i + 1 < len(starts) else 0x6893
+        t._claim(0xF1, x, y - x, "rows", [("db", ["%d" % rom[off(0xF1, x)]], "items")] +
+                 hexrow("db", rom[off(0xF1, x + 1):off(0xF1, y)], 3), "Ring")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

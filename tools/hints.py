@@ -311,6 +311,7 @@ EXTRA_TILES = [
     (0x07, 0x6000, 12, "title screen sprite tiles (copied to VRAM $81c0)"),
     (0x08, 0x7800, 128, "animal buddy icons (Rambi, Expresso, Enguarde, Winky), 8x16 sprites"),
     (0xF2, 0x5760, 256, "front-end tiles after the letter piece records; no user found yet"),
+    (0xF1, 0x6F40, 9, "front-end tiles copied to VRAM $8e60 (Func_f1_54xx)"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

@@ -71,6 +71,20 @@ class Asm:
         self.written = bytearray(256 * BANK)
         self.base = open(os.path.join(ROOT, "baserom.gbc"), "rb").read() if False else None
 
+    def incbin(self, quoted):
+        """Contents of an INCBIN'd file. A .2bpp is converted from its PNG
+        here (with tools/gfx.py), so the check doesn't need rgbgfx."""
+        path = quoted.strip('"')
+        cache = self.__dict__.setdefault("_incbin", {})
+        if path not in cache:
+            full = os.path.join(ROOT, path)
+            if path.endswith(".2bpp") and os.path.exists(full[:-5] + ".png"):
+                from gfx import png_to_2bpp
+                cache[path] = png_to_2bpp(full[:-5] + ".png")
+            else:
+                cache[path] = open(full, "rb").read()
+        return cache[path]
+
     def define_constants(self, path):
         for line in open(path):
             m = re.match(r"\s*DEF\s+(\w+)\s+EQU\s+(\S+)", line)
@@ -150,7 +164,10 @@ class Asm:
         if m == "ds":
             return self.eval(split_args(rest)[0])
         if m == "INCBIN":
-            return self.eval(split_args(rest)[2])
+            a = split_args(rest)
+            if len(a) == 1:
+                return len(self.incbin(a[0]))
+            return self.eval(a[2])
         if m == "rst_farcall":
             return 4
         if m == "obj_byte":
@@ -206,6 +223,8 @@ class Asm:
             return bytes([ev(a[1]) if len(a) > 1 else 0]) * ev(a[0])
         if m == "INCBIN":
             a = split_args(rest)
+            if len(a) == 1:
+                return self.incbin(a[0])
             st, n = ev(a[1]), ev(a[2])
             return base[st:st + n]
         if m in ANIM_SIZES:
@@ -285,7 +304,9 @@ def split_args(rest):
 
 def main():
     base = open(sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "baserom.gbc"), "rb").read()
-    objs = re.findall(r"(src/\S+)\.o", open(os.path.join(ROOT, "layout.mk")).read())
+    layout = open(os.path.join(ROOT, "layout.mk")).read()
+    block = layout[layout.index("OBJS :="):].split("\n\n", 1)[0]
+    objs = re.findall(r"(src/\S+)\.o", block)
     files = [o + ".asm" for o in objs]
     a = Asm()
     a.define_constants(os.path.join(ROOT, "include", "hardware.inc"))

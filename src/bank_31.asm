@@ -4,135 +4,135 @@ INCLUDE "include/common.inc"
 SECTION "Bank $31", ROMX[$4000], BANK[$31]
 
 FrameTiles_31_4000::
-	INCBIN "baserom.gbc", $0c4000, $0120
+	INCBIN "gfx/frames/31/4000.2bpp"
 
 FrameTiles_31_4120::
-	INCBIN "baserom.gbc", $0c4120, $0100
+	INCBIN "gfx/frames/31/4120.2bpp"
 
 FrameTiles_31_4220::
-	INCBIN "baserom.gbc", $0c4220, $0100
+	INCBIN "gfx/frames/31/4220.2bpp"
 
 FrameTiles_31_4320::
-	INCBIN "baserom.gbc", $0c4320, $0100
+	INCBIN "gfx/frames/31/4320.2bpp"
 
 FrameTiles_31_4420::
-	INCBIN "baserom.gbc", $0c4420, $0100
+	INCBIN "gfx/frames/31/4420.2bpp"
 
 FrameTiles_31_4520::
-	INCBIN "baserom.gbc", $0c4520, $0100
+	INCBIN "gfx/frames/31/4520.2bpp"
 
 FrameTiles_31_4620::
-	INCBIN "baserom.gbc", $0c4620, $0100
+	INCBIN "gfx/frames/31/4620.2bpp"
 
 FrameTiles_31_4720::
-	INCBIN "baserom.gbc", $0c4720, $0100
+	INCBIN "gfx/frames/31/4720.2bpp"
 
 FrameTiles_31_4820::
-	INCBIN "baserom.gbc", $0c4820, $0120
+	INCBIN "gfx/frames/31/4820.2bpp"
 
 FrameTiles_31_4940::
-	INCBIN "baserom.gbc", $0c4940, $0140
+	INCBIN "gfx/frames/31/4940.2bpp"
 
 FrameTiles_31_4a80::
-	INCBIN "baserom.gbc", $0c4a80, $0140
+	INCBIN "gfx/frames/31/4a80.2bpp"
 
 FrameTiles_31_4bc0::
-	INCBIN "baserom.gbc", $0c4bc0, $0140
+	INCBIN "gfx/frames/31/4bc0.2bpp"
 
 FrameTiles_31_4d00::
-	INCBIN "baserom.gbc", $0c4d00, $0140
+	INCBIN "gfx/frames/31/4d00.2bpp"
 
 FrameTiles_31_4e40::
-	INCBIN "baserom.gbc", $0c4e40, $0100
+	INCBIN "gfx/frames/31/4e40.2bpp"
 
 FrameTiles_31_4f40::
-	INCBIN "baserom.gbc", $0c4f40, $00e0
+	INCBIN "gfx/frames/31/4f40.2bpp"
 
 FrameTiles_31_5020::
-	INCBIN "baserom.gbc", $0c5020, $00c0
+	INCBIN "gfx/frames/31/5020.2bpp"
 
 FrameTiles_31_50e0::
-	INCBIN "baserom.gbc", $0c50e0, $0100
+	INCBIN "gfx/frames/31/50e0.2bpp"
 
 FrameTiles_31_51e0::
-	INCBIN "baserom.gbc", $0c51e0, $00e0
+	INCBIN "gfx/frames/31/51e0.2bpp"
 
 FrameTiles_31_52c0::
-	INCBIN "baserom.gbc", $0c52c0, $00e0
+	INCBIN "gfx/frames/31/52c0.2bpp"
 
 FrameTiles_31_53a0::
-	INCBIN "baserom.gbc", $0c53a0, $00e0
+	INCBIN "gfx/frames/31/53a0.2bpp"
 
 FrameTiles_31_5480::
-	INCBIN "baserom.gbc", $0c5480, $0100
+	INCBIN "gfx/frames/31/5480.2bpp"
 
 FrameTiles_31_5580::
-	INCBIN "baserom.gbc", $0c5580, $0100
+	INCBIN "gfx/frames/31/5580.2bpp"
 
 FrameTiles_31_5680::
-	INCBIN "baserom.gbc", $0c5680, $0100
+	INCBIN "gfx/frames/31/5680.2bpp"
 
 FrameTiles_31_5780::
-	INCBIN "baserom.gbc", $0c5780, $0100
+	INCBIN "gfx/frames/31/5780.2bpp"
 
 FrameTiles_31_5880::
-	INCBIN "baserom.gbc", $0c5880, $00c0
+	INCBIN "gfx/frames/31/5880.2bpp"
 
 FrameTiles_31_5940::
-	INCBIN "baserom.gbc", $0c5940, $0100
+	INCBIN "gfx/frames/31/5940.2bpp"
 
 FrameTiles_31_5a40::
-	INCBIN "baserom.gbc", $0c5a40, $00c0
+	INCBIN "gfx/frames/31/5a40.2bpp"
 
 FrameTiles_31_5b00::
-	INCBIN "baserom.gbc", $0c5b00, $00e0
+	INCBIN "gfx/frames/31/5b00.2bpp"
 
 FrameTiles_31_5be0::
-	INCBIN "baserom.gbc", $0c5be0, $00c0
+	INCBIN "gfx/frames/31/5be0.2bpp"
 	INCBIN "baserom.gbc", $0c5ca0, $03e0 ; $5ca0
 
 
 FrameTiles_31_6080::
-	INCBIN "baserom.gbc", $0c6080, $0060
+	INCBIN "gfx/frames/31/6080.2bpp"
 
 FrameTiles_31_60e0::
-	INCBIN "baserom.gbc", $0c60e0, $00a0
+	INCBIN "gfx/frames/31/60e0.2bpp"
 
 FrameTiles_31_6180::
-	INCBIN "baserom.gbc", $0c6180, $0080
+	INCBIN "gfx/frames/31/6180.2bpp"
 
 FrameTiles_31_6200::
-	INCBIN "baserom.gbc", $0c6200, $0060
+	INCBIN "gfx/frames/31/6200.2bpp"
 
 FrameTiles_31_6260::
-	INCBIN "baserom.gbc", $0c6260, $00a0
+	INCBIN "gfx/frames/31/6260.2bpp"
 
 FrameTiles_31_6300::
-	INCBIN "baserom.gbc", $0c6300, $00a0
+	INCBIN "gfx/frames/31/6300.2bpp"
 
 FrameTiles_31_63a0::
-	INCBIN "baserom.gbc", $0c63a0, $0080
+	INCBIN "gfx/frames/31/63a0.2bpp"
 
 FrameTiles_31_6420::
-	INCBIN "baserom.gbc", $0c6420, $00a0
+	INCBIN "gfx/frames/31/6420.2bpp"
 
 FrameTiles_31_64c0::
-	INCBIN "baserom.gbc", $0c64c0, $0080
+	INCBIN "gfx/frames/31/64c0.2bpp"
 
 FrameTiles_31_6540::
-	INCBIN "baserom.gbc", $0c6540, $0120
+	INCBIN "gfx/frames/31/6540.2bpp"
 
 FrameTiles_31_6660::
-	INCBIN "baserom.gbc", $0c6660, $0120
+	INCBIN "gfx/frames/31/6660.2bpp"
 
 FrameTiles_31_6780::
-	INCBIN "baserom.gbc", $0c6780, $0100
+	INCBIN "gfx/frames/31/6780.2bpp"
 
 FrameTiles_31_6880::
-	INCBIN "baserom.gbc", $0c6880, $0140
+	INCBIN "gfx/frames/31/6880.2bpp"
 
 FrameTiles_31_69c0::
-	INCBIN "baserom.gbc", $0c69c0, $0120
+	INCBIN "gfx/frames/31/69c0.2bpp"
 
 FrameSprites_31_6ae0::
 	db -10, -21

@@ -4,31 +4,31 @@ INCLUDE "include/common.inc"
 SECTION "Bank $3a", ROMX[$4000], BANK[$3a]
 
 FrameTiles_3a_4000::
-	INCBIN "baserom.gbc", $0e8000, $0080
+	INCBIN "gfx/frames/3a/4000.2bpp"
 
 FrameTiles_3a_4080::
-	INCBIN "baserom.gbc", $0e8080, $0060
+	INCBIN "gfx/frames/3a/4080.2bpp"
 
 FrameTiles_3a_40e0::
-	INCBIN "baserom.gbc", $0e80e0, $0060
+	INCBIN "gfx/frames/3a/40e0.2bpp"
 
 FrameTiles_3a_4140::
-	INCBIN "baserom.gbc", $0e8140, $0060
+	INCBIN "gfx/frames/3a/4140.2bpp"
 
 FrameTiles_3a_41a0::
-	INCBIN "baserom.gbc", $0e81a0, $0060
+	INCBIN "gfx/frames/3a/41a0.2bpp"
 
 FrameTiles_3a_4200::
-	INCBIN "baserom.gbc", $0e8200, $0080
+	INCBIN "gfx/frames/3a/4200.2bpp"
 
 FrameTiles_3a_4280::
-	INCBIN "baserom.gbc", $0e8280, $0080
+	INCBIN "gfx/frames/3a/4280.2bpp"
 
 FrameTiles_3a_4300::
-	INCBIN "baserom.gbc", $0e8300, $0080
+	INCBIN "gfx/frames/3a/4300.2bpp"
 
 FrameTiles_3a_4380::
-	INCBIN "baserom.gbc", $0e8380, $0060
+	INCBIN "gfx/frames/3a/4380.2bpp"
 
 FrameSprites_3a_43e0::
 	db -10, -13

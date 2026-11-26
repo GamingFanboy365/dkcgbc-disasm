@@ -173,7 +173,17 @@ Walking the menus in the emulator gives the rest of the picture:
 | Title screen | banks `$07`, `$42`, `$45` (decoded, see Title screen above) |
 | Print → Sticker Book, Alphabet | maps in bank `$58`, tiles in `$5C`, `$61`, `$62`, `$40` |
 
-The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Bank `$58` starts with six raw 20×18 screens (`$4000`–`$50DF`, 360 attribute bytes then 360 tile numbers each), which the front end picks by number. Its "?" screen is the first of them. After `$50E0` the bank holds layouts of other sizes. The Sticker Book's stickers start out empty and are unlocked through the game, so their pictures (probably in the banks not yet seen on screen: `$53`, `$54`, `$56`, `$59`, `$5A`, `$5E`–`$60`, `$63`–`$65`, `$67`–`$6A`, `$6D`–`$6F`) have to be found through the code rather than by looking.
+The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Bank `$58` starts with six raw 20×18 screens (`$4000`–`$50DF`, 360 attribute bytes then 360 tile numbers each), which the front end picks by number. Its "?" screen is the first of them. After `$50E0` the bank holds layouts of other sizes. The front end keeps every picture it shows in one table of 148 nine-byte records at `$F0:54EA`–`$5A1D`, indexed by number. Each record names three (bank, address) pairs: palettes (bank `$5B`), tiles (banks `$5B`–`$6F`) and a 360- or 720-byte map (banks `$58`–`$5B`). Tile data runs on across bank boundaries. Reading every ROM byte the game touches while it builds each screen (mGBA's read watchpoints) found this table. Between them, the records cover almost all of banks `$58`–`$6F`:
+
+| Records | Contents |
+|---|---|
+| 0–7 | full front-end screens (720-byte maps with attributes) |
+| 8–19 | the Sticker Book's pictures, each 360 tiles shown in order with palette 0 |
+| 20–29, 72–94, 122–129 | menu text pre-drawn as pictures, one set per language |
+| 30–55, 98–116 | the Alphabet print feature: letters A–Z and digits 1–9, each with a character |
+| the rest | backgrounds, fonts and tiles for the front end's screens |
+
+Several records are exact repeats of their neighbours (runs of 7, 8 and 4), which look like filler slots. Stickers are unlocked through a bitfield in save RAM at `$B0C2` (tested by `Func_f1_7803`, set by `Func_f1_7840`). Setting those bits also adds entries to the main menu, a link-cable screen among them.
 
 ### Unused content
 

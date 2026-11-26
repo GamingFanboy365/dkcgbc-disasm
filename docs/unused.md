@@ -108,6 +108,10 @@ World map 7 is reached by no location in the location table, but `Func_05_4274` 
 
 The title picks one of four slots with `[$B0C1] & 3`, but slot 3 is an exact copy of slot 2 (same map, palettes and tileset). So the game shows only three title pictures. One of its four selections simply repeats the jungle picture, which could be filler or a placeholder for a fourth picture that was never made.
 
+## Front-end picture table
+
+The front end's picture table (148 records at `$F0:54EA`) has several runs of identical records: seven in a row (records 20–26, the same tiles and map), eight in a row (71–78) and four in a row (64–67), plus a few repeated pairs. They may be filler for slots that were never given their own picture, or entries the menus select by language with no translated version. Which records the game actually shows still needs checking.
+
 ## Checked and found complete
 
 These turned up nothing unused, which is worth knowing too:

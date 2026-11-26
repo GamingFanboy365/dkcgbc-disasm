@@ -187,6 +187,37 @@ def music_rows(md, bank, a, end):
     return rows
 
 
+def claim_obj_scripts(t, rom):
+    """Bank $0A object behaviour scripts (tools/objscripts.py)."""
+    import objscripts as osc
+    ref = lambda b, a, w=2: ("ref", b, a, w)  # noqa: E731
+    runs = osc.parse(rom, osc.script_starts(t, rom))
+    refs = getattr(t, "obj_ptr_refs", {})
+    t.obj_ptr_refs = refs
+    starts = osc.script_starts(t, rom)
+    for a, it in starts.items():
+        refs[(osc.INTERPRETERS[it][0], a)] = osc.BANK
+    for a, (it, cs) in sorted(runs.items()):
+        rows, end = [], a
+        for p, c, vals, text in cs:
+            kinds = osc.arg_kinds(it, c, vals)
+            if c == 0:
+                rows.append(("db", ["$00"], text))
+                rows.append(("dw", [ref(osc.BANK, vals[0]) if vals[0] else "$0000"], None))
+            elif all(k == "b" for k in kinds):
+                rows.append(("db", ["$%02x" % c] + ["$%02x" % v for v in vals], text))
+            else:
+                rows.append(("db", ["$%02x" % c], text))
+                rows.append(("dw", [ref(osc.BANK, v) if k == "o" else "$%04x" % v for k, v in zip(kinds, vals)], None))
+                for k, v in zip(kinds, vals):
+                    if k == "o":
+                        t.parse_obj_list(osc.BANK, v, osc.BANK)
+            end = p + 1 + sum(1 if k == "b" else 2 for k in kinds)
+        unref = " (no object list points here)" if a in dict(osc.UNREFERENCED) else ""
+        rows[0] = (rows[0][0], rows[0][1], (rows[0][2] or "") + " -- Func_0a_%04x%s" % (it, unref))
+        t._claim(osc.BANK, a, end - a, "rows", rows, "ObjScript")
+
+
 def parse_banks(t, rom):
     """Sound, camera regions, level object lists, text and samples (see
     tools/banks.py)."""
@@ -794,6 +825,8 @@ def make(rom):
     for k in range(1, 17):
         o = off(8, 0x4CA0 + 8 * k + 6)
         t.parse_obj_list(8, rom[o] | rom[o + 1] << 8, 8)
+    t.run()
+    claim_obj_scripts(t, rom)
     t.run()
     for args in hints.FRAME_STRUCTS:
         t.parse_frame_struct(*args)

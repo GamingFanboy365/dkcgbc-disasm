@@ -8131,5 +8131,1489 @@ Func_0a_732c::
 .jump_7355:
 	jp NextObject
 
-	INCBIN "baserom.gbc", $02b358, $0ca8 ; $7358
+
+ObjScript_0a_7358::
+	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
+	db $01, $50 ; wait (Func_0a_6a0a)
+	db $00 ; jump
+	dw ObjScript_0a_7358
+
+ObjScript_0a_735e::
+	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
+	db $01, $96 ; wait (Func_0a_6a0a)
+	db $00 ; jump
+	dw ObjScript_0a_735e
+
+ObjScript_0a_7364::
+	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
+	db $02, $32 ; wait (Func_0a_6a8b)
+	db $03 ; finish (Func_0a_6a2a)
+	db $02, $00 ; wait (Func_0a_6a8b)
+	db $00 ; jump
+	dw ObjScript_0a_7364
+
+ObjScript_0a_736d::
+	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
+	db $02, $32 ; wait (Func_0a_6a8b)
+	db $03 ; finish (Func_0a_6a2a)
+	db $02, $0a ; wait (Func_0a_6a8b)
+	db $03 ; finish (Func_0a_6a2a)
+	db $02, $00 ; wait (Func_0a_6a8b)
+	db $00 ; jump
+	dw ObjScript_0a_736d
+
+ObjScript_0a_7379::
+	db $03 ; jump (Func_0a_5eee) -- Func_0a_5e65
+	dw $fd00
+	db $01, $14 ; wait
+	db $03 ; jump (Func_0a_5eee)
+	dw $0000
+	db $01, $14 ; wait
+	db $03 ; jump (Func_0a_5eee)
+	dw $0300
+	db $01, $14 ; wait
+	db $02 ; animation Anim_04_4a0d
+	db $01, $32 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_7379
+
+ObjScript_0a_738e::
+	db $03 ; jump (Func_0a_5eee) -- Func_0a_5e65
+	dw $0000
+	db $01, $14 ; wait
+	db $02 ; animation Anim_04_4a0d
+	db $01, $1e ; wait
+	db $00 ; jump
+	dw ObjScript_0a_738e
+
+ObjScript_0a_7399::
+	db $03 ; jump (Func_0a_5eee) -- Func_0a_5e65
+	dw $0300
+	db $01, $14 ; wait
+	db $02 ; animation Anim_04_4a0d
+	db $01, $1e ; wait
+	db $00 ; jump
+	dw ObjScript_0a_7399
+
+ObjScript_0a_73a4::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $0100, $ff00
+	db $01, $28 ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $28 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_73a4
+
+ObjScript_0a_73b9::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $ff00
+	db $01, $28 ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $28 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_73b9
+
+ObjScript_0a_73c9::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $0100, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $0100, $0100
+	db $01, $28 ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $28 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_73c9
+
+ObjScript_0a_73de::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $0100
+	db $01, $28 ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $28 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_73de
+
+ObjScript_0a_73f3::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $0100, $0000
+	db $04 ; throw: x speed, y speed
+	dw $0000, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $0000
+	db $01, $28 ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $28 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_73f3
+
+ObjScript_0a_740d::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $0100, $0000
+	db $01, $28 ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $28 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_740d
+
+ObjScript_0a_741d::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $0000
+	db $01, $28 ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $28 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_741d
+
+ObjScript_0a_742d::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $ff80, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $0000, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $0080, $ff00
+	db $04 ; throw: x speed, y speed
+	dw $0100, $ff00
+	db $01, $5a ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $32 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_742d
+
+ObjScript_0a_7451::
+	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $01, $28 ; wait
+	db $04 ; throw: x speed, y speed
+	dw $ff00, $0100
+	db $04 ; throw: x speed, y speed
+	dw $ff80, $0100
+	db $04 ; throw: x speed, y speed
+	dw $0000, $0100
+	db $04 ; throw: x speed, y speed
+	dw $0080, $0100
+	db $04 ; throw: x speed, y speed
+	dw $0100, $0100
+	db $01, $5a ; wait
+	db $03 ; animation Anim_04_4cc7
+	db $01, $32 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_7451
+
+ObjScript_0a_7475::
+	db $02, $ff ; walk (Anim_04_4947) -- Func_0a_5b56
+	db $00 ; jump
+	dw ObjScript_0a_7475
+
+ObjScript_0a_747a::
+	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56
+	dw $fbb0
+	db $00 ; jump
+	dw ObjScript_0a_747a
+
+ObjScript_0a_7480::
+	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56
+	dw $fcb0
+	db $00 ; jump
+	dw ObjScript_0a_7480
+
+ObjScript_0a_7486::
+	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56
+	dw $fbb0
+	db $03 ; move (Func_0a_5c4d)
+	dw $fd00
+	db $03 ; move (Func_0a_5c4d)
+	dw $fd00
+	db $03 ; move (Func_0a_5c4d)
+	dw $fd00
+	db $00 ; jump
+	dw ObjScript_0a_7486
+
+ObjScript_0a_7495::
+	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56 (no object list points here)
+	dw $fcb0
+	db $03 ; move (Func_0a_5c4d)
+	dw $fd00
+	db $03 ; move (Func_0a_5c4d)
+	dw $fd00
+	db $03 ; move (Func_0a_5c4d)
+	dw $fd00
+	db $00 ; jump
+	dw ObjScript_0a_7495
+
+ObjScript_0a_74a4::
+	db $02, $1e ; walk (Anim_04_4947) -- Func_0a_5b56
+	db $03 ; move (Func_0a_5c4d)
+	dw $fbb0
+	db $00 ; jump
+	dw ObjScript_0a_74a4
+
+ObjScript_0a_74ac::
+	db $02, $32 ; walk (Anim_04_4947) -- Func_0a_5b56 (no object list points here)
+	db $03 ; move (Func_0a_5c4d)
+	dw $fcb0
+	db $00 ; jump
+	dw ObjScript_0a_74ac
+
+ObjScript_0a_74b4::
+	db $02 ; attack (Func_0a_6b11) -- Func_0a_6aec
+	dw $0180
+	db $01, $58 ; wait
+	db $02 ; attack (Func_0a_6b11)
+	dw $0180
+	db $01, $58 ; wait
+	db $02 ; attack (Func_0a_6b11)
+	dw $0180
+	db $01, $a0 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_74b4
+
+ObjScript_0a_74c6::
+	db $02 ; attack (Func_0a_6b11) -- Func_0a_6aec
+	dw $0180
+	db $01, $42 ; wait
+	db $02 ; attack (Func_0a_6b11)
+	dw $0180
+	db $01, $42 ; wait
+	db $02 ; attack (Func_0a_6b11)
+	dw $0180
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_74c6
+
+ObjScript_0a_74d8::
+	db $02 ; attack (Func_0a_6b11) -- Func_0a_6aec
+	dw $0180
+	db $01, $2c ; wait
+	db $02 ; attack (Func_0a_6b11)
+	dw $0180
+	db $01, $2c ; wait
+	db $02 ; attack (Func_0a_6b11)
+	dw $0180
+	db $01, $50 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_74d8
+
+ObjScript_0a_74ea::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $067c
+
+ObjScript_0a_74ee::
+	db $04 ; target y speed -- Func_0a_6c60
+	dw $025c
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $05e6
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $01e2
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $067c
+	db $02 ; yield (Func_0a_6d16)
+	db $00 ; jump
+	dw ObjScript_0a_74ee
+
+ObjScript_0a_7501::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $04a8
+
+ObjScript_0a_7505::
+	db $04 ; target y speed -- Func_0a_6c60
+	dw $0397
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0328
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0558
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0397
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $04a8
+	db $00 ; jump
+	dw ObjScript_0a_7505
+
+ObjScript_0a_751b::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $04 ; target y speed
+	dw $02df
+
+ObjScript_0a_751f::
+	db $03 ; target x speed -- Func_0a_6c60
+	dw $0205
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $035d
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $029d
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $02df
+	db $02 ; yield (Func_0a_6d16)
+	db $00 ; jump
+	dw ObjScript_0a_751f
+
+ObjScript_0a_7532::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $05be
+
+ObjScript_0a_7536::
+	db $04 ; target y speed -- Func_0a_6c60
+	dw $00c4
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0632
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $011b
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $06a8
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $00c4
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0632
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $011b
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $05be
+	db $02 ; yield (Func_0a_6d16)
+	db $00 ; jump
+	dw ObjScript_0a_7536
+
+ObjScript_0a_7559::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $044c
+
+ObjScript_0a_755d::
+	db $04 ; target y speed -- Func_0a_6c60
+	dw $0064
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0492
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $00b4
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $044c
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0064
+	db $02 ; yield (Func_0a_6d16)
+	db $00 ; jump
+	dw ObjScript_0a_755d
+
+ObjScript_0a_7574::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $050a
+
+ObjScript_0a_7578::
+	db $04 ; target y speed -- Func_0a_6c60
+	dw $0064
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $04ba
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $00b4
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $050a
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0064
+	db $02 ; yield (Func_0a_6d16)
+	db $00 ; jump
+	dw ObjScript_0a_7578
+
+ObjScript_0a_758f::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0228
+	db $04 ; target y speed
+	dw $09dd
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $02c1
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0a00
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_75a0::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0400
+	db $04 ; target y speed
+	dw $09ff
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $043b
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0938
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $04ed
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_75b5::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0503
+	db $04 ; target y speed
+	dw $09f9
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0547
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0897
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_75c6::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $038b
+	db $04 ; target y speed
+	dw $08da
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $02ee
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $07fd
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $038b
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $079f
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $026f
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $076c
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_75e7::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0164
+	db $04 ; target y speed
+	dw $08d9
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $00bf
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $07dd
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $011f
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $073a
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $00c2
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $069a
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0110
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0618
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $00cf
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0534
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_7618::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $01ae
+	db $04 ; target y speed
+	dw $057b
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $027b
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $05a0
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_7629::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0384
+	db $04 ; target y speed
+	dw $0457
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_7632::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0543
+	db $04 ; target y speed
+	dw $057d
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $05f5
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $04c9
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0455
+	db $03 ; target x speed
+	dw $04b0
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_764a::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0366
+	db $04 ; target y speed
+	dw $035a
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $02fa
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $03bb
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $02a3
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $029d
+	db $04 ; target y speed
+	dw $0416
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $023a
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $04b2
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_766e::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0143
+	db $04 ; target y speed
+	dw $047e
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $010b
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $03c0
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0226
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_7683::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0230
+	db $04 ; target y speed
+	dw $0279
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $01b5
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $01db
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0212
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $017c
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $02b2
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0159
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_76a4::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $02b2
+	db $04 ; target y speed
+	dw $017c
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0393
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $01fe
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0401
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $027b
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0460
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $02a3
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_76c5::
+	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $03 ; target x speed
+	dw $0460
+	db $04 ; target y speed
+	dw $027b
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $04fb
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $01e0
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0455
+	db $02 ; yield (Func_0a_6d16)
+	db $04 ; target y speed
+	dw $0163
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0410
+	db $02 ; yield (Func_0a_6d16)
+	db $03 ; target x speed
+	dw $0404
+	db $04 ; target y speed
+	dw $0082
+	db $02 ; yield (Func_0a_6d16)
+	db $05 ; end
+
+ObjScript_0a_76e9::
+	db $06 ; acceleration -- Func_0a_6fc5
+	dw $0193
+	db $03 ; target x speed
+	dw $038e
+	db $04 ; target y speed
+	dw $00eb
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $05be
+	db $02 ; yield
+	db $05 ; yield (Func_0a_70a2)
+
+ObjScript_0a_76f8::
+	db $06 ; acceleration -- Func_0a_6fc5
+	dw $0193
+	db $03 ; target x speed
+	dw $0783
+	db $04 ; target y speed
+	dw $00c8
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0891
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $08ff
+	db $04 ; target y speed
+	dw $00d7
+	db $08 ; y acceleration
+	dw $0046
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $09fe
+	db $06 ; acceleration
+	dw $0180
+	db $02 ; yield
+	db $05 ; yield (Func_0a_70a2)
+
+ObjScript_0a_7718::
+	db $06 ; acceleration -- Func_0a_6fc5
+	dw $0180
+	db $03 ; target x speed
+	dw $0abe
+	db $04 ; target y speed
+	dw $00a8
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0b3b
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0c4b
+	db $04 ; target y speed
+	dw $00d7
+	db $08 ; y acceleration
+	dw $0060
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0de3
+	db $06 ; acceleration
+	dw $0180
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0f02
+	db $04 ; target y speed
+	dw $0108
+	db $08 ; y acceleration
+	dw $006c
+	db $02 ; yield
+	db $05 ; yield (Func_0a_70a2)
+
+ObjScript_0a_7742::
+	db $06 ; acceleration -- Func_0a_6fc5
+	dw $0180
+	db $03 ; target x speed
+	dw $11df
+	db $04 ; target y speed
+	dw $00c6
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1602
+	db $02 ; yield
+	db $05 ; yield (Func_0a_70a2)
+
+ObjScript_0a_7751::
+	db $06 ; acceleration -- Func_0a_6fc5
+	dw $0180
+	db $03 ; target x speed
+	dw $1aea
+	db $04 ; target y speed
+	dw $00a0
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1bda
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1c55
+	db $04 ; target y speed
+	dw $0090
+	db $08 ; y acceleration
+	dw $0031
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1fde
+	db $06 ; acceleration
+	dw $0180
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $20b0
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00cb
+	db $02 ; yield
+	db $05 ; yield (Func_0a_70a2)
+
+ObjScript_0a_7779::
+	db $06 ; acceleration -- Func_0a_6fc5
+	dw $0180
+	db $03 ; target x speed
+	dw $2283
+	db $04 ; target y speed
+	dw $00d2
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $22dd
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $23cd
+	db $04 ; target y speed
+	dw $008c
+	db $08 ; y acceleration
+	dw $007e
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $2445
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $0116
+	db $02 ; yield
+	db $05 ; yield (Func_0a_70a2)
+
+ObjScript_0a_779a::
+	db $02 ; spawn -- Func_0a_713c
+	dw ObjInit_0a_77ff
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_779a
+
+ObjScript_0a_77a2::
+	db $02 ; spawn -- Func_0a_713c
+	dw ObjInit_0a_7808
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_77a2
+
+ObjScript_0a_77aa::
+	db $02 ; spawn -- Func_0a_713c
+	dw ObjInit_0a_7829
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_77aa
+
+ObjScript_0a_77b2::
+	db $02 ; spawn -- Func_0a_713c
+	dw ObjInit_0a_7832
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_77b2
+
+ObjScript_0a_77ba::
+	db $02 ; spawn -- Func_0a_713c
+	dw ObjInit_0a_7829
+	db $01, $78 ; wait
+	db $02 ; spawn
+	dw ObjInit_0a_7832
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_77ba
+
+ObjScript_0a_77c7::
+	db $02 ; spawn -- Func_0a_713c
+	dw ObjInit_0a_7853
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_77c7
+
+ObjScript_0a_77cf::
+	db $02 ; spawn -- Func_0a_713c
+	dw ObjInit_0a_785c
+	db $01, $78 ; wait
+	db $00 ; jump
+	dw ObjScript_0a_77cf
+
+ObjInit_0a_77d7::
+	obj_byte OBJ_FLAGS, $15
+	obj_byte OBJ_COLLISION, $04
+	obj_word OBJ_YACCEL, $0050
+	obj_word OBJ_YVEL, $fc00
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_byte OBJ_LAYER, $01
+	obj_end
+
+ObjInit_0a_77e7::
+	obj_include ObjInit_0a_77d7
+	obj_byte OBJ_BANK, BANK(Func_09_4026)
+	obj_word OBJ_HANDLER, Func_09_4026
+	obj_word OBJ_TOUCH_HANDLER, $4007
+	obj_byte OBJ_VAR_2C, $01
+	obj_byte OBJ_ANIM_PARAM, $42
+	obj_word OBJ_ANIM, Anim_04_498f
+	obj_byte OBJ_PALETTE, $08
+	obj_word OBJ_XACCEL, $0020
+	obj_end
+
+ObjInit_0a_77ff::
+	obj_include ObjInit_0a_77e7
+	obj_byte OBJ_OAM_ATTR, $20
+	obj_word OBJ_TARGET_XVEL, $ff80
+	obj_end
+
+ObjInit_0a_7808::
+	obj_include ObjInit_0a_77e7
+	obj_byte OBJ_OAM_ATTR, $00
+	obj_word OBJ_TARGET_XVEL, $0080
+	obj_end
+
+ObjInit_0a_7811::
+	obj_include ObjInit_0a_77d7
+	obj_byte OBJ_BANK, BANK(Func_09_4026)
+	obj_word OBJ_HANDLER, Func_09_4026
+	obj_word OBJ_TOUCH_HANDLER, $4007
+	obj_byte OBJ_VAR_2C, $03
+	obj_byte OBJ_ANIM_PARAM, $39
+	obj_byte OBJ_PALETTE, $0f
+	obj_word OBJ_ANIM, Anim_04_4acf
+	obj_word OBJ_XACCEL, $0040
+	obj_end
+
+ObjInit_0a_7829::
+	obj_include ObjInit_0a_7811
+	obj_byte OBJ_OAM_ATTR, $20
+	obj_word OBJ_TARGET_XVEL, $ff00
+	obj_end
+
+ObjInit_0a_7832::
+	obj_include ObjInit_0a_7811
+	obj_byte OBJ_OAM_ATTR, $00
+	obj_word OBJ_TARGET_XVEL, $0100
+	obj_end
+
+ObjInit_0a_783b::
+	obj_include ObjInit_0a_77d7
+	obj_byte OBJ_BANK, BANK(Func_09_4026)
+	obj_word OBJ_HANDLER, Func_09_4026
+	obj_word OBJ_TOUCH_HANDLER, $75bd
+	obj_byte OBJ_VAR_2C, $05
+	obj_byte OBJ_ANIM_PARAM, $39
+	obj_word OBJ_ANIM, Anim_04_4c51
+	obj_word OBJ_XACCEL, $0020
+	obj_byte OBJ_PALETTE, $0b
+	obj_end
+
+ObjInit_0a_7853::
+	obj_include ObjInit_0a_783b
+	obj_byte OBJ_OAM_ATTR, $20
+	obj_word OBJ_TARGET_XVEL, $ff00
+	obj_end
+
+ObjInit_0a_785c::
+	obj_include ObjInit_0a_77d7
+	obj_byte OBJ_BANK, BANK(Func_0a_627a)
+	obj_word OBJ_HANDLER, Func_0a_627a
+	obj_word OBJ_TOUCH_HANDLER, $733f
+	obj_word OBJ_ANIM, Anim_04_4a55
+	obj_word OBJ_PALETTE, $0000
+	obj_word OBJ_XACCEL, $0020
+	obj_byte OBJ_VAR_2E, $28
+	obj_byte OBJ_VAR_2F, $c8
+	obj_byte OBJ_VAR_30, $64
+	obj_end
+
+ObjScript_0a_7877::
+	db $06 ; set OBJ_VAR_2E bit 7 -- Func_0a_71eb
+	db $04, $49 ; animation (ObjInit_0a_7285)
+	db $07 ; clear OBJ_VAR_2E bit 7
+	db $03 ; animation (ObjInit_0a_726f)
+	db $05, $49 ; animation (ObjInit_0a_7290)
+	db $08 ; sound $94
+	db $02 ; animation (ObjInit_0a_727a)
+	db $00 ; jump
+	dw ObjScript_0a_7877
+
+ObjScript_0a_7883::
+	db $09 ; sound $9a -- Func_0a_71eb
+	db $02 ; animation (ObjInit_0a_727a)
+	db $06 ; set OBJ_VAR_2E bit 7
+	db $03 ; animation (ObjInit_0a_726f)
+	db $02 ; animation (ObjInit_0a_727a)
+	db $03 ; animation (ObjInit_0a_726f)
+	db $02 ; animation (ObjInit_0a_727a)
+	db $04, $27 ; animation (ObjInit_0a_7285)
+	db $07 ; clear OBJ_VAR_2E bit 7
+	db $03 ; animation (ObjInit_0a_726f)
+	db $05, $40 ; animation (ObjInit_0a_7290)
+	db $00 ; jump
+	dw ObjScript_0a_7883
+
+ObjScript_0a_7893::
+	db $02 ; animation (ObjInit_0a_727a) -- Func_0a_71eb
+	db $04, $27 ; animation (ObjInit_0a_7285)
+	db $07 ; clear OBJ_VAR_2E bit 7
+	db $03 ; animation (ObjInit_0a_726f)
+	db $05, $40 ; animation (ObjInit_0a_7290)
+	db $09 ; sound $9a
+	db $02 ; animation (ObjInit_0a_727a)
+	db $06 ; set OBJ_VAR_2E bit 7
+	db $03 ; animation (ObjInit_0a_726f)
+	db $02 ; animation (ObjInit_0a_727a)
+	db $03 ; animation (ObjInit_0a_726f)
+	db $00 ; jump
+	dw ObjScript_0a_7893
+
+ObjScript_0a_78a3::
+	db $05 ; acceleration -- Func_0a_6689
+	dw $0100
+	db $03 ; target x speed
+	dw $0391
+	db $04 ; target y speed
+	dw $0139
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $015e
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0412
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $017f
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0572
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013b
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0724
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $0892
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $009c
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $03 ; target x speed
+	dw $09b3
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $04 ; target y speed
+	dw $0179
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $0bb0
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00db
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0db3
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00fb
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0eb2
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $011c
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0f84
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $1036
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $1192
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $04 ; target y speed
+	dw $017c
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1252
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $04 ; target y speed
+	dw $005d
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $12f2
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $04 ; target y speed
+	dw $0144
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $04 ; target y speed
+	dw $017c
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $13b2
+	db $02 ; yield
+	db $06 ; fall (ObjInit_0a_66f8)
+
+ObjScript_0a_7937::
+	db $05 ; acceleration -- Func_0a_6689
+	dw $0100
+	db $03 ; target x speed
+	dw $1953
+	db $04 ; target y speed
+	dw $0119
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $009c
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $19c4
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $1a68
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $03 ; target x speed
+	dw $1b33
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $1b72
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $011a
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1ef2
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $015c
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1f2c
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $1fdd
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $2072
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $011b
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $2253
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00db
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $22f7
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $239e
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $23f3
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $011b
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $248a
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $2505
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $03 ; target x speed
+	dw $2572
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $015a
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $2633
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $011b
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $26a2
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $28a4
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $29b4
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013b
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $2b51
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $04 ; target y speed
+	dw $00fb
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $2bd3
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $0136
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $2c52
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00da
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $2d3f
+	db $02 ; yield
+	db $06 ; fall (ObjInit_0a_66f8)
+
+ObjScript_0a_79f5::
+	db $05 ; acceleration -- Func_0a_6689
+	dw $0140
+	db $03 ; target x speed
+	dw $005b
+	db $04 ; target y speed
+	dw $00d2
+
+ObjScript_0a_79fe::
+	db $02 ; yield -- Func_0a_6689
+	db $03 ; target x speed
+	dw $0028
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $0060
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0118
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00d2
+	db $00 ; jump
+	dw ObjScript_0a_79fe
+
+ObjScript_0a_7a11::
+	db $05 ; acceleration -- Func_0a_6689
+	dw $0100
+	db $03 ; target x speed
+	dw $03d2
+	db $04 ; target y speed
+	dw $015f
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $011b
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $05f3
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013e
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0652
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $015e
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0932
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $019c
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $03 ; target x speed
+	dw $0b54
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $04 ; target y speed
+	dw $00bd
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $0bf2
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00fd
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0c53
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013b
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $0da2
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0060
+	db $03 ; target x speed
+	dw $0df3
+	db $02 ; yield
+	db $07 ; end
+
+ObjScript_0a_7a64::
+	db $05 ; acceleration -- Func_0a_6689
+	dw $0100
+	db $03 ; target x speed
+	dw $11b2
+	db $04 ; target y speed
+	dw $015d
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $019e
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1334
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $04 ; target y speed
+	dw $015e
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $14d5
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0080
+	db $03 ; target x speed
+	dw $1512
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013f
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $15d3
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $04 ; target y speed
+	dw $017e
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $1660
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0070
+	db $03 ; target x speed
+	dw $168b
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0100
+	db $03 ; target x speed
+	dw $1712
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013f
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $19a2
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $03 ; target x speed
+	dw $1a91
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $017e
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1bd3
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013f
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1cd3
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $00fd
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1d73
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $013f
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $1fde
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $0143
+	db $02 ; yield
+	db $03 ; target x speed
+	dw $20c4
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0060
+	db $03 ; target x speed
+	dw $2121
+	db $02 ; yield
+	db $05 ; acceleration
+	dw $0140
+	db $03 ; target x speed
+	dw $2233
+	db $02 ; yield
+	db $04 ; target y speed
+	dw $01a0
+	db $02 ; yield
+	db $07 ; end
+	ds 1290, $00 ; $7af6
 

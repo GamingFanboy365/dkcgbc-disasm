@@ -2845,14 +2845,14 @@ Func_f0_6ad5::
 	ld h, d
 	ld l, e
 	push bc
-	jr Func_f0_6ada.jump_6b02
+	jr FE_DrawText.jump_6b02
 
 
-Func_f0_6ada::
+FE_DrawText::
 	ld a, $02
 	ldh [rSVBK], a
 	push de
-	call Func_f0_6c80
+	call FE_GetTextPointer
 	pop de
 	call $c8b9
 	ld a, c
@@ -2934,7 +2934,7 @@ Func_f0_6ada::
 Func_f0_6b44::
 	ld a, $02
 	ldh [rSVBK], a
-	call Func_f0_6c80
+	call FE_GetTextPointer
 	call $c8b9
 	ld a, c
 	add a, e
@@ -3136,7 +3136,7 @@ Func_f0_6c60::
 	push bc
 	push de
 	push de
-	call Func_f0_6c80
+	call FE_GetTextPointer
 	call $c8a3
 	pop de
 	ld a, d
@@ -3153,11 +3153,11 @@ Func_f0_6c60::
 	call Func_f0_6bb6
 	pop de
 	pop bc
-	call Func_f0_6ada
+	call FE_DrawText
 	ret
 
 
-Func_f0_6c80::
+FE_GetTextPointer::
 	push bc
 	push bc
 	ld hl, $6f21

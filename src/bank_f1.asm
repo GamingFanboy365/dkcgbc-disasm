@@ -19,7 +19,7 @@ Func_f1_4000::
 	pop hl
 	pop bc
 
-Func_f1_4019::
+FE_Main::
 	di
 	ld a, $01
 	ldh [rSVBK], a
@@ -71,7 +71,7 @@ Func_f1_4019::
 	ld a, $f0
 	ld hl, $4f9d
 	call FarCall_A_HL
-	call Func_f1_4b19
+	call FE_LoadRing
 	call Func_f1_4862
 	call Func_f1_433a
 	ld b, $00
@@ -95,7 +95,7 @@ Func_f1_4019::
 	cp $03
 	jp z, Func_f1_41d5.jump_425a
 	call Func_f1_43e6
-	call Func_f1_5162
+	call FE_DrawRingLabel
 .jump_40d5:
 	call Func_f1_48a4
 	call Func_f1_4862
@@ -236,7 +236,7 @@ Func_f1_417d::
 	ld l, a
 	ld a, c
 	or a
-	call z, Func_f1_41bf
+	call z, FE_RaiseCrankyUnlock
 	ld a, [$c803]
 	ld l, a
 	ld a, [$c804]
@@ -252,7 +252,7 @@ Func_f1_417d::
 	jp Func_f1_4000
 
 
-Func_f1_41bf::
+FE_RaiseCrankyUnlock::
 	ld a, [$b0c7]
 	cp l
 	ret nc
@@ -1304,7 +1304,7 @@ Func_f1_48d6::
 	ld a, d
 	cp $00
 	jr nz, .jump_48d9
-	call Func_f1_5162
+	call FE_DrawRingLabel
 	ret
 
 
@@ -1381,7 +1381,7 @@ Func_f1_4a8c::
 	ld a, d
 	cp $00
 	jr nz, .jump_4a8f
-	call Func_f1_5162
+	call FE_DrawRingLabel
 	ret
 
 
@@ -1419,7 +1419,7 @@ Func_f1_4ada::
 	ret
 
 
-Func_f1_4b19::
+FE_LoadRing::
 	ld a, [$c96e]
 	add a, a
 	ld c, a
@@ -1549,14 +1549,14 @@ Func_f1_4bba::
 	ld hl, $4283
 	call FarCall_A_HL
 	call Func_f1_45dc
-	call Func_f1_4b19
+	call FE_LoadRing
 	call Func_f1_4862
 	call Func_f1_4695
 	call Func_f1_4926
 	ld a, d
 	cp $00
 	call nz, Func_f1_4a8c
-	call Func_f1_5162
+	call FE_DrawRingLabel
 	ret
 
 .jump_4c2f:
@@ -1637,7 +1637,7 @@ Func_f1_4c75::
 	ld hl, $4283
 	call FarCall_A_HL
 	call Func_f1_45dc
-	call Func_f1_4b19
+	call FE_LoadRing
 	pop af
 	swap a
 	and $0f
@@ -1663,7 +1663,7 @@ Func_f1_4c75::
 	ld [$c961], a
 	call Func_f1_4862
 	call Func_f1_4695
-	call Func_f1_5162
+	call FE_DrawRingLabel
 	ret
 
 .jump_4cec:
@@ -1749,7 +1749,7 @@ Func_f1_50f1::
 	ret
 
 
-Func_f1_5162::
+FE_DrawRingLabel::
 	ld hl, $c967
 	ld a, [$c96c]
 	ld c, a
@@ -2348,7 +2348,7 @@ Func_f1_5508::
 	ld [$c96c], a
 	ld a, $24
 	ld [$c967], a
-	call Func_f1_5162
+	call FE_DrawRingLabel
 	call Func_f1_5675
 	ldh a, [$ff91]
 	push af
@@ -2417,7 +2417,7 @@ Func_f1_5552::
 	ld [$c96c], a
 	ld a, $27
 	ld [$c967], a
-	call Func_f1_5162
+	call FE_DrawRingLabel
 	call Func_f1_5675
 	ldh a, [$ff91]
 	push af
@@ -2875,7 +2875,7 @@ Func_f1_5a34::
 	call Func_f1_43a6
 	call Func_f1_59bd
 	call Func_f1_43e6
-	call Func_f1_5162
+	call FE_DrawRingLabel
 	ret
 
 
@@ -6051,7 +6051,7 @@ Func_f1_7c82::
 	res 4, [hl]
 	ld a, $06
 	ld [$c96e], a
-	call Func_f1_4b19
+	call FE_LoadRing
 	xor a
 	ld [$c9ae], a
 	ld [$c96c], a

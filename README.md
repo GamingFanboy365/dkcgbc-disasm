@@ -148,9 +148,13 @@ Besides the adventure itself, the cartridge holds two more programs, each with i
 | Main menu | Adventure, Bonus, Link, Print, Options |
 | Save files | three files, with copy and erase |
 | Options | sound test, view items, alphabet, make flag, language, and toggles such as "DK barrels on/off", "Neckys on/off" and "normal tyres" |
-| Bonus games | *Crosshair Cranky*, with its modes "Kremling Krackdown", "Kremlings and Kongs", "Barrel O'Kremlings", "Wanted" and "Buddies Beware" (instructions included), and *Funky's Fishing* |
+| Bonus games | *Crosshair Cranky*, with its modes "Kremling Krackdown", "Kremlings and Kongs", "Barrel O'Kremlings", "Wanted" and "Buddies Beware" (instructions included) and the hidden "Galleon Gunner", and *Funky's Fishing* |
 | Link play | link-cable two-player messages |
 | Game Boy Printer | printer support, with status messages, a picture album and unlockable print features |
+
+Front-end text goes through `FE_DrawText` (`$F0:6ADA`), with a table number in `b` and an entry in `c`. `FE_GetTextPointer` looks both up in a per-language table at `$F0:6F21`, whose 3-byte entries are a bank and a big-endian address. Text records in bank `$FF` are a 4-byte header, then characters, with `$86` for a new line and `$87` at the end. Table 0 is different: it lists menu labels as (picture sheet, row) pairs, by label id. The menu rings (`FE_LoadRing`) come from a table at `$F1:67BF` indexed by ring number. Each ring is an item count followed by three bytes per item, the last being the label id that `FE_DrawRingLabel` draws.
+
+Crosshair Cranky is `CrosshairCranky` in bank `$FE`. In single-player it starts from a DK Isle map whose nodes open one by one: Kremlings and Kongs first, then the others as `[$B0C7]` rises. A sixth node, Galleon Gunner, appears only once Gang-Plank Galleon (level `$29`) has been beaten on any save file. `CrosshairCrankyLink` (`$FE:4003`) is the two-player entry, which ring 15 feeds with mode 0–4. Both turn the mode number into an internal game number through `CrankyModeToGame`. See `docs/unused.md` for the details and the leftovers.
 
 Code in these banks calls across banks in two ways. `FarCall_A_HL` (`$3FC0`) takes the bank in `a` and the target in `hl`. The other way pushes the return address `$3FD5` and the target a byte at a time (`ld a, n / push af / inc sp`), puts the bank in `a` and jumps to `$3FDC`.
 

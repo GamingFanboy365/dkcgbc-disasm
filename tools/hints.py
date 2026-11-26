@@ -61,6 +61,19 @@ NAMES = {
     (0, 0x2DED): "UploadOBJPalettes",
     (0, 0x2E12): "FadePalettesToBlack",  # a = brightness; wBG/OBJPalettes -> ...Out
     (0, 0x2E44): "FadePalettesToWhite",  # same, towards white
+    # Front end (banks $F0-$FF)
+    (0xF0, 0x6ADA): "FE_DrawText",           # b = text table, c = entry (table at $F0:6F21), de = position
+    (0xF0, 0x6C80): "FE_GetTextPointer",     # [$c805] = language; -> [$c800] = bank, hl = text
+    (0xF1, 0x4019): "FE_Main",               # d -> [$c981] (what to run), e -> [$c982] (its argument)
+    (0xF1, 0x41BF): "FE_RaiseCrankyUnlock",  # [$b0c7] = max([$b0c7], l)
+    (0xF1, 0x4B19): "FE_LoadRing",           # ring [$c96e] from the table at $F1:67BF
+    (0xF1, 0x5162): "FE_DrawRingLabel",      # label id [$c967 + cursor], (sheet, row) from text table 0
+    # Crosshair Cranky (bank $FE)
+    (0xFE, 0x4000): "CrosshairCranky",       # h = island node 1-6 (single player)
+    (0xFE, 0x4003): "CrosshairCrankyLink",   # h = mode 0-4 (link play)
+    (0xFE, 0x40AE): "CrankyModeToGame_Unused",  # older remap table {3,4,1,2,0,5}; nothing calls it
+    (0xFE, 0x41B5): "CrankyModeToGame",      # [$cbbf] = {4,1,3,0,2,5}[[$cbbf]]
+    (0xFE, 0x440D): "CrankyShowInstructions",  # text table 5 entry [$cbbf]; none for 5 (Galleon Gunner)
 }
 
 # Generated source files that have been edited by hand and must not be

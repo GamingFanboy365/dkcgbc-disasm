@@ -3,11 +3,11 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $fe", ROMX[$4000], BANK[$fe]
 
-Func_fe_4000::
+CrosshairCranky::
 	jp Func_fe_40c4.jump_4115
 
 
-Func_fe_4003::
+CrosshairCrankyLink::
 	jp .jump_4006
 
 .jump_4006:
@@ -51,7 +51,7 @@ Func_fe_4003::
 	ld a, $f5
 	ld hl, $4978
 	call FarCall_A_HL
-	call Func_fe_41b5
+	call CrankyModeToGame
 	ld a, $02
 	ld [$cbc4], a
 	ld a, $f5
@@ -89,7 +89,7 @@ Func_fe_4003::
 	ret
 
 
-Func_fe_40ae::
+CrankyModeToGame_Unused::
 	ld a, [$cbbf]
 	ld hl, $40be
 	add a, l
@@ -176,8 +176,8 @@ Func_fe_40c4::
 	ld a, $f5
 	ld hl, $4978
 	call FarCall_A_HL
-	call Func_fe_440d
-	call Func_fe_41b5
+	call CrankyShowInstructions
+	call CrankyModeToGame
 	ld a, $01
 	ld [$cbc4], a
 	ld a, $f5
@@ -212,7 +212,7 @@ Func_fe_40c4::
 	ret
 
 
-Func_fe_41b5::
+CrankyModeToGame::
 	ld a, [$cbbf]
 	ld hl, $41c5
 	add a, l
@@ -518,7 +518,7 @@ Func_fe_42a0::
 	ret
 
 
-Func_fe_440d::
+CrankyShowInstructions::
 	ld a, [$cbbf]
 	cp $05
 	ret z

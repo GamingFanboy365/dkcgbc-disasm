@@ -127,7 +127,35 @@ These two names belong to the Bonus menu, but the game never shows them there. T
 
 So Candy Klash and Funky Bomber are not reachable in single-player play. They look like the Bonus menu's original first two entries, replaced by Funky Fishing and Hi-Score late enough that the old label graphics and text lists were left in. Funky Bomber may simply be an earlier name for the fishing game: its own instructions describe a "combo attack". One path is still untested: the Link-up menu, which only continues once a second Game Boy is connected.
 
-The Crosshair Cranky mode names in the same lists, "Baddy Generator" and "Galleon Gunner", differ from the instructions' "Kremling Krackdown" and "Kremlings and Kongs", so they may be earlier names as well. That still needs checking on the Crosshair Cranky mode menu.
+### Crosshair Cranky: Baddy Generator and Galleon Gunner
+
+Label sheet 30 (English; sheets 83, 87, 91 and 95 in the other languages) holds eight menu words: BADDY GENERATOR, BARREL 'O KREMLINGS, WANTED, BUDDIES BEWARE, GALLEON GUNNER, ARE YOU SURE?, COPY FROM and COPY TO. The menus draw a word by label id. Text table 0 of each language (`$F0:6F21`) turns that id into a (sheet, row) pair, and the ring table at `$F1:67BF` lists each ring's label ids. Checking every ring and every direct label store gives this:
+
+| Label | Id | Used by |
+|---|---|---|
+| BADDY GENERATOR | 31 | nothing |
+| BARREL 'O KREMLINGS | 32 | ring 15 (Link-up Crosshair Cranky modes) |
+| WANTED | 33 | ring 15 |
+| BUDDIES BEWARE | 34 | ring 15 |
+| GALLEON GUNNER | 35 | nothing |
+| ARE YOU SURE? | 36 | the erase confirmation (`$F1:553A`) |
+| COPY FROM / COPY TO | 37, 38 | rings 11 and 12 (copying a save file) |
+| CANDY KLASH / FUNKY BOMBER | 10, 11 | nothing |
+
+Ring 15 is the Link-up mode list. It reads Kremlings and Kongs, Barrel O'Kremlings, Kremling Krackdown, Buddies Beware, Wanted, the same order as the instruction texts in bank `$FF`. Its first and third words come from a newer sheet, record 122 (rows KREMLING KRACKDOWN and KREMLINGS AND KONGS, after RESTART GAME, HI-SCORE and FUNKY FISHING). So two of sheet 30's five mode words were replaced. BADDY GENERATOR is never shown, and no mode, text or code uses that name. It is most likely the old name of Kremling Krackdown or of Kremlings and Kongs, but nothing in the ROM says which.
+
+Galleon Gunner, on the other hand, is a real mode, but a secret one. In single-player, Crosshair Cranky is played from a map of DK Isle (`CrosshairCranky`, bank `$FE`, entered with the island node number 1–6 in `h`). Running the game in PyBoy and setting the SRAM bytes involved shows how the nodes open:
+
+| Node | Name on the banner | Opens when |
+|---|---|---|
+| Cranky's hut | Crosshair Cranky | always (the starting point) |
+| 1 | Kremlings and Kongs | always |
+| 2–5 | Barrel O'Kremlings, Kremling Krackdown, Buddies Beware, Wanted | one by one, as `[$B0C7]` rises (`FE_RaiseCrankyUnlock` raises it after a game) |
+| 6 | Galleon Gunner | a galleon appears by Cranky's hut once any save file has bits 0–2 set in its byte for level `$29`. That byte is at file offset `$29` (`$B029`, `$B069` or `$B0A9`), and level `$29` is Gang-Plank Galleon (its map is the ship's deck). The check is at `$05:43F2`. |
+
+Choosing the galleon starts a shooting gallery on the side of a ship, with targets in the hull's portholes. It works and ends with the usual "You Win/You Lose" box. It is the only mode with no instruction screen: `CrankyShowInstructions` skips mode 5, and bank `$FF` has no text for it. The banner name comes from the level-name list in bank `$10` ("Galleon Gunner" is its last entry, after "Return to island map"). Link play doesn't offer it, so its menu label (id 35) is never drawn either. Galleon Gunner is a hidden reward for finishing the adventure, easy to miss and undocumented in the game, but not cut.
+
+One more leftover sits in bank `$FE`. Each mode number is turned into an internal game number through a six-entry table. `CrankyModeToGame` uses `{4,1,3,0,2,5}`. Right before it, `CrankyModeToGame_Unused` (`$FE:40AE`) holds a different order, `{3,4,1,2,0,5}`, and nothing calls it. Read the same way, it describes a menu ordered Kremling Krackdown, Kremlings and Kongs, Barrel O'Kremlings, Wanted, Buddies Beware, Galleon Gunner, probably an earlier layout.
 
 ## Checked and found complete
 

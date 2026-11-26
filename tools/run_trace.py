@@ -336,6 +336,57 @@ def parse_banks(t, rom):
                                 "HIGH(SpriteLayout_f0_%04x)" % la, "LOW(SpriteLayout_f0_%04x)" % la],
                          "sprites, tiles, layout" + (" (%s)" % langs[k] if cnt > 1 else "")))
         t._claim(0xF0, a, 6 * cnt, "rows", rows, name)
+    # Front-end text: per-language tables at $f0:6f21 (FE_GetTextPointer).
+    # Table 0 lists menu labels as (picture sheet, row); tables 1-5 point
+    # to text records in bank $ff: 4 header bytes, text with $86 for a new
+    # line, $87 at the end (FE_DrawText).
+    lang_names = ["English", "German", "French", "Italian", "Spanish"]
+    counts, sizes = [44, 6, 4, 21, 0, 7], [2, 3, 3, 3, 3, 3]
+    blocks = [rom[off(0xF0, 0x6F21 + 2 * i)] | rom[off(0xF0, 0x6F21 + 2 * i) + 1] << 8 for i in range(5)]
+    t._claim(0xF0, 0x6F21, 10, "rows", [("dw", [ref(0xF0, b)], lang_names[i]) for i, b in enumerate(blocks)],
+             "=FrontEndTextLanguages")
+    records = set()
+    for i, L in enumerate(blocks):
+        tabs = [rom[off(0xF0, L + 2 * k)] | rom[off(0xF0, L + 2 * k) + 1] << 8 for k in range(6)]
+        t._claim(0xF0, L, 12, "rows", [("dw", [ref(0xF0, x) for x in tabs], None)], "=FrontEndText_" + lang_names[i])
+        for k, ta in enumerate(tabs):
+            if not counts[k]:
+                continue
+            rows = []
+            for e in range(counts[k]):
+                bs = rom[off(0xF0, ta + sizes[k] * e):off(0xF0, ta + sizes[k] * e) + sizes[k]]
+                if k == 0:
+                    rows.append(("db", ["%d" % bs[0], "%d" % bs[1]], "label %d: picture sheet, row" % e if e == 0 else "label %d" % e))
+                else:
+                    a = bs[1] << 8 | bs[2]
+                    records.add((bs[0], a))
+                    rows.append(("db", ["BANK(%s)" % "FEText_%02x_%04x" % (bs[0], a), "HIGH(FEText_%02x_%04x)" % (bs[0], a),
+                                        "LOW(FEText_%02x_%04x)" % (bs[0], a)], "entry %d" % e))
+            t._claim(0xF0, ta, sizes[k] * counts[k], "rows", rows, "=FrontEndText_%s_%d" % (lang_names[i], k))
+    recs = sorted(records)
+    for i, (b, a) in enumerate(recs):
+        o = off(b, a)
+        e = rom.index(0x87, o + 4) + 1
+        unterminated = i + 1 < len(recs) and recs[i + 1][0] == b and off(b, recs[i + 1][1]) < e
+        if unterminated:  # no $87: the text runs on into the next record
+            e = off(b, recs[i + 1][1])
+        rows = [("db", ["$%02x" % x for x in rom[o:o + 4]], "header: position and box, tentative")]
+        st = o + 4
+        for j in range(o + 4, e):
+            if rom[j] in (0x86, 0x87) or j == e - 1:
+                rows.append(("db", text_tokens(rom[st:j + 1]), None))
+                st = j + 1
+        if unterminated:
+            rows[-1] = (rows[-1][0], rows[-1][1], "no $87 here: the text runs on into the next record")
+        t._claim(b, a, e - o, "rows", rows, "=FEText_%02x_%04x" % (b, a))
+    for a, ln in hints.FE_TEXT_RUNS:
+        o = off(0xFF, a)
+        rows, st = [], o
+        for j in range(o, o + ln):
+            if rom[j] in (0x86, 0x87) or j == o + ln - 1 or j - st >= 23:
+                rows.append(("db", text_tokens(rom[st:j + 1]), None))
+                st = j + 1
+        t._claim(0xFF, a, ln, "rows", rows, "FEWords")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

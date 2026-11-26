@@ -3293,5 +3293,489 @@ FE_GetTextPointer::
 	ld h, a
 	ret
 
-	INCBIN "baserom.gbc", $3c2ca7, $1359 ; $6ca7
+	INCBIN "baserom.gbc", $3c2ca7, $027a ; $6ca7
+
+
+FrontEndTextLanguages::
+	dw FrontEndText_English ; English
+	dw FrontEndText_German ; German
+	dw FrontEndText_French ; French
+	dw FrontEndText_Italian ; Italian
+	dw FrontEndText_Spanish ; Spanish
+
+FrontEndText_English::
+	dw FrontEndText_English_0, FrontEndText_English_1, FrontEndText_English_2, FrontEndText_English_3, FrontEndText_English_5, FrontEndText_English_5
+
+FrontEndText_English_0::
+	db 27, 0 ; label 0: picture sheet, row
+	db 27, 1 ; label 1
+	db 27, 2 ; label 2
+	db 27, 3 ; label 3
+	db 27, 4 ; label 4
+	db 27, 5 ; label 5
+	db 27, 5 ; label 6
+	db 27, 5 ; label 7
+	db 27, 6 ; label 8
+	db 27, 7 ; label 9
+	db 28, 0 ; label 10
+	db 28, 1 ; label 11
+	db 28, 2 ; label 12
+	db 28, 3 ; label 13
+	db 28, 4 ; label 14
+	db 28, 5 ; label 15
+	db 28, 6 ; label 16
+	db 28, 7 ; label 17
+	db 29, 0 ; label 18
+	db 29, 1 ; label 19
+	db 29, 2 ; label 20
+	db 29, 3 ; label 21
+	db 0, 3 ; label 22
+	db 0, 5 ; label 23
+	db 0, 4 ; label 24
+	db 0, 7 ; label 25
+	db 0, 6 ; label 26
+	db 29, 4 ; label 27
+	db 29, 5 ; label 28
+	db 29, 6 ; label 29
+	db 29, 7 ; label 30
+	db 30, 0 ; label 31
+	db 30, 1 ; label 32
+	db 30, 2 ; label 33
+	db 30, 3 ; label 34
+	db 30, 4 ; label 35
+	db 30, 5 ; label 36
+	db 30, 6 ; label 37
+	db 30, 7 ; label 38
+	db 122, 0 ; label 39
+	db 122, 1 ; label 40
+	db 122, 2 ; label 41
+	db 122, 3 ; label 42
+	db 122, 4 ; label 43
+
+FrontEndText_English_1::
+	db BANK(FEText_ff_4000), HIGH(FEText_ff_4000), LOW(FEText_ff_4000) ; entry 0
+	db BANK(FEText_ff_4030), HIGH(FEText_ff_4030), LOW(FEText_ff_4030) ; entry 1
+	db BANK(FEText_ff_405e), HIGH(FEText_ff_405e), LOW(FEText_ff_405e) ; entry 2
+	db BANK(FEText_ff_4084), HIGH(FEText_ff_4084), LOW(FEText_ff_4084) ; entry 3
+	db BANK(FEText_ff_40c0), HIGH(FEText_ff_40c0), LOW(FEText_ff_40c0) ; entry 4
+	db BANK(FEText_ff_40d2), HIGH(FEText_ff_40d2), LOW(FEText_ff_40d2) ; entry 5
+
+FrontEndText_English_2::
+	db BANK(FEText_ff_410c), HIGH(FEText_ff_410c), LOW(FEText_ff_410c) ; entry 0
+	db BANK(FEText_ff_413a), HIGH(FEText_ff_413a), LOW(FEText_ff_413a) ; entry 1
+	db BANK(FEText_ff_415d), HIGH(FEText_ff_415d), LOW(FEText_ff_415d) ; entry 2
+	db BANK(FEText_ff_417c), HIGH(FEText_ff_417c), LOW(FEText_ff_417c) ; entry 3
+
+FrontEndText_English_3::
+	db BANK(FEText_ff_4191), HIGH(FEText_ff_4191), LOW(FEText_ff_4191) ; entry 0
+	db BANK(FEText_ff_41a0), HIGH(FEText_ff_41a0), LOW(FEText_ff_41a0) ; entry 1
+	db BANK(FEText_ff_41af), HIGH(FEText_ff_41af), LOW(FEText_ff_41af) ; entry 2
+	db BANK(FEText_ff_41cb), HIGH(FEText_ff_41cb), LOW(FEText_ff_41cb) ; entry 3
+	db BANK(FEText_ff_41e7), HIGH(FEText_ff_41e7), LOW(FEText_ff_41e7) ; entry 4
+	db BANK(FEText_ff_4207), HIGH(FEText_ff_4207), LOW(FEText_ff_4207) ; entry 5
+	db BANK(FEText_ff_421f), HIGH(FEText_ff_421f), LOW(FEText_ff_421f) ; entry 6
+	db BANK(FEText_ff_4238), HIGH(FEText_ff_4238), LOW(FEText_ff_4238) ; entry 7
+	db BANK(FEText_ff_4251), HIGH(FEText_ff_4251), LOW(FEText_ff_4251) ; entry 8
+	db BANK(FEText_ff_4269), HIGH(FEText_ff_4269), LOW(FEText_ff_4269) ; entry 9
+	db BANK(FEText_ff_4282), HIGH(FEText_ff_4282), LOW(FEText_ff_4282) ; entry 10
+	db BANK(FEText_ff_429b), HIGH(FEText_ff_429b), LOW(FEText_ff_429b) ; entry 11
+	db BANK(FEText_ff_42b2), HIGH(FEText_ff_42b2), LOW(FEText_ff_42b2) ; entry 12
+	db BANK(FEText_ff_42c7), HIGH(FEText_ff_42c7), LOW(FEText_ff_42c7) ; entry 13
+	db BANK(FEText_ff_42de), HIGH(FEText_ff_42de), LOW(FEText_ff_42de) ; entry 14
+	db BANK(FEText_ff_42f2), HIGH(FEText_ff_42f2), LOW(FEText_ff_42f2) ; entry 15
+	db BANK(FEText_ff_4309), HIGH(FEText_ff_4309), LOW(FEText_ff_4309) ; entry 16
+	db BANK(FEText_ff_431e), HIGH(FEText_ff_431e), LOW(FEText_ff_431e) ; entry 17
+	db BANK(FEText_ff_4331), HIGH(FEText_ff_4331), LOW(FEText_ff_4331) ; entry 18
+	db BANK(FEText_ff_4344), HIGH(FEText_ff_4344), LOW(FEText_ff_4344) ; entry 19
+	db BANK(FEText_ff_4357), HIGH(FEText_ff_4357), LOW(FEText_ff_4357) ; entry 20
+
+FrontEndText_English_5::
+	db BANK(FEText_ff_43bf), HIGH(FEText_ff_43bf), LOW(FEText_ff_43bf) ; entry 0
+	db BANK(FEText_ff_4413), HIGH(FEText_ff_4413), LOW(FEText_ff_4413) ; entry 1
+	db BANK(FEText_ff_436b), HIGH(FEText_ff_436b), LOW(FEText_ff_436b) ; entry 2
+	db BANK(FEText_ff_44b2), HIGH(FEText_ff_44b2), LOW(FEText_ff_44b2) ; entry 3
+	db BANK(FEText_ff_4467), HIGH(FEText_ff_4467), LOW(FEText_ff_4467) ; entry 4
+	db BANK(FEText_ff_4502), HIGH(FEText_ff_4502), LOW(FEText_ff_4502) ; entry 5
+	db BANK(FEText_ff_457f), HIGH(FEText_ff_457f), LOW(FEText_ff_457f) ; entry 6
+
+FrontEndText_French::
+	dw FrontEndText_French_0, FrontEndText_French_1, FrontEndText_French_2, FrontEndText_French_3, FrontEndText_French_5, FrontEndText_French_5
+
+FrontEndText_French_0::
+	db 80, 0 ; label 0: picture sheet, row
+	db 80, 1 ; label 1
+	db 80, 2 ; label 2
+	db 80, 3 ; label 3
+	db 80, 4 ; label 4
+	db 80, 5 ; label 5
+	db 80, 5 ; label 6
+	db 80, 5 ; label 7
+	db 80, 6 ; label 8
+	db 80, 7 ; label 9
+	db 81, 0 ; label 10
+	db 81, 1 ; label 11
+	db 81, 2 ; label 12
+	db 81, 3 ; label 13
+	db 81, 4 ; label 14
+	db 81, 5 ; label 15
+	db 81, 6 ; label 16
+	db 81, 7 ; label 17
+	db 82, 0 ; label 18
+	db 82, 1 ; label 19
+	db 82, 2 ; label 20
+	db 29, 3 ; label 21
+	db 0, 3 ; label 22
+	db 0, 5 ; label 23
+	db 0, 4 ; label 24
+	db 0, 7 ; label 25
+	db 0, 5 ; label 26
+	db 82, 4 ; label 27
+	db 82, 5 ; label 28
+	db 82, 6 ; label 29
+	db 82, 7 ; label 30
+	db 83, 0 ; label 31
+	db 83, 1 ; label 32
+	db 83, 2 ; label 33
+	db 83, 3 ; label 34
+	db 83, 4 ; label 35
+	db 83, 5 ; label 36
+	db 83, 6 ; label 37
+	db 124, 1 ; label 38
+	db 124, 0 ; label 39
+	db 124, 2 ; label 40
+	db 124, 3 ; label 41
+	db 124, 4 ; label 42
+	db 124, 5 ; label 43
+
+FrontEndText_French_1::
+	db BANK(FEText_ff_48e0), HIGH(FEText_ff_48e0), LOW(FEText_ff_48e0) ; entry 0
+	db BANK(FEText_ff_490f), HIGH(FEText_ff_490f), LOW(FEText_ff_490f) ; entry 1
+	db BANK(FEText_ff_4933), HIGH(FEText_ff_4933), LOW(FEText_ff_4933) ; entry 2
+	db BANK(FEText_ff_4948), HIGH(FEText_ff_4948), LOW(FEText_ff_4948) ; entry 3
+	db BANK(FEText_ff_496e), HIGH(FEText_ff_496e), LOW(FEText_ff_496e) ; entry 4
+	db BANK(FEText_ff_4983), HIGH(FEText_ff_4983), LOW(FEText_ff_4983) ; entry 5
+
+FrontEndText_French_2::
+	db BANK(FEText_ff_49c0), HIGH(FEText_ff_49c0), LOW(FEText_ff_49c0) ; entry 0
+	db BANK(FEText_ff_49d5), HIGH(FEText_ff_49d5), LOW(FEText_ff_49d5) ; entry 1
+	db BANK(FEText_ff_4a08), HIGH(FEText_ff_4a08), LOW(FEText_ff_4a08) ; entry 2
+	db BANK(FEText_ff_4a1b), HIGH(FEText_ff_4a1b), LOW(FEText_ff_4a1b) ; entry 3
+
+FrontEndText_French_3::
+	db BANK(FEText_ff_4a2e), HIGH(FEText_ff_4a2e), LOW(FEText_ff_4a2e) ; entry 0
+	db BANK(FEText_ff_4a3e), HIGH(FEText_ff_4a3e), LOW(FEText_ff_4a3e) ; entry 1
+	db BANK(FEText_ff_4a4e), HIGH(FEText_ff_4a4e), LOW(FEText_ff_4a4e) ; entry 2
+	db BANK(FEText_ff_4a6a), HIGH(FEText_ff_4a6a), LOW(FEText_ff_4a6a) ; entry 3
+	db BANK(FEText_ff_4a86), HIGH(FEText_ff_4a86), LOW(FEText_ff_4a86) ; entry 4
+	db BANK(FEText_ff_4aa2), HIGH(FEText_ff_4aa2), LOW(FEText_ff_4aa2) ; entry 5
+	db BANK(FEText_ff_4aba), HIGH(FEText_ff_4aba), LOW(FEText_ff_4aba) ; entry 6
+	db BANK(FEText_ff_4ad2), HIGH(FEText_ff_4ad2), LOW(FEText_ff_4ad2) ; entry 7
+	db BANK(FEText_ff_4aeb), HIGH(FEText_ff_4aeb), LOW(FEText_ff_4aeb) ; entry 8
+	db BANK(FEText_ff_4b03), HIGH(FEText_ff_4b03), LOW(FEText_ff_4b03) ; entry 9
+	db BANK(FEText_ff_4b1b), HIGH(FEText_ff_4b1b), LOW(FEText_ff_4b1b) ; entry 10
+	db BANK(FEText_ff_4b34), HIGH(FEText_ff_4b34), LOW(FEText_ff_4b34) ; entry 11
+	db BANK(FEText_ff_4b4a), HIGH(FEText_ff_4b4a), LOW(FEText_ff_4b4a) ; entry 12
+	db BANK(FEText_ff_4b5f), HIGH(FEText_ff_4b5f), LOW(FEText_ff_4b5f) ; entry 13
+	db BANK(FEText_ff_4b74), HIGH(FEText_ff_4b74), LOW(FEText_ff_4b74) ; entry 14
+	db BANK(FEText_ff_4b88), HIGH(FEText_ff_4b88), LOW(FEText_ff_4b88) ; entry 15
+	db BANK(FEText_ff_4b9d), HIGH(FEText_ff_4b9d), LOW(FEText_ff_4b9d) ; entry 16
+	db BANK(FEText_ff_4bb1), HIGH(FEText_ff_4bb1), LOW(FEText_ff_4bb1) ; entry 17
+	db BANK(FEText_ff_4bc8), HIGH(FEText_ff_4bc8), LOW(FEText_ff_4bc8) ; entry 18
+	db BANK(FEText_ff_4bdf), HIGH(FEText_ff_4bdf), LOW(FEText_ff_4bdf) ; entry 19
+	db BANK(FEText_ff_4bf2), HIGH(FEText_ff_4bf2), LOW(FEText_ff_4bf2) ; entry 20
+
+FrontEndText_French_5::
+	db BANK(FEText_ff_4cb8), HIGH(FEText_ff_4cb8), LOW(FEText_ff_4cb8) ; entry 0
+	db BANK(FEText_ff_4c61), HIGH(FEText_ff_4c61), LOW(FEText_ff_4c61) ; entry 1
+	db BANK(FEText_ff_4c14), HIGH(FEText_ff_4c14), LOW(FEText_ff_4c14) ; entry 2
+	db BANK(FEText_ff_4d59), HIGH(FEText_ff_4d59), LOW(FEText_ff_4d59) ; entry 3
+	db BANK(FEText_ff_4d0b), HIGH(FEText_ff_4d0b), LOW(FEText_ff_4d0b) ; entry 4
+	db BANK(FEText_ff_4db0), HIGH(FEText_ff_4db0), LOW(FEText_ff_4db0) ; entry 5
+	db BANK(FEText_ff_4e25), HIGH(FEText_ff_4e25), LOW(FEText_ff_4e25) ; entry 6
+
+FrontEndText_German::
+	dw FrontEndText_German_0, FrontEndText_German_1, FrontEndText_German_2, FrontEndText_German_3, FrontEndText_German_5, FrontEndText_German_5
+
+FrontEndText_German_0::
+	db 84, 0 ; label 0: picture sheet, row
+	db 84, 1 ; label 1
+	db 84, 2 ; label 2
+	db 84, 3 ; label 3
+	db 84, 4 ; label 4
+	db 84, 5 ; label 5
+	db 84, 5 ; label 6
+	db 84, 5 ; label 7
+	db 84, 6 ; label 8
+	db 84, 7 ; label 9
+	db 85, 0 ; label 10
+	db 85, 1 ; label 11
+	db 85, 2 ; label 12
+	db 85, 3 ; label 13
+	db 85, 4 ; label 14
+	db 85, 5 ; label 15
+	db 85, 6 ; label 16
+	db 85, 7 ; label 17
+	db 86, 0 ; label 18
+	db 86, 1 ; label 19
+	db 86, 2 ; label 20
+	db 29, 3 ; label 21
+	db 0, 3 ; label 22
+	db 0, 5 ; label 23
+	db 0, 4 ; label 24
+	db 0, 7 ; label 25
+	db 0, 6 ; label 26
+	db 86, 4 ; label 27
+	db 86, 5 ; label 28
+	db 86, 6 ; label 29
+	db 86, 7 ; label 30
+	db 87, 0 ; label 31
+	db 87, 1 ; label 32
+	db 87, 2 ; label 33
+	db 87, 3 ; label 34
+	db 87, 4 ; label 35
+	db 87, 5 ; label 36
+	db 87, 6 ; label 37
+	db 87, 7 ; label 38
+	db 126, 0 ; label 39
+	db 126, 1 ; label 40
+	db 126, 2 ; label 41
+	db 126, 3 ; label 42
+	db 126, 4 ; label 43
+
+FrontEndText_German_1::
+	db BANK(FEText_ff_51d4), HIGH(FEText_ff_51d4), LOW(FEText_ff_51d4) ; entry 0
+	db BANK(FEText_ff_51f1), HIGH(FEText_ff_51f1), LOW(FEText_ff_51f1) ; entry 1
+	db BANK(FEText_ff_5225), HIGH(FEText_ff_5225), LOW(FEText_ff_5225) ; entry 2
+	db BANK(FEText_ff_5237), HIGH(FEText_ff_5237), LOW(FEText_ff_5237) ; entry 3
+	db BANK(FEText_ff_5272), HIGH(FEText_ff_5272), LOW(FEText_ff_5272) ; entry 4
+	db BANK(FEText_ff_5287), HIGH(FEText_ff_5287), LOW(FEText_ff_5287) ; entry 5
+
+FrontEndText_German_2::
+	db BANK(FEText_ff_52c2), HIGH(FEText_ff_52c2), LOW(FEText_ff_52c2) ; entry 0
+	db BANK(FEText_ff_52d7), HIGH(FEText_ff_52d7), LOW(FEText_ff_52d7) ; entry 1
+	db BANK(FEText_ff_5301), HIGH(FEText_ff_5301), LOW(FEText_ff_5301) ; entry 2
+	db BANK(FEText_ff_5316), HIGH(FEText_ff_5316), LOW(FEText_ff_5316) ; entry 3
+
+FrontEndText_German_3::
+	db BANK(FEText_ff_532a), HIGH(FEText_ff_532a), LOW(FEText_ff_532a) ; entry 0
+	db BANK(FEText_ff_5339), HIGH(FEText_ff_5339), LOW(FEText_ff_5339) ; entry 1
+	db BANK(FEText_ff_5348), HIGH(FEText_ff_5348), LOW(FEText_ff_5348) ; entry 2
+	db BANK(FEText_ff_536c), HIGH(FEText_ff_536c), LOW(FEText_ff_536c) ; entry 3
+	db BANK(FEText_ff_5390), HIGH(FEText_ff_5390), LOW(FEText_ff_5390) ; entry 4
+	db BANK(FEText_ff_53b7), HIGH(FEText_ff_53b7), LOW(FEText_ff_53b7) ; entry 5
+	db BANK(FEText_ff_53d1), HIGH(FEText_ff_53d1), LOW(FEText_ff_53d1) ; entry 6
+	db BANK(FEText_ff_53eb), HIGH(FEText_ff_53eb), LOW(FEText_ff_53eb) ; entry 7
+	db BANK(FEText_ff_5411), HIGH(FEText_ff_5411), LOW(FEText_ff_5411) ; entry 8
+	db BANK(FEText_ff_542a), HIGH(FEText_ff_542a), LOW(FEText_ff_542a) ; entry 9
+	db BANK(FEText_ff_5444), HIGH(FEText_ff_5444), LOW(FEText_ff_5444) ; entry 10
+	db BANK(FEText_ff_546a), HIGH(FEText_ff_546a), LOW(FEText_ff_546a) ; entry 11
+	db BANK(FEText_ff_548f), HIGH(FEText_ff_548f), LOW(FEText_ff_548f) ; entry 12
+	db BANK(FEText_ff_54b4), HIGH(FEText_ff_54b4), LOW(FEText_ff_54b4) ; entry 13
+	db BANK(FEText_ff_54cd), HIGH(FEText_ff_54cd), LOW(FEText_ff_54cd) ; entry 14
+	db BANK(FEText_ff_54e5), HIGH(FEText_ff_54e5), LOW(FEText_ff_54e5) ; entry 15
+	db BANK(FEText_ff_54fe), HIGH(FEText_ff_54fe), LOW(FEText_ff_54fe) ; entry 16
+	db BANK(FEText_ff_5517), HIGH(FEText_ff_5517), LOW(FEText_ff_5517) ; entry 17
+	db BANK(FEText_ff_552b), HIGH(FEText_ff_552b), LOW(FEText_ff_552b) ; entry 18
+	db BANK(FEText_ff_553f), HIGH(FEText_ff_553f), LOW(FEText_ff_553f) ; entry 19
+	db BANK(FEText_ff_5552), HIGH(FEText_ff_5552), LOW(FEText_ff_5552) ; entry 20
+
+FrontEndText_German_5::
+	db BANK(FEText_ff_55b9), HIGH(FEText_ff_55b9), LOW(FEText_ff_55b9) ; entry 0
+	db BANK(FEText_ff_560d), HIGH(FEText_ff_560d), LOW(FEText_ff_560d) ; entry 1
+	db BANK(FEText_ff_5566), HIGH(FEText_ff_5566), LOW(FEText_ff_5566) ; entry 2
+	db BANK(FEText_ff_56ac), HIGH(FEText_ff_56ac), LOW(FEText_ff_56ac) ; entry 3
+	db BANK(FEText_ff_565f), HIGH(FEText_ff_565f), LOW(FEText_ff_565f) ; entry 4
+	db BANK(FEText_ff_5700), HIGH(FEText_ff_5700), LOW(FEText_ff_5700) ; entry 5
+	db BANK(FEText_ff_5786), HIGH(FEText_ff_5786), LOW(FEText_ff_5786) ; entry 6
+
+FrontEndText_Spanish::
+	dw FrontEndText_Spanish_0, FrontEndText_Spanish_1, FrontEndText_Spanish_2, FrontEndText_Spanish_3, FrontEndText_Spanish_5, FrontEndText_Spanish_5
+
+FrontEndText_Spanish_0::
+	db 92, 0 ; label 0: picture sheet, row
+	db 92, 1 ; label 1
+	db 92, 2 ; label 2
+	db 92, 3 ; label 3
+	db 92, 4 ; label 4
+	db 92, 5 ; label 5
+	db 92, 5 ; label 6
+	db 92, 5 ; label 7
+	db 92, 6 ; label 8
+	db 92, 7 ; label 9
+	db 93, 0 ; label 10
+	db 93, 1 ; label 11
+	db 93, 2 ; label 12
+	db 93, 3 ; label 13
+	db 93, 4 ; label 14
+	db 93, 5 ; label 15
+	db 93, 6 ; label 16
+	db 93, 7 ; label 17
+	db 94, 0 ; label 18
+	db 94, 1 ; label 19
+	db 94, 2 ; label 20
+	db 29, 3 ; label 21
+	db 0, 3 ; label 22
+	db 0, 5 ; label 23
+	db 0, 4 ; label 24
+	db 0, 7 ; label 25
+	db 0, 6 ; label 26
+	db 94, 4 ; label 27
+	db 94, 5 ; label 28
+	db 94, 6 ; label 29
+	db 94, 7 ; label 30
+	db 95, 0 ; label 31
+	db 95, 1 ; label 32
+	db 95, 2 ; label 33
+	db 95, 3 ; label 34
+	db 95, 4 ; label 35
+	db 95, 5 ; label 36
+	db 95, 6 ; label 37
+	db 95, 7 ; label 38
+	db 130, 0 ; label 39
+	db 130, 1 ; label 40
+	db 130, 2 ; label 41
+	db 130, 3 ; label 42
+	db 130, 4 ; label 43
+
+FrontEndText_Spanish_1::
+	db BANK(FEText_ff_5b29), HIGH(FEText_ff_5b29), LOW(FEText_ff_5b29) ; entry 0
+	db BANK(FEText_ff_5b5c), HIGH(FEText_ff_5b5c), LOW(FEText_ff_5b5c) ; entry 1
+	db BANK(FEText_ff_5b8d), HIGH(FEText_ff_5b8d), LOW(FEText_ff_5b8d) ; entry 2
+	db BANK(FEText_ff_5bb4), HIGH(FEText_ff_5bb4), LOW(FEText_ff_5bb4) ; entry 3
+	db BANK(FEText_ff_5bed), HIGH(FEText_ff_5bed), LOW(FEText_ff_5bed) ; entry 4
+	db BANK(FEText_ff_5c02), HIGH(FEText_ff_5c02), LOW(FEText_ff_5c02) ; entry 5
+
+FrontEndText_Spanish_2::
+	db BANK(FEText_ff_5c3c), HIGH(FEText_ff_5c3c), LOW(FEText_ff_5c3c) ; entry 0
+	db BANK(FEText_ff_5c4f), HIGH(FEText_ff_5c4f), LOW(FEText_ff_5c4f) ; entry 1
+	db BANK(FEText_ff_5c74), HIGH(FEText_ff_5c74), LOW(FEText_ff_5c74) ; entry 2
+	db BANK(FEText_ff_5c88), HIGH(FEText_ff_5c88), LOW(FEText_ff_5c88) ; entry 3
+
+FrontEndText_Spanish_3::
+	db BANK(FEText_ff_5c9c), HIGH(FEText_ff_5c9c), LOW(FEText_ff_5c9c) ; entry 0
+	db BANK(FEText_ff_5cab), HIGH(FEText_ff_5cab), LOW(FEText_ff_5cab) ; entry 1
+	db BANK(FEText_ff_5cba), HIGH(FEText_ff_5cba), LOW(FEText_ff_5cba) ; entry 2
+	db BANK(FEText_ff_5cdd), HIGH(FEText_ff_5cdd), LOW(FEText_ff_5cdd) ; entry 3
+	db BANK(FEText_ff_5d00), HIGH(FEText_ff_5d00), LOW(FEText_ff_5d00) ; entry 4
+	db BANK(FEText_ff_5d24), HIGH(FEText_ff_5d24), LOW(FEText_ff_5d24) ; entry 5
+	db BANK(FEText_ff_5d3b), HIGH(FEText_ff_5d3b), LOW(FEText_ff_5d3b) ; entry 6
+	db BANK(FEText_ff_5d53), HIGH(FEText_ff_5d53), LOW(FEText_ff_5d53) ; entry 7
+	db BANK(FEText_ff_5d6c), HIGH(FEText_ff_5d6c), LOW(FEText_ff_5d6c) ; entry 8
+	db BANK(FEText_ff_5d83), HIGH(FEText_ff_5d83), LOW(FEText_ff_5d83) ; entry 9
+	db BANK(FEText_ff_5d9b), HIGH(FEText_ff_5d9b), LOW(FEText_ff_5d9b) ; entry 10
+	db BANK(FEText_ff_5db3), HIGH(FEText_ff_5db3), LOW(FEText_ff_5db3) ; entry 11
+	db BANK(FEText_ff_5dc9), HIGH(FEText_ff_5dc9), LOW(FEText_ff_5dc9) ; entry 12
+	db BANK(FEText_ff_5ddc), HIGH(FEText_ff_5ddc), LOW(FEText_ff_5ddc) ; entry 13
+	db BANK(FEText_ff_5df1), HIGH(FEText_ff_5df1), LOW(FEText_ff_5df1) ; entry 14
+	db BANK(FEText_ff_5e04), HIGH(FEText_ff_5e04), LOW(FEText_ff_5e04) ; entry 15
+	db BANK(FEText_ff_5e19), HIGH(FEText_ff_5e19), LOW(FEText_ff_5e19) ; entry 16
+	db BANK(FEText_ff_5e2d), HIGH(FEText_ff_5e2d), LOW(FEText_ff_5e2d) ; entry 17
+	db BANK(FEText_ff_5e40), HIGH(FEText_ff_5e40), LOW(FEText_ff_5e40) ; entry 18
+	db BANK(FEText_ff_5e54), HIGH(FEText_ff_5e54), LOW(FEText_ff_5e54) ; entry 19
+	db BANK(FEText_ff_5e66), HIGH(FEText_ff_5e66), LOW(FEText_ff_5e66) ; entry 20
+
+FrontEndText_Spanish_5::
+	db BANK(FEText_ff_5edc), HIGH(FEText_ff_5edc), LOW(FEText_ff_5edc) ; entry 0
+	db BANK(FEText_ff_5f2e), HIGH(FEText_ff_5f2e), LOW(FEText_ff_5f2e) ; entry 1
+	db BANK(FEText_ff_5e8d), HIGH(FEText_ff_5e8d), LOW(FEText_ff_5e8d) ; entry 2
+	db BANK(FEText_ff_5fc9), HIGH(FEText_ff_5fc9), LOW(FEText_ff_5fc9) ; entry 3
+	db BANK(FEText_ff_5f7c), HIGH(FEText_ff_5f7c), LOW(FEText_ff_5f7c) ; entry 4
+	db BANK(FEText_ff_601a), HIGH(FEText_ff_601a), LOW(FEText_ff_601a) ; entry 5
+	db BANK(FEText_ff_608d), HIGH(FEText_ff_608d), LOW(FEText_ff_608d) ; entry 6
+
+FrontEndText_Italian::
+	dw FrontEndText_Italian_0, FrontEndText_Italian_1, FrontEndText_Italian_2, FrontEndText_Italian_3, FrontEndText_Italian_5, FrontEndText_Italian_5
+
+FrontEndText_Italian_0::
+	db 88, 0 ; label 0: picture sheet, row
+	db 88, 1 ; label 1
+	db 88, 2 ; label 2
+	db 88, 3 ; label 3
+	db 88, 4 ; label 4
+	db 88, 5 ; label 5
+	db 88, 5 ; label 6
+	db 88, 5 ; label 7
+	db 88, 6 ; label 8
+	db 88, 7 ; label 9
+	db 89, 0 ; label 10
+	db 89, 1 ; label 11
+	db 89, 2 ; label 12
+	db 89, 3 ; label 13
+	db 89, 4 ; label 14
+	db 89, 5 ; label 15
+	db 89, 6 ; label 16
+	db 89, 7 ; label 17
+	db 90, 0 ; label 18
+	db 90, 1 ; label 19
+	db 90, 2 ; label 20
+	db 29, 3 ; label 21
+	db 0, 3 ; label 22
+	db 0, 5 ; label 23
+	db 0, 4 ; label 24
+	db 0, 7 ; label 25
+	db 0, 6 ; label 26
+	db 90, 4 ; label 27
+	db 90, 5 ; label 28
+	db 90, 6 ; label 29
+	db 90, 7 ; label 30
+	db 91, 0 ; label 31
+	db 91, 1 ; label 32
+	db 91, 2 ; label 33
+	db 91, 3 ; label 34
+	db 91, 4 ; label 35
+	db 91, 5 ; label 36
+	db 91, 6 ; label 37
+	db 91, 7 ; label 38
+	db 128, 0 ; label 39
+	db 128, 1 ; label 40
+	db 128, 2 ; label 41
+	db 128, 3 ; label 42
+	db 128, 4 ; label 43
+
+FrontEndText_Italian_1::
+	db BANK(FEText_ff_641c), HIGH(FEText_ff_641c), LOW(FEText_ff_641c) ; entry 0
+	db BANK(FEText_ff_644d), HIGH(FEText_ff_644d), LOW(FEText_ff_644d) ; entry 1
+	db BANK(FEText_ff_647c), HIGH(FEText_ff_647c), LOW(FEText_ff_647c) ; entry 2
+	db BANK(FEText_ff_6492), HIGH(FEText_ff_6492), LOW(FEText_ff_6492) ; entry 3
+	db BANK(FEText_ff_64c5), HIGH(FEText_ff_64c5), LOW(FEText_ff_64c5) ; entry 4
+	db BANK(FEText_ff_64d9), HIGH(FEText_ff_64d9), LOW(FEText_ff_64d9) ; entry 5
+
+FrontEndText_Italian_2::
+	db BANK(FEText_ff_6513), HIGH(FEText_ff_6513), LOW(FEText_ff_6513) ; entry 0
+	db BANK(FEText_ff_6533), HIGH(FEText_ff_6533), LOW(FEText_ff_6533) ; entry 1
+	db BANK(FEText_ff_6554), HIGH(FEText_ff_6554), LOW(FEText_ff_6554) ; entry 2
+	db BANK(FEText_ff_6573), HIGH(FEText_ff_6573), LOW(FEText_ff_6573) ; entry 3
+
+FrontEndText_Italian_3::
+	db BANK(FEText_ff_6586), HIGH(FEText_ff_6586), LOW(FEText_ff_6586) ; entry 0
+	db BANK(FEText_ff_6596), HIGH(FEText_ff_6596), LOW(FEText_ff_6596) ; entry 1
+	db BANK(FEText_ff_65a6), HIGH(FEText_ff_65a6), LOW(FEText_ff_65a6) ; entry 2
+	db BANK(FEText_ff_65c2), HIGH(FEText_ff_65c2), LOW(FEText_ff_65c2) ; entry 3
+	db BANK(FEText_ff_65de), HIGH(FEText_ff_65de), LOW(FEText_ff_65de) ; entry 4
+	db BANK(FEText_ff_6603), HIGH(FEText_ff_6603), LOW(FEText_ff_6603) ; entry 5
+	db BANK(FEText_ff_661c), HIGH(FEText_ff_661c), LOW(FEText_ff_661c) ; entry 6
+	db BANK(FEText_ff_6635), HIGH(FEText_ff_6635), LOW(FEText_ff_6635) ; entry 7
+	db BANK(FEText_ff_6650), HIGH(FEText_ff_6650), LOW(FEText_ff_6650) ; entry 8
+	db BANK(FEText_ff_6669), HIGH(FEText_ff_6669), LOW(FEText_ff_6669) ; entry 9
+	db BANK(FEText_ff_6681), HIGH(FEText_ff_6681), LOW(FEText_ff_6681) ; entry 10
+	db BANK(FEText_ff_669c), HIGH(FEText_ff_669c), LOW(FEText_ff_669c) ; entry 11
+	db BANK(FEText_ff_66b5), HIGH(FEText_ff_66b5), LOW(FEText_ff_66b5) ; entry 12
+	db BANK(FEText_ff_66cf), HIGH(FEText_ff_66cf), LOW(FEText_ff_66cf) ; entry 13
+	db BANK(FEText_ff_66e7), HIGH(FEText_ff_66e7), LOW(FEText_ff_66e7) ; entry 14
+	db BANK(FEText_ff_66ff), HIGH(FEText_ff_66ff), LOW(FEText_ff_66ff) ; entry 15
+	db BANK(FEText_ff_6717), HIGH(FEText_ff_6717), LOW(FEText_ff_6717) ; entry 16
+	db BANK(FEText_ff_672f), HIGH(FEText_ff_672f), LOW(FEText_ff_672f) ; entry 17
+	db BANK(FEText_ff_6743), HIGH(FEText_ff_6743), LOW(FEText_ff_6743) ; entry 18
+	db BANK(FEText_ff_6757), HIGH(FEText_ff_6757), LOW(FEText_ff_6757) ; entry 19
+	db BANK(FEText_ff_6768), HIGH(FEText_ff_6768), LOW(FEText_ff_6768) ; entry 20
+
+FrontEndText_Italian_5::
+	db BANK(FEText_ff_67e5), HIGH(FEText_ff_67e5), LOW(FEText_ff_67e5) ; entry 0
+	db BANK(FEText_ff_6839), HIGH(FEText_ff_6839), LOW(FEText_ff_6839) ; entry 1
+	db BANK(FEText_ff_6792), HIGH(FEText_ff_6792), LOW(FEText_ff_6792) ; entry 2
+	db BANK(FEText_ff_68d8), HIGH(FEText_ff_68d8), LOW(FEText_ff_68d8) ; entry 3
+	db BANK(FEText_ff_6887), HIGH(FEText_ff_6887), LOW(FEText_ff_6887) ; entry 4
+	db BANK(FEText_ff_692c), HIGH(FEText_ff_692c), LOW(FEText_ff_692c) ; entry 5
+	db BANK(FEText_ff_69b2), HIGH(FEText_ff_69b2), LOW(FEText_ff_69b2) ; entry 6
+	ds 3239, $00 ; $7359
 

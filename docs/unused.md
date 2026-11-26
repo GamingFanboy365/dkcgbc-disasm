@@ -175,6 +175,10 @@ One more leftover sits in bank `$FE`. Each mode number is turned into an interna
 
 The English text bank has one line no pointer reaches: "I'm going for a nap." (`UnusedText_10_62f1`). It belongs to Cranky's line "All this game play / is too much for me." In French, Italian and Spanish the matching string has a third line saying the same thing ("Je vais me coucher.", "Farò un pisolino.", "Me voy a echar una siestecita."). In English the second line ends with a 0 instead of a new line, so the string stops early and the nap line becomes a separate string nobody points to. The German text has no nap line at all ("…Ich bin reif fürs Affenhaus!"). All other strings, in all five banks, are reached.
 
+### A missing end marker in the Spanish front-end text
+
+The front end's text records in bank `$FF` each end with a `$87` byte. The Spanish instructions for Crosshair Cranky ("Mirilla Cranky", `FEText_ff_601a`) end with a new-line byte instead, so the text runs straight on into the next record, the Spanish Funky's Fishing instructions, including that record's four header bytes. The other four languages end the same text properly. `FE_DrawText` reads until it meets a `$87`, so in Spanish this screen would print the fishing instructions as well, with the header bytes drawn as stray characters. These general Crosshair Cranky instructions (text table 5, entry 5) are drawn when `FE_Main` runs with `[$c981]` = 3 (`$F1:425A`). No emulator session has reached that screen yet, so how it looks in play is unconfirmed.
+
 ## Music
 
 `tools/music.py` follows every channel of every song through its jumps and calls and decodes whatever it reaches. That leaves 393 bytes no song reaches; in the sources they're labelled `MusUnused_BB_XXXX` or commented "never reached":

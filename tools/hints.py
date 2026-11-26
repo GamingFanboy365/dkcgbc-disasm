@@ -280,4 +280,11 @@ EXTRA_TILES = [
     (0x41, 0x4000, 312, "world map sprites (8x16 objects)"),
     (0x0D, 0x4010, 16, "Rare logo: rounded corner sprites"),
     (0x0D, 0x5980, 88, "Rare logo tiles (Func_0d_4216 copies $580 bytes)"),
+    (0xFF, 0x6B30, 250, "front-end fonts"),
 ]
+
+# Front-end text in bank $ff that the text tables don't reach: per language
+# the Winner/Loser lines, menu words read by address and length ("PAUSED",
+# "CONTINUE", ...), $87-separated label lists and the closing message.
+FE_TEXT_RUNS = [(0x4669, 631), (0x4C06, 14), (0x4EF3, 737), (0x586E, 699), (0x5E77, 22),
+                (0x615B, 705), (0x677C, 22), (0x6A99, 128)]

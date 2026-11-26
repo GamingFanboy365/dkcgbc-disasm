@@ -190,7 +190,7 @@ Besides the adventure itself, the cartridge holds two more programs, each with i
 | Link play | link-cable two-player messages |
 | Game Boy Printer | printer support, with status messages, a picture album and unlockable print features |
 
-Front-end text goes through `FE_DrawText` (`$F0:6ADA`), with a table number in `b` and an entry in `c`. `FE_GetTextPointer` looks both up in a per-language table at `$F0:6F21`, whose 3-byte entries are a bank and a big-endian address. Text records in bank `$FF` are a 4-byte header, then characters, with `$86` for a new line and `$87` at the end. Table 0 is different: it lists menu labels as (picture sheet, row) pairs, by label id. The menu rings (`FE_LoadRing`) come from a table at `$F1:67BF` indexed by ring number. Each ring is an item count followed by three bytes per item, the last being the label id that `FE_DrawRingLabel` draws.
+Front-end text (bank `$FF`, now readable `db` text in `FEText_ff_XXXX` records, Latin-1 accents) goes through `FE_DrawText` (`$F0:6ADA`), with a table number in `b` and an entry in `c`. `FE_GetTextPointer` looks both up in a per-language table at `$F0:6F21`, whose 3-byte entries are a bank and a big-endian address. Text records in bank `$FF` are a 4-byte header, then characters, with `$86` for a new line and `$87` at the end. Table 0 is different: it lists menu labels as (picture sheet, row) pairs, by label id. The menu rings (`FE_LoadRing`) come from a table at `$F1:67BF` indexed by ring number. Each ring is an item count followed by three bytes per item, the last being the label id that `FE_DrawRingLabel` draws.
 
 Crosshair Cranky is `CrosshairCranky` in bank `$FE`. In single-player it starts from a DK Isle map whose nodes open one by one: Kremlings and Kongs first, then the others as `[$B0C7]` rises. A sixth node, Galleon Gunner, appears only once Gang-Plank Galleon (level `$29`) has been beaten on any save file. `CrosshairCrankyLink` (`$FE:4003`) is the two-player entry, which ring 15 feeds with mode 0–4. Both turn the mode number into an internal game number through `CrankyModeToGame`. See `docs/unused.md` for the details and the leftovers.
 
@@ -241,10 +241,10 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
 | Code disassembled into readable instructions | 93 KB | 3.5% |
-| Data decoded into readable structures | 290 KB | 10.8% |
-| Graphics converted to editable PNGs | 980 KB | 36.6% |
-| Located and labelled, format known, still raw bytes | 1186 KB | 44.3% |
-| Not identified yet | 129 KB | 4.8% |
+| Data decoded into readable structures | 302 KB | 11.3% |
+| Graphics converted to editable PNGs | 984 KB | 36.7% |
+| Located and labelled, format known, still raw bytes | 1190 KB | 44.4% |
+| Not identified yet | 110 KB | 4.1% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 
@@ -303,7 +303,7 @@ Every bank now has a known purpose:
 
 The retail ROM comes first: the goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. Only after that does work start on the earlier demo build (`Donkey Kong Country (U) [demo]`) and the comparison between the two. The order of work:
 
-1. Finish identifying what's left (4.8%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
+1. Finish identifying what's left (4.1%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
 2. Convert the located raw data (block banks, terrain, compressed maps, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 4. Then the demo.

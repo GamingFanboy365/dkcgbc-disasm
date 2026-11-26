@@ -276,6 +276,43 @@ def render_world_map(rom, wm):
     return canvas
 
 
+# ------------------------------------------------------------- title screen
+def titles(rom):
+    """The title pictures: map (36 rows, each 20 tile numbers then 20
+    attributes), 32 palettes, tileset and palette-swap list per slot."""
+    t = hints.TITLES
+    b = t["bank"]
+    out = []
+    for v in range(t["count"]):
+        lst = rw(rom, b, t["lists"] + 2 * v)
+        ents, o = [], off(b, lst)
+        while rom[o] != 0xFF:
+            ents.append(tuple(rom[o:o + 3]))
+            o += 3
+        out.append({"slot": v, "map": rw(rom, b, t["maps"] + 2 * v), "palettes": rw(rom, b, t["palettes"] + 2 * v),
+                    "ts_bank": rom[off(b, t["tilesets"] + 3 * v)], "ts": rw(rom, b, t["tilesets"] + 3 * v + 1),
+                    "list": lst, "entries": ents, "list_length": 3 * len(ents) + 1})
+    return out
+
+
+def render_title(rom, tv):
+    """Each row is drawn with the palettes in effect once the title has
+    scrolled to it (the swap list is applied in scroll order)."""
+    b = hints.TITLES["bank"]
+    allp = palettes_at(rom, b, tv["palettes"], 32)
+    ts = Tileset(rom, tv["ts_bank"], tv["ts"])
+    canvas = [[(0, 0, 0)] * 160 for _ in range(288)]
+    mo = off(b, tv["map"])
+    for r in range(36):
+        pals = list(allp[:8])
+        for (line, src, dst) in tv["entries"]:
+            if line <= r * 8:
+                pals[(dst & 0x7F) // 8] = allp[src // 8]
+        for c in range(20):
+            draw_tile(canvas, c * 8, r * 8, ts, rom[mo + r * 40 + c], rom[mo + r * 40 + 20 + c], pals)
+    return canvas
+
+
 # ------------------------------------------------------------ Funky's Fishing
 def render_fishing(rom, screen):
     """Render one of Funky's Fishing's 20x18 screens with its own VRAM loads."""
@@ -317,6 +354,8 @@ def bg_tile_pieces(rom):
         starts.setdefault(hdr["ts_bank"], set()).add(hdr["ts"])
     for wm in world_maps(rom):
         starts.setdefault(wm["ts_bank"], set()).add(wm["ts"])
+    for tv in titles(rom):
+        starts.setdefault(tv["ts_bank"], set()).add(tv["ts"])
     fb = hints.FISHING["bank"]
     for (a, n, _, _) in hints.FISHING["tiles"]:
         starts.setdefault(fb, set()).add(a)
@@ -382,6 +421,8 @@ def main():
         w += 1
     for scr in hints.FISHING["screens"]:
         save(os.path.join(out, "fishing", "fishing_%04x.png" % scr), render_fishing(rom, scr))
+    for tv in titles(rom):
+        save(os.path.join(out, "title", "title_slot%d_%04x.png" % (tv["slot"], tv["map"])), render_title(rom, tv))
     print("rendered %d level maps, %d screens, %d world maps and %d Funky's Fishing screens into %s"
           % (n, s, w, len(hints.FISHING["screens"]), out))
 

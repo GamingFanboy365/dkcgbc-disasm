@@ -34,6 +34,13 @@ def parse_backgrounds(t, rom):
         t._claim(wb, wm["addr"], 13, "worldmap", wm, "WorldMap")
         t._claim(0x0F, wm["map"], 1 + 36 * wm["width"], "worldtiles", wm["width"], "WorldTileMap")
         t._claim(0x0F, wm["palettes"], 64, "palette", 8, "WorldPalettes")
+    tt = hints.TITLES
+    tb = tt["bank"]
+    t._claim(tb, tt["maps"], 0x4133 + 2 * tt["count"] - tt["maps"], "titletables", tt, "=TitleTables")
+    for tv in bg.titles(rom):
+        t._claim(tb, tv["map"], 36 * 40, "titlemap", None, "TitleMap")
+        t._claim(tb, tv["palettes"], 256, "palette", 32, "TitlePalettes")
+        t._claim(tb, tv["list"], tv["list_length"], "titlelist", tv["entries"], "TitlePaletteSwaps")
     f = hints.FISHING
     fb = f["bank"]
     for scr in f["screens"]:

@@ -104,6 +104,10 @@ Only the first 64 bytes of each block (8 BG palettes) reach the screen, so the c
 
 World map 7 is reached by no location in the location table, but `Func_05_4274` checks for it by number, so code uses it directly. It shows the same island as map 0, with a different list of level markers.
 
+## Title screen
+
+The title picks one of four slots with `[$B0C1] & 3`, but slot 3 is an exact copy of slot 2 (same map, palettes and tileset). So the game shows only three title pictures. One of its four selections simply repeats the jungle picture, which could be filler or a placeholder for a fourth picture that was never made.
+
 ## Checked and found complete
 
 These turned up nothing unused, which is worth knowing too:

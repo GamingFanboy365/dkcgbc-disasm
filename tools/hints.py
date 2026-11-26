@@ -213,3 +213,10 @@ FISHING = {
     "bg_palettes": 0x7090,
     "obj_palettes": 0x70D0,
 }
+
+# Title screen pictures (bank $07, Func_07_4001). [$b0c1] & 3 picks one of
+# four slots; slot 3 repeats slot 2, so there are three pictures. Tables:
+# map pointers, palette pointers (256 bytes = 32 palettes), tilesets (bank,
+# address) and palette-swap lists ((scroll line, source palette*8, $80 |
+# slot*8), ending with $ff; Func_07_4195 applies them as the title scrolls).
+TITLES = {"bank": 0x07, "maps": 0x4117, "palettes": 0x411F, "tilesets": 0x4127, "lists": 0x4133, "count": 4}

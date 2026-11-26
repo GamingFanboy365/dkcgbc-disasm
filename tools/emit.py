@@ -388,6 +388,33 @@ class Emitter:
             r = item[2]
             names = [self.qref(bank, r[k]) or hexw(r[k]) for k in ("palettes", "map", "tiles")]
             return [(o, "dw %s ; palettes, tile map, tiles" % ", ".join(names))]
+        if kind == "titletables":
+            tt = item[2]
+            rom = self.rom
+            rw_ = lambda a: rom[off(bank, a)] | rom[off(bank, a) + 1] << 8  # noqa: E731
+            n = tt["count"]
+            res = [(o, "dw " + ", ".join(self.qref(bank, rw_(tt["maps"] + 2 * k)) or hexw(rw_(tt["maps"] + 2 * k))
+                                        for k in range(n)) + " ; maps")]
+            res.append((None, "dw " + ", ".join(self.qref(bank, rw_(tt["palettes"] + 2 * k)) or
+                                                 hexw(rw_(tt["palettes"] + 2 * k)) for k in range(n)) + " ; palettes"))
+            for k in range(n):
+                tb_, ta = rom[off(bank, tt["tilesets"] + 3 * k)], rw_(tt["tilesets"] + 3 * k + 1)
+                lab = self.qref(tb_, ta)
+                res.append((None, ("db BANK(%s)\n\tdw %s" % (lab, lab)) if lab else "db %s\n\tdw %s" % (hexb(tb_), hexw(ta))))
+            res.append((None, "dw " + ", ".join(self.qref(bank, rw_(tt["lists"] + 2 * k)) or
+                                                 hexw(rw_(tt["lists"] + 2 * k)) for k in range(n)) + " ; palette swaps"))
+            return res
+        if kind == "titlemap":
+            rom = self.rom
+            return [(o if k == 0 else None, "db " + ", ".join(hexb(x) for x in rom[o + 20 * k:o + 20 * k + 20])
+                     + (" ; tiles" if k % 2 == 0 else " ; attributes"))
+                    for k in range(72)]
+        if kind == "titlelist":
+            res = [(o if k == 0 else None, "db %d, %s, %s ; at line %d, palette %d -> slot %d"
+                    % (L, hexb(e), ("$80 | %d" % (b & 0x7F)) if b & 0x80 else hexb(b), L, e // 8, (b & 0x7F) // 8))
+                   for k, (L, e, b) in enumerate(item[2])]
+            res.append((None, "db $ff"))
+            return res
         if kind == "boxmap":
             w, h = item[2]
             rom = self.rom

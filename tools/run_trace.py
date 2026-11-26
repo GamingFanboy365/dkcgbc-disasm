@@ -589,6 +589,14 @@ def parse_banks(t, rom):
         t._claim(b, src, n, "incbin", None, "=RAMCopy_%02x_%04x_to_%04x" % (b, src, dst))
     t._claim(0xF1, 0x65E8, 64, "palette", 8, "=FrontEndObjPalettes")      # copied to $c846 (Func_f1_433a)
     t._claim(0xF1, 0x5CC1, 16, "palette", 2, "=HiScoreObjPalettes")       # copied to $c846 (Func_f1_5cd1)
+    # bank $f2 tables
+    t._claim(0xF2, 0x4397, 52, "rows", hexrow("db", rom[off(0xF2, 0x4397):off(0xF2, 0x4397 + 52)], 16),
+             "=PictureByItem")  # picture number by [$c9e5] (Func_f2_41c5)
+    t._claim(0xF2, 0x4E0C, 360, "rows", [("db", ["$%02x" % v for v in rom[off(0xF2, 0x4E0C + 6 * k):off(0xF2, 0x4E0C + 6 * k) + 6]],
+                                          "entry %d" % k) for k in range(60)], "=MenuItemRecords")  # by [$c9a0] (Func_f2_4600)
+    t._claim(0xF2, 0x4F74, 60, "rows", hexrow("db", rom[off(0xF2, 0x4F74):off(0xF2, 0x4F74 + 60)], 12), "=MenuItemBytes")  # Func_f2_4626
+    t._claim(0xF2, 0x6A22, 56, "rows", [("db", ["%d" % v for v in rom[off(0xF2, 0x6A22 + 4 * k):off(0xF2, 0x6A22 + 4 * k) + 4]],
+                                         "picture, type, ?, ?" if k == 0 else None) for k in range(14)], "=PictureScreens")  # Func_f2_6c5a
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

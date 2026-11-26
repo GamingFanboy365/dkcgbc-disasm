@@ -1177,6 +1177,8 @@ Func_f5_4613::
 	jr nz, .jump_46af
 	ld a, $00
 	ld [$cbb3], a
+
+Func_f5_46ba::
 	xor a
 	ld hl, $db00
 	ld d, $20
@@ -1202,7 +1204,119 @@ Func_f5_46c5::
 .jump_46d7:
 	jp hl
 
-	INCBIN "baserom.gbc", $3d46d8, $00db ; $46d8
+
+Func_f5_46d8::
+	jp Func_f5_46e4.jump_46e7
+
+
+Func_f5_46db::
+	jp Func_f5_46e4.jump_4715
+
+
+Func_f5_46de::
+	jp Func_f5_46e4.jump_4731
+
+
+Func_f5_46e1::
+	jp Func_f5_46e4.jump_475f
+
+
+Func_f5_46e4::
+	jp .jump_478a
+
+.jump_46e7:
+	ld a, $00
+	ld [$cbf1], a
+	ld a, $04
+	ld [$cbf2], a
+	ld a, $00
+	ld [$cbf3], a
+	ld a, $40
+	ld [$cbec], a
+	ld a, $01
+	ld [$cbed], a
+	ld a, $01
+	ld [$cbc3], a
+	ld [$cbee], a
+	ld a, $05
+	ld [$cbef], a
+	xor a
+	ld [$cbfa], a
+	ld [$cbfb], a
+	ret
+
+.jump_4715:
+	ld a, $a0
+	ld [$cbec], a
+	ld a, $40
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	xor a
+	ld [$cbef], a
+	ld a, $a0
+	ld [$cbc9], a
+	ret
+
+.jump_4731:
+	ld a, $80
+	ld [$cbec], a
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	ld a, $07
+	ld [$cbff], a
+	ld a, $ff
+	ld [$cbfc], a
+	xor a
+	ld [$cbef], a
+	ld [$cbfd], a
+	ld [$cbfe], a
+	ld [$cc01], a
+	ld [$cc00], a
+	ld [$cc06], a
+	ret
+
+.jump_475f:
+	ld a, $d0
+	ld [$cbec], a
+	ld a, $80
+	ld [$cbc9], a
+	ld a, $04
+	ld [$cc0c], a
+	ld a, $80
+	ld [$cc0d], a
+	ld a, $40
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	xor a
+	ld [$cbef], a
+	ld a, $01
+	ld [$cbd8], a
+	ret
+
+.jump_478a:
+	ld a, $d0
+	ld [$cbec], a
+	ld a, $80
+	ld [$cbc9], a
+	ld a, $04
+	ld [$cc0c], a
+	ld a, $80
+	ld [$cc0d], a
+	ld a, $40
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	xor a
+	ld [$cbef], a
+	ld [$cbd8], a
+	ret
 
 
 Func_f5_47b3::
@@ -1220,7 +1334,191 @@ Func_f5_47b3::
 .jump_47c5:
 	jp hl
 
-	INCBIN "baserom.gbc", $3d47c6, $018a ; $47c6
+
+Func_f5_47c6::
+	jp Func_f5_47d5.jump_47d8
+
+
+Func_f5_47c9::
+	jp Func_f5_47d5.jump_4806
+
+
+Func_f5_47cc::
+	jp Func_f5_47d5.jump_4831
+
+
+Func_f5_47cf::
+	jp Func_f5_47d5.jump_486e
+
+
+Func_f5_47d2::
+	jp Func_f5_47d5.jump_48a3
+
+
+Func_f5_47d5::
+	jp .jump_48d6
+
+.jump_47d8:
+	ld a, $00
+	ld [$cbf1], a
+	ld a, $02
+	ld [$cbf2], a
+	ld a, $05
+	ld [$cbf3], a
+	ld a, $40
+	ld [$cbec], a
+	ld a, $01
+	ld [$cbed], a
+	ld a, $02
+	ld [$cbc3], a
+	ld [$cbee], a
+	ld a, $05
+	ld [$cbef], a
+	xor a
+	ld [$cbfa], a
+	ld [$cbfb], a
+	ret
+
+.jump_4806:
+	ld a, $01
+	ld [$cbf1], a
+	ld a, $00
+	ld [$cbf2], a
+	ld a, $00
+	ld [$cbf3], a
+	ld a, $80
+	ld [$cbec], a
+	ld a, $40
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	xor a
+	ld [$cbef], a
+	ld a, $40
+	ld [$cbc9], a
+	ret
+
+.jump_4831:
+	ld a, $00
+	ld [$cbf1], a
+	ld a, $07
+	ld [$cbf2], a
+	ld a, $00
+	ld [$cbf3], a
+	ld a, $80
+	ld [$cbec], a
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	ld a, $07
+	ld [$cbff], a
+	ld a, $ff
+	ld [$cbfc], a
+	xor a
+	ld [$cbef], a
+	ld [$cbfd], a
+	ld [$cbfe], a
+	ld [$cc01], a
+	ld [$cc00], a
+	ld [$cc06], a
+	ret
+
+.jump_486e:
+	ld a, $00
+	ld [$cbf1], a
+	ld a, $07
+	ld [$cbf2], a
+	ld a, $00
+	ld [$cbf3], a
+	ld a, $a8
+	ld [$cbec], a
+	ld a, $04
+	ld [$cc0c], a
+	ld a, $80
+	ld [$cc0d], a
+	ld a, $40
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	xor a
+	ld [$cbef], a
+	ld a, $01
+	ld [$cbd8], a
+	ret
+
+.jump_48a3:
+	ld a, $00
+	ld [$cbf1], a
+	ld a, $05
+	ld [$cbf2], a
+	ld a, $00
+	ld [$cbf3], a
+	ld a, $d0
+	ld [$cbec], a
+	ld a, $04
+	ld [$cc0c], a
+	ld a, $80
+	ld [$cc0d], a
+	ld a, $40
+	ld [$cbed], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	xor a
+	ld [$cbef], a
+	ld [$cbd8], a
+	ret
+
+.jump_48d6:
+	ld a, $00
+	ld [$cbf1], a
+	ld a, $03
+	ld [$cbf2], a
+	ld a, $06
+	ld [$cbf3], a
+	ld a, $40
+	ld [$cbec], a
+	ld a, $40
+	ld [$cbed], a
+	ld a, $01
+	ld [$cc01], a
+	ld [$cbf0], a
+	ld a, $04
+	ld [$cbc3], a
+	ld [$cbee], a
+	xor a
+	ld [$cbef], a
+	ld [$cc0b], a
+	ld a, $0d
+	ld [$db00], a
+	ld [$db01], a
+	ld [$db02], a
+	ld [$db03], a
+	ld [$db04], a
+	ld [$db05], a
+	set 0, a
+	ld [$db60], a
+	ld [$db61], a
+	ld [$db62], a
+	ld [$db63], a
+	ld [$db64], a
+	ld [$db65], a
+	ld a, $06
+	ld [$dd20], a
+	ld [$dd21], a
+	ld [$dd22], a
+	ld [$dd23], a
+	ld [$dd24], a
+	ld [$dd25], a
+	ld a, $40
+	ld [$cc03], a
+	ld a, $f5
+	ld hl, $4a3e
+	call FarCall_A_HL
+	ret
 
 
 Func_f5_4950::
@@ -1460,5 +1758,22 @@ Func_f5_4a3e::
 	ld [hl], a
 	ret
 
-	INCBIN "baserom.gbc", $3d4ae2, $351e ; $4ae2
+	ds 14, $00 ; $4ae2
+
+
+BGTiles_f5_4af0::
+	INCBIN "gfx/bgtiles/f5/4af0.2bpp"
+	INCBIN "baserom.gbc", $3d4df0, $0200 ; $4df0
+
+
+BGTiles_f5_4ff0::
+	INCBIN "gfx/bgtiles/f5/4ff0.2bpp"
+
+BGTiles_f5_63f0::
+	INCBIN "gfx/bgtiles/f5/63f0.2bpp"
+
+BGTiles_f5_77f0::
+	INCBIN "gfx/bgtiles/f5/77f0.2bpp"
+	INCBIN "gfx/bgtiles/f5/77f0_end.2bpp"
+	ds 1360, $00 ; $7ab0
 

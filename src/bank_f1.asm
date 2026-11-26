@@ -1331,7 +1331,232 @@ Func_f1_4926::
 .jump_4942:
 	jp hl
 
-	INCBIN "baserom.gbc", $3c4943, $0149 ; $4943
+
+Func_f1_4943::
+	jp Func_f1_4958.jump_4997
+
+
+Func_f1_4946::
+	jp Func_f1_49fc.jump_4a66
+
+
+Func_f1_4949::
+	jp Func_f1_49fc.jump_4a79
+
+
+Func_f1_494c::
+	jp Func_f1_49a5.jump_49c4
+
+
+Func_f1_494f::
+	jp Func_f1_4958.jump_496a
+
+
+Func_f1_4952::
+	jp Func_f1_4958.jump_4978
+
+
+Func_f1_4955::
+	jp Func_f1_4958.jump_4989
+
+
+Func_f1_4958::
+	jp .jump_495b
+
+.jump_495b:
+	ld a, [$c96c]
+	cp $02
+	ret nz
+	ld a, [$b0c7]
+	cp $06
+	jp c, Func_f1_49fc.jump_4a63
+	ret
+
+.jump_496a:
+	ld a, [$c96c]
+	cp $02
+	ret nz
+	ld a, [$b0c5]
+	or a
+	jp z, Func_f1_49fc.jump_4a63
+	ret
+
+.jump_4978:
+	ld a, [$c96c]
+	cp $02
+	ret z
+	or a
+	ret z
+	ld a, [$b0c5]
+	cp $01
+	jp z, Func_f1_49fc.jump_4a63
+	ret
+
+.jump_4989:
+	ld a, [$c96c]
+	ld b, a
+	ld a, [$b0c5]
+	dec a
+	dec a
+	sub b
+	jp c, Func_f1_49fc.jump_4a63
+	ret
+
+.jump_4997:
+	ld a, [$c96c]
+	cp $04
+	jp z, Func_f1_49fc.jump_4a51
+	cp $03
+	jp z, Func_f1_49fc.jump_4a24
+	ret
+
+
+Func_f1_49a5::
+	ld a, [$c977]
+	cp $01
+	jr z, .jump_49b1
+	ld a, [$c978]
+	or a
+	ret z
+.jump_49b1:
+	ld a, [$c96c]
+	add a, a
+	add a, a
+	ld hl, $c341
+	add a, l
+	ld l, a
+	jr nc, .jump_49be
+	inc h
+.jump_49be:
+	bit 6, [hl]
+	ret nz
+	jp Func_f1_49fc.jump_4a63
+
+.jump_49c4:
+	ld a, [$c96c]
+	cp $00
+	ret z
+	cp $01
+	ret z
+	ld a, [$c341]
+	bit 6, a
+	jr nz, .jump_49e3
+	ld a, [$c345]
+	bit 6, a
+	jr nz, .jump_49e3
+	ld a, [$c349]
+	bit 6, a
+	jp z, Func_f1_49fc.jump_4a63
+.jump_49e3:
+	ld a, [$c96c]
+	cp $03
+	jr z, .jump_49f3
+	ld a, [$c977]
+	cp $01
+	jp z, Func_f1_49fc.jump_4a63
+	ret
+
+.jump_49f3:
+	ld a, [$c978]
+	cp $01
+	jp z, Func_f1_49fc.jump_4a63
+	ret
+
+
+Func_f1_49fc::
+	ld a, [$c96c]
+	cp $04
+	jr nc, .jump_4a21
+	add a, a
+	add a, a
+	ld hl, $c341
+	add a, l
+	ld l, a
+	jr nc, .jump_4a0d
+	inc h
+.jump_4a0d:
+	bit 6, [hl]
+	jr nz, .jump_4a21
+	ld a, [$c977]
+	cp $01
+	jp z, .jump_4a63
+	ld a, [$c978]
+	cp $01
+	jp z, .jump_4a63
+.jump_4a21:
+	ld d, $00
+	ret
+
+.jump_4a24:
+	ld a, [$c341]
+	and $80
+	rlca
+	ld b, a
+	ld a, [$c345]
+	and $80
+	rlca
+	add a, b
+	ld b, a
+	ld a, [$c349]
+	and $80
+	rlca
+	add a, b
+	or a
+	jr z, .jump_4a63
+	ld a, [$c341]
+	bit 7, a
+	ret z
+	ld a, [$c345]
+	bit 7, a
+	ret z
+	ld a, [$c349]
+	bit 7, a
+	ret z
+	jr .jump_4a63
+
+.jump_4a51:
+	ld a, [$c341]
+	bit 7, a
+	ret nz
+	ld a, [$c345]
+	bit 7, a
+	ret nz
+	ld a, [$c349]
+	bit 7, a
+	ret nz
+.jump_4a63:
+	ld d, $01
+	ret
+
+.jump_4a66:
+	ld a, [$c96c]
+	add a, a
+	add a, a
+	ld hl, $c341
+	add a, l
+	ld l, a
+	jr nc, .jump_4a73
+	inc h
+.jump_4a73:
+	ld a, [hl]
+	bit 7, a
+	ret nz
+	jr .jump_4a63
+
+.jump_4a79:
+	ld a, [$c96c]
+	add a, a
+	add a, a
+	ld hl, $c341
+	add a, l
+	ld l, a
+	jr nc, .jump_4a86
+	inc h
+.jump_4a86:
+	ld a, [hl]
+	bit 7, a
+	ret z
+	jr .jump_4a63
 
 
 Func_f1_4a8c::

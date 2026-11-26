@@ -16,6 +16,12 @@ CODE = [
 # (bank, first entry, count, stride) of tables made of "jp nnnn" instructions
 JP_TABLES = [
     (0, 0x0301, 33, 3),  # game state handlers, dispatched by the main loop
+    # front end and Crosshair Cranky: "ld b,a / add a,a / add a,b / ld hl,X / ... / jp hl",
+    # mostly indexed by the Crosshair Cranky game type [$cbbf]
+    (0xF1, 0x4943, 8, 3), (0xF5, 0x46D8, 5, 3), (0xF5, 0x47C6, 6, 3),
+    (0xFE, 0x44B9, 6, 3), (0xFE, 0x4570, 6, 3), (0xFE, 0x47FB, 6, 3), (0xFE, 0x4BA7, 5, 3),
+    (0xFE, 0x4E38, 5, 3), (0xFE, 0x4FE4, 6, 3), (0xFE, 0x50AC, 6, 3), (0xFE, 0x5A39, 2, 3),
+    (0xFE, 0x5CD8, 19, 3), (0xFE, 0x640E, 57, 3), (0xFE, 0x6946, 6, 3),
 ]
 
 # (bank, start, count) of tables of 16-bit code pointers
@@ -281,6 +287,11 @@ EXTRA_TILES = [
     (0x0D, 0x4010, 16, "Rare logo: rounded corner sprites"),
     (0x0D, 0x5980, 88, "Rare logo tiles (Func_0d_4216 copies $580 bytes)"),
     (0xFF, 0x6B30, 250, "front-end fonts"),
+    # Crosshair Cranky animated background tiles (frames listed by $fe:79cf)
+    (0xF5, 0x4AF0, 48, "Crosshair Cranky: Buddies Beware tile animation frames"),
+    (0xF5, 0x4FF0, 320, "Crosshair Cranky: Kremlings and Kongs tile animation frames"),
+    (0xF5, 0x63F0, 320, "Crosshair Cranky: Kremling Krackdown tile animation frames"),
+    (0xF5, 0x77F0, 44, "Crosshair Cranky: Galleon Gunner tile animation frames"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

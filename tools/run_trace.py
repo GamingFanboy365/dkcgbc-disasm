@@ -407,6 +407,41 @@ def parse_banks(t, rom):
         rows.append(("db", ["$%02x" % r[0], "%d" % r[1], "%d" % r[2], "BANK(%s)" % lab, "LOW(%s)" % lab, "HIGH(%s)" % lab,
                             "%d" % r[6], "%d" % r[7]], "slot, x, y, tiles, width, height" if k == 0 else None))
     t._claim(tb, ta, 8 * len(rows), "rows", rows, "=ThumbnailTable")
+    # Crosshair Cranky animated BG tiles (Func_fe_5354): per game type a
+    # bank and a list of slots; a slot is tile count, VRAM destination, and
+    # frame pointers (tiles in that bank, a multiple of 16 bytes each)
+    games = ["Buddies Beware", "Barrel O'Kremlings", "Wanted", "Kremling Krackdown", "Kremlings and Kongs", "Galleon Gunner"]
+    tab = 0x79CF
+    rows, lists = [], []
+    for g in range(6):
+        o = off(0xFE, tab + 3 * g)
+        abk, p = rom[o], rom[o + 1] | rom[o + 2] << 8
+        rows.append(("db", ["$%02x" % abk], games[g]))
+        rows.append(("dw", [ref(0xFE, p) if abk else "0"], None))
+        if abk:
+            lists.append((abk, p))
+    t._claim(0xFE, tab, 18, "rows", rows, "=CrankyTileAnimTable")
+    starts = set()
+    slot_of = {}
+    for abk, p in lists:
+        a, sl = p, []
+        while not sl or a < min(sl):
+            sl.append(rom[off(0xFE, a)] | rom[off(0xFE, a) + 1] << 8)
+            a += 2
+        slot_of[p] = (abk, sl)
+        starts.update(sl)
+        starts.add(p)
+    ends = sorted(starts | {0x7BA9})
+    for p, (abk, sl) in slot_of.items():
+        t._claim(0xFE, p, 2 * len(sl), "rows", [("dw", [ref(0xFE, x) for x in sl], None)], "CrankyTileAnimSlots")
+        for x in sl:
+            nxt = min(e for e in ends if e > x)
+            o = off(0xFE, x)
+            n, dest = rom[o], rom[o + 1] | rom[o + 2] << 8
+            frames = [rom[off(0xFE, y)] | rom[off(0xFE, y) + 1] << 8 for y in range(x + 3, nxt, 2)]
+            r = [("db", ["%d" % n], "tiles per frame"), ("dw", ["$%04x" % dest], "VRAM destination")]
+            r += [("dw", [ref(abk, f) for f in frames[k:k + 4]], "frames" if k == 0 else None) for k in range(0, len(frames), 4)]
+            t._claim(0xFE, x, nxt - x, "rows", r, "CrankyTileAnim")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

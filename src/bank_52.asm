@@ -378,5 +378,18 @@ Func_52_41a1::
 	ld [hl], a
 	ret
 
-	INCBIN "baserom.gbc", $1481c2, $3e3e ; $41c2
+
+SampleTable::
+	db $53, LOW(Sample_00), HIGH(Sample_00), 6 ; sample 0
+	db $53, LOW(Sample_01), HIGH(Sample_01), 28 ; sample 1
+	db $53, LOW(Sample_02), HIGH(Sample_02), 45 ; sample 2
+	db $53, LOW(Sample_03), HIGH(Sample_03), 76 ; sample 3
+	db $53, LOW(Sample_04), HIGH(Sample_04), 57 ; sample 4
+	db $54, LOW(Sample_05), HIGH(Sample_05), 44 ; sample 5
+	db $54, LOW(Sample_06), HIGH(Sample_06), 53 ; sample 6
+	db $54, LOW(Sample_07), HIGH(Sample_07), 19 ; sample 7
+	db $54, LOW(Sample_08), HIGH(Sample_08), 26 ; sample 8
+	db $55, LOW(Sample_09), HIGH(Sample_09), 58 ; sample 9
+	db $56, LOW(Sample_0A), HIGH(Sample_0A), 178 ; sample 10
+	INCBIN "baserom.gbc", $1481ee, $3e12 ; $41ee
 

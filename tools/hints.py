@@ -6,7 +6,9 @@ CODE = [
     (0, 0x0000), (0, 0x004B), (0, 0x0286), (0, 0x3FD5), (0, 0x00BC),
     (0, 0x0616), (0, 0x1CC2), (0, 0x2400),  # interrupt handlers installed at runtime
     (0, 0x3995),
-    (0x50, 0x4000),  # extra program, far-jumped to from bank $f2 ($736a, $7571) (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),
+    (0x50, 0x4000),  # extra program, far-jumped to from bank $f2 ($736a, $7571)
+    (0, 0x36A7),  # sound hardware reset falling into Func_00_36b8; no caller found
+    (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),
     (0, 0x0050), (0, 0x0058), (0, 0x0060), (0, 0x0063), (0, 0x00A1), (0, 0x0100),
 ]
 
@@ -241,3 +243,20 @@ TITLES = {"bank": 0x07, "maps": 0x4117, "palettes": 0x411F, "tilesets": 0x4127, 
 # VRAM like a level tileset (see backgrounds.Tileset); tile data runs on
 # across bank boundaries.
 PICTURES = {"bank": 0xF0, "table": 0x54E7, "count": 149, "full_maps": 6}
+
+# Sound driver tables (bank 0) and data (see tools/banks.py)
+SOUND = {
+    "songs": 35,
+    "song_banks": 0x30CE,    # db bank per song (PlaySong)
+    "tempos": 0x3789,        # db per song -> $c322
+    "song_table": 0x37AC,    # 4 channel stream pointers per song
+    "note_periods": (0x3607, 63),   # dw frequency register values
+    "table_3685": (0x3685, 17),     # dw, purpose unknown (follows the periods)
+    "wave_patterns": (0x36F8, 9),   # 16-byte wave RAM patterns (Func_00_36b8)
+    "sfx_table": (0x02, 0x70E4),    # dw per effect, indexed by id & $fe (Func_00_2f5a)
+}
+
+CAMERA_BANK = 0x06   # camera regions, pointed to by map headers ($c45c)
+
+# Funky's Fishing digitized samples, played through NR50 by its timer interrupt
+SAMPLES = {"bank": 0x52, "table": 0x41C2, "count": 11}

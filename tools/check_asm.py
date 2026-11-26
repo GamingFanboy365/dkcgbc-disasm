@@ -162,7 +162,7 @@ class Asm:
     def size_of(self, s):
         m, _, rest = s.partition(" ")
         if m == "db":
-            return len(split_args(rest)) if not rest.strip().startswith('"') else self.db_len(rest)
+            return self.db_len(rest)
         if m == "dw":
             return 2 * len(split_args(rest))
         if m == "ds":

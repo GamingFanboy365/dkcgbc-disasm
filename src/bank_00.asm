@@ -66,9 +66,15 @@ Rst38::
 	nop
 	nop
 	nop
+
+VBlankInterrupt::
 	jp $c32d
 
-	db $00, $00, $00, $00, $00, $c3, $30, $c3
+	ds 5, $00 ; $0043
+
+
+LCDInterrupt::
+	jp $c330
 
 
 Func_00_004b::
@@ -8235,8 +8241,13 @@ Func_00_30c9::
 	ldh [rNR10], a
 	jr Func_00_3072.jump_308b
 
-	INCBIN "baserom.gbc", $0030ce, $0023 ; $30ce
 
+SongBanks::
+	db $00, $02, $02, $02, $02, $02, $02, $02 ; songs $00-
+	db $02, $02, $02, $02, $02, $02, $02, $01 ; songs $08-
+	db $01, $01, $01, $01, $01, $01, $01, $01 ; songs $10-
+	db $01, $01, $01, $01, $01, $01, $01, $01 ; songs $18-
+	db $01, $01, $00 ; songs $20-
 
 PlaySong::
 	ld hl, $c328
@@ -9437,8 +9448,32 @@ Func_00_35f8::
 	inc de
 	ret
 
-	INCBIN "baserom.gbc", $003607, $00b1 ; $3607
 
+NotePeriods::
+	dw $0000, $002d, $009c, $0104, $0168, $01c0, $021c, $0270
+	dw $02c1, $030c, $0354, $0395, $03d4, $0414, $044c, $0482
+	dw $04b4, $04e4, $050d, $053a, $0562, $0587, $05ab, $05cd
+	dw $05ec, $060a, $0626, $0641, $0659, $0672, $0687, $069c
+	dw $06b1, $06c4, $06d6, $06e6, $06f6, $0705, $0713, $0720
+	dw $072d, $0739, $0744, $074f, $0759, $0762, $076b, $0773
+	dw $077b, $0782, $078a, $0790, $0797, $079c, $07a2, $07a7
+	dw $07ac, $07b1, $07b5, $07b9, $07bd, $0000, $0000
+
+SoundTable_00_3685::
+	dw $0000, $0000, $0001, $0005, $0011, $0011, $0051, $0051
+	dw $0060, $0060, $0061, $0070, $0062, $0079, $007a, $006e
+	dw $007d
+
+Func_00_36a7::
+	xor a
+	ldh [rNR52], a
+	ldh [rNR51], a
+	ldh [rNR10], a
+	ld a, $80
+	ldh [rNR30], a
+	ld a, $77
+	ldh [rNR50], a
+	ld a, $10
 
 Func_00_36b8::
 	ld l, a
@@ -9499,8 +9534,73 @@ Func_00_36b8::
 	ldh [rNR30], a
 	ret
 
-	INCBIN "baserom.gbc", $0036f8, $01cf ; $36f8
 
+WavePatterns::
+	db $01, $23, $45, $67, $89, $ab, $cd, $ef, $fe, $dc, $ba, $98, $76, $54, $32, $10
+	db $02, $46, $8a, $ce, $ec, $a8, $64, $20, $02, $46, $8a, $ce, $ec, $a8, $64, $20
+	db $00, $00, $00, $00, $00, $00, $00, $00, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+	db $00, $00, $00, $00, $ff, $ff, $ff, $ff, $00, $00, $00, $00, $ff, $ff, $ff, $ff
+	db $00, $00, $ff, $ff, $00, $00, $ff, $ff, $00, $00, $ff, $ff, $00, $00, $ff, $ff
+	db $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
+	db $00, $11, $22, $33, $44, $55, $66, $77, $88, $99, $aa, $bb, $cc, $dd, $ee, $ff
+	db $ff, $ee, $dd, $cc, $bb, $aa, $99, $88, $77, $66, $55, $44, $33, $22, $11, $00
+	db $ff, $00, $ee, $11, $dd, $22, $cc, $33, $bb, $44, $aa, $55, $99, $66, $88, $77
+
+Song00_Ch1::
+	db $00
+
+SongTempos::
+	db $60, $ba, $80, $ba, $a0, $d0, $80, $ba
+	db $7a, $d0, $e0, $ea, $80, $58, $a0, $80
+	db $f0, $b8, $9c, $a0, $a0, $80, $a8, $70
+	db $6c, $98, $ac, $e0, $a0, $e6, $d8, $e4
+	db $dc, $80, $70
+
+SongChannels::
+	dw Song00_Ch1, Song00_Ch1, Song00_Ch1, Song00_Ch1 ; song $00
+	dw Song01_Ch1, Song01_Ch2, Song01_Ch3, Song01_Ch4 ; song $01
+	dw Song02_Ch1, Song02_Ch2, Song02_Ch3, Song02_Ch4 ; song $02
+	dw Song03_Ch1, Song03_Ch2, Song03_Ch3, Song03_Ch4 ; song $03
+	dw Song04_Ch1, Song04_Ch2, Song04_Ch3, Song04_Ch4 ; song $04
+	dw Song05_Ch1, Song05_Ch2, Song05_Ch3, Song05_Ch4 ; song $05
+	dw Song06_Ch1, Song06_Ch2, Song06_Ch3, Song06_Ch4 ; song $06
+	dw Song07_Ch1, Song07_Ch2, Song07_Ch3, Song07_Ch4 ; song $07
+	dw Song08_Ch1, Song08_Ch2, Song08_Ch3, Song08_Ch4 ; song $08
+	dw Song09_Ch1, Song09_Ch2, Song09_Ch3, Song09_Ch4 ; song $09
+	dw Song0A_Ch1, Song0A_Ch2, Song0A_Ch3, Song0A_Ch4 ; song $0a
+	dw Song0B_Ch1, Song0B_Ch2, Song0B_Ch3, Song0B_Ch4 ; song $0b
+	dw Song0C_Ch1, Song0C_Ch2, Song0C_Ch3, Song0C_Ch4 ; song $0c
+	dw Song0D_Ch1, Song0D_Ch2, Song0D_Ch3, Song0D_Ch4 ; song $0d
+	dw Song0E_Ch1, Song0E_Ch2, Song0E_Ch3, Song0E_Ch4 ; song $0e
+	dw Song0F_Ch1, Song0F_Ch2, Song0F_Ch3, Song0F_Ch4 ; song $0f
+	dw Song10_Ch1, Song10_Ch2, Song10_Ch3, Song10_Ch4 ; song $10
+	dw Song11_Ch1, Song11_Ch2, Song11_Ch3, Song11_Ch4 ; song $11
+	dw Song12_Ch1, Song12_Ch2, Song12_Ch3, Song12_Ch4 ; song $12
+	dw Song13_Ch1, Song13_Ch2, Song13_Ch3, Song13_Ch4 ; song $13
+	dw Song14_Ch1, Song14_Ch2, Song14_Ch3, Song14_Ch4 ; song $14
+	dw Song15_Ch1, Song15_Ch2, Song15_Ch3, Song15_Ch4 ; song $15
+	dw Song16_Ch1, Song16_Ch2, Song16_Ch3, Song16_Ch4 ; song $16
+	dw Song17_Ch1, Song17_Ch2, Song17_Ch3, Song17_Ch4 ; song $17
+	dw Song18_Ch1, Song18_Ch2, Song18_Ch3, Song18_Ch4 ; song $18
+	dw Song19_Ch1, Song19_Ch2, Song19_Ch3, Song19_Ch4 ; song $19
+	dw Song1A_Ch1, Song1A_Ch2, Song1A_Ch3, Song1A_Ch4 ; song $1a
+	dw Song1B_Ch1, Song1B_Ch2, Song1B_Ch3, Song1B_Ch4 ; song $1b
+	dw Song1C_Ch1, Song1C_Ch2, Song1C_Ch3, Song1C_Ch4 ; song $1c
+	dw Song1D_Ch1, Song1D_Ch2, Song1D_Ch3, Song1D_Ch4 ; song $1d
+	dw Song1E_Ch1, Song1E_Ch2, Song1E_Ch3, Song1E_Ch4 ; song $1e
+	dw Song1F_Ch1, Song1F_Ch2, Song1F_Ch3, Song1F_Ch4 ; song $1f
+	dw Song20_Ch1, Song20_Ch2, Song20_Ch3, Song20_Ch4 ; song $20
+	dw Song21_Ch1, Song00_Ch1, Song00_Ch1, Song00_Ch1 ; song $21
+	dw Song22_Ch1, Song22_Ch2, Song00_Ch1, Song22_Ch4 ; song $22
+
+Song22_Ch1::
+	db $00
+
+Song22_Ch2::
+	db $00
+
+Song22_Ch4::
+	db $00
 
 Func_00_38c7::
 	ld hl, $c303

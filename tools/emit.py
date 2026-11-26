@@ -345,6 +345,23 @@ class Emitter:
             return [(o if k == 0 else None, "dw " + ", ".join(names[k:k + 4])) for k in range(0, len(names), 4)]
         if kind == "incbin":
             return [(o, 'INCBIN "baserom.gbc", $%06x, $%04x' % (o, item[3]))]
+        if kind == "rows":
+            # rows: (directive, tokens, comment); a token is literal text or
+            # ("ref", bank, addr, width) and becomes a label when there is one
+            res = []
+            for k, (d, toks, com) in enumerate(item[2]):
+                parts = []
+                for tk in toks:
+                    if isinstance(tk, tuple):
+                        _, rb, ra, wd = tk
+                        parts.append(self.qref(rb, ra) or (hexw(ra) if wd == 2 else hexb(ra)))
+                    else:
+                        parts.append(tk)
+                line = "%s %s" % (d, ", ".join(parts))
+                if com:
+                    line += " ; " + com
+                res.append((o if k == 0 else None, line))
+            return res
         if kind == "bgtiles":
             res = []
             for k, (path, a, n, w) in enumerate(item[2]):

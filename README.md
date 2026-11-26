@@ -139,6 +139,37 @@ Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), store
 
 `python3 tools/find_unused.py` lists sprite frames, animation scripts, palettes, level blocks and tiles that nothing decoded so far refers to. The findings, as text, are in [`docs/unused.md`](docs/unused.md). It writes a report and images to `unused/`, which is gitignored because the images are the game's graphics. Before calling anything unused, it searches the undecoded bytes of banks `$00`–`$0F` for its address and reports any hits. That search is how the frame and animation pointer tables in banks `$00` and `$08`–`$0A` were found. The tracer now decodes those tables (`FrameTable_…`, `AnimTable_…`), so they count as uses.
 
-### Status
+## Status
 
-Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Roughly 69 KB of code has been traced, plus 1,114 object initialiser lists, 425 animation scripts, all 1,415 sprite frames, all palettes, the level table, entrances and descriptors, every level map, world map and full screen, and the flow script. Labels such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are placeholders waiting for real names.
+The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: anything not yet understood is taken from `baserom.gbc` unchanged. `python3 tools/coverage.py` measures where things stand. As of the last update:
+
+| Category | Size | Share of non-empty ROM |
+|---|---|---|
+| Code disassembled into readable instructions | 68 KB | 2.5% |
+| Data decoded into readable structures | 102 KB | 3.8% |
+| Graphics converted to editable PNGs | 612 KB | 23.1% |
+| Located and labelled, format known, still raw bytes | 1114 KB | 42.0% |
+| Not identified yet | 757 KB | 28.5% |
+
+The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
+
+Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Decoded so far:
+
+| Content | Coverage |
+|---|---|
+| Object initialiser lists | 1,114 |
+| Animation scripts | 425 |
+| Sprite frames | all 1,415 |
+| Palettes | all |
+| Level table, entrances and descriptors | all |
+| Level maps, world maps and full screens | all |
+| Flow script | all |
+
+### Plan
+
+The retail ROM comes first: the goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. Only after that does work start on the earlier demo build (`Donkey Kong Country (U) [demo]`) and the comparison between the two. The order of work:
+
+1. Identify what's left: banks `$50`–`$6F`, `$01`–`$02`, `$0B`–`$0C`, `$10`–`$14`, `$40`–`$45` and the undecoded parts of the code banks.
+2. Convert the located raw data (block banks, terrain, compressed maps) into readable or editable form.
+3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
+4. Then the demo.

@@ -127,6 +127,20 @@ These two names belong to the Bonus menu, but the game never shows them there. T
 
 So Candy Klash and Funky Bomber are not reachable in single-player play. They look like the Bonus menu's original first two entries, replaced by Funky Fishing and Hi-Score late enough that the old label graphics and text lists were left in. Funky Bomber may simply be an earlier name for the fishing game: its own instructions describe a "combo attack". One path is still untested: the Link-up menu, which only continues once a second Game Boy is connected.
 
+#### Title sprites and "COMING SOON Q3"
+
+The two games also have large title words drawn as sprites, in the outlined style of the front end, with versions per language. They sit in bank `$F6` (8×16 sprites), and the front end's sprite animation table (`$F0:5A24`, run by `Func_f0_4fa8`) has entries for them:
+
+| Animation | Tiles | Words, by language |
+|---|---|---|
+| 2 (`SpriteAnim02_FunkyBomberTitle`) | `FunkyBomberTitle` (`$F6:54E0`), `FunkyBomberTitle_French` (`$58A0`) | "FUNKY BOMBER" in English, German, Italian and Spanish, "BOMBES FUNKY" in French |
+| 3 (`SpriteAnim03_CandyKlashTitle`) | `CandyKlashTitle` (`$5620`), `_German` (`$59E0`), `_French` (`$5760`), `_Italian` (`$5B20`) | "CANDY KLASH" in English and Spanish, "CANDY'S CLASH" in German, "CLASH CANDY" in French, "SCONTRO DI CANDY" (two lines) in Italian |
+| 7 (`SpriteAnim07_ComingSoon`) | `ComingSoonQ3` (`$5D00`, 40 sprites) | "COMING / SOON" over a large "Q3", one version for all languages, laid out at fixed screen positions |
+
+Each language's entry gives the sprite count, the tiles and a layout in bank `$F0` (`SpriteLayout_f0_…`): steps of (dx, dy) from sprite to sprite for the words, and absolute positions for "COMING SOON Q3". Nothing starts these three animations. Every call of `Func_f0_4fa8` with a constant number uses others, and the two that pass a number from a list (`$F1:5C89` for the Hi-Score screen, `$FE:6909` for Crosshair Cranky) don't use 2, 3 or 7. None of these tiles was read in any emulator session either. The animations get their palette from the caller (`[$ff82]`), so their colours are unknown: any coloured picture of them is a guess, and the gray tiles are the real data.
+
+"Q3" reads like a release quarter. Next to the two cut games' titles, the screen looks like a placeholder for Bonus entries that weren't finished yet, perhaps for a preview or demo build. (The "coming soon" graphic was noted before on The Cutting Room Floor.)
+
 ### Crosshair Cranky: Baddy Generator and Galleon Gunner
 
 Label sheet 30 (English; sheets 83, 87, 91 and 95 in the other languages) holds eight menu words: BADDY GENERATOR, BARREL 'O KREMLINGS, WANTED, BUDDIES BEWARE, GALLEON GUNNER, ARE YOU SURE?, COPY FROM and COPY TO. The menus draw a word by label id. Text table 0 of each language (`$F0:6F21`) turns that id into a (sheet, row) pair, and the ring table at `$F1:67BF` lists each ring's label ids. Checking every ring and every direct label store gives this:

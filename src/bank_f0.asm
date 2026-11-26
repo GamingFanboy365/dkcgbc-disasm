@@ -2838,7 +2838,111 @@ PictureTable::
 	dw $77f8
 	db $6f
 	dw $4520 ; 148 (placeholder)
-	INCBIN "baserom.gbc", $3c1a24, $10b1 ; $5a24
+	INCBIN "baserom.gbc", $3c1a24, $02a1 ; $5a24
+
+
+SpriteAnim02_FunkyBomberTitle::
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (English)
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (German)
+	db 10, BANK(FunkyBomberTitle_French), HIGH(FunkyBomberTitle_French), LOW(FunkyBomberTitle_French), HIGH(SpriteLayout_f0_5d15), LOW(SpriteLayout_f0_5d15) ; sprites, tiles, layout (French)
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (Italian)
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (Spanish)
+
+SpriteAnim03_CandyKlashTitle::
+	db 10, BANK(CandyKlashTitle), HIGH(CandyKlashTitle), LOW(CandyKlashTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (English)
+	db 10, BANK(CandyKlashTitle_German), HIGH(CandyKlashTitle_German), LOW(CandyKlashTitle_German), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (German)
+	db 10, BANK(CandyKlashTitle_French), HIGH(CandyKlashTitle_French), LOW(CandyKlashTitle_French), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (French)
+	db 15, BANK(CandyKlashTitle_Italian), HIGH(CandyKlashTitle_Italian), LOW(CandyKlashTitle_Italian), HIGH(SpriteLayout_f0_5d29), LOW(SpriteLayout_f0_5d29) ; sprites, tiles, layout (Italian)
+	db 10, BANK(CandyKlashTitle), HIGH(CandyKlashTitle), LOW(CandyKlashTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout (Spanish)
+
+SpriteLayout_f0_5d01::
+	db $00, $00 ; dx, dy from the previous sprite
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+
+SpriteLayout_f0_5d15::
+	db $fd, $00 ; dx, dy from the previous sprite
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $0b, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+
+SpriteLayout_f0_5d29::
+	db $04, $fc ; dx, dy from the previous sprite
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $0c, $00
+	db $08, $00
+	db $08, $00
+	db $c4, $10
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	db $08, $00
+	INCBIN "baserom.gbc", $3c1d47, $004a ; $5d47
+
+
+SpriteAnim07_ComingSoon::
+	db 40, BANK(ComingSoonQ3), HIGH(ComingSoonQ3), LOW(ComingSoonQ3), HIGH(SpriteLayout_f0_5d97), LOW(SpriteLayout_f0_5d97) ; sprites, tiles, layout
+
+SpriteLayout_f0_5d97::
+	db $00, $18 ; x, y
+	db $08, $18
+	db $10, $18
+	db $18, $18
+	db $20, $18
+	db $28, $18
+	db $30, $18
+	db $38, $18
+	db $40, $18
+	db $48, $18
+	db $00, $28
+	db $08, $28
+	db $10, $28
+	db $18, $28
+	db $20, $28
+	db $28, $28
+	db $30, $28
+	db $38, $28
+	db $40, $28
+	db $48, $28
+	db $08, $38
+	db $10, $38
+	db $18, $38
+	db $20, $38
+	db $28, $38
+	db $30, $38
+	db $38, $38
+	db $40, $38
+	db $10, $60
+	db $18, $60
+	db $20, $60
+	db $28, $60
+	db $30, $60
+	db $38, $60
+	db $10, $70
+	db $18, $70
+	db $20, $70
+	db $28, $70
+	db $30, $70
+	db $38, $70
+	INCBIN "baserom.gbc", $3c1de7, $0cee ; $5de7
 
 
 Func_f0_6ad5::

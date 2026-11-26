@@ -193,6 +193,7 @@ OBJS := \
 	src/bank_f1.o \
 	src/bank_f2.o \
 	src/bank_f5.o \
+	src/bank_f6.o \
 	src/bank_fe.o \
 	src/data_banks.o \
 

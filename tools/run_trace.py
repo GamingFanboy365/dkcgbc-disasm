@@ -309,6 +309,33 @@ def parse_banks(t, rom):
     t._claim(0x0D, 0x5F00, 88, "rows", hexrow("db", rom[off(0x0D, 0x5F00):off(0x0D, 0x5F00) + 88], 8), "=RareLogoAttributes")
     t._claim(0x55, 0x4840, 0x6100 - 0x4840, "incbin", None, "=HiScoreGraphics")  # font, scene tiles and tile maps
     t._claim(0x55, 0x6100, 0x30, "palette", 6, "=HiScorePalettes")
+    # Unused front-end sprite titles (bank $f6) and their sprite scripts
+    # ($f0:5a24 table, entries 2, 3 and 7; Func_f0_4fa8). See docs/unused.md.
+    titles = [(0x54E0, 10, "FunkyBomberTitle"), (0x5620, 10, "CandyKlashTitle"),
+              (0x5760, 10, "CandyKlashTitle_French"), (0x58A0, 10, "FunkyBomberTitle_French"),
+              (0x59E0, 10, "CandyKlashTitle_German"), (0x5B20, 15, "CandyKlashTitle_Italian"),
+              (0x5D00, 40, "ComingSoonQ3")]
+    for a, n, name in titles:  # 8x16 sprites, 32 bytes each
+        t._claim(0xF6, a, 32 * n, "incbin", None, "=" + name)
+    tl = {a: name for a, n, name in titles}
+    layouts = [(0x5D01, 10), (0x5D15, 10), (0x5D29, 15), (0x5D97, 40)]
+    for a, n in layouts:
+        bs = rom[off(0xF0, a):off(0xF0, a) + 2 * n]
+        rel = a != 0x5D97
+        t._claim(0xF0, a, 2 * n, "rows", [("db", ["$%02x" % x for x in bs[k:k + 2]],
+                                           ("dx, dy from the previous sprite" if rel else "x, y") if k == 0 else None)
+                                          for k in range(0, 2 * n, 2)], "SpriteLayout")
+    langs = ["English", "German", "French", "Italian", "Spanish"]
+    for a, cnt, name in ((0x5CC5, 5, "=SpriteAnim02_FunkyBomberTitle"), (0x5CE3, 5, "=SpriteAnim03_CandyKlashTitle"),
+                         (0x5D91, 1, "=SpriteAnim07_ComingSoon")):
+        rows = []
+        for k in range(cnt):
+            b = rom[off(0xF0, a + 6 * k):off(0xF0, a + 6 * k) + 6]
+            ta, la = b[2] << 8 | b[3], b[4] << 8 | b[5]
+            rows.append(("db", ["%d" % b[0], "BANK(%s)" % tl[ta], "HIGH(%s)" % tl[ta], "LOW(%s)" % tl[ta],
+                                "HIGH(SpriteLayout_f0_%04x)" % la, "LOW(SpriteLayout_f0_%04x)" % la],
+                         "sprites, tiles, layout" + (" (%s)" % langs[k] if cnt > 1 else "")))
+        t._claim(0xF0, a, 6 * cnt, "rows", rows, name)
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

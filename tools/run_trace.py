@@ -561,6 +561,15 @@ def parse_banks(t, rom):
     for a, n in ((0x45D6, 11), (0x48CA, 2)):  # well-formed marker lists no world map record points to
         t._claim(5, a, 4 * n, "rows", [("db", ["$%02x" % v for v in rom[off(5, a + 4 * k):off(5, a + 4 * k) + 4]],
                                         "x (word), y, location" if k == 0 else None) for k in range(n)], "WorldMapMarkersUnused")
+    # title screen (bank $07): sprite animation (16 steps -> 7 frames of 10 OAM entries)
+    fr = [rom[off(7, 0x427A + 2 * k)] | rom[off(7, 0x427A + 2 * k) + 1] << 8 for k in range(16)]
+    t._claim(7, 0x427A, 32, "rows", [("dw", [ref(7, x) for x in fr[k:k + 4]], None) for k in range(0, 16, 4)], "=TitleSpriteFrames")
+    for x in sorted(set(fr)):
+        t._claim(7, x, 40, "rows", [("db", ["%d" % v for v in rom[off(7, x + 4 * k):off(7, x + 4 * k) + 4]],
+                                     "y, x, tile, attributes" if k == 0 else None) for k in range(10)], "TitleSpriteFrame")
+    t._claim(7, 0x43FE, 48, "palette", 6, "=TitleObjPalettes")  # Func_07_4001 copies 64 bytes from here to $c1c0
+    for a in (0x452E, 0x4CCE, 0x546E):  # second half of each title palette block, read during the title
+        t._claim(7, a, 256, "palette", 32, "TitlePalettesExtra")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

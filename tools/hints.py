@@ -298,6 +298,7 @@ EXTRA_TILES = [
     (0xF5, 0x63F0, 320, "Crosshair Cranky: Kremling Krackdown tile animation frames"),
     (0xF5, 0x77F0, 44, "Crosshair Cranky: Galleon Gunner tile animation frames"),
     (0xF5, 0x4DF0, 32, "Crosshair Cranky: tiles copied by Func_fe_541c"),
+    (0x07, 0x6000, 12, "title screen sprite tiles (copied to VRAM $81c0)"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

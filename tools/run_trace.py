@@ -832,6 +832,10 @@ def parse_banks(t, rom):
                                      ("db", ["$cb", "$7e", "$20", "$19"], "bit 7, [hl] / jr nz, .jump_7213"),
                                      ("db", ["$3e", "$fd", "$32", "$3e", "$00", "$77"], "ld a, $fd / ld [hld], a / ld a, $00 / ld [hl], a")],
              "=.unreached_71f3")  # skipped by the jr above it; an older version of the lines before
+    ct = bytes_(0x50, 0x6A58, 256)
+    t._claim(0x50, 0x6A58, 256, "rows", [("db", ["$%02x" % v for v in ct[k:k + 16]], "characters $%02x-$%02x" % (k, k + 15))
+                                         for k in range(0, 256, 16)], "=CharTileTable_50")  # Func_50_7686
+    t._claim(0x51, 0x4CFF, 1, "rows", [("db", ["$00"], "padding")], "=Padding_51_4cff")
     t._claim(0x0B, 0x6C1F, 1, "rows", [("db", ["$00"], "padding")], "=Padding_0b_6c1f")
     t._claim(0x0F, 0x4568, 7, "rows", [("db", ["%d" % v for v in bytes_(0x0F, 0x4568, 7)], "by [$c30a]")], "=ByteTable_0f_4568")
     t._claim(0x0F, 0x4595, 12, "rows", [("dw", [ref(4, v) for v in words(0x0F, 0x4595, 6)], "wLevelEntrance")], "=Entrances_0f_4595")
@@ -854,6 +858,15 @@ def make(rom):
     t.obj_init_funcs = set(hints.OBJ_INIT_FUNCS)
     for (b, a) in hints.CODE:
         t.add(b, a, "func", b)
+    # banks $50/$55 far-call through the RAM trampoline at $cb99 after pushing
+    # their own return address: ld hl, ret / push hl / ldh a, [$ffc5] / push af /
+    # ld hl, $cba7 / push hl / ... The return address continues the caller.
+    import re
+    for m in re.finditer(rb"\x21(..)\xe5\xf0\xc5\xf5\x21\xa7\xcb\xe5", rom, re.S):
+        b = m.start() // 0x4000
+        a = m.group(1)[0] | m.group(1)[1] << 8
+        if b and 0x4000 <= a < 0x8000:
+            t.add(b, a, "func", b)
     for (b, start, count, stride) in hints.JP_TABLES:
         for k in range(count):
             t.add(b, start + k * stride, "func", b)

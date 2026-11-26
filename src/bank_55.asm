@@ -1268,7 +1268,39 @@ Func_55_4676::
 	ld a, $50
 	jp $cb99
 
-	INCBIN "baserom.gbc", $1546a4, $002d ; $46a4
+
+Func_55_46a4::
+	ret
+
+
+Func_55_46a5::
+	ld hl, $00ff
+	ld a, e
+	cp $00
+	jr z, .jump_46b0
+	ld hl, $ff00
+.jump_46b0:
+	ld b, $0f
+	ld c, $01
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $46d0
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $68e1
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_55_46d0::
+	ret
 
 
 Func_55_46d1::

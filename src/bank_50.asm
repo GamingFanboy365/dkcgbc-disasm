@@ -467,7 +467,7 @@ Func_50_42be::
 	call Func_50_4eac
 	call Func_50_5f98
 	call Func_50_44a7
-	jp c, .jump_43c3
+	jp c, Func_50_43ac.jump_43c3
 	call Func_50_70c8
 	call Func_50_56d4
 	call Func_50_5881
@@ -504,7 +504,7 @@ Func_50_42be::
 	call Func_50_4eac
 	call Func_50_5f98
 	call Func_50_44a7
-	jr c, .jump_43c3
+	jr c, Func_50_43ac.jump_43c3
 	call Func_50_70c8
 	call Func_50_56d4
 	call Func_50_5881
@@ -538,7 +538,19 @@ Func_50_42be::
 	ld a, $52
 	jp $cb99
 
-	INCBIN "baserom.gbc", $1403ac, $0017 ; $43ac
+
+Func_50_43ac::
+	call Func_50_5157
+	call Func_50_51c2
+	call Func_50_50fd
+	call Func_50_50c2
+	ld hl, $ffd3
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call Func_50_60af
+	or a
+	ret
 
 .jump_43c3:
 	ldh [$ffcf], a
@@ -611,7 +623,18 @@ Func_50_43ea::
 	ld a, $52
 	jp $cb99
 
-	INCBIN "baserom.gbc", $14044f, $0014 ; $444f
+
+Func_50_444f::
+	call Func_50_5157
+	call Func_50_51c2
+	call Func_50_50fd
+	ld hl, $ffd3
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call Func_50_60af
+	or a
+	ret
 
 
 Func_50_4463::
@@ -2843,8 +2866,19 @@ Func_50_50c2::
 	ld a, $52
 	jp $cb99
 
-	db $c9, $fa, $28, $de, $b7, $c8, $21, $a8, $dd, $11, $10, $00, $06, $08, $0e, $00
 
+Func_50_50fc::
+	ret
+
+
+Func_50_50fd::
+	ld a, [$de28]
+	or a
+	ret z
+	ld hl, $dda8
+	ld de, $0010
+	ld b, $08
+	ld c, $00
 .jump_510c:
 	ld a, [hl]
 	or a
@@ -2899,7 +2933,7 @@ Func_50_5149::
 .jump_5152:
 	add hl, de
 	dec b
-	jr nz, Func_50_50c2.jump_510c
+	jr nz, Func_50_50fd.jump_510c
 	ret
 
 
@@ -2962,7 +2996,39 @@ Func_50_518c::
 	ld a, $52
 	jp $cb99
 
-	INCBIN "baserom.gbc", $1411c1, $0036 ; $51c1
+
+Func_50_51c1::
+	ret
+
+
+Func_50_51c2::
+	ld hl, $dd9a
+	ld c, [hl]
+	ld a, [$dda1]
+	ldh [$ffc8], a
+	ld a, [$dda3]
+	ldh [$ffc9], a
+	ld a, [$dda4]
+	ldh [$ffca], a
+	ld hl, $dd9e
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $51f7
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $4097
+	push hl
+	ld a, $52
+	jp $cb99
 
 
 Func_50_51f7::
@@ -5517,7 +5583,9 @@ Func_50_60b9::
 	ld a, $52
 	jp $cb99
 
-	db $c9
+
+Func_50_60d5::
+	ret
 
 
 Func_50_60d6::
@@ -7487,7 +7555,9 @@ Func_50_69de::
 	ld a, $52
 	jp $cb99
 
-	db $c9
+
+Func_50_6a23::
+	ret
 
 
 Func_50_6a24::
@@ -7532,8 +7602,24 @@ Func_50_6a24::
 	call Func_50_69c5
 	ret
 
-	INCBIN "baserom.gbc", $142a58, $0100 ; $6a58
 
+CharTileTable_50::
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $00-$0f
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $10-$1f
+	db $00, $4a, $00, $00, $00, $6e, $00, $00, $00, $00, $00, $00, $50, $00, $4e, $54 ; characters $20-$2f
+	db $36, $38, $3a, $3c, $3e, $40, $42, $44, $46, $48, $52, $00, $00, $00, $00, $4c ; characters $30-$3f
+	db $00, $02, $04, $06, $08, $0a, $0c, $0e, $10, $12, $14, $16, $18, $1a, $1c, $1e ; characters $40-$4f
+	db $20, $22, $24, $26, $28, $2a, $2c, $2e, $30, $32, $34, $00, $00, $00, $00, $00 ; characters $50-$5f
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $60-$6f
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $70-$7f
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $80-$8f
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $90-$9f
+	db $00, $6c, $00, $00, $00, $00, $00, $00, $00, $00, $7c, $00, $00, $00, $00, $00 ; characters $a0-$af
+	db $7a, $00, $00, $00, $00, $00, $00, $00, $00, $00, $7a, $00, $00, $00, $00, $6a ; characters $b0-$bf
+	db $70, $58, $00, $00, $56, $00, $00, $00, $72, $5a, $00, $00, $74, $5c, $00, $00 ; characters $c0-$cf
+	db $00, $66, $76, $5e, $00, $00, $60, $00, $00, $78, $62, $00, $64, $00, $00, $68 ; characters $d0-$df
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $e0-$ef
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $f0-$ff
 
 Func_50_6b58::
 	ld hl, $fe00

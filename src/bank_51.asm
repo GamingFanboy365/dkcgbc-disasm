@@ -736,8 +736,9 @@ FishingSineTable::
 	dw $ffe7, $ffe9, $ffeb, $ffec, $ffee, $ffef, $fff1, $fff2
 	dw $fff4, $fff6, $fff7, $fff9, $fffa, $fffc, $fffd, $ffff
 	dw $0000, $0000, $0000, $0000, $0000, $0000, $0000
-	db $00
 
+Padding_51_4cff::
+	db $00 ; padding
 
 BGTiles_51_4d00::
 	INCBIN "gfx/bgtiles/51/4d00.2bpp"

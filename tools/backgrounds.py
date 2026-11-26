@@ -319,14 +319,24 @@ def pictures(rom):
         po = file_off(*r["palettes"])
         nxt = sorted(x for x in pal_starts + starts + map_starts if x > po)
         r["palette_count"] = min(8, ((nxt[0] - po) if nxt else 64) // 8)
-        # a map is 360 tile numbers, or 360 attributes and 360 tile numbers
-        # when there is room for both before the next map (or palettes)
+        # the picture's size in tiles: heights at $F0:53BD, widths at $F0:5452
+        # (PictureInfoB/C). A map is w*h tile numbers, or w*h attributes and
+        # w*h tile numbers when there is room for both before the next map
+        r["h"] = rom[off(b, pt["heights"] + r["index"])]
+        r["w"] = rom[off(b, pt["widths"] + r["index"])]
+        # the letter pieces at $F2:5574 (picture, x, y, w, h, ...) cut letters
+        # out of the font sheets and reach rows below the screen height
+        for k in range(61):
+            lp = rom[off(0xF2, 0x5574 + 8 * k):off(0xF2, 0x5574 + 8 * k) + 5]
+            if lp[0] == r["index"] and lp[0]:
+                r["h"] = max(r["h"], lp[2] + lp[4])
+        n = r["w"] * r["h"] or 360
         mo = file_off(*r["map"])
         nxt = sorted(x for x in map_starts + pal_starts if x > mo)
-        gap = nxt[0] - mo if nxt else 720
-        attrs, tiles = rom[mo:mo + 360], rom[mo + 360:mo + 720]
-        looks_full = gap >= 720 and all(x & 0x10 == 0 for x in attrs) and len(set(tiles)) > 1
-        r["map_bytes"] = 720 if i_is_full(r["index"]) or looks_full else 360
+        gap = nxt[0] - mo if nxt else 2 * n
+        attrs, tiles = rom[mo:mo + n], rom[mo + n:mo + 2 * n]
+        looks_full = gap >= 2 * n and all(x & 0x10 == 0 for x in attrs) and len(set(tiles)) > 1
+        r["map_bytes"] = 2 * n if i_is_full(r["index"]) or looks_full else n
     return recs
 
 
@@ -366,16 +376,21 @@ def render_picture(rom, r, sequential=False):
     the way the Sticker Book shows them."""
     pals = palettes_at(rom, *r["palettes"], 8)
     ts = Tileset(rom, *r["tiles"])
-    canvas = [[(0, 0, 0)] * 160 for _ in range(144)]
+    w, h = (r["w"], r["h"]) if r.get("w") and r.get("h") else (20, 18)
+    n = w * h
+    canvas = [[(0, 0, 0)] * (8 * max(w, 20)) for _ in range(8 * max(h, 18))]
     mo = file_off(*r["map"])
-    for k in range(360):
+    for k in range(360 if sequential else n):
         if sequential:
             t, a = k % 256, (8 if k >= 256 else 0)
-        elif r["map_bytes"] == 720:
-            a, t = rom[mo + k], rom[mo + 360 + k]
+            x, y = k % 20, k // 20
         else:
-            a, t = 0, rom[mo + k]
-        draw_tile(canvas, (k % 20) * 8, (k // 20) * 8, ts, t, a, pals)
+            x, y = k % w, k // w
+            if r["map_bytes"] == 2 * n:
+                a, t = rom[mo + k], rom[mo + n + k]
+            else:
+                a, t = 0, rom[mo + k]
+        draw_tile(canvas, x * 8, y * 8, ts, t, a, pals)
     return canvas
 
 

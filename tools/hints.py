@@ -272,7 +272,7 @@ TITLES = {"bank": 0x07, "maps": 0x4117, "palettes": 0x411F, "tilesets": 0x4127, 
 # the rest are 360 tile numbers with attribute 0. Tiles are laid out in
 # VRAM like a level tileset (see backgrounds.Tileset); tile data runs on
 # across bank boundaries.
-PICTURES = {"bank": 0xF0, "table": 0x54E7, "count": 149, "full_maps": 6}
+PICTURES = {"bank": 0xF0, "table": 0x54E7, "count": 149, "full_maps": 6, "heights": 0x53BD, "widths": 0x5452}
 
 # Sound driver tables (bank 0) and data (see tools/banks.py)
 SOUND = {

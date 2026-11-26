@@ -112,7 +112,22 @@ The title picks one of four slots with `[$B0C1] & 3`, but slot 3 is an exact cop
 
 `PictureTable` (149 records) ends with four placeholders, records 145–148. They point at a "map" inside the palette block and at tiles past the end of bank `$6F`'s data, so they hold no picture. The table also repeats some records back to back: the English and French main-menu text appear 7 and 8 times. That's more likely one picture reused for several menu states than unused content.
 
-The menu text pictures name some modes not seen in the Bonus menu during this research: "CANDY KLASH", "FUNKY BOMBER" and "BADDY GENERATOR" (in five languages: "Clash Candy", "Bombes Funky"…), and "GALLEON GUNNER". They may be link-cable or unlockable modes. Which of them the game can actually reach still needs checking before any is called cut.
+### Candy Klash and Funky Bomber
+
+These two names belong to the Bonus menu, but the game never shows them there. The evidence, from the code, the data and running the game in an emulator:
+
+| Check | Result |
+|---|---|
+| The Bonus ring as played | four entries: Funky Fishing, View Items, Hi-Score, Crosshair Cranky |
+| The Bonus ring with every unlock bit at `$B0C2`–`$B0C5` set | the same four entries (only the main ring changes, gaining Link-up) |
+| Which label pictures the ring reads | record 28 for Crosshair Cranky and View Items. That sheet's other words are "CANDY KLASH", "FUNKY BOMBER", "STICKER BOOK", "ALPHABET", "MAKE BANNER" and "SFX"; the first two never appear on screen. The labels for Funky Fishing and Hi-Score come from a different sheet, record 122, which belongs to the fishing game. |
+| The plain-text label lists in bank `$FF` (French, German, Spanish, Italian) | the Bonus ring's slots read "Candy Clash, Funky Bomber, Crosshair Cranky, View Items" in every language |
+| Instructions | bank `$FF` has instructions for Funky's Fishing and for every Crosshair Cranky mode, and none for either name |
+| Code | no program or code path for either has been found; the bonus programs identified are Funky's Fishing (`$50`–`$52`), the Hi-Score screen (`$55`) and Crosshair Cranky (front end) |
+
+So Candy Klash and Funky Bomber are not reachable in single-player play. They look like the Bonus menu's original first two entries, replaced by Funky Fishing and Hi-Score late enough that the old label graphics and text lists were left in. Funky Bomber may simply be an earlier name for the fishing game: its own instructions describe a "combo attack". One path is still untested: the Link-up menu, which only continues once a second Game Boy is connected.
+
+The Crosshair Cranky mode names in the same lists, "Baddy Generator" and "Galleon Gunner", differ from the instructions' "Kremling Krackdown" and "Kremlings and Kongs", so they may be earlier names as well. That still needs checking on the Crosshair Cranky mode menu.
 
 ## Checked and found complete
 

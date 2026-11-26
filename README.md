@@ -222,7 +222,7 @@ Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0
 
 The retail ROM comes first: the goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. Only after that does work start on the earlier demo build (`Donkey Kong Country (U) [demo]`) and the comparison between the two. The order of work:
 
-1. Identify what's left: banks `$50`–`$6F`, `$01`–`$02`, `$0B`–`$0C`, `$10`–`$14`, `$40`–`$45` and the undecoded parts of the code banks.
+1. Identify what's left: banks `$01`–`$02`, `$0B`–`$0C`, `$40`–`$43`, `$53`, `$54`, `$56`, `$74` and the undecoded parts of the code banks. Banks `$10`–`$14` are the dialogue and level names in five languages (Cranky's, Funky's and Candy's lines; their text format still needs decoding).
 2. Convert the located raw data (block banks, terrain, compressed maps) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 4. Then the demo.

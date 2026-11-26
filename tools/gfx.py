@@ -3,7 +3,9 @@
 
   python3 tools/gfx.py extract [baserom.gbc] [--force]
       Write every frame's tiles to gfx/frames/BB/AAAA.png (BB = bank and
-      AAAA = address of the tiles). Existing PNGs are kept unless --force.
+      AAAA = address of the tiles), and every BG tileset piece to
+      gfx/bgtiles/BB/AAAA.png (see tools/backgrounds.py). Existing PNGs
+      are kept unless --force.
 
   python3 tools/gfx.py png2bpp in.png out.2bpp
       Convert a frame PNG back to 2bpp tile data. The build uses rgbgfx
@@ -171,6 +173,40 @@ def gray_index(px):
     return 3 - min(3, (v + 42) // 85)
 
 
+def rows_to_tiles(rows, w):
+    """Row-major 8x8 tiles from rows of color indexes (BG tile PNGs)."""
+    out = bytearray()
+    for ty in range(len(rows) // 8):
+        for tx in range(w // 8):
+            for r in range(8):
+                lo = hi = 0
+                for x in range(8):
+                    c = rows[ty * 8 + r][tx * 8 + x]
+                    lo = lo << 1 | (c & 1)
+                    hi = hi << 1 | (c >> 1)
+                out += bytes([lo, hi])
+    return bytes(out)
+
+
+def tiles_to_grid(data, width):
+    """2bpp tiles -> rows of color indexes, `width` tiles per row."""
+    n = len(data) // 16
+    h = (n + width - 1) // width
+    rows = [[0] * (width * 8) for _ in range(h * 8)]
+    for t in range(n):
+        x0, y0 = (t % width) * 8, (t // width) * 8
+        for r in range(8):
+            lo, hi = data[t * 16 + 2 * r], data[t * 16 + 2 * r + 1]
+            for x in range(8):
+                rows[y0 + r][x0 + x] = ((hi >> (7 - x)) & 1) << 1 | ((lo >> (7 - x)) & 1)
+    return rows
+
+
+def bg_png_to_2bpp(path):
+    w, h, rows = read_png(path)
+    return rows_to_tiles([[gray_index(p) for p in row] for row in rows], w)
+
+
 def png_to_2bpp(path):
     w, h, rows = read_png(path)
     if h != 16 or w % 8:
@@ -216,6 +252,20 @@ def extract(rom, force=False):
         write_png(path, w, 16, rows)
         written += 1
     print("frame PNGs: %d written, %d already present" % (written, kept))
+    # BG tiles (level tilesets and full screens), 16 tiles per row
+    from backgrounds import bg_tile_pieces
+    written = kept = 0
+    for (gb, _), pieces in bg_tile_pieces(rom).items():
+        for (rel, a, n, w) in pieces:
+            path = os.path.join(ROOT, rel)
+            if os.path.exists(path) and not force:
+                kept += 1
+                continue
+            o = off(gb, a)
+            rows = tiles_to_grid(rom[o:o + n * 16], w)
+            write_png(path, w * 8, len(rows), rows)
+            written += 1
+    print("BG tile PNGs: %d written, %d already present" % (written, kept))
 
 
 GRAY_PREVIEW = [(0xE8, 0xF0, 0xE8), (0xA8, 0xB8, 0xA8), (0x58, 0x68, 0x58), (0x10, 0x18, 0x10)]

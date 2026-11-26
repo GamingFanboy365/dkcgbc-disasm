@@ -322,7 +322,7 @@ Init::
 	ld bc, $0200
 	call FillMemory
 	call Func_00_025d
-	ld de, $5f58
+	ld de, Flow_0d_5f58
 	call Func_00_38c7
 	ei
 .jump_021c:
@@ -4992,13 +4992,13 @@ Func_00_1d2f::
 	ld [$c30c], a
 	ld hl, $c310
 	res 7, [hl]
-	ld de, $5f96
+	ld de, Flow_0d_5f96
 	jp Func_00_38c7
 
 .jump_1d9c:
 	ld a, e
 	ld [$c30b], a
-	ld de, $5f90
+	ld de, Flow_0d_5f90
 	jp Func_00_38c7
 
 .jump_1da6:
@@ -5006,7 +5006,7 @@ Func_00_1d2f::
 	ld [$c30c], a
 	ld hl, $c310
 	res 7, [hl]
-	ld de, $5f9c
+	ld de, Flow_0d_5f9c
 	jp Func_00_38c7
 
 	db $c9
@@ -5016,7 +5016,7 @@ Func_00_1d2f::
 	or a
 	ret z
 	ld [$c30c], a
-	ld de, $5fbe
+	ld de, Flow_0d_5fbe
 	jp Func_00_38c7
 
 .jump_1dc2:
@@ -6552,16 +6552,16 @@ Func_00_2400::
 	ld hl, $c310
 	bit 4, [hl]
 	jr nz, .jump_275e
-	ld de, $5f92
+	ld de, Flow_0d_5f92
 	jp Func_00_38c7
 
 .jump_2758:
-	ld de, $5fa5
+	ld de, Flow_0d_5fa5
 	jp Func_00_38c7
 
 .jump_275e:
 	res 4, [hl]
-	ld de, $5fc1
+	ld de, Flow_0d_5fc1
 	jp Func_00_38c7
 
 

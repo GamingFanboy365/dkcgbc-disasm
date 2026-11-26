@@ -206,5 +206,393 @@ Func_0d_4292::
 	ldh [rHDMA5], a
 	ret
 
-	INCBIN "baserom.gbc", $0342a9, $3d57 ; $42a9
+	INCBIN "baserom.gbc", $0342a9, $1caf ; $42a9
+
+
+Flow_0d_5f58::
+	flow_fade $08
+	flow_play_song $05
+	db $10
+	flow_fade $12
+	db $13
+	flow_fade $13
+	flow_wait 120
+	flow_fade $00
+	db $16
+	flow_load_screen Screen_44_5be6
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 120
+	flow_fade $00
+	flow_load_screen Screen_44_5bec
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	db FLOW_WAIT_MUSIC_END
+	flow_fade $08
+	flow_play_song $0e
+	db $28
+
+Flow_0d_5f87::
+	flow_play_song $0e
+	db $16
+	db $07
+	db $25
+	db $0a
+	flow_jump Flow_0d_5f92
+
+Flow_0d_5f90::
+	flow_fade $0c
+
+Flow_0d_5f92::
+	db FLOW_WORLD_MAP_INIT
+	flow_fade $0d
+	db FLOW_WORLD_MAP
+
+Flow_0d_5f96::
+	flow_fade $0c
+	db $04
+	flow_jump Flow_0d_5f92
+
+Flow_0d_5f9c::
+	flow_fade $0c
+	db $22
+	flow_fade $0d
+	db $34
+	flow_jump Flow_0d_5f90
+
+Flow_0d_5fa5::
+	flow_play_song $19
+	flow_load_screen Screen_44_5be0
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $09
+	db FLOW_WAIT_BUTTON
+	flow_fade $00
+	flow_jump Flow_0d_5f87
+
+Flow_0d_5fb7::
+	flow_fade $0c
+	db FLOW_LOAD_LEVEL
+	db FLOW_WORLD_MAP_INIT
+	flow_fade $0d
+	db FLOW_WORLD_MAP
+
+Flow_0d_5fbe::
+	flow_fade $0c
+	db FLOW_RUN_SECOND_PROGRAM
+
+Flow_0d_5fc1::
+	db $2b
+	flow_fade $0d
+	db $34
+	flow_fade $08
+	db $2e
+	flow_fade $0d
+	db $34
+	flow_fade $08
+	db $16
+	flow_play_song $13
+	flow_load_screen Screen_46_6170
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_46_6176
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_47_6440
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_47_6446
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_47_644c
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_48_6380
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_48_6386
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_48_638c
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_49_6590
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_49_6596
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_49_659c
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4a_7860
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4a_7866
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4a_786c
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_70_5580
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4a_7872
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_70_5586
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4b_5db0
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_71_5440
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4b_5db6
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_71_5446
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4b_5dbc
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4c_6660
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4c_6666
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4c_666c
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4d_5eb0
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4d_5eb6
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4e_5c90
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4e_5c96
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	db FLOW_PICK_WORLD_SCREEN
+
+Flow_0d_6184::
+	flow_load_screen Screen_75_53e0
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_jump Flow_0d_61c3
+
+Flow_0d_618f::
+	flow_load_screen Screen_73_6670
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_jump Flow_0d_61c3
+
+Flow_0d_619a::
+	flow_load_screen Screen_72_5e00
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_jump Flow_0d_61c3
+
+Flow_0d_61a5::
+	flow_load_screen Screen_73_6676
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_jump Flow_0d_61c3
+
+Flow_0d_61b0::
+	flow_load_screen Screen_73_667c
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_jump Flow_0d_61c3
+
+Flow_0d_61bb::
+	flow_load_screen Screen_72_5e06
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+
+Flow_0d_61c3::
+	flow_fade $01
+	flow_wait 360
+	flow_fade $00
+	flow_load_screen Screen_4f_5700
+	db FLOW_SCREEN_PALETTES
+	db FLOW_SCREEN_MAP
+	db FLOW_SCREEN_TILES_0
+	db FLOW_SCREEN_TILES_1
+	flow_fade $01
+	db FLOW_WAIT_MUSIC_END
+	flow_fade $00
+	flow_jump Flow_0d_5f87
+	ds 7718, $00 ; $61da
 

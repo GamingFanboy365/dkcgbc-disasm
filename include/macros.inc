@@ -129,4 +129,54 @@ MACRO obj_pal_preload
 	db \#
 ENDM
 
+
+; Flow script (bank $0d), run by Func_00_38cd: each byte is a game state
+; (an offset into the jump table at $0300), some followed by arguments.
+; Only the states below are named so far; others are written as numbers.
+DEF FLOW_LOAD_LEVEL          EQU $01
+DEF FLOW_WORLD_MAP_INIT      EQU $0d
+DEF FLOW_PLAY_SONG           EQU $19
+DEF FLOW_FADE                EQU $1c
+DEF FLOW_LOAD_SCREEN         EQU $1f
+DEF FLOW_PICK_WORLD_SCREEN   EQU $31
+DEF FLOW_WORLD_MAP           EQU $49
+DEF FLOW_WAIT                EQU $4c
+DEF FLOW_WAIT_MUSIC_END      EQU $4f
+DEF FLOW_WAIT_BUTTON         EQU $52
+DEF FLOW_SCREEN_MAP          EQU $55
+DEF FLOW_SCREEN_PALETTES     EQU $58
+DEF FLOW_SCREEN_TILES_0      EQU $5b
+DEF FLOW_SCREEN_TILES_1      EQU $5e
+DEF FLOW_RUN_SECOND_PROGRAM  EQU $61
+
+; flow_jump script: continue at another script
+MACRO flow_jump
+	db $00
+	dw \1
+ENDM
+
+; flow_load_screen record: pick a full screen (record of palettes, tile map,
+; tiles); FLOW_SCREEN_PALETTES/_MAP/_TILES_0/_TILES_1 then load its parts
+MACRO flow_load_screen
+	db FLOW_LOAD_SCREEN
+	dw \1
+	db BANK(\1)
+ENDM
+
+; flow_wait frames
+MACRO flow_wait
+	db FLOW_WAIT
+	dw \1
+ENDM
+
+; flow_play_song id
+MACRO flow_play_song
+	db FLOW_PLAY_SONG, \1
+ENDM
+
+; flow_fade flags: bit 0 picks the direction (in/out); bit 3 = OBJ palettes too
+MACRO flow_fade
+	db FLOW_FADE, \1
+ENDM
+
 ENDC

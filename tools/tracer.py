@@ -173,6 +173,7 @@ class Tracer:
         self.second_program = set()
         self.frame_headers = set()
         self.preload_funcs = set()
+        self.flow_funcs = set()
         self.field_stores = {}   # insn offset -> (object field, value, is player)
         self.palette_bank = 0x80
         self.candidates = []
@@ -207,6 +208,7 @@ class Tracer:
         first = True
         hist = []
         hl_insn = None
+        de_insn = None
         objfield = None
         player = False
         prev = None
@@ -241,6 +243,11 @@ class Tracer:
                         self.add(a, h << 8 | l, "func", a)
                     else:
                         self.unresolved.append((None, 0, "farcall@%02x:%04x" % (bank, addr)))
+            if i.flow in ("call", "jp") and i.target in self.flow_funcs and de_insn is not None:
+                if off(0x0D, de_insn.imm) in self.data:
+                    de_insn.dataref = (0x0D, de_insn.imm)
+                elif off(0x0D, de_insn.imm) in self.data_labels:
+                    de_insn.dataref = (0x0D, de_insn.imm)
             if i.flow in ("call", "jp") and i.target in self.preload_funcs:
                 h, l = regs["h"], regs["l"]
                 if None not in (h, l) and 0x4000 <= (h << 8 | l) < 0x8000:
@@ -255,6 +262,10 @@ class Tracer:
                 else:
                     self.unresolved.append((bank, addr, "objinit-hl"))
             apply_regs(i, regs)
+            if i.op == 0x11:
+                de_insn = i
+            elif de_insn is not None and (regs["d"], regs["e"]) != (de_insn.imm >> 8, de_insn.imm & 0xFF):
+                de_insn = None
             if i.op == 0x21:
                 hl_insn = i
             elif hl_insn is not None and (regs["h"], regs["l"]) != (hl_insn.imm >> 8, hl_insn.imm & 0xFF):
@@ -659,6 +670,8 @@ class Speculator:
         trial.frame_headers = t.frame_headers
         trial.second_program = t.second_program
         trial.list_only_banks = t.list_only_banks
+        trial.flow_funcs = t.flow_funcs
+        trial.preload_funcs = t.preload_funcs
         trial.insns = ChainMap({}, t.insns)
         trial.owner = ChainMap({}, t.owner)
         trial.labels = ChainMap({}, t.labels)

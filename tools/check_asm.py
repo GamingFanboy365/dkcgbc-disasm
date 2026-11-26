@@ -64,6 +64,9 @@ ANIM_SIZES = {"anim_frame": 2, "anim_jump": 4, "anim_speed": 2, "anim_call": 4,
               "anim_sfx": 2, "frame": 6, "frame_none": 6}
 
 
+FLOW_SIZES = {"flow_jump": 3, "flow_load_screen": 4, "flow_wait": 3, "flow_play_song": 2, "flow_fade": 2}
+
+
 class Asm:
     def __init__(self):
         self.syms = {}
@@ -79,8 +82,9 @@ class Asm:
         if path not in cache:
             full = os.path.join(ROOT, path)
             if path.endswith(".2bpp") and os.path.exists(full[:-5] + ".png"):
-                from gfx import png_to_2bpp
-                cache[path] = png_to_2bpp(full[:-5] + ".png")
+                from gfx import png_to_2bpp, bg_png_to_2bpp
+                conv = bg_png_to_2bpp if "bgtiles" in path else png_to_2bpp
+                cache[path] = conv(full[:-5] + ".png")
             else:
                 cache[path] = open(full, "rb").read()
         return cache[path]
@@ -180,6 +184,8 @@ class Asm:
             return ANIM_SIZES[m]
         if m == "rgb":
             return 2 * len(split_args(rest)) // 3
+        if m in FLOW_SIZES:
+            return FLOW_SIZES[m]
         if m == "obj_pal_preload":
             return 1 + len(split_args(rest))
         if s in EXACT:
@@ -231,6 +237,18 @@ class Asm:
                 return self.incbin(a[0])
             st, n = ev(a[1]), ev(a[2])
             return base[st:st + n]
+        if m in FLOW_SIZES:
+            a = split_args(rest)
+            if m == "flow_jump":
+                v = ev(a[0])
+                return bytes([0, v & 0xFF, v >> 8])
+            if m == "flow_load_screen":
+                v = ev(a[0])
+                return bytes([0x1F, v & 0xFF, v >> 8, self.label_bank(a[0], scope)])
+            if m == "flow_wait":
+                v = ev(a[0])
+                return bytes([0x4C, v & 0xFF, v >> 8])
+            return bytes([0x19 if m == "flow_play_song" else 0x1C, ev(a[0])])
         if m == "rgb":
             a = [ev(x) for x in split_args(rest)]
             out = bytearray()

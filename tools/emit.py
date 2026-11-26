@@ -22,6 +22,7 @@ from run_trace import make  # noqa: E402
 from tracer import BANK_SIZE, off  # noqa: E402
 from hwregs import HW_REGS  # noqa: E402
 from gfx import frame_png_path  # noqa: E402
+from backgrounds import FLOW_STATES  # noqa: E402
 
 MBC_REGS = {0x0000: "rRAMG", 0x2000: "rROMB0", 0x3000: "rROMB1", 0x4000: "rRAMB"}
 WOBJECTS = 0xC800
@@ -342,6 +343,64 @@ class Emitter:
             ab = self.t.anim_bank
             names = [self.qref(ab, v) or hexw(v) for v in item[2]]
             return [(o if k == 0 else None, "dw " + ", ".join(names[k:k + 4])) for k in range(0, len(names), 4)]
+        if kind == "incbin":
+            return [(o, 'INCBIN "baserom.gbc", $%06x, $%04x' % (o, item[3]))]
+        if kind == "bgtiles":
+            res = []
+            for k, (path, a, n, w) in enumerate(item[2]):
+                two = (path[:-4] + ".2bpp").replace(os.sep, "/")
+                self.gfx_deps.setdefault(bank, []).append(two)
+                res.append((o if k == 0 else None, 'INCBIN "%s"' % two))
+            return res
+        if kind == "mapheader":
+            h = item[2]
+            ts = self.qref(h["ts_bank"], h["ts"]) or hexw(h["ts"])
+            lay = [self.qref(h["map_bank"], p) or hexw(p) for p in h["layers"]]
+            res = [(o, "db BANK(LevelBlocks_%02x), BANK(LevelTerrain_%02x), %s ; block bank, terrain bank, flags"
+                    % (h["blocks"], h["terrain"], hexb(h["flags"]))),
+                   (None, "dw %s ; ($c45c)" % hexw(h["c45c"])),
+                   (None, "db BANK(%s)" % ts), (None, "dw %s ; tileset" % ts),
+                   (None, "db BANK(%s)" % lay[0]),
+                   (None, "dw %s ; block numbers, block attributes, terrain" % ", ".join(lay[:3]))]
+            if len(lay) > 3:
+                res.append((None, "dw %s ; same, second half" % ", ".join(lay[3:])))
+            return res
+        if kind == "screen":
+            r = item[2]
+            names = [self.qref(bank, r[k]) or hexw(r[k]) for k in ("palettes", "map", "tiles")]
+            return [(o, "dw %s ; palettes, tile map, tiles" % ", ".join(names))]
+        if kind == "screenmap":
+            rom = self.rom
+            res = []
+            for k in range(36):
+                part = "attributes" if k < 18 else "tiles"
+                row = rom[o + 20 * k:o + 20 * k + 20]
+                res.append((o if k == 0 else None, "db " + ", ".join(hexb(x) for x in row)
+                            + (" ; %s" % part if k in (0, 18) else "")))
+            return res
+        if kind == "flow":
+            entries, labels = item[2]
+            res = []
+            for a, c in entries:
+                fo = off(bank, a)
+                if c[0] == "jump":
+                    res.append((fo, "flow_jump %s" % (self.qref(bank, c[1]) or hexw(c[1]))))
+                    continue
+                st, args = c[1], c[2]
+                if st == 0x1F:
+                    p, b = args[0] | args[1] << 8, args[2]
+                    lab = self.qref(b, p)
+                    res.append((fo, "flow_load_screen %s" % lab if lab else
+                                "db FLOW_LOAD_SCREEN\n\tdw %s\n\tdb %s" % (hexw(p), hexb(b))))
+                elif st == 0x4C:
+                    res.append((fo, "flow_wait %d" % (args[0] | args[1] << 8)))
+                elif st == 0x19:
+                    res.append((fo, "flow_play_song %s" % hexb(args[0])))
+                elif st == 0x1C:
+                    res.append((fo, "flow_fade %s" % hexb(args[0])))
+                else:
+                    res.append((fo, "db %s" % FLOW_STATES.get(st, "$%02x" % st)))
+            return res
         if kind == "frameptrs":
             fb = self.t.frame_bank
             names = [self.qref(fb, v) or hexw(v) for v in item[2]]
@@ -365,7 +424,8 @@ class Emitter:
             return [(o, "db %s" % hexb(r[0])),
                     (None, "dw %s ; BG palettes" % (self.qref(pb, w(1)) or hexw(w(1)))),
                     (None, "dw %s ; OBJ palettes to preload" % (self.qref(pb, w(3)) or hexw(w(3)))),
-                    (None, "dw %s, %s ; passed to Func_00_0b4f and Func_00_1715" % (hexw(w(5)), hexw(w(7)))),
+                    (None, "dw %s, %s ; map header (Func_00_0b4f), level objects? (Func_00_1715)"
+                     % (self.qref(bank, w(5)) or hexw(w(5)), hexw(w(7)))),
                     (None, "db %s ; bank of the second pointer" % hexb(r[9])),
                     (None, "db %s, %s" % (hexb(r[10]), hexb(r[11])))]
         if kind == "anim":

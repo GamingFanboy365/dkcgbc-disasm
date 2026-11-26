@@ -291,11 +291,144 @@ class Finder:
                   "row per palette.", "", "| Set | Address | Loose matches |", "|---|---|---|"] + bg_rows + ["",
                   "Object palettes that no object list, preload list or decoded code uses: %s. This one is the least "
                   "certain claim, because code can pick a palette from a register value the tracer can't see." % ", ".join(obj_rows), ""]
+        lines += self.backgrounds(outdir)
+        lines += self.game_states()
         os.makedirs(outdir, exist_ok=True)
         with open(os.path.join(outdir, "README.md"), "w") as f:
             f.write("\n".join(lines))
         print("unused frames: %d (%d without loose matches), scripts: %d, BG sets: %d, OBJ palettes: %d -> %s"
               % (len(unused), sure, len(anim_rows), len(bg_rows), len(obj_rows), outdir))
+
+
+def _bg_methods():
+    import backgrounds as bg
+
+    def block_tiles(rom, b, hi, n):
+        return [(rom[off(b, ((hi + 4 * p) & 0xFF) << 8 | n)], rom[off(b, ((hi + 4 * p) & 0xFF) << 8 | ((n + 1) & 0xFF))])
+                for p in range(16)]
+
+    def backgrounds(self, outdir):
+        """Blocks no level map places, and tiles no block uses."""
+        rom = self.rom
+        hs = bg.map_headers(rom)
+        placed, users = defaultdict(set), defaultdict(list)
+        for h, (hd, descs) in sorted(hs.items()):
+            users[hd["blocks"]].append((hd, descs))
+            for k in range(2 if hd["flags"] & 2 else 1):
+                num = bg.decompress(rom, hd["map_bank"], hd["layers"][3 * k])[0]
+                att = bg.decompress(rom, hd["map_bank"], hd["layers"][3 * k + 1])[0]
+                for n, a in zip(num, att):
+                    placed[hd["blocks"]].add((hd["blocks"] + (1 if a & 4 else 0), (a & 0xFB) | 0x40, n))
+        rows = []
+        total = 0
+        tile_rows = []
+        for base in sorted(users):
+            hd, descs = users[base][0]
+            d = rom[off(0x04, descs[0]):off(0x04, descs[0]) + 12]
+            pals = bg.palettes_at(rom, 0x80, d[1] | d[2] << 8)
+            ts = bg.Tileset(rom, hd["ts_bank"], hd["ts"])
+            defined, unused = [], []
+            for b in (base, base + 1):
+                for hi in (0x40, 0x41, 0x42, 0x43):
+                    for n in range(0, 256, 2):
+                        bt = block_tiles(rom, b, hi, n)
+                        if any(t or a for t, a in bt):
+                            defined.append((b, hi, n, bt))
+                            if (b, hi, n) not in placed[base]:
+                                unused.append((b, hi, n, bt))
+            # tiles of this level's tileset that no defined block uses
+            used_tiles = set()
+            for (_, _, _, bt) in defined:
+                for t, a in bt:
+                    used_tiles.add(((a >> 3) & 1, t))
+            pieces = bg.bg_tile_pieces(rom).get((hd["ts_bank"], hd["ts"]), [])
+            own = sum(p[2] for p in pieces)
+            lost = []
+            for k in range(own):
+                # stored order: VRAM bank 0 tiles 0-255, then VRAM bank 1 tiles 0-255
+                vb, tid = k // 256, k % 256
+                if (vb, tid) not in used_tiles:
+                    px = ts.tile(vb, tid)
+                    if any(any(r) for r in px):
+                        lost.append((vb, tid))
+            if lost:
+                cols = 16
+                hgt = (len(lost) + cols - 1) // cols
+                canvas = [[(0xFF, 0xFF, 0xFF)] * (cols * 9) for _ in range(hgt * 9)]
+                gray = [(0xF8, 0xF8, 0xF8), (0xA8, 0xA8, 0xA8), (0x58, 0x58, 0x58), (0x10, 0x10, 0x10)]
+                for i, (vb, tid) in enumerate(lost):
+                    px = ts.tile(vb, tid)
+                    for y in range(8):
+                        for x in range(8):
+                            canvas[(i // cols) * 9 + y][(i % cols) * 9 + x] = gray[px[y][x]]
+                write_rgb_png(os.path.join(outdir, "bg_tiles", "tileset_%02x_%04x.png" % (hd["ts_bank"], hd["ts"])),
+                              len(canvas[0]), len(canvas), canvas)
+                tile_rows.append("| `BGTiles_%02x_%04x` | %d | %d |" % (hd["ts_bank"], hd["ts"], own, len(lost)))
+            if not unused:
+                continue
+            total += len(unused)
+            cols = 8
+            hgt = (len(unused) + cols - 1) // cols
+            canvas = [[(0xFF, 0xFF, 0xFF)] * (cols * 34) for _ in range(hgt * 34)]
+            for i, (b, hi, n, bt) in enumerate(unused):
+                x0, y0 = (i % cols) * 34, (i // cols) * 34
+                sub = [[None] * 32 for _ in range(32)]
+                for p, (t, a) in enumerate(bt):
+                    bg.draw_tile(sub, (p % 4) * 8, (p // 4) * 8, ts, t, a, pals)
+                for y in range(32):
+                    canvas[y0 + y][x0:x0 + 32] = sub[y]
+            write_rgb_png(os.path.join(outdir, "bg_blocks", "blocks_%02x.png" % base), len(canvas[0]), len(canvas), canvas)
+            maps = ", ".join("`MapHeader_04_%04x`" % h["addr"] for h, _ in users[base][:4]) + (" …" if len(users[base]) > 4 else "")
+            rows.append("| `LevelBlocks_%02x` | %d | %d | %s |" % (base, len(defined), len(unused), maps))
+        out = ["## Level blocks", "",
+               "Blocks (32x32 pixels, 4x4 tiles) that are defined but never placed in any level map: %d in all. "
+               "Each sheet in `bg_blocks/` shows one block bank's unplaced blocks, eight to a row, drawn with the "
+               "tileset and BG palettes of the first level that uses that bank. Code that swaps blocks in at run "
+               "time (breakable walls, switches, animated scenery) could still use some of these, so treat this "
+               "as a list of candidates, not a final verdict." % total, "",
+               "| Block bank | Defined | Never placed | Used by maps |", "|---|---|---|---|"] + rows + [""]
+        out += ["## Level tiles", "",
+                "Tiles in a level tileset's own data (not counting the part shared with the next tileset) that "
+                "no block refers to, placed or not. Blank tiles aren't counted. Sheets are in `bg_tiles/`, in gray.", "",
+                "| Tileset | Tiles | Not used by any block |", "|---|---|---|"] + tile_rows + [""]
+        return out
+
+    def game_states(self):
+        """States in the $0300 jump table that neither the flow script nor
+        code (ld a, n / ldh [$ff84], a) ever selects."""
+        rom, t = self.rom, self.t
+        used = set()
+        for a, c in bg.flow_script(rom, __import__("hints").FLOW_ENTRIES).items():
+            if c[0] == "state":
+                used.add(c[1])
+        order = sorted(t.insns)
+        for k, o in enumerate(order):
+            i = t.insns[o]
+            if i.op == 0xE0 and i.imm == 0x84 and k and t.insns[order[k - 1]].op == 0x3E:
+                used.add(t.insns[order[k - 1]].imm)
+        states = range(0x01, 0x64, 3)
+        unused = []
+        for s_ in states:
+            if s_ in used:
+                continue
+            j = 0x0300 + s_
+            target = rom[j + 1] | rom[j + 2] << 8 if rom[j] == 0xC3 else None
+            unused.append("`$%02x` (jumps to `$%04x`)" % (s_, target) if target else "`$%02x`" % s_)
+        if not unused:
+            return ["## Game states", "",
+                    "Every state in the jump table at `$0300` is chosen by the flow script or by code that writes "
+                    "it to `$FF84`, so there are no orphaned game states.", ""]
+        return ["## Game states", "",
+                "The main loop runs the state in `$FF84` through the jump table at `$0300`. These states are "
+                "never chosen by the flow script or by code that writes a constant to `$FF84`: %s. They may still "
+                "be reached through computed values, so their code is worth a look before calling them dead."
+                % ", ".join(unused), ""]
+
+    Finder.backgrounds = backgrounds
+    Finder.game_states = game_states
+
+
+_bg_methods()
 
 
 def main():

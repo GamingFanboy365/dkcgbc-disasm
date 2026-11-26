@@ -112,10 +112,31 @@ Levels are described in bank `$04`. `LevelTable` has two entrance pointers per l
 
 `tools/frame_palettes.py` works out which palette each sprite frame is drawn with, by following objects from their init lists through their handlers to the animations they play. `tools/gfx.py preview` uses that to color the previews. Frames reached only through code the tracer doesn't follow yet stay gray, and `gfx/preview/index.csv` lists which palettes are certain and which are inferred.
 
+### Backgrounds
+
+**Levels.** A level descriptor points to a map header in bank `$04` (`MapHeader_04_XXXX`, 112 of them). The header names a block bank, a terrain bank, flags (bit 0: vertical level, bit 1: twice the size), a tileset and the map data. A level map is a grid of 32×32-pixel blocks: 16 rows × 256 columns for horizontal levels and 64 × 64 for vertical ones, doubled when flag bit 1 is set. Three compressed layers are unpacked by `Func_00_03e4` into WRAM banks 1–3 (plus 5–7 for the second half). They hold each cell's block number, its block attribute and its terrain. Each control byte n of the compression is one of these:
+
+| n | Meaning |
+|---|---|
+| `$00` | end of data |
+| `$01`–`$7F` | repeat the next byte n times |
+| `$80`–`$BF` | copy `n & $3F` literal bytes |
+| `$C0`–`$FF` | copy `n & $3F` bytes from d bytes back in the output (d is the next byte) |
+
+Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), stored as 16 planes of `$400` bytes. Bit 2 of the block attribute picks the second bank. Even entries are tile numbers and odd entries are CGB tile attributes. `Func_00_0c24` (horizontal) and `Func_00_0ce4` (vertical) draw blocks into the BG map as the camera moves. The terrain layer works on the same 32-pixel grid, and `Func_00_2214` reads it through height tables in the terrain bank (`LevelTerrain_XX`).
+
+**Full screens.** Title, credits, ending and similar screens are 20×18 tile maps. A screen record (`Screen_BB_XXXX`) points to 8 BG palettes, the tile map (360 attribute bytes, then 360 tile numbers) and the tiles. The loader copies 128 bytes of palettes, so the "OBJ palettes" it also loads are whatever bytes follow. That's harmless, since these screens have no sprites.
+
+**Tiles.** A tileset is 8 KB copied by HDMA into VRAM: tiles 0–127 at `$9000`, 128–255 at `$8800`, then the same in VRAM bank 1. Some tilesets overlap the next one, so each tile bank is split at every start address. Each piece is a PNG in `gfx/bgtiles/BB/AAAA.png`, 16 tiles per row (plus `AAAA_end.png` for a partial last row). PNGs are extracted from the base ROM and built with `rgbgfx -c dmg`, like the sprite frames, and are not committed.
+
+**Flow script.** The game's overall sequence (boot, title, menus, level entry, credits) is a script in bank `$0D` (`Flow_0D_XXXX`), run by `Func_00_38cd`. Each byte is a game state, an offset into the jump table at `$0300`, and a few take arguments (`flow_load_screen`, `flow_wait`, `flow_play_song`, `flow_fade`, `flow_jump`). State `$61` hands control to the separate program in banks `$F0`–`$FE`.
+
+`python3 tools/backgrounds.py` renders every level map and full screen to `gfx/backgrounds/` (gitignored). Each map is drawn with the BG palettes of its first descriptor, as stored in the ROM. Some levels change palettes while playing, so a render can differ from what's on screen. The world map uses a third system that isn't decoded yet: it scrolls, keeps its tile map in bank `$0F` and loads tiles in pieces from banks `$40`–`$41`.
+
 ### Unused content
 
-`python3 tools/find_unused.py` lists sprite frames, animation scripts and palettes that nothing decoded so far refers to. It writes a report and images to `unused/`, which is gitignored because the images are the game's graphics. Before calling anything unused, it searches the undecoded bytes of banks `$00`–`$0F` for its address and reports any hits. That search is how the frame and animation pointer tables in banks `$00` and `$08`–`$0A` were found. The tracer now decodes those tables (`FrameTable_…`, `AnimTable_…`), so they count as uses.
+`python3 tools/find_unused.py` lists sprite frames, animation scripts, palettes, level blocks and tiles that nothing decoded so far refers to. The findings, as text, are in [`docs/unused.md`](docs/unused.md). It writes a report and images to `unused/`, which is gitignored because the images are the game's graphics. Before calling anything unused, it searches the undecoded bytes of banks `$00`–`$0F` for its address and reports any hits. That search is how the frame and animation pointer tables in banks `$00` and `$08`–`$0A` were found. The tracer now decodes those tables (`FrameTable_…`, `AnimTable_…`), so they count as uses.
 
 ### Status
 
-Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Roughly 69 KB of code has been traced, plus 1,114 object initialiser lists, 425 animation scripts, all 1,415 sprite frames, all palettes and the level table, entrances and descriptors. Labels such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are placeholders waiting for real names.
+Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Roughly 69 KB of code has been traced, plus 1,114 object initialiser lists, 425 animation scripts, all 1,415 sprite frames, all palettes, the level table, entrances and descriptors, every level map and full screen, and the flow script. Labels such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are placeholders waiting for real names.

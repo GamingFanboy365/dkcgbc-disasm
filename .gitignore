@@ -13,3 +13,5 @@ gfx/frames/.extracted
 # committed for now (see README.md).
 gfx/frames/
 unused/
+gfx/backgrounds/
+gfx/bgtiles/

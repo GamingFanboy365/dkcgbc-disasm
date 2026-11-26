@@ -812,7 +812,7 @@ Func_0f_4568::
 	ld hl, wLevelEntrance
 	ld [hli], a
 	ld [hl], d
-	ld de, $5fb7
+	ld de, Flow_0d_5fb7
 	jp Func_00_38c7
 
 	db $7c, $5f, $cc, $5e, $2c, $5f, $24, $5a, $3c, $5a, $14, $5b

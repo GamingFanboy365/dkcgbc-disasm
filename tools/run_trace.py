@@ -7,6 +7,43 @@ import hints
 def load(path):
     return open(path, "rb").read()
 
+def parse_backgrounds(t, rom):
+    """Level map headers and data, BG tiles, full screens and the flow
+    script (see tools/backgrounds.py)."""
+    import backgrounds as bg
+    for h, (hdr, _) in sorted(bg.map_headers(rom).items()):
+        t._claim(0x04, h, hdr["length"], "mapheader", hdr, "MapHeader")
+        for p in hdr["layers"]:
+            n = bg.decompress(rom, hdr["map_bank"], p)[1]
+            t._claim(hdr["map_bank"], p, n, "incbin", None, "LevelMap")
+        for b, name in ((hdr["blocks"], "LevelBlocks"), (hdr["blocks"] + 1, "LevelBlocks"),
+                        (hdr["terrain"], "LevelTerrain")):
+            t._claim(b, 0x4000, 0x4000, "incbin", None, "=%s_%02x" % (name, b))
+    for (b, a), pieces in sorted(bg.bg_tile_pieces(rom).items()):
+        t._claim(b, a, sum(p[2] for p in pieces) * 16, "bgtiles", pieces, "BGTiles")
+    for (b, p), rec in sorted(bg.screen_records(rom).items()):
+        t._claim(b, p, 6, "screen", rec, "Screen")
+        # 8 BG palettes; the loader copies 128 bytes, so the "OBJ palettes" it
+        # also loads are whatever follows (unused by these screens)
+        t._claim(b, rec["palettes"], 64, "palette", 8, "ScreenPalettes")
+        t._claim(b, rec["map"], 720, "screenmap", None, "ScreenMap")
+    # flow script: one item per contiguous run of commands
+    cmds = bg.flow_script(rom, hints.FLOW_ENTRIES)
+    labels = set(hints.FLOW_ENTRIES) | {c[1] for c in cmds.values() if c[0] == "jump"}
+    run = []
+    for a in sorted(cmds) + [None]:
+        if run and (a is None or a != run[-1][0] + run[-1][1]):
+            t._claim(0x0D, run[0][0], run[-1][0] + run[-1][1] - run[0][0], "flow",
+                     ([(x, c) for x, _, c in run], labels), "Flow")
+            for x, _, _ in run:
+                if x in labels:
+                    t.data_labels[off(0x0D, x)] = "Flow"
+            run = []
+        if a is not None:
+            c = cmds[a]
+            run.append((a, 3 if c[0] == "jump" else 1 + len(c[2]), c))
+
+
 def make(rom):
     t = Tracer(rom)
     t.farcall_hl_a = set(hints.FARCALL_HL_A)
@@ -26,10 +63,12 @@ def make(rom):
     for (b, start, count) in hints.FRAME_TABLES:
         t.parse_frame_table(b, start, count)
     t.preload_funcs = set(hints.PRELOAD_FUNCS)
+    t.flow_funcs = set(hints.FLOW_FUNCS)
     t.parse_palettes(hints.PALETTES)
     t.parse_levels(hints.LEVELS)
     for (b, start, end) in hints.ANIM_RUNS:
         t.parse_anim(b, start, end)
+    parse_backgrounds(t, rom)
     t.list_only_banks = set(b for b, _, _ in hints.OBJ_LIST_RUNS)
     for (b, start, end) in hints.OBJ_LIST_RUNS:
         t.parse_obj_run(b, start, end)

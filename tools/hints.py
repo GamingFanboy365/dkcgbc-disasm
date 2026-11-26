@@ -177,3 +177,11 @@ FRAME_TABLE_SCAN_BANKS = list(range(0x00, 0x10))
 FRAME_STRUCTS = [
     (0x0A, 0x60E7, 32, 4, (0, 2, 3)),  # rotating object: frame by angle; column 1 is a curve
 ]
+
+# Flow script (bank $0d, Func_00_38cd): entry points set by code
+# (ld de, X / call Func_00_38c7) and the per-world table at $3976.
+FLOW_ENTRIES = [0x5F58, 0x5F90, 0x5F92, 0x5F96, 0x5F9C, 0x5FA5, 0x5FB7, 0x5FBE, 0x5FC1,
+                0x618F, 0x619A, 0x61A5, 0x61B0, 0x61BB, 0x6184]
+
+# Routines that start the flow script at de (bank $0d)
+FLOW_FUNCS = [0x38C7]

@@ -4601,7 +4601,7 @@ LevelDesc_04_5fc4::
 	db $00
 	dw BGPaletteSet_03 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $66d5, $4379 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_66d5, $4379 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4609,7 +4609,7 @@ LevelDesc_04_5fd0::
 	db $00
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $66e4, $459a ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_66e4, $459a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4617,7 +4617,7 @@ LevelDesc_04_5fdc::
 	db $00
 	dw BGPaletteSet_04 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $66f3, $4803 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_66f3, $4803 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4625,7 +4625,7 @@ LevelDesc_04_5fe8::
 	db $00
 	dw BGPaletteSet_05 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6702, $4a9c ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6702, $4a9c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4633,7 +4633,7 @@ LevelDesc_04_5ff4::
 	db $88
 	dw BGPaletteSet_03 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6711, $4f8d ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6711, $4f8d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4641,7 +4641,7 @@ LevelDesc_04_6000::
 	db $88
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6720, $7d2b ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6720, $7d2b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4649,7 +4649,7 @@ LevelDesc_04_600c::
 	db $80
 	dw BGPaletteSet_04 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $672f, $4f8e ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_672f, $4f8e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4657,7 +4657,7 @@ LevelDesc_04_6018::
 	db $88
 	dw BGPaletteSet_05 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $673e, $502f ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_673e, $502f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4665,7 +4665,7 @@ LevelDesc_04_6024::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $674d, $5098 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_674d, $5098 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4673,7 +4673,7 @@ LevelDesc_04_6030::
 	db $00
 	dw BGPaletteSet_0B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6624, $65bf ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6624, $65bf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $17, $00
 
@@ -4681,7 +4681,7 @@ LevelDesc_04_603c::
 	db $00
 	dw BGPaletteSet_0C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6633, $68cd ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6633, $68cd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $17, $00
 
@@ -4689,7 +4689,7 @@ LevelDesc_04_6048::
 	db $88
 	dw BGPaletteSet_0C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6642, $6b64 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6642, $6b64 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4697,7 +4697,7 @@ LevelDesc_04_6054::
 	db $88
 	dw BGPaletteSet_0B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6651, $6bcd ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6651, $6bcd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4705,7 +4705,7 @@ LevelDesc_04_6060::
 	db $88
 	dw BGPaletteSet_0B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6660, $6bce ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6660, $6bce ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4713,7 +4713,7 @@ LevelDesc_04_606c::
 	db $00
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $691e, $4003 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_691e, $4003 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4721,7 +4721,7 @@ LevelDesc_04_6078::
 	db $00
 	dw BGPaletteSet_19 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $692d, $42bc ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_692d, $42bc ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4729,7 +4729,7 @@ LevelDesc_04_6084::
 	db $00
 	dw BGPaletteSet_1F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6942, $461d ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6942, $461d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4737,7 +4737,7 @@ LevelDesc_04_6090::
 	db $00
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6951, $480e ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6951, $480e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4745,7 +4745,7 @@ LevelDesc_04_609c::
 	db $00
 	dw BGPaletteSet_1B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6966, $4b6c ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6966, $4b6c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4753,7 +4753,7 @@ LevelDesc_04_60a8::
 	db $00
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $697b, $4ee9 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_697b, $4ee9 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4761,7 +4761,7 @@ LevelDesc_04_60b4::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $698a, $51a2 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_698a, $51a2 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4769,7 +4769,7 @@ LevelDesc_04_60c0::
 	db $88
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6999, $51e3 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6999, $51e3 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4777,7 +4777,7 @@ LevelDesc_04_60cc::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $69a8, $5214 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_69a8, $5214 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4785,7 +4785,7 @@ LevelDesc_04_60d8::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $69b7, $527d ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_69b7, $527d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4793,7 +4793,7 @@ LevelDesc_04_60e4::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $69c6, $52b6 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_69c6, $52b6 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4801,7 +4801,7 @@ LevelDesc_04_60f0::
 	db $88
 	dw BGPaletteSet_19 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $69d5, $5317 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_69d5, $5317 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4809,7 +4809,7 @@ LevelDesc_04_60fc::
 	db $88
 	dw BGPaletteSet_19 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $69e4, $5360 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_69e4, $5360 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4817,7 +4817,7 @@ LevelDesc_04_6108::
 	db $88
 	dw BGPaletteSet_1B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $69f3, $5371 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_69f3, $5371 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4825,7 +4825,7 @@ LevelDesc_04_6114::
 	db $80
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a02, $53ba ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a02, $53ba ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4833,7 +4833,7 @@ LevelDesc_04_6120::
 	db $88
 	dw BGPaletteSet_1A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a11, $7d4f ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a11, $7d4f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4841,7 +4841,7 @@ LevelDesc_04_612c::
 	db $80
 	dw BGPaletteSet_1B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a20, $53fb ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a20, $53fb ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4849,7 +4849,7 @@ LevelDesc_04_6138::
 	db $88
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a2f, $7d68 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a2f, $7d68 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4857,7 +4857,7 @@ LevelDesc_04_6144::
 	db $88
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a2f, $7d71 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a2f, $7d71 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4865,7 +4865,7 @@ LevelDesc_04_6150::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a3e, $545c ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a3e, $545c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4873,7 +4873,7 @@ LevelDesc_04_615c::
 	db $07
 	dw BGPaletteSet_2B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $677a, $54bd ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_677a, $54bd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4881,7 +4881,7 @@ LevelDesc_04_6168::
 	db $07
 	dw BGPaletteSet_2C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6789, $5696 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6789, $5696 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4889,7 +4889,7 @@ LevelDesc_04_6174::
 	db $07
 	dw BGPaletteSet_2D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6798, $5897 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6798, $5897 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4897,7 +4897,7 @@ LevelDesc_04_6180::
 	db $07
 	dw BGPaletteSet_2E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $67ad, $5ae8 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_67ad, $5ae8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4905,7 +4905,7 @@ LevelDesc_04_618c::
 	db $b7
 	dw BGPaletteSet_2F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $67c2, $5eaf ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_67c2, $5eaf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4913,7 +4913,7 @@ LevelDesc_04_6198::
 	db $00
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $67d1, $6c20 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_67d1, $6c20 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $12, $00
 
@@ -4921,7 +4921,7 @@ LevelDesc_04_61a4::
 	db $06
 	dw BGPaletteSet_24 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $67e0, $6f6d ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_67e0, $6f6d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $12, $00
 
@@ -4929,7 +4929,7 @@ LevelDesc_04_61b0::
 	db $8e
 	dw BGPaletteSet_24 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $67f5, $71c9 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_67f5, $71c9 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4937,7 +4937,7 @@ LevelDesc_04_61bc::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6804, $723a ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6804, $723a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4945,7 +4945,7 @@ LevelDesc_04_61c8::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6813, $72ab ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6813, $72ab ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4953,7 +4953,7 @@ LevelDesc_04_61d4::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6822, $7d7a ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6822, $7d7a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4961,7 +4961,7 @@ LevelDesc_04_61e0::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6831, $72fc ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6831, $72fc ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4969,7 +4969,7 @@ LevelDesc_04_61ec::
 	db $88
 	dw BGPaletteSet_26 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6840, $72fd ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6840, $72fd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4977,7 +4977,7 @@ LevelDesc_04_61f8::
 	db $88
 	dw BGPaletteSet_26 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $684f, $75f7 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_684f, $75f7 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4985,7 +4985,7 @@ LevelDesc_04_6204::
 	db $00
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $685e, $72fe ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_685e, $72fe ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $08, $00
 
@@ -4993,7 +4993,7 @@ LevelDesc_04_6210::
 	db $00
 	dw BGPaletteSet_2A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $686d, $4000 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_686d, $4000 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $08, $00
 
@@ -5001,7 +5001,7 @@ LevelDesc_04_621c::
 	db $88
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $687c, $7c80 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_687c, $7c80 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5009,7 +5009,7 @@ LevelDesc_04_6228::
 	db $88
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $687c, $7c89 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_687c, $7c89 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5017,7 +5017,7 @@ LevelDesc_04_6234::
 	db $88
 	dw BGPaletteSet_2A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $688b, $7c92 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_688b, $7c92 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5025,7 +5025,7 @@ LevelDesc_04_6240::
 	db $80
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $689a, $7844 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_689a, $7844 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5033,7 +5033,7 @@ LevelDesc_04_624c::
 	db $88
 	dw BGPaletteSet_2A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $68a9, $77cb ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_68a9, $77cb ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5041,7 +5041,7 @@ LevelDesc_04_6258::
 	db $03
 	dw BGPaletteSet_20 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $666f, $5f90 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_666f, $5f90 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0d, $00
 
@@ -5049,7 +5049,7 @@ LevelDesc_04_6264::
 	db $8b
 	dw BGPaletteSet_21 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6684, $7d8c ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6684, $7d8c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5057,7 +5057,7 @@ LevelDesc_04_6270::
 	db $8b
 	dw BGPaletteSet_21 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6684, $7d95 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6684, $7d95 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5065,7 +5065,7 @@ LevelDesc_04_627c::
 	db $8b
 	dw BGPaletteSet_22 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6693, $7d9e ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6693, $7d9e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5073,7 +5073,7 @@ LevelDesc_04_6288::
 	db $83
 	dw BGPaletteSet_20 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $66a2, $64cd ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_66a2, $64cd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5081,7 +5081,7 @@ LevelDesc_04_6294::
 	db $8b
 	dw BGPaletteSet_20 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $66b1, $654e ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_66b1, $654e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5089,7 +5089,7 @@ LevelDesc_04_62a0::
 	db $01
 	dw BGPaletteSet_11 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $66c0, $50d1 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_66c0, $50d1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5097,7 +5097,7 @@ LevelDesc_04_62ac::
 	db $04
 	dw BGPaletteSet_0F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6af5, $52b2 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6af5, $52b2 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5105,7 +5105,7 @@ LevelDesc_04_62b8::
 	db $00
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b04, $55c1 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b04, $55c1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5113,7 +5113,7 @@ LevelDesc_04_62c4::
 	db $05
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b19, $59c2 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b19, $59c2 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5121,7 +5121,7 @@ LevelDesc_04_62d0::
 	db $80
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b2e, $5d23 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b2e, $5d23 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5129,7 +5129,7 @@ LevelDesc_04_62dc::
 	db $88
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b3d, $7d83 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b3d, $7d83 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5137,7 +5137,7 @@ LevelDesc_04_62e8::
 	db $85
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b4c, $5e14 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b4c, $5e14 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5145,7 +5145,7 @@ LevelDesc_04_62f4::
 	db $80
 	dw BGPaletteSet_0F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b5b, $794f ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b5b, $794f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5153,7 +5153,7 @@ LevelDesc_04_6300::
 	db $88
 	dw BGPaletteSet_0F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b6a, $78a5 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b6a, $78a5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5161,7 +5161,7 @@ LevelDesc_04_630c::
 	db $85
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b79, $790e ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b79, $790e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5169,7 +5169,7 @@ LevelDesc_04_6318::
 	db $03
 	dw BGPaletteSet_30 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $68b8, $7097 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_68b8, $7097 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $18, $00
 
@@ -5177,7 +5177,7 @@ LevelDesc_04_6324::
 	db $03
 	dw BGPaletteSet_31 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $68cd, $7560 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_68cd, $7560 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $18, $00
 
@@ -5185,7 +5185,7 @@ LevelDesc_04_6330::
 	db $8b
 	dw BGPaletteSet_30 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $68dc, $7769 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_68dc, $7769 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5193,7 +5193,7 @@ LevelDesc_04_633c::
 	db $83
 	dw BGPaletteSet_30 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $68eb, $77ba ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_68eb, $77ba ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5201,7 +5201,7 @@ LevelDesc_04_6348::
 	db $83
 	dw BGPaletteSet_31 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $68fa, $781b ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_68fa, $781b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5209,7 +5209,7 @@ LevelDesc_04_6354::
 	db $00
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $65c4, $6a61 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_65c4, $6a61 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $04, $00
 
@@ -5217,7 +5217,7 @@ LevelDesc_04_6360::
 	db $00
 	dw BGPaletteSet_36 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $65d3, $6d1c ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_65d3, $6d1c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $04, $00
 
@@ -5225,7 +5225,7 @@ LevelDesc_04_636c::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $65e8, $6fe5 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_65e8, $6fe5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5233,7 +5233,7 @@ LevelDesc_04_6378::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $65f7, $7c9b ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_65f7, $7c9b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5241,7 +5241,7 @@ LevelDesc_04_6384::
 	db $88
 	dw BGPaletteSet_36 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $65f7, $7ca4 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_65f7, $7ca4 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5249,7 +5249,7 @@ LevelDesc_04_6390::
 	db $88
 	dw BGPaletteSet_36 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6606, $704e ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6606, $704e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5257,7 +5257,7 @@ LevelDesc_04_639c::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6615, $7cad ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6615, $7cad ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5265,7 +5265,7 @@ LevelDesc_04_63a8::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6615, $7cb6 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6615, $7cb6 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5273,7 +5273,7 @@ LevelDesc_04_63b4::
 	db $00
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a4d, $5e7d ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a4d, $5e7d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5281,7 +5281,7 @@ LevelDesc_04_63c0::
 	db $00
 	dw BGPaletteSet_17 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a62, $60b6 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a62, $60b6 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5289,7 +5289,7 @@ LevelDesc_04_63cc::
 	db $00
 	dw BGPaletteSet_16 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a77, $64c7 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a77, $64c7 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5297,7 +5297,7 @@ LevelDesc_04_63d8::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a8c, $7cbf ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a8c, $7cbf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5305,7 +5305,7 @@ LevelDesc_04_63e4::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a8c, $7cc8 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a8c, $7cc8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5313,7 +5313,7 @@ LevelDesc_04_63f0::
 	db $00
 	dw BGPaletteSet_13 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6a9b, $6818 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6a9b, $6818 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5321,7 +5321,7 @@ LevelDesc_04_63fc::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6aaa, $76e8 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6aaa, $76e8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5329,7 +5329,7 @@ LevelDesc_04_6408::
 	db $80
 	dw BGPaletteSet_15 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ab9, $7749 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ab9, $7749 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5337,7 +5337,7 @@ LevelDesc_04_6414::
 	db $88
 	dw BGPaletteSet_16 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ac8, $7cd1 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ac8, $7cd1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5345,7 +5345,7 @@ LevelDesc_04_6420::
 	db $88
 	dw BGPaletteSet_17 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ac8, $7cda ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ac8, $7cda ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5353,7 +5353,7 @@ LevelDesc_04_642c::
 	db $88
 	dw BGPaletteSet_17 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ac8, $7ce3 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ac8, $7ce3 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5361,7 +5361,7 @@ LevelDesc_04_6438::
 	db $80
 	dw BGPaletteSet_13 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ad7, $778a ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ad7, $778a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5369,7 +5369,7 @@ LevelDesc_04_6444::
 	db $80
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ae6, $7cec ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ae6, $7cec ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5377,7 +5377,7 @@ LevelDesc_04_6450::
 	db $01
 	dw BGPaletteSet_15 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6909, $786c ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6909, $786c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5385,7 +5385,7 @@ LevelDesc_04_645c::
 	db $c0
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c2d, $7bae ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c2d, $7bae ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5393,7 +5393,7 @@ LevelDesc_04_6468::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c3c, $7cf5 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c3c, $7cf5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5401,7 +5401,7 @@ LevelDesc_04_6474::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c3c, $7cfe ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c3c, $7cfe ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5409,7 +5409,7 @@ LevelDesc_04_6480::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c4b, $7d07 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c4b, $7d07 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5417,7 +5417,7 @@ LevelDesc_04_648c::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c4b, $7d10 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c4b, $7d10 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5425,7 +5425,7 @@ LevelDesc_04_6498::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c5a, $7dc0 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c5a, $7dc0 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5433,7 +5433,7 @@ LevelDesc_04_64a4::
 	db $88
 	dw BGPaletteSet_12 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c69, $7d19 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c69, $7d19 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5441,7 +5441,7 @@ LevelDesc_04_64b0::
 	db $88
 	dw BGPaletteSet_12 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c78, $7d22 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c78, $7d22 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5449,7 +5449,7 @@ LevelDesc_04_64bc::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4200 ; OBJ palettes to preload
-	dw $676b, $7e02 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_676b, $7e02 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5457,7 +5457,7 @@ LevelDesc_04_64c8::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4208 ; OBJ palettes to preload
-	dw $675c, $7e13 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_675c, $7e13 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5465,7 +5465,7 @@ LevelDesc_04_64d4::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4210 ; OBJ palettes to preload
-	dw $676b, $7e2c ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_676b, $7e2c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5473,7 +5473,7 @@ LevelDesc_04_64e0::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4218 ; OBJ palettes to preload
-	dw $676b, $7e45 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_676b, $7e45 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5481,7 +5481,7 @@ LevelDesc_04_64ec::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4220 ; OBJ palettes to preload
-	dw $675c, $7e56 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_675c, $7e56 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5489,7 +5489,7 @@ LevelDesc_04_64f8::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4228 ; OBJ palettes to preload
-	dw $675c, $7e67 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_675c, $7e67 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5497,7 +5497,7 @@ LevelDesc_04_6504::
 	db $02
 	dw BGPaletteSet_01 ; BG palettes
 	dw ObjPalPreload_80_4230 ; OBJ palettes to preload
-	dw $6c96, $7e80 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c96, $7e80 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $06, $00
 
@@ -5505,7 +5505,7 @@ LevelDesc_04_6510::
 	db $00
 	dw BGPaletteSet_02 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c87, $7bcf ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c87, $7bcf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $01, $00
 
@@ -5513,7 +5513,7 @@ LevelDesc_04_651c::
 	db $93
 	dw BGPaletteSet_32 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b88, $7ba5 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b88, $7ba5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5521,7 +5521,7 @@ LevelDesc_04_6528::
 	db $8b
 	dw BGPaletteSet_33 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b97, $7d34 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b97, $7d34 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5529,7 +5529,7 @@ LevelDesc_04_6534::
 	db $8b
 	dw BGPaletteSet_33 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6b97, $7d3d ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6b97, $7d3d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5537,7 +5537,7 @@ LevelDesc_04_6540::
 	db $8b
 	dw BGPaletteSet_34 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ba6, $7d46 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ba6, $7d46 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5545,7 +5545,7 @@ LevelDesc_04_654c::
 	db $a0
 	dw BGPaletteSet_07 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6bb5, $7be8 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6bb5, $7be8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5553,7 +5553,7 @@ LevelDesc_04_6558::
 	db $88
 	dw BGPaletteSet_09 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6bc4, $7c54 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6bc4, $7c54 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5561,7 +5561,7 @@ LevelDesc_04_6564::
 	db $88
 	dw BGPaletteSet_08 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6bd3, $7c5d ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6bd3, $7c5d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5569,7 +5569,7 @@ LevelDesc_04_6570::
 	db $8e
 	dw BGPaletteSet_28 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6be2, $7c66 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6be2, $7c66 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5577,7 +5577,7 @@ LevelDesc_04_657c::
 	db $88
 	dw BGPaletteSet_27 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6bf1, $7c6f ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6bf1, $7c6f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5585,7 +5585,7 @@ LevelDesc_04_6588::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c00, $7bf1 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c00, $7bf1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5593,7 +5593,7 @@ LevelDesc_04_6594::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c0f, $7c0a ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c0f, $7c0a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5601,7 +5601,7 @@ LevelDesc_04_65a0::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c1e, $7c2b ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c1e, $7c2b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5609,7 +5609,7 @@ LevelDesc_04_65ac::
 	db $88
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6c1e, $7dd9 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6c1e, $7dd9 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5617,8 +5617,920 @@ LevelDesc_04_65b8::
 	db $88
 	dw BGPaletteSet_1E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw $6ca5, $7da7 ; passed to Func_00_0b4f and Func_00_1715
+	dw MapHeader_04_6ca5, $7da7 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
 	db $0c ; bank of the second pointer
 	db $0b, $00
-	INCBIN "baserom.gbc", $0125c4, $1a3c ; $65c4
+
+MapHeader_04_65c4::
+	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
+	dw $4000 ; ($c45c)
+	db BANK(BGTiles_81_4000)
+	dw BGTiles_81_4000 ; tileset
+	db BANK(LevelMap_e0_4238)
+	dw LevelMap_e0_4238, LevelMap_e0_48ff, LevelMap_e0_4000 ; block numbers, block attributes, terrain
+
+MapHeader_04_65d3::
+	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $02 ; block bank, terrain bank, flags
+	dw $41e0 ; ($c45c)
+	db BANK(BGTiles_81_4000)
+	dw BGTiles_81_4000 ; tileset
+	db BANK(LevelMap_e0_4d68)
+	dw LevelMap_e0_4d68, LevelMap_e0_53ab, LevelMap_e0_4b5b ; block numbers, block attributes, terrain
+	dw LevelMap_e0_5726, LevelMap_e0_58db, LevelMap_e0_5651 ; same, second half
+
+MapHeader_04_65e8::
+	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
+	dw $42a0 ; ($c45c)
+	db BANK(BGTiles_81_4000)
+	dw BGTiles_81_4000 ; tileset
+	db BANK(LevelMap_e0_5a49)
+	dw LevelMap_e0_5a49, LevelMap_e0_5ac8, LevelMap_e0_5a06 ; block numbers, block attributes, terrain
+
+MapHeader_04_65f7::
+	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
+	dw $42b0 ; ($c45c)
+	db BANK(BGTiles_81_4000)
+	dw BGTiles_81_4000 ; tileset
+	db BANK(LevelMap_eb_5300)
+	dw LevelMap_eb_5300, LevelMap_eb_536a, LevelMap_eb_52a1 ; block numbers, block attributes, terrain
+
+MapHeader_04_6606::
+	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
+	dw $42c0 ; ($c45c)
+	db BANK(BGTiles_81_4000)
+	dw BGTiles_81_4000 ; tileset
+	db BANK(LevelMap_eb_541b)
+	dw LevelMap_eb_541b, LevelMap_eb_54c5, LevelMap_eb_53b6 ; block numbers, block attributes, terrain
+
+MapHeader_04_6615::
+	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
+	dw $42d0 ; ($c45c)
+	db BANK(BGTiles_81_4000)
+	dw BGTiles_81_4000 ; tileset
+	db BANK(LevelMap_eb_558a)
+	dw LevelMap_eb_558a, LevelMap_eb_55f0, LevelMap_eb_553d ; block numbers, block attributes, terrain
+
+MapHeader_04_6624::
+	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
+	dw $42e0 ; ($c45c)
+	db BANK(BGTiles_81_6000)
+	dw BGTiles_81_6000 ; tileset
+	db BANK(LevelMap_e0_5c50)
+	dw LevelMap_e0_5c50, LevelMap_e0_60d8, LevelMap_e0_5b25 ; block numbers, block attributes, terrain
+
+MapHeader_04_6633::
+	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
+	dw $4350 ; ($c45c)
+	db BANK(BGTiles_81_6000)
+	dw BGTiles_81_6000 ; tileset
+	db BANK(LevelMap_e0_6405)
+	dw LevelMap_e0_6405, LevelMap_e0_6c5e, LevelMap_e0_62ca ; block numbers, block attributes, terrain
+
+MapHeader_04_6642::
+	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
+	dw $43c0 ; ($c45c)
+	db BANK(BGTiles_81_6000)
+	dw BGTiles_81_6000 ; tileset
+	db BANK(LevelMap_e0_70e7)
+	dw LevelMap_e0_70e7, LevelMap_e0_71c2, LevelMap_e0_7078 ; block numbers, block attributes, terrain
+
+MapHeader_04_6651::
+	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
+	dw $43d0 ; ($c45c)
+	db BANK(BGTiles_81_6000)
+	dw BGTiles_81_6000 ; tileset
+	db BANK(LevelMap_eb_4cdf)
+	dw LevelMap_eb_4cdf, LevelMap_eb_4d45, LevelMap_eb_4c93 ; block numbers, block attributes, terrain
+
+MapHeader_04_6660::
+	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
+	dw $43e0 ; ($c45c)
+	db BANK(BGTiles_81_6000)
+	dw BGTiles_81_6000 ; tileset
+	db BANK(LevelMap_eb_4ddd)
+	dw LevelMap_eb_4ddd, LevelMap_eb_4e5c, LevelMap_eb_4d9a ; block numbers, block attributes, terrain
+
+MapHeader_04_666f::
+	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $03 ; block bank, terrain bank, flags
+	dw $4400 ; ($c45c)
+	db BANK(BGTiles_82_4000)
+	dw BGTiles_82_4000 ; tileset
+	db BANK(LevelMap_e1_43bc)
+	dw LevelMap_e1_43bc, LevelMap_e1_4d30, LevelMap_e1_4000 ; block numbers, block attributes, terrain
+	dw LevelMap_e1_5191, LevelMap_e1_5222, LevelMap_e1_514e ; same, second half
+
+MapHeader_04_6684::
+	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
+	dw $45f0 ; ($c45c)
+	db BANK(BGTiles_82_4000)
+	dw BGTiles_82_4000 ; tileset
+	db BANK(LevelMap_e1_5294)
+	dw LevelMap_e1_5294, LevelMap_e1_52f5, LevelMap_e1_524d ; block numbers, block attributes, terrain
+
+MapHeader_04_6693::
+	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
+	dw $4600 ; ($c45c)
+	db BANK(BGTiles_82_4000)
+	dw BGTiles_82_4000 ; tileset
+	db BANK(LevelMap_eb_569d)
+	dw LevelMap_eb_569d, LevelMap_eb_5703, LevelMap_eb_563c ; block numbers, block attributes, terrain
+
+MapHeader_04_66a2::
+	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
+	dw $4610 ; ($c45c)
+	db BANK(BGTiles_82_4000)
+	dw BGTiles_82_4000 ; tileset
+	db BANK(LevelMap_eb_57e2)
+	dw LevelMap_eb_57e2, LevelMap_eb_58a3, LevelMap_eb_575b ; block numbers, block attributes, terrain
+
+MapHeader_04_66b1::
+	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
+	dw $4620 ; ($c45c)
+	db BANK(BGTiles_82_4000)
+	dw BGTiles_82_4000 ; tileset
+	db BANK(LevelMap_ec_579b)
+	dw LevelMap_ec_579b, LevelMap_ec_5897, LevelMap_ec_56f3 ; block numbers, block attributes, terrain
+
+MapHeader_04_66c0::
+	db BANK(LevelBlocks_99), BANK(LevelTerrain_9b), $02 ; block bank, terrain bank, flags
+	dw $4630 ; ($c45c)
+	db BANK(BGTiles_82_5ed0)
+	dw BGTiles_82_5ed0 ; tileset
+	db BANK(LevelMap_e1_55c6)
+	dw LevelMap_e1_55c6, LevelMap_e1_5fe6, LevelMap_e1_5352 ; block numbers, block attributes, terrain
+	dw LevelMap_e1_654e, LevelMap_e1_6d9d, LevelMap_e1_6345 ; same, second half
+
+MapHeader_04_66d5::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $4750 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_e2_421c)
+	dw LevelMap_e2_421c, LevelMap_e2_4587, LevelMap_e2_4000 ; block numbers, block attributes, terrain
+
+MapHeader_04_66e4::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $47c0 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_e2_4a1d)
+	dw LevelMap_e2_4a1d, LevelMap_e2_5018, LevelMap_e2_4733 ; block numbers, block attributes, terrain
+
+MapHeader_04_66f3::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $49a0 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_e2_55be)
+	dw LevelMap_e2_55be, LevelMap_e2_5ab3, LevelMap_e2_53a4 ; block numbers, block attributes, terrain
+
+MapHeader_04_6702::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $4a60 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_e3_425c)
+	dw LevelMap_e3_425c, LevelMap_e3_4848, LevelMap_e3_4000 ; block numbers, block attributes, terrain
+
+MapHeader_04_6711::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $4af0 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_e3_4c87)
+	dw LevelMap_e3_4c87, LevelMap_e3_4ce0, LevelMap_e3_4c40 ; block numbers, block attributes, terrain
+
+MapHeader_04_6720::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $4b00 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_eb_59b3)
+	dw LevelMap_eb_59b3, LevelMap_eb_5a22, LevelMap_eb_5948 ; block numbers, block attributes, terrain
+
+MapHeader_04_672f::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $4b10 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_eb_5af7)
+	dw LevelMap_eb_5af7, LevelMap_eb_5bbc, LevelMap_eb_5a8a ; block numbers, block attributes, terrain
+
+MapHeader_04_673e::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $4b20 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_eb_5c7e)
+	dw LevelMap_eb_5c7e, LevelMap_eb_5d19, LevelMap_eb_5c3b ; block numbers, block attributes, terrain
+
+MapHeader_04_674d::
+	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
+	dw $4b30 ; ($c45c)
+	db BANK(BGTiles_83_4000)
+	dw BGTiles_83_4000 ; tileset
+	db BANK(LevelMap_ec_54c8)
+	dw LevelMap_ec_54c8, LevelMap_ec_5589, LevelMap_ec_5462 ; block numbers, block attributes, terrain
+
+MapHeader_04_675c::
+	db BANK(LevelBlocks_9f), BANK(LevelTerrain_a1), $00 ; block bank, terrain bank, flags
+	dw $7360 ; ($c45c)
+	db BANK(BGTiles_83_5ff0)
+	dw BGTiles_83_5ff0 ; tileset
+	db BANK(LevelMap_e3_4d7f)
+	dw LevelMap_e3_4d7f, LevelMap_e3_4dea, LevelMap_e3_4d30 ; block numbers, block attributes, terrain
+
+MapHeader_04_676b::
+	db BANK(LevelBlocks_9f), BANK(LevelTerrain_a1), $00 ; block bank, terrain bank, flags
+	dw $7370 ; ($c45c)
+	db BANK(BGTiles_83_5ff0)
+	dw BGTiles_83_5ff0 ; tileset
+	db BANK(LevelMap_e3_4e8d)
+	dw LevelMap_e3_4e8d, LevelMap_e3_4f11, LevelMap_e3_4e2d ; block numbers, block attributes, terrain
+
+MapHeader_04_677a::
+	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $01 ; block bank, terrain bank, flags
+	dw $4b40 ; ($c45c)
+	db BANK(BGTiles_84_59f0)
+	dw BGTiles_84_59f0 ; tileset
+	db BANK(LevelMap_e3_52ed)
+	dw LevelMap_e3_52ed, LevelMap_e3_58c9, LevelMap_e3_5062 ; block numbers, block attributes, terrain
+
+MapHeader_04_6789::
+	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $01 ; block bank, terrain bank, flags
+	dw $4c80 ; ($c45c)
+	db BANK(BGTiles_84_59f0)
+	dw BGTiles_84_59f0 ; tileset
+	db BANK(LevelMap_e3_5cfa)
+	dw LevelMap_e3_5cfa, LevelMap_e3_6366, LevelMap_e3_5a9a ; block numbers, block attributes, terrain
+
+MapHeader_04_6798::
+	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $03 ; block bank, terrain bank, flags
+	dw $4df0 ; ($c45c)
+	db BANK(BGTiles_84_59f0)
+	dw BGTiles_84_59f0 ; tileset
+	db BANK(LevelMap_e4_4478)
+	dw LevelMap_e4_4478, LevelMap_e4_4b5f, LevelMap_e4_4000 ; block numbers, block attributes, terrain
+	dw LevelMap_e4_4f98, LevelMap_e4_5261, LevelMap_e4_4dd0 ; same, second half
+
+MapHeader_04_67ad::
+	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $03 ; block bank, terrain bank, flags
+	dw $5040 ; ($c45c)
+	db BANK(BGTiles_84_59f0)
+	dw BGTiles_84_59f0 ; tileset
+	db BANK(LevelMap_e4_56e9)
+	dw LevelMap_e4_56e9, LevelMap_e4_6005, LevelMap_e4_534c ; block numbers, block attributes, terrain
+	dw LevelMap_e4_6458, LevelMap_e4_66fe, LevelMap_e4_6382 ; same, second half
+
+MapHeader_04_67c2::
+	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $01 ; block bank, terrain bank, flags
+	dw $5280 ; ($c45c)
+	db BANK(BGTiles_84_59f0)
+	dw BGTiles_84_59f0 ; tileset
+	db BANK(LevelMap_e4_693a)
+	dw LevelMap_e4_693a, LevelMap_e4_6caf, LevelMap_e4_67d1 ; block numbers, block attributes, terrain
+
+MapHeader_04_67d1::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
+	dw $5410 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_e5_42e9)
+	dw LevelMap_e5_42e9, LevelMap_e5_4e13, LevelMap_e5_4000 ; block numbers, block attributes, terrain
+
+MapHeader_04_67e0::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $02 ; block bank, terrain bank, flags
+	dw $55d0 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_e5_53a8)
+	dw LevelMap_e5_53a8, LevelMap_e5_5dd6, LevelMap_e5_519d ; block numbers, block attributes, terrain
+	dw LevelMap_e5_6132, LevelMap_e5_631d, LevelMap_e5_609c ; same, second half
+
+MapHeader_04_67f5::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
+	dw $5800 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_e5_649e)
+	dw LevelMap_e5_649e, LevelMap_e5_6556, LevelMap_e5_6451 ; block numbers, block attributes, terrain
+
+MapHeader_04_6804::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
+	dw $5810 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_eb_467e)
+	dw LevelMap_eb_467e, LevelMap_eb_4744, LevelMap_eb_4633 ; block numbers, block attributes, terrain
+
+MapHeader_04_6813::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
+	dw $5820 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_eb_47f8)
+	dw LevelMap_eb_47f8, LevelMap_eb_486d, LevelMap_eb_47b5 ; block numbers, block attributes, terrain
+
+MapHeader_04_6822::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
+	dw $5830 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_eb_4935)
+	dw LevelMap_eb_4935, LevelMap_eb_49a6, LevelMap_eb_48ea ; block numbers, block attributes, terrain
+
+MapHeader_04_6831::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
+	dw $5840 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_eb_4a5c)
+	dw LevelMap_eb_4a5c, LevelMap_eb_4ae7, LevelMap_eb_4a0d ; block numbers, block attributes, terrain
+
+MapHeader_04_6840::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
+	dw $5850 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_eb_4b9d)
+	dw LevelMap_eb_4b9d, LevelMap_eb_4c28, LevelMap_eb_4b52 ; block numbers, block attributes, terrain
+
+MapHeader_04_684f::
+	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $01 ; block bank, terrain bank, flags
+	dw $5860 ; ($c45c)
+	db BANK(BGTiles_85_4000)
+	dw BGTiles_85_4000 ; tileset
+	db BANK(LevelMap_ec_598e)
+	dw LevelMap_ec_598e, LevelMap_ec_5a94, LevelMap_ec_594e ; block numbers, block attributes, terrain
+
+MapHeader_04_685e::
+	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
+	dw $5870 ; ($c45c)
+	db BANK(BGTiles_85_5fc0)
+	dw BGTiles_85_5fc0 ; tileset
+	db BANK(LevelMap_e5_67a1)
+	dw LevelMap_e5_67a1, LevelMap_e5_6c96, LevelMap_e5_65da ; block numbers, block attributes, terrain
+
+MapHeader_04_686d::
+	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
+	dw $58e0 ; ($c45c)
+	db BANK(BGTiles_85_5fc0)
+	dw BGTiles_85_5fc0 ; tileset
+	db BANK(LevelMap_e5_7046)
+	dw LevelMap_e5_7046, LevelMap_e5_7431, LevelMap_e5_6ef1 ; block numbers, block attributes, terrain
+
+MapHeader_04_687c::
+	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
+	dw $5970 ; ($c45c)
+	db BANK(BGTiles_85_5fc0)
+	dw BGTiles_85_5fc0 ; tileset
+	db BANK(LevelMap_e5_76f2)
+	dw LevelMap_e5_76f2, LevelMap_e5_775d, LevelMap_e5_7691 ; block numbers, block attributes, terrain
+
+MapHeader_04_688b::
+	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
+	dw $5980 ; ($c45c)
+	db BANK(BGTiles_85_5fc0)
+	dw BGTiles_85_5fc0 ; tileset
+	db BANK(LevelMap_eb_5e16)
+	dw LevelMap_eb_5e16, LevelMap_eb_5e7c, LevelMap_eb_5db5 ; block numbers, block attributes, terrain
+
+MapHeader_04_689a::
+	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
+	dw $5990 ; ($c45c)
+	db BANK(BGTiles_85_5fc0)
+	dw BGTiles_85_5fc0 ; tileset
+	db BANK(LevelMap_eb_5f32)
+	dw LevelMap_eb_5f32, LevelMap_eb_5ff0, LevelMap_eb_5ec5 ; block numbers, block attributes, terrain
+
+MapHeader_04_68a9::
+	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
+	dw $59a0 ; ($c45c)
+	db BANK(BGTiles_85_5fc0)
+	dw BGTiles_85_5fc0 ; tileset
+	db BANK(LevelMap_eb_60e5)
+	dw LevelMap_eb_60e5, LevelMap_eb_6182, LevelMap_eb_6068 ; block numbers, block attributes, terrain
+
+MapHeader_04_68b8::
+	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $02 ; block bank, terrain bank, flags
+	dw $59b0 ; ($c45c)
+	db BANK(BGTiles_86_5460)
+	dw BGTiles_86_5460 ; tileset
+	db BANK(LevelMap_e6_41af)
+	dw LevelMap_e6_41af, LevelMap_e6_47e1, LevelMap_e6_4000 ; block numbers, block attributes, terrain
+	dw LevelMap_e6_4b5c, LevelMap_e6_4df0, LevelMap_e6_4aba ; same, second half
+
+MapHeader_04_68cd::
+	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
+	dw $5aa0 ; ($c45c)
+	db BANK(BGTiles_86_5460)
+	dw BGTiles_86_5460 ; tileset
+	db BANK(LevelMap_e6_5173)
+	dw LevelMap_e6_5173, LevelMap_e6_5956, LevelMap_e6_4f3c ; block numbers, block attributes, terrain
+
+MapHeader_04_68dc::
+	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
+	dw $5c00 ; ($c45c)
+	db BANK(BGTiles_86_5460)
+	dw BGTiles_86_5460 ; tileset
+	db BANK(LevelMap_e6_5eb6)
+	dw LevelMap_e6_5eb6, LevelMap_e6_5f49, LevelMap_e6_5e73 ; block numbers, block attributes, terrain
+
+MapHeader_04_68eb::
+	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
+	dw $5c10 ; ($c45c)
+	db BANK(BGTiles_86_5460)
+	dw BGTiles_86_5460 ; tileset
+	db BANK(LevelMap_eb_623a)
+	dw LevelMap_eb_623a, LevelMap_eb_62dd, LevelMap_eb_61e6 ; block numbers, block attributes, terrain
+
+MapHeader_04_68fa::
+	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
+	dw $5c20 ; ($c45c)
+	db BANK(BGTiles_86_5460)
+	dw BGTiles_86_5460 ; tileset
+	db BANK(LevelMap_eb_63a7)
+	dw LevelMap_eb_63a7, LevelMap_eb_6439, LevelMap_eb_6358 ; block numbers, block attributes, terrain
+
+MapHeader_04_6909::
+	db BANK(LevelBlocks_b4), BANK(LevelTerrain_b6), $02 ; block bank, terrain bank, flags
+	dw $5c30 ; ($c45c)
+	db BANK(BGTiles_87_4000)
+	dw BGTiles_87_4000 ; tileset
+	db BANK(LevelMap_e6_61df)
+	dw LevelMap_e6_61df, LevelMap_e6_69f5, LevelMap_e6_5fd3 ; block numbers, block attributes, terrain
+	dw LevelMap_e6_6eb1, LevelMap_e6_7375, LevelMap_e6_6d90 ; same, second half
+
+MapHeader_04_691e::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $5dd0 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_e6_77f4)
+	dw LevelMap_e6_77f4, LevelMap_e6_7c89, LevelMap_e6_75e1 ; block numbers, block attributes, terrain
+
+MapHeader_04_692d::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $02 ; block bank, terrain bank, flags
+	dw $5f30 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_e7_43a9)
+	dw LevelMap_e7_43a9, LevelMap_e7_4ce5, LevelMap_e7_4000 ; block numbers, block attributes, terrain
+	dw LevelMap_e7_51eb, LevelMap_e7_527d, LevelMap_e7_5193 ; same, second half
+
+MapHeader_04_6942::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6020 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_e7_5458)
+	dw LevelMap_e7_5458, LevelMap_e7_5902, LevelMap_e7_52f1 ; block numbers, block attributes, terrain
+
+MapHeader_04_6951::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $02 ; block bank, terrain bank, flags
+	dw $60e0 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_e7_5e3a)
+	dw LevelMap_e7_5e3a, LevelMap_e7_6590, LevelMap_e7_5b8f ; block numbers, block attributes, terrain
+	dw LevelMap_e7_6997, LevelMap_e7_6a61, LevelMap_e7_6943 ; same, second half
+
+MapHeader_04_6966::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $02 ; block bank, terrain bank, flags
+	dw $6220 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_e8_43bf)
+	dw LevelMap_e8_43bf, LevelMap_e8_4e25, LevelMap_e8_4000 ; block numbers, block attributes, terrain
+	dw LevelMap_e8_54ba, LevelMap_e8_5747, LevelMap_e8_5375 ; same, second half
+
+MapHeader_04_697b::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6470 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_e8_5ba0)
+	dw LevelMap_e8_5ba0, LevelMap_e8_639c, LevelMap_e8_58e1 ; block numbers, block attributes, terrain
+
+MapHeader_04_698a::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $65e0 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_e8_67e1)
+	dw LevelMap_e8_67e1, LevelMap_e8_6890, LevelMap_e8_677a ; block numbers, block attributes, terrain
+
+MapHeader_04_6999::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $65f0 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_653c)
+	dw LevelMap_eb_653c, LevelMap_eb_65fb, LevelMap_eb_64bb ; block numbers, block attributes, terrain
+
+MapHeader_04_69a8::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6600 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_66d6)
+	dw LevelMap_eb_66d6, LevelMap_eb_67a1, LevelMap_eb_667f ; block numbers, block attributes, terrain
+
+MapHeader_04_69b7::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6610 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_6896)
+	dw LevelMap_eb_6896, LevelMap_eb_693a, LevelMap_eb_6834 ; block numbers, block attributes, terrain
+
+MapHeader_04_69c6::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6620 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_6a21)
+	dw LevelMap_eb_6a21, LevelMap_eb_6acd, LevelMap_eb_69c0 ; block numbers, block attributes, terrain
+
+MapHeader_04_69d5::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6630 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_6ba2)
+	dw LevelMap_eb_6ba2, LevelMap_eb_6c27, LevelMap_eb_6b5f ; block numbers, block attributes, terrain
+
+MapHeader_04_69e4::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6640 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_6cf3)
+	dw LevelMap_eb_6cf3, LevelMap_eb_6d66, LevelMap_eb_6caa ; block numbers, block attributes, terrain
+
+MapHeader_04_69f3::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6650 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_6dfb)
+	dw LevelMap_eb_6dfb, LevelMap_eb_6e7a, LevelMap_eb_6db8 ; block numbers, block attributes, terrain
+
+MapHeader_04_6a02::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6660 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_6f3c)
+	dw LevelMap_eb_6f3c, LevelMap_eb_6fbb, LevelMap_eb_6ef3 ; block numbers, block attributes, terrain
+
+MapHeader_04_6a11::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6670 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_707c)
+	dw LevelMap_eb_707c, LevelMap_eb_70ef, LevelMap_eb_7019 ; block numbers, block attributes, terrain
+
+MapHeader_04_6a20::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6680 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_71a2)
+	dw LevelMap_eb_71a2, LevelMap_eb_7253, LevelMap_eb_7141 ; block numbers, block attributes, terrain
+
+MapHeader_04_6a2f::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $6690 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_7347)
+	dw LevelMap_eb_7347, LevelMap_eb_73ba, LevelMap_eb_72e6 ; block numbers, block attributes, terrain
+
+MapHeader_04_6a3e::
+	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
+	dw $66a0 ; ($c45c)
+	db BANK(BGTiles_87_5f70)
+	dw BGTiles_87_5f70 ; tileset
+	db BANK(LevelMap_eb_746d)
+	dw LevelMap_eb_746d, LevelMap_eb_751d, LevelMap_eb_740c ; block numbers, block attributes, terrain
+
+MapHeader_04_6a4d::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $02 ; block bank, terrain bank, flags
+	dw $66b0 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_e9_40b1)
+	dw LevelMap_e9_40b1, LevelMap_e9_4838, LevelMap_e9_4000 ; block numbers, block attributes, terrain
+	dw LevelMap_e9_4bae, LevelMap_e9_4fe0, LevelMap_e9_4b1d ; same, second half
+
+MapHeader_04_6a62::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $02 ; block bank, terrain bank, flags
+	dw $68f0 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_e9_5332)
+	dw LevelMap_e9_5332, LevelMap_e9_5bf8, LevelMap_e9_51da ; block numbers, block attributes, terrain
+	dw LevelMap_e9_610c, LevelMap_e9_62a0, LevelMap_e9_609d ; same, second half
+
+MapHeader_04_6a77::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $02 ; block bank, terrain bank, flags
+	dw $6960 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_e9_6490)
+	dw LevelMap_e9_6490, LevelMap_e9_6dac, LevelMap_e9_63b7 ; block numbers, block attributes, terrain
+	dw LevelMap_e9_715a, LevelMap_e9_7337, LevelMap_e9_70f2 ; same, second half
+
+MapHeader_04_6a8c::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
+	dw $6b20 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_e9_74ca)
+	dw LevelMap_e9_74ca, LevelMap_e9_7533, LevelMap_e9_747a ; block numbers, block attributes, terrain
+
+MapHeader_04_6a9b::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
+	dw $6b30 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_e9_7717)
+	dw LevelMap_e9_7717, LevelMap_e9_7b4b, LevelMap_e9_7592 ; block numbers, block attributes, terrain
+
+MapHeader_04_6aaa::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
+	dw $6c50 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_eb_7604)
+	dw LevelMap_eb_7604, LevelMap_eb_76a6, LevelMap_eb_75af ; block numbers, block attributes, terrain
+
+MapHeader_04_6ab9::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
+	dw $6c60 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_eb_7790)
+	dw LevelMap_eb_7790, LevelMap_eb_7810, LevelMap_eb_773b ; block numbers, block attributes, terrain
+
+MapHeader_04_6ac8::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
+	dw $6c70 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_eb_78d6)
+	dw LevelMap_eb_78d6, LevelMap_eb_7946, LevelMap_eb_7888 ; block numbers, block attributes, terrain
+
+MapHeader_04_6ad7::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
+	dw $6c80 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_ec_404e)
+	dw LevelMap_ec_404e, LevelMap_ec_40bb, LevelMap_ec_4000 ; block numbers, block attributes, terrain
+
+MapHeader_04_6ae6::
+	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
+	dw $6c90 ; ($c45c)
+	db BANK(BGTiles_88_4000)
+	dw BGTiles_88_4000 ; tileset
+	db BANK(LevelMap_ec_4180)
+	dw LevelMap_ec_4180, LevelMap_ec_41ed, LevelMap_ec_411c ; block numbers, block attributes, terrain
+
+MapHeader_04_6af5::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
+	dw $6ca0 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ea_41ca)
+	dw LevelMap_ea_41ca, LevelMap_ea_47d6, LevelMap_ea_4000 ; block numbers, block attributes, terrain
+
+MapHeader_04_6b04::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $02 ; block bank, terrain bank, flags
+	dw $6d60 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ea_4c42)
+	dw LevelMap_ea_4c42, LevelMap_ea_5528, LevelMap_ea_4a27 ; block numbers, block attributes, terrain
+	dw LevelMap_ea_59ab, LevelMap_ea_5b9e, LevelMap_ea_592d ; same, second half
+
+MapHeader_04_6b19::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $02 ; block bank, terrain bank, flags
+	dw $6f70 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ea_5f17)
+	dw LevelMap_ea_5f17, LevelMap_ea_6775, LevelMap_ea_5c95 ; block numbers, block attributes, terrain
+	dw LevelMap_ea_6cb6, LevelMap_ea_6e87, LevelMap_ea_6bd6 ; same, second half
+
+MapHeader_04_6b2e::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
+	dw $70c0 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ea_7021)
+	dw LevelMap_ea_7021, LevelMap_ea_7125, LevelMap_ea_6fb8 ; block numbers, block attributes, terrain
+
+MapHeader_04_6b3d::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
+	dw $70d0 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ec_4297)
+	dw LevelMap_ec_4297, LevelMap_ec_4304, LevelMap_ec_424e ; block numbers, block attributes, terrain
+
+MapHeader_04_6b4c::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
+	dw $70e0 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ec_43ba)
+	dw LevelMap_ec_43ba, LevelMap_ec_449f, LevelMap_ec_4359 ; block numbers, block attributes, terrain
+
+MapHeader_04_6b5b::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
+	dw $70f0 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ec_45a4)
+	dw LevelMap_ec_45a4, LevelMap_ec_464b, LevelMap_ec_454b ; block numbers, block attributes, terrain
+
+MapHeader_04_6b6a::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
+	dw $7100 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ec_4726)
+	dw LevelMap_ec_4726, LevelMap_ec_47a5, LevelMap_ec_46e3 ; block numbers, block attributes, terrain
+
+MapHeader_04_6b79::
+	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
+	dw $7110 ; ($c45c)
+	db BANK(BGTiles_89_4000)
+	dw BGTiles_89_4000 ; tileset
+	db BANK(LevelMap_ec_48a4)
+	dw LevelMap_ec_48a4, LevelMap_ec_4a01, LevelMap_ec_4824 ; block numbers, block attributes, terrain
+
+MapHeader_04_6b88::
+	db BANK(LevelBlocks_c6), BANK(LevelTerrain_c8), $00 ; block bank, terrain bank, flags
+	dw $7170 ; ($c45c)
+	db BANK(BGTiles_88_5b00)
+	dw BGTiles_88_5b00 ; tileset
+	db BANK(LevelMap_ea_7306)
+	dw LevelMap_ea_7306, LevelMap_ea_751d, LevelMap_ea_71e4 ; block numbers, block attributes, terrain
+
+MapHeader_04_6b97::
+	db BANK(LevelBlocks_c6), BANK(LevelTerrain_c8), $00 ; block bank, terrain bank, flags
+	dw $7180 ; ($c45c)
+	db BANK(BGTiles_88_5b00)
+	dw BGTiles_88_5b00 ; tileset
+	db BANK(LevelMap_ea_75bf)
+	dw LevelMap_ea_75bf, LevelMap_ea_7625, LevelMap_ea_7562 ; block numbers, block attributes, terrain
+
+MapHeader_04_6ba6::
+	db BANK(LevelBlocks_c6), BANK(LevelTerrain_c8), $00 ; block bank, terrain bank, flags
+	dw $7190 ; ($c45c)
+	db BANK(BGTiles_88_5b00)
+	dw BGTiles_88_5b00 ; tileset
+	db BANK(LevelMap_ea_76cf)
+	dw LevelMap_ea_76cf, LevelMap_ea_7735, LevelMap_ea_7672 ; block numbers, block attributes, terrain
+
+MapHeader_04_6bb5::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $7220 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_eb_5032)
+	dw LevelMap_eb_5032, LevelMap_eb_525a, LevelMap_eb_4ed6 ; block numbers, block attributes, terrain
+
+MapHeader_04_6bc4::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $72f0 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_ec_4b33)
+	dw LevelMap_ec_4b33, LevelMap_ec_4b8f, LevelMap_ec_4aec ; block numbers, block attributes, terrain
+
+MapHeader_04_6bd3::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $7300 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_ec_4c32)
+	dw LevelMap_ec_4c32, LevelMap_ec_4c9d, LevelMap_ec_4bd9 ; block numbers, block attributes, terrain
+
+MapHeader_04_6be2::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $7310 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_ec_4d40)
+	dw LevelMap_ec_4d40, LevelMap_ec_4dab, LevelMap_ec_4ce7 ; block numbers, block attributes, terrain
+
+MapHeader_04_6bf1::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $7320 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_ec_4e48)
+	dw LevelMap_ec_4e48, LevelMap_ec_4eb8, LevelMap_ec_4dee ; block numbers, block attributes, terrain
+
+MapHeader_04_6c00::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $7330 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_ec_4f62)
+	dw LevelMap_ec_4f62, LevelMap_ec_4fd5, LevelMap_ec_4f03 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c0f::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $7340 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_ec_5083)
+	dw LevelMap_ec_5083, LevelMap_ec_50f6, LevelMap_ec_5024 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c1e::
+	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
+	dw $7350 ; ($c45c)
+	db BANK(BGTiles_8a_4000)
+	dw BGTiles_8a_4000 ; tileset
+	db BANK(LevelMap_ec_51a4)
+	dw LevelMap_ec_51a4, LevelMap_ec_5217, LevelMap_ec_5145 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c2d::
+	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
+	dw $71a0 ; ($c45c)
+	db BANK(BGTiles_89_5e10)
+	dw BGTiles_89_5e10 ; tileset
+	db BANK(LevelMap_eb_414e)
+	dw LevelMap_eb_414e, LevelMap_eb_430d, LevelMap_eb_4000 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c3c::
+	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
+	dw $71f0 ; ($c45c)
+	db BANK(BGTiles_89_5e10)
+	dw BGTiles_89_5e10 ; tileset
+	db BANK(LevelMap_eb_439b)
+	dw LevelMap_eb_439b, LevelMap_eb_4406, LevelMap_eb_4354 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c4b::
+	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
+	dw $7200 ; ($c45c)
+	db BANK(BGTiles_89_5e10)
+	dw BGTiles_89_5e10 ; tileset
+	db BANK(LevelMap_eb_4490)
+	dw LevelMap_eb_4490, LevelMap_eb_44fb, LevelMap_eb_4449 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c5a::
+	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
+	dw $7210 ; ($c45c)
+	db BANK(BGTiles_89_5e10)
+	dw BGTiles_89_5e10 ; tileset
+	db BANK(LevelMap_eb_4585)
+	dw LevelMap_eb_4585, LevelMap_eb_45f0, LevelMap_eb_453e ; block numbers, block attributes, terrain
+
+MapHeader_04_6c69::
+	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
+	dw $7380 ; ($c45c)
+	db BANK(BGTiles_89_5e10)
+	dw BGTiles_89_5e10 ; tileset
+	db BANK(LevelMap_ec_52b2)
+	dw LevelMap_ec_52b2, LevelMap_ec_5317, LevelMap_ec_5266 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c78::
+	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
+	dw $7390 ; ($c45c)
+	db BANK(BGTiles_89_5e10)
+	dw BGTiles_89_5e10 ; tileset
+	db BANK(LevelMap_ec_53b0)
+	dw LevelMap_ec_53b0, LevelMap_ec_5415, LevelMap_ec_5364 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c87::
+	db BANK(LevelBlocks_ae), BANK(LevelTerrain_b0), $00 ; block bank, terrain bank, flags
+	dw $73a0 ; ($c45c)
+	db BANK(BGTiles_86_4000)
+	dw BGTiles_86_4000 ; tileset
+	db BANK(LevelMap_e5_77ef)
+	dw LevelMap_e5_77ef, LevelMap_e5_7850, LevelMap_e5_77a0 ; block numbers, block attributes, terrain
+
+MapHeader_04_6c96::
+	db BANK(LevelBlocks_a2), BANK(LevelTerrain_a4), $00 ; block bank, terrain bank, flags
+	dw $73b0 ; ($c45c)
+	db BANK(BGTiles_84_4000)
+	dw BGTiles_84_4000 ; tileset
+	db BANK(LevelMap_e3_4f9b)
+	dw LevelMap_e3_4f9b, LevelMap_e3_501f, LevelMap_e3_4f54 ; block numbers, block attributes, terrain
+
+MapHeader_04_6ca5::
+	db BANK(LevelBlocks_ba), BANK(LevelTerrain_bc), $00 ; block bank, terrain bank, flags
+	dw $73c0 ; ($c45c)
+	db BANK(BGTiles_8a_5ff0)
+	dw BGTiles_8a_5ff0 ; tileset
+	db BANK(LevelMap_ec_564f)
+	dw LevelMap_ec_564f, LevelMap_ec_56b0, LevelMap_ec_5608 ; block numbers, block attributes, terrain
+	INCBIN "baserom.gbc", $012cb4, $134c ; $6cb4
 

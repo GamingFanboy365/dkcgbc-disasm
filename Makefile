@@ -37,13 +37,19 @@ $(ROM): $(OBJS)
 %.o: %.asm $(INCS) $(BASEROM)
 	$(RGBASM) -o $@ $<
 
-# Sprite frames: gfx/frames/BB/AAAA.png holds the tiles at BB:AAAA as 8x16
-# sprites side by side (see tools/gfx.py). Missing PNGs are extracted from
-# the base ROM; existing ones are never overwritten.
-%.2bpp: %.png
+# Graphics: gfx/frames/BB/AAAA.png holds a sprite frame's tiles as 8x16
+# sprites side by side; gfx/bgtiles/BB/AAAA.png holds BG tiles 16 to a row
+# (see tools/gfx.py). Missing PNGs are extracted from the base ROM (the
+# stamp file covers both); existing ones are never overwritten.
+gfx/frames/%.2bpp: gfx/frames/%.png
 	$(RGBGFX) -c dmg -Z -o $@ $<
 
+# BG tiles (level tilesets, full screens): plain 8x8 tiles, row by row
+gfx/bgtiles/%.2bpp: gfx/bgtiles/%.png
+	$(RGBGFX) -c dmg -o $@ $<
+
 gfx/frames/%.png: | gfx/frames/.extracted ;
+gfx/bgtiles/%.png: | gfx/frames/.extracted ;
 
 gfx/frames/.extracted: | $(BASEROM)
 	$(PYTHON) tools/gfx.py extract $(BASEROM)

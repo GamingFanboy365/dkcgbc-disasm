@@ -2,28 +2,386 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $f6", ROMX[$4000], BANK[$f6]
-	INCBIN "baserom.gbc", $3d8000, $14e0 ; $4000
 
+FESprites_f6_4000::
+	INCBIN "gfx/frames/f6/4000.2bpp"
+
+FESprites_f6_4220::
+	INCBIN "gfx/frames/f6/4220.2bpp"
+
+FESprites_f6_4260::
+	INCBIN "gfx/frames/f6/4260.2bpp"
+
+FESprites_f6_42a0::
+	INCBIN "gfx/frames/f6/42a0.2bpp"
+
+FESprites_f6_42e0::
+	INCBIN "gfx/frames/f6/42e0.2bpp"
+
+FESprites_f6_4320::
+	INCBIN "gfx/frames/f6/4320.2bpp"
+
+FESprites_f6_4360::
+	INCBIN "gfx/frames/f6/4360.2bpp"
+
+FESprites_f6_43a0::
+	INCBIN "gfx/frames/f6/43a0.2bpp"
+
+FESprites_f6_43e0::
+	INCBIN "gfx/frames/f6/43e0.2bpp"
+
+FESprites_f6_4420::
+	INCBIN "gfx/frames/f6/4420.2bpp"
+
+FESprites_f6_4460::
+	INCBIN "gfx/frames/f6/4460.2bpp"
+
+FESprites_f6_44a0::
+	INCBIN "gfx/frames/f6/44a0.2bpp"
+
+FESprites_f6_44e0::
+	INCBIN "gfx/frames/f6/44e0.2bpp"
+
+FESprites_f6_4520::
+	INCBIN "gfx/frames/f6/4520.2bpp"
+
+FESprites_f6_4560::
+	INCBIN "gfx/frames/f6/4560.2bpp"
+
+FESprites_f6_45a0::
+	INCBIN "gfx/frames/f6/45a0.2bpp"
+
+FESprites_f6_45e0::
+	INCBIN "gfx/frames/f6/45e0.2bpp"
+
+FESprites_f6_4620::
+	INCBIN "gfx/frames/f6/4620.2bpp"
+
+FESprites_f6_4660::
+	INCBIN "gfx/frames/f6/4660.2bpp"
+
+FESprites_f6_46a0::
+	INCBIN "gfx/frames/f6/46a0.2bpp"
+
+FESprites_f6_46e0::
+	INCBIN "gfx/frames/f6/46e0.2bpp"
+
+FESprites_f6_4720::
+	INCBIN "gfx/frames/f6/4720.2bpp"
+
+FESprites_f6_4760::
+	INCBIN "gfx/frames/f6/4760.2bpp"
+
+FESprites_f6_47a0::
+	INCBIN "gfx/frames/f6/47a0.2bpp"
+
+FESprites_f6_47e0::
+	INCBIN "gfx/frames/f6/47e0.2bpp"
+
+FESprites_f6_4820::
+	INCBIN "gfx/frames/f6/4820.2bpp"
+
+FESprites_f6_4860::
+	INCBIN "gfx/frames/f6/4860.2bpp"
+
+FESprites_f6_48a0::
+	INCBIN "gfx/frames/f6/48a0.2bpp"
+
+FESprites_f6_48e0::
+	INCBIN "gfx/frames/f6/48e0.2bpp"
+
+FESprites_f6_4920::
+	INCBIN "gfx/frames/f6/4920.2bpp"
+
+FESprites_f6_4960::
+	INCBIN "gfx/frames/f6/4960.2bpp"
+
+FESprites_f6_49a0::
+	INCBIN "gfx/frames/f6/49a0.2bpp"
+
+FESprites_f6_49e0::
+	INCBIN "gfx/frames/f6/49e0.2bpp"
+
+FESprites_f6_4a20::
+	INCBIN "gfx/frames/f6/4a20.2bpp"
+
+FESprites_f6_4a60::
+	INCBIN "gfx/frames/f6/4a60.2bpp"
+
+FESprites_f6_4aa0::
+	INCBIN "gfx/frames/f6/4aa0.2bpp"
+
+FESprites_f6_4ae0::
+	INCBIN "gfx/frames/f6/4ae0.2bpp"
+
+FESprites_f6_4b20::
+	INCBIN "gfx/frames/f6/4b20.2bpp"
+
+FESprites_f6_4b60::
+	INCBIN "gfx/frames/f6/4b60.2bpp"
+
+FESprites_f6_4ba0::
+	INCBIN "gfx/frames/f6/4ba0.2bpp"
+
+FESprites_f6_4be0::
+	INCBIN "gfx/frames/f6/4be0.2bpp"
+
+FESprites_f6_4c20::
+	INCBIN "gfx/frames/f6/4c20.2bpp"
+
+FESprites_f6_4c60::
+	INCBIN "gfx/frames/f6/4c60.2bpp"
+
+FESprites_f6_4ca0::
+	INCBIN "gfx/frames/f6/4ca0.2bpp"
+
+FESprites_f6_4ce0::
+	INCBIN "gfx/frames/f6/4ce0.2bpp"
+
+FESprites_f6_4d20::
+	INCBIN "gfx/frames/f6/4d20.2bpp"
+
+FESprites_f6_4d60::
+	INCBIN "gfx/frames/f6/4d60.2bpp"
+
+FESprites_f6_4da0::
+	INCBIN "gfx/frames/f6/4da0.2bpp"
+
+FESprites_f6_4de0::
+	INCBIN "gfx/frames/f6/4de0.2bpp"
+
+FESprites_f6_4e20::
+	INCBIN "gfx/frames/f6/4e20.2bpp"
+
+FESprites_f6_4e60::
+	INCBIN "gfx/frames/f6/4e60.2bpp"
+
+FESprites_f6_4ea0::
+	INCBIN "gfx/frames/f6/4ea0.2bpp"
+
+FESprites_f6_4ee0::
+	INCBIN "gfx/frames/f6/4ee0.2bpp"
+
+FESprites_f6_4f20::
+	INCBIN "gfx/frames/f6/4f20.2bpp"
+
+FESprites_f6_4f60::
+	INCBIN "gfx/frames/f6/4f60.2bpp"
+
+FESprites_f6_4fa0::
+	INCBIN "gfx/frames/f6/4fa0.2bpp"
+
+FESprites_f6_4fe0::
+	INCBIN "gfx/frames/f6/4fe0.2bpp"
+
+FESprites_f6_5020::
+	INCBIN "gfx/frames/f6/5020.2bpp"
+
+FESprites_f6_5060::
+	INCBIN "gfx/frames/f6/5060.2bpp"
+
+FESprites_f6_50a0::
+	INCBIN "gfx/frames/f6/50a0.2bpp"
+
+FESprites_f6_50e0::
+	INCBIN "gfx/frames/f6/50e0.2bpp"
+
+FESprites_f6_5120::
+	INCBIN "gfx/frames/f6/5120.2bpp"
+
+FESprites_f6_5160::
+	INCBIN "gfx/frames/f6/5160.2bpp"
+
+FESprites_f6_51a0::
+	INCBIN "gfx/frames/f6/51a0.2bpp"
+
+FESprites_f6_51e0::
+	INCBIN "gfx/frames/f6/51e0.2bpp"
+
+FESprites_f6_5220::
+	INCBIN "gfx/frames/f6/5220.2bpp"
+
+FESprites_f6_5260::
+	INCBIN "gfx/frames/f6/5260.2bpp"
+
+FESprites_f6_52a0::
+	INCBIN "gfx/frames/f6/52a0.2bpp"
+
+FESprites_f6_52e0::
+	INCBIN "gfx/frames/f6/52e0.2bpp"
+
+FESprites_f6_5320::
+	INCBIN "gfx/frames/f6/5320.2bpp"
+
+FESprites_f6_5360::
+	INCBIN "gfx/frames/f6/5360.2bpp"
+
+FESprites_f6_5380::
+	INCBIN "gfx/frames/f6/5380.2bpp"
+
+FESprites_f6_53a0::
+	INCBIN "gfx/frames/f6/53a0.2bpp"
+
+FESprites_f6_53c0::
+	INCBIN "gfx/frames/f6/53c0.2bpp"
+
+FESprites_f6_53e0::
+	INCBIN "gfx/frames/f6/53e0.2bpp"
+
+FESprites_f6_5400::
+	INCBIN "gfx/frames/f6/5400.2bpp"
+
+FESprites_f6_5420::
+	INCBIN "gfx/frames/f6/5420.2bpp"
+
+FESprites_f6_5440::
+	INCBIN "gfx/frames/f6/5440.2bpp"
+
+FESprites_f6_5460::
+	INCBIN "gfx/frames/f6/5460.2bpp"
+
+FESprites_f6_5480::
+	INCBIN "gfx/frames/f6/5480.2bpp"
+
+FESprites_f6_54a0::
+	INCBIN "gfx/frames/f6/54a0.2bpp"
+
+FESprites_f6_54c0::
+	INCBIN "gfx/frames/f6/54c0.2bpp"
 
 FunkyBomberTitle::
-	INCBIN "baserom.gbc", $3d94e0, $0140
+	INCBIN "gfx/frames/f6/54e0.2bpp"
 
 CandyKlashTitle::
-	INCBIN "baserom.gbc", $3d9620, $0140
+	INCBIN "gfx/frames/f6/5620.2bpp"
 
 CandyKlashTitle_French::
-	INCBIN "baserom.gbc", $3d9760, $0140
+	INCBIN "gfx/frames/f6/5760.2bpp"
 
 FunkyBomberTitle_French::
-	INCBIN "baserom.gbc", $3d98a0, $0140
+	INCBIN "gfx/frames/f6/58a0.2bpp"
 
 CandyKlashTitle_German::
-	INCBIN "baserom.gbc", $3d99e0, $0140
+	INCBIN "gfx/frames/f6/59e0.2bpp"
 
 CandyKlashTitle_Italian::
-	INCBIN "baserom.gbc", $3d9b20, $01e0
+	INCBIN "gfx/frames/f6/5b20.2bpp"
 
 ComingSoonQ3::
-	INCBIN "baserom.gbc", $3d9d00, $0500
-	INCBIN "baserom.gbc", $3da200, $1e00 ; $6200
+	INCBIN "gfx/frames/f6/5d00.2bpp"
+
+FESprites_f6_6200::
+	INCBIN "gfx/frames/f6/6200.2bpp"
+
+FESprites_f6_6300::
+	INCBIN "gfx/frames/f6/6300.2bpp"
+
+FESprites_f6_6400::
+	INCBIN "gfx/frames/f6/6400.2bpp"
+
+FESprites_f6_6500::
+	INCBIN "gfx/frames/f6/6500.2bpp"
+
+FESprites_f6_6600::
+	INCBIN "gfx/frames/f6/6600.2bpp"
+
+FESprites_f6_66c0::
+	INCBIN "gfx/frames/f6/66c0.2bpp"
+
+FESprites_f6_67c0::
+	INCBIN "gfx/frames/f6/67c0.2bpp"
+
+FESprites_f6_68c0::
+	INCBIN "gfx/frames/f6/68c0.2bpp"
+
+FESprites_f6_69c0::
+	INCBIN "gfx/frames/f6/69c0.2bpp"
+
+FESprites_f6_6ac0::
+	INCBIN "gfx/frames/f6/6ac0.2bpp"
+
+FESprites_f6_6bc0::
+	INCBIN "gfx/frames/f6/6bc0.2bpp"
+
+FESprites_f6_6cc0::
+	INCBIN "gfx/frames/f6/6cc0.2bpp"
+
+FESprites_f6_6d00::
+	INCBIN "gfx/frames/f6/6d00.2bpp"
+
+FESprites_f6_6d80::
+	INCBIN "gfx/frames/f6/6d80.2bpp"
+
+FESprites_f6_6e00::
+	INCBIN "gfx/frames/f6/6e00.2bpp"
+
+FESprites_f6_6e80::
+	INCBIN "gfx/frames/f6/6e80.2bpp"
+
+FESprites_f6_6f00::
+	INCBIN "gfx/frames/f6/6f00.2bpp"
+
+FESprites_f6_7040::
+	INCBIN "gfx/frames/f6/7040.2bpp"
+
+FESprites_f6_7100::
+	INCBIN "gfx/frames/f6/7100.2bpp"
+
+FESprites_f6_7180::
+	INCBIN "gfx/frames/f6/7180.2bpp"
+
+FESprites_f6_71c0::
+	INCBIN "gfx/frames/f6/71c0.2bpp"
+
+FESprites_f6_7200::
+	INCBIN "gfx/frames/f6/7200.2bpp"
+
+FESprites_f6_7280::
+	INCBIN "gfx/frames/f6/7280.2bpp"
+
+FESprites_f6_7340::
+	INCBIN "gfx/frames/f6/7340.2bpp"
+
+FESprites_f6_7480::
+	INCBIN "gfx/frames/f6/7480.2bpp"
+
+FESprites_f6_75a0::
+	INCBIN "gfx/frames/f6/75a0.2bpp"
+
+FESprites_f6_76c0::
+	INCBIN "gfx/frames/f6/76c0.2bpp"
+
+FESprites_f6_77e0::
+	INCBIN "gfx/frames/f6/77e0.2bpp"
+
+FESprites_f6_7980::
+	INCBIN "gfx/frames/f6/7980.2bpp"
+
+FESprites_f6_7b20::
+	INCBIN "gfx/frames/f6/7b20.2bpp"
+
+FESprites_f6_7c60::
+	INCBIN "gfx/frames/f6/7c60.2bpp"
+
+FESprites_f6_7dc0::
+	INCBIN "gfx/frames/f6/7dc0.2bpp"
+
+FESprites_f6_7e00::
+	INCBIN "gfx/frames/f6/7e00.2bpp"
+
+FESprites_f6_7e60::
+	INCBIN "gfx/frames/f6/7e60.2bpp"
+
+FESprites_f6_7ec0::
+	INCBIN "gfx/frames/f6/7ec0.2bpp"
+
+FESprites_f6_7f20::
+	INCBIN "gfx/frames/f6/7f20.2bpp"
+
+FESprites_f6_7f60::
+	INCBIN "gfx/frames/f6/7f60.2bpp"
+
+FESprites_f6_7fa0::
+	INCBIN "gfx/frames/f6/7fa0.2bpp"
+	ds 32, $00 ; $7fe0
 

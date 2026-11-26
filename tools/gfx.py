@@ -251,6 +251,17 @@ def extract(rom, force=False):
         w, rows = tiles_to_rows(rom[o:o + n * 16])
         write_png(path, w, 16, rows)
         written += 1
+    # front-end sprites (tools/feanim.py), stored like frames: 8x16 sprites side by side
+    from feanim import decode as fe_decode
+    for (gb, a), ln in fe_decode(rom)["tiles"].items():
+        path = os.path.join(ROOT, frame_png_path(gb, a))
+        if os.path.exists(path) and not force:
+            kept += 1
+            continue
+        o = off(gb, a)
+        w, rows = tiles_to_rows(rom[o:o + ln])
+        write_png(path, w, 16, rows)
+        written += 1
     print("frame PNGs: %d written, %d already present" % (written, kept))
     # BG tiles (level tilesets and full screens), 16 tiles per row
     from backgrounds import bg_tile_pieces

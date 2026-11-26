@@ -139,6 +139,8 @@ The two games also have large title words drawn as sprites, in the outlined styl
 
 Each language's entry gives the sprite count, the tiles and a layout in bank `$F0` (`SpriteLayout_f0_…`): steps of (dx, dy) from sprite to sprite for the words, and absolute positions for "COMING SOON Q3". Nothing starts these three animations. Every call of `Func_f0_4fa8` with a constant number uses others, and the two that pass a number from a list (`$F1:5C89` for the Hi-Score screen, `$FE:6909` for Crosshair Cranky) don't use 2, 3 or 7. None of these tiles was read in any emulator session either. The animations get their palette from the caller (`[$ff82]`), so their colours are unknown: any coloured picture of them is a guess, and the gray tiles are the real data.
 
+The rest of the table is all in use as far as the data goes, with one small leftover: the 2-sprite layout at `$F0:5C7E` is followed by four more layout steps (`SpriteLayoutUnused_f0_5c82`) that no record uses, as if it once described a 6-sprite picture.
+
 "Q3" reads like a release quarter. Next to the two cut games' titles, the screen looks like a placeholder for Bonus entries that weren't finished yet, perhaps for a preview or demo build. (The "coming soon" graphic was noted before on The Cutting Room Floor.)
 
 ### Crosshair Cranky: Baddy Generator and Galleon Gunner

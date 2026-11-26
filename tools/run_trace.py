@@ -309,33 +309,45 @@ def parse_banks(t, rom):
     t._claim(0x0D, 0x5F00, 88, "rows", hexrow("db", rom[off(0x0D, 0x5F00):off(0x0D, 0x5F00) + 88], 8), "=RareLogoAttributes")
     t._claim(0x55, 0x4840, 0x6100 - 0x4840, "incbin", None, "=HiScoreGraphics")  # font, scene tiles and tile maps
     t._claim(0x55, 0x6100, 0x30, "palette", 6, "=HiScorePalettes")
-    # Unused front-end sprite titles (bank $f6) and their sprite scripts
-    # ($f0:5a24 table, entries 2, 3 and 7; Func_f0_4fa8). See docs/unused.md.
-    titles = [(0x54E0, 10, "FunkyBomberTitle"), (0x5620, 10, "CandyKlashTitle"),
-              (0x5760, 10, "CandyKlashTitle_French"), (0x58A0, 10, "FunkyBomberTitle_French"),
-              (0x59E0, 10, "CandyKlashTitle_German"), (0x5B20, 15, "CandyKlashTitle_Italian"),
-              (0x5D00, 40, "ComingSoonQ3")]
-    for a, n, name in titles:  # 8x16 sprites, 32 bytes each
-        t._claim(0xF6, a, 32 * n, "incbin", None, "=" + name)
-    tl = {a: name for a, n, name in titles}
-    layouts = [(0x5D01, 10), (0x5D15, 10), (0x5D29, 15), (0x5D97, 40)]
-    for a, n in layouts:
-        bs = rom[off(0xF0, a):off(0xF0, a) + 2 * n]
-        rel = a != 0x5D97
-        t._claim(0xF0, a, 2 * n, "rows", [("db", ["$%02x" % x for x in bs[k:k + 2]],
-                                           ("dx, dy from the previous sprite" if rel else "x, y") if k == 0 else None)
-                                          for k in range(0, 2 * n, 2)], "SpriteLayout")
+    # Front-end sprite animations ($f0:5a24, Func_f0_4fa8; tools/feanim.py)
+    import feanim
+    fa = feanim.decode(rom)
+    tname = lambda b, a: feanim.TILE_NAMES.get((b, a), "FESprites_%02x_%04x" % (b, a))  # noqa: E731
+    for (b, a), ln in sorted(fa["tiles"].items()):
+        t._claim(b, a, ln, "tiles", None, "=" + tname(b, a))
+    for la, (n, ty) in sorted(fa["layouts"].items()):
+        bs = rom[off(0xF0, la):off(0xF0, la) + 2 * n]
+        rel = ty in (0, 2, 4)
+        t._claim(0xF0, la, 2 * n, "rows", [("db", ["%d" % (x - 256 if rel and x >= 128 else x) for x in bs[k:k + 2]],
+                                            ("dx, dy from the previous sprite" if rel else "x, y") if k == 0 else None)
+                                           for k in range(0, 2 * n, 2)], "SpriteLayout")
+    for aa, n in sorted(fa["attrs"].items()):
+        t._claim(0xF0, aa, n, "rows", hexrow("db", rom[off(0xF0, aa):off(0xF0, aa) + n]), "SpriteAttrs")
+    t._claim(0xF0, 0x5C82, 8, "rows", hexrow("db", rom[off(0xF0, 0x5C82):off(0xF0, 0x5C82) + 8], 2),
+             "=SpriteLayoutUnused_f0_5c82")  # 4 more steps after the 2-sprite layout at $5c7e; no record uses them
     langs = ["English", "German", "French", "Italian", "Spanish"]
-    for a, cnt, name in ((0x5CC5, 5, "=SpriteAnim02_FunkyBomberTitle"), (0x5CE3, 5, "=SpriteAnim03_CandyKlashTitle"),
-                         (0x5D91, 1, "=SpriteAnim07_ComingSoon")):
+    anim_label = {}
+    for k, ty, p in fa["entries"]:
+        rs = fa["records"][k]
         rows = []
-        for k in range(cnt):
-            b = rom[off(0xF0, a + 6 * k):off(0xF0, a + 6 * k) + 6]
-            ta, la = b[2] << 8 | b[3], b[4] << 8 | b[5]
-            rows.append(("db", ["%d" % b[0], "BANK(%s)" % tl[ta], "HIGH(%s)" % tl[ta], "LOW(%s)" % tl[ta],
-                                "HIGH(SpriteLayout_f0_%04x)" % la, "LOW(SpriteLayout_f0_%04x)" % la],
-                         "sprites, tiles, layout" + (" (%s)" % langs[k] if cnt > 1 else "")))
-        t._claim(0xF0, a, 6 * cnt, "rows", rows, name)
+        for v, (a, r) in enumerate(rs):
+            ta, la = r[2] << 8 | r[3], r[4] << 8 | r[5]
+            tn = tname(r[1], ta)
+            toks = ["%d" % r[0], "BANK(%s)" % tn, "HIGH(%s)" % tn, "LOW(%s)" % tn,
+                    "HIGH(SpriteLayout_f0_%04x)" % la, "LOW(SpriteLayout_f0_%04x)" % la]
+            if ty >= 2:
+                aa = r[6] << 8 | r[7]
+                toks += ["HIGH(SpriteAttrs_f0_%04x)" % aa, "LOW(SpriteAttrs_f0_%04x)" % aa]
+            com = "variant %d" % v + (" (%s)" % langs[v] if k in (2, 3) else "")
+            if v == 0:
+                com = "sprites, tiles, layout%s; %s" % (", attributes" if ty >= 2 else "", com)
+            rows.append(("db", toks, com))
+        anim_label[k] = feanim.NAMES.get(k, "SpriteAnim%02d" % k)
+        t._claim(0xF0, p, len(rows) * (6 if ty < 2 else 8), "rows", rows, "=" + anim_label[k])
+    t._claim(0xF0, feanim.TABLE, 4 * feanim.COUNT, "rows",
+             [r for k, ty, p in fa["entries"] for r in (("db", ["%d" % ty, "0"], "%d: %s" % (k, feanim.TYPE_NAMES[ty])),
+                                                     ("dw", [anim_label[k]], None))],
+             "=SpriteAnimTable")
     # Front-end text: per-language tables at $f0:6f21 (FE_GetTextPointer).
     # Table 0 lists menu labels as (picture sheet, row); tables 1-5 point
     # to text records in bank $ff: 4 header bytes, text with $86 for a new

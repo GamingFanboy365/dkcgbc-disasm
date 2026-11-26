@@ -24,7 +24,7 @@ Func_0d_4130::
 	ld hl, $c280
 	call FillMemory
 	xor a
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0800
 	call FillMemory
 	xor a
@@ -40,7 +40,7 @@ Func_0d_4130::
 	ld a, $01
 	ldh [rVBK], a
 	ld a, $07
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0400
 	call FillMemory
 	xor a
@@ -67,7 +67,7 @@ Func_0d_4130::
 	xor a
 	ldh [rVBK], a
 	ld a, $58
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0400
 	call FillMemory
 	xor a
@@ -102,11 +102,11 @@ Func_0d_4130::
 	ld bc, $000f
 	call Func_00_03a1
 	xor a
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0800
 	call FillMemory
 	ld a, $e9
-	ld [$c400], a
+	ld [wObjectFreeList], a
 	ld a, $42
 	ld [$c401], a
 	ret
@@ -116,7 +116,7 @@ Func_0d_4216::
 	ld a, $01
 	ldh [rVBK], a
 	ld a, $07
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0400
 	call FillMemory
 	xor a
@@ -145,7 +145,7 @@ Func_0d_4216::
 	xor a
 	ldh [rVBK], a
 	ld de, $5980
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0580
 	call CopyBytes
 	ld de, $c800
@@ -156,12 +156,12 @@ Func_0d_4216::
 
 
 Func_0d_4266::
-	ld a, [$c400]
+	ld a, [wObjectFreeList]
 	ld e, a
 	ld a, [$c401]
 	ld d, a
 	ld b, $00
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 .jump_4273:
 	ld a, [de]
 	inc de
@@ -185,7 +185,7 @@ Func_0d_4266::
 
 .jump_4289:
 	ld a, e
-	ld [$c400], a
+	ld [wObjectFreeList], a
 	ld a, d
 	ld [$c401], a
 	ret

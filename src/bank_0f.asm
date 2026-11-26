@@ -66,29 +66,29 @@ ObjInit_0f_4073::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Func_0f_424c)
 	obj_word OBJ_HANDLER, Func_0f_424c
-	obj_byte $1f, $30
-	obj_byte $2a, $31
-	obj_word $22, $5637
-	obj_byte $26, $80
-	obj_word $14, $0082
-	obj_word $1d, $0067
+	obj_byte OBJ_OAM_ATTR, $30
+	obj_byte OBJ_PALETTE, $31
+	obj_word OBJ_ANIM, $5637
+	obj_byte OBJ_ANIM_FLAGS, $80
+	obj_word OBJ_X, $0082
+	obj_word OBJ_Y, $0067
 	obj_end
 
 ObjInit_0f_408a::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, $00
-	obj_word OBJ_HANDLER, Func_00_3995
-	obj_word $20, $40a2
-	obj_byte $2a, $01
-	obj_word $14, $0064
-	obj_word $1d, $0046
+	obj_word OBJ_HANDLER, NextObject
+	obj_word OBJ_FRAME, $40a2
+	obj_byte OBJ_PALETTE, $01
+	obj_word OBJ_X, $0064
+	obj_word OBJ_Y, $0046
 	obj_end
 
 ObjInit_0f_409d::
 	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
 	obj_word OBJ_HANDLER, Func_0f_42e4
-	obj_word $14, $001e
-	obj_word $1d, $0064
+	obj_word OBJ_X, $001e
+	obj_word OBJ_Y, $0064
 	obj_end
 
 Func_0f_40a9::
@@ -142,19 +142,19 @@ ObjInit_0f_410b::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Func_0f_42a6)
 	obj_word OBJ_HANDLER, Func_0f_42a6
-	obj_byte $2a, $34
-	obj_byte $1f, $30
-	obj_word $22, $556b
-	obj_byte $26, $80
-	obj_word $14, $0050
-	obj_word $1d, $0064
+	obj_byte OBJ_PALETTE, $34
+	obj_byte OBJ_OAM_ATTR, $30
+	obj_word OBJ_ANIM, $556b
+	obj_byte OBJ_ANIM_FLAGS, $80
+	obj_word OBJ_X, $0050
+	obj_word OBJ_Y, $0064
 	obj_end
 
 ObjInit_0f_4122::
 	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
 	obj_word OBJ_HANDLER, Func_0f_42e4
-	obj_word $14, $0028
-	obj_word $1d, $0064
+	obj_word OBJ_X, $0028
+	obj_word OBJ_Y, $0064
 	obj_end
 
 Func_0f_412e::
@@ -204,29 +204,29 @@ ObjInit_0f_418d::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
-	obj_byte $1f, $30
-	obj_word $22, $55d3
-	obj_byte $2a, $30
-	obj_word $14, $005a
-	obj_word $1d, $0064
+	obj_byte OBJ_OAM_ATTR, $30
+	obj_word OBJ_ANIM, $55d3
+	obj_byte OBJ_PALETTE, $30
+	obj_word OBJ_X, $005a
+	obj_word OBJ_Y, $0064
 	obj_end
 
 ObjInit_0f_41a2::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Func_0f_42c4)
 	obj_word OBJ_HANDLER, Func_0f_42c4
-	obj_byte $1f, $10
-	obj_byte $2a, $37
-	obj_word $20, $5d40
-	obj_word $14, $0030
-	obj_byte $2e, $3c
+	obj_byte OBJ_OAM_ATTR, $10
+	obj_byte OBJ_PALETTE, $37
+	obj_word OBJ_FRAME, $5d40
+	obj_word OBJ_X, $0030
+	obj_byte OBJ_VAR_2E, $3c
 	obj_end
 
 ObjInit_0f_41b6::
 	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
 	obj_word OBJ_HANDLER, Func_0f_42e4
-	obj_word $14, $0014
-	obj_word $1d, $0064
+	obj_word OBJ_X, $0014
+	obj_word OBJ_Y, $0064
 	obj_end
 
 Func_0f_41c2::
@@ -246,21 +246,21 @@ ObjInit_0f_41dd::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
-	obj_byte $2a, $01
-	obj_word $22, $431b
-	obj_byte $26, $00
-	obj_byte $1f, $20
-	obj_word $14, $007c
-	obj_word $1d, $007f
+	obj_byte OBJ_PALETTE, $01
+	obj_word OBJ_ANIM, $431b
+	obj_byte OBJ_ANIM_FLAGS, $00
+	obj_byte OBJ_OAM_ATTR, $20
+	obj_word OBJ_X, $007c
+	obj_word OBJ_Y, $007f
 	obj_end
 
 ObjInit_0f_41f4::
 	obj_byte OBJ_FLAGS, $18
-	obj_byte $2a, $01
-	obj_word $20, $5968
-	obj_byte $2b, $02
-	obj_word $14, $0065
-	obj_word $1d, $007f
+	obj_byte OBJ_PALETTE, $01
+	obj_word OBJ_FRAME, $5968
+	obj_byte OBJ_LAYER, $02
+	obj_word OBJ_X, $0065
+	obj_word OBJ_Y, $007f
 	obj_end
 
 Func_0f_4204::
@@ -279,10 +279,10 @@ Func_0f_4204::
 
 ObjInit_0f_4223::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte $2a, $02
-	obj_word $22, $437f
-	obj_byte $26, $01
-	obj_byte $2b, $01
+	obj_byte OBJ_PALETTE, $02
+	obj_word OBJ_ANIM, $437f
+	obj_byte OBJ_ANIM_FLAGS, $01
+	obj_byte OBJ_LAYER, $01
 	obj_end
 
 Func_0f_422f::
@@ -296,14 +296,14 @@ ObjInit_0f_4239::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Func_08_402e)
 	obj_word OBJ_HANDLER, Func_08_402e
-	obj_word $14, $0094
-	obj_word $1d, $0014
-	obj_word $22, $56fd
-	obj_byte $1f, $07
+	obj_word OBJ_X, $0094
+	obj_word OBJ_Y, $0014
+	obj_word OBJ_ANIM, $56fd
+	obj_byte OBJ_OAM_ATTR, $07
 	obj_end
 
 Func_0f_424c::
-	ld hl, $c826
+	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
 	jr nz, .jump_4261
@@ -315,33 +315,33 @@ Func_0f_424c::
 	pop bc
 .jump_4261:
 	call Func_00_127d
-	jp Func_00_3995
+	jp NextObject
 
 
 ObjInit_0f_4267::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Func_0f_427f)
 	obj_word OBJ_HANDLER, Func_0f_427f
-	obj_byte $2a, $33
-	obj_word $22, $56f1
-	obj_word $11, $fe80
-	obj_byte $2e, $2d
-	obj_word $14, $0074
-	obj_word $1d, $0050
+	obj_byte OBJ_PALETTE, $33
+	obj_word OBJ_ANIM, $56f1
+	obj_word OBJ_XVEL, $fe80
+	obj_byte OBJ_VAR_2E, $2d
+	obj_word OBJ_X, $0074
+	obj_word OBJ_Y, $0050
 	obj_end
 
 Func_0f_427f::
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_429d
 	ld a, [$c30f]
 	rrca
 	jr c, .jump_429a
-	ld a, [$c826]
+	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	or a
 	jr nz, .jump_429a
-	ld hl, $c822
+	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], $85
 	inc l
 	ld [hl], $56
@@ -350,29 +350,29 @@ Func_0f_427f::
 .jump_429d:
 	call Func_00_39b4
 	call Func_00_127d
-	jp Func_00_3995
+	jp NextObject
 
 
 Func_0f_42a6::
 	ld a, [$c30f]
 	rrca
 	jr c, .jump_42be
-	ld hl, $c826
+	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
 	jr nz, .jump_42be
 	set 7, [hl]
-	ld hl, $c822
+	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], $bd
 	inc l
 	ld [hl], $56
 .jump_42be:
 	call Func_00_127d
-	jp Func_00_3995
+	jp NextObject
 
 
 Func_0f_42c4::
-	ld hl, $c82f
+	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	inc a
@@ -382,14 +382,14 @@ Func_0f_42c4::
 	sra e
 	sra e
 	sra e
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
 	add a, e
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld [hl], a
-	jp Func_00_3995
+	jp NextObject
 
 
 Func_0f_42e4::
@@ -400,10 +400,10 @@ Func_0f_42e4::
 	jr nz, .jump_432a
 .jump_42ee:
 	call Func_00_127d
-	jp Func_00_3995
+	jp NextObject
 
 .jump_42f4:
-	ld a, [$c82f]
+	ld a, [wPlayer + OBJ_VAR_2F]
 	or a
 	jr nz, .jump_42ee
 	ld a, [$c30c]
@@ -426,7 +426,7 @@ Func_0f_42e4::
 	jr nc, .jump_4322
 	ld de, $4467
 .jump_4322:
-	ld hl, $c822
+	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], e
 	inc l
 	ld [hl], d
@@ -439,7 +439,7 @@ Func_0f_42e4::
 	jr nc, .jump_4336
 	ld de, $447f
 .jump_4336:
-	ld hl, $c822
+	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], e
 	inc l
 	ld [hl], d
@@ -451,30 +451,30 @@ Func_0f_42e4::
 ObjInit_0f_4344::
 	obj_byte OBJ_BANK, BANK(Func_0f_43bf)
 	obj_word OBJ_HANDLER, Func_0f_43bf
-	obj_word $1a, $f900
-	obj_word $18, $0050
-	obj_word $16, $07ff
-	obj_byte $26, $06
-	obj_byte $25, $00
+	obj_word OBJ_YVEL, $f900
+	obj_word OBJ_YACCEL, $0050
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_byte OBJ_ANIM_FLAGS, $06
+	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 	db $80, $44, $43, $51, $cc, $00, $2e, $23, $81
 
 
 ObjInit_0f_4360::
 	obj_include ObjInit_0f_4344
-	obj_word $11, $01cb
-	obj_byte $2e, $27
+	obj_word OBJ_XVEL, $01cb
+	obj_byte OBJ_VAR_2E, $27
 	obj_end
 
 ObjInit_0f_4369::
 	obj_byte OBJ_BANK, BANK(Func_0f_4373)
 	obj_word OBJ_HANDLER, Func_0f_4373
-	obj_byte $26, $88
-	obj_byte $25, $00
+	obj_byte OBJ_ANIM_FLAGS, $88
+	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
 Func_0f_4373::
-	ld a, [$c826]
+	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	rlca
 	jr c, .jump_4391
 	ld a, [$c30f]
@@ -483,7 +483,7 @@ Func_0f_4373::
 	jr nc, .jump_4385
 	ld de, $43f9
 .jump_4385:
-	ld hl, $c822
+	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], e
 	inc l
 	ld [hl], d
@@ -491,20 +491,20 @@ Func_0f_4373::
 	call ApplyObjInit
 .jump_4391:
 	call Func_00_127d
-	jp Func_00_3995
+	jp NextObject
 
 
 ObjInit_0f_4397::
 	obj_byte OBJ_BANK, BANK(Func_0f_43a6)
 	obj_word OBJ_HANDLER, Func_0f_43a6
-	obj_byte $26, $81
-	obj_word $11, $fecd
-	obj_byte $2e, $40
-	obj_byte $25, $00
+	obj_byte OBJ_ANIM_FLAGS, $81
+	obj_word OBJ_XVEL, $fecd
+	obj_byte OBJ_VAR_2E, $40
+	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
 Func_0f_43a6::
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_43b6
@@ -514,11 +514,11 @@ Func_0f_43a6::
 .jump_43b6:
 	call Func_00_39b4
 	call Func_00_127d
-	jp Func_00_3995
+	jp NextObject
 
 
 Func_0f_43bf::
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
 	jr z, .jump_43d2
@@ -526,7 +526,7 @@ Func_0f_43bf::
 	call Func_00_39b4
 	call Func_00_127d
 .jump_43cf:
-	jp Func_00_3995
+	jp NextObject
 
 .jump_43d2:
 	ld a, $fe
@@ -552,7 +552,7 @@ Func_0f_43dd::
 	cp $04
 	jp z, .jump_4561
 	ld a, $01
-	ld [$c82f], a
+	ld [wPlayer + OBJ_VAR_2F], a
 	ld a, [$c44d]
 	or a
 	jr z, .jump_4456
@@ -561,7 +561,7 @@ Func_0f_43dd::
 	dec a
 	jp z, .jump_4495
 	xor a
-	ld [$c82f], a
+	ld [wPlayer + OBJ_VAR_2F], a
 	ret
 
 .jump_4417:
@@ -654,7 +654,7 @@ Func_0f_43dd::
 	cp $03
 	jr nz, .jump_44a4
 	xor a
-	ld [$c82f], a
+	ld [wPlayer + OBJ_VAR_2F], a
 .jump_44a4:
 	ldh a, [$ff81]
 	and $01

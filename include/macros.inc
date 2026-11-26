@@ -9,12 +9,8 @@ MACRO rst_farcall
 	db BANK(\1)
 ENDM
 
-; Object initialiser lists, applied to the object in bc by Func_00_188b.
-; Objects live at $c800 + bc; the object loop at Func_00_3980 switches to
-; OBJ_BANK and jumps to OBJ_HANDLER for every active object.
-DEF OBJ_FLAGS   EQU $00
-DEF OBJ_BANK    EQU $01
-DEF OBJ_HANDLER EQU $02 ; word
+; Object initialiser lists, applied to the object in bc by ApplyObjInit.
+; Field names are in include/objects.inc.
 
 ; obj_byte field, value
 MACRO obj_byte

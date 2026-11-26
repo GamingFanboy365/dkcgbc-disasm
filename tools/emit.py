@@ -23,8 +23,47 @@ from tracer import BANK_SIZE, off  # noqa: E402
 from hwregs import HW_REGS  # noqa: E402
 
 MBC_REGS = {0x0000: "rRAMG", 0x2000: "rROMB0", 0x3000: "rROMB1", 0x4000: "rRAMB"}
-# Object structure fields (see include/macros.inc)
-OBJ_FIELDS = {0x00: "OBJ_FLAGS", 0x01: "OBJ_BANK", 0x02: "OBJ_HANDLER"}
+WOBJECTS = 0xC800
+OBJ_SIZE = 0x40
+
+
+def obj_field(f):
+    """Symbolic name for an object field offset (see include/objects.inc)."""
+    t = hints.OBJ_FIELD_TABLE
+    if f in t:
+        return t[f][0]
+    if f - 1 in t and t[f - 1][1] == 2:
+        return t[f - 1][0] + " + 1"
+    return "OBJ_VAR_%02X" % f
+
+
+def write_objects_inc(path):
+    t = hints.OBJ_FIELD_TABLE
+    covered = set()
+    for o, (n, sz, d) in t.items():
+        covered |= set(range(o, o + sz))
+    lines = ["; Object slots (generated from OBJ_FIELD_TABLE in tools/hints.py).\n",
+             ";\n; Objects are $40-byte slots starting at wObjects. Slot 0 is the player.\n",
+             "; Every frame RunObjects maps OBJ_BANK and jumps to OBJ_HANDLER for each\n",
+             "; active object, with bc = slot offset. Fields are reached with\n",
+             ";     ld hl, wObjects + OBJ_FIELD\n;     add hl, bc\n",
+             "; Fields named OBJ_VAR_xx belong to the object type: their meaning\n",
+             "; depends on the handler.\n\n",
+             "IF !DEF(OBJECTS_INC)\nDEF OBJECTS_INC EQU 1\n\n",
+             "DEF wObjects EQU $%04x\nDEF wPlayer  EQU wObjects\nDEF OBJ_SIZE EQU $%02x\n\n" % (WOBJECTS, OBJ_SIZE)]
+    for o in range(OBJ_SIZE):
+        if o in t:
+            n, sz, d = t[o]
+            lines.append("DEF %-17s EQU $%02x ; %s%s\n" % (n, o, "(word) " if sz == 2 else "", d))
+        elif o not in covered:
+            lines.append("DEF %-17s EQU $%02x\n" % ("OBJ_VAR_%02X" % o, o))
+    lines.append("\n; Other RAM (from RAM_NAMES in tools/hints.py)\n")
+    for a, n in sorted(hints.RAM_NAMES.items()):
+        lines.append("DEF %-17s EQU $%04x\n" % (n, a))
+    lines.append("\nENDC\n")
+    with open(path, "w") as f:
+        f.write("".join(lines))
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Small data gaps are written as "db" so labels and code stay readable;
 # anything bigger is pulled from the base ROM.
@@ -145,6 +184,13 @@ class Emitter:
                         txt = self.ref(tb, v, o)
             elif i.dataref is not None:
                 txt = self.qref(*i.dataref)
+            elif v in hints.RAM_NAMES and bank not in hints.SECOND_PROGRAM_BANKS:
+                txt = hints.RAM_NAMES[v]
+            elif (WOBJECTS <= v < WOBJECTS + OBJ_SIZE and bank not in hints.SECOND_PROGRAM_BANKS
+                  and (t.startswith("ld hl,") or "[{n16}]" in t)):
+                nxt = self.t.insns.get(o + i.length)
+                indexed = t.startswith("ld hl,") and nxt is not None and nxt.op in (0x09, 0x19)
+                txt = "%s + %s" % ("wObjects" if indexed else "wPlayer", obj_field(v - WOBJECTS))
             elif t.startswith("ld [") or t.startswith("ld a, ["):
                 if v >= 0xFF00 and v in HW_REGS:
                     txt = HW_REGS[v]
@@ -255,11 +301,11 @@ class Emitter:
                     val = "BANK(%s)" % handler
                 else:
                     val = hexb(v)
-                lines.append("obj_byte %s, %s" % (OBJ_FIELDS.get(f, hexb(f)), val))
+                lines.append("obj_byte %s, %s" % (obj_field(f), val))
             elif e[0] == "word":
                 f, v = e[1], e[2]
                 val = handler if (f == 2 and handler) else hexw(v)
-                lines.append("obj_word %s, %s" % (OBJ_FIELDS.get(f, hexb(f)), val))
+                lines.append("obj_word %s, %s" % (obj_field(f), val))
             elif e[0] == "include":
                 lab = self.qref(0 if e[1] < 0x4000 else bank, e[1])
                 lines.append("obj_include %s" % (lab or hexw(e[1])))
@@ -281,6 +327,7 @@ class Emitter:
     # --------------------------------------------------------------- top level
     def write_all(self):
         os.makedirs(os.path.join(ROOT, "src"), exist_ok=True)
+        write_objects_inc(os.path.join(ROOT, "include", "objects.inc"))
         code = self.code_banks()
         for b in code:  # first pass only collects cross-file references
             self.emit_bank(b)

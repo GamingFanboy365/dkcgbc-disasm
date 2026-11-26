@@ -66,7 +66,7 @@ Func_07_4001::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c400
+	ld hl, wObjectFreeList
 	ld bc, $1448
 .jump_407e:
 	push bc
@@ -314,7 +314,7 @@ Func_07_43b2::
 	rr e
 	and $07
 	ld d, a
-	ld hl, $c400
+	ld hl, wObjectFreeList
 	add hl, de
 	add hl, de
 	ld a, h

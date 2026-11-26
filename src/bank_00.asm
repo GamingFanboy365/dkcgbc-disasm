@@ -66,9 +66,15 @@ Rst38::
 	nop
 	nop
 	nop
+
+VBlankInterrupt::
 	jp $c32d
 
-	db $00, $00, $00, $00, $00, $c3, $30, $c3
+	ds 5, $00 ; $0043
+
+
+LCDInterrupt::
+	jp $c330
 
 
 Func_00_004b::
@@ -770,7 +776,7 @@ Func_00_0420::
 	ldh [rIF], a
 	ld a, $03
 	ldh [rIE], a
-	call Func_00_167d
+	call InitObjectSlots
 	call Func_00_0e91
 	ld hl, $c32e
 	ld a, $86
@@ -3104,7 +3110,7 @@ Func_00_1037::
 
 
 Func_00_127d::
-	ld hl, $c825
+	ld hl, wObjects + OBJ_ANIM_TIMER
 	add hl, bc
 	ld a, [hl]
 	dec [hl]
@@ -3114,7 +3120,7 @@ Func_00_127d::
 	push af
 	ld a, $04
 	ld [rROMB0], a
-	ld hl, $c822
+	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
@@ -3127,7 +3133,7 @@ Func_00_127d::
 	bit 7, d
 	jr nz, .jump_12b6
 	push hl
-	ld hl, $c820
+	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, e
 	ld [hli], a
@@ -3135,7 +3141,7 @@ Func_00_127d::
 	pop hl
 	ld a, l
 	ld d, h
-	ld hl, $c822
+	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hli], a
 	ld a, d
@@ -3192,7 +3198,7 @@ Func_00_127d::
 
 .jump_12ed:
 	push hl
-	ld hl, $c824
+	ld hl, wObjects + OBJ_ANIM_SPEED
 	add hl, bc
 	ld [hl], e
 	pop hl
@@ -3200,7 +3206,7 @@ Func_00_127d::
 
 .jump_12f6:
 	push hl
-	ld hl, $c81f
+	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
 	xor e
@@ -3210,7 +3216,7 @@ Func_00_127d::
 
 .jump_1301:
 	push hl
-	ld hl, $c826
+	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	res 7, [hl]
 	pop hl
@@ -3238,7 +3244,7 @@ Func_00_127d::
 
 .jump_1327:
 	push hl
-	ld hl, $c828
+	ld hl, wObjects + OBJ_ANIM_PARAM
 	add hl, bc
 	ld [hl], e
 	pop hl
@@ -3246,7 +3252,7 @@ Func_00_127d::
 
 .jump_1331:
 	push hl
-	ld hl, $c838
+	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld d, h
 	ld e, l
@@ -3260,7 +3266,7 @@ Func_00_127d::
 
 
 Func_00_1341::
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	bit 5, [hl]
 	jr z, .jump_134f
@@ -3271,11 +3277,11 @@ Func_00_1341::
 	ld a, [$4000]
 	push af
 	call Func_00_162c
-	ld hl, $c81f
+	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
 	ldh [$ff9b], a
-	ld hl, $c820
+	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -3284,7 +3290,7 @@ Func_00_1341::
 	ldh [$ff9e], a
 	or e
 	jr z, .jump_138c
-	ld hl, $c82b
+	ld hl, wObjects + OBJ_LAYER
 	add hl, bc
 	ld a, $a2
 	add a, [hl]
@@ -3312,7 +3318,7 @@ Func_00_1341::
 Func_00_1391::
 	ld a, $0c
 	ldh [$ff99], a
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hl]
 	add a, $10
@@ -3366,7 +3372,7 @@ Func_00_1391::
 Func_00_13e1::
 	ld a, $81
 	ldh [$ff99], a
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hl]
 	add a, $10
@@ -3374,7 +3380,7 @@ Func_00_13e1::
 	xor a
 	ldh [$ff9a], a
 	ldh [$ff98], a
-	ld hl, $c81f
+	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
 	ldh [$ff9b], a
@@ -3437,7 +3443,7 @@ Func_00_13e1::
 Func_00_144e::
 	ld a, [$4000]
 	push af
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hl]
 	add a, $10
@@ -3451,7 +3457,7 @@ Func_00_144e::
 	ldh [$ffa0], a
 	xor a
 	ldh [$ff9b], a
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
 	swap a
@@ -3469,7 +3475,7 @@ Func_00_144e::
 	ret
 
 .jump_148a:
-	ld hl, $c82f
+	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	ldh [$ff95], a
@@ -3537,13 +3543,13 @@ Func_00_144e::
 .jump_1504:
 	ld a, $42
 	ldh [$ff99], a
-	ld hl, $c82f
+	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	ldh [$ff95], a
 	or a
 	jr z, .jump_1535
-	ld hl, $c820
+	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, [hli]
 	ldh [$ff9d], a
@@ -3574,17 +3580,17 @@ Func_00_144e::
 	ld a, $58
 	ldh [$ff99], a
 	call Func_00_127d
-	ld hl, $c820
+	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, [hli]
 	ldh [$ff9d], a
 	ld a, [hli]
 	ldh [$ff9e], a
 	call Func_00_1037
-	ld hl, $c82f
+	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld e, [hl]
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hl]
 	add a, $10
@@ -3638,7 +3644,7 @@ Func_00_1598::
 	ld a, [hl]
 	sbc a, $00
 	ld d, a
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -3654,7 +3660,7 @@ Func_00_1598::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -3662,7 +3668,7 @@ Func_00_1598::
 	ld a, [hl]
 	sbc a, d
 	ld d, a
-	ld hl, $c834
+	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	ld a, [hli]
 	add a, e
@@ -3681,7 +3687,7 @@ Func_00_1598::
 	add a, $a0
 .jump_15dc:
 	ldh [$ff97], a
-	ld hl, $c81f
+	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
 	ldh [$ff9b], a
@@ -3739,7 +3745,7 @@ Func_00_1604::
 
 
 Func_00_162c::
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
 	and $08
@@ -3753,7 +3759,7 @@ Func_00_1635::
 	ld a, [hl]
 	sbc a, $00
 	ld d, a
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -3768,7 +3774,7 @@ Func_00_1635::
 	ld a, [hl]
 	sbc a, $00
 	ld d, a
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -3780,12 +3786,12 @@ Func_00_1635::
 
 
 Func_00_1664::
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hl]
 	add a, $08
 	ldh [$ff99], a
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hl]
 	add a, $10
@@ -3797,12 +3803,12 @@ Func_00_1664::
 	ret
 
 
-Func_00_167d::
-	ld hl, $c400
+InitObjectSlots::
+	ld hl, wObjectFreeList
 	ld bc, $0040
 	ld d, $1f
 	ld a, d
-	ld [$c440], a
+	ld [wObjectFreeCount], a
 .jump_1689:
 	ld a, c
 	ld [hli], a
@@ -3815,7 +3821,7 @@ Func_00_167d::
 	dec d
 	jr nz, .jump_1689
 	xor a
-	ld hl, $c800
+	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0800
 	call FillMemory
 	xor a
@@ -4079,10 +4085,10 @@ Func_00_1779::
 	call AllocObject
 	jr c, Func_00_1761.jump_1778
 	ld d, $a9
-	ld hl, $c827
+	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld [hl], e
-	ld hl, $c813
+	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
 	ld [hli], a
@@ -4092,7 +4098,7 @@ Func_00_1779::
 	ld a, [de]
 	inc d
 	ld [hli], a
-	ld hl, $c81c
+	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	xor a
 	ld [hli], a
@@ -4134,11 +4140,11 @@ Func_00_1779::
 
 InitObject::
 	call ApplyObjInit
-	ld hl, $c82a
+	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld a, [hl]
 	call Func_00_2cfb
-	ld hl, $c81f
+	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	or [hl]
 	ld [hl], a
@@ -4148,7 +4154,7 @@ InitObject::
 Func_00_1841::
 	ld d, h
 	ld a, l
-	ld hl, $c822
+	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
@@ -4161,9 +4167,9 @@ ObjInit_00_1850::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Func_0a_58c8)
 	obj_word OBJ_HANDLER, Func_0a_58c8
-	obj_word $04, $6a7e
-	obj_byte $29, $02
-	obj_byte $28, $03
+	obj_word OBJ_TOUCH_HANDLER, $6a7e
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $03
 	obj_end
 
 Func_00_185f::
@@ -4171,7 +4177,7 @@ Func_00_185f::
 	ld hl, ObjInit_00_1883
 	call ApplyObjInit
 	pop de
-	ld hl, $c822
+	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld a, e
 	ld [hli], a
@@ -4252,7 +4258,7 @@ ApplyObjInit::
 
 
 AllocObject::
-	ld a, [$c440]
+	ld a, [wObjectFreeCount]
 	or a
 	jr nz, .jump_18c8
 	scf
@@ -4260,7 +4266,7 @@ AllocObject::
 
 .jump_18c8:
 	dec a
-	ld [$c440], a
+	ld [wObjectFreeCount], a
 	add a, a
 	add a, $00
 	ld l, a
@@ -4269,7 +4275,7 @@ AllocObject::
 	ld b, [hl]
 	ld c, a
 	push bc
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld c, $40
 	xor a
@@ -4283,7 +4289,7 @@ AllocObject::
 
 
 Func_00_18e4::
-	ld hl, $c827
+	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
 	ld h, $a8
@@ -4298,35 +4304,35 @@ Func_00_18f0::
 
 
 Func_00_18f5::
-	ld hl, $c827
+	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
 	ld h, $a8
 	res 0, [hl]
 .jump_18fe:
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
 	and $04
 	jr z, .jump_190f
-	ld hl, $c82d
+	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
 	ld l, [hl]
 	ld h, $af
 	dec [hl]
 .jump_190f:
 	xor a
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld [hl], a
-	ld hl, $c829
+	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ld hl, $c82a
+	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld a, [hl]
 	call Func_00_2d5a
-	ld a, [$c440]
+	ld a, [wObjectFreeCount]
 	add a, a
 	add a, $00
 	ld l, a
@@ -4334,7 +4340,7 @@ Func_00_18f5::
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	ld hl, $c440
+	ld hl, wObjectFreeCount
 	inc [hl]
 	ret
 
@@ -5553,7 +5559,7 @@ Func_00_20bb::
 	call Func_00_1ffe
 	ld a, $05
 	ld [rROMB0], a
-	ld hl, $c400
+	ld hl, wObjectFreeList
 	call Func_05_416e
 	call Func_05_41a6
 	call Func_05_4202
@@ -5580,37 +5586,37 @@ Func_00_20dd::
 .jump_20ec:
 	inc l
 	inc l
-	ld a, [$c814]
+	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	inc l
-	ld a, [$c815]
+	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
 	jr c, .jump_2125
 	inc l
 	inc l
 	inc l
-	ld a, [$c814]
+	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	inc l
-	ld a, [$c815]
+	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
 	jr nc, .jump_2125
 	inc l
 	inc l
 	inc l
-	ld a, [$c81d]
+	ld a, [wPlayer + OBJ_Y]
 	sub [hl]
 	inc l
-	ld a, [$c81e]
+	ld a, [wPlayer + OBJ_Y + 1]
 	sbc a, [hl]
 	jr c, .jump_2125
 	inc l
 	inc l
 	inc l
-	ld a, [$c81d]
+	ld a, [wPlayer + OBJ_Y]
 	sub [hl]
 	inc l
-	ld a, [$c81e]
+	ld a, [wPlayer + OBJ_Y + 1]
 	sbc a, [hl]
 	jr nc, .jump_2125
 	jr .jump_212d
@@ -5626,10 +5632,10 @@ Func_00_20dd::
 	call Func_00_21bf
 	ld a, [$c450]
 	ld l, a
-	ld a, [$c814]
+	ld a, [wPlayer + OBJ_X]
 	sub l
 	ld l, a
-	ld a, [$c815]
+	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, $00
 	ld h, a
 	rlca
@@ -5667,10 +5673,10 @@ Func_00_20dd::
 	ldh [$ff8a], a
 	ld a, [$c451]
 	ld l, a
-	ld a, [$c81d]
+	ld a, [wPlayer + OBJ_Y]
 	sub l
 	ld l, a
-	ld a, [$c81e]
+	ld a, [wPlayer + OBJ_Y + 1]
 	sbc a, $00
 	ld h, a
 	rlca
@@ -5782,7 +5788,7 @@ Func_00_2214::
 	ldh a, [$ff88]
 	rrca
 	jp c, .jump_22d3
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
@@ -5802,7 +5808,7 @@ Func_00_2214::
 	ld a, d
 	or a
 	jp nz, .jump_23bb
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -5843,7 +5849,7 @@ Func_00_2214::
 
 .jump_227e:
 	push hl
-	ld hl, $c808
+	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
 	ld [hli], a
 	set 5, d
@@ -5861,7 +5867,7 @@ Func_00_2214::
 	rla
 	rl d
 	or e
-	ld hl, $c806
+	ld hl, wObjects + OBJ_GROUND_Y
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
@@ -5906,7 +5912,7 @@ Func_00_2214::
 	jp .jump_23bb
 
 .jump_22d3:
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -5927,7 +5933,7 @@ Func_00_2214::
 	ldh [$ffbd], a
 	rla
 	jp c, .jump_23bb
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -5979,12 +5985,12 @@ Func_00_2214::
 
 .jump_233d:
 	push hl
-	ld hl, $c808
+	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
 	ld [hl], a
 	set 5, d
 	ld a, [de]
-	ld hl, $c809
+	ld hl, wObjects + OBJ_TERRAIN_B
 	add hl, bc
 	ld [hl], a
 	res 5, d
@@ -5998,7 +6004,7 @@ Func_00_2214::
 	rra
 	and $e0
 	or e
-	ld hl, $c806
+	ld hl, wObjects + OBJ_GROUND_Y
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
@@ -6071,14 +6077,14 @@ Func_00_2214::
 
 .jump_23bb:
 	xor a
-	ld hl, $c808
+	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
 	ld [hl], a
-	ld hl, $c809
+	ld hl, wObjects + OBJ_TERRAIN_B
 	add hl, bc
 	ld [hl], a
 	dec a
-	ld hl, $c806
+	ld hl, wObjects + OBJ_GROUND_Y
 	add hl, bc
 	ld [hli], a
 	ld [hl], $08
@@ -6088,14 +6094,14 @@ Func_00_2214::
 
 .jump_23d3:
 	xor a
-	ld hl, $c808
+	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
 	ld [hl], a
-	ld hl, $c809
+	ld hl, wObjects + OBJ_TERRAIN_B
 	add hl, bc
 	ld [hl], a
 	dec a
-	ld hl, $c806
+	ld hl, wObjects + OBJ_GROUND_Y
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
@@ -6186,7 +6192,7 @@ Func_00_2400::
 	ldh [rIE], a
 	xor a
 	ld [$c443], a
-	call Func_00_167d
+	call InitObjectSlots
 	call Func_00_0e91
 	call Func_00_2ad8
 	ld hl, $c449
@@ -6591,13 +6597,13 @@ Func_00_2766::
 	ld a, [hli]
 	ld [de], a
 	ld a, [hli]
-	ld [$c83a], a
+	ld [wPlayer + OBJ_VAR_3A], a
 	ret
 
 
 Func_00_2793::
 	call AllocObject
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, $0b
 	ld [hli], a
@@ -6607,7 +6613,7 @@ Func_00_2793::
 	inc l
 	ld [hl], $54
 	call AllocObject
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, $0b
 	ld [hli], a
@@ -6617,7 +6623,7 @@ Func_00_2793::
 	inc l
 	ld [hl], $55
 	call AllocObject
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, $0b
 	ld [hli], a
@@ -6627,7 +6633,7 @@ Func_00_2793::
 	inc l
 	ld [hl], $54
 	call AllocObject
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, $0b
 	ld [hli], a
@@ -6637,11 +6643,11 @@ Func_00_2793::
 	inc l
 	ld [hl], $55
 	ld a, $02
-	ld hl, $c82a
+	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld [hl], a
 	call Func_00_2cfb
-	ld hl, $c81f
+	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	or $08
 	ld [hl], a
@@ -6676,7 +6682,7 @@ ObjInit_00_2811::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Func_0a_6e7e)
 	obj_word OBJ_HANDLER, Func_0a_6e7e
-	obj_word $2e, $005a
+	obj_word OBJ_VAR_2E, $005a
 	obj_end
 
 Func_00_281c::
@@ -6703,7 +6709,7 @@ ObjInit_00_2838::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Func_0a_70d3)
 	obj_word OBJ_HANDLER, Func_0a_70d3
-	obj_byte $2a, $03
+	obj_byte OBJ_PALETTE, $03
 	obj_end
 
 Func_00_2842::
@@ -6714,7 +6720,7 @@ Func_00_2842::
 	swap a
 	and $07
 	dec a
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], a
 	ret
@@ -6728,36 +6734,36 @@ ObjInit_00_2859::
 
 Func_00_2861::
 	call AllocObject
-	ld hl, $c813
+	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
-	ld a, [$c813]
+	ld a, [wPlayer + OBJ_XSUB]
 	ld [hli], a
-	ld a, [$c814]
+	ld a, [wPlayer + OBJ_X]
 	ld [hli], a
-	ld a, [$c815]
+	ld a, [wPlayer + OBJ_X + 1]
 	ld [hli], a
-	ld hl, $c81c
+	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
-	ld a, [$c81c]
+	ld a, [wPlayer + OBJ_YSUB]
 	ld [hli], a
-	ld a, [$c81d]
+	ld a, [wPlayer + OBJ_Y]
 	add a, $20
 	ld [hli], a
-	ld a, [$c81e]
+	ld a, [wPlayer + OBJ_Y + 1]
 	adc a, $00
 	ld [hli], a
 	ld a, $0e
 	ld [rROMB0], a
 	ld hl, ObjInit_0e_45bc
 	call InitObject
-	ld hl, $c801
+	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
 	inc l
 	ld [hl], $b8
 	inc l
 	ld [hl], $59
-	ld hl, $c804
+	ld hl, wObjects + OBJ_TOUCH_HANDLER
 	add hl, bc
 	ld [hl], $30
 	inc l
@@ -6765,7 +6771,7 @@ Func_00_2861::
 	ld a, [$c30c]
 	cp $0b
 	ret nz
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $01
 	ret
@@ -6961,10 +6967,10 @@ Func_00_29a3::
 
 Func_00_29c4::
 	ld hl, $c450
-	ld a, [$c814]
+	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	ld l, a
-	ld a, [$c815]
+	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, $00
 	ld h, a
 	ldh a, [$ff8d]
@@ -6997,25 +7003,25 @@ Func_00_29c4::
 
 
 Func_00_29f5::
-	ld hl, $c81d
+	ld hl, wPlayer + OBJ_Y
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c82e
+	ld hl, wPlayer + OBJ_VAR_2E
 	bit 0, [hl]
 	jr nz, .jump_2a38
-	ld hl, $c806
+	ld hl, wPlayer + OBJ_GROUND_Y
 	ld a, [hli]
 	sub e
 	ld a, [hl]
 	sbc a, d
 	jr c, .jump_2a21
-	ld a, [$c809]
-	ld hl, $c800
+	ld a, [wPlayer + OBJ_TERRAIN_B]
+	ld hl, wPlayer + OBJ_FLAGS
 	and [hl]
 	and $80
 	jr nz, .jump_2a21
-	ld hl, $c806
+	ld hl, wPlayer + OBJ_GROUND_Y
 	ld a, [hli]
 	ld [$c456], a
 	ld a, [hl]
@@ -9623,11 +9629,11 @@ Func_00_38cd::
 RunObjects::
 	ld bc, $0000
 .jump_3983:
-	ld hl, $c800
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ldh a, [$ffa6]
 	and [hl]
-	jr z, Func_00_3995
+	jr z, NextObject
 	inc l
 	ld a, [hli]
 	ld [rROMB0], a
@@ -9637,8 +9643,8 @@ RunObjects::
 	jp hl
 
 
-Func_00_3995::
-	ld hl, $c800
+NextObject::
+	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, $10
 	and [hl]
@@ -9671,11 +9677,11 @@ Func_00_39b4::
 
 
 Func_00_39ba::
-	ld hl, $c811
+	ld hl, wPlayer + OBJ_XVEL
 	jr .jump_39c2
 
 .jump_39bf:
-	ld hl, $c81a
+	ld hl, wObjects + OBJ_YVEL
 .jump_39c2:
 	add hl, bc
 	ld a, [hli]
@@ -9704,12 +9710,12 @@ Func_00_39d7::
 
 
 Func_00_39dd::
-	ld hl, $c811
+	ld hl, wPlayer + OBJ_XVEL
 	jr Func_00_39e2.jump_39e5
 
 
 Func_00_39e2::
-	ld hl, $c81a
+	ld hl, wObjects + OBJ_YVEL
 .jump_39e5:
 	add hl, bc
 	ld a, [hli]
@@ -9733,12 +9739,12 @@ Func_00_39e2::
 
 
 Func_00_39fa::
-	ld hl, $c811
+	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c80d
+	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -9749,7 +9755,7 @@ Func_00_39fa::
 	jr c, .jump_3a35
 	or e
 	jr z, .jump_3a58
-	ld hl, $c80f
+	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -9761,7 +9767,7 @@ Func_00_39fa::
 	ld a, [hl]
 	adc a, d
 	ld d, a
-	ld hl, $c80d
+	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -9773,7 +9779,7 @@ Func_00_39fa::
 	ld e, [hl]
 	ld d, a
 .jump_3a2c:
-	ld hl, $c811
+	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
@@ -9781,7 +9787,7 @@ Func_00_39fa::
 	jr .jump_3a58
 
 .jump_3a35:
-	ld hl, $c80f
+	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -9793,7 +9799,7 @@ Func_00_39fa::
 	ld a, [hl]
 	sbc a, d
 	ld d, a
-	ld hl, $c80d
+	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -9805,18 +9811,18 @@ Func_00_39fa::
 	ld e, [hl]
 	ld d, a
 .jump_3a51:
-	ld hl, $c811
+	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
 .jump_3a58:
-	ld hl, $c81a
+	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c816
+	ld hl, wObjects + OBJ_TARGET_YVEL
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -9827,7 +9833,7 @@ Func_00_39fa::
 	jr c, .jump_3a91
 	or e
 	ret z
-	ld hl, $c818
+	ld hl, wObjects + OBJ_YACCEL
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -9839,7 +9845,7 @@ Func_00_39fa::
 	ld a, [hl]
 	adc a, d
 	ld d, a
-	ld hl, $c816
+	ld hl, wObjects + OBJ_TARGET_YVEL
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -9851,7 +9857,7 @@ Func_00_39fa::
 	ld e, [hl]
 	ld d, a
 .jump_3a89:
-	ld hl, $c81a
+	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
@@ -9859,7 +9865,7 @@ Func_00_39fa::
 	ret
 
 .jump_3a91:
-	ld hl, $c818
+	ld hl, wObjects + OBJ_YACCEL
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -9871,7 +9877,7 @@ Func_00_39fa::
 	ld a, [hl]
 	sbc a, d
 	ld d, a
-	ld hl, $c816
+	ld hl, wObjects + OBJ_TARGET_YVEL
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -9883,7 +9889,7 @@ Func_00_39fa::
 	ld e, [hl]
 	ld d, a
 .jump_3aad:
-	ld hl, $c81a
+	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
@@ -9892,7 +9898,7 @@ Func_00_39fa::
 
 
 Func_00_3ab5::
-	ld hl, $c827
+	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
 	or a
@@ -9926,7 +9932,7 @@ Func_00_3ab5::
 	sbc a, d
 	rlca
 	jr c, .jump_3b02
-	ld hl, $c827
+	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
 	ld h, $ab
@@ -9950,7 +9956,7 @@ Func_00_3ab5::
 	ret
 
 .jump_3b02:
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
@@ -9968,7 +9974,7 @@ Func_00_3ab5::
 	sbc a, d
 	rlca
 	jr c, .jump_3b34
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
@@ -9996,14 +10002,14 @@ Func_00_3ab5::
 
 
 Func_00_3b39::
-	ld hl, $c827
+	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
 	ld h, $a9
 	ld e, [hl]
 	inc h
 	ld d, [hl]
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -10011,21 +10017,21 @@ Func_00_3b39::
 	ld a, [hl]
 	sbc a, d
 	ld d, a
-	ld hl, $c80e
+	ld hl, wObjects + OBJ_TARGET_XVEL + 1
 	add hl, bc
 	bit 7, [hl]
 	ret
 
 
 Func_00_3b54::
-	ld hl, $c827
+	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
 	ld h, $ab
 	ld e, [hl]
 	inc h
 	ld d, [hl]
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -10033,7 +10039,7 @@ Func_00_3b54::
 	ld a, [hl]
 	sbc a, d
 	ld d, a
-	ld hl, $c817
+	ld hl, wObjects + OBJ_TARGET_YVEL + 1
 	add hl, bc
 	bit 7, [hl]
 	ret
@@ -10041,7 +10047,7 @@ Func_00_3b54::
 
 Func_00_3b6f::
 	jr nz, .jump_3b7b
-	ld hl, $c82e
+	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
 	sub e
@@ -10050,7 +10056,7 @@ Func_00_3b6f::
 	jr .jump_3b83
 
 .jump_3b7b:
-	ld hl, $c830
+	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
 	add a, e
@@ -10062,7 +10068,7 @@ Func_00_3b6f::
 
 
 Func_00_3b85::
-	ld hl, $c80d
+	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, [hli]
 	or [hl]
@@ -10075,9 +10081,9 @@ Func_00_3b85::
 .jump_3b95:
 	call Func_00_3b6f
 	jr nc, .jump_3ba6
-	ld hl, $c80d
+	ld hl, wPlayer + OBJ_TARGET_XVEL
 	call Func_00_39ab
-	ld hl, $c816
+	ld hl, wPlayer + OBJ_TARGET_YVEL
 	call Func_00_39ab
 .jump_3ba6:
 	ret
@@ -10087,20 +10093,20 @@ Func_00_3ba7::
 	call Func_00_3b39
 	call Func_00_3b6f
 	jr nc, .jump_3bb5
-	ld hl, $c80d
+	ld hl, wPlayer + OBJ_TARGET_XVEL
 	call Func_00_39ab
 .jump_3bb5:
 	ret
 
 
 Func_00_3bb6::
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ld a, [$c814]
+	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	ld e, a
 	inc l
-	ld a, [$c815]
+	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
 	ld d, a
 	rlca
@@ -10116,7 +10122,7 @@ Func_00_3bb6::
 
 
 Func_00_3bcf::
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, e
 	sub [hl]
@@ -10131,12 +10137,12 @@ Func_00_3bcf::
 	rl d
 	sla e
 	rl d
-	ld hl, $c80d
+	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld hl, $c811
+	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
@@ -10145,7 +10151,7 @@ Func_00_3bcf::
 
 
 Func_00_3bf5::
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, e
 	sub [hl]
@@ -10160,12 +10166,12 @@ Func_00_3bf5::
 	rl d
 	sla e
 	rl d
-	ld hl, $c816
+	ld hl, wObjects + OBJ_TARGET_YVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld hl, $c81a
+	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
@@ -10174,13 +10180,13 @@ Func_00_3bf5::
 
 
 Func_00_3c1b::
-	ld a, [$c829]
+	ld a, [wPlayer + OBJ_COLLISION]
 	and $01
 	jr z, .jump_3c2e
-	ld a, [$c835]
+	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jr nz, .jump_3c2e
-	ld a, [$c837]
+	ld a, [wPlayer + OBJ_VAR_37]
 	or a
 	jr z, .jump_3c31
 .jump_3c2e:
@@ -10189,22 +10195,22 @@ Func_00_3c1b::
 .jump_3c31:
 	ld a, $20
 	ld [rROMB0], a
-	ld hl, $c814
+	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ld a, [$c814]
+	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	ld e, a
-	ld hl, $c81d
+	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ld a, [$c81d]
+	ld a, [wPlayer + OBJ_Y]
 	sub [hl]
 	sub $10
 	ld d, a
-	ld hl, $c81f
+	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
 	ldh [$ff9b], a
-	ld hl, $c820
+	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
@@ -10278,30 +10284,30 @@ Func_00_3c1b::
 	pop bc
 	or a
 	jr z, .jump_3cd9
-	ld hl, $c801
+	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
 	inc l
 	ld [hl], $f9
 	inc l
 	ld [hl], $61
-	ld hl, $c831
+	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	set 0, [hl]
-	ld hl, $c801
+	ld hl, wPlayer + OBJ_BANK
 	ld [hl], $09
 	inc l
 	ld [hl], $02
 	inc l
 	ld [hl], $5c
-	ld hl, $c81f
+	ld hl, wPlayer + OBJ_OAM_ATTR
 	res 5, [hl]
 	ld a, c
-	ld [$c833], a
+	ld [wPlayer + OBJ_VAR_33], a
 	ld a, b
-	ld [$c834], a
+	ld [wPlayer + OBJ_VAR_34], a
 	ld a, $03
-	ld [$c837], a
+	ld [wPlayer + OBJ_VAR_37], a
 .jump_3cd9:
 	ld a, $09
 	ld [rROMB0], a

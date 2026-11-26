@@ -260,6 +260,7 @@ def main():
     a = Asm()
     a.define_constants(os.path.join(ROOT, "include", "hardware.inc"))
     a.define_constants(os.path.join(ROOT, "include", "macros.inc"))
+    a.define_constants(os.path.join(ROOT, "include", "objects.inc"))
     items = a.parse_files(files)
     a.assemble(items, base)
     # header fields filled in by rgbfix

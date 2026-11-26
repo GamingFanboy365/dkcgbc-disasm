@@ -4,7 +4,8 @@ CODE = [
     # Code banks begin with their own bank number followed by code.
     (5, 0x4001), (7, 0x4001), (8, 0x4001), (9, 0x4001), (10, 0x4001), (15, 0x4001),
     (0, 0x0000), (0, 0x004B), (0, 0x0286), (0, 0x3FD5), (0, 0x00BC),
-    (0, 0x0616), (0, 0x1CC2), (0, 0x2400),  # interrupt handlers installed at runtime (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),
+    (0, 0x0616), (0, 0x1CC2), (0, 0x2400),  # interrupt handlers installed at runtime
+    (0, 0x3995), (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),
     (0, 0x0050), (0, 0x0058), (0, 0x0060), (0, 0x0063), (0, 0x00A1), (0, 0x0100),
 ]
 
@@ -39,10 +40,12 @@ NAMES = {
     (0, 0x0150): "Init",
     (0, 0x028C): "NotGBC",           # shows the "GBC only" screen on DMG
     (0, 0x3FC0): "FarCall_A_HL",     # call a:hl, used by the banks $f0+ program
+    (0, 0x167D): "InitObjectSlots",  # puts slots 1-31 on the free list
     (0, 0x182F): "InitObject",       # ApplyObjInit, then sets flags from field $2a
     (0, 0x188B): "ApplyObjInit",     # apply the initialiser list at hl to object bc
     (0, 0x18C0): "AllocObject",      # bc = free $40-byte slot offset; carry if full
     (0, 0x3980): "RunObjects",       # call OBJ_HANDLER (in OBJ_BANK) of each object
+    (0, 0x3995): "NextObject",       # handlers jump here when done; runs the next slot
     (0, 0x30F1): "PlaySong",         # a = song id
     (0, 0x3167): "UpdateSound",
     (0, 0x31B7): "UpdateMusic",      # steps the four channels at $d000-$d3ff
@@ -71,3 +74,48 @@ OBJ_LIST_RUNS = [
 OBJ_LIST_TABLES = [
     (0x0A, 0x443C, 4),
 ]
+
+# Object slot layout. Objects are $40-byte slots at wObjects ($c800) + bc;
+# slot 0 is the player (wPlayer). offset -> (name, size, description).
+# Offsets not listed here are written as OBJ_VAR_xx: per-object-type
+# variables whose meaning depends on the handler.
+OBJ_FIELD_TABLE = {
+    0x00: ("OBJ_FLAGS", 1, "bit 2: counted in a spawn group (see OBJ_VAR_2D); bit 5: flicker"),
+    0x01: ("OBJ_BANK", 1, "ROM bank of OBJ_HANDLER and OBJ_TOUCH_HANDLER"),
+    0x02: ("OBJ_HANDLER", 2, "code run every frame by RunObjects"),
+    0x04: ("OBJ_TOUCH_HANDLER", 2, "jumped to when the player comes within range (tentative)"),
+    0x06: ("OBJ_GROUND_Y", 2, "height of the terrain under the object (Func_00_2214)"),
+    0x08: ("OBJ_TERRAIN_A", 1, "attribute of the tile under the object (Func_00_2214)"),
+    0x09: ("OBJ_TERRAIN_B", 1, "second attribute of that tile (Func_00_2214)"),
+    0x0D: ("OBJ_TARGET_XVEL", 2, "X velocity that OBJ_XVEL accelerates towards"),
+    0x0F: ("OBJ_XACCEL", 2, "per-frame step from OBJ_XVEL towards OBJ_TARGET_XVEL"),
+    0x11: ("OBJ_XVEL", 2, "X velocity, 1/256 pixel per frame"),
+    0x13: ("OBJ_XSUB", 1, "X position, fraction"),
+    0x14: ("OBJ_X", 2, "X position in pixels"),
+    0x16: ("OBJ_TARGET_YVEL", 2, "Y velocity that OBJ_YVEL accelerates towards (max fall speed)"),
+    0x18: ("OBJ_YACCEL", 2, "per-frame step from OBJ_YVEL towards OBJ_TARGET_YVEL (gravity)"),
+    0x1A: ("OBJ_YVEL", 2, "Y velocity, 1/256 pixel per frame"),
+    0x1C: ("OBJ_YSUB", 1, "Y position, fraction"),
+    0x1D: ("OBJ_Y", 2, "Y position in pixels"),
+    0x1F: ("OBJ_OAM_ATTR", 1, "OAM attributes for every sprite of the object (palette, flip)"),
+    0x20: ("OBJ_FRAME", 2, "current sprite frame pointer, set by the animation"),
+    0x22: ("OBJ_ANIM", 2, "animation script pointer (bank $04), run by Func_00_127d"),
+    0x24: ("OBJ_ANIM_SPEED", 1, "frames per animation step"),
+    0x25: ("OBJ_ANIM_TIMER", 1, "frames left in the current animation step"),
+    0x26: ("OBJ_ANIM_FLAGS", 1, "bit 7 is cleared by an animation command (tentative)"),
+    0x27: ("OBJ_SPAWN_INDEX", 1, "index into the level object tables at $a8xx-$afxx; 0 = none"),
+    0x28: ("OBJ_ANIM_PARAM", 1, "set by an animation command, read by handlers (tentative)"),
+    0x29: ("OBJ_COLLISION", 1, "collision/interaction flags, cleared on delete (tentative)"),
+    0x2A: ("OBJ_PALETTE", 1, "object palette slot, allocated by InitObject"),
+    0x2B: ("OBJ_LAYER", 1, "sprite layer used when drawing (Func_00_1341)"),
+}
+
+# Banks of the separate program that has its own memory map (stack at
+# $cff6, different HRAM and WRAM use), so main-game RAM names don't apply.
+SECOND_PROGRAM_BANKS = set(range(0xF0, 0xFF))
+
+# Main-game RAM variables (not used for SECOND_PROGRAM_BANKS): address -> name
+RAM_NAMES = {
+    0xC400: "wObjectFreeList",   # stack of free slot offsets (words)
+    0xC440: "wObjectFreeCount",  # number of entries in wObjectFreeList
+}

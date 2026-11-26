@@ -134,6 +134,59 @@ def hexrow(d, bs, per=16):
     return [(d, ["$%02x" % x for x in bs[k:k + per]], None) for k in range(0, len(bs), per)]
 
 
+
+SIGNED_ARGS = {0x13, 0x14, 0x15, 0x45}   # transposes
+DECIMAL_ARGS = {0x04, 0x0A, 0x46, 0x51, 0x11, 0x12}  # counts, lengths, tempo
+
+
+def music_rows(md, bank, a, end):
+    """Rows of music/SFX macros for [a, end); bytes no item covers stay db."""
+    import music
+    rows = []
+    x = a
+    while x < end:
+        it = md.items.get((bank, x))
+        if it is None or x + it[0] > end:
+            rows.append(("db", ["$%02x" % md.rom[off(bank, x)]], None))
+            x += 1
+            continue
+        ln, kind, pay = it
+        com = None if (bank, x) in md.reached else "never reached"
+        if kind in ("note", "rest", "sfxnote"):
+            op, length = pay
+            tail = [] if length is None else ["%d" % length]
+            pre = "sfx" if kind == "sfxnote" else "mus"
+            if op == 0x80:
+                rows.append(("%s_rest" % pre, tail, com))
+            else:
+                rows.append(("%s_note" % pre, [music.note_name(op & 0x7F) or "%d" % (op & 0x7F)] + tail, com))
+        elif kind == "sfxhead":
+            rows.append(("sfx_header", ["%d" % pay[0]] + ["$%02x" % v for v in pay[1:]], "speed, NRx1, NRx2, flags"))
+        elif kind == "sfxcmd":
+            op, args = pay
+            rows.append((music.SFX_CMDS[op][0], ["$%02x" % v for v in args], com))
+        else:
+            op, args = pay
+            name, kinds = music.MUSIC_CMDS[op]
+            toks = []
+            if kinds.startswith("="):
+                sel = kinds[1:].rstrip("bwWr")
+                toks.append(sel)
+                kinds = kinds[1 + len(sel):]
+            for k, v in zip(kinds, args):
+                if k in "wWr":
+                    toks.append(("ref", bank, v, 2))
+                elif op in SIGNED_ARGS:
+                    toks.append("%d" % (v - 256 if v >= 128 else v))
+                elif op in DECIMAL_ARGS:
+                    toks.append("%d" % v)
+                else:
+                    toks.append("$%02x" % v)
+            rows.append((name, toks, com))
+        x += ln
+    return rows
+
+
 def parse_banks(t, rom):
     """Sound, camera regions, level object lists, text and samples (see
     tools/banks.py)."""
@@ -163,20 +216,42 @@ def parse_banks(t, rom):
              "SoundTable")
     a, cnt = c["wave_patterns"]
     t._claim(0, a, 16 * cnt, "rows", hexrow("db", rom[a:a + 16 * cnt]), "=WavePatterns")
-    for (b, a), name in sorted(s["streams"].items()):
-        if b:
-            t._claim(b, a, s["stream_lengths"][(b, a)], "incbin", None, "=" + name)
-        else:  # the empty streams in bank 0 are a single end byte
-            t._claim(0, a, 1, "rows", hexrow("db", rom[a:a + 1]), "=" + name)
+    import music
+    md = music.decode_all(rom)
     sb, st = c["sfx_table"]
     t._claim(sb, st, 2 * len(s["sfx"]), "rows",
              [("dw", [ref(sb, p) for p in s["sfx"][k:k + 4]], "effects $%02x-" % (2 * k)) for k in range(0, len(s["sfx"]), 4)],
              "=SFXTable")
+    for (b, a), name in sorted(s["streams"].items()):
+        if not b:  # the empty streams in bank 0 are a single end byte
+            t._claim(0, a, 1, "rows", music_rows(md, 0, a, a + 1), "=" + name)
+    for (b, a), ln in sorted(s["stream_lengths"].items()):
+        end = a + ln
+        cuts = {a} | {x for (bb, x) in md.targets if bb == b and a < x < end}
+        prev = None
+        for x in range(a, end):
+            k = (b, x)
+            if k in md.items:
+                r = k in md.reached
+                # a lone end byte after a loop's jump stays with the stream before it
+                trailing_end = not r and md.items[k][1] == "cmd" and md.items[k][2][0] == 0
+                if prev is not None and r != prev and not trailing_end:
+                    cuts.add(x)
+                if not trailing_end:
+                    prev = r
+        cuts = sorted(cuts)
+        for i, x in enumerate(cuts):
+            y = cuts[i + 1] if i + 1 < len(cuts) else end
+            if (b, x) in s["streams"]:
+                lab = "=" + s["streams"][(b, x)]
+            else:
+                lab = "Mus" if (b, x) in md.reached else "MusUnused"
+            t._claim(b, x, y - x, "rows", music_rows(md, b, x, y), lab)
+    names = {}
     for k, p in enumerate(s["sfx"]):
-        ln = s["sfx_lengths"][p]
-        if p in s["sfx"][:k]:
-            continue
-        t._claim(sb, p, ln, "incbin", None, "=SFX_%02X" % (2 * k))
+        names.setdefault(p, "=SFX_%02X" % (2 * k))
+    for p, ln in sorted(s["sfx_lengths"].items()):
+        t._claim(sb, p, ln, "rows", music_rows(md, sb, p, p + ln), names[p])
     # --- camera regions
     hdrs = [h for h, _ in bg.map_headers(rom).values()]
     cb, lists = bk.camera_regions(rom, hdrs)

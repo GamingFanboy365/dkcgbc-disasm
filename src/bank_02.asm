@@ -4,172 +4,7030 @@ INCLUDE "include/common.inc"
 SECTION "Bank $02", ROMX[$4000], BANK[$02]
 
 Song0E_Ch1::
-	INCBIN "baserom.gbc", $008000, $011d
+	mus_duty_envelope 2, $92
+	mus_note C_4, 8
+	mus_note C_4, 8
+	mus_envelope $94
+	mus_note A_4, 40
+	mus_envelope $92
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_envelope $94
+	mus_note D_4, 48
+	mus_envelope $92
+	mus_note D_4, 8
+	mus_note D_4, 8
+	mus_envelope $94
+	mus_note As4, 40
+	mus_envelope $92
+	mus_note G_4, 8
+	mus_note A_4, 8
+	mus_note G_4, 8
+	mus_envelope $94
+	mus_note E_4, 48
+	mus_envelope $92
+	mus_note E_4, 8
+	mus_note E_4, 8
+	mus_envelope $94
+	mus_note C_5, 40
+	mus_envelope $92
+	mus_note A_4, 8
+	mus_note As4, 8
+	mus_note C_5, 8
+	mus_envelope $94
+	mus_note D_5, 48
+	mus_envelope $92
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_envelope $94
+	mus_note A_4, 40
+	mus_envelope $92
+	mus_note E_4, 8
+	mus_note F_4, 8
+	mus_note G_4, 8
+
+Mus_02_4054::
+	mus_duty_envelope 1, $91
+	mus_call Mus_02_40fc
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_call Mus_02_40fc
+	mus_duty_envelope 2, $92
+	mus_note D_4, 8
+	mus_note D_4, 8
+	mus_envelope $96
+	mus_note A_4, 40
+	mus_envelope $92
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_envelope $96
+	mus_note D_4, 48
+	mus_envelope $92
+	mus_note D_4, 8
+	mus_note D_4, 8
+	mus_envelope $96
+	mus_note As4, 40
+	mus_envelope $92
+	mus_note G_4, 8
+	mus_note A_4, 8
+	mus_note G_4, 8
+	mus_envelope $96
+	mus_note E_4, 48
+	mus_envelope $92
+	mus_note E_4, 8
+	mus_note E_4, 8
+	mus_envelope $96
+	mus_note C_5, 40
+	mus_envelope $92
+	mus_note A_4, 8
+	mus_note As4, 8
+	mus_note C_5, 8
+	mus_envelope $96
+	mus_note D_5, 48
+	mus_envelope $92
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_envelope $96
+	mus_note A_4, 40
+	mus_envelope $92
+	mus_note E_4, 8
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_envelope $97
+	mus_note F_4, 64
+	mus_duty_envelope 1, $91
+	mus_call Mus_02_410c
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_call Mus_02_40fc
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_duty_envelope 2, $60
+	mus_call Mus_02_40d7
+	mus_note As4, 16
+	mus_call Mus_02_40d7
+	mus_note As4, 16
+	mus_jump_back Mus_02_4054
+	mus_end  ; never reached
+
+Mus_02_40d7::
+	mus_note A_4, 16
+	mus_note D_4, 8
+	mus_note A_4, 16
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note A_4, 8
+	mus_note G_4, 16
+	mus_note F_4, 8
+	mus_note D_4, 40
+	mus_note As4, 16
+	mus_note G_4, 8
+	mus_note As4, 16
+	mus_note G_4, 8
+	mus_note A_4, 8
+	mus_note As4, 8
+	mus_note C_5, 16
+	mus_note As4, 8
+	mus_note A_4, 24
+	mus_ret 
+
+Mus_02_40fc::
+	mus_rest 8
+	mus_note D_4, 8
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note D_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note D_4, 24
+
+Mus_02_410c::
+	mus_rest 8
+	mus_note D_4, 8
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note D_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note D_4, 8
+	mus_ret 
 
 Song0E_Ch2::
-	INCBIN "baserom.gbc", $00811d, $0147
+	mus_duty_envelope 1, $82
+	mus_rest 16
+	mus_note F_3, 8
+	mus_note F_3, 8
+	mus_note A_3, 8
+	mus_note F_3, 8
+	mus_envelope $84
+	mus_note A_3, 32
+	mus_envelope $82
+	mus_note D_3, 8
+	mus_note F_3, 8
+	mus_note G_3, 8
+	mus_note F_3, 8
+	mus_note G_3, 8
+	mus_note F_3, 8
+	mus_envelope $84
+	mus_note G_3, 16
+	mus_envelope $82
+	mus_note As3, 8
+	mus_note G_3, 8
+	mus_note As3, 8
+	mus_note G_3, 8
+	mus_envelope $84
+	mus_note As3, 32
+	mus_envelope $82
+	mus_note E_3, 8
+	mus_note G_3, 8
+	mus_note A_3, 8
+	mus_note G_3, 8
+	mus_note A_3, 8
+	mus_note G_3, 8
+	mus_envelope $84
+	mus_note C_4, 16
+	mus_envelope $82
+	mus_note E_4, 8
+	mus_note C_4, 8
+	mus_note A_3, 8
+	mus_note C_4, 8
+	mus_note E_4, 8
+	mus_note C_4, 8
+	mus_note A_3, 8
+	mus_note C_4, 8
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note As3, 8
+	mus_note D_4, 8
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note As3, 8
+	mus_note D_4, 8
+	mus_note C_4, 8
+	mus_note A_3, 8
+	mus_note C_4, 4
+	mus_note A_3, 4
+	mus_note F_3, 4
+	mus_note A_3, 4
+	mus_envelope $84
+	mus_note C_4, 32
+
+Mus_02_4191::
+	mus_call Mus_02_423b
+	mus_call_x 3, Mus_02_4206
+	mus_rest 7
+	mus_vibrato_ex $01, $01, $01, $01
+	mus_duty_envelope 2, $54
+	mus_note A_4, 40
+	mus_envelope $57
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_envelope $54
+	mus_note D_4, 48
+	mus_envelope $57
+	mus_note D_4, 8
+	mus_note D_4, 8
+	mus_envelope $54
+	mus_note As4, 40
+	mus_envelope $57
+	mus_note G_4, 8
+	mus_note A_4, 8
+	mus_note G_4, 8
+	mus_envelope $54
+	mus_note E_4, 48
+	mus_envelope $57
+	mus_note E_4, 8
+	mus_note E_4, 8
+	mus_envelope $54
+	mus_note C_5, 40
+	mus_envelope $57
+	mus_note A_4, 8
+	mus_note As4, 8
+	mus_note C_5, 8
+	mus_envelope $54
+	mus_note D_5, 48
+	mus_envelope $57
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_envelope $54
+	mus_note A_4, 40
+	mus_envelope $57
+	mus_note E_4, 8
+	mus_note F_4, 8
+	mus_note G_4, 1
+	mus_vibrato_off 
+	mus_call_x 4, Mus_02_4206
+	mus_duty_envelope 2, $30
+	mus_vibrato_ex $02, $01, $02, $04
+	mus_rest 7
+	mus_call Mus_02_40d7
+	mus_note As4, 16
+	mus_call Mus_02_40d7
+	mus_note As4, 9
+	mus_jump_back Mus_02_4191
+	mus_end  ; never reached
+
+Mus_02_4206::
+	mus_duty_envelope 1, $71
+	mus_note D_4, 4
+	mus_duty_envelope 0, $71
+	mus_note D_4, 4
+	mus_duty_envelope 2, $71
+	mus_note D_4, 4
+	mus_duty_envelope 1, $71
+	mus_note D_5, 8
+	mus_duty_envelope 2, $71
+	mus_note D_4, 8
+	mus_duty_envelope 1, $71
+	mus_note D_4, 4
+	mus_duty_envelope 0, $71
+	mus_note D_4, 4
+	mus_duty_envelope 2, $71
+	mus_note D_4, 4
+	mus_duty_envelope 1, $71
+	mus_note D_4, 4
+	mus_duty_envelope 0, $71
+	mus_note D_5, 8
+	mus_duty_envelope 1, $71
+	mus_note D_4, 4
+	mus_duty_envelope 2, $71
+	mus_note D_5, 4
+	mus_duty_envelope 0, $71
+	mus_note D_4, 4
+	mus_ret 
+
+Mus_02_423b::
+	mus_duty_envelope 1, $54
+	mus_rest 5
+	mus_rest 8
+	mus_note D_4, 8
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note D_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note D_4, 24
+	mus_rest 8
+	mus_note D_4, 8
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note D_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note D_4, 8
+	mus_note F_4, 8
+	mus_note G_4, 3
+	mus_ret 
 
 Song0E_Ch3::
-	INCBIN "baserom.gbc", $008264, $00bb
+	mus_regs $c8, $40, $40
+	mus_wave $10
+	mus_transpose_off 
+	mus_volume 2
+	mus_rest 16
+	mus_note F_3, 24
+	mus_note F_3, 8
+	mus_note F_3, 32
+	mus_note D_3, 24
+	mus_note G_3, 8
+	mus_note G_3, 32
+	mus_note As3, 24
+	mus_note As3, 8
+	mus_note As3, 32
+	mus_note C_4, 24
+	mus_note C_4, 8
+	mus_note C_4, 32
+	mus_note C_5, 16
+	mus_note A_4, 16
+	mus_note F_4, 16
+	mus_note C_4, 16
+	mus_note D_5, 16
+	mus_note As4, 16
+	mus_note G_4, 16
+	mus_note D_4, 16
+	mus_note A_3, 64
+	mus_wave $20
+	mus_duty $d0
+	mus_octave_up 
+	mus_volume 4
+
+Mus_02_429e::
+	mus_call_x 3, Mus_02_4306
+	mus_call Mus_02_42b0
+	mus_call Mus_02_42e1
+	mus_call_x 3, Mus_02_4306
+	mus_call_x 3, Mus_02_42b0
+	mus_jump_back Mus_02_429e
+	mus_end  ; never reached
+
+Mus_02_42b0::
+	mus_note D_3, 12
+	mus_note D_3, 12
+	mus_note D_3, 12
+	mus_note D_3, 12
+	mus_note C_3, 8
+	mus_note D_3, 8
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note A_2, 8
+	mus_note As2, 8
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note F_2, 8
+	mus_note G_2, 8
+	mus_note C_3, 12
+	mus_note C_3, 12
+	mus_note C_3, 12
+	mus_note C_3, 12
+	mus_note As2, 8
+	mus_note C_3, 8
+	mus_ret 
+
+Mus_02_42e1::
+	mus_note A_2, 12
+	mus_note A_2, 12
+	mus_note A_2, 12
+	mus_note A_2, 12
+	mus_note G_2, 8
+	mus_note A_2, 8
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note A_2, 8
+	mus_note As2, 8
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_note C_3, 12
+	mus_note C_3, 12
+	mus_note As2, 8
+	mus_note C_3, 8
+	mus_ret 
+
+Mus_02_4306::
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note C_2, 8
+	mus_note Cs2, 8
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note G_2, 8
+	mus_note F_2, 8
+	mus_ret 
 
 Song0E_Ch4::
-	INCBIN "baserom.gbc", $00831f, $0053
+	mus_duty_envelope 0, $00
+	mus_rest 16
+	mus_rest 128
+	mus_rest 128
+	mus_rest 128
+	mus_rest 64
+	mus_envelope $a5
+	mus_note 78, 16
+
+Mus_02_432f::
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $41
+	mus_note 66, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $42
+	mus_note 66, 4
+	mus_envelope $61
+	mus_note 69, 4
+	mus_envelope $81
+	mus_note 78, 8
+	mus_note 78, 8
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $41
+	mus_note 66, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $44
+	mus_note 66, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_note 78, 8
+	mus_jump_back Mus_02_432f
+	mus_end  ; never reached
 
 Song0D_Ch1::
-	INCBIN "baserom.gbc", $008372, $014a
+	mus_duty_envelope 1, $f0
+	mus_envelope $72
+	mus_call_x 3, Mus_02_4497
+	mus_call_x 3, Mus_02_4472
+	mus_duty_envelope 2, $40
+	mus_vibrato_ex $02, $03, $03, $04
+	mus_call Mus_02_442f
+	mus_volume 2
+	mus_note G_4, 11
+	mus_note F_4, 11
+	mus_note E_4, 10
+	mus_length_x 4
+	mus_call Mus_02_4403
+	mus_vibrato_off 
+	mus_duty_envelope 1, $52
+	mus_call_x 3, Mus_02_441e
+	mus_call Mus_02_4415
+	mus_call Mus_02_440c
+	mus_call Mus_02_4415
+	mus_call Mus_02_4403
+	mus_length_off 
+	mus_duty_envelope 1, $63
+	mus_vibrato_ex $02, $03, $03, $04
+	mus_call_x 3, Mus_02_43da
+	mus_vibrato_off 
+	mus_call_x 3, Mus_02_43b4
+	mus_jump_back Song0D_Ch1
+
+Mus_02_43b4::
+	mus_duty_envelope 0, $81
+	mus_call Mus_02_43c9
+	mus_envelope $61
+	mus_call Mus_02_43c9
+	mus_envelope $42
+	mus_call Mus_02_43c9
+	mus_envelope $23
+	mus_call Mus_02_43c9
+	mus_ret 
+
+Mus_02_43c9::
+	mus_note A_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note A_3, 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_ret 
+
+Mus_02_43da::
+	mus_note E_4, 8
+	mus_note A_4, 4
+	mus_note B_4, 8
+	mus_note C_5, 8
+	mus_note F_4, 12
+	mus_note A_4, 4
+	mus_note B_4, 8
+	mus_note C_5, 12
+	mus_note G_4, 8
+	mus_note B_4, 4
+	mus_note C_5, 8
+	mus_note D_5, 12
+	mus_note F_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note C_5, 4
+	mus_note G_4, 4
+	mus_note C_5, 4
+	mus_note D_5, 4
+	mus_note G_5, 4
+	mus_ret 
+
+Mus_02_4403::
+	mus_note C_4
+	mus_note A_3
+	mus_note F_3
+	mus_note C_4
+	mus_note D_4
+	mus_note B_3
+	mus_note G_3
+	mus_note D_4
+	mus_ret 
+
+Mus_02_440c::
+	mus_note C_4
+	mus_note D_4
+	mus_note G_3
+	mus_note C_4
+	mus_note D_4
+	mus_note G_3
+	mus_note C_4
+	mus_note D_4
+	mus_ret 
+
+Mus_02_4415::
+	mus_note G_4
+	mus_note A_3
+	mus_note D_4
+	mus_note F_4
+	mus_note A_3
+	mus_note D_4
+	mus_note E_4
+	mus_note A_3
+	mus_ret 
+
+Mus_02_441e::
+	mus_note G_4
+	mus_note G_3
+	mus_note B_3
+	mus_note F_4
+	mus_note G_3
+	mus_note B_3
+	mus_note E_4
+	mus_note G_3
+	mus_note C_4
+	mus_note B_3
+	mus_note C_4
+	mus_note G_4
+	mus_note C_5
+	mus_note B_4
+	mus_note C_5
+	mus_note G_5
+	mus_ret 
+
+Mus_02_442f::
+	mus_note B_4, 8
+	mus_note C_5, 8
+	mus_note B_4, 8
+	mus_note C_5, 8
+	mus_note B_4, 16
+	mus_note G_4, 8
+	mus_note E_4, 24
+	mus_rest 16
+	mus_note E_4, 11
+	mus_note F_4, 11
+	mus_note G_4, 10
+	mus_note G_4, 30
+	mus_rest 2
+	mus_note F_4, 16
+	mus_note E_4, 8
+	mus_note C_4, 28
+	mus_rest 4
+	mus_note B_3, 4
+	mus_note C_4, 4
+	mus_note D_4, 32
+	mus_note C_5, 20
+	mus_note D_5, 12
+	mus_note B_4, 20
+	mus_note C_5, 12
+	mus_note A_4, 20
+	mus_note B_4, 12
+	mus_note G_4, 20
+	mus_rest 12
+	mus_note G_4, 11
+	mus_note F_4, 11
+	mus_note E_4, 10
+	mus_note G_4, 24
+	mus_rest 8
+	mus_ret 
+
+Mus_02_4472::
+	mus_volume 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_volume 6
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_volume 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_volume 2
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_ret 
+
+Mus_02_4497::
+	mus_volume 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_volume 6
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_volume 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_volume 2
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_ret 
 
 Song0D_Ch2::
-	INCBIN "baserom.gbc", $0084bc, $00a3
+	mus_rest 5
+
+Mus_02_44be::
+	mus_duty_envelope 1, $f0
+	mus_envelope $75
+	mus_call_x 3, Mus_02_453a
+	mus_call_x 3, Mus_02_4515
+	mus_duty_envelope 2, $20
+	mus_vibrato_ex $02, $01, $05, $04
+	mus_call Mus_02_442f
+	mus_volume 1
+	mus_note G_4, 11
+	mus_note F_4, 11
+	mus_note E_4, 10
+	mus_length_x 4
+	mus_call Mus_02_4403
+	mus_vibrato_off 
+	mus_duty_envelope 1, $26
+	mus_call_x 3, Mus_02_441e
+	mus_call Mus_02_4415
+	mus_call Mus_02_440c
+	mus_call Mus_02_4415
+	mus_call Mus_02_4403
+	mus_length_off 
+	mus_duty_envelope 1, $37
+	mus_vibrato_ex $02, $03, $03, $04
+	mus_call_x 3, Mus_02_43da
+	mus_vibrato_off 
+	mus_call_x 3, Mus_02_4500
+	mus_jump_back Mus_02_44be
+
+Mus_02_4500::
+	mus_duty_envelope 0, $44
+	mus_call Mus_02_43c9
+	mus_envelope $34
+	mus_call Mus_02_43c9
+	mus_envelope $25
+	mus_call Mus_02_43c9
+	mus_envelope $17
+	mus_call Mus_02_43c9
+	mus_ret 
+
+Mus_02_4515::
+	mus_volume 2
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_volume 3
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_volume 2
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_volume 1
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_ret 
+
+Mus_02_453a::
+	mus_volume 2
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_volume 3
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_volume 2
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_volume 1
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note D_4, 4
+	mus_note A_3, 4
+	mus_ret 
 
 Song0D_Ch3::
-	INCBIN "baserom.gbc", $00855f, $0110
+	mus_octave_up 
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+
+Mus_02_4566::
+	mus_call Mus_02_4638
+	mus_call_x 3, Mus_02_45f3
+	mus_volume 4
+	mus_duty $da
+	mus_call_x 3, Mus_02_45d6
+	mus_call_x 3, Mus_02_45b9
+	mus_duty $e2
+	mus_volume 4
+	mus_call_x 3, Mus_02_4596
+	mus_call_x 4, Mus_02_4580
+	mus_jump_back Mus_02_4566
+
+Mus_02_4580::
+	mus_regs $d8, $40, $40
+	mus_note A_2, 20
+	mus_volume 6
+	mus_note A_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_volume 6
+	mus_note A_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_volume 6
+	mus_note A_2, 28
+	mus_ret 
+
+Mus_02_4596::
+	mus_length_x 4
+	mus_note A_2
+	mus_note A_2
+	mus_note A_2
+	mus_note A_2
+	mus_note A_2
+	mus_note A_2
+	mus_note A_2
+	mus_note A_2
+	mus_note D_2
+	mus_note D_2
+	mus_note D_2
+	mus_note D_2
+	mus_note D_2
+	mus_note D_2
+	mus_note D_2
+	mus_note D_2
+	mus_note E_2
+	mus_note E_2
+	mus_note E_2
+	mus_note E_2
+	mus_note E_2
+	mus_note E_2
+	mus_note E_2
+	mus_note E_2
+	mus_note F_2
+	mus_note F_2
+	mus_note F_2
+	mus_note F_2
+	mus_note G_2
+	mus_note G_2
+	mus_note G_2
+	mus_note G_2
+	mus_length_off 
+	mus_ret 
+
+Mus_02_45b9::
+	mus_volume 4
+	mus_note D_2, 8
+	mus_volume 6
+	mus_note D_2, 4
+	mus_volume 4
+	mus_note D_2, 4
+	mus_note D_2, 8
+	mus_volume 4
+	mus_note D_2, 8
+	mus_volume 4
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_2, 4
+	mus_volume 4
+	mus_note G_2, 4
+	mus_note G_2, 8
+	mus_volume 4
+	mus_note G_2, 8
+	mus_ret 
+
+Mus_02_45d6::
+	mus_volume 4
+	mus_note E_2, 8
+	mus_volume 6
+	mus_note E_2, 4
+	mus_volume 4
+	mus_note E_2, 4
+	mus_note E_2, 8
+	mus_volume 4
+	mus_note E_2, 8
+	mus_volume 4
+	mus_note A_2, 8
+	mus_volume 6
+	mus_note A_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_note A_2, 8
+	mus_volume 4
+	mus_note A_2, 8
+	mus_ret 
+
+Mus_02_45f3::
+	mus_duty $e8
+	mus_call_x 4, Mus_02_4625
+	mus_call_x 3, Mus_02_4612
+	mus_call_x 3, Mus_02_45ff
+	mus_ret 
+
+Mus_02_45ff::
+	mus_volume 4
+	mus_note G_2, 4
+	mus_note D_3, 4
+	mus_note F_3, 4
+	mus_volume 6
+	mus_note F_3, 4
+	mus_note G_2, 4
+	mus_note D_3, 4
+	mus_note F_3, 4
+	mus_note F_3, 4
+	mus_ret 
+
+Mus_02_4612::
+	mus_volume 4
+	mus_note F_2, 4
+	mus_note C_3, 4
+	mus_note E_3, 4
+	mus_volume 6
+	mus_note E_3, 4
+	mus_note F_2, 4
+	mus_note C_3, 4
+	mus_note E_3, 4
+	mus_note E_3, 4
+	mus_ret 
+
+Mus_02_4625::
+	mus_volume 4
+	mus_note A_2, 4
+	mus_note E_3, 4
+	mus_note G_3, 4
+	mus_volume 6
+	mus_note G_3, 4
+	mus_note A_2, 4
+	mus_note E_3, 4
+	mus_note G_3, 4
+	mus_note G_3, 4
+	mus_ret 
+
+Mus_02_4638::
+	mus_regs $e0, $60, $80
+	mus_note F_2, 64
+	mus_regs $d8, $40, $40
+	mus_note F_2, 20
+	mus_volume 6
+	mus_note F_2, 4
+	mus_volume 4
+	mus_note F_2, 4
+	mus_volume 6
+	mus_note F_2, 4
+	mus_volume 4
+	mus_note F_2, 4
+	mus_volume 6
+	mus_note F_2, 28
+	mus_regs $e0, $60, $80
+	mus_note B_2, 64
+	mus_regs $d8, $40, $40
+	mus_note B_2, 20
+	mus_volume 6
+	mus_note B_2, 4
+	mus_volume 4
+	mus_note B_2, 4
+	mus_volume 6
+	mus_note B_2, 4
+	mus_volume 4
+	mus_note B_2, 4
+	mus_volume 6
+	mus_note B_2, 28
+	mus_ret 
 
 Song0D_Ch4::
-	INCBIN "baserom.gbc", $00866f, $004a
+	mus_duty_envelope 0, $62
+
+Mus_02_4671::
+	mus_call_times 12, Mus_02_4694
+	mus_call_x 16, Mus_02_467d
+	mus_call_x 4, Mus_02_4694
+	mus_jump_back Mus_02_4671
+
+Mus_02_467d::
+	mus_envelope $51
+	mus_note 77, 8
+	mus_envelope $71
+	mus_note 65, 4
+	mus_envelope $52
+	mus_note 77, 4
+	mus_note 77, 8
+	mus_envelope $71
+	mus_note 65, 4
+	mus_envelope $32
+	mus_note 65, 4
+	mus_ret 
+
+Mus_02_4694::
+	mus_envelope $54
+	mus_note 77, 16
+	mus_envelope $71
+	mus_note 65, 4
+	mus_envelope $41
+	mus_note 65, 4
+	mus_envelope $52
+	mus_note 77, 8
+	mus_envelope $54
+	mus_note 77, 16
+	mus_envelope $71
+	mus_note 65, 4
+	mus_envelope $41
+	mus_note 65, 4
+	mus_envelope $23
+	mus_note 65, 4
+	mus_envelope $14
+	mus_note 65, 4
+	mus_ret 
 
 Song0C_Ch1::
-	INCBIN "baserom.gbc", $0086b9, $003f
+	mus_duty_envelope 1, $51
+	mus_note F_5, 4
+	mus_envelope $32
+	mus_note F_5, 4
+	mus_envelope $51
+	mus_note C_5, 4
+	mus_envelope $32
+	mus_note C_5, 4
+	mus_envelope $51
+	mus_note F_5, 4
+	mus_envelope $32
+	mus_note F_5, 4
+	mus_envelope $51
+	mus_note C_5, 4
+	mus_note F_5, 4
+	mus_envelope $32
+	mus_note F_5, 4
+	mus_envelope $51
+	mus_note F_5, 4
+	mus_note C_5, 4
+	mus_envelope $32
+	mus_note C_5, 4
+	mus_envelope $51
+	mus_note F_5, 4
+	mus_envelope $32
+	mus_note F_5, 4
+	mus_envelope $51
+	mus_note C_5, 4
+	mus_envelope $32
+	mus_note C_5, 4
+	mus_jump_back Song0C_Ch1
+	mus_end  ; never reached
 
 Song0C_Ch2::
-	INCBIN "baserom.gbc", $0086f8, $0026
+	mus_duty_envelope 2, $73
+	mus_vibrato_ex $02, $01, $03, $08
+
+Mus_02_46ff::
+	mus_rest 8
+	mus_note F_4, 8
+	mus_note E_4, 8
+	mus_note C_4, 16
+	mus_note F_4, 8
+	mus_note E_4, 8
+	mus_note F_4, 8
+	mus_rest 8
+	mus_note F_4, 8
+	mus_note E_4, 8
+	mus_note C_4, 16
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_jump_back Mus_02_46ff
+	mus_end  ; never reached
 
 Song0C_Ch3::
-	INCBIN "baserom.gbc", $00871e, $0046
+	mus_octave_up 
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+	mus_regs $c8, $40, $40
+
+Mus_02_4729::
+	mus_note F_2, 16
+	mus_note F_2, 12
+	mus_note F_2, 8
+	mus_note F_2, 4
+	mus_note F_2, 8
+	mus_note G_2, 8
+	mus_note A_2, 8
+	mus_note As2, 16
+	mus_note As2, 12
+	mus_note As2, 8
+	mus_note As2, 4
+	mus_note As2, 8
+	mus_note A_2, 8
+	mus_note As2, 8
+	mus_note C_3, 16
+	mus_note C_3, 12
+	mus_note C_3, 8
+	mus_note C_3, 4
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note As2, 8
+	mus_note F_2, 16
+	mus_note F_2, 12
+	mus_note F_2, 8
+	mus_note F_2, 4
+	mus_note F_2, 8
+	mus_note Ds2, 8
+	mus_note E_2, 8
+	mus_jump_back Mus_02_4729
+	mus_end  ; never reached
 
 Song0C_Ch4::
-	INCBIN "baserom.gbc", $008764, $003b
+	mus_duty_envelope 0, $00
+
+Mus_02_4766::
+	mus_envelope $72
+	mus_note 77, 4
+	mus_envelope $41
+	mus_note 65, 4
+	mus_note 66, 4
+	mus_note 65, 4
+	mus_envelope $63
+	mus_note 71, 4
+	mus_envelope $41
+	mus_note 65, 4
+	mus_note 66, 4
+	mus_envelope $72
+	mus_note 77, 4
+	mus_envelope $41
+	mus_note 66, 4
+	mus_envelope $72
+	mus_note 77, 4
+	mus_envelope $42
+	mus_note 77, 4
+	mus_envelope $41
+	mus_note 66, 4
+	mus_envelope $63
+	mus_note 71, 4
+	mus_envelope $41
+	mus_note 65, 4
+	mus_note 66, 4
+	mus_note 65, 4
+	mus_jump_back Mus_02_4766
+	mus_end  ; never reached
 
 Song0B_Ch1::
-	INCBIN "baserom.gbc", $00879f, $0185
+	mus_duty_envelope 2, $71
+	mus_call Mus_02_48e9
+
+Mus_02_47a4::
+	mus_call Mus_02_48a1
+	mus_duty_envelope 2, $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 2
+	mus_envelope $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 2
+	mus_envelope $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 26
+	mus_duty_envelope 0, $82
+	mus_call Mus_02_480c
+	mus_note C_5, 24
+	mus_duty_envelope 2, $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 2
+	mus_envelope $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 2
+	mus_envelope $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 26
+	mus_duty_envelope 2, $81
+	mus_call_x 2, Mus_02_47fb
+	mus_note F_2, 11
+	mus_note F_2, 11
+	mus_note Fs2, 10
+	mus_note G_2, 11
+	mus_note G_2, 11
+	mus_note B_2, 10
+	mus_note C_2, 16
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note C_3, 24
+	mus_note G_2, 8
+	mus_jump_back Mus_02_47a4
+
+Mus_02_47fb::
+	mus_note C_2, 24
+	mus_note C_2, 8
+	mus_note G_2, 24
+	mus_note G_2, 8
+	mus_note C_2, 24
+	mus_note C_2, 8
+	mus_note G_2, 16
+	mus_note G_2, 16
+	mus_ret 
+
+Mus_02_480c::
+	mus_rest 16
+	mus_note Ds4, 8
+	mus_rest 8
+	mus_note E_4, 6
+	mus_rest 2
+	mus_note G_4, 8
+	mus_rest 16
+	mus_rest 16
+	mus_note Gs4, 8
+	mus_rest 8
+	mus_note A_4, 6
+	mus_rest 2
+	mus_note B_4, 8
+	mus_rest 16
+	mus_rest 16
+	mus_note C_5, 8
+	mus_rest 8
+	mus_note D_5, 6
+	mus_rest 2
+	mus_note C_5, 8
+	mus_rest 4
+	mus_note Cs5, 1
+	mus_rest 1
+	mus_note D_5, 1
+	mus_rest 1
+	mus_note Ds5, 8
+	mus_rest 16
+	mus_note D_5, 8
+	mus_rest 8
+	mus_note C_5, 6
+	mus_rest 2
+	mus_note A_4, 8
+	mus_rest 16
+	mus_rest 8
+	mus_note Ds5, 6
+	mus_rest 2
+	mus_note E_5, 6
+	mus_rest 2
+	mus_note G_5, 6
+	mus_rest 2
+	mus_note E_5, 6
+	mus_rest 2
+	mus_note Ds5, 6
+	mus_rest 2
+	mus_note D_5, 6
+	mus_rest 2
+	mus_note C_5, 8
+	mus_rest 8
+	mus_note As4, 6
+	mus_rest 2
+	mus_note B_4, 6
+	mus_rest 2
+	mus_note D_5, 6
+	mus_rest 2
+	mus_note B_4, 6
+	mus_rest 2
+	mus_note As4, 6
+	mus_rest 2
+	mus_note A_4, 6
+	mus_rest 2
+	mus_note G_4, 6
+	mus_rest 2
+	mus_note A_4, 8
+	mus_rest 8
+	mus_note C_5, 8
+	mus_rest 4
+	mus_note Cs5, 1
+	mus_rest 1
+	mus_note D_5, 1
+	mus_rest 1
+	mus_note Ds5, 6
+	mus_rest 2
+	mus_note D_5, 8
+	mus_rest 8
+	mus_ret 
+
+Mus_02_48a1::
+	mus_duty_envelope 2, $72
+	mus_vibrato_ex $01, $01, $01, $01
+	mus_rest 16
+	mus_note G_4, 8
+	mus_note G_4, 8
+	mus_note B_4, 8
+	mus_note C_5, 16
+	mus_note D_5, 24
+	mus_rest 48
+	mus_rest 16
+	mus_note E_5, 8
+	mus_note E_5, 8
+	mus_note F_5, 8
+	mus_note E_5, 16
+	mus_note C_5, 24
+	mus_rest 48
+	mus_rest 8
+	mus_note E_5, 16
+	mus_note E_5, 8
+	mus_note E_5, 16
+	mus_note D_5, 8
+	mus_note C_5, 16
+	mus_note D_5, 16
+	mus_note D_5, 8
+	mus_note D_5, 16
+	mus_note C_5, 8
+	mus_note B_4, 8
+	mus_note C_5, 16
+	mus_note C_5, 8
+	mus_note C_5, 8
+	mus_note D_5, 8
+	mus_note E_5, 8
+	mus_note D_5, 8
+	mus_note C_5, 24
+	mus_ret 
+
+Mus_02_48e9::
+	mus_rest 16
+	mus_envelope $71
+	mus_note A_4, 6
+	mus_envelope $33
+	mus_note A_4, 10
+	mus_envelope $71
+	mus_note B_4, 6
+	mus_envelope $33
+	mus_note B_4, 2
+	mus_envelope $71
+	mus_note B_4, 6
+	mus_envelope $33
+	mus_note B_4, 10
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 18
+	mus_envelope $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 2
+	mus_envelope $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 2
+	mus_envelope $71
+	mus_note E_5, 6
+	mus_envelope $33
+	mus_note E_5, 26
+	mus_ret 
 
 Song0B_Ch2::
-	INCBIN "baserom.gbc", $008924, $00e5
+	mus_duty_envelope 2, $71
+	mus_call Mus_02_49ce
+
+Mus_02_4929::
+	mus_call Mus_02_4984
+	mus_duty_envelope 2, $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 2
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 2
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 26
+	mus_duty_envelope 0, $57
+	mus_rest 11
+	mus_call Mus_02_480c
+	mus_note C_5, 13
+	mus_duty_envelope 2, $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 2
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 2
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 26
+	mus_duty_envelope 2, $53
+	mus_rest 7
+	mus_call_x 2, Mus_02_47fb
+	mus_note F_2, 11
+	mus_note F_2, 11
+	mus_note Fs2, 10
+	mus_note G_2, 11
+	mus_note G_2, 11
+	mus_note B_2, 10
+	mus_note C_2, 16
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note C_3, 24
+	mus_note G_2, 1
+	mus_jump_back Mus_02_4929
+
+Mus_02_4984::
+	mus_duty_envelope 2, $37
+	mus_rest 11
+	mus_vibrato_ex $02, $01, $02, $01
+	mus_rest 16
+	mus_note G_4, 8
+	mus_note G_4, 8
+	mus_note B_4, 8
+	mus_note C_5, 16
+	mus_note D_5, 24
+	mus_rest 48
+	mus_rest 16
+	mus_note E_5, 8
+	mus_note E_5, 8
+	mus_note F_5, 8
+	mus_note E_5, 16
+	mus_note C_5, 24
+	mus_rest 48
+	mus_rest 8
+	mus_note E_5, 16
+	mus_note E_5, 8
+	mus_note E_5, 16
+	mus_note D_5, 8
+	mus_note C_5, 16
+	mus_note D_5, 16
+	mus_note D_5, 8
+	mus_note D_5, 16
+	mus_note C_5, 8
+	mus_note B_4, 8
+	mus_note C_5, 16
+	mus_note C_5, 8
+	mus_note C_5, 8
+	mus_note D_5, 8
+	mus_note E_5, 8
+	mus_note D_5, 8
+	mus_note C_5, 13
+	mus_ret 
+
+Mus_02_49ce::
+	mus_rest 16
+	mus_envelope $71
+	mus_note F_4, 6
+	mus_envelope $33
+	mus_note F_4, 10
+	mus_envelope $71
+	mus_note G_4, 6
+	mus_envelope $33
+	mus_note G_4, 2
+	mus_envelope $71
+	mus_note G_4, 6
+	mus_envelope $33
+	mus_note G_4, 10
+	mus_envelope $71
+	mus_note G_4, 6
+	mus_envelope $33
+	mus_note G_4, 18
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 2
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 2
+	mus_envelope $71
+	mus_note C_5, 6
+	mus_envelope $33
+	mus_note C_5, 26
+	mus_ret 
 
 Song0B_Ch3::
-	INCBIN "baserom.gbc", $008a09, $0195
+	mus_octave_up 
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+	mus_regs $e0, $40, $40
+	mus_volume 4
+	mus_note F_2, 8
+	mus_volume 6
+	mus_note F_3, 16
+	mus_volume 4
+	mus_note F_2, 8
+	mus_volume 4
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 16
+	mus_volume 4
+	mus_note G_2, 8
+	mus_note C_2, 16
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note C_3, 24
+	mus_note G_2, 8
+
+Mus_02_4a30::
+	mus_volume 4
+	mus_duty $e0
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+	mus_volume 4
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 16
+	mus_volume 4
+	mus_note G_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 8
+	mus_note Gs3, 8
+	mus_volume 4
+	mus_note Gs2, 8
+	mus_note A_2, 8
+	mus_volume 6
+	mus_note A_3, 16
+	mus_volume 4
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_volume 6
+	mus_note A_3, 16
+	mus_volume 4
+	mus_note A_2, 8
+	mus_note F_2, 8
+	mus_volume 6
+	mus_note F_3, 16
+	mus_volume 4
+	mus_note F_2, 8
+	mus_note F_2, 8
+	mus_volume 6
+	mus_note F_3, 8
+	mus_note G_3, 8
+	mus_volume 4
+	mus_note G_2, 8
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 16
+	mus_volume 4
+	mus_note G_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 8
+	mus_volume 4
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 8
+	mus_volume 4
+	mus_note F_2, 8
+	mus_volume 6
+	mus_note F_3, 16
+	mus_volume 4
+	mus_note F_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 16
+	mus_volume 4
+	mus_note G_2, 8
+	mus_note C_2, 16
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note C_3, 24
+	mus_note G_2, 8
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note E_2, 8
+	mus_volume 6
+	mus_note E_3, 16
+	mus_volume 4
+	mus_note E_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note E_3, 8
+	mus_volume 4
+	mus_note E_2, 8
+	mus_volume 6
+	mus_note E_3, 8
+	mus_volume 4
+	mus_note F_2, 8
+	mus_volume 6
+	mus_note F_3, 16
+	mus_volume 4
+	mus_note F_2, 8
+	mus_note F_2, 8
+	mus_volume 6
+	mus_note F_3, 16
+	mus_volume 4
+	mus_note F_2, 8
+	mus_note Fs2, 8
+	mus_volume 6
+	mus_note Fs3, 16
+	mus_volume 4
+	mus_note Fs2, 8
+	mus_note Fs2, 8
+	mus_volume 6
+	mus_note Fs3, 8
+	mus_volume 4
+	mus_note Fs2, 8
+	mus_volume 6
+	mus_note Fs3, 8
+	mus_volume 4
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note C_2, 8
+	mus_volume 6
+	mus_note C_3, 16
+	mus_volume 4
+	mus_note C_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 16
+	mus_volume 4
+	mus_note G_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 8
+	mus_volume 4
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 8
+	mus_volume 4
+	mus_note F_2, 8
+	mus_volume 6
+	mus_note F_3, 16
+	mus_volume 4
+	mus_note F_2, 8
+	mus_note G_2, 8
+	mus_volume 6
+	mus_note G_3, 16
+	mus_volume 4
+	mus_note G_2, 8
+	mus_note C_2, 16
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note C_3, 24
+	mus_note G_2, 8
+	mus_note C_2, 16
+	mus_call Mus_02_4b4b
+	mus_jump Mus_02_4a30
+	mus_end  ; never reached
+
+Mus_02_4b4b::
+	mus_wave $70
+	mus_duty $e8
+	mus_transpose 24
+	mus_vibrato_ex $02, $01, $02, $01
+	mus_call Mus_02_4b67
+	mus_rest 16
+	mus_call Mus_02_4b67
+	mus_rest 16
+	mus_call Mus_02_4b67
+	mus_octave_up 
+	mus_rest 128
+	mus_ret 
+
+Mus_02_4b67::
+	mus_volume 4
+	mus_note G_4, 6
+	mus_volume 6
+	mus_note G_4, 10
+	mus_volume 4
+	mus_note Cs4, 6
+	mus_volume 6
+	mus_note Cs4, 2
+	mus_volume 4
+	mus_note Cs4, 6
+	mus_volume 6
+	mus_note Cs4, 10
+	mus_volume 4
+	mus_note G_4, 6
+	mus_volume 6
+	mus_note G_4, 10
+	mus_volume 4
+	mus_note G_4, 6
+	mus_volume 6
+	mus_note G_4, 10
+	mus_volume 4
+	mus_note G_4, 6
+	mus_volume 6
+	mus_note G_4, 2
+	mus_volume 4
+	mus_note Cs4, 6
+	mus_volume 6
+	mus_note Cs4, 10
+	mus_volume 4
+	mus_note Cs4, 6
+	mus_volume 6
+	mus_note Cs4, 2
+	mus_volume 4
+	mus_note Cs4, 6
+	mus_volume 6
+	mus_note Cs4, 2
+	mus_ret 
 
 Song0B_Ch4::
-	INCBIN "baserom.gbc", $008b9e, $005b
+	mus_duty_envelope 2, $71
+	mus_length_x 8
+	mus_call Mus_02_4be2
+	mus_call Mus_02_4bcd
+
+Mus_02_4ba7::
+	mus_call_times 7, Mus_02_4be2
+	mus_call Mus_02_4bcd
+	mus_call_times 7, Mus_02_4be2
+	mus_call Mus_02_4bcd
+	mus_call_x 6, Mus_02_4be2
+	mus_length_off 
+	mus_envelope $52
+	mus_note 69, 11
+	mus_note 69, 11
+	mus_note 69, 10
+	mus_note 74, 11
+	mus_note 74, 11
+	mus_note 74, 10
+	mus_length_x 8
+	mus_call Mus_02_4bcd
+	mus_jump_back Mus_02_4ba7
+
+Mus_02_4bcd::
+	mus_envelope $71
+	mus_note 77
+	mus_envelope $21
+	mus_note 65
+	mus_envelope $52
+	mus_note 71
+	mus_note 71
+	mus_note 71
+	mus_envelope $21
+	mus_note 65
+	mus_envelope $52
+	mus_note 77
+	mus_envelope $25
+	mus_note 77
+	mus_ret 
+
+Mus_02_4be2::
+	mus_envelope $71
+	mus_note 77
+	mus_envelope $21
+	mus_note 65
+	mus_envelope $32
+	mus_note 65
+	mus_envelope $71
+	mus_note 77
+	mus_note 77
+	mus_envelope $21
+	mus_note 65
+	mus_envelope $52
+	mus_note 71
+	mus_envelope $71
+	mus_note 77
+	mus_ret 
 
 Song0A_Ch1::
-	INCBIN "baserom.gbc", $008bf9, $0039
+	mus_duty_envelope 1, $72
+	mus_note G_4, 3
+	mus_note A_4, 3
+	mus_note As4, 9
+	mus_note A_4, 7
+	mus_note G_4, 9
+	mus_note E_4, 7
+	mus_note D_4, 9
+	mus_note F_4, 7
+	mus_note Fs4, 9
+	mus_note G_4, 23
+	mus_note F_4, 4
+	mus_envelope $42
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 2
+	mus_note D_4, 2
+	mus_envelope $72
+	mus_note F_4, 8
+	mus_end 
 
 Song0A_Ch2::
-	INCBIN "baserom.gbc", $008c32, $003b
+	mus_rest 5
+	mus_duty_envelope 1, $45
+	mus_note G_4, 3
+	mus_note A_4, 3
+	mus_note As4, 9
+	mus_note A_4, 7
+	mus_note G_4, 9
+	mus_note E_4, 7
+	mus_note D_4, 9
+	mus_note F_4, 7
+	mus_note Fs4, 9
+	mus_note G_4, 23
+	mus_note F_4, 4
+	mus_envelope $27
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 3
+	mus_note D_4, 3
+	mus_note F_4, 2
+	mus_note D_4, 2
+	mus_envelope $45
+	mus_note F_4, 8
+	mus_end 
 
 Song0A_Ch3::
-	INCBIN "baserom.gbc", $008c6d, $0032
+	mus_transpose_off 
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+	mus_regs $d0, $40, $40
+	mus_rest 6
+	mus_note C_3, 16
+	mus_note C_3, 16
+	mus_note D_3, 9
+	mus_note F_3, 7
+	mus_note Fs3, 9
+	mus_note G_3, 23
+	mus_duty $01
+	mus_note G_2, 36
+	mus_rest 5
+	mus_duty $d0
+	mus_note G_2, 3
+	mus_note Fs2, 2
+	mus_note F_2, 2
+	mus_note E_2, 2
+	mus_note Ds2, 2
+	mus_note D_2, 2
+	mus_note Cs2, 2
+	mus_note C_2, 2
+	mus_end 
 
 Song0A_Ch4::
-	INCBIN "baserom.gbc", $008c9f, $0037
+	mus_duty_envelope 0, $51
+	mus_note 69, 3
+	mus_note 69, 3
+	mus_envelope $71
+	mus_note 77, 9
+	mus_envelope $51
+	mus_note 69, 7
+	mus_envelope $42
+	mus_note 73, 9
+	mus_note 73, 7
+	mus_envelope $51
+	mus_note 69, 9
+	mus_envelope $42
+	mus_note 73, 7
+	mus_envelope $71
+	mus_note 77, 9
+	mus_envelope $51
+	mus_note 69, 2
+	mus_note 69, 21
+	mus_envelope $71
+	mus_note 77, 32
+	mus_envelope $51
+	mus_note 73, 3
+	mus_note 73, 3
+	mus_note 74, 3
+	mus_envelope $72
+	mus_note 77, 16
+	mus_end 
 
 Song09_Ch1::
-	INCBIN "baserom.gbc", $008cd6, $0032
+	mus_duty_envelope 0, $84
+	mus_vibrato_ex $01, $01, $02, $01
+	mus_note F_4, 8
+	mus_note A_4, 8
+	mus_note As4, 8
+	mus_note C_5, 16
+	mus_note C_5, 16
+	mus_note G_4, 16
+	mus_note A_4, 8
+	mus_note As4, 8
+	mus_note C_5, 8
+	mus_note D_5, 8
+	mus_note C_5, 16
+	mus_rest 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note G_4, 24
+	mus_note F_4, 8
+	mus_envelope $78
+	mus_note F_4, 32
+	mus_end 
 
 Song09_Ch2::
-	INCBIN "baserom.gbc", $008d08, $005d
+	mus_duty_envelope 2, $43
+	mus_octave_up 
+	mus_vibrato_ex $01, $01, $01, $01
+	mus_rest 8
+	mus_rest 8
+	mus_note F_5, 8
+	mus_note E_5, 8
+	mus_note C_5, 8
+	mus_note G_5, 8
+	mus_note G_5, 4
+	mus_note A_5, 4
+	mus_note G_5, 8
+	mus_note E_5, 8
+	mus_rest 8
+	mus_note G_5, 8
+	mus_note A_5, 8
+	mus_note F_5, 8
+	mus_note E_5, 8
+	mus_note E_5, 4
+	mus_note F_5, 4
+	mus_note E_5, 8
+	mus_note C_5, 8
+	mus_rest 8
+	mus_note As5, 8
+	mus_note A_5, 8
+	mus_note G_5, 8
+	mus_note E_5, 8
+	mus_note E_5, 4
+	mus_note F_5, 4
+	mus_note G_5, 8
+	mus_note E_5, 8
+	mus_note F_5, 3
+	mus_duty_envelope 2, $32
+	mus_note E_5, 3
+	mus_note F_5, 3
+	mus_note E_5, 3
+	mus_note F_5, 3
+	mus_note E_5, 3
+	mus_note F_5, 3
+	mus_note E_5, 3
+	mus_note F_5, 3
+	mus_note E_5, 3
+	mus_note F_5, 2
+	mus_envelope $38
+	mus_note F_5, 32
+	mus_end 
 
 Song09_Ch3::
-	INCBIN "baserom.gbc", $008d65, $0033
+	mus_octave_up 
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+	mus_volume 4
+	mus_regs $d0, $40, $40
+	mus_rest 8
+	mus_note F_3, 16
+	mus_note F_3, 16
+	mus_note E_3, 16
+	mus_note E_3, 16
+	mus_note D_3, 16
+	mus_note D_3, 16
+	mus_note C_3, 16
+	mus_note C_3, 16
+	mus_note As2, 16
+	mus_note As2, 16
+	mus_note C_3, 16
+	mus_note C_3, 16
+	mus_note F_3, 16
+	mus_note C_3, 8
+	mus_note A_2, 8
+	mus_regs $e0, $40, $80
+	mus_note F_2, 32
+	mus_end 
 
 Song09_Ch4::
-	INCBIN "baserom.gbc", $008d98, $0041
+	mus_duty_envelope 0, $51
+	mus_note 65, 8
+	mus_note 65, 8
+	mus_note 69, 16
+	mus_note 69, 16
+	mus_note 69, 4
+	mus_note 69, 4
+	mus_note 69, 8
+	mus_note 69, 8
+	mus_note 65, 8
+	mus_note 69, 16
+	mus_note 69, 16
+	mus_note 69, 4
+	mus_note 69, 4
+	mus_note 69, 8
+	mus_note 69, 8
+	mus_note 65, 8
+	mus_note 69, 16
+	mus_note 69, 16
+	mus_note 69, 4
+	mus_note 69, 4
+	mus_note 69, 8
+	mus_note 69, 8
+	mus_note 69, 8
+	mus_note 69, 4
+	mus_note 69, 4
+	mus_note 69, 8
+	mus_note 69, 8
+	mus_note 69, 8
+	mus_note 71, 4
+	mus_note 71, 4
+	mus_note 71, 16
+	mus_end 
 
 Song08_Ch1::
-	INCBIN "baserom.gbc", $008dd9, $02ad
+	mus_call_x 4, Mus_02_505a
+	mus_vibrato_ex $01, $01, $01, $01
+	mus_call Mus_02_4fdb
+	mus_call_x 3, Mus_02_4f25
+	mus_vibrato_off 
+	mus_transpose 2
+	mus_call_x 3, Mus_02_505a
+	mus_transpose_off 
+	mus_call Mus_02_4e77
+	mus_transpose 2
+	mus_call_x 4, Mus_02_505a
+	mus_transpose_off 
+	mus_call Mus_02_4eaf
+	mus_transpose 5
+	mus_call Mus_02_4eaf
+	mus_call Mus_02_4eaf
+	mus_transpose_off 
+	mus_call_x 3, Mus_02_4e08
+	mus_jump_back Song08_Ch1
+
+Mus_02_4e08::
+	mus_duty_envelope 2, $63
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note D_4, 16
+	mus_duty_envelope 0, $53
+	mus_note F_5, 4
+	mus_note E_5, 4
+	mus_note C_5, 4
+	mus_note A_4, 8
+	mus_duty_envelope 2, $63
+	mus_note As3, 4
+	mus_note C_4, 4
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note D_4, 16
+	mus_duty_envelope 0, $53
+	mus_note As4, 4
+	mus_note C_5, 4
+	mus_note D_5, 4
+	mus_note F_5, 8
+	mus_duty_envelope 2, $63
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note G_4, 8
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note G_4, 16
+	mus_duty_envelope 0, $53
+	mus_note F_5, 4
+	mus_note E_5, 4
+	mus_note C_5, 4
+	mus_note G_4, 8
+	mus_duty_envelope 2, $63
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 0, $53
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 4
+	mus_note F_4, 4
+	mus_ret 
+
+Mus_02_4e77::
+	mus_duty_envelope 0, $54
+	mus_note A_3, 4
+	mus_note A_3, 8
+	mus_note A_3, 4
+	mus_note G_3, 8
+	mus_note E_3, 12
+	mus_note A_3, 12
+	mus_note G_3, 16
+	mus_note A_3, 4
+	mus_note A_3, 8
+	mus_note A_3, 4
+	mus_note G_3, 8
+	mus_note E_3, 8
+	mus_note A_3, 32
+	mus_note A_3, 4
+	mus_note A_3, 8
+	mus_note A_3, 4
+	mus_note G_3, 8
+	mus_note E_3, 12
+	mus_note A_3, 12
+	mus_note G_3, 16
+	mus_note A_3, 4
+	mus_note A_3, 8
+	mus_note A_3, 4
+	mus_note G_3, 8
+	mus_note A_3, 8
+	mus_call Mus_02_4eea
+	mus_ret 
+
+Mus_02_4eaf::
+	mus_duty_envelope 1, $51
+	mus_note E_3, 4
+	mus_note G_3, 2
+	mus_envelope $23
+	mus_note E_3, 2
+	mus_envelope $51
+	mus_note B_3, 2
+	mus_envelope $23
+	mus_note G_3, 2
+	mus_envelope $51
+	mus_note D_4, 2
+	mus_envelope $23
+	mus_note B_3, 2
+	mus_envelope $51
+	mus_note E_4, 2
+	mus_envelope $23
+	mus_note D_4, 2
+	mus_envelope $51
+	mus_note B_3, 2
+	mus_envelope $23
+	mus_note E_4, 2
+	mus_envelope $51
+	mus_note Gs3, 2
+	mus_envelope $23
+	mus_note B_3, 2
+	mus_envelope $51
+	mus_note E_3, 2
+	mus_envelope $23
+	mus_note Gs3, 2
+	mus_ret 
+
+Mus_02_4eea::
+	mus_duty_envelope 1, $51
+	mus_note E_3, 4
+	mus_note G_3, 2
+	mus_envelope $23
+	mus_note E_3, 2
+	mus_envelope $51
+	mus_note B_3, 2
+	mus_envelope $23
+	mus_note G_3, 2
+	mus_envelope $51
+	mus_note D_4, 2
+	mus_envelope $23
+	mus_note B_3, 2
+	mus_envelope $51
+	mus_note E_4, 2
+	mus_envelope $23
+	mus_note D_4, 2
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note E_4, 2
+	mus_envelope $51
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_envelope $51
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note A_3, 2
+	mus_ret 
+
+Mus_02_4f25::
+	mus_length_x 4
+	mus_duty_envelope 1, $62
+	mus_note E_4
+	mus_duty_envelope 0, $42
+	mus_note E_4
+	mus_duty_envelope 1, $23
+	mus_note E_4
+	mus_duty_envelope 1, $62
+	mus_note E_4
+	mus_duty_envelope 0, $42
+	mus_note E_4
+	mus_duty_envelope 1, $23
+	mus_note E_4
+	mus_duty_envelope 1, $62
+	mus_note E_4
+	mus_duty_envelope 0, $42
+	mus_note E_4
+	mus_duty_envelope 1, $62
+	mus_note E_4
+	mus_duty_envelope 0, $42
+	mus_note E_4
+	mus_duty_envelope 1, $23
+	mus_note E_4
+	mus_duty_envelope 1, $62
+	mus_note D_4
+	mus_duty_envelope 0, $42
+	mus_note D_4
+	mus_duty_envelope 1, $23
+	mus_note D_4
+	mus_duty_envelope 1, $62
+	mus_note C_4
+	mus_duty_envelope 0, $42
+	mus_note C_4
+	mus_duty_envelope 1, $62
+	mus_note C_4
+	mus_duty_envelope 0, $42
+	mus_note C_4
+	mus_length_off 
+	mus_duty_envelope 1, $23
+	mus_note C_4, 24
+	mus_length_x 4
+	mus_duty_envelope 1, $62
+	mus_note A_3
+	mus_duty_envelope 0, $42
+	mus_note A_3
+	mus_duty_envelope 1, $23
+	mus_note A_3
+	mus_duty_envelope 1, $62
+	mus_note B_3
+	mus_duty_envelope 0, $42
+	mus_note B_3
+	mus_duty_envelope 1, $23
+	mus_note B_3
+	mus_duty_envelope 1, $62
+	mus_note C_4
+	mus_duty_envelope 0, $42
+	mus_note C_4
+	mus_duty_envelope 1, $62
+	mus_note D_4
+	mus_duty_envelope 0, $42
+	mus_note D_4
+	mus_duty_envelope 1, $23
+	mus_note D_4
+	mus_duty_envelope 1, $62
+	mus_note D_4
+	mus_duty_envelope 0, $42
+	mus_note D_4
+	mus_duty_envelope 1, $23
+	mus_note D_4
+	mus_duty_envelope 1, $62
+	mus_note D_4
+	mus_duty_envelope 0, $42
+	mus_note D_4
+	mus_duty_envelope 1, $62
+	mus_note D_4
+	mus_duty_envelope 0, $42
+	mus_note D_4
+	mus_duty_envelope 1, $23
+	mus_note D_4
+	mus_duty_envelope 1, $62
+	mus_note C_4
+	mus_duty_envelope 0, $42
+	mus_note C_4
+	mus_duty_envelope 1, $23
+	mus_note C_4
+	mus_duty_envelope 1, $62
+	mus_note As3
+	mus_duty_envelope 0, $42
+	mus_note As3
+	mus_duty_envelope 1, $62
+	mus_note A_3
+	mus_duty_envelope 0, $42
+	mus_note A_3
+	mus_duty_envelope 1, $23
+	mus_note A_3
+	mus_duty_envelope 1, $62
+	mus_note As3
+	mus_duty_envelope 0, $42
+	mus_note As3
+	mus_duty_envelope 1, $23
+	mus_note As3
+	mus_duty_envelope 1, $62
+	mus_note A_3
+	mus_duty_envelope 0, $42
+	mus_note A_3
+	mus_duty_envelope 1, $23
+	mus_note A_3
+	mus_duty_envelope 1, $62
+	mus_note B_3
+	mus_duty_envelope 0, $42
+	mus_note B_3
+	mus_duty_envelope 1, $23
+	mus_note B_3
+	mus_duty_envelope 1, $62
+	mus_note C_4
+	mus_duty_envelope 0, $42
+	mus_note C_4
+	mus_duty_envelope 1, $62
+	mus_note D_4
+	mus_duty_envelope 0, $42
+	mus_note D_4
+	mus_ret_length_off 
+
+Mus_02_4fdb::
+	mus_duty_envelope 2, $72
+	mus_rest 8
+	mus_note B_4, 8
+	mus_note D_5, 20
+	mus_note B_4, 8
+	mus_note B_4, 4
+	mus_note D_5, 8
+	mus_note B_4, 4
+	mus_note D_5, 4
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $43
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $72
+	mus_rest 8
+	mus_note B_4, 8
+	mus_note D_5, 20
+	mus_note B_4, 8
+	mus_note B_4, 4
+	mus_note D_5, 8
+	mus_note B_4, 4
+	mus_note D_5, 4
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $43
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $72
+	mus_rest 8
+	mus_note A_4, 8
+	mus_note C_5, 20
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note C_5, 8
+	mus_note A_4, 4
+	mus_note C_5, 4
+	mus_note D_5, 8
+	mus_note F_4, 4
+	mus_note F_4, 20
+	mus_duty_envelope 2, $43
+	mus_note D_5, 8
+	mus_note F_4, 4
+	mus_note F_4, 20
+	mus_duty_envelope 2, $72
+	mus_rest 8
+	mus_note A_4, 8
+	mus_note C_5, 20
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note C_5, 8
+	mus_note A_4, 8
+	mus_rest 8
+	mus_note B_4, 8
+	mus_note D_5, 12
+	mus_note B_4, 8
+	mus_note B_4, 4
+	mus_note C_5, 8
+	mus_note D_5, 16
+	mus_ret 
+
+Mus_02_505a::
+	mus_length_x 4
+	mus_duty_envelope 2, $32
+	mus_note G_4
+	mus_note G_4
+	mus_duty_envelope 1, $32
+	mus_note G_4
+	mus_duty_envelope 2, $32
+	mus_note G_4
+	mus_note G_4
+	mus_duty_envelope 1, $32
+	mus_note G_4
+	mus_duty_envelope 2, $32
+	mus_note G_4
+	mus_duty_envelope 1, $32
+	mus_note G_4
+	mus_duty_envelope 0, $32
+	mus_note G_4
+	mus_duty_envelope 2, $32
+	mus_note G_4
+	mus_duty_envelope 0, $32
+	mus_note G_4
+	mus_duty_envelope 2, $32
+	mus_note G_4
+	mus_note G_4
+	mus_duty_envelope 1, $32
+	mus_note G_4
+	mus_duty_envelope 2, $32
+	mus_note G_4
+	mus_duty_envelope 0, $32
+	mus_note G_4
+	mus_ret_length_off 
 
 Song08_Ch2::
-	INCBIN "baserom.gbc", $009086, $02f3
+	mus_transpose_add -5
+	mus_call Mus_02_505a
+	mus_transpose_add 2
+	mus_call Mus_02_505a
+	mus_transpose_add -2
+	mus_call Mus_02_505a
+	mus_transpose_add 2
+	mus_call Mus_02_505a
+	mus_transpose_off 
+	mus_vibrato_ex $02, $01, $03, $01
+	mus_call Mus_02_52f8
+	mus_vibrato_off 
+	mus_transpose 2
+	mus_call_x 3, Mus_02_505a
+	mus_transpose 3
+	mus_call_x 3, Mus_02_505a
+	mus_duty_envelope 2, $51
+	mus_octave_up 
+	mus_call Mus_02_52a6
+	mus_call Mus_02_5254
+	mus_call Mus_02_5202
+	mus_call Mus_02_5187
+	mus_transpose -3
+	mus_call_x 3, Mus_02_505a
+	mus_transpose_off 
+	mus_call_x 3, Mus_02_514d
+	mus_octave_up 
+	mus_call Mus_02_4eaf
+	mus_transpose_off 
+	mus_transpose 17
+	mus_call Mus_02_4eaf
+	mus_call Mus_02_4eaf
+	mus_transpose_off 
+	mus_call_x 3, Mus_02_50d9
+	mus_jump_back Song08_Ch2
+
+Mus_02_50d9::
+	mus_vibrato_ex $02, $01, $02, $01
+	mus_rest 5
+	mus_duty_envelope 2, $45
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note D_4, 16
+	mus_duty_envelope 0, $37
+	mus_note F_5, 4
+	mus_note E_5, 4
+	mus_note C_5, 4
+	mus_note A_4, 8
+	mus_duty_envelope 2, $45
+	mus_note As3, 4
+	mus_note C_4, 4
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note D_4, 16
+	mus_duty_envelope 0, $37
+	mus_note As4, 4
+	mus_note C_5, 4
+	mus_note D_5, 4
+	mus_note F_5, 8
+	mus_duty_envelope 2, $45
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note G_4, 8
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note G_4, 16
+	mus_duty_envelope 0, $37
+	mus_note F_5, 4
+	mus_note E_5, 4
+	mus_note C_5, 4
+	mus_note G_4, 8
+	mus_duty_envelope 2, $45
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 0, $37
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 3
+	mus_ret 
+
+Mus_02_514d::
+	mus_duty_envelope 0, $54
+	mus_note E_3, 4
+	mus_note E_3, 8
+	mus_note E_3, 4
+	mus_note D_3, 8
+	mus_note B_2, 12
+	mus_note E_3, 12
+	mus_note D_3, 16
+	mus_note E_3, 4
+	mus_note E_3, 8
+	mus_note E_3, 4
+	mus_note D_3, 8
+	mus_note B_2, 8
+	mus_note E_3, 32
+	mus_note E_3, 4
+	mus_note E_3, 8
+	mus_note E_3, 4
+	mus_note D_3, 8
+	mus_note B_2, 12
+	mus_note E_3, 12
+	mus_note D_3, 16
+	mus_note E_3, 4
+	mus_note E_3, 8
+	mus_note E_3, 4
+	mus_note D_3, 8
+	mus_note E_3, 8
+	mus_octave_up 
+	mus_call Mus_02_4eea
+	mus_transpose_off 
+	mus_ret 
+
+Mus_02_5187::
+	mus_envelope $51
+	mus_note D_3, 4
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note D_3, 2
+	mus_envelope $51
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note F_3, 2
+	mus_envelope $51
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note A_3, 2
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note F_3, 2
+	mus_envelope $51
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_envelope $51
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note A_3, 2
+	mus_envelope $51
+	mus_note D_3, 2
+	mus_envelope $23
+	mus_note F_3, 2
+	mus_envelope $51
+	mus_note E_3, 2
+	mus_envelope $23
+	mus_note D_3, 2
+	mus_envelope $51
+	mus_note Gs3, 2
+	mus_envelope $23
+	mus_note E_3, 2
+	mus_envelope $51
+	mus_note B_3, 2
+	mus_envelope $23
+	mus_note Gs3, 2
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note B_3, 2
+	mus_envelope $51
+	mus_note D_4, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note D_4, 2
+	mus_envelope $51
+	mus_note B_3, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_envelope $51
+	mus_note Gs3, 2
+	mus_envelope $23
+	mus_note G_2, 2
+	mus_ret 
+
+Mus_02_5202::
+	mus_envelope $51
+	mus_note D_3, 4
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note D_3, 2
+	mus_call Mus_02_5223
+	mus_envelope $51
+	mus_note D_3, 2
+	mus_envelope $23
+	mus_note F_3, 2
+	mus_envelope $51
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note D_3, 2
+	mus_call Mus_02_5223
+	mus_ret 
+
+Mus_02_5223::
+	mus_envelope $51
+	mus_note As3, 2
+	mus_envelope $23
+	mus_note F_3, 2
+	mus_envelope $51
+	mus_note D_4, 2
+	mus_envelope $23
+	mus_note As3, 2
+	mus_envelope $51
+	mus_note F_4, 2
+	mus_envelope $23
+	mus_note D_4, 2
+	mus_envelope $51
+	mus_note D_4, 2
+	mus_envelope $23
+	mus_note F_4, 2
+	mus_envelope $51
+	mus_note As3, 2
+	mus_envelope $23
+	mus_note D_4, 2
+	mus_envelope $51
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note As3, 2
+	mus_ret 
+
+Mus_02_5254::
+	mus_envelope $51
+	mus_note F_3, 4
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note F_3, 2
+	mus_call Mus_02_5275
+	mus_envelope $51
+	mus_note F_3, 2
+	mus_envelope $23
+	mus_note A_3, 2
+	mus_envelope $51
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note F_3, 2
+	mus_call Mus_02_5275
+	mus_ret 
+
+Mus_02_5275::
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note A_3, 2
+	mus_envelope $51
+	mus_note F_4, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_envelope $51
+	mus_note A_4, 2
+	mus_envelope $23
+	mus_note F_4, 2
+	mus_envelope $51
+	mus_note F_4, 2
+	mus_envelope $23
+	mus_note A_4, 2
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note F_4, 2
+	mus_envelope $51
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_ret 
+
+Mus_02_52a6::
+	mus_envelope $51
+	mus_note E_3, 4
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note E_3, 2
+	mus_call Mus_02_52c7
+	mus_envelope $51
+	mus_note E_3, 2
+	mus_envelope $23
+	mus_note A_3, 2
+	mus_envelope $51
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note E_3, 2
+	mus_call Mus_02_52c7
+	mus_ret 
+
+Mus_02_52c7::
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note A_3, 2
+	mus_envelope $51
+	mus_note E_4, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_envelope $51
+	mus_note A_4, 2
+	mus_envelope $23
+	mus_note E_4, 2
+	mus_envelope $51
+	mus_note E_4, 2
+	mus_envelope $23
+	mus_note A_4, 2
+	mus_envelope $51
+	mus_note C_4, 2
+	mus_envelope $23
+	mus_note E_4, 2
+	mus_envelope $51
+	mus_note A_3, 2
+	mus_envelope $23
+	mus_note C_4, 2
+	mus_ret 
+
+Mus_02_52f8::
+	mus_rest 7
+	mus_duty_envelope 2, $45
+	mus_rest 8
+	mus_note B_4, 8
+	mus_note D_5, 20
+	mus_note B_4, 8
+	mus_note B_4, 4
+	mus_note D_5, 8
+	mus_note B_4, 4
+	mus_note D_5, 4
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $27
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $45
+	mus_rest 8
+	mus_note B_4, 8
+	mus_note D_5, 20
+	mus_note B_4, 8
+	mus_note B_4, 4
+	mus_note D_5, 8
+	mus_note B_4, 4
+	mus_note D_5, 4
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $27
+	mus_note E_5, 8
+	mus_note G_4, 4
+	mus_note G_4, 20
+	mus_duty_envelope 2, $45
+	mus_rest 8
+	mus_note A_4, 8
+	mus_note C_5, 20
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note C_5, 8
+	mus_note A_4, 4
+	mus_note C_5, 4
+	mus_note D_5, 8
+	mus_note F_4, 4
+	mus_note F_4, 20
+	mus_duty_envelope 2, $27
+	mus_note D_5, 8
+	mus_note F_4, 4
+	mus_note F_4, 20
+	mus_duty_envelope 2, $45
+	mus_rest 8
+	mus_note A_4, 8
+	mus_note C_5, 20
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note C_5, 8
+	mus_note A_4, 8
+	mus_rest 8
+	mus_note B_4, 8
+	mus_note D_5, 12
+	mus_note B_4, 8
+	mus_note B_4, 4
+	mus_note C_5, 8
+	mus_note D_5, 9
+	mus_ret 
 
 Song08_Ch3::
-	INCBIN "baserom.gbc", $009379, $01fc
+	mus_octave_up 
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+	mus_regs $e0, $40, $40
+	mus_call_x 3, Mus_02_5460
+	mus_call Mus_02_5447
+	mus_call_x 3, Mus_02_543a
+	mus_transpose_off 
+	mus_volume 4
+	mus_duty $ea
+	mus_call_x 3, Mus_02_542d
+	mus_call_x 3, Mus_02_53c2
+	mus_note G_2, 15
+	mus_rest 1
+	mus_note Gs2, 15
+	mus_rest 1
+	mus_note A_2, 15
+	mus_rest 1
+	mus_note As2, 15
+	mus_rest 1
+	mus_note C_3, 15
+	mus_rest 1
+	mus_note Cs3, 15
+	mus_rest 1
+	mus_octave_up 
+	mus_call_x 3, Mus_02_53b5
+	mus_jump_back Song08_Ch3
+
+Mus_02_53b5::
+	mus_call Mus_02_54df
+	mus_call Mus_02_5467
+	mus_call Mus_02_5539
+	mus_call Mus_02_551b
+	mus_ret 
+
+Mus_02_53c2::
+	mus_call Mus_02_5406
+	mus_volume 4
+	mus_note A_2, 4
+	mus_note A_2, 4
+	mus_volume 6
+	mus_note A_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_note G_2, 4
+	mus_volume 6
+	mus_note G_2, 4
+	mus_volume 4
+	mus_note E_2, 4
+	mus_volume 6
+	mus_note E_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_volume 6
+	mus_note A_2, 28
+	mus_call Mus_02_5406
+	mus_volume 4
+	mus_note A_2, 4
+	mus_note A_2, 4
+	mus_volume 6
+	mus_note A_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_note G_2, 4
+	mus_volume 6
+	mus_note G_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_volume 6
+	mus_note A_2, 4
+	mus_volume 4
+	mus_duty $01
+	mus_note E_2, 15
+	mus_rest 1
+	mus_note F_2, 15
+	mus_rest 1
+	mus_ret 
+
+Mus_02_5406::
+	mus_duty $c0
+	mus_volume 4
+	mus_note A_2, 4
+	mus_note A_2, 4
+	mus_volume 6
+	mus_note A_2, 4
+	mus_volume 4
+	mus_note A_2, 4
+	mus_volume 4
+	mus_note G_2, 4
+	mus_volume 6
+	mus_note G_2, 4
+	mus_volume 4
+	mus_note E_2, 4
+	mus_volume 6
+	mus_note E_2, 8
+	mus_volume 4
+	mus_duty $a0
+	mus_note A_2, 12
+	mus_duty $c0
+	mus_volume 4
+	mus_note G_2, 4
+	mus_volume 6
+	mus_note G_2, 12
+	mus_ret 
+
+Mus_02_542d::
+	mus_note A_2, 8
+	mus_note A_2, 16
+	mus_note A_2, 12
+	mus_note A_2, 8
+	mus_note A_2, 4
+	mus_rest 16
+	mus_ret 
+
+Mus_02_543a::
+	mus_call Mus_02_54a3
+	mus_call Mus_02_551b
+	mus_call Mus_02_54fd
+	mus_call Mus_02_5485
+	mus_ret 
+
+Mus_02_5447::
+	mus_call Mus_02_5557
+	mus_call Mus_02_5539
+	mus_call Mus_02_5557
+	mus_call Mus_02_5539
+	mus_call Mus_02_551b
+	mus_call Mus_02_54fd
+	mus_call Mus_02_54df
+	mus_call Mus_02_54c1
+	mus_ret 
+
+Mus_02_5460::
+	mus_call Mus_02_5557
+	mus_call Mus_02_5539
+	mus_ret 
+
+Mus_02_5467::
+	mus_length_x 4
+	mus_volume 4
+	mus_note G_2
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_volume 4
+	mus_note G_2
+	mus_note As2
+	mus_volume 6
+	mus_note As2
+	mus_volume 4
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_rest 
+	mus_volume 4
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_volume 4
+	mus_note G_2
+	mus_note As2
+	mus_volume 6
+	mus_note As2
+	mus_volume 4
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_ret_length_off 
+
+Mus_02_5485::
+	mus_length_x 4
+	mus_volume 4
+	mus_note E_2
+	mus_note E_2
+	mus_volume 6
+	mus_note E_2
+	mus_volume 4
+	mus_note E_2
+	mus_note Gs2
+	mus_volume 6
+	mus_note Gs2
+	mus_volume 4
+	mus_note E_2
+	mus_volume 6
+	mus_note E_2
+	mus_note F_2
+	mus_volume 4
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_volume 4
+	mus_note F_2
+	mus_note A_2
+	mus_volume 6
+	mus_note A_2
+	mus_volume 4
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_ret_length_off 
+
+Mus_02_54a3::
+	mus_length_x 4
+	mus_volume 4
+	mus_note A_2
+	mus_note A_2
+	mus_volume 6
+	mus_note A_2
+	mus_volume 4
+	mus_note A_2
+	mus_note C_3
+	mus_volume 6
+	mus_note C_3
+	mus_volume 4
+	mus_note A_2
+	mus_volume 6
+	mus_note A_2
+	mus_rest 
+	mus_volume 4
+	mus_note A_2
+	mus_volume 6
+	mus_note A_2
+	mus_volume 4
+	mus_note A_2
+	mus_note C_3
+	mus_volume 6
+	mus_note C_3
+	mus_volume 4
+	mus_note A_2
+	mus_volume 6
+	mus_note A_2
+	mus_ret_length_off 
+
+Mus_02_54c1::
+	mus_length_x 4
+	mus_volume 4
+	mus_note E_2
+	mus_note E_2
+	mus_volume 6
+	mus_note E_2
+	mus_volume 4
+	mus_note E_2
+	mus_note Gs2
+	mus_volume 6
+	mus_note Gs2
+	mus_volume 4
+	mus_note E_2
+	mus_volume 6
+	mus_note E_2
+	mus_rest 
+	mus_volume 4
+	mus_note E_2
+	mus_volume 6
+	mus_note E_2
+	mus_volume 4
+	mus_note E_2
+	mus_note Gs2
+	mus_volume 6
+	mus_note Gs2
+	mus_volume 4
+	mus_note E_2
+	mus_volume 6
+	mus_note E_2
+	mus_ret_length_off 
+
+Mus_02_54df::
+	mus_length_x 4
+	mus_volume 4
+	mus_note D_2
+	mus_note D_2
+	mus_volume 6
+	mus_note D_2
+	mus_volume 4
+	mus_note D_2
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_volume 4
+	mus_note D_2
+	mus_volume 6
+	mus_note D_2
+	mus_rest 
+	mus_volume 4
+	mus_note D_2
+	mus_volume 6
+	mus_note D_2
+	mus_volume 4
+	mus_note D_2
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_volume 4
+	mus_note D_2
+	mus_volume 6
+	mus_note D_2
+	mus_ret_length_off 
+
+Mus_02_54fd::
+	mus_length_x 4
+	mus_volume 4
+	mus_note As2
+	mus_note As2
+	mus_volume 6
+	mus_note As2
+	mus_volume 4
+	mus_note As2
+	mus_note D_3
+	mus_volume 6
+	mus_note D_3
+	mus_volume 4
+	mus_note As2
+	mus_volume 6
+	mus_note As2
+	mus_rest 
+	mus_volume 4
+	mus_note As2
+	mus_volume 6
+	mus_note As2
+	mus_volume 4
+	mus_note As2
+	mus_note D_3
+	mus_volume 6
+	mus_note D_3
+	mus_volume 4
+	mus_note As2
+	mus_volume 6
+	mus_note As2
+	mus_ret_length_off 
+
+Mus_02_551b::
+	mus_length_x 4
+	mus_volume 4
+	mus_note F_2
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_volume 4
+	mus_note F_2
+	mus_note A_2
+	mus_volume 6
+	mus_note A_2
+	mus_volume 4
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_rest 
+	mus_volume 4
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_volume 4
+	mus_note F_2
+	mus_note A_2
+	mus_volume 6
+	mus_note A_2
+	mus_volume 4
+	mus_note F_2
+	mus_volume 6
+	mus_note F_2
+	mus_ret_length_off 
+
+Mus_02_5539::
+	mus_length_x 4
+	mus_volume 4
+	mus_note C_3
+	mus_note C_3
+	mus_volume 6
+	mus_note C_3
+	mus_volume 4
+	mus_note C_3
+	mus_note E_3
+	mus_volume 6
+	mus_note E_3
+	mus_volume 4
+	mus_note C_3
+	mus_volume 6
+	mus_note C_3
+	mus_rest 
+	mus_volume 4
+	mus_note C_3
+	mus_volume 6
+	mus_note C_3
+	mus_volume 4
+	mus_note C_3
+	mus_note E_3
+	mus_volume 6
+	mus_note E_3
+	mus_volume 4
+	mus_note C_3
+	mus_volume 6
+	mus_note C_3
+	mus_ret_length_off 
+
+Mus_02_5557::
+	mus_length_x 4
+	mus_volume 4
+	mus_note G_2
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_volume 4
+	mus_note G_2
+	mus_note B_2
+	mus_volume 6
+	mus_note B_2
+	mus_volume 4
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_rest 
+	mus_volume 4
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_volume 4
+	mus_note G_2
+	mus_note B_2
+	mus_volume 6
+	mus_note B_2
+	mus_volume 4
+	mus_note G_2
+	mus_volume 6
+	mus_note G_2
+	mus_ret_length_off 
 
 Song08_Ch4::
-	INCBIN "baserom.gbc", $009575, $0049
+	mus_duty_envelope 0, $71
+	mus_call_x 4, Mus_02_559b
+	mus_call_x 8, Mus_02_559b
+	mus_call_times 10, Mus_02_559b
+	mus_call_times 38, Mus_02_558a
+	mus_call_x 8, Mus_02_559b
+	mus_jump_back Song08_Ch4
+
+Mus_02_558a::
+	mus_envelope $61
+	mus_note 65, 4
+	mus_envelope $21
+	mus_note 65, 4
+	mus_envelope $41
+	mus_note 65, 4
+	mus_envelope $21
+	mus_note 65, 4
+	mus_ret 
+
+Mus_02_559b::
+	mus_envelope $61
+	mus_note 77, 4
+	mus_note 77, 8
+	mus_note 77, 4
+	mus_envelope $44
+	mus_note 69, 8
+	mus_envelope $61
+	mus_note 77, 4
+	mus_envelope $51
+	mus_note 65, 4
+	mus_envelope $53
+	mus_note 65, 4
+	mus_envelope $61
+	mus_note 77, 8
+	mus_note 77, 4
+	mus_envelope $44
+	mus_note 69, 16
+	mus_ret 
 
 Song07_Ch1::
-	INCBIN "baserom.gbc", $0095be, $0127
+	mus_rest 192
+	mus_rest 192
+	mus_duty_envelope 0, $61
+	mus_call_x 6, Mus_02_5698
+	mus_vibrato $01, $01, $01
+	mus_duty_envelope 2, $37
+	mus_rest 9
+	mus_note E_4, 7
+	mus_call Mus_02_57c6
+	mus_rest 12
+	mus_duty_envelope 1, $72
+	mus_note A_3, 6
+	mus_duty_envelope 1, $32
+	mus_note A_3, 6
+	mus_duty_envelope 1, $23
+	mus_note A_3, 6
+	mus_duty_envelope 1, $14
+	mus_note A_3, 6
+	mus_duty_envelope 1, $72
+	mus_note G_3, 6
+	mus_duty_envelope 1, $32
+	mus_note G_3, 6
+	mus_duty_envelope 1, $23
+	mus_note G_3, 6
+	mus_duty_envelope 1, $14
+	mus_note G_3, 6
+	mus_duty_envelope 1, $72
+	mus_note F_3, 6
+	mus_duty_envelope 1, $32
+	mus_note F_3, 6
+	mus_duty_envelope 1, $23
+	mus_note F_3, 6
+	mus_duty_envelope 1, $14
+	mus_note F_3, 6
+	mus_duty_envelope 1, $72
+	mus_note E_3, 6
+	mus_duty_envelope 1, $32
+	mus_note E_3, 6
+	mus_duty_envelope 1, $23
+	mus_note E_3, 6
+	mus_duty_envelope 1, $14
+	mus_note E_3, 6
+	mus_duty_envelope 1, $72
+	mus_note D_3, 6
+	mus_duty_envelope 1, $32
+	mus_note D_3, 6
+	mus_duty_envelope 1, $72
+	mus_note F_3, 12
+	mus_note G_3, 8
+	mus_note A_3, 28
+	mus_note A_3, 24
+	mus_rest 192
+	mus_call_x 3, Mus_02_567b
+	mus_call Mus_02_566a
+	mus_duty_envelope 2, $82
+	mus_call Mus_02_5647
+	mus_note F_4, 24
+	mus_call Mus_02_566a
+	mus_duty_envelope 2, $82
+	mus_call Mus_02_5647
+	mus_note F_4, 24
+	mus_call Mus_02_566a
+	mus_jump_back Song07_Ch1
+	mus_end  ; never reached
+
+Mus_02_5647::
+	mus_rest 12
+	mus_note D_4, 12
+	mus_note F_4, 20
+	mus_note F_4, 16
+	mus_note D_4, 12
+	mus_note F_4, 24
+	mus_rest 12
+	mus_note D_4, 12
+	mus_note F_4, 20
+	mus_note F_4, 16
+	mus_note G_4, 12
+	mus_note D_4, 24
+	mus_rest 12
+	mus_note C_4, 12
+	mus_note F_4, 20
+	mus_note F_4, 16
+	mus_note C_4, 12
+	mus_ret 
+
+Mus_02_566a::
+	mus_duty_envelope 1, $53
+	mus_note As3, 12
+	mus_note As3, 20
+	mus_note A_3, 16
+	mus_note As3, 12
+	mus_note As3, 12
+	mus_duty_envelope 1, $55
+	mus_note C_4, 24
+	mus_ret 
+
+Mus_02_567b::
+	mus_duty_envelope 1, $53
+	mus_note A_3, 12
+	mus_note A_3, 20
+	mus_note G_3, 16
+	mus_note F_3, 12
+	mus_note F_3, 20
+	mus_note D_3, 16
+	mus_note A_3, 12
+	mus_note A_3, 20
+	mus_note G_3, 16
+	mus_note F_3, 12
+	mus_note F_3, 12
+	mus_duty_envelope 1, $55
+	mus_note D_3, 24
+	mus_ret 
+
+Mus_02_5698::
+	mus_envelope $41
+	mus_note D_4, 2
+	mus_envelope $22
+	mus_note C_4, 4
+	mus_note D_4, 6
+	mus_envelope $41
+	mus_note A_4, 6
+	mus_envelope $22
+	mus_note A_4, 6
+	mus_envelope $41
+	mus_note G_4, 6
+	mus_envelope $22
+	mus_note G_4, 2
+	mus_envelope $41
+	mus_note A_4, 6
+	mus_envelope $22
+	mus_note A_4, 6
+	mus_envelope $41
+	mus_note E_4, 4
+	mus_envelope $41
+	mus_note F_4, 2
+	mus_envelope $22
+	mus_note E_4, 4
+	mus_note F_4, 6
+	mus_envelope $41
+	mus_note F_4, 6
+	mus_envelope $22
+	mus_note F_4, 6
+	mus_envelope $41
+	mus_note F_4, 6
+	mus_envelope $22
+	mus_note F_4, 2
+	mus_envelope $41
+	mus_note G_4, 6
+	mus_envelope $22
+	mus_note G_4, 6
+	mus_envelope $41
+	mus_note C_4, 4
+	mus_ret 
 
 Song07_Ch2::
-	INCBIN "baserom.gbc", $0096e5, $0125
+	mus_rest 192
+	mus_rest 192
+	mus_rest 192
+	mus_duty_envelope 2, $72
+	mus_vibrato_ex $01, $01, $02, $01
+	mus_call Mus_02_57dd
+	mus_note D_3, 8
+	mus_note D_3, 4
+	mus_note C_3, 8
+	mus_note C_3, 4
+	mus_call Mus_02_57dd
+	mus_note D_3, 8
+	mus_duty_envelope 2, $62
+	mus_note D_4, 4
+	mus_note Fs4, 4
+	mus_note A_4, 4
+	mus_note C_5, 4
+	mus_duty_envelope 2, $63
+	mus_call Mus_02_57c6
+	mus_note E_4, 16
+	mus_duty_envelope 1, $72
+	mus_rest 12
+	mus_duty_envelope 1, $72
+	mus_note D_4, 6
+	mus_duty_envelope 1, $32
+	mus_note D_4, 6
+	mus_duty_envelope 1, $23
+	mus_note D_4, 6
+	mus_duty_envelope 1, $14
+	mus_note D_4, 6
+	mus_duty_envelope 1, $72
+	mus_note C_4, 6
+	mus_duty_envelope 1, $32
+	mus_note C_4, 6
+	mus_duty_envelope 1, $23
+	mus_note C_4, 6
+	mus_duty_envelope 1, $14
+	mus_note C_4, 6
+	mus_duty_envelope 1, $72
+	mus_note As3, 6
+	mus_duty_envelope 1, $32
+	mus_note As3, 6
+	mus_duty_envelope 1, $23
+	mus_note As3, 6
+	mus_duty_envelope 1, $14
+	mus_note As3, 6
+	mus_duty_envelope 1, $72
+	mus_note A_3, 6
+	mus_duty_envelope 1, $32
+	mus_note A_3, 6
+	mus_duty_envelope 1, $23
+	mus_note A_3, 6
+	mus_duty_envelope 1, $14
+	mus_note A_3, 6
+	mus_duty_envelope 1, $72
+	mus_note G_3, 6
+	mus_duty_envelope 1, $32
+	mus_note G_3, 6
+	mus_duty_envelope 1, $72
+	mus_note A_3, 12
+	mus_note C_4, 8
+	mus_note D_4, 28
+	mus_note D_4, 24
+	mus_rest 192
+	mus_call_x 3, Mus_02_57a9
+	mus_call Mus_02_5798
+	mus_duty_envelope 2, $45
+	mus_vibrato_ex $02, $01, $08, $03
+	mus_rest 9
+	mus_call Mus_02_5647
+	mus_note F_4, 15
+	mus_vibrato_off 
+	mus_call Mus_02_5798
+	mus_duty_envelope 2, $45
+	mus_vibrato_ex $02, $01, $08, $03
+	mus_rest 9
+	mus_call Mus_02_5647
+	mus_note F_4, 15
+	mus_vibrato_off 
+	mus_call Mus_02_5798
+	mus_jump_back Song07_Ch2
+	mus_end  ; never reached
+
+Mus_02_5798::
+	mus_duty_envelope 1, $53
+	mus_note G_3, 12
+	mus_note G_3, 20
+	mus_note F_3, 16
+	mus_note G_3, 12
+	mus_note G_3, 12
+	mus_duty_envelope 1, $55
+	mus_note A_3, 24
+	mus_ret 
+
+Mus_02_57a9::
+	mus_duty_envelope 1, $53
+	mus_note D_4, 12
+	mus_note D_4, 20
+	mus_note As3, 16
+	mus_note A_3, 12
+	mus_note A_3, 20
+	mus_note G_3, 16
+	mus_note D_4, 12
+	mus_note D_4, 20
+	mus_note As3, 16
+	mus_note A_3, 12
+	mus_note A_3, 12
+	mus_duty_envelope 1, $55
+	mus_note G_3, 24
+	mus_ret 
+
+Mus_02_57c6::
+	mus_note As4, 44
+	mus_note A_4, 4
+	mus_note As4, 12
+	mus_note A_4, 12
+	mus_note F_4, 8
+	mus_note G_4, 16
+	mus_note As4, 44
+	mus_note A_4, 4
+	mus_note As4, 12
+	mus_note A_4, 12
+	mus_note F_4, 8
+	mus_ret 
+
+Mus_02_57dd::
+	mus_envelope $72
+	mus_note D_3, 6
+	mus_envelope $54
+	mus_note D_3, 6
+	mus_envelope $72
+	mus_note D_3, 6
+	mus_envelope $54
+	mus_note D_3, 6
+	mus_rest 72
+	mus_envelope $72
+	mus_note D_3, 8
+	mus_note D_3, 4
+	mus_note F_3, 8
+	mus_note F_3, 4
+	mus_note D_3, 8
+	mus_note D_3, 4
+	mus_note G_3, 8
+	mus_note G_3, 4
+	mus_note D_3, 8
+	mus_note D_3, 4
+	mus_note F_3, 8
+	mus_note F_3, 4
+	mus_ret 
 
 Song07_Ch3::
-	INCBIN "baserom.gbc", $00980a, $00bc
+	mus_octave_up 
+	mus_wave $20
+	mus_vibrato $02, $01, $02
+	mus_regs $e0, $40, $40
+	mus_call_x 4, Mus_02_58b5
+	mus_call_times 5, Mus_02_58b5
+	mus_call Mus_02_58a4
+	mus_call_x 3, Mus_02_5893
+	mus_call Mus_02_5876
+	mus_call_x 6, Mus_02_58b5
+	mus_call Mus_02_5865
+	mus_call_x 3, Mus_02_5831
+	mus_jump_back Song07_Ch3
+	mus_end  ; never reached
+
+Mus_02_5831::
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note As2, 8
+	mus_note As2, 16
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note A_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 8
+	mus_note G_2, 16
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note Fs2, 12
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_note F_2, 8
+	mus_note F_2, 16
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_call Mus_02_5865
+	mus_ret 
+
+Mus_02_5865::
+	mus_note Ds2, 12
+	mus_note Ds2, 12
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note A_2, 12
+	mus_note A_2, 12
+	mus_ret 
+
+Mus_02_5876::
+	mus_note D_3, 12
+	mus_note D_3, 12
+	mus_note C_3, 12
+	mus_note C_3, 12
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note A_2, 12
+	mus_note A_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note A_2, 12
+	mus_note C_3, 8
+	mus_note D_2, 28
+	mus_note D_2, 24
+	mus_ret 
+
+Mus_02_5893::
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_note A_2, 12
+	mus_note A_2, 12
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_note C_3, 12
+	mus_note C_3, 12
+	mus_ret 
+
+Mus_02_58a4::
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note E_2, 12
+	mus_note E_2, 12
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_note G_2, 12
+	mus_note Fs2, 12
+	mus_ret 
+
+Mus_02_58b5::
+	mus_note D_2, 12
+	mus_note D_2, 12
+	mus_note E_2, 12
+	mus_note E_2, 12
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_note G_2, 12
+	mus_note G_2, 12
+	mus_ret 
 
 Song07_Ch4::
-	INCBIN "baserom.gbc", $0098c6, $00af
+	mus_duty_envelope 0, $31
+	mus_call_x 16, Mus_02_596a
+	mus_call_times 24, Mus_02_596a
+	mus_call_x 6, Mus_02_5955
+	mus_call Mus_02_593c
+	mus_call_times 24, Mus_02_596a
+	mus_call Mus_02_591f
+	mus_call_times 7, Mus_02_58e6
+	mus_call Mus_02_591f
+	mus_jump_back Song07_Ch4
+	mus_end  ; never reached
+
+Mus_02_58e6::
+	mus_envelope $72
+	mus_note 77, 8
+	mus_envelope $41
+	mus_note 65, 4
+	mus_envelope $72
+	mus_note 77, 8
+	mus_envelope $41
+	mus_note 65, 4
+	mus_envelope $63
+	mus_note 71, 8
+	mus_envelope $41
+	mus_note 65, 4
+	mus_note 65, 8
+	mus_envelope $72
+	mus_note 77, 4
+	mus_envelope $41
+	mus_note 65, 8
+	mus_note 65, 4
+	mus_envelope $72
+	mus_note 77, 8
+	mus_envelope $41
+	mus_note 65, 4
+	mus_envelope $63
+	mus_note 71, 8
+	mus_envelope $41
+	mus_note 65, 4
+	mus_note 65, 8
+	mus_note 65, 4
+	mus_ret 
+
+Mus_02_591f::
+	mus_envelope $72
+	mus_note 77, 12
+	mus_note 77, 12
+	mus_envelope $63
+	mus_note 71, 20
+	mus_envelope $72
+	mus_note 77, 16
+	mus_note 77, 12
+	mus_envelope $63
+	mus_note 71, 12
+	mus_envelope $61
+	mus_note 71, 4
+	mus_note 71, 4
+	mus_note 71, 4
+	mus_ret 
+
+Mus_02_593c::
+	mus_envelope $72
+	mus_note 77, 12
+	mus_note 77, 12
+	mus_envelope $63
+	mus_note 71, 12
+	mus_note 71, 8
+	mus_note 71, 28
+	mus_note 71, 12
+	mus_envelope $51
+	mus_note 71, 4
+	mus_note 71, 4
+	mus_note 71, 4
+	mus_ret 
+
+Mus_02_5955::
+	mus_envelope $72
+	mus_note 77, 12
+	mus_envelope $51
+	mus_note 65, 8
+	mus_note 65, 4
+	mus_envelope $63
+	mus_note 71, 12
+	mus_envelope $51
+	mus_note 65, 8
+	mus_note 65, 4
+	mus_ret 
+
+Mus_02_596a::
+	mus_envelope $52
+	mus_note 65, 12
+	mus_envelope $51
+	mus_note 65, 8
+	mus_note 65, 4
+	mus_ret 
 
 Song06_Ch1::
-	INCBIN "baserom.gbc", $009975, $0213
+	mus_duty_envelope 1, $72
+	mus_vibrato $02, $01, $02
+	mus_length_x 4
+	mus_note F_4
+	mus_note E_4
+	mus_call Mus_02_5b78
+	mus_envelope $73
+	mus_call_x 6, Mus_02_5b73
+	mus_call_x 3, Mus_02_5b6e
+
+Mus_02_5989::
+	mus_vibrato $02, $01, $02
+	mus_envelope $72
+	mus_call Mus_02_5b22
+	mus_envelope $73
+	mus_call_x 8, Mus_02_5b73
+	mus_call_x 4, Mus_02_5b6e
+	mus_duty_envelope 2, $63
+	mus_call Mus_02_5acf
+	mus_envelope $73
+	mus_call_x 8, Mus_02_5b69
+	mus_call Mus_02_5a5e
+	mus_duty_envelope 2, $63
+	mus_call Mus_02_5a37
+	mus_note G_3, 16
+	mus_call Mus_02_5a37
+	mus_note G_3, 16
+	mus_vibrato_ex $01, $01, $01, $01
+	mus_duty_envelope 1, $62
+	mus_call Mus_02_5a0c
+	mus_octave_up 
+	mus_duty_envelope 1, $53
+	mus_call Mus_02_5a0c
+	mus_transpose 2
+	mus_duty_envelope 1, $62
+	mus_call Mus_02_5a0c
+	mus_transpose_add 12
+	mus_duty_envelope 1, $53
+	mus_call Mus_02_5a0c
+	mus_transpose_off 
+	mus_duty_envelope 2, $63
+	mus_note As4, 8
+	mus_note As4, 4
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note C_5, 4
+	mus_note G_4, 8
+	mus_duty_envelope 1, $52
+	mus_note E_5, 4
+	mus_note F_5, 4
+	mus_note E_5, 4
+	mus_note F_5, 4
+	mus_note E_5, 4
+	mus_note C_5, 4
+	mus_duty_envelope 2, $63
+	mus_note B_4, 8
+	mus_note B_4, 4
+	mus_note C_5, 4
+	mus_note D_5, 4
+	mus_note B_4, 4
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note C_5, 16
+	mus_duty_envelope 1, $73
+	mus_call_x 4, Mus_02_5b6e
+	mus_jump_back Mus_02_5989
+	mus_end  ; never reached
+
+Mus_02_5a0c::
+	mus_note G_4, 8
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_note Fs4, 8
+	mus_note B_4, 8
+	mus_note G_4, 8
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_note Fs4, 8
+	mus_note D_4, 8
+	mus_note G_4, 8
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_note Fs4, 4
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note Fs4, 4
+	mus_note G_4, 8
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note Fs4, 16
+	mus_ret 
+
+Mus_02_5a37::
+	mus_note D_3, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 8
+	mus_note A_3, 4
+	mus_note G_3, 4
+	mus_note A_3, 8
+	mus_note F_3, 4
+	mus_note E_3, 4
+	mus_note F_3, 8
+	mus_note G_3, 8
+	mus_note D_3, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 8
+	mus_note A_3, 4
+	mus_note G_3, 4
+	mus_note A_3, 8
+	mus_note C_4, 8
+	mus_ret 
+
+Mus_02_5a5e::
+	mus_duty_envelope 2, $63
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note C_4, 8
+	mus_note C_4, 4
+	mus_note As3, 4
+	mus_note C_4, 4
+	mus_note As3, 4
+	mus_note A_3, 4
+	mus_note As3, 4
+	mus_note C_4, 8
+	mus_duty_envelope 0, $63
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_duty_envelope 2, $63
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note G_4, 4
+	mus_note E_4, 4
+	mus_note Ds4, 4
+	mus_note E_4, 2
+	mus_note G_4, 2
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_ret 
+
+Mus_02_5acf::
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 4
+	mus_note As4, 4
+	mus_note C_5, 8
+	mus_note A_4, 8
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 8
+	mus_note F_4, 8
+	mus_note A_4, 8
+	mus_note A_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 8
+	mus_length_x 4
+	mus_note A_4
+	mus_note G_4
+	mus_note A_4
+	mus_note G_4
+	mus_note A_4
+	mus_note As4
+	mus_note C_5
+	mus_note As4
+	mus_note A_4
+	mus_note G_4
+	mus_note F_4
+	mus_note E_4
+	mus_note F_4
+	mus_note G_4
+	mus_note A_4
+	mus_note G_4
+	mus_note F_4
+	mus_note G_4
+	mus_length_off 
+	mus_note A_4, 8
+	mus_note C_5, 8
+	mus_note A_4, 16
+	mus_ret 
+
+Mus_02_5b22::
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_note G_4, 4
+	mus_note A_4, 8
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 8
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 4
+	mus_note C_4, 4
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note F_4, 8
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 8
+	mus_length_x 4
+	mus_note F_4
+	mus_note E_4
+	mus_note F_4
+	mus_note E_4
+	mus_note F_4
+	mus_note G_4
+	mus_note A_4
+	mus_note G_4
+	mus_note F_4
+	mus_note E_4
+	mus_call Mus_02_5b78
+	mus_ret 
+
+Mus_02_5b69::
+	mus_note F_4, 2
+	mus_note Cs4, 2
+	mus_ret 
+
+Mus_02_5b6e::
+	mus_note As4, 2
+	mus_note G_4, 2
+	mus_ret 
+
+Mus_02_5b73::
+	mus_note C_5, 2
+	mus_note G_4, 2
+	mus_ret 
+
+Mus_02_5b78::
+	mus_note D_4
+	mus_note C_4
+	mus_note D_4
+	mus_note E_4
+	mus_note F_4
+	mus_note E_4
+	mus_note D_4
+	mus_note E_4
+	mus_length_off 
+	mus_note F_4, 8
+	mus_note A_4, 8
+	mus_note F_4, 16
+	mus_ret 
 
 Song06_Ch2::
-	INCBIN "baserom.gbc", $009b88, $013f
+	mus_duty_envelope 1, $72
+	mus_vibrato $01, $02, $02
+	mus_rest 8
+	mus_length_x 8
+	mus_call Mus_02_5ca5
+	mus_envelope $30
+	mus_note E_4, 32
+
+Mus_02_5b98::
+	mus_length_x 8
+	mus_call Mus_02_5c98
+	mus_length_off 
+	mus_envelope $30
+	mus_note E_4, 48
+	mus_length_x 8
+	mus_call Mus_02_5c98
+	mus_length_off 
+	mus_envelope $30
+	mus_note A_3, 32
+	mus_length_x 8
+	mus_call Mus_02_5c76
+	mus_length_off 
+	mus_duty_envelope 2, $37
+	mus_rest 9
+	mus_call Mus_02_5a37
+	mus_note G_3, 16
+	mus_call Mus_02_5a37
+	mus_note G_3, 7
+	mus_duty_envelope 0, $41
+	mus_length_x 2
+	mus_call_x 4, Mus_02_5c17
+	mus_transpose 2
+	mus_call_x 4, Mus_02_5c17
+	mus_transpose_off 
+	mus_length_off 
+	mus_duty_envelope 1, $51
+	mus_note G_3, 8
+	mus_envelope $71
+	mus_note G_3, 4
+	mus_note G_3, 4
+	mus_envelope $51
+	mus_note G_3, 8
+	mus_envelope $71
+	mus_note G_3, 4
+	mus_note G_3, 4
+	mus_envelope $51
+	mus_note C_4, 8
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_note C_4, 4
+	mus_envelope $51
+	mus_note C_4, 8
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_note C_4, 4
+	mus_envelope $51
+	mus_note G_3, 8
+	mus_envelope $71
+	mus_note G_3, 4
+	mus_note G_3, 4
+	mus_envelope $51
+	mus_note G_3, 8
+	mus_envelope $71
+	mus_note G_3, 4
+	mus_note G_3, 4
+	mus_envelope $51
+	mus_note C_4, 8
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_note C_4, 4
+	mus_envelope $30
+	mus_note E_4, 16
+	mus_jump_back Mus_02_5b98
+	mus_end  ; never reached
+
+Mus_02_5c17::
+	mus_rest 
+	mus_envelope $23
+	mus_note G_3
+	mus_envelope $61
+	mus_note B_3
+	mus_envelope $23
+	mus_rest 
+	mus_envelope $61
+	mus_note E_4
+	mus_envelope $23
+	mus_note B_3
+	mus_envelope $61
+	mus_note G_4
+	mus_envelope $23
+	mus_note E_4
+	mus_envelope $61
+	mus_note Fs4
+	mus_envelope $23
+	mus_note G_4
+	mus_envelope $61
+	mus_note G_4
+	mus_envelope $23
+	mus_note Fs4
+	mus_envelope $61
+	mus_note Fs4
+	mus_envelope $23
+	mus_note G_4
+	mus_envelope $61
+	mus_note D_4
+	mus_envelope $23
+	mus_note Fs4
+	mus_envelope $61
+	mus_note B_3
+	mus_envelope $23
+	mus_note D_4
+	mus_envelope $61
+	mus_note E_4
+	mus_envelope $23
+	mus_note B_3
+	mus_envelope $61
+	mus_note D_4
+	mus_envelope $23
+	mus_note E_4
+	mus_envelope $61
+	mus_note B_3
+	mus_envelope $23
+	mus_note D_4
+	mus_envelope $61
+	mus_note A_3
+	mus_envelope $23
+	mus_note B_3
+	mus_envelope $61
+	mus_note B_3
+	mus_envelope $23
+	mus_note A_3
+	mus_envelope $61
+	mus_note A_3
+	mus_envelope $23
+	mus_note B_3
+	mus_envelope $61
+	mus_note G_3
+	mus_envelope $23
+	mus_note A_3
+	mus_ret 
+
+Mus_02_5c76::
+	mus_call_x 4, Mus_02_5cc0
+	mus_call_x 4, Mus_02_5cb2
+	mus_call_x 4, Mus_02_5cc0
+	mus_envelope $51
+	mus_note B_3
+	mus_envelope $72
+	mus_note B_3
+	mus_envelope $51
+	mus_note B_3
+	mus_envelope $72
+	mus_note B_3
+	mus_envelope $51
+	mus_note C_4
+	mus_envelope $72
+	mus_note C_4
+	mus_envelope $51
+	mus_note Cs4
+	mus_envelope $72
+	mus_note Cs4
+	mus_ret 
+
+Mus_02_5c98::
+	mus_call_x 4, Mus_02_5cb2
+	mus_call_x 4, Mus_02_5cc0
+	mus_call_x 4, Mus_02_5cb2
+	mus_call Mus_02_5ca5
+	mus_ret 
+
+Mus_02_5ca5::
+	mus_call Mus_02_5cc0
+	mus_call Mus_02_5cb9
+	mus_call Mus_02_5cb2
+	mus_length_off 
+	mus_note F_3, 16
+	mus_ret 
+
+Mus_02_5cb2::
+	mus_envelope $51
+	mus_note F_3
+	mus_envelope $72
+	mus_note F_3
+	mus_ret 
+
+Mus_02_5cb9::
+	mus_envelope $51
+	mus_note C_4
+	mus_envelope $72
+	mus_note C_4
+	mus_ret 
+
+Mus_02_5cc0::
+	mus_envelope $51
+	mus_note As3
+	mus_envelope $72
+	mus_note As3
+	mus_ret 
 
 Song06_Ch3::
-	INCBIN "baserom.gbc", $009cc7, $00c4
+	mus_octave_up 
+	mus_wave $70
+	mus_vibrato $02, $01, $02
+	mus_volume 4
+	mus_regs $d8, $40, $40
+	mus_length_x 8
+	mus_rest 
+	mus_call Mus_02_5d75
+	mus_regs $40, $40, $80
+	mus_note C_3, 32
+
+Mus_02_5cde::
+	mus_regs $d8, $40, $40
+	mus_length_x 8
+	mus_call Mus_02_5d68
+	mus_length_off 
+	mus_regs $40, $40, $80
+	mus_note C_3, 48
+	mus_regs $d8, $40, $40
+	mus_length_x 8
+	mus_call Mus_02_5d68
+	mus_length_off 
+	mus_regs $40, $40, $80
+	mus_note F_2, 32
+	mus_regs $d8, $40, $40
+	mus_length_x 8
+	mus_call Mus_02_5d56
+	mus_length_off 
+	mus_regs $40, $40, $80
+	mus_note D_2, 128
+	mus_note D_2, 128
+	mus_regs $d0, $40, $40
+	mus_call_times 32, Mus_02_5d53
+	mus_call_times 32, Mus_02_5d50
+	mus_regs $da, $40, $40
+	mus_note G_2, 8
+	mus_note G_2, 4
+	mus_note G_2, 4
+	mus_note G_2, 8
+	mus_note G_2, 4
+	mus_note G_2, 4
+	mus_note C_3, 8
+	mus_note C_3, 4
+	mus_note C_3, 4
+	mus_note C_3, 8
+	mus_note C_3, 4
+	mus_note C_3, 4
+	mus_note G_2, 8
+	mus_note G_2, 4
+	mus_note G_2, 4
+	mus_note G_2, 8
+	mus_note G_2, 4
+	mus_note G_2, 4
+	mus_note C_3, 8
+	mus_note C_3, 4
+	mus_note C_3, 4
+	mus_regs $40, $40, $80
+	mus_note C_3, 16
+	mus_jump_back Mus_02_5cde
+	mus_end  ; never reached
+
+Mus_02_5d50::
+	mus_note Fs2, 8
+	mus_ret 
+
+Mus_02_5d53::
+	mus_note E_2, 8
+	mus_ret 
+
+Mus_02_5d56::
+	mus_call_x 4, Mus_02_5d82
+	mus_call_x 4, Mus_02_5d88
+	mus_call_x 4, Mus_02_5d82
+	mus_note B_2
+	mus_note G_3
+	mus_note B_2
+	mus_note G_3
+	mus_note C_3
+	mus_note G_3
+	mus_note Cs3
+	mus_note A_3
+	mus_ret 
+
+Mus_02_5d68::
+	mus_call_x 4, Mus_02_5d88
+	mus_call_x 4, Mus_02_5d82
+	mus_call_x 4, Mus_02_5d88
+	mus_call Mus_02_5d75
+	mus_ret 
+
+Mus_02_5d75::
+	mus_call Mus_02_5d82
+	mus_call Mus_02_5d85
+	mus_call Mus_02_5d88
+	mus_length_off 
+	mus_note C_3, 16
+	mus_ret 
+
+Mus_02_5d82::
+	mus_note As2
+	mus_note F_3
+	mus_ret 
+
+Mus_02_5d85::
+	mus_note C_3
+	mus_note G_3
+	mus_ret 
+
+Mus_02_5d88::
+	mus_note F_2
+	mus_note C_3
+	mus_ret 
 
 Song06_Ch4::
-	INCBIN "baserom.gbc", $009d8b, $0076
+	mus_duty_envelope 0, $00
+	mus_rest 8
+	mus_call Mus_02_5ddf
+	mus_envelope $31
+	mus_call_times 32, Mus_02_5dfe
+
+Mus_02_5d98::
+	mus_call_x 2, Mus_02_5dbf
+	mus_call Mus_02_5ddf
+	mus_envelope $31
+	mus_call_times 48, Mus_02_5dfe
+	mus_call_x 2, Mus_02_5dbf
+	mus_call Mus_02_5ddf
+	mus_envelope $31
+	mus_call_times 32, Mus_02_5dfe
+	mus_call_x 4, Mus_02_5dbf
+	mus_call_x 4, Mus_02_5dbf
+	mus_call_x 8, Mus_02_5dbf
+	mus_call_x 3, Mus_02_5dbf
+	mus_jump_back Mus_02_5d98
+	mus_end  ; never reached
+
+Mus_02_5dbf::
+	mus_envelope $51
+	mus_note 72, 8
+	mus_note 72, 4
+	mus_note 72, 4
+	mus_note 72, 8
+	mus_envelope $31
+	mus_call_x 8, Mus_02_5dfe
+	mus_envelope $51
+	mus_note 72, 4
+	mus_note 72, 4
+	mus_note 72, 4
+	mus_note 72, 4
+	mus_note 72, 8
+	mus_note 72, 4
+	mus_note 72, 4
+	mus_ret 
+
+Mus_02_5ddf::
+	mus_envelope $51
+	mus_note 72, 8
+	mus_note 72, 4
+	mus_note 72, 4
+	mus_note 72, 8
+	mus_note 72, 4
+	mus_envelope $41
+	mus_note 69, 1
+	mus_note 69, 1
+	mus_note 69, 1
+	mus_note 69, 1
+	mus_envelope $51
+	mus_note 72, 8
+	mus_note 72, 8
+	mus_note 72, 16
+	mus_ret 
+
+Mus_02_5dfe::
+	mus_note 69, 1
+	mus_ret 
 
 Song05_Ch1::
-	INCBIN "baserom.gbc", $009e01, $0041
+	mus_vibrato_ex $01, $01, $01, $02
+	mus_duty_envelope 1, $92
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note Ds4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_note C_4, 8
+	mus_note As3, 8
+	mus_duty_envelope 2, $92
+	mus_note D_5, 4
+	mus_note Ds5, 4
+	mus_note F_5, 4
+	mus_note G_5, 4
+	mus_note As5, 4
+	mus_note C_6, 4
+	mus_duty_envelope 2, $94
+	mus_note D_6, 22
+	mus_duty_envelope 2, $1f
+	mus_note D_6, 89
+	mus_rest 4
+	mus_tempo 160
+	mus_call Mus_02_5e38
+	mus_end 
+
+Mus_02_5e38::
+	mus_duty_envelope 1, $31
+	mus_call Mus_02_40fc
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_ret 
 
 Song05_Ch2::
-	INCBIN "baserom.gbc", $009e42, $0070
+	mus_vibrato_ex $01, $01, $02, $02
+	mus_rest 7
+	mus_duty_envelope 1, $53
+	mus_note F_4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_note D_4, 8
+	mus_note Ds4, 8
+	mus_note G_4, 8
+	mus_note F_4, 8
+	mus_note C_4, 8
+	mus_note As3, 8
+	mus_duty_envelope 2, $45
+	mus_note D_5, 4
+	mus_note Ds5, 4
+	mus_note F_5, 4
+	mus_note G_5, 4
+	mus_note As5, 1
+	mus_duty_envelope 2, $94
+	mus_note As5, 22
+	mus_duty_envelope 2, $1f
+	mus_note As5, 89
+	mus_rest 4
+	mus_transpose_add -12
+	mus_call Mus_02_5e79
+	mus_end 
+
+Mus_02_5e79::
+	mus_call_x 3, Mus_02_5e7d
+	mus_ret 
+
+Mus_02_5e7d::
+	mus_duty_envelope 1, $41
+	mus_note D_4, 4
+	mus_duty_envelope 0, $41
+	mus_note D_4, 4
+	mus_duty_envelope 2, $41
+	mus_note D_4, 4
+	mus_duty_envelope 1, $41
+	mus_note D_5, 8
+	mus_duty_envelope 2, $41
+	mus_note D_4, 8
+	mus_duty_envelope 1, $41
+	mus_note D_4, 4
+	mus_duty_envelope 0, $41
+	mus_note D_4, 4
+	mus_duty_envelope 2, $41
+	mus_note D_4, 4
+	mus_duty_envelope 1, $41
+	mus_note D_4, 4
+	mus_duty_envelope 0, $41
+	mus_note D_5, 8
+	mus_duty_envelope 1, $41
+	mus_note D_4, 4
+	mus_duty_envelope 2, $41
+	mus_note D_5, 4
+	mus_duty_envelope 0, $41
+	mus_note D_4, 4
+	mus_ret 
 
 Song05_Ch3::
-	INCBIN "baserom.gbc", $009eb2, $005e
+	mus_regs $e8, $40, $80
+	mus_octave_up 
+	mus_wave $20
+	mus_vibrato_ex $01, $01, $02, $02
+	mus_note D_4, 8
+	mus_note Ds4, 8
+	mus_note D_4, 8
+	mus_note As3, 8
+	mus_note C_4, 8
+	mus_note Ds4, 8
+	mus_note D_4, 8
+	mus_note A_3, 8
+	mus_regs $e0, $40, $80
+	mus_note D_4, 32
+	mus_regs $c0, $30, $80
+	mus_note As2, 12
+	mus_note F_2, 13
+	mus_note As2, 14
+	mus_note F_2, 15
+	mus_note As2, 16
+	mus_note F_2, 17
+	mus_note As2, 24
+	mus_rest 4
+	mus_wave $20
+	mus_regs $e0, $40, $40
+	mus_octave_up 
+	mus_call Mus_02_5ef5
+	mus_note D_2, 24
+	mus_end 
+
+Mus_02_5ef5::
+	mus_call Mus_02_5ef9
+	mus_ret 
+
+Mus_02_5ef9::
+	mus_note D_2, 4
+	mus_note D_2, 20
+	mus_rest 16
+	mus_note D_2, 8
+	mus_note C_2, 8
+	mus_note Cs2, 8
+	mus_note C_2, 16
+	mus_note D_2, 8
+	mus_rest 24
+	mus_note G_2, 8
+	mus_note F_2, 8
+	mus_ret 
 
 Song05_Ch4::
-	INCBIN "baserom.gbc", $009f10, $0061
+	mus_rest 118
+	mus_rest 89
+	mus_rest 4
+	mus_envelope $a5
+	mus_note 78, 16
+	mus_call Mus_02_5f1e
+	mus_end 
+
+Mus_02_5f1e::
+	mus_call Mus_02_5f35
+	mus_call Mus_02_5f64
+	mus_envelope $a3
+	mus_note 78, 16
+	mus_envelope $37
+	mus_note 78, 16
+	mus_envelope $27
+	mus_note 78, 16
+	mus_envelope $17
+	mus_note 78, 16
+	mus_ret 
+
+Mus_02_5f35::
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $41
+	mus_note 66, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $42
+	mus_note 66, 4
+	mus_envelope $61
+	mus_note 69, 4
+	mus_envelope $81
+	mus_note 78, 8
+	mus_note 78, 8
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $41
+	mus_note 66, 8
+	mus_ret 
+
+Mus_02_5f64::
+	mus_envelope $81
+	mus_note 78, 8
+	mus_envelope $72
+	mus_note 69, 8
+	mus_envelope $44
+	mus_note 66, 8
+	mus_ret 
 
 Song04_Ch1::
-	INCBIN "baserom.gbc", $009f71, $0187
+	mus_rest 1
+	mus_vibrato_ex $01, $01, $05, $02
+	mus_rest 3
+
+Mus_02_5f7a::
+	mus_call Mus_02_6068
+	mus_vibrato_ex $01, $02, $03, $01
+	mus_call Mus_02_6025
+	mus_vibrato_off 
+	mus_duty_envelope 1, $72
+	mus_call Mus_02_5fc2
+	mus_duty_envelope 2, $72
+	mus_vibrato_ex $01, $01, $05, $02
+	mus_call Mus_02_5f9b
+	mus_note C_5, 8
+	mus_note B_4, 8
+	mus_jump_back Mus_02_5f7a
+
+Mus_02_5f9b::
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note A_4, 10
+	mus_note G_4, 11
+	mus_note F_4, 11
+	mus_note F_4, 24
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note F_4, 10
+	mus_note G_4, 11
+	mus_note A_4, 11
+	mus_note G_4, 16
+	mus_note G_4, 48
+	mus_note Gs4, 8
+	mus_note E_4, 8
+	mus_note B_4, 8
+	mus_note Gs4, 8
+	mus_note E_5, 8
+	mus_note D_5, 8
+	mus_ret 
+
+Mus_02_5fc2::
+	mus_rest 24
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note A_4, 10
+	mus_note G_4, 11
+	mus_note F_4, 11
+	mus_note F_4, 24
+	mus_note F_4, 4
+	mus_note F_4, 4
+	mus_note F_4, 10
+	mus_note G_4, 11
+	mus_note A_4, 11
+	mus_note G_4, 24
+	mus_note G_4, 4
+	mus_note G_4, 4
+	mus_note G_4, 10
+	mus_note F_4, 11
+	mus_note E_4, 11
+	mus_note E_4, 24
+	mus_note E_4, 4
+	mus_note E_4, 4
+	mus_note E_4, 10
+	mus_note F_4, 11
+	mus_note G_4, 11
+	mus_note A_4, 24
+	mus_note F_4, 4
+	mus_note E_4, 4
+	mus_note F_4, 10
+	mus_note G_4, 11
+	mus_note A_4, 11
+	mus_note D_4, 24
+	mus_note D_4, 4
+	mus_note D_4, 4
+	mus_note As4, 10
+	mus_note A_4, 11
+	mus_note F_4, 11
+	mus_note G_4, 24
+	mus_note G_4, 4
+	mus_note G_4, 4
+	mus_note G_4, 10
+	mus_note A_4, 11
+	mus_note As4, 11
+	mus_note A_4, 24
+	mus_note A_4, 4
+	mus_note A_4, 4
+	mus_note Cs5, 10
+	mus_note D_5, 11
+	mus_note E_5, 11
+	mus_note F_5, 24
+	mus_ret 
+
+Mus_02_6025::
+	mus_duty_envelope 2, $72
+	mus_note E_5, 4
+	mus_note F_5, 4
+	mus_duty_envelope 2, $67
+	mus_note E_5, 88
+	mus_duty_envelope 2, $72
+	mus_note E_5, 4
+	mus_note F_5, 4
+	mus_duty_envelope 2, $64
+	mus_note E_5, 10
+	mus_note D_5, 11
+	mus_note G_4, 11
+	mus_duty_envelope 2, $67
+	mus_note A_4, 120
+	mus_duty_envelope 2, $72
+	mus_note E_5, 4
+	mus_note F_5, 4
+	mus_duty_envelope 2, $67
+	mus_note D_5, 56
+	mus_duty_envelope 2, $72
+	mus_note D_5, 4
+	mus_note E_5, 4
+	mus_duty_envelope 2, $67
+	mus_note C_5, 24
+	mus_duty_envelope 2, $72
+	mus_note C_5, 4
+	mus_note B_4, 4
+	mus_duty_envelope 2, $64
+	mus_note C_5, 10
+	mus_note D_5, 11
+	mus_note E_5, 11
+	mus_duty_envelope 2, $67
+	mus_note E_5, 128
+	mus_ret 
+
+Mus_02_6068::
+	mus_call Mus_02_60be
+	mus_transpose_add -1
+	mus_call Mus_02_60be
+	mus_transpose_add 1
+	mus_call Mus_02_60be
+	mus_transpose_add -1
+	mus_call Mus_02_60dd
+	mus_transpose_off 
+	mus_duty_envelope 2, $72
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 2, $67
+	mus_note E_4, 88
+	mus_duty_envelope 2, $72
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 2, $64
+	mus_note E_4, 10
+	mus_note D_4, 11
+	mus_note G_3, 11
+	mus_duty_envelope 2, $67
+	mus_note A_3, 120
+	mus_duty_envelope 2, $72
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 2, $67
+	mus_note D_4, 56
+	mus_duty_envelope 2, $72
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_duty_envelope 2, $67
+	mus_note C_4, 24
+	mus_duty_envelope 2, $72
+	mus_note C_4, 4
+	mus_note B_3, 4
+	mus_duty_envelope 2, $64
+	mus_note C_4, 10
+	mus_note D_4, 11
+	mus_note E_4, 11
+	mus_duty_envelope 2, $67
+	mus_note E_4, 120
+	mus_ret 
+
+Mus_02_60be::
+	mus_duty_envelope 1, $71
+	mus_note C_4, 8
+	mus_note C_4, 8
+	mus_duty_envelope 1, $33
+	mus_note C_4, 8
+	mus_duty_envelope 1, $71
+	mus_note C_4, 8
+	mus_duty_envelope 1, $33
+	mus_note C_4, 8
+	mus_duty_envelope 1, $71
+	mus_note C_4, 8
+	mus_duty_envelope 1, $33
+	mus_note C_4, 8
+	mus_duty_envelope 1, $71
+	mus_note C_4, 8
+	mus_ret 
+
+Mus_02_60dd::
+	mus_duty_envelope 1, $71
+	mus_note C_4, 8
+	mus_note C_4, 8
+	mus_duty_envelope 1, $33
+	mus_note C_4, 8
+	mus_duty_envelope 1, $71
+	mus_note C_4, 8
+	mus_duty_envelope 1, $33
+	mus_note C_4, 8
+	mus_duty_envelope 1, $71
+	mus_note C_4, 8
+	mus_duty_envelope 1, $33
+	mus_note C_4, 8
+	mus_ret 
 
 Song04_Ch2::
-	INCBIN "baserom.gbc", $00a0f8, $0180
+	mus_rest 2
+	mus_vibrato_ex $01, $02, $06, $02
+	mus_rest 2
+
+Mus_02_6101::
+	mus_call Mus_02_622a
+	mus_vibrato_off 
+	mus_call_x 4, Mus_02_61e9
+	mus_call Mus_02_6168
+	mus_call Mus_02_61e9
+	mus_call Mus_02_6127
+	mus_vibrato_off 
+	mus_duty_envelope 1, $44
+	mus_rest 11
+	mus_call Mus_02_5fc2
+	mus_duty_envelope 2, $44
+	mus_vibrato_ex $01, $02, $06, $02
+	mus_call Mus_02_5f9b
+	mus_note C_5, 5
+	mus_jump_back Mus_02_6101
+
+Mus_02_6127::
+	mus_envelope $71
+	mus_note E_4, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_envelope $32
+	mus_note E_4, 4
+	mus_envelope $71
+	mus_note B_3, 4
+	mus_envelope $32
+	mus_note C_4, 4
+	mus_envelope $61
+	mus_note D_4, 4
+	mus_envelope $22
+	mus_note B_3, 4
+	mus_envelope $61
+	mus_note G_4, 4
+	mus_envelope $22
+	mus_note D_4, 4
+	mus_envelope $51
+	mus_note B_4, 4
+	mus_envelope $22
+	mus_note G_4, 4
+	mus_envelope $51
+	mus_note D_5, 4
+	mus_envelope $22
+	mus_note B_4, 4
+	mus_envelope $41
+	mus_note G_5, 4
+	mus_envelope $12
+	mus_note D_5, 4
+	mus_ret 
+
+Mus_02_6168::
+	mus_envelope $71
+	mus_note D_4, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note B_3, 4
+	mus_envelope $32
+	mus_note D_4, 4
+	mus_envelope $71
+	mus_note Gs3, 4
+	mus_envelope $32
+	mus_note B_3, 4
+	mus_envelope $71
+	mus_note B_3, 4
+	mus_envelope $32
+	mus_note Gs3, 4
+	mus_envelope $71
+	mus_note Gs3, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note E_3, 4
+	mus_envelope $32
+	mus_note Gs3, 4
+	mus_envelope $71
+	mus_note D_3, 4
+	mus_envelope $32
+	mus_note E_3, 4
+	mus_envelope $71
+	mus_note E_3, 4
+	mus_envelope $32
+	mus_note D_3, 4
+	mus_envelope $71
+	mus_note A_3, 4
+	mus_envelope $32
+	mus_note E_3, 4
+	mus_envelope $71
+	mus_note F_3, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note A_3, 4
+	mus_envelope $32
+	mus_note F_3, 4
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note A_3, 4
+	mus_envelope $32
+	mus_note C_4, 4
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note D_4, 4
+	mus_envelope $32
+	mus_note C_4, 4
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_envelope $32
+	mus_note D_4, 4
+	mus_ret 
+
+Mus_02_61e9::
+	mus_duty_envelope 0, $71
+	mus_note E_4, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_envelope $32
+	mus_note E_4, 4
+	mus_envelope $71
+	mus_note B_3, 4
+	mus_envelope $32
+	mus_note C_4, 4
+	mus_envelope $71
+	mus_note C_4, 4
+	mus_envelope $32
+	mus_note B_3, 4
+	mus_envelope $71
+	mus_note B_3, 4
+	mus_envelope $32
+	mus_note C_4, 4
+	mus_envelope $71
+	mus_note A_3, 4
+	mus_envelope $32
+	mus_note B_3, 4
+	mus_envelope $71
+	mus_note E_3, 4
+	mus_envelope $32
+	mus_note A_3, 4
+	mus_envelope $71
+	mus_note A_3, 4
+	mus_envelope $32
+	mus_note E_3, 4
+	mus_ret 
+
+Mus_02_622a::
+	mus_transpose_add -3
+	mus_call_x 2, Mus_02_60be
+	mus_call Mus_02_60dd
+	mus_transpose_off 
+	mus_rest 9
+	mus_duty_envelope 2, $33
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 2, $37
+	mus_note E_4, 88
+	mus_duty_envelope 2, $33
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 2, $33
+	mus_note E_4, 10
+	mus_note D_4, 11
+	mus_note G_3, 11
+	mus_duty_envelope 2, $37
+	mus_note A_3, 120
+	mus_duty_envelope 2, $33
+	mus_note E_4, 4
+	mus_note F_4, 4
+	mus_duty_envelope 2, $37
+	mus_note D_4, 56
+	mus_duty_envelope 2, $33
+	mus_note D_4, 4
+	mus_note E_4, 4
+	mus_duty_envelope 2, $37
+	mus_note C_4, 24
+	mus_duty_envelope 2, $33
+	mus_note C_4, 4
+	mus_note B_3, 4
+	mus_duty_envelope 2, $35
+	mus_note C_4, 10
+	mus_note D_4, 11
+	mus_note E_4, 11
+	mus_duty_envelope 2, $37
+	mus_note E_4, 119
+	mus_ret 
 
 Song04_Ch3::
-	INCBIN "baserom.gbc", $00a278, $0192
+	mus_rest 1
+	mus_regs $e2, $40, $40
+	mus_rest 1
+	mus_transpose_off 
+	mus_rest 1
+	mus_wave $30
+	mus_rest 1
+
+Mus_02_6287::
+	mus_call_x 8, Mus_02_63e9
+	mus_call Mus_02_63a8
+	mus_call Mus_02_63e9
+	mus_call Mus_02_638b
+	mus_call_x 4, Mus_02_63e9
+	mus_call Mus_02_63a8
+	mus_call Mus_02_63e9
+	mus_call Mus_02_638b
+	mus_call Mus_02_6334
+	mus_call Mus_02_6309
+	mus_call Mus_02_6334
+	mus_call Mus_02_62de
+	mus_call Mus_02_6334
+	mus_call Mus_02_62b3
+	mus_jump_back Mus_02_6287
+
+Mus_02_62b3::
+	mus_regs $e2, $40, $40
+	mus_note C_3, 8
+	mus_note Cs3, 8
+	mus_note D_3, 8
+	mus_regs $e2, $40, $40
+	mus_note E_3, 8
+	mus_note E_3, 8
+	mus_note B_2, 8
+	mus_regs $d8, $40, $40
+	mus_note E_3, 8
+	mus_regs $d8, $60, $40
+	mus_note E_3, 8
+	mus_regs $e2, $40, $40
+	mus_note E_3, 8
+	mus_note B_2, 8
+	mus_note Gs2, 8
+	mus_ret 
+
+Mus_02_62de::
+	mus_regs $e2, $40, $40
+	mus_note C_3, 8
+	mus_note E_3, 8
+	mus_note C_3, 8
+	mus_regs $e2, $40, $40
+	mus_note Cs3, 8
+	mus_note Cs3, 8
+	mus_note E_3, 8
+	mus_regs $d8, $40, $40
+	mus_note Cs3, 8
+	mus_regs $d8, $60, $40
+	mus_note Cs3, 8
+	mus_regs $e2, $40, $40
+	mus_note Cs3, 8
+	mus_note E_3, 8
+	mus_note Cs3, 8
+	mus_ret 
+
+Mus_02_6309::
+	mus_regs $e2, $40, $40
+	mus_note C_3, 8
+	mus_note E_3, 8
+	mus_note G_2, 8
+	mus_regs $e2, $40, $40
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_note Cs3, 8
+	mus_regs $d8, $40, $40
+	mus_note A_2, 8
+	mus_regs $d8, $60, $40
+	mus_note A_2, 8
+	mus_regs $e2, $40, $40
+	mus_note A_2, 8
+	mus_note Cs3, 8
+	mus_note A_2, 8
+	mus_ret 
+
+Mus_02_6334::
+	mus_regs $e2, $40, $40
+	mus_note D_3, 8
+	mus_note D_3, 8
+	mus_note F_3, 8
+	mus_regs $d8, $40, $40
+	mus_note D_3, 8
+	mus_regs $d8, $60, $40
+	mus_note D_3, 8
+	mus_regs $e2, $40, $40
+	mus_note D_3, 8
+	mus_note F_3, 8
+	mus_note A_2, 8
+	mus_regs $e2, $40, $40
+	mus_note As2, 8
+	mus_note As2, 8
+	mus_note D_3, 8
+	mus_regs $d8, $40, $40
+	mus_note As2, 8
+	mus_regs $d8, $60, $40
+	mus_note As2, 8
+	mus_regs $e2, $40, $40
+	mus_note As2, 8
+	mus_note D_3, 8
+	mus_note As2, 8
+	mus_regs $e2, $40, $40
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note E_3, 8
+	mus_regs $d8, $40, $40
+	mus_note C_3, 8
+	mus_regs $d8, $60, $40
+	mus_note C_3, 8
+	mus_ret 
+
+Mus_02_638b::
+	mus_regs $e2, $40, $40
+	mus_note A_2, 8
+	mus_regs $e2, $60, $40
+	mus_note A_2, 8
+	mus_regs $e2, $40, $40
+	mus_note G_2, 8
+	mus_regs $e2, $60, $40
+	mus_note G_2, 8
+	mus_note G_2, 16
+	mus_note G_2, 16
+	mus_ret 
+
+Mus_02_63a8::
+	mus_regs $e2, $40, $40
+	mus_note E_2, 8
+	mus_note E_2, 8
+	mus_note E_2, 8
+	mus_regs $d8, $40, $40
+	mus_note E_2, 8
+	mus_regs $d8, $60, $40
+	mus_note E_2, 8
+	mus_regs $e2, $40, $40
+	mus_note E_2, 8
+	mus_note D_2, 8
+	mus_note E_2, 8
+	mus_regs $e2, $40, $40
+	mus_note F_2, 8
+	mus_note F_2, 8
+	mus_note F_2, 8
+	mus_regs $d8, $40, $40
+	mus_note F_2, 8
+	mus_regs $d8, $60, $40
+	mus_note F_2, 8
+	mus_regs $e2, $40, $40
+	mus_note E_2, 8
+	mus_note F_2, 8
+	mus_note G_2, 8
+	mus_ret 
+
+Mus_02_63e9::
+	mus_regs $e2, $40, $40
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_note C_3, 8
+	mus_regs $d8, $40, $40
+	mus_note A_2, 8
+	mus_regs $d8, $60, $40
+	mus_note A_2, 8
+	mus_regs $e2, $40, $40
+	mus_note A_2, 8
+	mus_note C_3, 8
+	mus_note G_2, 8
+	mus_ret 
 
 Song04_Ch4::
-	INCBIN "baserom.gbc", $00a40a, $004e
+	mus_rest 3
+	mus_duty_envelope 0, $71
+	mus_rest 1
+
+Mus_02_6410::
+	mus_call_times 11, Mus_02_643f
+	mus_call Mus_02_6424
+	mus_call_times 7, Mus_02_643f
+	mus_call Mus_02_6424
+	mus_call_times 12, Mus_02_643f
+	mus_jump_back Mus_02_6410
+
+Mus_02_6424::
+	mus_envelope $71
+	mus_note 77, 8
+	mus_envelope $32
+	mus_note 77, 8
+	mus_envelope $53
+	mus_note 71, 16
+	mus_envelope $33
+	mus_note 71, 16
+	mus_envelope $23
+	mus_note 71, 8
+	mus_envelope $51
+	mus_note 66, 4
+	mus_note 66, 4
+	mus_ret 
+
+Mus_02_643f::
+	mus_envelope $71
+	mus_note 77, 8
+	mus_note 77, 8
+	mus_envelope $53
+	mus_note 71, 8
+	mus_envelope $71
+	mus_note 77, 16
+	mus_note 77, 8
+	mus_envelope $53
+	mus_note 71, 8
+	mus_envelope $35
+	mus_note 66, 8
+	mus_ret 
 
 Song03_Ch1::
-	INCBIN "baserom.gbc", $00a458, $01d5
+	mus_duty_envelope 2, $41
+	mus_call Mus_02_6599
+	mus_envelope $61
+	mus_call Mus_02_6599
+	mus_envelope $81
+	mus_call Mus_02_6599
+	mus_envelope $61
+	mus_call Mus_02_6599
+	mus_envelope $41
+	mus_call Mus_02_6588
+	mus_envelope $61
+	mus_call Mus_02_6588
+	mus_envelope $41
+	mus_note Ds5, 8
+	mus_note D_5, 8
+	mus_note G_4, 8
+	mus_note As4, 8
+	mus_duty_envelope 0, $51
+	mus_note As2, 3
+	mus_note C_3, 3
+	mus_note D_3, 3
+	mus_note Ds3, 3
+	mus_note F_3, 3
+	mus_note G_3, 3
+	mus_note As3, 3
+	mus_note C_4, 3
+	mus_note As3, 3
+	mus_note C_4, 3
+	mus_note D_4, 3
+	mus_note Ds4, 3
+	mus_note F_4, 3
+	mus_note G_4, 3
+	mus_note As4, 3
+	mus_note C_5, 3
+	mus_note As4, 3
+	mus_note C_5, 3
+	mus_note D_5, 3
+	mus_note Ds5, 3
+	mus_note F_5, 3
+	mus_note G_5, 3
+	mus_note As5, 3
+	mus_note C_6, 3
+	mus_note As5, 3
+	mus_note C_6, 3
+	mus_note D_6, 3
+	mus_note Ds6, 3
+	mus_note F_6, 3
+	mus_note G_6, 3
+	mus_note As6, 3
+	mus_note C_7, 3
+	mus_duty_envelope 0, $41
+	mus_note As6, 3
+	mus_note G_6, 3
+	mus_note F_6, 3
+	mus_note Ds6, 3
+	mus_note D_6, 3
+	mus_note G_6, 3
+	mus_note F_6, 3
+	mus_note Ds6, 3
+	mus_note D_6, 3
+	mus_note C_6, 3
+	mus_note As5, 2
+	mus_duty_envelope 0, $67
+	mus_octave_up 
+	mus_call Mus_02_65cf
+	mus_duty_envelope 2, $67
+	mus_call Mus_02_65aa
+	mus_vibrato_off 
+	mus_duty_envelope 1, $62
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_duty_envelope 1, $42
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_rest 64
+	mus_duty_envelope 1, $62
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_duty_envelope 1, $42
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_rest 64
+	mus_duty_envelope 2, $41
+	mus_call Mus_02_6577
+	mus_envelope $61
+	mus_call Mus_02_6577
+	mus_envelope $81
+	mus_call Mus_02_6577
+	mus_envelope $61
+	mus_call Mus_02_6577
+	mus_envelope $41
+	mus_call Mus_02_6566
+	mus_envelope $61
+	mus_call Mus_02_6566
+	mus_envelope $81
+	mus_call Mus_02_6566
+	mus_envelope $61
+	mus_call Mus_02_6566
+	mus_envelope $41
+	mus_call Mus_02_6577
+	mus_envelope $61
+	mus_call Mus_02_6577
+	mus_envelope $81
+	mus_call Mus_02_6577
+	mus_envelope $61
+	mus_call Mus_02_6577
+	mus_envelope $41
+	mus_call Mus_02_6566
+	mus_envelope $61
+	mus_call Mus_02_6566
+	mus_envelope $81
+	mus_call Mus_02_6566
+	mus_envelope $61
+	mus_call Mus_02_6566
+	mus_jump Song03_Ch1
+	mus_end  ; never reached
+
+Mus_02_6566::
+	mus_note C_5, 8
+	mus_note As4, 8
+	mus_note Ds4, 8
+	mus_note F_4, 8
+	mus_note Gs4, 8
+	mus_note G_4, 8
+	mus_note Ds4, 8
+	mus_note C_4, 8
+	mus_ret 
+
+Mus_02_6577::
+	mus_note D_5, 8
+	mus_note Ds5, 8
+	mus_note As4, 8
+	mus_note G_4, 8
+	mus_note D_5, 8
+	mus_note Ds5, 8
+	mus_note As4, 8
+	mus_note G_4, 8
+	mus_ret 
+
+Mus_02_6588::
+	mus_note Ds5, 8
+	mus_note D_5, 8
+	mus_note G_4, 8
+	mus_note As4, 8
+	mus_note C_5, 8
+	mus_note As4, 8
+	mus_note D_4, 8
+	mus_note F_4, 8
+	mus_ret 
+
+Mus_02_6599::
+	mus_note Gs4, 8
+	mus_note G_4, 8
+	mus_note C_4, 8
+	mus_note Ds4, 8
+	mus_note Gs4, 8
+	mus_note G_4, 8
+	mus_note As4, 8
+	mus_note F_4, 8
+	mus_ret 
+
+Mus_02_65aa::
+	mus_transpose_add -12
+	mus_rest 16
+	mus_note Gs4, 8
+	mus_note G_4, 8
+	mus_note Gs4, 16
+	mus_note G_4, 8
+	mus_note Gs4, 24
+	mus_note G_4, 8
+	mus_note C_4, 48
+	mus_rest 8
+	mus_note Gs4, 8
+	mus_note G_4, 8
+	mus_note Gs4, 16
+	mus_note G_4, 8
+	mus_note As4, 24
+	mus_note Gs4, 8
+	mus_note G_4, 24
+	mus_note F_4, 16
+	mus_ret 
+
+Mus_02_65cf::
+	mus_vibrato_ex $02, $01, $03, $06
+	mus_note Cs4, 2
+	mus_note D_4, 14
+	mus_note C_4, 8
+	mus_note G_3, 72
+	mus_rest 16
+	mus_note D_4, 8
+	mus_note C_4, 8
+	mus_note D_4, 16
+	mus_note Ds4, 8
+	mus_note F_4, 24
+	mus_note Ds4, 8
+	mus_note D_4, 24
+	mus_note As3, 48
+	mus_note As3, 16
+	mus_note C_4, 8
+	mus_note Ds3, 80
+	mus_rest 24
+	mus_note As3, 16
+	mus_note C_4, 8
+	mus_note Ds3, 72
+	mus_rest 32
+	mus_note Cs4, 2
+	mus_note D_4, 14
+	mus_note C_4, 8
+	mus_note G_3, 72
+	mus_rest 16
+	mus_note D_4, 8
+	mus_note C_4, 8
+	mus_note D_4, 16
+	mus_note Ds4, 8
+	mus_note F_4, 24
+	mus_note G_4, 8
+	mus_note As4, 24
+	mus_note C_5, 16
+	mus_note Ds4, 32
+	mus_note As3, 16
+	mus_note C_4, 8
+	mus_note Ds3, 40
+	mus_note As4, 16
+	mus_note C_5, 8
+	mus_note Ds4, 40
+	mus_note As3, 16
+	mus_note C_4, 8
+	mus_note Ds3, 72
+	mus_ret 
 
 Song03_Ch2::
-	INCBIN "baserom.gbc", $00a62d, $010f
+	mus_rest 12
+
+Mus_02_662f::
+	mus_duty_envelope 2, $16
+	mus_call Mus_02_6599
+	mus_envelope $25
+	mus_call Mus_02_6599
+	mus_envelope $34
+	mus_call Mus_02_6599
+	mus_envelope $25
+	mus_call Mus_02_6599
+	mus_envelope $25
+	mus_call Mus_02_6588
+	mus_envelope $34
+	mus_call Mus_02_6588
+	mus_envelope $25
+	mus_note Ds5, 8
+	mus_note D_5, 8
+	mus_note G_4, 8
+	mus_note As4, 8
+	mus_duty_envelope 0, $33
+	mus_note As2, 3
+	mus_note C_3, 3
+	mus_note D_3, 3
+	mus_note Ds3, 3
+	mus_note F_3, 3
+	mus_note G_3, 3
+	mus_note As3, 3
+	mus_note C_4, 3
+	mus_note As3, 3
+	mus_note C_4, 3
+	mus_note D_4, 3
+	mus_note Ds4, 3
+	mus_note F_4, 3
+	mus_note G_4, 3
+	mus_note As4, 3
+	mus_note C_5, 3
+	mus_note As4, 3
+	mus_note C_5, 3
+	mus_note D_5, 3
+	mus_note Ds5, 3
+	mus_note F_5, 3
+	mus_note G_5, 3
+	mus_note As5, 3
+	mus_note C_6, 3
+	mus_note As5, 3
+	mus_note C_6, 3
+	mus_note D_6, 3
+	mus_note Ds6, 3
+	mus_note F_6, 3
+	mus_note G_6, 3
+	mus_note As6, 3
+	mus_note C_7, 3
+	mus_duty_envelope 0, $24
+	mus_note As6, 3
+	mus_note G_6, 3
+	mus_note F_6, 3
+	mus_note Ds6, 3
+	mus_note D_6, 3
+	mus_note G_6, 3
+	mus_note F_6, 3
+	mus_note Ds6, 3
+	mus_note D_6, 3
+	mus_note C_6, 3
+	mus_note As5, 2
+	mus_duty_envelope 0, $28
+	mus_octave_up 
+	mus_call Mus_02_65cf
+	mus_duty_envelope 2, $28
+	mus_call Mus_02_65aa
+	mus_vibrato_off 
+	mus_duty_envelope 1, $33
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_duty_envelope 1, $24
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_rest 64
+	mus_duty_envelope 1, $33
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_duty_envelope 1, $24
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_note As5, 8
+	mus_note As4, 8
+	mus_rest 64
+	mus_duty_envelope 2, $16
+	mus_call Mus_02_6577
+	mus_envelope $25
+	mus_call Mus_02_6577
+	mus_envelope $34
+	mus_call Mus_02_6577
+	mus_envelope $25
+	mus_call Mus_02_6577
+	mus_envelope $16
+	mus_call Mus_02_6566
+	mus_envelope $25
+	mus_call Mus_02_6566
+	mus_envelope $34
+	mus_call Mus_02_6566
+	mus_envelope $25
+	mus_call Mus_02_6566
+	mus_envelope $16
+	mus_call Mus_02_6577
+	mus_envelope $25
+	mus_call Mus_02_6577
+	mus_envelope $34
+	mus_call Mus_02_6577
+	mus_envelope $25
+	mus_call Mus_02_6577
+	mus_envelope $16
+	mus_call Mus_02_6566
+	mus_envelope $25
+	mus_call Mus_02_6566
+	mus_envelope $34
+	mus_call Mus_02_6566
+	mus_envelope $25
+	mus_call Mus_02_6566
+	mus_jump Mus_02_662f
 
 Song03_Ch3::
-	INCBIN "baserom.gbc", $00a73c, $00d8
+	mus_regs $e0, $40, $40
+	mus_transpose_off 
+	mus_volume 4
+	mus_call_x 4, Mus_02_678a
+	mus_call_x 4, Mus_02_675c
+
+Mus_02_6748::
+	mus_call_x 4, Mus_02_67e6
+	mus_call_x 4, Mus_02_67b8
+	mus_call_x 4, Mus_02_67e6
+	mus_call_x 4, Mus_02_67b8
+	mus_call_x 4, Mus_02_678a
+	mus_call_x 4, Mus_02_675c
+	mus_jump_back Mus_02_6748
+
+Mus_02_675c::
+	mus_volume 4
+	mus_wave $30
+	mus_transpose_off 
+	mus_note D_3, 8
+	mus_volume 6
+	mus_wave $80
+	mus_transpose_off 
+	mus_note D_3, 8
+	mus_wave $10
+	mus_octave_up 
+	mus_note D_3, 8
+	mus_wave $70
+	mus_octave_up 
+	mus_note D_3, 8
+	mus_volume 4
+	mus_wave $a0
+	mus_transpose_off 
+	mus_note D_3, 8
+	mus_volume 6
+	mus_wave $e0
+	mus_octave_up 
+	mus_note D_3, 8
+	mus_wave $00
+	mus_transpose 24
+	mus_note D_3, 8
+	mus_wave $20
+	mus_transpose_off 
+	mus_note D_3, 8
+	mus_ret 
+
+Mus_02_678a::
+	mus_volume 4
+	mus_wave $30
+	mus_transpose_off 
+	mus_note F_2, 8
+	mus_volume 6
+	mus_wave $80
+	mus_transpose_off 
+	mus_note F_2, 8
+	mus_wave $10
+	mus_octave_up 
+	mus_note F_2, 8
+	mus_wave $70
+	mus_octave_up 
+	mus_note F_2, 8
+	mus_volume 4
+	mus_wave $a0
+	mus_transpose_off 
+	mus_note F_2, 8
+	mus_volume 6
+	mus_wave $e0
+	mus_octave_up 
+	mus_note F_2, 8
+	mus_wave $00
+	mus_transpose 24
+	mus_note F_2, 8
+	mus_wave $20
+	mus_transpose_off 
+	mus_note F_2, 8
+	mus_ret 
+
+Mus_02_67b8::
+	mus_volume 4
+	mus_wave $30
+	mus_transpose_off 
+	mus_note Gs2, 8
+	mus_volume 6
+	mus_wave $80
+	mus_transpose_off 
+	mus_note Gs2, 8
+	mus_wave $10
+	mus_octave_up 
+	mus_note Gs2, 8
+	mus_wave $70
+	mus_octave_up 
+	mus_note Gs2, 8
+	mus_volume 4
+	mus_wave $a0
+	mus_transpose_off 
+	mus_note Gs2, 8
+	mus_volume 6
+	mus_wave $e0
+	mus_octave_up 
+	mus_note Gs2, 8
+	mus_wave $00
+	mus_transpose 24
+	mus_note Gs2, 8
+	mus_wave $20
+	mus_transpose_off 
+	mus_note Gs2, 8
+	mus_ret 
+
+Mus_02_67e6::
+	mus_volume 4
+	mus_wave $30
+	mus_transpose_off 
+	mus_note C_3, 8
+	mus_volume 6
+	mus_wave $80
+	mus_transpose_off 
+	mus_note C_3, 8
+	mus_wave $10
+	mus_octave_up 
+	mus_note C_3, 8
+	mus_wave $70
+	mus_octave_up 
+	mus_note C_3, 8
+	mus_volume 4
+	mus_wave $a0
+	mus_transpose_off 
+	mus_note C_3, 8
+	mus_volume 6
+	mus_wave $e0
+	mus_octave_up 
+	mus_note C_3, 8
+	mus_wave $00
+	mus_transpose 24
+	mus_note C_3, 8
+	mus_wave $20
+	mus_transpose_off 
+	mus_note C_3, 8
+	mus_ret 
 
 Song03_Ch4::
-	INCBIN "baserom.gbc", $00a814, $0044
+	mus_duty_envelope 0, $00
+
+Mus_02_6816::
+	mus_envelope $81
+	mus_note 77, 8
+	mus_envelope $61
+	mus_note 77, 8
+	mus_envelope $32
+	mus_note 77, 8
+	mus_envelope $13
+	mus_note 77, 8
+	mus_envelope $81
+	mus_note 66, 8
+	mus_envelope $51
+	mus_note 66, 8
+	mus_envelope $22
+	mus_note 66, 8
+	mus_envelope $13
+	mus_note 66, 8
+	mus_envelope $71
+	mus_note 69, 8
+	mus_envelope $41
+	mus_note 69, 8
+	mus_envelope $22
+	mus_note 69, 8
+	mus_envelope $13
+	mus_note 69, 8
+	mus_envelope $81
+	mus_note 66, 8
+	mus_envelope $51
+	mus_note 66, 8
+	mus_envelope $22
+	mus_note 66, 8
+	mus_envelope $13
+	mus_note 66, 8
+	mus_jump_back Mus_02_6816
 
 Song02_Ch1::
-	INCBIN "baserom.gbc", $00a858, $01f9
+	mus_transpose_off 
+	mus_duty_envelope 0, $81
+	mus_call_x 4, Mus_02_6a26
+	mus_transpose_add -2
+	mus_call_x 3, Mus_02_6a26
+	mus_transpose_add 2
+	mus_call_x 3, Mus_02_6a26
+	mus_transpose_add -2
+	mus_call_x 3, Mus_02_6a26
+	mus_transpose_off 
+	mus_call Mus_02_69e2
+	mus_call Mus_02_6990
+	mus_octave_up 
+	mus_vibrato_ex $01, $01, $02, $08
+	mus_duty_envelope 0, $78
+	mus_call Mus_02_6907
+	mus_vibrato_off 
+	mus_duty_envelope 2, $48
+	mus_call Mus_02_68f2
+	mus_vibrato_ex $01, $01, $02, $08
+	mus_duty_envelope 0, $78
+	mus_call Mus_02_68e7
+	mus_vibrato_off 
+	mus_duty_envelope 2, $48
+	mus_call Mus_02_68d4
+	mus_vibrato_ex $01, $01, $02, $08
+	mus_duty_envelope 0, $78
+	mus_call Mus_02_68c3
+	mus_vibrato_off 
+	mus_duty_envelope 2, $48
+	mus_call Mus_02_68bc
+	mus_rest 12
+	mus_rest 64
+	mus_rest 16
+	mus_note Gs3, 8
+	mus_note A_3, 8
+	mus_note B_3, 8
+	mus_note D_4, 8
+	mus_note C_4, 8
+	mus_note B_3, 8
+	mus_note C_4, 64
+	mus_jump_back Song02_Ch1
+	mus_end  ; never reached
+
+Mus_02_68bc::
+	mus_note G_4, 2
+	mus_note Gs4, 2
+	mus_note A_4, 4
+	mus_ret 
+
+Mus_02_68c3::
+	mus_rest 8
+	mus_note Ds3, 5
+	mus_note E_3, 3
+	mus_note F_3, 5
+	mus_note Fs3, 3
+	mus_note G_3, 5
+	mus_note Gs3, 3
+	mus_note A_3, 12
+	mus_ret 
+
+Mus_02_68d4::
+	mus_transpose_add -12
+	mus_note Fs4, 5
+	mus_note G_4, 3
+	mus_note Gs4, 5
+	mus_note B_4, 3
+	mus_note Gs4, 5
+	mus_note E_4, 8
+	mus_rest 11
+	mus_transpose_add 12
+	mus_ret 
+
+Mus_02_68e7::
+	mus_rest 8
+	mus_note Gs3, 5
+	mus_note B_3, 3
+	mus_note C_4, 5
+	mus_note D_4, 3
+	mus_ret 
+
+Mus_02_68f2::
+	mus_transpose_add -12
+	mus_note A_4, 1
+	mus_note As4, 3
+	mus_note B_4, 5
+	mus_note D_5, 3
+	mus_note As4, 1
+	mus_note B_4, 5
+	mus_note A_4, 3
+	mus_note Gs4, 8
+	mus_transpose_add 12
+	mus_ret 
+
+Mus_02_6907::
+	mus_rest 7
+	mus_note Gs3, 1
+	mus_note A_3, 5
+	mus_note C_4, 3
+	mus_note Ds4, 5
+	mus_note E_4, 6
+	mus_rest 2
+	mus_note Gs3, 3
+	mus_note A_3, 5
+	mus_note C_4, 3
+	mus_note Ds4, 5
+	mus_note E_4, 8
+	mus_rest 11
+	mus_rest 7
+	mus_note Gs3, 1
+	mus_note A_3, 5
+	mus_note C_4, 3
+	mus_note Ds4, 5
+	mus_note E_4, 3
+	mus_note D_4, 5
+	mus_note C_4, 3
+	mus_note D_4, 8
+	mus_rest 24
+	mus_rest 7
+	mus_note G_3, 1
+	mus_note Gs3, 5
+	mus_note A_3, 3
+	mus_note B_3, 5
+	mus_note D_4, 6
+	mus_rest 2
+	mus_note E_3, 3
+	mus_note Gs3, 5
+	mus_note B_3, 3
+	mus_note C_4, 5
+	mus_note D_4, 8
+	mus_rest 11
+	mus_note Ds4, 5
+	mus_note E_4, 3
+	mus_note Ds4, 5
+	mus_note E_4, 3
+	mus_note Ds4, 5
+	mus_note D_4, 3
+	mus_note C_4, 5
+	mus_note B_3, 3
+	mus_note C_4, 8
+	mus_rest 24
+	mus_rest 7
+	mus_note Gs3, 1
+	mus_note A_3, 5
+	mus_note C_4, 3
+	mus_note Ds4, 5
+	mus_note E_4, 6
+	mus_rest 2
+	mus_note Gs3, 3
+	mus_note A_3, 5
+	mus_note C_4, 3
+	mus_note Ds4, 5
+	mus_note E_4, 8
+	mus_rest 11
+	mus_rest 7
+	mus_note Gs3, 1
+	mus_note A_3, 5
+	mus_note C_4, 3
+	mus_note Ds4, 5
+	mus_note E_4, 3
+	mus_note D_4, 5
+	mus_note C_4, 3
+	mus_note D_4, 3
+	mus_ret 
+
+Mus_02_6990::
+	mus_duty_envelope 0, $62
+	mus_note A_4, 5
+	mus_envelope $22
+	mus_note A_4, 3
+	mus_transpose_add 12
+	mus_call Mus_02_69d9
+	mus_transpose_add 2
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add 1
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -1
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -2
+	mus_call Mus_02_69d9
+	mus_transpose_off 
+	mus_duty_envelope 1, $81
+	mus_note C_5, 2
+	mus_note D_5, 3
+	mus_note Ds5, 3
+	mus_note E_5, 5
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note D_5, 1
+	mus_note Ds5, 5
+	mus_note D_5, 8
+	mus_note C_5, 3
+	mus_note A_4, 8
+	mus_ret 
+
+Mus_02_69d9::
+	mus_envelope $62
+	mus_note A_3, 5
+	mus_envelope $22
+	mus_note A_3, 3
+	mus_ret 
+
+Mus_02_69e2::
+	mus_duty_envelope 0, $62
+	mus_note A_3, 5
+	mus_envelope $22
+	mus_note A_3, 3
+	mus_call Mus_02_69d9
+	mus_transpose_add 2
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add 1
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -1
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -2
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add 2
+	mus_call Mus_02_69d9
+	mus_transpose_off 
+	mus_envelope $62
+	mus_note B_3, 5
+	mus_duty_envelope 1, $82
+	mus_note Ds4, 3
+	mus_note D_4, 5
+	mus_envelope $32
+	mus_note D_4, 3
+	mus_envelope $82
+	mus_note D_4, 5
+	mus_envelope $32
+	mus_note D_4, 3
+	mus_envelope $82
+	mus_note D_4, 5
+	mus_note C_4, 8
+	mus_note A_3, 3
+	mus_ret 
+
+Mus_02_6a26::
+	mus_envelope $33
+	mus_note A_3, 8
+	mus_envelope $31
+	mus_note A_3, 5
+	mus_note A_3, 3
+	mus_envelope $33
+	mus_note A_3, 8
+	mus_envelope $31
+	mus_note A_3, 5
+	mus_note A_3, 3
+	mus_envelope $33
+	mus_note A_3, 5
+	mus_envelope $31
+	mus_note A_3, 3
+	mus_note A_3, 5
+	mus_envelope $35
+	mus_note G_3, 8
+	mus_envelope $31
+	mus_note G_3, 3
+	mus_envelope $33
+	mus_note G_3, 8
+	mus_ret 
 
 Song02_Ch2::
-	INCBIN "baserom.gbc", $00aa51, $0125
+	mus_transpose_off 
+	mus_duty_envelope 0, $61
+	mus_transpose_add -5
+	mus_call_x 4, Mus_02_6a26
+	mus_transpose_add -2
+	mus_call_x 3, Mus_02_6a26
+	mus_transpose_add 2
+	mus_call_x 3, Mus_02_6a26
+	mus_transpose_add -2
+	mus_call_x 3, Mus_02_6a26
+	mus_transpose_off 
+	mus_call Mus_02_6b32
+	mus_call Mus_02_6ae7
+	mus_octave_up 
+	mus_rest 9
+	mus_vibrato_ex $02, $01, $03, $08
+	mus_duty_envelope 0, $38
+	mus_call Mus_02_6907
+	mus_vibrato_off 
+	mus_duty_envelope 2, $38
+	mus_call Mus_02_68f2
+	mus_vibrato_ex $02, $01, $03, $08
+	mus_duty_envelope 0, $38
+	mus_call Mus_02_68e7
+	mus_vibrato_off 
+	mus_duty_envelope 2, $38
+	mus_call Mus_02_68d4
+	mus_vibrato_ex $02, $01, $03, $08
+	mus_duty_envelope 0, $38
+	mus_call Mus_02_68c3
+	mus_vibrato_off 
+	mus_duty_envelope 2, $38
+	mus_call Mus_02_68bc
+	mus_rest 12
+	mus_rest 55
+	mus_duty_envelope 1, $41
+	mus_note B_3, 2
+	mus_note Gs3, 1
+	mus_envelope $22
+	mus_note B_3, 1
+	mus_call_times 15, Mus_02_6ad6
+	mus_envelope $41
+	mus_note A_3, 2
+	mus_note E_3, 1
+	mus_envelope $22
+	mus_note A_3, 1
+	mus_call_times 15, Mus_02_6ac5
+	mus_jump_back Song02_Ch2
+	mus_end  ; never reached
+
+Mus_02_6ac5::
+	mus_envelope $41
+	mus_note A_3, 1
+	mus_envelope $22
+	mus_note E_3, 1
+	mus_envelope $41
+	mus_note E_3, 1
+	mus_envelope $22
+	mus_note A_3, 1
+	mus_ret 
+
+Mus_02_6ad6::
+	mus_envelope $41
+	mus_note B_3, 1
+	mus_envelope $22
+	mus_note Gs3, 1
+	mus_envelope $41
+	mus_note Gs3, 1
+	mus_envelope $22
+	mus_note B_3, 1
+	mus_ret 
+
+Mus_02_6ae7::
+	mus_duty_envelope 0, $62
+	mus_note E_4, 5
+	mus_envelope $22
+	mus_note E_4, 3
+	mus_transpose_add 7
+	mus_call Mus_02_69d9
+	mus_transpose_add 3
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add 2
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -2
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -3
+	mus_call Mus_02_69d9
+	mus_transpose_off 
+	mus_duty_envelope 1, $32
+	mus_rest 7
+	mus_note C_5, 2
+	mus_note D_5, 3
+	mus_note Ds5, 3
+	mus_note E_5, 5
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note E_5, 2
+	mus_note G_5, 2
+	mus_note D_5, 1
+	mus_note Ds5, 5
+	mus_note D_5, 8
+	mus_note C_5, 3
+	mus_note A_4, 1
+	mus_ret 
+
+Mus_02_6b32::
+	mus_duty_envelope 0, $62
+	mus_note E_3, 5
+	mus_envelope $22
+	mus_note E_3, 3
+	mus_transpose_add -5
+	mus_call Mus_02_69d9
+	mus_transpose_add 3
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add 2
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -2
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add -3
+	mus_call_x 3, Mus_02_69d9
+	mus_transpose_add 3
+	mus_call Mus_02_69d9
+	mus_envelope $62
+	mus_note G_3, 5
+	mus_transpose_off 
+	mus_duty_envelope 1, $72
+	mus_note Fs3, 3
+	mus_note F_3, 5
+	mus_envelope $32
+	mus_note F_3, 3
+	mus_envelope $72
+	mus_note E_3, 5
+	mus_envelope $32
+	mus_note E_3, 3
+	mus_envelope $72
+	mus_note Gs3, 13
+	mus_note E_3, 3
+	mus_ret 
 
 Song02_Ch3::
-	INCBIN "baserom.gbc", $00ab76, $010e
+	mus_regs $e8, $40, $40
+	mus_octave_up 
+	mus_wave $20
+	mus_call Mus_02_6c6b
+	mus_call_x 3, Mus_02_6c66
+	mus_call Mus_02_6c51
+	mus_duty $da
+	mus_call_x 3, Mus_02_6c40
+	mus_call_x 3, Mus_02_6c2f
+	mus_call_x 3, Mus_02_6c06
+	mus_call Mus_02_6be1
+	mus_call Mus_02_6bc0
+	mus_note F_2, 8
+	mus_note G_2, 8
+	mus_call Mus_02_6be1
+	mus_call Mus_02_6bc0
+	mus_note A_2, 16
+	mus_rest 64
+	mus_regs $80, $40, $80
+	mus_note E_2, 32
+	mus_regs $e0, $40, $40
+	mus_note F_2, 8
+	mus_note Fs2, 8
+	mus_note G_2, 8
+	mus_note Gs2, 8
+	mus_regs $80, $40, $80
+	mus_note A_2, 64
+	mus_jump_back Song02_Ch3
+	mus_end  ; never reached
+
+Mus_02_6bc0::
+	mus_note E_2, 8
+	mus_note E_2, 8
+	mus_note Gs2, 8
+	mus_note Gs2, 8
+	mus_note E_2, 5
+	mus_note E_2, 3
+	mus_note Gs2, 8
+	mus_note A_2, 8
+	mus_note B_2, 8
+	mus_note E_2, 8
+	mus_note Gs2, 8
+	mus_note A_2, 8
+	mus_note B_2, 8
+	mus_note A_2, 5
+	mus_note A_2, 3
+	mus_note E_2, 8
+	mus_ret 
+
+Mus_02_6be1::
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_note E_2, 8
+	mus_note E_2, 8
+	mus_note A_2, 5
+	mus_note A_2, 3
+	mus_note E_2, 8
+	mus_note F_2, 8
+	mus_note G_2, 8
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_note C_3, 8
+	mus_note C_3, 8
+	mus_note B_2, 5
+	mus_note E_2, 3
+	mus_note Gs2, 8
+	mus_note A_2, 8
+	mus_note B_2, 8
+	mus_ret 
+
+Mus_02_6c06::
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_note E_2, 8
+	mus_note E_2, 8
+	mus_note F_2, 8
+	mus_note F_2, 5
+	mus_note G_2, 8
+	mus_note F_2, 3
+	mus_note G_2, 8
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_note E_2, 8
+	mus_note E_2, 8
+	mus_note F_2, 5
+	mus_note F_2, 2
+	mus_rest 1
+	mus_note C_3, 5
+	mus_note B_2, 8
+	mus_note A_2, 3
+	mus_note G_2, 8
+	mus_ret 
+
+Mus_02_6c2f::
+	mus_note G_2, 8
+	mus_note D_3, 8
+	mus_note C_3, 8
+	mus_note G_2, 8
+	mus_note B_2, 8
+	mus_note G_2, 8
+	mus_note F_2, 8
+	mus_note B_2, 8
+	mus_ret 
+
+Mus_02_6c40::
+	mus_note A_2, 8
+	mus_note G_2, 8
+	mus_note A_2, 8
+	mus_note E_2, 8
+	mus_note D_2, 8
+	mus_note G_2, 8
+	mus_note E_2, 8
+	mus_note D_2, 8
+	mus_ret 
+
+Mus_02_6c51::
+	mus_note G_2, 16
+	mus_note G_2, 48
+	mus_note G_2, 16
+	mus_note G_2, 32
+	mus_note F_2, 5
+	mus_note G_2, 3
+	mus_vibrato_ex $02, $01, $03, $02
+	mus_note As2, 8
+	mus_vibrato_off 
+	mus_ret 
+
+Mus_02_6c66::
+	mus_note A_2, 16
+	mus_note A_2, 48
+	mus_ret 
+
+Mus_02_6c6b::
+	mus_duty $d8
+	mus_note A_2, 16
+	mus_note A_2, 48
+	mus_note A_2, 16
+	mus_note A_2, 32
+	mus_note G_2, 5
+	mus_note A_2, 3
+	mus_vibrato_ex $02, $01, $03, $02
+	mus_duty $c8
+	mus_note As2, 8
+	mus_vibrato_off 
+	mus_ret 
 
 Song02_Ch4::
-	INCBIN "baserom.gbc", $00ac84, $00f7
+	mus_duty_envelope 0, $00
+	mus_call_times 18, Mus_02_6d66
+	mus_call Mus_02_6d43
+	mus_call_x 16, Mus_02_6d36
+	mus_call_x 6, Mus_02_6d36
+	mus_call Mus_02_6d2b
+	mus_call_times 7, Mus_02_6d36
+	mus_call Mus_02_6d2b
+	mus_call Mus_02_6d0b
+	mus_call_x 6, Mus_02_6d36
+	mus_call Mus_02_6d2b
+	mus_call_times 7, Mus_02_6d36
+	mus_call Mus_02_6cee
+	mus_call Mus_02_6ccb
+	mus_rest 64
+	mus_rest 44
+	mus_envelope $41
+	mus_note 69, 2
+	mus_note 69, 2
+	mus_note 69, 2
+	mus_envelope $51
+	mus_note 69, 2
+	mus_note 69, 2
+	mus_note 69, 2
+	mus_envelope $81
+	mus_note 69, 8
+	mus_jump_back Song02_Ch4
+	mus_end  ; never reached
+
+Mus_02_6ccb::
+	mus_call_x 3, Mus_02_6cd9
+	mus_envelope $61
+	mus_note 67, 5
+	mus_note 71, 3
+	mus_envelope $71
+	mus_note 77, 8
+	mus_ret 
+
+Mus_02_6cd9::
+	mus_envelope $61
+	mus_note 67, 5
+	mus_note 71, 3
+	mus_envelope $71
+	mus_note 77, 5
+	mus_envelope $61
+	mus_note 67, 3
+	mus_note 71, 5
+	mus_envelope $71
+	mus_note 77, 3
+	mus_ret 
+
+Mus_02_6cee::
+	mus_envelope $71
+	mus_note 77, 5
+	mus_envelope $61
+	mus_note 69, 3
+	mus_envelope $71
+	mus_note 77, 8
+	mus_envelope $61
+	mus_note 69, 5
+	mus_envelope $51
+	mus_note 69, 1
+	mus_note 69, 1
+	mus_note 69, 1
+	mus_envelope $61
+	mus_note 69, 8
+	mus_ret 
+
+Mus_02_6d0b::
+	mus_envelope $71
+	mus_note 77, 5
+	mus_envelope $51
+	mus_note 69, 1
+	mus_note 69, 1
+	mus_note 69, 1
+	mus_envelope $61
+	mus_note 69, 5
+	mus_note 69, 3
+	mus_ret 
+
+MusUnused_02_6d1e::
+	mus_envelope $71 ; never reached
+	mus_note 77, 5 ; never reached
+	mus_envelope $61 ; never reached
+	mus_note 69, 3 ; never reached
+	mus_note 69, 5 ; never reached
+	mus_note 69, 3 ; never reached
+	mus_ret  ; never reached
+
+Mus_02_6d2b::
+	mus_envelope $71
+	mus_note 77, 5
+	mus_envelope $61
+	mus_note 69, 3
+	mus_note 69, 8
+	mus_ret 
+
+Mus_02_6d36::
+	mus_envelope $71
+	mus_note 77, 8
+	mus_envelope $61
+	mus_note 69, 5
+	mus_envelope $31
+	mus_note 66, 3
+	mus_ret 
+
+Mus_02_6d43::
+	mus_envelope $33
+	mus_note 66, 8
+	mus_envelope $31
+	mus_note 66, 5
+	mus_note 66, 3
+	mus_envelope $34
+	mus_note 66, 8
+	mus_envelope $31
+	mus_note 69, 2
+	mus_note 69, 3
+	mus_note 69, 3
+	mus_envelope $51
+	mus_note 69, 5
+	mus_note 69, 8
+	mus_note 69, 8
+	mus_note 69, 3
+	mus_note 69, 8
+	mus_ret 
+
+Mus_02_6d66::
+	mus_envelope $33
+	mus_note 66, 8
+	mus_envelope $31
+	mus_note 66, 5
+	mus_note 66, 3
+	mus_envelope $34
+	mus_note 66, 8
+	mus_envelope $31
+	mus_note 66, 5
+	mus_note 66, 3
+	mus_ret 
 
 Song01_Ch1::
-	INCBIN "baserom.gbc", $00ad7b, $0134
+	mus_rest 4
+	mus_duty_envelope 0, $52
+	mus_note C_4, 4
+	mus_note C_4, 4
+	mus_note C_4, 4
+	mus_call Mus_02_6e84
+	mus_note F_4, 12
+	mus_call Mus_02_6e0a
+
+Mus_02_6d8d::
+	mus_call Mus_02_6e43
+	mus_duty_envelope 1, $40
+	mus_envelope $53
+	mus_note As4, 12
+	mus_note As4, 5
+	mus_note As4, 7
+	mus_note A_4, 5
+	mus_note G_4, 12
+	mus_call Mus_02_6e5f
+	mus_call Mus_02_6e2e
+	mus_call Mus_02_6e0a
+	mus_duty_envelope 2, $62
+	mus_call Mus_02_6e15
+	mus_rest 7
+	mus_note A_4, 12
+	mus_note A_4, 5
+	mus_note A_4, 7
+	mus_note G_4, 5
+	mus_note F_4, 12
+	mus_note G_4, 7
+	mus_note G_4, 5
+	mus_note A_4, 7
+	mus_note G_4, 29
+	mus_call Mus_02_6e15
+	mus_rest 7
+	mus_note G_4, 12
+	mus_note A_4, 5
+	mus_note As4, 7
+	mus_note A_4, 5
+	mus_note G_4, 12
+	mus_note F_4, 12
+	mus_call Mus_02_6e0a
+	mus_call Mus_02_6e84
+	mus_rest 7
+	mus_note A_4, 12
+	mus_note As4, 5
+	mus_note C_5, 7
+	mus_note As4, 5
+	mus_note A_4, 12
+	mus_call Mus_02_6e84
+	mus_rest 7
+	mus_note G_4, 12
+	mus_note A_4, 5
+	mus_note As4, 7
+	mus_note A_4, 5
+	mus_note G_4, 12
+	mus_rest 7
+	mus_note As4, 12
+	mus_note C_5, 5
+	mus_note D_5, 7
+	mus_note C_5, 5
+	mus_note As4, 12
+	mus_rest 7
+	mus_note D_5, 12
+	mus_note E_5, 5
+	mus_note F_5, 12
+	mus_note G_5, 12
+	mus_jump_back Mus_02_6d8d
+
+Mus_02_6e0a::
+	mus_duty_envelope 2, $61
+	mus_note F_5, 7
+	mus_note F_5, 5
+	mus_envelope $62
+	mus_note F_5, 24
+	mus_ret 
+
+Mus_02_6e15::
+	mus_rest 7
+	mus_note C_5, 12
+	mus_note C_5, 5
+	mus_note C_5, 7
+	mus_note As4, 5
+	mus_note A_4, 12
+	mus_rest 7
+	mus_note As4, 12
+	mus_note As4, 5
+	mus_note As4, 7
+	mus_note A_4, 5
+	mus_note G_4, 12
+	mus_ret 
+
+Mus_02_6e2e::
+	mus_note As4, 12
+	mus_envelope $62
+	mus_note As4, 5
+	mus_envelope $64
+	mus_note As4, 7
+	mus_envelope $62
+	mus_note A_4, 5
+	mus_envelope $64
+	mus_note G_4, 12
+	mus_note F_4, 12
+	mus_ret 
+
+Mus_02_6e43::
+	mus_duty_envelope 0, $64
+	mus_note A_4, 12
+	mus_call Mus_02_6e63
+	mus_note A_4, 12
+	mus_envelope $62
+	mus_note As4, 5
+	mus_envelope $64
+	mus_note C_5, 7
+	mus_envelope $62
+	mus_note As4, 5
+	mus_envelope $64
+	mus_note A_4, 12
+	mus_note G_4, 7
+	mus_ret 
+
+Mus_02_6e5f::
+	mus_duty_envelope 0, $64
+	mus_note A_4, 12
+
+Mus_02_6e63::
+	mus_envelope $62
+	mus_note C_5, 12
+	mus_envelope $64
+	mus_note A_4, 12
+	mus_envelope $62
+	mus_note C_5, 5
+	mus_envelope $52
+	mus_note Cs5, 2
+	mus_envelope $62
+	mus_note D_5, 12
+	mus_note D_5, 12
+	mus_note C_5, 5
+	mus_envelope $64
+	mus_note D_5, 12
+	mus_envelope $62
+	mus_note F_5, 19
+	mus_ret 
+
+Mus_02_6e84::
+	mus_duty_envelope 0, $72
+	mus_note F_4, 7
+	mus_note F_4, 12
+	mus_note F_4, 12
+	mus_duty_envelope 1, $43
+	mus_note D_4, 5
+	mus_note F_4, 12
+	mus_duty_envelope 0, $72
+	mus_note F_4, 7
+	mus_note F_4, 12
+	mus_note F_4, 12
+	mus_duty_envelope 1, $43
+	mus_note C_4, 5
+	mus_note F_4, 12
+	mus_note C_4, 7
+	mus_duty_envelope 0, $72
+	mus_note E_4, 12
+	mus_note F_4, 5
+	mus_note G_4, 7
+	mus_note F_4, 5
+	mus_note E_4, 12
+	mus_ret 
 
 Song01_Ch2::
-	INCBIN "baserom.gbc", $00aeaf, $00e3
+	mus_rest 4
+	mus_duty_envelope 0, $52
+	mus_note A_3, 4
+	mus_note A_3, 4
+	mus_note A_3, 4
+	mus_call Mus_02_6f67
+	mus_note A_3, 12
+	mus_call Mus_02_6f43
+	mus_octave_up 
+
+Mus_02_6ec2::
+	mus_call Mus_02_6e43
+	mus_transpose_off 
+	mus_duty_envelope 1, $40
+	mus_envelope $53
+	mus_note G_4, 12
+	mus_note G_4, 5
+	mus_note G_4, 7
+	mus_note F_4, 5
+	mus_note E_4, 12
+	mus_octave_up 
+	mus_call Mus_02_6e5f
+	mus_call Mus_02_6e2e
+	mus_transpose_off 
+	mus_call Mus_02_6f43
+	mus_duty_envelope 2, $62
+	mus_call Mus_02_6f4e
+	mus_rest 7
+	mus_note F_4, 12
+	mus_note F_4, 5
+	mus_note F_4, 7
+	mus_note E_4, 5
+	mus_note D_4, 12
+	mus_note E_4, 7
+	mus_note E_4, 5
+	mus_note F_4, 7
+	mus_note E_4, 29
+	mus_call Mus_02_6f4e
+	mus_rest 7
+	mus_note E_4, 12
+	mus_note F_4, 5
+	mus_note G_4, 7
+	mus_note F_4, 5
+	mus_note E_4, 12
+	mus_note A_3, 12
+	mus_call Mus_02_6f43
+	mus_call Mus_02_6f67
+	mus_rest 7
+	mus_note F_4, 12
+	mus_note G_4, 5
+	mus_note A_4, 7
+	mus_note G_4, 5
+	mus_note F_4, 12
+	mus_call Mus_02_6f67
+	mus_rest 7
+	mus_note E_4, 12
+	mus_note F_4, 5
+	mus_note G_4, 7
+	mus_note F_4, 5
+	mus_note E_4, 12
+	mus_rest 7
+	mus_note G_4, 12
+	mus_note A_4, 5
+	mus_note As4, 7
+	mus_note A_4, 5
+	mus_note G_4, 12
+	mus_rest 7
+	mus_note As4, 12
+	mus_note C_5, 5
+	mus_note D_5, 12
+	mus_octave_up 
+	mus_note E_4, 12
+	mus_jump_back Mus_02_6ec2
+
+Mus_02_6f43::
+	mus_duty_envelope 2, $61
+	mus_note F_3, 7
+	mus_note F_3, 5
+	mus_envelope $62
+	mus_note F_3, 24
+	mus_ret 
+
+Mus_02_6f4e::
+	mus_rest 7
+	mus_note A_4, 12
+	mus_note A_4, 5
+	mus_note A_4, 7
+	mus_note G_4, 5
+	mus_note F_4, 12
+	mus_rest 7
+	mus_note G_4, 12
+	mus_note G_4, 5
+	mus_note G_4, 7
+	mus_note F_4, 5
+	mus_note D_4, 12
+	mus_ret 
+
+Mus_02_6f67::
+	mus_duty_envelope 0, $72
+	mus_note D_4, 7
+	mus_note D_4, 12
+	mus_note D_4, 12
+	mus_duty_envelope 1, $43
+	mus_note As3, 5
+	mus_note D_4, 12
+	mus_duty_envelope 0, $72
+	mus_note C_4, 7
+	mus_note C_4, 12
+	mus_note C_4, 12
+	mus_duty_envelope 1, $43
+	mus_note A_3, 5
+	mus_note C_4, 12
+	mus_note G_3, 7
+	mus_duty_envelope 0, $72
+	mus_note C_4, 12
+	mus_note D_4, 5
+	mus_note E_4, 7
+	mus_note D_4, 5
+	mus_note C_4, 12
+	mus_ret 
 
 Song01_Ch3::
-	INCBIN "baserom.gbc", $00af92, $00a2
+	mus_rest 2
+	mus_octave_up 
+	mus_rest 1
+	mus_wave $20
+	mus_rest 1
+	mus_regs $f0, $40, $40
+	mus_note C_3, 4
+	mus_note C_3, 4
+	mus_note C_3, 4
+	mus_vibrato_ex $01, $01, $02, $02
+	mus_regs $da, $40, $40
+	mus_call Mus_02_7023
+	mus_call Mus_02_6fff
+	mus_duty $d8
+
+Mus_02_6fb6::
+	mus_call_x 3, Mus_02_6fe7
+	mus_call Mus_02_7023
+	mus_note C_3, 12
+	mus_note D_3, 12
+	mus_note E_3, 12
+	mus_note C_3, 12
+	mus_note F_2, 12
+	mus_note G_2, 12
+	mus_note A_2, 12
+	mus_note F_2, 12
+	mus_call Mus_02_7023
+	mus_call_x 2, Mus_02_6fdc
+	mus_note C_3, 12
+	mus_note As2, 12
+	mus_note A_2, 12
+	mus_note G_2, 12
+	mus_jump_back Mus_02_6fb6
+
+Mus_02_6fdc::
+	mus_note C_3, 19
+	mus_note C_3, 17
+	mus_note C_3, 5
+	mus_rest 2
+	mus_note C_3, 5
+	mus_ret 
+
+Mus_02_6fe7::
+	mus_call Mus_02_7014
+	mus_note F_2, 19
+	mus_note A_2, 17
+	mus_note As2, 12
+	mus_note C_3, 12
+	mus_note D_3, 12
+	mus_note E_3, 12
+	mus_note C_3, 12
+	mus_call Mus_02_7014
+	mus_call Mus_02_6fff
+	mus_ret 
+
+Mus_02_6fff::
+	mus_note C_3, 7
+	mus_note C_3, 12
+	mus_note D_3, 5
+	mus_note E_3, 7
+	mus_note D_3, 5
+	mus_note C_3, 12
+	mus_note F_2, 12
+	mus_note F_3, 7
+	mus_note F_3, 5
+	mus_note F_3, 24
+	mus_ret 
+
+Mus_02_7014::
+	mus_note F_2, 19
+	mus_note A_2, 17
+	mus_note F_2, 7
+	mus_note A_2, 5
+	mus_note As2, 19
+	mus_note D_3, 17
+	mus_note As2, 12
+	mus_ret 
+
+Mus_02_7023::
+	mus_note As2, 7
+	mus_note As2, 12
+	mus_note As2, 12
+	mus_rest 17
+	mus_note F_2, 7
+	mus_note F_2, 12
+	mus_note F_2, 12
+	mus_rest 17
+	mus_ret 
 
 Song01_Ch4::
-	INCBIN "baserom.gbc", $00b034, $00b0
+	mus_rest 4
+	mus_duty_envelope 0, $31
+	mus_note 66, 4
+	mus_volume 4
+	mus_note 66, 4
+	mus_volume 5
+	mus_note 66, 4
+	mus_call_x 3, Mus_02_709d
+	mus_note 67, 7
+	mus_note 67, 5
+	mus_volume 3
+	mus_note 66, 7
+	mus_volume 5
+	mus_note 67, 5
+	mus_note 67, 7
+	mus_note 67, 5
+	mus_note 67, 12
+	mus_note 67, 12
+	mus_volume 6
+	mus_note 74, 7
+	mus_note 74, 5
+	mus_note 74, 24
+
+Mus_02_705c::
+	mus_call_x 3, Mus_02_7070
+	mus_call_x 3, Mus_02_70cd
+	mus_call_x 3, Mus_02_70b4
+	mus_call_x 3, Mus_02_70cd
+	mus_call_x 2, Mus_02_70cd
+	mus_call Mus_02_70b4
+	mus_jump_back Mus_02_705c
+
+Mus_02_7070::
+	mus_call_x 2, Mus_02_70cd
+	mus_call Mus_02_70b4
+	mus_call_x 3, Mus_02_70cd
+	mus_volume 7
+	mus_note 77, 7
+	mus_note 77, 5
+	mus_volume 3
+	mus_note 66, 7
+	mus_volume 7
+	mus_note 77, 5
+	mus_volume 5
+	mus_note 71, 7
+	mus_volume 7
+	mus_note 77, 5
+	mus_note 77, 7
+	mus_volume 3
+	mus_note 66, 5
+	mus_volume 7
+	mus_note 77, 7
+	mus_volume 2
+	mus_note 66, 5
+	mus_volume 5
+	mus_note 71, 7
+	mus_note 71, 5
+	mus_note 71, 24
+	mus_ret 
+
+Mus_02_709d::
+	mus_note 67, 7
+	mus_note 67, 5
+	mus_volume 3
+	mus_note 66, 7
+	mus_volume 5
+	mus_note 67, 5
+	mus_volume 3
+	mus_note 66, 7
+	mus_volume 5
+	mus_note 67, 5
+	mus_note 67, 7
+	mus_volume 3
+	mus_note 66, 5
+	mus_volume 5
+	mus_ret 
+
+Mus_02_70b4::
+	mus_volume 7
+	mus_note 77, 7
+	mus_volume 3
+	mus_note 66, 5
+	mus_volume 7
+	mus_note 77, 7
+	mus_volume 3
+	mus_note 66, 5
+	mus_volume 5
+	mus_note 71, 7
+	mus_volume 3
+	mus_note 66, 5
+	mus_volume 7
+	mus_note 77, 7
+	mus_volume 5
+	mus_note 71, 5
+	mus_ret 
+
+Mus_02_70cd::
+	mus_volume 7
+	mus_note 77, 7
+	mus_volume 3
+	mus_note 66, 5
+	mus_note 66, 7
+	mus_volume 7
+	mus_note 77, 5
+	mus_volume 4
+	mus_note 67, 7
+	mus_volume 3
+	mus_note 66, 5
+	mus_volume 5
+	mus_note 71, 7
+	mus_note 71, 5
+	mus_ret 
 
 SFXTable::
 	dw SFX_00, SFX_02, SFX_04, SFX_06 ; effects $00-
@@ -194,240 +7052,1262 @@ SFXTable::
 	dw SFX_98, SFX_9A, SFX_9C ; effects $98-
 
 SFX_9C::
-	INCBIN "baserom.gbc", $00b182, $0013
+	sfx_header 216, $80, $71, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_3, 2
+	sfx_regs $80, $17, $80
+	sfx_note C_2, 4
+	sfx_regs $80, $17, $80
+	sfx_note C_3, 5
+	sfx_end 
 
 SFX_9A::
-	INCBIN "baserom.gbc", $00b195, $0037
+	sfx_header 128, $80, $a2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note A_2, 1
+	sfx_regs $00, $28, $80
+	sfx_note A_2, 3
+	sfx_regs $00, $18, $80
+	sfx_note C_5, 2
+	sfx_regs $00, $38, $80
+	sfx_note A_2, 2
+	sfx_regs $00, $18, $80
+	sfx_note A_2, 3
+	sfx_regs $00, $28, $80
+	sfx_note A_2, 2
+	sfx_regs $00, $18, $80
+	sfx_note A_2, 1
+	sfx_regs $00, $28, $80
+	sfx_note A_2, 12
+	sfx_regs $00, $17, $80
+	sfx_note A_2, 8
+	sfx_end 
 
 SFX_98::
-	INCBIN "baserom.gbc", $00b1cc, $0057
+	sfx_header 240, $40, $98, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_5, 2
+	sfx_regs $40, $38, $80
+	sfx_note B_4, 1
+	sfx_note As4, 1
+	sfx_note A_4, 1
+	sfx_note Gs4, 1
+	sfx_regs $40, $28, $80
+	sfx_note G_4, 1
+	sfx_note Fs4, 1
+	sfx_note F_4, 1
+	sfx_note E_4, 1
+	sfx_regs $40, $18, $80
+	sfx_note Ds4, 1
+	sfx_note D_4, 1
+	sfx_note Cs4, 1
+	sfx_note C_4, 1
+	sfx_regs $40, $16, $80
+	sfx_note B_3, 1
+	sfx_note As3, 1
+	sfx_note A_3, 1
+	sfx_note Gs3, 1
+	sfx_regs $40, $14, $80
+	sfx_note G_3, 1
+	sfx_note Fs3, 1
+	sfx_note F_3, 1
+	sfx_note E_3, 1
+	sfx_regs $40, $12, $80
+	sfx_note Ds3, 1
+	sfx_note D_3, 1
+	sfx_note Cs3, 1
+	sfx_note C_3, 1
+	sfx_note B_2, 1
+	sfx_note As2, 1
+	sfx_note A_2, 1
+	sfx_note Gs2, 1
+	sfx_end 
 
 SFX_96::
-	INCBIN "baserom.gbc", $00b223, $0009
+	sfx_header 160, $00, $71, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Gs5, 1
+	sfx_note A_5, 5
+	sfx_end 
 
 SFX_94::
-	INCBIN "baserom.gbc", $00b22c, $0015
+	sfx_header 128, $80, $82, $80 ; speed, NRx1, NRx2, flags
+	sfx_note A_2, 1
+	sfx_regs $00, $28, $80
+	sfx_note A_2, 3
+	sfx_regs $00, $17, $80
+	sfx_note D_2, 3
+	sfx_note C_5, 8
+	sfx_end 
 
 SFX_92::
-	INCBIN "baserom.gbc", $00b241, $000d
+	sfx_header 64, $80, $a2, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $00, $7f, $11, $02
+	sfx_note C_3, 4
+	sfx_end 
 
 SFX_90::
-	INCBIN "baserom.gbc", $00b24e, $000d
+	sfx_header 144, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_5, 1
+	sfx_regs $80, $17, $80
+	sfx_note G_5, 3
+	sfx_end 
 
 SFX_8E::
-	INCBIN "baserom.gbc", $00b25b, $000d
+	sfx_header 96, $80, $92, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $00, $7f, $04, $02
+	sfx_note C_4, 6
+	sfx_end 
 
 SFX_8C::
-	INCBIN "baserom.gbc", $00b268, $000f
+	sfx_header 224, $00, $a1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note F_5, 2
+	sfx_rest 4
+	sfx_regs $00, $f7, $80
+	sfx_note Fs5, 4
+	sfx_end 
 
 SFX_8A::
-	INCBIN "baserom.gbc", $00b277, $000d
+	sfx_header 224, $40, $92, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Cs2, 4
+	sfx_regs $40, $34, $80
+	sfx_note C_2, 4
+	sfx_end 
 
 SFX_88::
-	INCBIN "baserom.gbc", $00b284, $0007
+	sfx_header 224, $00, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note F_5, 2
+	sfx_end 
 
 SFX_86::
-	INCBIN "baserom.gbc", $00b28b, $002b
+	sfx_header 96, $80, $d2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note A_4, 8
+	sfx_regs $80, $b1, $80
+	sfx_note E_4, 2
+	sfx_note E_4, 2
+	sfx_regs $80, $d2, $80
+	sfx_note A_4, 8
+	sfx_regs $80, $b1, $80
+	sfx_note E_4, 2
+	sfx_note E_4, 2
+	sfx_regs $80, $d1, $80
+	sfx_note A_5, 8
+	sfx_note E_5, 8
+	sfx_regs $80, $d3, $80
+	sfx_note A_5, 16
+	sfx_end 
 
 SFX_84::
-	INCBIN "baserom.gbc", $00b2b6, $002b
+	sfx_header 96, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Cs5, 8
+	sfx_regs $80, $d1, $80
+	sfx_note A_4, 2
+	sfx_note Cs5, 2
+	sfx_regs $80, $f2, $80
+	sfx_note E_5, 8
+	sfx_regs $80, $d1, $80
+	sfx_note Cs5, 2
+	sfx_note Cs5, 2
+	sfx_regs $80, $f1, $80
+	sfx_note Cs6, 8
+	sfx_note B_5, 8
+	sfx_regs $80, $f3, $80
+	sfx_note Cs6, 16
+	sfx_end 
 
 SFX_82::
-	INCBIN "baserom.gbc", $00b2e1, $0012
+	sfx_header 96, $80, $f3, $80 ; speed, NRx1, NRx2, flags
+	sfx_vibrato $01, $1a, $04, $03
+	sfx_note Gs2, 12
+	sfx_regs $80, $34, $80
+	sfx_note Gs2, 8
+	sfx_end 
 
 SFX_80::
-	INCBIN "baserom.gbc", $00b2f3, $000d
+	sfx_header 216, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_3, 2
+	sfx_regs $80, $27, $80
+	sfx_note C_3, 5
+	sfx_end 
 
 SFX_7E::
-	INCBIN "baserom.gbc", $00b300, $0013
+	sfx_header 216, $40, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note As5, 3
+	sfx_regs $00, $82, $80
+	sfx_note F_5, 2
+	sfx_regs $40, $72, $80
+	sfx_note Fs5, 9
+	sfx_end 
 
 SFX_7C::
-	INCBIN "baserom.gbc", $00b313, $001f
+	sfx_header 216, $80, $82, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_5, 2
+	sfx_regs $80, $72, $80
+	sfx_note Gs5, 2
+	sfx_regs $80, $62, $80
+	sfx_note G_5, 2
+	sfx_regs $80, $52, $80
+	sfx_note Gs5, 2
+	sfx_regs $80, $44, $80
+	sfx_note G_5, 8
+	sfx_end 
 
 SFX_7A::
-	INCBIN "baserom.gbc", $00b332, $001f
+	sfx_header 216, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_6, 2
+	sfx_regs $80, $a2, $80
+	sfx_note Cs6, 2
+	sfx_regs $80, $92, $80
+	sfx_note C_6, 2
+	sfx_regs $80, $82, $80
+	sfx_note Cs6, 2
+	sfx_regs $80, $71, $80
+	sfx_note C_6, 8
+	sfx_end 
 
 SFX_78::
-	INCBIN "baserom.gbc", $00b351, $000d
+	sfx_header 216, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_6, 8
+	sfx_regs $80, $27, $80
+	sfx_note C_6, 16
+	sfx_end 
 
 SFX_76::
-	INCBIN "baserom.gbc", $00b35e, $002b
+	sfx_header 152, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_5, 2
+	sfx_note Cs5, 2
+	sfx_note C_5, 2
+	sfx_note Cs5, 2
+	sfx_regs $80, $b1, $80
+	sfx_note C_5, 2
+	sfx_regs $80, $82, $80
+	sfx_note As4, 2
+	sfx_note G_4, 2
+	sfx_note As4, 2
+	sfx_regs $80, $a1, $80
+	sfx_note E_5, 2
+	sfx_note G_5, 3
+	sfx_regs $80, $53, $80
+	sfx_note C_6, 8
+	sfx_end 
 
 SFX_74::
-	INCBIN "baserom.gbc", $00b389, $002b
+	sfx_header 152, $40, $b2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Cs3, 8
+	sfx_note C_3, 8
+	sfx_note B_2, 2
+	sfx_regs $40, $78, $80
+	sfx_note C_3, 2
+	sfx_note B_2, 2
+	sfx_note C_3, 2
+	sfx_note B_2, 2
+	sfx_note C_3, 2
+	sfx_note B_2, 2
+	sfx_note C_3, 2
+	sfx_note B_2, 2
+	sfx_note C_3, 2
+	sfx_note B_2, 2
+	sfx_note C_3, 2
+	sfx_regs $40, $27, $80
+	sfx_note B_2, 4
+	sfx_end 
 
 SFX_72::
-	INCBIN "baserom.gbc", $00b3b4, $002b
+	sfx_header 152, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_3, 8
+	sfx_note Fs3, 8
+	sfx_note F_3, 2
+	sfx_regs $80, $a8, $80
+	sfx_note Fs3, 2
+	sfx_note F_3, 2
+	sfx_note Fs3, 2
+	sfx_note F_3, 2
+	sfx_note Fs3, 2
+	sfx_note F_3, 2
+	sfx_note Fs3, 2
+	sfx_note F_3, 2
+	sfx_note Fs3, 2
+	sfx_note F_3, 2
+	sfx_note Fs3, 2
+	sfx_regs $80, $47, $80
+	sfx_note F_3, 4
+	sfx_end 
 
 SFX_70::
-	INCBIN "baserom.gbc", $00b3df, $0019
+	sfx_header 128, $00, $c3, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 69, 14
+	sfx_regs $00, $47, $80
+	sfx_note 69, 10
+	sfx_regs $00, $18, $80
+	sfx_note 69, 8
+	sfx_regs $00, $17, $80
+	sfx_note 69, 3
+	sfx_end 
 
 SFX_6E::
-	INCBIN "baserom.gbc", $00b3f8, $0063
+	sfx_header 240, $40, $f7, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_6, 2
+	sfx_regs $00, $58, $80
+	sfx_note B_5, 1
+	sfx_note As5, 1
+	sfx_note A_5, 1
+	sfx_note Gs5, 1
+	sfx_regs $80, $48, $80
+	sfx_note G_5, 1
+	sfx_note Fs5, 1
+	sfx_note F_5, 1
+	sfx_note E_5, 1
+	sfx_regs $80, $38, $80
+	sfx_note Ds5, 1
+	sfx_note D_5, 1
+	sfx_note Cs5, 1
+	sfx_note C_5, 1
+	sfx_regs $80, $28, $80
+	sfx_note B_4, 1
+	sfx_note As4, 1
+	sfx_note A_4, 1
+	sfx_note Gs4, 1
+	sfx_regs $80, $17, $80
+	sfx_note G_4, 1
+	sfx_note Fs4, 1
+	sfx_note F_4, 1
+	sfx_note E_4, 1
+	sfx_note Ds4, 1
+	sfx_note D_4, 1
+	sfx_note Cs4, 1
+	sfx_note C_4, 1
+	sfx_note B_3, 1
+	sfx_note As3, 1
+	sfx_note A_3, 1
+	sfx_note Gs3, 1
+	sfx_note G_3, 1
+	sfx_note Fs3, 1
+	sfx_note F_3, 1
+	sfx_note E_3, 1
+	sfx_note Ds3, 1
+	sfx_note D_3, 1
+	sfx_note Cs3, 1
+	sfx_note C_3, 1
+	sfx_end 
 
 SFX_6C::
-	INCBIN "baserom.gbc", $00b45b, $003b
+	sfx_header 128, $00, $f5, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 74, 2
+	sfx_note 77, 2
+	sfx_note 74, 1
+	sfx_regs $00, $78, $80
+	sfx_note 77, 4
+	sfx_regs $00, $48, $80
+	sfx_note 77, 8
+	sfx_regs $00, $68, $80
+	sfx_note 74, 2
+	sfx_regs $00, $88, $80
+	sfx_note 74, 2
+	sfx_regs $00, $a8, $80
+	sfx_note 74, 4
+	sfx_regs $00, $b8, $80
+	sfx_note 74, 4
+	sfx_regs $00, $c8, $80
+	sfx_note 74, 22
+	sfx_regs $00, $37, $80
+	sfx_note 74, 22
+	sfx_end 
 
 SFX_6A::
-	INCBIN "baserom.gbc", $00b496, $005f
+	sfx_header 240, $80, $98, $80 ; speed, NRx1, NRx2, flags
+	sfx_note B_5, 1
+	sfx_note As5, 1
+	sfx_regs $80, $a8, $80
+	sfx_note A_5, 1
+	sfx_note Gs5, 1
+	sfx_regs $80, $c8, $80
+	sfx_note G_5, 1
+	sfx_note Fs5, 1
+	sfx_regs $80, $64, $80
+	sfx_note F_5, 1
+	sfx_regs $80, $35, $80
+	sfx_note E_5, 1
+	sfx_regs $80, $26, $80
+	sfx_note D_5, 1
+	sfx_regs $80, $17, $80
+	sfx_note C_5, 1
+	sfx_regs $80, $58, $80
+	sfx_note D_5, 1
+	sfx_regs $80, $88, $80
+	sfx_note E_5, 1
+	sfx_note F_5, 1
+	sfx_regs $80, $76, $80
+	sfx_note Fs5, 1
+	sfx_note G_5, 1
+	sfx_regs $80, $64, $80
+	sfx_note Gs5, 1
+	sfx_regs $80, $35, $80
+	sfx_note A_5, 1
+	sfx_regs $80, $26, $80
+	sfx_note As5, 1
+	sfx_regs $80, $17, $80
+	sfx_note B_5, 1
+	sfx_end 
 
 SFX_68::
-	INCBIN "baserom.gbc", $00b4f5, $0047
+	sfx_header 240, $80, $98, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_3, 1
+	sfx_note D_3, 1
+	sfx_regs $80, $a8, $80
+	sfx_note E_3, 1
+	sfx_note F_3, 1
+	sfx_regs $80, $c8, $80
+	sfx_note Fs3, 1
+	sfx_note G_3, 1
+	sfx_note Gs3, 1
+	sfx_note A_3, 1
+	sfx_note As3, 1
+	sfx_note B_3, 1
+	sfx_regs $80, $48, $80
+	sfx_note As3, 1
+	sfx_note A_3, 1
+	sfx_regs $80, $38, $80
+	sfx_note Gs3, 1
+	sfx_note G_3, 1
+	sfx_regs $80, $28, $80
+	sfx_note Fs3, 1
+	sfx_note F_3, 1
+	sfx_regs $80, $16, $80
+	sfx_note E_3, 1
+	sfx_note Ds3, 1
+	sfx_note D_3, 1
+	sfx_note Cs3, 1
+	sfx_note C_3, 2
+	sfx_end 
 
 SFX_66::
-	INCBIN "baserom.gbc", $00b53c, $0017
+	sfx_header 128, $00, $61, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 66, 3
+	sfx_note 66, 3
+	sfx_regs $00, $42, $80
+	sfx_note 66, 2
+	sfx_regs $00, $24, $80
+	sfx_note 66, 2
+	sfx_note 66, 1
+	sfx_end 
 
 SFX_64::
-	INCBIN "baserom.gbc", $00b553, $000d
+	sfx_header 48, $40, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $02, $7f, $1f, $00
+	sfx_note C_3, 4
+	sfx_end 
 
 SFX_62::
-	INCBIN "baserom.gbc", $00b560, $0039
+	sfx_header 36, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $01, $7f, $4d, $02
+	sfx_note C_3, 1
+	sfx_regs $80, $83, $80
+	sfx_pitch_slide $01, $01, $7f, $7f, $02
+	sfx_note C_3, 1
+	sfx_regs $80, $26, $80
+	sfx_pitch_slide $01, $01, $7f, $7f, $01
+	sfx_note C_3, 1
+	sfx_pitch_slide $01, $01, $7f, $7f, $02
+	sfx_note C_3, 1
+	sfx_regs $80, $17, $80
+	sfx_pitch_slide $01, $01, $7f, $7f, $01
+	sfx_note C_3, 2
+	sfx_end 
 
 SFX_60::
-	INCBIN "baserom.gbc", $00b599, $000f
+	sfx_header 240, $80, $a1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note A_5, 2
+	sfx_rest 2
+	sfx_regs $80, $24, $80
+	sfx_note A_5, 2
+	sfx_end 
 
 SFX_5E::
-	INCBIN "baserom.gbc", $00b5a8, $0012
+	sfx_header 192, $80, $f8, $80 ; speed, NRx1, NRx2, flags
+	sfx_vibrato $01, $01, $01, $01
+	sfx_note 78, 4
+	sfx_regs $80, $36, $80
+	sfx_note 79, 10
+	sfx_end 
 
 SFX_5C::
-	INCBIN "baserom.gbc", $00b5ba, $0021
+	sfx_header 152, $80, $f7, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_3, 3
+	sfx_regs $80, $96, $80
+	sfx_note Cs3, 1
+	sfx_regs $80, $c5, $80
+	sfx_note D_3, 1
+	sfx_regs $80, $66, $80
+	sfx_note Ds3, 2
+	sfx_regs $80, $36, $80
+	sfx_note E_3, 2
+	sfx_note F_3, 2
+	sfx_end 
 
 SFX_5A::
-	INCBIN "baserom.gbc", $00b5db, $0025
+	sfx_header 240, $00, $a1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_3, 3
+	sfx_regs $00, $21, $80
+	sfx_note G_3, 5
+	sfx_regs $00, $a1, $80
+	sfx_note G_3, 3
+	sfx_regs $00, $12, $80
+	sfx_note G_3, 5
+	sfx_regs $00, $b1, $80
+	sfx_note G_3, 3
+	sfx_regs $00, $21, $80
+	sfx_note G_3, 5
+	sfx_end 
 
 SFX_58::
-	INCBIN "baserom.gbc", $00b600, $006d
+	sfx_header 240, $80, $a2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_2, 3
+	sfx_regs $80, $51, $80
+	sfx_note G_2, 5
+	sfx_regs $80, $a2, $80
+	sfx_note G_2, 3
+	sfx_regs $80, $51, $80
+	sfx_note G_2, 5
+	sfx_regs $80, $a2, $80
+	sfx_note G_2, 3
+	sfx_regs $80, $51, $80
+	sfx_note A_2, 5
+	sfx_regs $40, $a1, $80
+	sfx_note G_4, 4
+	sfx_regs $40, $42, $80
+	sfx_note Gs4, 3
+	sfx_regs $40, $24, $80
+	sfx_note A_4, 3
+	sfx_regs $40, $a1, $80
+	sfx_note Fs4, 4
+	sfx_regs $40, $42, $80
+	sfx_note G_4, 3
+	sfx_regs $40, $24, $80
+	sfx_note Gs4, 3
+	sfx_regs $40, $a1, $80
+	sfx_note Fs4, 4
+	sfx_regs $40, $42, $80
+	sfx_note G_4, 3
+	sfx_regs $40, $24, $80
+	sfx_note Gs4, 3
+	sfx_regs $40, $a1, $80
+	sfx_note F_4, 4
+	sfx_regs $40, $42, $80
+	sfx_note Fs4, 3
+	sfx_regs $40, $24, $80
+	sfx_note G_4, 3
+	sfx_end 
 
 SFX_56::
-	INCBIN "baserom.gbc", $00b66d, $0021
+	sfx_header 160, $40, $71, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Gs5, 1
+	sfx_note A_5, 5
+	sfx_regs $00, $42, $80
+	sfx_note Cs6, 1
+	sfx_note D_6, 5
+	sfx_regs $40, $61, $80
+	sfx_note Gs5, 1
+	sfx_note A_5, 5
+	sfx_regs $00, $33, $80
+	sfx_note Cs6, 1
+	sfx_note D_6, 15
+	sfx_end 
 
 SFX_54::
-	INCBIN "baserom.gbc", $00b68e, $0018
+	sfx_header 192, $80, $81, $80 ; speed, NRx1, NRx2, flags
+	sfx_vibrato $01, $01, $01, $01
+	sfx_note 79, 5
+	sfx_regs $80, $f2, $80
+	sfx_note 79, 4
+	sfx_regs $80, $26, $80
+	sfx_note 79, 10
+	sfx_end 
 
 SFX_52::
-	INCBIN "baserom.gbc", $00b6a6, $0015
+	sfx_header 152, $80, $1f, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 70, 8
+	sfx_note 70, 8
+	sfx_note 70, 8
+	sfx_note 70, 8
+	sfx_note 70, 8
+	sfx_note 70, 8
+	sfx_note 70, 8
+	sfx_note 70, 8
+	sfx_end 
 
 SFX_50::
-	INCBIN "baserom.gbc", $00b6bb, $0019
+	sfx_header 160, $00, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_7, 2
+	sfx_regs $40, $f2, $80
+	sfx_note Cs7, 2
+	sfx_regs $80, $f1, $80
+	sfx_pitch_slide $01, $00, $43, $81, $06
+	sfx_note 63, 8
+	sfx_end 
 
 SFX_4E::
-	INCBIN "baserom.gbc", $00b6d4, $001e
+	sfx_header 64, $80, $b2, $80 ; speed, NRx1, NRx2, flags
+	sfx_vibrato $01, $7e, $06, $03
+	sfx_pitch_slide $01, $00, $7f, $ef, $02
+	sfx_note D_2, 2
+	sfx_regs $80, $f4, $80
+	sfx_pitch_slide $01, $00, $7f, $11, $02
+	sfx_note C_2, 16
+	sfx_end 
 
 SFX_4C::
-	INCBIN "baserom.gbc", $00b6f2, $0013
+	sfx_header 160, $00, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 75, 1
+	sfx_regs $00, $81, $80
+	sfx_note Ds2, 2
+	sfx_regs $00, $16, $80
+	sfx_note Ds2, 3
+	sfx_end 
 
 SFX_4A::
-	INCBIN "baserom.gbc", $00b705, $001f
+	sfx_header 160, $00, $71, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Cs7, 1
+	sfx_regs $00, $c1, $80
+	sfx_note Cs7, 3
+	sfx_regs $00, $51, $80
+	sfx_note 63, 3
+	sfx_regs $00, $31, $80
+	sfx_note 64, 3
+	sfx_regs $00, $21, $80
+	sfx_note 65, 3
+	sfx_end 
 
 SFX_48::
-	INCBIN "baserom.gbc", $00b724, $0009
+	sfx_header 160, $00, $81, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 74, 1
+	sfx_note 69, 5
+	sfx_end 
 
 SFX_46::
-	INCBIN "baserom.gbc", $00b72d, $0017
+	sfx_header 160, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $01, $6f, $6f, $00
+	sfx_note As2, 2
+	sfx_note As2, 2
+	sfx_note C_3, 2
+	sfx_note Cs3, 4
+	sfx_note C_3, 5
+	sfx_note B_2, 6
+	sfx_end 
 
 SFX_44::
-	INCBIN "baserom.gbc", $00b744, $000d
+	sfx_header 144, $80, $f4, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $01, $07, $11, $01
+	sfx_note C_3, 12
+	sfx_end 
 
 SFX_42::
-	INCBIN "baserom.gbc", $00b751, $0015
+	sfx_header 128, $40, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $01, $0c, $f8, $02
+	sfx_note Ds5, 3
+	sfx_pitch_slide $01, $01, $0c, $f6, $01
+	sfx_note Ds5, 10
+	sfx_end 
 
 SFX_40::
-	INCBIN "baserom.gbc", $00b766, $0013
+	sfx_header 128, $80, $88, $80 ; speed, NRx1, NRx2, flags
+	sfx_note D_2, 3
+	sfx_regs $00, $27, $80
+	sfx_note C_5, 3
+	sfx_regs $00, $17, $80
+	sfx_note C_5, 8
+	sfx_end 
 
 SFX_3E::
-	INCBIN "baserom.gbc", $00b779, $0012
+	sfx_header 112, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $00, $7f, $ef, $02
+	sfx_vibrato $02, $1a, $02, $01
+	sfx_note C_3, 6
+	sfx_end 
 
 SFX_3C::
-	INCBIN "baserom.gbc", $00b78b, $0012
+	sfx_header 128, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_3, 1
+	sfx_regs $80, $e3, $80
+	sfx_vibrato $03, $1a, $02, $01
+	sfx_note Ds3, 16
+	sfx_end 
 
 SFX_3A::
-	INCBIN "baserom.gbc", $00b79d, $0015
+	sfx_header 160, $00, $a1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 75, 1
+	sfx_regs $00, $e1, $80
+	sfx_note Cs3, 3
+	sfx_regs $00, $17, $80
+	sfx_note C_5, 3
+	sfx_note C_5, 8
+	sfx_end 
 
 SFX_38::
-	INCBIN "baserom.gbc", $00b7b2, $0015
+	sfx_header 128, $80, $82, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_3, 1
+	sfx_regs $00, $48, $80
+	sfx_note D_2, 3
+	sfx_regs $00, $17, $80
+	sfx_note C_5, 3
+	sfx_note C_5, 8
+	sfx_end 
 
 SFX_36::
-	INCBIN "baserom.gbc", $00b7c7, $0007
+	sfx_header 160, $80, $d1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 72, 10
+	sfx_end 
 
 SFX_34::
-	INCBIN "baserom.gbc", $00b7ce, $000c
+	sfx_header 160, $80, $b1, $80 ; speed, NRx1, NRx2, flags
+	sfx_vibrato $01, $01, $01, $01
+	sfx_note F_2, 10
+	sfx_end 
 
 SFX_32::
-	INCBIN "baserom.gbc", $00b7da, $0013
+	sfx_header 128, $00, $67, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $00, $7f, $11, $02
+	sfx_note B_5, 1
+	sfx_regs $00, $17, $80
+	sfx_note B_5, 1
+	sfx_end 
 
 SFX_30::
-	INCBIN "baserom.gbc", $00b7ed, $0059
+	sfx_header 128, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_5, 1
+	sfx_note G_5, 1
+	sfx_note C_6, 1
+	sfx_note G_6, 1
+	sfx_note C_5, 1
+	sfx_note G_5, 1
+	sfx_regs $80, $82, $80
+	sfx_note C_6, 1
+	sfx_regs $80, $63, $80
+	sfx_note G_6, 1
+	sfx_regs $80, $74, $80
+	sfx_note C_5, 1
+	sfx_note G_5, 1
+	sfx_note C_6, 1
+	sfx_note G_6, 1
+	sfx_note C_5, 1
+	sfx_note G_5, 1
+	sfx_regs $80, $45, $80
+	sfx_note C_6, 1
+	sfx_note G_6, 1
+	sfx_note C_5, 1
+	sfx_note G_5, 1
+	sfx_regs $80, $36, $80
+	sfx_note C_6, 1
+	sfx_note G_6, 1
+	sfx_regs $80, $27, $80
+	sfx_note C_5, 1
+	sfx_note G_5, 1
+	sfx_note C_6, 1
+	sfx_note G_6, 1
+	sfx_regs $80, $17, $80
+	sfx_note C_5, 1
+	sfx_note G_5, 1
+	sfx_note C_6, 1
+	sfx_note G_6, 1
+	sfx_end 
 
 SFX_2E::
-	INCBIN "baserom.gbc", $00b846, $003f
+	sfx_header 136, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note E_6, 1
+	sfx_note C_6, 1
+	sfx_note A_5, 1
+	sfx_note Cs6, 1
+	sfx_note As5, 1
+	sfx_regs $80, $81, $80
+	sfx_note C_6, 1
+	sfx_note A_5, 1
+	sfx_note Cs6, 1
+	sfx_note As5, 1
+	sfx_regs $80, $53, $80
+	sfx_note C_6, 1
+	sfx_note A_5, 1
+	sfx_note Cs6, 1
+	sfx_note As5, 1
+	sfx_regs $80, $35, $80
+	sfx_note C_6, 1
+	sfx_note A_5, 1
+	sfx_note Cs6, 1
+	sfx_note As5, 1
+	sfx_regs $80, $17, $80
+	sfx_note C_6, 1
+	sfx_note A_5, 1
+	sfx_note Cs6, 1
+	sfx_note As5, 1
+	sfx_end 
 
 SFX_2C::
-	INCBIN "baserom.gbc", $00b885, $0029
+	sfx_header 144, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note F_5, 1
+	sfx_note D_5, 1
+	sfx_regs $80, $91, $80
+	sfx_note F_5, 1
+	sfx_note D_5, 1
+	sfx_regs $80, $54, $80
+	sfx_note F_5, 1
+	sfx_note D_5, 1
+	sfx_regs $80, $35, $80
+	sfx_note F_5, 1
+	sfx_note D_5, 1
+	sfx_regs $80, $17, $80
+	sfx_note F_5, 1
+	sfx_note D_5, 1
+	sfx_end 
 
 SFX_2A::
-	INCBIN "baserom.gbc", $00b8ae, $0045
+	sfx_header 160, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Fs4, 2
+	sfx_note As4, 2
+	sfx_note Cs5, 2
+	sfx_note Ds5, 2
+	sfx_note Fs5, 2
+	sfx_regs $80, $45, $80
+	sfx_note Cs5, 2
+	sfx_note Ds5, 1
+	sfx_note Fs5, 1
+	sfx_regs $80, $73, $80
+	sfx_note A_4, 2
+	sfx_note Cs5, 2
+	sfx_note E_5, 2
+	sfx_note Fs5, 2
+	sfx_note A_5, 2
+	sfx_regs $80, $55, $80
+	sfx_note E_5, 2
+	sfx_note Fs5, 2
+	sfx_note A_5, 2
+	sfx_regs $80, $36, $80
+	sfx_note E_5, 2
+	sfx_note Fs5, 2
+	sfx_note A_5, 2
+	sfx_regs $80, $17, $80
+	sfx_note E_5, 1
+	sfx_note Fs5, 1
+	sfx_note A_5, 1
+	sfx_end 
 
 SFX_28::
-	INCBIN "baserom.gbc", $00b8f3, $0019
+	sfx_header 128, $40, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note E_2, 4
+	sfx_regs $40, $74, $80
+	sfx_note E_2, 2
+	sfx_regs $40, $f2, $80
+	sfx_note C_2, 4
+	sfx_regs $40, $74, $80
+	sfx_note C_2, 4
+	sfx_end 
 
 SFX_26::
-	INCBIN "baserom.gbc", $00b90c, $004b
+	sfx_header 176, $80, $a1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Cs5, 1
+	sfx_note Fs5, 1
+	sfx_note As5, 2
+	sfx_regs $80, $f1, $80
+	sfx_note Cs6, 2
+	sfx_note As5, 2
+	sfx_note Fs5, 2
+	sfx_regs $80, $55, $80
+	sfx_note Cs5, 2
+	sfx_note Fs5, 2
+	sfx_note As5, 2
+	sfx_note Cs6, 2
+	sfx_note As5, 2
+	sfx_note Fs5, 2
+	sfx_regs $80, $35, $80
+	sfx_note Cs5, 2
+	sfx_note Fs5, 2
+	sfx_note As5, 2
+	sfx_regs $80, $26, $80
+	sfx_note Cs6, 2
+	sfx_note As5, 2
+	sfx_note Fs5, 2
+	sfx_regs $80, $17, $80
+	sfx_note Cs5, 2
+	sfx_note Fs5, 2
+	sfx_note As5, 2
+	sfx_note Cs6, 2
+	sfx_note As5, 2
+	sfx_note Fs5, 2
+	sfx_note Cs5, 2
+	sfx_end 
 
 SFX_24::
-	INCBIN "baserom.gbc", $00b957, $000b
+	sfx_header 128, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_4, 1
+	sfx_note D_5, 1
+	sfx_note G_5, 1
+	sfx_end 
 
 SFX_22::
-	INCBIN "baserom.gbc", $00b962, $000d
+	sfx_header 128, $00, $a5, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_5, 6
+	sfx_regs $00, $72, $80
+	sfx_note Ds4, 3
+	sfx_end 
 
 SFX_20::
-	INCBIN "baserom.gbc", $00b96f, $0007
+	sfx_header 128, $00, $a1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_5, 3
+	sfx_end 
 
 SFX_1E::
-	INCBIN "baserom.gbc", $00b976, $0011
+	sfx_header 224, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_5, 2
+	sfx_note C_6, 2
+	sfx_note G_5, 2
+	sfx_note C_6, 3
+	sfx_note G_5, 3
+	sfx_note C_6, 4
+	sfx_end 
 
 SFX_1C::
-	INCBIN "baserom.gbc", $00b987, $0021
+	sfx_header 184, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note G_5, 3
+	sfx_note G_6, 3
+	sfx_regs $80, $73, $80
+	sfx_note G_5, 3
+	sfx_note G_6, 3
+	sfx_regs $80, $35, $80
+	sfx_note G_5, 3
+	sfx_note G_6, 3
+	sfx_regs $80, $17, $80
+	sfx_note G_5, 3
+	sfx_note G_6, 3
+	sfx_end 
 
 SFX_1A::
-	INCBIN "baserom.gbc", $00b9a8, $0021
+	sfx_header 184, $80, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note D_5, 3
+	sfx_note D_6, 3
+	sfx_regs $80, $73, $80
+	sfx_note D_5, 3
+	sfx_note D_6, 3
+	sfx_regs $80, $35, $80
+	sfx_note D_5, 3
+	sfx_note D_6, 3
+	sfx_regs $80, $17, $80
+	sfx_note D_5, 3
+	sfx_note D_6, 3
+	sfx_end 
 
 SFX_18::
-	INCBIN "baserom.gbc", $00b9c9, $001f
+	sfx_header 202, $80, $21, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 71, 1
+	sfx_regs $80, $f7, $80
+	sfx_note 71, 3
+	sfx_regs $80, $77, $80
+	sfx_note 71, 3
+	sfx_regs $80, $27, $80
+	sfx_note 71, 5
+	sfx_regs $80, $17, $80
+	sfx_note 71, 5
+	sfx_end 
 
 SFX_16::
-	INCBIN "baserom.gbc", $00b9e8, $000d
+	sfx_header 128, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_note A_5, 12
+	sfx_regs $00, $17, $80
+	sfx_note A_5, 16
+	sfx_end 
 
 SFX_14::
-	INCBIN "baserom.gbc", $00b9f5, $0017
+	sfx_header 128, $00, $f5, $80 ; speed, NRx1, NRx2, flags
+	sfx_note 74, 1
+	sfx_note 77, 1
+	sfx_note 74, 1
+	sfx_regs $00, $c5, $80
+	sfx_note 74, 22
+	sfx_regs $00, $37, $80
+	sfx_note 74, 22
+	sfx_end 
 
 SFX_12::
-	INCBIN "baserom.gbc", $00ba0c, $001d
+	sfx_header 240, $00, $f7, $80 ; speed, NRx1, NRx2, flags
+	sfx_note D_3, 2
+	sfx_note D_3, 1
+	sfx_note A_2, 1
+	sfx_regs $00, $f3, $80
+	sfx_note 75, 30
+	sfx_regs $00, $36, $80
+	sfx_note 75, 16
+	sfx_regs $00, $17, $80
+	sfx_note 75, 30
+	sfx_end 
 
 SFX_10::
-	INCBIN "baserom.gbc", $00ba29, $000d
+	sfx_header 64, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $00, $7f, $04, $02
+	sfx_note C_4, 6
+	sfx_end 
 
 SFX_0E::
-	INCBIN "baserom.gbc", $00ba36, $000d
+	sfx_header 64, $80, $f2, $80 ; speed, NRx1, NRx2, flags
+	sfx_pitch_slide $01, $00, $7f, $11, $02
+	sfx_note C_3, 6
+	sfx_end 
 
 SFX_0C::
-	INCBIN "baserom.gbc", $00ba43, $002f
+	sfx_header 220, $80, $82, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Gs3, 2
+	sfx_note Ds4, 2
+	sfx_note Gs4, 2
+	sfx_note Ds5, 2
+	sfx_note Ds6, 2
+	sfx_note Ds5, 2
+	sfx_note Gs4, 2
+	sfx_note Ds4, 2
+	sfx_note Gs3, 2
+	sfx_regs $80, $26, $80
+	sfx_note Ds4, 2
+	sfx_note Gs4, 2
+	sfx_note Ds5, 2
+	sfx_note Ds6, 2
+	sfx_regs $80, $17, $80
+	sfx_note Ds5, 2
+	sfx_note Gs4, 2
+	sfx_note Ds4, 2
+	sfx_note Gs3, 2
+	sfx_end 
 
 SFX_0A::
-	INCBIN "baserom.gbc", $00ba72, $0039
+	sfx_header 192, $00, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note D_4, 2
+	sfx_note A_4, 2
+	sfx_note D_5, 2
+	sfx_note A_5, 2
+	sfx_note D_6, 2
+	sfx_regs $00, $a1, $80
+	sfx_note D_4, 2
+	sfx_note A_4, 2
+	sfx_note D_5, 2
+	sfx_note A_5, 2
+	sfx_note D_6, 2
+	sfx_regs $00, $51, $80
+	sfx_note D_4, 2
+	sfx_note A_4, 2
+	sfx_note D_5, 2
+	sfx_note A_5, 2
+	sfx_note D_6, 2
+	sfx_regs $00, $22, $80
+	sfx_note D_4, 2
+	sfx_note A_4, 2
+	sfx_note D_5, 2
+	sfx_note A_5, 2
+	sfx_note D_6, 2
+	sfx_end 
 
 SFX_08::
-	INCBIN "baserom.gbc", $00baab, $001d
+	sfx_header 192, $00, $a1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note C_4, 2
+	sfx_note C_5, 1
+	sfx_regs $00, $66, $80
+	sfx_note C_4, 1
+	sfx_regs $00, $a1, $80
+	sfx_note C_6, 1
+	sfx_regs $00, $62, $80
+	sfx_note C_5, 2
+	sfx_note C_6, 2
+	sfx_end 
 
 SFX_06::
-	INCBIN "baserom.gbc", $00bac8, $0091
+	sfx_header 160, $00, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note B_5, 2
+	sfx_regs $40, $f1, $80
+	sfx_note Ds6, 1
+	sfx_regs $00, $52, $80
+	sfx_note B_5, 1
+	sfx_regs $80, $f1, $80
+	sfx_note Fs6, 1
+	sfx_regs $40, $52, $80
+	sfx_note Ds6, 1
+	sfx_regs $00, $f1, $80
+	sfx_note Gs6, 1
+	sfx_regs $80, $52, $80
+	sfx_note Fs6, 1
+	sfx_regs $40, $f1, $80
+	sfx_note B_5, 1
+	sfx_regs $00, $52, $80
+	sfx_note Gs6, 1
+	sfx_regs $80, $f1, $80
+	sfx_note Ds6, 1
+	sfx_regs $40, $52, $80
+	sfx_note B_5, 1
+	sfx_regs $00, $f1, $80
+	sfx_note Fs6, 1
+	sfx_regs $80, $52, $80
+	sfx_note Ds6, 1
+	sfx_regs $40, $f1, $80
+	sfx_note B_6, 1
+	sfx_regs $00, $52, $80
+	sfx_note Fs6, 1
+	sfx_regs $40, $62, $80
+	sfx_note B_5, 1
+	sfx_regs $00, $33, $80
+	sfx_note B_6, 1
+	sfx_regs $80, $62, $80
+	sfx_note Ds6, 1
+	sfx_regs $40, $33, $80
+	sfx_note B_5, 1
+	sfx_regs $00, $62, $80
+	sfx_note Fs6, 1
+	sfx_regs $80, $33, $80
+	sfx_note Ds6, 1
+	sfx_regs $40, $62, $80
+	sfx_note B_6, 1
+	sfx_regs $00, $36, $80
+	sfx_note Fs6, 2
+	sfx_regs $00, $35, $80
+	sfx_note B_6, 2
+	sfx_end 
 
 SFX_04::
-	INCBIN "baserom.gbc", $00bb59, $0091
+	sfx_header 160, $00, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note Gs5, 2
+	sfx_regs $40, $f1, $80
+	sfx_note C_6, 1
+	sfx_regs $00, $52, $80
+	sfx_note Gs5, 1
+	sfx_regs $80, $f1, $80
+	sfx_note Ds6, 1
+	sfx_regs $40, $52, $80
+	sfx_note C_6, 1
+	sfx_regs $00, $f1, $80
+	sfx_note F_6, 1
+	sfx_regs $80, $52, $80
+	sfx_note Ds6, 1
+	sfx_regs $40, $f1, $80
+	sfx_note Gs5, 1
+	sfx_regs $00, $52, $80
+	sfx_note F_6, 1
+	sfx_regs $80, $f1, $80
+	sfx_note C_6, 1
+	sfx_regs $40, $52, $80
+	sfx_note Gs5, 1
+	sfx_regs $00, $f1, $80
+	sfx_note Ds6, 1
+	sfx_regs $80, $52, $80
+	sfx_note C_6, 1
+	sfx_regs $40, $f1, $80
+	sfx_note Gs6, 1
+	sfx_regs $00, $52, $80
+	sfx_note Ds6, 1
+	sfx_regs $40, $62, $80
+	sfx_note Gs5, 1
+	sfx_regs $00, $33, $80
+	sfx_note Gs6, 1
+	sfx_regs $80, $62, $80
+	sfx_note C_6, 1
+	sfx_regs $40, $33, $80
+	sfx_note Gs5, 1
+	sfx_regs $00, $62, $80
+	sfx_note Ds6, 1
+	sfx_regs $80, $33, $80
+	sfx_note C_6, 1
+	sfx_regs $40, $62, $80
+	sfx_note Gs6, 1
+	sfx_regs $00, $36, $80
+	sfx_note Ds6, 2
+	sfx_regs $00, $35, $80
+	sfx_note Gs6, 2
+	sfx_end 
 
 SFX_02::
-	INCBIN "baserom.gbc", $00bbea, $0091
+	sfx_header 160, $00, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note F_5, 2
+	sfx_regs $40, $f1, $80
+	sfx_note A_5, 1
+	sfx_regs $00, $52, $80
+	sfx_note F_5, 1
+	sfx_regs $80, $f1, $80
+	sfx_note C_6, 1
+	sfx_regs $40, $52, $80
+	sfx_note A_5, 1
+	sfx_regs $00, $f1, $80
+	sfx_note D_6, 1
+	sfx_regs $80, $52, $80
+	sfx_note C_6, 1
+	sfx_regs $40, $f1, $80
+	sfx_note F_5, 1
+	sfx_regs $00, $52, $80
+	sfx_note D_6, 1
+	sfx_regs $80, $f1, $80
+	sfx_note A_5, 1
+	sfx_regs $40, $52, $80
+	sfx_note F_5, 1
+	sfx_regs $00, $f1, $80
+	sfx_note C_6, 1
+	sfx_regs $80, $52, $80
+	sfx_note A_5, 1
+	sfx_regs $40, $f1, $80
+	sfx_note F_6, 1
+	sfx_regs $00, $52, $80
+	sfx_note C_6, 1
+	sfx_regs $40, $62, $80
+	sfx_note F_5, 1
+	sfx_regs $00, $33, $80
+	sfx_note F_6, 1
+	sfx_regs $80, $62, $80
+	sfx_note A_5, 1
+	sfx_regs $40, $33, $80
+	sfx_note F_5, 1
+	sfx_regs $00, $62, $80
+	sfx_note C_6, 1
+	sfx_regs $80, $33, $80
+	sfx_note A_5, 1
+	sfx_regs $40, $62, $80
+	sfx_note F_6, 1
+	sfx_regs $00, $36, $80
+	sfx_note C_6, 2
+	sfx_regs $00, $35, $80
+	sfx_note F_6, 2
+	sfx_end 
 
 SFX_00::
-	INCBIN "baserom.gbc", $00bc7b, $0090
+	sfx_header 160, $00, $f1, $80 ; speed, NRx1, NRx2, flags
+	sfx_note D_5, 2
+	sfx_regs $40, $f1, $80
+	sfx_note Fs5, 1
+	sfx_regs $00, $52, $80
+	sfx_note D_5, 1
+	sfx_regs $80, $f1, $80
+	sfx_note A_5, 1
+	sfx_regs $40, $52, $80
+	sfx_note Fs5, 1
+	sfx_regs $00, $f1, $80
+	sfx_note B_5, 1
+	sfx_regs $80, $52, $80
+	sfx_note A_5, 1
+	sfx_regs $40, $f1, $80
+	sfx_note D_5, 1
+	sfx_regs $00, $52, $80
+	sfx_note B_5, 1
+	sfx_regs $80, $f1, $80
+	sfx_note Fs5, 1
+	sfx_regs $40, $52, $80
+	sfx_note D_5, 1
+	sfx_regs $00, $f1, $80
+	sfx_note A_5, 1
+	sfx_regs $80, $52, $80
+	sfx_note Fs5, 1
+	sfx_regs $40, $f1, $80
+	sfx_note D_6, 1
+	sfx_regs $00, $52, $80
+	sfx_note A_5, 1
+	sfx_regs $40, $62, $80
+	sfx_note D_5, 1
+	sfx_regs $00, $33, $80
+	sfx_note D_6, 1
+	sfx_regs $80, $62, $80
+	sfx_note Fs5, 1
+	sfx_regs $40, $33, $80
+	sfx_note D_5, 1
+	sfx_regs $00, $62, $80
+	sfx_note A_5, 1
+	sfx_regs $80, $33, $80
+	sfx_note Fs5, 1
+	sfx_regs $40, $62, $80
+	sfx_note D_6, 1
+	sfx_regs $00, $36, $80
+	sfx_note A_5, 2
+	sfx_regs $00, $35, $80
+	sfx_note D_6, 2
 	ds 757, $00 ; $7d0b
 

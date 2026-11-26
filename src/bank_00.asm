@@ -9547,7 +9547,7 @@ WavePatterns::
 	db $ff, $00, $ee, $11, $dd, $22, $cc, $33, $bb, $44, $aa, $55, $99, $66, $88, $77
 
 Song00_Ch1::
-	db $00
+	mus_end 
 
 SongTempos::
 	db $60, $ba, $80, $ba, $a0, $d0, $80, $ba
@@ -9594,13 +9594,13 @@ SongChannels::
 	dw Song22_Ch1, Song22_Ch2, Song00_Ch1, Song22_Ch4 ; song $22
 
 Song22_Ch1::
-	db $00
+	mus_end 
 
 Song22_Ch2::
-	db $00
+	mus_end 
 
 Song22_Ch4::
-	db $00
+	mus_end 
 
 Func_00_38c7::
 	ld hl, $c303

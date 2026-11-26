@@ -610,6 +610,8 @@ class Emitter:
     def write_all(self):
         os.makedirs(os.path.join(ROOT, "src"), exist_ok=True)
         write_objects_inc(os.path.join(ROOT, "include", "objects.inc"))
+        import music
+        music.write_include(os.path.join(ROOT, "include", "music.inc"))
         code = self.code_banks()
         for b in code:  # first pass only collects cross-file references
             self.emit_bank(b)

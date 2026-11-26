@@ -139,7 +139,29 @@ Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), store
 
 ### Sound, text and other data
 
-**Sound.** `PlaySong` (`$30F1`, song number in `a`) takes the song's bank from `SongBanks` and its tempo from `SongTempos`, then sets up four channels from `SongChannels` (four stream pointers per song). There are 35 songs, with their streams in banks `$01` and `$02` (`SongXX_ChN`). Song `$00`, the silence, and song `$22` point to single end bytes in bank `$00`. Sound effects are `SFXTable` (`$02:70E4`, 79 entries) and the effect streams after it (`SFX_XX`), started by `Func_00_2f5a` with the effect number & `$FE`. The driver also keeps `NotePeriods` (63 frequency values) and nine 16-byte `WavePatterns` for channel 3 in bank `$00`. The stream command format isn't decoded yet, so the streams are still raw bytes. `Func_00_36a7`, a routine that resets the sound hardware and loads wave pattern 1, has no caller anywhere in the ROM.
+**Sound.** `PlaySong` (`$30F1`, song number in `a`) takes the song's bank from `SongBanks` and its tempo from `SongTempos`, then sets up four channels from `SongChannels` (four stream pointers per song). There are 35 songs, with their streams in banks `$01` and `$02` (`SongXX_ChN`, with jump and call targets labelled `Mus_BB_XXXX`). Song `$00`, the silence, and song `$22` point to single end bytes in bank `$00`. `tools/music.py` decodes every stream into the macros of `include/music.inc`, which it also writes.
+
+A music stream is a list of notes and commands. A byte from `$81` up is a note, `$80` a rest. Each is followed by a length in ticks, unless `mus_length` has set a fixed length (and `mus_length_off` clears it). The note number, after adding the channel's two transposes, indexes `NotePeriods` (63 frequency values, from `C_2` = 1, 65.4 Hz, up a semitone each). On channel 3 the same value sounds an octave lower, and channel 4 uses it as noise parameters. A byte below `$80` is a command (handler table at `$3F0A`):
+
+| Commands | Meaning |
+|---|---|
+| `mus_end`, `mus_jump` (big-endian address), `mus_jump_back` (one-byte backward offset) | end of the channel, loops |
+| `mus_call`, `mus_call_x n`, `mus_call_times n`; `mus_ret` and variants | counted subroutine calls (five-byte frames from `[$1e]`); the `ret` variants also clear the fixed length, the echo, the transpose or reset panning |
+| `mus_sub`, `mus_sub_ret*` | a second, one-level subroutine call |
+| `mus_loop n` … `mus_loop_end`, `mus_loop2 n` … `mus_loop2_end` | two levels of counted loops |
+| `mus_regs`, `mus_regs2`, `mus_duty`, `mus_envelope`, `mus_duty_envelope d, e`, `mus_volume v` | channel registers: NRx1 (duty), NRx2 (envelope; `mus_volume` sets its top nibble), the length-enable bit |
+| `mus_length`, `mus_length_x n`, `mus_length_off`, `mus_length_reset` | fixed note length on and off |
+| `mus_transpose`, `mus_transpose_add`, `mus_transpose_all`, `mus_transpose_off`, `mus_octave_up`, `mus_key` | the channel transpose `[$28]` (or all four channels'), and a second one `[$5a]` |
+| `mus_tempo`, `mus_tempo_add` | song tempo `[$c322]` |
+| `mus_vibrato`, `mus_vibrato_ex`, `mus_vibrato_off`, `mus_pitch_slide`, `mus_portamento`, `mus_sweep` | pitch effects |
+| `mus_wave n` | channel 3's wave pattern (`WavePatterns`) |
+| `mus_echo`, `mus_echo_off`, `mus_pan_*`, `mus_note_repeat` | alternating note volumes, panning, a repeated note |
+
+The music uses 43 of the driver's 80 commands. Never used are the panning commands, `mus_sweep`, `mus_pitch_slide`, `mus_portamento`, the echo commands, both loop levels, the one-level `mus_sub` and its returns, `mus_note_repeat`, `mus_key`, `mus_transpose_all`, `mus_tempo_add`, `mus_regs2`, volumes 11–15 and three `mus_ret` variants. The game's songs get by with calls, jumps and register changes.
+
+Sound effects (`SFXTable`, `$02:70E4`, 79 entries, started by `Func_00_2f5a` with the effect number & `$FE`) use a smaller format. An effect starts with `sfx_header speed, NRx1, NRx2, flags`, where bits 0–5 of the flags are a fixed note length (0 for none) and bit 6 enables the length counter. Then come `sfx_note`/`sfx_rest` and five commands from the table at `$3F00`: `sfx_end`, `sfx_regs` (new NRx1, NRx2 and flags), `sfx_vibrato`, `sfx_pitch_slide` and `sfx_sweep`. The driver also keeps nine 16-byte `WavePatterns` for channel 3 in bank `$00`. `Func_00_36a7`, a routine that resets the sound hardware and loads wave pattern 1, has no caller anywhere in the ROM.
+
+Where songs are played, so far: levels take theirs from byte 10 of the level descriptor. `$02` is the jungle levels (and Jungle Hijinxs), `$03` the water levels, `$04` the temples, `$07` the caves, `$08` and `$17` the forest levels, `$0D` Slipslide Ride, `$10` the mines, `$12` the factory, `$15` the girder levels, `$18` the ice levels, `$16` the six bosses before the last, and `$06` Gang-Plank Galleon. `$0B` is the bonus rooms (86 descriptors). Elsewhere, `$0F` is the world map, `$14` Funky's Flights (and the world map while flying), `$11` Cranky's Cabin, `$20` Candy's Challenge and `$09` DK's banana hoard.
 
 **Camera regions (bank `$06`).** Each map header's `$c45c` pointer leads to a list of 16-byte boxes (`CameraRegions_06_XXXX`): left, right, top and bottom edges of four bytes each, a flags byte, a byte and a 16-bit coordinate. When bit 1 of an edge's flags is set, its first two bytes are instead the address of another box whose same edge is used (`Func_00_21ad`). `Func_00_20dd` finds the first box that contains the player and clamps the scroll to it. The lists have no terminator.
 
@@ -219,9 +241,9 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
 | Code disassembled into readable instructions | 93 KB | 3.5% |
-| Data decoded into readable structures | 259 KB | 9.7% |
+| Data decoded into readable structures | 290 KB | 10.8% |
 | Graphics converted to editable PNGs | 980 KB | 36.6% |
-| Located and labelled, format known, still raw bytes | 1217 KB | 45.4% |
+| Located and labelled, format known, still raw bytes | 1186 KB | 44.3% |
 | Not identified yet | 129 KB | 4.8% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
@@ -237,7 +259,7 @@ Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0
 | Level table, entrances and descriptors | all |
 | Level maps, world maps and full screens | all |
 | Flow script | all |
-| Song and sound effect tables (streams still raw) | all |
+| Music and sound effect streams | all (35 songs, 79 effects) |
 | Camera regions | all |
 | Level object lists | all 128 |
 | Text in five languages | all 259 strings per language |
@@ -282,7 +304,7 @@ Every bank now has a known purpose:
 The retail ROM comes first: the goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. Only after that does work start on the earlier demo build (`Donkey Kong Country (U) [demo]`) and the comparison between the two. The order of work:
 
 1. Finish identifying what's left (4.8%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
-2. Convert the located raw data (block banks, terrain, compressed maps, music and sound effect streams, the Rare logo animation) into readable or editable form.
+2. Convert the located raw data (block banks, terrain, compressed maps, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 4. Then the demo.
 

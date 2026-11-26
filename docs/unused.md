@@ -161,6 +161,18 @@ One more leftover sits in bank `$FE`. Each mode number is turned into an interna
 
 The English text bank has one line no pointer reaches: "I'm going for a nap." (`UnusedText_10_62f1`). It belongs to Cranky's line "All this game play / is too much for me." In French, Italian and Spanish the matching string has a third line saying the same thing ("Je vais me coucher.", "Farò un pisolino.", "Me voy a echar una siestecita."). In English the second line ends with a 0 instead of a new line, so the string stops early and the nap line becomes a separate string nobody points to. The German text has no nap line at all ("…Ich bin reif fürs Affenhaus!"). All other strings, in all five banks, are reached.
 
+## Music
+
+`tools/music.py` follows every channel of every song through its jumps and calls and decodes whatever it reaches. That leaves 393 bytes no song reaches; in the sources they're labelled `MusUnused_BB_XXXX` or commented "never reached":
+
+| What | Where | Size |
+|---|---|---|
+| An alternate arrangement of a section of song `$18`, the ice levels' music (Snow Barrel Blast, Ice Age Alley). On channel 2 a subroutine (`MusUnused_01_4fa9`) plays section A, a passage nothing else uses (`MusUnused_01_50e2`, 30 notes of a D/A pattern), section A again and section B. The song itself only ever plays A then B. Channel 3 has a matching unused subroutine (`MusUnused_01_5560` and the two after it). | bank `$01`: `$4FA9`–`$515B` and `$5560`–`$55A8` | 169 bytes |
+| Short pieces that no jump or call reaches, up to 14 notes each (one only sets registers) | songs `$02`, `$0F`, `$10`, `$12`, `$14`, `$15`, `$16` | 181 bytes |
+| An end byte after a channel's final loop jump, never reached because the loop never ends | 43 streams | 43 bytes |
+
+The short phrases are probably leftovers of edits to those songs. The song `$18` passage is the only unused piece of real length. Rendering it as audio would need a player for this driver, which doesn't exist yet.
+
 ## Code
 
 `Func_00_36a7` resets the sound hardware (NR52, NR51, NR50, the wave channel) and falls into `Func_00_36b8`, which loads wave pattern 1. Nothing in the ROM calls or jumps to `$36A7`; the game uses `Func_00_36b8` directly. It's a small leftover, probably an older entry point of the sound driver.

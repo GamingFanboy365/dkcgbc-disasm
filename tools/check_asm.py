@@ -64,6 +64,9 @@ ANIM_SIZES = {"anim_frame": 2, "anim_jump": 4, "anim_speed": 2, "anim_call": 4,
               "anim_sfx": 2, "frame": 6, "frame_none": 6}
 
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import music  # noqa: E402
+MUSIC_MACROS = set(music.macro_table()) | set(music.NOTE_MACROS)
 FLOW_SIZES = {"flow_jump": 3, "flow_load_screen": 4, "flow_wait": 3, "flow_play_song": 2, "flow_fade": 2}
 
 
@@ -188,6 +191,8 @@ class Asm:
             return FLOW_SIZES[m]
         if m == "picture":
             return 9
+        if m in MUSIC_MACROS:
+            return music.macro_size(m, len(split_args(rest)))
         if m == "obj_pal_preload":
             return 1 + len(split_args(rest))
         if s in EXACT:
@@ -239,6 +244,8 @@ class Asm:
                 return self.incbin(a[0])
             st, n = ev(a[1]), ev(a[2])
             return base[st:st + n]
+        if m in MUSIC_MACROS:
+            return music.macro_encode(m, [ev(x) for x in split_args(rest)], pc)
         if m == "picture":
             out = bytearray()
             for x in split_args(rest):
@@ -351,6 +358,7 @@ def main():
     a = Asm()
     a.define_constants(os.path.join(ROOT, "include", "hardware.inc"))
     a.define_constants(os.path.join(ROOT, "include", "macros.inc"))
+    a.define_constants(os.path.join(ROOT, "include", "music.inc"))
     a.define_constants(os.path.join(ROOT, "include", "objects.inc"))
     items = a.parse_files(files)
     a.assemble(items, base)

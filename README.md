@@ -152,7 +152,17 @@ Besides the adventure itself, the cartridge holds two more programs, each with i
 
 Code in these banks calls across banks in two ways. `FarCall_A_HL` (`$3FC0`) takes the bank in `a` and the target in `hl`. The other way pushes the return address `$3FD5` and the target a byte at a time (`ld a, n / push af / inc sp`), puts the bank in `a` and jumps to `$3FDC`.
 
-**Banks `$50`–`$6F`: Funky's Fishing, plus graphics shared with the front end.** Running the game in an emulator confirms it: choosing Bonus → Funky's Fishing enters `$50:4000`, which bank `$F2` far-jumps to (`Func_f2_72d7` and one other place). The game installs its own runtime in RAM: `$C800` copies `$51:42F4`–`$44F0` to `$CB00`. Its far calls push the return address, the bank, the cleanup routine `$CBA7` and the target, then jump to `$CB99` with the bank in `a`. The game draws its scenery from raw 20×18 screens in bank `$51` (360 attribute bytes, then 360 tile numbers, the same layout as the main game's full screens). `Func_51_4000` loads the one-player screen at `$51:6A90` or the second version at `$51:6D60`, the palettes at `$51:7090`/`$70D0` and a 12×4 box from `$51:7030`. Every frame, its main loop also streams a 4 KB buffer from WRAM into VRAM by HDMA, which animates its sprites (fish tiles come from bank `$52`). Its pause menu ("CONTINUE", "QUIT?") is in bank `$50` in five languages. Banks `$53`–`$6F` are graphics and layout data, used by the fishing game (banks `$51`, `$5C`) and by the front end's title screen and menus (banks `$5B`, `$5C`, `$61`, `$66`).
+**Banks `$50`–`$6F`: Funky's Fishing, plus graphics shared with the front end.** Running the game in an emulator confirms it: choosing Bonus → Funky's Fishing enters `$50:4000`, which bank `$F2` far-jumps to (`Func_f2_72d7` and one other place). The game installs its own runtime in RAM: `$C800` copies `$51:42F4`–`$44F0` to `$CB00`. Its far calls push the return address, the bank, the cleanup routine `$CBA7` and the target, then jump to `$CB99` with the bank in `a`. The game draws its scenery from raw 20×18 screens in bank `$51` (360 attribute bytes, then 360 tile numbers, the same layout as the main game's full screens). `Func_51_4000` loads the one-player screen at `$51:6A90` or the second version at `$51:6D60`, the palettes at `$51:7090`/`$70D0` and a 12×4 box from `$51:7030`. Every frame, its main loop also streams a 4 KB buffer from WRAM into VRAM by HDMA, which animates its sprites (fish tiles come from bank `$52`). Its pause menu ("CONTINUE", "QUIT?") is in bank `$50` in five languages. Bank `$55` is a second small program: the Bonus menu's Hi-Score screen. Banks `$53`–`$6F` are graphics and layout data shared with the front end. Matching each screen's tiles in VRAM against the ROM in an emulator shows which banks each screen uses:
+
+| Screen | Tile sources |
+|---|---|
+| Main menu and save select | `$5B`, `$5C`, `$61`, `$66` |
+| Bonus menu (Funky's Fishing, View Items, Hi-Score, Crosshair Cranky) | `$5B`, `$5C`, `$66`, `$6B`, `$6C` |
+| Hi-Score | `$55`, `$5C`, `$6B`, `$6C` |
+| Funky's Fishing | `$51`, `$52`, `$5C`, `$6C` |
+| Crosshair Cranky | `$18`, `$40`, `$41` (it reuses the DK Isle world map and its sprites) |
+
+The other banks in the range (`$53`, `$54`, `$56`, `$58`–`$5A`, `$5D`–`$60`, `$62`–`$65`, `$67`–`$6A`, `$6D`–`$6F`) belong to screens not yet visited, such as the title pictures, language select, View Items, the Print menu and its picture album, Link and the options.
 
 ### Unused content
 

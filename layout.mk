@@ -187,6 +187,16 @@ GFX := \
 	gfx/bgtiles/4e/4000_end.2bpp \
 	gfx/bgtiles/4f/4000.2bpp \
 	gfx/bgtiles/4f/4000_end.2bpp \
+	gfx/bgtiles/51/4d00.2bpp \
+	gfx/bgtiles/51/4d00_end.2bpp \
+	gfx/bgtiles/51/54e0.2bpp \
+	gfx/bgtiles/51/5ce0.2bpp \
+	gfx/bgtiles/51/5ce0_end.2bpp \
+	gfx/bgtiles/51/6460.2bpp \
+	gfx/bgtiles/51/6480.2bpp \
+	gfx/bgtiles/51/6480_end.2bpp \
+	gfx/bgtiles/51/67e0.2bpp \
+	gfx/bgtiles/51/67e0_end.2bpp \
 	gfx/bgtiles/70/4000.2bpp \
 	gfx/bgtiles/70/4000_end.2bpp \
 	gfx/bgtiles/71/4000.2bpp \
@@ -1681,6 +1691,7 @@ src/bank_4c.o: gfx/bgtiles/4c/4000.2bpp gfx/bgtiles/4c/4000_end.2bpp
 src/bank_4d.o: gfx/bgtiles/4d/4000.2bpp gfx/bgtiles/4d/4000_end.2bpp
 src/bank_4e.o: gfx/bgtiles/4e/4000.2bpp gfx/bgtiles/4e/4000_end.2bpp
 src/bank_4f.o: gfx/bgtiles/4f/4000.2bpp gfx/bgtiles/4f/4000_end.2bpp
+src/bank_51.o: gfx/bgtiles/51/4d00.2bpp gfx/bgtiles/51/4d00_end.2bpp gfx/bgtiles/51/54e0.2bpp gfx/bgtiles/51/5ce0.2bpp gfx/bgtiles/51/5ce0_end.2bpp gfx/bgtiles/51/6460.2bpp gfx/bgtiles/51/6480.2bpp gfx/bgtiles/51/6480_end.2bpp gfx/bgtiles/51/67e0.2bpp gfx/bgtiles/51/67e0_end.2bpp
 src/bank_70.o: gfx/bgtiles/70/4000.2bpp gfx/bgtiles/70/4000_end.2bpp
 src/bank_71.o: gfx/bgtiles/71/4000.2bpp gfx/bgtiles/71/4000_end.2bpp
 src/bank_72.o: gfx/bgtiles/72/4000.2bpp gfx/bgtiles/72/4000_end.2bpp

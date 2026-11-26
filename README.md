@@ -195,4 +195,4 @@ The retail ROM comes first: the goal is a complete (100%) disassembly, with ever
 
 Running the ROM in an emulator (PyBoy, used only locally and never in the build) has become part of the method. It identifies what each part of the ROM is and shows which code and data the game really touches at run time, which catches what static tracing misses and settles whether content is truly unused.
 
-Later, and kept apart from the disassembly, a `wiki/` folder may hold AI-written articles about the game's subjects, drawing on this research and on public sources. Nothing in it feeds back into the sources or documentation of the disassembly.
+Later, and kept apart from the disassembly, a `wiki/` folder may hold AI-written articles about the game's subjects, drawing on this research and on public sources, written in the style of Super Mario Wiki articles. Information may come from wikis such as that one, but no text is copied (their content is CC BY-SA 4.0). Nothing in it feeds back into the sources or documentation of the disassembly.

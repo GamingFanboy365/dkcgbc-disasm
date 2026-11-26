@@ -34,6 +34,13 @@ def parse_backgrounds(t, rom):
         t._claim(wb, wm["addr"], 13, "worldmap", wm, "WorldMap")
         t._claim(0x0F, wm["map"], 1 + 36 * wm["width"], "worldtiles", wm["width"], "WorldTileMap")
         t._claim(0x0F, wm["palettes"], 64, "palette", 8, "WorldPalettes")
+    f = hints.FISHING
+    fb = f["bank"]
+    for scr in f["screens"]:
+        t._claim(fb, scr, 720, "screenmap", None, "FishingScreen")
+    t._claim(fb, f["box"], 96, "boxmap", (12, 4), "FishingBox")
+    t._claim(fb, f["bg_palettes"], 64, "palette", 8, "FishingBGPalettes")
+    t._claim(fb, f["obj_palettes"], 64, "palette", 8, "FishingOBJPalettes")
     # flow script: one item per contiguous run of commands
     cmds = bg.flow_script(rom, hints.FLOW_ENTRIES)
     labels = set(hints.FLOW_ENTRIES) | {c[1] for c in cmds.values() if c[0] == "jump"}

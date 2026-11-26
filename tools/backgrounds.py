@@ -276,6 +276,31 @@ def render_world_map(rom, wm):
     return canvas
 
 
+# ------------------------------------------------------------ Funky's Fishing
+def render_fishing(rom, screen):
+    """Render one of Funky's Fishing's 20x18 screens with its own VRAM loads."""
+    f = hints.FISHING
+    b = f["bank"]
+    vram = [bytearray(0x2000), bytearray(0x2000)]
+    for (src, n, vb, dst) in f["tiles"]:
+        o = off(b, src)
+        vram[vb][dst - 0x8000:dst - 0x8000 + n * 16] = rom[o:o + n * 16]
+
+    class VTiles:
+        def tile(self, vb, t):
+            a = (0x1000 + t * 16) if t < 128 else (0x800 + (t - 128) * 16)
+            d = vram[vb][a:a + 16]
+            return [[((d[2 * r + 1] >> (7 - x)) & 1) << 1 | ((d[2 * r] >> (7 - x)) & 1) for x in range(8)]
+                    for r in range(8)]
+    pals = palettes_at(rom, b, f["bg_palettes"])
+    canvas = [[(0, 0, 0)] * 160 for _ in range(144)]
+    mo = off(b, screen)
+    vt = VTiles()
+    for i in range(360):
+        draw_tile(canvas, (i % 20) * 8, (i // 20) * 8, vt, rom[mo + 360 + i], rom[mo + i], pals)
+    return canvas
+
+
 # ------------------------------------------------------- tiles for the build
 def screen_records(rom):
     return {k: screen_record(rom, *k) for k in screens_in_flow(rom)}
@@ -292,7 +317,11 @@ def bg_tile_pieces(rom):
         starts.setdefault(hdr["ts_bank"], set()).add(hdr["ts"])
     for wm in world_maps(rom):
         starts.setdefault(wm["ts_bank"], set()).add(wm["ts"])
+    fb = hints.FISHING["bank"]
+    for (a, n, _, _) in hints.FISHING["tiles"]:
+        starts.setdefault(fb, set()).add(a)
     others = {}  # other data in the same banks: tiles stop where it starts
+    others.setdefault(fb, set()).update(hints.FISHING["screens"])
     for rec in screen_records(rom).values():
         starts.setdefault(rec["bank"], set()).add(rec["tiles"])
         others.setdefault(rec["bank"], set()).update((rec["addr"], rec["palettes"], rec["map"]))
@@ -304,6 +333,9 @@ def bg_tile_pieces(rom):
             if i + 1 < len(ss) and ss[i + 1] < end:
                 end = ss[i + 1]
             end = min([end] + [x for x in others.get(b, ()) if x > a])
+            for (fa, fn, _, _) in (hints.FISHING["tiles"] if b == hints.FISHING["bank"] else ()):
+                if fa == a:
+                    end = min(end, a + fn * 16)
             n = (end - a) // 16
             base = os.path.join("gfx", "bgtiles", "%02x" % b, "%04x" % a)
             pieces = []
@@ -348,7 +380,10 @@ def main():
     for wm in world_maps(rom):
         save(os.path.join(out, "world", "world_%d_%04x.png" % (wm["index"], wm["addr"])), render_world_map(rom, wm))
         w += 1
-    print("rendered %d level maps, %d screens and %d world maps into %s" % (n, s, w, out))
+    for scr in hints.FISHING["screens"]:
+        save(os.path.join(out, "fishing", "fishing_%04x.png" % scr), render_fishing(rom, scr))
+    print("rendered %d level maps, %d screens, %d world maps and %d Funky's Fishing screens into %s"
+          % (n, s, w, len(hints.FISHING["screens"]), out))
 
 
 if __name__ == "__main__":

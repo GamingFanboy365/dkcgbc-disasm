@@ -200,3 +200,16 @@ FARJUMP_STACK = [0x3FDC]
 # to $cb00) jumps through $cb99 with the bank in a and the target pushed
 # last (return address, bank and the cleanup routine $cba7 pushed before).
 FARJUMP_HL_STACK = [0xCB99]
+
+# Funky's Fishing (bank $51), loaded by Func_51_410f (tiles, HDMA) and
+# Func_51_4000 (palettes, screens, box). Tile pieces: (start, tiles,
+# VRAM bank, destination).
+FISHING = {
+    "bank": 0x51,
+    "tiles": [(0x4D00, 0x7E, 0, 0x8000), (0x54E0, 0x80, 0, 0x9000), (0x5CE0, 0x78, 0, 0x8800),
+              (0x6460, 0x02, 1, 0x9000), (0x6480, 0x36, 1, 0x8CA0), (0x67E0, 0x2B, 1, 0x8800)],
+    "screens": [0x6A90, 0x6D60],   # one player; link play
+    "box": 0x7030,                 # 12x4: 48 attributes, then 48 tiles, drawn at $98b4
+    "bg_palettes": 0x7090,
+    "obj_palettes": 0x70D0,
+}

@@ -388,6 +388,15 @@ class Emitter:
             r = item[2]
             names = [self.qref(bank, r[k]) or hexw(r[k]) for k in ("palettes", "map", "tiles")]
             return [(o, "dw %s ; palettes, tile map, tiles" % ", ".join(names))]
+        if kind == "boxmap":
+            w, h = item[2]
+            rom = self.rom
+            res = []
+            for k in range(2 * h):
+                row = rom[o + w * k:o + w * k + w]
+                res.append((o if k == 0 else None, "db " + ", ".join(hexb(x) for x in row)
+                            + (" ; %s" % ("attributes" if k == 0 else "tiles") if k in (0, h) else "")))
+            return res
         if kind == "screenmap":
             rom = self.rom
             res = []

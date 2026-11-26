@@ -442,6 +442,31 @@ def parse_banks(t, rom):
             r = [("db", ["%d" % n], "tiles per frame"), ("dw", ["$%04x" % dest], "VRAM destination")]
             r += [("dw", [ref(abk, f) for f in frames[k:k + 4]], "frames" if k == 0 else None) for k in range(0, len(frames), 4)]
             t._claim(0xFE, x, nxt - x, "rows", r, "CrankyTileAnim")
+    # Crosshair Cranky: background picture and song per game type (Func_f5_4950)
+    t._claim(0xF5, 0x45FB, 12, "rows", [("dw", [ref(0xF5, rom[off(0xF5, 0x45FB + 2 * g)] | rom[off(0xF5, 0x45FB + 2 * g) + 1] << 8)],
+                                         games[g]) for g in range(6)], "=CrankyBackgrounds")
+    for g in range(6):
+        p = rom[off(0xF5, 0x45FB + 2 * g)] | rom[off(0xF5, 0x45FB + 2 * g) + 1] << 8
+        t._claim(0xF5, p, 2, "rows", [("db", ["%d" % rom[off(0xF5, p)], "$%02x" % rom[off(0xF5, p) + 1]],
+                                       "picture, song")], "CrankyBackground")
+    for a, name in ((0x40BE, "=CrankyModeToGame_UnusedTable"), (0x41C5, "=CrankyModeToGameTable")):
+        t._claim(0xFE, a, 6, "rows", [("db", ["%d" % x for x in rom[off(0xFE, a):off(0xFE, a) + 6]], "game type per mode")], name)
+    t._claim(0xFE, 0x5934, 16, "palette", 2, "=CrankyObjPalettes")  # Func_fe_5944 writes them to OCPD
+    t._claim(0xFE, 0x77E1, 22 * 8, "palette", 22, "=CrankyObjPaletteSet")
+    t._claim(0xFE, 0x7BA9, 48, "rows", [("db", ["%d" % x for x in rom[off(0xFE, 0x7BA9 + 8 * g):off(0xFE, 0x7BA9 + 8 * g) + 8]],
+                                         games[g]) for g in range(6)], "=CrankyPaletteChoice")  # Func_fe_5c0d
+    t._claim(0xFE, 0x794F, 12, "rows", [("db", ["%d" % x for x in rom[off(0xFE, 0x794F + 2 * g):off(0xFE, 0x794F + 2 * g) + 2]],
+                                         games[g]) for g in range(6)], "=CrankyCoords")  # Func_fe_5235
+    for tab, end, name, sub in ((0x789B, 0x794F, "=CrankyRecordTable", "CrankyRecords"),   # Func_fe_5065/5081, 6 bytes per [$cbc0]
+                                (0x795B, 0x79CF, "=CrankyTileAnimSetup", "CrankyTileAnimInit")):  # Func_fe_5adf
+        ps = [rom[off(0xFE, tab + 2 * g)] | rom[off(0xFE, tab + 2 * g) + 1] << 8 for g in range(6)]
+        t._claim(0xFE, tab, 12, "rows", [("dw", [ref(0xFE, x)], games[g]) for g, x in enumerate(ps)], name)
+        cuts = sorted(set(ps))
+        for i, x in enumerate(cuts):
+            y = cuts[i + 1] if i + 1 < len(cuts) else end
+            t._claim(0xFE, x, y - x, "rows", hexrow("db", rom[off(0xFE, x):off(0xFE, y)], 6 if sub == "CrankyRecords" else 8), sub)
+    t._claim(0xFE, 0x7891, 10, "incbin", None, "=CrankyData_fe_7891")
+    t._claim(0xFE, 0x7BD9, 0x7E88 - 0x7BD9, "incbin", None, "=CrankyData_fe_7bd9")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

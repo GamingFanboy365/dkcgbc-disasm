@@ -194,7 +194,7 @@ Front-end text (bank `$FF`, now readable `db` text in `FEText_ff_XXXX` records, 
 
 The front end draws its sprites through one table, `SpriteAnimTable` (`$F0:5A24`, 47 entries, `Func_f0_4fa8` with the entry number in `d`). Each entry has a type and points to an array of records, picked by the variant number in `[$ff82]` (for example the language, or the item on a menu ring). A record names the number of sprites, their tiles (bank `$F6`, `$F7` or `$F8`, address big-endian) and a layout in bank `$F0`. Types 2–4 also name an attribute list (one byte per sprite, added to its OAM attributes). The layout is relative for types 0, 2 and 4, a (dx, dy) step from sprite to sprite, and absolute (x, y) for types 1 and 3. Type 4 uses 8×8 sprites, the others 8×16. `tools/feanim.py` decodes the table, and the 339 tile blocks it reaches are extracted as PNGs in `gfx/frames/` like the game's sprite frames. Bank `$F3` holds 17 framed thumbnails of game scenes (5×6 or 6×5 tiles each), listed with their size and screen slot in `ThumbnailTable` (`$F1:693A`, four slots to a page). They are read while browsing stickers.
 
-Crosshair Cranky is `CrosshairCranky` in bank `$FE`. In single-player it starts from a DK Isle map whose nodes open one by one: Kremlings and Kongs first, then the others as `[$B0C7]` rises. A sixth node, Galleon Gunner, appears only once Gang-Plank Galleon (level `$29`) has been beaten on any save file. `CrosshairCrankyLink` (`$FE:4003`) is the two-player entry, which ring 15 feeds with mode 0–4. Both turn the mode number into an internal game number through `CrankyModeToGame`. See `docs/unused.md` for the details and the leftovers.
+Crosshair Cranky is `CrosshairCranky` in bank `$FE`. In single-player it starts from a DK Isle map whose nodes open one by one: Kremlings and Kongs first, then the others as `[$B0C7]` rises. A sixth node, Galleon Gunner, appears only once Gang-Plank Galleon (level `$29`) has been beaten on any save file. `CrosshairCrankyLink` (`$FE:4003`) is the two-player entry, which ring 15 feeds with mode 0–4. Both turn the mode number into an internal game number through `CrankyModeToGame`. Most of its state machines dispatch on the game number through tables of `jp` instructions (now traced). `CrankyBackgrounds` (`$F5:45FB`) gives each game its background picture (pictures 138–143) and song. `CrankyPaletteChoice` picks its eight sprite palettes from `CrankyObjPaletteSet`. `CrankyTileAnimTable` (`$FE:79CF`) animates parts of the background: per game a list of slots, each a tile count, a VRAM destination and its frames, whose tiles are in bank `$F5`. Kremlings and Kongs and Kremling Krackdown animate 8 slots of 8 tiles through 5 frames, Buddies Beware 6 slots through 2 frames and Galleon Gunner 6 slots through 11 frames. Barrel O'Kremlings and Wanted have none. See `docs/unused.md` for the details and the leftovers.
 
 Code in these banks calls across banks in two ways. `FarCall_A_HL` (`$3FC0`) takes the bank in `a` and the target in `hl`. The other way pushes the return address `$3FD5` and the target a byte at a time (`ld a, n / push af / inc sp`), puts the bank in `a` and jumps to `$3FDC`.
 
@@ -242,11 +242,11 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
-| Code disassembled into readable instructions | 93 KB | 3.5% |
-| Data decoded into readable structures | 311 KB | 11.6% |
-| Graphics converted to editable PNGs | 1031 KB | 38.5% |
-| Located and labelled, format known, still raw bytes | 1186 KB | 44.2% |
-| Not identified yet | 61 KB | 2.3% |
+| Code disassembled into readable instructions | 102 KB | 3.8% |
+| Data decoded into readable structures | 312 KB | 11.6% |
+| Graphics converted to editable PNGs | 1043 KB | 38.9% |
+| Located and labelled, format known, still raw bytes | 1187 KB | 44.2% |
+| Not identified yet | 38 KB | 1.4% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 
@@ -305,7 +305,7 @@ Every bank now has a known purpose:
 
 The retail ROM comes first: the goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. Only after that does work start on the earlier demo build (`Donkey Kong Country (U) [demo]`) and the comparison between the two. The order of work:
 
-1. Finish identifying what's left (2.3%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
+1. Finish identifying what's left (1.4%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
 2. Convert the located raw data (block banks, terrain, compressed maps, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 4. Then the demo.

@@ -112,6 +112,8 @@ The title picks one of four slots with `[$B0C1] & 3`, but slot 3 is an exact cop
 
 `PictureTable` (149 records) ends with four placeholders, records 145–148. They point at a "map" inside the palette block and at tiles past the end of bank `$6F`'s data, so they hold no picture. The table also repeats some records back to back: the English and French main-menu text appear 7 and 8 times. That's more likely one picture reused for several menu states than unused content.
 
+Two of the pictures are still unexplained: picture 97, Funky floating in a rubber ring among the barrels, and picture 131 (repeated as 132), Funky in his boat full of bananas. They look like the losing and winning screens of Funky's Fishing. No code found loads them: no constant picture number, no table entry and no direct reference to their maps, palettes or tiles. Single-player fishing never reached a final screen in testing, and Link-up fishing can't be tested without a second Game Boy. So whether players ever see them is still open.
+
 ### Candy Klash and Funky Bomber
 
 These two names belong to the Bonus menu, but the game never shows them there. The evidence, from the code, the data and running the game in an emulator:

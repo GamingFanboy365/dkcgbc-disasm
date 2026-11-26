@@ -22,6 +22,8 @@ JP_TABLES = [
     (0xFE, 0x44B9, 6, 3), (0xFE, 0x4570, 6, 3), (0xFE, 0x47FB, 6, 3), (0xFE, 0x4BA7, 5, 3),
     (0xFE, 0x4E38, 5, 3), (0xFE, 0x4FE4, 6, 3), (0xFE, 0x50AC, 6, 3), (0xFE, 0x5A39, 2, 3),
     (0xFE, 0x5CD8, 19, 3), (0xFE, 0x640E, 57, 3), (0xFE, 0x6946, 6, 3),
+    # "add a,a / ld hl,X / ... / jp hl" into tables of "jr" instructions
+    (0xFE, 0x5112, 8, 2), (0xFE, 0x514D, 8, 2), (0xFE, 0x5188, 8, 2), (0xFE, 0x55C1, 6, 2), (0xFE, 0x682F, 8, 2),
 ]
 
 # (bank, start, count) of tables of 16-bit code pointers
@@ -292,6 +294,7 @@ EXTRA_TILES = [
     (0xF5, 0x4FF0, 320, "Crosshair Cranky: Kremlings and Kongs tile animation frames"),
     (0xF5, 0x63F0, 320, "Crosshair Cranky: Kremling Krackdown tile animation frames"),
     (0xF5, 0x77F0, 44, "Crosshair Cranky: Galleon Gunner tile animation frames"),
+    (0xF5, 0x4DF0, 32, "Crosshair Cranky: tiles copied by Func_fe_541c"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

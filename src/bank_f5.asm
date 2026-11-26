@@ -1106,8 +1106,32 @@ Func_f5_45c1::
 	jr nz, .jump_45c3
 	ret
 
-	INCBIN "baserom.gbc", $3d45fb, $0018 ; $45fb
 
+CrankyBackgrounds::
+	dw CrankyBackground_f5_4607 ; Buddies Beware
+	dw CrankyBackground_f5_4609 ; Barrel O'Kremlings
+	dw CrankyBackground_f5_460b ; Wanted
+	dw CrankyBackground_f5_460d ; Kremling Krackdown
+	dw CrankyBackground_f5_460f ; Kremlings and Kongs
+	dw CrankyBackground_f5_4611 ; Galleon Gunner
+
+CrankyBackground_f5_4607::
+	db 138, $02 ; picture, song
+
+CrankyBackground_f5_4609::
+	db 139, $08 ; picture, song
+
+CrankyBackground_f5_460b::
+	db 140, $07 ; picture, song
+
+CrankyBackground_f5_460d::
+	db 141, $02 ; picture, song
+
+CrankyBackground_f5_460f::
+	db 142, $04 ; picture, song
+
+CrankyBackground_f5_4611::
+	db 143, $06 ; picture, song
 
 Func_f5_4613::
 	xor a
@@ -1763,8 +1787,9 @@ Func_f5_4a3e::
 
 BGTiles_f5_4af0::
 	INCBIN "gfx/bgtiles/f5/4af0.2bpp"
-	INCBIN "baserom.gbc", $3d4df0, $0200 ; $4df0
 
+BGTiles_f5_4df0::
+	INCBIN "gfx/bgtiles/f5/4df0.2bpp"
 
 BGTiles_f5_4ff0::
 	INCBIN "gfx/bgtiles/f5/4ff0.2bpp"

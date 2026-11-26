@@ -101,8 +101,9 @@ CrankyModeToGame_Unused::
 	ld [$cbbf], a
 	ret
 
-	db $03, $04, $01, $02, $00, $05
 
+CrankyModeToGame_UnusedTable::
+	db 3, 4, 1, 2, 0, 5 ; game type per mode
 
 Func_fe_40c4::
 	ldh a, [$ff9a]
@@ -224,8 +225,9 @@ CrankyModeToGame::
 	ld [$cbbf], a
 	ret
 
-	db $04, $01, $03, $00, $02, $05
 
+CrankyModeToGameTable::
+	db 4, 1, 3, 0, 2, 5 ; game type per mode
 
 Func_fe_41cb::
 	ldh a, [$ff9a]
@@ -2749,7 +2751,77 @@ Func_fe_5107::
 .jump_5111:
 	jp hl
 
-	INCBIN "baserom.gbc", $3f9112, $0030 ; $5112
+
+Func_fe_5112::
+	jr Func_fe_5120.jump_5122
+
+
+Func_fe_5114::
+	jr Func_fe_5120.jump_5126
+
+
+Func_fe_5116::
+	jr Func_fe_5120.jump_512a
+
+
+Func_fe_5118::
+	jr Func_fe_5120.jump_512e
+
+
+Func_fe_511a::
+	jr Func_fe_5120.jump_5132
+
+
+Func_fe_511c::
+	jr Func_fe_5120.jump_5136
+
+
+Func_fe_511e::
+	jr Func_fe_5120.jump_513a
+
+
+Func_fe_5120::
+	jr .jump_513e
+
+.jump_5122:
+	pop hl
+	bit 0, [hl]
+	ret
+
+.jump_5126:
+	pop hl
+	bit 1, [hl]
+	ret
+
+.jump_512a:
+	pop hl
+	bit 2, [hl]
+	ret
+
+.jump_512e:
+	pop hl
+	bit 3, [hl]
+	ret
+
+.jump_5132:
+	pop hl
+	bit 4, [hl]
+	ret
+
+.jump_5136:
+	pop hl
+	bit 5, [hl]
+	ret
+
+.jump_513a:
+	pop hl
+	bit 6, [hl]
+	ret
+
+.jump_513e:
+	pop hl
+	bit 7, [hl]
+	ret
 
 
 Func_fe_5142::
@@ -2763,7 +2835,77 @@ Func_fe_5142::
 .jump_514c:
 	jp hl
 
-	INCBIN "baserom.gbc", $3f914d, $0030 ; $514d
+
+Func_fe_514d::
+	jr Func_fe_515b.jump_515d
+
+
+Func_fe_514f::
+	jr Func_fe_515b.jump_5161
+
+
+Func_fe_5151::
+	jr Func_fe_515b.jump_5165
+
+
+Func_fe_5153::
+	jr Func_fe_515b.jump_5169
+
+
+Func_fe_5155::
+	jr Func_fe_515b.jump_516d
+
+
+Func_fe_5157::
+	jr Func_fe_515b.jump_5171
+
+
+Func_fe_5159::
+	jr Func_fe_515b.jump_5175
+
+
+Func_fe_515b::
+	jr .jump_5179
+
+.jump_515d:
+	pop hl
+	res 0, [hl]
+	ret
+
+.jump_5161:
+	pop hl
+	res 1, [hl]
+	ret
+
+.jump_5165:
+	pop hl
+	res 2, [hl]
+	ret
+
+.jump_5169:
+	pop hl
+	res 3, [hl]
+	ret
+
+.jump_516d:
+	pop hl
+	res 4, [hl]
+	ret
+
+.jump_5171:
+	pop hl
+	res 5, [hl]
+	ret
+
+.jump_5175:
+	pop hl
+	res 6, [hl]
+	ret
+
+.jump_5179:
+	pop hl
+	res 7, [hl]
+	ret
 
 
 Func_fe_517d::
@@ -2777,7 +2919,77 @@ Func_fe_517d::
 .jump_5187:
 	jp hl
 
-	INCBIN "baserom.gbc", $3f9188, $0030 ; $5188
+
+Func_fe_5188::
+	jr Func_fe_5196.jump_5198
+
+
+Func_fe_518a::
+	jr Func_fe_5196.jump_519c
+
+
+Func_fe_518c::
+	jr Func_fe_5196.jump_51a0
+
+
+Func_fe_518e::
+	jr Func_fe_5196.jump_51a4
+
+
+Func_fe_5190::
+	jr Func_fe_5196.jump_51a8
+
+
+Func_fe_5192::
+	jr Func_fe_5196.jump_51ac
+
+
+Func_fe_5194::
+	jr Func_fe_5196.jump_51b0
+
+
+Func_fe_5196::
+	jr .jump_51b4
+
+.jump_5198:
+	pop hl
+	set 0, [hl]
+	ret
+
+.jump_519c:
+	pop hl
+	set 1, [hl]
+	ret
+
+.jump_51a0:
+	pop hl
+	set 2, [hl]
+	ret
+
+.jump_51a4:
+	pop hl
+	set 3, [hl]
+	ret
+
+.jump_51a8:
+	pop hl
+	set 4, [hl]
+	ret
+
+.jump_51ac:
+	pop hl
+	set 5, [hl]
+	ret
+
+.jump_51b0:
+	pop hl
+	set 6, [hl]
+	ret
+
+.jump_51b4:
+	pop hl
+	set 7, [hl]
+	ret
 
 
 Func_fe_51b8::
@@ -3442,7 +3654,37 @@ Func_fe_55b4::
 .jump_55c0:
 	jp hl
 
-	INCBIN "baserom.gbc", $3f95c1, $0017 ; $55c1
+
+Func_fe_55c1::
+	jr Func_fe_55cb.jump_55cd
+
+
+Func_fe_55c3::
+	jr Func_fe_55cb.jump_55cd
+
+
+Func_fe_55c5::
+	jr Func_fe_55cb.jump_55cd
+
+
+Func_fe_55c7::
+	jr Func_fe_55cb.jump_55cd
+
+
+Func_fe_55c9::
+	jr Func_fe_55cb.jump_55cd
+
+
+Func_fe_55cb::
+	jr .jump_55cd
+
+.jump_55cd:
+	ld a, [$cbf9]
+	cpl
+	inc a
+	add a, $05
+	ld [$cbf8], a
+	ret
 
 
 Func_fe_55d8::
@@ -3926,8 +4168,10 @@ Func_fe_58df::
 	pop bc
 	ret
 
-	db $00, $00, $24, $00, $90, $00, $9f, $31, $00, $00, $a0, $00, $c0, $01, $1f, $03
 
+CrankyObjPalettes::
+	rgb  0,  0,  0,   4,  1,  0,  16,  4,  0,  31, 12, 12
+	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31, 24,  0
 
 Func_fe_5944::
 	call Func_fe_4662
@@ -6630,7 +6874,133 @@ Func_fe_681d::
 .jump_682e:
 	jp hl
 
-	INCBIN "baserom.gbc", $3fa82f, $0084 ; $682f
+
+Func_fe_682f::
+	jr Func_fe_683d.jump_683f
+
+
+Func_fe_6831::
+	jr Func_fe_683d.jump_6849
+
+
+Func_fe_6833::
+	jr Func_fe_683d.jump_685c
+
+
+Func_fe_6835::
+	jr Func_fe_683d.jump_6866
+
+
+Func_fe_6837::
+	jr Func_fe_683d.jump_6879
+
+
+Func_fe_6839::
+	jr Func_fe_683d.jump_6883
+
+
+Func_fe_683b::
+	jr Func_fe_683d.jump_6896
+
+
+Func_fe_683d::
+	jr .jump_68a0
+
+.jump_683f:
+	ld hl, $db40
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	dec [hl]
+	ret
+
+.jump_6849:
+	ld hl, $db40
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	dec [hl]
+	ld hl, $db20
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	inc [hl]
+	ret
+
+.jump_685c:
+	ld hl, $db20
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	inc [hl]
+	ret
+
+.jump_6866:
+	ld hl, $db20
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	inc [hl]
+	ld hl, $db40
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	inc [hl]
+	ret
+
+.jump_6879:
+	ld hl, $db40
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	inc [hl]
+	ret
+
+.jump_6883:
+	ld hl, $db40
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	inc [hl]
+	ld hl, $db20
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	dec [hl]
+	ret
+
+.jump_6896:
+	ld hl, $db20
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	dec [hl]
+	ret
+
+.jump_68a0:
+	ld hl, $db40
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	dec [hl]
+	ld hl, $db20
+	ldh a, [$ff9c]
+	add a, l
+	ld l, a
+	ld a, [hl]
+	dec [hl]
+	ret
 
 
 Func_fe_68b3::
@@ -9095,8 +9465,115 @@ Func_fe_77b0::
 	jr nz, .jump_77d9
 	ret
 
-	INCBIN "baserom.gbc", $3fb7e1, $01ee ; $77e1
 
+CrankyObjPaletteSet::
+	rgb 31, 31, 31,  31,  0,  0,  31, 31,  0,  20, 26,  0
+	rgb 31, 31,  0,   0,  0, 31,  10, 18,  0,  31, 31, 31
+	rgb  0,  0,  0,  30,  0,  0,  30, 30,  0,  30, 30, 30
+	rgb  0,  0, 30,   4,  4,  4,  12, 12, 14,  30, 14,  0
+	rgb  0,  0, 30,   4,  4,  4,  30, 16, 20,  24, 24, 24
+	rgb  0,  0, 30,   4,  4,  4,  12, 12, 12,  30, 30, 30
+	rgb  0,  0, 30,  16,  4,  0,   8, 20,  0,  30, 30, 30
+	rgb  0,  0,  0,   0,  0,  0,   9,  9,  9,  31, 31, 31
+	rgb  0,  0,  0,   0,  0, 30,  30, 30, 30,  30, 30, 30
+	rgb  0,  0, 31,   3,  1,  0,  11,  6,  0,  21, 10,  0
+	rgb  0,  0, 30,  30,  0,  0,  30, 30,  0,  30, 30, 30
+	rgb  0,  0, 31,   0,  0,  0,  19, 14,  0,  31, 31,  0
+	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31, 24,  0
+	rgb  0,  0,  0,   0,  0,  8,   0,  0, 21,  31, 24,  0
+	rgb  0,  0,  0,  13,  0,  0,  31,  0,  0,  31, 24,  0
+	rgb  0,  0,  0,   8,  0,  8,  20,  0, 20,  31, 24,  0
+	rgb  0,  0,  0,   2,  2,  2,   8,  8,  8,  29, 21,  0
+	rgb  0,  0,  0,   4,  1,  0,  16,  4,  0,  31, 12, 12
+	rgb  0,  0,  0,  15,  3,  3,   4,  1,  0,  31, 12, 12
+	rgb  0,  0,  0,   5,  5,  5,  11, 11, 11,  26, 26, 26
+	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31, 24,  0
+	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31,  0,  0
+
+CrankyData_fe_7891::
+	INCBIN "baserom.gbc", $3fb891, $000a
+
+CrankyRecordTable::
+	dw CrankyRecords_fe_78a7 ; Buddies Beware
+	dw CrankyRecords_fe_78cb ; Barrel O'Kremlings
+	dw CrankyRecords_fe_78cb ; Wanted
+	dw CrankyRecords_fe_78fb ; Kremling Krackdown
+	dw CrankyRecords_fe_78fb ; Kremlings and Kongs
+	dw CrankyRecords_fe_792b ; Galleon Gunner
+
+CrankyRecords_fe_78a7::
+	db $28, $18, $ff, $02, $ff, $01
+	db $68, $18, $ff, $03, $00, $ff
+	db $28, $38, $00, $04, $ff, $03
+	db $68, $38, $01, $05, $02, $ff
+	db $28, $58, $02, $ff, $ff, $05
+	db $68, $58, $03, $ff, $04, $ff
+
+CrankyRecords_fe_78cb::
+	db $4c, $28, $ff, $ff, $07, $01
+	db $68, $30, $ff, $ff, $00, $02
+	db $80, $48, $ff, $ff, $01, $03
+	db $68, $60, $ff, $ff, $02, $04
+	db $4c, $68, $ff, $ff, $03, $05
+	db $30, $60, $ff, $ff, $04, $06
+	db $18, $48, $ff, $ff, $05, $07
+	db $30, $30, $ff, $05, $06, $00
+
+CrankyRecords_fe_78fb::
+	db $3c, $38, $ff, $ff, $07, $01
+	db $58, $40, $ff, $ff, $00, $02
+	db $70, $58, $ff, $ff, $01, $03
+	db $58, $70, $ff, $ff, $02, $04
+	db $3c, $78, $ff, $ff, $03, $05
+	db $20, $70, $ff, $ff, $04, $06
+	db $08, $58, $ff, $ff, $05, $07
+	db $20, $40, $ff, $ff, $06, $00
+
+CrankyRecords_fe_792b::
+	db $18, $30, $ff, $03, $ff, $01
+	db $48, $30, $ff, $04, $00, $02
+	db $78, $30, $ff, $05, $01, $ff
+	db $18, $58, $00, $ff, $ff, $04
+	db $48, $60, $01, $ff, $03, $05
+	db $78, $58, $02, $05, $04, $ff
+
+CrankyCoords::
+	db 16, 28 ; Buddies Beware
+	db 12, 20 ; Barrel O'Kremlings
+	db 12, 20 ; Wanted
+	db 28, 16 ; Kremling Krackdown
+	db 28, 16 ; Kremlings and Kongs
+	db 16, 24 ; Galleon Gunner
+
+CrankyTileAnimSetup::
+	dw CrankyTileAnimInit_fe_7967 ; Buddies Beware
+	dw CrankyTileAnimInit_fe_7985 ; Barrel O'Kremlings
+	dw CrankyTileAnimInit_fe_7985 ; Wanted
+	dw CrankyTileAnimInit_fe_798b ; Kremling Krackdown
+	dw CrankyTileAnimInit_fe_798b ; Kremlings and Kongs
+	dw CrankyTileAnimInit_fe_79b1 ; Galleon Gunner
+
+CrankyTileAnimInit_fe_7967::
+	db $3f, $06, $05, $03, $02, $02, $0d, $03
+	db $02, $02, $05, $07, $02, $02, $0d, $07
+	db $02, $02, $05, $0b, $02, $02, $0d, $0b
+	db $02, $02, $09, $08, $02, $02
+
+CrankyTileAnimInit_fe_7985::
+	db $00, $00, $09, $0a, $02, $02
+
+CrankyTileAnimInit_fe_798b::
+	db $ff, $08, $08, $07, $04, $02, $0c, $08
+	db $04, $02, $0f, $0b, $04, $02, $0c, $0e
+	db $04, $02, $08, $0f, $04, $02, $04, $0e
+	db $04, $02, $01, $0b, $04, $02, $04, $08
+	db $04, $02, $09, $0b, $02, $02
+
+CrankyTileAnimInit_fe_79b1::
+	db $3f, $06, $03, $06, $02, $02, $09, $06
+	db $02, $02, $0f, $06, $02, $02, $03, $0b
+	db $02, $02, $09, $0c, $02, $02, $0f, $0b
+	db $02, $02, $09, $09, $02, $02
 
 CrankyTileAnimTable::
 	db $f5 ; Buddies Beware
@@ -9291,5 +9768,16 @@ CrankyTileAnim_fe_7b90::
 	dw $7870, BGTiles_f5_77f0, $7830, $78b0 ; frames
 	dw $78f0, $7930, $7970, $79b0
 	dw $79f0, $7a30, $7a70
-	INCBIN "baserom.gbc", $3fbba9, $0457 ; $7ba9
+
+CrankyPaletteChoice::
+	db 0, 8, 2, 3, 4, 5, 6, 7 ; Buddies Beware
+	db 0, 8, 12, 13, 14, 15, 16, 7 ; Barrel O'Kremlings
+	db 0, 8, 12, 13, 14, 15, 16, 7 ; Wanted
+	db 0, 8, 12, 0, 0, 0, 0, 7 ; Kremling Krackdown
+	db 0, 8, 12, 17, 17, 0, 0, 7 ; Kremlings and Kongs
+	db 0, 8, 19, 20, 21, 0, 0, 7 ; Galleon Gunner
+
+CrankyData_fe_7bd9::
+	INCBIN "baserom.gbc", $3fbbd9, $02af
+	ds 376, $00 ; $7e88
 

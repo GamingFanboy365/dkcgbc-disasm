@@ -164,7 +164,16 @@ Code in these banks calls across banks in two ways. `FarCall_A_HL` (`$3FC0`) tak
 | Funky's Fishing | `$51`, `$52`, `$5C`, `$6C` |
 | Crosshair Cranky | `$18`, `$40`, `$41` (it reuses the DK Isle world map and its sprites) |
 
-The other banks in the range (`$53`, `$54`, `$56`, `$58`–`$5A`, `$5D`–`$60`, `$62`–`$65`, `$67`–`$6A`, `$6D`–`$6F`) belong to screens not yet visited, such as the title pictures, language select, View Items, the Print menu and its picture album, Link and the options.
+Walking the menus in the emulator gives the rest of the picture:
+
+| Screen | Where it comes from |
+|---|---|
+| Rareware logo | tiles in bank `$0D` (flow state `$10`) |
+| Language select | tiles in bank `$5D`; its moving background map is built by code |
+| Title screen | banks `$07`, `$42`, `$45` (decoded, see Title screen above) |
+| Print → Sticker Book, Alphabet | maps in bank `$58`, tiles in `$5C`, `$61`, `$62`, `$40` |
+
+The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Bank `$58` starts with six raw 20×18 screens (`$4000`–`$50DF`, 360 attribute bytes then 360 tile numbers each), which the front end picks by number. Its "?" screen is the first of them. After `$50E0` the bank holds layouts of other sizes. The Sticker Book's stickers start out empty and are unlocked through the game, so their pictures (probably in the banks not yet seen on screen: `$53`, `$54`, `$56`, `$59`, `$5A`, `$5E`–`$60`, `$63`–`$65`, `$67`–`$6A`, `$6D`–`$6F`) have to be found through the code rather than by looking.
 
 ### Unused content
 

@@ -614,6 +614,17 @@ def parse_banks(t, rom):
     sine = [rom[off(0x51, 0x44F1 + 2 * k)] | rom[off(0x51, 0x44F1 + 2 * k) + 1] << 8 for k in range(1031)]
     t._claim(0x51, 0x44F1, 2062, "rows", [("dw", ["$%04x" % w for w in sine[j:j + 8]], None) for j in range(0, 1031, 8)],
              "=FishingSineTable")
+    # letters drawn from pieces of the alphabet pictures (Func_f2_5313): character -> FontMapC -> record
+    t._claim(0xF2, 0x5574, 61 * 8, "rows", [("db", ["%d" % v for v in rom[off(0xF2, 0x5574 + 8 * k):off(0xF2, 0x5574 + 8 * k) + 8]],
+                                             "picture, x, y, width, height, ..." if k == 0 else None) for k in range(61)], "=LetterPieces")
+    t._claim(0xF2, 0x575C, 4, "rows", hexrow("db", rom[off(0xF2, 0x575C):off(0xF2, 0x5760)]), "=LetterPiecesEnd")
+    # font maps: character - $20 -> tile (FE_DrawText's two loops) or letter piece record
+    t._claim(0xF0, 0x6CA7, 221, "rows", hexrow("db", rom[off(0xF0, 0x6CA7):off(0xF0, 0x6CA7 + 221)], 16), "=FontMapA")
+    t._claim(0xF0, 0x6D84, 221, "rows", hexrow("db", rom[off(0xF0, 0x6D84):off(0xF0, 0x6D84 + 221)], 16), "=FontMapB")
+    t._claim(0xF0, 0x6E61, 192, "rows", hexrow("db", rom[off(0xF0, 0x6E61):off(0xF0, 0x6F21)], 16), "=FontMapC")
+    # three bytes per front-end picture (Func_f0_4a40, Func_f0_4a49, Func_f0_4a52), 149 each
+    for a, name in ((0x5328, "PictureInfoA"), (0x53BD, "PictureInfoB"), (0x5452, "PictureInfoC")):
+        t._claim(0xF0, a, 149, "rows", hexrow("db", rom[off(0xF0, a):off(0xF0, a + 149)], 16), "=" + name)
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

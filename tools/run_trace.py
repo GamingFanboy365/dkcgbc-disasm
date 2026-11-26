@@ -659,7 +659,7 @@ def parse_banks(t, rom):
     # pass it to ApplyMapPatch (Func_00_0d74), which writes a block of the level
     # map (block number, block attribute, terrain byte per cell) at block x, y
     a = 0x6CB4
-    t.map_patches = set()
+    t.obj_ptr_refs = {}
     while a < 0x705B:
         x, y, w, h = rom[off(4, a):off(4, a) + 4]
         rows = [("db", ["$%02x" % x, "$%02x" % y, "%d" % w, "%d" % h],
@@ -668,8 +668,80 @@ def parse_banks(t, rom):
             cells = rom[off(4, a + 4 + 3 * w * r):off(4, a + 4 + 3 * w * (r + 1))]
             rows.append(("db", ["$%02x" % v for v in cells], None))
         t._claim(4, a, 4 + 3 * w * h, "rows", rows, "MapPatch")
-        t.map_patches.add(a)
+        for f in (0x2F, 0x30, 0x32):
+            t.obj_ptr_refs[(f, a)] = 4
         a += 4 + 3 * w * h
+    # bank $08 objects that carry a second object (Func_08_4652 area): indexed
+    # by OBJ_VAR_2E, 8 bytes each: sprite frame and palette for the carrier,
+    # then a y offset and an initialiser list for the object it spawns
+    rows = []
+    for k in range(17):
+        r = rom[off(8, 0x4CA0 + 8 * k):off(8, 0x4CA0 + 8 * k + 8)]
+        fr, yo, il = r[0] | r[1] << 8, r[4] | r[5] << 8, r[6] | r[7] << 8
+        if fr == 0:
+            rows.append(("db", ["$%02x" % v for v in r], "%d: none" % k))
+            continue
+        rows.append(("dw", [ref(t.frame_bank, fr)], "%d: sprite frame" % k))
+        rows.append(("db", ["$%02x" % r[2], "$%02x" % r[3]], "palette, unused"))
+        rows.append(("dw", ["$%04x" % yo, ref(8, il)], "y offset, spawned object"))
+    t._claim(8, 0x4CA0, 8 * 17, "rows", rows, "=CarrierObjectTable")
+    # part groups for Func_08_4344 (pointer in OBJ_VAR_35, count in OBJ_VAR_33):
+    # $80 / $81 spawn ObjInit_08_441d / ObjInit_08_442b, anything else is the
+    # part's OBJ_VAR_33 followed by its sprite frame
+    def obj_refs(field, lo, hi):
+        out = set()
+        for b in (8, 0x0E):
+            seg = rom[off(b, 0x4000):off(b, 0x8000)]
+            for i in range(len(seg) - 2):
+                v = seg[i + 1] | seg[i + 2] << 8
+                if seg[i] == 0x40 | field and lo <= v < hi:
+                    out.add(v)
+        return out
+    starts = obj_refs(0x35, 0x4E6F, 0x4F8F) | {0x4E6F}
+    a, cur, rows = 0x4E6F, 0x4E6F, []
+    while a <= 0x4F8F:
+        if a in starts or a == 0x4F8F:
+            if rows:
+                t._claim(8, cur, a - cur, "rows", rows, "PartGroup")
+                t.obj_ptr_refs[(0x35, cur)] = 8
+            cur, rows = a, []
+        if a == 0x4F8F:
+            break
+        if rom[off(8, a)] in (0x80, 0x81):
+            rows.append(("db", ["$%02x" % rom[off(8, a)]], "ObjInit_08_441d" if rom[off(8, a)] == 0x80 else "ObjInit_08_442b"))
+            a += 1
+        else:
+            fr = rom[off(8, a + 1)] | rom[off(8, a + 2)] << 8
+            rows.append(("db", ["$%02x" % rom[off(8, a)]], None))
+            rows.append(("dw", [ref(t.frame_bank, fr)], None))
+            a += 3
+    # step patterns for Func_08_4581 rows (pointer in OBJ_VAR_33, length in
+    # OBJ_VAR_32): frames to wait, then an index into CarrierObjectTable (0 = hidden)
+    starts = sorted(obj_refs(0x33, 0x4F8F, 0x502F) | {0x4F8F}) + [0x502F]
+    for x, y in zip(starts, starts[1:]):
+        d = rom[off(8, x):off(8, y)]
+        t._claim(8, x, y - x, "rows", [("db", ["%d" % d[k], "%d" % d[k + 1]], None) for k in range(0, len(d), 2)], "StepPattern")
+        t.obj_ptr_refs[(0x33, x)] = 8
+    # bank $08 small tables
+    w8 = lambda a: rom[off(8, a)] | rom[off(8, a + 1)] << 8  # noqa: E731
+    t._claim(8, 0x5AE3, 0xC0, "rows", [("dw", ["$%04x" % w8(a), "$%04x" % w8(a + 2)], None) for a in range(0x5AE3, 0x5BA3, 4)],
+             "=SlopeVelocities")  # x and y speed by OBJ_TERRAIN_B slope (Func_08_5aba)
+    masks = [w8(0x5D93 + 2 * k) for k in range(4)]
+    t._claim(8, 0x5D93, 8, "rows", [("dw", [ref(8, m) for m in masks], "by animal buddy ([$c445] bits 4-6), Func_08_5d4a")],
+             "=AnimalMaskTable")
+    for m in masks:
+        w, h = rom[off(8, m)], rom[off(8, m + 1)]
+        rows = [("db", ["%d" % w, "%d" % h], "bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row")]
+        for r in range(h):
+            rows.append(("db", ["%" + format(v, "08b") for v in rom[off(8, m + 2 + w * r):off(8, m + 2 + w * (r + 1))]], None))
+        t._claim(8, m, 2 + w * h, "rows", rows, "AnimalMask")
+    t._claim(8, 0x5F73, 5, "rows", hexrow("db", rom[off(8, 0x5F73):off(8, 0x5F78)]), "=AnimalMask_Unused_08_5f73")
+    t._claim(8, 0x614E, 3, "rows", [("db", ["$fc", "$07", "$00"], "block, attribute, terrain (written by Func_00_0d9d)")], "=MapCell_08_614e")
+    t._claim(8, 0x615B, 8, "rows", [("dw", ["$%04x" % w8(0x615B + 2 * k) for k in range(4)], "y offset by animal buddy (Func_08_5fe6)")],
+             "=AnimalYOffsets")
+    t._claim(8, 0x62B6, 20, "rows", [("db", ["%" + format(v, "08b") for v in rom[off(8, a):off(8, a + 5)]], c)
+                                      for a, c in zip(range(0x62B6, 0x62CA, 5), ("x", "1", "2", "3"))],
+             "=ObjectDigits")  # drawn one object per set bit by Func_08_6246
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",
@@ -717,6 +789,11 @@ def make(rom):
             t.parse_obj_list(0 if a < 0x4000 else b, a, b)
     for (b, a) in hints.OBJ_LISTS:
         t.parse_obj_list(b, a, b)
+    for a in (0x502F, 0x5048, 0x5061, 0x507A, 0x5093, 0x50AC, 0x50C5):  # chained by OBJ_VAR_3B
+        t.parse_obj_list(8, a, 8)
+    for k in range(1, 17):
+        o = off(8, 0x4CA0 + 8 * k + 6)
+        t.parse_obj_list(8, rom[o] | rom[o + 1] << 8, 8)
     t.run()
     for args in hints.FRAME_STRUCTS:
         t.parse_frame_struct(*args)

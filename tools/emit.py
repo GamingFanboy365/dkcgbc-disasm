@@ -586,8 +586,10 @@ class Emitter:
                     val = self.qref(self.t.anim_bank, v)
                 elif f == 0x20 and 0x4000 <= v < 0x8000:
                     val = self.qref(self.t.frame_bank, v)
-                elif f in (0x2F, 0x30, 0x32) and v in getattr(self.t, "map_patches", ()):
-                    val = self.qref(4, v)
+                elif (f, v) in getattr(self.t, "obj_ptr_refs", {}):
+                    val = self.qref(self.t.obj_ptr_refs[(f, v)], v)
+                elif f == 0x3B and bank in (8, 0x0E) and 0x502F <= v < 0x50DE:
+                    val = self.qref(8, v)  # next initialiser in a chain (Func_08_4344)
                 val = val or hexw(v)
                 lines.append("obj_word %s, %s" % (obj_field(f), val))
             elif e[0] == "include":

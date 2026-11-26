@@ -12,8 +12,8 @@ ObjInit_0e_4000::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $06
 	obj_byte OBJ_VAR_34, $2a
-	obj_word OBJ_VAR_35, $4e6f
-	obj_word OBJ_VAR_3B, $507a
+	obj_word OBJ_VAR_35, PartGroup_08_4e6f
+	obj_word OBJ_VAR_3B, ObjInit_08_507a
 	obj_end
 
 ObjInit_0e_4019::
@@ -25,7 +25,7 @@ ObjInit_0e_4019::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, $4ea2
+	obj_word OBJ_VAR_35, PartGroup_08_4ea2
 	obj_end
 
 ObjInit_0e_402f::
@@ -37,7 +37,7 @@ ObjInit_0e_402f::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, $4eca
+	obj_word OBJ_VAR_35, PartGroup_08_4eca
 	obj_end
 
 ObjInit_0e_4045::
@@ -49,8 +49,8 @@ ObjInit_0e_4045::
 	obj_word OBJ_VAR_31, $0180
 	obj_byte OBJ_VAR_33, $07
 	obj_byte OBJ_VAR_34, $24
-	obj_word OBJ_VAR_35, $4f54
-	obj_word OBJ_VAR_3B, $50ac
+	obj_word OBJ_VAR_35, PartGroup_08_4f54
+	obj_word OBJ_VAR_3B, ObjInit_08_50ac
 	obj_end
 
 ObjInit_0e_405e::
@@ -60,7 +60,7 @@ ObjInit_0e_405e::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, $4fa3
+	obj_word OBJ_VAR_33, StepPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_406f::
@@ -72,7 +72,7 @@ ObjInit_0e_406f::
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0a
-	obj_word OBJ_VAR_33, $4f8f
+	obj_word OBJ_VAR_33, StepPattern_08_4f8f
 	obj_end
 
 ObjInit_0e_4084::
@@ -82,7 +82,7 @@ ObjInit_0e_4084::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, $5007
+	obj_word OBJ_VAR_33, StepPattern_08_5007
 	obj_end
 
 ObjInit_0e_4095::
@@ -94,7 +94,7 @@ ObjInit_0e_4095::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, $4ee2
+	obj_word OBJ_VAR_35, PartGroup_08_4ee2
 	obj_end
 
 ObjInit_0e_40ab::
@@ -104,7 +104,7 @@ ObjInit_0e_40ab::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, $4fb3
+	obj_word OBJ_VAR_33, StepPattern_08_4fb3
 	obj_end
 
 ObjInit_0e_40bc::
@@ -114,7 +114,7 @@ ObjInit_0e_40bc::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, $4fa3
+	obj_word OBJ_VAR_33, StepPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_40cd::
@@ -124,7 +124,7 @@ ObjInit_0e_40cd::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, $4fcb
+	obj_word OBJ_VAR_33, StepPattern_08_4fcb
 	obj_end
 
 ObjInit_0e_40de::
@@ -134,7 +134,7 @@ ObjInit_0e_40de::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, $4fef
+	obj_word OBJ_VAR_33, StepPattern_08_4fef
 	obj_end
 
 ObjInit_0e_40ef::
@@ -144,7 +144,7 @@ ObjInit_0e_40ef::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, $4fa3
+	obj_word OBJ_VAR_33, StepPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_4100::
@@ -156,8 +156,8 @@ ObjInit_0e_4100::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $05
 	obj_byte OBJ_VAR_34, $33
-	obj_word OBJ_VAR_35, $4f31
-	obj_word OBJ_VAR_3B, $502f
+	obj_word OBJ_VAR_35, PartGroup_08_4f31
+	obj_word OBJ_VAR_3B, ObjInit_08_502f
 	obj_end
 
 ObjInit_0e_4119::
@@ -167,7 +167,7 @@ ObjInit_0e_4119::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, $4fb3
+	obj_word OBJ_VAR_33, StepPattern_08_4fb3
 	obj_end
 
 ObjInit_0e_412a::
@@ -177,7 +177,7 @@ ObjInit_0e_412a::
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $30
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, $4fa3
+	obj_word OBJ_VAR_33, StepPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_413b::
@@ -215,7 +215,7 @@ ObjInit_0e_4163::
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, $501f
+	obj_word OBJ_VAR_33, StepPattern_08_501f
 	obj_end
 
 ObjInit_0e_4174::
@@ -270,7 +270,7 @@ ObjInit_0e_41b2::
 	obj_word OBJ_VAR_31, $0200
 	obj_byte OBJ_VAR_33, $0a
 	obj_byte OBJ_VAR_34, $19
-	obj_word OBJ_VAR_35, $4f40
+	obj_word OBJ_VAR_35, PartGroup_08_4f40
 	obj_end
 
 ObjInit_0e_41c8::

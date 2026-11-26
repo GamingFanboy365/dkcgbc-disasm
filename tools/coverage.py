@@ -10,7 +10,7 @@ Categories (by byte):
   raw        located and labelled, format known, still raw bytes
   empty      padding (runs of 16+ identical $00/$ff bytes nothing claims)
   unknown    not identified yet, INCBIN'd from the base ROM
---banks also prints the unknown bytes per bank.
+--banks also prints the unknown bytes per bank; --runs lists each unknown run.
 """
 import os
 import sys
@@ -74,6 +74,18 @@ def main():
             u = cat[b * 0x4000:(b + 1) * 0x4000].count("unknown")
             if u:
                 print("bank $%02x: %5d unknown bytes" % (b, u))
+    if "--runs" in sys.argv:
+        i = 0
+        while i < len(rom):
+            if cat[i] == "unknown":
+                j = i
+                while j < len(rom) and cat[j] == "unknown":
+                    j += 1
+                b = i // 0x4000
+                print("$%02x:%04x %5d" % (b, i % 0x4000 + (0x4000 if b else 0), j - i))
+                i = j
+            else:
+                i += 1
 
 
 if __name__ == "__main__":

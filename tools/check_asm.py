@@ -113,6 +113,7 @@ class Asm:
                 raise KeyError(n)
             return str(self.syms[n])
         e = re.sub(r"\$([0-9a-fA-F]+)", lambda m: str(int(m.group(1), 16)), e)
+        e = re.sub(r"%([01]+)", lambda m: str(int(m.group(1), 2)), e)
         e = re.sub(r"(?<![\w.])[A-Za-z_.][\w.]*", name, e)
         return int(eval(e, {"__builtins__": {}}))
 

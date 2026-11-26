@@ -2107,8 +2107,653 @@ Func_08_4c6c::
 .jump_4c9d:
 	jp NextObject
 
-	INCBIN "baserom.gbc", $020ca0, $043e ; $4ca0
 
+CarrierObjectTable::
+	db $00, $00, $00, $00, $00, $00, $00, $00 ; 0: none
+	dw Frame_20_4bbe ; 1: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4dc5 ; y offset, spawned object
+	dw Frame_20_4bd6 ; 2: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4dce ; y offset, spawned object
+	dw Frame_20_4bd0 ; 3: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4dd7 ; y offset, spawned object
+	dw Frame_20_4ba6 ; 4: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4de0 ; y offset, spawned object
+	dw Frame_20_4072 ; 5: sprite frame
+	db $04, $00 ; palette, unused
+	dw $0000, ObjInit_08_4d45 ; y offset, spawned object
+	dw Frame_20_4072 ; 6: sprite frame
+	db $06, $00 ; palette, unused
+	dw $0000, ObjInit_08_4d4d ; y offset, spawned object
+	dw Frame_20_4072 ; 7: sprite frame
+	db $05, $00 ; palette, unused
+	dw $0000, ObjInit_08_4d55 ; y offset, spawned object
+	dw Frame_20_5f68 ; 8: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4dfb ; y offset, spawned object
+	dw Frame_20_426a ; 9: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4e09 ; y offset, spawned object
+	dw Frame_20_4d50 ; 10: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4d76 ; y offset, spawned object
+	dw Frame_20_4d44 ; 11: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4d84 ; y offset, spawned object
+	dw Frame_20_4d4a ; 12: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4d92 ; y offset, spawned object
+	dw Frame_20_4d3e ; 13: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4da0 ; y offset, spawned object
+	dw Frame_20_5f68 ; 14: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4e17 ; y offset, spawned object
+	dw Frame_20_6064 ; 15: sprite frame
+	db $00, $00 ; palette, unused
+	dw $0000, ObjInit_08_4e37 ; y offset, spawned object
+	dw Frame_20_4f60 ; 16: sprite frame
+	db $0a, $00 ; palette, unused
+	dw $0000, ObjInit_08_4e53 ; y offset, spawned object
+
+ObjInit_08_4d28::
+	obj_byte OBJ_FLAGS, $15
+	obj_byte OBJ_BANK, BANK(Func_08_403d)
+	obj_word OBJ_HANDLER, Func_08_403d
+	obj_word OBJ_TOUCH_HANDLER, $7b05
+	obj_word OBJ_ANIM, Anim_04_4e8f
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_LAYER, $01
+	obj_word OBJ_TARGET_YVEL, $0000
+	obj_word OBJ_YVEL, $0100
+	obj_word OBJ_YACCEL, $0005
+	obj_end
+
+ObjInit_08_4d45::
+	obj_include ObjInit_08_4d28
+	obj_byte OBJ_PALETTE, $04
+	obj_byte OBJ_VAR_2E, $01
+	obj_end
+
+ObjInit_08_4d4d::
+	obj_include ObjInit_08_4d28
+	obj_byte OBJ_PALETTE, $06
+	obj_byte OBJ_VAR_2E, $02
+	obj_end
+
+ObjInit_08_4d55::
+	obj_include ObjInit_08_4d28
+	obj_byte OBJ_PALETTE, $05
+	obj_byte OBJ_VAR_2E, $03
+	obj_end
+
+ObjInit_08_4d5d::
+	obj_byte OBJ_FLAGS, $15
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_TOUCH_HANDLER, $6a05
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_VAR_2E, $08
+	obj_byte OBJ_LAYER, $02
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_YACCEL, $0050
+	obj_end
+
+ObjInit_08_4d76::
+	obj_include ObjInit_08_4d5d
+	obj_word OBJ_FRAME, Frame_20_4d50
+	obj_word OBJ_ANIM, Anim_04_54fb
+	obj_byte OBJ_VAR_2F, $03
+	obj_byte OBJ_VAR_30, $20
+	obj_end
+
+ObjInit_08_4d84::
+	obj_include ObjInit_08_4d5d
+	obj_word OBJ_FRAME, Frame_20_4d44
+	obj_word OBJ_ANIM, Anim_04_54ed
+	obj_byte OBJ_VAR_2F, $01
+	obj_byte OBJ_VAR_30, $08
+	obj_end
+
+ObjInit_08_4d92::
+	obj_include ObjInit_08_4d5d
+	obj_word OBJ_FRAME, Frame_20_4d4a
+	obj_word OBJ_ANIM, Anim_04_5509
+	obj_byte OBJ_VAR_2F, $00
+	obj_byte OBJ_VAR_30, $04
+	obj_end
+
+ObjInit_08_4da0::
+	obj_include ObjInit_08_4d5d
+	obj_word OBJ_FRAME, Frame_20_4d3e
+	obj_word OBJ_ANIM, Anim_04_54df
+	obj_byte OBJ_VAR_2F, $02
+	obj_byte OBJ_VAR_30, $10
+	obj_end
+
+ObjInit_08_4dae::
+	obj_byte OBJ_FLAGS, $15
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_TOUCH_HANDLER, $6994
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_LAYER, $02
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_YACCEL, $0050
+	obj_end
+
+ObjInit_08_4dc5::
+	obj_include ObjInit_08_4dae
+	obj_word OBJ_FRAME, Frame_20_4bbe
+	obj_byte OBJ_VAR_2E, $10
+	obj_end
+
+ObjInit_08_4dce::
+	obj_include ObjInit_08_4dae
+	obj_word OBJ_FRAME, Frame_20_4bd6
+	obj_byte OBJ_VAR_2E, $20
+	obj_end
+
+ObjInit_08_4dd7::
+	obj_include ObjInit_08_4dae
+	obj_word OBJ_FRAME, Frame_20_4bd0
+	obj_byte OBJ_VAR_2E, $40
+	obj_end
+
+ObjInit_08_4de0::
+	obj_include ObjInit_08_4dae
+	obj_word OBJ_FRAME, Frame_20_4ba6
+	obj_byte OBJ_VAR_2E, $80
+	obj_end
+
+ObjInit_08_4de9::
+	obj_byte OBJ_FLAGS, $15
+	obj_word OBJ_TOUCH_HANDLER, $6b2e
+	obj_byte OBJ_PALETTE, $00
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_YACCEL, $0050
+	obj_end
+
+ObjInit_08_4dfb::
+	obj_include ObjInit_08_4de9
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_FRAME, Frame_20_5f68
+	obj_byte OBJ_VAR_2E, $01
+	obj_end
+
+ObjInit_08_4e09::
+	obj_include ObjInit_08_4de9
+	obj_byte OBJ_BANK, BANK(Func_08_4067)
+	obj_word OBJ_HANDLER, Func_08_4067
+	obj_word OBJ_ANIM, Anim_04_4e0b
+	obj_byte OBJ_VAR_2E, $0a
+	obj_end
+
+ObjInit_08_4e17::
+	obj_byte OBJ_FLAGS, $15
+	obj_word OBJ_TOUCH_HANDLER, $6ccc
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_YACCEL, $0080
+	obj_byte OBJ_LAYER, $02
+	obj_byte OBJ_COLLISION, $08
+	obj_byte OBJ_ANIM_PARAM, $07
+	obj_word OBJ_FRAME, Frame_20_4b4c
+	obj_byte OBJ_PALETTE, $01
+	obj_byte OBJ_VAR_2E, $01
+	obj_byte OBJ_VAR_2C, $0c
+	obj_end
+
+ObjInit_08_4e37::
+	obj_byte OBJ_FLAGS, $15
+	obj_byte OBJ_BANK, BANK(Func_08_4067)
+	obj_word OBJ_HANDLER, Func_08_4067
+	obj_word OBJ_TOUCH_HANDLER, $46da
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_YACCEL, $0080
+	obj_byte OBJ_LAYER, $02
+	obj_byte OBJ_COLLISION, $08
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_PALETTE, $00
+	obj_word OBJ_ANIM, Anim_04_570b
+	obj_end
+
+ObjInit_08_4e53::
+	obj_byte OBJ_FLAGS, $15
+	obj_byte OBJ_BANK, BANK(Func_08_4067)
+	obj_word OBJ_HANDLER, Func_08_4067
+	obj_word OBJ_TOUCH_HANDLER, $46da
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_YACCEL, $0080
+	obj_byte OBJ_LAYER, $02
+	obj_byte OBJ_COLLISION, $08
+	obj_byte OBJ_ANIM_PARAM, $07
+	obj_byte OBJ_PALETTE, $00
+	obj_word OBJ_ANIM, Anim_04_570b
+	obj_end
+
+PartGroup_08_4e6f::
+	db $00
+	dw Frame_20_4b94
+	db $02
+	dw Frame_20_4bd0
+	db $04
+	dw Frame_20_4b9a
+	db $01
+	dw Frame_20_4bd6
+	db $03
+	dw Frame_20_4bbe
+	db $05
+	dw Frame_20_4c12
+
+PartGroup_08_4e81::
+	db $00
+	dw Frame_20_4bbe
+	db $02
+	dw Frame_20_4bd0
+	db $01
+	dw Frame_20_4bd6
+	db $03
+	dw Frame_20_4ba6
+
+PartGroup_08_4e8d::
+	db $00
+	dw Frame_20_4b8e
+	db $02
+	dw Frame_20_4bfa
+	db $04
+	dw Frame_20_4bf4
+	db $06
+	dw Frame_20_4c12
+	db $01
+	dw Frame_20_4bd6
+	db $05
+	dw Frame_20_4be8
+	db $03
+	dw Frame_20_4bd0
+
+PartGroup_08_4ea2::
+	db $00
+	dw Frame_20_4bbe
+	db $80 ; ObjInit_08_441d
+	db $01
+	dw Frame_20_4bd6
+	db $80 ; ObjInit_08_441d
+	db $02
+	dw Frame_20_4bd0
+	db $80 ; ObjInit_08_441d
+	db $03
+	dw Frame_20_4ba6
+	db $80 ; ObjInit_08_441d
+	db $00
+	dw Frame_20_4be8
+	db $01
+	dw Frame_20_4b82
+	db $02
+	dw Frame_20_4be8
+	db $03
+	dw Frame_20_4b9a
+	db $04
+	dw Frame_20_4c06
+	db $05
+	dw Frame_20_4b82
+	db $06
+	dw Frame_20_4be8
+	db $07
+	dw Frame_20_4b9a
+
+PartGroup_08_4eca::
+	db $00
+	dw Frame_20_4bd0
+	db $02
+	dw Frame_20_4bd0
+	db $04
+	dw Frame_20_4b9a
+	db $06
+	dw Frame_20_4b94
+	db $01
+	dw Frame_20_4bb2
+	db $03
+	dw Frame_20_4bf4
+	db $05
+	dw Frame_20_4bd0
+	db $07
+	dw Frame_20_4bd6
+
+PartGroup_08_4ee2::
+	db $00
+	dw Frame_20_4be8
+	db $81 ; ObjInit_08_442b
+	db $01
+	dw Frame_20_4b82
+	db $81 ; ObjInit_08_442b
+	db $02
+	dw Frame_20_4be8
+	db $81 ; ObjInit_08_442b
+	db $03
+	dw Frame_20_4b9a
+	db $81 ; ObjInit_08_442b
+
+PartGroup_08_4ef2::
+	db $00
+	dw Frame_20_4b9a
+	db $02
+	dw Frame_20_4bdc
+	db $04
+	dw Frame_20_4b9a
+	db $06
+	dw Frame_20_4bee
+	db $01
+	dw Frame_20_4c0c
+	db $03
+	dw Frame_20_4be8
+	db $05
+	dw Frame_20_4bee
+	db $07
+	dw Frame_20_4bd6
+
+PartGroup_08_4f0a::
+	db $00
+	dw Frame_20_4b9a
+	db $02
+	dw Frame_20_4ba6
+	db $04
+	dw Frame_20_4b82
+	db $06
+	dw Frame_20_4b94
+	db $01
+	dw Frame_20_4bd0
+	db $03
+	dw Frame_20_4bfa
+	db $05
+	dw Frame_20_4be8
+	db $07
+	dw Frame_20_4b9a
+
+PartGroup_08_4f22::
+	db $00
+	dw Frame_20_4be8
+	db $02
+	dw Frame_20_4bca
+	db $04
+	dw Frame_20_4bb2
+	db $01
+	dw Frame_20_4b82
+	db $03
+	dw Frame_20_4b88
+
+PartGroup_08_4f31::
+	db $00
+	dw Frame_20_4c06
+	db $02
+	dw Frame_20_4bd0
+	db $04
+	dw Frame_20_4c12
+	db $01
+	dw Frame_20_4bb2
+	db $03
+	dw Frame_20_4bbe
+
+PartGroup_08_4f40::
+	db $02
+	dw Frame_20_4b94
+	db $81 ; ObjInit_08_442b
+	db $00
+	dw Frame_20_4b94
+	db $80 ; ObjInit_08_441d
+	db $04
+	dw Frame_20_4c12
+	db $81 ; ObjInit_08_442b
+	db $03
+	dw Frame_20_4b94
+	db $80 ; ObjInit_08_441d
+	db $01
+	dw Frame_20_4bb2
+	db $80 ; ObjInit_08_441d
+
+PartGroup_08_4f54::
+	db $00
+	dw Frame_20_4b8e
+	db $80 ; ObjInit_08_441d
+	db $02
+	dw Frame_20_4bd0
+	db $01
+	dw Frame_20_4b82
+	db $80 ; ObjInit_08_441d
+	db $04
+	dw Frame_20_4c12
+	db $03
+	dw Frame_20_4b94
+
+PartGroup_08_4f65::
+	db $00
+	dw Frame_20_4ba0
+	db $80 ; ObjInit_08_441d
+	db $04
+	dw Frame_20_4c12
+	db $02
+	dw Frame_20_4bd0
+	db $80 ; ObjInit_08_441d
+	db $01
+	dw Frame_20_4bfa
+	db $03
+	dw Frame_20_4bbe
+	db $80 ; ObjInit_08_441d
+
+PartGroup_08_4f77::
+	db $00
+	dw Frame_20_4b8e
+	db $81 ; ObjInit_08_442b
+	db $05
+	dw Frame_20_4c12
+	db $80 ; ObjInit_08_441d
+	db $04
+	dw Frame_20_4bbe
+	db $81 ; ObjInit_08_442b
+	db $02
+	dw Frame_20_4b82
+	db $80 ; ObjInit_08_441d
+	db $01
+	dw Frame_20_4be8
+	db $81 ; ObjInit_08_442b
+	db $03
+	dw Frame_20_4bd0
+	db $80 ; ObjInit_08_441d
+
+StepPattern_08_4f8f::
+	db 15, 1
+	db 2, 0
+	db 15, 2
+	db 2, 0
+	db 15, 3
+	db 2, 0
+	db 15, 4
+	db 2, 0
+	db 15, 8
+	db 2, 0
+
+StepPattern_08_4fa3::
+	db 2, 0
+	db 15, 10
+	db 2, 0
+	db 15, 11
+	db 2, 0
+	db 15, 12
+	db 2, 0
+	db 15, 13
+
+StepPattern_08_4fb3::
+	db 15, 5
+	db 5, 0
+	db 15, 6
+	db 5, 0
+	db 15, 7
+	db 5, 0
+	db 15, 5
+	db 5, 0
+	db 15, 6
+	db 5, 0
+	db 15, 7
+	db 5, 0
+
+StepPattern_08_4fcb::
+	db 2, 0
+	db 15, 8
+	db 2, 0
+	db 15, 9
+	db 2, 0
+	db 15, 8
+	db 2, 0
+	db 15, 5
+	db 2, 0
+	db 15, 8
+	db 2, 0
+	db 15, 10
+	db 10, 5
+	db 5, 0
+	db 10, 6
+	db 5, 0
+	db 10, 7
+	db 5, 0
+
+StepPattern_08_4fef::
+	db 2, 0
+	db 15, 8
+	db 2, 0
+	db 15, 9
+	db 2, 0
+	db 15, 8
+	db 2, 0
+	db 15, 5
+	db 2, 0
+	db 15, 8
+	db 2, 0
+	db 15, 9
+
+StepPattern_08_5007::
+	db 2, 0
+	db 15, 14
+	db 2, 0
+	db 15, 9
+	db 2, 0
+	db 15, 14
+	db 2, 0
+	db 15, 5
+	db 2, 0
+	db 15, 14
+	db 2, 0
+	db 15, 10
+
+StepPattern_08_501f::
+	db 2, 0
+	db 15, 15
+	db 2, 0
+	db 15, 16
+	db 2, 0
+	db 15, 15
+	db 2, 0
+	db 15, 16
+
+ObjInit_08_502f::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_4344)
+	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_VAR_2E, $0c
+	obj_byte OBJ_VAR_30, $14
+	obj_word OBJ_VAR_31, $0100
+	obj_byte OBJ_VAR_33, $05
+	obj_byte OBJ_VAR_34, $33
+	obj_word OBJ_VAR_35, PartGroup_08_4f22
+	obj_word OBJ_VAR_3B, ObjInit_08_5048
+	obj_end
+
+ObjInit_08_5048::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_4344)
+	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_VAR_2E, $0d
+	obj_byte OBJ_VAR_30, $14
+	obj_word OBJ_VAR_31, $0100
+	obj_byte OBJ_VAR_33, $08
+	obj_byte OBJ_VAR_34, $20
+	obj_word OBJ_VAR_35, PartGroup_08_4f0a
+	obj_word OBJ_VAR_3B, ObjInit_08_5061
+	obj_end
+
+ObjInit_08_5061::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_4344)
+	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_VAR_2E, $0b
+	obj_byte OBJ_VAR_30, $14
+	obj_word OBJ_VAR_31, $0100
+	obj_byte OBJ_VAR_33, $08
+	obj_byte OBJ_VAR_34, $20
+	obj_word OBJ_VAR_35, PartGroup_08_4ef2
+	obj_word OBJ_VAR_3B, $0000
+	obj_end
+
+ObjInit_08_507a::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_4344)
+	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_VAR_2E, $06
+	obj_byte OBJ_VAR_30, $14
+	obj_word OBJ_VAR_31, $0100
+	obj_byte OBJ_VAR_33, $04
+	obj_byte OBJ_VAR_34, $40
+	obj_word OBJ_VAR_35, PartGroup_08_4e81
+	obj_word OBJ_VAR_3B, ObjInit_08_5093
+	obj_end
+
+ObjInit_08_5093::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_4344)
+	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_VAR_2E, $07
+	obj_byte OBJ_VAR_30, $14
+	obj_word OBJ_VAR_31, $0100
+	obj_byte OBJ_VAR_33, $07
+	obj_byte OBJ_VAR_34, $24
+	obj_word OBJ_VAR_35, PartGroup_08_4e8d
+	obj_word OBJ_VAR_3B, $0000
+	obj_end
+
+ObjInit_08_50ac::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_4344)
+	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_VAR_2E, $06
+	obj_byte OBJ_VAR_30, $16
+	obj_word OBJ_VAR_31, $0200
+	obj_byte OBJ_VAR_33, $08
+	obj_byte OBJ_VAR_34, $20
+	obj_word OBJ_VAR_35, PartGroup_08_4f65
+	obj_word OBJ_VAR_3B, ObjInit_08_50c5
+	obj_end
+
+ObjInit_08_50c5::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_4344)
+	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_VAR_2E, $0f
+	obj_byte OBJ_VAR_30, $16
+	obj_word OBJ_VAR_31, $0280
+	obj_byte OBJ_VAR_33, $0c
+	obj_byte OBJ_VAR_34, $15
+	obj_word OBJ_VAR_35, PartGroup_08_4f77
+	obj_word OBJ_VAR_3B, $0000
+	obj_end
 
 Func_08_50de::
 	call Func_00_39fa
@@ -3650,8 +4295,56 @@ Func_08_5aba::
 	ld [hli], a
 	ret
 
-	INCBIN "baserom.gbc", $021ae3, $00c0 ; $5ae3
 
+SlopeVelocities::
+	dw $0300, $0000
+	dw $0300, $0000
+	dw $0280, $0000
+	dw $0280, $0000
+	dw $0200, $0000
+	dw $0200, $0000
+	dw $0180, $0000
+	dw $0180, $0000
+	dw $0300, $0000
+	dw $0300, $0000
+	dw $0340, $0200
+	dw $0340, $0200
+	dw $0380, $0400
+	dw $0380, $0400
+	dw $0400, $0800
+	dw $0400, $0800
+	dw $0288, $0000
+	dw $0288, $0000
+	dw $01cc, $0000
+	dw $01cc, $0000
+	dw $0170, $0000
+	dw $0170, $0000
+	dw $0114, $0000
+	dw $0114, $0000
+	dw $0228, $0000
+	dw $0228, $0000
+	dw $0256, $0170
+	dw $0256, $0170
+	dw $0284, $02e0
+	dw $0284, $02e0
+	dw $02e0, $05c1
+	dw $02e0, $05c1
+	dw $fea7, $0000
+	dw $fea7, $0000
+	dw $fee0, $0200
+	dw $fee0, $0200
+	dw $ff00, $0400
+	dw $ff00, $0400
+	dw $fee0, $0800
+	dw $fee0, $0800
+	dw $fea7, $0000
+	dw $fea7, $0000
+	dw $fe8a, $0000
+	dw $fe8a, $0000
+	dw $fe6d, $0000
+	dw $fe6d, $0000
+	dw $fe34, $0000
+	dw $fe34, $0000
 
 Func_08_5ba3::
 	ld hl, wObjects + OBJ_TERRAIN_B
@@ -3945,8 +4638,102 @@ ObjInit_08_5d8a::
 	obj_word OBJ_HANDLER, Func_08_5fe6
 	obj_word OBJ_VAR_2F, $9928
 	obj_end
-	INCBIN "baserom.gbc", $021d93, $0253 ; $5d93
 
+AnimalMaskTable::
+	dw AnimalMask_08_5d9b, AnimalMask_08_5e0d, AnimalMask_08_5eb8, AnimalMask_08_5f78 ; by animal buddy ([$c445] bits 4-6), Func_08_5d4a
+
+AnimalMask_08_5d9b::
+	db 7, 16 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
+	db %01111111, %11111111, %11111111, %11111111, %11111111, %10000000, %00000000
+	db %01110001, %00100100, %10010010, %01001001, %00100100, %10000000, %00000000
+	db %00000001, %00100100, %10010010, %01001001, %00100100, %10000000, %00000000
+	db %00001111, %11111111, %11111111, %11111111, %11111111, %10000000, %00000000
+	db %00111111, %11100111, %11110011, %11111001, %11111100, %10000000, %00000000
+	db %00010001, %11100111, %11110011, %11111001, %11111100, %10000000, %00000000
+	db %00000001, %00111100, %10011110, %01001111, %00100111, %10000000, %00000000
+	db %00000011, %00100100, %10010010, %01001001, %00100100, %10000000, %00000000
+	db %00000001, %11100111, %11110011, %11111001, %11111100, %10000000, %00000000
+	db %00000000, %00111100, %10011110, %01001111, %00100111, %10000000, %00000000
+	db %00000000, %00100100, %10010010, %01001001, %00100100, %10000000, %00000000
+	db %00000000, %00100110, %00110011, %00011001, %10001100, %10000000, %00000000
+	db %00000000, %00011000, %00001100, %00000110, %00000011, %10000000, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
+
+AnimalMask_08_5e0d::
+	db 13, 13 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
+	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
+	db %00111000, %00011111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00011111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00011111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111111, %11111111, %11000000, %11111111, %11111111, %00000011, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111111, %11111111, %11000000, %11111111, %11111111, %00000011, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111111, %11111111, %11000000, %11111111, %11111111, %00000011, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111111, %11111111, %11000000, %11111111, %11111111, %00000011, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111111, %11111111, %11000000, %11111111, %11111111, %00000011, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111111, %11111111, %11000000, %11111111, %11111111, %00000011, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111111, %11111111, %11000000, %11111111, %11111111, %00000011, %11111111, %11111100, %00000000, %00000000, %00000000
+	db %00111000, %00000000, %00111100, %00000011, %11000000, %11110000, %00001111, %00000011, %11000000, %00111100, %00000000, %00000000, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
+
+AnimalMask_08_5eb8::
+	db 5, 37 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
+	db %00000000, %00000000, %00000000, %00000000, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000
+	db %00000000, %00000000, %01110000, %00000000, %00000000
+	db %00011111, %11111000, %01010000, %11111111, %11000000
+	db %00010010, %01001000, %01010000, %10010010, %01000000
+	db %00010010, %01001000, %01110000, %10010010, %01000000
+	db %00011111, %11111000, %00000000, %11111111, %11000000
+	db %00010010, %01001000, %00000000, %10010010, %01000000
+	db %00010010, %01001000, %00000000, %10010010, %01000000
+	db %00011111, %11111111, %11111111, %11111111, %11000000
+	db %00010010, %01001001, %00100100, %10010010, %01000000
+	db %00010010, %01001001, %00100100, %10010010, %01000000
+	db %00011111, %11111111, %11111111, %11111111, %11000000
+	db %00000000, %01001001, %00100100, %10010000, %00000000
+	db %00000000, %01001001, %00100100, %10010000, %00000000
+	db %00000000, %01111111, %11111111, %11110000, %00000000
+	db %00111000, %01001001, %11111100, %10010000, %11100000
+	db %00101000, %01001001, %10001100, %10010000, %10100000
+	db %00101000, %01111111, %10001111, %11110000, %10100000
+	db %00111000, %01001001, %10001100, %10010000, %11100000
+	db %00000000, %01001001, %11111100, %10010000, %00000000
+	db %00000000, %01111111, %11111111, %11110000, %00000000
+	db %00000000, %01001001, %00100100, %10010000, %00000000
+	db %00000000, %01001001, %00100100, %10010000, %00000000
+	db %00011111, %11111111, %11111111, %11111111, %11000000
+	db %00010010, %01001001, %00100100, %10010010, %01000000
+	db %00010010, %01001001, %00100100, %10010010, %01000000
+	db %00011111, %11111111, %11111111, %11111111, %11000000
+	db %00010010, %01001000, %00000000, %10010010, %01000000
+	db %00010010, %01001000, %00000000, %10010010, %01000000
+	db %00011111, %11111000, %00000000, %11111111, %11000000
+	db %00010010, %01001000, %01110000, %10010010, %01000000
+	db %00010010, %01001000, %01010000, %10010010, %01000000
+	db %00011111, %11111000, %01010000, %11111111, %11000000
+	db %00000000, %00000000, %01110000, %00000000, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000
+
+AnimalMask_Unused_08_5f73::
+	db $00, $00, $00, $00, $00
+
+AnimalMask_08_5f78::
+	db 9, 12 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
+	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
+	db %00000000, %00011111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111000, %00000000
+	db %00000000, %00010000, %11111111, %11100001, %11111111, %11000011, %11111111, %10000000, %00000000
+	db %00000000, %01110000, %11111111, %11100001, %11111111, %11000011, %11111111, %10000000, %00000000
+	db %00000000, %01100000, %11011111, %01100001, %10111110, %11000011, %01111101, %10000000, %00000000
+	db %00000000, %01000000, %11111111, %11111111, %11111111, %11111111, %11111111, %10000000, %00000000
+	db %00000001, %11000000, %11111011, %11111111, %11110111, %11111111, %11101111, %11111111, %00000000
+	db %00000001, %10000000, %11111111, %11100001, %11111111, %11000011, %11111111, %10000000, %00000000
+	db %00000001, %00000000, %11011111, %01100001, %10111110, %11000011, %01111101, %10000000, %00000000
+	db %00000001, %00000000, %11111111, %11100001, %11111111, %11000011, %11111111, %10000000, %00000000
+	db %00000011, %00000000, %11111111, %11111111, %11111111, %11111111, %11111111, %11111100, %00000000
+	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
 
 Func_08_5fe6::
 	ld a, $01
@@ -4174,8 +4961,9 @@ Func_08_5fe6::
 	call Func_08_6302
 	jp NextObject
 
-	db $fc, $07, $00
 
+MapCell_08_614e::
+	db $fc, $07, $00 ; block, attribute, terrain (written by Func_00_0d9d)
 
 ObjInit_08_6151::
 	obj_byte OBJ_FLAGS, $0b
@@ -4183,8 +4971,9 @@ ObjInit_08_6151::
 	obj_word OBJ_HANDLER, Func_08_61a4
 	obj_byte OBJ_VAR_2E, $20
 	obj_end
-	db $e0, $ff, $e0, $ff, $00, $00, $e0, $ff
 
+AnimalYOffsets::
+	dw $ffe0, $ffe0, $0000, $ffe0 ; y offset by animal buddy (Func_08_5fe6)
 
 Func_08_6163::
 	ld hl, $c441
@@ -4402,8 +5191,12 @@ ObjInit_08_62a7::
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $02
 	obj_end
-	INCBIN "baserom.gbc", $0222b6, $0014 ; $62b6
 
+ObjectDigits::
+	db %00000000, %00000000, %01010000, %00100000, %01010000 ; x
+	db %00001100, %00010100, %00100100, %00000100, %00000100 ; 1
+	db %00110000, %01001000, %00010000, %00100000, %01111000 ; 2
+	db %00110000, %01001000, %00010000, %01001000, %00110000 ; 3
 
 Func_08_62ca::
 	ld h, $c5

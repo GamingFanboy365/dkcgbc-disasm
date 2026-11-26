@@ -94,6 +94,28 @@ Every sprite frame's tiles are a PNG at `gfx/frames/BB/AAAA.png`, named after th
 
 The PNGs are created from `baserom.gbc` by `make extract`, which the build also runs automatically when they're missing, and existing files are never overwritten. They are not committed yet, so the repository still holds no graphics from the game. `python3 tools/gfx.py preview` assembles every frame from its sprites and offsets into `gfx/preview/`, which makes them easier to recognise. Those images are for looking at only and aren't used by the build. The colors are placeholders until the game's palettes are decoded.
 
+### Palettes
+
+All colors live in bank `$80`, written with `rgb r, g, b` (0–31 per channel).
+
+| Range | Contents |
+|---|---|
+| `$4000`–`$41FF` | `ObjPalette_00`–`3F`: 64 object palettes of 4 colors |
+| `$4200`–`$4256` | 11 preload lists (`obj_pal_preload id, …`) |
+| `$4257`–`$5016` | `BGPaletteSet_00`–`36`: 55 sets of 8 BG palettes |
+
+At run time `wBGPalettes` and `wOBJPalettes` (`$C100`/`$C180`) hold the palettes as defined. `UpdatePalettes` scales them by `wPaletteBrightness` towards black or white (`FadePalettesToBlack`/`ToWhite`) into `wBGPalettesOut`/`wOBJPalettesOut`, then uploads whatever `wPaletteUpdate` marks as changed.
+
+Object palettes are shared and reference-counted. An object's `OBJ_PALETTE` is a palette ID. `AllocObjPalette` gives the first object with that ID a free hardware slot (0–7) and copies colors 1–3 into it. Color 0 is transparent and never copied. Later objects with the same ID reuse the slot. `InitObject` ORs the slot into `OBJ_OAM_ATTR`, and `FreeObjPalette` releases it when the last user is deleted. `PreloadObjPalettes` fills slots 0, 1, 2… from a preload list. Levels call it, and so do a few screens set up directly by code at `$05A8`.
+
+Levels are described in bank `$04`. `LevelTable` has two entrance pointers per level number. Entrance records (`LevelEntrance_04_XXXX`) are 8 bytes, and there are 237 of them: the table reaches 75, and warps such as bonus rooms reach the rest. Each record points to one of 128 level descriptors (`LevelDesc_04_XXXX`, 12 bytes). A descriptor names the BG palette set, the OBJ preload list and the level's other data.
+
+`tools/frame_palettes.py` works out which palette each sprite frame is drawn with, by following objects from their init lists through their handlers to the animations they play. `tools/gfx.py preview` uses that to color the previews. Frames reached only through code the tracer doesn't follow yet stay gray, and `gfx/preview/index.csv` lists which palettes are certain and which are inferred.
+
+### Unused content
+
+`python3 tools/find_unused.py` lists sprite frames, animation scripts and palettes that nothing decoded so far refers to. It writes a report and images to `unused/`, which is gitignored because the images are the game's graphics. Before calling anything unused, it searches the undecoded bytes of banks `$00`–`$0F` for its address and reports any hits. That search is how the frame and animation pointer tables in banks `$00` and `$08`–`$0A` were found. The tracer now decodes those tables (`FrameTable_…`, `AnimTable_…`), so they count as uses.
+
 ### Status
 
-Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Roughly 69 KB of code has been traced, plus 1,114 object initialiser lists, 425 animation scripts and all 1,415 sprite frames. Labels such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are placeholders waiting for real names.
+Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Roughly 69 KB of code has been traced, plus 1,114 object initialiser lists, 425 animation scripts, all 1,415 sprite frames, all palettes and the level table, entrances and descriptors. Labels such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are placeholders waiting for real names.

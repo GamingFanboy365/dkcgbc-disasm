@@ -9,19 +9,19 @@ Func_0d_4130::
 	ld a, $87
 	ldh [rLCDC], a
 	ld de, $42a9
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld bc, $0040
 	call CopyBytes
-	ld de, $c100
-	ld hl, $c200
+	ld de, wBGPalettes
+	ld hl, wBGPalettesOut
 	ld bc, $0040
 	call CopyBytes
 	xor a
 	ld bc, $0008
-	ld hl, $c180
+	ld hl, wOBJPalettes
 	call FillMemory
 	ld bc, $0008
-	ld hl, $c280
+	ld hl, wOBJPalettesOut
 	call FillMemory
 	xor a
 	ld hl, wPlayer + OBJ_FLAGS

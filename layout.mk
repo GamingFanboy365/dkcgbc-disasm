@@ -37,6 +37,7 @@ OBJS := \
 	src/bank_38.o \
 	src/bank_39.o \
 	src/bank_3a.o \
+	src/bank_80.o \
 	src/bank_f0.o \
 	src/bank_f1.o \
 	src/bank_f2.o \

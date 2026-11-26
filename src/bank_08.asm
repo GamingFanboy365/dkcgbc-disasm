@@ -1958,12 +1958,12 @@ Func_08_4ba8::
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld a, [hl]
-	call Func_00_2d5a
+	call FreeObjPalette
 	pop af
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld [hl], a
-	call Func_00_2cfb
+	call AllocObjPalette
 	ld e, a
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
@@ -2180,8 +2180,9 @@ Func_08_50de::
 	call Func_00_127d
 	jr .jump_5143
 
-	db $2a, $4f, $30, $4f, $36, $4f, $3c, $4f
 
+FrameTable_08_514e::
+	dw Frame_20_4f2a, Frame_20_4f30, Frame_20_4f36, Frame_20_4f3c
 
 Func_08_5156::
 	call Func_00_3b85
@@ -2754,8 +2755,16 @@ Func_08_54fe::
 	ld [hl], d
 	ret
 
-	INCBIN "baserom.gbc", $021522, $0040 ; $5522
 
+FrameTable_08_5522::
+	dw Frame_20_418c, Frame_20_4192, Frame_20_4198, Frame_20_419e
+	dw Frame_20_41a4, Frame_20_41aa, Frame_20_41b0, Frame_20_41b6
+	dw Frame_20_41bc, Frame_20_41c2, Frame_20_41c8, Frame_20_41ce
+	dw Frame_20_41d4, Frame_20_41da, Frame_20_41e0, Frame_20_41e6
+	dw Frame_20_40a2, Frame_20_40a8, Frame_20_40ae, Frame_20_40b4
+	dw Frame_20_40ba, Frame_20_40c0, Frame_20_40c6, Frame_20_40cc
+	dw Frame_20_40d2, Frame_20_40d8, Frame_20_40de, Frame_20_40e4
+	dw Frame_20_40ea, Frame_20_40f0, Frame_20_40f6, Frame_20_40fc
 
 Func_08_5562::
 	call Func_00_3b85
@@ -2992,7 +3001,7 @@ Func_08_56b8::
 	add hl, bc
 	ld a, $06
 	ld [hl], a
-	call Func_00_2cfb
+	call AllocObjPalette
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	or [hl]
@@ -3517,8 +3526,12 @@ Func_08_5ba3::
 	ld [hl], a
 	ret
 
-	INCBIN "baserom.gbc", $021bd5, $0020 ; $5bd5
 
+AnimTable_08_5bd5::
+	dw Anim_04_5185, Anim_04_5191, Anim_04_519d, Anim_04_519d
+	dw Anim_04_51a9, Anim_04_51a9, Anim_04_51b5, Anim_04_51b5
+	dw Anim_04_5185, Anim_04_5191, Anim_04_519d, Anim_04_519d
+	dw Anim_04_51a9, Anim_04_51a9, Anim_04_51b5, Anim_04_51b5
 
 Func_08_5bf5::
 	ld hl, wObjects + OBJ_TERRAIN_B
@@ -3538,8 +3551,12 @@ Func_08_5bf5::
 	ld [hl], d
 	ret
 
-	INCBIN "baserom.gbc", $021c0e, $0020 ; $5c0e
 
+FrameTable_08_5c0e::
+	dw Frame_20_5770, Frame_20_578e, Frame_20_5794, Frame_20_5794
+	dw Frame_20_579a, Frame_20_579a, Frame_20_57a0, Frame_20_57a0
+	dw Frame_20_5770, Frame_20_5776, Frame_20_577c, Frame_20_577c
+	dw Frame_20_5782, Frame_20_5782, Frame_20_5788, Frame_20_5788
 
 Func_08_5c2e::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
@@ -3590,9 +3607,9 @@ Func_08_5c71::
 	ld a, [hl]
 	rlca
 	jr c, .jump_5c8d
-	ld a, [$c311]
+	ld a, [wPaletteUpdate]
 	or $01
-	ld [$c311], a
+	ld [wPaletteUpdate], a
 	ld de, $48d7
 	call Func_00_3ce1
 	ld hl, ObjInit_08_5c93

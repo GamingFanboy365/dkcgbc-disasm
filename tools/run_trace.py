@@ -25,6 +25,9 @@ def make(rom):
     t.second_program = set(hints.SECOND_PROGRAM_BANKS)
     for (b, start, count) in hints.FRAME_TABLES:
         t.parse_frame_table(b, start, count)
+    t.preload_funcs = set(hints.PRELOAD_FUNCS)
+    t.parse_palettes(hints.PALETTES)
+    t.parse_levels(hints.LEVELS)
     for (b, start, end) in hints.ANIM_RUNS:
         t.parse_anim(b, start, end)
     t.list_only_banks = set(b for b, _, _ in hints.OBJ_LIST_RUNS)
@@ -36,6 +39,10 @@ def make(rom):
             a = rom[o] | rom[o + 1] << 8
             t.parse_obj_list(0 if a < 0x4000 else b, a, b)
     t.run()
+    for args in hints.FRAME_STRUCTS:
+        t.parse_frame_struct(*args)
+    t.scan_frame_tables(hints.FRAME_TABLE_SCAN_BANKS)
+    t.scan_anim_tables(hints.FRAME_TABLE_SCAN_BANKS)
     Speculator(t).run(hints.SPECULATE_BANKS)
     return t
 

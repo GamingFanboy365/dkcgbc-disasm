@@ -113,4 +113,20 @@ MACRO frame_none
 	db 0, 0
 ENDM
 
+
+; rgb r, g, b[, r, g, b...]: CGB colors, 0-31 per channel
+MACRO rgb
+	REPT _NARG / 3
+		dw (\1) | (\2) << 5 | (\3) << 10
+		SHIFT 3
+	ENDR
+ENDM
+
+; obj_pal_preload id, ...: object palettes loaded into hardware slots 0, 1, ...
+; in order (Func_00_2ca6), with a count byte first
+MACRO obj_pal_preload
+	db _NARG
+	db \#
+ENDM
+
 ENDC

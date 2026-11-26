@@ -12,3 +12,4 @@ gfx/frames/.extracted
 # Frame PNGs are extracted from baserom.gbc by "make extract" and are not
 # committed for now (see README.md).
 gfx/frames/
+unused/

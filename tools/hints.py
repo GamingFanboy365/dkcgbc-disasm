@@ -50,6 +50,16 @@ NAMES = {
     (0, 0x3167): "UpdateSound",
     (0, 0x31B7): "UpdateMusic",      # steps the four channels at $d000-$d3ff
     (0, 0x3220): "UpdateMusicChannel",
+    (0, 0x2CA6): "PreloadObjPalettes",   # hl = preload list (bank $80)
+    (0, 0x2CFB): "AllocObjPalette",      # a = palette ID -> a = hardware slot
+    (0, 0x2D5A): "FreeObjPalette",       # a = palette ID
+    (0, 0x2D78): "UpdatePalettes",       # apply brightness, upload what changed
+    (0, 0x2DAB): "LoadBGPalettesHL",
+    (0, 0x2DBA): "UploadBGPalettes",
+    (0, 0x2DDF): "LoadOBJPalettesHL",
+    (0, 0x2DED): "UploadOBJPalettes",
+    (0, 0x2E12): "FadePalettesToBlack",  # a = brightness; wBG/OBJPalettes -> ...Out
+    (0, 0x2E44): "FadePalettesToWhite",  # same, towards white
 }
 
 # Generated source files that have been edited by hand and must not be
@@ -118,6 +128,13 @@ SECOND_PROGRAM_BANKS = set(range(0xF0, 0xFF))
 RAM_NAMES = {
     0xC400: "wObjectFreeList",   # stack of free slot offsets (words)
     0xC440: "wObjectFreeCount",  # number of entries in wObjectFreeList
+    0xC100: "wBGPalettes",        # 8 BG palettes as the level/screen defines them
+    0xC180: "wOBJPalettes",       # 8 OBJ palettes (slots handed out by AllocObjPalette)
+    0xC200: "wBGPalettesOut",     # wBGPalettes after brightness, uploaded to the LCD
+    0xC280: "wOBJPalettesOut",
+    0xC311: "wPaletteUpdate",     # bit 0: upload BG, bit 1: upload OBJ, bit 2: fade mode
+    0xC312: "wPaletteBrightness",
+    0xC449: "wLevelEntrance",     # pointer to the current LevelEntrance record
 }
 
 # Animation scripts (see Func_00_127d): runs of consecutive entries
@@ -129,4 +146,34 @@ ANIM_RUNS = [
 # Frame header tables (see Func_00_1037): (bank, start, count)
 FRAME_TABLES = [
     (0x20, 0x4000, 1415),
+]
+
+# Palettes (bank $80). Object palette p (OBJ_PALETTE) is 4 colors at
+# $4000 + 8p; InitObject copies colors 1-3 into a free hardware slot.
+# BG palette sets are 8 palettes each, picked by the level descriptor.
+# Preload lists (count, then palette IDs) fill the OBJ slots in order
+# (Func_00_2ca6).
+PALETTES = {
+    "bank": 0x80,
+    "obj_palettes": (0x4000, 64),
+    "preload_lists": (0x4200, 0x4257),
+    "bg_palette_sets": (0x4257, 55),
+}
+PRELOAD_FUNCS = [0x2CA6]
+
+# Levels (bank $04): LevelTable has two entrance-record pointers per level
+# number ([$c30c]); records point to 12-byte level descriptors.
+LEVELS = {
+    "table": (0x04, 0x57B4, 42),
+    "entrances": (0x585C, 0x5FC4),    # 237 records; the table reaches 75 (others via warps)
+    "descriptors": (0x5FC4, 0x65C4),  # 128 descriptors, all reached by some record
+}
+
+# Banks searched for tables of frame header pointers (tracer.scan_frame_tables)
+FRAME_TABLE_SCAN_BANKS = list(range(0x00, 0x10))
+
+# Records that mix frame pointers with other words:
+# (bank, start, count, words per record, columns that are frames)
+FRAME_STRUCTS = [
+    (0x0A, 0x60E7, 32, 4, (0, 2, 3)),  # rotating object: frame by angle; column 1 is a curve
 ]

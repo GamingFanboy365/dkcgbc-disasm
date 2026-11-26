@@ -318,7 +318,7 @@ Init::
 	ld a, $00
 	call PlaySong
 	ld a, $ff
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld bc, $0200
 	call FillMemory
 	call Func_00_025d
@@ -478,7 +478,7 @@ Func_00_0319::
 
 
 Func_00_031c::
-	jp Func_00_2e44.jump_2e7e
+	jp FadePalettesToWhite.jump_2e7e
 
 
 Func_00_031f::
@@ -530,7 +530,7 @@ Func_00_0340::
 
 
 Func_00_0343::
-	jp Func_00_2e44.jump_2e94
+	jp FadePalettesToWhite.jump_2e94
 
 
 Func_00_0346::
@@ -726,7 +726,7 @@ Func_00_03e4::
 	jr Func_00_03e4
 
 .jump_041d:
-	jp Func_00_2e44.jump_2ef2
+	jp FadePalettesToWhite.jump_2ef2
 
 
 Func_00_0420::
@@ -824,8 +824,8 @@ Func_00_0420::
 	jr .jump_05bf
 
 .jump_05a8:
-	ld hl, $424e
-	call Func_00_2ca6
+	ld hl, ObjPalPreload_80_424e
+	call PreloadObjPalettes
 	ld a, $20
 	call PlaySong
 	ld a, $0f
@@ -835,8 +835,8 @@ Func_00_0420::
 	jp Func_00_38cd
 
 .jump_05bf:
-	ld hl, $423c
-	call Func_00_2ca6
+	ld hl, ObjPalPreload_80_423c
+	call PreloadObjPalettes
 	ld a, $11
 	call PlaySong
 	ld a, $0f
@@ -846,8 +846,8 @@ Func_00_0420::
 	jp Func_00_38cd
 
 .jump_05d6:
-	ld hl, $4245
-	call Func_00_2ca6
+	ld hl, ObjPalPreload_80_4245
+	call PreloadObjPalettes
 	ld a, $14
 	call PlaySong
 	ld a, $0f
@@ -857,8 +857,8 @@ Func_00_0420::
 	jp Func_00_38cd
 
 .jump_05ed:
-	ld hl, $4245
-	call Func_00_2ca6
+	ld hl, ObjPalPreload_80_4245
+	call PreloadObjPalettes
 	ld a, $09
 	call PlaySong
 	ld a, $0f
@@ -939,7 +939,7 @@ Func_00_0616::
 
 .jump_0667:
 	ld bc, $0868
-	ld hl, $c200
+	ld hl, wBGPalettesOut
 	ld a, $80
 	ldh [c], a
 	inc c
@@ -4143,7 +4143,7 @@ InitObject::
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld a, [hl]
-	call Func_00_2cfb
+	call AllocObjPalette
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	or [hl]
@@ -4331,7 +4331,7 @@ Func_00_18f5::
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld a, [hl]
-	call Func_00_2d5a
+	call FreeObjPalette
 	ld a, [wObjectFreeCount]
 	add a, a
 	add a, $00
@@ -4566,7 +4566,7 @@ Func_00_19e7::
 	ld a, $41
 	ld [rROMB0], a
 	ld de, $5380
-	ld hl, $c180
+	ld hl, wOBJPalettes
 	ld bc, $0040
 	call CopyBytes
 	ld a, $00
@@ -4639,7 +4639,7 @@ Func_00_19e7::
 	push hl
 	ld a, $0f
 	ld [rROMB0], a
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld bc, $0080
 	call CopyBytes
 	pop hl
@@ -4905,10 +4905,10 @@ Func_00_1cc2::
 	res 2, [hl]
 	ldh a, [$ffc7]
 	ldh [rSCX], a
-	ld hl, $c280
-	call Func_00_2ddf
-	ld hl, $c200
-	call Func_00_2dab
+	ld hl, wOBJPalettesOut
+	call LoadOBJPalettesHL
+	ld hl, wBGPalettesOut
+	call LoadBGPalettesHL
 	ld hl, $c500
 	ld a, [hli]
 	ldh [rLYC], a
@@ -6131,7 +6131,7 @@ Func_00_2400::
 	push bc
 	call Func_00_027c
 	ld hl, $ce00
-	call Func_00_2dab
+	call LoadBGPalettesHL
 	ld a, [$cf60]
 	ldh [rSCY], a
 	ld a, [$cf64]
@@ -6178,7 +6178,7 @@ Func_00_2400::
 	ld a, $04
 	ld [rROMB0], a
 	ld a, [hli]
-	ld [$c449], a
+	ld [wLevelEntrance], a
 	ld a, [hli]
 	ld [$c44a], a
 .jump_249e:
@@ -6195,7 +6195,7 @@ Func_00_2400::
 	call InitObjectSlots
 	call Func_00_0e91
 	call Func_00_2ad8
-	ld hl, $c449
+	ld hl, wLevelEntrance
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -6217,7 +6217,7 @@ Func_00_2400::
 	push hl
 	ld a, $80
 	ld [rROMB0], a
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld bc, $0080
 	call CopyBytes
 	pop hl
@@ -6230,7 +6230,7 @@ Func_00_2400::
 	push hl
 	ld h, d
 	ld l, e
-	call Func_00_2ca6
+	call PreloadObjPalettes
 	pop hl
 	ld a, $04
 	ld [rROMB0], a
@@ -6270,9 +6270,9 @@ Func_00_2400::
 	ld a, $55
 	ld [$c451], a
 	ld a, $03
-	ld [$c311], a
+	ld [wPaletteUpdate], a
 	xor a
-	ld [$c312], a
+	ld [wPaletteBrightness], a
 	xor a
 	ld [$c452], a
 	ld [$c453], a
@@ -6411,9 +6411,9 @@ Func_00_2400::
 
 .jump_2644:
 	call Func_00_0718
-	ld a, [$c311]
+	ld a, [wPaletteUpdate]
 	and $03
-	call nz, Func_00_2d78
+	call nz, UpdatePalettes
 	ld a, [$c443]
 	bit 1, a
 	jr nz, .jump_26b3
@@ -6468,11 +6468,11 @@ Func_00_2400::
 	ret z
 .jump_26b3:
 	xor a
-	ld hl, $c200
+	ld hl, wBGPalettesOut
 	ld bc, $0100
 	call FillMemory
-	call Func_00_2dba
-	call Func_00_2ded
+	call UploadBGPalettes
+	call UploadOBJPalettes
 	ld hl, $ff40
 	res 1, [hl]
 	xor a
@@ -6646,7 +6646,7 @@ Func_00_2793::
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld [hl], a
-	call Func_00_2cfb
+	call AllocObjPalette
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	or $08
@@ -7111,13 +7111,15 @@ Func_00_2a63::
 	ldh [$ffa1], a
 	ret
 
-	db $38, $59, $3e, $59, $44, $59, $4a, $59, $50, $59, $56, $59, $5c, $59, $62, $59
 
+FrameTable_00_2a9e::
+	dw Frame_20_5938, Frame_20_593e, Frame_20_5944, Frame_20_594a
+	dw Frame_20_5950, Frame_20_5956, Frame_20_595c, Frame_20_5962
 
 Func_00_2aae::
-	ld a, [$c311]
+	ld a, [wPaletteUpdate]
 	or $02
-	ld [$c311], a
+	ld [wPaletteUpdate], a
 	ret
 
 
@@ -7181,8 +7183,8 @@ Func_00_2ae3::
 	ld a, $0d
 	ld [rROMB0], a
 	call Func_0d_4130
-	call Func_00_2dba
-	call Func_00_2ded
+	call UploadBGPalettes
+	call UploadOBJPalettes
 	ld a, $3e
 	ld [$c402], a
 	ld a, $46
@@ -7245,7 +7247,7 @@ Func_00_2b5f::
 	ld e, a
 	ld a, [hli]
 	ld d, a
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld bc, $0080
 	call CopyBytes
 	jp Func_00_38cd
@@ -7382,7 +7384,7 @@ Func_00_2c48::
 	ld a, [hli]
 	ld d, a
 	push hl
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld bc, $0080
 	call CopyBytes
 	pop hl
@@ -7424,7 +7426,7 @@ Func_00_2c48::
 	ret
 
 
-Func_00_2ca6::
+PreloadObjPalettes::
 	ld a, $04
 	ldh [rSVBK], a
 	push hl
@@ -7437,7 +7439,7 @@ Func_00_2ca6::
 	ld [rROMB0], a
 	ld a, [hli]
 	ld c, a
-	ld de, $c180
+	ld de, wOBJPalettes
 .jump_2cc0:
 	ld a, [hli]
 	add a, a
@@ -7490,7 +7492,7 @@ Func_00_2ca6::
 	ret
 
 
-Func_00_2cfb::
+AllocObjPalette::
 	add a, a
 	ret z
 	ld h, $d6
@@ -7555,9 +7557,9 @@ Func_00_2cfb::
 	jr nz, .jump_2d43
 	pop af
 	ld [rROMB0], a
-	ld a, [$c311]
+	ld a, [wPaletteUpdate]
 	or $02
-	ld [$c311], a
+	ld [wPaletteUpdate], a
 	pop hl
 	pop de
 	pop bc
@@ -7565,7 +7567,7 @@ Func_00_2cfb::
 	ret
 
 
-Func_00_2d5a::
+FreeObjPalette::
 	add a, a
 	ret z
 	ld h, $d6
@@ -7591,33 +7593,33 @@ Func_00_2d5a::
 	ret
 
 
-Func_00_2d78::
-	ld a, [$c311]
+UpdatePalettes::
+	ld a, [wPaletteUpdate]
 	and $04
 	jr nz, .jump_2d87
-	ld a, [$c312]
-	call Func_00_2e12
+	ld a, [wPaletteBrightness]
+	call FadePalettesToBlack
 	jr .jump_2d8d
 
 .jump_2d87:
-	ld a, [$c312]
-	call Func_00_2e44
+	ld a, [wPaletteBrightness]
+	call FadePalettesToWhite
 .jump_2d8d:
-	ld a, [$c311]
+	ld a, [wPaletteUpdate]
 	and $01
-	call nz, Func_00_2dba
-	ld a, [$c311]
+	call nz, UploadBGPalettes
+	ld a, [wPaletteUpdate]
 	and $fe
-	ld [$c311], a
+	ld [wPaletteUpdate], a
 	and $02
-	call nz, Func_00_2ded
-	ld a, [$c311]
+	call nz, UploadOBJPalettes
+	ld a, [wPaletteUpdate]
 	and $fd
-	ld [$c311], a
+	ld [wPaletteUpdate], a
 	ret
 
 
-Func_00_2dab::
+LoadBGPalettesHL::
 	ld a, $80
 	ld c, $68
 	ldh [rBCPS], a
@@ -7631,8 +7633,8 @@ Func_00_2dab::
 	ret
 
 
-Func_00_2dba::
-	ld hl, $c200
+UploadBGPalettes::
+	ld hl, wBGPalettesOut
 	ld a, $80
 	ld c, $68
 	ldh [c], a
@@ -7663,7 +7665,7 @@ Func_00_2dba::
 	ret
 
 
-Func_00_2ddf::
+LoadOBJPalettesHL::
 	ld a, $80
 	ldh [rOCPS], a
 	ld b, $40
@@ -7676,8 +7678,8 @@ Func_00_2ddf::
 	ret
 
 
-Func_00_2ded::
-	ld hl, $c280
+UploadOBJPalettes::
+	ld hl, wOBJPalettesOut
 
 Func_00_2df0::
 	ld a, $80
@@ -7709,7 +7711,7 @@ Func_00_2df0::
 	ret
 
 
-Func_00_2e12::
+FadePalettesToBlack::
 	and $f8
 	ld c, a
 	ld b, $00
@@ -7751,7 +7753,7 @@ Func_00_2e12::
 	ret
 
 
-Func_00_2e44::
+FadePalettesToWhite::
 	and $f8
 	ld c, a
 	ld b, $00
@@ -7814,10 +7816,10 @@ Func_00_2e44::
 	ret
 
 .jump_2e94:
-	call Func_00_2dba
+	call UploadBGPalettes
 	ld a, [$c305]
 	bit 3, a
-	call nz, Func_00_2ded
+	call nz, UploadOBJPalettes
 	ld a, [$c305]
 	bit 0, a
 	jr nz, .jump_2eb6
@@ -7846,12 +7848,12 @@ Func_00_2e44::
 	bit 1, a
 	jr nz, .jump_2ed7
 	ld a, [$c306]
-	call Func_00_2e12
+	call FadePalettesToBlack
 	jr .jump_2edd
 
 .jump_2ed7:
 	ld a, [$c306]
-	call Func_00_2e44
+	call FadePalettesToWhite
 .jump_2edd:
 	ld a, [$c305]
 	bit 4, a
@@ -10320,7 +10322,7 @@ Func_00_3ce1::
 	push bc
 	ld a, $80
 	ld [rROMB0], a
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld c, $40
 .jump_3cf0:
 	ld a, [de]

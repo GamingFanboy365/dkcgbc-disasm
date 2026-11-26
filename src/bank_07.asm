@@ -28,7 +28,7 @@ Func_07_4001::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c100
+	ld hl, wBGPalettes
 	ld bc, $0100
 	call CopyBytes
 	ld de, $43fe
@@ -40,7 +40,7 @@ Func_07_4001::
 	ld bc, $0040
 	call FillMemory
 	xor a
-	ld hl, $c200
+	ld hl, wBGPalettesOut
 	ld bc, $00c0
 	call FillMemory
 	ld a, [$b0c1]
@@ -160,7 +160,7 @@ Func_07_4001::
 
 
 Func_07_4195::
-	ld de, $c200
+	ld de, wBGPalettesOut
 	ld hl, $ce00
 	ld bc, $0040
 	call CopyBytes
@@ -229,7 +229,7 @@ Func_07_4195::
 	jr z, .jump_421c
 	add a, $08
 	ld [$cf65], a
-	call Func_00_2e12
+	call FadePalettesToBlack
 	ret
 
 .jump_4205:
@@ -238,7 +238,7 @@ Func_07_4195::
 	jr z, .jump_421c
 	sub $08
 	ld [$cf65], a
-	call Func_00_2e12
+	call FadePalettesToBlack
 	ret
 
 .jump_4214:

@@ -342,9 +342,9 @@ Func_0f_427f::
 	or a
 	jr nz, .jump_429a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], $85
+	ld [hl], LOW(Anim_04_5685)
 	inc l
-	ld [hl], $56
+	ld [hl], HIGH(Anim_04_5685)
 .jump_429a:
 	call Func_00_18f5
 .jump_429d:
@@ -363,9 +363,9 @@ Func_0f_42a6::
 	jr nz, .jump_42be
 	set 7, [hl]
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], $bd
+	ld [hl], LOW(Anim_04_56bd)
 	inc l
-	ld [hl], $56
+	ld [hl], HIGH(Anim_04_56bd)
 .jump_42be:
 	call Func_00_127d
 	jp NextObject
@@ -809,7 +809,7 @@ Func_0f_4568::
 	ld a, [hli]
 .jump_4589:
 	ld d, [hl]
-	ld hl, $c449
+	ld hl, wLevelEntrance
 	ld [hli], a
 	ld [hl], d
 	ld de, $5fb7

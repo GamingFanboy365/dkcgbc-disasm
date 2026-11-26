@@ -12,7 +12,9 @@
 
   python3 tools/gfx.py preview [baserom.gbc] [outdir]
       Assemble whole frames from their tiles and sprite offsets into
-      gfx/preview/ (not part of the build) so they can be looked at.
+      gfx/preview/ (not part of the build) so they can be looked at, in
+      each frame's object palette when it can be worked out (see
+      tools/frame_palettes.py; index.csv says which).
 
 Frame PNG layout: one 8x16 sprite per column, left to right in drawing
 order, so a frame with n tiles is (n / 2 * 8) x 16 pixels. Colors are
@@ -216,13 +218,32 @@ def extract(rom, force=False):
     print("frame PNGs: %d written, %d already present" % (written, kept))
 
 
-def preview(rom, outdir):
-    """Assemble each frame into one image using its sprite offsets."""
+GRAY_PREVIEW = [(0xE8, 0xF0, 0xE8), (0xA8, 0xB8, 0xA8), (0x58, 0x68, 0x58), (0x10, 0x18, 0x10)]
+BACKDROP = (0xE8, 0xF0, 0xE8)
+
+
+def preview(rom, outdir, colored=True):
+    """Assemble each frame into one image using its sprite offsets, in its
+    object palette where tools/frame_palettes.py can work it out. Also
+    writes index.csv: file, frame header, palette, how it was found."""
     count = 0
-    pal = [(0xE8, 0xF0, 0xE8), (0xA8, 0xB8, 0xA8), (0x58, 0x68, 0x58), (0x10, 0x18, 0x10)]
+    fp = None
+    if colored:
+        from frame_palettes import FramePalettes
+        fp = FramePalettes(rom)
+    index = ["file,frame_header,palette,source"]
     for (a, tiles, spr, n, gb) in frames(rom):
         if n == 0:
             continue
+        pal, how = GRAY_PREVIEW, "none"
+        pid = None
+        if fp is not None:
+            pid, inferred = fp.palette_of(a)
+            if pid is not None:
+                pal = [BACKDROP] + fp.colors(pid)[1:]
+                how = "inferred" if inferred else "object"
+        name = "%02x_%04x.png" % (gb, tiles)
+        index.append("%s,$%04x,%s,%s" % (name, a, "" if pid is None else "%d" % pid, how))
         o = off(gb, tiles)
         _, strip = tiles_to_rows(rom[o:o + n * 16])
         so = off(gb, spr)
@@ -244,8 +265,10 @@ def preview(rom, outdir):
                     v = strip[r][k * 8 + c]
                     if v:
                         canvas[py - y0 + r][px - x0 + c] = v
-        write_png(os.path.join(outdir, "%02x_%04x.png" % (gb, tiles)), w, h, canvas, pal)
+        write_png(os.path.join(outdir, name), w, h, canvas, pal)
         count += 1
+    with open(os.path.join(outdir, "index.csv"), "w") as f:
+        f.write("\n".join(index) + "\n")
     print("wrote %d previews to %s" % (count, outdir))
 
 

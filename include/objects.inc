@@ -68,7 +68,14 @@ DEF OBJ_VAR_3E        EQU $3e
 DEF OBJ_VAR_3F        EQU $3f
 
 ; Other RAM (from RAM_NAMES in tools/hints.py)
+DEF wBGPalettes       EQU $c100
+DEF wOBJPalettes      EQU $c180
+DEF wBGPalettesOut    EQU $c200
+DEF wOBJPalettesOut   EQU $c280
+DEF wPaletteUpdate    EQU $c311
+DEF wPaletteBrightness EQU $c312
 DEF wObjectFreeList   EQU $c400
 DEF wObjectFreeCount  EQU $c440
+DEF wLevelEntrance    EQU $c449
 
 ENDC

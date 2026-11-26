@@ -113,7 +113,8 @@ class Emitter:
                 elif kind == "func":
                     self.names[o] = "Func_%02x_%04x" % (bank, addr)
                 elif kind.startswith("data:"):
-                    self.names[o] = "%s_%02x_%04x" % (kind[5:], bank, addr)
+                    pfx = kind[5:]
+                    self.names[o] = pfx[1:] if pfx.startswith("=") else "%s_%02x_%04x" % (pfx, bank, addr)
             # Jump targets become locals of the preceding global label; a
             # jump target with no preceding global becomes global itself.
             globals_sorted = sorted(o for o, _ in items if o in self.names)
@@ -319,6 +320,54 @@ class Emitter:
                 else:
                     res.append((fo, "dw %s, %s\n\tdb %d, %s" % (hexw(tiles), hexw(spr), n, hexb(gb))))
             return res
+        if kind == "palette":
+            rom = self.rom
+            res = []
+            for k in range(item[2]):
+                cols = []
+                for c in range(4):
+                    v = rom[o + 8 * k + 2 * c] | rom[o + 8 * k + 2 * c + 1] << 8
+                    cols.append("%2d, %2d, %2d" % (v & 31, v >> 5 & 31, v >> 10 & 31))
+                res.append((o if k == 0 else None, "rgb " + ",  ".join(cols)))
+            return res
+        if kind == "preload":
+            return [(o, "obj_pal_preload " + ", ".join("%d" % x for x in item[2]))]
+        if kind == "framestruct":
+            fb = self.t.frame_bank
+            recs, cols = item[2]
+            return [(o if k == 0 else None,
+                     "dw " + ", ".join((self.qref(fb, v) or hexw(v)) if j in cols else hexw(v) for j, v in enumerate(r)))
+                    for k, r in enumerate(recs)]
+        if kind == "animptrs":
+            ab = self.t.anim_bank
+            names = [self.qref(ab, v) or hexw(v) for v in item[2]]
+            return [(o if k == 0 else None, "dw " + ", ".join(names[k:k + 4])) for k in range(0, len(names), 4)]
+        if kind == "frameptrs":
+            fb = self.t.frame_bank
+            names = [self.qref(fb, v) or hexw(v) for v in item[2]]
+            return [(o if k == 0 else None, "dw " + ", ".join(names[k:k + 4])) for k in range(0, len(names), 4)]
+        if kind == "leveltable":
+            res = []
+            for k, (a, b) in enumerate(item[2]):
+                la = self.qref(bank, a) if a else "0"
+                lb = self.qref(bank, b) if b else "0"
+                res.append((o if k == 0 else None, "dw %s, %s ; level $%02x" % (la or hexw(a), lb or hexw(b), k)))
+            return res
+        if kind == "levelentrance":
+            r = self.rom[o:o + 8]
+            d = r[0] | r[1] << 8
+            return [(o, "dw %s" % (self.qref(bank, d) or hexw(d))),
+                    (None, "db " + ", ".join(hexb(x) for x in r[2:]))]
+        if kind == "leveldesc":
+            r = self.rom[o:o + 12]
+            w = lambda i: r[i] | r[i + 1] << 8  # noqa: E731
+            pb = self.t.palette_bank
+            return [(o, "db %s" % hexb(r[0])),
+                    (None, "dw %s ; BG palettes" % (self.qref(pb, w(1)) or hexw(w(1)))),
+                    (None, "dw %s ; OBJ palettes to preload" % (self.qref(pb, w(3)) or hexw(w(3)))),
+                    (None, "dw %s, %s ; passed to Func_00_0b4f and Func_00_1715" % (hexw(w(5)), hexw(w(7)))),
+                    (None, "db %s ; bank of the second pointer" % hexb(r[9])),
+                    (None, "db %s, %s" % (hexb(r[10]), hexb(r[11])))]
         if kind == "anim":
             res = []
             for ent in item[2]:

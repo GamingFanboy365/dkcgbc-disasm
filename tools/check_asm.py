@@ -178,6 +178,10 @@ class Asm:
             return 1
         if m in ANIM_SIZES:
             return ANIM_SIZES[m]
+        if m == "rgb":
+            return 2 * len(split_args(rest)) // 3
+        if m == "obj_pal_preload":
+            return 1 + len(split_args(rest))
         if s in EXACT:
             return len(EXACT[s])
         shp, _ = shape_of(s)
@@ -227,6 +231,16 @@ class Asm:
                 return self.incbin(a[0])
             st, n = ev(a[1]), ev(a[2])
             return base[st:st + n]
+        if m == "rgb":
+            a = [ev(x) for x in split_args(rest)]
+            out = bytearray()
+            for k in range(0, len(a), 3):
+                v = a[k] | a[k + 1] << 5 | a[k + 2] << 10
+                out += bytes([v & 0xFF, v >> 8])
+            return bytes(out)
+        if m == "obj_pal_preload":
+            a = split_args(rest)
+            return bytes([len(a)] + [ev(x) for x in a])
         if m in ANIM_SIZES:
             a = split_args(rest)
             if m == "anim_frame":

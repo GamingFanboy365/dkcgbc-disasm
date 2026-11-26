@@ -172,6 +172,9 @@ class Tracer:
         self.lohi = []           # (lo insn off, hi insn off, bank, target) pointer stores
         self.second_program = set()
         self.frame_headers = set()
+        self.preload_funcs = set()
+        self.field_stores = {}   # insn offset -> (object field, value, is player)
+        self.palette_bank = 0x80
         self.candidates = []
         self.fell_into_old = False
 
@@ -205,6 +208,7 @@ class Tracer:
         hist = []
         hl_insn = None
         objfield = None
+        player = False
         prev = None
         while True:
             o = off(bank, addr)
@@ -237,6 +241,10 @@ class Tracer:
                         self.add(a, h << 8 | l, "func", a)
                     else:
                         self.unresolved.append((None, 0, "farcall@%02x:%04x" % (bank, addr)))
+            if i.flow in ("call", "jp") and i.target in self.preload_funcs:
+                h, l = regs["h"], regs["l"]
+                if None not in (h, l) and 0x4000 <= (h << 8 | l) < 0x8000:
+                    self.preload_ref(h << 8 | l, hl_insn)
             if i.flow in ("call", "jp") and i.target in self.obj_init_funcs:
                 h, l = regs["h"], regs["l"]
                 if None not in (h, l):
@@ -268,10 +276,17 @@ class Tracer:
                         self.candidates.append((tb, ptr))
                         if fld is not None:
                             self.lohi.append((hist[0][0], hist[2][0], tb, ptr))
-            # which object field (if any) hl points at
-            if i.op in (0x09, 0x19) and prev is not None and prev.op == 0x21 \
-                    and 0xC800 <= prev.imm < 0xC840 and bank not in self.second_program:
-                objfield = prev.imm - 0xC800
+            # byte stores into object fields, e.g. OBJ_PALETTE (used by
+            # tools/frame_palettes.py)
+            if i.op == 0x36 and objfield is not None:
+                self.field_stores[o] = (objfield, i.imm, player)
+            # which object field (if any) hl points at: "ld hl, wObjects + F"
+            # then "add hl, bc" (any object) or no add (the player, slot 0)
+            if i.op == 0x21 and 0xC800 <= i.imm < 0xC840 and bank not in self.second_program:
+                objfield = i.imm - 0xC800
+                player = True
+            elif i.op in (0x09, 0x19) and objfield is not None and prev is not None and prev.op == 0x21:
+                player = False
             elif objfield is not None and i.op in (0x2C, 0x23, 0x22, 0x2A):
                 objfield += 1
             elif objfield is not None and i.op in (0x2D, 0x2B, 0x32, 0x3A):
@@ -477,6 +492,132 @@ class Tracer:
         for j in range(6 * count):
             self.owner[o0 + j] = -1
 
+    # -------------------------------------------------------------- palettes
+    def _claim(self, bank, addr, length, kind, payload, label):
+        o = off(bank, addr)
+        if o in self.data:
+            return True
+        if any(o + j in self.owner for j in range(length)):
+            self.conflicts.append((bank, addr, kind + "-overlap"))
+            return False
+        self.data[o] = (kind, bank, payload, length)
+        if label:
+            self.data_labels[o] = label
+        for j in range(length):
+            self.owner[o + j] = -1
+        return True
+
+    def parse_palettes(self, cfg):
+        """Object palettes, BG palette sets and preload lists (bank $80).
+        Labels starting with '=' are used verbatim by the emitter."""
+        bank = cfg["bank"]
+        a, n = cfg["obj_palettes"]
+        for k in range(n):
+            self._claim(bank, a + 8 * k, 8, "palette", 1, "=ObjPalette_%02X" % k)
+        a, n = cfg["bg_palette_sets"]
+        for k in range(n):
+            self._claim(bank, a + 64 * k, 64, "palette", 8, "=BGPaletteSet_%02X" % k)
+        a, end = cfg["preload_lists"]
+        while a < end:
+            self.preload_ref(a)
+            a += 1 + self.rom[off(bank, a)]
+
+    def preload_ref(self, ptr, src=None):
+        bank = self.palette_bank
+        o = off(bank, ptr)
+        n = self.rom[o]
+        if o not in self.data:
+            self._claim(bank, ptr, 1 + n, "preload", list(self.rom[o + 1:o + 1 + n]), "ObjPalPreload")
+        if src is not None and o in self.data:
+            src.dataref = (bank, ptr)
+
+    def parse_levels(self, cfg):
+        """Level table -> entrance records (8 bytes) -> level descriptors
+        (12 bytes). Only far enough to label what descriptors point at."""
+        bank, start, count = cfg["table"]
+        rom = self.rom
+        # whole runs first, so records only warps reach are decoded too
+        rs, re_ = cfg["entrances"]
+        for a in range(rs, re_, 8):
+            self._claim(bank, a, 8, "levelentrance", None, "LevelEntrance")
+        ds, de = cfg["descriptors"]
+        for a in range(ds, de, 12):
+            if self._claim(bank, a, 12, "leveldesc", None, "LevelDesc"):
+                d = a
+                self.preload_ref(rom[off(bank, d + 3)] | rom[off(bank, d + 4)] << 8)
+        rd = lambda a: rom[off(bank, a)] | rom[off(bank, a) + 1] << 8  # noqa: E731
+        self._claim(bank, start, 4 * count, "leveltable", [(rd(start + 4 * k), rd(start + 4 * k + 2)) for k in range(count)], "=LevelTable")
+        for k in range(count):
+            for rec in (rd(start + 4 * k), rd(start + 4 * k + 2)):
+                if not rec:
+                    continue
+                self._claim(bank, rec, 8, "levelentrance", None, "LevelEntrance")
+                d = rd(rec)
+                if off(bank, d) in self.data:
+                    continue
+                if self._claim(bank, d, 12, "leveldesc", None, "LevelDesc"):
+                    self.preload_ref(rd(d + 3))
+
+    def parse_frame_struct(self, bank, start, count, width, frame_cols):
+        """count records of `width` words; the words in frame_cols are frame
+        header pointers, the others plain values."""
+        rom = self.rom
+        recs = []
+        for k in range(count):
+            a = start + 2 * width * k
+            recs.append([rom[off(bank, a + 2 * j)] | rom[off(bank, a + 2 * j) + 1] << 8 for j in range(width)])
+        self._claim(bank, start, 2 * width * count, "framestruct", (recs, set(frame_cols)), "FrameTable")
+
+    def scan_anim_tables(self, banks, minimum=3):
+        """Find tables of animation script pointers in unclaimed bytes: runs
+        of at least `minimum` words that are all labelled script starts."""
+        rom = self.rom
+        valid = set((o % BANK_SIZE) + 0x4000 for o, p in self.data_labels.items()
+                    if p == "Anim" and o // BANK_SIZE == self.anim_bank)
+        found = []
+        for b in banks:
+            base = b * BANK_SIZE
+            for parity in (0, 1):
+                run = []
+                for a in range(parity, BANK_SIZE - 1, 2):
+                    o = base + a
+                    v = rom[o] | rom[o + 1] << 8
+                    if o not in self.owner and o + 1 not in self.owner and v in valid:
+                        run.append(v)
+                        continue
+                    if len(run) >= minimum and len(set(run)) > 1:
+                        found.append((b, a - 2 * len(run), list(run)))
+                    run = []
+        for (b, a, run) in found:
+            self._claim(b, a + (0x4000 if b else 0), 2 * len(run), "animptrs", run, "AnimTable")
+        return found
+
+    def scan_frame_tables(self, banks, minimum=4):
+        """Find tables of frame header pointers in bytes nothing else claims:
+        runs of at least `minimum` words that are all frame headers (not the
+        empty one) and not all the same."""
+        rom = self.rom
+        valid = set((o % BANK_SIZE) + 0x4000 for o in self.frame_headers) - {0x4000}
+        found = []
+        for b in banks:
+            base = b * BANK_SIZE
+            for parity in (0, 1):
+                run = []
+                for a in range(parity, BANK_SIZE - 1, 2):
+                    o = base + a
+                    v = rom[o] | rom[o + 1] << 8
+                    if o not in self.owner and o + 1 not in self.owner and v in valid:
+                        run.append(v)
+                        continue
+                    if len(run) >= minimum and len(set(run)) > 1:
+                        found.append((b, a - 2 * len(run), list(run)))
+                    run = []
+        for (b, a, run) in found:
+            addr = a + (0x4000 if b else 0)
+            if self._claim(b, addr, 2 * len(run), "frameptrs", run, "FrameTable"):
+                pass
+        return found
+
     def parse_obj_run(self, bank, start, end):
         """Parse consecutive object initialiser lists in [start, end)."""
         a = start
@@ -556,6 +697,7 @@ class Speculator:
         t.data.update(trial.data.maps[0])
         t.data_labels.update(trial.data_labels.maps[0])
         t.lohi += trial.lohi
+        t.field_stores.update(trial.field_stores)
         for (ib, ia), src in []:
             pass
         t.jphl += trial.jphl

@@ -3604,5 +3604,2021 @@ Func_04_57a7::
 	pop bc
 	ret
 
-	INCBIN "baserom.gbc", $0117b4, $284c ; $57b4
+
+LevelTable::
+	dw 0, 0 ; level $00
+	dw LevelEntrance_04_5bf4, LevelEntrance_04_5bfc ; level $01
+	dw LevelEntrance_04_5bbc, LevelEntrance_04_5bc4 ; level $02
+	dw LevelEntrance_04_5c14, LevelEntrance_04_5c1c ; level $03
+	dw LevelEntrance_04_585c, LevelEntrance_04_5864 ; level $04
+	dw LevelEntrance_04_5884, LevelEntrance_04_588c ; level $05
+	dw LevelEntrance_04_58cc, LevelEntrance_04_58d4 ; level $06
+	dw LevelEntrance_04_58f4, LevelEntrance_04_58fc ; level $07
+	dw LevelEntrance_04_5d3c, LevelEntrance_04_5d44 ; level $08
+	dw LevelEntrance_04_5d14, LevelEntrance_04_5d1c ; level $09
+	dw LevelEntrance_04_5d5c, LevelEntrance_04_5d64 ; level $0a
+	dw LevelEntrance_04_5dd4, LevelEntrance_04_5ddc ; level $0b
+	dw LevelEntrance_04_5d84, LevelEntrance_04_5d8c ; level $0c
+	dw LevelEntrance_04_5c9c, LevelEntrance_04_5ca4 ; level $0d
+	dw LevelEntrance_04_5c7c, LevelEntrance_04_5c84 ; level $0e
+	dw LevelEntrance_04_5cc4, LevelEntrance_04_5ccc ; level $0f
+	dw LevelEntrance_04_5c64, LevelEntrance_04_5c6c ; level $10
+	dw LevelEntrance_04_59d4, LevelEntrance_04_59dc ; level $11
+	dw LevelEntrance_04_59c4, LevelEntrance_04_59cc ; level $12
+	dw LevelEntrance_04_59a4, LevelEntrance_04_59ac ; level $13
+	dw LevelEntrance_04_59b4, LevelEntrance_04_59bc ; level $14
+	dw LevelEntrance_04_5e5c, LevelEntrance_04_5e64 ; level $15
+	dw LevelEntrance_04_5e84, LevelEntrance_04_5e8c ; level $16
+	dw LevelEntrance_04_5dfc, LevelEntrance_04_5e04 ; level $17
+	dw LevelEntrance_04_5e24, LevelEntrance_04_5e2c ; level $18
+	dw LevelEntrance_04_5a44, LevelEntrance_04_5a4c ; level $19
+	dw LevelEntrance_04_5a64, LevelEntrance_04_5a6c ; level $1a
+	dw LevelEntrance_04_5b1c, LevelEntrance_04_5b24 ; level $1b
+	dw LevelEntrance_04_5b44, LevelEntrance_04_5b4c ; level $1c
+	dw LevelEntrance_04_59ec, LevelEntrance_04_59f4 ; level $1d
+	dw LevelEntrance_04_58ac, LevelEntrance_04_58b4 ; level $1e
+	dw LevelEntrance_04_5a9c, LevelEntrance_04_5aa4 ; level $1f
+	dw LevelEntrance_04_5ac4, LevelEntrance_04_5acc ; level $20
+	dw LevelEntrance_04_5b8c, LevelEntrance_04_5b94 ; level $21
+	dw LevelEntrance_04_591c, LevelEntrance_04_5924 ; level $22
+	dw LevelEntrance_04_5f84, 0 ; level $23
+	dw LevelEntrance_04_5f8c, 0 ; level $24
+	dw LevelEntrance_04_5f94, 0 ; level $25
+	dw LevelEntrance_04_5f9c, 0 ; level $26
+	dw LevelEntrance_04_5fa4, 0 ; level $27
+	dw LevelEntrance_04_5fac, 0 ; level $28
+	dw LevelEntrance_04_5fb4, 0 ; level $29
+
+LevelEntrance_04_585c::
+	dw LevelDesc_04_606c
+	db $01, $30, $00, $ab, $00, $00
+
+LevelEntrance_04_5864::
+	dw LevelDesc_04_606c
+	db $02, $5e, $0a, $78, $00, $03
+
+LevelEntrance_04_586c::
+	dw LevelDesc_04_606c
+	db $03, $0c, $05, $9b, $00, $00
+
+LevelEntrance_04_5874::
+	dw LevelDesc_04_606c
+	db $03, $b5, $05, $4f, $00, $00
+
+LevelEntrance_04_587c::
+	dw LevelDesc_04_606c
+	db $03, $25, $0d, $ac, $00, $00
+
+LevelEntrance_04_5884::
+	dw LevelDesc_04_6078
+	db $01, $30, $00, $4b, $01, $00
+
+LevelEntrance_04_588c::
+	dw LevelDesc_04_6078
+	db $02, $d4, $0c, $fb, $00, $03
+
+LevelEntrance_04_5894::
+	dw LevelDesc_04_6078
+	db $03, $5a, $0a, $c8, $00, $00
+
+LevelEntrance_04_589c::
+	dw LevelDesc_04_6078
+	db $03, $71, $11, $75, $00, $00
+
+LevelEntrance_04_58a4::
+	dw LevelDesc_04_6078
+	db $03, $b0, $1f, $b8, $00, $00
+
+LevelEntrance_04_58ac::
+	dw LevelDesc_04_6084
+	db $01, $30, $00, $0b, $01, $00
+
+LevelEntrance_04_58b4::
+	dw LevelDesc_04_6084
+	db $02, $ec, $06, $0b, $01, $03
+
+LevelEntrance_04_58bc::
+	dw LevelDesc_04_6084
+	db $03, $2c, $09, $7e, $00, $00
+
+LevelEntrance_04_58c4::
+	dw LevelDesc_04_6084
+	db $03, $78, $0f, $78, $00, $00
+
+LevelEntrance_04_58cc::
+	dw LevelDesc_04_6090
+	db $01, $48, $00, $2c, $01, $00
+
+LevelEntrance_04_58d4::
+	dw LevelDesc_04_6090
+	db $02, $83, $0c, $c7, $00, $03
+
+LevelEntrance_04_58dc::
+	dw LevelDesc_04_6090
+	db $03, $62, $11, $13, $01, $00
+
+LevelEntrance_04_58e4::
+	dw LevelDesc_04_6090
+	db $03, $f9, $1d, $43, $01, $00
+
+LevelEntrance_04_58ec::
+	dw LevelDesc_04_6090
+	db $03, $3c, $20, $46, $01, $00
+
+LevelEntrance_04_58f4::
+	dw LevelDesc_04_609c
+	db $01, $37, $00, $09, $01, $00
+
+LevelEntrance_04_58fc::
+	dw LevelDesc_04_609c
+	db $02, $1e, $11, $50, $00, $03
+
+LevelEntrance_04_5904::
+	dw LevelDesc_04_609c
+	db $03, $e6, $00, $07, $01, $00
+
+LevelEntrance_04_590c::
+	dw LevelDesc_04_609c
+	db $03, $92, $10, $5e, $00, $00
+
+LevelEntrance_04_5914::
+	dw LevelDesc_04_609c
+	db $03, $41, $24, $cf, $00, $00
+
+LevelEntrance_04_591c::
+	dw LevelDesc_04_60a8
+	db $01, $35, $00, $cc, $00, $00
+
+LevelEntrance_04_5924::
+	dw LevelDesc_04_60a8
+	db $02, $55, $0e, $01, $01, $03
+
+LevelEntrance_04_592c::
+	dw LevelDesc_04_60a8
+	db $03, $ca, $06, $39, $00, $00
+
+LevelEntrance_04_5934::
+	dw LevelDesc_04_60b4
+	db $03, $30, $00, $5d, $00, $00
+
+LevelEntrance_04_593c::
+	dw LevelDesc_04_60c0
+	db $03, $34, $00, $aa, $00, $00
+
+LevelEntrance_04_5944::
+	dw LevelDesc_04_60cc
+	db $03, $30, $00, $44, $01, $00
+
+LevelEntrance_04_594c::
+	dw LevelDesc_04_60d8
+	db $03, $30, $00, $b5, $00, $00
+
+LevelEntrance_04_5954::
+	dw LevelDesc_04_60e4
+	db $03, $30, $00, $62, $00, $00
+
+LevelEntrance_04_595c::
+	dw LevelDesc_04_60f0
+	db $03, $4d, $00, $26, $01, $00
+
+LevelEntrance_04_5964::
+	dw LevelDesc_04_60fc
+	db $03, $35, $00, $8a, $00, $00
+
+LevelEntrance_04_596c::
+	dw LevelDesc_04_6108
+	db $03, $4f, $00, $1d, $01, $00
+
+LevelEntrance_04_5974::
+	dw LevelDesc_04_6114
+	db $03, $35, $00, $6b, $00, $00
+
+LevelEntrance_04_597c::
+	dw LevelDesc_04_6120
+	db $43, $b0, $00, $8a, $00, $00
+
+LevelEntrance_04_5984::
+	dw LevelDesc_04_612c
+	db $03, $35, $00, $64, $00, $00
+
+LevelEntrance_04_598c::
+	dw LevelDesc_04_6138
+	db $03, $35, $00, $64, $00, $00
+
+LevelEntrance_04_5994::
+	dw LevelDesc_04_6144
+	db $03, $35, $00, $64, $00, $00
+
+LevelEntrance_04_599c::
+	dw LevelDesc_04_6150
+	db $03, $35, $00, $64, $00, $00
+
+LevelEntrance_04_59a4::
+	dw LevelDesc_04_615c
+	db $01, $6f, $00, $54, $04, $00
+
+LevelEntrance_04_59ac::
+	dw LevelDesc_04_615c
+	db $42, $8b, $02, $43, $02, $03
+
+LevelEntrance_04_59b4::
+	dw LevelDesc_04_6168
+	db $01, $8b, $00, $dd, $04, $00
+
+LevelEntrance_04_59bc::
+	dw LevelDesc_04_6168
+	db $42, $01, $03, $a8, $02, $03
+
+LevelEntrance_04_59c4::
+	dw LevelDesc_04_6174
+	db $01, $c4, $00, $8c, $0a, $00
+
+LevelEntrance_04_59cc::
+	dw LevelDesc_04_6174
+	db $02, $44, $01, $92, $05, $03
+
+LevelEntrance_04_59d4::
+	dw LevelDesc_04_6180
+	db $01, $8e, $01, $75, $0a, $00
+
+LevelEntrance_04_59dc::
+	dw LevelDesc_04_6180
+	db $02, $f9, $02, $21, $05, $03
+
+LevelEntrance_04_59e4::
+	dw LevelDesc_04_618c
+	db $03, $50, $02, $50, $02, $00
+
+LevelEntrance_04_59ec::
+	dw LevelDesc_04_6258
+	db $01, $43, $00, $e6, $07, $00
+
+LevelEntrance_04_59f4::
+	dw LevelDesc_04_6258
+	db $42, $57, $01, $c1, $05, $03
+
+LevelEntrance_04_59fc::
+	dw LevelDesc_04_6258
+	db $03, $43, $00, $e6, $06, $00
+
+LevelEntrance_04_5a04::
+	dw LevelDesc_04_6258
+	db $03, $5c, $04, $68, $03, $00
+
+LevelEntrance_04_5a0c::
+	dw LevelDesc_04_6258
+	db $03, $54, $04, $46, $08, $00
+
+LevelEntrance_04_5a14::
+	dw LevelDesc_04_6258
+	db $03, $2e, $03, $90, $01, $00
+
+LevelEntrance_04_5a1c::
+	dw LevelDesc_04_6264
+	db $43, $8c, $00, $88, $00, $00
+
+LevelEntrance_04_5a24::
+	dw LevelDesc_04_6270
+	db $63, $8c, $00, $88, $00, $00
+
+LevelEntrance_04_5a2c::
+	dw LevelDesc_04_627c
+	db $43, $a1, $00, $88, $00, $00
+
+LevelEntrance_04_5a34::
+	dw LevelDesc_04_6288
+	db $03, $43, $00, $7f, $00, $00
+
+LevelEntrance_04_5a3c::
+	dw LevelDesc_04_6294
+	db $23, $43, $00, $7f, $00, $00
+
+LevelEntrance_04_5a44::
+	dw LevelDesc_04_6030
+	db $01, $66, $00, $c8, $00, $00
+
+LevelEntrance_04_5a4c::
+	dw LevelDesc_04_6030
+	db $02, $2e, $0e, $d2, $00, $03
+
+LevelEntrance_04_5a54::
+	dw LevelDesc_04_6030
+	db $03, $c6, $01, $53, $00, $00
+
+LevelEntrance_04_5a5c::
+	dw LevelDesc_04_6030
+	db $03, $0f, $15, $85, $00, $00
+
+LevelEntrance_04_5a64::
+	dw LevelDesc_04_603c
+	db $01, $49, $00, $da, $00, $00
+
+LevelEntrance_04_5a6c::
+	dw LevelDesc_04_603c
+	db $02, $57, $0b, $bb, $00, $03
+
+LevelEntrance_04_5a74::
+	dw LevelDesc_04_603c
+	db $03, $1d, $04, $95, $00, $00
+
+LevelEntrance_04_5a7c::
+	dw LevelDesc_04_603c
+	db $03, $f6, $15, $ce, $00, $00
+
+LevelEntrance_04_5a84::
+	dw LevelDesc_04_6048
+	db $03, $67, $00, $87, $00, $00
+
+LevelEntrance_04_5a8c::
+	dw LevelDesc_04_6054
+	db $03, $67, $00, $87, $00, $00
+
+LevelEntrance_04_5a94::
+	dw LevelDesc_04_6060
+	db $03, $4e, $00, $17, $01, $00
+
+LevelEntrance_04_5a9c::
+	dw LevelDesc_04_6198
+	db $01, $24, $00, $ac, $00, $00
+
+LevelEntrance_04_5aa4::
+	dw LevelDesc_04_6198
+	db $02, $63, $0d, $89, $00, $03
+
+LevelEntrance_04_5aac::
+	dw LevelDesc_04_6198
+	db $03, $96, $01, $65, $00, $00
+
+LevelEntrance_04_5ab4::
+	dw LevelDesc_04_6198
+	db $03, $39, $06, $43, $00, $00
+
+LevelEntrance_04_5abc::
+	dw LevelDesc_04_6198
+	db $03, $d5, $15, $91, $00, $00
+
+LevelEntrance_04_5ac4::
+	dw LevelDesc_04_61a4
+	db $01, $24, $00, $ac, $00, $00
+
+LevelEntrance_04_5acc::
+	dw LevelDesc_04_61a4
+	db $02, $60, $0e, $ce, $00, $03
+
+LevelEntrance_04_5ad4::
+	dw LevelDesc_04_61a4
+	db $03, $af, $1c, $a1, $00, $00
+
+LevelEntrance_04_5adc::
+	dw LevelDesc_04_61a4
+	db $03, $13, $22, $93, $00, $00
+
+LevelEntrance_04_5ae4::
+	dw LevelDesc_04_61b0
+	db $03, $2d, $00, $09, $01, $00
+
+LevelEntrance_04_5aec::
+	dw LevelDesc_04_61bc
+	db $03, $28, $00, $64, $00, $00
+
+LevelEntrance_04_5af4::
+	dw LevelDesc_04_61c8
+	db $03, $50, $00, $10, $01, $00
+
+LevelEntrance_04_5afc::
+	dw LevelDesc_04_61d4
+	db $03, $08, $00, $ab, $00, $00
+
+LevelEntrance_04_5b04::
+	dw LevelDesc_04_61e0
+	db $03, $20, $00, $ab, $00, $00
+
+LevelEntrance_04_5b0c::
+	dw LevelDesc_04_61ec
+	db $03, $32, $00, $ab, $00, $00
+
+LevelEntrance_04_5b14::
+	dw LevelDesc_04_61f8
+	db $23, $30, $00, $4b, $02, $00
+
+LevelEntrance_04_5b1c::
+	dw LevelDesc_04_6204
+	db $01, $40, $00, $ea, $00, $00
+
+LevelEntrance_04_5b24::
+	dw LevelDesc_04_6204
+	db $02, $7b, $0e, $75, $00, $03
+
+LevelEntrance_04_5b2c::
+	dw LevelDesc_04_6204
+	db $03, $78, $06, $aa, $00, $00
+
+LevelEntrance_04_5b34::
+	dw LevelDesc_04_6204
+	db $03, $20, $1c, $44, $00, $00
+
+LevelEntrance_04_5b3c::
+	dw LevelDesc_04_6204
+	db $03, $91, $0c, $7b, $00, $00
+
+LevelEntrance_04_5b44::
+	dw LevelDesc_04_6210
+	db $01, $40, $00, $ea, $00, $00
+
+LevelEntrance_04_5b4c::
+	dw LevelDesc_04_6210
+	db $02, $d3, $0c, $a7, $00, $03
+
+LevelEntrance_04_5b54::
+	dw LevelDesc_04_6210
+	db $03, $8c, $1c, $91, $00, $00
+
+LevelEntrance_04_5b5c::
+	dw LevelDesc_04_6210
+	db $03, $b3, $1e, $62, $00, $00
+
+LevelEntrance_04_5b64::
+	dw LevelDesc_04_621c
+	db $03, $28, $00, $7f, $00, $00
+
+LevelEntrance_04_5b6c::
+	dw LevelDesc_04_6228
+	db $03, $28, $00, $7f, $00, $00
+
+LevelEntrance_04_5b74::
+	dw LevelDesc_04_6234
+	db $03, $28, $00, $7f, $00, $00
+
+LevelEntrance_04_5b7c::
+	dw LevelDesc_04_6240
+	db $03, $28, $00, $7f, $00, $00
+
+LevelEntrance_04_5b84::
+	dw LevelDesc_04_624c
+	db $03, $28, $00, $05, $01, $00
+
+LevelEntrance_04_5b8c::
+	dw LevelDesc_04_5fc4
+	db $01, $24, $00, $80, $00, $02
+
+LevelEntrance_04_5b94::
+	dw LevelDesc_04_5fc4
+	db $02, $6e, $05, $b6, $00, $03
+
+LevelEntrance_04_5b9c::
+	dw LevelDesc_04_5fc4
+	db $03, $36, $00, $80, $00, $00
+
+LevelEntrance_04_5ba4::
+	dw LevelDesc_04_5fc4
+	db $03, $3f, $0c, $c0, $00, $00
+
+LevelEntrance_04_5bac::
+	dw LevelDesc_04_5fc4
+	db $03, $e8, $0c, $80, $00, $00
+
+LevelEntrance_04_5bb4::
+	dw LevelDesc_04_5fc4
+	db $03, $64, $00, $0b, $01, $00
+
+LevelEntrance_04_5bbc::
+	dw LevelDesc_04_5fd0
+	db $01, $76, $00, $88, $00, $00
+
+LevelEntrance_04_5bc4::
+	dw LevelDesc_04_5fd0
+	db $02, $b1, $0a, $a3, $00, $03
+
+LevelEntrance_04_5bcc::
+	dw LevelDesc_04_5fd0
+	db $03, $1f, $15, $37, $00, $00
+
+LevelEntrance_04_5bd4::
+	dw LevelDesc_04_5fd0
+	db $03, $ec, $0f, $81, $00, $00
+
+LevelEntrance_04_5bdc::
+	dw LevelDesc_04_5fd0
+	db $03, $1d, $16, $67, $00, $00
+
+LevelEntrance_04_5be4::
+	dw LevelDesc_04_5fd0
+	db $03, $7f, $16, $92, $00, $00
+
+LevelEntrance_04_5bec::
+	dw LevelDesc_04_5fd0
+	db $03, $4c, $19, $89, $00, $00
+
+LevelEntrance_04_5bf4::
+	dw LevelDesc_04_5fdc
+	db $01, $48, $00, $0a, $01, $00
+
+LevelEntrance_04_5bfc::
+	dw LevelDesc_04_5fdc
+	db $02, $72, $09, $68, $00, $03
+
+LevelEntrance_04_5c04::
+	dw LevelDesc_04_5fdc
+	db $03, $ad, $10, $74, $00, $00
+
+LevelEntrance_04_5c0c::
+	dw LevelDesc_04_5fdc
+	db $03, $bd, $14, $a1, $00, $00
+
+LevelEntrance_04_5c14::
+	dw LevelDesc_04_5fe8
+	db $01, $48, $00, $4a, $01, $00
+
+LevelEntrance_04_5c1c::
+	dw LevelDesc_04_5fe8
+	db $02, $bf, $0f, $9a, $00, $03
+
+LevelEntrance_04_5c24::
+	dw LevelDesc_04_5fe8
+	db $43, $7a, $0f, $c1, $00, $00
+
+LevelEntrance_04_5c2c::
+	dw LevelDesc_04_5fe8
+	db $43, $1b, $12, $fa, $00, $00
+
+LevelEntrance_04_5c34::
+	dw LevelDesc_04_5ff4
+	db $01, $48, $00, $4a, $01, $00
+
+LevelEntrance_04_5c3c::
+	dw LevelDesc_04_5ff4
+	db $02, $8a, $00, $72, $00, $03
+
+LevelEntrance_04_5c44::
+	dw LevelDesc_04_6000
+	db $03, $6f, $00, $88, $00, $00
+
+LevelEntrance_04_5c4c::
+	dw LevelDesc_04_600c
+	db $03, $3e, $00, $8a, $00, $00
+
+LevelEntrance_04_5c54::
+	dw LevelDesc_04_6018
+	db $03, $70, $00, $1c, $01, $00
+
+LevelEntrance_04_5c5c::
+	dw LevelDesc_04_6024
+	db $03, $3a, $00, $66, $00, $00
+
+LevelEntrance_04_5c64::
+	dw LevelDesc_04_62a0
+	db $01, $10, $00, $a8, $00, $00
+
+LevelEntrance_04_5c6c::
+	dw LevelDesc_04_62a0
+	db $02, $7c, $17, $88, $01, $03
+
+LevelEntrance_04_5c74::
+	dw LevelDesc_04_62a0
+	db $03, $34, $37, $73, $01, $00
+
+LevelEntrance_04_5c7c::
+	dw LevelDesc_04_62ac
+	db $01, $24, $00, $08, $01, $00
+
+LevelEntrance_04_5c84::
+	dw LevelDesc_04_62ac
+	db $02, $77, $0d, $2b, $00, $03
+
+LevelEntrance_04_5c8c::
+	dw LevelDesc_04_62ac
+	db $03, $7d, $0f, $b6, $00, $00
+
+LevelEntrance_04_5c94::
+	dw LevelDesc_04_62ac
+	db $03, $7e, $15, $25, $00, $00
+
+LevelEntrance_04_5c9c::
+	dw LevelDesc_04_62b8
+	db $01, $24, $00, $08, $01, $00
+
+LevelEntrance_04_5ca4::
+	dw LevelDesc_04_62b8
+	db $02, $3d, $10, $8a, $00, $03
+
+LevelEntrance_04_5cac::
+	dw LevelDesc_04_62b8
+	db $03, $89, $16, $cd, $00, $00
+
+LevelEntrance_04_5cb4::
+	dw LevelDesc_04_62b8
+	db $03, $98, $1a, $b6, $00, $00
+
+LevelEntrance_04_5cbc::
+	dw LevelDesc_04_62b8
+	db $03, $95, $16, $c4, $00, $00
+
+LevelEntrance_04_5cc4::
+	dw LevelDesc_04_62c4
+	db $01, $24, $00, $a8, $01, $00
+
+LevelEntrance_04_5ccc::
+	dw LevelDesc_04_62c4
+	db $02, $df, $0f, $0b, $01, $03
+
+LevelEntrance_04_5cd4::
+	dw LevelDesc_04_62c4
+	db $03, $75, $02, $1c, $01, $00
+
+LevelEntrance_04_5cdc::
+	dw LevelDesc_04_62c4
+	db $03, $18, $18, $0d, $01, $00
+
+LevelEntrance_04_5ce4::
+	dw LevelDesc_04_62d0
+	db $03, $28, $00, $c0, $00, $00
+
+LevelEntrance_04_5cec::
+	dw LevelDesc_04_62dc
+	db $03, $1e, $00, $7f, $00, $00
+
+LevelEntrance_04_5cf4::
+	dw LevelDesc_04_62e8
+	db $03, $1e, $00, $c4, $00, $00
+
+LevelEntrance_04_5cfc::
+	dw LevelDesc_04_62f4
+	db $03, $14, $00, $08, $01, $00
+
+LevelEntrance_04_5d04::
+	dw LevelDesc_04_6300
+	db $03, $4d, $00, $0c, $01, $00
+
+LevelEntrance_04_5d0c::
+	dw LevelDesc_04_630c
+	db $03, $24, $00, $a8, $01, $00
+
+LevelEntrance_04_5d14::
+	dw LevelDesc_04_63b4
+	db $01, $20, $00, $4e, $01, $00
+
+LevelEntrance_04_5d1c::
+	dw LevelDesc_04_63b4
+	db $02, $f4, $14, $c8, $00, $03
+
+LevelEntrance_04_5d24::
+	dw LevelDesc_04_63b4
+	db $03, $72, $14, $d7, $00, $00
+
+LevelEntrance_04_5d2c::
+	dw LevelDesc_04_63b4
+	db $03, $f4, $14, $c8, $00, $00
+
+LevelEntrance_04_5d34::
+	dw LevelDesc_04_63b4
+	db $03, $c0, $2e, $bc, $00, $00
+
+LevelEntrance_04_5d3c::
+	dw LevelDesc_04_63c0
+	db $01, $20, $00, $86, $01, $00
+
+LevelEntrance_04_5d44::
+	dw LevelDesc_04_63c0
+	db $02, $96, $12, $fc, $00, $03
+
+LevelEntrance_04_5d4c::
+	dw LevelDesc_04_63c0
+	db $03, $ea, $01, $50, $01, $00
+
+LevelEntrance_04_5d54::
+	dw LevelDesc_04_63c0
+	db $03, $13, $23, $da, $00, $00
+
+LevelEntrance_04_5d5c::
+	dw LevelDesc_04_63cc
+	db $01, $50, $00, $a1, $01, $00
+
+LevelEntrance_04_5d64::
+	dw LevelDesc_04_63cc
+	db $02, $31, $0f, $ef, $00, $03
+
+LevelEntrance_04_5d6c::
+	dw LevelDesc_04_63cc
+	db $03, $64, $02, $13, $01, $00
+
+LevelEntrance_04_5d74::
+	dw LevelDesc_04_63d8
+	db $03, $20, $00, $73, $00, $00
+
+LevelEntrance_04_5d7c::
+	dw LevelDesc_04_63e4
+	db $03, $20, $00, $73, $00, $00
+
+LevelEntrance_04_5d84::
+	dw LevelDesc_04_63f0
+	db $01, $20, $00, $e4, $00, $00
+
+LevelEntrance_04_5d8c::
+	dw LevelDesc_04_63f0
+	db $02, $d8, $0c, $21, $00, $03
+
+LevelEntrance_04_5d94::
+	dw LevelDesc_04_63f0
+	db $03, $e2, $07, $aa, $00, $00
+
+LevelEntrance_04_5d9c::
+	dw LevelDesc_04_63fc
+	db $03, $20, $00, $e4, $00, $00
+
+LevelEntrance_04_5da4::
+	dw LevelDesc_04_6408
+	db $03, $13, $00, $b7, $00, $00
+
+LevelEntrance_04_5dac::
+	dw LevelDesc_04_6414
+	db $03, $20, $00, $76, $00, $00
+
+LevelEntrance_04_5db4::
+	dw LevelDesc_04_6420
+	db $03, $20, $00, $76, $00, $00
+
+LevelEntrance_04_5dbc::
+	dw LevelDesc_04_642c
+	db $03, $20, $00, $76, $00, $00
+
+LevelEntrance_04_5dc4::
+	dw LevelDesc_04_6438
+	db $03, $1e, $00, $98, $00, $00
+
+LevelEntrance_04_5dcc::
+	dw LevelDesc_04_6444
+	db $03, $1a, $00, $97, $00, $00
+
+LevelEntrance_04_5dd4::
+	dw LevelDesc_04_6450
+	db $01, $20, $00, $61, $00, $00
+
+LevelEntrance_04_5ddc::
+	dw LevelDesc_04_6450
+	db $02, $ea, $13, $ce, $00, $03
+
+LevelEntrance_04_5de4::
+	dw LevelDesc_04_6450
+	db $03, $67, $0b, $ed, $00, $00
+
+LevelEntrance_04_5dec::
+	dw LevelDesc_04_6450
+	db $03, $bd, $1b, $54, $00, $00
+
+LevelEntrance_04_5df4::
+	dw LevelDesc_04_6450
+	db $03, $c4, $2b, $fa, $00, $00
+
+LevelEntrance_04_5dfc::
+	dw LevelDesc_04_6318
+	db $01, $24, $00, $65, $01, $00
+
+LevelEntrance_04_5e04::
+	dw LevelDesc_04_6318
+	db $02, $82, $13, $e5, $00, $03
+
+LevelEntrance_04_5e0c::
+	dw LevelDesc_04_6318
+	db $03, $6f, $01, $ad, $00, $00
+
+LevelEntrance_04_5e14::
+	dw LevelDesc_04_6318
+	db $03, $85, $13, $84, $00, $00
+
+LevelEntrance_04_5e1c::
+	dw LevelDesc_04_6318
+	db $03, $1c, $19, $a0, $00, $00
+
+LevelEntrance_04_5e24::
+	dw LevelDesc_04_6324
+	db $01, $c5, $01, $65, $01, $00
+
+LevelEntrance_04_5e2c::
+	dw LevelDesc_04_6324
+	db $02, $6e, $0e, $f9, $00, $03
+
+LevelEntrance_04_5e34::
+	dw LevelDesc_04_6324
+	db $03, $7a, $07, $84, $00, $00
+
+LevelEntrance_04_5e3c::
+	dw LevelDesc_04_6324
+	db $03, $e3, $15, $f7, $00, $00
+
+LevelEntrance_04_5e44::
+	dw LevelDesc_04_6330
+	db $03, $53, $00, $1d, $01, $00
+
+LevelEntrance_04_5e4c::
+	dw LevelDesc_04_633c
+	db $03, $3e, $00, $62, $00, $00
+
+LevelEntrance_04_5e54::
+	dw LevelDesc_04_6348
+	db $03, $33, $00, $1e, $01, $00
+
+LevelEntrance_04_5e5c::
+	dw LevelDesc_04_6354
+	db $01, $80, $00, $68, $01, $00
+
+LevelEntrance_04_5e64::
+	dw LevelDesc_04_6354
+	db $02, $3f, $0e, $cd, $00, $03
+
+LevelEntrance_04_5e6c::
+	dw LevelDesc_04_6354
+	db $03, $85, $02, $e6, $00, $00
+
+LevelEntrance_04_5e74::
+	dw LevelDesc_04_6354
+	db $03, $ad, $07, $df, $00, $00
+
+LevelEntrance_04_5e7c::
+	dw LevelDesc_04_6354
+	db $03, $45, $0b, $b1, $00, $00
+
+LevelEntrance_04_5e84::
+	dw LevelDesc_04_6360
+	db $01, $80, $00, $48, $01, $00
+
+LevelEntrance_04_5e8c::
+	dw LevelDesc_04_6360
+	db $02, $5e, $0f, $a8, $00, $03
+
+LevelEntrance_04_5e94::
+	dw LevelDesc_04_6360
+	db $03, $fd, $05, $86, $00, $00
+
+LevelEntrance_04_5e9c::
+	dw LevelDesc_04_6360
+	db $03, $08, $16, $62, $00, $00
+
+LevelEntrance_04_5ea4::
+	dw LevelDesc_04_636c
+	db $03, $4e, $00, $13, $01, $00
+
+LevelEntrance_04_5eac::
+	dw LevelDesc_04_6378
+	db $03, $36, $00, $70, $00, $00
+
+LevelEntrance_04_5eb4::
+	dw LevelDesc_04_6384
+	db $03, $36, $00, $70, $00, $00
+
+LevelEntrance_04_5ebc::
+	dw LevelDesc_04_6390
+	db $03, $3c, $00, $88, $00, $00
+
+LevelEntrance_04_5ec4::
+	dw LevelDesc_04_639c
+	db $03, $36, $00, $70, $00, $00
+
+LevelEntrance_04_5ecc::
+	dw LevelDesc_04_63a8
+	db $23, $36, $00, $70, $00, $00
+
+LevelEntrance_04_5ed4::
+	dw LevelDesc_04_645c
+	db $43, $10, $08, $6a, $01, $00
+
+LevelEntrance_04_5edc::
+	dw LevelDesc_04_6468
+	db $03, $1e, $00, $7e, $00, $00
+
+LevelEntrance_04_5ee4::
+	dw LevelDesc_04_6474
+	db $03, $1e, $00, $7e, $00, $00
+
+LevelEntrance_04_5eec::
+	dw LevelDesc_04_6480
+	db $03, $1e, $00, $7e, $00, $00
+
+LevelEntrance_04_5ef4::
+	dw LevelDesc_04_648c
+	db $03, $1e, $00, $7e, $00, $00
+
+LevelEntrance_04_5efc::
+	dw LevelDesc_04_6498
+	db $43, $81, $00, $7e, $00, $00
+
+LevelEntrance_04_5f04::
+	dw LevelDesc_04_64a4
+	db $03, $1e, $00, $7e, $00, $00
+
+LevelEntrance_04_5f0c::
+	dw LevelDesc_04_64b0
+	db $03, $1e, $00, $7e, $00, $00
+
+LevelEntrance_04_5f14::
+	dw LevelDesc_04_65b8
+	db $43, $81, $00, $7e, $00, $00
+
+LevelEntrance_04_5f1c::
+	dw LevelDesc_04_651c
+	db $03, $37, $00, $bd, $00, $00
+
+LevelEntrance_04_5f24::
+	dw LevelDesc_04_6528
+	db $03, $29, $00, $60, $00, $00
+
+LevelEntrance_04_5f2c::
+	dw LevelDesc_04_6534
+	db $23, $29, $00, $60, $00, $00
+
+LevelEntrance_04_5f34::
+	dw LevelDesc_04_6540
+	db $03, $29, $00, $60, $00, $00
+
+LevelEntrance_04_5f3c::
+	dw LevelDesc_04_654c
+	db $03, $7a, $01, $8c, $00, $00
+
+LevelEntrance_04_5f44::
+	dw LevelDesc_04_6558
+	db $03, $14, $00, $7f, $00, $00
+
+LevelEntrance_04_5f4c::
+	dw LevelDesc_04_6564
+	db $03, $3d, $00, $69, $00, $00
+
+LevelEntrance_04_5f54::
+	dw LevelDesc_04_6570
+	db $03, $3d, $00, $69, $00, $00
+
+LevelEntrance_04_5f5c::
+	dw LevelDesc_04_657c
+	db $03, $3d, $00, $69, $00, $00
+
+LevelEntrance_04_5f64::
+	dw LevelDesc_04_6588
+	db $03, $3d, $00, $69, $00, $00
+
+LevelEntrance_04_5f6c::
+	dw LevelDesc_04_6594
+	db $03, $3d, $00, $69, $00, $00
+
+LevelEntrance_04_5f74::
+	dw LevelDesc_04_65a0
+	db $03, $3d, $00, $69, $00, $00
+
+LevelEntrance_04_5f7c::
+	dw LevelDesc_04_65ac
+	db $23, $3d, $00, $69, $00, $00
+
+LevelEntrance_04_5f84::
+	dw LevelDesc_04_64bc
+	db $21, $20, $00, $7d, $00, $01
+
+LevelEntrance_04_5f8c::
+	dw LevelDesc_04_64c8
+	db $21, $20, $00, $7d, $00, $01
+
+LevelEntrance_04_5f94::
+	dw LevelDesc_04_64d4
+	db $21, $20, $00, $7d, $00, $01
+
+LevelEntrance_04_5f9c::
+	dw LevelDesc_04_64e0
+	db $21, $20, $00, $7d, $00, $01
+
+LevelEntrance_04_5fa4::
+	dw LevelDesc_04_64ec
+	db $21, $20, $00, $7d, $00, $01
+
+LevelEntrance_04_5fac::
+	dw LevelDesc_04_64f8
+	db $21, $20, $00, $7d, $00, $01
+
+LevelEntrance_04_5fb4::
+	dw LevelDesc_04_6504
+	db $21, $20, $00, $84, $00, $01
+
+LevelEntrance_04_5fbc::
+	dw LevelDesc_04_6510
+	db $43, $84, $00, $71, $00, $00
+
+LevelDesc_04_5fc4::
+	db $00
+	dw BGPaletteSet_03 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $66d5, $4379 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $02, $00
+
+LevelDesc_04_5fd0::
+	db $00
+	dw BGPaletteSet_06 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $66e4, $459a ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $02, $00
+
+LevelDesc_04_5fdc::
+	db $00
+	dw BGPaletteSet_04 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $66f3, $4803 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $02, $00
+
+LevelDesc_04_5fe8::
+	db $00
+	dw BGPaletteSet_05 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6702, $4a9c ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $02, $00
+
+LevelDesc_04_5ff4::
+	db $88
+	dw BGPaletteSet_03 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6711, $4f8d ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6000::
+	db $88
+	dw BGPaletteSet_06 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6720, $7d2b ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_600c::
+	db $80
+	dw BGPaletteSet_04 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $672f, $4f8e ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6018::
+	db $88
+	dw BGPaletteSet_05 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $673e, $502f ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6024::
+	db $80
+	dw BGPaletteSet_06 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $674d, $5098 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6030::
+	db $00
+	dw BGPaletteSet_0B ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6624, $65bf ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $17, $00
+
+LevelDesc_04_603c::
+	db $00
+	dw BGPaletteSet_0C ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6633, $68cd ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $17, $00
+
+LevelDesc_04_6048::
+	db $88
+	dw BGPaletteSet_0C ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6642, $6b64 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6054::
+	db $88
+	dw BGPaletteSet_0B ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6651, $6bcd ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6060::
+	db $88
+	dw BGPaletteSet_0B ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6660, $6bce ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_606c::
+	db $00
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $691e, $4003 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $07, $00
+
+LevelDesc_04_6078::
+	db $00
+	dw BGPaletteSet_19 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $692d, $42bc ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $07, $00
+
+LevelDesc_04_6084::
+	db $00
+	dw BGPaletteSet_1F ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6942, $461d ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $07, $00
+
+LevelDesc_04_6090::
+	db $00
+	dw BGPaletteSet_1C ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6951, $480e ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $07, $00
+
+LevelDesc_04_609c::
+	db $00
+	dw BGPaletteSet_1B ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6966, $4b6c ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $07, $00
+
+LevelDesc_04_60a8::
+	db $00
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $697b, $4ee9 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $07, $00
+
+LevelDesc_04_60b4::
+	db $80
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $698a, $51a2 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_60c0::
+	db $88
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6999, $51e3 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_60cc::
+	db $80
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $69a8, $5214 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_60d8::
+	db $80
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $69b7, $527d ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_60e4::
+	db $80
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $69c6, $52b6 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_60f0::
+	db $88
+	dw BGPaletteSet_19 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $69d5, $5317 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_60fc::
+	db $88
+	dw BGPaletteSet_19 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $69e4, $5360 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6108::
+	db $88
+	dw BGPaletteSet_1B ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $69f3, $5371 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6114::
+	db $80
+	dw BGPaletteSet_1C ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a02, $53ba ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6120::
+	db $88
+	dw BGPaletteSet_1A ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a11, $7d4f ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_612c::
+	db $80
+	dw BGPaletteSet_1B ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a20, $53fb ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6138::
+	db $88
+	dw BGPaletteSet_1C ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a2f, $7d68 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6144::
+	db $88
+	dw BGPaletteSet_1C ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a2f, $7d71 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6150::
+	db $80
+	dw BGPaletteSet_18 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a3e, $545c ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_615c::
+	db $07
+	dw BGPaletteSet_2B ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $677a, $54bd ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $03, $00
+
+LevelDesc_04_6168::
+	db $07
+	dw BGPaletteSet_2C ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6789, $5696 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $03, $00
+
+LevelDesc_04_6174::
+	db $07
+	dw BGPaletteSet_2D ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6798, $5897 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $03, $00
+
+LevelDesc_04_6180::
+	db $07
+	dw BGPaletteSet_2E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $67ad, $5ae8 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $03, $00
+
+LevelDesc_04_618c::
+	db $b7
+	dw BGPaletteSet_2F ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $67c2, $5eaf ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6198::
+	db $00
+	dw BGPaletteSet_23 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $67d1, $6c20 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $12, $00
+
+LevelDesc_04_61a4::
+	db $06
+	dw BGPaletteSet_24 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $67e0, $6f6d ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $12, $00
+
+LevelDesc_04_61b0::
+	db $8e
+	dw BGPaletteSet_24 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $67f5, $71c9 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_61bc::
+	db $88
+	dw BGPaletteSet_23 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6804, $723a ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_61c8::
+	db $88
+	dw BGPaletteSet_23 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6813, $72ab ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_61d4::
+	db $88
+	dw BGPaletteSet_23 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6822, $7d7a ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_61e0::
+	db $88
+	dw BGPaletteSet_23 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6831, $72fc ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_61ec::
+	db $88
+	dw BGPaletteSet_26 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6840, $72fd ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_61f8::
+	db $88
+	dw BGPaletteSet_26 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $684f, $75f7 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6204::
+	db $00
+	dw BGPaletteSet_29 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $685e, $72fe ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $08, $00
+
+LevelDesc_04_6210::
+	db $00
+	dw BGPaletteSet_2A ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $686d, $4000 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $08, $00
+
+LevelDesc_04_621c::
+	db $88
+	dw BGPaletteSet_29 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $687c, $7c80 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6228::
+	db $88
+	dw BGPaletteSet_29 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $687c, $7c89 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6234::
+	db $88
+	dw BGPaletteSet_2A ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $688b, $7c92 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6240::
+	db $80
+	dw BGPaletteSet_29 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $689a, $7844 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_624c::
+	db $88
+	dw BGPaletteSet_2A ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $68a9, $77cb ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6258::
+	db $03
+	dw BGPaletteSet_20 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $666f, $5f90 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0d, $00
+
+LevelDesc_04_6264::
+	db $8b
+	dw BGPaletteSet_21 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6684, $7d8c ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6270::
+	db $8b
+	dw BGPaletteSet_21 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6684, $7d95 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_627c::
+	db $8b
+	dw BGPaletteSet_22 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6693, $7d9e ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6288::
+	db $83
+	dw BGPaletteSet_20 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $66a2, $64cd ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6294::
+	db $8b
+	dw BGPaletteSet_20 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $66b1, $654e ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_62a0::
+	db $01
+	dw BGPaletteSet_11 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $66c0, $50d1 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $10, $00
+
+LevelDesc_04_62ac::
+	db $04
+	dw BGPaletteSet_0F ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6af5, $52b2 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $10, $00
+
+LevelDesc_04_62b8::
+	db $00
+	dw BGPaletteSet_0E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b04, $55c1 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $10, $00
+
+LevelDesc_04_62c4::
+	db $05
+	dw BGPaletteSet_0E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b19, $59c2 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $10, $00
+
+LevelDesc_04_62d0::
+	db $80
+	dw BGPaletteSet_0E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b2e, $5d23 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_62dc::
+	db $88
+	dw BGPaletteSet_0E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b3d, $7d83 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_62e8::
+	db $85
+	dw BGPaletteSet_0E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b4c, $5e14 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_62f4::
+	db $80
+	dw BGPaletteSet_0F ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b5b, $794f ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6300::
+	db $88
+	dw BGPaletteSet_0F ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b6a, $78a5 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_630c::
+	db $85
+	dw BGPaletteSet_0E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b79, $790e ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6318::
+	db $03
+	dw BGPaletteSet_30 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $68b8, $7097 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $18, $00
+
+LevelDesc_04_6324::
+	db $03
+	dw BGPaletteSet_31 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $68cd, $7560 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $18, $00
+
+LevelDesc_04_6330::
+	db $8b
+	dw BGPaletteSet_30 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $68dc, $7769 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_633c::
+	db $83
+	dw BGPaletteSet_30 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $68eb, $77ba ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6348::
+	db $83
+	dw BGPaletteSet_31 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $68fa, $781b ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6354::
+	db $00
+	dw BGPaletteSet_35 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $65c4, $6a61 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $04, $00
+
+LevelDesc_04_6360::
+	db $00
+	dw BGPaletteSet_36 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $65d3, $6d1c ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $04, $00
+
+LevelDesc_04_636c::
+	db $88
+	dw BGPaletteSet_35 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $65e8, $6fe5 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6378::
+	db $88
+	dw BGPaletteSet_35 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $65f7, $7c9b ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6384::
+	db $88
+	dw BGPaletteSet_36 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $65f7, $7ca4 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6390::
+	db $88
+	dw BGPaletteSet_36 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6606, $704e ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_639c::
+	db $88
+	dw BGPaletteSet_35 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6615, $7cad ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_63a8::
+	db $88
+	dw BGPaletteSet_35 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6615, $7cb6 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_63b4::
+	db $00
+	dw BGPaletteSet_14 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a4d, $5e7d ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $15, $00
+
+LevelDesc_04_63c0::
+	db $00
+	dw BGPaletteSet_17 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a62, $60b6 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $15, $00
+
+LevelDesc_04_63cc::
+	db $00
+	dw BGPaletteSet_16 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a77, $64c7 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $15, $00
+
+LevelDesc_04_63d8::
+	db $88
+	dw BGPaletteSet_14 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a8c, $7cbf ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_63e4::
+	db $88
+	dw BGPaletteSet_14 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a8c, $7cc8 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_63f0::
+	db $00
+	dw BGPaletteSet_13 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6a9b, $6818 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $15, $00
+
+LevelDesc_04_63fc::
+	db $88
+	dw BGPaletteSet_14 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6aaa, $76e8 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6408::
+	db $80
+	dw BGPaletteSet_15 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ab9, $7749 ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6414::
+	db $88
+	dw BGPaletteSet_16 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ac8, $7cd1 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6420::
+	db $88
+	dw BGPaletteSet_17 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ac8, $7cda ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_642c::
+	db $88
+	dw BGPaletteSet_17 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ac8, $7ce3 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6438::
+	db $80
+	dw BGPaletteSet_13 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ad7, $778a ; passed to Func_00_0b4f and Func_00_1715
+	db $0b ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6444::
+	db $80
+	dw BGPaletteSet_14 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ae6, $7cec ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6450::
+	db $01
+	dw BGPaletteSet_15 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6909, $786c ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $10, $00
+
+LevelDesc_04_645c::
+	db $c0
+	dw BGPaletteSet_1D ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c2d, $7bae ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6468::
+	db $88
+	dw BGPaletteSet_1D ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c3c, $7cf5 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6474::
+	db $88
+	dw BGPaletteSet_1D ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c3c, $7cfe ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6480::
+	db $88
+	dw BGPaletteSet_1D ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c4b, $7d07 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_648c::
+	db $88
+	dw BGPaletteSet_1D ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c4b, $7d10 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6498::
+	db $88
+	dw BGPaletteSet_1D ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c5a, $7dc0 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_64a4::
+	db $88
+	dw BGPaletteSet_12 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c69, $7d19 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_64b0::
+	db $88
+	dw BGPaletteSet_12 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c78, $7d22 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_64bc::
+	db $02
+	dw BGPaletteSet_00 ; BG palettes
+	dw ObjPalPreload_80_4200 ; OBJ palettes to preload
+	dw $676b, $7e02 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $16, $00
+
+LevelDesc_04_64c8::
+	db $02
+	dw BGPaletteSet_00 ; BG palettes
+	dw ObjPalPreload_80_4208 ; OBJ palettes to preload
+	dw $675c, $7e13 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $16, $00
+
+LevelDesc_04_64d4::
+	db $02
+	dw BGPaletteSet_00 ; BG palettes
+	dw ObjPalPreload_80_4210 ; OBJ palettes to preload
+	dw $676b, $7e2c ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $16, $00
+
+LevelDesc_04_64e0::
+	db $02
+	dw BGPaletteSet_00 ; BG palettes
+	dw ObjPalPreload_80_4218 ; OBJ palettes to preload
+	dw $676b, $7e45 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $16, $00
+
+LevelDesc_04_64ec::
+	db $02
+	dw BGPaletteSet_00 ; BG palettes
+	dw ObjPalPreload_80_4220 ; OBJ palettes to preload
+	dw $675c, $7e56 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $16, $00
+
+LevelDesc_04_64f8::
+	db $02
+	dw BGPaletteSet_00 ; BG palettes
+	dw ObjPalPreload_80_4228 ; OBJ palettes to preload
+	dw $675c, $7e67 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $16, $00
+
+LevelDesc_04_6504::
+	db $02
+	dw BGPaletteSet_01 ; BG palettes
+	dw ObjPalPreload_80_4230 ; OBJ palettes to preload
+	dw $6c96, $7e80 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $06, $00
+
+LevelDesc_04_6510::
+	db $00
+	dw BGPaletteSet_02 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c87, $7bcf ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $01, $00
+
+LevelDesc_04_651c::
+	db $93
+	dw BGPaletteSet_32 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b88, $7ba5 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6528::
+	db $8b
+	dw BGPaletteSet_33 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b97, $7d34 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6534::
+	db $8b
+	dw BGPaletteSet_33 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6b97, $7d3d ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6540::
+	db $8b
+	dw BGPaletteSet_34 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ba6, $7d46 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_654c::
+	db $a0
+	dw BGPaletteSet_07 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6bb5, $7be8 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6558::
+	db $88
+	dw BGPaletteSet_09 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6bc4, $7c54 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6564::
+	db $88
+	dw BGPaletteSet_08 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6bd3, $7c5d ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6570::
+	db $8e
+	dw BGPaletteSet_28 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6be2, $7c66 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_657c::
+	db $88
+	dw BGPaletteSet_27 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6bf1, $7c6f ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6588::
+	db $80
+	dw BGPaletteSet_06 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c00, $7bf1 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_6594::
+	db $80
+	dw BGPaletteSet_06 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c0f, $7c0a ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_65a0::
+	db $80
+	dw BGPaletteSet_06 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c1e, $7c2b ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_65ac::
+	db $88
+	dw BGPaletteSet_06 ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6c1e, $7dd9 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+
+LevelDesc_04_65b8::
+	db $88
+	dw BGPaletteSet_1E ; BG palettes
+	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
+	dw $6ca5, $7da7 ; passed to Func_00_0b4f and Func_00_1715
+	db $0c ; bank of the second pointer
+	db $0b, $00
+	INCBIN "baserom.gbc", $0125c4, $1a3c ; $65c4
 

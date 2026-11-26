@@ -4277,7 +4277,10 @@ Func_00_18e4::
 	res 0, [hl]
 	ret
 
-	db $cd, $e4, $18, $18, $09
+
+Func_00_18f0::
+	call Func_00_18e4
+	jr Func_00_18f5.jump_18fe
 
 
 Func_00_18f5::
@@ -4286,6 +4289,7 @@ Func_00_18f5::
 	ld l, [hl]
 	ld h, $a8
 	res 0, [hl]
+.jump_18fe:
 	ld hl, $c800
 	add hl, bc
 	ld a, [hl]
@@ -10264,7 +10268,7 @@ Func_00_3c1b::
 .jump_3cd9:
 	ld a, $09
 	ld [rROMB0], a
-	jp Func_09_424e.jump_44f5
+	jp Func_09_4294.jump_44f5
 
 
 Func_00_3ce1::

@@ -521,7 +521,15 @@ Func_f2_698d::
 	call Func_f2_67af
 	ret
 
-	db $06, $00, $c3, $59, $68, $06, $00, $c3, $32, $69
+
+Func_f2_6a12::
+	ld b, $00
+	jp Func_f2_6859
+
+
+Func_f2_6a17::
+	ld b, $00
+	jp Func_f2_6932
 
 
 Func_f2_6a1c::

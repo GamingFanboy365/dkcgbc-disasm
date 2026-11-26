@@ -144,6 +144,7 @@ class Tracer:
         self.conflicts = []
         self.farcall_hl_a = set()
         self.speculated = []
+        self.candidates = []
         self.fell_into_old = False
 
     def add(self, bank, addr, kind="func", ctx=None):
@@ -173,6 +174,7 @@ class Tracer:
             ctx = bank
         regs = dict.fromkeys(REG8)
         first = True
+        hist = []
         while True:
             o = off(bank, addr)
             if o in self.insns:
@@ -205,6 +207,13 @@ class Tracer:
                     else:
                         self.unresolved.append((None, 0, "farcall@%02x:%04x" % (bank, addr)))
             apply_regs(i, regs)
+            # "ld [hl], LOW / inc l / ld [hl], HIGH" stores a pointer (often an
+            # object handler); remember it as a candidate for speculation.
+            hist = (hist + [i])[-3:]
+            if len(hist) == 3 and hist[0].op == 0x36 and hist[1].op in (0x2C, 0x23) and hist[2].op == 0x36:
+                ptr = hist[0].imm | hist[2].imm << 8
+                if ptr < 0x4000 or (bank and ptr < 0x8000):
+                    self.candidates.append((bank if ptr >= 0x4000 else 0, ptr))
             f = i.flow
             if f in ("jp", "jpc", "jr", "jrc"):
                 t = i.target
@@ -275,13 +284,21 @@ class Speculator:
             if i.flow == "rst" and i.target != 0x38:
                 return False
         if len(new) < 3:
-            return False
+            # short stubs are fine if they branch to code we already know
+            def known(i):
+                if i.flow not in ("call", "jp") or i.target >= 0x8000:
+                    return False
+                tb = bank if i.target >= 0x4000 else 0
+                return off(tb, i.target) in t.insns
+            if not any(known(i) for i in new.values()):
+                return False
         t.insns.update(new)
         t.owner.update(trial.owner.maps[0])
         for o, k in trial.labels.maps[0].items():
             if t.labels.get(o) != "func":
                 t.labels[o] = k
         t.jphl += trial.jphl
+        t.candidates += trial.candidates
         t.unresolved += trial.unresolved
         t.speculated.append((bank, addr))
         return True
@@ -305,6 +322,10 @@ class Speculator:
         changed = True
         while changed:
             changed = False
+            while self.t.candidates:
+                b, a = self.t.candidates.pop()
+                if off(b, a) not in self.t.owner and self.try_at(b, a):
+                    changed = True
             for bank in banks:
                 for s, e in self.gaps(bank):
                     if not _plausible_start(self.t.rom, s):

@@ -15,7 +15,7 @@ JP_TABLES = [
 
 # (bank, start, count) of tables of 16-bit code pointers
 PTR_TABLES = [
-    (0, 0x3F00, 87),  # sound/music command handlers (indexed from $3F0A by $3238)
+    (0, 0x3F00, 87),  # script command handlers; the interpreter at $323a indexes from $3F0A
 ]
 
 # Bank-0 routines that call a = bank, hl = address in another bank

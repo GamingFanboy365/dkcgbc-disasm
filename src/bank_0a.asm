@@ -399,7 +399,222 @@ Func_0a_41c8::
 	call Func_0a_5201
 	jp Func_00_3980.jump_3995
 
-	INCBIN "baserom.gbc", $028248, $0fb9 ; $4248
+	INCBIN "baserom.gbc", $028248, $0028 ; $4248
+
+
+Func_0a_4270::
+	call Func_0a_43cb
+	ld hl, $c80c
+	add hl, bc
+	ld a, [hl]
+	rlca
+	jr c, .jump_429c
+	xor a
+	ld hl, $c811
+	add hl, bc
+	ld [hli], a
+	ld [hl], a
+	ld hl, $c82e
+	add hl, bc
+	ld e, [hl]
+	ld d, $00
+	ld hl, $42af
+	add hl, de
+	ld a, [hl]
+	ld hl, $c830
+	add hl, bc
+	ld [hl], a
+	ld hl, $c802
+	add hl, bc
+	ld [hl], $c8
+	inc l
+	ld [hl], $41
+.jump_429c:
+	call Func_00_39fa
+	call Func_00_39b4
+	rst_farcall Func_08_40e1
+	call Func_00_127d
+	call Func_0a_5201
+	jp Func_00_3980.jump_3995
+
+	INCBIN "baserom.gbc", $0282af, $011c ; $42af
+
+
+Func_0a_43cb::
+	ld hl, $c814
+	add hl, bc
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	ld hl, $ffc0
+	add hl, de
+	jr c, .jump_43e9
+	ld hl, $c81f
+	add hl, bc
+	bit 5, [hl]
+	jr z, .jump_43e9
+	res 5, [hl]
+	xor a
+	ld hl, $c811
+	add hl, bc
+	ld [hli], a
+	ld [hl], a
+.jump_43e9:
+	ld hl, $fec0
+	add hl, de
+	jr nc, .jump_4400
+	ld hl, $c81f
+	add hl, bc
+	bit 5, [hl]
+	jr nz, .jump_4400
+	set 5, [hl]
+	xor a
+	ld hl, $c811
+	add hl, bc
+	ld [hli], a
+	ld [hl], a
+.jump_4400:
+	ret
+
+
+Func_0a_4401::
+	ld hl, $c82e
+	add hl, bc
+	ld a, [hl]
+	ld hl, $c833
+	add hl, bc
+	sub $05
+	jr nc, .jump_440f
+	xor a
+.jump_440f:
+	inc a
+	ld [hl], a
+	ld hl, $c82f
+	add hl, bc
+	ld [hl], $01
+	call Func_00_0364
+	and $03
+	add a, a
+	ld e, a
+	ld d, $00
+	ld hl, $443c
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call Func_00_188b
+	ld hl, $c812
+	add hl, bc
+	ld a, [hl]
+	ld hl, $c81f
+	add hl, bc
+	set 5, [hl]
+	rlca
+	jr nc, .jump_447e
+	res 5, [hl]
+	jr .jump_447e
+
+	INCBIN "baserom.gbc", $02843c, $0042 ; $443c
+
+.jump_447e:
+	call Func_00_39ba
+	ld hl, $c832
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	cp $70
+	call z, Func_0a_448f
+	jp Func_0a_448f.jump_455c
+
+
+Func_0a_448f::
+	ld hl, $4496
+	call Func_00_188b
+	ret
+
+	INCBIN "baserom.gbc", $028496, $00c6 ; $4496
+
+.jump_455c:
+	ld hl, $c830
+	add hl, bc
+	ld a, [hl]
+	add a, $02
+	ld [hl], a
+	ld e, a
+	rst_farcall Func_09_4294
+	sra e
+	sra e
+	sra e
+	ld hl, $c831
+	add hl, bc
+	ld a, [hl]
+	add a, e
+	ld hl, $c81d
+	add hl, bc
+	ld [hli], a
+	ld [hl], $00
+	call Func_00_127d
+	jp Func_00_3980.jump_3995
+
+
+Func_0a_4582::
+	ld hl, $c834
+	add hl, bc
+	dec [hl]
+	jr nz, .jump_4598
+	ld hl, $c802
+	add hl, bc
+	ld [hl], $9a
+	inc l
+	ld [hl], $45
+	ld hl, $c836
+	add hl, bc
+	ld [hl], $03
+.jump_4598:
+	jr Func_0a_448f.jump_455c
+
+
+Func_0a_459a::
+	ld hl, $c826
+	add hl, bc
+	ld a, [hl]
+	rlca
+	jr c, Func_0a_448f.jump_455c
+	call Func_00_39dd
+	ld hl, $c832
+	add hl, bc
+	ld a, [hl]
+	dec [hl]
+	or a
+	jr nz, Func_0a_448f.jump_455c
+	ld hl, $c802
+	add hl, bc
+	ld [hl], $01
+	inc l
+	ld [hl], $44
+	jr Func_0a_448f.jump_455c
+
+
+Func_0a_45b9::
+	ld hl, $c832
+	add hl, bc
+	ld a, [hl]
+	cp $70
+	jr z, .jump_45cb
+	jr nc, .jump_45cb
+	inc a
+	ld [hl], a
+	call Func_00_39ba
+	jr .jump_45d1
+
+.jump_45cb:
+	ld hl, $45d7
+	call Func_00_188b
+.jump_45d1:
+	call Func_00_127d
+	jp Func_00_3980.jump_3995
+
+	INCBIN "baserom.gbc", $0285d7, $0c2a ; $45d7
 
 
 Func_0a_5201::

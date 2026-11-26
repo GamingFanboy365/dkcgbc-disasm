@@ -110,7 +110,7 @@ The title picks one of four slots with `[$B0C1] & 3`, but slot 3 is an exact cop
 
 ## Front-end picture table
 
-The front end's picture table (148 records at `$F0:54EA`) has several runs of identical records: seven in a row (records 20–26, the same tiles and map), eight in a row (71–78) and four in a row (64–67), plus a few repeated pairs. They may be filler for slots that were never given their own picture, or entries the menus select by language with no translated version. Which records the game actually shows still needs checking.
+The front end's picture table (148 records at `$F0:54EA`) has runs of identical records: seven in a row (records 20–26), eight (72–79) and four (65–68), plus a few repeated pairs. The two long runs are the English and French main-menu text pictures. So these are more likely one picture reused for several menu states than unused filler, but which records the game actually shows still needs checking.
 
 ## Checked and found complete
 

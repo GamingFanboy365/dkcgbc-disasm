@@ -183,7 +183,7 @@ The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Ban
 | 30–55, 98–116 | the Alphabet print feature: letters A–Z and digits 1–9, each with a character |
 | the rest | backgrounds, fonts and tiles for the front end's screens |
 
-Several records are exact repeats of their neighbours (runs of 7, 8 and 4), which look like filler slots. Stickers are unlocked through a bitfield in save RAM at `$B0C2` (tested by `Func_f1_7803`, set by `Func_f1_7840`). Setting those bits also adds entries to the main menu, a link-cable screen among them.
+Several records repeat their neighbours (runs of 7, 8 and 4, such as the English and French menu text), probably one picture reused for several menu states. Stickers are unlocked through a bitfield in save RAM at `$B0C2` (tested by `Func_f1_7803`, set by `Func_f1_7840`). Setting those bits also adds entries to the main menu, a link-cable screen among them.
 
 ### Unused content
 

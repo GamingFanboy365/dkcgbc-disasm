@@ -642,6 +642,19 @@ def parse_banks(t, rom):
         y = starts[i + 1] if i + 1 < len(starts) else 0x6893
         t._claim(0xF1, x, y - x, "rows", [("db", ["%d" % rom[off(0xF1, x)]], "items")] +
                  hexrow("db", rom[off(0xF1, x + 1):off(0xF1, y)], 3), "Ring")
+    # bank number bytes at the start of the main game's code banks
+    for b in (4, 5, 7, 8, 9, 0x0A, 0x0F):
+        if rom[off(b, 0x4000)] == b:
+            t._claim(b, 0x4000, 1, "rows", [("db", ["$%02x" % b], "bank number")], "=BankNumber_%02x" % b)
+    t._claim(0x0D, 0x4001, 15, "rows", hexrow("db", rom[off(0x0D, 0x4001):off(0x0D, 0x4010)]), "=Bank0D_Padding")
+    # the object initialiser list tables themselves (the lists are parsed from hints.OBJ_LIST_TABLES)
+    for (b, a, n) in hints.OBJ_LIST_TABLES:
+        ps = [rom[off(b, a + 2 * k)] | rom[off(b, a + 2 * k) + 1] << 8 for k in range(n)]
+        t._claim(b, a, 2 * n, "rows", [("dw", [ref(b, x)], None) for x in ps], "ObjInitTable")
+    t._claim(0, 0x33C3, 4, "rows", [("db", ["$ee", "$dd", "$bb", "$77"], "NR51 masks per channel (Func_00_33b4)")], "=ChannelPanMasks")
+    t._claim(0, 0x1EFA, 16, "rows", [("dw", ["$%04x" % (rom[0x1EFA + 2 * k] | rom[0x1EFB + 2 * k] << 8) for k in range(8)], None)],
+             "=WordTable_00_1efa")
+    t._claim(0, 0x20B5, 6, "rows", [("db", ["%d" % v for v in rom[0x20B5:0x20BB]], None)], "=ByteTable_00_20b5")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

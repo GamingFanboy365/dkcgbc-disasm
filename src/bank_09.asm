@@ -2,8 +2,9 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $09", ROMX[$4000], BANK[$09]
-	db $09
 
+BankNumber_09::
+	db $09 ; bank number
 
 Func_09_4001::
 	call Func_09_5dbb
@@ -1077,8 +1078,14 @@ Func_09_4712::
 	call Func_09_5feb
 	jr .jump_4786
 
-	db $01, $0a, $42, $dd, $42, $26, $80, $62, $6b, $52, $51, $00, $00, $81
 
+ObjInit_09_47a4::
+	obj_byte OBJ_BANK, BANK(Func_0a_42dd)
+	obj_word OBJ_HANDLER, Func_0a_42dd
+	obj_byte OBJ_ANIM_FLAGS, $80
+	obj_word OBJ_ANIM, Anim_04_526b
+	obj_word OBJ_XVEL, $0000
+	obj_end
 
 ObjInit_09_47b2::
 	obj_byte OBJ_BANK, BANK(Func_0a_459a)
@@ -1087,8 +1094,14 @@ ObjInit_09_47b2::
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_COLLISION, $00
 	obj_end
-	db $01, $0a, $42, $cf, $47, $62, $1f, $52, $51, $00, $00, $29, $00, $81
 
+ObjInit_09_47bf::
+	obj_byte OBJ_BANK, BANK(Func_0a_47cf)
+	obj_word OBJ_HANDLER, Func_0a_47cf
+	obj_word OBJ_ANIM, Anim_04_521f
+	obj_word OBJ_XVEL, $0000
+	obj_byte OBJ_COLLISION, $00
+	obj_end
 
 ObjInit_09_47cd::
 	obj_byte OBJ_BANK, BANK(Func_0a_45b9)

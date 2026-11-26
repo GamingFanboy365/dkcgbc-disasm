@@ -5296,8 +5296,9 @@ Func_00_1ebc::
 	call Func_00_0391
 	ret
 
-	db $20, $46, $20, $48, $20, $4a, $20, $4c, $20, $4e, $20, $50, $20, $4f, $20, $51
 
+WordTable_00_1efa::
+	dw $4620, $4820, $4a20, $4c20, $4e20, $5020, $4f20, $5120
 
 Func_00_1f0a::
 	call Func_00_1fa7
@@ -5608,8 +5609,9 @@ Func_00_1ffe::
 	ld [rROMB0], a
 	ret
 
-	db $00, $03, $07, $0b, $0d, $0f
 
+ByteTable_00_20b5::
+	db 0, 3, 7, 11, 13, 15
 
 Func_00_20bb::
 	call Func_00_1ffe
@@ -8922,8 +8924,9 @@ Func_00_33b4::
 	cpl
 	ret
 
-	db $ee, $dd, $bb, $77
 
+ChannelPanMasks::
+	db $ee, $dd, $bb, $77 ; NR51 masks per channel (Func_00_33b4)
 
 Func_00_33c7::
 	ld h, b

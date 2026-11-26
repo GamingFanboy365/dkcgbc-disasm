@@ -2,8 +2,9 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $05", ROMX[$4000], BANK[$05]
-	db $05
 
+BankNumber_05::
+	db $05 ; bank number
 
 Func_05_4001::
 	push hl

@@ -2,8 +2,9 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $08", ROMX[$4000], BANK[$08]
-	db $08
 
+BankNumber_08::
+	db $08 ; bank number
 
 Func_08_4001::
 	call Func_00_3ab5
@@ -3251,8 +3252,21 @@ Func_08_57e3::
 	call InitObject
 	ret
 
-	INCBIN "baserom.gbc", $02183a, $001a ; $583a
 
+ObjInitTable_08_583a::
+	dw ObjInit_08_5920
+	dw ObjInit_08_5929
+	dw ObjInit_08_5932
+	dw ObjInit_08_593b
+	dw ObjInit_08_58b3
+	dw ObjInit_08_586f
+	dw ObjInit_08_587f
+	dw ObjInit_08_5891
+	dw ObjInit_08_58a3
+	dw ObjInit_08_58ca
+	dw ObjInit_08_58f4
+	dw ObjInit_08_5902
+	dw ObjInit_08_5944
 
 ObjInit_08_5854::
 	obj_byte OBJ_FLAGS, $11

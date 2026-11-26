@@ -2,8 +2,9 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $0a", ROMX[$4000], BANK[$0a]
-	db $0a
 
+BankNumber_0a::
+	db $0a ; bank number
 
 Func_0a_4001::
 	ld hl, wObjects + OBJ_OAM_ATTR
@@ -672,8 +673,12 @@ Func_0a_4401::
 	res 5, [hl]
 	jr Func_0a_447e
 
-	db $66, $44, $6c, $44, $72, $44, $78, $44
 
+ObjInitTable_0a_443c::
+	dw ObjInit_0a_4466
+	dw ObjInit_0a_446c
+	dw ObjInit_0a_4472
+	dw ObjInit_0a_4478
 
 ObjInit_0a_4444::
 	obj_byte OBJ_BANK, BANK(Func_0a_447e)
@@ -965,15 +970,21 @@ Func_0a_45e9::
 	call Func_00_127d
 	jp NextObject
 
-	db $01, $0a, $42, $7e, $44, $81
 
+ObjInit_0a_460f::
+	obj_byte OBJ_BANK, BANK(Func_0a_447e)
+	obj_word OBJ_HANDLER, Func_0a_447e
+	obj_end
 
 ObjInit_0a_4615::
 	obj_byte OBJ_BANK, BANK(Func_0a_459a)
 	obj_word OBJ_HANDLER, Func_0a_459a
 	obj_end
-	db $01, $0a, $42, $33, $45, $81
 
+ObjInit_0a_461b::
+	obj_byte OBJ_BANK, BANK(Func_0a_4533)
+	obj_word OBJ_HANDLER, Func_0a_4533
+	obj_end
 
 Func_0a_4621::
 	call Func_00_39fa
@@ -1624,8 +1635,18 @@ ObjInit_0a_4a3c::
 	obj_word OBJ_YVEL, $fe00
 	obj_byte OBJ_VAR_30, $14
 	obj_end
-	INCBIN "baserom.gbc", $028a47, $0014 ; $4a47
 
+ObjInitTable_0a_4a47::
+	dw ObjInit_0a_4a5b
+	dw ObjInit_0a_4a64
+	dw ObjInit_0a_4a6b
+	dw ObjInit_0a_4a74
+	dw ObjInit_0a_4a7b
+	dw ObjInit_0a_4a84
+	dw ObjInit_0a_4a8b
+	dw ObjInit_0a_4a94
+	dw ObjInit_0a_4afa
+	dw ObjInit_0a_4afa
 
 ObjInit_0a_4a5b::
 	obj_include ObjInit_0a_4a9b

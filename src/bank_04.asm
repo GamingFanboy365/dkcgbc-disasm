@@ -2,8 +2,9 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $04", ROMX[$4000], BANK[$04]
-	db $04
 
+BankNumber_04::
+	db $04 ; bank number
 
 Anim_04_4001::
 	anim_param $2a

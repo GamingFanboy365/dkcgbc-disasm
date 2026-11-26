@@ -122,7 +122,7 @@ OBJ_LIST_TABLES = [
 ]
 
 # Single object initialiser lists the tracer misses (applied after a branch)
-OBJ_LISTS = [(0x09, 0x485E)]
+OBJ_LISTS = [(0x09, 0x485E), (0x0A, 0x460F), (0x0A, 0x461B), (0x09, 0x47A4), (0x09, 0x47BF), (0x0F, 0x4217), (0x0F, 0x4357)]
 
 # Object slot layout. Objects are $40-byte slots at wObjects ($c800) + bc;
 # slot 0 is the player (wPlayer). offset -> (name, size, description).

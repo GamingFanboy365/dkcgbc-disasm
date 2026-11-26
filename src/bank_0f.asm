@@ -2,8 +2,9 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $0f", ROMX[$4000], BANK[$0f]
-	db $0f
 
+BankNumber_0f::
+	db $0f ; bank number
 
 Func_0f_4001::
 	ld b, $43
@@ -274,8 +275,14 @@ Func_0f_4204::
 	call InitObject
 	ret
 
-	db $00, $19, $2a, $01, $62, $7d, $56, $26, $00, $2b, $01, $81
 
+ObjInit_0f_4217::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_PALETTE, $01
+	obj_word OBJ_ANIM, Anim_04_567d
+	obj_byte OBJ_ANIM_FLAGS, $00
+	obj_byte OBJ_LAYER, $01
+	obj_end
 
 ObjInit_0f_4223::
 	obj_byte OBJ_FLAGS, $19
@@ -457,8 +464,12 @@ ObjInit_0f_4344::
 	obj_byte OBJ_ANIM_FLAGS, $06
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
-	db $80, $44, $43, $51, $cc, $00, $2e, $23, $81
 
+ObjInit_0f_4357::
+	obj_include ObjInit_0f_4344
+	obj_word OBJ_XVEL, $00cc
+	obj_byte OBJ_VAR_2E, $23
+	obj_end
 
 ObjInit_0f_4360::
 	obj_include ObjInit_0f_4344

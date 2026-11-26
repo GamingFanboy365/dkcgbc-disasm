@@ -2,8 +2,9 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $07", ROMX[$4000], BANK[$07]
-	db $07
 
+BankNumber_07::
+	db $07 ; bank number
 
 Func_07_4001::
 	di

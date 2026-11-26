@@ -5,8 +5,9 @@ SECTION "Bank $0d", ROMX[$4000], BANK[$0d]
 
 Bank0D_Number::
 	db $0d ; bank number
-	ds 15, $00 ; $4001
 
+Bank0D_Padding::
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
 BGTiles_0d_4010::
 	INCBIN "gfx/bgtiles/0d/4010.2bpp"

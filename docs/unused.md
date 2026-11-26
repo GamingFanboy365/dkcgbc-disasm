@@ -201,6 +201,8 @@ The short phrases are probably leftovers of edits to those songs. The song `$18`
 
 `Func_00_36a7` resets the sound hardware (NR52, NR51, NR50, the wave channel) and falls into `Func_00_36b8`, which loads wave pattern 1. Nothing in the ROM calls or jumps to `$36A7`; the game uses `Func_00_36b8` directly. It's a small leftover, probably an older entry point of the sound driver.
 
+The routines at `$F0:4707`–`$47A4` have no callers either. They step a point along a line: they take the absolute values of dx and dy and pick the direction. No call, jump, far call or table in the ROM reaches them.
+
 ## Sprite offset lists
 
 After many of the sprite offset lists in banks `$2B`–`$38` come 9 to 23 bytes that the draw code never reads (`FrameSpritesTail_…`, about 2.3 KB in all). `Func_00_1037` reads exactly two bytes per sprite, and the frame header's tile count decides how many. The leftover bytes look like more offsets, perhaps from frames that once had more sprites, but nothing confirms that.
@@ -209,7 +211,7 @@ After many of the sprite offset lists in banks `$2B`–`$38` come 9 to 23 bytes 
 
 Bank `$03` has 16-byte blocks that no level object list points to (`LevelObjBlockUnused_…`), between the ones that are used.
 
-
+## Checked and found complete
 
 These turned up nothing unused, which is worth knowing too:
 

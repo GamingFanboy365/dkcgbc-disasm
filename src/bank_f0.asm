@@ -1392,7 +1392,157 @@ Func_f0_46f6::
 	jr nz, Func_f0_46f6
 	ret
 
-	INCBIN "baserom.gbc", $3c0701, $00a4 ; $4701
+	ds 6, $00 ; $4701
+
+
+Func_f0_4707::
+	ld h, d
+	ld l, e
+	ld de, $0101
+	bit 7, b
+	jr z, .jump_4716
+	ld a, b
+	cpl
+	inc a
+	ld b, a
+	ld d, $ff
+.jump_4716:
+	bit 7, c
+	jr z, .jump_4720
+	ld a, c
+	cpl
+	inc a
+	ld c, a
+	ld e, $ff
+.jump_4720:
+	xor a
+	cp c
+	jr z, .jump_474a
+	cp b
+	jr z, .jump_4752
+	ld a, c
+	cp b
+	jr z, .jump_475a
+	sub b
+	jr c, .jump_473c
+	ld a, $05
+	ld [hli], a
+	ld [hl], d
+	inc hl
+	ld [hl], e
+	inc hl
+	ld a, b
+	ld [hli], a
+	xor a
+	sub c
+	ld [hli], a
+	ld [hl], c
+	ret
+
+.jump_473c:
+	ld a, $04
+	ld [hli], a
+	ld [hl], d
+	inc hl
+	ld [hl], e
+	inc hl
+	ld a, c
+	ld [hli], a
+	xor a
+	sub b
+	ld [hli], a
+	ld [hl], b
+	ret
+
+.jump_474a:
+	ld a, $01
+	ld [hli], a
+	ld [hl], d
+	inc hl
+	ld [hl], $00
+	ret
+
+.jump_4752:
+	ld a, $02
+	ld [hli], a
+	ld [hl], $00
+	inc hl
+	ld [hl], e
+	ret
+
+.jump_475a:
+	ld a, $03
+	ld [hli], a
+	ld [hl], d
+	inc hl
+	ld [hl], e
+	ret
+
+
+Func_f0_4761::
+	ld h, d
+	ld l, e
+	ld a, [hli]
+	cp $04
+	jr z, .jump_4785
+	cp $05
+	jr z, .jump_4795
+	cp $01
+	jr z, .jump_4778
+	cp $02
+	jr z, .jump_477c
+	cp $03
+	jr z, .jump_4781
+.jump_4778:
+	ld b, [hl]
+	ld c, $00
+	ret
+
+.jump_477c:
+	inc hl
+	ld c, [hl]
+	ld b, $00
+	ret
+
+.jump_4781:
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	ret
+
+.jump_4785:
+	ld c, $00
+	ld b, [hl]
+	inc hl
+	ld e, [hl]
+	inc hl
+	ld a, [hli]
+	add a, [hl]
+	ld [hli], a
+	ret nc
+	ld c, [hl]
+	dec hl
+	sub c
+	ld [hl], a
+	ld c, e
+	ret
+
+.jump_4795:
+	ld b, $00
+	ld d, [hl]
+	inc hl
+	ld c, [hl]
+	inc hl
+	ld a, [hli]
+	add a, [hl]
+	ld [hli], a
+	ret nc
+	ld b, [hl]
+	dec hl
+	sub b
+	ld [hl], a
+	ld b, d
+	ret
 
 
 Func_f0_47a5::

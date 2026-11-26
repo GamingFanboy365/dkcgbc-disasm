@@ -12,6 +12,7 @@ CODE = [
     (0, 0x1CEC), (0, 0x241D),  # interrupt handlers (push af/hl, read LY), installed at runtime
     (0xF2, 0x6760),  # infrared port routine (writes rRP), far-called from $f1:70f7
     (0xF2, 0x43CB),  # follows the PictureByItem table; not reached by the trace
+    (0xF0, 0x4707),  # line-stepping routines; no caller found (see docs/unused.md)
     (0x50, 0x5149), (0x50, 0x51F7), (0x50, 0x60F2),  # return points pushed before far calls through $cb99
     # object handlers set by init lists the tracer doesn't parse yet, or by byte stores
     (9, 0x6A7E), (9, 0x6CCC), (9, 0x6EF8), (9, 0x72F4), (9, 0x7532), (9, 0x7A3E), (0xA, 0x5141),
@@ -312,6 +313,7 @@ EXTRA_TILES = [
     (0x08, 0x7800, 128, "animal buddy icons (Rambi, Expresso, Enguarde, Winky), 8x16 sprites"),
     (0xF2, 0x5760, 256, "front-end tiles after the letter piece records; no user found yet"),
     (0xF1, 0x6F40, 9, "front-end tiles copied to VRAM $8e60 (Func_f1_54xx)"),
+    (0xF1, 0x6A40, 80, "front-end sprite words (8x16); loader not found yet"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

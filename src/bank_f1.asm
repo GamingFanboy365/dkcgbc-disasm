@@ -5758,8 +5758,11 @@ ThumbnailTable::
 	db $26, 2, 9, BANK(BGTiles_f3_4780), LOW(BGTiles_f3_4780), HIGH(BGTiles_f3_4780), 6, 5
 	db $44, 8, 4, BANK(BGTiles_f3_45a0), LOW(BGTiles_f3_45a0), HIGH(BGTiles_f3_45a0), 6, 5
 	db $62, 8, 9, BANK(BGTiles_f3_4960), LOW(BGTiles_f3_4960), HIGH(BGTiles_f3_4960), 6, 5
-	INCBIN "baserom.gbc", $3c69ca, $0576 ; $69ca
+	INCBIN "baserom.gbc", $3c69ca, $0076 ; $69ca
 
+
+BGTiles_f1_6a40::
+	INCBIN "gfx/bgtiles/f1/6a40.2bpp"
 
 BGTiles_f1_6f40::
 	INCBIN "gfx/bgtiles/f1/6f40.2bpp"

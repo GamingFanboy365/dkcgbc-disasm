@@ -110,7 +110,9 @@ The title picks one of four slots with `[$B0C1] & 3`, but slot 3 is an exact cop
 
 ## Front-end picture table
 
-The front end's picture table (148 records at `$F0:54EA`) has runs of identical records: seven in a row (records 20–26), eight (72–79) and four (65–68), plus a few repeated pairs. The two long runs are the English and French main-menu text pictures. So these are more likely one picture reused for several menu states than unused filler, but which records the game actually shows still needs checking.
+`PictureTable` (149 records) ends with four placeholders, records 145–148. They point at a "map" inside the palette block and at tiles past the end of bank `$6F`'s data, so they hold no picture. The table also repeats some records back to back: the English and French main-menu text appear 7 and 8 times. That's more likely one picture reused for several menu states than unused content.
+
+The menu text pictures name some modes not seen in the Bonus menu during this research: "CANDY KLASH", "FUNKY BOMBER" and "BADDY GENERATOR" (in five languages: "Clash Candy", "Bombes Funky"…), and "GALLEON GUNNER". They may be link-cable or unlockable modes. Which of them the game can actually reach still needs checking before any is called cut.
 
 ## Checked and found complete
 
@@ -125,4 +127,4 @@ These turned up nothing unused, which is worth knowing too:
 
 ## Not identified yet
 
-Large parts of these banks aren't claimed by anything decoded so far, so they hold either content not yet understood or unused data: `$01`–`$02`, `$0B`–`$0C`, `$10`–`$14`, `$40`–`$43`, `$45`, `$50`–`$6F` and `$74`. Banks `$18`–`$1B`, listed here before, turned out to be the world map tilesets. Banks `$40` and `$41` hold the world map's sprite tiles and palettes. Nothing in these banks should be called unused until it has been identified.
+Large parts of these banks aren't claimed by anything decoded so far, so they hold either content not yet understood or unused data: `$01`–`$02`, `$0B`–`$0C`, `$10`–`$14`, `$40`–`$43`, `$53`, `$54`, `$56` and `$74`. Banks `$18`–`$1B`, listed here before, turned out to be the world map tilesets. Banks `$40` and `$41` hold the world map's sprite tiles and palettes. Nothing in these banks should be called unused until it has been identified.

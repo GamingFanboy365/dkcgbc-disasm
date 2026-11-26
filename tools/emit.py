@@ -388,6 +388,32 @@ class Emitter:
             r = item[2]
             names = [self.qref(bank, r[k]) or hexw(r[k]) for k in ("palettes", "map", "tiles")]
             return [(o, "dw %s ; palettes, tile map, tiles" % ", ".join(names))]
+        if kind == "pictable":
+            res = []
+            for k, r in enumerate(item[2]):
+                names = [self.qref(*r[f]) for f in ("map", "palettes", "tiles")]
+                if all(names):
+                    txt = "picture %s, %s, %s ; %d" % (names[0], names[1], names[2], r["index"])
+                else:
+                    txt = "db %s\n\tdw %s\n\tdb %s\n\tdw %s\n\tdb %s\n\tdw %s ; %d (placeholder)" % (
+                        hexb(r["map"][0]), hexw(r["map"][1]), hexb(r["palettes"][0]), hexw(r["palettes"][1]),
+                        hexb(r["tiles"][0]), hexw(r["tiles"][1]), r["index"])
+                res.append((o if k == 0 else None, txt))
+            return res
+        if kind == "maprun":
+            rom = self.rom
+            labs = set(item[2])
+            res, k, n = [], 0, item[3]
+            while k < n:
+                step = 20
+                for x in sorted(labs):
+                    if o + k < x < o + k + step:
+                        step = x - (o + k)
+                step = min(step, n - k)
+                res.append((o + k if (o + k) in labs or k == 0 else None,
+                            "db " + ", ".join(hexb(x) for x in rom[o + k:o + k + step])))
+                k += step
+            return res
         if kind == "titletables":
             tt = item[2]
             rom = self.rom

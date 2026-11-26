@@ -34,6 +34,39 @@ def parse_backgrounds(t, rom):
         t._claim(wb, wm["addr"], 13, "worldmap", wm, "WorldMap")
         t._claim(0x0F, wm["map"], 1 + 36 * wm["width"], "worldtiles", wm["width"], "WorldTileMap")
         t._claim(0x0F, wm["palettes"], 64, "palette", 8, "WorldPalettes")
+    # front-end picture table
+    pt = hints.PICTURES
+    recs = bg.pictures(rom)
+    t._claim(pt["bank"], pt["table"], 9 * pt["count"], "pictable", recs, "=PictureTable")
+    for r in recs:
+        if r["palette_count"]:
+            t._claim(r["palettes"][0], r["palettes"][1], 8 * r["palette_count"], "palette", r["palette_count"],
+                     "PicturePalettes")
+    # maps: merge overlapping maps per bank into runs, labelled at each start
+    spans = {}
+    pal_ranges = [(bg.file_off(*r["palettes"]), bg.file_off(*r["palettes"]) + 8 * r["palette_count"]) for r in recs]
+    for r in recs:
+        o = bg.file_off(*r["map"])
+        if any(a <= o < b for a, b in pal_ranges):
+            continue  # points into the palettes: a placeholder record
+        spans.setdefault(o // 0x4000, []).append((o, o + r["map_bytes"]))
+    for b, sp in spans.items():
+        sp.sort()
+        runs = []
+        for a, e in sp:
+            if runs and a <= runs[-1][1]:
+                runs[-1][1] = max(runs[-1][1], e)
+                runs[-1][2].append(a)
+            else:
+                runs.append([a, e, [a]])
+        for a, e, labs in runs:
+            addr = a % 0x4000 + 0x4000
+            if t._claim(b, addr, e - a, "maprun", sorted(set(labs)), None):
+                for x in set(labs):
+                    t.data_labels[x] = "PictureMap"
+    for (b, a), pieces in sorted(bg.picture_tile_pieces(rom).items()):
+        t._claim(b, a, sum(p[2] for p in pieces) * 16, "bgtiles", pieces,
+                 "PictureTiles" if any(bg.file_off(*r["tiles"]) == b * 0x4000 + a - 0x4000 for r in recs) else None)
     tt = hints.TITLES
     tb = tt["bank"]
     t._claim(tb, tt["maps"], 0x4133 + 2 * tt["count"] - tt["maps"], "titletables", tt, "=TitleTables")

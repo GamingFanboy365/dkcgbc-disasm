@@ -2665,7 +2665,180 @@ Func_f0_5313::
 	ld [rROMB0], a
 	ret
 
-	INCBIN "baserom.gbc", $3c1328, $17ad ; $5328
+	INCBIN "baserom.gbc", $3c1328, $01bf ; $5328
+
+
+PictureTable::
+	picture PictureMap_58_4000, PicturePalettes_5b_7200, BGTiles_5b_7800 ; 0
+	picture PictureMap_58_4870, PicturePalettes_5b_72c0, BGTiles_5c_6700 ; 1
+	picture PictureMap_58_42d0, PicturePalettes_5b_7240, BGTiles_5c_4aa0 ; 2
+	picture PictureMap_58_4e10, PicturePalettes_5b_7340, BGTiles_5d_43c0 ; 3
+	picture PictureMap_58_4b40, PicturePalettes_5b_7300, BGTiles_5c_74a0 ; 4
+	picture PictureMap_58_45a0, PicturePalettes_5b_7280, BGTiles_5c_5880 ; 5
+	picture PictureMap_58_50e0, PicturePalettes_5b_7380, BGTiles_5d_5220 ; 6
+	picture PictureMap_58_52e0, PicturePalettes_5b_7380, BGTiles_5d_5220 ; 7
+	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5d_6800 ; 8
+	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5d_7e80 ; 9
+	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5e_5500 ; 10
+	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5e_6b80 ; 11
+	picture PictureMap_58_5648, PicturePalettes_5b_73c0, BGTiles_5e_7540 ; 12
+	picture PictureMap_58_57b0, PicturePalettes_5b_73c0, BGTiles_5e_7d30 ; 13
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_5f_46e0 ; 14
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_5f_5d60 ; 15
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_5f_73e0 ; 16
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_60_4a60 ; 17
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_60_60e0 ; 18
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_60_7760 ; 19
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 20
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 21
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 22
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 23
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 24
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 25
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 26
+	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 27
+	picture PictureMap_58_5a80, PicturePalettes_5b_73c0, BGTiles_61_5450 ; 28
+	picture PictureMap_58_5be8, PicturePalettes_5b_73c0, BGTiles_61_5e20 ; 29
+	picture PictureMap_58_5d50, PicturePalettes_5b_73c0, BGTiles_61_6740 ; 30
+	picture PictureMap_58_5eb8, PicturePalettes_5b_73c0, BGTiles_61_72c0 ; 31
+	picture PictureMap_58_6020, PicturePalettes_5b_73c0, BGTiles_61_72c0 ; 32
+	picture PictureMap_58_6188, PicturePalettes_5b_73c0, BGTiles_61_7f40 ; 33
+	picture PictureMap_58_62f0, PicturePalettes_5b_73c0, BGTiles_62_4640 ; 34
+	picture PictureMap_58_6458, PicturePalettes_5b_73c0, BGTiles_62_4fa0 ; 35
+	picture PictureMap_58_65c0, PicturePalettes_5b_73c0, BGTiles_62_4fa0 ; 36
+	picture PictureMap_58_6728, PicturePalettes_5b_73c0, BGTiles_62_5ae0 ; 37
+	picture PictureMap_58_6890, PicturePalettes_5b_73c0, BGTiles_62_5ae0 ; 38
+	picture PictureMap_58_69f8, PicturePalettes_5b_73c0, BGTiles_62_5ae0 ; 39
+	picture PictureMap_58_6b60, PicturePalettes_5b_73c0, BGTiles_62_6a40 ; 40
+	picture PictureMap_58_6cc8, PicturePalettes_5b_73c0, BGTiles_62_6a40 ; 41
+	picture PictureMap_59_4000, PicturePalettes_5b_73c0, BGTiles_62_7710 ; 42
+	picture PictureMap_59_4168, PicturePalettes_5b_73c0, BGTiles_62_7710 ; 43
+	picture PictureMap_59_42d0, PicturePalettes_5b_73c0, BGTiles_63_43b0 ; 44
+	picture PictureMap_59_4438, PicturePalettes_5b_73c0, BGTiles_63_4d50 ; 45
+	picture PictureMap_59_45a0, PicturePalettes_5b_73c0, BGTiles_63_4d50 ; 46
+	picture PictureMap_59_4708, PicturePalettes_5b_73c0, BGTiles_63_5a50 ; 47
+	picture PictureMap_59_4870, PicturePalettes_5b_73c0, BGTiles_63_5a50 ; 48
+	picture PictureMap_59_49d8, PicturePalettes_5b_73c0, BGTiles_63_6760 ; 49
+	picture PictureMap_59_4b40, PicturePalettes_5b_73c0, BGTiles_63_6760 ; 50
+	picture PictureMap_59_4ca8, PicturePalettes_5b_73c0, BGTiles_63_7650 ; 51
+	picture PictureMap_59_4e10, PicturePalettes_5b_73c0, BGTiles_63_7650 ; 52
+	picture PictureMap_59_4f78, PicturePalettes_5b_73c0, BGTiles_64_4530 ; 53
+	picture PictureMap_59_50e0, PicturePalettes_5b_73c0, BGTiles_64_4530 ; 54
+	picture PictureMap_59_5248, PicturePalettes_5b_73c0, BGTiles_64_5400 ; 55
+	picture PictureMap_59_53b0, PicturePalettes_5b_73c0, BGTiles_64_5400 ; 56
+	picture PictureMap_59_5518, PicturePalettes_5b_7400, BGTiles_64_6190 ; 57
+	picture PictureMap_59_57e8, PicturePalettes_5b_7410, BGTiles_64_6cf0 ; 58
+	picture PictureMap_59_5962, PicturePalettes_5b_7410, BGTiles_64_7740 ; 59
+	picture PictureMap_59_5ab8, PicturePalettes_5b_7410, BGTiles_65_42a0 ; 60
+	picture PictureMap_59_5c98, PicturePalettes_5b_7410, BGTiles_65_52a0 ; 61
+	picture PictureMap_59_5e28, PicturePalettes_5b_7410, BGTiles_65_5d60 ; 62
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_63b0 ; 63
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_6db0 ; 64
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 65
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 66
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 67
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 68
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_41b0 ; 69
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_4bb0 ; 70
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_51f0 ; 71
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 72
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 73
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 74
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 75
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 76
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 77
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 78
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 79
+	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 80
+	picture PictureMap_59_6053, PicturePalettes_5b_7410, BGTiles_66_65c0 ; 81
+	picture PictureMap_59_61bb, PicturePalettes_5b_7410, BGTiles_66_7190 ; 82
+	picture PictureMap_59_6323, PicturePalettes_5b_7410, BGTiles_66_7b10 ; 83
+	picture PictureMap_59_648b, PicturePalettes_5b_7410, BGTiles_67_4800 ; 84
+	picture PictureMap_59_65f3, PicturePalettes_5b_7410, BGTiles_67_5120 ; 85
+	picture PictureMap_59_675b, PicturePalettes_5b_7410, BGTiles_67_5c40 ; 86
+	picture PictureMap_59_68c3, PicturePalettes_5b_7410, BGTiles_67_6640 ; 87
+	picture PictureMap_59_6a2b, PicturePalettes_5b_7410, BGTiles_67_7440 ; 88
+	picture PictureMap_59_6b93, PicturePalettes_5b_7410, BGTiles_67_7ba0 ; 89
+	picture PictureMap_5a_4000, PicturePalettes_5b_7410, BGTiles_68_47c0 ; 90
+	picture PictureMap_5a_4168, PicturePalettes_5b_7410, BGTiles_68_5070 ; 91
+	picture PictureMap_5a_42d0, PicturePalettes_5b_7410, BGTiles_68_5cc0 ; 92
+	picture PictureMap_5a_4438, PicturePalettes_5b_7410, BGTiles_68_6410 ; 93
+	picture PictureMap_5a_45a0, PicturePalettes_5b_7410, BGTiles_68_6ea0 ; 94
+	picture PictureMap_5a_4708, PicturePalettes_5b_7410, BGTiles_68_7730 ; 95
+	picture PictureMap_5a_4870, PicturePalettes_5b_7410, BGTiles_69_4170 ; 96
+	picture PictureMap_5a_4b40, PicturePalettes_5b_7450, BGTiles_69_4810 ; 97
+	picture PictureMap_5a_4e10, PicturePalettes_5b_7490, BGTiles_69_5730 ; 98
+	picture PictureMap_5a_4f78, PicturePalettes_5b_7490, BGTiles_69_5730 ; 99
+	picture PictureMap_5a_50e0, PicturePalettes_5b_7490, BGTiles_69_6290 ; 100
+	picture PictureMap_5a_5248, PicturePalettes_5b_7490, BGTiles_69_6290 ; 101
+	picture PictureMap_5a_53b0, PicturePalettes_5b_7490, BGTiles_69_7110 ; 102
+	picture PictureMap_5a_5518, PicturePalettes_5b_7490, BGTiles_69_7110 ; 103
+	picture PictureMap_5a_5680, PicturePalettes_5b_7490, BGTiles_69_7db0 ; 104
+	picture PictureMap_5a_57e8, PicturePalettes_5b_7490, BGTiles_69_7db0 ; 105
+	picture PictureMap_5a_5950, PicturePalettes_5b_7490, BGTiles_6a_4c40 ; 106
+	picture PictureMap_5a_5ab8, PicturePalettes_5b_7490, BGTiles_6a_4c40 ; 107
+	picture PictureMap_5a_5c20, PicturePalettes_5b_7490, BGTiles_6a_5a00 ; 108
+	picture PictureMap_5a_5d88, PicturePalettes_5b_7490, BGTiles_6a_60b0 ; 109
+	picture PictureMap_5a_5ef0, PicturePalettes_5b_7490, BGTiles_6a_6750 ; 110
+	picture PictureMap_5a_6058, PicturePalettes_5b_7490, BGTiles_6a_6e00 ; 111
+	picture PictureMap_5a_61c0, PicturePalettes_5b_7490, BGTiles_6a_7ce0 ; 112
+	picture PictureMap_5a_6328, PicturePalettes_5b_7490, BGTiles_6b_45c0 ; 113
+	picture PictureMap_5a_6490, PicturePalettes_5b_7490, BGTiles_6b_4d40 ; 114
+	picture PictureMap_5a_65f8, PicturePalettes_5b_7490, BGTiles_6b_54d0 ; 115
+	picture PictureMap_5a_6760, PicturePalettes_5b_7490, BGTiles_6b_5780 ; 116
+	picture PictureMap_5b_4000, PicturePalettes_5b_7490, BGTiles_6b_5a30 ; 117
+	picture PictureMap_5b_4168, PicturePalettes_5b_74d0, BGTiles_6b_63c0 ; 118
+	picture PictureMap_5b_4438, PicturePalettes_5b_7510, BGTiles_6b_69c0 ; 119
+	picture PictureMap_5b_4938, PicturePalettes_5b_7550, BGTiles_6b_6ff0 ; 120
+	picture PictureMap_5b_4c08, PicturePalettes_5b_7578, BGTiles_6b_6ff0 ; 121
+	picture PictureMap_5b_4d70, PicturePalettes_5b_75b8, BGTiles_6b_7850 ; 122
+	picture PictureMap_5b_4ed8, PicturePalettes_5b_75b8, BGTiles_6c_4030 ; 123
+	picture PictureMap_5b_4ed8, PicturePalettes_5b_75b8, BGTiles_6c_4030 ; 124
+	picture PictureMap_5b_5040, PicturePalettes_5b_75b8, BGTiles_6c_4980 ; 125
+	picture PictureMap_5b_5040, PicturePalettes_5b_75b8, BGTiles_6c_4980 ; 126
+	picture PictureMap_5b_51a8, PicturePalettes_5b_75b8, BGTiles_6c_5170 ; 127
+	picture PictureMap_5b_51a8, PicturePalettes_5b_75b8, BGTiles_6c_5170 ; 128
+	picture PictureMap_5b_5310, PicturePalettes_5b_75b8, BGTiles_6c_59c0 ; 129
+	picture PictureMap_5b_5310, PicturePalettes_5b_75b8, BGTiles_6c_59c0 ; 130
+	picture PictureMap_5b_5478, PicturePalettes_5b_75b8, BGTiles_6c_6200 ; 131
+	picture PictureMap_5b_5478, PicturePalettes_5b_75b8, BGTiles_6c_6200 ; 132
+	picture PictureMap_5b_5748, PicturePalettes_5b_75f8, BGTiles_6c_7200 ; 133
+	picture PictureMap_5b_58b0, PicturePalettes_5b_75f8, BGTiles_6c_7a70 ; 134
+	picture PictureMap_5b_5a18, PicturePalettes_5b_75f8, BGTiles_6d_42d0 ; 135
+	picture PictureMap_5b_5b80, PicturePalettes_5b_75f8, BGTiles_6d_49e0 ; 136
+	picture PictureMap_5b_5ce8, PicturePalettes_5b_75f8, BGTiles_6d_50f0 ; 137
+	picture PictureMap_5b_5e50, PicturePalettes_5b_7638, BGTiles_6d_5800 ; 138
+	picture PictureMap_5b_6120, PicturePalettes_5b_7678, BGTiles_6d_6820 ; 139
+	picture PictureMap_5b_63f0, PicturePalettes_5b_76b8, BGTiles_6d_7b90 ; 140
+	picture PictureMap_5b_66c0, PicturePalettes_5b_76f8, BGTiles_6e_4f40 ; 141
+	picture PictureMap_5b_6990, PicturePalettes_5b_7738, BGTiles_6e_5e10 ; 142
+	picture PictureMap_5b_6c60, PicturePalettes_5b_7778, BGTiles_6e_6ed0 ; 143
+	picture PictureMap_5b_6f30, PicturePalettes_5b_77b8, BGTiles_6e_7e80 ; 144
+	db $5b
+	dw $7200
+	db $5b
+	dw $77f8
+	db $6f
+	dw $4520 ; 145 (placeholder)
+	db $5b
+	dw $7200
+	db $5b
+	dw $77f8
+	db $6f
+	dw $4520 ; 146 (placeholder)
+	db $5b
+	dw $7200
+	db $5b
+	dw $77f8
+	db $6f
+	dw $4520 ; 147 (placeholder)
+	db $5b
+	dw $7200
+	db $5b
+	dw $77f8
+	db $6f
+	dw $4520 ; 148 (placeholder)
+	INCBIN "baserom.gbc", $3c1a24, $10b1 ; $5a24
 
 
 Func_f0_6ad5::

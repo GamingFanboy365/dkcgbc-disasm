@@ -220,3 +220,11 @@ FISHING = {
 # address) and palette-swap lists ((scroll line, source palette*8, $80 |
 # slot*8), ending with $ff; Func_07_4195 applies them as the title scrolls).
 TITLES = {"bank": 0x07, "maps": 0x4117, "palettes": 0x411F, "tilesets": 0x4127, "lists": 0x4133, "count": 4}
+
+# The front end's picture table (bank $f0): 149 records of (map, palettes,
+# tiles), each a (bank, address) pair, indexed by number. Maps of the
+# first records are 720 bytes (360 attributes, then 360 tile numbers);
+# the rest are 360 tile numbers with attribute 0. Tiles are laid out in
+# VRAM like a level tileset (see backgrounds.Tileset); tile data runs on
+# across bank boundaries.
+PICTURES = {"bank": 0xF0, "table": 0x54E7, "count": 149, "full_maps": 6}

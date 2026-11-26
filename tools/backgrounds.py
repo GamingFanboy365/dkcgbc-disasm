@@ -276,6 +276,102 @@ def render_world_map(rom, wm):
     return canvas
 
 
+# ------------------------------------------------------- front-end pictures
+def file_off(bank, addr):
+    """File offset of bank:addr, letting addresses past $7fff run on into
+    the following banks (tile data does)."""
+    return bank * BANK + addr - BANK
+
+
+def pictures(rom):
+    """The front end's picture table. Each record: map, palettes and tiles,
+    with the sizes worked out from where the next record's data starts."""
+    pt = hints.PICTURES
+    b, a0, n = pt["bank"], pt["table"], pt["count"]
+    recs = []
+    for i in range(n):
+        a = a0 + 9 * i
+        r = rom[off(b, a):off(b, a) + 9]
+        recs.append({"index": i, "addr": a,
+                     "map": (r[0], r[1] | r[2] << 8), "palettes": (r[3], r[4] | r[5] << 8),
+                     "tiles": (r[6], r[7] | r[8] << 8)})
+    # tile block sizes: up to the next distinct start, but not past the end
+    # of the data in the last bank
+    starts = sorted({file_off(*r["tiles"]) for r in recs})
+    pal_starts = sorted({file_off(*r["palettes"]) for r in recs})
+    map_starts = sorted({file_off(*r["map"]) for r in recs})
+
+    def data_end(o):
+        bank_end = (o // BANK + 1) * BANK
+        e = bank_end
+        while e > o and rom[e - 1] == 0:
+            e -= 1
+        return e
+    for r in recs:
+        o = file_off(*r["tiles"])
+        nxt = [x for x in starts if x > o]
+        end = nxt[0] if nxt else data_end(o)
+        if end - o > 0x2000:
+            end = o + 0x2000
+        if data_end(o) <= o:
+            end = o  # points past the end of the bank's data
+        r["tile_bytes"] = (end - o) // 16 * 16
+        po = file_off(*r["palettes"])
+        nxt = sorted(x for x in pal_starts + starts + map_starts if x > po)
+        r["palette_count"] = min(8, ((nxt[0] - po) if nxt else 64) // 8)
+        r["map_bytes"] = 720 if i_is_full(r["index"]) else 360
+    return recs
+
+
+def picture_tile_pieces(rom):
+    """Tile PNG pieces for the picture table, split at bank boundaries:
+    {(bank, start): [(path, addr, tiles, width)]}."""
+    out = {}
+    seen = set()
+    for r in pictures(rom):
+        o, n = file_off(*r["tiles"]), r["tile_bytes"]
+        if n == 0 or o in seen:
+            continue
+        seen.add(o)
+        while n > 0:
+            bank, addr = o // BANK, o % BANK + 0x4000
+            part = min(n, 0x8000 - addr)
+            tiles = part // 16
+            base = os.path.join("gfx", "bgtiles", "%02x" % bank, "%04x" % addr)
+            pieces = []
+            if tiles >= 16:
+                pieces.append((base + ".png", addr, tiles // 16 * 16, 16))
+            if tiles % 16:
+                pieces.append((base + ("_end.png" if tiles >= 16 else ".png"), addr + tiles // 16 * 256, tiles % 16, tiles % 16))
+            out[(bank, addr)] = pieces
+            o += part
+            n -= part
+    return out
+
+
+def i_is_full(i):
+    return i < hints.PICTURES["full_maps"]
+
+
+def render_picture(rom, r, sequential=False):
+    """Draw a picture from its map (attributes first for full maps), or, for
+    sticker pictures (sequential=True), as 360 tiles in order with palette 0
+    the way the Sticker Book shows them."""
+    pals = palettes_at(rom, *r["palettes"], 8)
+    ts = Tileset(rom, *r["tiles"])
+    canvas = [[(0, 0, 0)] * 160 for _ in range(144)]
+    mo = file_off(*r["map"])
+    for k in range(360):
+        if sequential:
+            t, a = k % 256, (8 if k >= 256 else 0)
+        elif r["map_bytes"] == 720:
+            a, t = rom[mo + k], rom[mo + 360 + k]
+        else:
+            a, t = 0, rom[mo + k]
+        draw_tile(canvas, (k % 20) * 8, (k // 20) * 8, ts, t, a, pals)
+    return canvas
+
+
 # ------------------------------------------------------------- title screen
 def titles(rom):
     """The title pictures: map (36 rows, each 20 tile numbers then 20
@@ -364,7 +460,7 @@ def bg_tile_pieces(rom):
     for rec in screen_records(rom).values():
         starts.setdefault(rec["bank"], set()).add(rec["tiles"])
         others.setdefault(rec["bank"], set()).update((rec["addr"], rec["palettes"], rec["map"]))
-    out = {}
+    out = picture_tile_pieces(rom)
     for b, ss in starts.items():
         ss = sorted(ss)
         for i, a in enumerate(ss):
@@ -423,6 +519,13 @@ def main():
         save(os.path.join(out, "fishing", "fishing_%04x.png" % scr), render_fishing(rom, scr))
     for tv in titles(rom):
         save(os.path.join(out, "title", "title_slot%d_%04x.png" % (tv["slot"], tv["map"])), render_title(rom, tv))
+    for r in pictures(rom):
+        if r["tile_bytes"] == 0:
+            continue
+        save(os.path.join(out, "pictures", "picture_%03d.png" % r["index"]), render_picture(rom, r))
+        if r["tile_bytes"] >= 360 * 16 and not i_is_full(r["index"]):
+            save(os.path.join(out, "pictures", "picture_%03d_sticker_view.png" % r["index"]),
+                 render_picture(rom, r, sequential=True))
     print("rendered %d level maps, %d screens, %d world maps and %d Funky's Fishing screens into %s"
           % (n, s, w, len(hints.FISHING["screens"]), out))
 

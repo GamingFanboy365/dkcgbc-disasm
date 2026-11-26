@@ -173,17 +173,20 @@ Walking the menus in the emulator gives the rest of the picture:
 | Title screen | banks `$07`, `$42`, `$45` (decoded, see Title screen above) |
 | Print → Sticker Book, Alphabet | maps in bank `$58`, tiles in `$5C`, `$61`, `$62`, `$40` |
 
-The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Bank `$58` starts with six raw 20×18 screens (`$4000`–`$50DF`, 360 attribute bytes then 360 tile numbers each), which the front end picks by number. Its "?" screen is the first of them. After `$50E0` the bank holds layouts of other sizes. The front end keeps every picture it shows in one table of 148 nine-byte records at `$F0:54EA`–`$5A1D`, indexed by number. Each record names three (bank, address) pairs: palettes (bank `$5B`), tiles (banks `$5B`–`$6F`) and a 360- or 720-byte map (banks `$58`–`$5B`). Tile data runs on across bank boundaries. Reading every ROM byte the game touches while it builds each screen (mGBA's read watchpoints) found this table. Between them, the records cover almost all of banks `$58`–`$6F`:
+The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Bank `$58` starts with six raw 20×18 screens (`$4000`–`$50DF`, 360 attribute bytes then 360 tile numbers each), which the front end picks by number. Its "?" screen is the first of them. After `$50E0` the bank holds layouts of other sizes. The front end keeps every picture it shows in one table, `PictureTable` (`$F0:54E7`), indexed by number. It has 149 nine-byte records, each a `picture map, palettes, tiles` entry of three (bank, address) pairs. Reading every ROM byte the game touches while it builds a screen (mGBA's read watchpoints) found this table. Maps (`PictureMap_…`, banks `$58`–`$5B`) are 360 tile numbers drawn with attribute 0, except the first six, which are full 720-byte screens with attributes. Palettes (`PicturePalettes_…`) are in bank `$5B`. Tiles are laid out in VRAM like a level tileset and run on across bank boundaries; they are built from `gfx/bgtiles` PNGs like the rest. Sticker pictures are 360 tiles, which the Sticker Book shows in order with palette 0 rather than through their map. `tools/backgrounds.py` renders every picture both ways where that applies.
 
 | Records | Contents |
 |---|---|
-| 0–7 | full front-end screens (720-byte maps with attributes) |
-| 8–19 | the Sticker Book's pictures, each 360 tiles shown in order with palette 0 |
-| 20–29, 72–94, 122–129 | menu text pre-drawn as pictures, one set per language |
-| 30–55, 98–116 | the Alphabet print feature: letters A–Z and digits 1–9, each with a character |
-| the rest | backgrounds, fonts and tiles for the front end's screens |
+| 0 | the main menu screen |
+| 1–5 | the Sticker Book page, in five colours |
+| 8–10, 14–19 | sticker pictures |
+| 11–13 | printable pictures (DK's head, the DK logo, Diddy with the Nintendo sign) |
+| 20–30, 72–95, 122–130 | menu text pre-drawn as pictures, in five languages |
+| 31–56, 98–117, 133–137 | the Alphabet print feature: A–Z, 0–9 and accented letters, each with a character |
+| 57–71, 96–97, 118–121, 131–132, 138–144 | backgrounds and banner pieces |
+| 145–148 | empty placeholders (no tiles) |
 
-Several records repeat their neighbours (runs of 7, 8 and 4, such as the English and French menu text), probably one picture reused for several menu states. Stickers are unlocked through a bitfield in save RAM at `$B0C2` (tested by `Func_f1_7803`, set by `Func_f1_7840`). Setting those bits also adds entries to the main menu, a link-cable screen among them.
+Stickers are unlocked through a bitfield in save RAM at `$B0C2` (tested by `Func_f1_7803`, set by `Func_f1_7840`). Setting those bits also adds entries to the main menu, a link-cable screen among them.
 
 ### Unused content
 
@@ -196,10 +199,10 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
 | Code disassembled into readable instructions | 91 KB | 3.4% |
-| Data decoded into readable structures | 102 KB | 3.8% |
-| Graphics converted to editable PNGs | 612 KB | 23.1% |
-| Located and labelled, format known, still raw bytes | 1114 KB | 42.0% |
-| Not identified yet | 734 KB | 27.7% |
+| Data decoded into readable structures | 151 KB | 5.6% |
+| Graphics converted to editable PNGs | 951 KB | 35.6% |
+| Located and labelled, format known, still raw bytes | 1114 KB | 41.8% |
+| Not identified yet | 362 KB | 13.6% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 

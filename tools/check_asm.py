@@ -186,6 +186,8 @@ class Asm:
             return 2 * len(split_args(rest)) // 3
         if m in FLOW_SIZES:
             return FLOW_SIZES[m]
+        if m == "picture":
+            return 9
         if m == "obj_pal_preload":
             return 1 + len(split_args(rest))
         if s in EXACT:
@@ -237,6 +239,12 @@ class Asm:
                 return self.incbin(a[0])
             st, n = ev(a[1]), ev(a[2])
             return base[st:st + n]
+        if m == "picture":
+            out = bytearray()
+            for x in split_args(rest):
+                v = ev(x)
+                out += bytes([self.label_bank(x.strip(), scope), v & 0xFF, v >> 8])
+            return bytes(out)
         if m in FLOW_SIZES:
             a = split_args(rest)
             if m == "flow_jump":

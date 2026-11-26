@@ -179,4 +179,16 @@ MACRO flow_fade
 	db FLOW_FADE, \1
 ENDM
 
+
+; picture map, palettes, tiles: a record of the front end's picture table
+; (PictureTable, bank $f0); each argument becomes (bank, address)
+MACRO picture
+	db BANK(\1)
+	dw \1
+	db BANK(\2)
+	dw \2
+	db BANK(\3)
+	dw \3
+ENDM
+
 ENDC

@@ -31,17 +31,17 @@ Func_0f_4001::
 .jump_402e:
 	ld [$c44e], a
 	call Func_0f_4204
-	ld hl, $409d
-	call Func_00_188b
-	call Func_00_18c0
-	ld hl, $4073
-	call Func_00_182f
-	call Func_00_18c0
+	ld hl, ObjInit_0f_409d
+	call ApplyObjInit
+	call AllocObject
+	ld hl, ObjInit_0f_4073
+	call InitObject
+	call AllocObject
 	ld a, [$c44e]
 	or a
 	jr nz, .jump_406c
-	ld hl, $408a
-	call Func_00_182f
+	ld hl, ObjInit_0f_408a
+	call InitObject
 	call Func_0f_422f
 	ld hl, $c310
 	bit 1, [hl]
@@ -61,8 +61,35 @@ Func_0f_4001::
 	call Func_00_06a3
 	ret
 
-	INCBIN "baserom.gbc", $03c073, $0036 ; $4073
 
+ObjInit_0f_4073::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, BANK(Func_0f_424c)
+	obj_word OBJ_HANDLER, Func_0f_424c
+	obj_byte $1f, $30
+	obj_byte $2a, $31
+	obj_word $22, $5637
+	obj_byte $26, $80
+	obj_word $14, $0082
+	obj_word $1d, $0067
+	obj_end
+
+ObjInit_0f_408a::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, $00
+	obj_word OBJ_HANDLER, Func_00_3995
+	obj_word $20, $40a2
+	obj_byte $2a, $01
+	obj_word $14, $0064
+	obj_word $1d, $0046
+	obj_end
+
+ObjInit_0f_409d::
+	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
+	obj_word OBJ_HANDLER, Func_0f_42e4
+	obj_word $14, $001e
+	obj_word $1d, $0064
+	obj_end
 
 Func_0f_40a9::
 	ld b, $43
@@ -76,11 +103,11 @@ Func_0f_40a9::
 	ld c, $7f
 	call Func_00_0391
 	call Func_0f_4204
-	ld hl, $4122
-	call Func_00_188b
-	call Func_00_18c0
-	ld hl, $410b
-	call Func_00_182f
+	ld hl, ObjInit_0f_4122
+	call ApplyObjInit
+	call AllocObject
+	ld hl, ObjInit_0f_410b
+	call InitObject
 	call Func_0f_422f
 	ld a, [$c30c]
 	cp $03
@@ -110,8 +137,25 @@ Func_0f_40a9::
 	call Func_00_0682
 	ret
 
-	INCBIN "baserom.gbc", $03c10b, $0023 ; $410b
 
+ObjInit_0f_410b::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, BANK(Func_0f_42a6)
+	obj_word OBJ_HANDLER, Func_0f_42a6
+	obj_byte $2a, $34
+	obj_byte $1f, $30
+	obj_word $22, $556b
+	obj_byte $26, $80
+	obj_word $14, $0050
+	obj_word $1d, $0064
+	obj_end
+
+ObjInit_0f_4122::
+	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
+	obj_word OBJ_HANDLER, Func_0f_42e4
+	obj_word $14, $0028
+	obj_word $1d, $0064
+	obj_end
 
 Func_0f_412e::
 	ld b, $42
@@ -125,14 +169,14 @@ Func_0f_412e::
 	ld c, $7f
 	call Func_00_0391
 	call Func_0f_4204
-	ld hl, $41b6
-	call Func_00_188b
-	call Func_00_18c0
-	ld hl, $418d
-	call Func_00_182f
-	call Func_00_18c0
-	ld hl, $41a2
-	call Func_00_182f
+	ld hl, ObjInit_0f_41b6
+	call ApplyObjInit
+	call AllocObject
+	ld hl, ObjInit_0f_418d
+	call InitObject
+	call AllocObject
+	ld hl, ObjInit_0f_41a2
+	call InitObject
 	call Func_0f_422f
 	ld hl, $c310
 	bit 2, [hl]
@@ -155,23 +199,69 @@ Func_0f_412e::
 	call Func_00_06a3
 	ret
 
-	INCBIN "baserom.gbc", $03c18d, $0035 ; $418d
 
+ObjInit_0f_418d::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, BANK(Func_08_402e)
+	obj_word OBJ_HANDLER, Func_08_402e
+	obj_byte $1f, $30
+	obj_word $22, $55d3
+	obj_byte $2a, $30
+	obj_word $14, $005a
+	obj_word $1d, $0064
+	obj_end
+
+ObjInit_0f_41a2::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, BANK(Func_0f_42c4)
+	obj_word OBJ_HANDLER, Func_0f_42c4
+	obj_byte $1f, $10
+	obj_byte $2a, $37
+	obj_word $20, $5d40
+	obj_word $14, $0030
+	obj_byte $2e, $3c
+	obj_end
+
+ObjInit_0f_41b6::
+	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
+	obj_word OBJ_HANDLER, Func_0f_42e4
+	obj_word $14, $0014
+	obj_word $1d, $0064
+	obj_end
 
 Func_0f_41c2::
 	ld b, $74
 	ld hl, $5490
 	call Func_00_2c48
 	ld bc, $0000
-	ld hl, $41dd
-	call Func_00_182f
-	call Func_00_18c0
-	ld hl, $41f4
-	call Func_00_182f
+	ld hl, ObjInit_0f_41dd
+	call InitObject
+	call AllocObject
+	ld hl, ObjInit_0f_41f4
+	call InitObject
 	ret
 
-	INCBIN "baserom.gbc", $03c1dd, $0027 ; $41dd
 
+ObjInit_0f_41dd::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, BANK(Func_08_402e)
+	obj_word OBJ_HANDLER, Func_08_402e
+	obj_byte $2a, $01
+	obj_word $22, $431b
+	obj_byte $26, $00
+	obj_byte $1f, $20
+	obj_word $14, $007c
+	obj_word $1d, $007f
+	obj_end
+
+ObjInit_0f_41f4::
+	obj_byte OBJ_FLAGS, $18
+	obj_byte $2a, $01
+	obj_word $20, $5968
+	obj_byte $2b, $02
+	obj_word $14, $0065
+	obj_word $1d, $007f
+	obj_end
 
 Func_0f_4204::
 	ld bc, $0000
@@ -179,21 +269,270 @@ Func_0f_4204::
 	rrca
 	ld hl, $4217
 	jr nc, .jump_4213
-	ld hl, $4223
+	ld hl, ObjInit_0f_4223
 .jump_4213:
-	call Func_00_182f
+	call InitObject
 	ret
 
-	INCBIN "baserom.gbc", $03c217, $0018 ; $4217
+	db $00, $19, $2a, $01, $62, $7d, $56, $26, $00, $2b, $01, $81
 
+
+ObjInit_0f_4223::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte $2a, $02
+	obj_word $22, $437f
+	obj_byte $26, $01
+	obj_byte $2b, $01
+	obj_end
 
 Func_0f_422f::
-	call Func_00_18c0
-	ld hl, $4239
-	call Func_00_188b
+	call AllocObject
+	ld hl, ObjInit_0f_4239
+	call ApplyObjInit
 	ret
 
-	INCBIN "baserom.gbc", $03c239, $01a4 ; $4239
+
+ObjInit_0f_4239::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, BANK(Func_08_402e)
+	obj_word OBJ_HANDLER, Func_08_402e
+	obj_word $14, $0094
+	obj_word $1d, $0014
+	obj_word $22, $56fd
+	obj_byte $1f, $07
+	obj_end
+
+Func_0f_424c::
+	ld hl, $c826
+	add hl, bc
+	bit 7, [hl]
+	jr nz, .jump_4261
+	set 7, [hl]
+	push bc
+	call AllocObject
+	ld hl, ObjInit_0f_4267
+	call InitObject
+	pop bc
+.jump_4261:
+	call Func_00_127d
+	jp Func_00_3995
+
+
+ObjInit_0f_4267::
+	obj_byte OBJ_FLAGS, $19
+	obj_byte OBJ_BANK, BANK(Func_0f_427f)
+	obj_word OBJ_HANDLER, Func_0f_427f
+	obj_byte $2a, $33
+	obj_word $22, $56f1
+	obj_word $11, $fe80
+	obj_byte $2e, $2d
+	obj_word $14, $0074
+	obj_word $1d, $0050
+	obj_end
+
+Func_0f_427f::
+	ld hl, $c82e
+	add hl, bc
+	dec [hl]
+	jr nz, .jump_429d
+	ld a, [$c30f]
+	rrca
+	jr c, .jump_429a
+	ld a, [$c826]
+	or a
+	jr nz, .jump_429a
+	ld hl, $c822
+	ld [hl], $85
+	inc l
+	ld [hl], $56
+.jump_429a:
+	call Func_00_18f5
+.jump_429d:
+	call Func_00_39b4
+	call Func_00_127d
+	jp Func_00_3995
+
+
+Func_0f_42a6::
+	ld a, [$c30f]
+	rrca
+	jr c, .jump_42be
+	ld hl, $c826
+	add hl, bc
+	bit 7, [hl]
+	jr nz, .jump_42be
+	set 7, [hl]
+	ld hl, $c822
+	ld [hl], $bd
+	inc l
+	ld [hl], $56
+.jump_42be:
+	call Func_00_127d
+	jp Func_00_3995
+
+
+Func_0f_42c4::
+	ld hl, $c82f
+	add hl, bc
+	ld a, [hl]
+	inc a
+	ld [hl], a
+	ld e, a
+	rst_farcall Func_09_4294
+	sra e
+	sra e
+	sra e
+	ld hl, $c82e
+	add hl, bc
+	ld a, [hl]
+	add a, e
+	ld hl, $c81d
+	add hl, bc
+	ld [hl], a
+	jp Func_00_3995
+
+
+Func_0f_42e4::
+	ldh a, [$ff81]
+	bit 0, a
+	jr nz, .jump_42f4
+	bit 5, a
+	jr nz, .jump_432a
+.jump_42ee:
+	call Func_00_127d
+	jp Func_00_3995
+
+.jump_42f4:
+	ld a, [$c82f]
+	or a
+	jr nz, .jump_42ee
+	ld a, [$c30c]
+	or a
+	jr z, .jump_42ee
+	cp $03
+	jr z, .jump_42ee
+	dec a
+	ld hl, $4357
+	jr z, .jump_4313
+	ld a, [$c44e]
+	or a
+	jr nz, .jump_432a
+	ld hl, ObjInit_0f_4360
+.jump_4313:
+	call ApplyObjInit
+	ld a, [$c30f]
+	rrca
+	ld de, $40e9
+	jr nc, .jump_4322
+	ld de, $4467
+.jump_4322:
+	ld hl, $c822
+	ld [hl], e
+	inc l
+	ld [hl], d
+	jr .jump_42ee
+
+.jump_432a:
+	ld a, [$c30f]
+	rrca
+	ld de, $4103
+	jr nc, .jump_4336
+	ld de, $447f
+.jump_4336:
+	ld hl, $c822
+	ld [hl], e
+	inc l
+	ld [hl], d
+	ld hl, ObjInit_0f_4369
+	call ApplyObjInit
+	jr .jump_42ee
+
+
+ObjInit_0f_4344::
+	obj_byte OBJ_BANK, BANK(Func_0f_43bf)
+	obj_word OBJ_HANDLER, Func_0f_43bf
+	obj_word $1a, $f900
+	obj_word $18, $0050
+	obj_word $16, $07ff
+	obj_byte $26, $06
+	obj_byte $25, $00
+	obj_end
+	db $80, $44, $43, $51, $cc, $00, $2e, $23, $81
+
+
+ObjInit_0f_4360::
+	obj_include ObjInit_0f_4344
+	obj_word $11, $01cb
+	obj_byte $2e, $27
+	obj_end
+
+ObjInit_0f_4369::
+	obj_byte OBJ_BANK, BANK(Func_0f_4373)
+	obj_word OBJ_HANDLER, Func_0f_4373
+	obj_byte $26, $88
+	obj_byte $25, $00
+	obj_end
+
+Func_0f_4373::
+	ld a, [$c826]
+	rlca
+	jr c, .jump_4391
+	ld a, [$c30f]
+	rrca
+	ld de, $407b
+	jr nc, .jump_4385
+	ld de, $43f9
+.jump_4385:
+	ld hl, $c822
+	ld [hl], e
+	inc l
+	ld [hl], d
+	ld hl, ObjInit_0f_4397
+	call ApplyObjInit
+.jump_4391:
+	call Func_00_127d
+	jp Func_00_3995
+
+
+ObjInit_0f_4397::
+	obj_byte OBJ_BANK, BANK(Func_0f_43a6)
+	obj_word OBJ_HANDLER, Func_0f_43a6
+	obj_byte $26, $81
+	obj_word $11, $fecd
+	obj_byte $2e, $40
+	obj_byte $25, $00
+	obj_end
+
+Func_0f_43a6::
+	ld hl, $c82e
+	add hl, bc
+	dec [hl]
+	jr nz, .jump_43b6
+	ld a, $ff
+	ld [$c44d], a
+	rst_farcall Func_08_40d4
+.jump_43b6:
+	call Func_00_39b4
+	call Func_00_127d
+	jp Func_00_3995
+
+
+Func_0f_43bf::
+	ld hl, $c82e
+	add hl, bc
+	dec [hl]
+	jr z, .jump_43d2
+	call Func_00_39fa
+	call Func_00_39b4
+	call Func_00_127d
+.jump_43cf:
+	jp Func_00_3995
+
+.jump_43d2:
+	ld a, $fe
+	ld [$c44d], a
+	rst_farcall Func_08_40d4
+	jr .jump_43cf
 
 
 Func_0f_43dd::

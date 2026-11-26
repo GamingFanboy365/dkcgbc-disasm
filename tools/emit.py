@@ -23,6 +23,8 @@ from tracer import BANK_SIZE, off  # noqa: E402
 from hwregs import HW_REGS  # noqa: E402
 
 MBC_REGS = {0x0000: "rRAMG", 0x2000: "rROMB0", 0x3000: "rROMB1", 0x4000: "rRAMB"}
+# Object structure fields (see include/macros.inc)
+OBJ_FIELDS = {0x00: "OBJ_FLAGS", 0x01: "OBJ_BANK", 0x02: "OBJ_HANDLER"}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Small data gaps are written as "db" so labels and code stay readable;
 # anything bigger is pulled from the base ROM.
@@ -43,6 +45,7 @@ class Emitter:
         self.t = make(rom)
         self.names = {}      # file offset -> global label name
         self.locals = {}     # file offset -> (scope offset, local name)
+        self.exported = set()  # locals referenced from other files
         self._name_labels()
 
     # ---------------------------------------------------------------- labels
@@ -54,6 +57,8 @@ class Emitter:
             if o not in t.insns:
                 continue
             by_bank.setdefault(o // BANK_SIZE, []).append((o, kind))
+        for o in t.data:
+            by_bank.setdefault(o // BANK_SIZE, []).append((o, "data"))
         for bank, items in by_bank.items():
             items.sort()
             for o, kind in items:
@@ -62,6 +67,8 @@ class Emitter:
                     self.names[o] = overrides[o]
                 elif kind == "func":
                     self.names[o] = "Func_%02x_%04x" % (bank, addr)
+                elif kind == "data":
+                    self.names[o] = "ObjInit_%02x_%04x" % (bank, addr)
             # Jump targets become locals of the preceding global label; a
             # jump target with no preceding global becomes global itself.
             globals_sorted = sorted(o for o, _ in items if o in self.names)
@@ -87,6 +94,19 @@ class Emitter:
         k = bisect.bisect_right(lst, o) - 1
         return lst[k] if k >= 0 else None
 
+    def qref(self, bank, addr):
+        """Fully-qualified label for a ROM address, or None."""
+        if addr >= 0x8000:
+            return None
+        o = off(bank, addr) if addr >= 0x4000 else addr
+        if o in self.names:
+            return self.names[o]
+        if o in self.locals:
+            scope, name = self.locals[o]
+            self.exported.add(o)  # conservative: data may live in another file
+            return self.names[scope] + name
+        return None
+
     def ref(self, bank, addr, from_off):
         """Label text for a code address, or None."""
         if addr >= 0x8000:
@@ -98,6 +118,8 @@ class Emitter:
             scope, name = self.locals[o]
             if self.scope_of(from_off) == scope:
                 return name
+            if from_off // BANK_SIZE != o // BANK_SIZE:
+                self.exported.add(o)
             return self.names[scope] + name
         return None
 
@@ -121,6 +143,8 @@ class Emitter:
                     tb = bank if bank else i.ctx
                     if tb:
                         txt = self.ref(tb, v, o)
+            elif i.dataref is not None:
+                txt = self.qref(*i.dataref)
             elif t.startswith("ld [") or t.startswith("ld a, ["):
                 if v >= 0xFF00 and v in HW_REGS:
                     txt = HW_REGS[v]
@@ -149,7 +173,7 @@ class Emitter:
 
     # ------------------------------------------------------------------ banks
     def code_banks(self):
-        return sorted({o // BANK_SIZE for o in self.t.insns})
+        return sorted({o // BANK_SIZE for o in self.t.insns} | {o // BANK_SIZE for o in self.t.data})
 
     def emit_bank(self, bank):
         rom = self.rom
@@ -189,11 +213,18 @@ class Emitter:
                     if o in self.names:
                         out.append("\n%s::\n" % self.names[o])
                     elif o in self.locals:
-                        out.append("%s:\n" % self.locals[o][1])
+                        out.append("%s%s\n" % (self.locals[o][1], "::" if o in self.exported else ":"))
                     out.append("\t%s\n" % self.fmt(i, o))
                     if i.flow in ("jp", "jr", "ret", "jphl"):
                         out.append("\n")
                     o += i.length
+                elif o in t.data:
+                    if gap is not None:
+                        self.emit_gap(out, gap, o, base, vbase)
+                        gap = None
+                    out.append("\n%s::\n" % self.names[o])
+                    out.extend("\t%s\n" % x for x in self.fmt_objinit(t.data[o]))
+                    o += t.data[o][3]
                 else:
                     if gap is None:
                         gap = o
@@ -201,6 +232,40 @@ class Emitter:
             if gap is not None:
                 self.emit_gap(out, gap, e, base, vbase)
         return "".join(out)
+
+    def fmt_objinit(self, item):
+        _, bank, entries, _ = item
+        fields = {}
+        for e in entries:
+            if e[0] == "byte":
+                fields[e[1]] = e[2]
+            elif e[0] == "word":
+                fields[e[1]] = e[2] & 0xFF
+                fields[e[1] + 1] = e[2] >> 8
+        handler = None
+        if 2 in fields and 3 in fields:
+            v = fields[2] | fields[3] << 8
+            hb = 0 if v < 0x4000 else fields.get(1, bank)
+            handler = self.qref(hb, v)
+        lines = []
+        for e in entries:
+            if e[0] == "byte":
+                f, v = e[1], e[2]
+                if f == 1 and handler and fields[2] | fields[3] << 8 >= 0x4000:
+                    val = "BANK(%s)" % handler
+                else:
+                    val = hexb(v)
+                lines.append("obj_byte %s, %s" % (OBJ_FIELDS.get(f, hexb(f)), val))
+            elif e[0] == "word":
+                f, v = e[1], e[2]
+                val = handler if (f == 2 and handler) else hexw(v)
+                lines.append("obj_word %s, %s" % (OBJ_FIELDS.get(f, hexb(f)), val))
+            elif e[0] == "include":
+                lab = self.qref(0 if e[1] < 0x4000 else bank, e[1])
+                lines.append("obj_include %s" % (lab or hexw(e[1])))
+            else:
+                lines.append("obj_end" if e[1] == 0x81 else "obj_end %s" % hexb(e[1]))
+        return lines
 
     def emit_gap(self, out, s, e, base, vbase):
         n = e - s
@@ -217,6 +282,8 @@ class Emitter:
     def write_all(self):
         os.makedirs(os.path.join(ROOT, "src"), exist_ok=True)
         code = self.code_banks()
+        for b in code:  # first pass only collects cross-file references
+            self.emit_bank(b)
         objs = []
         for b in code:
             path = os.path.join(ROOT, "src", "bank_%02x.asm" % b)

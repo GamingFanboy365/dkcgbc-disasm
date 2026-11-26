@@ -15,7 +15,7 @@ JP_TABLES = [
 
 # (bank, start, count) of tables of 16-bit code pointers
 PTR_TABLES = [
-    (0, 0x3F00, 87),  # script command handlers; the interpreter at $323a indexes from $3F0A
+    (0, 0x3F00, 87),  # music sequence command handlers (UpdateMusicChannel indexes from $3F0A)
 ]
 
 # Bank-0 routines that call a = bank, hl = address in another bank
@@ -39,6 +39,14 @@ NAMES = {
     (0, 0x0150): "Init",
     (0, 0x028C): "NotGBC",           # shows the "GBC only" screen on DMG
     (0, 0x3FC0): "FarCall_A_HL",     # call a:hl, used by the banks $f0+ program
+    (0, 0x182F): "InitObject",       # ApplyObjInit, then sets flags from field $2a
+    (0, 0x188B): "ApplyObjInit",     # apply the initialiser list at hl to object bc
+    (0, 0x18C0): "AllocObject",      # bc = free $40-byte slot offset; carry if full
+    (0, 0x3980): "RunObjects",       # call OBJ_HANDLER (in OBJ_BANK) of each object
+    (0, 0x30F1): "PlaySong",         # a = song id
+    (0, 0x3167): "UpdateSound",
+    (0, 0x31B7): "UpdateMusic",      # steps the four channels at $d000-$d3ff
+    (0, 0x3220): "UpdateMusicChannel",
 }
 
 # Generated source files that have been edited by hand and must not be
@@ -47,3 +55,19 @@ KEEP = set()
 
 # Banks where unreached gaps may be traced speculatively (see tracer.Speculator).
 SPECULATE_BANKS = [0, 5, 7, 8, 9, 10, 15] + list(range(0xF0, 0xFF))
+
+# Bank-0 routines that apply an object initialiser list at hl to the object
+# in bc (see Func_00_188b).
+OBJ_INIT_FUNCS = [0x188B, 0x182F]
+
+# Runs of consecutive object initialiser lists: (bank, start, end).
+# Bank $0e holds the lists that level data refers to (spawned by Func_00_17xx
+# via Func_00_182f with bank $0e mapped).
+OBJ_LIST_RUNS = [
+    (0x0E, 0x4000, 0x79F4),
+]
+
+# Tables of pointers to object initialiser lists: (bank, start, count)
+OBJ_LIST_TABLES = [
+    (0x0A, 0x443C, 4),
+]

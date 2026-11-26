@@ -7,6 +7,7 @@ OBJS := \
 	src/bank_09.o \
 	src/bank_0a.o \
 	src/bank_0d.o \
+	src/bank_0e.o \
 	src/bank_0f.o \
 	src/bank_f0.o \
 	src/bank_f1.o \

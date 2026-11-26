@@ -10,6 +10,7 @@ def load(path):
 def make(rom):
     t = Tracer(rom)
     t.farcall_hl_a = set(hints.FARCALL_HL_A)
+    t.obj_init_funcs = set(hints.OBJ_INIT_FUNCS)
     for (b, a) in hints.CODE:
         t.add(b, a, "func", b)
     for (b, start, count, stride) in hints.JP_TABLES:
@@ -21,6 +22,14 @@ def make(rom):
             a = rom[o] | rom[o + 1] << 8
             if a:
                 t.add(b, a, "func", b)
+    t.list_only_banks = set(b for b, _, _ in hints.OBJ_LIST_RUNS)
+    for (b, start, end) in hints.OBJ_LIST_RUNS:
+        t.parse_obj_run(b, start, end)
+    for (b, start, count) in hints.OBJ_LIST_TABLES:
+        for k in range(count):
+            o = off(b, start + 2 * k)
+            a = rom[o] | rom[o + 1] << 8
+            t.parse_obj_list(0 if a < 0x4000 else b, a, b)
     t.run()
     Speculator(t).run(hints.SPECULATE_BANKS)
     return t

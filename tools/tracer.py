@@ -16,7 +16,7 @@ def off(bank, addr):
 
 
 class Insn:
-    __slots__ = ("bank", "addr", "op", "length", "flow", "imm", "target", "text", "raw", "ctx", "farcall")
+    __slots__ = ("bank", "addr", "op", "length", "flow", "imm", "target", "text", "raw", "ctx", "farcall", "dataref")
 
 
 def decode(rom, bank, addr):
@@ -34,6 +34,7 @@ def decode(rom, bank, addr):
     i.imm = None
     i.target = None
     i.farcall = None
+    i.dataref = None
     if op == 0xC7:
         # rst $00 = far call with inline arguments: dw address, db bank
         if (addr & 0x3FFF) + 4 > 0x4000:
@@ -144,6 +145,9 @@ class Tracer:
         self.conflicts = []
         self.farcall_hl_a = set()
         self.speculated = []
+        self.obj_init_funcs = set()
+        self.list_only_banks = set()
+        self.data = {}           # file offset -> ('objinit', bank, entries, length)
         self.candidates = []
         self.fell_into_old = False
 
@@ -175,6 +179,7 @@ class Tracer:
         regs = dict.fromkeys(REG8)
         first = True
         hist = []
+        hl_insn = None
         while True:
             o = off(bank, addr)
             if o in self.insns:
@@ -206,7 +211,20 @@ class Tracer:
                         self.add(a, h << 8 | l, "func", a)
                     else:
                         self.unresolved.append((None, 0, "farcall@%02x:%04x" % (bank, addr)))
+            if i.flow in ("call", "jp") and i.target in self.obj_init_funcs:
+                h, l = regs["h"], regs["l"]
+                if None not in (h, l):
+                    ptr = h << 8 | l
+                    lb = 0 if ptr < 0x4000 else (bank or ctx)
+                    if lb is not None and ptr < 0x8000:
+                        self.parse_obj_list(lb, ptr, bank or ctx, hl_insn)
+                else:
+                    self.unresolved.append((bank, addr, "objinit-hl"))
             apply_regs(i, regs)
+            if i.op == 0x21:
+                hl_insn = i
+            elif hl_insn is not None and (regs["h"], regs["l"]) != (hl_insn.imm >> 8, hl_insn.imm & 0xFF):
+                hl_insn = None
             # "ld [hl], LOW / inc l / ld [hl], HIGH" stores a pointer (often an
             # object handler); remember it as a candidate for speculation.
             hist = (hist + [i])[-3:]
@@ -239,6 +257,80 @@ class Tracer:
             if (addr & 0x3FFF) == 0:
                 return
 
+    def parse_obj_list(self, bank, addr, code_bank, src=None, inherited=None):
+        """Parse an object initialiser list (see Func_00_188b) and queue its
+        handler. Entries: $00-$3f field,byte / $40-$7f field,word /
+        $80 include-pointer / $81+ end."""
+        o = off(bank, addr)
+        if o in self.data:
+            if src is not None:
+                src.dataref = (bank, addr)
+            return
+        rom = self.rom
+        entries = []
+        p = addr
+        fields = dict(inherited or {})
+        while True:
+            if (p & 0x3FFF) + 3 > 0x4000 and rom[off(bank, p)] < 0x81:
+                self.conflicts.append((bank, addr, "objlist-end"))
+                return
+            b = rom[off(bank, p)]
+            if b < 0x40:
+                v = rom[off(bank, p + 1)]
+                entries.append(("byte", b, v))
+                fields[b] = v
+                p += 2
+            elif b < 0x80:
+                v = rom[off(bank, p + 1)] | rom[off(bank, p + 2)] << 8
+                entries.append(("word", b & 0x3F, v))
+                fields[b & 0x3F] = v & 0xFF
+                fields[(b & 0x3F) + 1] = v >> 8
+                p += 3
+            elif b == 0x80:
+                v = rom[off(bank, p + 1)] | rom[off(bank, p + 2)] << 8
+                entries.append(("include", v))
+                p += 3
+            else:
+                entries.append(("end", b))
+                p += 1
+                break
+        length = p - addr
+        for k in range(length):
+            if o + k in self.owner:
+                self.conflicts.append((bank, addr, "objlist-overlap"))
+                return
+        self.data[o] = ("objinit", bank, entries, length)
+        for k in range(length):
+            self.owner[o + k] = -1
+        if src is not None:
+            src.dataref = (bank, addr)
+        for e in entries:
+            if e[0] == "include" and e[1] < 0x8000:
+                ib = 0 if e[1] < 0x4000 else bank
+                if ib or e[1] < 0x4000:
+                    self.parse_obj_list(ib, e[1], code_bank, None, fields)
+        if 2 in fields and 3 in fields:
+            handler = fields[2] | fields[3] << 8
+            hb = fields.get(1)
+            if handler < 0x4000:
+                self.add(0, handler, "func", hb)
+            elif handler < 0x8000:
+                if hb is None and bank not in self.list_only_banks:
+                    hb = bank or code_bank
+                if hb is not None:
+                    self.add(hb, handler, "func", hb)
+
+    def parse_obj_run(self, bank, start, end):
+        """Parse consecutive object initialiser lists in [start, end)."""
+        a = start
+        while a < end:
+            o = off(bank, a)
+            self.parse_obj_list(bank, a, None)
+            if o not in self.data:
+                self.conflicts.append((bank, a, "objrun"))
+                return
+            a += self.data[o][3]
+
     def on_rst(self, i, bank, addr, ctx):
         """Hook for rst vectors with inline arguments. Returns True to stop."""
         return False
@@ -262,6 +354,8 @@ class Speculator:
         t = self.t
         trial = Tracer(t.rom)
         trial.farcall_hl_a = t.farcall_hl_a
+        trial.obj_init_funcs = t.obj_init_funcs
+        trial.data = ChainMap({}, t.data)
         trial.insns = ChainMap({}, t.insns)
         trial.owner = ChainMap({}, t.owner)
         trial.labels = ChainMap({}, t.labels)
@@ -297,6 +391,9 @@ class Speculator:
         for o, k in trial.labels.maps[0].items():
             if t.labels.get(o) != "func":
                 t.labels[o] = k
+        t.data.update(trial.data.maps[0])
+        for (ib, ia), src in []:
+            pass
         t.jphl += trial.jphl
         t.candidates += trial.candidates
         t.unresolved += trial.unresolved

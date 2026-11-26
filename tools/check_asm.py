@@ -113,6 +113,7 @@ class Asm:
                     pc = int(m.group(2), 16)
                     bank = int(m.group(3), 16) if m.group(3) else 0
                     fo = pc if m.group(1) == "ROM0" else bank * BANK + pc - 0x4000
+                    scope = None  # RGBDS resets the label scope at each SECTION
                     continue
                 m = re.match(r"^([A-Za-z_][\w]*)::?$", s)
                 if m and not raw[0].isspace():
@@ -120,8 +121,10 @@ class Asm:
                     self.syms[scope] = pc
                     self.banks[scope] = fo // BANK
                     continue
-                m = re.match(r"^(\.[\w]+):?$", s)
+                m = re.match(r"^(\.[\w]+):{0,2}$", s)
                 if m and not raw[0].isspace():
+                    if scope is None:
+                        raise SystemExit("%s:%d: local label %s has no global label scope" % (f, ln, m.group(1)))
                     self.syms[scope + m.group(1)] = pc
                     self.banks[scope + m.group(1)] = fo // BANK
                     continue
@@ -143,6 +146,12 @@ class Asm:
             return self.eval(split_args(rest)[2])
         if m == "rst_farcall":
             return 4
+        if m == "obj_byte":
+            return 2
+        if m in ("obj_word", "obj_include"):
+            return 3
+        if m == "obj_end":
+            return 1
         if s in EXACT:
             return len(EXACT[s])
         shp, _ = shape_of(s)
@@ -190,6 +199,18 @@ class Asm:
             a = split_args(rest)
             st, n = ev(a[1]), ev(a[2])
             return base[st:st + n]
+        if m == "obj_byte":
+            f, v = split_args(rest)
+            return bytes([ev(f), ev(v) & 0xFF])
+        if m == "obj_word":
+            f, v = split_args(rest)
+            v = ev(v)
+            return bytes([0x40 | ev(f), v & 0xFF, v >> 8])
+        if m == "obj_include":
+            v = ev(rest)
+            return bytes([0x80, v & 0xFF, v >> 8])
+        if m == "obj_end":
+            return bytes([ev(rest) if rest.strip() else 0x81])
         if m == "rst_farcall":
             v = ev(rest)
             return bytes([0xC7, v & 0xFF, v >> 8, self.label_bank(rest.strip(), scope)])
@@ -238,6 +259,7 @@ def main():
     files = [o + ".asm" for o in objs]
     a = Asm()
     a.define_constants(os.path.join(ROOT, "include", "hardware.inc"))
+    a.define_constants(os.path.join(ROOT, "include", "macros.inc"))
     items = a.parse_files(files)
     a.assemble(items, base)
     # header fields filled in by rgbfix

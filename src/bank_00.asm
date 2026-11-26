@@ -173,11 +173,11 @@ Func_00_00bc::
 
 
 Func_00_00f0::
-	jp Func_00_3167
+	jp UpdateSound
 
 
 Func_00_00f3::
-	jp Func_00_30f1
+	jp PlaySong
 
 	db $29, $c3
 
@@ -310,7 +310,7 @@ Init::
 	ldh [rIE], a
 	call Func_00_2f0e
 	ld a, $00
-	call Func_00_30f1
+	call PlaySong
 	ld a, $ff
 	ld hl, $c100
 	ld bc, $0200
@@ -324,7 +324,7 @@ Init::
 	ldh a, [$ff80]
 	cp $0f
 	jp z, .jump_0155
-	call Func_00_3167
+	call UpdateSound
 	ld hl, $c336
 	ld a, [hl]
 	add a, $01
@@ -821,7 +821,7 @@ Func_00_0420::
 	ld hl, $424e
 	call Func_00_2ca6
 	ld a, $20
-	call Func_00_30f1
+	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
 	call Func_0f_4001
@@ -832,7 +832,7 @@ Func_00_0420::
 	ld hl, $423c
 	call Func_00_2ca6
 	ld a, $11
-	call Func_00_30f1
+	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
 	call Func_0f_40a9
@@ -843,7 +843,7 @@ Func_00_0420::
 	ld hl, $4245
 	call Func_00_2ca6
 	ld a, $14
-	call Func_00_30f1
+	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
 	call Func_0f_412e
@@ -854,7 +854,7 @@ Func_00_0420::
 	ld hl, $4245
 	call Func_00_2ca6
 	ld a, $09
-	call Func_00_30f1
+	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
 	call Func_0f_41c2
@@ -863,7 +863,7 @@ Func_00_0420::
 
 .jump_0604:
 	call Func_00_0ee2
-	call Func_00_3980
+	call RunObjects
 	call Func_00_0f02
 	ld a, $0f
 	ld [rROMB0], a
@@ -3743,7 +3743,9 @@ Func_00_162c::
 	add hl, bc
 	ld a, [hl]
 	and $08
-	jr nz, .jump_1664
+	jr nz, Func_00_1664
+
+Func_00_1635::
 	ld hl, $ff89
 	ld a, [hli]
 	sub $08
@@ -3776,7 +3778,8 @@ Func_00_162c::
 	ldh [$ff98], a
 	ret
 
-.jump_1664:
+
+Func_00_1664::
 	ld hl, $c814
 	add hl, bc
 	ld a, [hl]
@@ -4073,7 +4076,7 @@ Func_00_1779::
 	sbc a, b
 	jr nc, Func_00_1761.jump_1778
 .jump_17e0:
-	call Func_00_18c0
+	call AllocObject
 	jr c, Func_00_1761.jump_1778
 	ld d, $a9
 	ld hl, $c827
@@ -4115,7 +4118,7 @@ Func_00_1779::
 	jr z, .jump_1828
 	ld a, $0e
 	ld [rROMB0], a
-	call Func_00_182f
+	call InitObject
 	jr .jump_182b
 
 .jump_1823:
@@ -4129,8 +4132,8 @@ Func_00_1779::
 	jp Func_00_1779
 
 
-Func_00_182f::
-	call Func_00_188b
+InitObject::
+	call ApplyObjInit
 	ld hl, $c82a
 	add hl, bc
 	ld a, [hl]
@@ -4149,17 +4152,24 @@ Func_00_1841::
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-	ld hl, $1850
-	call Func_00_188b
+	ld hl, ObjInit_00_1850
+	call ApplyObjInit
 	ret
 
-	db $00, $03, $01, $0a, $42, $c8, $58, $44, $7e, $6a, $29, $02, $28, $03, $81
 
+ObjInit_00_1850::
+	obj_byte OBJ_FLAGS, $03
+	obj_byte OBJ_BANK, BANK(Func_0a_58c8)
+	obj_word OBJ_HANDLER, Func_0a_58c8
+	obj_word $04, $6a7e
+	obj_byte $29, $02
+	obj_byte $28, $03
+	obj_end
 
 Func_00_185f::
 	push hl
-	ld hl, $1883
-	call Func_00_188b
+	ld hl, ObjInit_00_1883
+	call ApplyObjInit
 	pop de
 	ld hl, $c822
 	add hl, bc
@@ -4184,10 +4194,14 @@ Func_00_185f::
 	call Func_00_1779
 	ret
 
-	db $00, $03, $01, $08, $42, $01, $40, $81
 
+ObjInit_00_1883::
+	obj_byte OBJ_FLAGS, $03
+	obj_byte OBJ_BANK, BANK(Func_08_4001)
+	obj_word OBJ_HANDLER, Func_08_4001
+	obj_end
 
-Func_00_188b::
+ApplyObjInit::
 	ld de, $0000
 	push de
 .jump_188f:
@@ -4237,7 +4251,7 @@ Func_00_188b::
 	jr .jump_188f
 
 
-Func_00_18c0::
+AllocObject::
 	ld a, [$c440]
 	or a
 	jr nz, .jump_18c8
@@ -4542,7 +4556,7 @@ Func_00_19e7::
 	jr z, .jump_1a73
 	ld a, $14
 .jump_1a73:
-	call Func_00_30f1
+	call PlaySong
 	ld a, $41
 	ld [rROMB0], a
 	ld de, $5380
@@ -6238,7 +6252,7 @@ Func_00_2400::
 	ld a, $04
 	ld [rROMB0], a
 	ld a, [hli]
-	call Func_00_30f1
+	call PlaySong
 	pop hl
 	ld a, $04
 	ld [rROMB0], a
@@ -6407,7 +6421,7 @@ Func_00_2400::
 .jump_2664:
 	call Func_00_28b5
 	call Func_00_0ee2
-	call Func_00_3980
+	call RunObjects
 	call Func_00_2ae3
 	call Func_00_0f02
 	call Func_00_1933
@@ -6582,7 +6596,7 @@ Func_00_2766::
 
 
 Func_00_2793::
-	call Func_00_18c0
+	call AllocObject
 	ld hl, $c800
 	add hl, bc
 	ld a, $0b
@@ -6592,7 +6606,7 @@ Func_00_2793::
 	ld [hl], $40
 	inc l
 	ld [hl], $54
-	call Func_00_18c0
+	call AllocObject
 	ld hl, $c800
 	add hl, bc
 	ld a, $0b
@@ -6602,7 +6616,7 @@ Func_00_2793::
 	ld [hl], $78
 	inc l
 	ld [hl], $55
-	call Func_00_18c0
+	call AllocObject
 	ld hl, $c800
 	add hl, bc
 	ld a, $0b
@@ -6612,7 +6626,7 @@ Func_00_2793::
 	ld [hl], $bf
 	inc l
 	ld [hl], $54
-	call Func_00_18c0
+	call AllocObject
 	ld hl, $c800
 	add hl, bc
 	ld a, $0b
@@ -6635,49 +6649,67 @@ Func_00_2793::
 
 
 Func_00_27ed::
-	call Func_00_18c0
-	ld hl, $27f7
-	call Func_00_188b
+	call AllocObject
+	ld hl, ObjInit_00_27f7
+	call ApplyObjInit
 	ret
 
-	db $00, $01, $01, $0a, $42, $23, $6e, $81
 
+ObjInit_00_27f7::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_0a_6e23)
+	obj_word OBJ_HANDLER, Func_0a_6e23
+	obj_end
 
 Func_00_27ff::
 	ld hl, $c446
 	ld a, $5a
 	ld [hli], a
 	ld [hl], $00
-	call Func_00_18c0
-	ld hl, $2811
-	call Func_00_188b
+	call AllocObject
+	ld hl, ObjInit_00_2811
+	call ApplyObjInit
 	ret
 
-	db $00, $01, $01, $0a, $42, $7e, $6e, $6e, $5a, $00, $81
 
+ObjInit_00_2811::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_0a_6e7e)
+	obj_word OBJ_HANDLER, Func_0a_6e7e
+	obj_word $2e, $005a
+	obj_end
 
 Func_00_281c::
-	call Func_00_18c0
-	ld hl, $2826
-	call Func_00_188b
+	call AllocObject
+	ld hl, ObjInit_00_2826
+	call ApplyObjInit
 	ret
 
-	db $00, $01, $01, $0a, $42, $f5, $6d, $81
 
+ObjInit_00_2826::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_0a_6df5)
+	obj_word OBJ_HANDLER, Func_0a_6df5
+	obj_end
 
 Func_00_282e::
-	call Func_00_18c0
-	ld hl, $2838
-	call Func_00_182f
+	call AllocObject
+	ld hl, ObjInit_00_2838
+	call InitObject
 	ret
 
-	db $00, $01, $01, $0a, $42, $d3, $70, $2a, $03, $81
 
+ObjInit_00_2838::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_0a_70d3)
+	obj_word OBJ_HANDLER, Func_0a_70d3
+	obj_byte $2a, $03
+	obj_end
 
 Func_00_2842::
-	call Func_00_18c0
-	ld hl, $2859
-	call Func_00_188b
+	call AllocObject
+	ld hl, ObjInit_00_2859
+	call ApplyObjInit
 	ld a, [$c445]
 	swap a
 	and $07
@@ -6687,11 +6719,15 @@ Func_00_2842::
 	ld [hl], a
 	ret
 
-	db $00, $01, $01, $08, $42, $4a, $5d, $81
 
+ObjInit_00_2859::
+	obj_byte OBJ_FLAGS, $01
+	obj_byte OBJ_BANK, BANK(Func_08_5d4a)
+	obj_word OBJ_HANDLER, Func_08_5d4a
+	obj_end
 
 Func_00_2861::
-	call Func_00_18c0
+	call AllocObject
 	ld hl, $c813
 	add hl, bc
 	ld a, [$c813]
@@ -6712,8 +6748,8 @@ Func_00_2861::
 	ld [hli], a
 	ld a, $0e
 	ld [rROMB0], a
-	ld hl, $45bc
-	call Func_00_182f
+	ld hl, ObjInit_0e_45bc
+	call InitObject
 	ld hl, $c801
 	add hl, bc
 	ld [hl], $08
@@ -8200,7 +8236,7 @@ Func_00_30c9::
 	INCBIN "baserom.gbc", $0030ce, $0023 ; $30ce
 
 
-Func_00_30f1::
+PlaySong::
 	ld hl, $c328
 	cp [hl]
 	ret z
@@ -8278,10 +8314,10 @@ Func_00_30f1::
 	ret
 
 
-Func_00_3167::
+UpdateSound::
 	ld a, $04
 	ldh [rSVBK], a
-	call Func_00_31b7
+	call UpdateMusic
 	call Func_00_3172
 	ret
 
@@ -8324,7 +8360,7 @@ Func_00_3172::
 	ret
 
 
-Func_00_31b7::
+UpdateMusic::
 	ld hl, $c322
 	ld a, [hld]
 	add a, [hl]
@@ -8339,7 +8375,7 @@ Func_00_31b7::
 	ld l, $1f
 	ld a, [hl]
 	and a
-	call nz, Func_00_3220
+	call nz, UpdateMusicChannel
 	ld a, $02
 	ld [rROMB0], a
 	ld l, $39
@@ -8399,7 +8435,7 @@ Func_00_31b7::
 	ret
 
 
-Func_00_3220::
+UpdateMusicChannel::
 	ld a, [$c323]
 	cp $80
 	jp c, Func_00_3303.jump_332d
@@ -9538,7 +9574,7 @@ Func_00_38cd::
 
 .jump_3931:
 	ld a, [$c305]
-	call Func_00_30f1
+	call PlaySong
 	jp Func_00_38cd
 
 .jump_393a:
@@ -9584,14 +9620,14 @@ Func_00_38cd::
 	db $9a, $61, $a5, $61, $8f, $61, $b0, $61, $bb, $61
 
 
-Func_00_3980::
+RunObjects::
 	ld bc, $0000
 .jump_3983:
 	ld hl, $c800
 	add hl, bc
 	ldh a, [$ffa6]
 	and [hl]
-	jr z, .jump_3995
+	jr z, Func_00_3995
 	inc l
 	ld a, [hli]
 	ld [rROMB0], a
@@ -9600,7 +9636,8 @@ Func_00_3980::
 	ld l, a
 	jp hl
 
-.jump_3995:
+
+Func_00_3995::
 	ld hl, $c800
 	add hl, bc
 	ld a, $10
@@ -9613,7 +9650,7 @@ Func_00_3980::
 	sub c
 	ld b, a
 	cp $08
-	jr nz, .jump_3983
+	jr nz, RunObjects.jump_3983
 	ret
 
 
@@ -10268,7 +10305,7 @@ Func_00_3c1b::
 .jump_3cd9:
 	ld a, $09
 	ld [rROMB0], a
-	jp Func_09_4294.jump_44f5
+	jp Func_09_43ea.jump_44f5
 
 
 Func_00_3ce1::
@@ -10404,7 +10441,7 @@ Func_00_3fd5::
 	ld [rROMB0], a
 	ret
 
-.jump_3fdc:
+.jump_3fdc::
 	ldh [$ff81], a
 	ld [rROMB0], a
 	ret

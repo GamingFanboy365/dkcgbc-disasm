@@ -155,9 +155,6 @@ SECTION "Bank $ee", ROMX[$4000], BANK[$ee]
 SECTION "Bank $ef", ROMX[$4000], BANK[$ef]
 	ds $4000, $00
 
-SECTION "Bank $f3", ROMX[$4000], BANK[$f3]
-	INCBIN "baserom.gbc", $f3 * $4000, $4000
-
 SECTION "Bank $f4", ROMX[$4000], BANK[$f4]
 	ds $4000, $00
 

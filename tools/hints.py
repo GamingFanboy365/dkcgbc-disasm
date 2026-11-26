@@ -288,3 +288,8 @@ EXTRA_TILES = [
 # "CONTINUE", ...), $87-separated label lists and the closing message.
 FE_TEXT_RUNS = [(0x4669, 631), (0x4C06, 14), (0x4EF3, 737), (0x586E, 699), (0x5E77, 22),
                 (0x615B, 705), (0x677C, 22), (0x6A99, 128)]
+
+# Framed thumbnails in bank $f3, listed by an 18-record table in bank $f1
+# (slot, x, y, bank, tiles little-endian, width, height in tiles); read while
+# browsing stickers
+THUMBNAILS = {"table": (0xF1, 0x693A), "count": 18}

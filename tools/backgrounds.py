@@ -487,6 +487,11 @@ def bg_tile_pieces(rom):
             if n % 16:
                 pieces.append((base + ("_end.png" if n >= 16 else ".png"), a + n // 16 * 256, n % 16, n % 16))
             out[(b, a)] = pieces
+    tb, ta = hints.THUMBNAILS["table"]
+    for k in range(hints.THUMBNAILS["count"]):
+        r = rom[off(tb, ta + 8 * k):off(tb, ta + 8 * k) + 8]
+        a, w, h = r[4] | r[5] << 8, r[6], r[7]
+        out[(r[3], a)] = [(os.path.join("gfx", "bgtiles", "%02x" % r[3], "%04x.png" % a), a, w * h, w)]
     for (b, a, n, _) in hints.EXTRA_TILES:
         base = os.path.join("gfx", "bgtiles", "%02x" % b, "%04x" % a)
         pieces = []

@@ -4487,7 +4487,29 @@ Func_f1_649c::
 	ld [$ccb3], a
 	ret
 
-	INCBIN "baserom.gbc", $3c64cb, $0c7d ; $64cb
+	INCBIN "baserom.gbc", $3c64cb, $046f ; $64cb
+
+
+ThumbnailTable::
+	db $08, 2, 2, BANK(BGTiles_f3_41e0), LOW(BGTiles_f3_41e0), HIGH(BGTiles_f3_41e0), 5, 6 ; slot, x, y, tiles, width, height
+	db $26, 8, 4, BANK(BGTiles_f3_5c20), LOW(BGTiles_f3_5c20), HIGH(BGTiles_f3_5c20), 6, 5
+	db $44, 8, 9, BANK(BGTiles_f3_5e00), LOW(BGTiles_f3_5e00), HIGH(BGTiles_f3_5e00), 6, 5
+	db $62, 2, 9, BANK(BGTiles_f3_5a40), LOW(BGTiles_f3_5a40), HIGH(BGTiles_f3_5a40), 5, 6
+	db $08, 2, 4, BANK(BGTiles_f3_4f00), LOW(BGTiles_f3_4f00), HIGH(BGTiles_f3_4f00), 6, 5
+	db $26, 8, 4, BANK(BGTiles_f3_50e0), LOW(BGTiles_f3_50e0), HIGH(BGTiles_f3_50e0), 6, 5
+	db $44, 2, 9, BANK(BGTiles_f3_52c0), LOW(BGTiles_f3_52c0), HIGH(BGTiles_f3_52c0), 6, 5
+	db $62, 8, 9, BANK(BGTiles_f3_54a0), LOW(BGTiles_f3_54a0), HIGH(BGTiles_f3_54a0), 6, 5
+	db $08, 2, 2, BANK(BGTiles_f3_5680), LOW(BGTiles_f3_5680), HIGH(BGTiles_f3_5680), 6, 5
+	db $26, 8, 6, BANK(BGTiles_f3_4000), LOW(BGTiles_f3_4000), HIGH(BGTiles_f3_4000), 6, 5
+	db $44, 2, 11, BANK(BGTiles_f3_5860), LOW(BGTiles_f3_5860), HIGH(BGTiles_f3_5860), 6, 5
+	db $08, 2, 6, BANK(BGTiles_f3_41e0), LOW(BGTiles_f3_41e0), HIGH(BGTiles_f3_41e0), 5, 6
+	db $26, 8, 4, BANK(BGTiles_f3_4b40), LOW(BGTiles_f3_4b40), HIGH(BGTiles_f3_4b40), 6, 5
+	db $44, 8, 9, BANK(BGTiles_f3_4d20), LOW(BGTiles_f3_4d20), HIGH(BGTiles_f3_4d20), 6, 5
+	db $08, 2, 4, BANK(BGTiles_f3_43c0), LOW(BGTiles_f3_43c0), HIGH(BGTiles_f3_43c0), 6, 5
+	db $26, 2, 9, BANK(BGTiles_f3_4780), LOW(BGTiles_f3_4780), HIGH(BGTiles_f3_4780), 6, 5
+	db $44, 8, 4, BANK(BGTiles_f3_45a0), LOW(BGTiles_f3_45a0), HIGH(BGTiles_f3_45a0), 6, 5
+	db $62, 8, 9, BANK(BGTiles_f3_4960), LOW(BGTiles_f3_4960), HIGH(BGTiles_f3_4960), 6, 5
+	INCBIN "baserom.gbc", $3c69ca, $077e ; $69ca
 
 
 Func_f1_7148::

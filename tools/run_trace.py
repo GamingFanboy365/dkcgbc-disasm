@@ -399,6 +399,14 @@ def parse_banks(t, rom):
                 rows.append(("db", text_tokens(rom[st:j + 1]), None))
                 st = j + 1
         t._claim(0xFF, a, ln, "rows", rows, "FEWords")
+    tb, ta = hints.THUMBNAILS["table"]
+    rows = []
+    for k in range(hints.THUMBNAILS["count"]):
+        r = rom[off(tb, ta + 8 * k):off(tb, ta + 8 * k) + 8]
+        lab = "BGTiles_%02x_%04x" % (r[3], r[4] | r[5] << 8)
+        rows.append(("db", ["$%02x" % r[0], "%d" % r[1], "%d" % r[2], "BANK(%s)" % lab, "LOW(%s)" % lab, "HIGH(%s)" % lab,
+                            "%d" % r[6], "%d" % r[7]], "slot, x, y, tiles, width, height" if k == 0 else None))
+    t._claim(tb, ta, 8 * len(rows), "rows", rows, "=ThumbnailTable")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

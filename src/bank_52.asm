@@ -391,5 +391,6 @@ SampleTable::
 	db $54, LOW(Sample_08), HIGH(Sample_08), 26 ; sample 8
 	db $55, LOW(Sample_09), HIGH(Sample_09), 58 ; sample 9
 	db $56, LOW(Sample_0A), HIGH(Sample_0A), 178 ; sample 10
-	INCBIN "baserom.gbc", $1481ee, $3e12 ; $41ee
 
+FishingSpriteTiles::
+	INCBIN "baserom.gbc", $1481ee, $3e12

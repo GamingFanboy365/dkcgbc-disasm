@@ -8,6 +8,7 @@ CODE = [
     (0, 0x3995),
     (0x50, 0x4000),  # extra program, far-jumped to from bank $f2 ($736a, $7571)
     (0, 0x36A7),  # sound hardware reset falling into Func_00_36b8; no caller found
+    (0x55, 0x4000),  # Hi-Score screen, far-jumped to from bank $f1 ($4ec8, $4f31)
     (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),
     (0, 0x0050), (0, 0x0058), (0, 0x0060), (0, 0x0063), (0, 0x00A1), (0, 0x0100),
 ]
@@ -260,3 +261,21 @@ CAMERA_BANK = 0x06   # camera regions, pointed to by map headers ($c45c)
 
 # Funky's Fishing digitized samples, played through NR50 by its timer interrupt
 SAMPLES = {"bank": 0x52, "table": 0x41C2, "count": 11}
+
+# Full screens loaded by code rather than the flow script (Func_00_2c48 with
+# the bank in b): the world map's shops, picked by location type [$c30c]
+EXTRA_SCREENS = [
+    ((0x43, 0x6720), "Candy's Challenge"),   # Func_0f_4001, type 2
+    ((0x43, 0x6726), "Cranky's Cabin"),      # Func_0f_40a9, types 0 and 3
+    ((0x42, 0x75E0), "Funky's Flights"),     # Func_0f_412e, type 1
+    ((0x74, 0x5490), "DK's banana hoard"),  # Func_0f_41c2, type 4, song $09
+]
+
+# Tile data found by what loads it, outside the level/screen/picture tables:
+# (bank, address, tile count, what it is)
+EXTRA_TILES = [
+    (0x40, 0x4000, 128, "dialogue font for the shops and maps (Func_0f_4001 etc., VRAM bank 1)"),
+    (0x40, 0x4800, 9, "world map arrows and icons"),
+    (0x40, 0x4A28, 256, "the DMG 'needs a Game Boy Color' screen (NotGBC copies $1000 bytes)"),
+    (0x41, 0x4000, 312, "world map sprites (8x16 objects)"),
+]

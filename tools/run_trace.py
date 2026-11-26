@@ -217,6 +217,12 @@ def parse_banks(t, rom):
                  "=TextGroups_%02x" % b)
         for g, lst in sorted(glists.items()):
             t._claim(b, g, 2 * len(lst), "rows", [("dw", [ref(b, p)], None) for p in lst], "TextGroup")
+    # --- graphics found by their loaders (tiles themselves: hints.EXTRA_TILES)
+    t._claim(0x40, 0x48C0, 360, "rows", hexrow("db", rom[off(0x40, 0x48C0):off(0x40, 0x48C0) + 360], 20),
+             "=NotGBCMap")
+    t._claim(0x41, 0x5380, 64, "palette", 8, "=WorldMapObjPalettes")
+    t._claim(0x51, 0x42F4, 0x44F1 - 0x42F4, "incbin", None, "=FishingRuntime")  # copied to $cb00 and run there
+    t._claim(0x52, 0x41EE, 0x8000 - 0x41EE, "incbin", None, "=FishingSpriteTiles")  # streamed to VRAM each frame
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

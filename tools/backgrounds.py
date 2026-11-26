@@ -436,7 +436,8 @@ def render_fishing(rom, screen):
 
 # ------------------------------------------------------- tiles for the build
 def screen_records(rom):
-    return {k: screen_record(rom, *k) for k in screens_in_flow(rom)}
+    keys = list(screens_in_flow(rom)) + [k for k, _ in hints.EXTRA_SCREENS]
+    return {k: screen_record(rom, *k) for k in keys}
 
 
 def bg_tile_pieces(rom):
@@ -479,6 +480,14 @@ def bg_tile_pieces(rom):
             if n % 16:
                 pieces.append((base + ("_end.png" if n >= 16 else ".png"), a + n // 16 * 256, n % 16, n % 16))
             out[(b, a)] = pieces
+    for (b, a, n, _) in hints.EXTRA_TILES:
+        base = os.path.join("gfx", "bgtiles", "%02x" % b, "%04x" % a)
+        pieces = []
+        if n >= 16:
+            pieces.append((base + ".png", a, n // 16 * 16, 16))
+        if n % 16:
+            pieces.append((base + ("_end.png" if n >= 16 else ".png"), a + n // 16 * 256, n % 16, n % 16))
+        out[(b, a)] = pieces
     return out
 
 

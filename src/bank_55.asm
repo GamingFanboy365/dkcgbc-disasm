@@ -2,7 +2,1523 @@
 INCLUDE "include/common.inc"
 
 SECTION "Bank $55", ROMX[$4000], BANK[$55]
-	INCBIN "baserom.gbc", $154000, $2130 ; $4000
+
+Func_55_4000::
+	di
+	xor a
+	ldh [rIE], a
+	ldh [rIF], a
+	ei
+	ld [$ffd8], sp
+	push bc
+	push de
+	push hl
+	ld a, $55
+	ldh [$ffc5], a
+	ld a, $01
+	ldh [rSVBK], a
+	ld bc, $0022
+	ld de, $c800
+	ld hl, $481e
+.jump_401e:
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec bc
+	ld a, b
+	or c
+	jr nz, .jump_401e
+	call $c800
+	di
+	ld a, $46
+	ldh [rLYC], a
+	ld a, $40
+	ldh [rSTAT], a
+	ld a, $02
+	ldh [rIE], a
+	xor a
+	ldh [rIF], a
+	ld a, [$0049]
+	ld l, a
+	ld a, [$004a]
+	ld h, a
+	inc hl
+	ld bc, $cca5
+	ld a, c
+	ld [hli], a
+	ld [hl], b
+	ei
+	push bc
+	ld c, $41
+.jump_404c:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_404c
+.jump_4052:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_4052
+	pop bc
+	ld a, $c3
+	ldh [rLCDC], a
+	ld b, $a0
+	xor a
+	ld hl, $fe00
+.jump_4063:
+	ld [hl], a
+	inc l
+	dec b
+	jr nz, .jump_4063
+	push bc
+	ld c, $41
+.jump_406b:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_406b
+.jump_4071:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_4071
+	pop bc
+	ldh a, [rLCDC]
+	set 1, a
+	ldh [rLCDC], a
+	call Func_55_425c
+	pop hl
+	pop de
+	pop bc
+	ld a, h
+	or a
+	jp z, .jump_411e
+	cp $01
+	jr z, .jump_408e
+	ret
+
+.jump_408e:
+	push bc
+	push de
+	ld b, $0e
+	call $cc91
+	pop de
+	pop bc
+	call Func_55_41f9
+	ld a, h
+	cp $ff
+	jr z, .jump_411e
+	ld [$ddf9], a
+	ld hl, $ddf6
+	ld a, $fd
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld hl, $ddf6
+	call Func_55_4161
+	call Func_55_4364
+	call Func_55_4423
+	ld e, $00
+	call Func_55_4676
+	call Func_55_46d1
+	ld a, [$ddf9]
+	ld b, a
+	add a, a
+	add a, b
+	ld c, a
+	ld b, $00
+	ld hl, $dd9c
+	add hl, bc
+	ld bc, $ddf6
+	ld a, [bc]
+	ld [hli], a
+	inc bc
+	ld a, [bc]
+	ld [hli], a
+	inc bc
+	ld a, [bc]
+	ld [hli], a
+	call Func_55_4423
+	ld hl, $dd77
+	ld bc, $dd9c
+	ld de, $ddab
+	ld a, $05
+.jump_40e4:
+	push af
+	ld a, [bc]
+	ld [hli], a
+	inc bc
+	ld a, [bc]
+	ld [hli], a
+	inc bc
+	ld a, [bc]
+	ld [hli], a
+	inc bc
+	ld a, [de]
+	ld [hli], a
+	inc de
+	ld a, [de]
+	ld [hli], a
+	inc de
+	ld a, [de]
+	ld [hli], a
+	inc de
+	ld a, [de]
+	ld [hli], a
+	inc de
+	pop af
+	dec a
+	jr nz, .jump_40e4
+	call Func_55_4381
+	ld hl, $b400
+	ld de, $dd75
+	call Func_55_43a7
+	ld hl, $b427
+	ld de, $dd75
+	call Func_55_43a7
+	ld hl, $b44e
+	ld de, $dd75
+	call Func_55_43a7
+	jr .jump_4123
+
+.jump_411e:
+	ld e, $00
+	call Func_55_4676
+.jump_4123:
+	push bc
+	ld c, $41
+.jump_4126:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_4126
+.jump_412c:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_412c
+	pop bc
+	ld hl, $dd6f
+	ld de, $dd70
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $4155
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $6198
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_55_4155::
+	ld a, [$dd70]
+	or a
+	jr z, Func_55_4000.jump_4123
+	ld e, $01
+	call Func_55_4676
+	ret
+
+
+Func_55_4161::
+	push hl
+	call Func_55_41f9
+	ld a, h
+	cp $ff
+	jr nz, .jump_416c
+	pop hl
+	ret
+
+.jump_416c:
+	ld a, h
+	cp $04
+	jr z, .jump_41e0
+	push hl
+	push de
+	push bc
+	ld a, $04
+	sub h
+	ldh [$ffc9], a
+	add a, a
+	add a, a
+	ldh [$ffc8], a
+	ld c, a
+	ld b, $00
+	ld a, h
+	sla a
+	sla a
+	ld e, a
+	ld d, $00
+	ld hl, $ddab
+	add hl, de
+	ld d, h
+	ld e, l
+	push de
+	ld hl, $ddbf
+	call $cbcb
+	pop hl
+	pop bc
+	ld a, b
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	pop de
+	ld a, d
+	ld [hli], a
+	ld a, e
+	ld [hli], a
+	ldh a, [$ffc8]
+	ld c, a
+	ld b, $00
+	ld de, $ddbf
+	call $cbcb
+	ldh a, [$ffc9]
+	ld b, a
+	add a, a
+	add a, b
+	ldh [$ffc9], a
+	ld c, a
+	ld b, $00
+	pop hl
+	ld a, h
+	add a, a
+	add a, h
+	ld e, a
+	ld d, $00
+	ld hl, $dd9c
+	add hl, de
+	ld d, h
+	ld e, l
+	push de
+	ld hl, $ddbf
+	call $cbcb
+	pop hl
+	pop de
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ldh a, [$ffc9]
+	ld c, a
+	ld b, $00
+	ld de, $ddbf
+	call $cbcb
+	ret
+
+.jump_41e0:
+	ld hl, $ddbb
+	ld a, b
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, d
+	ld [hli], a
+	ld a, e
+	ld [hli], a
+	pop de
+	ld hl, $dda8
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ld a, [de]
+	inc de
+	ld [hli], a
+	ret
+
+
+Func_55_41f9::
+	ld hl, $ddbb
+	call Func_55_423d
+	jr z, .jump_4237
+	jr c, .jump_423a
+	ld hl, $ddb7
+	call Func_55_423d
+	jr z, .jump_4234
+	jr c, .jump_4237
+	ld hl, $ddb3
+	call Func_55_423d
+	jr z, .jump_4231
+	jr c, .jump_4234
+	ld hl, $ddaf
+	call Func_55_423d
+	jr z, .jump_422e
+	jr c, .jump_4231
+	ld hl, $ddab
+	call Func_55_423d
+	jr z, .jump_422b
+	jr c, .jump_422e
+.jump_422b:
+	ld h, $00
+	ret
+
+.jump_422e:
+	ld h, $01
+	ret
+
+.jump_4231:
+	ld h, $02
+	ret
+
+.jump_4234:
+	ld h, $03
+	ret
+
+.jump_4237:
+	ld h, $04
+	ret
+
+.jump_423a:
+	ld h, $ff
+	ret
+
+
+Func_55_423d::
+	ld a, b
+	cp [hl]
+	jr z, .jump_4246
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+	ret
+
+.jump_4246:
+	inc hl
+	ld a, c
+	cp [hl]
+	jr z, .jump_424f
+	inc hl
+	inc hl
+	inc hl
+	ret
+
+.jump_424f:
+	inc hl
+	ld a, d
+	cp [hl]
+	jr z, .jump_4257
+	inc hl
+	inc hl
+	ret
+
+.jump_4257:
+	inc hl
+	ld a, e
+	cp [hl]
+	inc hl
+	ret
+
+
+Func_55_425c::
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $4278
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $61c9
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_55_4278::
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $4294
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $6209
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_55_4294::
+	ld hl, $b400
+	ld de, $dd75
+	call Func_55_43b0
+	jr nc, .jump_42e1
+	ld hl, $b427
+	ld de, $dd75
+	call Func_55_43b0
+	jr nc, .jump_42e1
+	ld hl, $b44e
+	ld de, $dd75
+	call Func_55_43b0
+	jr nc, .jump_42e1
+	ld hl, $4840
+	ld de, $dd77
+	ld b, $23
+.jump_42bd:
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .jump_42bd
+	call Func_55_4381
+	ld hl, $b400
+	ld de, $dd75
+	call Func_55_43a7
+	ld hl, $b427
+	ld de, $dd75
+	call Func_55_43a7
+	ld hl, $b44e
+	ld de, $dd75
+	call Func_55_43a7
+.jump_42e1:
+	call Func_55_42ee
+	ld hl, $d800
+	ld de, $d880
+	call Func_55_43ec
+	ret
+
+
+Func_55_42ee::
+	ld hl, $dd77
+	ld bc, $dd9c
+	ld de, $ddab
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	inc de
+	call Func_55_4364
+	ret
+
+
+Func_55_4364::
+	ld hl, $ddab
+	ld de, $ddce
+	ld c, $14
+.jump_436c:
+	ld a, [hli]
+	ld b, a
+	swap a
+	and $0f
+	add a, $f1
+	ld [de], a
+	inc de
+	ld a, b
+	and $0f
+	add a, $f1
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .jump_436c
+	ret
+
+
+Func_55_4381::
+	ld a, $48
+	ld [$dd75], a
+	ld a, $08
+	ld [$dd76], a
+	ld b, $25
+	ld hl, $0000
+	ld de, $dd75
+.jump_4393:
+	ld a, [de]
+	add a, l
+	ld l, a
+	ld a, h
+	adc a, $00
+	ld h, a
+	inc de
+	dec b
+	jr nz, .jump_4393
+	ld a, l
+	ld [$dd9a], a
+	ld a, h
+	ld [$dd9b], a
+	ret
+
+
+Func_55_43a7::
+	ld b, $27
+.jump_43a9:
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec b
+	jr nz, .jump_43a9
+	ret
+
+
+Func_55_43b0::
+	ld b, $27
+.jump_43b2:
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .jump_43b2
+	ld a, [$dd75]
+	cp $48
+	jr nz, .jump_43ea
+	ld a, [$dd76]
+	cp $08
+	jr nz, .jump_43ea
+	ld de, $dd75
+	ld hl, $0000
+	ld b, $25
+.jump_43ce:
+	ld a, [de]
+	add a, l
+	ld l, a
+	ld a, h
+	adc a, $00
+	ld h, a
+	inc de
+	dec b
+	jr nz, .jump_43ce
+	ld a, [$dd9a]
+	ld c, a
+	ld a, [$dd9b]
+	ld b, a
+	cp h
+	jr nz, .jump_43ea
+	ld a, c
+	cp l
+	jr nz, .jump_43ea
+	or a
+	ret
+
+.jump_43ea:
+	scf
+	ret
+
+
+Func_55_43ec::
+	push de
+	ld bc, $0040
+	ld de, $60b0
+	call $cbcb
+	pop hl
+	ld bc, $0040
+	ld de, $60f0
+	call $cbcb
+	push bc
+	ld c, $41
+.jump_4403:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_4403
+.jump_4409:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_4409
+	pop bc
+	ld hl, $60f0
+	call Func_55_44f9
+	ld bc, $5de0
+	call Func_55_4580
+	call Func_55_45e1
+	call Func_55_4423
+	ret
+
+
+Func_55_4423::
+	ld a, $00
+	ldh [$ffc6], a
+	ldh [rVBK], a
+	push bc
+	ld c, $41
+.jump_442c:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_442c
+.jump_4432:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_4432
+	pop bc
+	ld hl, $dd9c
+	ld bc, $9883
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $98c3
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $9903
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $9943
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $9983
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld hl, $ddce
+	ld bc, $9889
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $98c9
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $9909
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $9949
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ld bc, $9989
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	inc c
+	ld a, [hli]
+	ld [bc], a
+	ret
+
+
+Func_55_44f9::
+	ld a, $80
+	ldh [rOCPS], a
+	ld c, $6b
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ld a, [hli]
+	ldh [c], a
+	ret
+
+
+Func_55_4580::
+	ld a, $01
+	ldh [$ffc6], a
+	ldh [rVBK], a
+	ld hl, $9800
+	ld d, $12
+.jump_458b:
+	ld e, $14
+	push bc
+	push bc
+	ld c, $41
+.jump_4591:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_4591
+.jump_4597:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_4597
+	pop bc
+	pop bc
+.jump_459f:
+	ld a, [bc]
+	ld [hli], a
+	inc bc
+	dec e
+	jr nz, .jump_459f
+	ld a, $0c
+	add a, l
+	ld l, a
+	ld a, h
+	adc a, $00
+	ld h, a
+	dec d
+	jr nz, .jump_458b
+	ld a, $00
+	ldh [$ffc6], a
+	ldh [rVBK], a
+	ld hl, $9800
+	ld d, $12
+.jump_45bb:
+	ld e, $14
+	push bc
+	push bc
+	ld c, $41
+.jump_45c1:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_45c1
+.jump_45c7:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_45c7
+	pop bc
+	pop bc
+.jump_45cf:
+	ld a, [bc]
+	ld [hli], a
+	inc bc
+	dec e
+	jr nz, .jump_45cf
+	ld a, $0c
+	add a, l
+	ld l, a
+	ld a, h
+	adc a, $00
+	ld h, a
+	dec d
+	jr nz, .jump_45bb
+	ret
+
+
+Func_55_45e1::
+	push bc
+	ld c, $41
+.jump_45e4:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_45e4
+.jump_45ea:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_45ea
+	pop bc
+	ld a, $00
+	ldh [$ffc6], a
+	ldh [rVBK], a
+	ld hl, $4be0
+	ld de, $9000
+	ld b, $7f
+	call Func_55_4666
+	push bc
+	ld c, $41
+.jump_4605:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_4605
+.jump_460b:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_460b
+	pop bc
+	ld a, $00
+	ldh [$ffc6], a
+	ldh [rVBK], a
+	ld hl, $53e0
+	ld de, $8800
+	ld b, $7f
+	call Func_55_4666
+	push bc
+	ld c, $41
+.jump_4626:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_4626
+.jump_462c:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_462c
+	pop bc
+	ld a, $01
+	ldh [$ffc6], a
+	ldh [rVBK], a
+	ld hl, $5be0
+	ld de, $9000
+	ld b, $1f
+	call Func_55_4666
+	push bc
+	ld c, $41
+.jump_4647:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_4647
+.jump_464d:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_464d
+	pop bc
+	ld a, $01
+	ldh [$ffc6], a
+	ldh [rVBK], a
+	ld hl, $4870
+	ld de, $8c90
+	ld b, $36
+	call Func_55_4666
+	ret
+
+
+Func_55_4666::
+	ld a, h
+	ldh [rHDMA1], a
+	ld a, l
+	ldh [rHDMA2], a
+	ld a, d
+	ldh [rHDMA3], a
+	ld a, e
+	ldh [rHDMA4], a
+	ld a, b
+	ldh [rHDMA5], a
+	ret
+
+
+Func_55_4676::
+	ld hl, $00ff
+	ld a, e
+	cp $00
+	jr z, .jump_4681
+	ld hl, $ff00
+.jump_4681:
+	ld b, $0f
+	ld c, $01
+	ld de, $d800
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $46a4
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $6860
+	push hl
+	ld a, $50
+	jp $cb99
+
+	INCBIN "baserom.gbc", $1546a4, $002d ; $46a4
+
+
+Func_55_46d1::
+	push bc
+	ld c, $41
+.jump_46d4:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_46d4
+.jump_46da:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_46da
+	pop bc
+	ld hl, $fe00
+	ld [hl], $80
+	inc l
+	ld [hl], $48
+	inc l
+	ld [hl], $fe
+	inc l
+	ld [hl], $08
+	inc l
+	ld [hl], $90
+	inc l
+	ld [hl], $48
+	inc l
+	ld [hl], $fe
+	inc l
+	ld a, $08
+	or $40
+	ld [hl], a
+	inc l
+	ld [hl], $88
+	inc l
+	ld [hl], $48
+	inc l
+	ld [hl], $c9
+	inc l
+	ld [hl], $08
+	inc l
+	ld [hl], $88
+	inc l
+	ld [hl], $50
+	inc l
+	ld [hl], $c9
+	inc l
+	ld [hl], $08
+	inc l
+	ld [hl], $88
+	inc l
+	ld [hl], $58
+	inc l
+	ld [hl], $c9
+	inc l
+	ld [hl], $08
+	xor a
+	ld [$ddfa], a
+	call Func_55_4754
+	push bc
+	ld c, $41
+.jump_472c:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_472c
+.jump_4732:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_4732
+	pop bc
+	ld hl, $ddf6
+	ld a, [$fe0a]
+	ld [hli], a
+	ld a, [$fe0e]
+	ld [hli], a
+	ld a, [$fe12]
+	ld [hli], a
+	ld b, $a0
+	xor a
+	ld hl, $fe00
+.jump_474e:
+	ld [hl], a
+	inc l
+	dec b
+	jr nz, .jump_474e
+	ret
+
+
+Func_55_4754::
+	push bc
+	ld c, $41
+.jump_4757:
+	ldh a, [c]
+	and $03
+	dec a
+	jr z, .jump_4757
+.jump_475d:
+	ldh a, [c]
+	and $03
+	dec a
+	jr nz, .jump_475d
+	pop bc
+	ld hl, $dd6f
+	ld de, $dd70
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $4786
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $6198
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_55_4786::
+	ld a, [$dd70]
+	bit 0, a
+	ret nz
+	bit 6, a
+	jr z, .jump_47aa
+	ld a, [$ddfa]
+	add a, a
+	add a, a
+	ld c, a
+	ld b, $00
+	ld hl, $fe0a
+	add hl, bc
+	ld a, [hl]
+	cp $fc
+	jr nz, .jump_47a6
+	ld a, $c9
+	ld [hl], a
+	jr Func_55_4754
+
+.jump_47a6:
+	inc a
+	ld [hl], a
+	jr Func_55_4754
+
+.jump_47aa:
+	bit 7, a
+	jr z, .jump_47c9
+	ld a, [$ddfa]
+	add a, a
+	add a, a
+	ld c, a
+	ld b, $00
+	ld hl, $fe0a
+	add hl, bc
+	ld a, [hl]
+	cp $c9
+	jr nz, .jump_47c4
+	ld a, $fc
+	ld [hl], a
+	jr Func_55_4754
+
+.jump_47c4:
+	dec a
+	ld [hl], a
+	jp Func_55_4754
+
+.jump_47c9:
+	bit 5, a
+	jr z, .jump_47f3
+	ld a, [$ddfa]
+	or a
+	jr nz, .jump_47da
+	ld a, $02
+	ld [$ddfa], a
+	jr .jump_47de
+
+.jump_47da:
+	dec a
+	ld [$ddfa], a
+.jump_47de:
+	add a, a
+	add a, a
+	ld c, a
+	ld b, $00
+	ld hl, $fe09
+	add hl, bc
+	ld a, [hl]
+	ld hl, $fe01
+	ld [hl], a
+	ld hl, $fe05
+	ld [hl], a
+	jp Func_55_4754
+
+.jump_47f3:
+	bit 4, a
+	jp z, Func_55_4754
+	ld a, [$ddfa]
+	cp $02
+	jr nz, .jump_4805
+	xor a
+	ld [$ddfa], a
+	jr .jump_4809
+
+.jump_4805:
+	inc a
+	ld [$ddfa], a
+.jump_4809:
+	add a, a
+	add a, a
+	ld c, a
+	ld b, $00
+	ld hl, $fe09
+	add hl, bc
+	ld a, [hl]
+	ld hl, $fe01
+	ld [hl], a
+	ld hl, $fe05
+	ld [hl], a
+	jp Func_55_4754
+
+
+Func_55_481e::
+	ldh a, [$ffc5]
+	push af
+	ld a, $51
+	ldh [$ffc5], a
+	ld [rROMB0], a
+	ld bc, $01fd
+	ld de, $cb00
+	ld hl, $42f4
+.jump_4831:
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec bc
+	ld a, b
+	or c
+	jr nz, .jump_4831
+	pop af
+	ldh [$ffc5], a
+	ld [rROMB0], a
+	ret
+
+	INCBIN "baserom.gbc", $154840, $18f0 ; $4840
 
 
 Sample_09::

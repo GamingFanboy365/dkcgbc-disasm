@@ -602,7 +602,10 @@ Func_51_426d::
 	ldh [c], a
 	ret
 
-	INCBIN "baserom.gbc", $1442f4, $0a0c ; $42f4
+
+FishingRuntime::
+	INCBIN "baserom.gbc", $1442f4, $01fd
+	INCBIN "baserom.gbc", $1444f1, $080f ; $44f1
 
 
 BGTiles_51_4d00::

@@ -12,6 +12,7 @@ CODE = [
     (0, 0x1CEC), (0, 0x241D),  # interrupt handlers (push af/hl, read LY), installed at runtime
     (0xF2, 0x6760),  # infrared port routine (writes rRP), far-called from $f1:70f7
     (0xF2, 0x43CB),  # follows the PictureByItem table; not reached by the trace
+    (0x50, 0x5149), (0x50, 0x51F7), (0x50, 0x60F2),  # return points pushed before far calls through $cb99
     # object handlers set by init lists the tracer doesn't parse yet, or by byte stores
     (9, 0x6A7E), (9, 0x6CCC), (9, 0x6EF8), (9, 0x72F4), (9, 0x7532), (9, 0x7A3E), (0xA, 0x5141),
     (0, 0x001B), (0, 0x0023), (0, 0x002C), (0, 0x0040), (0, 0x0048),

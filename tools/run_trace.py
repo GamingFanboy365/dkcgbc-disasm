@@ -597,6 +597,23 @@ def parse_banks(t, rom):
     t._claim(0xF2, 0x4F74, 60, "rows", hexrow("db", rom[off(0xF2, 0x4F74):off(0xF2, 0x4F74 + 60)], 12), "=MenuItemBytes")  # Func_f2_4626
     t._claim(0xF2, 0x6A22, 56, "rows", [("db", ["%d" % v for v in rom[off(0xF2, 0x6A22 + 4 * k):off(0xF2, 0x6A22 + 4 * k) + 4]],
                                          "picture, type, ?, ?" if k == 0 else None) for k in range(14)], "=PictureScreens")  # Func_f2_6c5a
+    # Funky's Fishing (banks $50/$51)
+    t._claim(0x50, 0x51F8, 50, "rows", [("dw", ["$%04x" % (rom[off(0x50, 0x51F8 + 2 * k)] | rom[off(0x50, 0x51F8 + 2 * k) + 1] << 8)
+                                               for k in range(j, min(j + 8, 25))], None) for j in range(0, 25, 8)], "=FishingWordTable_51f8")
+    t._claim(0x50, 0x52DB, 80, "rows", [("dw", ["$%04x" % (rom[off(0x50, 0x52DB + 2 * k)] | rom[off(0x50, 0x52DB + 2 * k) + 1] << 8)
+                                               for k in range(j, j + 8)], None) for j in range(0, 40, 8)], "=FishingWordTable_52db")
+    t._claim(0x50, 0x5F73, 37, "rows", hexrow("db", rom[off(0x50, 0x5F73):off(0x50, 0x5F73 + 37)]), "=FishingByteTable_5f73")
+    te = 0x7753
+    rows, st = [], off(0x50, 0x769A)
+    for j in range(st, off(0x50, te)):
+        if rom[j] == 0:
+            rows.append(("db", text_tokens(rom[st:j + 1]), None))
+            st = j + 1
+    t._claim(0x50, 0x769A, te - 0x769A, "rows", rows, "=FishingPauseText")  # English, French, Spanish, Italian, German
+    t._claim(0x50, te, 0x769A + 1515 - te, "incbin", None, "=FishingData_50_7753")
+    sine = [rom[off(0x51, 0x44F1 + 2 * k)] | rom[off(0x51, 0x44F1 + 2 * k) + 1] << 8 for k in range(1031)]
+    t._claim(0x51, 0x44F1, 2062, "rows", [("dw", ["$%04x" % w for w in sine[j:j + 8]], None) for j in range(0, 1031, 8)],
+             "=FishingSineTable")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

@@ -467,7 +467,7 @@ Func_50_42be::
 	call Func_50_4eac
 	call Func_50_5f98
 	call Func_50_44a7
-	jp c, Func_50_43ac.jump_43c3
+	jp c, .jump_43c3
 	call Func_50_70c8
 	call Func_50_56d4
 	call Func_50_5881
@@ -504,7 +504,7 @@ Func_50_42be::
 	call Func_50_4eac
 	call Func_50_5f98
 	call Func_50_44a7
-	jr c, Func_50_43ac.jump_43c3
+	jr c, .jump_43c3
 	call Func_50_70c8
 	call Func_50_56d4
 	call Func_50_5881
@@ -538,19 +538,7 @@ Func_50_42be::
 	ld a, $52
 	jp $cb99
 
-
-Func_50_43ac::
-	call Func_50_5157
-	call Func_50_51c2
-	call Func_50_50fd
-	call Func_50_50c2
-	ld hl, $ffd3
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call Func_50_60af
-	or a
-	ret
+	INCBIN "baserom.gbc", $1403ac, $0017 ; $43ac
 
 .jump_43c3:
 	ldh [$ffcf], a
@@ -623,18 +611,7 @@ Func_50_43ea::
 	ld a, $52
 	jp $cb99
 
-
-Func_50_444f::
-	call Func_50_5157
-	call Func_50_51c2
-	call Func_50_50fd
-	ld hl, $ffd3
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call Func_50_60af
-	or a
-	ret
+	INCBIN "baserom.gbc", $14044f, $0014 ; $444f
 
 
 Func_50_4463::
@@ -2866,21 +2843,12 @@ Func_50_50c2::
 	ld a, $52
 	jp $cb99
 
-	db $c9
+	db $c9, $fa, $28, $de, $b7, $c8, $21, $a8, $dd, $11, $10, $00, $06, $08, $0e, $00
 
-
-Func_50_50fd::
-	ld a, [$de28]
-	or a
-	ret z
-	ld hl, $dda8
-	ld de, $0010
-	ld b, $08
-	ld c, $00
 .jump_510c:
 	ld a, [hl]
 	or a
-	jr z, .jump_5152
+	jr z, Func_50_5149.jump_5152
 	push hl
 	push de
 	push bc
@@ -2919,12 +2887,19 @@ Func_50_50fd::
 	ld a, $52
 	jp $cb99
 
-	db $c1, $d1, $e1, $0c, $fa, $28, $de, $b9, $c8
 
+Func_50_5149::
+	pop bc
+	pop de
+	pop hl
+	inc c
+	ld a, [$de28]
+	cp c
+	ret z
 .jump_5152:
 	add hl, de
 	dec b
-	jr nz, .jump_510c
+	jr nz, Func_50_50c2.jump_510c
 	ret
 
 
@@ -2987,40 +2962,18 @@ Func_50_518c::
 	ld a, $52
 	jp $cb99
 
-	db $c9
+	INCBIN "baserom.gbc", $1411c1, $0036 ; $51c1
 
 
-Func_50_51c2::
-	ld hl, $dd9a
-	ld c, [hl]
-	ld a, [$dda1]
-	ldh [$ffc8], a
-	ld a, [$dda3]
-	ldh [$ffc9], a
-	ld a, [$dda4]
-	ldh [$ffca], a
-	ld hl, $dd9e
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ldh [$ffcf], a
-	ld a, h
-	ldh [$ffd1], a
-	ld a, l
-	ldh [$ffd0], a
-	ld hl, $51f7
-	push hl
-	ldh a, [$ffc5]
-	push af
-	ld hl, $cba7
-	push hl
-	ld hl, $4097
-	push hl
-	ld a, $52
-	jp $cb99
+Func_50_51f7::
+	ret
 
-	INCBIN "baserom.gbc", $1411f7, $0033 ; $51f7
 
+FishingWordTable_51f8::
+	dw $0005, $000f, $0019, $0023, $0030, $003d, $0047, $005e
+	dw $0073, $008a, $009e, $00b3, $00ca, $00de, $00f5, $010a
+	dw $011e, $0135, $014a, $0161, $0175, $018a, $01a1, $01b5
+	dw $01cc
 
 Func_50_522a::
 	ld a, [$dd7f]
@@ -3131,8 +3084,13 @@ Func_50_522a::
 	ld [hli], a
 	ret
 
-	INCBIN "baserom.gbc", $1412db, $0050 ; $52db
 
+FishingWordTable_52db::
+	dw $0000, $0005, $000a, $000c, $0011, $0017, $001c, $001e
+	dw $0023, $0028, $002e, $0030, $0035, $003a, $0040, $0042
+	dw $0047, $004c, $0051, $0054, $0059, $005e, $0063, $0066
+	dw $006b, $0070, $0075, $0078, $007d, $0082, $0087, $008a
+	dw $008f, $0094, $0099, $009e, $00a3, $00a8, $00ae, $00b3
 
 Func_50_532b::
 	ld a, [$de8c]
@@ -5351,8 +5309,11 @@ Func_50_5f10::
 	ld [$df10], a
 	ret
 
-	INCBIN "baserom.gbc", $141f73, $0025 ; $5f73
 
+FishingByteTable_5f73::
+	db $00, $01, $02, $03, $04, $05, $06, $07, $08, $09, $0a, $0b, $0c, $0d, $0e, $0f
+	db $0e, $0f, $0e, $0f, $0e, $0f, $0e, $0d, $0c, $0b, $0a, $09, $08, $07, $06, $05
+	db $04, $03, $02, $01, $00
 
 Func_50_5f98::
 	ld a, [$df16]
@@ -5576,7 +5537,122 @@ Func_50_60d6::
 	ld a, $52
 	jp $cb99
 
-	INCBIN "baserom.gbc", $1420f2, $00a6 ; $60f2
+
+Func_50_60f2::
+	ret
+
+
+Func_50_60f3::
+	ld a, d
+	or a
+	jr z, Func_50_614b.jump_615d
+	ld a, e
+	sub $ff
+	ld d, a
+	ld e, b
+	ld bc, $02d8
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $611b
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $6498
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_50_611b::
+	ld a, [$d965]
+	ld b, a
+	ld a, [$d966]
+	ld e, a
+	ld a, [$d967]
+	ld d, a
+	push de
+	push bc
+	ld bc, $ff00
+	ld de, $02d8
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $614b
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $6498
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_50_614b::
+	pop bc
+	ld a, [$d965]
+	add a, b
+	pop de
+	ld a, [$d966]
+	adc a, e
+	ld c, a
+	ld a, [$d967]
+	adc a, d
+	ld b, a
+	jr Func_50_617e.jump_6186
+
+.jump_615d:
+	ld d, e
+	ld e, b
+	ld bc, $02d8
+	ldh [$ffcf], a
+	ld a, h
+	ldh [$ffd1], a
+	ld a, l
+	ldh [$ffd0], a
+	ld hl, $617e
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ld hl, $cba7
+	push hl
+	ld hl, $6498
+	push hl
+	ld a, $50
+	jp $cb99
+
+
+Func_50_617e::
+	ld a, [$d966]
+	ld c, a
+	ld a, [$d967]
+	ld b, a
+.jump_6186:
+	call $cc32
+	ret
+
+
+Func_50_618a::
+	ld a, c
+	sub e
+	ld e, a
+	ld a, b
+	sbc a, d
+	ld d, a
+	or e
+	ret z
+	ld a, d
+	set 0, a
+	rl a
+	ret
 
 
 Func_50_6198::
@@ -9236,5 +9312,40 @@ Func_50_7686::
 	ld [de], a
 	ret
 
-	INCBIN "baserom.gbc", $14369a, $0966 ; $769a
+
+FishingPauseText::
+	db "PAUSED", $00
+	db "CONTINUE", $00
+	db "QUIT", $00
+	db "YES", $00
+	db "NO", $00
+	db "QUIT?", $00
+	db "PAUSE", $00
+	db "CONTINUER", $00
+	db "QUITTER", $00
+	db "OUI", $00
+	db "NON", $00
+	db "QUITTER?", $00
+	db "PAUSA", $00
+	db "CONTINUAR", $00
+	db "SALIR", $00
+	db "S", $cd, $00
+	db "NO", $00
+	db $bf, "SALIR?", $00
+	db "PAUSA", $00
+	db "CONTINUA", $00
+	db "ESCI", $00
+	db "S", $cd, $00
+	db "NO", $00
+	db "ESCI?", $00
+	db "PAUSE", $00
+	db "WEITER", $00
+	db "ABBRECHEN", $00
+	db "JA", $00
+	db "NEIN", $00
+	db "ABBRECHEN?", $00
+
+FishingData_50_7753::
+	INCBIN "baserom.gbc", $143753, $0532
+	ds 891, $00 ; $7c85
 

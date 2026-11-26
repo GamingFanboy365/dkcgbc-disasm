@@ -2170,7 +2170,7 @@ Func_00_0ce4::
 	ret
 
 
-Func_00_0d74::
+ApplyMapPatch::
 	ld a, [$4000]
 	push af
 	ld a, $04

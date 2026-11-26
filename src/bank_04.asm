@@ -6533,5 +6533,437 @@ MapHeader_04_6ca5::
 	dw BGTiles_8a_5ff0 ; tileset
 	db BANK(LevelMap_ec_564f)
 	dw LevelMap_ec_564f, LevelMap_ec_56b0, LevelMap_ec_5608 ; block numbers, block attributes, terrain
-	INCBIN "baserom.gbc", $012cb4, $134c ; $6cb4
+
+MapPatch_04_6cb4::
+	db $03, $05, 1, 1 ; block x, y, width, height
+	db $9c, $02, $01
+
+MapPatch_04_6cbb::
+	db $0d, $05, 1, 2 ; block x, y, width, height
+	db $08, $05, $00
+	db $f8, $00, $00
+
+MapPatch_04_6cc5::
+	db $2d, $03, 1, 3 ; block x, y, width, height
+	db $a2, $05, $18
+	db $b2, $05, $0f
+	db $c2, $05, $5f
+
+MapPatch_04_6cd2::
+	db $2f, $04, 1, 2 ; block x, y, width, height
+	db $18, $00, $0a
+	db $28, $00, $5f
+
+MapPatch_04_6cdc::
+	db $45, $0a, 1, 1 ; block x, y, width, height
+	db $9c, $02, $01
+
+MapPatch_04_6ce3::
+	db $4e, $06, 1, 1 ; block x, y, width, height
+	db $9c, $02, $01
+
+MapPatch_04_6cea::
+	db $77, $06, 1, 2 ; block x, y, width, height
+	db $18, $00, $0a
+	db $28, $00, $5f
+
+MapPatch_04_6cf4::
+	db $9f, $08, 1, 3 ; block x, y, width, height
+	db $6e, $02, $05
+	db $7e, $02, $05
+	db $7c, $02, $b4
+
+MapPatch_04_6d01::
+	db $ac, $07, 1, 2 ; block x, y, width, height
+	db $18, $00, $0a
+	db $28, $00, $5f
+
+MapPatch_04_6d0b::
+	db $f4, $0b, 1, 1 ; block x, y, width, height
+	db $9c, $02, $01
+
+MapPatch_04_6d12::
+	db $16, $06, 1, 2 ; block x, y, width, height
+	db $ca, $00, $00
+	db $d6, $00, $01
+
+MapPatch_04_6d1c::
+	db $20, $06, 1, 2 ; block x, y, width, height
+	db $94, $00, $13
+	db $a4, $00, $17
+
+MapPatch_04_6d26::
+	db $32, $02, 1, 2 ; block x, y, width, height
+	db $6a, $02, $00
+	db $7a, $02, $1a
+
+MapPatch_04_6d30::
+	db $35, $01, 1, 2 ; block x, y, width, height
+	db $6e, $01, $00
+	db $7e, $01, $1f
+
+MapPatch_04_6d3a::
+	db $3d, $02, 1, 2 ; block x, y, width, height
+	db $24, $01, $0b
+	db $34, $01, $0c
+
+MapPatch_04_6d44::
+	db $40, $05, 1, 2 ; block x, y, width, height
+	db $24, $01, $0b
+	db $34, $01, $0c
+
+MapPatch_04_6d4e::
+	db $43, $08, 1, 2 ; block x, y, width, height
+	db $24, $01, $0b
+	db $34, $01, $0c
+
+MapPatch_04_6d58::
+	db $09, $08, 1, 1 ; block x, y, width, height
+	db $e2, $00, $08
+
+MapPatch_04_6d5f::
+	db $55, $08, 1, 2 ; block x, y, width, height
+	db $ae, $03, $41
+	db $be, $03, $40
+
+MapPatch_04_6d69::
+	db $61, $05, 1, 2 ; block x, y, width, height
+	db $8e, $03, $4a
+	db $9e, $03, $4b
+
+MapPatch_04_6d73::
+	db $66, $09, 1, 2 ; block x, y, width, height
+	db $ae, $03, $41
+	db $be, $03, $40
+
+MapPatch_04_6d7d::
+	db $67, $08, 1, 2 ; block x, y, width, height
+	db $2c, $02, $4f
+	db $0e, $02, $f9
+
+MapPatch_04_6d87::
+	db $a5, $02, 1, 1 ; block x, y, width, height
+	db $2c, $02, $4f
+
+MapPatch_04_6d8e::
+	db $ad, $02, 1, 1 ; block x, y, width, height
+	db $2c, $02, $4f
+
+MapPatch_04_6d95::
+	db $b6, $0a, 1, 2 ; block x, y, width, height
+	db $1e, $07, $81
+	db $1c, $07, $06
+
+MapPatch_04_6d9f::
+	db $9e, $09, 1, 2 ; block x, y, width, height
+	db $26, $07, $a8
+	db $36, $07, $a7
+
+MapPatch_04_6da9::
+	db $c6, $06, 1, 2 ; block x, y, width, height
+	db $4c, $07, $9a
+	db $5c, $07, $42
+
+MapPatch_04_6db3::
+	db $bb, $08, 1, 2 ; block x, y, width, height
+	db $2c, $07, $a1
+	db $3c, $07, $be
+
+MapPatch_04_6dbd::
+	db $45, $07, 2, 2 ; block x, y, width, height
+	db $74, $03, $00, $40, $06, $d1
+	db $30, $06, $a8, $50, $06, $f9
+
+MapPatch_04_6dcd::
+	db $67, $05, 2, 2 ; block x, y, width, height
+	db $a8, $06, $f2, $b8, $06, $00
+	db $36, $03, $f9, $c8, $06, $00
+
+MapPatch_04_6ddd::
+	db $85, $06, 1, 1 ; block x, y, width, height
+	db $3a, $06, $d9
+
+MapPatch_04_6de4::
+	db $8e, $05, 1, 1 ; block x, y, width, height
+	db $2c, $02, $e9
+
+MapPatch_04_6deb::
+	db $0d, $07, 1, 1 ; block x, y, width, height
+	db $e2, $00, $08
+
+MapPatch_04_6df2::
+	db $6b, $08, 2, 2 ; block x, y, width, height
+	db $74, $03, $00, $92, $06, $aa
+	db $30, $06, $a8, $50, $06, $a9
+
+MapPatch_04_6e02::
+	db $7c, $05, 1, 2 ; block x, y, width, height
+	db $ae, $03, $c1
+	db $be, $03, $40
+
+MapPatch_04_6e0c::
+	db $8d, $06, 1, 2 ; block x, y, width, height
+	db $ae, $03, $c1
+	db $be, $03, $40
+
+MapPatch_04_6e16::
+	db $91, $06, 1, 2 ; block x, y, width, height
+	db $d4, $06, $a1
+	db $e4, $06, $a0
+
+MapPatch_04_6e20::
+	db $aa, $09, 1, 1 ; block x, y, width, height
+	db $e2, $00, $08
+
+MapPatch_04_6e27::
+	db $1c, $07, 1, 2 ; block x, y, width, height
+	db $ba, $06, $43
+	db $ca, $06, $17
+
+MapPatch_04_6e31::
+	db $67, $08, 1, 2 ; block x, y, width, height
+	db $ec, $07, $38
+	db $ac, $06, $47
+
+MapPatch_04_6e3b::
+	db $3b, $07, 1, 2 ; block x, y, width, height
+	db $de, $06, $32
+	db $ac, $06, $47
+
+MapPatch_04_6e45::
+	db $40, $06, 1, 2 ; block x, y, width, height
+	db $cc, $06, $48
+	db $ee, $06, $30
+
+MapPatch_04_6e4f::
+	db $7a, $07, 1, 2 ; block x, y, width, height
+	db $86, $06, $94
+	db $96, $06, $44
+
+MapPatch_04_6e59::
+	db $8a, $0a, 1, 2 ; block x, y, width, height
+	db $de, $06, $48
+	db $ee, $06, $da
+
+MapPatch_04_6e63::
+	db $fe, $0c, 1, 2 ; block x, y, width, height
+	db $86, $06, $50
+	db $ca, $06, $21
+
+MapPatch_04_6e6d::
+	db $01, $36, 1, 1 ; block x, y, width, height
+	db $42, $00, $0b
+
+MapPatch_04_6e74::
+	db $22, $41, 1, 1 ; block x, y, width, height
+	db $42, $00, $0b
+
+MapPatch_04_6e7b::
+	db $08, $1e, 1, 1 ; block x, y, width, height
+	db $c0, $07, $05
+
+MapPatch_04_6e82::
+	db $6f, $08, 1, 1 ; block x, y, width, height
+	db $9c, $02, $01
+
+MapPatch_04_6e89::
+	db $e5, $07, 1, 1 ; block x, y, width, height
+	db $9c, $02, $01
+
+MapPatch_04_6e90::
+	db $11, $86, 1, 3 ; block x, y (second layer), width, height
+	db $8e, $05, $46
+	db $9e, $05, $0c
+	db $ae, $05, $0d
+
+MapPatch_04_6e9d::
+	db $22, $05, 1, 1 ; block x, y, width, height
+	db $46, $02, $14
+
+MapPatch_04_6ea4::
+	db $59, $07, 1, 1 ; block x, y, width, height
+	db $14, $00, $14
+
+MapPatch_04_6eab::
+	db $c9, $06, 1, 1 ; block x, y, width, height
+	db $02, $02, $01
+
+MapPatch_04_6eb2::
+	db $58, $06, 1, 2 ; block x, y, width, height
+	db $02, $00, $23
+	db $12, $00, $3f
+
+MapPatch_04_6ebc::
+	db $cd, $03, 2, 2 ; block x, y, width, height
+	db $3a, $04, $49, $3c, $04, $4a
+	db $4a, $04, $42, $4c, $04, $4c
+
+MapPatch_04_6ecc::
+	db $33, $07, 1, 1 ; block x, y, width, height
+	db $02, $02, $2f
+
+MapPatch_04_6ed3::
+	db $f6, $06, 1, 2 ; block x, y, width, height
+	db $1e, $04, $3d
+	db $2e, $04, $3c
+
+MapPatch_04_6edd::
+	db $e4, $07, 1, 1 ; block x, y, width, height
+	db $46, $02, $14
+
+MapPatch_04_6ee4::
+	db $7b, $06, 1, 2 ; block x, y, width, height
+	db $e8, $06, $6d
+	db $f8, $06, $38
+
+MapPatch_04_6eee::
+	db $0e, $07, 2, 2 ; block x, y, width, height
+	db $ea, $03, $1c, $3a, $04, $2d
+	db $fa, $03, $2a, $4a, $04, $2c
+
+MapPatch_04_6efe::
+	db $19, $05, 2, 2 ; block x, y, width, height
+	db $06, $03, $00, $e0, $03, $0a
+	db $16, $03, $21, $f0, $03, $22
+
+MapPatch_04_6f0e::
+	db $22, $07, 2, 2 ; block x, y, width, height
+	db $58, $00, $00, $be, $03, $0c
+	db $18, $00, $01, $ce, $03, $0b
+
+MapPatch_04_6f1e::
+	db $27, $05, 2, 2 ; block x, y, width, height
+	db $ea, $03, $02, $3a, $04, $2d
+	db $fa, $03, $2a, $4a, $04, $2c
+
+MapPatch_04_6f2e::
+	db $2f, $06, 2, 1 ; block x, y, width, height
+	db $50, $03, $0d, $40, $02, $0e
+
+MapPatch_04_6f38::
+	db $38, $03, 1, 2 ; block x, y, width, height
+	db $4a, $00, $00
+	db $c2, $00, $26
+
+MapPatch_04_6f42::
+	db $3d, $06, 2, 2 ; block x, y, width, height
+	db $ea, $03, $02, $3a, $04, $2d
+	db $fa, $03, $2a, $4a, $04, $2c
+
+MapPatch_04_6f52::
+	db $47, $03, 1, 2 ; block x, y, width, height
+	db $be, $01, $00
+	db $ce, $01, $23
+
+MapPatch_04_6f5c::
+	db $53, $04, 1, 2 ; block x, y, width, height
+	db $5a, $00, $00
+	db $c8, $01, $01
+
+MapPatch_04_6f66::
+	db $77, $06, 1, 2 ; block x, y, width, height
+	db $b6, $01, $00
+	db $c6, $01, $17
+
+MapPatch_04_6f70::
+	db $8c, $06, 1, 2 ; block x, y, width, height
+	db $b2, $01, $00
+	db $c2, $01, $16
+
+MapPatch_04_6f7a::
+	db $98, $06, 1, 2 ; block x, y, width, height
+	db $b6, $01, $00
+	db $c6, $01, $17
+
+MapPatch_04_6f84::
+	db $b1, $07, 1, 2 ; block x, y, width, height
+	db $b2, $01, $00
+	db $c2, $01, $16
+
+MapPatch_04_6f8e::
+	db $14, $86, 2, 2 ; block x, y (second layer), width, height
+	db $ea, $03, $1c, $3a, $04, $2d
+	db $fa, $03, $2a, $4a, $04, $2c
+
+MapPatch_04_6f9e::
+	db $16, $86, 2, 2 ; block x, y (second layer), width, height
+	db $ea, $03, $1c, $3a, $04, $2d
+	db $fa, $03, $2a, $4a, $04, $2c
+
+MapPatch_04_6fae::
+	db $18, $86, 2, 2 ; block x, y (second layer), width, height
+	db $ea, $03, $1c, $3a, $04, $2d
+	db $fa, $03, $2a, $4a, $04, $2c
+
+MapPatch_04_6fbe::
+	db $1a, $86, 2, 2 ; block x, y (second layer), width, height
+	db $ea, $03, $1c, $3a, $04, $2d
+	db $fa, $03, $2a, $4a, $04, $2c
+
+MapPatch_04_6fce::
+	db $d4, $09, 1, 2 ; block x, y, width, height
+	db $34, $07, $0c
+	db $44, $07, $22
+
+MapPatch_04_6fd8::
+	db $bb, $0c, 1, 1 ; block x, y, width, height
+	db $ea, $06, $0c
+
+MapPatch_04_6fdf::
+	db $57, $08, 2, 2 ; block x, y, width, height
+	db $80, $01, $36, $82, $01, $37
+	db $90, $01, $35, $92, $01, $6a
+
+MapPatch_04_6fef::
+	db $23, $07, 1, 1 ; block x, y, width, height
+	db $cc, $01, $06
+
+MapPatch_04_6ff6::
+	db $87, $08, 1, 1 ; block x, y, width, height
+	db $12, $03, $3c
+
+MapPatch_04_6ffd::
+	db $2e, $06, 2, 2 ; block x, y, width, height
+	db $f0, $01, $00, $f2, $01, $13
+	db $f4, $01, $12, $f6, $01, $ff
+
+MapPatch_04_700d::
+	db $b6, $05, 1, 1 ; block x, y, width, height
+	db $8a, $02, $5d
+
+MapPatch_04_7014::
+	db $2e, $06, 2, 2 ; block x, y, width, height
+	db $f0, $01, $00, $f2, $01, $13
+	db $f4, $01, $12, $f6, $01, $ff
+
+MapPatch_04_7024::
+	db $05, $01, 1, 3 ; block x, y, width, height
+	db $ca, $00, $00
+	db $c8, $00, $00
+	db $c6, $00, $03
+
+MapPatch_04_7031::
+	db $04, $04, 1, 1 ; block x, y, width, height
+	db $c0, $01, $03
+
+MapPatch_04_7038::
+	db $03, $04, 1, 1 ; block x, y, width, height
+	db $c0, $01, $03
+
+MapPatch_04_703f::
+	db $04, $04, 1, 1 ; block x, y, width, height
+	db $c0, $01, $03
+
+MapPatch_04_7046::
+	db $02, $04, 1, 1 ; block x, y, width, height
+	db $c0, $01, $03
+
+MapPatch_04_704d::
+	db $03, $04, 1, 1 ; block x, y, width, height
+	db $c0, $01, $03
+
+MapPatch_04_7054::
+	db $04, $04, 1, 1 ; block x, y, width, height
+	db $c0, $01, $03
+	ds 4005, $00 ; $705b
 

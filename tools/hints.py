@@ -61,6 +61,7 @@ NAMES = {
     (0, 0x0150): "Init",
     (0, 0x028C): "NotGBC",           # shows the "GBC only" screen on DMG
     (0, 0x3FC0): "FarCall_A_HL",     # call a:hl, used by the banks $f0+ program
+    (0, 0x0D74): "ApplyMapPatch",    # write a MapPatch (bank $04, at hl) into the level map
     (0, 0x167D): "InitObjectSlots",  # puts slots 1-31 on the free list
     (0, 0x182F): "InitObject",       # ApplyObjInit, then sets flags from field $2a
     (0, 0x188B): "ApplyObjInit",     # apply the initialiser list at hl to object bc
@@ -314,6 +315,9 @@ EXTRA_TILES = [
     (0xF2, 0x5760, 256, "front-end tiles after the letter piece records; no user found yet"),
     (0xF1, 0x6F40, 9, "front-end tiles copied to VRAM $8e60 (Func_f1_54xx)"),
     (0xF1, 0x6A40, 80, "front-end sprite words (8x16); loader not found yet"),
+    # the strip runs on from BGTiles_1b_4000 ($5fd0); Func_05_4274 copies a
+    # 20-tile window of it to VRAM $8200, picked by [$c607] (WorldMapTileSources)
+    (0x1B, 0x6000, 79, "world map animated tiles (rest of the $5fd0 strip)"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

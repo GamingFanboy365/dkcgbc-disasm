@@ -2804,7 +2804,7 @@ Func_08_556c::
 	ld h, [hl]
 	ld l, a
 	or h
-	call nz, Func_00_0d74
+	call nz, ApplyMapPatch
 	pop bc
 .jump_559a:
 	call Func_00_18f0
@@ -2850,7 +2850,7 @@ Func_08_55a0::
 	ld h, [hl]
 	ld l, a
 	or h
-	call nz, Func_00_0d74
+	call nz, ApplyMapPatch
 	pop bc
 .jump_55e0:
 	ld hl, wObjects + OBJ_VAR_35
@@ -2914,7 +2914,7 @@ Func_08_55fa::
 	ld h, [hl]
 	ld l, a
 	or h
-	call nz, Func_00_0d74
+	call nz, ApplyMapPatch
 	pop bc
 .jump_5643:
 	call Func_00_18f0

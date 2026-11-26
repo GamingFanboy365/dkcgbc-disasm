@@ -655,6 +655,21 @@ def parse_banks(t, rom):
     t._claim(0, 0x1EFA, 16, "rows", [("dw", ["$%04x" % (rom[0x1EFA + 2 * k] | rom[0x1EFB + 2 * k] << 8) for k in range(8)], None)],
              "=WordTable_00_1efa")
     t._claim(0, 0x20B5, 6, "rows", [("db", ["%d" % v for v in rom[0x20B5:0x20BB]], None)], "=ByteTable_00_20b5")
+    # map patches in bank $04: objects keep a pointer in OBJ_VAR_2F/30/32 and
+    # pass it to ApplyMapPatch (Func_00_0d74), which writes a block of the level
+    # map (block number, block attribute, terrain byte per cell) at block x, y
+    a = 0x6CB4
+    t.map_patches = set()
+    while a < 0x705B:
+        x, y, w, h = rom[off(4, a):off(4, a) + 4]
+        rows = [("db", ["$%02x" % x, "$%02x" % y, "%d" % w, "%d" % h],
+                 "block x, y%s, width, height" % (" (second layer)" if y & 0x80 else ""))]
+        for r in range(h):
+            cells = rom[off(4, a + 4 + 3 * w * r):off(4, a + 4 + 3 * w * (r + 1))]
+            rows.append(("db", ["$%02x" % v for v in cells], None))
+        t._claim(4, a, 4 + 3 * w * h, "rows", rows, "MapPatch")
+        t.map_patches.add(a)
+        a += 4 + 3 * w * h
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

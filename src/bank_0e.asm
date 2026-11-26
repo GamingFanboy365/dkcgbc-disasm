@@ -5757,14 +5757,14 @@ ObjInit_0e_68a5::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5934
 	obj_word OBJ_VAR_30, $5ba4
-	obj_word OBJ_VAR_32, $6d5f
+	obj_word OBJ_VAR_32, MapPatch_04_6d5f
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_68b6::
 	obj_include ObjInit_0e_46b7
-	obj_word OBJ_VAR_32, $6d69
+	obj_word OBJ_VAR_32, MapPatch_04_6d69
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
@@ -5772,7 +5772,7 @@ ObjInit_0e_68bf::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5f4c
 	obj_word OBJ_VAR_30, $5bac
-	obj_word OBJ_VAR_32, $6d73
+	obj_word OBJ_VAR_32, MapPatch_04_6d73
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
@@ -5798,7 +5798,7 @@ ObjInit_0e_68ef::
 	obj_include ObjInit_0e_45e2
 	obj_word OBJ_VAR_2E, $5c4c
 	obj_word OBJ_VAR_30, $5c04
-	obj_word OBJ_VAR_32, $6dbd
+	obj_word OBJ_VAR_32, MapPatch_04_6dbd
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $02
 	obj_end
@@ -5814,7 +5814,7 @@ ObjInit_0e_690c::
 	obj_include ObjInit_0e_45e2
 	obj_word OBJ_VAR_2E, $5954
 	obj_word OBJ_VAR_30, $5c24
-	obj_word OBJ_VAR_32, $6df2
+	obj_word OBJ_VAR_32, MapPatch_04_6df2
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $02
 	obj_end
@@ -5823,7 +5823,7 @@ ObjInit_0e_691d::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5c54
 	obj_word OBJ_VAR_30, $5c2c
-	obj_word OBJ_VAR_32, $6e0c
+	obj_word OBJ_VAR_32, MapPatch_04_6e0c
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
 	obj_end
@@ -5832,7 +5832,7 @@ ObjInit_0e_692e::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $593c
 	obj_word OBJ_VAR_30, $586c
-	obj_word OBJ_VAR_32, $6e27
+	obj_word OBJ_VAR_32, MapPatch_04_6e27
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $04
 	obj_end
@@ -5848,7 +5848,7 @@ ObjInit_0e_694b::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $594c
 	obj_word OBJ_VAR_30, $587c
-	obj_word OBJ_VAR_32, $6e31
+	obj_word OBJ_VAR_32, MapPatch_04_6e31
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
@@ -5871,7 +5871,7 @@ ObjInit_0e_6974::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5eec
 	obj_word OBJ_VAR_30, $5894
-	obj_word OBJ_VAR_32, $6e3b
+	obj_word OBJ_VAR_32, MapPatch_04_6e3b
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
 	obj_end
@@ -5909,7 +5909,7 @@ ObjInit_0e_69b6::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5cfc
 	obj_word OBJ_VAR_30, $5c8c
-	obj_word OBJ_VAR_32, $6ee4
+	obj_word OBJ_VAR_32, MapPatch_04_6ee4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
@@ -5932,7 +5932,7 @@ ObjInit_0e_69df::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5ec4
 	obj_word OBJ_VAR_30, $5e7c
-	obj_word OBJ_VAR_32, $6fdf
+	obj_word OBJ_VAR_32, MapPatch_04_6fdf
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
@@ -5940,13 +5940,13 @@ ObjInit_0e_69df::
 ObjInit_0e_69f0::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, $6fef
+	obj_word OBJ_VAR_30, MapPatch_04_6fef
 	obj_end
 
 ObjInit_0e_69f9::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, $6ff6
+	obj_word OBJ_VAR_30, MapPatch_04_6ff6
 	obj_end
 
 ObjInit_0e_6a02::
@@ -5966,7 +5966,7 @@ ObjInit_0e_6a0e::
 ObjInit_0e_6a1a::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $00
-	obj_word OBJ_VAR_30, $6e9d
+	obj_word OBJ_VAR_30, MapPatch_04_6e9d
 	obj_end
 
 ObjInit_0e_6a23::
@@ -5980,7 +5980,7 @@ ObjInit_0e_6a2f::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5b6c
 	obj_word OBJ_VAR_30, $5b3c
-	obj_word OBJ_VAR_32, $6eb2
+	obj_word OBJ_VAR_32, MapPatch_04_6eb2
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
@@ -5988,20 +5988,20 @@ ObjInit_0e_6a2f::
 ObjInit_0e_6a40::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, $6ea4
+	obj_word OBJ_VAR_30, MapPatch_04_6ea4
 	obj_end
 
 ObjInit_0e_6a49::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, $6eab
+	obj_word OBJ_VAR_30, MapPatch_04_6eab
 	obj_end
 
 ObjInit_0e_6a52::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5b7c
 	obj_word OBJ_VAR_30, $5b34
-	obj_word OBJ_VAR_32, $6ebc
+	obj_word OBJ_VAR_32, MapPatch_04_6ebc
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
 	obj_end
@@ -6016,20 +6016,20 @@ ObjInit_0e_6a63::
 ObjInit_0e_6a6f::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, $6ecc
+	obj_word OBJ_VAR_30, MapPatch_04_6ecc
 	obj_end
 
 ObjInit_0e_6a78::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, $6edd
+	obj_word OBJ_VAR_30, MapPatch_04_6edd
 	obj_end
 
 ObjInit_0e_6a81::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5b84
 	obj_word OBJ_VAR_30, $5b5c
-	obj_word OBJ_VAR_32, $6ed3
+	obj_word OBJ_VAR_32, MapPatch_04_6ed3
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
@@ -6045,7 +6045,7 @@ ObjInit_0e_6a9e::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5f74
 	obj_word OBJ_VAR_30, $5bd4
-	obj_word OBJ_VAR_32, $6d9f
+	obj_word OBJ_VAR_32, MapPatch_04_6d9f
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
 	obj_end
@@ -6053,20 +6053,20 @@ ObjInit_0e_6a9e::
 ObjInit_0e_6aaf::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $0b
-	obj_word OBJ_VAR_30, $6d87
+	obj_word OBJ_VAR_30, MapPatch_04_6d87
 	obj_end
 
 ObjInit_0e_6ab8::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, $6d8e
+	obj_word OBJ_VAR_30, MapPatch_04_6d8e
 	obj_end
 
 ObjInit_0e_6ac1::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5f6c
 	obj_word OBJ_VAR_30, $5bdc
-	obj_word OBJ_VAR_32, $6d95
+	obj_word OBJ_VAR_32, MapPatch_04_6d95
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
@@ -6075,7 +6075,7 @@ ObjInit_0e_6ad2::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5f64
 	obj_word OBJ_VAR_30, $5be4
-	obj_word OBJ_VAR_32, $6db3
+	obj_word OBJ_VAR_32, MapPatch_04_6db3
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $09
 	obj_end
@@ -6084,7 +6084,7 @@ ObjInit_0e_6ae3::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5c5c
 	obj_word OBJ_VAR_30, $5bec
-	obj_word OBJ_VAR_32, $6da9
+	obj_word OBJ_VAR_32, MapPatch_04_6da9
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $0b
 	obj_byte OBJ_VAR_36, $01
@@ -6094,7 +6094,7 @@ ObjInit_0e_6af6::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5ebc
 	obj_word OBJ_VAR_30, $5e94
-	obj_word OBJ_VAR_32, $7014
+	obj_word OBJ_VAR_32, MapPatch_04_7014
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $01
@@ -6110,14 +6110,14 @@ ObjInit_0e_6b09::
 ObjInit_0e_6b15::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_30, $700d
+	obj_word OBJ_VAR_30, MapPatch_04_700d
 	obj_end
 
 ObjInit_0e_6b1e::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5ef4
 	obj_word OBJ_VAR_30, $58bc
-	obj_word OBJ_VAR_32, $6e45
+	obj_word OBJ_VAR_32, MapPatch_04_6e45
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
@@ -6126,7 +6126,7 @@ ObjInit_0e_6b2f::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $597c
 	obj_word OBJ_VAR_30, $58c4
-	obj_word OBJ_VAR_32, $6e4f
+	obj_word OBJ_VAR_32, MapPatch_04_6e4f
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $06
 	obj_end
@@ -6135,7 +6135,7 @@ ObjInit_0e_6b40::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $598c
 	obj_word OBJ_VAR_30, $58dc
-	obj_word OBJ_VAR_32, $6e59
+	obj_word OBJ_VAR_32, MapPatch_04_6e59
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
@@ -6153,7 +6153,7 @@ ObjInit_0e_6b61::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5edc
 	obj_word OBJ_VAR_30, $58ec
-	obj_word OBJ_VAR_32, $6e63
+	obj_word OBJ_VAR_32, MapPatch_04_6e63
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $07
 	obj_end
@@ -6162,7 +6162,7 @@ ObjInit_0e_6b72::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5a2c
 	obj_word OBJ_VAR_30, $59fc
-	obj_word OBJ_VAR_32, $6e6d
+	obj_word OBJ_VAR_32, MapPatch_04_6e6d
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $04
 	obj_end
@@ -6177,7 +6177,7 @@ ObjInit_0e_6b83::
 ObjInit_0e_6b8f::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $0b
-	obj_word OBJ_VAR_30, $6e7b
+	obj_word OBJ_VAR_30, MapPatch_04_6e7b
 	obj_end
 
 ObjInit_0e_6b98::
@@ -6192,7 +6192,7 @@ ObjInit_0e_6ba6::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5a1c
 	obj_word OBJ_VAR_30, $5a0c
-	obj_word OBJ_VAR_32, $6e74
+	obj_word OBJ_VAR_32, MapPatch_04_6e74
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
 	obj_end
@@ -6215,7 +6215,7 @@ ObjInit_0e_6bc5::
 ObjInit_0e_6bd1::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $07
-	obj_word OBJ_VAR_30, $6cb4
+	obj_word OBJ_VAR_30, MapPatch_04_6cb4
 	obj_end
 
 ObjInit_0e_6bda::
@@ -6229,7 +6229,7 @@ ObjInit_0e_6be6::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5f5c
 	obj_word OBJ_VAR_30, $5ab4
-	obj_word OBJ_VAR_32, $6cc5
+	obj_word OBJ_VAR_32, MapPatch_04_6cc5
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
@@ -6237,14 +6237,14 @@ ObjInit_0e_6be6::
 ObjInit_0e_6bf7::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $07
-	obj_word OBJ_VAR_30, $6cd2
+	obj_word OBJ_VAR_30, MapPatch_04_6cd2
 	obj_end
 
 ObjInit_0e_6c00::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5aec
 	obj_word OBJ_VAR_30, $5abc
-	obj_word OBJ_VAR_32, $6cf4
+	obj_word OBJ_VAR_32, MapPatch_04_6cf4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
@@ -6252,37 +6252,37 @@ ObjInit_0e_6c00::
 ObjInit_0e_6c11::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $03
-	obj_word OBJ_VAR_30, $6d0b
+	obj_word OBJ_VAR_30, MapPatch_04_6d0b
 	obj_end
 
 ObjInit_0e_6c1a::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, $6cdc
+	obj_word OBJ_VAR_30, MapPatch_04_6cdc
 	obj_end
 
 ObjInit_0e_6c23::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, $6ce3
+	obj_word OBJ_VAR_30, MapPatch_04_6ce3
 	obj_end
 
 ObjInit_0e_6c2c::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, $6cea
+	obj_word OBJ_VAR_30, MapPatch_04_6cea
 	obj_end
 
 ObjInit_0e_6c35::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, $6d01
+	obj_word OBJ_VAR_30, MapPatch_04_6d01
 	obj_end
 
 ObjInit_0e_6c3e::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $01
-	obj_word OBJ_VAR_30, $6e82
+	obj_word OBJ_VAR_30, MapPatch_04_6e82
 	obj_end
 
 ObjInit_0e_6c47::
@@ -6295,14 +6295,14 @@ ObjInit_0e_6c47::
 ObjInit_0e_6c53::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $05
-	obj_word OBJ_VAR_30, $6e89
+	obj_word OBJ_VAR_30, MapPatch_04_6e89
 	obj_end
 
 ObjInit_0e_6c5c::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5f54
 	obj_word OBJ_VAR_30, $5adc
-	obj_word OBJ_VAR_32, $6e90
+	obj_word OBJ_VAR_32, MapPatch_04_6e90
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
@@ -6310,44 +6310,44 @@ ObjInit_0e_6c5c::
 ObjInit_0e_6c6d::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $05
-	obj_word OBJ_VAR_30, $6d58
+	obj_word OBJ_VAR_30, MapPatch_04_6d58
 	obj_end
 
 ObjInit_0e_6c76::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, $6d7d
+	obj_word OBJ_VAR_30, MapPatch_04_6d7d
 	obj_end
 
 ObjInit_0e_6c7f::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, $6ddd
+	obj_word OBJ_VAR_30, MapPatch_04_6ddd
 	obj_end
 
 ObjInit_0e_6c88::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $0a
-	obj_word OBJ_VAR_30, $6de4
+	obj_word OBJ_VAR_30, MapPatch_04_6de4
 	obj_end
 
 ObjInit_0e_6c91::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, $6deb
+	obj_word OBJ_VAR_30, MapPatch_04_6deb
 	obj_end
 
 ObjInit_0e_6c9a::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_30, $6e20
+	obj_word OBJ_VAR_30, MapPatch_04_6e20
 	obj_end
 
 ObjInit_0e_6ca3::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5cec
 	obj_word OBJ_VAR_30, $5cac
-	obj_word OBJ_VAR_32, $6fce
+	obj_word OBJ_VAR_32, MapPatch_04_6fce
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
@@ -6372,7 +6372,7 @@ ObjInit_0e_6cd0::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5d0c
 	obj_word OBJ_VAR_30, $5cdc
-	obj_word OBJ_VAR_32, $6fd8
+	obj_word OBJ_VAR_32, MapPatch_04_6fd8
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
@@ -6503,7 +6503,7 @@ ObjInit_0e_6db3::
 	obj_include ObjInit_0e_46a8
 	obj_word OBJ_VAR_2E, $5afc
 	obj_word OBJ_VAR_30, $5ab4
-	obj_word OBJ_VAR_32, $7024
+	obj_word OBJ_VAR_32, MapPatch_04_7024
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $09
 	obj_end
@@ -6511,55 +6511,55 @@ ObjInit_0e_6db3::
 ObjInit_0e_6dc4::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $03
-	obj_word OBJ_VAR_30, $7031
+	obj_word OBJ_VAR_30, MapPatch_04_7031
 	obj_end
 
 ObjInit_0e_6dcd::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, $7046
+	obj_word OBJ_VAR_30, MapPatch_04_7046
 	obj_end
 
 ObjInit_0e_6dd6::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, $704d
+	obj_word OBJ_VAR_30, MapPatch_04_704d
 	obj_end
 
 ObjInit_0e_6ddf::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, $7054
+	obj_word OBJ_VAR_30, MapPatch_04_7054
 	obj_end
 
 ObjInit_0e_6de8::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, $7046
+	obj_word OBJ_VAR_30, MapPatch_04_7046
 	obj_end
 
 ObjInit_0e_6df1::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $0c
-	obj_word OBJ_VAR_30, $704d
+	obj_word OBJ_VAR_30, MapPatch_04_704d
 	obj_end
 
 ObjInit_0e_6dfa::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, $7054
+	obj_word OBJ_VAR_30, MapPatch_04_7054
 	obj_end
 
 ObjInit_0e_6e03::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, $7038
+	obj_word OBJ_VAR_30, MapPatch_04_7038
 	obj_end
 
 ObjInit_0e_6e0c::
 	obj_include ObjInit_0e_46bf
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, $703f
+	obj_word OBJ_VAR_30, MapPatch_04_703f
 	obj_end
 
 ObjInit_0e_6e15::
@@ -7586,7 +7586,7 @@ ObjInit_0e_7593::
 ObjInit_0e_759c::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f0e
+	obj_word OBJ_VAR_2F, MapPatch_04_6f0e
 	obj_word OBJ_VAR_31, $779a
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7619,7 +7619,7 @@ ObjInit_0e_75c7::
 ObjInit_0e_75d0::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f84
+	obj_word OBJ_VAR_2F, MapPatch_04_6f84
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7627,7 +7627,7 @@ ObjInit_0e_75d0::
 ObjInit_0e_75de::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f7a
+	obj_word OBJ_VAR_2F, MapPatch_04_6f7a
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7635,7 +7635,7 @@ ObjInit_0e_75de::
 ObjInit_0e_75ec::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6efe
+	obj_word OBJ_VAR_2F, MapPatch_04_6efe
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7643,7 +7643,7 @@ ObjInit_0e_75ec::
 ObjInit_0e_75fa::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f1e
+	obj_word OBJ_VAR_2F, MapPatch_04_6f1e
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7651,7 +7651,7 @@ ObjInit_0e_75fa::
 ObjInit_0e_7608::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f2e
+	obj_word OBJ_VAR_2F, MapPatch_04_6f2e
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7659,7 +7659,7 @@ ObjInit_0e_7608::
 ObjInit_0e_7616::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f38
+	obj_word OBJ_VAR_2F, MapPatch_04_6f38
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7667,7 +7667,7 @@ ObjInit_0e_7616::
 ObjInit_0e_7624::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f5c
+	obj_word OBJ_VAR_2F, MapPatch_04_6f5c
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7675,7 +7675,7 @@ ObjInit_0e_7624::
 ObjInit_0e_7632::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f70
+	obj_word OBJ_VAR_2F, MapPatch_04_6f70
 	obj_word OBJ_VAR_31, $77aa
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7683,7 +7683,7 @@ ObjInit_0e_7632::
 ObjInit_0e_7640::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f52
+	obj_word OBJ_VAR_2F, MapPatch_04_6f52
 	obj_word OBJ_VAR_31, $77b2
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7691,7 +7691,7 @@ ObjInit_0e_7640::
 ObjInit_0e_764e::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f66
+	obj_word OBJ_VAR_2F, MapPatch_04_6f66
 	obj_word OBJ_VAR_31, $77b2
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7699,7 +7699,7 @@ ObjInit_0e_764e::
 ObjInit_0e_765c::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6eee
+	obj_word OBJ_VAR_2F, MapPatch_04_6eee
 	obj_word OBJ_VAR_31, $77ba
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -7707,7 +7707,7 @@ ObjInit_0e_765c::
 ObjInit_0e_766a::
 	obj_include ObjInit_0e_4618
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, $6f42
+	obj_word OBJ_VAR_2F, MapPatch_04_6f42
 	obj_word OBJ_VAR_31, $77ba
 	obj_byte OBJ_VAR_33, $03
 	obj_end
@@ -8093,43 +8093,43 @@ ObjInit_0e_7901::
 
 ObjInit_0e_790e::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6cbb
+	obj_word OBJ_VAR_2F, MapPatch_04_6cbb
 	obj_byte OBJ_ANIM_PARAM, $0c
 	obj_end
 
 ObjInit_0e_7917::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6d12
+	obj_word OBJ_VAR_2F, MapPatch_04_6d12
 	obj_end
 
 ObjInit_0e_791e::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6d1c
+	obj_word OBJ_VAR_2F, MapPatch_04_6d1c
 	obj_end
 
 ObjInit_0e_7925::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6d26
+	obj_word OBJ_VAR_2F, MapPatch_04_6d26
 	obj_end
 
 ObjInit_0e_792c::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6d30
+	obj_word OBJ_VAR_2F, MapPatch_04_6d30
 	obj_end
 
 ObjInit_0e_7933::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6d3a
+	obj_word OBJ_VAR_2F, MapPatch_04_6d3a
 	obj_end
 
 ObjInit_0e_793a::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6d44
+	obj_word OBJ_VAR_2F, MapPatch_04_6d44
 	obj_end
 
 ObjInit_0e_7941::
 	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, $6d4e
+	obj_word OBJ_VAR_2F, MapPatch_04_6d4e
 	obj_end
 
 ObjInit_0e_7948::

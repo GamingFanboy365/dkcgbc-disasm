@@ -5,5 +5,9 @@ SECTION "Bank $1b", ROMX[$4000], BANK[$1b]
 
 BGTiles_1b_4000::
 	INCBIN "gfx/bgtiles/1b/4000.2bpp"
-	INCBIN "baserom.gbc", $06e000, $2000 ; $6000
+
+BGTiles_1b_6000::
+	INCBIN "gfx/bgtiles/1b/6000.2bpp"
+	INCBIN "gfx/bgtiles/1b/6000_end.2bpp"
+	ds 6928, $00 ; $64f0
 

@@ -7469,7 +7469,7 @@ Func_09_7416::
 	ld h, [hl]
 	ld l, a
 	or h
-	call nz, Func_00_0d74
+	call nz, ApplyMapPatch
 	pop bc
 .jump_744b:
 	call Func_00_18e4
@@ -7513,7 +7513,7 @@ Func_09_746e::
 	ld h, [hl]
 	ld l, a
 	or h
-	call nz, Func_00_0d74
+	call nz, ApplyMapPatch
 	pop bc
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
@@ -7593,7 +7593,7 @@ Func_09_74c6::
 	ld h, [hl]
 	ld l, a
 	or h
-	call nz, Func_00_0d74
+	call nz, ApplyMapPatch
 	pop bc
 .jump_7517:
 	ld hl, wObjects + OBJ_VAR_2E
@@ -7880,7 +7880,7 @@ Func_09_76c6::
 	ld h, [hl]
 	ld l, a
 	or h
-	call nz, Func_00_0d74
+	call nz, ApplyMapPatch
 	pop bc
 .jump_770c:
 	call Func_00_18f0

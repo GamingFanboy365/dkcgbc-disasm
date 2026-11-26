@@ -2444,109 +2444,46 @@ Func_0a_500b::
 	call Func_0a_5201
 	jp NextObject
 
+	INCBIN "baserom.gbc", $029090, $004e ; $5090
 
-Func_0a_5090::
-	ld hl, wObjects + OBJ_ANIM_FLAGS
-	add hl, bc
-	ld a, [hl]
-	rlca
-	jr c, .jump_50de
-	ld hl, $c310
-	bit 3, [hl]
-	jp nz, Func_0a_50f8.jump_5179
-	set 3, [hl]
-	ldh a, [$ff88]
-	or $80
-	ldh [$ff88], a
-	ld hl, wObjects + OBJ_SPAWN_INDEX
-	add hl, bc
-	ld a, [hl]
-	ldh [$ffb8], a
-	ld l, a
-	ld h, $af
-	inc [hl]
-	ld hl, $ffa8
-	ld [hl], c
-	inc l
-	ld [hl], b
-	push bc
-	call AllocObject
-	ld hl, wObjects + OBJ_VAR_2D
-	add hl, bc
-	ldh a, [$ffb8]
-	ld [hl], a
-	ld hl, wObjects + OBJ_VAR_36
-	add hl, bc
-	ldh a, [$ffa8]
-	ld [hli], a
-	ldh a, [$ffa9]
-	ld [hl], a
-	ld hl, ObjInit_0a_50e4
-	call InitObject
-	pop bc
-	ld hl, wObjects + OBJ_HANDLER
-	add hl, bc
-	ld [hl], $41
-	inc l
-	ld [hl], $51
 .jump_50de:
 	call Func_00_127d
 	jp NextObject
 
+	INCBIN "baserom.gbc", $0290e4, $005d ; $50e4
 
-ObjInit_0a_50e4::
-	obj_byte OBJ_FLAGS, $0f
-	obj_byte OBJ_BANK, BANK(Func_0a_52a0)
-	obj_word OBJ_HANDLER, Func_0a_52a0
-	obj_word OBJ_VAR_2E, $00ac
-	obj_word OBJ_VAR_30, $071a
-	obj_byte OBJ_VAR_32, $00
-	obj_byte OBJ_VAR_34, $01
-	obj_byte OBJ_PALETTE, $03
-	obj_end
 
-Func_0a_50f8::
-	call Func_00_39fa
-	call Func_00_39b4
-	rst_farcall Func_08_40e1
-	ld a, [wPlayer + OBJ_VAR_0A]
-	rrca
-	jr nc, .jump_513b
+Func_0a_5141::
+	ld hl, wObjects + OBJ_SPAWN_INDEX
+	add hl, bc
+	ld l, [hl]
+	ld h, $af
+	ld a, [hl]
+	or a
+	jr nz, Func_0a_500b.jump_50de
 	push bc
-	ld a, $09
+	ld a, $06
 	call PlaySong
-	pop bc
-	ld a, [$c30f]
-	rrca
-	ld de, $431b
-	jr nc, .jump_511b
-	ld de, $4697
-.jump_511b:
-	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], e
-	inc l
-	ld [hl], d
-	xor a
-	ld [wPlayer + OBJ_ANIM_TIMER], a
-	ld a, $7f
-	ld [wPlayer + OBJ_ANIM_FLAGS], a
+	ld bc, $0000
 	ld hl, wPlayer + OBJ_BANK
-	ld [hl], $08
+	ld [hl], $09
 	inc l
-	ld [hl], $2e
+	ld [hl], $ff
 	inc l
-	ld [hl], $40
-	xor a
-	ld hl, wPlayer + OBJ_XVEL
-	ld [hli], a
+	ld [hl], $4a
+	ld a, [wPlayer + OBJ_FLAGS]
+	or $11
+	ld [wPlayer + OBJ_FLAGS], a
+	ld hl, wPlayer + OBJ_XACCEL
+	ld [hl], $80
+	inc l
+	ld [hl], $00
+	pop bc
+	ld hl, wObjects + OBJ_FLAGS
+	add hl, bc
+	ld a, [hl]
+	or $10
 	ld [hl], a
-.jump_513b:
-	call Func_00_127d
-	jp NextObject
-
-	INCBIN "baserom.gbc", $029141, $0038 ; $5141
-
-.jump_5179:
 	ld a, $4e
 	ld [$c32a], a
 	ld hl, ObjInit_0a_518a

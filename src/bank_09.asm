@@ -27,18 +27,11 @@ Func_09_400d::
 	call Func_00_3ab5
 	jp NextObject
 
-	db $cd, $43, $42, $21, $0a, $c8, $09, $cb
+	INCBIN "baserom.gbc", $024026, $0017 ; $4026
 
 
-Func_09_402e::
-	ld c, [hl]
-	jr z, .jump_4040
-	ld hl, wPlayer + OBJ_XVEL
-	call Func_00_39ab
-	ld hl, wPlayer + OBJ_TARGET_XVEL
-	call Func_00_39ab
+Func_09_403d::
 	call Func_09_424e
-.jump_4040:
 	call Func_00_127d
 	call Func_00_3ab5
 	jp NextObject
@@ -961,7 +954,7 @@ Func_09_46bb::
 	add hl, de
 	ld [hl], $01
 .jump_46d7:
-	jp Func_09_6a05.jump_6b2e
+	jp Func_09_6b2e
 
 
 Func_09_46da::
@@ -4196,9 +4189,9 @@ Func_09_5dbb::
 	inc l
 	ld [hl], $08
 	inc l
-	ld [hl], $3d
+	ld [hl], LOW(Func_09_403d)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_09_403d)
 	ld a, [$c30f]
 	rrca
 	ld de, $4115
@@ -4301,7 +4294,7 @@ ObjInit_09_5f56::
 
 Func_09_5f8f::
 	cp $01
-	jp z, Func_09_619d.jump_61c3
+	jp z, Func_09_61ba.jump_61c3
 	cp $02
 	jr z, .jump_5fa1
 	cp $03
@@ -4651,8 +4644,13 @@ Func_09_619d::
 	ld [hl], a
 	ret
 
-	db $21, $37, $c8, $7e, $36, $00, $fe, $01, $c0
 
+Func_09_61ba::
+	ld hl, wPlayer + OBJ_VAR_37
+	ld a, [hl]
+	ld [hl], $00
+	cp $01
+	ret nz
 .jump_61c3:
 	push bc
 	ld a, [wPlayer + OBJ_VAR_33]
@@ -5401,9 +5399,9 @@ Func_09_670d::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_09_6f10)
+	ld [hl], $10
 	inc l
-	ld [hl], HIGH(Func_09_6f10)
+	ld [hl], $6f
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $80
@@ -5924,9 +5922,125 @@ Func_09_6a05::
 	call Func_00_3bf5
 	jp Func_09_43ea.jump_44f5
 
-	INCBIN "baserom.gbc", $026a7e, $00b0 ; $6a7e
 
-.jump_6b2e:
+Func_09_6a7e::
+	ld hl, wObjects + OBJ_X
+	add hl, bc
+	ld a, [hli]
+	sub $1c
+	ldh [$ffb2], a
+	ldh [$ffb6], a
+	ld a, [hli]
+	sbc a, $00
+	ldh [$ffb3], a
+	ldh [$ffb7], a
+	ld hl, wObjects + OBJ_Y
+	add hl, bc
+	ld a, [hli]
+	sub $18
+	ldh [$ffb4], a
+	ld a, [hli]
+	sbc a, $00
+	ldh [$ffb5], a
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, $08
+	ldh [$ff9b], a
+	ld a, $04
+	ldh [rSVBK], a
+	push bc
+.jump_6aae:
+	ld e, $80
+	ld a, [hli]
+	or [hl]
+	inc l
+	ld d, a
+	jr z, .jump_6b0f
+	ldh a, [$ffb4]
+	and $f8
+	ld c, a
+	ldh a, [$ffae]
+	ld b, a
+	ldh a, [$ffaa]
+	sub c
+	bit 7, a
+	jr z, .jump_6ac7
+	cpl
+	inc a
+.jump_6ac7:
+	and $f8
+	cp b
+	jr nc, .jump_6b0f
+.jump_6acc:
+	sla d
+	jr nc, .jump_6afd
+	ldh a, [$ffb2]
+	and $f8
+	ld c, a
+	ldh a, [$ffac]
+	ld b, a
+	ldh a, [$ffa8]
+	sub c
+	bit 7, a
+	jr z, .jump_6ae1
+	cpl
+	inc a
+.jump_6ae1:
+	and $f8
+	cp b
+	jr nc, .jump_6afd
+	dec hl
+	dec hl
+	ld a, [hl]
+	or e
+	xor e
+	ld [hli], a
+	ld a, [hl]
+	or e
+	xor e
+	ld [hli], a
+	push hl
+	push de
+	ld a, $08
+	ld [$c32a], a
+	call Func_09_6c35
+	pop de
+	pop hl
+	nop
+.jump_6afd:
+	ldh a, [$ffb2]
+	add a, $08
+	ldh [$ffb2], a
+	ldh a, [$ffb3]
+	adc a, $00
+	ldh [$ffb3], a
+	srl e
+	ld a, d
+	or a
+	jr nz, .jump_6acc
+.jump_6b0f:
+	ldh a, [$ffb4]
+	add a, $08
+	ldh [$ffb4], a
+	ldh a, [$ffb5]
+	adc a, $00
+	ldh [$ffb5], a
+	ldh a, [$ffb6]
+	ldh [$ffb2], a
+	ldh a, [$ffb7]
+	ldh [$ffb3], a
+	ldh a, [$ff9b]
+	dec a
+	ldh [$ff9b], a
+	jr nz, .jump_6aae
+	pop bc
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_6b2e::
 	ld hl, $c448
 	inc [hl]
 	ld a, $0a
@@ -6172,7 +6286,58 @@ AnimTable_09_6cb4::
 	dw Anim_04_5011, Anim_04_5027, Anim_04_5039, Anim_04_5049
 	dw Anim_04_4fd5, Anim_04_4fdd, Anim_04_4fef, Anim_04_4fff
 	dw Anim_04_5095, Anim_04_509d, Anim_04_50af
-	INCBIN "baserom.gbc", $026cca, $0054 ; $6cca
+	db $00, $00
+
+
+Func_09_6ccc::
+	ldh a, [$ff80]
+	bit 1, a
+	jr z, .jump_6d1b
+	and $30
+	jr nz, .jump_6d1b
+	ld a, [wPlayer + OBJ_VAR_37]
+	or a
+	jr nz, .jump_6d1b
+	ld a, [wPlayer + OBJ_VAR_35]
+	or a
+	jr nz, .jump_6d1b
+	ld a, [wPlayer + OBJ_VAR_0A]
+	rrca
+	jr nc, .jump_6d1b
+	rst_farcall Func_09_5976
+	ld hl, wPlayer + OBJ_VAR_33
+	ld a, c
+	ld [hli], a
+	ld [hl], b
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hl]
+	add a, a
+	add a, a
+	add a, a
+	add a, $ae
+	ld l, a
+	adc a, $6c
+	sub l
+	ld h, a
+	ld a, [hli]
+	ld d, [hl]
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld [hli], a
+	ld [hl], d
+	ld hl, wObjects + OBJ_BANK
+	add hl, bc
+	ld [hl], $09
+	inc l
+	ld [hl], LOW(Func_09_6d5c)
+	inc l
+	ld [hl], HIGH(Func_09_6d5c)
+	ld hl, wObjects + OBJ_COLLISION
+	add hl, bc
+	ld [hl], $00
+.jump_6d1b:
+	jp Func_09_43ea.jump_44f5
 
 
 Func_09_6d1e::
@@ -6186,9 +6351,9 @@ Func_09_6d1e::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_09_402e)
+	ld [hl], $2e
 	inc l
-	ld [hl], HIGH(Func_09_402e)
+	ld [hl], $40
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -6455,10 +6620,19 @@ Func_09_6e97::
 .jump_6ef5:
 	jp Func_09_43ea.jump_44f5
 
-	INCBIN "baserom.gbc", $026ef8, $0018 ; $6ef8
 
-
-Func_09_6f10::
+Func_09_6ef8::
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [$c446]
+	add a, [hl]
+	ld [$c446], a
+	inc l
+	ld a, [$c447]
+	adc a, [hl]
+	ld [$c447], a
+	ld a, $27
+	ld [$c32a], a
 	call Func_00_18f0
 	jp Func_09_43ea.jump_44f5
 
@@ -6824,9 +6998,9 @@ Func_09_7150::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $3d
+	ld [hl], LOW(Func_09_403d)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_09_403d)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -7046,7 +7220,180 @@ Func_09_72b2::
 	ld [$c32a], a
 	ret
 
-	INCBIN "baserom.gbc", $0272f4, $0119 ; $72f4
+
+Func_09_72f4::
+	ld a, $5e
+	ld [$c32c], a
+	ld hl, wObjects + OBJ_HANDLER
+	add hl, bc
+	ld [hl], $95
+	inc l
+	ld [hl], $51
+	ld hl, wObjects + OBJ_COLLISION
+	add hl, bc
+	ld [hl], $00
+	ld hl, wObjects + OBJ_VAR_39
+	add hl, bc
+	ld [hl], $0a
+	ld hl, wPlayer + OBJ_FLAGS
+	res 4, [hl]
+	ld hl, wPlayer + OBJ_HANDLER
+	ld [hl], LOW(Func_09_5bcc)
+	inc l
+	ld [hl], HIGH(Func_09_5bcc)
+	call Func_09_61ba
+	ld a, $05
+	ld [wPlayer + OBJ_VAR_37], a
+	ld hl, wPlayer + OBJ_VAR_33
+	ld a, c
+	ld [hli], a
+	ld [hl], b
+	ld hl, wPlayer + OBJ_VAR_2E
+	set 0, [hl]
+	set 2, [hl]
+	ld hl, wObjects + OBJ_VAR_3A
+	add hl, bc
+	ld a, [hli]
+	ld [$c450], a
+	ld a, [hli]
+	ld [$c451], a
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_733f::
+	ld hl, $ffb0
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	or d
+	jr nz, .jump_738a
+	call Func_09_5cd1
+	jr nc, .jump_7387
+	ld a, [wPlayer + OBJ_VAR_35]
+	or a
+	jr nz, .jump_736a
+	ld hl, wObjects + OBJ_VAR_31
+	add hl, bc
+	ld a, [hl]
+	or a
+	jr nz, .jump_736a
+	ld a, [wPlayer + OBJ_ANIM_FLAGS]
+	and $7f
+	cp $03
+	jr z, .jump_737b
+	ld a, [$c30f]
+	rrca
+	jr c, .jump_737b
+.jump_736a:
+	call Func_09_5feb
+.jump_736d:
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld [hl], LOW(Anim_04_4aab)
+	inc hl
+	ld [hl], HIGH(Anim_04_4aab)
+	call Func_09_41cd
+	jr .jump_7387
+
+.jump_737b:
+	ld hl, ObjInit_09_7393
+	call ApplyObjInit
+	call Func_09_68d2
+	call Func_09_611e
+.jump_7387:
+	jp Func_09_43ea.jump_44f5
+
+.jump_738a:
+	push bc
+	ld b, d
+	ld c, e
+	call Func_09_6f16
+	pop bc
+	jr .jump_736d
+
+
+ObjInit_09_7393::
+	obj_word OBJ_ANIM, Anim_04_4abb
+	obj_byte OBJ_BANK, BANK(Func_0a_6346)
+	obj_word OBJ_HANDLER, Func_0a_6346
+	obj_byte OBJ_VAR_32, $14
+	obj_end
+
+Func_09_739e::
+	call Func_09_73e2
+	jr nc, .jump_73ac
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld [hl], LOW(Anim_04_4cbf)
+	inc l
+	ld [hl], HIGH(Anim_04_4cbf)
+.jump_73ac:
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_73af::
+	call Func_09_73e2
+	jr nc, .jump_73bd
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld [hl], LOW(Anim_04_4d5b)
+	inc l
+	ld [hl], HIGH(Anim_04_4d5b)
+.jump_73bd:
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_73c0::
+	call Func_09_73e2
+	jr nc, .jump_73ce
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld [hl], LOW(Anim_04_4d9d)
+	inc l
+	ld [hl], HIGH(Anim_04_4d9d)
+.jump_73ce:
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_73d1::
+	call Func_09_73e2
+	jr nc, .jump_73df
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld [hl], LOW(Anim_04_4d21)
+	inc l
+	ld [hl], HIGH(Anim_04_4d21)
+.jump_73df:
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_73e2::
+	ld a, [wPlayer + OBJ_VAR_35]
+	cp $28
+	jr nz, .jump_7400
+	ld hl, wObjects + OBJ_X
+	add hl, bc
+	ld a, [wPlayer + OBJ_X]
+	sub [hl]
+	inc l
+	ld a, [wPlayer + OBJ_X + 1]
+	sbc a, [hl]
+	rrca
+	rrca
+	ld hl, wPlayer + OBJ_OAM_ATTR
+	xor [hl]
+	and $20
+	jr nz, .jump_7405
+.jump_7400:
+	call Func_09_5dbb
+	xor a
+	ret
+
+.jump_7405:
+	call Func_09_5feb
+	call Func_09_41cd
+	scf
+	ret
 
 
 Func_09_740d::
@@ -7225,7 +7572,115 @@ Func_09_74c6::
 .jump_752f:
 	jp Func_09_43ea.jump_44f5
 
-	INCBIN "baserom.gbc", $027532, $00c7 ; $7532
+
+Func_09_7532::
+	ld a, $5e
+	ld [$c32c], a
+	rst_farcall Func_08_57c0
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hli]
+	ld [wLevelEntrance], a
+	ld a, [hli]
+	ld [$c44a], a
+	ld a, [hli]
+	ld [$c44b], a
+	ld a, [hli]
+	ld [$c44c], a
+	xor a
+	ld hl, wObjects + OBJ_COLLISION
+	add hl, bc
+	ld [hl], a
+	ldh [$ffa7], a
+	ld hl, wPlayer + OBJ_FLAGS
+	res 4, [hl]
+	ld a, $05
+	ld [wPlayer + OBJ_VAR_37], a
+	call Func_09_61ba
+	rst_farcall Func_09_66d6
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_756b::
+	ld hl, ObjInit_09_7574
+	call ApplyObjInit
+	jp Func_09_43ea.jump_44f5
+
+
+ObjInit_09_7574::
+	obj_byte OBJ_FLAGS, $11
+	obj_byte OBJ_BANK, BANK(Func_08_56fd)
+	obj_word OBJ_HANDLER, Func_08_56fd
+	obj_word OBJ_TOUCH_HANDLER, $7586
+	obj_word OBJ_ANIM, Anim_04_553d
+	obj_byte OBJ_COLLISION, $00
+	obj_byte OBJ_VAR_2F, $3c
+	obj_end
+
+Func_09_7586::
+	ld a, $07
+	ld [$c32a], a
+	ld a, $64
+	ld [$c441], a
+	ld hl, $c448
+	inc [hl]
+	ld hl, ObjInit_09_75ac
+	call ApplyObjInit
+	call Func_09_6bfc
+	ld de, $0050
+	call Func_00_3bcf
+	ld de, $0010
+	call Func_00_3bf5
+	jp Func_09_43ea.jump_44f5
+
+
+ObjInit_09_75ac::
+	obj_byte OBJ_FLAGS, $1b
+	obj_byte OBJ_BANK, BANK(Func_08_5718)
+	obj_word OBJ_HANDLER, Func_08_5718
+	obj_word OBJ_ANIM, Anim_04_5517
+	obj_byte OBJ_ANIM_TIMER, $00
+	obj_byte OBJ_COLLISION, $00
+	obj_byte OBJ_VAR_2F, $20
+	obj_end
+
+Func_09_75bd::
+	ld hl, $ffb0
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	or d
+	jr nz, .jump_75ea
+	call Func_09_5cd1
+	jr nc, .jump_75e7
+	ld a, [wPlayer + OBJ_ANIM_FLAGS]
+	and $7f
+	cp $03
+	jr z, .jump_75f3
+	cp $04
+	jr z, .jump_75f3
+	call Func_09_5feb
+.jump_75db:
+	ld hl, wObjects + OBJ_ANIM
+	add hl, bc
+	ld [hl], LOW(Anim_04_4c9d)
+	inc hl
+	ld [hl], HIGH(Anim_04_4c9d)
+	call Func_09_41cd
+.jump_75e7:
+	jp Func_09_43ea.jump_44f5
+
+.jump_75ea:
+	push bc
+	ld b, d
+	ld c, e
+	call Func_09_6f16
+	pop bc
+	jr .jump_75db
+
+.jump_75f3:
+	call Func_09_5dbb
+	jp Func_09_43ea.jump_44f5
 
 
 Func_09_75f9::
@@ -7659,9 +8114,9 @@ Func_09_78af::
 	add hl, de
 	ld [hl], $08
 	inc l
-	ld [hl], $3d
+	ld [hl], LOW(Func_09_403d)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Func_09_403d)
 .jump_78ca:
 	jp Func_09_43ea.jump_44f5
 
@@ -7844,9 +8299,9 @@ Func_09_79cd::
 	add hl, bc
 	ld [hl], $09
 	inc l
-	ld [hl], $3e
+	ld [hl], LOW(Func_09_7a3e)
 	inc l
-	ld [hl], $7a
+	ld [hl], HIGH(Func_09_7a3e)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -7873,5 +8328,211 @@ Func_09_79cd::
 .jump_7a3b:
 	jp Func_09_43ea.jump_44f5
 
-	INCBIN "baserom.gbc", $027a3e, $05c2 ; $7a3e
+
+Func_09_7a3e::
+	ld hl, wObjects + OBJ_ANIM_FLAGS
+	add hl, bc
+	ld a, [hl]
+	rlca
+	jr nc, .jump_7a4c
+	call Func_00_127d
+	jp NextObject
+
+.jump_7a4c:
+	call Func_09_61ba
+	ld hl, wObjects + OBJ_SPAWN_INDEX
+	add hl, bc
+	ld l, [hl]
+	ld h, $a8
+	set 2, [hl]
+	call Func_00_18f5
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hl]
+	or a
+	jr z, .jump_7a83
+	dec a
+	jp z, .jump_7a97
+	dec a
+	jp z, .jump_7aab
+	dec a
+	jp z, .jump_7abf
+	dec a
+	jp z, .jump_7ad3
+.jump_7a73:
+	ldh a, [$ffa6]
+	and $fc
+	or $01
+	ldh [$ffa6], a
+	ld a, $01
+	ld [wPlayer + OBJ_COLLISION], a
+	jp NextObject
+
+.jump_7a83:
+	push bc
+	ld a, [$c30f]
+	and $03
+	or $08
+	ld [$c30f], a
+	ld bc, $0000
+	call Func_09_502d
+	pop bc
+	jr .jump_7a73
+
+.jump_7a97:
+	push bc
+	ld a, [$c30f]
+	and $03
+	or $18
+	ld [$c30f], a
+	ld bc, $0000
+	call Func_09_51ef
+	pop bc
+	jr .jump_7a73
+
+.jump_7aab:
+	push bc
+	ld a, [$c30f]
+	and $03
+	or $28
+	ld [$c30f], a
+	ld bc, $0000
+	call Func_09_53a8
+	pop bc
+	jr .jump_7a73
+
+.jump_7abf:
+	push bc
+	ld a, [$c30f]
+	and $03
+	or $38
+	ld [$c30f], a
+	ld bc, $0000
+	call Func_09_5491
+	pop bc
+	jr .jump_7a73
+
+.jump_7ad3:
+	jr .jump_7a73
+
+
+Func_09_7ad5::
+	ld hl, wObjects + OBJ_VAR_30
+	add hl, bc
+	ld a, [hl]
+	ld [hl], $0a
+	or a
+	jr nz, .jump_7b02
+	ld a, [$c446]
+	ld e, a
+	ld a, [$c447]
+	ld d, a
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hli]
+	sub e
+	ld e, a
+	ld a, [hl]
+	sbc a, d
+	ld d, a
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [hli]
+	ld [$c446], a
+	ld a, [hl]
+	ld [$c447], a
+	ld a, $24
+	ld [$c32a], a
+.jump_7b02:
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_7b05::
+	ld a, $1a
+	ld [$c32a], a
+	ld hl, $c441
+	set 0, [hl]
+	rst_farcall Func_08_57c0
+	ld hl, $c448
+	inc [hl]
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [$c31f]
+	add a, [hl]
+	ld [$c31f], a
+	ld hl, wObjects + OBJ_FLAGS
+	add hl, bc
+	ld a, [hl]
+	or $0b
+	ld [hl], a
+	ld hl, ObjInit_09_7b42
+	call ApplyObjInit
+	call Func_09_6bfc
+	ld de, $0081
+	call Func_00_3bcf
+	ld de, $000c
+	call Func_00_3bf5
+	jp Func_09_43ea.jump_44f5
+
+
+ObjInit_09_7b42::
+	obj_byte OBJ_BANK, BANK(Func_0a_7308)
+	obj_word OBJ_HANDLER, Func_0a_7308
+	obj_byte OBJ_VAR_2F, $20
+	obj_byte OBJ_COLLISION, $00
+	obj_end
+
+Func_09_7b4c::
+	ld hl, wObjects + OBJ_FLAGS
+	add hl, bc
+	ld a, [hl]
+	and $ef
+	or $03
+	ld [hl], a
+	ld hl, wObjects + OBJ_COLLISION
+	add hl, bc
+	ld [hl], $00
+	ld hl, $c448
+	inc [hl]
+	ld hl, wObjects + OBJ_VAR_2E
+	add hl, bc
+	ld a, [$c446]
+	ld [hli], a
+	ld a, [$c447]
+	ld [hli], a
+	ld hl, wObjects + OBJ_BANK
+	add hl, bc
+	ld [hl], $08
+	inc l
+	ld [hl], $cb
+	inc l
+	ld [hl], $61
+	rst_farcall Func_08_6205
+	ld a, $31
+	ld [$c329], a
+	jp Func_09_43ea.jump_44f5
+
+
+Func_09_7b84::
+	ld hl, $c448
+	inc [hl]
+	ld hl, ObjInit_09_7ba5
+	call ApplyObjInit
+	call Func_09_6bfc
+	ld de, $0004
+	call Func_00_3bcf
+	ld de, $0004
+	call Func_00_3bf5
+	ld a, $2c
+	ld [$c32a], a
+	jp Func_09_43ea.jump_44f5
+
+
+ObjInit_09_7ba5::
+	obj_byte OBJ_FLAGS, $0b
+	obj_byte OBJ_BANK, BANK(Func_08_61a4)
+	obj_word OBJ_HANDLER, Func_08_61a4
+	obj_byte OBJ_VAR_2E, $20
+	obj_end
+	INCBIN "baserom.gbc", $027baf, $0451 ; $7baf
 

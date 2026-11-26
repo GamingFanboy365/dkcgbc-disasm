@@ -505,6 +505,62 @@ def parse_banks(t, rom):
                 j += 1
             t._claim(b, 0x4000 + i % 0x4000, j - i, "incbin", None, "FrameSpritesTail")
             i = j
+    # world map (bank $05): metasprites for Func_05_4001 (4-byte steps: dy, dx, tile, attributes; $80 ends)
+    mps = []
+    a = 0x4022
+    while True:
+        nz = [x for x in mps if x]
+        if nz and a >= min(nz):
+            break
+        mps.append(rom[off(5, a)] | rom[off(5, a) + 1] << 8)
+        a += 2
+    t._claim(5, 0x4022, 2 * len(mps), "rows", [("dw", [ref(5, x) if x else "0"], None) for x in mps], "=WorldMapMetasprites")
+    for x in sorted(set(mps) - {0}):
+        q, rows = x, []
+        while rom[off(5, q)] != 0x80:
+            rows.append(("db", ["%d" % (v - 256 if v >= 128 and k < 2 else v) if k < 2 else "$%02x" % v
+                                for k, v in enumerate(rom[off(5, q):off(5, q) + 4])], "dy, dx, tile, attributes" if q == x else None))
+            q += 4
+        rows.append(("db", ["$80"], "end"))
+        t._claim(5, x, q + 1 - x, "rows", rows, "WorldMapMetasprite")
+    t._claim(5, 0x4254, 32, "rows", hexrow("db", rom[off(5, 0x4254):off(5, 0x4254) + 32], 4), "=WorldMapSpriteOffsets")
+    t._claim(5, 0x429A, 12, "rows", [("dw", ["$%04x" % (rom[off(5, 0x429A + 2 * k)] | rom[off(5, 0x429A + 2 * k) + 1] << 8)], None)
+                                     for k in range(6)], "=WorldMapTileSources")  # indexed by [$c607] (1-6) from $4298
+    # per world map: the list copied to $c500 ($ff ends) and the level markers (4 bytes: location, ...; $ff entry ends)
+    for wm in bg.world_maps(rom):
+        a = wm["list"]
+        q = a
+        while rom[off(5, q)] != 0xFF:
+            q += 1
+        t._claim(5, a, q + 1 - a, "rows", hexrow("db", rom[off(5, a):off(5, q + 1)]), "WorldMapList")
+        m = wm["raw"][2] | wm["raw"][3] << 8
+        q, rows = m, []
+        while True:
+            bs = rom[off(5, q):off(5, q) + 4]
+            rows.append(("db", ["$%02x" % v for v in bs], "x (word), y, location (0: path point)" if q == m else ("end" if bs[0] == 0xFF else None)))
+            q += 4
+            if bs[0] == 0xFF:
+                break
+        t._claim(5, m, q - m, "rows", rows, "WorldMapMarkers")
+    t._claim(5, 0x491E, 392, "rows", [("db", ["$%02x" % v for v in rom[off(5, 0x491E + 4 * k):off(5, 0x491E + 4 * k) + 4]],
+                                       "location %d" % k) for k in range(98)], "=WorldMapLocations")  # type in bits 0-6 of byte 2
+    t._claim(5, 0x4AA6, 3, "rows", hexrow("db", rom[off(5, 0x4AA6):off(5, 0x4AA9)]), "=WorldMapLocationsTail")
+    # world map movement (Func_00_1dc5 area): per location 4 path pointers, picked by the
+    # pressed direction (down, up, left, right); a path lists marker numbers, $ff ends
+    mv = [rom[off(5, 0x4AB9 + 2 * k)] | rom[off(5, 0x4AB9 + 2 * k) + 1] << 8 for k in range(4 * 98)]
+    t._claim(5, 0x4AB9, 784, "rows", [("dw", [ref(5, x) if x else "0" for x in mv[4 * k:4 * k + 4]],
+                                       "location %d: down, up, left, right" % k if k == 0 else "location %d" % k) for k in range(98)],
+             "=WorldMapMoves")
+    t._claim(5, 0x4DC9, 10, "rows", hexrow("db", rom[off(5, 0x4DC9):off(5, 0x4DD3)]), "=WorldMapMovesTail")
+    t._claim(5, 0x4DD3, 78 * 4, "rows", [("db", ["$%02x" % v for v in rom[off(5, 0x4DD3 + 4 * k):off(5, 0x4DD3 + 4 * k) + 4]],
+                                          "location %d" % (k + 1)) for k in range(78)], "=WorldMapArrows")  # Func_05_446a
+    pstarts = sorted(set(x for x in mv if x))
+    for i, x in enumerate(pstarts):
+        y = pstarts[i + 1] if i + 1 < len(pstarts) else rom.index(0xFF, off(5, x)) - 5 * 0x4000 + 0x4000 + 1
+        t._claim(5, x, y - x, "rows", hexrow("db", rom[off(5, x):off(5, y)]), "WorldMapPath")
+    for a, n in ((0x45D6, 11), (0x48CA, 2)):  # well-formed marker lists no world map record points to
+        t._claim(5, a, 4 * n, "rows", [("db", ["$%02x" % v for v in rom[off(5, a + 4 * k):off(5, a + 4 * k) + 4]],
+                                        "x (word), y, location" if k == 0 else None) for k in range(n)], "WorldMapMarkersUnused")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

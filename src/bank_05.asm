@@ -36,8 +36,151 @@ Func_05_4001::
 	inc de
 	jr .jump_400d
 
-	INCBIN "baserom.gbc", $014022, $014c ; $4022
 
+WorldMapMetasprites::
+	dw 0
+	dw WorldMapMetasprite_05_404c
+	dw WorldMapMetasprite_05_4055
+	dw WorldMapMetasprite_05_409b
+	dw WorldMapMetasprite_05_4070
+	dw WorldMapMetasprite_05_4079
+	dw WorldMapMetasprite_05_408a
+	dw 0
+	dw WorldMapMetasprite_05_405e
+	dw WorldMapMetasprite_05_40a8
+	dw WorldMapMetasprite_05_4067
+	dw WorldMapMetasprite_05_40b1
+	dw WorldMapMetasprite_05_40ba
+	dw WorldMapMetasprite_05_40c7
+	dw WorldMapMetasprite_05_4154
+	dw WorldMapMetasprite_05_4137
+	dw WorldMapMetasprite_05_411a
+	dw WorldMapMetasprite_05_40fd
+	dw WorldMapMetasprite_05_40d4
+	dw WorldMapMetasprite_05_40d4
+	dw WorldMapMetasprite_05_4169
+
+WorldMapMetasprite_05_404c::
+	db -8, -8, $00, $00 ; dy, dx, tile, attributes
+	db 0, 8, $02, $00
+	db $80 ; end
+
+WorldMapMetasprite_05_4055::
+	db -8, -8, $04, $04 ; dy, dx, tile, attributes
+	db 0, 8, $06, $04
+	db $80 ; end
+
+WorldMapMetasprite_05_405e::
+	db -8, -8, $08, $00 ; dy, dx, tile, attributes
+	db 0, 8, $0a, $00
+	db $80 ; end
+
+WorldMapMetasprite_05_4067::
+	db -8, -8, $0c, $04 ; dy, dx, tile, attributes
+	db 0, 8, $0e, $04
+	db $80 ; end
+
+WorldMapMetasprite_05_4070::
+	db -8, -8, $10, $01 ; dy, dx, tile, attributes
+	db 0, 8, $12, $00
+	db $80 ; end
+
+WorldMapMetasprite_05_4079::
+	db -8, -8, $52, $02 ; dy, dx, tile, attributes
+	db 0, 8, $54, $02
+	db 0, -8, $14, $00
+	db 0, 8, $16, $00
+	db $80 ; end
+
+WorldMapMetasprite_05_408a::
+	db -8, -8, $4c, $02 ; dy, dx, tile, attributes
+	db 0, 8, $4e, $02
+	db 0, -8, $18, $00
+	db 0, 8, $1a, $00
+	db $80 ; end
+
+WorldMapMetasprite_05_409b::
+	db -8, -8, $1c, $05 ; dy, dx, tile, attributes
+	db 0, 8, $1e, $01
+	db 0, 0, $50, $05
+	db $80 ; end
+
+WorldMapMetasprite_05_40a8::
+	db -8, -8, $0a, $20 ; dy, dx, tile, attributes
+	db 0, 8, $08, $20
+	db $80 ; end
+
+WorldMapMetasprite_05_40b1::
+	db -8, -8, $0e, $24 ; dy, dx, tile, attributes
+	db 0, 8, $0c, $24
+	db $80 ; end
+
+WorldMapMetasprite_05_40ba::
+	db -8, -12, $4a, $23 ; dy, dx, tile, attributes
+	db 0, 8, $48, $23
+	db 0, 8, $46, $23
+	db $80 ; end
+
+WorldMapMetasprite_05_40c7::
+	db -8, -12, $46, $03 ; dy, dx, tile, attributes
+	db 0, 8, $48, $03
+	db 0, 8, $4a, $03
+	db $80 ; end
+
+WorldMapMetasprite_05_40d4::
+	db 98, -128, $20, $06 ; dy, dx, tile, attributes
+	db 0, 8, $22, $06
+	db 0, 8, $24, $06
+	db 0, 8, $26, $06
+	db 0, 8, $28, $06
+	db -16, -20, $2a, $07
+	db 0, 8, $2c, $07
+	db 0, 8, $2e, $07
+	db -16, -13, $30, $06
+	db 0, 8, $32, $06
+	db $80 ; end
+
+WorldMapMetasprite_05_40fd::
+	db 98, -128, $20, $06 ; dy, dx, tile, attributes
+	db 0, 8, $22, $06
+	db 1, 8, $24, $06
+	db 0, 8, $26, $06
+	db -15, -12, $28, $07
+	db -1, 8, $2a, $07
+	db -14, -5, $2c, $06
+	db $80 ; end
+
+WorldMapMetasprite_05_411a::
+	db 98, -128, $20, $06 ; dy, dx, tile, attributes
+	db 1, 8, $22, $06
+	db 0, 8, $24, $06
+	db -1, 8, $26, $06
+	db -15, -14, $28, $07
+	db 0, 8, $2a, $07
+	db -11, -5, $2c, $06
+	db $80 ; end
+
+WorldMapMetasprite_05_4137::
+	db 98, -128, $20, $06 ; dy, dx, tile, attributes
+	db 0, 8, $22, $06
+	db 0, 8, $24, $06
+	db 0, 8, $26, $06
+	db -16, -13, $28, $07
+	db -8, 2, $2a, $06
+	db 8, 6, $2c, $07
+	db $80 ; end
+
+WorldMapMetasprite_05_4154::
+	db 98, -128, $20, $06 ; dy, dx, tile, attributes
+	db 1, 8, $22, $06
+	db 0, 8, $24, $06
+	db -15, -7, $26, $07
+	db -6, 2, $28, $06
+	db $80 ; end
+
+WorldMapMetasprite_05_4169::
+	db -4, -4, $40, $23 ; dy, dx, tile, attributes
+	db $80 ; end
 
 Func_05_416e::
 	ld a, [$c310]
@@ -219,8 +362,16 @@ Func_05_4202::
 	pop hl
 	ret
 
-	INCBIN "baserom.gbc", $014254, $0020 ; $4254
 
+WorldMapSpriteOffsets::
+	db $f0, $fc, $40, $03
+	db $f4, $04, $42, $03
+	db $fc, $08, $44, $03
+	db $fc, $08, $42, $43
+	db $00, $fc, $40, $43
+	db $fc, $f4, $42, $63
+	db $fc, $f0, $44, $23
+	db $f4, $f4, $42, $23
 
 Func_05_4274::
 	ld a, [$c30a]
@@ -247,8 +398,14 @@ Func_05_4274::
 	call Func_00_0391
 	ret
 
-	db $b0, $63, $d0, $62, $f0, $61, $10, $61, $d0, $5f, $d0, $5f
 
+WorldMapTileSources::
+	dw $63b0
+	dw $62d0
+	dw $61f0
+	dw $6110
+	dw $5fd0
+	dw $5fd0
 
 Func_05_42a6::
 	ld a, $04
@@ -661,8 +818,380 @@ WorldMap_05_44f5::
 	dw WorldPalettes_0f_491c ; BG palettes
 	dw BGTiles_18_4000
 	db BANK(BGTiles_18_4000) ; tileset
-	INCBIN "baserom.gbc", $014502, $05a7 ; $4502
 
+WorldMapList_05_4502::
+	db $14, $00, $c4, $20, $01, $a0, $60, $30, $01, $a8, $58, $38, $01, $a0, $20, $45
+	db $01, $88, $48, $47, $01, $a8, $68, $50, $01, $80, $40, $62, $01, $a0, $78, $77
+	db $01, $b8, $60, $ff
+
+WorldMapList_05_4526::
+	db $1e, $00, $c4, $20, $01, $a0, $60, $30, $01, $a8, $58, $38, $01, $a0, $20, $45
+	db $01, $88, $48, $47, $01, $a8, $68, $50, $01, $80, $40, $62, $01, $a0, $78, $77
+	db $01, $b8, $60, $ff
+
+WorldMapList_05_454a::
+	db $1c, $00, $c4, $34, $01, $80, $58, $6f, $01, $80, $50, $ff
+
+WorldMapList_05_4556::
+	db $14, $00, $c4, $26, $01, $80, $60, $30, $01, $88, $48, $42, $01, $a0, $40, $4b
+	db $01, $80, $00, $60, $01, $88, $58, $7d, $01, $a0, $20, $ff
+
+WorldMapList_05_4572::
+	db $1c, $00, $c4, $40, $01, $98, $58, $68, $01, $a0, $40, $6f, $01, $88, $48, $77
+	db $01, $b0, $50, $ff
+
+WorldMapList_05_4586::
+	db $08, $01, $b0, $40, $1c, $00, $c4, $48, $01, $b0, $30, $70, $01, $a0, $48, $80
+	db $01, $a0, $20, $ff
+
+WorldMapList_05_459a::
+	db $1c, $00, $c4, $30, $01, $98, $48, $50, $01, $98, $18, $60, $01, $90, $40, $7e
+	db $01, $b8, $40, $ff
+
+WorldMapList_05_45ae::
+	db $14, $00, $c4, $ff
+
+WorldMapMarkers_05_45b2::
+	db $c3, $00, $8f, $2a ; x (word), y, location (0: path point)
+	db $d3, $00, $8f, $00
+	db $e3, $00, $8a, $00
+	db $f5, $00, $83, $2b
+	db $05, $01, $81, $00
+	db $12, $01, $79, $00
+	db $15, $01, $6a, $00
+	db $10, $01, $59, $2c
+	db $ff, $00, $5a, $00 ; end
+
+WorldMapMarkersUnused_05_45d6::
+	db $fb, $00, $4b, $00 ; x (word), y, location
+	db $f5, $00, $3c, $00
+	db $f0, $00, $2e, $2d
+	db $e1, $00, $2d, $00
+	db $df, $00, $3b, $2e
+	db $db, $00, $4c, $00
+	db $cd, $00, $4f, $2f
+	db $bf, $00, $55, $00
+	db $b4, $00, $5c, $00
+	db $a6, $00, $5d, $3c
+	db $ff, $ff, $ff, $ff
+
+WorldMapMarkers_05_4602::
+	db $3c, $00, $3c, $30 ; x (word), y, location (0: path point)
+	db $4c, $00, $48, $00
+	db $45, $00, $57, $21
+	db $39, $00, $62, $00
+	db $34, $00, $72, $01
+	db $42, $00, $72, $00
+	db $50, $00, $70, $00
+	db $5e, $00, $68, $00
+	db $6d, $00, $67, $3d
+	db $63, $00, $7b, $00
+	db $5d, $00, $8c, $00
+	db $6a, $00, $93, $00
+	db $7a, $00, $90, $04
+	db $86, $00, $87, $00
+	db $98, $00, $88, $00
+	db $aa, $00, $7b, $00
+	db $bd, $00, $7e, $00
+	db $cc, $00, $88, $00
+	db $df, $00, $8e, $13
+	db $d9, $00, $7a, $00
+	db $ce, $00, $66, $3e
+	db $e3, $00, $6b, $00
+	db $f9, $00, $72, $03
+	db $0c, $01, $76, $00
+	db $20, $01, $78, $3f
+	db $21, $01, $67, $00
+	db $23, $01, $58, $00
+	db $24, $01, $49, $36
+	db $ff, $ff, $ff, $ff ; end
+
+WorldMapMarkers_05_4676::
+	db $11, $00, $74, $31 ; x (word), y, location (0: path point)
+	db $1f, $00, $71, $00
+	db $30, $00, $74, $0c
+	db $40, $00, $6f, $00
+	db $52, $00, $6a, $10
+	db $57, $00, $79, $00
+	db $67, $00, $7d, $05
+	db $96, $00, $82, $00
+	db $a6, $00, $81, $00
+	db $ae, $00, $74, $00
+	db $b0, $00, $63, $0e
+	db $9f, $00, $60, $00
+	db $98, $00, $52, $00
+	db $a2, $00, $46, $00
+	db $b6, $00, $42, $40
+	db $c1, $00, $69, $00
+	db $ca, $00, $78, $00
+	db $d4, $00, $88, $00
+	db $e6, $00, $88, $41
+	db $f9, $00, $86, $00
+	db $05, $01, $75, $00
+	db $18, $01, $6c, $15
+	db $1d, $01, $80, $00
+	db $2a, $01, $92, $00
+	db $43, $01, $95, $42
+	db $57, $01, $92, $00
+	db $66, $01, $88, $00
+	db $6c, $01, $78, $00
+	db $6c, $01, $65, $37
+	db $ff, $ff, $ff, $ff ; end
+
+WorldMapMarkers_05_46ee::
+	db $10, $00, $45, $32 ; x (word), y, location (0: path point)
+	db $24, $00, $49, $00
+	db $3e, $00, $4f, $1b
+	db $54, $00, $52, $00
+	db $6c, $00, $54, $19
+	db $7f, $00, $5e, $00
+	db $8e, $00, $63, $00
+	db $a2, $00, $63, $44
+	db $6d, $00, $67, $00
+	db $70, $00, $76, $00
+	db $76, $00, $8a, $1c
+	db $9d, $00, $85, $00
+	db $c0, $00, $81, $00
+	db $e0, $00, $7c, $00
+	db $02, $01, $6a, $16
+	db $18, $01, $60, $00
+	db $2a, $01, $51, $45
+	db $36, $01, $63, $00
+	db $4b, $01, $63, $02
+	db $4c, $01, $7b, $00
+	db $44, $01, $91, $00
+	db $29, $01, $8f, $43
+	db $0c, $01, $93, $00
+	db $fb, $00, $94, $00
+	db $eb, $00, $90, $14
+	db $d5, $00, $6d, $00
+	db $d4, $00, $5c, $38
+	db $ff, $ff, $ff, $ff ; end
+
+WorldMapMarkers_05_475e::
+	db $0d, $00, $77, $33 ; x (word), y, location (0: path point)
+	db $1e, $00, $78, $17
+	db $2b, $00, $75, $00
+	db $42, $00, $71, $1d
+	db $57, $00, $6e, $00
+	db $80, $00, $7a, $00
+	db $84, $00, $8c, $18
+	db $97, $00, $8b, $00
+	db $b1, $00, $90, $12
+	db $ce, $00, $8b, $00
+	db $e4, $00, $8e, $00
+	db $fc, $00, $8e, $00
+	db $0f, $01, $87, $46
+	db $0b, $01, $76, $00
+	db $0c, $01, $5e, $00
+	db $09, $01, $4f, $1e
+	db $28, $01, $54, $00
+	db $45, $01, $50, $00
+	db $57, $01, $47, $48
+	db $eb, $00, $4e, $00
+	db $c9, $00, $4b, $00
+	db $a0, $00, $4f, $47
+	db $80, $00, $4b, $00
+	db $63, $00, $3f, $1a
+	db $43, $00, $3d, $00
+	db $29, $00, $3a, $39
+	db $ff, $ff, $ff, $ff ; end
+
+WorldMapMarkers_05_47ca::
+	db $1c, $00, $3c, $34 ; x (word), y, location (0: path point)
+	db $32, $00, $3c, $1f
+	db $3b, $00, $44, $00
+	db $52, $00, $53, $09
+	db $50, $00, $5c, $00
+	db $41, $00, $68, $00
+	db $30, $00, $79, $00
+	db $1c, $00, $7e, $07
+	db $22, $00, $89, $00
+	db $29, $00, $99, $4b
+	db $34, $00, $7d, $00
+	db $53, $00, $78, $00
+	db $6c, $00, $7f, $11
+	db $83, $00, $6a, $00
+	db $7d, $00, $53, $00
+	db $88, $00, $44, $00
+	db $ab, $00, $48, $00
+	db $d3, $00, $4e, $0b
+	db $d2, $00, $62, $00
+	db $d3, $00, $7b, $00
+	db $ec, $00, $94, $00
+	db $06, $01, $95, $49
+	db $e5, $00, $5b, $00
+	db $fe, $00, $6d, $00
+	db $10, $01, $65, $4a
+	db $2b, $01, $62, $00
+	db $3f, $01, $58, $20
+	db $1e, $01, $44, $00
+	db $06, $01, $3f, $00
+	db $f9, $00, $3b, $3a
+	db $ff, $ff, $ff, $ff ; end
+
+WorldMapMarkers_05_4846::
+	db $14, $00, $96, $35 ; x (word), y, location (0: path point)
+	db $28, $00, $92, $0a
+	db $3b, $00, $8f, $00
+	db $3d, $00, $7b, $00
+	db $32, $00, $69, $00
+	db $2b, $00, $56, $00
+	db $2b, $00, $3e, $06
+	db $3c, $00, $3e, $00
+	db $48, $00, $4d, $00
+	db $50, $00, $67, $00
+	db $59, $00, $7d, $00
+	db $6c, $00, $83, $0d
+	db $6d, $00, $70, $00
+	db $6a, $00, $60, $00
+	db $66, $00, $4e, $4d
+	db $7e, $00, $48, $00
+	db $91, $00, $43, $00
+	db $a4, $00, $41, $00
+	db $b7, $00, $3d, $27
+	db $cd, $00, $3d, $00
+	db $df, $00, $36, $00
+	db $ef, $00, $2c, $00
+	db $04, $01, $30, $0f
+	db $06, $01, $3d, $00
+	db $07, $01, $4e, $00
+	db $0a, $01, $63, $4e
+	db $f6, $00, $6c, $00
+	db $e2, $00, $73, $08
+	db $d1, $00, $74, $00
+	db $c0, $00, $73, $4c
+	db $e3, $00, $85, $00
+	db $ee, $00, $93, $00
+	db $ff, $00, $95, $00 ; end
+
+WorldMapMarkersUnused_05_48ca::
+	db $13, $01, $93, $3b ; x (word), y, location
+	db $ff, $ff, $ff, $ff
+
+WorldMapMarkers_05_48d2::
+	db $c3, $00, $8f, $29 ; x (word), y, location (0: path point)
+	db $a6, $00, $8b, $00
+	db $8a, $00, $92, $22
+	db $73, $00, $96, $00
+	db $63, $00, $90, $00
+	db $60, $00, $84, $23
+	db $52, $00, $8c, $00
+	db $4c, $00, $98, $00
+	db $40, $00, $92, $00
+	db $31, $00, $8e, $24
+	db $23, $00, $78, $00
+	db $24, $00, $6d, $00
+	db $3b, $00, $6c, $25
+	db $52, $00, $77, $00
+	db $61, $00, $77, $00
+	db $6e, $00, $6e, $00
+	db $67, $00, $5b, $26
+	db $88, $00, $72, $28
+	db $ff, $ff, $ff, $ff ; end
+
+WorldMapLocations::
+	db $00, $00, $00, $00 ; location 0
+	db $01, $04, $01, $01 ; location 1
+	db $03, $12, $01, $02 ; location 2
+	db $01, $16, $01, $03 ; location 3
+	db $01, $0c, $01, $04 ; location 4
+	db $02, $06, $01, $05 ; location 5
+	db $06, $06, $01, $06 ; location 6
+	db $05, $07, $01, $07 ; location 7
+	db $06, $1b, $01, $08 ; location 8
+	db $05, $03, $01, $09 ; location 9
+	db $06, $01, $01, $0a ; location 10
+	db $05, $11, $01, $0b ; location 11
+	db $02, $02, $01, $0c ; location 12
+	db $06, $0b, $01, $0d ; location 13
+	db $02, $0a, $01, $0e ; location 14
+	db $06, $16, $01, $0f ; location 15
+	db $02, $04, $01, $10 ; location 16
+	db $05, $0c, $01, $11 ; location 17
+	db $04, $08, $01, $12 ; location 18
+	db $01, $12, $01, $13 ; location 19
+	db $03, $18, $01, $14 ; location 20
+	db $02, $15, $01, $15 ; location 21
+	db $03, $0e, $01, $16 ; location 22
+	db $04, $01, $01, $17 ; location 23
+	db $04, $06, $01, $18 ; location 24
+	db $03, $04, $01, $19 ; location 25
+	db $04, $17, $01, $1a ; location 26
+	db $03, $02, $01, $1b ; location 27
+	db $03, $0a, $01, $1c ; location 28
+	db $04, $03, $01, $1d ; location 29
+	db $04, $0f, $01, $1e ; location 30
+	db $05, $01, $01, $1f ; location 31
+	db $05, $1a, $01, $20 ; location 32
+	db $01, $02, $01, $21 ; location 33
+	db $07, $02, $06, $01 ; location 34
+	db $07, $05, $06, $02 ; location 35
+	db $07, $09, $06, $03 ; location 36
+	db $07, $0c, $06, $04 ; location 37
+	db $07, $10, $06, $05 ; location 38
+	db $06, $12, $01, $22 ; location 39
+	db $07, $11, $06, $06 ; location 40
+	db $07, $00, $06, $00 ; location 41
+	db $00, $00, $02, $21 ; location 42
+	db $00, $03, $02, $0c ; location 43
+	db $00, $07, $02, $1b ; location 44
+	db $00, $0b, $02, $17 ; location 45
+	db $00, $0d, $02, $1f ; location 46
+	db $00, $0f, $02, $0a ; location 47
+	db $00, $00, $05, $2a ; location 48
+	db $00, $00, $05, $2b ; location 49
+	db $00, $00, $05, $2c ; location 50
+	db $00, $00, $05, $2d ; location 51
+	db $00, $00, $05, $2e ; location 52
+	db $00, $00, $05, $2f ; location 53
+	db $01, $1b, $01, $23 ; location 54
+	db $02, $1c, $01, $24 ; location 55
+	db $03, $1a, $01, $25 ; location 56
+	db $04, $19, $01, $26 ; location 57
+	db $05, $1d, $01, $27 ; location 58
+	db $06, $21, $01, $28 ; location 59
+	db $00, $12, $01, $29 ; location 60
+	db $01, $08, $04, $00 ; location 61
+	db $01, $14, $04, $01 ; location 62
+	db $01, $18, $04, $02 ; location 63
+	db $02, $0e, $04, $00 ; location 64
+	db $02, $12, $04, $01 ; location 65
+	db $02, $18, $04, $02 ; location 66
+	db $03, $15, $04, $00 ; location 67
+	db $03, $07, $04, $01 ; location 68
+	db $03, $10, $04, $02 ; location 69
+	db $04, $0c, $04, $00 ; location 70
+	db $04, $15, $04, $01 ; location 71
+	db $04, $12, $04, $02 ; location 72
+	db $05, $15, $04, $00 ; location 73
+	db $05, $18, $04, $01 ; location 74
+	db $05, $09, $04, $02 ; location 75
+	db $06, $1d, $04, $00 ; location 76
+	db $06, $0e, $04, $01 ; location 77
+	db $06, $19, $04, $02 ; location 78
+	db $00, $01, $02, $03 ; location 79
+	db $04, $05, $06, $07 ; location 80
+	db $08, $09, $0a, $0b ; location 81
+	db $0c, $0d, $0e, $0f ; location 82
+	db $10, $11, $12, $13 ; location 83
+	db $14, $15, $16, $17 ; location 84
+	db $18, $19, $1a, $1b ; location 85
+	db $1c, $1d, $1e, $1f ; location 86
+	db $20, $21, $33, $34 ; location 87
+	db $32, $36, $35, $38 ; location 88
+	db $3a, $37, $22, $23 ; location 89
+	db $24, $25, $26, $27 ; location 90
+	db $39, $39, $39, $39 ; location 91
+	db $39, $39, $28, $29 ; location 92
+	db $2a, $2b, $2c, $2d ; location 93
+	db $2e, $2f, $30, $31 ; location 94
+	db $2f, $30, $31, $2f ; location 95
+	db $30, $31, $2f, $30 ; location 96
+	db $31, $2f, $30, $31 ; location 97
+
+WorldMapLocationsTail::
+	db $2f, $30, $31
 
 WorldMapTable::
 	dw WorldMap_05_449a
@@ -673,5 +1202,608 @@ WorldMapTable::
 	dw WorldMap_05_44db
 	dw WorldMap_05_44e8
 	dw WorldMap_05_44f5
-	INCBIN "baserom.gbc", $014ab9, $3547 ; $4ab9
+
+WorldMapMoves::
+	dw 0, 0, 0, 0 ; location 0: down, up, left, right
+	dw 0, WorldMapPath_05_4f44, WorldMapPath_05_4f44, WorldMapPath_05_4f47 ; location 1
+	dw WorldMapPath_05_4fff, WorldMapPath_05_4ffc, WorldMapPath_05_4ffc, 0 ; location 2
+	dw 0, 0, WorldMapPath_05_4f72, WorldMapPath_05_4f75 ; location 3
+	dw 0, WorldMapPath_05_4f56, WorldMapPath_05_4f56, WorldMapPath_05_4f5b ; location 4
+	dw 0, WorldMapPath_05_4f92, WorldMapPath_05_4f92, WorldMapPath_05_4f95 ; location 5
+	dw WorldMapPath_05_50b3, 0, WorldMapPath_05_50b3, WorldMapPath_05_50b9 ; location 6
+	dw WorldMapPath_05_506f, WorldMapPath_05_506a, 0, WorldMapPath_05_5075 ; location 7
+	dw WorldMapPath_05_50f5, 0, WorldMapPath_05_50ef, WorldMapPath_05_50ec ; location 8
+	dw WorldMapPath_05_5065, WorldMapPath_05_5062, WorldMapPath_05_5062, 0 ; location 9
+	dw 0, WorldMapPath_05_50ad, WorldMapPath_05_50ab, WorldMapPath_05_50ad ; location 10
+	dw WorldMapPath_05_5089, 0, WorldMapPath_05_5083, WorldMapPath_05_5093 ; location 11
+	dw 0, 0, WorldMapPath_05_4f86, WorldMapPath_05_4f89 ; location 12
+	dw 0, WorldMapPath_05_50c5, WorldMapPath_05_50bf, WorldMapPath_05_50c5 ; location 13
+	dw WorldMapPath_05_4f9a, WorldMapPath_05_4f9f, WorldMapPath_05_4f9f, WorldMapPath_05_4fa9 ; location 14
+	dw WorldMapPath_05_50e1, 0, WorldMapPath_05_50dc, WorldMapPath_05_50e1 ; location 15
+	dw WorldMapPath_05_4f8f, 0, WorldMapPath_05_4f8c, WorldMapPath_05_4f8f ; location 16
+	dw 0, 0, WorldMapPath_05_5079, WorldMapPath_05_507d ; location 17
+	dw 0, 0, WorldMapPath_05_502a, WorldMapPath_05_502d ; location 18
+	dw 0, WorldMapPath_05_4f69, WorldMapPath_05_4f62, 0 ; location 19
+	dw 0, WorldMapPath_05_500f, WorldMapPath_05_500f, WorldMapPath_05_500b ; location 20
+	dw WorldMapPath_05_4fbb, 0, WorldMapPath_05_4fb7, WorldMapPath_05_4fbb ; location 21
+	dw WorldMapPath_05_4fee, WorldMapPath_05_4ff3, WorldMapPath_05_4fee, WorldMapPath_05_4ff3 ; location 22
+	dw 0, 0, WorldMapPath_05_5017, WorldMapPath_05_5019 ; location 23
+	dw 0, WorldMapPath_05_5023, WorldMapPath_05_5023, WorldMapPath_05_5027 ; location 24
+	dw WorldMapPath_05_4fe1, 0, WorldMapPath_05_4fd6, WorldMapPath_05_4fd9 ; location 25
+	dw 0, 0, WorldMapPath_05_5055, WorldMapPath_05_5052 ; location 26
+	dw 0, 0, WorldMapPath_05_4fd0, WorldMapPath_05_4fd3 ; location 27
+	dw 0, WorldMapPath_05_4fe5, 0, WorldMapPath_05_4fe9 ; location 28
+	dw 0, 0, WorldMapPath_05_501c, WorldMapPath_05_501f ; location 29
+	dw WorldMapPath_05_503b, 0, WorldMapPath_05_5047, WorldMapPath_05_503f ; location 30
+	dw WorldMapPath_05_505f, 0, WorldMapPath_05_505d, WorldMapPath_05_505f ; location 31
+	dw WorldMapPath_05_509e, WorldMapPath_05_50a1, WorldMapPath_05_509e, 0 ; location 32
+	dw WorldMapPath_05_4f41, WorldMapPath_05_4f3e, WorldMapPath_05_4f41, 0 ; location 33
+	dw 0, 0, WorldMapPath_05_5105, WorldMapPath_05_5102 ; location 34
+	dw WorldMapPath_05_5109, 0, WorldMapPath_05_510d, WorldMapPath_05_5109 ; location 35
+	dw 0, WorldMapPath_05_5117, WorldMapPath_05_5117, WorldMapPath_05_5112 ; location 36
+	dw WorldMapPath_05_511b, 0, WorldMapPath_05_511b, WorldMapPath_05_511f ; location 37
+	dw WorldMapPath_05_5124, 0, WorldMapPath_05_5124, WorldMapPath_05_5129 ; location 38
+	dw 0, 0, WorldMapPath_05_50d2, WorldMapPath_05_50d7 ; location 39
+	dw WorldMapPath_05_512b, 0, 0, 0 ; location 40
+	dw 0, 0, WorldMapPath_05_50ff, 0 ; location 41
+	dw 0, WorldMapPath_05_4f0b, 0, WorldMapPath_05_4f0b ; location 42
+	dw WorldMapPath_05_4f0f, WorldMapPath_05_4f13, WorldMapPath_05_4f0f, WorldMapPath_05_4f13 ; location 43
+	dw WorldMapPath_05_4f18, WorldMapPath_05_4f1d, WorldMapPath_05_4f1d, WorldMapPath_05_4f18 ; location 44
+	dw WorldMapPath_05_4f22, WorldMapPath_05_4f27, WorldMapPath_05_4f27, WorldMapPath_05_4f22 ; location 45
+	dw WorldMapPath_05_4f2d, WorldMapPath_05_4f2a, WorldMapPath_05_4f2d, WorldMapPath_05_4f2a ; location 46
+	dw WorldMapPath_05_4f33, WorldMapPath_05_4f30, WorldMapPath_05_4f33, WorldMapPath_05_4f30 ; location 47
+	dw 0, 0, 0, WorldMapPath_05_4f3b ; location 48
+	dw 0, 0, 0, WorldMapPath_05_4f83 ; location 49
+	dw 0, 0, 0, WorldMapPath_05_4fcd ; location 50
+	dw 0, 0, 0, WorldMapPath_05_5015 ; location 51
+	dw 0, 0, 0, WorldMapPath_05_505b ; location 52
+	dw 0, 0, 0, WorldMapPath_05_50a9 ; location 53
+	dw WorldMapPath_05_4f7f, 0, 0, 0 ; location 54
+	dw WorldMapPath_05_4fc8, 0, 0, 0 ; location 55
+	dw WorldMapPath_05_5012, 0, 0, 0 ; location 56
+	dw 0, 0, 0, WorldMapPath_05_5058 ; location 57
+	dw 0, 0, 0, WorldMapPath_05_50a5 ; location 58
+	dw 0, 0, WorldMapPath_05_50fa, 0 ; location 59
+	dw 0, WorldMapPath_05_4f37, 0, WorldMapPath_05_4f37 ; location 60
+	dw WorldMapPath_05_4f51, WorldMapPath_05_4f4c, WorldMapPath_05_4f4c, WorldMapPath_05_4f51 ; location 61
+	dw WorldMapPath_05_4f6c, 0, 0, WorldMapPath_05_4f6f ; location 62
+	dw 0, WorldMapPath_05_4f7b, WorldMapPath_05_4f78, WorldMapPath_05_4f7b ; location 63
+	dw WorldMapPath_05_4fa4, 0, WorldMapPath_05_4fa4, 0 ; location 64
+	dw 0, 0, WorldMapPath_05_4fae, WorldMapPath_05_4fb3 ; location 65
+	dw 0, 0, WorldMapPath_05_4fbf, WorldMapPath_05_4fc3 ; location 66
+	dw 0, WorldMapPath_05_5003, WorldMapPath_05_5007, WorldMapPath_05_5003 ; location 67
+	dw 0, WorldMapPath_05_4fdd, WorldMapPath_05_4fdd, 0 ; location 68
+	dw WorldMapPath_05_4ff9, 0, WorldMapPath_05_4ff6, WorldMapPath_05_4ff9 ; location 69
+	dw 0, WorldMapPath_05_5037, WorldMapPath_05_5032, 0 ; location 70
+	dw 0, 0, WorldMapPath_05_504f, WorldMapPath_05_504b ; location 71
+	dw 0, 0, WorldMapPath_05_5043, 0 ; location 72
+	dw 0, 0, WorldMapPath_05_508e, 0 ; location 73
+	dw 0, 0, WorldMapPath_05_5097, WorldMapPath_05_509b ; location 74
+	dw 0, WorldMapPath_05_5072, 0, 0 ; location 75
+	dw 0, 0, 0, WorldMapPath_05_50f2 ; location 76
+	dw WorldMapPath_05_50c9, 0, WorldMapPath_05_50c9, WorldMapPath_05_50cd ; location 77
+	dw 0, WorldMapPath_05_50e5, WorldMapPath_05_50e9, WorldMapPath_05_50e5 ; location 78
+	dw 0, WorldMapPath_05_4f47, WorldMapPath_05_4fff, WorldMapPath_05_4f75 ; location 79
+	dw WorldMapPath_05_4f5b, WorldMapPath_05_4f95, WorldMapPath_05_50b9, WorldMapPath_05_5075 ; location 80
+	dw WorldMapPath_05_50f5, WorldMapPath_05_5065, WorldMapPath_05_50ad, WorldMapPath_05_5093 ; location 81
+	dw WorldMapPath_05_4f89, WorldMapPath_05_50c5, WorldMapPath_05_4f9f, WorldMapPath_05_50e1 ; location 82
+	dw WorldMapPath_05_4f8f, WorldMapPath_05_507d, WorldMapPath_05_502d, WorldMapPath_05_4f69 ; location 83
+	dw WorldMapPath_05_500f, WorldMapPath_05_4fbb, WorldMapPath_05_4ff3, WorldMapPath_05_5019 ; location 84
+	dw WorldMapPath_05_5027, WorldMapPath_05_4fd9, WorldMapPath_05_5055, WorldMapPath_05_4fd3 ; location 85
+	dw WorldMapPath_05_4fe9, WorldMapPath_05_501f, WorldMapPath_05_503f, WorldMapPath_05_505f ; location 86
+	dw WorldMapPath_05_50a1, WorldMapPath_05_4f41, 0, 0 ; location 87
+	dw 0, 0, 0, WorldMapPath_05_50d7 ; location 88
+	dw 0, 0, WorldMapPath_05_4f0b, WorldMapPath_05_4f13 ; location 89
+	dw WorldMapPath_05_4f1d, WorldMapPath_05_4f27, WorldMapPath_05_4f2d, WorldMapPath_05_4f33 ; location 90
+	dw 0, 0, 0, 0 ; location 91
+	dw 0, 0, 0, 0 ; location 92
+	dw 0, 0, 0, 0 ; location 93
+	dw 0, 0, 0, 0 ; location 94
+	dw 0, 0, 0, 0 ; location 95
+	dw 0, 0, 0, 0 ; location 96
+	dw 0, 0, 0, 0 ; location 97
+
+WorldMapMovesTail::
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
+
+WorldMapArrows::
+	db $05, $01, $05, $00 ; location 1
+	db $50, $40, $50, $00 ; location 2
+	db $44, $40, $44, $00 ; location 3
+	db $42, $40, $42, $00 ; location 4
+	db $84, $80, $84, $00 ; location 5
+	db $14, $10, $14, $00 ; location 6
+	db $15, $01, $15, $00 ; location 7
+	db $54, $04, $54, $00 ; location 8
+	db $90, $80, $90, $00 ; location 9
+	db $02, $00, $42, $00 ; location 10
+	db $54, $40, $54, $00 ; location 11
+	db $04, $00, $44, $00 ; location 12
+	db $41, $40, $41, $00 ; location 13
+	db $54, $10, $54, $00 ; location 14
+	db $50, $40, $50, $00 ; location 15
+	db $48, $40, $48, $00 ; location 16
+	db $42, $40, $42, $00 ; location 17
+	db $44, $40, $44, $00 ; location 18
+	db $41, $40, $41, $00 ; location 19
+	db $84, $04, $84, $00 ; location 20
+	db $50, $40, $50, $00 ; location 21
+	db $22, $20, $22, $00 ; location 22
+	db $04, $00, $44, $00 ; location 23
+	db $84, $01, $84, $00 ; location 24
+	db $54, $40, $54, $00 ; location 25
+	db $48, $08, $48, $00 ; location 26
+	db $04, $00, $44, $00 ; location 27
+	db $05, $01, $05, $00 ; location 28
+	db $44, $40, $44, $00 ; location 29
+	db $54, $10, $54, $00 ; location 30
+	db $08, $00, $48, $00 ; location 31
+	db $21, $20, $21, $00 ; location 32
+	db $20, $00, $21, $00 ; location 33
+	db $44, $04, $44, $00 ; location 34
+	db $48, $08, $48, $00 ; location 35
+	db $84, $04, $84, $00 ; location 36
+	db $24, $20, $24, $00 ; location 37
+	db $24, $20, $24, $00 ; location 38
+	db $44, $40, $44, $00 ; location 39
+	db $10, $10, $10, $00 ; location 40
+	db $40, $40, $40, $00 ; location 41
+	db $04, $00, $04, $00 ; location 42
+	db $42, $40, $42, $00 ; location 43
+	db $90, $10, $90, $00 ; location 44
+	db $48, $08, $48, $00 ; location 45
+	db $22, $02, $22, $00 ; location 46
+	db $22, $02, $22, $00 ; location 47
+	db $04, $04, $04, $00 ; location 48
+	db $04, $04, $04, $00 ; location 49
+	db $04, $04, $04, $00 ; location 50
+	db $04, $04, $04, $00 ; location 51
+	db $04, $04, $04, $00 ; location 52
+	db $04, $04, $04, $00 ; location 53
+	db $10, $10, $10, $00 ; location 54
+	db $10, $10, $10, $00 ; location 55
+	db $10, $10, $10, $00 ; location 56
+	db $04, $04, $04, $00 ; location 57
+	db $04, $04, $04, $00 ; location 58
+	db $40, $40, $40, $00 ; location 59
+	db $04, $04, $04, $00 ; location 60
+	db $50, $50, $50, $00 ; location 61
+	db $14, $14, $14, $00 ; location 62
+	db $41, $41, $41, $00 ; location 63
+	db $40, $40, $40, $00 ; location 64
+	db $44, $44, $44, $00 ; location 65
+	db $44, $44, $44, $00 ; location 66
+	db $44, $44, $44, $00 ; location 67
+	db $40, $40, $40, $00 ; location 68
+	db $48, $48, $48, $00 ; location 69
+	db $41, $41, $41, $00 ; location 70
+	db $44, $44, $44, $00 ; location 71
+	db $40, $40, $40, $00 ; location 72
+	db $40, $40, $40, $00 ; location 73
+	db $44, $44, $44, $00 ; location 74
+	db $01, $01, $01, $00 ; location 75
+	db $04, $04, $04, $00 ; location 76
+	db $14, $14, $14, $00 ; location 77
+	db $41, $41, $41, $00 ; location 78
+
+WorldMapPath_05_4f0b::
+	db $01, $02, $03, $ff
+
+WorldMapPath_05_4f0f::
+	db $02, $01, $00, $ff
+
+WorldMapPath_05_4f13::
+	db $04, $05, $06, $07, $ff
+
+WorldMapPath_05_4f18::
+	db $06, $05, $04, $03, $ff
+
+WorldMapPath_05_4f1d::
+	db $08, $09, $0a, $0b, $ff
+
+WorldMapPath_05_4f22::
+	db $0a, $09, $08, $07, $ff
+
+WorldMapPath_05_4f27::
+	db $0c, $0d, $ff
+
+WorldMapPath_05_4f2a::
+	db $0c, $0b, $ff
+
+WorldMapPath_05_4f2d::
+	db $0e, $0f, $ff
+
+WorldMapPath_05_4f30::
+	db $0e, $0d, $ff
+
+WorldMapPath_05_4f33::
+	db $10, $11, $12, $ff
+
+WorldMapPath_05_4f37::
+	db $11, $10, $0f, $ff
+
+WorldMapPath_05_4f3b::
+	db $01, $02, $ff
+
+WorldMapPath_05_4f3e::
+	db $01, $00, $ff
+
+WorldMapPath_05_4f41::
+	db $03, $04, $ff
+
+WorldMapPath_05_4f44::
+	db $03, $02, $ff
+
+WorldMapPath_05_4f47::
+	db $05, $06, $07, $08, $ff
+
+WorldMapPath_05_4f4c::
+	db $07, $06, $05, $04, $ff
+
+WorldMapPath_05_4f51::
+	db $09, $0a, $0b, $0c, $ff
+
+WorldMapPath_05_4f56::
+	db $0b, $0a, $09, $08, $ff
+
+WorldMapPath_05_4f5b::
+	db $0d, $0e, $0f, $10, $11, $12, $ff
+
+WorldMapPath_05_4f62::
+	db $11, $10, $0f, $0e, $0d, $0c, $ff
+
+WorldMapPath_05_4f69::
+	db $13, $14, $ff
+
+WorldMapPath_05_4f6c::
+	db $13, $12, $ff
+
+WorldMapPath_05_4f6f::
+	db $15, $16, $ff
+
+WorldMapPath_05_4f72::
+	db $15, $14, $ff
+
+WorldMapPath_05_4f75::
+	db $17, $18, $ff
+
+WorldMapPath_05_4f78::
+	db $17, $16, $ff
+
+WorldMapPath_05_4f7b::
+	db $19, $1a, $1b, $ff
+
+WorldMapPath_05_4f7f::
+	db $1a, $19, $18, $ff
+
+WorldMapPath_05_4f83::
+	db $01, $02, $ff
+
+WorldMapPath_05_4f86::
+	db $01, $00, $ff
+
+WorldMapPath_05_4f89::
+	db $03, $04, $ff
+
+WorldMapPath_05_4f8c::
+	db $03, $02, $ff
+
+WorldMapPath_05_4f8f::
+	db $05, $06, $ff
+
+WorldMapPath_05_4f92::
+	db $05, $04, $ff
+
+WorldMapPath_05_4f95::
+	db $07, $08, $09, $0a, $ff
+
+WorldMapPath_05_4f9a::
+	db $09, $08, $07, $06, $ff
+
+WorldMapPath_05_4f9f::
+	db $0b, $0c, $0d, $0e, $ff
+
+WorldMapPath_05_4fa4::
+	db $0d, $0c, $0b, $0a, $ff
+
+WorldMapPath_05_4fa9::
+	db $0f, $10, $11, $12, $ff
+
+WorldMapPath_05_4fae::
+	db $11, $10, $0f, $0a, $ff
+
+WorldMapPath_05_4fb3::
+	db $13, $14, $15, $ff
+
+WorldMapPath_05_4fb7::
+	db $14, $13, $12, $ff
+
+WorldMapPath_05_4fbb::
+	db $16, $17, $18, $ff
+
+WorldMapPath_05_4fbf::
+	db $17, $16, $15, $ff
+
+WorldMapPath_05_4fc3::
+	db $19, $1a, $1b, $1c, $ff
+
+WorldMapPath_05_4fc8::
+	db $1b, $1a, $19, $18, $ff
+
+WorldMapPath_05_4fcd::
+	db $01, $02, $ff
+
+WorldMapPath_05_4fd0::
+	db $01, $00, $ff
+
+WorldMapPath_05_4fd3::
+	db $03, $04, $ff
+
+WorldMapPath_05_4fd6::
+	db $03, $02, $ff
+
+WorldMapPath_05_4fd9::
+	db $05, $06, $07, $ff
+
+WorldMapPath_05_4fdd::
+	db $06, $05, $04, $ff
+
+WorldMapPath_05_4fe1::
+	db $08, $09, $0a, $ff
+
+WorldMapPath_05_4fe5::
+	db $09, $08, $04, $ff
+
+WorldMapPath_05_4fe9::
+	db $0b, $0c, $0d, $0e, $ff
+
+WorldMapPath_05_4fee::
+	db $0d, $0c, $0b, $0a, $ff
+
+WorldMapPath_05_4ff3::
+	db $0f, $10, $ff
+
+WorldMapPath_05_4ff6::
+	db $0f, $0e, $ff
+
+WorldMapPath_05_4ff9::
+	db $11, $12, $ff
+
+WorldMapPath_05_4ffc::
+	db $11, $10, $ff
+
+WorldMapPath_05_4fff::
+	db $13, $14, $15, $ff
+
+WorldMapPath_05_5003::
+	db $14, $13, $12, $ff
+
+WorldMapPath_05_5007::
+	db $16, $17, $18, $ff
+
+WorldMapPath_05_500b::
+	db $17, $16, $15, $ff
+
+WorldMapPath_05_500f::
+	db $19, $1a, $ff
+
+WorldMapPath_05_5012::
+	db $19, $18, $ff
+
+WorldMapPath_05_5015::
+	db $01, $ff
+
+WorldMapPath_05_5017::
+	db $00, $ff
+
+WorldMapPath_05_5019::
+	db $02, $03, $ff
+
+WorldMapPath_05_501c::
+	db $02, $01, $ff
+
+WorldMapPath_05_501f::
+	db $04, $05, $06, $ff
+
+WorldMapPath_05_5023::
+	db $05, $04, $03, $ff
+
+WorldMapPath_05_5027::
+	db $07, $08, $ff
+
+WorldMapPath_05_502a::
+	db $07, $06, $ff
+
+WorldMapPath_05_502d::
+	db $09, $0a, $0b, $0c, $ff
+
+WorldMapPath_05_5032::
+	db $0b, $0a, $09, $08, $ff
+
+WorldMapPath_05_5037::
+	db $0d, $0e, $0f, $ff
+
+WorldMapPath_05_503b::
+	db $0e, $0d, $0c, $ff
+
+WorldMapPath_05_503f::
+	db $10, $11, $12, $ff
+
+WorldMapPath_05_5043::
+	db $11, $10, $0f, $ff
+
+WorldMapPath_05_5047::
+	db $13, $14, $15, $ff
+
+WorldMapPath_05_504b::
+	db $14, $13, $0f, $ff
+
+WorldMapPath_05_504f::
+	db $16, $17, $ff
+
+WorldMapPath_05_5052::
+	db $16, $15, $ff
+
+WorldMapPath_05_5055::
+	db $18, $19, $ff
+
+WorldMapPath_05_5058::
+	db $18, $17, $ff
+
+WorldMapPath_05_505b::
+	db $01, $ff
+
+WorldMapPath_05_505d::
+	db $00, $ff
+
+WorldMapPath_05_505f::
+	db $02, $03, $ff
+
+WorldMapPath_05_5062::
+	db $02, $01, $ff
+
+WorldMapPath_05_5065::
+	db $04, $05, $06, $07, $ff
+
+WorldMapPath_05_506a::
+	db $06, $05, $04, $03, $ff
+
+WorldMapPath_05_506f::
+	db $08, $09, $ff
+
+WorldMapPath_05_5072::
+	db $08, $07, $ff
+
+WorldMapPath_05_5075::
+	db $0a, $0b, $0c, $ff
+
+WorldMapPath_05_5079::
+	db $0b, $0a, $07, $ff
+
+WorldMapPath_05_507d::
+	db $0d, $0e, $0f, $10, $11, $ff
+
+WorldMapPath_05_5083::
+	db $10, $0f, $0e, $0d, $0c, $ff
+
+WorldMapPath_05_5089::
+	db $12, $13, $14, $15, $ff
+
+WorldMapPath_05_508e::
+	db $14, $13, $12, $11, $ff
+
+WorldMapPath_05_5093::
+	db $16, $17, $18, $ff
+
+WorldMapPath_05_5097::
+	db $17, $16, $11, $ff
+
+WorldMapPath_05_509b::
+	db $19, $1a, $ff
+
+WorldMapPath_05_509e::
+	db $19, $18, $ff
+
+WorldMapPath_05_50a1::
+	db $1b, $1c, $1d, $ff
+
+WorldMapPath_05_50a5::
+	db $1c, $1b, $1a, $ff
+
+WorldMapPath_05_50a9::
+	db $01, $ff
+
+WorldMapPath_05_50ab::
+	db $00, $ff
+
+WorldMapPath_05_50ad::
+	db $02, $03, $04, $05, $06, $ff
+
+WorldMapPath_05_50b3::
+	db $05, $04, $03, $02, $01, $ff
+
+WorldMapPath_05_50b9::
+	db $07, $08, $09, $0a, $0b, $ff
+
+WorldMapPath_05_50bf::
+	db $0a, $09, $08, $07, $06, $ff
+
+WorldMapPath_05_50c5::
+	db $0c, $0d, $0e, $ff
+
+WorldMapPath_05_50c9::
+	db $0d, $0c, $0b, $ff
+
+WorldMapPath_05_50cd::
+	db $0f, $10, $11, $12, $ff
+
+WorldMapPath_05_50d2::
+	db $11, $10, $0f, $0e, $ff
+
+WorldMapPath_05_50d7::
+	db $13, $14, $15, $16, $ff
+
+WorldMapPath_05_50dc::
+	db $15, $14, $13, $12, $ff
+
+WorldMapPath_05_50e1::
+	db $17, $18, $19, $ff
+
+WorldMapPath_05_50e5::
+	db $18, $17, $16, $ff
+
+WorldMapPath_05_50e9::
+	db $1a, $1b, $ff
+
+WorldMapPath_05_50ec::
+	db $1a, $19, $ff
+
+WorldMapPath_05_50ef::
+	db $1c, $1d, $ff
+
+WorldMapPath_05_50f2::
+	db $1c, $1b, $ff
+
+WorldMapPath_05_50f5::
+	db $1e, $1f, $20, $21, $ff
+
+WorldMapPath_05_50fa::
+	db $20, $1f, $1e, $1b, $ff
+
+WorldMapPath_05_50ff::
+	db $01, $02, $ff
+
+WorldMapPath_05_5102::
+	db $01, $00, $ff
+
+WorldMapPath_05_5105::
+	db $03, $04, $05, $ff
+
+WorldMapPath_05_5109::
+	db $04, $03, $02, $ff
+
+WorldMapPath_05_510d::
+	db $06, $07, $08, $09, $ff
+
+WorldMapPath_05_5112::
+	db $08, $07, $06, $05, $ff
+
+WorldMapPath_05_5117::
+	db $0a, $0b, $0c, $ff
+
+WorldMapPath_05_511b::
+	db $0b, $0a, $09, $ff
+
+WorldMapPath_05_511f::
+	db $0d, $0e, $0f, $10, $ff
+
+WorldMapPath_05_5124::
+	db $0f, $0e, $0d, $0c, $ff
+
+WorldMapPath_05_5129::
+	db $11, $ff
+
+WorldMapPath_05_512b::
+	db $10, $ff
+	ds 11987, $00 ; $512d
 

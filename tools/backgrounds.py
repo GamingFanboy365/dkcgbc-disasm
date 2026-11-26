@@ -319,7 +319,14 @@ def pictures(rom):
         po = file_off(*r["palettes"])
         nxt = sorted(x for x in pal_starts + starts + map_starts if x > po)
         r["palette_count"] = min(8, ((nxt[0] - po) if nxt else 64) // 8)
-        r["map_bytes"] = 720 if i_is_full(r["index"]) else 360
+        # a map is 360 tile numbers, or 360 attributes and 360 tile numbers
+        # when there is room for both before the next map (or palettes)
+        mo = file_off(*r["map"])
+        nxt = sorted(x for x in map_starts + pal_starts if x > mo)
+        gap = nxt[0] - mo if nxt else 720
+        attrs, tiles = rom[mo:mo + 360], rom[mo + 360:mo + 720]
+        looks_full = gap >= 720 and all(x & 0x10 == 0 for x in attrs) and len(set(tiles)) > 1
+        r["map_bytes"] = 720 if i_is_full(r["index"]) or looks_full else 360
     return recs
 
 

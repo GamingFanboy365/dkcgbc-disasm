@@ -217,7 +217,7 @@ Walking the menus in the emulator gives the rest of the picture:
 | Title screen | banks `$07`, `$42`, `$45` (decoded, see Title screen above) |
 | Print → Sticker Book, Alphabet | maps in bank `$58`, tiles in `$5C`, `$61`, `$62`, `$40` |
 
-The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Bank `$58` starts with six raw 20×18 screens (`$4000`–`$50DF`, 360 attribute bytes then 360 tile numbers each), which the front end picks by number. Its "?" screen is the first of them. After `$50E0` the bank holds layouts of other sizes. The front end keeps every picture it shows in one table, `PictureTable` (`$F0:54E7`), indexed by number. It has 149 nine-byte records, each a `picture map, palettes, tiles` entry of three (bank, address) pairs. Reading every ROM byte the game touches while it builds a screen (mGBA's read watchpoints) found this table. Maps (`PictureMap_…`, banks `$58`–`$5B`) are 360 tile numbers drawn with attribute 0, except the first six, which are full 720-byte screens with attributes. Palettes (`PicturePalettes_…`) are in bank `$5B`. Tiles are laid out in VRAM like a level tileset and run on across bank boundaries; they are built from `gfx/bgtiles` PNGs like the rest. Sticker pictures are 360 tiles, which the Sticker Book shows in order with palette 0 rather than through their map. `tools/backgrounds.py` renders every picture both ways where that applies.
+The main menu ring holds Adventure, Options, Print, Bonus and a fifth entry. Bank `$58` starts with six raw 20×18 screens (`$4000`–`$50DF`, 360 attribute bytes then 360 tile numbers each), which the front end picks by number. Its "?" screen is the first of them. After `$50E0` the bank holds layouts of other sizes. The front end keeps every picture it shows in one table, `PictureTable` (`$F0:54E7`), indexed by number. It has 149 nine-byte records, each a `picture map, palettes, tiles` entry of three (bank, address) pairs. Reading every ROM byte the game touches while it builds a screen (mGBA's read watchpoints) found this table. Maps (`PictureMap_…`, banks `$58`–`$5B`) are either 360 tile numbers drawn with attribute 0, or full 720-byte maps with 360 attributes first: the first six records, and fifteen more whose map is followed by room for both halves (among them the Crosshair Cranky backgrounds and Funky's Fishing's end screens). Palettes (`PicturePalettes_…`) are in bank `$5B`. Tiles are laid out in VRAM like a level tileset and run on across bank boundaries; they are built from `gfx/bgtiles` PNGs like the rest. Sticker pictures are 360 tiles, which the Sticker Book shows in order with palette 0 rather than through their map. `tools/backgrounds.py` renders every picture both ways where that applies.
 
 | Records | Contents |
 |---|---|
@@ -243,10 +243,10 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
 | Code disassembled into readable instructions | 93 KB | 3.5% |
-| Data decoded into readable structures | 306 KB | 11.4% |
+| Data decoded into readable structures | 311 KB | 11.6% |
 | Graphics converted to editable PNGs | 1023 KB | 38.2% |
 | Located and labelled, format known, still raw bytes | 1186 KB | 44.2% |
-| Not identified yet | 73 KB | 2.7% |
+| Not identified yet | 69 KB | 2.6% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 
@@ -305,7 +305,7 @@ Every bank now has a known purpose:
 
 The retail ROM comes first: the goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. Only after that does work start on the earlier demo build (`Donkey Kong Country (U) [demo]`) and the comparison between the two. The order of work:
 
-1. Finish identifying what's left (2.7%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
+1. Finish identifying what's left (2.6%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
 2. Convert the located raw data (block banks, terrain, compressed maps, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 4. Then the demo.

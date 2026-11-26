@@ -261,7 +261,7 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 |---|---|---|
 | Code disassembled into readable instructions | 107 KB | 4.0% |
 | Data decoded into readable structures | 331 KB | 12.3% |
-| Graphics converted to editable PNGs | 1052 KB | 39.2% |
+| Graphics converted to editable PNGs | 1053 KB | 39.2% |
 | Located and labelled, format known, still raw bytes | 1191 KB | 44.4% |
 | Not identified yet | 3 KB | 0.1% |
 

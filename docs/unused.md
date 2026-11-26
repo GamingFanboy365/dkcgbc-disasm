@@ -53,6 +53,8 @@ The other 71 have loose matches. They include letter sprites (A–Z, except the 
 | `Frame_20_5ec6` | 1 | `$39` | none |
 | `Frame_20_5f68` | 1 | `$39` | loose match at 08:4ce0, 08:4d10, 08:4e04 |
 
+Since nothing uses these frames, the ROM doesn't say which palette they would be drawn with. The images `find_unused.py` writes to `unused/frames/` stay gray (or use the palette where one is known). A second set in `unused/frames_guessed_palette/` borrows the palette of the nearest frame in the same graphics bank that has a known palette, and the report lists, for every guess, which palette was used and which frame it came from. Those colors are guesses, not facts from the game.
+
 ## Animation scripts
 
 12 scripts in bank `$04` are never started, but every frame they show is used by some other script, so nothing is hidden in them. Four have no loose match at all: `Anim_04_4aab`, `Anim_04_4d21`, `Anim_04_4d5b` and `Anim_04_4d9d`.
@@ -88,6 +90,20 @@ Levels are built from 32×32-pixel blocks. 1,005 blocks are fully defined in the
 
 Two level tilesets contain tiles that no block uses at all, placed or not: 8 in `BGTiles_84_59f0` and 8 in `BGTiles_89_5e10`.
 
+## World maps
+
+The eight world maps take their BG palettes from 128-byte blocks in bank `$0F`, spaced `$80` apart. Six blocks in that run are used by no map record:
+
+| Block | Contents |
+|---|---|
+| `$499C`, `$4A1C`, `$4D9C`, `$4E1C` | one pale color throughout: blank filler |
+| `$4A9C` | blank except a magenta palette and a pink ramp, typical placeholder colors |
+| `$4E9C` | first half blank; second half eight clean color ramps (magenta, yellow, brown, orange, gray, blue, green, red), which looks like a test palette |
+
+Only the first 64 bytes of each block (8 BG palettes) reach the screen, so the colors in `$4E9C`'s second half would never show even if the block were loaded. Three world tilesets have tiles no world map uses: 7 in `BGTiles_18_55c0`, 9 in `BGTiles_19_4000` and 3 in `BGTiles_1b_4000`. These could still appear through the map's own code, for example as level markers.
+
+World map 7 is reached by no location in the location table, but `Func_05_4274` checks for it by number, so code uses it directly. It shows the same island as map 0, with a different list of level markers.
+
 ## Checked and found complete
 
 These turned up nothing unused, which is worth knowing too:
@@ -101,4 +117,4 @@ These turned up nothing unused, which is worth knowing too:
 
 ## Not identified yet
 
-Large parts of these banks aren't claimed by anything decoded so far, so they hold either content not yet understood or unused data: `$01`–`$02`, `$0B`–`$0C`, `$10`–`$14`, `$18`–`$1B`, `$40`–`$43`, `$45`, `$50`–`$6F` and `$74`. Banks `$40`–`$45` are tied to the world map, which uses a background system of its own that isn't decoded yet. Nothing in these banks should be called unused until it has been identified.
+Large parts of these banks aren't claimed by anything decoded so far, so they hold either content not yet understood or unused data: `$01`–`$02`, `$0B`–`$0C`, `$10`–`$14`, `$40`–`$43`, `$45`, `$50`–`$6F` and `$74`. Banks `$18`–`$1B`, listed here before, turned out to be the world map tilesets. Banks `$40` and `$41` hold the world map's sprite tiles and palettes. Nothing in these banks should be called unused until it has been identified.

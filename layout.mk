@@ -10,6 +10,10 @@ OBJS := \
 	src/bank_0d.o \
 	src/bank_0e.o \
 	src/bank_0f.o \
+	src/bank_18.o \
+	src/bank_19.o \
+	src/bank_1a.o \
+	src/bank_1b.o \
 	src/bank_20.o \
 	src/bank_21.o \
 	src/bank_22.o \
@@ -145,6 +149,16 @@ OBJS := \
 	src/data_banks.o \
 
 GFX := \
+	gfx/bgtiles/18/4000.2bpp \
+	gfx/bgtiles/18/4000_end.2bpp \
+	gfx/bgtiles/18/55c0.2bpp \
+	gfx/bgtiles/19/4000.2bpp \
+	gfx/bgtiles/19/4000_end.2bpp \
+	gfx/bgtiles/19/5fa0.2bpp \
+	gfx/bgtiles/1a/4000.2bpp \
+	gfx/bgtiles/1a/4000_end.2bpp \
+	gfx/bgtiles/1a/5fe0.2bpp \
+	gfx/bgtiles/1b/4000.2bpp \
 	gfx/bgtiles/44/4000.2bpp \
 	gfx/bgtiles/44/4000_end.2bpp \
 	gfx/bgtiles/44/4c30.2bpp \
@@ -1623,6 +1637,10 @@ GFX := \
 	gfx/frames/3a/4300.2bpp \
 	gfx/frames/3a/4380.2bpp \
 
+src/bank_18.o: gfx/bgtiles/18/4000.2bpp gfx/bgtiles/18/4000_end.2bpp gfx/bgtiles/18/55c0.2bpp
+src/bank_19.o: gfx/bgtiles/19/4000.2bpp gfx/bgtiles/19/4000_end.2bpp gfx/bgtiles/19/5fa0.2bpp
+src/bank_1a.o: gfx/bgtiles/1a/4000.2bpp gfx/bgtiles/1a/4000_end.2bpp gfx/bgtiles/1a/5fe0.2bpp
+src/bank_1b.o: gfx/bgtiles/1b/4000.2bpp
 src/bank_21.o: gfx/frames/21/4000.2bpp gfx/frames/21/4080.2bpp gfx/frames/21/4100.2bpp gfx/frames/21/4180.2bpp gfx/frames/21/4240.2bpp gfx/frames/21/42e0.2bpp gfx/frames/21/4360.2bpp gfx/frames/21/43e0.2bpp gfx/frames/21/4460.2bpp gfx/frames/21/4500.2bpp gfx/frames/21/45a0.2bpp gfx/frames/21/4640.2bpp gfx/frames/21/46e0.2bpp gfx/frames/21/4760.2bpp gfx/frames/21/4820.2bpp gfx/frames/21/48e0.2bpp gfx/frames/21/49a0.2bpp gfx/frames/21/4a40.2bpp gfx/frames/21/4ae0.2bpp gfx/frames/21/4b80.2bpp gfx/frames/21/4c20.2bpp gfx/frames/21/4cc0.2bpp gfx/frames/21/4d60.2bpp gfx/frames/21/4e00.2bpp gfx/frames/21/4ea0.2bpp gfx/frames/21/4f40.2bpp gfx/frames/21/4fe0.2bpp gfx/frames/21/50c0.2bpp gfx/frames/21/51a0.2bpp gfx/frames/21/52a0.2bpp gfx/frames/21/53a0.2bpp gfx/frames/21/54a0.2bpp gfx/frames/21/55a0.2bpp gfx/frames/21/56a0.2bpp gfx/frames/21/57a0.2bpp gfx/frames/21/5880.2bpp gfx/frames/21/5980.2bpp gfx/frames/21/5a80.2bpp gfx/frames/21/5b80.2bpp gfx/frames/21/5c80.2bpp gfx/frames/21/5d80.2bpp gfx/frames/21/5e80.2bpp gfx/frames/21/5f80.2bpp gfx/frames/21/6000.2bpp gfx/frames/21/6060.2bpp gfx/frames/21/60e0.2bpp gfx/frames/21/6160.2bpp gfx/frames/21/6220.2bpp gfx/frames/21/62c0.2bpp gfx/frames/21/6360.2bpp gfx/frames/21/6420.2bpp gfx/frames/21/64e0.2bpp gfx/frames/21/65a0.2bpp gfx/frames/21/6660.2bpp gfx/frames/21/6720.2bpp gfx/frames/21/67e0.2bpp gfx/frames/21/68a0.2bpp gfx/frames/21/6960.2bpp gfx/frames/21/6a20.2bpp gfx/frames/21/6ae0.2bpp gfx/frames/21/6ba0.2bpp gfx/frames/21/6c60.2bpp gfx/frames/21/6de0.2bpp gfx/frames/21/6f00.2bpp gfx/frames/21/7040.2bpp
 src/bank_22.o: gfx/frames/22/4000.2bpp gfx/frames/22/40e0.2bpp gfx/frames/22/41c0.2bpp gfx/frames/22/42c0.2bpp gfx/frames/22/43c0.2bpp gfx/frames/22/44c0.2bpp gfx/frames/22/45c0.2bpp gfx/frames/22/46c0.2bpp gfx/frames/22/47c0.2bpp gfx/frames/22/48a0.2bpp gfx/frames/22/49a0.2bpp gfx/frames/22/4aa0.2bpp gfx/frames/22/4ba0.2bpp gfx/frames/22/4ca0.2bpp gfx/frames/22/4da0.2bpp gfx/frames/22/4ea0.2bpp gfx/frames/22/4fa0.2bpp gfx/frames/22/4fe0.2bpp gfx/frames/22/5020.2bpp gfx/frames/22/5060.2bpp gfx/frames/22/50a0.2bpp gfx/frames/22/50e0.2bpp gfx/frames/22/5180.2bpp gfx/frames/22/5240.2bpp gfx/frames/22/5300.2bpp gfx/frames/22/53c0.2bpp gfx/frames/22/5480.2bpp gfx/frames/22/54e0.2bpp gfx/frames/22/5520.2bpp gfx/frames/22/55e0.2bpp gfx/frames/22/56a0.2bpp gfx/frames/22/5760.2bpp gfx/frames/22/5820.2bpp gfx/frames/22/58e0.2bpp gfx/frames/22/59a0.2bpp gfx/frames/22/5a60.2bpp gfx/frames/22/5b20.2bpp gfx/frames/22/5be0.2bpp gfx/frames/22/5c20.2bpp gfx/frames/22/5c60.2bpp gfx/frames/22/5ca0.2bpp gfx/frames/22/5ce0.2bpp gfx/frames/22/5d20.2bpp gfx/frames/22/5d60.2bpp gfx/frames/22/5e20.2bpp gfx/frames/22/5f00.2bpp gfx/frames/22/6000.2bpp gfx/frames/22/6100.2bpp gfx/frames/22/6220.2bpp gfx/frames/22/6360.2bpp gfx/frames/22/6420.2bpp gfx/frames/22/64e0.2bpp gfx/frames/22/65a0.2bpp gfx/frames/22/6660.2bpp gfx/frames/22/6720.2bpp gfx/frames/22/67e0.2bpp gfx/frames/22/68a0.2bpp gfx/frames/22/6960.2bpp gfx/frames/22/6a20.2bpp gfx/frames/22/6ae0.2bpp gfx/frames/22/6ba0.2bpp gfx/frames/22/6c60.2bpp gfx/frames/22/6d20.2bpp gfx/frames/22/6de0.2bpp gfx/frames/22/6ec0.2bpp gfx/frames/22/6f80.2bpp gfx/frames/22/7040.2bpp gfx/frames/22/7180.2bpp gfx/frames/22/7240.2bpp gfx/frames/22/7340.2bpp gfx/frames/22/7460.2bpp gfx/frames/22/7560.2bpp gfx/frames/22/7660.2bpp
 src/bank_23.o: gfx/frames/23/4000.2bpp gfx/frames/23/4120.2bpp gfx/frames/23/4200.2bpp gfx/frames/23/4320.2bpp gfx/frames/23/43e0.2bpp gfx/frames/23/44a0.2bpp gfx/frames/23/4580.2bpp gfx/frames/23/4680.2bpp gfx/frames/23/4780.2bpp gfx/frames/23/48a0.2bpp gfx/frames/23/4980.2bpp gfx/frames/23/4a80.2bpp gfx/frames/23/4b60.2bpp gfx/frames/23/4ca0.2bpp gfx/frames/23/4dc0.2bpp gfx/frames/23/4ec0.2bpp gfx/frames/23/4fc0.2bpp gfx/frames/23/50a0.2bpp gfx/frames/23/51a0.2bpp gfx/frames/23/52a0.2bpp gfx/frames/23/5380.2bpp gfx/frames/23/5480.2bpp gfx/frames/23/55a0.2bpp gfx/frames/23/5680.2bpp gfx/frames/23/57a0.2bpp gfx/frames/23/58a0.2bpp gfx/frames/23/59c0.2bpp gfx/frames/23/5b00.2bpp gfx/frames/23/5c20.2bpp gfx/frames/23/5d20.2bpp gfx/frames/23/5e20.2bpp gfx/frames/23/5ee0.2bpp gfx/frames/23/5fc0.2bpp gfx/frames/23/6080.2bpp gfx/frames/23/6180.2bpp gfx/frames/23/62a0.2bpp gfx/frames/23/6380.2bpp gfx/frames/23/6480.2bpp gfx/frames/23/6560.2bpp gfx/frames/23/6640.2bpp gfx/frames/23/6740.2bpp gfx/frames/23/6840.2bpp gfx/frames/23/6920.2bpp gfx/frames/23/6960.2bpp gfx/frames/23/69a0.2bpp gfx/frames/23/69e0.2bpp gfx/frames/23/6a20.2bpp gfx/frames/23/6a60.2bpp gfx/frames/23/6aa0.2bpp gfx/frames/23/6ae0.2bpp gfx/frames/23/6b20.2bpp gfx/frames/23/6ba0.2bpp gfx/frames/23/6be0.2bpp gfx/frames/23/6c20.2bpp gfx/frames/23/6c60.2bpp gfx/frames/23/6ca0.2bpp gfx/frames/23/6ce0.2bpp gfx/frames/23/6d20.2bpp gfx/frames/23/6d60.2bpp

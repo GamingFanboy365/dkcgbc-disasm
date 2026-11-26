@@ -27,6 +27,13 @@ def parse_backgrounds(t, rom):
         # also loads are whatever follows (unused by these screens)
         t._claim(b, rec["palettes"], 64, "palette", 8, "ScreenPalettes")
         t._claim(b, rec["map"], 720, "screenmap", None, "ScreenMap")
+    wb, wt, wn = hints.WORLD_MAPS
+    t._claim(wb, wt, 2 * wn, "ptrtable", [rom[off(wb, wt + 2 * k)] | rom[off(wb, wt + 2 * k) + 1] << 8 for k in range(wn)],
+             "=WorldMapTable")
+    for wm in bg.world_maps(rom):
+        t._claim(wb, wm["addr"], 13, "worldmap", wm, "WorldMap")
+        t._claim(0x0F, wm["map"], 1 + 36 * wm["width"], "worldtiles", wm["width"], "WorldTileMap")
+        t._claim(0x0F, wm["palettes"], 64, "palette", 8, "WorldPalettes")
     # flow script: one item per contiguous run of commands
     cmds = bg.flow_script(rom, hints.FLOW_ENTRIES)
     labels = set(hints.FLOW_ENTRIES) | {c[1] for c in cmds.values() if c[0] == "jump"}

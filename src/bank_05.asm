@@ -597,5 +597,81 @@ Func_05_446a::
 	ld [de], a
 	ret
 
-	INCBIN "baserom.gbc", $01449a, $3b66 ; $449a
+
+WorldMap_05_449a::
+	db $80, $80, $b2, $45 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_4f9c ; tile map
+	dw $4502 ; list copied to $c500
+	dw WorldPalettes_0f_491c ; BG palettes
+	dw BGTiles_18_4000
+	db BANK(BGTiles_18_4000) ; tileset
+
+WorldMap_05_44a7::
+	db $b0, $00, $02, $46 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_54ad ; tile map
+	dw $454a ; list copied to $c500
+	dw WorldPalettes_0f_4b1c ; BG palettes
+	dw BGTiles_18_55c0
+	db BANK(BGTiles_18_55c0) ; tileset
+
+WorldMap_05_44b4::
+	db $d8, $00, $76, $46 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_5ade ; tile map
+	dw $4556 ; list copied to $c500
+	dw WorldPalettes_0f_4b9c ; BG palettes
+	dw BGTiles_19_4000
+	db BANK(BGTiles_19_4000) ; tileset
+
+WorldMap_05_44c1::
+	db $b0, $00, $ee, $46 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_619f ; tile map
+	dw $4572 ; list copied to $c500
+	dw WorldPalettes_0f_4c1c ; BG palettes
+	dw BGTiles_19_5fa0
+	db BANK(BGTiles_19_5fa0) ; tileset
+
+WorldMap_05_44ce::
+	db $b8, $00, $5e, $47 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_67d0 ; tile map
+	dw $4586 ; list copied to $c500
+	dw WorldPalettes_0f_4c9c ; BG palettes
+	dw BGTiles_1a_4000
+	db BANK(BGTiles_1a_4000) ; tileset
+
+WorldMap_05_44db::
+	db $a8, $00, $ca, $47 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_6e01 ; tile map
+	dw $459a ; list copied to $c500
+	dw WorldPalettes_0f_4d1c ; BG palettes
+	dw BGTiles_1a_5fe0
+	db BANK(BGTiles_1a_5fe0) ; tileset
+
+WorldMap_05_44e8::
+	db $88, $00, $46, $48 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_7432 ; tile map
+	dw $45ae ; list copied to $c500
+	dw WorldPalettes_0f_4f1c ; BG palettes
+	dw BGTiles_1b_4000
+	db BANK(BGTiles_1b_4000) ; tileset
+
+WorldMap_05_44f5::
+	db $80, $00, $d2, $48 ; scroll limit, ?, level markers (pointer)
+	dw WorldTileMap_0f_4f9c ; tile map
+	dw $4526 ; list copied to $c500
+	dw WorldPalettes_0f_491c ; BG palettes
+	dw BGTiles_18_4000
+	db BANK(BGTiles_18_4000) ; tileset
+	INCBIN "baserom.gbc", $014502, $05a7 ; $4502
+
+
+WorldMapTable::
+	dw WorldMap_05_449a
+	dw WorldMap_05_44a7
+	dw WorldMap_05_44b4
+	dw WorldMap_05_44c1
+	dw WorldMap_05_44ce
+	dw WorldMap_05_44db
+	dw WorldMap_05_44e8
+	dw WorldMap_05_44f5
+	INCBIN "baserom.gbc", $014ab9, $3547 ; $4ab9
 

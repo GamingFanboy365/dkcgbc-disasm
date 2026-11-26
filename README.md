@@ -129,9 +129,11 @@ Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), store
 
 **Tiles.** A tileset is 8 KB copied by HDMA into VRAM: tiles 0–127 at `$9000`, 128–255 at `$8800`, then the same in VRAM bank 1. Some tilesets overlap the next one, so each tile bank is split at every start address. Each piece is a PNG in `gfx/bgtiles/BB/AAAA.png`, 16 tiles per row (plus `AAAA_end.png` for a partial last row). PNGs are extracted from the base ROM and built with `rgbgfx -c dmg`, like the sprite frames, and are not committed.
 
+**World maps.** The eight world maps (state `$0D`, `$1A58`) are listed in `WorldMapTable` in bank `$05`, indexed by a per-location table at `$05:491E`. A record (`WorldMap_05_XXXX`) points to the tile map and BG palettes in bank `$0F` and to a regular 8 KB tileset in banks `$18`–`$1B`. The tile map (`WorldTileMap_0F_XXXX`) is a width byte n, then n columns of 18 tile numbers followed by their 18 attributes. `Func_00_1f8a` copies it to WRAM, and `Func_00_1f0a` draws it as the map scrolls. The map's sprites (Kongs, level markers) get their tiles from banks `$40`–`$41` and their palettes from `$41:5380`.
+
 **Flow script.** The game's overall sequence (boot, title, menus, level entry, credits) is a script in bank `$0D` (`Flow_0D_XXXX`), run by `Func_00_38cd`. Each byte is a game state, an offset into the jump table at `$0300`, and a few take arguments (`flow_load_screen`, `flow_wait`, `flow_play_song`, `flow_fade`, `flow_jump`). State `$61` hands control to the separate program in banks `$F0`–`$FE`.
 
-`python3 tools/backgrounds.py` renders every level map and full screen to `gfx/backgrounds/` (gitignored). Each map is drawn with the BG palettes of its first descriptor, as stored in the ROM. Some levels change palettes while playing, so a render can differ from what's on screen. The world map uses a third system that isn't decoded yet: it scrolls, keeps its tile map in bank `$0F` and loads tiles in pieces from banks `$40`–`$41`.
+`python3 tools/backgrounds.py` renders every level map, world map and full screen to `gfx/backgrounds/` (gitignored). Each map is drawn with the BG palettes of its first descriptor, as stored in the ROM. Some levels change palettes while playing, so a render can differ from what's on screen.
 
 ### Unused content
 
@@ -139,4 +141,4 @@ Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), store
 
 ### Status
 
-Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Roughly 69 KB of code has been traced, plus 1,114 object initialiser lists, 425 animation scripts, all 1,415 sprite frames, all palettes, the level table, entrances and descriptors, every level map and full screen, and the flow script. Labels such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are placeholders waiting for real names.
+Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Roughly 69 KB of code has been traced, plus 1,114 object initialiser lists, 425 animation scripts, all 1,415 sprite frames, all palettes, the level table, entrances and descriptors, every level map, world map and full screen, and the flow script. Labels such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are placeholders waiting for real names.

@@ -12,6 +12,8 @@ pixel blocks. Two compressed layers (Func_00_03e4) give each cell's block
 number and block attribute; blocks are 4x4 tiles defined in a block bank;
 tiles come from an 8 KB tileset; colors from the descriptor's BG palette set.
 
+World maps (state $0d, $1a58): see world_maps().
+
 Full screens (Func_00_2b5f and the states after it): a screen record is
 three pointers, to 128 bytes of palettes, a 20x18 tile map (360 attribute
 bytes, then 360 tile numbers) and 8 KB of tiles. Records are picked by the
@@ -242,6 +244,38 @@ def screens_in_flow(rom):
     return recs
 
 
+# --------------------------------------------------------------- world maps
+def world_maps(rom):
+    """World map records (bank $05, table hints.WORLD_MAPS). Each record:
+    4 bytes (scroll limit and the pointer to the map's level markers), the
+    tile map (bank $0f), a list copied to $c500 (ends with $ff), BG
+    palettes (bank $0f) and the tileset (address, bank). The tile map is a
+    width byte n, then n columns of 18 tile numbers followed by their 18
+    attributes (Func_00_1f8a)."""
+    bank, table, count = hints.WORLD_MAPS
+    out = []
+    for k in range(count):
+        p = rw(rom, bank, table + 2 * k)
+        r = rom[off(bank, p):off(bank, p) + 13]
+        m = r[4] | r[5] << 8
+        out.append({"index": k, "addr": p, "raw": bytes(r), "map": m, "list": r[6] | r[7] << 8,
+                    "palettes": r[8] | r[9] << 8, "ts": r[10] | r[11] << 8, "ts_bank": r[12],
+                    "width": rom[off(0x0F, m)]})
+    return out
+
+
+def render_world_map(rom, wm):
+    pals = palettes_at(rom, 0x0F, wm["palettes"])
+    ts = Tileset(rom, wm["ts_bank"], wm["ts"])
+    n = wm["width"]
+    canvas = [[(0, 0, 0)] * (n * 8) for _ in range(144)]
+    o = off(0x0F, wm["map"]) + 1
+    for c in range(n):
+        for y in range(18):
+            draw_tile(canvas, c * 8, y * 8, ts, rom[o + 36 * c + y], rom[o + 36 * c + 18 + y], pals)
+    return canvas
+
+
 # ------------------------------------------------------- tiles for the build
 def screen_records(rom):
     return {k: screen_record(rom, *k) for k in screens_in_flow(rom)}
@@ -256,6 +290,8 @@ def bg_tile_pieces(rom):
     starts = {}
     for hdr, _ in map_headers(rom).values():
         starts.setdefault(hdr["ts_bank"], set()).add(hdr["ts"])
+    for wm in world_maps(rom):
+        starts.setdefault(wm["ts_bank"], set()).add(wm["ts"])
     others = {}  # other data in the same banks: tiles stop where it starts
     for rec in screen_records(rom).values():
         starts.setdefault(rec["bank"], set()).add(rec["tiles"])
@@ -308,7 +344,11 @@ def main():
     for (bk, p) in sorted(screens_in_flow(rom)):
         save(os.path.join(out, "screens", "screen_%02x_%04x.png" % (bk, p)), render_screen(rom, screen_record(rom, bk, p)))
         s += 1
-    print("rendered %d level maps and %d screens into %s" % (n, s, out))
+    w = 0
+    for wm in world_maps(rom):
+        save(os.path.join(out, "world", "world_%d_%04x.png" % (wm["index"], wm["addr"])), render_world_map(rom, wm))
+        w += 1
+    print("rendered %d level maps, %d screens and %d world maps into %s" % (n, s, w, out))
 
 
 if __name__ == "__main__":

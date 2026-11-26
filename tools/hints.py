@@ -185,3 +185,7 @@ FLOW_ENTRIES = [0x5F58, 0x5F90, 0x5F92, 0x5F96, 0x5F9C, 0x5FA5, 0x5FB7, 0x5FBE, 
 
 # Routines that start the flow script at de (bank $0d)
 FLOW_FUNCS = [0x38C7]
+
+# World map records: (bank, pointer table, count). The table is indexed by
+# [$c30a], which comes from the per-location table at $05:491e.
+WORLD_MAPS = (0x05, 0x4AA9, 8)

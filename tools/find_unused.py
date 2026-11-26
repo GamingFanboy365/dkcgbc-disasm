@@ -125,6 +125,32 @@ class Finder:
             return None, None
         return [GRAY[0]] + self.fp.colors(pid)[1:], pid
 
+    def guess_unused_palettes(self, unused, outdir):
+        """Color each unused gray frame with the palette of the nearest frame
+        (by header address, same graphics bank) whose palette is known."""
+        known = {}
+        for a in self.frame_info:
+            pid, _ = self.fp.palette_of(a)
+            if pid is not None:
+                known[a] = pid
+        rows = []
+        for a in unused:
+            if a in known:
+                continue
+            gb = self.frame_info[a][3]
+            cands = [(abs(b - a), b) for b in known if self.frame_info[b][3] == gb]
+            if not cands:
+                rows.append("| `Frame_20_%04x` | none | no frame in bank `$%02X` has a known palette | |" % (a, gb))
+                continue
+            dist, b = min(cands)
+            pid = known[b]
+            img = self.render_frame(a, [GRAY[0]] + self.fp.colors(pid)[1:])
+            tiles = self.frame_info[a][0]
+            write_rgb_png(os.path.join(outdir, "frames_guessed_palette", "%04x_%02x_%04x.png" % (a, gb, tiles)),
+                          len(img[0]), len(img), img)
+            rows.append("| `Frame_20_%04x` | `ObjPalette_%02X` | `Frame_20_%04x` | %d frame%s |" % (a, pid, b, dist // 6, "" if dist == 6 else "s"))
+        return rows
+
     # ------------------------------------------------------------- anims
     def anim_scripts(self):
         """(start addr, [frame addrs]) for every labelled script in bank $04."""
@@ -232,11 +258,18 @@ class Finder:
             rows.append("| `Frame_20_%04x`%s | %d | `$%02X` | %s |" % (
                 r[0], "–`%04x`" % r[-1] if len(r) > 1 else "", len(r), tiles[3],
                 "loose match at " + ", ".join(hits[:4]) + (" …" if len(hits) > 4 else "") if hits else "none"))
+        guess_rows = self.guess_unused_palettes(unused, outdir)
         lines += ["## Sprite frames", "",
                   "%d of %d frames are unused: %d with no loose match anywhere, %d with one. Images are in `frames/`, "
                   "named `header_bank_tiles.png`, and shown in the object's palette where it is known (otherwise gray)."
                   % (len(unused), len(self.frame_info) - 1, sure, loose), "",
                   "| Frames | Count | Graphics bank | Loose matches |", "|---|---|---|---|"] + rows + [""]
+        lines += ["### Guessed palettes", "",
+                  "Nothing uses these frames, so the ROM doesn't say which palette they would be drawn with, and "
+                  "`frames/` keeps them gray. `frames_guessed_palette/` has a colored copy of each, using the palette "
+                  "of the nearest frame in the same graphics bank that does have a known palette. Related frames are "
+                  "usually stored together, but these colors are **guesses**, not facts from the game.", "",
+                  "| Frame | Guessed palette | Borrowed from | Distance |", "|---|---|---|---|"] + guess_rows + [""]
 
         # anims
         refs = self.referenced_anims()
@@ -292,6 +325,7 @@ class Finder:
                   "Object palettes that no object list, preload list or decoded code uses: %s. This one is the least "
                   "certain claim, because code can pick a palette from a register value the tracer can't see." % ", ".join(obj_rows), ""]
         lines += self.backgrounds(outdir)
+        lines += self.world_maps(outdir)
         lines += self.game_states()
         os.makedirs(outdir, exist_ok=True)
         with open(os.path.join(outdir, "README.md"), "w") as f:
@@ -424,6 +458,60 @@ def _bg_methods():
                 "be reached through computed values, so their code is worth a look before calling them dead."
                 % ", ".join(unused), ""]
 
+    def world_maps(self, outdir):
+        """World map palette blocks (bank $0f, every $80 bytes from the first
+        map's) that no map record uses, and world tiles no map uses."""
+        rom = self.rom
+        wms = bg.world_maps(rom)
+        used = {w["palettes"] for w in wms}
+        first, last = min(used), max(used)
+        rows = []
+        for a in range(first, last + 0x80, 0x80):
+            if a in used:
+                continue
+            hits = self.loose_matches(a)
+            pals = bg.palettes_at(rom, 0x0F, a, 16)
+            sw = [[pals[y // 12][x // 12] for x in range(48)] for y in range(16 * 12)]
+            write_rgb_png(os.path.join(outdir, "world_palettes", "WorldPalettes_0f_%04x.png" % a), 48, 16 * 12, sw)
+            colors = {c for p in pals for c in p}
+            rows.append("| `$%04x` | %d | %s |" % (a, len(colors),
+                        "loose match at " + ", ".join(hits[:3]) if hits else "none"))
+        tile_rows = []
+        for (tb, ts) in sorted({(w["ts_bank"], w["ts"]) for w in wms}):
+            usedt = set()
+            for w in wms:
+                if (w["ts_bank"], w["ts"]) != (tb, ts):
+                    continue
+                o = off(0x0F, w["map"]) + 1
+                for c in range(w["width"]):
+                    for y in range(18):
+                        usedt.add(((rom[o + 36 * c + 18 + y] >> 3) & 1, rom[o + 36 * c + y]))
+            tset = bg.Tileset(rom, tb, ts)
+            own = sum(p[2] for p in bg.bg_tile_pieces(rom).get((tb, ts), []))
+            lost = [(k // 256, k % 256) for k in range(own)
+                    if (k // 256, k % 256) not in usedt and any(any(r) for r in tset.tile(k // 256, k % 256))]
+            if lost:
+                cols = 16
+                canvas = [[(0xFF, 0xFF, 0xFF)] * (cols * 9) for _ in range(((len(lost) + cols - 1) // cols) * 9)]
+                for i, (vb, tid) in enumerate(lost):
+                    px = tset.tile(vb, tid)
+                    for y in range(8):
+                        for x in range(8):
+                            canvas[(i // cols) * 9 + y][(i % cols) * 9 + x] = GRAY[px[y][x]]
+                write_rgb_png(os.path.join(outdir, "world_tiles", "tileset_%02x_%04x.png" % (tb, ts)),
+                              len(canvas[0]), len(canvas), canvas)
+            tile_rows.append("| `BGTiles_%02x_%04x` | %d | %d |" % (tb, ts, own, len(lost)))
+        return ["## World maps", "",
+                "Palette blocks in bank $0F, spaced like the ones the 8 world maps use, that no map record "
+                "points to. Each block is 128 bytes because the loader copies 128 bytes, but only the first 64 "
+                "(8 BG palettes) reach the screen. Swatches are in `world_palettes/`, one row per palette.", "",
+                "| Block | Distinct colors | Loose matches |", "|---|---|---|"] + rows + ["",
+                "Tiles in each world map tileset's own data that no world tile map uses (blank tiles not "
+                "counted). Some may be swapped in by the map's own code, for example for the level markers. "
+                "Sheets are in `world_tiles/`.", "",
+                "| Tileset | Tiles | Not used by any world map |", "|---|---|---|"] + tile_rows + [""]
+
+    Finder.world_maps = world_maps
     Finder.backgrounds = backgrounds
     Finder.game_states = game_states
 

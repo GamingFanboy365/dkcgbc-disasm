@@ -365,6 +365,25 @@ class Emitter:
             if len(lay) > 3:
                 res.append((None, "dw %s ; same, second half" % ", ".join(lay[3:])))
             return res
+        if kind == "ptrtable":
+            return [(o if k == 0 else None, "dw %s" % (self.qref(bank, v) or hexw(v))) for k, v in enumerate(item[2])]
+        if kind == "worldmap":
+            wm = item[2]
+            r = wm["raw"]
+            ts = self.qref(wm["ts_bank"], wm["ts"]) or hexw(wm["ts"])
+            return [(o, "db %s ; scroll limit, ?, level markers (pointer)" % ", ".join(hexb(x) for x in r[:4])),
+                    (None, "dw %s ; tile map" % (self.qref(0x0F, wm["map"]) or hexw(wm["map"]))),
+                    (None, "dw %s ; list copied to $c500" % hexw(wm["list"])),
+                    (None, "dw %s ; BG palettes" % (self.qref(0x0F, wm["palettes"]) or hexw(wm["palettes"]))),
+                    (None, "dw %s" % ts), (None, "db BANK(%s) ; tileset" % ts)]
+        if kind == "worldtiles":
+            rom, n = self.rom, item[2]
+            res = [(o, "db %d ; width in tiles; then per column 18 tiles, 18 attributes" % n)]
+            for c in range(n):
+                b = o + 1 + 36 * c
+                res.append((None, "db " + ", ".join(hexb(x) for x in rom[b:b + 18])))
+                res.append((None, "db " + ", ".join(hexb(x) for x in rom[b + 18:b + 36])))
+            return res
         if kind == "screen":
             r = item[2]
             names = [self.qref(bank, r[k]) or hexw(r[k]) for k in ("palettes", "map", "tiles")]

@@ -111,7 +111,12 @@ OBJ_LIST_RUNS = [
 # Tables of pointers to object initialiser lists: (bank, start, count)
 OBJ_LIST_TABLES = [
     (0x0A, 0x443C, 4),
+    (0x08, 0x583A, 13),  # picked by Func_08_5814 and InitObject
+    (0x0A, 0x4A47, 10),  # spawned objects, indexed by a counter (Func_0a_4a2c area)
 ]
+
+# Single object initialiser lists the tracer misses (applied after a branch)
+OBJ_LISTS = [(0x09, 0x485E)]
 
 # Object slot layout. Objects are $40-byte slots at wObjects ($c800) + bc;
 # slot 0 is the player (wPlayer). offset -> (name, size, description).
@@ -299,6 +304,7 @@ EXTRA_TILES = [
     (0xF5, 0x77F0, 44, "Crosshair Cranky: Galleon Gunner tile animation frames"),
     (0xF5, 0x4DF0, 32, "Crosshair Cranky: tiles copied by Func_fe_541c"),
     (0x07, 0x6000, 12, "title screen sprite tiles (copied to VRAM $81c0)"),
+    (0x08, 0x7800, 128, "animal buddy icons (Rambi, Expresso, Enguarde, Winky), 8x16 sprites"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

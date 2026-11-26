@@ -570,6 +570,17 @@ def parse_banks(t, rom):
     t._claim(7, 0x43FE, 48, "palette", 6, "=TitleObjPalettes")  # Func_07_4001 copies 64 bytes from here to $c1c0
     for a in (0x452E, 0x4CCE, 0x546E):  # second half of each title palette block, read during the title
         t._claim(7, a, 256, "palette", 32, "TitlePalettesExtra")
+    # small tables in the object code banks, named by what reads them
+    def words(b, a, n):
+        return [rom[off(b, a + 2 * k)] | rom[off(b, a + 2 * k) + 1] << 8 for k in range(n)]
+    t._claim(0x0A, 0x4248, 40, "rows", [("dw", ["$%04x" % w for w in words(0x0A, 0x4248, 20)[k:k + 4]],
+                                         "Y velocity by OBJ_VAR_2E" if k == 0 else None) for k in range(0, 20, 4)], "ObjYVelTable")
+    t._claim(0x0A, 0x481D, 16, "rows", [("dw", ["$%04x" % w for w in words(0x0A, 0x481D + 4 * k, 2)],
+                                         "target X velocity, ?" if k == 0 else None) for k in range(4)], "ObjXVelTable")  # Func_0a_47fe
+    t._claim(0x0A, 0x4CB1, 20, "rows", [("dw", ["$%04x" % w for w in words(0x0A, 0x4CB1, 10)], "by OBJ_VAR_2E")], "ObjWordTable")
+    for a in (0x63C6, 0x63D6):  # chosen by [$c445] (Func_09_6390 area), indexed by the terrain attribute
+        t._claim(0x09, a, 16, "rows", hexrow("db", rom[off(9, a):off(9, a) + 16]), "TerrainTable")
+    t._claim(0x09, 0x7F01, 0x8000 - 0x7F01, "rows", hexrow("db", rom[off(9, 0x7F01):off(9, 0x8000)]), "=RampTable_09_7f01")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",
@@ -615,6 +626,8 @@ def make(rom):
             o = off(b, start + 2 * k)
             a = rom[o] | rom[o + 1] << 8
             t.parse_obj_list(0 if a < 0x4000 else b, a, b)
+    for (b, a) in hints.OBJ_LISTS:
+        t.parse_obj_list(b, a, b)
     t.run()
     for args in hints.FRAME_STRUCTS:
         t.parse_frame_struct(*args)

@@ -3251,8 +3251,156 @@ Func_08_57e3::
 	call InitObject
 	ret
 
-	INCBIN "baserom.gbc", $02183a, $011f ; $583a
+	INCBIN "baserom.gbc", $02183a, $001a ; $583a
 
+
+ObjInit_08_5854::
+	obj_byte OBJ_FLAGS, $11
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_YACCEL, $0080
+	obj_word OBJ_YVEL, $fb00
+	obj_byte OBJ_LAYER, $02
+	obj_end
+
+ObjInit_08_5862::
+	obj_include ObjInit_08_5854
+	obj_word OBJ_TOUCH_HANDLER, $6ccc
+	obj_byte OBJ_COLLISION, $08
+	obj_byte OBJ_ANIM_PARAM, $07
+	obj_byte OBJ_VAR_2C, $0c
+	obj_end
+
+ObjInit_08_586f::
+	obj_include ObjInit_08_5862
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_FRAME, Frame_20_48c4
+	obj_byte OBJ_PALETTE, $03
+	obj_byte OBJ_VAR_2E, $02
+	obj_end
+
+ObjInit_08_587f::
+	obj_include ObjInit_08_5862
+	obj_byte OBJ_BANK, BANK(Func_0a_59a0)
+	obj_word OBJ_HANDLER, Func_0a_59a0
+	obj_byte OBJ_PALETTE, $02
+	obj_word OBJ_ANIM, Anim_04_505f
+	obj_byte OBJ_VAR_2E, $00
+	obj_byte OBJ_VAR_2F, $01
+	obj_end
+
+ObjInit_08_5891::
+	obj_include ObjInit_08_5862
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_byte OBJ_PALETTE, $01
+	obj_word OBJ_FRAME, Frame_20_4ee8
+	obj_byte OBJ_VAR_2E, $03
+	obj_byte OBJ_VAR_2F, $01
+	obj_end
+
+ObjInit_08_58a3::
+	obj_include ObjInit_08_5862
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_FRAME, Frame_20_4b4c
+	obj_byte OBJ_PALETTE, $01
+	obj_byte OBJ_VAR_2E, $01
+	obj_end
+
+ObjInit_08_58b3::
+	obj_include ObjInit_08_5854
+	obj_byte OBJ_BANK, BANK(Func_08_4067)
+	obj_word OBJ_HANDLER, Func_08_4067
+	obj_word OBJ_TOUCH_HANDLER, $6b2e
+	obj_word OBJ_ANIM, Anim_04_4e0b
+	obj_byte OBJ_PALETTE, $00
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_VAR_2E, $0a
+	obj_end
+
+ObjInit_08_58ca::
+	obj_include ObjInit_08_5854
+	obj_byte OBJ_BANK, BANK(Func_08_50de)
+	obj_word OBJ_HANDLER, Func_08_50de
+	obj_word OBJ_TOUCH_HANDLER, $7216
+	obj_word OBJ_ANIM, Anim_04_4f83
+	obj_byte OBJ_PALETTE, $03
+	obj_byte OBJ_COLLISION, $08
+	obj_byte OBJ_ANIM_PARAM, $32
+	obj_word OBJ_XACCEL, $0008
+	obj_end
+
+ObjInit_08_58e2::
+	obj_include ObjInit_08_5854
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_TOUCH_HANDLER, $6a05
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_VAR_2E, $08
+	obj_end
+
+ObjInit_08_58f4::
+	obj_include ObjInit_08_58e2
+	obj_word OBJ_FRAME, Frame_20_4d50
+	obj_word OBJ_ANIM, Anim_04_54fb
+	obj_byte OBJ_VAR_2F, $03
+	obj_byte OBJ_VAR_30, $20
+	obj_end
+
+ObjInit_08_5902::
+	obj_include ObjInit_08_58e2
+	obj_word OBJ_FRAME, Frame_20_4d3e
+	obj_word OBJ_ANIM, Anim_04_54df
+	obj_byte OBJ_VAR_2F, $02
+	obj_byte OBJ_VAR_30, $10
+	obj_end
+
+ObjInit_08_5910::
+	obj_include ObjInit_08_5854
+	obj_byte OBJ_BANK, BANK(Func_08_4046)
+	obj_word OBJ_HANDLER, Func_08_4046
+	obj_word OBJ_TOUCH_HANDLER, $6994
+	obj_byte OBJ_COLLISION, $02
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_end
+
+ObjInit_08_5920::
+	obj_include ObjInit_08_5910
+	obj_word OBJ_FRAME, Frame_20_4bbe
+	obj_byte OBJ_VAR_2E, $01
+	obj_end
+
+ObjInit_08_5929::
+	obj_include ObjInit_08_5910
+	obj_word OBJ_FRAME, Frame_20_4bd6
+	obj_byte OBJ_VAR_2E, $02
+	obj_end
+
+ObjInit_08_5932::
+	obj_include ObjInit_08_5910
+	obj_word OBJ_FRAME, Frame_20_4bd0
+	obj_byte OBJ_VAR_2E, $04
+	obj_end
+
+ObjInit_08_593b::
+	obj_include ObjInit_08_5910
+	obj_word OBJ_FRAME, Frame_20_4ba6
+	obj_byte OBJ_VAR_2E, $08
+	obj_end
+
+ObjInit_08_5944::
+	obj_include ObjInit_08_5854
+	obj_byte OBJ_BANK, BANK(Func_08_4067)
+	obj_word OBJ_HANDLER, Func_08_4067
+	obj_word OBJ_TOUCH_HANDLER, $46da
+	obj_byte OBJ_COLLISION, $08
+	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_PALETTE, $00
+	obj_word OBJ_ANIM, Anim_04_570b
+	obj_end
 
 Func_08_5959::
 	ld hl, wObjects + OBJ_BANK
@@ -4404,5 +4552,8 @@ Func_08_6302::
 	ldh [$ffa2], a
 	ret
 
-	INCBIN "baserom.gbc", $0223aa, $1c56 ; $63aa
+	ds 5206, $00 ; $63aa
 
+
+BGTiles_08_7800::
+	INCBIN "gfx/bgtiles/08/7800.2bpp"

@@ -27,11 +27,19 @@ Func_09_400d::
 	call Func_00_3ab5
 	jp NextObject
 
-	INCBIN "baserom.gbc", $024026, $0017 ; $4026
 
-
-Func_09_403d::
+Func_09_4026::
+	call Func_09_4243
+	ld hl, wObjects + OBJ_VAR_0A
+	add hl, bc
+	bit 1, [hl]
+	jr z, .jump_4040
+	ld hl, wPlayer + OBJ_XVEL
+	call Func_00_39ab
+	ld hl, wPlayer + OBJ_TARGET_XVEL
+	call Func_00_39ab
 	call Func_09_424e
+.jump_4040:
 	call Func_00_127d
 	call Func_00_3ab5
 	jp NextObject
@@ -1168,7 +1176,20 @@ ObjInit_09_4840::
 	obj_word OBJ_TARGET_YVEL, $0000
 	obj_word OBJ_YVEL, $0000
 	obj_end
-	INCBIN "baserom.gbc", $02485e, $0147 ; $485e
+
+ObjInit_09_485e::
+	obj_byte OBJ_BANK, BANK(Func_0a_47cf)
+	obj_word OBJ_HANDLER, Func_0a_47cf
+	obj_word OBJ_ANIM, Anim_04_529b
+	obj_word OBJ_YVEL, $fd00
+	obj_word OBJ_TARGET_XVEL, $0000
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_XACCEL, $0005
+	obj_word OBJ_YACCEL, $0050
+	obj_byte OBJ_COLLISION, $00
+	obj_byte OBJ_ANIM_FLAGS, $80
+	obj_end
+	INCBIN "baserom.gbc", $02487a, $012b ; $487a
 
 
 Func_09_49a5::
@@ -4189,9 +4210,9 @@ Func_09_5dbb::
 	inc l
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_09_403d)
+	ld [hl], $3d
 	inc l
-	ld [hl], HIGH(Func_09_403d)
+	ld [hl], $40
 	ld a, [$c30f]
 	rrca
 	ld de, $4115
@@ -4957,8 +4978,12 @@ Func_09_638e::
 	ld [hl], a
 	ret
 
-	INCBIN "baserom.gbc", $0263c6, $0020 ; $63c6
 
+TerrainTable_09_63c6::
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $02, $00, $02, $00, $02
+
+TerrainTable_09_63d6::
+	db $00, $00, $80, $00, $80, $00, $00, $01, $00, $01, $00, $02, $00, $02, $00, $02
 
 Func_09_63e6::
 	ld hl, wPlayer + OBJ_OAM_ATTR
@@ -6998,9 +7023,9 @@ Func_09_7150::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_09_403d)
+	ld [hl], $3d
 	inc l
-	ld [hl], HIGH(Func_09_403d)
+	ld [hl], $40
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -8114,9 +8139,9 @@ Func_09_78af::
 	add hl, de
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_09_403d)
+	ld [hl], $3d
 	inc l
-	ld [hl], HIGH(Func_09_403d)
+	ld [hl], $40
 .jump_78ca:
 	jp Func_09_43ea.jump_44f5
 
@@ -8534,5 +8559,23 @@ ObjInit_09_7ba5::
 	obj_word OBJ_HANDLER, Func_08_61a4
 	obj_byte OBJ_VAR_2E, $20
 	obj_end
-	INCBIN "baserom.gbc", $027baf, $0451 ; $7baf
+	ds 850, $00 ; $7baf
 
+
+RampTable_09_7f01::
+	db $01, $03, $04, $06, $07, $09, $0a, $0c, $0e, $0f, $11, $12, $14, $15, $17, $18
+	db $19, $1b, $1c, $1e, $1f, $20, $22, $23, $24, $26, $27, $28, $29, $2a, $2c, $2d
+	db $2e, $2f, $30, $31, $32, $33, $34, $35, $36, $36, $37, $38, $39, $39, $3a, $3b
+	db $3b, $3c, $3c, $3d, $3d, $3e, $3e, $3e, $3f, $3f, $3f, $3f, $3f, $3f, $3f, $40
+	db $3f, $3f, $3f, $3f, $3f, $3f, $3f, $3e, $3e, $3e, $3d, $3d, $3c, $3c, $3b, $3b
+	db $3a, $39, $39, $38, $37, $36, $36, $35, $34, $33, $32, $31, $30, $2f, $2e, $2d
+	db $2c, $2a, $29, $28, $27, $26, $24, $23, $22, $20, $1f, $1e, $1c, $1b, $19, $18
+	db $17, $15, $14, $12, $11, $0f, $0e, $0c, $0a, $09, $07, $06, $04, $03, $01, $00
+	db $ff, $fd, $fc, $fa, $f9, $f7, $f6, $f4, $f2, $f1, $ef, $ee, $ec, $eb, $e9, $e8
+	db $e7, $e5, $e4, $e2, $e1, $e0, $de, $dd, $dc, $da, $d9, $d8, $d7, $d6, $d4, $d3
+	db $d2, $d1, $d0, $cf, $ce, $cd, $cc, $cb, $ca, $ca, $c9, $c8, $c7, $c7, $c6, $c5
+	db $c5, $c4, $c4, $c3, $c3, $c2, $c2, $c2, $c1, $c1, $c1, $c1, $c1, $c1, $c1, $c0
+	db $c1, $c1, $c1, $c1, $c1, $c1, $c1, $c2, $c2, $c2, $c3, $c3, $c4, $c4, $c5, $c5
+	db $c6, $c7, $c7, $c8, $c9, $ca, $ca, $cb, $cc, $cd, $ce, $cf, $d0, $d1, $d2, $d3
+	db $d4, $d6, $d7, $d8, $d9, $da, $dc, $dd, $de, $e0, $e1, $e2, $e4, $e5, $e7, $e8
+	db $e9, $eb, $ec, $ee, $ef, $f1, $f2, $f4, $f6, $f7, $f9, $fa, $fc, $fd, $ff

@@ -1,0 +1,8 @@
+# The original ROM is never committed: supply your own dump.
+baserom.gbc
+*.gbc
+*.gb
+*.o
+*.sym
+*.map
+__pycache__/

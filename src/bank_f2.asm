@@ -2551,7 +2551,47 @@ Func_f2_555d::
 	jr nz, .jump_555f
 	ret
 
-	INCBIN "baserom.gbc", $3c9574, $1224 ; $5574
+	INCBIN "baserom.gbc", $3c9574, $11ec ; $5574
+
+
+Func_f2_6760::
+	ld a, $c0
+	ldh [rRP], a
+	ld a, $ff
+	ld [$dd1f], a
+	xor a
+	ld b, a
+.jump_676b:
+	inc a
+	jr nz, .jump_676b
+	inc b
+	jr nz, .jump_676b
+	ld hl, $dd20
+	ldh a, [rKEY1]
+	bit 7, a
+	jr z, .jump_6789
+	ld [hl], $0e
+	inc hl
+	ld [hl], $12
+	inc hl
+	ld [hl], $08
+	inc hl
+	ld [hl], $0c
+	inc hl
+	ld [hl], $0c
+	ret
+
+.jump_6789:
+	ld [hl], $06
+	inc hl
+	ld [hl], $08
+	inc hl
+	ld [hl], $02
+	inc hl
+	ld [hl], $04
+	inc hl
+	ld [hl], $05
+	ret
 
 
 Func_f2_6798::

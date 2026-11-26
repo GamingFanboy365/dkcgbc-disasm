@@ -129,7 +129,7 @@ Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), store
 
 **Tiles.** A tileset is 8 KB copied by HDMA into VRAM: tiles 0–127 at `$9000`, 128–255 at `$8800`, then the same in VRAM bank 1. Some tilesets overlap the next one, so each tile bank is split at every start address. Each piece is a PNG in `gfx/bgtiles/BB/AAAA.png`, 16 tiles per row (plus `AAAA_end.png` for a partial last row). PNGs are extracted from the base ROM and built with `rgbgfx -c dmg`, like the sprite frames, and are not committed.
 
-**World maps.** The eight world maps (state `$0D`, `$1A58`) are listed in `WorldMapTable` in bank `$05`, indexed by a per-location table at `$05:491E`. A record (`WorldMap_05_XXXX`) points to the tile map and BG palettes in bank `$0F` and to a regular 8 KB tileset in banks `$18`–`$1B`. The tile map (`WorldTileMap_0F_XXXX`) is a width byte n, then n columns of 18 tile numbers followed by their 18 attributes. `Func_00_1f8a` copies it to WRAM, and `Func_00_1f0a` draws it as the map scrolls. The map's sprites (Kongs, level markers) get their tiles from banks `$40`–`$41` and their palettes from `$41:5380`.
+**World maps.** The eight world maps (state `$0D`, `$1A58`) are listed in `WorldMapTable` in bank `$05`, indexed by a per-location table at `$05:491E`. A record (`WorldMap_05_XXXX`) points to the tile map and BG palettes in bank `$0F` and to a regular 8 KB tileset in banks `$18`–`$1B`. The tile map (`WorldTileMap_0F_XXXX`) is a width byte n, then n columns of 18 tile numbers followed by their 18 attributes. `Func_00_1f8a` copies it to WRAM, and `Func_00_1f0a` draws it as the map scrolls. The map's sprites (Kongs, level markers) get their tiles from banks `$40`–`$41` and their palettes from `$41:5380`. Bank `$05` also holds the map's metasprites (`WorldMapMetasprites`, 4-byte steps), each map's list copied to `$c500` and its level markers (`WorldMapMarkers`: x word, y, location number, 0 for a path point; an entry starting `$FF` ends the list). Then come the location table (`WorldMapLocations`, 4 bytes per location; the low 7 bits of byte 2 are the location type), the movement table (`WorldMapMoves`: per location a path for down, up, left and right, picked by the pressed direction), the arrow table (`WorldMapArrows`) and the paths themselves (lists of marker numbers, `$FF` ends).
 
 **Title screen.** The title is a tall picture (20×36 tiles) that scrolls up under the logo (`Func_07_4001`, bank `$07`). `[$B0C1] & 3`, a byte in battery-backed RAM, picks one of four slots in `TitleTables`. Each slot names a tile map (rows of 20 tile numbers and 20 attributes, interleaved), 32 palettes, an 8 KB tileset and a palette-swap list. As the picture scrolls, `Func_07_4195` works through the list (scroll line, source palette, slot) and swaps palettes, so the full picture shows more than 8 palettes. Slot 3 repeats slot 2, so there are three pictures: underwater, in the mines and in the jungle.
 
@@ -242,11 +242,11 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
-| Code disassembled into readable instructions | 102 KB | 3.8% |
-| Data decoded into readable structures | 312 KB | 11.6% |
-| Graphics converted to editable PNGs | 1043 KB | 38.9% |
-| Located and labelled, format known, still raw bytes | 1187 KB | 44.2% |
-| Not identified yet | 38 KB | 1.4% |
+| Code disassembled into readable instructions | 104 KB | 3.9% |
+| Data decoded into readable structures | 319 KB | 11.9% |
+| Graphics converted to editable PNGs | 1046 KB | 39.0% |
+| Located and labelled, format known, still raw bytes | 1189 KB | 44.3% |
+| Not identified yet | 25 KB | 0.9% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 
@@ -305,7 +305,7 @@ Every bank now has a known purpose:
 
 This repository covers the retail ROM only. The goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. The earlier demo build (`Donkey Kong Country (U) [demo]`) will get a separate repository. The order of work:
 
-1. Finish identifying what's left (1.4%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
+1. Finish identifying what's left (0.9%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
 2. Convert the located raw data (block banks, terrain, compressed maps, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 

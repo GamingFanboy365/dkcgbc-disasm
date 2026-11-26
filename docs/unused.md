@@ -102,6 +102,8 @@ The eight world maps take their BG palettes from 128-byte blocks in bank `$0F`, 
 
 Only the first 64 bytes of each block (8 BG palettes) reach the screen, so the colors in `$4E9C`'s second half would never show even if the block were loaded. Three world tilesets have tiles no world map uses: 7 in `BGTiles_18_55c0`, 9 in `BGTiles_19_4000` and 3 in `BGTiles_1b_4000`. These could still appear through the map's own code, for example as level markers.
 
+Bank `$05` also has two well-formed lists of level markers that no world map record points to (`WorldMapMarkersUnused`). One at `$45D6` has ten points ending at locations `$2D`, `$2E`, `$2F` and `$3C`; the other at `$48CA` has a single point (location `$3B`) and sits right after the end marker of the previous list. Map 0 (DK Isle) uses the eight points just before the first one, so it may once have continued with these.
+
 World map 7 is reached by no location in the location table, but `Func_05_4274` checks for it by number, so code uses it directly. It shows the same island as map 0, with a different list of level markers.
 
 ## Title screen
@@ -199,7 +201,15 @@ The short phrases are probably leftovers of edits to those songs. The song `$18`
 
 `Func_00_36a7` resets the sound hardware (NR52, NR51, NR50, the wave channel) and falls into `Func_00_36b8`, which loads wave pattern 1. Nothing in the ROM calls or jumps to `$36A7`; the game uses `Func_00_36b8` directly. It's a small leftover, probably an older entry point of the sound driver.
 
-## Checked and found complete
+## Sprite offset lists
+
+After many of the sprite offset lists in banks `$2B`–`$38` come 9 to 23 bytes that the draw code never reads (`FrameSpritesTail_…`, about 2.3 KB in all). `Func_00_1037` reads exactly two bytes per sprite, and the frame header's tile count decides how many. The leftover bytes look like more offsets, perhaps from frames that once had more sprites, but nothing confirms that.
+
+## Level object blocks
+
+Bank `$03` has 16-byte blocks that no level object list points to (`LevelObjBlockUnused_…`), between the ones that are used.
+
+
 
 These turned up nothing unused, which is worth knowing too:
 

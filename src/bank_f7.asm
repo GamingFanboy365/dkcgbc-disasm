@@ -482,5 +482,8 @@ FESprites_f7_7e20::
 
 FESprites_f7_7ec0::
 	INCBIN "gfx/frames/f7/7ec0.2bpp"
-	INCBIN "baserom.gbc", $3dff60, $00a0 ; $7f60
+
+BGTiles_f7_7f60::
+	INCBIN "gfx/bgtiles/f7/7f60.2bpp"
+	ds 96, $00 ; $7fa0
 

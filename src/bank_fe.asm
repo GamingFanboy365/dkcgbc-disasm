@@ -1125,8 +1125,9 @@ Func_fe_47b0::
 	set 4, [hl]
 	ret
 
-	db $01, $02, $05
 
+ByteTable_fe_47c4::
+	db 1, 2, 5 ; added to [$cbc8] by [$dc20 + [$ff9c]] - 2
 
 Func_fe_47c7::
 	ld a, [$cbc4]
@@ -2209,8 +2210,8 @@ Func_fe_4dfe::
 .jump_4e36:
 	jp hl
 
-	db $c9
-
+.unreached_4e37:
+	db $c9 ; ret, never reached
 
 Func_fe_4e38::
 	jp Func_fe_4e44.jump_4e47
@@ -7121,7 +7122,7 @@ Func_fe_6937::
 
 
 Func_fe_6946::
-	jp Func_fe_6955.jump_696a
+	jp Triples_fe_6958.jump_696a
 
 
 Func_fe_6949::
@@ -7143,8 +7144,14 @@ Func_fe_6952::
 Func_fe_6955::
 	jp Func_fe_71d9.jump_7303
 
-	INCBIN "baserom.gbc", $3fa958, $0012 ; $6958
 
+Triples_fe_6958::
+	db $02, $00, $34
+	db $06, $b0, $54
+	db $02, $00, $74
+	db $06, $b0, $34
+	db $02, $00, $54
+	db $06, $b0, $74
 .jump_696a:
 	call Func_fe_6a0e
 	ld a, [$cbec]
@@ -7730,8 +7737,9 @@ Func_fe_6bdc::
 	call Func_fe_6cd5
 	ret
 
-	db $00, $00, $00, $00, $01, $01, $02
 
+ByteTable_fe_6cce::
+	db 0, 0, 0, 0, 1, 1, 2 ; by a random number below 7 (Func_f0_4608)
 
 Func_fe_6cd5::
 	push de
@@ -7982,8 +7990,8 @@ Func_fe_6cd5::
 	ret z
 	jr .jump_6e49
 
-	db $c9
-
+.unreached_6e52:
+	db $c9 ; ret, never reached
 .jump_6e53:
 	ld hl, $cbfc
 	inc [hl]
@@ -9244,8 +9252,10 @@ Func_fe_755a::
 
 RAMCopy_fe_761b_to_cc0e::
 	INCBIN "baserom.gbc", $3fb61b, $0086
-	db $c3, $0e, $cc
 
+SerialJump_fe_76a1::
+	db $c3 ; jp $cc0e, copied by Func_fe_76a4 to the serial interrupt's
+	dw $cc0e ; RAM trampoline (the address in the vector at $0059)
 
 Func_fe_76a4::
 	ld a, [$0059]

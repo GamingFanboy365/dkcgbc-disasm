@@ -791,7 +791,7 @@ def parse_banks(t, rom):
                                       for k in range(0, 224, 16)], "=CharTileTable")
     for a, n in ((0x35, 3), (0x43, 5), (0x4C, 4), (0x53, 5), (0x5B, 5), (0xFB, 5)):
         t._claim(0, a, n, "rows", [("ds", ["%d" % n, "$00"], "padding between restart vectors")], "=Padding_00_%04x" % a)
-    t._claim(0, 0xF6, 2, "rows", [("db", ["$29", "$c3"], "leftover bytes between the jump vectors")], "=Unused_00_00f6")
+    t._claim(0, 0xF6, 2, "rows", [("dw", ["$c329"], "a RAM address, read by Func_f1_4dc4 in bank $f1")], "=RAMPointer_00_00f6")
     t._claim(8, 0x5365, 16, "rows", [("db", ["%" + format(v, "08b") for v in bytes_(8, 0x5365, 8)], None),
                                      ("db", ["%" + format(v, "08b") for v in bytes_(8, 0x536D, 8)], None)],
              "=Flags_08_5365")  # by OBJ_VAR_38 >> 4; bits 7 and 6 tested (Func_08_5265 area)
@@ -836,6 +836,70 @@ def parse_banks(t, rom):
     t._claim(0x50, 0x6A58, 256, "rows", [("db", ["$%02x" % v for v in ct[k:k + 16]], "characters $%02x-$%02x" % (k, k + 15))
                                          for k in range(0, 256, 16)], "=CharTileTable_50")  # Func_50_7686
     t._claim(0x51, 0x4CFF, 1, "rows", [("db", ["$00"], "padding")], "=Padding_51_4cff")
+    # a 20x32 map in which every position has its own tile (0-255 in VRAM
+    # bank 0, then again in bank 1), so code can draw into the tiles; copied
+    # to WRAM 2 $d000/$d400 by Func_f0_47xx (.jump_4840), 32 bytes a row
+    um = bytes_(0xF0, 0x4A9D, 1280)
+    t._claim(0xF0, 0x4A9D, 1280, "rows", [("db", ["$%02x" % v for v in um[k:k + 20]],
+                                            "attributes" if k == 0 else "tile numbers" if k == 640 else None)
+                                           for k in range(0, 1280, 20)], "=UniqueTileMap")
+    t._claim(0xF0, 0x4701, 6, "rows", [("ds", ["6", "$00"], "padding")], "=Padding_f0_4701")
+    # bank $f1 (front end) tables
+    t._claim(0xF1, 0x4D01, 2, "rows", [("db", ["$00", "$00"], "pads the ret entry above to 3 bytes")], "=.jp_table_pad")
+    t._claim(0xF1, 0x5CA9, 24, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x5CA9 + 4 * k, 4)], None) for k in range(6)],
+             "=SpritePositions_f1_5ca9")  # x, y, sprite animation, direction (bit 7) for Func_f1_5c69
+    t._claim(0xF1, 0x5D0A, 30, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x5D0A + 10 * k, 10)], "copied to $%04x" % d)
+                                        for k, d in enumerate((0xC9E6, 0xC9FE, 0xCA08))], "=Defaults_f1_5d0a")
+    t._claim(0xF1, 0x678A, 32, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x678A, 10)], "not read in any session, nothing points here"),
+                                        ("dw", ["$6798", "$67a1"], None),
+                                        ("db", ["$%02x" % v for v in bytes_(0xF1, 0x6798, 9)], None),
+                                        ("db", ["$%02x" % v for v in bytes_(0xF1, 0x67A1, 9)], None)], "=Unused_f1_678a")
+    t._claim(0xF1, 0x67AA, 21, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x67AA, 21)], "by [$c96e], $ff for none (Func_f1_4926)")],
+             "=ByteTable_f1_67aa")
+    # menus: (item count, pointer) per menu; items are 12 bytes, byte 8
+    # is the item's action ([$c993], Func_f1_73ef)
+    mt = [(rom[off(0xF1, 0x6893 + 3 * k)], words(0xF1, 0x6894 + 3 * k, 1)[0]) for k in range(5)]
+    t._claim(0xF1, 0x6893, 15, "rows", [("db", ["%d" % n, "LOW(%s)" % "MenuItems_f1_%04x" % p, "HIGH(%s)" % "MenuItems_f1_%04x" % p], "items, list")
+                                        for n, p in mt], "=MenuTable_f1_6893")
+    for n, p in mt:
+        t._claim(0xF1, p, 12 * n, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, p + 12 * k, 12)], None) for k in range(n)], "MenuItems")
+    sl = words(0xF1, 0x691A, 4)
+    t._claim(0xF1, 0x691A, 8, "rows", [("dw", [ref(0xF1, v) for v in sl], "by [$c989] - 1 (Func_f1_754x)")], "=SpriteLists_f1_691a")
+    for v in sorted(set(sl)):
+        n = rom[off(0xF1, v)]
+        t._claim(0xF1, v, 1 + 3 * n, "rows", [("db", ["%d" % n], "count")] +
+                 [("db", ["$%02x" % x for x in bytes_(0xF1, v + 1 + 3 * k, 3)], "variant, x, y") for k in range(n)], "SpriteList")
+    for a, c in ((0x69CA, "by index (Func_f1_7xxx)"), (0x69D4, "x offsets"), (0x69DE, None)):
+        t._claim(0xF1, a, 10, "rows", [("db", ["%d" % v for v in bytes_(0xF1, a, 10)], c)], "=ByteTable_f1_%04x" % a)
+    t._claim(0xF1, 0x69E8, 8, "rows", [("dw", ["$%04x" % v for v in words(0xF1, 0x69E8, 4)], "RAM addresses")], "=RAMPointers_f1_69e8")
+    rows = []
+    for k in range(5):
+        p, r = words(0xF1, 0x69F0 + 4 * k, 2)
+        rows.append(("dw", [ref(0xF1, p) if p else "$0000", "$%04x" % r], None))
+    t._claim(0xF1, 0x69F0, 20, "rows", rows, "=Columns_f1_69f0")  # by [$c96c] (Func_f1_545f)
+    for a in range(0x6A04, 0x6A1D, 5):
+        t._claim(0xF1, a, 5, "rows", [("db", ["%d" % v for v in bytes_(0xF1, a, 5)], "by language ([$c805])")], "LanguageColumns")
+    lw = words(0xF1, 0x6A1D, 10)
+    t._claim(0xF1, 0x6A1D, 20, "rows", [("dw", [ref(0xF1, lw[2 * k]), ref(0xF1, lw[2 * k + 1])], ("English", "German", "French", "Italian", "Spanish")[k])
+                                        for k in range(5)], "=LanguageWordTiles")  # Func_f1_54d2 copies the first of each pair
+    t._claim(0xF1, 0x6A31, 15, "rows", [("ds", ["15", "$00"], "padding")], "=.pad_6a31")
+    t._claim(0xF1, 0x6FD0, 16, "rows", hexrow("db", bytes(bytes_(0xF1, 0x6FD0, 16))), "=Tile_f1_6fd0")  # a 10th tile after the 9 Func_f1_54d2 copies
+    t._claim(0xF1, 0x6FE0, 154, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, a, 16)][:min(16, 0x707A - a)], None)
+                                         for a in range(0x6FE0, 0x707A, 16)], "=Pairs_f1_6fe0")  # by [$c986]: value, offset from $c329 - 1 (Func_f1_4dc4)
+    # last front-end leftovers: unreached bytes after a ret/jr/jp
+    for b, a, bs, c in ((0xF2, 0x4A38, [0xC9], "ret"), (0xF2, 0x4A4D, [0xC6, 0x18], "add a, $18"), (0xF2, 0x6F25, [0xC9], "ret"),
+                        (0xFE, 0x4E37, [0xC9], "ret"), (0xFE, 0x6E52, [0xC9], "ret")):
+        assert list(bytes_(b, a, len(bs))) == bs
+        t._claim(b, a, len(bs), "rows", [("db", ["$%02x" % v for v in bs], "%s, never reached" % c)], "=.unreached_%04x" % a)
+    t._claim(0xF5, 0x4AE2, 14, "rows", [("ds", ["14", "$00"], "padding")], "=Padding_f5_4ae2")
+    t._claim(0xFE, 0x76A1, 3, "rows", [("db", ["$c3"], "jp $cc0e, copied by Func_fe_76a4 to the serial interrupt's"),
+                                       ("dw", ["$cc0e"], "RAM trampoline (the address in the vector at $0059)")], "=SerialJump_fe_76a1")
+    t._claim(0xFE, 0x47C4, 3, "rows", [("db", ["%d" % v for v in bytes_(0xFE, 0x47C4, 3)], "added to [$cbc8] by [$dc20 + [$ff9c]] - 2")],
+             "=ByteTable_fe_47c4")
+    t._claim(0xFE, 0x6958, 18, "rows", [("db", ["$%02x" % v for v in bytes_(0xFE, 0x6958 + 3 * k, 3)], None) for k in range(6)],
+             "=Triples_fe_6958")  # d, b, c by index (Func_fe_69xx)
+    t._claim(0xFE, 0x6CCE, 7, "rows", [("db", ["%d" % v for v in bytes_(0xFE, 0x6CCE, 7)], "by a random number below 7 (Func_f0_4608)")],
+             "=ByteTable_fe_6cce")
     t._claim(0x0B, 0x6C1F, 1, "rows", [("db", ["$00"], "padding")], "=Padding_0b_6c1f")
     t._claim(0x0F, 0x4568, 7, "rows", [("db", ["%d" % v for v in bytes_(0x0F, 0x4568, 7)], "by [$c30a]")], "=ByteTable_0f_4568")
     t._claim(0x0F, 0x4595, 12, "rows", [("dw", [ref(4, v) for v in words(0x0F, 0x4595, 6)], "wLevelEntrance")], "=Entrances_0f_4595")
@@ -865,6 +929,15 @@ def make(rom):
     for m in re.finditer(rb"\x21(..)\xe5\xf0\xc5\xf5\x21\xa7\xcb\xe5", rom, re.S):
         b = m.start() // 0x4000
         a = m.group(1)[0] | m.group(1)[1] << 8
+        if b and 0x4000 <= a < 0x8000:
+            t.add(b, a, "func", b)
+    # banks $F0+ push a return address (high byte first), the current bank and
+    # $3FD5 (which restores the bank and returns) before far-jumping through
+    # $3FDC: ld a, hi / push af / inc sp / ld a, lo / push af / inc sp /
+    # ldh a, [$ff81] / push af / ld a, $3f / push af / inc sp / ld a, $d5 ...
+    for m in re.finditer(rb"\x3e(.)\xf5\x33\x3e(.)\xf5\x33\xf0\x81\xf5\x3e\x3f\xf5\x33\x3e\xd5\xf5\x33", rom, re.S):
+        b = m.start() // 0x4000
+        a = m.group(1)[0] << 8 | m.group(2)[0]
         if b and 0x4000 <= a < 0x8000:
             t.add(b, a, "func", b)
     for (b, start, count, stride) in hints.JP_TABLES:

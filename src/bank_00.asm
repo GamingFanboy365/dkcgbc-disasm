@@ -191,8 +191,8 @@ Func_00_00f3::
 	jp PlaySong
 
 
-Unused_00_00f6::
-	db $29, $c3 ; leftover bytes between the jump vectors
+RAMPointer_00_00f6::
+	dw $c329 ; a RAM address, read by Func_f1_4dc4 in bank $f1
 
 Func_00_00f8::
 	jp Func_00_03e4.jump_041d

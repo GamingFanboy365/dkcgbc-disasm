@@ -1782,8 +1782,9 @@ Func_f5_4a3e::
 	ld [hl], a
 	ret
 
-	ds 14, $00 ; $4ae2
 
+Padding_f5_4ae2::
+	ds 14, $00 ; padding
 
 BGTiles_f5_4af0::
 	INCBIN "gfx/bgtiles/f5/4af0.2bpp"

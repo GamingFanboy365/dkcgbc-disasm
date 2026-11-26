@@ -196,7 +196,13 @@ A few more pieces of code in the main game's banks can't be reached:
 | `$09:4DFC` | the same `jp NextObject`, sharing its first byte (`$C3`) with the end byte of the list before it |
 | `$09:71F3` (`.unreached_71f3`) | 13 bytes inside `Func_09_71e4` that the `jr` before them always skips. They repeat the lines above them with different values (they test bit 7 of the player's y speed and set it to `$FD00` instead of `$0300`), so they look like an older version left in place |
 | `$00:03F5`, `$00:1DB5` | a `jr` and a `ret` that nothing reaches, at the end of other code |
-| `$00:00F6` | two bytes (`$29`, `$C3`) between the jump vectors at `$00F3` and `$00F8` |
+| `$F2:4A38`, `$F2:4A4D`, `$F2:6F25`, `$FE:4E37`, `$FE:6E52` | a `ret` (or `add a, $18`) right after a `ret`, `jr` or `jp`, in the front-end program |
+
+## Front-end data
+
+`Unused_f1_678a` (32 bytes at `$F1:678A`, between `RingCircle` and a table read by `Func_f1_4926`) wasn't read in any emulator session, and no pointer anywhere in the ROM leads to it. It holds 10 bytes, a two-entry pointer table and the two 9-byte records it points to, so it was probably a small table of the menu code that lost its user.
+
+The two `LanguageWordTiles` pointers per language name two 8-tile words, but `LoadLanguageWordTiles` only copies the first of each pair. The second words (at `$F1:6AC0`, `$6BC0`, `$6CC0`, `$6DC0` and `$6EC0`) may be loaded somewhere not found yet.
 
 ## Object data
 
@@ -225,6 +231,6 @@ These turned up nothing unused, which is worth knowing too:
 | Full screens | all 39 screen records in their banks are loaded by the flow script, with no unreferenced records next to them |
 | Game states | every state in the `$0300` jump table is selected by the flow script or by code |
 
-## Not identified yet
+## Open questions
 
-About 0.1% of the ROM (3 KB) is still unidentified, all of it outside the main game's banks `$00`–`$3F`. The biggest pieces are menu tile maps in bank `$F0` (`$4B9D`, `$4D19`), the 560-byte tile map at `$5B:4708` that nothing points to, a few small tables in bank `$F1` and leftovers in banks `$50`, `$55`, `$58` and `$59`. Several front-end graphics are identified but have no known loader yet: 256 tiles at `$F2:5760` and the sprite words at `$F1:6A40`. They need more emulator runs (Link-up, Print, the credits) before anything there can be called unused. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session either, but it's in the sample table, so it isn't unused on that evidence.
+Every byte of the ROM is now identified, so this list holds things whose kind is known but whose use isn't yet. The 256 tiles at `$F2:5760` (after the letter piece records) and the four tiles at `$F7:7F60` (after the front-end sprites) have no known loader. They need more emulator runs (Link-up, Print, the credits) before they can be called unused. A few small front-end tables are decoded by size and reader but not by meaning: `Defaults_f1_5d0a` (copied to `$C9E6`, `$C9FE` and `$CA08`), `Pairs_f1_6fe0` (written relative to the RAM address `$C329` kept in ROM at `$00F6`), `Triples_fe_6958` and `ByteTable_fe_6cce`. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session, but it's in the sample table, so it isn't unused on that evidence.

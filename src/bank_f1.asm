@@ -88,7 +88,7 @@ FE_Main::
 	pop bc
 	ld a, [$c981]
 	cp $01
-	jp z, Func_f1_7c82.jump_7cba
+	jp z, Func_f1_7cb9.jump_7cba
 	ld a, [$c981]
 	cp $02
 	jp z, .jump_40e1
@@ -1907,7 +1907,7 @@ Func_f1_4c75::
 
 
 Func_f1_4cfa::
-	jp BGTiles_f1_6f40.jump_707a
+	jp Pairs_f1_6fe0.jump_707a
 
 
 Func_f1_4cfd::
@@ -1917,8 +1917,8 @@ Func_f1_4cfd::
 Func_f1_4d00::
 	ret
 
-	db $00, $00
-
+.jp_table_pad:
+	db $00, $00 ; pads the ret entry above to 3 bytes
 
 Func_f1_4d03::
 	jp Func_f1_4fa4.jump_5071
@@ -1957,7 +1957,7 @@ Func_f1_4d1b::
 
 
 Func_f1_4d1e::
-	jp Func_f1_4ecd.jump_4efc
+	jp Func_f1_4ef3.jump_4efc
 
 
 Func_f1_4d21::
@@ -2191,7 +2191,7 @@ Func_f1_4e61::
 Func_f1_4e87::
 	ld a, $00
 	cp h
-	jr nz, Func_f1_4ecd.jump_4ef3
+	jr nz, Func_f1_4ef3
 	push de
 	push bc
 	ld a, $f2
@@ -2261,7 +2261,8 @@ Func_f1_4ecd::
 	ld a, $f0
 	jp Func_00_3fd5.jump_3fdc
 
-.jump_4ef3:
+
+Func_f1_4ef3::
 	ld a, $f2
 	ld hl, $701a
 	call FarCall_A_HL
@@ -3030,7 +3031,7 @@ Func_f1_53ec::
 
 
 Func_f1_5411::
-	call Func_f1_54d2
+	call LoadLanguageWordTiles
 	ld a, $01
 	ldh [rSVBK], a
 	ret
@@ -3165,7 +3166,7 @@ Func_f1_5419::
 	ret
 
 
-Func_f1_54d2::
+LoadLanguageWordTiles::
 	ld a, [$c805]
 	add a, a
 	add a, a
@@ -4082,8 +4083,14 @@ Func_f1_5c69::
 	jr nz, Func_f1_5c69
 	ret
 
-	INCBIN "baserom.gbc", $3c5ca9, $0018 ; $5ca9
 
+SpritePositions_f1_5ca9::
+	db $58, $38, $2d, $ff
+	db $48, $58, $2e, $01
+	db $68, $58, $2e, $ff
+	db $38, $78, $2e, $ff
+	db $58, $78, $2e, $01
+	db $78, $78, $2e, $ff
 
 HiScoreObjPalettes::
 	rgb  0,  0, 31,   7,  2,  0,  15,  9,  0,  31, 31,  0
@@ -4119,8 +4126,11 @@ Func_f1_5ce0::
 	call Func_f1_5d42
 	ret
 
-	INCBIN "baserom.gbc", $3c5d0a, $001e ; $5d0a
 
+Defaults_f1_5d0a::
+	db $88, $33, $01, $00, $00, $00, $01, $00, $00, $00 ; copied to $c9e6
+	db $88, $33, $04, $00, $00, $00, $04, $00, $00, $00 ; copied to $c9fe
+	db $88, $33, $0f, $00, $00, $00, $0f, $00, $00, $00 ; copied to $ca08
 
 Func_f1_5d28::
 	ld bc, $000a
@@ -5632,8 +5642,15 @@ RingCircle::
 	db -8, 47
 	db -4, 47
 	db 0, 48
-	INCBIN "baserom.gbc", $3c678a, $0035 ; $678a
 
+Unused_f1_678a::
+	db $00, $60, $5b, $1d, $38, $b3, $c8, $b3, $a5, $1d ; not read in any session, nothing points here
+	dw $6798, $67a1
+	db $20, $02, $b0, $20, $0c, $20, $14, $29, $22
+	db $20, $03, $b0, $20, $2a, $2b, $2c, $2d, $2e
+
+ByteTable_f1_67aa::
+	db $04, $00, $ff, $05, $07, $03, $ff, $ff, $ff, $ff, $01, $01, $02, $ff, $ff, $06, $ff, $ff, $ff, $ff, $ff ; by [$c96e], $ff for none (Func_f1_4926)
 
 RingTable::
 	dw Ring_f1_67df, Ring_f1_67f1, Ring_f1_6803, Ring_f1_6812
@@ -5736,8 +5753,52 @@ Ring_f1_6881::
 	db $43, $ff, $22
 	db $44, $ff, $21
 	db $13, $5a
-	INCBIN "baserom.gbc", $3c6893, $00a7 ; $6893
 
+MenuTable_f1_6893::
+	db 3, LOW(MenuItems_f1_68a2), HIGH(MenuItems_f1_68a2) ; items, list
+	db 1, LOW(MenuItems_f1_68c6), HIGH(MenuItems_f1_68c6) ; items, list
+	db 3, LOW(MenuItems_f1_68d2), HIGH(MenuItems_f1_68d2) ; items, list
+	db 2, LOW(MenuItems_f1_68f6), HIGH(MenuItems_f1_68f6) ; items, list
+	db 1, LOW(MenuItems_f1_690e), HIGH(MenuItems_f1_690e) ; items, list
+
+MenuItems_f1_68a2::
+	db $ff, $02, $80, $01, $18, $20, $05, $06, $00, $00, $00, $01
+	db $ff, $02, $00, $02, $48, $30, $06, $0a, $01, $00, $01, $02
+	db $00, $ff, $01, $40, $18, $58, $05, $06, $02, $00, $03, $01
+
+MenuItems_f1_68c6::
+	db $ff, $ff, $82, $40, $18, $30, $0c, $0a, $03, $00, $04, $04
+
+MenuItems_f1_68d2::
+	db $ff, $02, $80, $01, $18, $20, $06, $05, $04, $00, $08, $01
+	db $ff, $02, $00, $02, $48, $40, $06, $05, $05, $00, $09, $01
+	db $00, $ff, $01, $40, $18, $68, $06, $05, $06, $00, $0a, $01
+
+MenuItems_f1_68f6::
+	db $ff, $ff, $82, $01, $18, $40, $05, $06, $07, $00, $0b, $01
+	db $ff, $ff, $00, $40, $48, $30, $06, $0a, $08, $00, $0c, $02
+
+MenuItems_f1_690e::
+	db $ff, $ff, $81, $40, $18, $30, $0c, $0a, $09, $00, $0e, $04
+
+SpriteLists_f1_691a::
+	dw SpriteList_f1_6922, SpriteList_f1_6929, SpriteList_f1_6933, SpriteList_f1_6933 ; by [$c989] - 1 (Func_f1_754x)
+
+SpriteList_f1_6922::
+	db 2 ; count
+	db $18, $18, $b0 ; variant, x, y
+	db $2f, $30, $b0 ; variant, x, y
+
+SpriteList_f1_6929::
+	db 3 ; count
+	db $1a, $18, $b0 ; variant, x, y
+	db $06, $30, $b0 ; variant, x, y
+	db $1b, $48, $b0 ; variant, x, y
+
+SpriteList_f1_6933::
+	db 2 ; count
+	db $05, $18, $b0 ; variant, x, y
+	db $19, $30, $b0 ; variant, x, y
 
 ThumbnailTable::
 	db $08, 2, 2, BANK(BGTiles_f3_41e0), LOW(BGTiles_f3_41e0), HIGH(BGTiles_f3_41e0), 5, 6 ; slot, x, y, tiles, width, height
@@ -5758,16 +5819,70 @@ ThumbnailTable::
 	db $26, 2, 9, BANK(BGTiles_f3_4780), LOW(BGTiles_f3_4780), HIGH(BGTiles_f3_4780), 6, 5
 	db $44, 8, 4, BANK(BGTiles_f3_45a0), LOW(BGTiles_f3_45a0), HIGH(BGTiles_f3_45a0), 6, 5
 	db $62, 8, 9, BANK(BGTiles_f3_4960), LOW(BGTiles_f3_4960), HIGH(BGTiles_f3_4960), 6, 5
-	INCBIN "baserom.gbc", $3c69ca, $0076 ; $69ca
 
+ByteTable_f1_69ca::
+	db 18, 26, 26, 18, 18, 18, 18, 26, 26, 18 ; by index (Func_f1_7xxx)
+
+ByteTable_f1_69d4::
+	db 0, 1, 6, 10, 3, 5, 4, 2, 7, 11 ; x offsets
+
+ByteTable_f1_69de::
+	db 0, 1, 6, 8, 3, 5, 4, 2, 7, 9
+
+RAMPointers_f1_69e8::
+	dw $c976, $c978, $c977, $c979 ; RAM addresses
+
+Columns_f1_69f0::
+	dw LanguageColumns_f1_6a04, $c976
+	dw $0000, $0000
+	dw LanguageColumns_f1_6a13, $c978
+	dw LanguageColumns_f1_6a0e, $c977
+	dw LanguageColumns_f1_6a18, $c979
+
+LanguageColumns_f1_6a04::
+	db 11, 11, 16, 14, 11 ; by language ([$c805])
+
+LanguageColumns_f1_6a09::
+	db 12, 17, 15, 13, 14 ; by language ([$c805])
+
+LanguageColumns_f1_6a0e::
+	db 14, 14, 14, 14, 13 ; by language ([$c805])
+
+LanguageColumns_f1_6a13::
+	db 14, 16, 16, 16, 15 ; by language ([$c805])
+
+LanguageColumns_f1_6a18::
+	db 12, 12, 12, 12, 12 ; by language ([$c805])
+
+LanguageWordTiles::
+	dw BGTiles_f1_6a40, $6ac0 ; English
+	dw $6c40, $6cc0 ; German
+	dw $6b40, $6bc0 ; French
+	dw $6e40, $6ec0 ; Italian
+	dw $6d40, $6dc0 ; Spanish
+.pad_6a31:
+	ds 15, $00 ; padding
 
 BGTiles_f1_6a40::
 	INCBIN "gfx/bgtiles/f1/6a40.2bpp"
 
 BGTiles_f1_6f40::
 	INCBIN "gfx/bgtiles/f1/6f40.2bpp"
-	INCBIN "baserom.gbc", $3c6fd0, $00aa ; $6fd0
 
+Tile_f1_6fd0::
+	db $73, $7e, $13, $1e, $f3, $fe, $83, $fe, $86, $fc, $fc, $78, $78, $00, $00, $00
+
+Pairs_f1_6fe0::
+	db $01, $02, $03, $02, $05, $02, $07, $02, $08, $02, $0a, $02, $0c, $02, $0e, $02
+	db $10, $02, $12, $04, $14, $04, $16, $04, $18, $04, $1a, $02, $1d, $02, $1e, $02
+	db $20, $04, $22, $04, $24, $02, $27, $02, $28, $02, $2b, $02, $2c, $02, $2e, $02
+	db $30, $02, $32, $02, $34, $02, $36, $04, $38, $04, $3a, $04, $3c, $02, $3e, $02
+	db $40, $04, $42, $02, $44, $02, $46, $02, $48, $04, $4a, $02, $4c, $04, $4e, $02
+	db $50, $02, $52, $04, $54, $04, $56, $02, $58, $02, $5a, $04, $5c, $02, $5e, $04
+	db $60, $04, $62, $02, $64, $02, $66, $04, $68, $02, $6a, $02, $6c, $04, $6e, $02
+	db $70, $04, $72, $01, $74, $02, $76, $02, $78, $02, $7a, $01, $7c, $02, $7e, $02
+	db $80, $02, $82, $02, $84, $01, $86, $02, $88, $04, $8a, $02, $8c, $04, $8e, $02
+	db $90, $04, $92, $02, $94, $04, $96, $02, $99, $02
 .jump_707a:
 	call Func_f1_51cc
 	call Func_f1_437d
@@ -7555,9 +7670,9 @@ Func_f1_7b82::
 .jump_7b96:
 	ld a, e
 	cp $80
-	jr c, .jump_7bc6
+	jr c, Func_f1_7bc5.jump_7bc6
 	add a, $14
-	jr c, .jump_7bf2
+	jr c, Func_f1_7bf1.jump_7bf2
 	ld d, $14
 	ld a, [$c800]
 	dec d
@@ -7584,11 +7699,13 @@ Func_f1_7b82::
 	ld a, $f0
 	jp Func_00_3fd5.jump_3fdc
 
-	db $c9
+
+Func_f1_7bc5::
+	ret
 
 .jump_7bc6:
 	add a, $94
-	jp c, Func_f1_7c1a.jump_7c59
+	jp c, Func_f1_7c58.jump_7c59
 	ld d, $14
 	ld a, [$c800]
 	dec d
@@ -7615,7 +7732,9 @@ Func_f1_7b82::
 	ld a, $f0
 	jp Func_00_3fd5.jump_3fdc
 
-	db $c9
+
+Func_f1_7bf1::
+	ret
 
 .jump_7bf2:
 	xor a
@@ -7692,7 +7811,9 @@ Func_f1_7c1a::
 	ld a, $f0
 	jp Func_00_3fd5.jump_3fdc
 
-	db $c9
+
+Func_f1_7c58::
+	ret
 
 .jump_7c59:
 	ld a, $80
@@ -7765,7 +7886,9 @@ Func_f1_7c82::
 	ld a, $f0
 	jp Func_00_3fd5.jump_3fdc
 
-	db $c9
+
+Func_f1_7cb9::
+	ret
 
 .jump_7cba:
 	call Func_f1_59ce

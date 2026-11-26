@@ -152,7 +152,7 @@ Besides the adventure itself, the cartridge holds two more programs, each with i
 
 Code in these banks calls across banks in two ways. `FarCall_A_HL` (`$3FC0`) takes the bank in `a` and the target in `hl`. The other way pushes the return address `$3FD5` and the target a byte at a time (`ld a, n / push af / inc sp`), puts the bank in `a` and jumps to `$3FDC`.
 
-**Banks `$50`–`$6F`: a sub-program the front end launches.** Bank `$F2` far-jumps into it at `$50:4000` (`Func_f2_72d7` and one other place). It installs its own runtime in RAM: `$C800` copies `$51:42F4`–`$44F0` to `$CB00`. Its far calls push the return address, the bank, the cleanup routine `$CBA7` and the target, then jump to `$CB99` with the bank in `a`. Bank `$50` is code and `$51`–`$52` are mostly data tables with a few routines. `$53`, `$54` and `$56` are tile maps, `$58`–`$5B` font and text layouts, and `$5C`–`$6F` tile graphics. Among those graphics are words pre-drawn in several languages ("ADVENTURE", "ORIGINAL", "FUNKY"…), and bank `$50` has a pause menu in five languages ("CONTINUE", "QUIT?"…). Which bonus game or screen this is hasn't been pinned down yet; decoding its screen loader is the next step.
+**Banks `$50`–`$6F`: Funky's Fishing, plus graphics shared with the front end.** Running the game in an emulator confirms it: choosing Bonus → Funky's Fishing enters `$50:4000`, which bank `$F2` far-jumps to (`Func_f2_72d7` and one other place). The game installs its own runtime in RAM: `$C800` copies `$51:42F4`–`$44F0` to `$CB00`. Its far calls push the return address, the bank, the cleanup routine `$CBA7` and the target, then jump to `$CB99` with the bank in `a`. The game draws its scenery from raw 20×18 screens in bank `$51` (360 attribute bytes, then 360 tile numbers, the same layout as the main game's full screens). `Func_51_4000` loads the one-player screen at `$51:6A90` or the second version at `$51:6D60`, the palettes at `$51:7090`/`$70D0` and a 12×4 box from `$51:7030`. Every frame, its main loop also streams a 4 KB buffer from WRAM into VRAM by HDMA, which animates its sprites (fish tiles come from bank `$52`). Its pause menu ("CONTINUE", "QUIT?") is in bank `$50` in five languages. Banks `$53`–`$6F` are graphics and layout data, used by the fishing game (banks `$51`, `$5C`) and by the front end's title screen and menus (banks `$5B`, `$5C`, `$61`, `$66`).
 
 ### Unused content
 
@@ -192,3 +192,7 @@ The retail ROM comes first: the goal is a complete (100%) disassembly, with ever
 2. Convert the located raw data (block banks, terrain, compressed maps) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 4. Then the demo.
+
+Running the ROM in an emulator (PyBoy, used only locally and never in the build) has become part of the method. It identifies what each part of the ROM is and shows which code and data the game really touches at run time, which catches what static tracing misses and settles whether content is truly unused.
+
+Later, and kept apart from the disassembly, a `wiki/` folder may hold AI-written articles about the game's subjects, drawing on this research and on public sources. Nothing in it feeds back into the sources or documentation of the disassembly.

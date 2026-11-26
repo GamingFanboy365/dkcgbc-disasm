@@ -3,6 +3,7 @@ OBJS := \
 	src/bank_00.o \
 	src/bank_01.o \
 	src/bank_02.o \
+	src/bank_03.o \
 	src/bank_04.o \
 	src/bank_05.o \
 	src/bank_06.o \
@@ -196,6 +197,9 @@ OBJS := \
 	src/data_banks.o \
 
 GFX := \
+	gfx/bgtiles/0d/4010.2bpp \
+	gfx/bgtiles/0d/5980.2bpp \
+	gfx/bgtiles/0d/5980_end.2bpp \
 	gfx/bgtiles/18/4000.2bpp \
 	gfx/bgtiles/18/4000_end.2bpp \
 	gfx/bgtiles/18/55c0.2bpp \
@@ -1943,6 +1947,7 @@ GFX := \
 	gfx/frames/3a/4300.2bpp \
 	gfx/frames/3a/4380.2bpp \
 
+src/bank_0d.o: gfx/bgtiles/0d/4010.2bpp gfx/bgtiles/0d/5980.2bpp gfx/bgtiles/0d/5980_end.2bpp
 src/bank_18.o: gfx/bgtiles/18/4000.2bpp gfx/bgtiles/18/4000_end.2bpp gfx/bgtiles/18/55c0.2bpp
 src/bank_19.o: gfx/bgtiles/19/4000.2bpp gfx/bgtiles/19/4000_end.2bpp gfx/bgtiles/19/5fa0.2bpp
 src/bank_1a.o: gfx/bgtiles/1a/4000.2bpp gfx/bgtiles/1a/4000_end.2bpp gfx/bgtiles/1a/5fe0.2bpp

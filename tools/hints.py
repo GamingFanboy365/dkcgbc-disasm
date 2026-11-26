@@ -278,4 +278,6 @@ EXTRA_TILES = [
     (0x40, 0x4800, 9, "world map arrows and icons"),
     (0x40, 0x4A28, 256, "the DMG 'needs a Game Boy Color' screen (NotGBC copies $1000 bytes)"),
     (0x41, 0x4000, 312, "world map sprites (8x16 objects)"),
+    (0x0D, 0x4010, 16, "Rare logo: rounded corner sprites"),
+    (0x0D, 0x5980, 88, "Rare logo tiles (Func_0d_4216 copies $580 bytes)"),
 ]

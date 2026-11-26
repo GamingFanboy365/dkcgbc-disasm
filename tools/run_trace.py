@@ -206,6 +206,9 @@ def parse_banks(t, rom):
                                                                               0x30: "value"}.get(kind, "?")))
         rows.append(("db", ["0"], "end"))
         t._claim(b, a, 8 * len(recs) + 1, "rows", rows, "LevelObjects")
+    blocks = sorted(set(p for recs in lists.values() for (i, fl, x, y, p) in recs if fl & 0x30 == 0))
+    for p in blocks:  # copied to $d800 + 16 * id (Func_00_1715)
+        t._claim(3, p, 16, "rows", hexrow("db", rom[off(3, p):off(3, p) + 16]), "LevelObjBlock")
     # --- text
     for b in range(0x10, 0x15):
         groups, glists, strings = bk.text_bank(rom, b)
@@ -223,6 +226,14 @@ def parse_banks(t, rom):
     t._claim(0x41, 0x5380, 64, "palette", 8, "=WorldMapObjPalettes")
     t._claim(0x51, 0x42F4, 0x44F1 - 0x42F4, "incbin", None, "=FishingRuntime")  # copied to $cb00 and run there
     t._claim(0x52, 0x41EE, 0x8000 - 0x41EE, "incbin", None, "=FishingSpriteTiles")  # streamed to VRAM each frame
+    # Rare logo (flow state $10; Func_0d_4130, Func_0d_4216, Func_0d_4266)
+    t._claim(0x0D, 0x4110, 32, "rows", [("db", ["$%02x" % x for x in rom[off(0x0D, 0x4110 + 4 * k):off(0x0D, 0x4110 + 4 * k) + 4]],
+                                         "y, x, tile, attributes" if k == 0 else None) for k in range(8)], "=RareLogoCornerOAM")
+    t._claim(0x0D, 0x42A9, 64, "palette", 8, "=RareLogoPalettes")
+    t._claim(0x0D, 0x42E9, 0x5980 - 0x42E9, "incbin", None, "=RareLogoAnimation")  # frames of (n, n bytes) / ($80|n skip), 0 ends a frame
+    t._claim(0x0D, 0x5F00, 88, "rows", hexrow("db", rom[off(0x0D, 0x5F00):off(0x0D, 0x5F00) + 88], 8), "=RareLogoAttributes")
+    t._claim(0x55, 0x4840, 0x6100 - 0x4840, "incbin", None, "=HiScoreGraphics")  # font, scene tiles and tile maps
+    t._claim(0x55, 0x6100, 0x30, "palette", 6, "=HiScorePalettes")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)
     t._claim(sbk, sta, 4 * len(ents), "rows",

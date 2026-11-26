@@ -7,35 +7,35 @@ SECTION "Bank $0b", ROMX[$4000], BANK[$0b]
 
 LevelObjects_0b_4003::
 	db $01, $80
-	dw $00d4, $00a0, $4010 ; x, y, block in bank $03
+	dw $00d4, $00a0, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $02, $80
-	dw $0124, $00a0, $4020 ; x, y, block in bank $03
+	dw $0124, $00a0, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $03, $80
-	dw $0370, $00e0, $4050 ; x, y, block in bank $03
+	dw $0370, $00e0, LevelObjBlock_03_4050 ; x, y, block in bank $03
 	db $04, $80
-	dw $0520, $00d0, $4220 ; x, y, block in bank $03
+	dw $0520, $00d0, LevelObjBlock_03_4220 ; x, y, block in bank $03
 	db $05, $80
-	dw $0560, $00c8, $40f0 ; x, y, block in bank $03
+	dw $0560, $00c8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $06, $80
-	dw $0770, $0158, $4030 ; x, y, block in bank $03
+	dw $0770, $0158, LevelObjBlock_03_4030 ; x, y, block in bank $03
 	db $07, $80
-	dw $07b8, $0150, $4250 ; x, y, block in bank $03
+	dw $07b8, $0150, LevelObjBlock_03_4250 ; x, y, block in bank $03
 	db $08, $80
-	dw $0818, $00e8, $4220 ; x, y, block in bank $03
+	dw $0818, $00e8, LevelObjBlock_03_4220 ; x, y, block in bank $03
 	db $09, $80
-	dw $0858, $00e0, $40f0 ; x, y, block in bank $03
+	dw $0858, $00e0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0994, $010c, $4010 ; x, y, block in bank $03
+	dw $0994, $010c, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $0b, $80
-	dw $09e4, $010c, $4020 ; x, y, block in bank $03
+	dw $09e4, $010c, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0cdc, $00d8, $4010 ; x, y, block in bank $03
+	dw $0cdc, $00d8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0d78, $00a0, $4220 ; x, y, block in bank $03
+	dw $0d78, $00a0, LevelObjBlock_03_4220 ; x, y, block in bank $03
 	db $0e, $80
-	dw $0db8, $0098, $40f0 ; x, y, block in bank $03
+	dw $0db8, $0098, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0f, $80
-	dw $0fdc, $00b0, $4010 ; x, y, block in bank $03
+	dw $0fdc, $00b0, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $60, $b0
 	dw $009c, $00aa, $66a0 ; x, y, value
 	db $61, $b0
@@ -184,61 +184,61 @@ LevelObjects_0b_4003::
 
 LevelObjects_0b_42bc::
 	db $01, $80
-	dw $0088, $0158, $4030 ; x, y, block in bank $03
+	dw $0088, $0158, LevelObjBlock_03_4030 ; x, y, block in bank $03
 	db $02, $80
-	dw $02c8, $00e8, $4050 ; x, y, block in bank $03
+	dw $02c8, $00e8, LevelObjBlock_03_4050 ; x, y, block in bank $03
 	db $03, $80
-	dw $0318, $00f0, $4020 ; x, y, block in bank $03
+	dw $0318, $00f0, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $04, $80
-	dw $040c, $0090, $40b0 ; x, y, block in bank $03
+	dw $040c, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $05, $80
-	dw $04cc, $00f8, $4010 ; x, y, block in bank $03
+	dw $04cc, $00f8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $06, $80
-	dw $054c, $00f8, $4010 ; x, y, block in bank $03
+	dw $054c, $00f8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $07, $80
-	dw $0668, $0098, $4140 ; x, y, block in bank $03
+	dw $0668, $0098, LevelObjBlock_03_4140 ; x, y, block in bank $03
 	db $08, $80
-	dw $0830, $0098, $4280 ; x, y, block in bank $03
+	dw $0830, $0098, LevelObjBlock_03_4280 ; x, y, block in bank $03
 	db $09, $80
-	dw $0998, $0138, $4110 ; x, y, block in bank $03
+	dw $0998, $0138, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $0a, $80
-	dw $09e0, $0150, $4110 ; x, y, block in bank $03
+	dw $09e0, $0150, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0a20, $0168, $4110 ; x, y, block in bank $03
+	dw $0a20, $0168, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0db8, $00c0, $40b0 ; x, y, block in bank $03
+	dw $0db8, $00c0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0e7c, $01b8, $4010 ; x, y, block in bank $03
+	dw $0e7c, $01b8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $0e, $80
-	dw $0f80, $01a0, $4240 ; x, y, block in bank $03
+	dw $0f80, $01a0, LevelObjBlock_03_4240 ; x, y, block in bank $03
 	db $0f, $80
-	dw $0fd0, $01a0, $40f0 ; x, y, block in bank $03
+	dw $0fd0, $01a0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $10, $80
-	dw $10bc, $00a0, $4330 ; x, y, block in bank $03
+	dw $10bc, $00a0, LevelObjBlock_03_4330 ; x, y, block in bank $03
 	db $11, $80
-	dw $11c0, $0158, $4010 ; x, y, block in bank $03
+	dw $11c0, $0158, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $12, $80
-	dw $1200, $01f8, $4010 ; x, y, block in bank $03
+	dw $1200, $01f8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $13, $80
-	dw $1248, $01e0, $4130 ; x, y, block in bank $03
+	dw $1248, $01e0, LevelObjBlock_03_4130 ; x, y, block in bank $03
 	db $14, $80
-	dw $12d8, $01c8, $4250 ; x, y, block in bank $03
+	dw $12d8, $01c8, LevelObjBlock_03_4250 ; x, y, block in bank $03
 	db $15, $80
-	dw $147c, $01b8, $4150 ; x, y, block in bank $03
+	dw $147c, $01b8, LevelObjBlock_03_4150 ; x, y, block in bank $03
 	db $16, $80
-	dw $15c0, $0110, $40b0 ; x, y, block in bank $03
+	dw $15c0, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $17, $80
-	dw $1620, $0110, $40b0 ; x, y, block in bank $03
+	dw $1620, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $18, $80
-	dw $1720, $0110, $40b0 ; x, y, block in bank $03
+	dw $1720, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $19, $80
-	dw $1788, $0110, $40b0 ; x, y, block in bank $03
+	dw $1788, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $1a, $80
-	dw $17f0, $0110, $40b0 ; x, y, block in bank $03
+	dw $17f0, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $1b, $80
-	dw $19c8, $0110, $40b0 ; x, y, block in bank $03
+	dw $19c8, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $1c, $80
-	dw $1eb8, $00d0, $40b0 ; x, y, block in bank $03
+	dw $1eb8, $00d0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0055, $00d5, $48ef ; x, y, value
 	db $61, $b0
@@ -403,29 +403,29 @@ LevelObjects_0b_42bc::
 
 LevelObjects_0b_461d::
 	db $01, $80
-	dw $0258, $00f8, $4020 ; x, y, block in bank $03
+	dw $0258, $00f8, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $02, $80
-	dw $0488, $00b8, $40b0 ; x, y, block in bank $03
+	dw $0488, $00b8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $03, $80
-	dw $04b8, $00c0, $4e90 ; x, y, block in bank $03
+	dw $04b8, $00c0, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $04, $80
-	dw $064c, $00b8, $4f60 ; x, y, block in bank $03
+	dw $064c, $00b8, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $05, $80
-	dw $0750, $0108, $4020 ; x, y, block in bank $03
+	dw $0750, $0108, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $06, $80
-	dw $0790, $0108, $4020 ; x, y, block in bank $03
+	dw $0790, $0108, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $07, $80
-	dw $08c8, $00b8, $4010 ; x, y, block in bank $03
+	dw $08c8, $00b8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $08, $80
-	dw $0a30, $0098, $4220 ; x, y, block in bank $03
+	dw $0a30, $0098, LevelObjBlock_03_4220 ; x, y, block in bank $03
 	db $09, $80
-	dw $0bc0, $0078, $4020 ; x, y, block in bank $03
+	dw $0bc0, $0078, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0cd0, $00b0, $4020 ; x, y, block in bank $03
+	dw $0cd0, $00b0, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0f98, $0098, $40b0 ; x, y, block in bank $03
+	dw $0f98, $0098, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0f98, $00e0, $40b0 ; x, y, block in bank $03
+	dw $0f98, $00e0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $004e, $00cd, $6662 ; x, y, value
 	db $61, $b0
@@ -530,31 +530,31 @@ LevelObjects_0b_461d::
 
 LevelObjects_0b_480e::
 	db $01, $80
-	dw $01a0, $00f8, $4150 ; x, y, block in bank $03
+	dw $01a0, $00f8, LevelObjBlock_03_4150 ; x, y, block in bank $03
 	db $02, $80
-	dw $0260, $00f0, $4150 ; x, y, block in bank $03
+	dw $0260, $00f0, LevelObjBlock_03_4150 ; x, y, block in bank $03
 	db $03, $80
-	dw $0468, $00d0, $40b0 ; x, y, block in bank $03
+	dw $0468, $00d0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $04, $80
-	dw $0468, $0118, $40f0 ; x, y, block in bank $03
+	dw $0468, $0118, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $05, $80
-	dw $05c8, $0120, $41d0 ; x, y, block in bank $03
+	dw $05c8, $0120, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $06, $80
-	dw $0668, $0100, $41d0 ; x, y, block in bank $03
+	dw $0668, $0100, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $07, $80
-	dw $0b54, $00e8, $4dc0 ; x, y, block in bank $03
+	dw $0b54, $00e8, LevelObjBlock_03_4dc0 ; x, y, block in bank $03
 	db $08, $80
-	dw $0d18, $0108, $41d0 ; x, y, block in bank $03
+	dw $0d18, $0108, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $09, $80
-	dw $0d60, $0108, $41d0 ; x, y, block in bank $03
+	dw $0d60, $0108, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1358, $00f0, $40b0 ; x, y, block in bank $03
+	dw $1358, $00f0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0b, $80
-	dw $1740, $0108, $40e0 ; x, y, block in bank $03
+	dw $1740, $0108, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $1a00, $0150, $40e0 ; x, y, block in bank $03
+	dw $1a00, $0150, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1c08, $0180, $4150 ; x, y, block in bank $03
+	dw $1c08, $0180, LevelObjBlock_03_4150 ; x, y, block in bank $03
 	db $60, $b0
 	dw $00d0, $013a, $531e ; x, y, value
 	db $61, $b0
@@ -757,37 +757,37 @@ LevelObjString_0b_4b69::
 
 LevelObjects_0b_4b6c::
 	db $01, $80
-	dw $0100, $0140, $40b0 ; x, y, block in bank $03
+	dw $0100, $0140, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $02, $80
-	dw $03e8, $0108, $4220 ; x, y, block in bank $03
+	dw $03e8, $0108, LevelObjBlock_03_4220 ; x, y, block in bank $03
 	db $03, $80
-	dw $07d4, $0114, $40b0 ; x, y, block in bank $03
+	dw $07d4, $0114, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $04, $80
-	dw $098c, $0150, $40b0 ; x, y, block in bank $03
+	dw $098c, $0150, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $05, $80
-	dw $0b10, $0118, $40b0 ; x, y, block in bank $03
+	dw $0b10, $0118, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $06, $80
-	dw $0cac, $0148, $4f60 ; x, y, block in bank $03
+	dw $0cac, $0148, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $07, $80
-	dw $0ee4, $0188, $41c0 ; x, y, block in bank $03
+	dw $0ee4, $0188, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $08, $80
-	dw $1004, $0188, $41c0 ; x, y, block in bank $03
+	dw $1004, $0188, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $09, $80
-	dw $11b8, $0068, $4f60 ; x, y, block in bank $03
+	dw $11b8, $0068, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1298, $0100, $4f60 ; x, y, block in bank $03
+	dw $1298, $0100, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $0b, $80
-	dw $14d8, $00d0, $4f60 ; x, y, block in bank $03
+	dw $14d8, $00d0, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $0c, $80
-	dw $1538, $00e8, $4f60 ; x, y, block in bank $03
+	dw $1538, $00e8, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $0d, $80
-	dw $18e8, $0088, $40f0 ; x, y, block in bank $03
+	dw $18e8, $0088, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0e, $80
-	dw $18e8, $00a0, $40b0 ; x, y, block in bank $03
+	dw $18e8, $00a0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0f, $80
-	dw $2088, $01c8, $4f60 ; x, y, block in bank $03
+	dw $2088, $01c8, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $10, $80
-	dw $23f0, $0128, $41c0 ; x, y, block in bank $03
+	dw $23f0, $0128, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0117, $0037, $6f98 ; x, y, value
 	db $61, $b0
@@ -985,43 +985,43 @@ LevelObjString_0b_4ee5::
 
 LevelObjects_0b_4ee9::
 	db $01, $80
-	dw $0100, $00f8, $4020 ; x, y, block in bank $03
+	dw $0100, $00f8, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $02, $80
-	dw $0300, $0148, $4010 ; x, y, block in bank $03
+	dw $0300, $0148, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $03, $80
-	dw $03a4, $00e0, $40f0 ; x, y, block in bank $03
+	dw $03a4, $00e0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $04, $80
-	dw $0460, $0138, $4020 ; x, y, block in bank $03
+	dw $0460, $0138, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $05, $80
-	dw $0508, $00f8, $4020 ; x, y, block in bank $03
+	dw $0508, $00f8, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $06, $80
-	dw $05f0, $0108, $4020 ; x, y, block in bank $03
+	dw $05f0, $0108, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $07, $80
-	dw $069c, $00b8, $4110 ; x, y, block in bank $03
+	dw $069c, $00b8, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $08, $80
-	dw $0780, $0100, $40b0 ; x, y, block in bank $03
+	dw $0780, $0100, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $09, $80
-	dw $09e8, $00d8, $4d30 ; x, y, block in bank $03
+	dw $09e8, $00d8, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0b9c, $0168, $40f0 ; x, y, block in bank $03
+	dw $0b9c, $0168, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0c3c, $0168, $40f0 ; x, y, block in bank $03
+	dw $0c3c, $0168, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0cdc, $0168, $40f0 ; x, y, block in bank $03
+	dw $0cdc, $0168, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0e98, $017c, $41c0 ; x, y, block in bank $03
+	dw $0e98, $017c, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $0e, $80
-	dw $0f2c, $016c, $41c0 ; x, y, block in bank $03
+	dw $0f2c, $016c, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $0f, $80
-	dw $15f8, $0158, $40b0 ; x, y, block in bank $03
+	dw $15f8, $0158, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $10, $80
-	dw $1828, $01d0, $40f0 ; x, y, block in bank $03
+	dw $1828, $01d0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $11, $80
-	dw $18b0, $01d0, $40f0 ; x, y, block in bank $03
+	dw $18b0, $01d0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $12, $80
-	dw $1b40, $011c, $41c0 ; x, y, block in bank $03
+	dw $1b40, $011c, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $13, $80
-	dw $1bd8, $014c, $4110 ; x, y, block in bank $03
+	dw $1bd8, $014c, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0146, $00fd, $4ef5 ; x, y, value
 	db $61, $b0
@@ -1162,17 +1162,17 @@ LevelObjects_0b_4ee9::
 
 LevelObjects_0b_51a2::
 	db $01, $80
-	dw $0090, $0068, $43d0 ; x, y, block in bank $03
+	dw $0090, $0068, LevelObjBlock_03_43d0 ; x, y, block in bank $03
 	db $02, $80
-	dw $00d8, $0078, $4f50 ; x, y, block in bank $03
+	dw $00d8, $0078, LevelObjBlock_03_4f50 ; x, y, block in bank $03
 	db $03, $80
-	dw $0118, $0078, $4f50 ; x, y, block in bank $03
+	dw $0118, $0078, LevelObjBlock_03_4f50 ; x, y, block in bank $03
 	db $04, $80
-	dw $0158, $0068, $43c0 ; x, y, block in bank $03
+	dw $0158, $0068, LevelObjBlock_03_43c0 ; x, y, block in bank $03
 	db $05, $80
-	dw $0198, $0068, $4f50 ; x, y, block in bank $03
+	dw $0198, $0068, LevelObjBlock_03_4f50 ; x, y, block in bank $03
 	db $06, $80
-	dw $01d8, $0068, $40e0 ; x, y, block in bank $03
+	dw $01d8, $0068, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $021d, $003e, $66b6 ; x, y, value
 	db $61, $b0
@@ -1181,13 +1181,13 @@ LevelObjects_0b_51a2::
 
 LevelObjects_0b_51e3::
 	db $01, $80
-	dw $00dc, $00a8, $41c0 ; x, y, block in bank $03
+	dw $00dc, $00a8, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $02, $80
-	dw $011c, $00a8, $40f0 ; x, y, block in bank $03
+	dw $011c, $00a8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $03, $80
-	dw $01fc, $00a8, $41c0 ; x, y, block in bank $03
+	dw $01fc, $00a8, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $04, $80
-	dw $023c, $00a8, $40f0 ; x, y, block in bank $03
+	dw $023c, $00a8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0170, $0057, $66b6 ; x, y, value
 	db $61, $b0
@@ -1196,15 +1196,15 @@ LevelObjects_0b_51e3::
 
 LevelObjects_0b_5214::
 	db $01, $80
-	dw $0084, $00e4, $4180 ; x, y, block in bank $03
+	dw $0084, $00e4, LevelObjBlock_03_4180 ; x, y, block in bank $03
 	db $02, $80
-	dw $00b8, $0068, $41c0 ; x, y, block in bank $03
+	dw $00b8, $0068, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $03, $80
-	dw $00f0, $00e4, $4180 ; x, y, block in bank $03
+	dw $00f0, $00e4, LevelObjBlock_03_4180 ; x, y, block in bank $03
 	db $04, $80
-	dw $0120, $0134, $4150 ; x, y, block in bank $03
+	dw $0120, $0134, LevelObjBlock_03_4150 ; x, y, block in bank $03
 	db $05, $80
-	dw $013c, $0090, $40e0 ; x, y, block in bank $03
+	dw $013c, $0090, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0050, $0050, $5eb9 ; x, y, value
 	db $61, $b0
@@ -1225,13 +1225,13 @@ LevelObjects_0b_5214::
 
 LevelObjects_0b_527d::
 	db $01, $80
-	dw $0080, $0078, $4280 ; x, y, block in bank $03
+	dw $0080, $0078, LevelObjBlock_03_4280 ; x, y, block in bank $03
 	db $02, $80
-	dw $0088, $0030, $4db0 ; x, y, block in bank $03
+	dw $0088, $0030, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $03, $80
-	dw $00c8, $0078, $4280 ; x, y, block in bank $03
+	dw $00c8, $0078, LevelObjBlock_03_4280 ; x, y, block in bank $03
 	db $04, $80
-	dw $00d0, $0030, $4db0 ; x, y, block in bank $03
+	dw $00d0, $0030, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0061, $0108, $6747 ; x, y, value
 	db $61, $b0
@@ -1242,9 +1242,9 @@ LevelObjects_0b_527d::
 
 LevelObjects_0b_52b6::
 	db $01, $80
-	dw $00c0, $0068, $40f0 ; x, y, block in bank $03
+	dw $00c0, $0068, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $02, $80
-	dw $00f0, $0068, $4da0 ; x, y, block in bank $03
+	dw $00f0, $0068, LevelObjBlock_03_4da0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0076, $0050, $5c12 ; x, y, value
 	db $61, $b0
@@ -1269,13 +1269,13 @@ LevelObjects_0b_52b6::
 
 LevelObjects_0b_5317::
 	db $01, $80
-	dw $0048, $0058, $40b0 ; x, y, block in bank $03
+	dw $0048, $0058, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $02, $80
-	dw $006c, $00a0, $40b0 ; x, y, block in bank $03
+	dw $006c, $00a0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $03, $80
-	dw $006c, $00e8, $40b0 ; x, y, block in bank $03
+	dw $006c, $00e8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $04, $80
-	dw $0090, $0058, $40b0 ; x, y, block in bank $03
+	dw $0090, $0058, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $002c, $0018, $6750 ; x, y, value
 	db $61, $b0
@@ -1297,32 +1297,32 @@ LevelObjects_0b_5360::
 
 LevelObjects_0b_5371::
 	db $01, $80
-	dw $003c, $0038, $4d40 ; x, y, block in bank $03
+	dw $003c, $0038, LevelObjBlock_03_4d40 ; x, y, block in bank $03
 	db $02, $80
-	dw $003c, $0078, $4d40 ; x, y, block in bank $03
+	dw $003c, $0078, LevelObjBlock_03_4d40 ; x, y, block in bank $03
 	db $03, $80
-	dw $003c, $00b8, $4d40 ; x, y, block in bank $03
+	dw $003c, $00b8, LevelObjBlock_03_4d40 ; x, y, block in bank $03
 	db $04, $80
-	dw $003c, $00f8, $4d40 ; x, y, block in bank $03
+	dw $003c, $00f8, LevelObjBlock_03_4d40 ; x, y, block in bank $03
 	db $05, $80
-	dw $0084, $0038, $4d50 ; x, y, block in bank $03
+	dw $0084, $0038, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $06, $80
-	dw $0084, $0078, $4d50 ; x, y, block in bank $03
+	dw $0084, $0078, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $07, $80
-	dw $0084, $00b8, $4d50 ; x, y, block in bank $03
+	dw $0084, $00b8, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $08, $80
-	dw $0084, $00f8, $4d50 ; x, y, block in bank $03
+	dw $0084, $00f8, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0050, $011d, $6458 ; x, y, value
 	db 0 ; end
 
 LevelObjects_0b_53ba::
 	db $01, $80
-	dw $0060, $0048, $40e0 ; x, y, block in bank $03
+	dw $0060, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $02, $80
-	dw $00a8, $0048, $40e0 ; x, y, block in bank $03
+	dw $00a8, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $03, $80
-	dw $00f8, $0048, $40e0 ; x, y, block in bank $03
+	dw $00f8, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0063, $0035, $7838 ; x, y, value
 	db $61, $b0
@@ -1337,9 +1337,9 @@ LevelObjects_0b_53ba::
 
 LevelObjects_0b_53fb::
 	db $01, $80
-	dw $00b8, $0070, $40f0 ; x, y, block in bank $03
+	dw $00b8, $0070, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $02, $80
-	dw $00e8, $0070, $4d70 ; x, y, block in bank $03
+	dw $00e8, $0070, LevelObjBlock_03_4d70 ; x, y, block in bank $03
 	db $60, $b0
 	dw $006f, $005a, $5d17 ; x, y, value
 	db $61, $b0
@@ -1364,9 +1364,9 @@ LevelObjects_0b_53fb::
 
 LevelObjects_0b_545c::
 	db $01, $80
-	dw $00b8, $0070, $40f0 ; x, y, block in bank $03
+	dw $00b8, $0070, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $02, $80
-	dw $00e8, $0070, $4d70 ; x, y, block in bank $03
+	dw $00e8, $0070, LevelObjBlock_03_4d70 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0070, $0059, $5d17 ; x, y, value
 	db $61, $b0
@@ -1391,47 +1391,47 @@ LevelObjects_0b_545c::
 
 LevelObjects_0b_54bd::
 	db $01, $80
-	dw $008c, $0130, $40b0 ; x, y, block in bank $03
+	dw $008c, $0130, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $02, $80
-	dw $008c, $0178, $40e0 ; x, y, block in bank $03
+	dw $008c, $0178, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $03, $80
-	dw $00c8, $0450, $4010 ; x, y, block in bank $03
+	dw $00c8, $0450, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $04, $80
-	dw $00d0, $0344, $4110 ; x, y, block in bank $03
+	dw $00d0, $0344, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $05, $80
-	dw $00e0, $00f4, $4020 ; x, y, block in bank $03
+	dw $00e0, $00f4, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $06, $80
-	dw $010c, $0230, $40b0 ; x, y, block in bank $03
+	dw $010c, $0230, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $07, $80
-	dw $010c, $0298, $40e0 ; x, y, block in bank $03
+	dw $010c, $0298, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $08, $80
-	dw $0220, $0310, $40b0 ; x, y, block in bank $03
+	dw $0220, $0310, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $09, $80
-	dw $0220, $0358, $40f0 ; x, y, block in bank $03
+	dw $0220, $0358, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0258, $0240, $4000 ; x, y, block in bank $03
+	dw $0258, $0240, LevelObjBlock_03_4000 ; x, y, block in bank $03
 	db $0b, $80
-	dw $02cc, $01b8, $40f0 ; x, y, block in bank $03
+	dw $02cc, $01b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0328, $0420, $41a0 ; x, y, block in bank $03
+	dw $0328, $0420, LevelObjBlock_03_41a0 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0440, $0374, $4010 ; x, y, block in bank $03
+	dw $0440, $0374, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $0e, $80
-	dw $0478, $00e8, $4020 ; x, y, block in bank $03
+	dw $0478, $00e8, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $0f, $80
-	dw $0500, $00e0, $4020 ; x, y, block in bank $03
+	dw $0500, $00e0, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $10, $80
-	dw $050c, $0228, $40b0 ; x, y, block in bank $03
+	dw $050c, $0228, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $11, $80
-	dw $0518, $03f0, $41b0 ; x, y, block in bank $03
+	dw $0518, $03f0, LevelObjBlock_03_41b0 ; x, y, block in bank $03
 	db $12, $80
-	dw $0518, $0430, $41c0 ; x, y, block in bank $03
+	dw $0518, $0430, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $13, $80
-	dw $0538, $03b8, $40f0 ; x, y, block in bank $03
+	dw $0538, $03b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $14, $80
-	dw $064c, $02b8, $40b0 ; x, y, block in bank $03
+	dw $064c, $02b8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $15, $80
-	dw $0658, $0380, $4000 ; x, y, block in bank $03
+	dw $0658, $0380, LevelObjBlock_03_4000 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0070, $0063, $4890 ; x, y, value
 	db $61, $b0
@@ -1512,31 +1512,31 @@ LevelObjects_0b_54bd::
 
 LevelObjects_0b_5696::
 	db $01, $80
-	dw $0120, $0090, $41c0 ; x, y, block in bank $03
+	dw $0120, $0090, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $02, $80
-	dw $0250, $0150, $41c0 ; x, y, block in bank $03
+	dw $0250, $0150, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $03, $80
-	dw $0268, $0398, $4f60 ; x, y, block in bank $03
+	dw $0268, $0398, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $04, $80
-	dw $0290, $0150, $41c0 ; x, y, block in bank $03
+	dw $0290, $0150, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $05, $80
-	dw $02d0, $0150, $41c0 ; x, y, block in bank $03
+	dw $02d0, $0150, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $06, $80
-	dw $02f8, $02b8, $4070 ; x, y, block in bank $03
+	dw $02f8, $02b8, LevelObjBlock_03_4070 ; x, y, block in bank $03
 	db $07, $80
-	dw $0330, $04d4, $41c0 ; x, y, block in bank $03
+	dw $0330, $04d4, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $08, $80
-	dw $0408, $0090, $41c0 ; x, y, block in bank $03
+	dw $0408, $0090, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $09, $80
-	dw $0450, $0488, $41c0 ; x, y, block in bank $03
+	dw $0450, $0488, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $04a8, $0204, $41c0 ; x, y, block in bank $03
+	dw $04a8, $0204, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $0b, $80
-	dw $052c, $0400, $40b0 ; x, y, block in bank $03
+	dw $052c, $0400, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0530, $0278, $40b0 ; x, y, block in bank $03
+	dw $0530, $0278, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0530, $0320, $40b0 ; x, y, block in bank $03
+	dw $0530, $0320, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0078, $0040, $4890 ; x, y, value
 	db $61, $b0
@@ -1643,51 +1643,51 @@ LevelObjects_0b_5696::
 
 LevelObjects_0b_5897::
 	db $01, $80
-	dw $0100, $0590, $4050 ; x, y, block in bank $03
+	dw $0100, $0590, LevelObjBlock_03_4050 ; x, y, block in bank $03
 	db $02, $80
-	dw $0150, $0828, $41e0 ; x, y, block in bank $03
+	dw $0150, $0828, LevelObjBlock_03_41e0 ; x, y, block in bank $03
 	db $03, $80
-	dw $01a0, $0a30, $40b0 ; x, y, block in bank $03
+	dw $01a0, $0a30, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $04, $80
-	dw $01a0, $0a78, $40f0 ; x, y, block in bank $03
+	dw $01a0, $0a78, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $05, $80
-	dw $01a8, $0488, $4010 ; x, y, block in bank $03
+	dw $01a8, $0488, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $06, $80
-	dw $0210, $07d8, $40b0 ; x, y, block in bank $03
+	dw $0210, $07d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $07, $80
-	dw $0210, $0820, $40b0 ; x, y, block in bank $03
+	dw $0210, $0820, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $08, $80
-	dw $0210, $0868, $40b0 ; x, y, block in bank $03
+	dw $0210, $0868, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $09, $80
-	dw $0210, $08b0, $40f0 ; x, y, block in bank $03
+	dw $0210, $08b0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0214, $0350, $40e0 ; x, y, block in bank $03
+	dw $0214, $0350, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0214, $0390, $40e0 ; x, y, block in bank $03
+	dw $0214, $0390, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $02f8, $0488, $4010 ; x, y, block in bank $03
+	dw $02f8, $0488, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0310, $0878, $40b0 ; x, y, block in bank $03
+	dw $0310, $0878, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0e, $80
-	dw $0348, $0488, $40f0 ; x, y, block in bank $03
+	dw $0348, $0488, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0f, $80
-	dw $0470, $08a0, $4010 ; x, y, block in bank $03
+	dw $0470, $08a0, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $10, $80
-	dw $0500, $0614, $40f0 ; x, y, block in bank $03
+	dw $0500, $0614, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $11, $80
-	dw $0510, $0614, $4010 ; x, y, block in bank $03
+	dw $0510, $0614, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $12, $80
-	dw $0558, $0390, $40b0 ; x, y, block in bank $03
+	dw $0558, $0390, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $13, $80
-	dw $0558, $03d8, $40b0 ; x, y, block in bank $03
+	dw $0558, $03d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $14, $80
-	dw $0558, $0420, $40b0 ; x, y, block in bank $03
+	dw $0558, $0420, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $15, $80
-	dw $0564, $05b8, $40b0 ; x, y, block in bank $03
+	dw $0564, $05b8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $16, $80
-	dw $0560, $0948, $40e0 ; x, y, block in bank $03
+	dw $0560, $0948, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $17, $80
-	dw $0560, $0990, $40e0 ; x, y, block in bank $03
+	dw $0560, $0990, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0092, $023c, $48bc ; x, y, value
 	db $61, $b0
@@ -1794,45 +1794,45 @@ LevelObjects_0b_5897::
 
 LevelObjects_0b_5ae8::
 	db $01, $80
-	dw $00c8, $00f0, $4010 ; x, y, block in bank $03
+	dw $00c8, $00f0, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $02, $80
-	dw $00e8, $0a30, $4000 ; x, y, block in bank $03
+	dw $00e8, $0a30, LevelObjBlock_03_4000 ; x, y, block in bank $03
 	db $03, $80
-	dw $01f0, $0a58, $4010 ; x, y, block in bank $03
+	dw $01f0, $0a58, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $04, $80
-	dw $0228, $0208, $4070 ; x, y, block in bank $03
+	dw $0228, $0208, LevelObjBlock_03_4070 ; x, y, block in bank $03
 	db $05, $80
-	dw $0268, $06a4, $40c0 ; x, y, block in bank $03
+	dw $0268, $06a4, LevelObjBlock_03_40c0 ; x, y, block in bank $03
 	db $06, $80
-	dw $0310, $09e0, $43f0 ; x, y, block in bank $03
+	dw $0310, $09e0, LevelObjBlock_03_43f0 ; x, y, block in bank $03
 	db $07, $80
-	dw $0340, $0950, $40b0 ; x, y, block in bank $03
+	dw $0340, $0950, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $08, $80
-	dw $0340, $0998, $40b0 ; x, y, block in bank $03
+	dw $0340, $0998, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $09, $80
-	dw $0350, $0500, $4f20 ; x, y, block in bank $03
+	dw $0350, $0500, LevelObjBlock_03_4f20 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0370, $0300, $40b0 ; x, y, block in bank $03
+	dw $0370, $0300, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0468, $06e8, $4160 ; x, y, block in bank $03
+	dw $0468, $06e8, LevelObjBlock_03_4160 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0540, $04c8, $43f0 ; x, y, block in bank $03
+	dw $0540, $04c8, LevelObjBlock_03_43f0 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0570, $0480, $40b0 ; x, y, block in bank $03
+	dw $0570, $0480, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $0e, $80
-	dw $05a0, $0938, $4010 ; x, y, block in bank $03
+	dw $05a0, $0938, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $0f, $80
-	dw $0688, $0080, $4400 ; x, y, block in bank $03
+	dw $0688, $0080, LevelObjBlock_03_4400 ; x, y, block in bank $03
 	db $10, $80
-	dw $0688, $00c0, $4400 ; x, y, block in bank $03
+	dw $0688, $00c0, LevelObjBlock_03_4400 ; x, y, block in bank $03
 	db $11, $80
-	dw $0690, $0738, $40b0 ; x, y, block in bank $03
+	dw $0690, $0738, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $12, $80
-	dw $06f0, $0120, $40b0 ; x, y, block in bank $03
+	dw $06f0, $0120, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $13, $80
-	dw $0708, $0080, $4400 ; x, y, block in bank $03
+	dw $0708, $0080, LevelObjBlock_03_4400 ; x, y, block in bank $03
 	db $14, $80
-	dw $0708, $00c0, $4400 ; x, y, block in bank $03
+	dw $0708, $00c0, LevelObjBlock_03_4400 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0079, $0186, $77c3 ; x, y, value
 	db $61, $b0
@@ -2106,67 +2106,67 @@ LevelObjects_0b_5eaf::
 
 LevelObjects_0b_5f90::
 	db $01, $80
-	dw $0084, $00bc, $4d30 ; x, y, block in bank $03
+	dw $0084, $00bc, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $02, $80
-	dw $0084, $00fc, $4d30 ; x, y, block in bank $03
+	dw $0084, $00fc, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $03, $80
-	dw $0084, $013c, $4d30 ; x, y, block in bank $03
+	dw $0084, $013c, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $04, $80
-	dw $0084, $017c, $4d30 ; x, y, block in bank $03
+	dw $0084, $017c, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $05, $80
-	dw $0084, $01bc, $4d30 ; x, y, block in bank $03
+	dw $0084, $01bc, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $06, $80
-	dw $00ec, $06bc, $4d30 ; x, y, block in bank $03
+	dw $00ec, $06bc, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $07, $80
-	dw $00ec, $06fc, $4d30 ; x, y, block in bank $03
+	dw $00ec, $06fc, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $08, $80
-	dw $00ec, $073c, $4d30 ; x, y, block in bank $03
+	dw $00ec, $073c, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $09, $80
-	dw $00ec, $077c, $4d30 ; x, y, block in bank $03
+	dw $00ec, $077c, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $0a, $80
-	dw $013c, $01a4, $4d30 ; x, y, block in bank $03
+	dw $013c, $01a4, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0140, $05a8, $4070 ; x, y, block in bank $03
+	dw $0140, $05a8, LevelObjBlock_03_4070 ; x, y, block in bank $03
 	db $0c, $80
-	dw $014c, $0310, $4d30 ; x, y, block in bank $03
+	dw $014c, $0310, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $0d, $80
-	dw $014c, $0350, $4d30 ; x, y, block in bank $03
+	dw $014c, $0350, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $0e, $80
-	dw $01bc, $05ac, $4d20 ; x, y, block in bank $03
+	dw $01bc, $05ac, LevelObjBlock_03_4d20 ; x, y, block in bank $03
 	db $0f, $80
-	dw $01ec, $0194, $4d20 ; x, y, block in bank $03
+	dw $01ec, $0194, LevelObjBlock_03_4d20 ; x, y, block in bank $03
 	db $10, $80
-	dw $020c, $0780, $40f0 ; x, y, block in bank $03
+	dw $020c, $0780, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $11, $80
-	dw $020c, $07a0, $4d30 ; x, y, block in bank $03
+	dw $020c, $07a0, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $12, $80
-	dw $021c, $05b8, $40f0 ; x, y, block in bank $03
+	dw $021c, $05b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $13, $80
-	dw $024c, $016c, $4d20 ; x, y, block in bank $03
+	dw $024c, $016c, LevelObjBlock_03_4d20 ; x, y, block in bank $03
 	db $14, $80
-	dw $02ac, $0140, $4d20 ; x, y, block in bank $03
+	dw $02ac, $0140, LevelObjBlock_03_4d20 ; x, y, block in bank $03
 	db $15, $80
-	dw $02ec, $03b8, $4d20 ; x, y, block in bank $03
+	dw $02ec, $03b8, LevelObjBlock_03_4d20 ; x, y, block in bank $03
 	db $16, $80
-	dw $0308, $0568, $41d0 ; x, y, block in bank $03
+	dw $0308, $0568, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $17, $80
-	dw $034c, $0388, $4d20 ; x, y, block in bank $03
+	dw $034c, $0388, LevelObjBlock_03_4d20 ; x, y, block in bank $03
 	db $18, $80
-	dw $0458, $04d8, $4eb0 ; x, y, block in bank $03
+	dw $0458, $04d8, LevelObjBlock_03_4eb0 ; x, y, block in bank $03
 	db $19, $80
-	dw $048c, $06fc, $4d30 ; x, y, block in bank $03
+	dw $048c, $06fc, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $1a, $80
-	dw $048c, $0738, $4d30 ; x, y, block in bank $03
+	dw $048c, $0738, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $1b, $80
-	dw $048c, $077c, $4d30 ; x, y, block in bank $03
+	dw $048c, $077c, LevelObjBlock_03_4d30 ; x, y, block in bank $03
 	db $1c, $80
-	dw $0584, $0554, $40f0 ; x, y, block in bank $03
+	dw $0584, $0554, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $1d, $80
-	dw $0584, $05c0, $40f0 ; x, y, block in bank $03
+	dw $0584, $05c0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $1e, $80
-	dw $0584, $0638, $40f0 ; x, y, block in bank $03
+	dw $0584, $0638, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $1f, $80
-	dw $05b4, $0678, $40f0 ; x, y, block in bank $03
+	dw $05b4, $0678, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0033, $06e8, $6b72 ; x, y, value
 	db $61, $b0
@@ -2476,17 +2476,17 @@ LevelObjString_0b_64cb::
 
 LevelObjects_0b_64cd::
 	db $01, $80
-	dw $00cc, $00c0, $4d00 ; x, y, block in bank $03
+	dw $00cc, $00c0, LevelObjBlock_03_4d00 ; x, y, block in bank $03
 	db $02, $80
-	dw $00cc, $0030, $4410 ; x, y, block in bank $03
+	dw $00cc, $0030, LevelObjBlock_03_4410 ; x, y, block in bank $03
 	db $03, $80
-	dw $00cc, $0078, $4410 ; x, y, block in bank $03
+	dw $00cc, $0078, LevelObjBlock_03_4410 ; x, y, block in bank $03
 	db $04, $80
-	dw $012c, $00c0, $4d00 ; x, y, block in bank $03
+	dw $012c, $00c0, LevelObjBlock_03_4d00 ; x, y, block in bank $03
 	db $05, $80
-	dw $012c, $0030, $4410 ; x, y, block in bank $03
+	dw $012c, $0030, LevelObjBlock_03_4410 ; x, y, block in bank $03
 	db $06, $80
-	dw $012c, $0078, $4410 ; x, y, block in bank $03
+	dw $012c, $0078, LevelObjBlock_03_4410 ; x, y, block in bank $03
 	db $60, $b0
 	dw $00b0, $000d, $7100 ; x, y, value
 	db $61, $b0
@@ -2542,29 +2542,29 @@ LevelObjects_0b_654e::
 
 LevelObjects_0b_65bf::
 	db $01, $80
-	dw $0154, $00d8, $4e90 ; x, y, block in bank $03
+	dw $0154, $00d8, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $02, $80
-	dw $019c, $00e8, $40f0 ; x, y, block in bank $03
+	dw $019c, $00e8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $03, $80
-	dw $04d4, $00b8, $4e90 ; x, y, block in bank $03
+	dw $04d4, $00b8, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $04, $80
-	dw $051c, $00c8, $40f0 ; x, y, block in bank $03
+	dw $051c, $00c8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $05, $80
-	dw $09d4, $0088, $4e90 ; x, y, block in bank $03
+	dw $09d4, $0088, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $06, $80
-	dw $0a1c, $0098, $40f0 ; x, y, block in bank $03
+	dw $0a1c, $0098, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $07, $80
-	dw $0fc8, $0070, $40b0 ; x, y, block in bank $03
+	dw $0fc8, $0070, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $08, $80
-	dw $1154, $00b8, $4e90 ; x, y, block in bank $03
+	dw $1154, $00b8, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $09, $80
-	dw $119c, $00c8, $40f0 ; x, y, block in bank $03
+	dw $119c, $00c8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1470, $00f0, $40f0 ; x, y, block in bank $03
+	dw $1470, $00f0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0b, $80
-	dw $18e0, $00b8, $4010 ; x, y, block in bank $03
+	dw $18e0, $00b8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $0c, $80
-	dw $1930, $00b8, $4020 ; x, y, block in bank $03
+	dw $1930, $00b8, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $60, $b0
 	dw $002e, $0051, $6a02 ; x, y, value
 	db $61, $b0
@@ -2742,41 +2742,41 @@ LevelObjString_0b_68c8::
 
 LevelObjects_0b_68cd::
 	db $01, $80
-	dw $00b4, $00d8, $4e90 ; x, y, block in bank $03
+	dw $00b4, $00d8, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $02, $80
-	dw $00fc, $00e8, $40f0 ; x, y, block in bank $03
+	dw $00fc, $00e8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $03, $80
-	dw $0278, $00a8, $40b0 ; x, y, block in bank $03
+	dw $0278, $00a8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $04, $80
-	dw $03a0, $00b8, $40b0 ; x, y, block in bank $03
+	dw $03a0, $00b8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $05, $80
-	dw $04b8, $0098, $40b0 ; x, y, block in bank $03
+	dw $04b8, $0098, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $06, $80
-	dw $0614, $0118, $4e90 ; x, y, block in bank $03
+	dw $0614, $0118, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $07, $80
-	dw $065c, $0128, $40f0 ; x, y, block in bank $03
+	dw $065c, $0128, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $08, $80
-	dw $07f4, $00a8, $4e90 ; x, y, block in bank $03
+	dw $07f4, $00a8, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $09, $80
-	dw $083c, $00b8, $40f0 ; x, y, block in bank $03
+	dw $083c, $00b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0a94, $00a8, $4e90 ; x, y, block in bank $03
+	dw $0a94, $00a8, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0adc, $00b8, $40f0 ; x, y, block in bank $03
+	dw $0adc, $00b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0cd8, $0040, $4e80 ; x, y, block in bank $03
+	dw $0cd8, $0040, LevelObjBlock_03_4e80 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0d20, $0040, $4e80 ; x, y, block in bank $03
+	dw $0d20, $0040, LevelObjBlock_03_4e80 ; x, y, block in bank $03
 	db $0e, $80
-	dw $0d68, $0040, $4e40 ; x, y, block in bank $03
+	dw $0d68, $0040, LevelObjBlock_03_4e40 ; x, y, block in bank $03
 	db $0f, $80
-	dw $0f40, $00f0, $40b0 ; x, y, block in bank $03
+	dw $0f40, $00f0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $10, $80
-	dw $14a0, $00f8, $40f0 ; x, y, block in bank $03
+	dw $14a0, $00f8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $11, $80
-	dw $1734, $0138, $4e90 ; x, y, block in bank $03
+	dw $1734, $0138, LevelObjBlock_03_4e90 ; x, y, block in bank $03
 	db $12, $80
-	dw $177c, $0148, $40f0 ; x, y, block in bank $03
+	dw $177c, $0148, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $002f, $00d7, $6657 ; x, y, value
 	db $61, $b0
@@ -2915,15 +2915,15 @@ LevelObjString_0b_6b61::
 
 LevelObjects_0b_6b64::
 	db $01, $80
-	dw $00d0, $0030, $4db0 ; x, y, block in bank $03
+	dw $00d0, $0030, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $02, $80
-	dw $0138, $0030, $4db0 ; x, y, block in bank $03
+	dw $0138, $0030, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $03, $80
-	dw $01a0, $0030, $4db0 ; x, y, block in bank $03
+	dw $01a0, $0030, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $04, $80
-	dw $0208, $0030, $4db0 ; x, y, block in bank $03
+	dw $0208, $0030, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $05, $80
-	dw $0270, $0030, $4db0 ; x, y, block in bank $03
+	dw $0270, $0030, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0097, $0093, $678e ; x, y, value
 	db $61, $b0
@@ -2947,21 +2947,21 @@ LevelObjects_0b_6bcd::
 
 LevelObjects_0b_6bce::
 	db $01, $80
-	dw $0034, $0108, $4010 ; x, y, block in bank $03
+	dw $0034, $0108, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $02, $80
-	dw $003c, $0048, $4d40 ; x, y, block in bank $03
+	dw $003c, $0048, LevelObjBlock_03_4d40 ; x, y, block in bank $03
 	db $03, $80
-	dw $003c, $0088, $4d40 ; x, y, block in bank $03
+	dw $003c, $0088, LevelObjBlock_03_4d40 ; x, y, block in bank $03
 	db $04, $80
-	dw $003c, $00c8, $4d60 ; x, y, block in bank $03
+	dw $003c, $00c8, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $05, $80
-	dw $0084, $0048, $4d50 ; x, y, block in bank $03
+	dw $0084, $0048, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $06, $80
-	dw $0084, $0088, $4d50 ; x, y, block in bank $03
+	dw $0084, $0088, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $07, $80
-	dw $0084, $00c8, $4d50 ; x, y, block in bank $03
+	dw $0084, $00c8, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $08, $80
-	dw $0084, $0108, $4020 ; x, y, block in bank $03
+	dw $0084, $0108, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0050, $0016, $4890 ; x, y, value
 	db $61, $b0
@@ -2972,25 +2972,25 @@ LevelObjects_0b_6bce::
 
 LevelObjects_0b_6c20::
 	db $01, $80
-	dw $010c, $0060, $4f60 ; x, y, block in bank $03
+	dw $010c, $0060, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $02, $80
-	dw $01d0, $0100, $40b0 ; x, y, block in bank $03
+	dw $01d0, $0100, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $03, $80
-	dw $0740, $0070, $4040 ; x, y, block in bank $03
+	dw $0740, $0070, LevelObjBlock_03_4040 ; x, y, block in bank $03
 	db $04, $80
-	dw $0900, $0150, $4040 ; x, y, block in bank $03
+	dw $0900, $0150, LevelObjBlock_03_4040 ; x, y, block in bank $03
 	db $05, $80
-	dw $0e00, $00f0, $4040 ; x, y, block in bank $03
+	dw $0e00, $00f0, LevelObjBlock_03_4040 ; x, y, block in bank $03
 	db $06, $80
-	dw $100c, $00a0, $4f60 ; x, y, block in bank $03
+	dw $100c, $00a0, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $07, $80
-	dw $12f8, $0108, $4040 ; x, y, block in bank $03
+	dw $12f8, $0108, LevelObjBlock_03_4040 ; x, y, block in bank $03
 	db $08, $80
-	dw $1600, $00a0, $4020 ; x, y, block in bank $03
+	dw $1600, $00a0, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $09, $80
-	dw $1998, $0128, $4f60 ; x, y, block in bank $03
+	dw $1998, $0128, LevelObjBlock_03_4f60 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1b60, $0130, $4f50 ; x, y, block in bank $03
+	dw $1b60, $0130, LevelObjBlock_03_4f50 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0070, $00ab, $6bd1 ; x, y, value
 	db $61, $b0
@@ -3195,33 +3195,33 @@ LevelObjString_0b_6f6a::
 
 LevelObjects_0b_6f6d::
 	db $01, $80
-	dw $0140, $00e8, $4030 ; x, y, block in bank $03
+	dw $0140, $00e8, LevelObjBlock_03_4030 ; x, y, block in bank $03
 	db $02, $80
-	dw $0340, $00f0, $4020 ; x, y, block in bank $03
+	dw $0340, $00f0, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $03, $80
-	dw $0698, $0108, $40d0 ; x, y, block in bank $03
+	dw $0698, $0108, LevelObjBlock_03_40d0 ; x, y, block in bank $03
 	db $04, $80
-	dw $06d8, $0108, $40d0 ; x, y, block in bank $03
+	dw $06d8, $0108, LevelObjBlock_03_40d0 ; x, y, block in bank $03
 	db $05, $80
-	dw $0c38, $00e8, $4010 ; x, y, block in bank $03
+	dw $0c38, $00e8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $06, $80
-	dw $1278, $00e0, $4110 ; x, y, block in bank $03
+	dw $1278, $00e0, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $07, $80
-	dw $1480, $00d0, $4e10 ; x, y, block in bank $03
+	dw $1480, $00d0, LevelObjBlock_03_4e10 ; x, y, block in bank $03
 	db $08, $80
-	dw $14c0, $00d0, $4e00 ; x, y, block in bank $03
+	dw $14c0, $00d0, LevelObjBlock_03_4e00 ; x, y, block in bank $03
 	db $09, $80
-	dw $16a0, $00f0, $40d0 ; x, y, block in bank $03
+	dw $16a0, $00f0, LevelObjBlock_03_40d0 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1c78, $0158, $40f0 ; x, y, block in bank $03
+	dw $1c78, $0158, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $0b, $80
-	dw $1d70, $0108, $4110 ; x, y, block in bank $03
+	dw $1d70, $0108, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $0c, $80
-	dw $1df8, $0128, $4110 ; x, y, block in bank $03
+	dw $1df8, $0128, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1e98, $0108, $4110 ; x, y, block in bank $03
+	dw $1e98, $0108, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1f38, $0128, $4110 ; x, y, block in bank $03
+	dw $1f38, $0128, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0013, $00ac, $6724 ; x, y, value
 	db $61, $b0
@@ -3351,21 +3351,21 @@ LevelObjString_0b_71c6::
 
 LevelObjects_0b_71c9::
 	db $01, $80
-	dw $006c, $0058, $40b0 ; x, y, block in bank $03
+	dw $006c, $0058, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $02, $80
-	dw $006c, $00a0, $40e0 ; x, y, block in bank $03
+	dw $006c, $00a0, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $03, $80
-	dw $0088, $0028, $4010 ; x, y, block in bank $03
+	dw $0088, $0028, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $04, $80
-	dw $0088, $00e8, $4010 ; x, y, block in bank $03
+	dw $0088, $00e8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $05, $80
-	dw $00d0, $0028, $4010 ; x, y, block in bank $03
+	dw $00d0, $0028, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $06, $80
-	dw $00d0, $00e8, $4010 ; x, y, block in bank $03
+	dw $00d0, $00e8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $07, $80
-	dw $012c, $0058, $40b0 ; x, y, block in bank $03
+	dw $012c, $0058, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $08, $80
-	dw $012c, $00a0, $40e0 ; x, y, block in bank $03
+	dw $012c, $00a0, LevelObjBlock_03_40e0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0050, $0010, $5e1b ; x, y, value
 	db $61, $b0
@@ -3382,13 +3382,13 @@ LevelObjects_0b_71c9::
 
 LevelObjects_0b_723a::
 	db $01, $80
-	dw $00f0, $0064, $40f0 ; x, y, block in bank $03
+	dw $00f0, $0064, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $02, $80
-	dw $0118, $0064, $4da0 ; x, y, block in bank $03
+	dw $0118, $0064, LevelObjBlock_03_4da0 ; x, y, block in bank $03
 	db $03, $80
-	dw $0180, $0064, $4d70 ; x, y, block in bank $03
+	dw $0180, $0064, LevelObjBlock_03_4d70 ; x, y, block in bank $03
 	db $04, $80
-	dw $01e0, $0064, $4d70 ; x, y, block in bank $03
+	dw $01e0, $0064, LevelObjBlock_03_4d70 ; x, y, block in bank $03
 	db $60, $b0
 	dw $00a1, $004c, $5c12 ; x, y, value
 	db $61, $b0
@@ -3413,21 +3413,21 @@ LevelObjects_0b_723a::
 
 LevelObjects_0b_72ab::
 	db $01, $80
-	dw $0034, $0110, $4010 ; x, y, block in bank $03
+	dw $0034, $0110, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $02, $80
-	dw $003c, $0050, $4d40 ; x, y, block in bank $03
+	dw $003c, $0050, LevelObjBlock_03_4d40 ; x, y, block in bank $03
 	db $03, $80
-	dw $003c, $0090, $4d60 ; x, y, block in bank $03
+	dw $003c, $0090, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $04, $80
-	dw $003c, $00d0, $4d60 ; x, y, block in bank $03
+	dw $003c, $00d0, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $05, $80
-	dw $0084, $0050, $4d50 ; x, y, block in bank $03
+	dw $0084, $0050, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $06, $80
-	dw $0084, $0090, $4d50 ; x, y, block in bank $03
+	dw $0084, $0090, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $07, $80
-	dw $0084, $00d0, $4d50 ; x, y, block in bank $03
+	dw $0084, $00d0, LevelObjBlock_03_4d50 ; x, y, block in bank $03
 	db $08, $80
-	dw $0084, $0110, $4020 ; x, y, block in bank $03
+	dw $0084, $0110, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0050, $001b, $66de ; x, y, value
 	db $61, $b0
@@ -3442,35 +3442,35 @@ LevelObjects_0b_72fd::
 
 LevelObjects_0b_72fe::
 	db $01, $80
-	dw $00e8, $00b8, $4040 ; x, y, block in bank $03
+	dw $00e8, $00b8, LevelObjBlock_03_4040 ; x, y, block in bank $03
 	db $02, $80
-	dw $03d8, $0090, $41f0 ; x, y, block in bank $03
+	dw $03d8, $0090, LevelObjBlock_03_41f0 ; x, y, block in bank $03
 	db $03, $80
-	dw $0568, $0074, $40b0 ; x, y, block in bank $03
+	dw $0568, $0074, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $04, $80
-	dw $06a8, $00b8, $41d0 ; x, y, block in bank $03
+	dw $06a8, $00b8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $05, $80
-	dw $0718, $00e8, $41d0 ; x, y, block in bank $03
+	dw $0718, $00e8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $06, $80
-	dw $0758, $0100, $41d0 ; x, y, block in bank $03
+	dw $0758, $0100, LevelObjBlock_03_41d0 ; x, y, block in bank $03
 	db $07, $80
-	dw $0bf8, $0110, $41c0 ; x, y, block in bank $03
+	dw $0bf8, $0110, LevelObjBlock_03_41c0 ; x, y, block in bank $03
 	db $08, $80
-	dw $0e98, $00a0, $40b0 ; x, y, block in bank $03
+	dw $0e98, $00a0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $09, $80
-	dw $1010, $00e8, $4020 ; x, y, block in bank $03
+	dw $1010, $00e8, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1070, $00e8, $4020 ; x, y, block in bank $03
+	dw $1070, $00e8, LevelObjBlock_03_4020 ; x, y, block in bank $03
 	db $0b, $80
-	dw $1388, $00a0, $41e0 ; x, y, block in bank $03
+	dw $1388, $00a0, LevelObjBlock_03_41e0 ; x, y, block in bank $03
 	db $0c, $80
-	dw $14e0, $00a8, $4110 ; x, y, block in bank $03
+	dw $14e0, $00a8, LevelObjBlock_03_4110 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1720, $00b0, $4030 ; x, y, block in bank $03
+	dw $1720, $00b0, LevelObjBlock_03_4030 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1b98, $00a0, $4040 ; x, y, block in bank $03
+	dw $1b98, $00a0, LevelObjBlock_03_4040 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1ec8, $0098, $4040 ; x, y, block in bank $03
+	dw $1ec8, $0098, LevelObjBlock_03_4040 ; x, y, block in bank $03
 	db $60, $b0
 	dw $00a5, $00e8, $66a0 ; x, y, value
 	db $61, $b0
@@ -3698,25 +3698,25 @@ LevelObjects_0b_75f7::
 
 LevelObjects_0b_76e8::
 	db $01, $80
-	dw $0030, $0040, $4280 ; x, y, block in bank $03
+	dw $0030, $0040, LevelObjBlock_03_4280 ; x, y, block in bank $03
 	db $02, $80
-	dw $0038, $0070, $4d80 ; x, y, block in bank $03
+	dw $0038, $0070, LevelObjBlock_03_4d80 ; x, y, block in bank $03
 	db $03, $80
-	dw $0038, $00b8, $4e80 ; x, y, block in bank $03
+	dw $0038, $00b8, LevelObjBlock_03_4e80 ; x, y, block in bank $03
 	db $04, $80
-	dw $0078, $0040, $4280 ; x, y, block in bank $03
+	dw $0078, $0040, LevelObjBlock_03_4280 ; x, y, block in bank $03
 	db $05, $80
-	dw $0080, $00b8, $4e80 ; x, y, block in bank $03
+	dw $0080, $00b8, LevelObjBlock_03_4e80 ; x, y, block in bank $03
 	db $06, $80
-	dw $00c0, $0040, $4280 ; x, y, block in bank $03
+	dw $00c0, $0040, LevelObjBlock_03_4280 ; x, y, block in bank $03
 	db $07, $80
-	dw $00c8, $00b8, $4e80 ; x, y, block in bank $03
+	dw $00c8, $00b8, LevelObjBlock_03_4e80 ; x, y, block in bank $03
 	db $08, $80
-	dw $0108, $0040, $4280 ; x, y, block in bank $03
+	dw $0108, $0040, LevelObjBlock_03_4280 ; x, y, block in bank $03
 	db $09, $80
-	dw $0110, $00b8, $4e80 ; x, y, block in bank $03
+	dw $0110, $00b8, LevelObjBlock_03_4e80 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0128, $0070, $4d80 ; x, y, block in bank $03
+	dw $0128, $0070, LevelObjBlock_03_4d80 ; x, y, block in bank $03
 	db $0b, $b0
 	dw $005b, $011d, $7962 ; x, y, value
 	db $0c, $b0
@@ -3725,17 +3725,17 @@ LevelObjects_0b_76e8::
 
 LevelObjects_0b_7749::
 	db $01, $80
-	dw $0054, $0080, $4010 ; x, y, block in bank $03
+	dw $0054, $0080, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $02, $80
-	dw $005c, $0038, $4db0 ; x, y, block in bank $03
+	dw $005c, $0038, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $03, $80
-	dw $009c, $0080, $4010 ; x, y, block in bank $03
+	dw $009c, $0080, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $04, $80
-	dw $00a4, $0038, $4db0 ; x, y, block in bank $03
+	dw $00a4, $0038, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $05, $80
-	dw $00e4, $0080, $4010 ; x, y, block in bank $03
+	dw $00e4, $0080, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $06, $80
-	dw $00ec, $0038, $4db0 ; x, y, block in bank $03
+	dw $00ec, $0038, LevelObjBlock_03_4db0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $00a0, $0096, $67d3 ; x, y, value
 	db $61, $b0
@@ -3744,11 +3744,11 @@ LevelObjects_0b_7749::
 
 LevelObjects_0b_778a::
 	db $01, $80
-	dw $0040, $0058, $4d90 ; x, y, block in bank $03
+	dw $0040, $0058, LevelObjBlock_03_4d90 ; x, y, block in bank $03
 	db $02, $80
-	dw $0080, $0058, $4d90 ; x, y, block in bank $03
+	dw $0080, $0058, LevelObjBlock_03_4d90 ; x, y, block in bank $03
 	db $03, $80
-	dw $00c0, $0058, $40b0 ; x, y, block in bank $03
+	dw $00c0, $0058, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0024, $0028, $6700 ; x, y, value
 	db $61, $b0
@@ -3763,29 +3763,29 @@ LevelObjects_0b_778a::
 
 LevelObjects_0b_77cb::
 	db $01, $80
-	dw $0050, $0048, $4d60 ; x, y, block in bank $03
+	dw $0050, $0048, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $02, $80
-	dw $0050, $0088, $4d60 ; x, y, block in bank $03
+	dw $0050, $0088, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $03, $80
-	dw $0050, $00c8, $4d60 ; x, y, block in bank $03
+	dw $0050, $00c8, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $04, $80
-	dw $0098, $0048, $4d60 ; x, y, block in bank $03
+	dw $0098, $0048, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $05, $80
-	dw $0098, $0088, $4d60 ; x, y, block in bank $03
+	dw $0098, $0088, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $06, $80
-	dw $0098, $00c8, $4d60 ; x, y, block in bank $03
+	dw $0098, $00c8, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $07, $80
-	dw $00e0, $0048, $4d60 ; x, y, block in bank $03
+	dw $00e0, $0048, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $08, $80
-	dw $00e0, $0088, $4d60 ; x, y, block in bank $03
+	dw $00e0, $0088, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $09, $80
-	dw $00e0, $00c8, $4d60 ; x, y, block in bank $03
+	dw $00e0, $00c8, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0128, $0048, $4d60 ; x, y, block in bank $03
+	dw $0128, $0048, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0128, $0088, $4d60 ; x, y, block in bank $03
+	dw $0128, $0088, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0128, $00c8, $4d60 ; x, y, block in bank $03
+	dw $0128, $00c8, LevelObjBlock_03_4d60 ; x, y, block in bank $03
 	db $0d, $b0
 	dw $0042, $0003, $6fc8 ; x, y, value
 	db $0e, $b0
@@ -3796,9 +3796,9 @@ LevelObjects_0b_77cb::
 
 LevelObjects_0b_7844::
 	db $01, $80
-	dw $00c0, $0078, $40f0 ; x, y, block in bank $03
+	dw $00c0, $0078, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $02, $80
-	dw $00f0, $0078, $4da0 ; x, y, block in bank $03
+	dw $00f0, $0078, LevelObjBlock_03_4da0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0076, $0060, $5c12 ; x, y, value
 	db $61, $b0
@@ -3823,23 +3823,23 @@ LevelObjects_0b_7844::
 
 LevelObjects_0b_78a5::
 	db $01, $80
-	dw $0040, $0048, $40b0 ; x, y, block in bank $03
+	dw $0040, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $02, $80
-	dw $0040, $0090, $40b0 ; x, y, block in bank $03
+	dw $0040, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $03, $80
-	dw $0040, $00d8, $40b0 ; x, y, block in bank $03
+	dw $0040, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $04, $80
-	dw $006c, $0048, $40b0 ; x, y, block in bank $03
+	dw $006c, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $05, $80
-	dw $006c, $0090, $40b0 ; x, y, block in bank $03
+	dw $006c, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $06, $80
-	dw $006c, $00d8, $40b0 ; x, y, block in bank $03
+	dw $006c, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $07, $80
-	dw $0098, $0048, $40b0 ; x, y, block in bank $03
+	dw $0098, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $08, $80
-	dw $0098, $0090, $40b0 ; x, y, block in bank $03
+	dw $0098, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $09, $80
-	dw $0098, $00d8, $40b0 ; x, y, block in bank $03
+	dw $0098, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0024, $0014, $6700 ; x, y, value
 	db $61, $b0
@@ -3852,9 +3852,9 @@ LevelObjects_0b_78a5::
 
 LevelObjects_0b_790e::
 	db $01, $80
-	dw $00c0, $01b8, $40f0 ; x, y, block in bank $03
+	dw $00c0, $01b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
 	db $02, $80
-	dw $03a8, $00d8, $4010 ; x, y, block in bank $03
+	dw $03a8, $00d8, LevelObjBlock_03_4010 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0073, $016c, $6853 ; x, y, value
 	db $61, $b0
@@ -3871,17 +3871,17 @@ LevelObjects_0b_790e::
 
 LevelObjects_0b_794f::
 	db $01, $80
-	dw $004c, $0070, $40b0 ; x, y, block in bank $03
+	dw $004c, $0070, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $02, $80
-	dw $0068, $0028, $4240 ; x, y, block in bank $03
+	dw $0068, $0028, LevelObjBlock_03_4240 ; x, y, block in bank $03
 	db $03, $80
-	dw $0068, $00e8, $4240 ; x, y, block in bank $03
+	dw $0068, $00e8, LevelObjBlock_03_4240 ; x, y, block in bank $03
 	db $04, $80
-	dw $00b0, $0028, $4240 ; x, y, block in bank $03
+	dw $00b0, $0028, LevelObjBlock_03_4240 ; x, y, block in bank $03
 	db $05, $80
-	dw $00b0, $00e8, $4240 ; x, y, block in bank $03
+	dw $00b0, $00e8, LevelObjBlock_03_4240 ; x, y, block in bank $03
 	db $06, $80
-	dw $010c, $0070, $40b0 ; x, y, block in bank $03
+	dw $010c, $0070, LevelObjBlock_03_40b0 ; x, y, block in bank $03
 	db $60, $b0
 	dw $0030, $0010, $5e1b ; x, y, value
 	db $61, $b0

@@ -157,6 +157,14 @@ Choosing the galleon starts a shooting gallery on the side of a ship, with targe
 
 One more leftover sits in bank `$FE`. Each mode number is turned into an internal game number through a six-entry table. `CrankyModeToGame` uses `{4,1,3,0,2,5}`. Right before it, `CrankyModeToGame_Unused` (`$FE:40AE`) holds a different order, `{3,4,1,2,0,5}`, and nothing calls it. Read the same way, it describes a menu ordered Kremling Krackdown, Kremlings and Kongs, Barrel O'Kremlings, Wanted, Buddies Beware, Galleon Gunner, probably an earlier layout.
 
+## Text
+
+The English text bank has one line no pointer reaches: "I'm going for a nap." (`UnusedText_10_62f1`). It belongs to Cranky's line "All this game play / is too much for me." In French, Italian and Spanish the matching string has a third line saying the same thing ("Je vais me coucher.", "Farò un pisolino.", "Me voy a echar una siestecita."). In English the second line ends with a 0 instead of a new line, so the string stops early and the nap line becomes a separate string nobody points to. The German text has no nap line at all ("…Ich bin reif fürs Affenhaus!"). All other strings, in all five banks, are reached.
+
+## Code
+
+`Func_00_36a7` resets the sound hardware (NR52, NR51, NR50, the wave channel) and falls into `Func_00_36b8`, which loads wave pattern 1. Nothing in the ROM calls or jumps to `$36A7`; the game uses `Func_00_36b8` directly. It's a small leftover, probably an older entry point of the sound driver.
+
 ## Checked and found complete
 
 These turned up nothing unused, which is worth knowing too:
@@ -170,4 +178,4 @@ These turned up nothing unused, which is worth knowing too:
 
 ## Not identified yet
 
-Large parts of these banks aren't claimed by anything decoded so far, so they hold either content not yet understood or unused data: `$01`–`$02`, `$0B`–`$0C`, `$10`–`$14`, `$40`–`$43`, `$53`, `$54`, `$56` and `$74`. Banks `$18`–`$1B`, listed here before, turned out to be the world map tilesets. Banks `$40` and `$41` hold the world map's sprite tiles and palettes. Nothing in these banks should be called unused until it has been identified.
+Banks `$01`–`$02` (music), `$0B`–`$0C` (level object lists), `$10`–`$14` (text), `$40`–`$43` and `$74` (fonts, world map sprites and shop screens) and `$53`, `$54` and `$56` (samples) are identified now; see the README. What remains unidentified (about 5% of the ROM) is mostly front-end data in banks `$F0`–`$FF` and pieces of the code banks. Running the game ties most of it to a menu or Crosshair Cranky mode, but some regions weren't read in any session so far, for example `$F3` outside the Sticker Book, much of `$F6` after `$5C64`, and `$F2:5574`–`$6797`. They need more emulator runs (Link-up, Print, the credits) before anything there can be called unused. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session either, but it's in the sample table, so it isn't unused on that evidence.

@@ -2,9 +2,6 @@
 
 INCLUDE "include/common.inc"
 
-SECTION "Bank $03", ROMX[$4000], BANK[$03]
-	INCBIN "baserom.gbc", $03 * $4000, $4000
-
 SECTION "Bank $15", ROMX[$4000], BANK[$15]
 	ds $4000, $00
 

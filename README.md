@@ -137,6 +137,22 @@ Blocks are 4×4 tiles defined in a pair of block banks (`LevelBlocks_XX`), store
 
 `python3 tools/backgrounds.py` renders every level map, world map and full screen to `gfx/backgrounds/` (gitignored). Each map is drawn with the BG palettes of its first descriptor, as stored in the ROM. Some levels change palettes while playing, so a render can differ from what's on screen.
 
+### Sound, text and other data
+
+**Sound.** `PlaySong` (`$30F1`, song number in `a`) takes the song's bank from `SongBanks` and its tempo from `SongTempos`, then sets up four channels from `SongChannels` (four stream pointers per song). There are 35 songs, with their streams in banks `$01` and `$02` (`SongXX_ChN`). Song `$00`, the silence, and song `$22` point to single end bytes in bank `$00`. Sound effects are `SFXTable` (`$02:70E4`, 79 entries) and the effect streams after it (`SFX_XX`), started by `Func_00_2f5a` with the effect number & `$FE`. The driver also keeps `NotePeriods` (63 frequency values) and nine 16-byte `WavePatterns` for channel 3 in bank `$00`. The stream command format isn't decoded yet, so the streams are still raw bytes. `Func_00_36a7`, a routine that resets the sound hardware and loads wave pattern 1, has no caller anywhere in the ROM.
+
+**Camera regions (bank `$06`).** Each map header's `$c45c` pointer leads to a list of 16-byte boxes (`CameraRegions_06_XXXX`): left, right, top and bottom edges of four bytes each, a flags byte, a byte and a 16-bit coordinate. When bit 1 of an edge's flags is set, its first two bytes are instead the address of another box whose same edge is used (`Func_00_21ad`). `Func_00_20dd` finds the first box that contains the player and clamps the scroll to it. The lists have no terminator.
+
+**Level object lists (banks `$0B`/`$0C`).** The second pointer of each level descriptor names its object list (`LevelObjects_BB_XXXX`), read by `Func_00_1715`. The list is 8-byte records (id, flags, x, y, pointer) ending in a 0 byte, sorted by x. Bits 4–5 of the flags say what the pointer is: `$00` a 16-byte block in bank `$03`, `$10` a zero-terminated byte string in the same bank (`LevelObjString_…`), copied to WRAM at `$D800` + 16 × id, or `$30` a value used as is.
+
+**Text (banks `$10`–`$14`).** One bank per language: English, German, French, Italian and Spanish. Each starts with 16 group pointers (`TextGroups_BB`), each group a list of string pointers. Strings end in 0, `$0D` is a new line, and letters above `$7F` follow code page 437 (é = `$82`, ü = `$81`, ñ = `$A4`, ß = `$E1`). The groups hold Cranky's, Funky's and Candy's lines, the level and world names (group 15) and the menu words. All 259 strings in each bank are now readable `db` text.
+
+**Digitized samples.** Funky's Fishing plays speech and effects as 3-bit samples. Its timer interrupt (in the RAM runtime, at `$CCE2`) writes one byte per tick to NR50, the master volume, with every channel holding a constant tone. Both nibbles of a byte carry the same level, so 4 is silence. `SampleTable` (`$52:41C2`) gives the bank, address and length of each of the 11 samples: five in bank `$53`, four in `$54`, one at the end of `$55` and one filling `$56`.
+
+**Rare logo (bank `$0D`).** `Func_0d_4130` and `Func_0d_4216` set up the logo: `RareLogoPalettes`, 88 tiles at `$0D:5980`, an 8×11 attribute map (`RareLogoAttributes`) and corner sprites. Each frame, `Func_0d_4266` applies the next frame of `RareLogoAnimation` to the tile map buffer. A frame is runs of n bytes to copy (n < `$80`) or `$80` + n bytes to skip, and a 0 ends it.
+
+**Shops and DK's hoard.** Entering a location on a world map runs one of four screens in bank `$0F`, chosen by its type in `[$c30c]`. They are full screens in the usual format, loaded by `Func_00_2c48`: Candy's Challenge (`$43:6720`), Cranky's Cabin (`$43:6726`), Funky's Flights (`$42:75E0`) and DK's banana hoard (`$74:5490`). The shop dialogue uses the font at `$40:4000`. Bank `$40` also holds the world map's arrow and icon tiles (`$4800`) and the screen a monochrome Game Boy shows instead of the game (`NotGBCMap`, tiles at `$4A28`). Bank `$41` holds the world map's sprites and `WorldMapObjPalettes`.
+
 ### The bonus and front-end programs
 
 Besides the adventure itself, the cartridge holds two more programs, each with its own stack, HRAM and WRAM use. They are therefore excluded from the main game's RAM names (`hints.SECOND_PROGRAM_BANKS`).
@@ -158,7 +174,7 @@ Crosshair Cranky is `CrosshairCranky` in bank `$FE`. In single-player it starts 
 
 Code in these banks calls across banks in two ways. `FarCall_A_HL` (`$3FC0`) takes the bank in `a` and the target in `hl`. The other way pushes the return address `$3FD5` and the target a byte at a time (`ld a, n / push af / inc sp`), puts the bank in `a` and jumps to `$3FDC`.
 
-**Banks `$50`–`$6F`: Funky's Fishing, plus graphics shared with the front end.** Running the game in an emulator confirms it: choosing Bonus → Funky's Fishing enters `$50:4000`, which bank `$F2` far-jumps to (`Func_f2_72d7` and one other place). The game installs its own runtime in RAM: `$C800` copies `$51:42F4`–`$44F0` to `$CB00`. Its far calls push the return address, the bank, the cleanup routine `$CBA7` and the target, then jump to `$CB99` with the bank in `a`. The game draws its scenery from raw 20×18 screens in bank `$51` (360 attribute bytes, then 360 tile numbers, the same layout as the main game's full screens). `Func_51_4000` loads the one-player screen at `$51:6A90` or the second version at `$51:6D60`, the palettes at `$51:7090`/`$70D0` and a 12×4 box from `$51:7030`. Every frame, its main loop also streams a 4 KB buffer from WRAM into VRAM by HDMA, which animates its sprites (fish tiles come from bank `$52`). Its pause menu ("CONTINUE", "QUIT?") is in bank `$50` in five languages. Bank `$55` is a second small program: the Bonus menu's Hi-Score screen. Banks `$53`–`$6F` are graphics and layout data shared with the front end. Matching each screen's tiles in VRAM against the ROM in an emulator shows which banks each screen uses:
+**Banks `$50`–`$6F`: Funky's Fishing, plus graphics shared with the front end.** Running the game in an emulator confirms it: choosing Bonus → Funky's Fishing enters `$50:4000`, which bank `$F2` far-jumps to (`Func_f2_72d7` and one other place). The game installs its own runtime in RAM: `$C800` copies `$51:42F4`–`$44F0` to `$CB00`. Its far calls push the return address, the bank, the cleanup routine `$CBA7` and the target, then jump to `$CB99` with the bank in `a`. The game draws its scenery from raw 20×18 screens in bank `$51` (360 attribute bytes, then 360 tile numbers, the same layout as the main game's full screens). `Func_51_4000` loads the one-player screen at `$51:6A90` or the second version at `$51:6D60`, the palettes at `$51:7090`/`$70D0` and a 12×4 box from `$51:7030`. Every frame, its main loop also streams a 4 KB buffer from WRAM into VRAM by HDMA, which animates its sprites (fish tiles come from bank `$52`). Its pause menu ("CONTINUE", "QUIT?") is in bank `$50` in five languages. Bank `$55` is a second small program: the Bonus menu's Hi-Score screen, entered at `$55:4000` by a far jump from bank `$F1`, with its graphics at `$4840` and palettes at `$6100`. Banks `$53`, `$54` and `$56` hold Funky's Fishing's samples (see Sound, text and other data). Banks `$57`–`$6F` are graphics and layout data shared with the front end. Matching each screen's tiles in VRAM against the ROM in an emulator shows which banks each screen uses:
 
 | Screen | Tile sources |
 |---|---|
@@ -202,15 +218,15 @@ The ROM rebuilds byte for byte, but that alone doesn't mean it's disassembled: a
 
 | Category | Size | Share of non-empty ROM |
 |---|---|---|
-| Code disassembled into readable instructions | 91 KB | 3.4% |
-| Data decoded into readable structures | 151 KB | 5.6% |
-| Graphics converted to editable PNGs | 951 KB | 35.6% |
-| Located and labelled, format known, still raw bytes | 1114 KB | 41.8% |
-| Not identified yet | 362 KB | 13.6% |
+| Code disassembled into readable instructions | 93 KB | 3.5% |
+| Data decoded into readable structures | 259 KB | 9.7% |
+| Graphics converted to editable PNGs | 980 KB | 36.6% |
+| Located and labelled, format known, still raw bytes | 1217 KB | 45.4% |
+| Not identified yet | 129 KB | 4.8% |
 
 The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
 
-Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$50`–`$52`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Decoded so far:
+Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$50`–`$52`, `$55`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Decoded so far:
 
 | Content | Coverage |
 |---|---|
@@ -221,13 +237,52 @@ Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0
 | Level table, entrances and descriptors | all |
 | Level maps, world maps and full screens | all |
 | Flow script | all |
+| Song and sound effect tables (streams still raw) | all |
+| Camera regions | all |
+| Level object lists | all 128 |
+| Text in five languages | all 259 strings per language |
+| Digitized sample table | all 11 |
+
+Every bank now has a known purpose:
+
+| Banks | Contents |
+|---|---|
+| `$00` | home code: engine, objects, sound driver and its tables, flow states |
+| `$01`, `$02` | music streams; sound effects (end of `$02`) |
+| `$03` | 16-byte blocks for level objects (`LevelObjBlock_03_…`) |
+| `$04` | level table, entrances, descriptors, map headers, animation scripts |
+| `$05` | world map code and records |
+| `$06` | camera regions |
+| `$07` | title screen code and tables |
+| `$08`–`$0A`, `$0E` | object handlers (gameplay code) |
+| `$0B`, `$0C` | level object lists |
+| `$0D` | flow script, Rare logo |
+| `$0F` | shop screen code, world map tile maps and palettes |
+| `$10`–`$14` | text: English, German, French, Italian, Spanish |
+| `$18`–`$1B` | world map tilesets |
+| `$20` | sprite frame headers |
+| `$21`–`$3A` | sprite tiles |
+| `$40`, `$41` | dialogue font, map icons, DMG error screen; world map sprites |
+| `$42`, `$43`, `$74` | title tiles; shop and banana hoard screens |
+| `$44`–`$4F` | full screens loaded by the flow script; title tiles in `$45` |
+| `$50`–`$52` | Funky's Fishing (code, screens, runtime, sprites) |
+| `$53`, `$54`, `$56` | Funky's Fishing samples |
+| `$55` | Hi-Score screen program |
+| `$57`–`$6F` | front-end pictures, maps and palettes |
+| `$70`–`$73`, `$75` | full screens loaded by the flow script |
+| `$80` | palettes |
+| `$81`–`$8A` | level tilesets |
+| `$90`–`$CB` | level blocks and terrain |
+| `$E0`–`$EC` | compressed level maps |
+| `$F0`–`$FE` | front end and bonus system (code, sprite scripts, graphics, Crosshair Cranky) |
+| `$FF` | front-end text |
 
 ### Plan
 
 The retail ROM comes first: the goal is a complete (100%) disassembly, with every byte identified and decoded and every routine named. Only after that does work start on the earlier demo build (`Donkey Kong Country (U) [demo]`) and the comparison between the two. The order of work:
 
-1. Identify what's left: banks `$01`–`$02`, `$0B`–`$0C`, `$40`–`$43`, `$53`, `$54`, `$56`, `$74` and the undecoded parts of the code banks. Banks `$10`–`$14` are the dialogue and level names in five languages (Cranky's, Funky's and Candy's lines; their text format still needs decoding).
-2. Convert the located raw data (block banks, terrain, compressed maps) into readable or editable form.
+1. Finish identifying what's left (4.8%): mostly the front end's data in banks `$F0`–`$FF`, where runs of an emulator tie each region to a screen or Crosshair Cranky mode (for example `$F5:5400`–`$60BB` is read only while playing Kremlings and Kongs, `$F5:6402`–`$75C9` only in Kremling Krackdown and `$F7:4620`–`$5D40` only in Buddies Beware), and small pieces in the code banks.
+2. Convert the located raw data (block banks, terrain, compressed maps, music and sound effect streams, the Rare logo animation) into readable or editable form.
 3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
 4. Then the demo.
 

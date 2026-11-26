@@ -1518,8 +1518,17 @@ Func_55_481e::
 	ld [rROMB0], a
 	ret
 
-	INCBIN "baserom.gbc", $154840, $18f0 ; $4840
 
+HiScoreGraphics::
+	INCBIN "baserom.gbc", $154840, $18c0
+
+HiScorePalettes::
+	rgb  3,  3,  3,   2,  6,  2,  11,  6,  4,  22, 15,  3
+	rgb  3,  3,  3,   8,  4,  4,  14,  7,  4,  21, 15,  4
+	rgb  0,  0,  0,   2, 12,  2,  31, 31,  0,  31, 31, 31
+	rgb  3,  3,  3,   2, 12,  2,  11,  6,  4,  22, 15,  3
+	rgb  3,  3,  3,   2,  6,  2,   8,  8,  8,  31, 31, 31
+	rgb  3,  3,  3,   8,  4,  4,   2,  6,  2,   2, 12,  2
 
 Sample_09::
 	INCBIN "baserom.gbc", $156130, $1163

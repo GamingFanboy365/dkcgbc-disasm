@@ -262,6 +262,17 @@ def extract(rom, force=False):
         w, rows = tiles_to_rows(rom[o:o + ln])
         write_png(path, w, 16, rows)
         written += 1
+    # Funky's Fishing sprite tiles (tools/fishanim.py), stored the same way
+    from fishanim import decode as fish_decode, BANK as FISH_BANK
+    for a, ln in fish_decode(rom)["tiles"].items():
+        path = os.path.join(ROOT, frame_png_path(FISH_BANK, a))
+        if os.path.exists(path) and not force:
+            kept += 1
+            continue
+        o = off(FISH_BANK, a)
+        w, rows = tiles_to_rows(rom[o:o + ln])
+        write_png(path, w, 16, rows)
+        written += 1
     print("frame PNGs: %d written, %d already present" % (written, kept))
     # level map layers, decompressed (packed again by the Makefile)
     from backgrounds import map_streams, map_headers
@@ -293,6 +304,20 @@ def extract(rom, force=False):
             open(path, "wb").write(from_rom(kind, rom[off(b, 0x4000):off(b, 0x8000)]))
             written += 1
     print("block and terrain banks: %d written, %d already present" % (written, kept))
+    # Funky's Fishing samples as WAV files (tools/samples.py)
+    from banks import samples
+    from samples import to_wav
+    _, _, ents, ext = samples(rom)
+    written = kept = 0
+    for k, (b, p, _) in enumerate(ents):
+        path = os.path.join(ROOT, "data", "samples", "sample_%02x.wav" % k)
+        if os.path.exists(path) and not force:
+            kept += 1
+            continue
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        to_wav(rom[off(b, p):off(b, p) + ext[(b, p)]], path)
+        written += 1
+    print("samples: %d written, %d already present" % (written, kept))
     # BG tiles (level tilesets and full screens), 16 tiles per row
     from backgrounds import bg_tile_pieces
     written = kept = 0

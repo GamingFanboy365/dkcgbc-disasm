@@ -3626,31 +3626,366 @@ Func_f1_57e7::
 
 
 RAMCopy_f1_57f0_to_ccba::
-	INCBIN "baserom.gbc", $3c57f0, $0041
+	; runs from $ccba
+	DEF RAMCode_f1_ccba EQU $ccba
+	DEF RAMCode_f1_ccbc EQU $ccbc
+	DEF RAMCode_f1_ccdc EQU $ccdc
+; RAMCode_f1_ccba:
+	ei
+	push af
+; RAMCode_f1_ccbc:
+	push hl
+	ld hl, $ff40
+	set 4, [hl]
+	ld a, $01
+	ldh [$ff80], a
+	ldh a, [rSVBK]
+	push af
+	ld a, $01
+	ldh [rSVBK], a
+	ld a, $80
+	ldh [rBCPS], a
+	ld hl, $db00
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	pop af
+	ldh [rSVBK], a
+	ld hl, $ccf5
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	pop hl
+	pop af
+	reti
+
+	db $00, $00, $1f, $00, $ff, $03
 
 RAMCopy_f1_5831_to_ccfb::
-	INCBIN "baserom.gbc", $3c5831, $0008
+	; runs from $ccfb
+	DEF RAMCode_f1_ccfb EQU $ccfb
+; RAMCode_f1_ccfb:
+	ei
+	push af
+	ld a, $01
+	ldh [$ff80], a
+	pop af
+	reti
+
 
 RAMCopy_f1_5839_to_cd03::
-	INCBIN "baserom.gbc", $3c5839, $0044
+	; runs from $cd03
+	DEF RAMCode_f1_cd03 EQU $cd03
+	DEF RAMCode_f1_cd24 EQU $cd24
+	DEF RAMCode_f1_cd2f EQU $cd2f
+	DEF RAMCode_f1_cd42 EQU $cd42
+; RAMCode_f1_cd03:
+	push af
+	push bc
+	ld a, $01
+	ldh [$ff80], a
+	ld a, [$c9d9]
+	or a
+	jr z, @ +23 ; RAMCode_f1_cd24
+	ld a, [$c9e3]
+	sub $01
+	ld [$c9e3], a
+	ld c, a
+	ld a, [$c9e4]
+	sbc a, $00
+	ld [$c9e4], a
+	or c
+	ld [$c9d9], a
+; RAMCode_f1_cd24:
+	ld a, [$ccb7]
+	or a
+	jr z, @ +7 ; RAMCode_f1_cd2f
+	ld a, $01
+	ld [$ccb8], a
+; RAMCode_f1_cd2f:
+	ld a, $10
+	ldh [rP1], a
+	ldh a, [rP1]
+	cpl
+	and $0f
+	cp $0f
+	jr z, @ +8 ; RAMCode_f1_cd42
+	call $c930
+	pop bc
+	pop af
+	reti
+
+; RAMCode_f1_cd42:
+	ld a, $11
+	jp Init
+
 
 RAMCopy_f1_587d_to_cd47::
-	INCBIN "baserom.gbc", $3c587d, $0093
+	; runs from $cd47
+	DEF RAMCode_f1_cd47 EQU $cd47
+	DEF RAMCode_f1_cd7c EQU $cd7c
+	DEF RAMCode_f1_cd94 EQU $cd94
+	DEF RAMCode_f1_cdd0 EQU $cdd0
+; RAMCode_f1_cd47:
+	ei
+	push af
+	ldh a, [rSVBK]
+	push af
+	ld a, $01
+	ldh [rSVBK], a
+	ldh a, [rLY]
+	cp $50
+	jr nc, @ +64 ; RAMCode_f1_cd94
+	cp $10
+	jr c, @ +36 ; RAMCode_f1_cd7c
+	bit 0, a
+	jr nz, @ +56 ; RAMCode_f1_cd94
+	push hl
+	ld h, $db
+	ld l, a
+	ld a, $86
+	ldh [rBCPS], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hld]
+	ldh [rBCPD], a
+	ld a, $96
+	ldh [rBCPS], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hld]
+	ldh [rBCPD], a
+	pop hl
+	pop af
+	ldh [rSVBK], a
+	pop af
+	reti
+
+; RAMCode_f1_cd7c:
+	bit 0, a
+	jr nz, @ +22 ; RAMCode_f1_cd94
+	push hl
+	ld h, $db
+	ld l, a
+	ld a, $80
+	ldh [rBCPS], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	ld a, [hli]
+	ldh [rBCPD], a
+	pop hl
+	pop af
+	ldh [rSVBK], a
+	pop af
+	reti
+
+; RAMCode_f1_cd94:
+	cp $0f
+	jr nz, @ +58 ; RAMCode_f1_cdd0
+	push hl
+	push bc
+	ld hl, $c806
+	ld bc, $ff69
+	ld a, $80
+	ldh [rBCPS], a
+	ld a, [hli]
+	ld [bc], a
+	ld a, [hli]
+	ld [bc], a
+	ld a, [hli]
+	ld [bc], a
+	ld a, [hli]
+	ld [bc], a
+	ld a, [hli]
+	ld [bc], a
+	ld a, [hli]
+	ld [bc], a
+	ld a, [$db10]
+	ld [bc], a
+	ld a, [$db11]
+	ld [bc], a
+	ld a, $96
+	ldh [rBCPS], a
+	ld a, [$db10]
+	ld [bc], a
+	ld a, [$db11]
+	ld [bc], a
+	ld hl, $ff40
+	res 4, [hl]
+	pop bc
+	pop hl
+	pop af
+	ldh [rSVBK], a
+	pop af
+	reti
+
+; RAMCode_f1_cdd0:
+	cp $65
+	call z, $c930
+	pop af
+	ldh [rSVBK], a
+	pop af
+	reti
+
 
 RAMCopy_f1_5910_to_cdda::
-	INCBIN "baserom.gbc", $3c5910, $0005
+	; runs from $cdda
+	DEF RAMCode_f1_cdda EQU $cdda
+; RAMCode_f1_cdda:
+	ei
+	call $c930
+	reti
+
 
 RAMCopy_f1_5915_to_cddf::
-	INCBIN "baserom.gbc", $3c5915, $0010
+	; runs from $cddf
+	DEF RAMCode_f1_cddf EQU $cddf
+; RAMCode_f1_cddf:
+	push af
+	push bc
+	push de
+	push hl
+	call $ce87
+	ld a, $01
+	ldh [$ffb0], a
+	pop hl
+	pop de
+	pop bc
+	pop af
+	reti
+
 
 RAMCopy_f1_5925_to_cdef::
-	INCBIN "baserom.gbc", $3c5925, $003f
+	; runs from $cdef
+	DEF RAMCode_f1_cdef EQU $cdef
+	DEF RAMCode_f1_ce0c EQU $ce0c
+	DEF RAMCode_f1_ce27 EQU $ce27
+; RAMCode_f1_cdef:
+	push af
+	push hl
+	ldh a, [rSB]
+	cp $66
+	jr z, @ +23 ; RAMCode_f1_ce0c
+	cp $bb
+	jr nz, @ +46 ; RAMCode_f1_ce27
+	ldh a, [$ffaf]
+	or a
+	jr z, @ +41 ; RAMCode_f1_ce27
+	ld a, $66
+	ldh [$ffac], a
+	ldh [$ffad], a
+	ld a, $01
+	ldh [$ffb1], a
+	jr @ +29 ; RAMCode_f1_ce27
+
+; RAMCode_f1_ce0c:
+	ldh a, [$ffaf]
+	or a
+	jr nz, @ +24 ; RAMCode_f1_ce27
+	ld a, $bb
+	ldh [$ffac], a
+	ldh [$ffad], a
+	ld a, $bb
+	ldh [rSB], a
+	ld a, $02
+	ldh [rSC], a
+	ld a, $82
+	ldh [rSC], a
+	ld a, $01
+	ldh [$ffb1], a
+; RAMCode_f1_ce27:
+	ld a, $01
+	ldh [$ffb0], a
+	pop hl
+	pop af
+	reti
+
 
 RAMCopy_f1_5964_to_ce80::
-	INCBIN "baserom.gbc", $3c5964, $0007
+	; runs from $ce80
+	DEF RAMCode_f1_ce80 EQU $ce80
+; RAMCode_f1_ce80:
+	push af
+	ld a, $01
+	ldh [$ffb0], a
+	pop af
+	reti
+
 
 RAMCopy_f1_596b_to_ce2e::
-	INCBIN "baserom.gbc", $3c596b, $0052
+	; runs from $ce2e
+	DEF RAMCode_f1_ce2e EQU $ce2e
+	DEF RAMCode_f1_ce5e EQU $ce5e
+	DEF RAMCode_f1_ce67 EQU $ce67
+; RAMCode_f1_ce2e:
+	push af
+	push bc
+	push hl
+	ldh a, [rSB]
+	cp $77
+	jr nz, @ +41 ; RAMCode_f1_ce5e
+	ld a, [$c805]
+	ld l, a
+	ld d, $00
+	ld a, $59
+	push af
+	inc sp
+	ld a, $9a
+	push af
+	inc sp
+	ldh a, [$ff81]
+	push af
+	ld a, $3f
+	push af
+	inc sp
+	ld a, $d5
+	push af
+	inc sp
+	ld a, $40
+	push af
+	inc sp
+	ld a, $19
+	push af
+	inc sp
+	ld a, $f1
+	jp Func_00_3fd5.jump_3fdc
+
+	db $d9
+; RAMCode_f1_ce5e:
+	cp $ef
+	jr nz, @ +7 ; RAMCode_f1_ce67
+	ld a, $11
+	jp Init
+
+; RAMCode_f1_ce67:
+	ld hl, $ffa9
+	ld c, [hl]
+	ldh [c], a
+	inc c
+	ld [hl], c
+	inc l
+	inc [hl]
+	ld a, $ea
+	ldh [rSB], a
+	ld a, $02
+	ldh [rSC], a
+	ld a, $82
+	ldh [rSC], a
+	pop hl
+	pop bc
+	pop af
+	reti
+
 
 Func_f1_59bd::
 	di
@@ -5450,7 +5785,16 @@ MenuBytes_f1_64cb::
 	db $65, $18, $65, $22, $65, $2c, $65, $36, $65, $4a, $65, $5e, $65, $72, $65
 
 RAMCopy_f1_659a_to_db00::
-	INCBIN "baserom.gbc", $3c659a, $0050
+	rgb 31, 14,  0,  31, 14,  0,  31, 15,  0,  31, 15,  0
+	rgb 31, 16,  0,  31, 16,  0,  31, 17,  0,  31, 17,  0
+	rgb 31, 18,  1,  31, 18,  1,  31, 19,  1,  31, 19,  1
+	rgb 31, 20,  1,  31, 20,  1,  31, 21,  1,  31, 21,  1
+	rgb 31, 22,  2,  31, 22,  2,  31, 23,  2,  31, 23,  2
+	rgb 31, 24,  2,  31, 24,  2,  31, 25,  2,  31, 25,  2
+	rgb 31, 26,  3,  31, 26,  3,  31, 27,  3,  31, 27,  3
+	rgb 31, 28,  3,  31, 28,  3,  31, 29,  3,  31, 29,  3
+	rgb 31, 30,  4,  31, 30,  4,  31, 31,  4,  31, 31,  4
+	rgb 31, 31,  4,  31, 31,  4,  31, 31,  4,   0,  0,  0
 
 FrontEndObjPalettesRest::
 	db $30, $03, $0c, $02, $00, $00, $00, $00

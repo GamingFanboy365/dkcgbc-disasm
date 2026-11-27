@@ -4,18 +4,18 @@ INCLUDE "include/common.inc"
 SECTION "Bank $53", ROMX[$4000], BANK[$53]
 
 Sample_00::
-	INCBIN "baserom.gbc", $14c000, $01f1
+	INCBIN "data/samples/sample_00.pcm"
 
 Sample_01::
-	INCBIN "baserom.gbc", $14c1f1, $0854
+	INCBIN "data/samples/sample_01.pcm"
 
 Sample_02::
-	INCBIN "baserom.gbc", $14ca45, $0d9a
+	INCBIN "data/samples/sample_02.pcm"
 
 Sample_03::
-	INCBIN "baserom.gbc", $14d7df, $16cf
+	INCBIN "data/samples/sample_03.pcm"
 
 Sample_04::
-	INCBIN "baserom.gbc", $14eeae, $10ff
+	INCBIN "data/samples/sample_04.pcm"
 	ds 83, $00 ; $7fad
 

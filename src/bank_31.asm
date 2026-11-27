@@ -424,7 +424,10 @@ FrameSprites_31_6c9e::
 	db 8, 0
 
 FrameSpritesTail_31_6caa::
-	INCBIN "baserom.gbc", $0c6caa, $003e
+	db -8, -12, 0, 16, 8, -15, 0, 18, -7, -12, 0, 19, 8, -20, 0, 22 ; never read; dx, dy pairs like the list above
+	db -8, -13, 0, 21, 8, -21, 0, 20, -9, -14, 0, 16, 8, -15, 0, 20
+	db 8, 0, -9, -14, 0, 16, 8, -14, 0, 19, 8, -1, -9, -14, 0, 16
+	db 8, -13, 0, 17, 8, 2, -8, -13, 0, 16, 8, -7, 8, 11
 
 FrameSprites_31_6ce8::
 	db -11, 0

@@ -1563,6 +1563,6 @@ HiScorePalettes::
 	rgb  3,  3,  3,   8,  4,  4,   2,  6,  2,   2, 12,  2
 
 Sample_09::
-	INCBIN "baserom.gbc", $156130, $1163
+	INCBIN "data/samples/sample_09.pcm"
 	ds 3437, $00 ; $7293
 

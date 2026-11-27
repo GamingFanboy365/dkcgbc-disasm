@@ -87,6 +87,9 @@ class Asm:
             if path.endswith(".lz") and os.path.exists(full[:-3] + ".bin"):
                 from lzcomp import compress
                 cache[path] = compress(open(full[:-3] + ".bin", "rb").read())
+            elif path.endswith(".pcm") and os.path.exists(full[:-4] + ".wav"):
+                from samples import from_wav
+                cache[path] = from_wav(full[:-4] + ".wav")
             elif path.endswith(".planar") and os.path.exists(full[:-7] + ".bin"):
                 from leveldata import to_rom
                 cache[path] = to_rom("blocks" if "/blocks/" in path else "terrain", open(full[:-7] + ".bin", "rb").read())
@@ -149,6 +152,10 @@ class Asm:
                     bank = int(m.group(3), 16) if m.group(3) else 0
                     fo = pc if m.group(1) == "ROM0" else bank * BANK + pc - 0x4000
                     scope = None  # RGBDS resets the label scope at each SECTION
+                    continue
+                m = re.match(r"DEF\s+(\w+)\s+EQU\s+(\S+)$", s)
+                if m:  # constants (RAM code labels, tools/ramcode.py)
+                    self.syms[m.group(1)] = self.eval(m.group(2))
                     continue
                 m = re.match(r"^([A-Za-z_][\w]*)::?$", s)
                 if m and not raw[0].isspace():

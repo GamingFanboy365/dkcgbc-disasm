@@ -4,6 +4,6 @@ INCLUDE "include/common.inc"
 SECTION "Bank $56", ROMX[$4000], BANK[$56]
 
 Sample_0A::
-	INCBIN "baserom.gbc", $158000, $3521
+	INCBIN "data/samples/sample_0a.pcm"
 	ds 2783, $00 ; $7521
 

@@ -331,13 +331,46 @@ def parse_banks(t, rom):
     t._claim(0x40, 0x48C0, 360, "rows", hexrow("db", rom[off(0x40, 0x48C0):off(0x40, 0x48C0) + 360], 20),
              "=NotGBCMap")
     t._claim(0x41, 0x5380, 64, "palette", 8, "=WorldMapObjPalettes")
-    t._claim(0x51, 0x42F4, 0x44F1 - 0x42F4, "incbin", None, "=FishingRuntime")  # copied to $cb00 and run there
-    t._claim(0x52, 0x41EE, 0x8000 - 0x41EE, "incbin", None, "=FishingSpriteTiles")  # streamed to VRAM each frame
+    # code copied to RAM (hints.RAM_CODE) is claimed here and disassembled by the emitter
+    for (b, src, n, dst, pbanks, extra, name) in hints.RAM_CODE:
+        t._claim(b, src, n, "ramcode", (dst, pbanks, extra), name or "=RAMCopy_%02x_%04x_to_%04x" % (b, src, dst))
+    # Funky's Fishing sprite animations (tools/fishanim.py)
+    import fishanim
+    fd = fishanim.decode(rom)
+    fb = fishanim.BANK
+    t._claim(fb, fishanim.TABLE, 2 * fishanim.COUNT, "rows",
+             [("dw", [ref(fb, a)], "%d" % k) for k, a in enumerate(fd["table"])], "=FishingAnimTable")
+    for a, (hdr, frames) in sorted(fd["anims"].items()):
+        rows = [("db", ["%d" % v for v in hdr[:3]] + ["$%02x" % hdr[3]], "number, ?, last frame, bank")]
+        for n, x, tp, lp in frames:
+            rows.append(("db", ["%d" % n, "%d" % x], "sprites, 0"))
+            rows.append(("dw", [ref(fb, tp), ref(fb, lp)], "tiles, layout"))
+        t._claim(fb, a, 4 + 6 * len(frames), "rows", rows, "FishingAnim")
+    for a, n in sorted(fd["layouts"].items()):
+        t._claim(fb, a, n, "sprites", list(rom[off(fb, a):off(fb, a) + n]),
+                 "=FishingLayout_52_%04x" % a)
+    for a, n in sorted(fd["tiles"].items()):
+        t._claim(fb, a, n, "tiles", None, "=FishingTiles_52_%04x" % a)
     # Rare logo (flow state $10; Func_0d_4130, Func_0d_4216, Func_0d_4266)
     t._claim(0x0D, 0x4110, 32, "rows", [("db", ["$%02x" % x for x in rom[off(0x0D, 0x4110 + 4 * k):off(0x0D, 0x4110 + 4 * k) + 4]],
                                          "y, x, tile, attributes" if k == 0 else None) for k in range(8)], "=RareLogoCornerOAM")
     t._claim(0x0D, 0x42A9, 64, "palette", 8, "=RareLogoPalettes")
-    t._claim(0x0D, 0x42E9, 0x5980 - 0x42E9, "incbin", None, "=RareLogoAnimation")  # frames of (n, n bytes) / ($80|n skip), 0 ends a frame
+    # Rare logo animation (Func_0d_4266): per frame, runs of n < $80 bytes to
+    # copy into the tile map buffer, or $80 + n bytes to skip; 0 ends a frame
+    d, i, rows, fr = rom[off(0x0D, 0x42E9):off(0x0D, 0x5980)], 0, [], 0
+    while i < len(d):
+        n = d[i]
+        if n == 0:
+            rows.append(("db", ["0"], "end of frame %d" % fr))
+            fr += 1
+            i += 1
+        elif n < 0x80:
+            rows.append(("db", ["%d" % n] + ["$%02x" % v for v in d[i + 1:i + 1 + n]], None))
+            i += 1 + n
+        else:
+            rows.append(("db", ["$80 + %d" % (n - 0x80)], "skip"))
+            i += 1
+    t._claim(0x0D, 0x42E9, 0x5980 - 0x42E9, "rows", rows, "=RareLogoAnimation")
     t._claim(0x0D, 0x5F00, 88, "rows", hexrow("db", rom[off(0x0D, 0x5F00):off(0x0D, 0x5F00) + 88], 8), "=RareLogoAttributes")
     t._claim(0x55, 0x4840, 0x6100 - 0x4840, "incbin", None, "=HiScoreGraphics")  # font, scene tiles and tile maps
     t._claim(0x55, 0x6100, 0x30, "palette", 6, "=HiScorePalettes")
@@ -535,7 +568,11 @@ def parse_banks(t, rom):
             j = i
             while j < used and j not in t.owner:
                 j += 1
-            t._claim(b, 0x4000 + i % 0x4000, j - i, "incbin", None, "FrameSpritesTail")
+            tail = rom[i:j]
+            sg = lambda v: "%d" % (v - 256 if v > 127 else v)  # noqa: E731
+            rows = [("db", [sg(v) for v in tail[k:k + 16]], "never read; dx, dy pairs like the list above" if k == 0 else None)
+                    for k in range(0, len(tail), 16)]
+            t._claim(b, 0x4000 + i % 0x4000, j - i, "rows", rows, "FrameSpritesTail")
             i = j
     # world map (bank $05): metasprites for Func_05_4001 (4-byte steps: dy, dx, tile, attributes; $80 ends)
     mps = []
@@ -618,7 +655,10 @@ def parse_banks(t, rom):
                            (0xF1, 0x587D, 0xCD47, 147), (0xF1, 0x5910, 0xCDDA, 5), (0xF1, 0x5915, 0xCDDF, 16),
                            (0xF1, 0x5925, 0xCDEF, 63), (0xF1, 0x5964, 0xCE80, 7), (0xF1, 0x596B, 0xCE2E, 82),
                            (0xF1, 0x659A, 0xDB00, 80), (0xFE, 0x761B, 0xCC0E, 134)):
-        t._claim(b, src, n, "incbin", None, "=RAMCopy_%02x_%04x_to_%04x" % (b, src, dst))
+        if (b, src) == (0xF1, 0x659A):  # 10 BG palettes, read from $db00 by RAMCopy_f1_57f0_to_ccba
+            t._claim(b, src, n, "palette", 10, "=RAMCopy_f1_659a_to_db00")
+        elif b * 0x10000 + src not in {x[0] * 0x10000 + x[1] for x in hints.RAM_CODE}:
+            t._claim(b, src, n, "incbin", None, "=RAMCopy_%02x_%04x_to_%04x" % (b, src, dst))
     # 8 OBJ palettes copied to $c846 from $65e8 (Func_f1_433a); their first 2 bytes are the end of the block above
     t._claim(0xF1, 0x65EA, 62, "rows", hexrow("db", rom[off(0xF1, 0x65EA):off(0xF1, 0x6628)], 8), "=FrontEndObjPalettesRest")
     t._claim(0xF1, 0x5CC1, 16, "palette", 2, "=HiScoreObjPalettes")       # copied to $c846 (Func_f1_5cd1)
@@ -914,7 +954,7 @@ def parse_banks(t, rom):
              [("db", ["$%02x" % b, "LOW(Sample_%02X)" % k, "HIGH(Sample_%02X)" % k, "%d" % n], "sample %d" % k)
               for k, (b, p, n) in enumerate(ents)], "=SampleTable")
     for k, (b, p, n) in enumerate(ents):
-        t._claim(b, p, ext[(b, p)], "incbin", None, "=Sample_%02X" % k)
+        t._claim(b, p, ext[(b, p)], "convfile", "data/samples/sample_%02x.wav" % k, "=Sample_%02X" % k)
 
 
 def make(rom):

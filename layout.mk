@@ -626,6 +626,17 @@ GFX := \
 	data/maps/ec_594e_terrain.lz \
 	data/maps/ec_598e_blocks.lz \
 	data/maps/ec_5a94_attrs.lz \
+	data/samples/sample_00.pcm \
+	data/samples/sample_01.pcm \
+	data/samples/sample_02.pcm \
+	data/samples/sample_03.pcm \
+	data/samples/sample_04.pcm \
+	data/samples/sample_05.pcm \
+	data/samples/sample_06.pcm \
+	data/samples/sample_07.pcm \
+	data/samples/sample_08.pcm \
+	data/samples/sample_09.pcm \
+	data/samples/sample_0a.pcm \
 	data/terrain/92.planar \
 	data/terrain/95.planar \
 	data/terrain/98.planar \
@@ -2430,6 +2441,89 @@ GFX := \
 	gfx/frames/3a/4280.2bpp \
 	gfx/frames/3a/4300.2bpp \
 	gfx/frames/3a/4380.2bpp \
+	gfx/frames/52/451c.2bpp \
+	gfx/frames/52/455c.2bpp \
+	gfx/frames/52/459c.2bpp \
+	gfx/frames/52/45dc.2bpp \
+	gfx/frames/52/461c.2bpp \
+	gfx/frames/52/465c.2bpp \
+	gfx/frames/52/469c.2bpp \
+	gfx/frames/52/46f8.2bpp \
+	gfx/frames/52/4738.2bpp \
+	gfx/frames/52/4778.2bpp \
+	gfx/frames/52/47b8.2bpp \
+	gfx/frames/52/47f8.2bpp \
+	gfx/frames/52/4838.2bpp \
+	gfx/frames/52/4878.2bpp \
+	gfx/frames/52/48e4.2bpp \
+	gfx/frames/52/4944.2bpp \
+	gfx/frames/52/49a4.2bpp \
+	gfx/frames/52/4a04.2bpp \
+	gfx/frames/52/4a44.2bpp \
+	gfx/frames/52/4a84.2bpp \
+	gfx/frames/52/4ae4.2bpp \
+	gfx/frames/52/4b44.2bpp \
+	gfx/frames/52/4bd0.2bpp \
+	gfx/frames/52/4c30.2bpp \
+	gfx/frames/52/4c90.2bpp \
+	gfx/frames/52/4cf0.2bpp \
+	gfx/frames/52/4d30.2bpp \
+	gfx/frames/52/4d70.2bpp \
+	gfx/frames/52/4dd0.2bpp \
+	gfx/frames/52/4e30.2bpp \
+	gfx/frames/52/4ec0.2bpp \
+	gfx/frames/52/4f20.2bpp \
+	gfx/frames/52/4f80.2bpp \
+	gfx/frames/52/4fe0.2bpp \
+	gfx/frames/52/5040.2bpp \
+	gfx/frames/52/50a0.2bpp \
+	gfx/frames/52/5100.2bpp \
+	gfx/frames/52/5160.2bpp \
+	gfx/frames/52/51f0.2bpp \
+	gfx/frames/52/5250.2bpp \
+	gfx/frames/52/52b0.2bpp \
+	gfx/frames/52/5310.2bpp \
+	gfx/frames/52/5370.2bpp \
+	gfx/frames/52/53d0.2bpp \
+	gfx/frames/52/5430.2bpp \
+	gfx/frames/52/5490.2bpp \
+	gfx/frames/52/5528.2bpp \
+	gfx/frames/52/5648.2bpp \
+	gfx/frames/52/56a8.2bpp \
+	gfx/frames/52/5708.2bpp \
+	gfx/frames/52/5788.2bpp \
+	gfx/frames/52/57e8.2bpp \
+	gfx/frames/52/5848.2bpp \
+	gfx/frames/52/58e0.2bpp \
+	gfx/frames/52/5a00.2bpp \
+	gfx/frames/52/5a60.2bpp \
+	gfx/frames/52/5ac0.2bpp \
+	gfx/frames/52/5b40.2bpp \
+	gfx/frames/52/5ba0.2bpp \
+	gfx/frames/52/5c00.2bpp \
+	gfx/frames/52/5c78.2bpp \
+	gfx/frames/52/5cd8.2bpp \
+	gfx/frames/52/5d38.2bpp \
+	gfx/frames/52/5d98.2bpp \
+	gfx/frames/52/5e12.2bpp \
+	gfx/frames/52/5e92.2bpp \
+	gfx/frames/52/5ef2.2bpp \
+	gfx/frames/52/5f52.2bpp \
+	gfx/frames/52/5fb8.2bpp \
+	gfx/frames/52/5fd8.2bpp \
+	gfx/frames/52/5ff8.2bpp \
+	gfx/frames/52/6028.2bpp \
+	gfx/frames/52/6068.2bpp \
+	gfx/frames/52/60a8.2bpp \
+	gfx/frames/52/60e8.2bpp \
+	gfx/frames/52/6138.2bpp \
+	gfx/frames/52/6178.2bpp \
+	gfx/frames/52/61b8.2bpp \
+	gfx/frames/52/61f8.2bpp \
+	gfx/frames/52/623c.2bpp \
+	gfx/frames/52/6280.2bpp \
+	gfx/frames/52/62c4.2bpp \
+	gfx/frames/52/6308.2bpp \
 	gfx/frames/f6/4000.2bpp \
 	gfx/frames/f6/4220.2bpp \
 	gfx/frames/f6/4260.2bpp \
@@ -2820,6 +2914,11 @@ src/bank_4d.o: gfx/bgtiles/4d/4000.2bpp gfx/bgtiles/4d/4000_end.2bpp
 src/bank_4e.o: gfx/bgtiles/4e/4000.2bpp gfx/bgtiles/4e/4000_end.2bpp
 src/bank_4f.o: gfx/bgtiles/4f/4000.2bpp gfx/bgtiles/4f/4000_end.2bpp
 src/bank_51.o: gfx/bgtiles/51/4d00.2bpp gfx/bgtiles/51/4d00_end.2bpp gfx/bgtiles/51/54e0.2bpp gfx/bgtiles/51/5ce0.2bpp gfx/bgtiles/51/5ce0_end.2bpp gfx/bgtiles/51/6460.2bpp gfx/bgtiles/51/6480.2bpp gfx/bgtiles/51/6480_end.2bpp gfx/bgtiles/51/67e0.2bpp gfx/bgtiles/51/67e0_end.2bpp
+src/bank_52.o: gfx/frames/52/451c.2bpp gfx/frames/52/455c.2bpp gfx/frames/52/459c.2bpp gfx/frames/52/45dc.2bpp gfx/frames/52/461c.2bpp gfx/frames/52/465c.2bpp gfx/frames/52/469c.2bpp gfx/frames/52/46f8.2bpp gfx/frames/52/4738.2bpp gfx/frames/52/4778.2bpp gfx/frames/52/47b8.2bpp gfx/frames/52/47f8.2bpp gfx/frames/52/4838.2bpp gfx/frames/52/4878.2bpp gfx/frames/52/48e4.2bpp gfx/frames/52/4944.2bpp gfx/frames/52/49a4.2bpp gfx/frames/52/4a04.2bpp gfx/frames/52/4a44.2bpp gfx/frames/52/4a84.2bpp gfx/frames/52/4ae4.2bpp gfx/frames/52/4b44.2bpp gfx/frames/52/4bd0.2bpp gfx/frames/52/4c30.2bpp gfx/frames/52/4c90.2bpp gfx/frames/52/4cf0.2bpp gfx/frames/52/4d30.2bpp gfx/frames/52/4d70.2bpp gfx/frames/52/4dd0.2bpp gfx/frames/52/4e30.2bpp gfx/frames/52/4ec0.2bpp gfx/frames/52/4f20.2bpp gfx/frames/52/4f80.2bpp gfx/frames/52/4fe0.2bpp gfx/frames/52/5040.2bpp gfx/frames/52/50a0.2bpp gfx/frames/52/5100.2bpp gfx/frames/52/5160.2bpp gfx/frames/52/51f0.2bpp gfx/frames/52/5250.2bpp gfx/frames/52/52b0.2bpp gfx/frames/52/5310.2bpp gfx/frames/52/5370.2bpp gfx/frames/52/53d0.2bpp gfx/frames/52/5430.2bpp gfx/frames/52/5490.2bpp gfx/frames/52/5528.2bpp gfx/frames/52/5648.2bpp gfx/frames/52/56a8.2bpp gfx/frames/52/5708.2bpp gfx/frames/52/5788.2bpp gfx/frames/52/57e8.2bpp gfx/frames/52/5848.2bpp gfx/frames/52/58e0.2bpp gfx/frames/52/5a00.2bpp gfx/frames/52/5a60.2bpp gfx/frames/52/5ac0.2bpp gfx/frames/52/5b40.2bpp gfx/frames/52/5ba0.2bpp gfx/frames/52/5c00.2bpp gfx/frames/52/5c78.2bpp gfx/frames/52/5cd8.2bpp gfx/frames/52/5d38.2bpp gfx/frames/52/5d98.2bpp gfx/frames/52/5e12.2bpp gfx/frames/52/5e92.2bpp gfx/frames/52/5ef2.2bpp gfx/frames/52/5f52.2bpp gfx/frames/52/5fb8.2bpp gfx/frames/52/5fd8.2bpp gfx/frames/52/5ff8.2bpp gfx/frames/52/6028.2bpp gfx/frames/52/6068.2bpp gfx/frames/52/60a8.2bpp gfx/frames/52/60e8.2bpp gfx/frames/52/6138.2bpp gfx/frames/52/6178.2bpp gfx/frames/52/61b8.2bpp gfx/frames/52/61f8.2bpp gfx/frames/52/623c.2bpp gfx/frames/52/6280.2bpp gfx/frames/52/62c4.2bpp gfx/frames/52/6308.2bpp
+src/bank_53.o: data/samples/sample_00.pcm data/samples/sample_01.pcm data/samples/sample_02.pcm data/samples/sample_03.pcm data/samples/sample_04.pcm
+src/bank_54.o: data/samples/sample_05.pcm data/samples/sample_06.pcm data/samples/sample_07.pcm data/samples/sample_08.pcm
+src/bank_55.o: data/samples/sample_09.pcm
+src/bank_56.o: data/samples/sample_0a.pcm
 src/bank_5b.o: gfx/bgtiles/5b/7800.2bpp
 src/bank_5c.o: gfx/bgtiles/5c/4000.2bpp gfx/bgtiles/5c/4000_end.2bpp gfx/bgtiles/5c/4aa0.2bpp gfx/bgtiles/5c/4aa0_end.2bpp gfx/bgtiles/5c/5880.2bpp gfx/bgtiles/5c/5880_end.2bpp gfx/bgtiles/5c/6700.2bpp gfx/bgtiles/5c/6700_end.2bpp gfx/bgtiles/5c/74a0.2bpp gfx/bgtiles/5c/74a0_end.2bpp
 src/bank_5d.o: gfx/bgtiles/5d/4000.2bpp gfx/bgtiles/5d/4000_end.2bpp gfx/bgtiles/5d/43c0.2bpp gfx/bgtiles/5d/43c0_end.2bpp gfx/bgtiles/5d/5220.2bpp gfx/bgtiles/5d/5220_end.2bpp gfx/bgtiles/5d/6800.2bpp gfx/bgtiles/5d/6800_end.2bpp gfx/bgtiles/5d/7e80.2bpp gfx/bgtiles/5d/7e80_end.2bpp

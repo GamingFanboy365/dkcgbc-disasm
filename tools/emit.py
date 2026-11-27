@@ -78,7 +78,11 @@ def hexb(v):
 
 def conv_target(path):
     """The file the build makes from an editable data file."""
-    return path[:-4] + (".lz" if path.startswith("data/maps/") else ".planar")
+    if path.startswith("data/maps/"):
+        return path[:-4] + ".lz"
+    if path.startswith("data/samples/"):
+        return path[:-4] + ".pcm"
+    return path[:-4] + ".planar"
 
 
 def hexw(v):
@@ -297,7 +301,7 @@ class Emitter:
                             out.append("\n%s::\n" % self.names[lo])
                         elif lo is not None and lo in self.locals:
                             out.append("%s%s\n" % (self.locals[lo][1], "::" if lo in self.exported else ":"))
-                        out.append("\t%s\n" % line)
+                        out.append(line[1:] + "\n" if line.startswith("\0") else "\t%s\n" % line)
                     o += t.data[o][3]
                 else:
                     if gap is None:
@@ -357,6 +361,30 @@ class Emitter:
             return [(o if k == 0 else None, "dw " + ", ".join(names[k:k + 4])) for k in range(0, len(names), 4)]
         if kind == "incbin":
             return [(o, 'INCBIN "baserom.gbc", $%06x, $%04x' % (o, item[3]))]
+        if kind == "ramcode":
+            # code copied to RAM: disassembled at its RAM address (tools/ramcode.py)
+            import ramcode
+            dst, pbanks, extra = item[2]
+            n = item[3]
+            buf = self.rom[o:o + n]
+
+            class _T:
+                insns = {x: i for x, i in self.t.insns.items() if x // BANK_SIZE in pbanks}
+            ents = ramcode.entries_from(_T, self.rom, dst, n) | set(extra)
+            name_of = lambda a: "RAMCode_%02x_%04x" % (bank, a)  # noqa: E731
+
+            def ext_name(v, tmpl):
+                if tmpl == "ldh" or (v >= 0xFF00 and ("[{n16}]" in tmpl)):
+                    return HW_REGS.get(v)
+                if (tmpl.startswith("jp") or tmpl.startswith("call")) and v < 0x4000:
+                    return self.qref(0, v)
+                return None
+            consts, body = ramcode.lines(buf, dst, ents, name_of, ext_name)
+            res = [(o, "; runs from $%04x" % dst)]
+            res += [(None, "DEF %s EQU $%04x" % (nm, a)) for nm, a in consts]
+            # comment lines and blank lines go out unindented (marked with \0)
+            res += [(None, ln[1:] if ln.startswith("\t") else "\0" + ln) for ln in body]
+            return res
         if kind == "convfile":
             # stored in an editable form; the Makefile converts it back
             # (map layers: tools/lzcomp.py, blocks and terrain: tools/leveldata.py)

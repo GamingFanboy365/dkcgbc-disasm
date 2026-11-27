@@ -339,3 +339,24 @@ FE_TEXT_RUNS = [(0x4669, 631), (0x4C06, 14), (0x4EF3, 737), (0x586E, 699), (0x5E
 # (slot, x, y, bank, tiles little-endian, width, height in tiles); read while
 # browsing stickers
 THUMBNAILS = {"table": (0xF1, 0x693A), "count": 18}
+
+
+# Code the game copies to RAM and runs there (tools/ramcode.py): ROM bank and
+# address, length, RAM address, the banks of the program that uses it (whose
+# traced jumps and calls give entry points) and extra entry points (interrupt
+# handlers installed by storing their address, and the like).
+FE_BANKS = tuple(range(0xF0, 0x100))
+FISHING_BANKS = tuple(range(0x50, 0x57))
+RAM_CODE = [
+    (0x51, 0x42F4, 0x1FD, 0xCB00, FISHING_BANKS, (0xCBB2, 0xCCA5, 0xCCC0, 0xCCE2), "=FishingRuntime"),
+    (0xF1, 0x57F0, 65, 0xCCBA, FE_BANKS, (), None),
+    (0xF1, 0x5831, 8, 0xCCFB, FE_BANKS, (), None),
+    (0xF1, 0x5839, 68, 0xCD03, FE_BANKS, (), None),
+    (0xF1, 0x587D, 147, 0xCD47, FE_BANKS, (), None),
+    (0xF1, 0x5910, 5, 0xCDDA, FE_BANKS, (), None),
+    (0xF1, 0x5915, 16, 0xCDDF, FE_BANKS, (), None),
+    (0xF1, 0x5925, 63, 0xCDEF, FE_BANKS, (), None),
+    (0xF1, 0x5964, 7, 0xCE80, FE_BANKS, (), None),
+    (0xF1, 0x596B, 82, 0xCE2E, FE_BANKS, (), None),
+    (0xFE, 0x761B, 134, 0xCC0E, FE_BANKS, (), None),
+]

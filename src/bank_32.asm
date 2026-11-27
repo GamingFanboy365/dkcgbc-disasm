@@ -424,7 +424,7 @@ FrameSprites_32_7348::
 	db 16, 0
 
 FrameSpritesTail_32_7366::
-	INCBIN "baserom.gbc", $0cb366, $000f
+	db -2, 21, 0, 4, -5, 0, 6, -6, 0, 0, -16, 0, -34, 30, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_32_7375::
 	db -23, -25
@@ -445,7 +445,7 @@ FrameSprites_32_7375::
 	db 4, 14
 
 FrameSpritesTail_32_7395::
-	INCBIN "baserom.gbc", $0cb395, $0010
+	db 0, 0, 16, 0, 12, -39, 0, -8, 7, 0, 4, 16, 0, 4, -7, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_32_73a5::
 	db -19, -33
@@ -466,7 +466,7 @@ FrameSprites_32_73a5::
 	db 20, -42
 
 FrameSpritesTail_32_73c5::
-	INCBIN "baserom.gbc", $0cb3c5, $0010
+	db 0, -8, 16, 0, 0, 16, 0, 8, -16, 0, -24, 10, 1, 32, -21, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_32_73d5::
 	db -17, -36
@@ -486,7 +486,7 @@ FrameSprites_32_73d5::
 	db 2, 0
 
 FrameSpritesTail_32_73f3::
-	INCBIN "baserom.gbc", $0cb3f3, $000f
+	db 0, -16, 0, 8, -18, 0, 0, 16, 0, 8, -7, 0, -40, 17, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_32_7402::
 	db -12, -38
@@ -507,7 +507,7 @@ FrameSprites_32_7402::
 	db 0, 16
 
 FrameSpritesTail_32_7422::
-	INCBIN "baserom.gbc", $0cb422, $0010
+	db 0, 0, 16, 0, 8, -48, 0, 0, 16, 0, 0, 16, 0, 8, -16, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_32_7432::
 	db -18, -45
@@ -530,7 +530,8 @@ FrameSprites_32_7432::
 	db 22, 0
 
 FrameSpritesTail_32_7456::
-	INCBIN "baserom.gbc", $0cb456, $0012
+	db 20, -31, 0, -9, 9, 0, -8, 16, 0, 25, -27, 0, -9, 27, 0, -11 ; never read; dx, dy pairs like the list above
+	db 16, 0
 
 FrameSprites_32_7468::
 	db -23, -32
@@ -553,7 +554,8 @@ FrameSprites_32_7468::
 	db -32, 0
 
 FrameSpritesTail_32_748c::
-	INCBIN "baserom.gbc", $0cb48c, $0012
+	db 2, 16, 0, 6, -37, 0, 0, 16, 0, 0, 16, 0, 8, -32, 0, 0 ; never read; dx, dy pairs like the list above
+	db 16, 0
 
 FrameSprites_32_749e::
 	db -14, -3

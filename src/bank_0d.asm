@@ -235,7 +235,2831 @@ RareLogoPalettes::
 	rgb  0,  0,  0,   0,  0,  0,   0,  0,  0,   0,  0,  0
 
 RareLogoAnimation::
-	INCBIN "baserom.gbc", $0342e9, $1697
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 11 ; skip
+	db 0 ; end of frame 0
+	db $80 + 127 ; skip
+	db $80 + 67 ; skip
+	db 2, $08, $18
+	db $80 + 127 ; skip
+	db $80 + 3 ; skip
+	db 4, $40, $40, $40, $40
+	db $80 + 54 ; skip
+	db 1, $03
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db 5, $02, $03, $03, $01, $01
+	db $80 + 3 ; skip
+	db 1, $04
+	db $80 + 1 ; skip
+	db 1, $02
+	db $80 + 1 ; skip
+	db 2, $02, $02
+	db $80 + 127 ; skip
+	db $80 + 23 ; skip
+	db 7, $80, $c0, $e0, $70, $30, $18, $10
+	db $80 + 5 ; skip
+	db 12, $40, $40, $20, $a0, $10, $10, $10, $10, $08, $08, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 23 ; skip
+	db 0 ; end of frame 1
+	db $80 + 127 ; skip
+	db $80 + 67 ; skip
+	db 2, $0c, $1c
+	db $80 + 124 ; skip
+	db 6, $40, $40, $40, $40, $40, $40
+	db $80 + 52 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 53 ; skip
+	db 2, $f0, $20
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 113 ; skip
+	db 4, $0e, $0f, $0d, $03
+	db $80 + 8 ; skip
+	db 4, $38, $3c, $1e, $07
+	db $80 + 11 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 41 ; skip
+	db 10, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 0 ; end of frame 2
+	db $80 + 127 ; skip
+	db $80 + 67 ; skip
+	db 2, $0e, $1e
+	db $80 + 122 ; skip
+	db 3, $60, $60, $60
+	db $80 + 1 ; skip
+	db 1, $60
+	db $80 + 1 ; skip
+	db 1, $60
+	db $80 + 1 ; skip
+	db 1, $60
+	db $80 + 47 ; skip
+	db 1, $06
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 1 ; skip
+	db 3, $00, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 41 ; skip
+	db 1, $0c
+	db $80 + 1 ; skip
+	db 2, $02, $02
+	db $80 + 6 ; skip
+	db 2, $fe, $02
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 64 ; skip
+	db 2, $01, $01
+	db $80 + 10 ; skip
+	db 2, $03, $03
+	db $80 + 127 ; skip
+	db $80 + 35 ; skip
+	db 2, $fe, $ff
+	db $80 + 10 ; skip
+	db 2, $f8, $fc
+	db $80 + 19 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 17 ; skip
+	db 1, $90
+	db $80 + 7 ; skip
+	db 1, $38
+	db $80 + 19 ; skip
+	db 10, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 3 ; skip
+	db 0 ; end of frame 3
+	db $80 + 127 ; skip
+	db $80 + 67 ; skip
+	db 2, $0f, $1f
+	db $80 + 122 ; skip
+	db 2, $7c, $78
+	db $80 + 50 ; skip
+	db 2, $e0, $e0
+	db $80 + 5 ; skip
+	db 1, $00
+	db $80 + 3 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $83, $80
+	db $80 + 127 ; skip
+	db $80 + 39 ; skip
+	db 2, $83, $81
+	db $80 + 6 ; skip
+	db 2, $ff, $00
+	db $80 + 127 ; skip
+	db $80 + 47 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 15 ; skip
+	db 2, $1f, $1f
+	db $80 + 10 ; skip
+	db 2, $3f, $3f
+	db $80 + 127 ; skip
+	db $80 + 74 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 11 ; skip
+	db 1, $10
+	db $80 + 7 ; skip
+	db 1, $20
+	db $80 + 29 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 122 ; skip
+	db 0 ; end of frame 4
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 66 ; skip
+	db 4, $66, $44, $6c, $44
+	db $80 + 46 ; skip
+	db 2, $f0, $f0
+	db $80 + 13 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 36 ; skip
+	db 3, $00, $40, $40
+	db $80 + 127 ; skip
+	db $80 + 21 ; skip
+	db 2, $03, $03
+	db $80 + 10 ; skip
+	db 2, $03, $03
+	db $80 + 12 ; skip
+	db 2, $80, $80
+	db $80 + 4 ; skip
+	db 2, $c0, $40
+	db $80 + 127 ; skip
+	db $80 + 15 ; skip
+	db 2, $ff, $ff
+	db $80 + 10 ; skip
+	db 2, $ff, $ff
+	db $80 + 127 ; skip
+	db $80 + 80 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 51 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 114 ; skip
+	db 0 ; end of frame 5
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 70 ; skip
+	db 2, $70, $50
+	db $80 + 44 ; skip
+	db 2, $ff, $ff
+	db $80 + 17 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 56 ; skip
+	db 2, $3f, $3f
+	db $80 + 10 ; skip
+	db 2, $3f, $3f
+	db $80 + 18 ; skip
+	db 2, $f8, $08
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 115 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 53 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 106 ; skip
+	db 0 ; end of frame 6
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 70 ; skip
+	db 4, $7c, $58, $6c, $44
+	db $80 + 65 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 3 ; skip
+	db 2, $07, $07
+	db $80 + 10 ; skip
+	db 2, $03, $03
+	db $80 + 4 ; skip
+	db 2, $e0, $e0
+	db $80 + 7 ; skip
+	db 3, $00, $20, $20
+	db $80 + 127 ; skip
+	db $80 + 19 ; skip
+	db 2, $ff, $ff
+	db $80 + 10 ; skip
+	db 2, $ff, $ff
+	db $80 + 12 ; skip
+	db 4, $c0, $00, $20, $20
+	db $80 + 2 ; skip
+	db 2, $fe, $02
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 121 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 55 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 98 ; skip
+	db 0 ; end of frame 7
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 74 ; skip
+	db 2, $47, $45
+	db $80 + 67 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 126 ; skip
+	db 2, $7f, $7f
+	db $80 + 10 ; skip
+	db 2, $3f, $3f
+	db $80 + 4 ; skip
+	db 2, $fc, $fc
+	db $80 + 9 ; skip
+	db 3, $00, $10, $10
+	db $80 + 127 ; skip
+	db $80 + 46 ; skip
+	db 5, $00, $10, $10, $ff, $00
+	db $80 + 127 ; skip
+	db $80 + 47 ; skip
+	db 2, $c0, $40
+	db $80 + 127 ; skip
+	db $80 + 78 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 57 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 90 ; skip
+	db 0 ; end of frame 8
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 98 ; skip
+	db 2, $0f, $0f
+	db $80 + 10 ; skip
+	db 2, $3f, $3f
+	db $80 + 35 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 94 ; skip
+	db 4, $80, $80, $c0, $80
+	db $80 + 24 ; skip
+	db 2, $ff, $ff
+	db $80 + 10 ; skip
+	db 2, $ff, $ff
+	db $80 + 4 ; skip
+	db 2, $ff, $ff
+	db $80 + 11 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 2, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 44 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 2, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 4 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 59 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 82 ; skip
+	db 0 ; end of frame 9
+	db $80 + 127 ; skip
+	db $80 + 61 ; skip
+	db 2, $03, $03
+	db $80 + 127 ; skip
+	db $80 + 35 ; skip
+	db 2, $ff, $ff
+	db $80 + 10 ; skip
+	db 2, $ff, $ff
+	db $80 + 39 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 88 ; skip
+	db 4, $80, $80, $c0, $c0
+	db $80 + 61 ; skip
+	db 2, $00, $08
+	db $80 + 1 ; skip
+	db 2, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 27 ; skip
+	db 2, $80, $e0
+	db $80 + 1 ; skip
+	db 1, $20
+	db $80 + 13 ; skip
+	db 2, $00, $08
+	db $80 + 1 ; skip
+	db 2, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 6 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 61 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 74 ; skip
+	db 0 ; end of frame 10
+	db $80 + 127 ; skip
+	db $80 + 49 ; skip
+	db 3, $1f, $1f, $18
+	db $80 + 9 ; skip
+	db 5, $1f, $3f, $38, $20, $30
+	db $80 + 127 ; skip
+	db $80 + 89 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 80 ; skip
+	db 4, $40, $40, $c0, $40
+	db $80 + 69 ; skip
+	db 2, $00, $04
+	db $80 + 1 ; skip
+	db 2, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 23 ; skip
+	db 1, $90
+	db $80 + 1 ; skip
+	db 2, $1c, $38
+	db $80 + 1 ; skip
+	db 1, $04
+	db $80 + 15 ; skip
+	db 2, $00, $04
+	db $80 + 1 ; skip
+	db 2, $04, $04
+	db $80 + 4 ; skip
+	db 2, $1f, $10
+	db $80 + 127 ; skip
+	db $80 + 32 ; skip
+	db 1, $00
+	db $80 + 14 ; skip
+	db 1, $c0
+	db $80 + 127 ; skip
+	db $80 + 81 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 63 ; skip
+	db 10, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 64 ; skip
+	db 0 ; end of frame 11
+	db $80 + 3 ; skip
+	db 3, $01, $01, $01
+	db $80 + 11 ; skip
+	db 1, $01
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 5, $3f, $7f, $d8, $e0, $80
+	db $80 + 9 ; skip
+	db 5, $78, $e0, $f0, $80, $cf
+	db $80 + 127 ; skip
+	db $80 + 91 ; skip
+	db 3, $00, $80, $80
+	db $80 + 82 ; skip
+	db 4, $a0, $a0, $f0, $e0
+	db $80 + 69 ; skip
+	db 3, $00, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 2, $03, $06
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 17 ; skip
+	db 3, $00, $04, $04
+	db $80 + 2 ; skip
+	db 2, $7f, $40
+	db $80 + 127 ; skip
+	db $80 + 23 ; skip
+	db 4, $40, $80, $a0, $c0
+	db $80 + 127 ; skip
+	db $80 + 108 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 65 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 56 ; skip
+	db 0 ; end of frame 12
+	db $80 + 4 ; skip
+	db 10, $03, $07, $06, $0c, $0c, $18, $18, $30, $30, $20
+	db $80 + 4 ; skip
+	db 8, $01, $03, $03, $02, $02, $06, $06, $04
+	db $80 + 127 ; skip
+	db $80 + 43 ; skip
+	db 1, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 51 ; skip
+	db 4, $f0, $a0, $10, $10
+	db $80 + 67 ; skip
+	db 2, $00, $04
+	db $80 + 1 ; skip
+	db 3, $01, $01, $04
+	db $80 + 1 ; skip
+	db 2, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 40 ; skip
+	db 2, $00, $04
+	db $80 + 1 ; skip
+	db 3, $ff, $00, $04
+	db $80 + 1 ; skip
+	db 2, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 15 ; skip
+	db 2, $80, $80
+	db $80 + 7 ; skip
+	db 4, $60, $30, $20, $c8
+	db $80 + 127 ; skip
+	db $80 + 111 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 65 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 48 ; skip
+	db 0 ; end of frame 13
+	db $80 + 14 ; skip
+	db 8, $20, $60, $60, $41, $41, $c3, $43, $c2
+	db $80 + 4 ; skip
+	db 8, $06, $04, $04, $04, $04, $04, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 96 ; skip
+	db 2, $a3, $20
+	db $80 + 116 ; skip
+	db 4, $f6, $a4, $14, $14
+	db $80 + 70 ; skip
+	db 2, $07, $04
+	db $80 + 3 ; skip
+	db 2, $00, $08
+	db $80 + 1 ; skip
+	db 2, $10, $10
+	db $80 + 127 ; skip
+	db $80 + 44 ; skip
+	db 2, $00, $08
+	db $80 + 1 ; skip
+	db 2, $10, $10
+	db $80 + 127 ; skip
+	db $80 + 12 ; skip
+	db 2, $00, $80
+	db $80 + 9 ; skip
+	db 6, $cc, $14, $10, $10, $18, $10
+	db $80 + 127 ; skip
+	db $80 + 114 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 65 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 40 ; skip
+	db 0 ; end of frame 14
+	db $80 + 22 ; skip
+	db 10, $c2, $86, $c6, $84, $86, $84, $84, $84, $84, $84
+	db $80 + 2 ; skip
+	db 8, $04, $04, $04, $04, $04, $04, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 88 ; skip
+	db 2, $e3, $80
+	db $80 + 29 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 4, $80, $80, $80, $80
+	db $80 + 68 ; skip
+	db 4, $a6, $a4, $f6, $e4
+	db $80 + 74 ; skip
+	db 2, $1f, $10
+	db $80 + 7 ; skip
+	db 3, $00, $10, $10
+	db $80 + 127 ; skip
+	db $80 + 46 ; skip
+	db 3, $00, $20, $20
+	db $80 + 127 ; skip
+	db $80 + 17 ; skip
+	db 1, $80
+	db $80 + 3 ; skip
+	db 2, $ce, $12
+	db $80 + 4 ; skip
+	db 6, $10, $08, $10, $08, $08, $08
+	db $80 + 127 ; skip
+	db $80 + 116 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 65 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 32 ; skip
+	db 0 ; end of frame 15
+	db $80 + 26 ; skip
+	db 1, $84
+	db $80 + 5 ; skip
+	db 8, $84, $84, $84, $84, $84, $84, $84, $84
+	db $80 + 2 ; skip
+	db 10, $04, $04, $04, $04, $04, $04, $04, $04, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 29 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 1, $00
+	db $80 + 41 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 62 ; skip
+	db 2, $c6, $44
+	db $80 + 78 ; skip
+	db 2, $ff, $80
+	db $80 + 9 ; skip
+	db 3, $00, $20, $20
+	db $80 + 127 ; skip
+	db $80 + 46 ; skip
+	db 3, $00, $40, $40
+	db $80 + 127 ; skip
+	db $80 + 15 ; skip
+	db 1, $00
+	db $80 + 3 ; skip
+	db 2, $cf, $10
+	db $80 + 10 ; skip
+	db 6, $08, $08, $08, $08, $d0, $08
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 2, $81, $80
+	db $80 + 85 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 65 ; skip
+	db 8, $08, $08, $08, $08, $08, $08, $08, $08
+	db $80 + 24 ; skip
+	db 0 ; end of frame 16
+	db $80 + 26 ; skip
+	db 1, $86
+	db $80 + 13 ; skip
+	db 10, $84, $84, $84, $84, $84, $84, $84, $84, $84, $84
+	db $80 + 2 ; skip
+	db 8, $04, $04, $04, $04, $04, $04, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 21 ; skip
+	db 2, $03, $02
+	db $80 + 127 ; skip
+	db $80 + 63 ; skip
+	db 1, $81
+	db $80 + 15 ; skip
+	db 2, $20, $20
+	db $80 + 76 ; skip
+	db 2, $46, $46
+	db $80 + 81 ; skip
+	db 1, $00
+	db $80 + 11 ; skip
+	db 3, $00, $c0, $80
+	db $80 + 127 ; skip
+	db $80 + 46 ; skip
+	db 3, $00, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 35 ; skip
+	db 6, $10, $08, $18, $10, $30, $10
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 2, $80, $80
+	db $80 + 10 ; skip
+	db 2, $c1, $40
+	db $80 + 93 ; skip
+	db 2, $00, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 19 ; skip
+	db 1, $02
+	db $80 + 1 ; skip
+	db 1, $04
+	db $80 + 1 ; skip
+	db 1, $08
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 39 ; skip
+	db 8, $08, $08, $08, $08, $10, $10, $10, $10
+	db $80 + 16 ; skip
+	db 0 ; end of frame 17
+	db $80 + 50 ; skip
+	db 8, $84, $84, $84, $84, $84, $84, $84, $84
+	db $80 + 2 ; skip
+	db 8, $04, $04, $04, $04, $04, $04, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 2, $1f, $10
+	db $80 + 127 ; skip
+	db $80 + 63 ; skip
+	db 2, $89, $08
+	db $80 + 14 ; skip
+	db 4, $38, $08, $83, $02
+	db $80 + 13 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 52 ; skip
+	db 2, $47, $47
+	db $80 + 95 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 2, $02, $02
+	db $80 + 74 ; skip
+	db 2, $c0, $80
+	db $80 + 95 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 41 ; skip
+	db 6, $30, $20, $40, $20, $e0, $40
+	db $80 + 127 ; skip
+	db $80 + 8 ; skip
+	db 2, $00, $84
+	db $80 + 1 ; skip
+	db 2, $82, $80
+	db $80 + 6 ; skip
+	db 2, $e1, $20
+	db $80 + 102 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 15 ; skip
+	db 4, $78, $40, $00, $00
+	db $80 + 4 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 41 ; skip
+	db 6, $20, $20, $40, $40, $80, $80
+	db $80 + 10 ; skip
+	db 0 ; end of frame 18
+	db $80 + 58 ; skip
+	db 18, $84, $84, $84, $84, $84, $84, $84, $84, $84, $84, $04, $04, $04, $04, $04, $04, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 70 ; skip
+	db 2, $99, $10
+	db $80 + 14 ; skip
+	db 2, $3e, $02
+	db $80 + 1 ; skip
+	db 3, $00, $84, $04
+	db $80 + 19 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 22 ; skip
+	db 3, $00, $0c, $08
+	db $80 + 74 ; skip
+	db 4, $60, $40, $c0, $40
+	db $80 + 90 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 4, $03, $01, $07, $02
+	db $80 + 127 ; skip
+	db $80 + 43 ; skip
+	db 3, $c0, $80, $80
+	db $80 + 93 ; skip
+	db 2, $01, $01
+	db $80 + 41 ; skip
+	db 2, $00, $82
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 2 ; skip
+	db 2, $f1, $10
+	db $80 + 110 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 7 ; skip
+	db 2, $f8, $00
+	db $80 + 6 ; skip
+	db 4, $03, $03, $1c, $1c
+	db $80 + 127 ; skip
+	db $80 + 55 ; skip
+	db 0 ; end of frame 19
+	db $80 + 68 ; skip
+	db 16, $84, $84, $84, $84, $84, $84, $84, $84, $04, $04, $04, $04, $04, $04, $04, $04
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 62 ; skip
+	db 2, $b9, $20
+	db $80 + 14 ; skip
+	db 2, $3f, $00
+	db $80 + 2 ; skip
+	db 2, $8c, $08
+	db $80 + 23 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 50 ; skip
+	db 2, $f7, $e5
+	db $80 + 90 ; skip
+	db 2, $80, $80
+	db $80 + 3 ; skip
+	db 3, $00, $10, $10
+	db $80 + 76 ; skip
+	db 2, $c0, $80
+	db $80 + 94 ; skip
+	db 3, $1a, $0c, $08
+	db $80 + 127 ; skip
+	db $80 + 26 ; skip
+	db 2, $d4, $0c
+	db $80 + 108 ; skip
+	db 2, $07, $04
+	db $80 + 8 ; skip
+	db 2, $01, $01
+	db $80 + 35 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $f9, $88
+	db $80 + 127 ; skip
+	db $80 + 7 ; skip
+	db 2, $fc, $fc
+	db $80 + 127 ; skip
+	db $80 + 55 ; skip
+	db 0 ; end of frame 20
+	db $80 + 76 ; skip
+	db 16, $84, $84, $84, $84, $84, $84, $84, $84, $84, $84, $04, $04, $04, $04, $04, $04
+	db $80 + 116 ; skip
+	db 2, $7f, $00
+	db $80 + 127 ; skip
+	db $80 + 63 ; skip
+	db 2, $f9, $80
+	db $80 + 19 ; skip
+	db 3, $00, $90, $10
+	db $80 + 25 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 11 ; skip
+	db 2, $f0, $10
+	db $80 + 4 ; skip
+	db 2, $30, $20
+	db $80 + 78 ; skip
+	db 2, $c0, $40
+	db $80 + 94 ; skip
+	db 2, $28, $70
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 2, $d7, $09
+	db $80 + 108 ; skip
+	db 2, $7f, $40
+	db $80 + 8 ; skip
+	db 2, $3f, $3f
+	db $80 + 38 ; skip
+	db 3, $ff, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 60 ; skip
+	db 0 ; end of frame 21
+	db $80 + 86 ; skip
+	db 14, $84, $84, $84, $84, $84, $84, $84, $84, $04, $04, $04, $04, $04, $04
+	db $80 + 124 ; skip
+	db 2, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 1, $00
+	db $80 + 20 ; skip
+	db 2, $b0, $20
+	db $80 + 29 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 3 ; skip
+	db 2, $fc, $04
+	db $80 + 5 ; skip
+	db 3, $00, $08, $08
+	db $80 + 78 ; skip
+	db 2, $70, $50
+	db $80 + 94 ; skip
+	db 4, $30, $20, $10, $10
+	db $80 + 1 ; skip
+	db 1, $08
+	db $80 + 80 ; skip
+	db 2, $03, $02
+	db $80 + 8 ; skip
+	db 2, $03, $03
+	db $80 + 55 ; skip
+	db 1, $08
+	db $80 + 108 ; skip
+	db 2, $ff, $00
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 43 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 2 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 3 ; skip
+	db 1, $60
+	db $80 + 127 ; skip
+	db $80 + 44 ; skip
+	db 0 ; end of frame 22
+	db $80 + 94 ; skip
+	db 14, $84, $84, $84, $84, $84, $84, $84, $84, $84, $84, $04, $04, $04, $04
+	db $80 + 116 ; skip
+	db 2, $03, $02
+	db $80 + 127 ; skip
+	db $80 + 70 ; skip
+	db 2, $00, $90
+	db $80 + 1 ; skip
+	db 2, $88, $08
+	db $80 + 127 ; skip
+	db $80 + 37 ; skip
+	db 2, $ff, $01
+	db $80 + 6 ; skip
+	db 4, $18, $00, $08, $08
+	db $80 + 72 ; skip
+	db 4, $d0, $90, $d0, $50
+	db $80 + 102 ; skip
+	db 4, $08, $08, $04, $04
+	db $80 + 1 ; skip
+	db 1, $06
+	db $80 + 74 ; skip
+	db 2, $1f, $10
+	db $80 + 8 ; skip
+	db 2, $3f, $3f
+	db $80 + 70 ; skip
+	db 1, $c0
+	db $80 + 127 ; skip
+	db $80 + 32 ; skip
+	db 2, $c1, $40
+	db $80 + 127 ; skip
+	db $80 + 3 ; skip
+	db 1, $e0
+	db $80 + 127 ; skip
+	db $80 + 44 ; skip
+	db 0 ; end of frame 23
+	db $80 + 104 ; skip
+	db 12, $84, $84, $84, $84, $84, $84, $84, $84, $04, $04, $04, $04
+	db $80 + 108 ; skip
+	db 2, $07, $04
+	db $80 + 127 ; skip
+	db $80 + 74 ; skip
+	db 3, $00, $84, $04
+	db $80 + 31 ; skip
+	db 3, $00, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 9 ; skip
+	db 3, $00, $04, $04
+	db $80 + 66 ; skip
+	db 4, $70, $50, $d0, $50
+	db $80 + 20 ; skip
+	db 2, $03, $03
+	db $80 + 70 ; skip
+	db 2, $c3, $41
+	db $80 + 18 ; skip
+	db 2, $02, $02
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 68 ; skip
+	db 2, $ff, $80
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 70 ; skip
+	db 2, $e0, $20
+	db $80 + 127 ; skip
+	db $80 + 28 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $e1, $a0
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 0 ; end of frame 24
+	db $80 + 112 ; skip
+	db 10, $84, $84, $84, $84, $84, $84, $84, $84, $80, $80
+	db $80 + 102 ; skip
+	db 2, $0f, $08
+	db $80 + 94 ; skip
+	db 1, $7c
+	db $80 + 108 ; skip
+	db 3, $00, $84, $04
+	db $80 + 31 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 26 ; skip
+	db 1, $47
+	db $80 + 108 ; skip
+	db 3, $00, $04, $04
+	db $80 + 62 ; skip
+	db 3, $d8, $98, $d8
+	db $80 + 13 ; skip
+	db 2, $07, $04
+	db $80 + 8 ; skip
+	db 2, $3f, $3f
+	db $80 + 70 ; skip
+	db 2, $e3, $21
+	db $80 + 93 ; skip
+	db 1, $00
+	db $80 + 80 ; skip
+	db 3, $f0, $10, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 20 ; skip
+	db 2, $80, $80
+	db $80 + 1 ; skip
+	db 1, $40
+	db $80 + 1 ; skip
+	db 1, $40
+	db $80 + 127 ; skip
+	db $80 + 1 ; skip
+	db 3, $f1, $10, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 44 ; skip
+	db 0 ; end of frame 25
+	db $80 + 120 ; skip
+	db 10, $84, $84, $84, $84, $80, $80, $80, $80, $80, $80
+	db $80 + 94 ; skip
+	db 2, $3f, $20
+	db $80 + 127 ; skip
+	db $80 + 78 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 2, $81, $01
+	db $80 + 31 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 46 ; skip
+	db 2, $03, $03
+	db $80 + 85 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $01, $01
+	db $80 + 56 ; skip
+	db 3, $dc, $9c, $dc
+	db $80 + 13 ; skip
+	db 2, $1f, $10
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 70 ; skip
+	db 2, $fb, $09
+	db $80 + 14 ; skip
+	db 2, $1c, $14
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 2, $fc, $04
+	db $80 + 3 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 22 ; skip
+	db 4, $20, $20, $10, $10
+	db $80 + 1 ; skip
+	db 1, $08
+	db $80 + 122 ; skip
+	db 2, $fd, $04
+	db $80 + 3 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 40 ; skip
+	db 0 ; end of frame 26
+	db $80 + 124 ; skip
+	db 16, $84, $84, $84, $84, $84, $84, $84, $84, $80, $80, $80, $80, $80, $80, $80, $80
+	db $80 + 84 ; skip
+	db 2, $7f, $00
+	db $80 + 94 ; skip
+	db 1, $66
+	db $80 + 116 ; skip
+	db 1, $00
+	db $80 + 35 ; skip
+	db 3, $00, $80, $80
+	db $80 + 20 ; skip
+	db 1, $c6
+	db $80 + 23 ; skip
+	db 2, $3f, $3f
+	db $80 + 91 ; skip
+	db 3, $00, $80, $80
+	db $80 + 54 ; skip
+	db 3, $de, $9e, $70
+	db $80 + 1 ; skip
+	db 2, $d8, $58
+	db $80 + 2 ; skip
+	db 1, $d8
+	db $80 + 7 ; skip
+	db 2, $ff, $80
+	db $80 + 81 ; skip
+	db 1, $01
+	db $80 + 14 ; skip
+	db 2, $7c, $44
+	db $80 + 4 ; skip
+	db 2, $80, $81
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 2, $fe, $02
+	db $80 + 7 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 24 ; skip
+	db 4, $08, $08, $04, $04
+	db $80 + 1 ; skip
+	db 1, $02
+	db $80 + 116 ; skip
+	db 2, $ff, $00
+	db $80 + 7 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 36 ; skip
+	db 0 ; end of frame 27
+	db $80 + 127 ; skip
+	db $80 + 5 ; skip
+	db 16, $84, $84, $84, $84, $84, $84, $84, $84, $80, $80, $80, $80, $80, $80, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 69 ; skip
+	db 2, $03, $03
+	db $80 + 127 ; skip
+	db $80 + 2 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 30 ; skip
+	db 2, $07, $04
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 86 ; skip
+	db 2, $01, $01
+	db $80 + 5 ; skip
+	db 3, $00, $80, $80
+	db $80 + 56 ; skip
+	db 2, $de, $5c
+	db $80 + 4 ; skip
+	db 2, $78, $58
+	db $80 + 5 ; skip
+	db 1, $00
+	db $80 + 96 ; skip
+	db 2, $f6, $04
+	db $80 + 5 ; skip
+	db 3, $01, $80, $81
+	db $80 + 127 ; skip
+	db $80 + 23 ; skip
+	db 2, $ff, $01
+	db $80 + 11 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 26 ; skip
+	db 4, $02, $02, $01, $01
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 35 ; skip
+	db 0 ; end of frame 28
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 18, $84, $84, $84, $84, $84, $84, $84, $84, $80, $80, $c0, $80, $c0, $80, $40, $c0, $40, $40
+	db $80 + 127 ; skip
+	db $80 + 59 ; skip
+	db 2, $3f, $3f
+	db $80 + 86 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 27 ; skip
+	db 1, $81
+	db $80 + 2 ; skip
+	db 1, $01
+	db $80 + 9 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 24 ; skip
+	db 2, $3f, $20
+	db $80 + 96 ; skip
+	db 2, $07, $04
+	db $80 + 7 ; skip
+	db 2, $00, $40
+	db $80 + 1 ; skip
+	db 2, $20, $20
+	db $80 + 20 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 35 ; skip
+	db 2, $7e, $5e
+	db $80 + 84 ; skip
+	db 1, $01
+	db $80 + 17 ; skip
+	db 1, $f7
+	db $80 + 8 ; skip
+	db 2, $01, $40
+	db $80 + 1 ; skip
+	db 2, $20, $20
+	db $80 + 127 ; skip
+	db $80 + 20 ; skip
+	db 1, $00
+	db $80 + 16 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 43 ; skip
+	db 5, $80, $81, $80, $41, $40
+	db $80 + 127 ; skip
+	db $80 + 107 ; skip
+	db 0 ; end of frame 29
+	db $80 + 127 ; skip
+	db $80 + 21 ; skip
+	db 8, $84, $84, $c6, $84, $c6, $84, $42, $c6
+	db $80 + 2 ; skip
+	db 8, $60, $40, $20, $60, $32, $22, $19, $31
+	db $80 + 1 ; skip
+	db 1, $10
+	db $80 + 72 ; skip
+	db 2, $02, $02
+	db $80 + 92 ; skip
+	db 2, $01, $01
+	db $80 + 6 ; skip
+	db 2, $c0, $c0
+	db $80 + 126 ; skip
+	db 1, $81
+	db $80 + 14 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 20 ; skip
+	db 2, $ff, $00
+	db $80 + 96 ; skip
+	db 2, $1f, $10
+	db $80 + 11 ; skip
+	db 3, $00, $20, $20
+	db $80 + 22 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 117 ; skip
+	db 1, $81
+	db $80 + 30 ; skip
+	db 3, $00, $20, $20
+	db $80 + 46 ; skip
+	db 4, $80, $80, $80, $80
+	db $80 + 111 ; skip
+	db 1, $00
+	db $80 + 4 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 23 ; skip
+	db 1, $01
+	db $80 + 127 ; skip
+	db 2, $c1, $40
+	db $80 + 3 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 45 ; skip
+	db 2, $21, $20
+	db $80 + 1 ; skip
+	db 1, $30
+	db $80 + 127 ; skip
+	db $80 + 103 ; skip
+	db 0 ; end of frame 30
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 10, $d6, $94, $52, $d6, $4b, $5a, $69, $4b, $24, $6d
+	db $80 + 1 ; skip
+	db 1, $26
+	db $80 + 1 ; skip
+	db 7, $33, $0c, $19, $06, $0c, $03, $07
+	db $80 + 1 ; skip
+	db 1, $01
+	db $80 + 66 ; skip
+	db 2, $0e, $08
+	db $80 + 92 ; skip
+	db 6, $8f, $08, $c0, $80, $40, $c0
+	db $80 + 2 ; skip
+	db 5, $80, $80, $7f, $7f, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 116 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 2, $00, $80
+	db $80 + 18 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 114 ; skip
+	db 2, $ff, $80
+	db $80 + 13 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 2, $08, $08
+	db $80 + 22 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 3 ; skip
+	db 1, $ff
+	db $80 + 14 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 2, $08, $08
+	db $80 + 46 ; skip
+	db 4, $80, $80, $c0, $40
+	db $80 + 106 ; skip
+	db 2, $e0, $20
+	db $80 + 10 ; skip
+	db 1, $80
+	db $80 + 19 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db 2, $f1, $10
+	db $80 + 8 ; skip
+	db 2, $81, $80
+	db $80 + 46 ; skip
+	db 4, $11, $10, $09, $08
+	db $80 + 1 ; skip
+	db 1, $0c
+	db $80 + 127 ; skip
+	db $80 + 97 ; skip
+	db 0 ; end of frame 31
+	db $80 + 127 ; skip
+	db $80 + 17 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $d6, $94
+	db $80 + 88 ; skip
+	db 2, $1e, $10
+	db $80 + 88 ; skip
+	db 3, $40, $40, $30
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 2 ; skip
+	db 7, $78, $e0, $1c, $3c, $c0, $c0, $3f
+	db $80 + 3 ; skip
+	db 4, $f0, $c0, $38, $78
+	db $80 + 80 ; skip
+	db 2, $03, $02
+	db $80 + 59 ; skip
+	db 2, $00, $c7
+	db $80 + 114 ; skip
+	db 1, $00
+	db $80 + 17 ; skip
+	db 3, $00, $08, $08
+	db $80 + 23 ; skip
+	db 3, $00, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 1 ; skip
+	db 1, $f7
+	db $80 + 18 ; skip
+	db 3, $00, $08, $08
+	db $80 + 46 ; skip
+	db 6, $80, $00, $40, $40, $40, $40
+	db $80 + 102 ; skip
+	db 2, $f0, $10
+	db $80 + 10 ; skip
+	db 1, $00
+	db $80 + 3 ; skip
+	db 1, $60
+	db $80 + 127 ; skip
+	db $80 + 16 ; skip
+	db 2, $f9, $08
+	db $80 + 9 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 48 ; skip
+	db 6, $05, $06, $03, $02, $03, $02
+	db $80 + 127 ; skip
+	db $80 + 91 ; skip
+	db 0 ; end of frame 32
+	db $80 + 127 ; skip
+	db $80 + 9 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 96 ; skip
+	db 2, $3e, $20
+	db $80 + 82 ; skip
+	db 3, $fc, $d8, $ec
+	db $80 + 4 ; skip
+	db 1, $00
+	db $80 + 8 ; skip
+	db 2, $1f, $3f
+	db $80 + 8 ; skip
+	db 2, $3f, $7f
+	db $80 + 80 ; skip
+	db 2, $1f, $10
+	db $80 + 82 ; skip
+	db 2, $c0, $c0
+	db $80 + 8 ; skip
+	db 2, $c0, $c0
+	db $80 + 101 ; skip
+	db 2, $00, $04
+	db $80 + 1 ; skip
+	db 2, $04, $04
+	db $80 + 21 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 122 ; skip
+	db 1, $ff
+	db $80 + 20 ; skip
+	db 2, $00, $04
+	db $80 + 1 ; skip
+	db 2, $04, $04
+	db $80 + 38 ; skip
+	db 1, $a0
+	db $80 + 1 ; skip
+	db 4, $a0, $b0, $e0, $40
+	db $80 + 106 ; skip
+	db 2, $f8, $08
+	db $80 + 14 ; skip
+	db 1, $20
+	db $80 + 15 ; skip
+	db 1, $01
+	db $80 + 127 ; skip
+	db 2, $fd, $04
+	db $80 + 13 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 46 ; skip
+	db 2, $1f, $1e
+	db $80 + 127 ; skip
+	db $80 + 91 ; skip
+	db 0 ; end of frame 33
+	db $80 + 127 ; skip
+	db $80 + 1 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 104 ; skip
+	db 2, $7e, $00
+	db $80 + 76 ; skip
+	db 3, $fc, $f8, $e6
+	db $80 + 1 ; skip
+	db 1, $ec
+	db $80 + 2 ; skip
+	db 1, $58
+	db $80 + 106 ; skip
+	db 2, $7f, $40
+	db $80 + 70 ; skip
+	db 1, $94
+	db $80 + 11 ; skip
+	db 2, $fc, $fc
+	db $80 + 8 ; skip
+	db 2, $fc, $fc
+	db $80 + 105 ; skip
+	db 3, $00, $02, $02
+	db $80 + 25 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 102 ; skip
+	db 1, $f9
+	db $80 + 15 ; skip
+	db 1, $f7
+	db $80 + 24 ; skip
+	db 3, $00, $02, $02
+	db $80 + 34 ; skip
+	db 4, $90, $90, $b8, $90
+	db $80 + 110 ; skip
+	db 2, $fc, $04
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 2, $ff, $00
+	db $80 + 19 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 42 ; skip
+	db 2, $ff, $fe
+	db $80 + 127 ; skip
+	db $80 + 91 ; skip
+	db 0 ; end of frame 34
+	db $80 + 120 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 57 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $78
+	db $80 + 113 ; skip
+	db 1, $00
+	db $80 + 14 ; skip
+	db 2, $83, $01
+	db $80 + 56 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 7 ; skip
+	db 2, $ff, $ff
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 107 ; skip
+	db 3, $00, $01, $01
+	db $80 + 27 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 23 ; skip
+	db 2, $c0, $c0
+	db $80 + 8 ; skip
+	db 2, $e0, $e0
+	db $80 + 64 ; skip
+	db 1, $fb
+	db $80 + 42 ; skip
+	db 3, $00, $01, $01
+	db $80 + 36 ; skip
+	db 3, $a8, $b8, $e8
+	db $80 + 1 ; skip
+	db 2, $44, $44
+	db $80 + 104 ; skip
+	db 2, $fe, $02
+	db $80 + 30 ; skip
+	db 1, $00
+	db $80 + 19 ; skip
+	db 2, $07, $07
+	db $80 + 127 ; skip
+	db $80 + 4 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 4 ; skip
+	db 0 ; end of frame 35
+	db $80 + 112 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 59 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 8 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 47 ; skip
+	db 2, $f0, $10
+	db $80 + 11 ; skip
+	db 2, $00, $01
+	db $80 + 33 ; skip
+	db 1, $f0
+	db $80 + 19 ; skip
+	db 2, $fc, $fc
+	db $80 + 8 ; skip
+	db 2, $fe, $fe
+	db $80 + 80 ; skip
+	db 1, $ff
+	db $80 + 28 ; skip
+	db 2, $00, $01
+	db $80 + 3 ; skip
+	db 2, $40, $40
+	db $80 + 36 ; skip
+	db 2, $44, $44
+	db $80 + 102 ; skip
+	db 2, $ff, $00
+	db $80 + 32 ; skip
+	db 2, $40, $40
+	db $80 + 16 ; skip
+	db 2, $3f, $3f
+	db $80 + 123 ; skip
+	db 1, $80
+	db $80 + 11 ; skip
+	db 3, $00, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 2 ; skip
+	db 0 ; end of frame 36
+	db $80 + 104 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 17 ; skip
+	db 2, $02, $02
+	db $80 + 42 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 62 ; skip
+	db 2, $fc, $04
+	db $80 + 66 ; skip
+	db 2, $ff, $ff
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 80 ; skip
+	db 1, $f7
+	db $80 + 34 ; skip
+	db 3, $00, $40, $40
+	db $80 + 14 ; skip
+	db 2, $01, $01
+	db $80 + 12 ; skip
+	db 4, $aa, $ba, $ee, $44
+	db $80 + 14 ; skip
+	db 2, $c0, $c0
+	db $80 + 8 ; skip
+	db 2, $f0, $f0
+	db $80 + 96 ; skip
+	db 1, $30
+	db $80 + 18 ; skip
+	db 3, $00, $40, $40
+	db $80 + 14 ; skip
+	db 2, $ff, $ff
+	db $80 + 122 ; skip
+	db 2, $c1, $40
+	db $80 + 13 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 127 ; skip
+	db $80 + 124 ; skip
+	db 0 ; end of frame 37
+	db $80 + 96 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 2, $06, $04
+	db $80 + 36 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 68 ; skip
+	db 2, $ff, $01
+	db $80 + 54 ; skip
+	db 1, $fe
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 3, $00, $20, $20
+	db $80 + 12 ; skip
+	db 3, $07, $07, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 4 ; skip
+	db 4, $92, $92, $ba, $92
+	db $80 + 18 ; skip
+	db 2, $fc, $fc
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 48 ; skip
+	db 1, $c7
+	db $80 + 63 ; skip
+	db 1, $01
+	db $80 + 4 ; skip
+	db 3, $00, $20, $20
+	db $80 + 127 ; skip
+	db $80 + 9 ; skip
+	db 2, $e1, $20
+	db $80 + 20 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 1, $81
+	db $80 + 127 ; skip
+	db $80 + 116 ; skip
+	db 0 ; end of frame 38
+	db $80 + 90 ; skip
+	db 6, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 33 ; skip
+	db 2, $0e, $08
+	db $80 + 30 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 2, $93, $10
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 1, $00
+	db $80 + 56 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 99 ; skip
+	db 1, $ff
+	db $80 + 15 ; skip
+	db 2, $c0, $40
+	db $80 + 21 ; skip
+	db 2, $00, $20
+	db $80 + 1 ; skip
+	db 2, $10, $10
+	db $80 + 8 ; skip
+	db 2, $3f, $3f
+	db $80 + 3 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 11 ; skip
+	db 2, $45, $45
+	db $80 + 10 ; skip
+	db 2, $ff, $ff
+	db $80 + 58 ; skip
+	db 1, $d7
+	db $80 + 47 ; skip
+	db 2, $38, $28
+	db $80 + 14 ; skip
+	db 1, $00
+	db $80 + 6 ; skip
+	db 2, $00, $20
+	db $80 + 1 ; skip
+	db 2, $10, $10
+	db $80 + 26 ; skip
+	db 2, $c0, $80
+	db $80 + 12 ; skip
+	db 2, $c0, $c0
+	db $80 + 8 ; skip
+	db 2, $f8, $f8
+	db $80 + 80 ; skip
+	db 2, $f1, $10
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 16 ; skip
+	db 0 ; end of frame 39
+	db $80 + 80 ; skip
+	db 10, $94, $94, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 39 ; skip
+	db 2, $1e, $10
+	db $80 + 26 ; skip
+	db 3, $80, $80, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 2, $b3, $20
+	db $80 + 127 ; skip
+	db $80 + 83 ; skip
+	db 2, $81, $01
+	db $80 + 122 ; skip
+	db 1, $f7
+	db $80 + 15 ; skip
+	db 2, $f0, $10
+	db $80 + 25 ; skip
+	db 3, $00, $08, $08
+	db $80 + 6 ; skip
+	db 2, $ff, $ff
+	db $80 + 127 ; skip
+	db $80 + 11 ; skip
+	db 2, $3c, $24
+	db $80 + 25 ; skip
+	db 3, $00, $08, $08
+	db $80 + 22 ; skip
+	db 2, $c0, $c0
+	db $80 + 14 ; skip
+	db 2, $fc, $fc
+	db $80 + 8 ; skip
+	db 2, $ff, $ff
+	db $80 + 80 ; skip
+	db 2, $f9, $08
+	db $80 + 28 ; skip
+	db 1, $81
+	db $80 + 63 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 49 ; skip
+	db 0 ; end of frame 40
+	db $80 + 68 ; skip
+	db 12, $94, $94, $94, $94, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 49 ; skip
+	db 2, $7e, $00
+	db $80 + 20 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 35 ; skip
+	db 2, $f3, $80
+	db $80 + 127 ; skip
+	db $80 + 77 ; skip
+	db 2, $84, $04
+	db $80 + 1 ; skip
+	db 3, $02, $82, $02
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 2, $fe, $02
+	db $80 + 27 ; skip
+	db 2, $00, $08
+	db $80 + 127 ; skip
+	db $80 + 18 ; skip
+	db 2, $3f, $20
+	db $80 + 27 ; skip
+	db 2, $00, $08
+	db $80 + 19 ; skip
+	db 2, $80, $80
+	db $80 + 16 ; skip
+	db 2, $ff, $ff
+	db $80 + 90 ; skip
+	db 2, $ff, $00
+	db $80 + 15 ; skip
+	db 1, $80
+	db $80 + 66 ; skip
+	db 2, $c0, $c0
+	db $80 + 6 ; skip
+	db 1, $0c
+	db $80 + 1 ; skip
+	db 2, $fc, $fe
+	db $80 + 127 ; skip
+	db $80 + 49 ; skip
+	db 0 ; end of frame 41
+	db $80 + 60 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 77 ; skip
+	db 3, $81, $81, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 42 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 66 ; skip
+	db 1, $80
+	db $80 + 4 ; skip
+	db 2, $b0, $10
+	db $80 + 1 ; skip
+	db 3, $18, $88, $08
+	db $80 + 2 ; skip
+	db 1, $84
+	db $80 + 127 ; skip
+	db 1, $ff
+	db $80 + 15 ; skip
+	db 2, $ff, $01
+	db $80 + 52 ; skip
+	db 1, $c4
+	db $80 + 1 ; skip
+	db 1, $c5
+	db $80 + 127 ; skip
+	db $80 + 8 ; skip
+	db 1, $02
+	db $80 + 21 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 4 ; skip
+	db 4, $40, $40, $c0, $40
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 1, $0d
+	db $80 + 33 ; skip
+	db 4, $1c, $04, $f8, $fc
+	db $80 + 4 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 2, $0f, $03
+	db $80 + 127 ; skip
+	db $80 + 41 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $40
+	db $80 + 1 ; skip
+	db 2, $c0, $e0
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 0 ; end of frame 42
+	db $80 + 52 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 79 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $83, $02
+	db $80 + 127 ; skip
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 61 ; skip
+	db 2, $83, $02
+	db $80 + 127 ; skip
+	db $80 + 49 ; skip
+	db 2, $c0, $40
+	db $80 + 1 ; skip
+	db 3, $60, $a0, $20
+	db $80 + 127 ; skip
+	db $80 + 9 ; skip
+	db 1, $f7
+	db $80 + 16 ; skip
+	db 1, $00
+	db $80 + 56 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 67 ; skip
+	db 1, $c7
+	db $80 + 63 ; skip
+	db 2, $0f, $08
+	db $80 + 23 ; skip
+	db 2, $00, $80
+	db $80 + 1 ; skip
+	db 2, $80, $80
+	db $80 + 4 ; skip
+	db 4, $a0, $a0, $f0, $e0
+	db $80 + 60 ; skip
+	db 1, $01
+	db $80 + 61 ; skip
+	db 2, $c1, $40
+	db $80 + 30 ; skip
+	db 1, $05
+	db $80 + 29 ; skip
+	db 1, $f9
+	db $80 + 1 ; skip
+	db 4, $03, $01, $1e, $07
+	db $80 + 6 ; skip
+	db 1, $01
+	db $80 + 127 ; skip
+	db $80 + 34 ; skip
+	db 14, $d0, $50, $94, $d0, $34, $a6, $4c, $44, $98, $8c, $b0, $18, $60, $30
+	db $80 + 6 ; skip
+	db 0 ; end of frame 43
+	db $80 + 44 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 81 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 4 ; skip
+	db 2, $87, $04
+	db $80 + 127 ; skip
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 57 ; skip
+	db 1, $81
+	db $80 + 3 ; skip
+	db 2, $87, $04
+	db $80 + 127 ; skip
+	db $80 + 44 ; skip
+	db 5, $80, $81, $80, $80, $40
+	db $80 + 14 ; skip
+	db 2, $8c, $0a
+	db $80 + 126 ; skip
+	db 1, $ff
+	db $80 + 127 ; skip
+	db $80 + 16 ; skip
+	db 1, $d7
+	db $80 + 63 ; skip
+	db 2, $3e, $20
+	db $80 + 27 ; skip
+	db 2, $00, $c0
+	db $80 + 7 ; skip
+	db 4, $f0, $a0, $10, $10
+	db $80 + 56 ; skip
+	db 1, $81
+	db $80 + 61 ; skip
+	db 2, $e1, $20
+	db $80 + 127 ; skip
+	db $80 + 99 ; skip
+	db 12, $28, $28, $68, $28, $6b, $29, $4a, $6b, $d2, $53, $96, $d2
+	db $80 + 16 ; skip
+	db 0 ; end of frame 44
+	db $80 + 36 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 83 ; skip
+	db 3, $80, $80, $fe
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 10 ; skip
+	db 2, $8f, $08
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 1, $00
+	db $80 + 35 ; skip
+	db 1, $00
+	db $80 + 3 ; skip
+	db 6, $84, $02, $82, $02, $83, $01
+	db $80 + 4 ; skip
+	db 2, $8f, $08
+	db $80 + 127 ; skip
+	db $80 + 63 ; skip
+	db 2, $9c, $12
+	db $80 + 110 ; skip
+	db 1, $f9
+	db $80 + 127 ; skip
+	db $80 + 96 ; skip
+	db 2, $ff, $80
+	db $80 + 36 ; skip
+	db 4, $f6, $a4, $14, $14
+	db $80 + 118 ; skip
+	db 2, $f1, $10
+	db $80 + 127 ; skip
+	db $80 + 91 ; skip
+	db 12, $28, $28, $29, $29, $29, $29, $29, $29, $29, $29, $6b, $29
+	db $80 + 24 ; skip
+	db 0 ; end of frame 45
+	db $80 + 28 ; skip
+	db 8, $94, $94, $94, $94, $94, $94, $94, $94
+	db $80 + 127 ; skip
+	db $80 + 85 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 16 ; skip
+	db 2, $bf, $20
+	db $80 + 127 ; skip
+	db $80 + 13 ; skip
+	db 1, $80
+	db $80 + 35 ; skip
+	db 4, $08, $08, $8c, $04
+	db $80 + 10 ; skip
+	db 2, $bf, $20
+	db $80 + 127 ; skip
+	db $80 + 63 ; skip
+	db 2, $fc, $82
+	db $80 + 110 ; skip
+	db 1, $fb
+	db $80 + 15 ; skip
+	db 1, $f7
+	db $80 + 31 ; skip
+	db 2, $07, $04
+	db $80 + 110 ; skip
+	db 1, $c7
+	db $80 + 63 ; skip
+	db 2, $fe, $00
+	db $80 + 32 ; skip
+	db 4, $a6, $a4, $f6, $e4
+	db $80 + 2 ; skip
+	db 1, $94
+	db $80 + 119 ; skip
+	db 2, $fd, $04
+	db $80 + 36 ; skip
+	db 1, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 43 ; skip
+	db 10, $28, $28, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 34 ; skip
+	db 0 ; end of frame 46
+	db $80 + 20 ; skip
+	db 8, $4b, $ca, $d2, $96, $d6, $94, $96, $94
+	db $80 + 127 ; skip
+	db $80 + 89 ; skip
+	db 3, $80, $80, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 22 ; skip
+	db 2, $ff, $00
+	db $80 + 127 ; skip
+	db $80 + 43 ; skip
+	db 4, $a0, $10, $90, $10
+	db $80 + 1 ; skip
+	db 2, $08, $88
+	db $80 + 13 ; skip
+	db 2, $ff, $80
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 1, $f9
+	db $80 + 15 ; skip
+	db 1, $ff
+	db $80 + 31 ; skip
+	db 2, $1f, $10
+	db $80 + 127 ; skip
+	db $80 + 77 ; skip
+	db 4, $c4, $44, $c6, $44
+	db $80 + 8 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 115 ; skip
+	db 2, $ff, $00
+	db $80 + 30 ; skip
+	db 1, $0d
+	db $80 + 8 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 10, $29, $29, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 42 ; skip
+	db 0 ; end of frame 47
+	db $80 + 12 ; skip
+	db 8, $31, $21, $22, $62, $64, $45, $49, $cb
+	db $80 + 127 ; skip
+	db $80 + 91 ; skip
+	db 3, $80, $80, $fe
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 65 ; skip
+	db 6, $80, $40, $c0, $40, $a0, $20
+	db $80 + 36 ; skip
+	db 2, $81, $01
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 1, $02
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 2, $7f, $40
+	db $80 + 126 ; skip
+	db 1, $7f
+	db $80 + 77 ; skip
+	db 2, $c7, $47
+	db $80 + 127 ; skip
+	db $80 + 33 ; skip
+	db 1, $05
+	db $80 + 12 ; skip
+	db 2, $00, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 19 ; skip
+	db 8, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 52 ; skip
+	db 0 ; end of frame 48
+	db $80 + 127 ; skip
+	db $80 + 57 ; skip
+	db 4, $30, $30, $c0, $c0
+	db $80 + 44 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 16 ; skip
+	db 3, $ff, $01, $81
+	db $80 + 29 ; skip
+	db 2, $81, $01
+	db $80 + 127 ; skip
+	db $80 + 15 ; skip
+	db 1, $ff
+	db $80 + 2 ; skip
+	db 3, $80, $81, $80
+	db $80 + 12 ; skip
+	db 1, $08
+	db $80 + 14 ; skip
+	db 1, $00
+	db $80 + 10 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 2, $03, $02
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 2, $81, $41
+	db $80 + 126 ; skip
+	db 1, $fb
+	db $80 + 15 ; skip
+	db 1, $f7
+	db $80 + 31 ; skip
+	db 2, $ff, $00
+	db $80 + 126 ; skip
+	db 1, $ff
+	db $80 + 127 ; skip
+	db $80 + 126 ; skip
+	db 5, $c1, $80, $e1, $40, $81
+	db $80 + 1 ; skip
+	db 2, $81, $80
+	db $80 + 127 ; skip
+	db $80 + 5 ; skip
+	db 10, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 60 ; skip
+	db 0 ; end of frame 49
+	db $80 + 127 ; skip
+	db $80 + 57 ; skip
+	db 2, $3f, $3f
+	db $80 + 40 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 17 ; skip
+	db 5, $06, $86, $02, $82, $01
+	db $80 + 32 ; skip
+	db 2, $83, $02
+	db $80 + 122 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 3 ; skip
+	db 1, $03
+	db $80 + 1 ; skip
+	db 1, $0c
+	db $80 + 1 ; skip
+	db 1, $30
+	db $80 + 1 ; skip
+	db 1, $10
+	db $80 + 1 ; skip
+	db 1, $08
+	db $80 + 1 ; skip
+	db 1, $04
+	db $80 + 1 ; skip
+	db 1, $04
+	db $80 + 9 ; skip
+	db 1, $40
+	db $80 + 1 ; skip
+	db 1, $20
+	db $80 + 7 ; skip
+	db 1, $88
+	db $80 + 25 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 2, $87, $04
+	db $80 + 10 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $47
+	db $80 + 9 ; skip
+	db 1, $14
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 6 ; skip
+	db 3, $07, $44, $40
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $20
+	db $80 + 21 ; skip
+	db 1, $00
+	db $80 + 3 ; skip
+	db 1, $70
+	db $80 + 7 ; skip
+	db 1, $7e
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 28 ; skip
+	db 1, $00
+	db $80 + 5 ; skip
+	db 1, $00
+	db $80 + 9 ; skip
+	db 1, $44
+	db $80 + 1 ; skip
+	db 1, $45
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 43 ; skip
+	db 1, $00
+	db $80 + 43 ; skip
+	db 1, $00
+	db $80 + 21 ; skip
+	db 1, $00
+	db $80 + 45 ; skip
+	db 1, $00
+	db $80 + 5 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $47
+	db $80 + 5 ; skip
+	db 2, $f7, $e5
+	db $80 + 2 ; skip
+	db 1, $14
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 4 ; skip
+	db 1, $01
+	db $80 + 1 ; skip
+	db 2, $41, $c0
+	db $80 + 20 ; skip
+	db 1, $01
+	db $80 + 5 ; skip
+	db 1, $01
+	db $80 + 3 ; skip
+	db 1, $61
+	db $80 + 1 ; skip
+	db 4, $c3, $40, $01, $00
+	db $80 + 6 ; skip
+	db 1, $84
+	db $80 + 117 ; skip
+	db 10, $29, $29, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 68 ; skip
+	db 0 ; end of frame 50
+	db $80 + 127 ; skip
+	db $80 + 93 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $ff
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 16 ; skip
+	db 6, $90, $1c, $98, $08, $8c, $04
+	db $80 + 38 ; skip
+	db 2, $8f, $08
+	db $80 + 70 ; skip
+	db 2, $f8, $f8
+	db $80 + 70 ; skip
+	db 1, $7f
+	db $80 + 47 ; skip
+	db 2, $9f, $10
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 2, $1f, $40
+	db $80 + 126 ; skip
+	db 1, $f9
+	db $80 + 63 ; skip
+	db 2, $80, $80
+	db $80 + 110 ; skip
+	db 1, $7f
+	db $80 + 47 ; skip
+	db 1, $ff
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 2, $71, $90
+	db $80 + 32 ; skip
+	db 1, $c1
+	db $80 + 1 ; skip
+	db 3, $c1, $80, $81
+	db $80 + 113 ; skip
+	db 10, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 78 ; skip
+	db 0 ; end of frame 51
+	db $80 + 127 ; skip
+	db $80 + 87 ; skip
+	db 3, $80, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 18 ; skip
+	db 4, $ff, $01, $86, $06
+	db $80 + 44 ; skip
+	db 2, $9f, $10
+	db $80 + 70 ; skip
+	db 2, $ff, $ff
+	db $80 + 55 ; skip
+	db 1, $80
+	db $80 + 62 ; skip
+	db 2, $bf, $20
+	db $80 + 54 ; skip
+	db 2, $80, $80
+	db $80 + 102 ; skip
+	db 1, $9f
+	db $80 + 127 ; skip
+	db 1, $fb
+	db $80 + 15 ; skip
+	db 1, $ff
+	db $80 + 47 ; skip
+	db 2, $e0, $20
+	db $80 + 78 ; skip
+	db 1, $ef
+	db $80 + 79 ; skip
+	db 1, $fe
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 2, $79, $88
+	db $80 + 32 ; skip
+	db 1, $41
+	db $80 + 3 ; skip
+	db 4, $e1, $40, $60, $40
+	db $80 + 36 ; skip
+	db 2, $00, $00
+	db $80 + 64 ; skip
+	db 10, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 86 ; skip
+	db 0 ; end of frame 52
+	db $80 + 127 ; skip
+	db $80 + 81 ; skip
+	db 3, $ff, $80, $80
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 72 ; skip
+	db 2, $bf, $20
+	db $80 + 88 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 24 ; skip
+	db 3, $08, $90, $10
+	db $80 + 1 ; skip
+	db 5, $10, $20, $20, $40, $40
+	db $80 + 64 ; skip
+	db 2, $ff, $80
+	db $80 + 54 ; skip
+	db 2, $f8, $f8
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 40 ; skip
+	db 2, $f8, $00
+	db $80 + 78 ; skip
+	db 1, $cf
+	db $80 + 79 ; skip
+	db 1, $ff
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 2, $7d, $84
+	db $80 + 32 ; skip
+	db 1, $c1
+	db $80 + 3 ; skip
+	db 4, $f1, $50, $70, $50
+	db $80 + 36 ; skip
+	db 2, $40, $40
+	db $80 + 54 ; skip
+	db 12, $09, $09, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 94 ; skip
+	db 0 ; end of frame 53
+	db $80 + 127 ; skip
+	db $80 + 77 ; skip
+	db 3, $80, $80, $80
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 78 ; skip
+	db 2, $ff, $00
+	db $80 + 111 ; skip
+	db 5, $04, $88, $0c, $88, $08
+	db $80 + 10 ; skip
+	db 1, $7f
+	db $80 + 119 ; skip
+	db 2, $ff, $ff
+	db $80 + 102 ; skip
+	db 1, $1f
+	db $80 + 71 ; skip
+	db 2, $80, $80
+	db $80 + 70 ; skip
+	db 1, $f7
+	db $80 + 47 ; skip
+	db 2, $fe, $02
+	db $80 + 110 ; skip
+	db 1, $ff
+	db $80 + 127 ; skip
+	db $80 + 96 ; skip
+	db 2, $7f, $80
+	db $80 + 32 ; skip
+	db 4, $d1, $50, $d1, $90
+	db $80 + 88 ; skip
+	db 12, $09, $09, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 102 ; skip
+	db 0 ; end of frame 54
+	db $80 + 127 ; skip
+	db $80 + 71 ; skip
+	db 1, $20
+	db $80 + 1 ; skip
+	db 1, $40
+	db $80 + 1 ; skip
+	db 1, $40
+	db $80 + 2 ; skip
+	db 1, $00
+	db $80 + 98 ; skip
+	db 2, $81, $01
+	db $80 + 88 ; skip
+	db 6, $84, $04, $84, $04, $84, $04
+	db $80 + 16 ; skip
+	db 1, $3f
+	db $80 + 64 ; skip
+	db 1, $00
+	db $80 + 127 ; skip
+	db $80 + 31 ; skip
+	db 1, $9f
+	db $80 + 71 ; skip
+	db 2, $f8, $f8
+	db $80 + 70 ; skip
+	db 1, $ff
+	db $80 + 47 ; skip
+	db 2, $ff, $00
+	db $80 + 70 ; skip
+	db 2, $47, $87
+	db $80 + 22 ; skip
+	db 1, $d7
+	db $80 + 15 ; skip
+	db 1, $7f
+	db $80 + 47 ; skip
+	db 1, $fe
+	db $80 + 15 ; skip
+	db 2, $80, $80
+	db $80 + 127 ; skip
+	db $80 + 63 ; skip
+	db 2, $71, $50
+	db $80 + 82 ; skip
+	db 14, $09, $09, $09, $09, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 110 ; skip
+	db 0 ; end of frame 55
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 50 ; skip
+	db 2, $87, $04
+	db $80 + 82 ; skip
+	db 1, $84
+	db $80 + 2 ; skip
+	db 3, $04, $84, $04
+	db $80 + 38 ; skip
+	db 1, $ff
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 25 ; skip
+	db 2, $ff, $ff
+	db $80 + 8 ; skip
+	db 1, $93
+	db $80 + 45 ; skip
+	db 1, $f9
+	db $80 + 15 ; skip
+	db 1, $f7
+	db $80 + 103 ; skip
+	db 2, $80, $80
+	db $80 + 8 ; skip
+	db 2, $80, $80
+	db $80 + 6 ; skip
+	db 7, $a2, $c2, $02, $62, $32, $22, $ef
+	db $80 + 15 ; skip
+	db 1, $c7
+	db $80 + 63 ; skip
+	db 1, $ff
+	db $80 + 15 ; skip
+	db 2, $f0, $10
+	db $80 + 127 ; skip
+	db $80 + 61 ; skip
+	db 2, $d1, $90
+	db $80 + 6 ; skip
+	db 1, $f9
+	db $80 + 69 ; skip
+	db 14, $09, $09, $09, $09, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 118 ; skip
+	db 0 ; end of frame 56
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 50 ; skip
+	db 2, $8f, $08
+	db $80 + 74 ; skip
+	db 1, $10
+	db $80 + 1 ; skip
+	db 8, $10, $10, $eb, $10, $88, $08, $8c, $08
+	db $80 + 1 ; skip
+	db 1, $0c
+	db $80 + 24 ; skip
+	db 1, $7f
+	db $80 + 15 ; skip
+	db 1, $7f
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 81 ; skip
+	db 1, $fb
+	db $80 + 15 ; skip
+	db 1, $ff
+	db $80 + 103 ; skip
+	db 2, $f8, $f8
+	db $80 + 8 ; skip
+	db 2, $f0, $10
+	db $80 + 78 ; skip
+	db 1, $18
+	db $80 + 13 ; skip
+	db 1, $fe
+	db $80 + 15 ; skip
+	db 2, $fc, $04
+	db $80 + 72 ; skip
+	db 6, $c2, $40, $c1, $40, $c1, $40
+	db $80 + 110 ; skip
+	db 2, $dd, $9c
+	db $80 + 16 ; skip
+	db 1, $83
+	db $80 + 49 ; skip
+	db 16, $09, $09, $09, $09, $09, $09, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 126 ; skip
+	db 0 ; end of frame 57
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 50 ; skip
+	db 2, $9f, $10
+	db $80 + 70 ; skip
+	db 6, $41, $40, $20, $20, $30, $20
+	db $80 + 34 ; skip
+	db 1, $3f
+	db $80 + 127 ; skip
+	db $80 + 98 ; skip
+	db 1, $c0
+	db $80 + 1 ; skip
+	db 1, $80
+	db $80 + 1 ; skip
+	db 1, $a0
+	db $80 + 127 ; skip
+	db $80 + 10 ; skip
+	db 1, $f7
+	db $80 + 103 ; skip
+	db 2, $ff, $ff
+	db $80 + 8 ; skip
+	db 2, $fe, $02
+	db $80 + 78 ; skip
+	db 1, $10
+	db $80 + 29 ; skip
+	db 2, $ff, $01
+	db $80 + 54 ; skip
+	db 2, $80, $80
+	db $80 + 14 ; skip
+	db 4, $e2, $60, $d2, $50
+	db $80 + 100 ; skip
+	db 1, $0d
+	db $80 + 13 ; skip
+	db 2, $df, $9e
+	db $80 + 2 ; skip
+	db 2, $db, $58
+	db $80 + 12 ; skip
+	db 1, $03
+	db $80 + 41 ; skip
+	db 16, $09, $09, $09, $09, $09, $09, $09, $09, $29, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 127 ; skip
+	db $80 + 7 ; skip
+	db 0 ; end of frame 58
+	db $80 + 127 ; skip
+	db $80 + 71 ; skip
+	db 3, $23, $03, $41
+	db $80 + 103 ; skip
+	db 2, $bf, $20
+	db $80 + 68 ; skip
+	db 1, $86
+	db $80 + 1 ; skip
+	db 2, $c1, $c0
+	db $80 + 4 ; skip
+	db 1, $30
+	db $80 + 1 ; skip
+	db 1, $e3
+	db $80 + 127 ; skip
+	db $80 + 127 ; skip
+	db $80 + 1 ; skip
+	db 1, $1f
+	db $80 + 1 ; skip
+	db 1, $40
+	db $80 + 1 ; skip
+	db 1, $00
+	db $80 + 1 ; skip
+	db 1, $20
+	db $80 + 11 ; skip
+	db 1, $02
+	db $80 + 109 ; skip
+	db 1, $f9
+	db $80 + 127 ; skip
+	db $80 + 2 ; skip
+	db 2, $ff, $00
+	db $80 + 12 ; skip
+	db 1, $cf
+	db $80 + 96 ; skip
+	db 1, $00
+	db $80 + 54 ; skip
+	db 2, $f8, $f8
+	db $80 + 8 ; skip
+	db 2, $c1, $40
+	db $80 + 4 ; skip
+	db 2, $ee, $6c
+	db $80 + 2 ; skip
+	db 2, $d1, $50
+	db $80 + 98 ; skip
+	db 2, $c5, $46
+	db $80 + 16 ; skip
+	db 2, $df, $5c
+	db $80 + 4 ; skip
+	db 2, $78, $58
+	db $80 + 38 ; skip
+	db 18, $22, $a3, $12, $13, $13, $11, $0b, $09, $09, $09, $69, $29, $29, $29, $29, $29, $29, $29
+	db $80 + 127 ; skip
+	db $80 + 15 ; skip
+	db 0 ; end of frame 59
+	db $80 + 127 ; skip
+	db $80 + 69 ; skip
+	db 4, $90, $10, $2f, $1f
+	db $80 + 40 ; skip
+	db 1, $f1
+	db $80 + 15 ; skip
+	db 1, $fd
+	db $80 + 47 ; skip
+	db 2, $ff, $00
+	db $80 + 72 ; skip
+	db 1, $a0
+	db $80 + 3 ; skip
+	db 1, $10
+	db $80 + 1 ; skip
+	db 1, $cb
+	db $80 + 15 ; skip
+	db 1, $e1
+	db $80 + 47 ; skip
+	db 1, $83
+	db $80 + 15 ; skip
+	db 1, $fe
+	db $80 + 127 ; skip
+	db $80 + 48 ; skip
+	db 1, $9f
+	db $80 + 15 ; skip
+	db 1, $f8
+	db $80 + 1 ; skip
+	db 1, $82
+	db $80 + 109 ; skip
+	db 1, $fb
+	db $80 + 127 ; skip
+	db $80 + 16 ; skip
+	db 1, $c7
+	db $80 + 15 ; skip
+	db 1, $d3
+	db $80 + 15 ; skip
+	db 1, $bf
+	db $80 + 31 ; skip
+	db 1, $2f
+	db $80 + 87 ; skip
+	db 4, $fc, $fc, $03, $03
+	db $80 + 6 ; skip
+	db 3, $e1, $00, $98
+	db $80 + 5 ; skip
+	db 6, $d6, $54, $d5, $54, $c5, $44
+	db $80 + 80 ; skip
+	db 1, $3f
+	db $80 + 15 ; skip
+	db 2, $f5, $06
+	db $80 + 22 ; skip
+	db 2, $7e, $5e
+	db $80 + 30 ; skip
+	db 8, $18, $0c, $0c, $04, $84, $86, $46, $42
+	db $80 + 2 ; skip
+	db 8, $92, $d3, $d3, $51, $4b, $69, $69, $29
+	db $80 + 127 ; skip
+	db $80 + 23 ; skip
+	db 0 ; end of frame 60
 
 BGTiles_0d_5980::
 	INCBIN "gfx/bgtiles/0d/5980.2bpp"

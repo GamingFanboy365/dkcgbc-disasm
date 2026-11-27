@@ -604,7 +604,400 @@ Func_51_426d::
 
 
 FishingRuntime::
-	INCBIN "baserom.gbc", $1442f4, $01fd
+	; runs from $cb00
+	DEF RAMCode_51_cb00 EQU $cb00
+	DEF RAMCode_51_cb15 EQU $cb15
+	DEF RAMCode_51_cb1d EQU $cb1d
+	DEF RAMCode_51_cb29 EQU $cb29
+	DEF RAMCode_51_cb31 EQU $cb31
+	DEF RAMCode_51_cb50 EQU $cb50
+	DEF RAMCode_51_cb60 EQU $cb60
+	DEF RAMCode_51_cb7a EQU $cb7a
+	DEF RAMCode_51_cb8a EQU $cb8a
+	DEF RAMCode_51_cb99 EQU $cb99
+	DEF RAMCode_51_cba7 EQU $cba7
+	DEF RAMCode_51_cbb2 EQU $cbb2
+	DEF RAMCode_51_cbcb EQU $cbcb
+	DEF RAMCode_51_cbd4 EQU $cbd4
+	DEF RAMCode_51_cbdb EQU $cbdb
+	DEF RAMCode_51_cbe3 EQU $cbe3
+	DEF RAMCode_51_cbe4 EQU $cbe4
+	DEF RAMCode_51_cbe9 EQU $cbe9
+	DEF RAMCode_51_cbff EQU $cbff
+	DEF RAMCode_51_cc08 EQU $cc08
+	DEF RAMCode_51_cc0a EQU $cc0a
+	DEF RAMCode_51_cc21 EQU $cc21
+	DEF RAMCode_51_cc32 EQU $cc32
+	DEF RAMCode_51_cc4e EQU $cc4e
+	DEF RAMCode_51_cc91 EQU $cc91
+	DEF RAMCode_51_cca5 EQU $cca5
+	DEF RAMCode_51_ccc0 EQU $ccc0
+	DEF RAMCode_51_ccd1 EQU $ccd1
+	DEF RAMCode_51_ccda EQU $ccda
+	DEF RAMCode_51_cce2 EQU $cce2
+	DEF RAMCode_51_ccf5 EQU $ccf5
+; RAMCode_51_cb00:
+	ei
+	push af
+	ldh a, [$ffc2]
+	cp $66
+	jr nz, @ +90 ; RAMCode_51_cb60
+	push hl
+	push bc
+	ldh a, [$ffda]
+	or a
+	jr nz, @ +36 ; RAMCode_51_cb31
+	ldh a, [rSB]
+	cp $44
+	jr nz, @ +61 ; RAMCode_51_cb50
+; RAMCode_51_cb15:
+	ld hl, $ffbc
+	dec [hl]
+	jr z, @ +24 ; RAMCode_51_cb31
+	dec l
+	inc [hl]
+; RAMCode_51_cb1d:
+	ld c, [hl]
+	ldh a, [c]
+	ldh [rSB], a
+	ld a, $01
+	ldh [rSC], a
+	ld a, $81
+	ldh [rSC], a
+; RAMCode_51_cb29:
+	ld a, $01
+	ldh [$ffc0], a
+	pop bc
+	pop hl
+	pop af
+	reti
+
+; RAMCode_51_cb31:
+	ldh a, [$ffbf]
+	xor $01
+	ldh [$ffbf], a
+	ld a, $8a
+	ldh [$ffbb], a
+	ldh a, [$ffba]
+	ldh [$ffbc], a
+	ld a, $bb
+	ldh [$ffc2], a
+	ld a, $44
+	ldh [rSB], a
+	xor a
+	ldh [rSC], a
+	ld a, $80
+	ldh [rSC], a
+	jr @ -37 ; RAMCode_51_cb29
+
+; RAMCode_51_cb50:
+	ld hl, $ffbb
+	ldh a, [$ffbd]
+	dec a
+	ldh [$ffbd], a
+	jr nz, @ -59 ; RAMCode_51_cb1d
+	ld a, $96
+	ldh [$ffbd], a
+	jr @ -73 ; RAMCode_51_cb15
+
+; RAMCode_51_cb60:
+	push bc
+	push hl
+	ld hl, $ffbb
+	ld c, [hl]
+	ldh a, [rSB]
+	ldh [c], a
+	inc [hl]
+	inc l
+	dec [hl]
+	jr z, @ +14 ; RAMCode_51_cb7a
+	ld a, $44
+	ldh [rSB], a
+	ld a, $80
+	ldh [rSC], a
+	pop hl
+	pop bc
+	pop af
+	reti
+
+; RAMCode_51_cb7a:
+	push de
+	xor a
+	ld [$dece], a
+	ldh a, [$ff8a]
+	cp $bd
+	jr nz, @ +7 ; RAMCode_51_cb8a
+	ld a, $01
+	ld [$dece], a
+; RAMCode_51_cb8a:
+	ld a, $66
+	ldh [$ffc2], a
+	call RAMCode_51_cbe9
+	call RAMCode_51_cbff
+	pop de
+	pop hl
+	pop bc
+	pop af
+	reti
+
+; RAMCode_51_cb99:
+	ldh [$ffc5], a
+	ld [$2000], a
+	ld hl, $ffd0
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ldh a, [$ffcf]
+	ret
+
+; RAMCode_51_cba7:
+	ldh [$ffcf], a
+	pop af
+	ldh [$ffc5], a
+	ld [$2000], a
+	ldh a, [$ffcf]
+	ret
+
+; RAMCode_51_cbb2:
+	ldh [$ffcf], a
+	push bc
+	push af
+	pop bc
+	ld a, c
+	ldh [$ffd2], a
+	pop bc
+	pop af
+	ldh [$ffc5], a
+	ld [$2000], a
+	push bc
+	ldh a, [$ffd2]
+	ld c, a
+	push bc
+	pop af
+	pop bc
+	ldh a, [$ffcf]
+	ret
+
+; RAMCode_51_cbcb:
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec bc
+	ld a, b
+	or c
+	jr nz, @ -6 ; RAMCode_51_cbcb
+	ret
+
+; RAMCode_51_cbd4:
+	ld a, [de]
+	ld [hli], a
+	inc e
+	dec b
+	jr nz, @ -4 ; RAMCode_51_cbd4
+	ret
+
+; RAMCode_51_cbdb:
+	ld a, b
+	ld [hli], a
+	dec de
+	ld a, d
+	or e
+	jr nz, @ -5 ; RAMCode_51_cbdb
+	ret
+
+; RAMCode_51_cbe3:
+	ld a, b
+; RAMCode_51_cbe4:
+	ld [hli], a
+	dec d
+	jr nz, @ -2 ; RAMCode_51_cbe4
+	ret
+
+; RAMCode_51_cbe9:
+	ld a, [$c8a1]
+	ld hl, $ca00
+	add a, l
+	ld l, a
+	ldh a, [$ffba]
+	ld b, a
+	add a, l
+	ld [$c8a1], a
+	ld de, $ff8a
+	call RAMCode_51_cbd4
+	ret
+
+; RAMCode_51_cbff:
+	ldh a, [$ffbf]
+	or a
+	jr z, @ +6 ; RAMCode_51_cc08
+	ld a, $aa
+	jr @ +4 ; RAMCode_51_cc0a
+
+; RAMCode_51_cc08:
+	ld a, $9a
+; RAMCode_51_cc0a:
+	ldh [$ffbb], a
+	ld c, a
+	ldh a, [$ffba]
+	ldh [$ffbc], a
+	ld a, $96
+	ldh [$ffbd], a
+	ldh a, [c]
+	ldh [rSB], a
+	ld a, $01
+	ldh [rSC], a
+	ld a, $81
+	ldh [rSC], a
+	ret
+
+; RAMCode_51_cc21:
+	ld hl, $ffd8
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld sp, hl
+	ld a, $50
+	ldh [$ffc5], a
+	ld [$2000], a
+	jp $41b6
+
+; RAMCode_51_cc32:
+	ldh a, [$ffc5]
+	push af
+	ld a, $51
+	ldh [$ffc5], a
+	ld [$2000], a
+	sla c
+	rl b
+	ld hl, $44f1
+	add hl, bc
+	ld a, [hli]
+	ld b, [hl]
+	ld c, a
+	pop af
+	ldh [$ffc5], a
+	ld [$2000], a
+	ret
+
+; RAMCode_51_cc4e:
+	ld a, [$c8aa]
+	or a
+	ret nz
+	push bc
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ldh a, [$ffdd]
+	ldh [$ffc5], a
+	ld [$2000], a
+	ld hl, $ffde
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld b, $00
+	sla c
+	rl b
+	sla c
+	rl b
+	add hl, bc
+	ld a, [hli]
+	ld [$cce3], a
+	ld a, [hli]
+	ld [$cce8], a
+	ld a, [hli]
+	ld [$cce9], a
+	ld a, [hli]
+	ldh [$ffdc], a
+	ld hl, $ccde
+	ld a, $28
+	ld [hli], a
+	ld a, $02
+	ld [hli], a
+	pop af
+	ldh [$ffc5], a
+	ld [$2000], a
+	pop hl
+	pop bc
+	ret
+
+; RAMCode_51_cc91:
+	ldh a, [$ffc5]
+	push af
+	ldh a, [rSVBK]
+	push af
+	ld a, b
+	call Func_00_00f3
+	pop af
+	ldh [rSVBK], a
+	pop af
+	ldh [$ffc5], a
+	ld [$2000], a
+	ret
+
+; RAMCode_51_cca5:
+	push af
+	push bc
+	push de
+	push hl
+	ldh a, [$ffc5]
+	push af
+	ldh a, [rSVBK]
+	push af
+	call Func_00_00f0
+	pop af
+	ldh [rSVBK], a
+	pop af
+	ldh [$ffc5], a
+	ld [$2000], a
+	pop hl
+	pop de
+	pop bc
+	pop af
+	reti
+
+; RAMCode_51_ccc0:
+	push af
+	ldh a, [rLY]
+	cp $2a
+	jr nz, @ +12 ; RAMCode_51_ccd1
+	ldh a, [$ffe1]
+	ldh [rSCX], a
+	ldh a, [$ffe2]
+	ldh [rSCY], a
+	jr @ +11 ; RAMCode_51_ccda
+
+; RAMCode_51_ccd1:
+	cp $3f
+	jr nz, @ +7 ; RAMCode_51_ccda
+	xor a
+	ldh [rSCX], a
+	ldh [rSCY], a
+; RAMCode_51_ccda:
+	ldh a, [rLY]
+	and $01
+	nop
+	nop
+	pop af
+	reti
+
+; RAMCode_51_cce2:
+	ld a, $ff
+	ld [$2000], a
+	ld a, [$4000]
+	ldh [rNR50], a
+	push hl
+	ld hl, $cce8
+	inc [hl]
+	jr nz, @ +4 ; RAMCode_51_ccf5
+	inc l
+	inc [hl]
+; RAMCode_51_ccf5:
+	ldh a, [$ffc5]
+	ld [$2000], a
+	pop hl
+	pop af
+	reti
+
 
 FishingSineTable::
 	dw $0000, $0001, $0003, $0004, $0006, $0007, $0009, $000a

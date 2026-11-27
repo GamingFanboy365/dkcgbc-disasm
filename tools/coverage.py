@@ -41,6 +41,10 @@ def categorize(rom, t=None):
         for k in range(i.length):
             cat[o + k] = "code"
     for o, (kind, _, _, length) in t.data.items():
+        if kind == "ramcode":  # code copied to RAM (tools/ramcode.py)
+            for j in range(length):
+                cat[o + j] = "code"
+            continue
         c = "raw" if kind in RAW_KINDS else "graphics" if kind in GFX_KINDS else "files" if kind in FILE_KINDS else "data"
         for j in range(length):
             cat[o + j] = c

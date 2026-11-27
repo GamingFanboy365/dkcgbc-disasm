@@ -62,6 +62,11 @@ data/blocks/%.planar: data/blocks/%.bin
 data/terrain/%.planar: data/terrain/%.bin
 	$(PYTHON) tools/leveldata.py terrain $< $@
 
+# Funky's Fishing samples: 8-bit WAV files at 4300 Hz (tools/samples.py)
+data/samples/%.pcm: data/samples/%.wav
+	$(PYTHON) tools/samples.py wav $< $@
+
+data/samples/%.wav: | gfx/frames/.extracted ;
 data/maps/%.bin: | gfx/frames/.extracted ;
 data/blocks/%.bin: | gfx/frames/.extracted ;
 data/terrain/%.bin: | gfx/frames/.extracted ;

@@ -9251,7 +9251,109 @@ Func_fe_755a::
 
 
 RAMCopy_fe_761b_to_cc0e::
-	INCBIN "baserom.gbc", $3fb61b, $0086
+	; runs from $cc0e
+	DEF RAMCode_fe_cc0e EQU $cc0e
+	DEF RAMCode_fe_cc1e EQU $cc1e
+	DEF RAMCode_fe_cc26 EQU $cc26
+	DEF RAMCode_fe_cc32 EQU $cc32
+	DEF RAMCode_fe_cc3a EQU $cc3a
+	DEF RAMCode_fe_cc5a EQU $cc5a
+	DEF RAMCode_fe_cc6a EQU $cc6a
+	DEF RAMCode_fe_cc84 EQU $cc84
+; RAMCode_fe_cc0e:
+	ei
+	push af
+	ldh a, [$ffd3]
+	cp $66
+	jr nz, @ +86 ; RAMCode_fe_cc6a
+	push hl
+	push bc
+	ldh a, [rSB]
+	cp $ea
+	jr nz, @ +62 ; RAMCode_fe_cc5a
+; RAMCode_fe_cc1e:
+	ld hl, $ffce
+	dec [hl]
+	jr z, @ +24 ; RAMCode_fe_cc3a
+	dec l
+	inc [hl]
+; RAMCode_fe_cc26:
+	ld c, [hl]
+	ldh a, [c]
+	ldh [rSB], a
+	ld a, $01
+	ldh [rSC], a
+	ld a, $81
+	ldh [rSC], a
+; RAMCode_fe_cc32:
+	ld a, $01
+	ldh [$ffd1], a
+	pop bc
+	pop hl
+	pop af
+	reti
+
+; RAMCode_fe_cc3a:
+	ldh a, [$ffd0]
+	xor $01
+	ldh [$ffd0], a
+	di
+	ld a, $9d
+	ldh [$ffcd], a
+	ld a, $10
+	ldh [$ffce], a
+	ld a, $bb
+	ldh [$ffd3], a
+	ld a, $ea
+	ldh [rSB], a
+	xor a
+	ldh [rSC], a
+	ld a, $80
+	ldh [rSC], a
+	jr @ -38 ; RAMCode_fe_cc32
+
+; RAMCode_fe_cc5a:
+	ld hl, $ffcd
+	ldh a, [$ffcf]
+	dec a
+	ldh [$ffcf], a
+	jr nz, @ -60 ; RAMCode_fe_cc26
+	ld a, $96
+	ldh [$ffcf], a
+	jr @ -74 ; RAMCode_fe_cc1e
+
+; RAMCode_fe_cc6a:
+	push bc
+	push hl
+	ld hl, $ffcd
+	ld c, [hl]
+	ldh a, [rSB]
+	ldh [c], a
+	inc [hl]
+	inc l
+	dec [hl]
+	jr z, @ +14 ; RAMCode_fe_cc84
+	ld a, $ea
+	ldh [rSB], a
+	ld a, $80
+	ldh [rSC], a
+	pop hl
+	pop bc
+	pop af
+	reti
+
+; RAMCode_fe_cc84:
+	push de
+	ld a, $66
+	ldh [$ffd3], a
+	call $cc94
+	call $ccbc
+	pop de
+	pop hl
+	pop bc
+	pop af
+	reti
+
 
 SerialJump_fe_76a1::
 	db $c3 ; jp $cc0e, copied by Func_fe_76a4 to the serial interrupt's

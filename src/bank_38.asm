@@ -152,7 +152,7 @@ FrameSprites_38_7300::
 	db 0, 8
 
 FrameSpritesTail_38_7316::
-	INCBIN "baserom.gbc", $0e3316, $000b
+	db -15, 1, 0, 16, 0, -37, 2, 0, 24, 12, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7321::
 	db -19, -15
@@ -169,7 +169,7 @@ FrameSprites_38_7321::
 	db 2, 0
 
 FrameSpritesTail_38_7339::
-	INCBIN "baserom.gbc", $0e3339, $000c
+	db -8, -1, 0, -13, -1, 1, 0, -16, 1, -16, 19, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7345::
 	db 5, -31
@@ -186,7 +186,7 @@ FrameSprites_38_7345::
 	db -15, 1
 
 FrameSpritesTail_38_735d::
-	INCBIN "baserom.gbc", $0e335d, $000c
+	db 0, 16, 0, -13, -18, 1, -16, 17, 0, -8, 3, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7369::
 	db -19, -14
@@ -202,7 +202,7 @@ FrameSprites_38_7369::
 	db 1, 0
 
 FrameSpritesTail_38_737f::
-	INCBIN "baserom.gbc", $0e337f, $000b
+	db 16, 0, -8, -1, 0, -5, -17, 1, -24, 20, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_738a::
 	db -11, -41
@@ -220,7 +220,7 @@ FrameSprites_38_738a::
 	db 0, 16
 
 FrameSpritesTail_38_73a4::
-	INCBIN "baserom.gbc", $0e33a4, $000d
+	db 0, 0, 16, 0, 0, 16, 0, -13, -48, 1, 8, 0, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_73b1::
 	db -9, -45
@@ -236,7 +236,7 @@ FrameSprites_38_73b1::
 	db 0, 8
 
 FrameSpritesTail_38_73c7::
-	INCBIN "baserom.gbc", $0e33c7, $000b
+	db -46, 0, 0, 16, 0, -11, -22, 1, 8, 2, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_73d2::
 	db -10, -42
@@ -251,7 +251,7 @@ FrameSprites_38_73d2::
 	db 0, 16
 
 FrameSpritesTail_38_73e6::
-	INCBIN "baserom.gbc", $0e33e6, $000a
+	db 0, 8, -46, 0, -11, -1, 1, 8, 0, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_73f0::
 	db -12, -37
@@ -267,7 +267,7 @@ FrameSprites_38_73f0::
 	db 0, 0
 
 FrameSpritesTail_38_7406::
-	INCBIN "baserom.gbc", $0e3406, $000b
+	db 16, 0, 0, 30, 0, -8, -45, 1, 8, 1, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7411::
 	db -12, -37
@@ -283,7 +283,7 @@ FrameSprites_38_7411::
 	db 0, 0
 
 FrameSpritesTail_38_7427::
-	INCBIN "baserom.gbc", $0e3427, $000b
+	db 16, 0, 0, 30, 0, -8, -45, 1, 8, 1, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7432::
 	db -18, -16
@@ -300,7 +300,7 @@ FrameSprites_38_7432::
 	db -1, 0
 
 FrameSpritesTail_38_744a::
-	INCBIN "baserom.gbc", $0e344a, $000c
+	db -16, -3, 0, 16, -13, 1, -16, 29, 1, -8, 0, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7456::
 	db -3, -34
@@ -317,7 +317,7 @@ FrameSprites_38_7456::
 	db 13, 1
 
 FrameSpritesTail_38_746e::
-	INCBIN "baserom.gbc", $0e346e, $000c
+	db 12, -16, 0, -16, -15, 1, -8, 16, 0, -8, 4, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_747a::
 	db 2, -1
@@ -334,7 +334,7 @@ FrameSprites_38_747a::
 	db 2, 0
 
 FrameSpritesTail_38_7492::
-	INCBIN "baserom.gbc", $0e3492, $000c
+	db -13, -3, 0, -16, 2, 0, -8, 3, 0, 16, 12, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_749e::
 	db -18, -16
@@ -351,7 +351,7 @@ FrameSprites_38_749e::
 	db 3, 0
 
 FrameSpritesTail_38_74b6::
-	INCBIN "baserom.gbc", $0e34b6, $000c
+	db -8, -2, 0, -8, -17, 1, 8, 1, 1, 0, 32, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_74c2::
 	db -26, -13
@@ -368,7 +368,7 @@ FrameSprites_38_74c2::
 	db 16, 1
 
 FrameSpritesTail_38_74da::
-	INCBIN "baserom.gbc", $0e34da, $000c
+	db 8, -15, 0, 8, 1, 0, -8, -17, 1, -16, 32, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_74e6::
 	db -19, -15
@@ -385,7 +385,7 @@ FrameSprites_38_74e6::
 	db 16, 1
 
 FrameSpritesTail_38_74fe::
-	INCBIN "baserom.gbc", $0e34fe, $000c
+	db 16, -14, 0, -8, 15, 1, -16, 0, 1, 16, -16, 0 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_750a::
 	db -27, -12
@@ -403,7 +403,7 @@ FrameSprites_38_750a::
 	db 16, 3
 
 FrameSpritesTail_38_7524::
-	INCBIN "baserom.gbc", $0e3524, $000d
+	db 0, -8, -1, 0, -16, -1, 1, 16, -15, 1, 8, 1, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7531::
 	db -19, -15
@@ -421,7 +421,7 @@ FrameSprites_38_7531::
 	db -16, -1
 
 FrameSpritesTail_38_754b::
-	INCBIN "baserom.gbc", $0e354b, $000d
+	db 0, -8, -16, 1, 8, 0, 1, 8, 1, 1, 8, 0, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7558::
 	db -19, -15
@@ -438,7 +438,7 @@ FrameSprites_38_7558::
 	db 3, 0
 
 FrameSpritesTail_38_7570::
-	INCBIN "baserom.gbc", $0e3570, $000c
+	db -22, -19, 1, 8, 0, 1, 8, 0, 1, 6, 3, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_757c::
 	db -19, -15
@@ -455,7 +455,7 @@ FrameSprites_38_757c::
 	db -16, 1
 
 FrameSpritesTail_38_7594::
-	INCBIN "baserom.gbc", $0e3594, $000c
+	db 7, 16, 0, 1, -16, 1, -19, 32, 1, 8, 0, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_75a0::
 	db -9, -1
@@ -472,7 +472,7 @@ FrameSprites_38_75a0::
 	db -32, 1
 
 FrameSpritesTail_38_75b8::
-	INCBIN "baserom.gbc", $0e35b8, $000c
+	db 7, 16, 0, 8, 0, 0, -7, -16, 1, 8, 0, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_75c4::
 	db -19, -15
@@ -490,7 +490,7 @@ FrameSprites_38_75c4::
 	db -8, 0
 
 FrameSpritesTail_38_75de::
-	INCBIN "baserom.gbc", $0e35de, $000d
+	db 0, -32, 5, 0, 16, 10, 1, 8, -32, 1, -8, 0, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_75eb::
 	db 13, -32
@@ -508,7 +508,7 @@ FrameSprites_38_75eb::
 	db 7, 16
 
 FrameSpritesTail_38_7605::
-	INCBIN "baserom.gbc", $0e3605, $000d
+	db 0, -24, 6, 0, 24, 10, 1, 8, 1, 1, -16, -1, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7612::
 	db -19, -15
@@ -526,7 +526,7 @@ FrameSprites_38_7612::
 	db -8, 16
 
 FrameSpritesTail_38_762c::
-	INCBIN "baserom.gbc", $0e362c, $000d
+	db 0, -32, 5, 0, 24, 10, 1, 8, 1, 1, -16, -1, 1 ; never read; dx, dy pairs like the list above
 
 FrameSprites_38_7639::
 	db -25, -14
@@ -549,7 +549,8 @@ FrameSprites_38_7639::
 	db 16, 2
 
 FrameSpritesTail_38_765d::
-	INCBIN "baserom.gbc", $0e365d, $0012
+	db 8, -17, 2, 0, 16, 2, 8, -16, 2, 0, 16, 2, 8, -16, 2, 0 ; never read; dx, dy pairs like the list above
+	db 16, 2
 
 FrameSprites_38_766f::
 	db -10, -7

@@ -392,5 +392,953 @@ SampleTable::
 	db $55, LOW(Sample_09), HIGH(Sample_09), 58 ; sample 9
 	db $56, LOW(Sample_0A), HIGH(Sample_0A), 178 ; sample 10
 
-FishingSpriteTiles::
-	INCBIN "baserom.gbc", $1481ee, $3e12
+FishingAnimTable::
+	dw FishingAnim_52_4218 ; 0
+	dw FishingAnim_52_4246 ; 1
+	dw FishingAnim_52_4274 ; 2
+	dw FishingAnim_52_42a2 ; 3
+	dw FishingAnim_52_42d0 ; 4
+	dw FishingAnim_52_42fe ; 5
+	dw FishingAnim_52_432c ; 6
+	dw FishingAnim_52_4360 ; 7
+	dw FishingAnim_52_4394 ; 8
+	dw FishingAnim_52_43c8 ; 9
+	dw FishingAnim_52_43fc ; 10
+	dw FishingAnim_52_4424 ; 11
+	dw FishingAnim_52_444c ; 12
+	dw FishingAnim_52_4468 ; 13
+	dw FishingAnim_52_4484 ; 14
+	dw FishingAnim_52_44a0 ; 15
+	dw FishingAnim_52_44bc ; 16
+	dw FishingAnim_52_44d8 ; 17
+	dw FishingAnim_52_44e2 ; 18
+	dw FishingAnim_52_44ec ; 19
+	dw FishingAnim_52_44f6 ; 20
+
+FishingAnim_52_4218::
+	db 0, 8, 6, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_46f8, FishingLayout_52_46dc ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4738, FishingLayout_52_46e0 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4778, FishingLayout_52_46e4 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_47b8, FishingLayout_52_46e8 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_47f8, FishingLayout_52_46ec ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4838, FishingLayout_52_46f0 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4878, FishingLayout_52_46f4 ; tiles, layout
+
+FishingAnim_52_4246::
+	db 0, 8, 6, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_451c, FishingLayout_52_4500 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_455c, FishingLayout_52_4504 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_459c, FishingLayout_52_4508 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_45dc, FishingLayout_52_450c ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_461c, FishingLayout_52_4510 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_465c, FishingLayout_52_4514 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_469c, FishingLayout_52_4518 ; tiles, layout
+
+FishingAnim_52_4274::
+	db 1, 8, 6, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_46f8, FishingLayout_52_46dc ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4738, FishingLayout_52_46e0 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4778, FishingLayout_52_46e4 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_47b8, FishingLayout_52_46e8 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_47f8, FishingLayout_52_46ec ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4838, FishingLayout_52_46f0 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4878, FishingLayout_52_46f4 ; tiles, layout
+
+FishingAnim_52_42a2::
+	db 1, 8, 6, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_451c, FishingLayout_52_4500 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_455c, FishingLayout_52_4504 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_459c, FishingLayout_52_4508 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_45dc, FishingLayout_52_450c ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_461c, FishingLayout_52_4510 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_465c, FishingLayout_52_4514 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_469c, FishingLayout_52_4518 ; tiles, layout
+
+FishingAnim_52_42d0::
+	db 2, 8, 6, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_46f8, FishingLayout_52_46dc ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4738, FishingLayout_52_46e0 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4778, FishingLayout_52_46e4 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_47b8, FishingLayout_52_46e8 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_47f8, FishingLayout_52_46ec ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4838, FishingLayout_52_46f0 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4878, FishingLayout_52_46f4 ; tiles, layout
+
+FishingAnim_52_42fe::
+	db 2, 8, 6, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_451c, FishingLayout_52_4500 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_455c, FishingLayout_52_4504 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_459c, FishingLayout_52_4508 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_45dc, FishingLayout_52_450c ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_461c, FishingLayout_52_4510 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_465c, FishingLayout_52_4514 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_469c, FishingLayout_52_4518 ; tiles, layout
+
+FishingAnim_52_432c::
+	db 3, 8, 7, $52 ; number, ?, last frame, bank
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4bd0, FishingLayout_52_4ba4 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4c30, FishingLayout_52_4baa ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4c90, FishingLayout_52_4bb0 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4cf0, FishingLayout_52_4bb6 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4d30, FishingLayout_52_4bba ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4d70, FishingLayout_52_4bbe ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4dd0, FishingLayout_52_4bc4 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4e30, FishingLayout_52_4bca ; tiles, layout
+
+FishingAnim_52_4360::
+	db 3, 8, 7, $52 ; number, ?, last frame, bank
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_48e4, FishingLayout_52_48b8 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4944, FishingLayout_52_48be ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_49a4, FishingLayout_52_48c4 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4a04, FishingLayout_52_48ca ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_4a44, FishingLayout_52_48ce ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4a84, FishingLayout_52_48d2 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4ae4, FishingLayout_52_48d8 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4b44, FishingLayout_52_48de ; tiles, layout
+
+FishingAnim_52_4394::
+	db 4, 8, 7, $52 ; number, ?, last frame, bank
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4ec0, FishingLayout_52_4e90 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4f20, FishingLayout_52_4e96 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4f80, FishingLayout_52_4e9c ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_4fe0, FishingLayout_52_4ea2 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5040, FishingLayout_52_4ea8 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_50a0, FishingLayout_52_4eae ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5100, FishingLayout_52_4eb4 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5160, FishingLayout_52_4eba ; tiles, layout
+
+FishingAnim_52_43c8::
+	db 4, 8, 7, $52 ; number, ?, last frame, bank
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_51f0, FishingLayout_52_51c0 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5250, FishingLayout_52_51c6 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_52b0, FishingLayout_52_51cc ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5310, FishingLayout_52_51d2 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5370, FishingLayout_52_51d8 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_53d0, FishingLayout_52_51de ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5430, FishingLayout_52_51e4 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5490, FishingLayout_52_51ea ; tiles, layout
+
+FishingAnim_52_43fc::
+	db 5, 8, 5, $52 ; number, ?, last frame, bank
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5648, FishingLayout_52_5502 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_56a8, FishingLayout_52_5508 ; tiles, layout
+	db 4, 0 ; sprites, 0
+	dw FishingTiles_52_5708, FishingLayout_52_550e ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5788, FishingLayout_52_5516 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_57e8, FishingLayout_52_551c ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5848, FishingLayout_52_5522 ; tiles, layout
+
+FishingAnim_52_4424::
+	db 5, 8, 5, $52 ; number, ?, last frame, bank
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5a00, FishingLayout_52_58ba ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5a60, FishingLayout_52_58c0 ; tiles, layout
+	db 4, 0 ; sprites, 0
+	dw FishingTiles_52_5ac0, FishingLayout_52_58c6 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5b40, FishingLayout_52_58ce ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5ba0, FishingLayout_52_58d4 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5c00, FishingLayout_52_58da ; tiles, layout
+
+FishingAnim_52_444c::
+	db 5, 12, 3, $52 ; number, ?, last frame, bank
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5c78, FishingLayout_52_5c60 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5cd8, FishingLayout_52_5c66 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5d38, FishingLayout_52_5c6c ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5d98, FishingLayout_52_5c72 ; tiles, layout
+
+FishingAnim_52_4468::
+	db 5, 12, 3, $52 ; number, ?, last frame, bank
+	db 4, 0 ; sprites, 0
+	dw FishingTiles_52_5e12, FishingLayout_52_5df8 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5e92, FishingLayout_52_5e00 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5ef2, FishingLayout_52_5e06 ; tiles, layout
+	db 3, 0 ; sprites, 0
+	dw FishingTiles_52_5f52, FishingLayout_52_5e0c ; tiles, layout
+
+FishingAnim_52_4484::
+	db 6, 8, 3, $52 ; number, ?, last frame, bank
+	db 1, 0 ; sprites, 0
+	dw FishingTiles_52_5fb8, FishingLayout_52_5fb2 ; tiles, layout
+	db 1, 0 ; sprites, 0
+	dw FishingTiles_52_5fd8, FishingLayout_52_5fb4 ; tiles, layout
+	db 1, 0 ; sprites, 0
+	dw FishingTiles_52_5ff8, FishingLayout_52_5fb6 ; tiles, layout
+	db 1, 0 ; sprites, 0
+	dw FishingTiles_52_5fd8, FishingLayout_52_5fb4 ; tiles, layout
+
+FishingAnim_52_44a0::
+	db 6, 20, 3, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_6028, FishingLayout_52_6018 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_6068, FishingLayout_52_601c ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_60a8, FishingLayout_52_6020 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_60e8, FishingLayout_52_6024 ; tiles, layout
+
+FishingAnim_52_44bc::
+	db 1, 8, 3, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_6138, FishingLayout_52_6128 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_6178, FishingLayout_52_612c ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_61b8, FishingLayout_52_6130 ; tiles, layout
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_61f8, FishingLayout_52_6134 ; tiles, layout
+
+FishingAnim_52_44d8::
+	db 7, 8, 0, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_623c, FishingLayout_52_6238 ; tiles, layout
+
+FishingAnim_52_44e2::
+	db 6, 8, 0, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_6280, FishingLayout_52_627c ; tiles, layout
+
+FishingAnim_52_44ec::
+	db 7, 8, 0, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_62c4, FishingLayout_52_62c0 ; tiles, layout
+
+FishingAnim_52_44f6::
+	db 7, 8, 0, $52 ; number, ?, last frame, bank
+	db 2, 0 ; sprites, 0
+	dw FishingTiles_52_6308, FishingLayout_52_6304 ; tiles, layout
+
+FishingLayout_52_4500::
+	db -8, -5
+	db 8, 1
+
+FishingLayout_52_4504::
+	db -6, -5
+	db 8, 2
+
+FishingLayout_52_4508::
+	db -3, -5
+	db 8, 3
+
+FishingLayout_52_450c::
+	db -4, -5
+	db 8, 3
+
+FishingLayout_52_4510::
+	db -7, -5
+	db 8, 2
+
+FishingLayout_52_4514::
+	db -9, -5
+	db 8, 0
+
+FishingLayout_52_4518::
+	db -8, -5
+	db 8, 1
+
+FishingTiles_52_451c::
+	INCBIN "gfx/frames/52/451c.2bpp"
+
+FishingTiles_52_455c::
+	INCBIN "gfx/frames/52/455c.2bpp"
+
+FishingTiles_52_459c::
+	INCBIN "gfx/frames/52/459c.2bpp"
+
+FishingTiles_52_45dc::
+	INCBIN "gfx/frames/52/45dc.2bpp"
+
+FishingTiles_52_461c::
+	INCBIN "gfx/frames/52/461c.2bpp"
+
+FishingTiles_52_465c::
+	INCBIN "gfx/frames/52/465c.2bpp"
+
+FishingTiles_52_469c::
+	INCBIN "gfx/frames/52/469c.2bpp"
+
+FishingLayout_52_46dc::
+	db -6, -5
+	db 8, 0
+
+FishingLayout_52_46e0::
+	db -7, -5
+	db 8, 0
+
+FishingLayout_52_46e4::
+	db -7, -5
+	db 8, 0
+
+FishingLayout_52_46e8::
+	db -7, -4
+	db 8, -1
+
+FishingLayout_52_46ec::
+	db -6, -5
+	db 8, 0
+
+FishingLayout_52_46f0::
+	db -6, -5
+	db 8, 0
+
+FishingLayout_52_46f4::
+	db -6, -5
+	db 8, 0
+
+FishingTiles_52_46f8::
+	INCBIN "gfx/frames/52/46f8.2bpp"
+
+FishingTiles_52_4738::
+	INCBIN "gfx/frames/52/4738.2bpp"
+
+FishingTiles_52_4778::
+	INCBIN "gfx/frames/52/4778.2bpp"
+
+FishingTiles_52_47b8::
+	INCBIN "gfx/frames/52/47b8.2bpp"
+
+FishingTiles_52_47f8::
+	INCBIN "gfx/frames/52/47f8.2bpp"
+
+FishingTiles_52_4838::
+	INCBIN "gfx/frames/52/4838.2bpp"
+
+FishingTiles_52_4878::
+	INCBIN "gfx/frames/52/4878.2bpp"
+
+FishingLayout_52_48b8::
+	db -12, -1
+	db 8, -4
+	db 8, 0
+
+FishingLayout_52_48be::
+	db -10, -4
+	db 8, -1
+	db 8, 0
+
+FishingLayout_52_48c4::
+	db -8, -7
+	db 8, 2
+	db 8, 0
+
+FishingLayout_52_48ca::
+	db -5, -9
+	db 8, 4
+
+FishingLayout_52_48ce::
+	db -2, -11
+	db 6, 5
+
+FishingLayout_52_48d2::
+	db -4, -10
+	db 0, 15
+	db 8, -11
+
+FishingLayout_52_48d8::
+	db -7, -8
+	db 1, 6
+	db 8, -3
+
+FishingLayout_52_48de::
+	db -11, -4
+	db 8, -1
+	db 8, 0
+
+FishingTiles_52_48e4::
+	INCBIN "gfx/frames/52/48e4.2bpp"
+
+FishingTiles_52_4944::
+	INCBIN "gfx/frames/52/4944.2bpp"
+
+FishingTiles_52_49a4::
+	INCBIN "gfx/frames/52/49a4.2bpp"
+
+FishingTiles_52_4a04::
+	INCBIN "gfx/frames/52/4a04.2bpp"
+
+FishingTiles_52_4a44::
+	INCBIN "gfx/frames/52/4a44.2bpp"
+
+FishingTiles_52_4a84::
+	INCBIN "gfx/frames/52/4a84.2bpp"
+
+FishingTiles_52_4ae4::
+	INCBIN "gfx/frames/52/4ae4.2bpp"
+
+FishingTiles_52_4b44::
+	INCBIN "gfx/frames/52/4b44.2bpp"
+
+FishingLayout_52_4ba4::
+	db -7, -4
+	db 8, 1
+	db 8, 3
+
+FishingLayout_52_4baa::
+	db -7, -4
+	db 8, 1
+	db 8, 1
+
+FishingLayout_52_4bb0::
+	db -8, -4
+	db 8, -1
+	db 4, -1
+
+FishingLayout_52_4bb6::
+	db -8, -4
+	db 8, -4
+
+FishingLayout_52_4bba::
+	db -9, -5
+	db 8, -5
+
+FishingLayout_52_4bbe::
+	db -8, -5
+	db 8, -4
+	db 0, 16
+
+FishingLayout_52_4bc4::
+	db -7, -4
+	db 8, -2
+	db 8, 0
+
+FishingLayout_52_4bca::
+	db -6, -4
+	db 8, 2
+	db 8, -1
+
+FishingTiles_52_4bd0::
+	INCBIN "gfx/frames/52/4bd0.2bpp"
+
+FishingTiles_52_4c30::
+	INCBIN "gfx/frames/52/4c30.2bpp"
+
+FishingTiles_52_4c90::
+	INCBIN "gfx/frames/52/4c90.2bpp"
+
+FishingTiles_52_4cf0::
+	INCBIN "gfx/frames/52/4cf0.2bpp"
+
+FishingTiles_52_4d30::
+	INCBIN "gfx/frames/52/4d30.2bpp"
+
+FishingTiles_52_4d70::
+	INCBIN "gfx/frames/52/4d70.2bpp"
+
+FishingTiles_52_4dd0::
+	INCBIN "gfx/frames/52/4dd0.2bpp"
+
+FishingTiles_52_4e30::
+	INCBIN "gfx/frames/52/4e30.2bpp"
+
+FishingLayout_52_4e90::
+	db -10, -15
+	db 8, 3
+	db 6, 1
+
+FishingLayout_52_4e96::
+	db -11, -15
+	db 8, 3
+	db 7, -1
+
+FishingLayout_52_4e9c::
+	db -12, -15
+	db 8, 2
+	db 8, 1
+
+FishingLayout_52_4ea2::
+	db -13, -17
+	db 8, 4
+	db 8, 1
+
+FishingLayout_52_4ea8::
+	db -13, -17
+	db 8, 4
+	db 8, 1
+
+FishingLayout_52_4eae::
+	db -13, -17
+	db 8, 4
+	db 8, 1
+
+FishingLayout_52_4eb4::
+	db -11, -15
+	db 8, 3
+	db 8, -1
+
+FishingLayout_52_4eba::
+	db -11, -15
+	db 8, 3
+	db 8, 0
+
+FishingTiles_52_4ec0::
+	INCBIN "gfx/frames/52/4ec0.2bpp"
+
+FishingTiles_52_4f20::
+	INCBIN "gfx/frames/52/4f20.2bpp"
+
+FishingTiles_52_4f80::
+	INCBIN "gfx/frames/52/4f80.2bpp"
+
+FishingTiles_52_4fe0::
+	INCBIN "gfx/frames/52/4fe0.2bpp"
+
+FishingTiles_52_5040::
+	INCBIN "gfx/frames/52/5040.2bpp"
+
+FishingTiles_52_50a0::
+	INCBIN "gfx/frames/52/50a0.2bpp"
+
+FishingTiles_52_5100::
+	INCBIN "gfx/frames/52/5100.2bpp"
+
+FishingTiles_52_5160::
+	INCBIN "gfx/frames/52/5160.2bpp"
+
+FishingLayout_52_51c0::
+	db -10, -11
+	db 8, -1
+	db 8, -3
+
+FishingLayout_52_51c6::
+	db -9, -12
+	db 8, -1
+	db 8, -4
+
+FishingLayout_52_51cc::
+	db -8, -12
+	db 8, -1
+	db 8, -4
+
+FishingLayout_52_51d2::
+	db -7, -12
+	db 6, -1
+	db 8, -4
+
+FishingLayout_52_51d8::
+	db -7, -12
+	db 8, -2
+	db 8, -3
+
+FishingLayout_52_51de::
+	db -9, -12
+	db 8, -1
+	db 8, -4
+
+FishingLayout_52_51e4::
+	db -11, -13
+	db 8, 1
+	db 8, -3
+
+FishingLayout_52_51ea::
+	db -11, -12
+	db 8, 0
+	db 8, -3
+
+FishingTiles_52_51f0::
+	INCBIN "gfx/frames/52/51f0.2bpp"
+
+FishingTiles_52_5250::
+	INCBIN "gfx/frames/52/5250.2bpp"
+
+FishingTiles_52_52b0::
+	INCBIN "gfx/frames/52/52b0.2bpp"
+
+FishingTiles_52_5310::
+	INCBIN "gfx/frames/52/5310.2bpp"
+
+FishingTiles_52_5370::
+	INCBIN "gfx/frames/52/5370.2bpp"
+
+FishingTiles_52_53d0::
+	INCBIN "gfx/frames/52/53d0.2bpp"
+
+FishingTiles_52_5430::
+	INCBIN "gfx/frames/52/5430.2bpp"
+
+FishingTiles_52_5490::
+	INCBIN "gfx/frames/52/5490.2bpp"
+
+FishingLayout_52_54f0::
+	db -9, -16
+	db 8, -2
+	db 2, 4
+	db -7, -17
+	db 6, -1
+	db 2, 4
+	db -9, -17
+	db 8, -1
+	db 2, 4
+
+FishingLayout_52_5502::
+	db -3, -25
+	db 8, 9
+	db -6, 7
+
+FishingLayout_52_5508::
+	db 0, -23
+	db 2, 8
+	db 6, -16
+
+FishingLayout_52_550e::
+	db 0, -23
+	db 1, 14
+	db 7, -16
+	db 8, -1
+
+FishingLayout_52_5516::
+	db 0, -23
+	db 1, 12
+	db 7, -16
+
+FishingLayout_52_551c::
+	db -2, -28
+	db 0, 16
+	db 8, -4
+
+FishingLayout_52_5522::
+	db -9, -19
+	db 8, 1
+	db 2, 4
+
+FishingTiles_52_5528::
+	INCBIN "gfx/frames/52/5528.2bpp"
+
+FishingTiles_52_5648::
+	INCBIN "gfx/frames/52/5648.2bpp"
+
+FishingTiles_52_56a8::
+	INCBIN "gfx/frames/52/56a8.2bpp"
+
+FishingTiles_52_5708::
+	INCBIN "gfx/frames/52/5708.2bpp"
+
+FishingTiles_52_5788::
+	INCBIN "gfx/frames/52/5788.2bpp"
+
+FishingTiles_52_57e8::
+	INCBIN "gfx/frames/52/57e8.2bpp"
+
+FishingTiles_52_5848::
+	INCBIN "gfx/frames/52/5848.2bpp"
+
+FishingLayout_52_58a8::
+	db -5, -18
+	db -2, 4
+	db 10, -4
+	db -5, -18
+	db -2, 4
+	db 8, -3
+	db -5, -18
+	db -2, 4
+	db 10, -4
+
+FishingLayout_52_58ba::
+	db -7, -23
+	db 0, 16
+	db 8, -18
+
+FishingLayout_52_58c0::
+	db -12, -31
+	db 4, 16
+	db 4, -8
+
+FishingLayout_52_58c6::
+	db -17, -26
+	db 8, 2
+	db 2, 16
+	db 6, -16
+
+FishingLayout_52_58ce::
+	db -14, -27
+	db 8, 4
+	db -1, 12
+
+FishingLayout_52_58d4::
+	db -8, -21
+	db 3, 9
+	db 5, -16
+
+FishingLayout_52_58da::
+	db -7, -14
+	db 2, -4
+	db 8, -1
+
+FishingTiles_52_58e0::
+	INCBIN "gfx/frames/52/58e0.2bpp"
+
+FishingTiles_52_5a00::
+	INCBIN "gfx/frames/52/5a00.2bpp"
+
+FishingTiles_52_5a60::
+	INCBIN "gfx/frames/52/5a60.2bpp"
+
+FishingTiles_52_5ac0::
+	INCBIN "gfx/frames/52/5ac0.2bpp"
+
+FishingTiles_52_5b40::
+	INCBIN "gfx/frames/52/5b40.2bpp"
+
+FishingTiles_52_5ba0::
+	INCBIN "gfx/frames/52/5ba0.2bpp"
+
+FishingTiles_52_5c00::
+	INCBIN "gfx/frames/52/5c00.2bpp"
+
+FishingLayout_52_5c60::
+	db -9, -16
+	db 8, -2
+	db 2, 4
+
+FishingLayout_52_5c66::
+	db -9, -18
+	db 8, 0
+	db 2, 4
+
+FishingLayout_52_5c6c::
+	db -9, -17
+	db 8, -1
+	db 2, 4
+
+FishingLayout_52_5c72::
+	db -9, -18
+	db 8, 0
+	db 2, 4
+
+FishingTiles_52_5c78::
+	INCBIN "gfx/frames/52/5c78.2bpp"
+
+FishingTiles_52_5cd8::
+	INCBIN "gfx/frames/52/5cd8.2bpp"
+
+FishingTiles_52_5d38::
+	INCBIN "gfx/frames/52/5d38.2bpp"
+
+FishingTiles_52_5d98::
+	INCBIN "gfx/frames/52/5d98.2bpp"
+
+FishingLayout_52_5df8::
+	db -7, -17
+	db 0, 16
+	db 8, -17
+	db 8, 2
+
+FishingLayout_52_5e00::
+	db -5, -18
+	db -2, 4
+	db 10, -4
+
+FishingLayout_52_5e06::
+	db -5, -18
+	db -2, 4
+	db 10, -4
+
+FishingLayout_52_5e0c::
+	db -5, -18
+	db -2, 4
+	db 10, -4
+
+FishingTiles_52_5e12::
+	INCBIN "gfx/frames/52/5e12.2bpp"
+
+FishingTiles_52_5e92::
+	INCBIN "gfx/frames/52/5e92.2bpp"
+
+FishingTiles_52_5ef2::
+	INCBIN "gfx/frames/52/5ef2.2bpp"
+
+FishingTiles_52_5f52::
+	INCBIN "gfx/frames/52/5f52.2bpp"
+
+FishingLayout_52_5fb2::
+	db -3, -10
+
+FishingLayout_52_5fb4::
+	db -3, -10
+
+FishingLayout_52_5fb6::
+	db -3, -10
+
+FishingTiles_52_5fb8::
+	INCBIN "gfx/frames/52/5fb8.2bpp"
+
+FishingTiles_52_5fd8::
+	INCBIN "gfx/frames/52/5fd8.2bpp"
+
+FishingTiles_52_5ff8::
+	INCBIN "gfx/frames/52/5ff8.2bpp"
+
+FishingLayout_52_6018::
+	db -7, -7
+	db 8, 0
+
+FishingLayout_52_601c::
+	db -7, -8
+	db 8, 0
+
+FishingLayout_52_6020::
+	db -7, -9
+	db 8, 0
+
+FishingLayout_52_6024::
+	db -7, -8
+	db 8, 0
+
+FishingTiles_52_6028::
+	INCBIN "gfx/frames/52/6028.2bpp"
+
+FishingTiles_52_6068::
+	INCBIN "gfx/frames/52/6068.2bpp"
+
+FishingTiles_52_60a8::
+	INCBIN "gfx/frames/52/60a8.2bpp"
+
+FishingTiles_52_60e8::
+	INCBIN "gfx/frames/52/60e8.2bpp"
+
+FishingLayout_52_6128::
+	db -7, -3
+	db 8, -5
+
+FishingLayout_52_612c::
+	db -7, -4
+	db 8, -5
+
+FishingLayout_52_6130::
+	db -7, -5
+	db 8, -5
+
+FishingLayout_52_6134::
+	db -7, -4
+	db 8, -5
+
+FishingTiles_52_6138::
+	INCBIN "gfx/frames/52/6138.2bpp"
+
+FishingTiles_52_6178::
+	INCBIN "gfx/frames/52/6178.2bpp"
+
+FishingTiles_52_61b8::
+	INCBIN "gfx/frames/52/61b8.2bpp"
+
+FishingTiles_52_61f8::
+	INCBIN "gfx/frames/52/61f8.2bpp"
+
+FishingLayout_52_6238::
+	db -4, -16
+	db 0, 16
+
+FishingTiles_52_623c::
+	INCBIN "gfx/frames/52/623c.2bpp"
+
+FishingLayout_52_627c::
+	db -7, -9
+	db 8, 3
+
+FishingTiles_52_6280::
+	INCBIN "gfx/frames/52/6280.2bpp"
+
+FishingLayout_52_62c0::
+	db -7, -7
+	db 8, -1
+
+FishingTiles_52_62c4::
+	INCBIN "gfx/frames/52/62c4.2bpp"
+
+FishingLayout_52_6304::
+	db -7, -7
+	db 8, -1
+
+FishingTiles_52_6308::
+	INCBIN "gfx/frames/52/6308.2bpp"
+	ds 7352, $00 ; $6348
+

@@ -19,5 +19,7 @@ gfx/bgtiles/
 data/maps/
 data/blocks/
 data/terrain/
+data/samples/
+*.pcm
 *.lz
 *.planar

@@ -131,6 +131,11 @@ def apply_regs(i, regs):
 
 
 OBJ_HANDLER, OBJ_TOUCH_HANDLER, OBJ_FRAME, OBJ_ANIM = 0x02, 0x04, 0x20, 0x22
+# handlers set (without their bank) for an object that lives in another bank
+# than the code setting them: (bank of the code, handler) -> bank of the handler
+HANDLER_BANKS = {(0x08, 0x56C3): 0x09,   # the barrel cannon launches the player
+                 (0x09, 0x46CA): 0x08,   # touch handlers changing their object's state
+                 (0x09, 0x5195): 0x08}
 TOUCH_BANK = 0x09  # touch handlers are jumped to from CheckPlayerContact, in this bank
 
 # Animation commands (word >> 8 & $7f): number of extra bytes after the word
@@ -331,6 +336,8 @@ class Tracer:
                             tb = TOUCH_BANK
                         elif stored and ptr >= 0x4000:
                             tb = bank_store[1]  # "ld [hl], bank / inc l" just before: OBJ_BANK
+                        elif fld == OBJ_HANDLER and (bank, ptr) in HANDLER_BANKS:
+                            tb = HANDLER_BANKS[(bank, ptr)]
                         if fld in (OBJ_HANDLER, OBJ_TOUCH_HANDLER) and tb and not getattr(self, "speculating", False):
                             self.add(tb, ptr, "func", tb)  # a new handler: always code
                         else:

@@ -213,7 +213,6 @@ NAMES = {
     (0x0A, 0x69F5): "MiniNecky",
     (0x0A, 0x6BA8): "Mincer",
     (0x0A, 0x71B1): "BlackDrum",               # spawns enemies (ObjScript, Func_0a_713c)
-    (0x08, 0x55FA): "StarBarrel",                # the checkpoint; a per-level bit remembers it
     (0x08, 0x5C2E): "AnimalCrate",
     (0x08, 0x4088): "Coconut",
     (0x0A, 0x65D1): "Elevator",
@@ -248,11 +247,8 @@ NAMES = {
     (0x0A, 0x6D65): "StopGoBarrel",              # STOP or GO frame and palette by the timer at $c446
     (0x0A, 0x6DCC): "OnOffBarrel",               # ON or OFF frame by the same timer
     (0x08, 0x50DE): "Tire",
-    (0x08, 0x44BC): "GreenBanana",
     (0x09, 0x740D): "ClamboPearl",               # thrown by Clambo's script (ObjInit_0a_6542)
     (0x0A, 0x51C6): "Cannonball",
-    (0x08, 0x4344): "LetterWord",                # spawns a LetterWord_08_... row of letter blocks
-    (0x08, 0x4581): "StepRow",                   # a row of parts stepping through a StepPattern
     (0x09, 0x68A5): "SetPlayerPalette",          # a = palette number (1 DK, 2 Diddy, 3 Rambi, $0d Expresso, $12 Enguarde, $10 Winky)
     # states named with the emulator harvest (tools/emu/observed_handlers.txt gives the order)
     (0x0A, 0x41C8): "VeryGnawty_Hop",  # waits, then jumps (height from ObjYVelTable by hits taken)
@@ -289,7 +285,6 @@ NAMES = {
     (0x08, 0x5400): "BarrelCannon_AutoRotate",  # OBJ_VAR_3C bit 5: keeps turning with the player inside
     (0x08, 0x5458): "BarrelCannon_SwingForward",  # OBJ_VAR_3C bit 6: swings until A is pressed
     (0x08, 0x5499): "BarrelCannon_SwingBack",
-    (0x08, 0x4617): "StepRow_Idle",
     (0x09, 0x760F): "Rockkroc_Run",  # while the Stop/Go timer runs, curls up
     (0x09, 0x763C): "Rockkroc_CurledUp",
     (0x09, 0x7670): "Rockkroc_Uncurl",
@@ -337,4 +332,206 @@ NAMES = {
     (0x09, 0x4D4D): "Player_Crouch",  # Down
     (0x09, 0x4D94): "Player_HandSlap",  # Down + B
     (0x09, 0x4E0F): "Player_HandSlapEnd",
+    # --- bonus room games (bank 8) and their touch handlers (bank 9)
+    (0x08, 0x4439): "SpellBonus_Main",
+    (0x08, 0x44F0): "SpellBonus_Item_Circle",
+    (0x08, 0x4537): "SpellBonus_Item_WinPause",
+    (0x08, 0x4555): "SpellBonus_Item_Gather",  # back to the centre, then removed
+    (0x09, 0x4503): "SpellBonus_CheckTouch",
+    (0x09, 0x451D): "SpellBonus_Letter_Touch",
+    (0x09, 0x455E): "SpellBonus_BlueBanana_Touch",  # reverses the direction of the circle
+    (0x09, 0x4571): "SpellBonus_GreenBanana_Touch",  # speeds the circle up
+    (0x08, 0x464F): "MatchBonus_Item_Cycle",
+    (0x08, 0x46CA): "MatchBonus_Item_Stopped",
+    (0x08, 0x471B): "MatchBonus_Item_FlyTogether",
+    (0x09, 0x458B): "MatchBonus_Item_Touch",
+    (0x08, 0x473A): "ShuffleBonus",  # the prize jumps between four spots; pick the one it stopped on
+    (0x08, 0x47FC): "ShuffleBonus_Shuffle",
+    (0x08, 0x482C): "ShuffleBonus_WaitForChoice",
+    (0x08, 0x4872): "ShuffleBonus_Spot",
+    (0x08, 0x48D5): "ShuffleBonus_Spot_Reveal",
+    (0x09, 0x4623): "ShuffleBonus_Spot_Touch",
+    (0x08, 0x4914): "StompBonus",  # stomp the Klaptraps and collect ten of the banana bunches they drop
+    (0x08, 0x49B3): "StompBonus_Main",
+    (0x08, 0x49F3): "StompBonus_Klaptrap_Walk",
+    (0x08, 0x4A6C): "StompBonus_Klaptrap_Stomped",
+    (0x08, 0x4B3C): "StompBonus_Bananas",
+    (0x09, 0x4669): "StompBonus_Klaptrap_Touch",
+    (0x09, 0x46BB): "StompBonus_Bananas_Touch",
+    (0x08, 0x4B6C): "BonusPrize_WaitCollected",
+    (0x08, 0x4BA8): "SetObjectPalette",
+    (0x08, 0x4BCD): "Bonus_ShowPrize",
+    (0x08, 0x4C45): "BonusCoin_FlyToHUD",
+    (0x08, 0x4C6C): "BonusCoin_Count",
+    (0x09, 0x46DA): "BonusCoin_Touch",
+    # --- walls, entrances and exits
+    (0x08, 0x556C): "OpenedWall",  # applies its map patch when the level flag in OBJ_VAR_35 is set
+    (0x08, 0x55A0): "BreakableWall",  # opened by a thrown barrel; then an Entrance
+    (0x09, 0x746E): "BreakableWall_Touch",
+    (0x08, 0x55FA): "Entrance",  # doorway to another area (OBJ_VAR_2E-31: entrance to use)
+    (0x08, 0x5648): "Entrance_WaitForSound",
+    (0x08, 0x5665): "Entrance_BananaHoard",  # start of the first level; leads elsewhere once the save has cleared levels (tentative)
+    (0x09, 0x74C6): "Entrance_Touch",
+    (0x09, 0x7532): "Entrance_Blast_Touch",  # barrel that shoots the player to another area
+    (0x09, 0x4049): "LevelExit_Touch",
+    (0x09, 0x406D): "ReturnExit_Touch",  # back to the entrance the player came from
+    (0x08, 0x568C): "WinLine",  # the player walking past it wins (victory jingle, leave)
+    (0x08, 0x56A2): "LoseLine",
+    (0x08, 0x57C0): "SetLevelFlag",
+    # --- stickers
+    (0x08, 0x56B8): "StickerBananaBunch",  # banana bunch, green while the sticker of this place is not found
+    (0x08, 0x56E1): "StickerPad",
+    (0x08, 0x56FD): "Sticker_Appear",
+    (0x08, 0x5718): "Sticker_FlyToHUD",
+    (0x08, 0x573F): "Sticker_Count",
+    (0x08, 0x577C): "IsStickerAvailable",
+    (0x09, 0x756B): "StickerPad_Touch",
+    (0x09, 0x7586): "Sticker_Touch",
+    # --- mine carts
+    (0x08, 0x59B8): "MineCart",
+    (0x08, 0x59D7): "MineCart_Ridden",
+    (0x08, 0x5A40): "MineCart_RollAway",
+    (0x08, 0x5959): "MineCartKrash_Parked",  # Krash sitting in a standing cart
+    (0x08, 0x5AA0): "MineCartKrash_Parked_Main",
+    (0x08, 0x598E): "MineCartKrash",  # Krash riding towards the player
+    (0x08, 0x5A63): "MineCartKrash_Main",
+    (0x08, 0x5ABA): "MineCart_SetSlopeVelocity",
+    (0x08, 0x5BA3): "MineCart_SetSlopeAnim",
+    (0x08, 0x5BF5): "MineCartKrash_SetSlopeFrame",
+    (0x09, 0x7930): "MineCart_Touch",
+    (0x09, 0x7905): "MineCartKrash_Parked_Touch",
+    (0x09, 0x78F9): "MineCartKrash_Touch",
+    # --- Squawks, animal tokens
+    (0x08, 0x5C58): "SquawksCrate",
+    (0x08, 0x5C71): "SquawksCrate_Open",
+    (0x09, 0x7995): "SquawksCrate_Touch",
+    (0x08, 0x61F9): "MiniAnimalToken",  # animal bonus levels
+    (0x08, 0x61A4): "MiniAnimalToken_Collected",
+    (0x09, 0x7B84): "MiniAnimalToken_Touch",
+    (0x08, 0x61CB): "BigAnimalToken_Count",
+    (0x09, 0x7B4C): "BigAnimalToken_Touch",
+    (0x0A, 0x5855): "AnimalToken_FlyToHUD",
+    (0x0A, 0x586E): "AnimalToken_Count",  # three of a kind: off to that animal's bonus level
+    (0x09, 0x6A05): "AnimalToken_Touch",
+    # --- common touch handlers and helpers (bank 9)
+    (0x09, 0x4001): "Touch_Hurt",
+    (0x09, 0x4007): "Touch_Enemy",
+    (0x09, 0x4179): "Enemy_HandleContact",  # carry set: the enemy was defeated
+    (0x09, 0x40D8): "SetOrbitPosition",
+    (0x09, 0x4095): "GiveExtraLife",
+    (0x09, 0x41CD): "DefeatObject",
+    (0x09, 0x41FD): "Obj_FallOffScreen",
+    (0x09, 0x4243): "Obj_MoveOnTerrain",
+    (0x09, 0x424E): "Obj_TurnAround",
+    (0x09, 0x5CD1): "CheckPlayerAttack",  # carry set: the player's stomp or roll beats the object; else the player is hurt
+    (0x09, 0x5FEB): "BouncePlayer",
+    (0x09, 0x61BA): "Player_DropCarried",
+    (0x09, 0x590C): "Player_ThrowCarried",
+    (0x09, 0x5976): "Player_PickUp",
+    (0x09, 0x6638): "Player_WinAndExit",
+    (0x09, 0x6687): "Player_LoseAndExit",
+    (0x09, 0x66D6): "Player_ExitToEntrance",
+    (0x09, 0x66E4): "Player_BeginExit",
+    (0x09, 0x6994): "KongLetter_Touch",
+    (0x09, 0x6A7E): "Bananas_Touch",
+    (0x0A, 0x58C8): "Bananas",
+    (0x09, 0x6B2E): "BananaBunch_Touch",
+    (0x09, 0x6B6C): "BananaBunch_Count",
+    (0x09, 0x6BFC): "Obj_ToScreenCoords",
+    (0x09, 0x6C35): "SpawnCollectedBanana",
+    (0x09, 0x6BA1): "CollectedBanana_Fly",
+    (0x09, 0x6CCC): "Barrel_Touch",  # picked up with B
+    (0x09, 0x6D5C): "Barrel_Carried",
+    (0x09, 0x6E97): "DKBarrel_Touch",
+    (0x09, 0x6F16): "BreakBarrel",
+    (0x09, 0x6FE2): "SpawnBarrelDebris",
+    (0x09, 0x70F5): "Gnawty_Touch",
+    (0x09, 0x7150): "BouncingCoconut_Touch",
+    (0x09, 0x71A8): "TireHalf_Touch",
+    (0x09, 0x71E4): "Tire_PushDown_Touch",
+    (0x09, 0x71F3): "Tire_SmallBounce_Touch",
+    (0x09, 0x7216): "Tire_Touch",
+    (0x09, 0x7272): "Tire_Top_Touch",
+    (0x09, 0x72B2): "Tire_BouncePlayer",
+    (0x09, 0x72F4): "BarrelCannon_Touch",
+    (0x09, 0x733F): "Army_Touch",
+    (0x09, 0x739E): "Squidge_Touch",
+    (0x09, 0x73AF): "Chomps_Touch",
+    (0x09, 0x73C0): "ChompsJr_Touch",
+    (0x09, 0x73E2): "Fish_HandleContact",
+    (0x09, 0x75BD): "Klaptrap_Touch",
+    (0x09, 0x769D): "Platform_Touch",
+    (0x09, 0x76C6): "BlackDrum_Touch",
+    (0x09, 0x7808): "Klump_Touch",
+    (0x09, 0x7882): "Nut_Touch",
+    (0x09, 0x78A3): "Nut",
+    (0x09, 0x78AF): "MankyKong_Touch",
+    (0x09, 0x78CD): "MankyBarrel_Touch",
+    (0x09, 0x79CD): "AnimalCrate_Touch",
+    (0x09, 0x7A3E): "AnimalCrate_Open",
+    (0x09, 0x7AD5): "SwitchBarrel_Touch",
+    (0x09, 0x7B05): "ExtraLifeBalloon_Touch",
+    (0x00, 0x3C1B): "SwingingRope_Touch",
+    # --- player
+    (0x09, 0x4AA8): "Player_EnterLevel_Walk",
+    (0x09, 0x5753): "Player_Hurt",
+    (0x09, 0x5C02): "Player_OnSwingingRope",
+    (0x09, 0x5C49): "HurtKong_RunAway",  # the Kong that was hit leaves; then the other takes over
+    # --- bank $0A objects
+    (0x0A, 0x4621): "MasterNecky_Nut",
+    (0x0A, 0x4774): "QueenB_Wave",
+    (0x0A, 0x5F4A): "BouncingCoconut_Bounce",
+    (0x0A, 0x5F6D): "BouncingCoconut_Fall",
+    (0x0A, 0x5A9A): "StarBarrel",  # one per level; a DK barrel when OBJ_VAR_2E is 0
+    (0x0A, 0x5978): "StarBarrel_Sparkle",
+    (0x0A, 0x59F0): "BarrelSupply",  # puts a new barrel down a while after the last was used (boss rooms)
+    (0x0A, 0x5A43): "BarrelSupply_Wait",
+    (0x0A, 0x5FD9): "Rope",
+    (0x0A, 0x5FBA): "Rope_Held",
+    (0x0A, 0x6088): "Rope_Released",
+    (0x0A, 0x61E7): "SwingingRope",
+    (0x0A, 0x61F9): "SwingingRope_Held",
+    (0x0A, 0x6245): "SwingingRope_Released",
+    (0x0A, 0x6EED): "LevelFadeIn",
+    (0x0A, 0x6E7E): "LightsTimer",  # Loopy Lights: the lights go out when the count runs down
+    (0x0A, 0x6E23): "StopGoTimer",  # Stop & Go Station
+    (0x0A, 0x6EDA): "SetBrightness",
+    (0x0A, 0x5440): "HUD_Bananas_Hidden",
+    (0x0A, 0x5462): "HUD_Bananas_SlideIn",
+    (0x0A, 0x547C): "HUD_Bananas_Shown",
+    (0x0A, 0x54A0): "HUD_Bananas_SlideOut",
+    (0x0A, 0x54BF): "HUD_Lives_Hidden",
+    (0x0A, 0x54F0): "HUD_Lives_SlideIn",
+    (0x0A, 0x550A): "HUD_Lives_Shown",
+    (0x0A, 0x552E): "HUD_Lives_SlideOut",
+    (0x0A, 0x5578): "HUD_Items_Hidden",
+    (0x0A, 0x5601): "HUD_Items_SlideIn",
+    (0x0A, 0x561D): "HUD_Items_Shown",
+    (0x0A, 0x5680): "HUD_Items_SlideOut",
+    (0x0A, 0x6C18): "MankyKong_Throw",
+    (0x0A, 0x729B): "OilDrum",
+    (0x0A, 0x729E): "OilDrum_Wait",
+    (0x0A, 0x72AF): "OilDrum_Burn",
+    (0x08, 0x4344): "SpellBonus",  # letters circle a centre; touch them in order to spell the word (SpellWord_08_... rows)
+    (0x08, 0x44BC): "SpellBonus_Item_Spread",  # letters and bananas move out from the centre
+    (0x08, 0x4581): "MatchBonus",  # a row of items that each cycle through pictures (MatchPattern_08_...); stop them all on the same one
+    (0x08, 0x4617): "MatchBonus_Main",
+    (0x09, 0x6EF8): "FuelBarrel_Touch",  # Tanked Up Trouble: adds OBJ_VAR_2E to the fuel count
+    (0x0A, 0x6744): "FuelPlatform_Wait",  # Tanked Up Trouble
+    (0x0A, 0x6764): "FuelPlatform_Move",
+    (0x0A, 0x67D5): "FuelPlatform_Refuel",
+    (0x0A, 0x670A): "TrackPlatform_Wait",  # Trick Track Trek: starts when stood on, then follows its script
+    (0x0A, 0x6727): "TrackPlatform_Move",
+    (0x0A, 0x6689): "Platform_RunScript",
+    (0x0A, 0x68F8): "Platform_Register",  # adds the platform to the list the player is checked against
+    (0x0A, 0x68B4): "ArrowPlatform_Wait",  # Platform Perils
+    (0x09, 0x77DC): "ArrowPlatform_Move",
+    (0x0A, 0x68E9): "ArrowPlatform_Fall",
+    (0x0A, 0x65E3): "LoopElevator",  # Elevator Antics: wraps around between two heights
+    (0x0A, 0x70D3): "Snowflakes_Init",
+    (0x0A, 0x70EC): "Snowflakes",
+    (0x0A, 0x70AB): "Snowflake_Randomise",
+    (0x0A, 0x52A0): "KingKRool_AfterKredits",  # the camera scrolls back and the fight goes on
+    (0x0A, 0x71EB): "OilDrum_RunScript",
+    (0x0A, 0x40AD): "Obj_MoveToTarget",
 }

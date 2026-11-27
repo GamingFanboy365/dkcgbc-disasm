@@ -833,7 +833,7 @@ def parse_banks(t, rom):
                 lets = sorted((p, chr(65 + (f - 0x4B82) // 6)) for p, f in letters)
                 rows[0] = (rows[0][0], rows[0][1], "spells %s%s" % ("".join(c for _, c in lets),
                                                                    "" if cur in refd else " (no object spawns this)"))
-                t._claim(8, cur, a - cur, "rows", rows, "LetterWord")
+                t._claim(8, cur, a - cur, "rows", rows, "SpellWord")
                 t.obj_ptr_refs[(0x35, cur)] = 8
             cur, rows, letters = a, [], []
         if a == 0x4F8F:
@@ -852,7 +852,7 @@ def parse_banks(t, rom):
     starts = sorted(obj_refs(0x33, 0x4F8F, 0x502F) | {0x4F8F}) + [0x502F]
     for x, y in zip(starts, starts[1:]):
         d = rom[off(8, x):off(8, y)]
-        t._claim(8, x, y - x, "rows", [("db", ["%d" % d[k], "%d" % d[k + 1]], None) for k in range(0, len(d), 2)], "StepPattern")
+        t._claim(8, x, y - x, "rows", [("db", ["%d" % d[k], "%d" % d[k + 1]], None) for k in range(0, len(d), 2)], "MatchPattern")
         t.obj_ptr_refs[(0x33, x)] = 8
     # bank $08 small tables
     w8 = lambda a: rom[off(8, a)] | rom[off(8, a + 1)] << 8  # noqa: E731

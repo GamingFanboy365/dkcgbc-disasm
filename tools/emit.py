@@ -109,6 +109,10 @@ class Emitter:
         import autonames
         import names as name_table
         overrides = {off(b, a): n for (b, a), n in autonames.auto_names(self.rom).items()}
+        import levelnames
+        descs, ents, self.level_names, _ = levelnames.tables(self.rom)
+        overrides.update({off(4, a): n for a, n in descs.items()})
+        overrides.update({off(4, a): n for a, n in ents.items()})
         overrides.update({off(b, a): n for (b, a), n in name_table.NAMES.items()})
         overrides.update({off(b, a): n for (b, a), n in hints.NAMES.items()})
         by_bank = {}
@@ -319,7 +323,7 @@ class Emitter:
         """Lines for a data item: list of (file offset or None, text)."""
         kind, bank = item[0], item[1]
         if kind == "objinit":
-            lines = self.fmt_objinit(item)
+            lines = self.fmt_objinit(item, o)
             return [(o, lines[0])] + [(None, x) for x in lines[1:]]
         if kind == "tiles":
             path = frame_png_path(bank, o % BANK_SIZE + 0x4000)[:-4] + ".2bpp"
@@ -564,7 +568,8 @@ class Emitter:
             for k, (a, b) in enumerate(item[2]):
                 la = self.qref(bank, a) if a else "0"
                 lb = self.qref(bank, b) if b else "0"
-                res.append((o if k == 0 else None, "dw %s, %s ; level $%02x" % (la or hexw(a), lb or hexw(b), k)))
+                res.append((o if k == 0 else None, "dw %s, %s ; level $%02x%s" % (
+                    la or hexw(a), lb or hexw(b), k, " " + self.level_names[k] if k in self.level_names else "")))
             return res
         if kind == "levelentrance":
             r = self.rom[o:o + 8]
@@ -612,7 +617,7 @@ class Emitter:
             return res
         raise ValueError(kind)
 
-    def fmt_objinit(self, item):
+    def fmt_objinit(self, item, o):
         _, bank, entries, _ = item
         fields = {}
         for e in entries:
@@ -626,6 +631,10 @@ class Emitter:
             v = fields[2] | fields[3] << 8
             hb = 0 if v < 0x4000 else fields.get(1, bank)
             handler = self.qref(hb, v)
+        import levelnames
+        merged = levelnames.list_fields(self.rom, bank, o % 0x4000 + (0x4000 if bank else 0))
+        leads = (merged.get(1), merged.get(2, 0) | merged.get(3, 0) << 8) in levelnames.ENTRANCE_HANDLERS
+        e0, e1 = hints.LEVELS["entrances"]
         lines = []
         for e in entries:
             if e[0] == "byte":
@@ -642,6 +651,8 @@ class Emitter:
                     val = self.qref(self.t.anim_bank, v)
                 elif f == 0x20 and 0x4000 <= v < 0x8000:
                     val = self.qref(self.t.frame_bank, v)
+                elif leads and f in (0x2E, 0x30) and e0 <= v < e1 and (v - e0) % 8 == 0:
+                    val = self.qref(4, v)  # entrance to go to / to come back to
                 elif f == 0x04 and v < 0x8000:
                     val = self.qref(9 if v >= 0x4000 else 0, v)  # see tracer.TOUCH_BANK
                 elif (f, v) in getattr(self.t, "obj_ptr_refs", {}):

@@ -6,13 +6,13 @@ SECTION "Bank $09", ROMX[$4000], BANK[$09]
 BankNumber_09::
 	db $09 ; bank number
 
-Func_09_4001::
+Touch_Hurt::
 	call HurtPlayer
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_4007::
-	call Func_09_4179
+Touch_Enemy::
+	call Enemy_HandleContact
 	jp CheckPlayerContact.jump_44f5
 
 
@@ -32,7 +32,7 @@ Gnawty_Red_Walk::
 
 
 Gnawty::
-	call Func_09_4243
+	call Obj_MoveOnTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
@@ -41,14 +41,14 @@ Gnawty::
 	call NegateObjectWord
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	call NegateObjectWord
-	call Func_09_424e
+	call Obj_TurnAround
 .jump_4040:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
-Func_09_4049::
+LevelExit_Touch::
 	xor a
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
@@ -65,12 +65,12 @@ Func_09_4049::
 	ld l, a
 	ld h, $d4
 	res 7, [hl]
-	rst_farcall Func_09_66e4
+	rst_farcall Player_BeginExit
 	pop bc
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_406d::
+ReturnExit_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -90,12 +90,12 @@ Func_09_406d::
 	ld [hli], a
 	ld a, [$c44c]
 	ld [hli], a
-	rst_farcall Func_09_66d6
+	rst_farcall Player_ExitToEntrance
 .jump_4092:
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_4095::
+GiveExtraLife::
 	ld a, $1d
 	ld [$c32a], a
 	ld a, [$c31d]
@@ -144,7 +144,7 @@ Func_09_40b6::
 	ret
 
 
-Func_09_40d8::
+SetOrbitPosition::
 	ld hl, wObjects + OBJ_TARGET_XVEL + 1
 	add hl, bc
 	ld a, [hl]
@@ -265,7 +265,7 @@ Func_09_40d8::
 	ret
 
 
-Func_09_4179::
+Enemy_HandleContact::
 	ldh a, [$ffa7]
 	and $fb
 	ldh [$ffa7], a
@@ -275,19 +275,19 @@ Func_09_4179::
 	ld d, a
 	or e
 	jr nz, .jump_4192
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_41b5
-	call Func_09_5feb
+	call BouncePlayer
 	jr .jump_4199
 
 .jump_4192:
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 .jump_4199:
-	call Func_09_41cd
+	call DefeatObject
 	ld hl, wObjects + OBJ_VAR_2C
 	add hl, bc
 	ld a, [hl]
@@ -324,7 +324,7 @@ AnimTableNull_09_41bf::
 AnimTable_09_41c7::
 	dw Anim_04_4a29, Anim_04_4c47, Anim_04_4b9b
 
-Func_09_41cd::
+DefeatObject::
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, $03
@@ -351,10 +351,10 @@ Func_09_41cd::
 	ld [hli], a
 	ld [hl], a
 	call MarkObjectSpawnDone
-	jp Func_09_41fd
+	jp Obj_FallOffScreen
 
 
-Func_09_41fd::
+Obj_FallOffScreen::
 	ld hl, ObjInit_09_4204
 	call ApplyObjInit
 	ret
@@ -397,18 +397,18 @@ Func_09_4227::
 	call NegateObjectWord
 .jump_423b:
 	call TurnAtRangeLimitX
-	call Func_09_424e
-	jr Func_09_4243
+	call Obj_TurnAround
+	jr Obj_MoveOnTerrain
 
 
-Func_09_4243::
+Obj_MoveOnTerrain::
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	ret
 
 
-Func_09_424e::
+Obj_TurnAround::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
@@ -746,7 +746,7 @@ CheckPlayerContact::
 	ret
 
 
-Func_09_4503::
+SpellBonus_CheckTouch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -769,8 +769,8 @@ Func_09_4503::
 	ret
 
 
-Func_09_451d::
-	call Func_09_4503
+SpellBonus_Letter_Touch::
+	call SpellBonus_CheckTouch
 	jr z, .jump_455b
 	ld hl, wObjects + OBJ_VAR_37
 	add hl, de
@@ -807,8 +807,8 @@ Func_09_451d::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_455e::
-	call Func_09_4503
+SpellBonus_BlueBanana_Touch::
+	call SpellBonus_CheckTouch
 	jr z, .jump_456e
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, de
@@ -822,8 +822,8 @@ Func_09_455e::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_4571::
-	call Func_09_4503
+SpellBonus_GreenBanana_Touch::
+	call SpellBonus_CheckTouch
 	jr z, .jump_4588
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, de
@@ -841,7 +841,7 @@ Func_09_4571::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_458b::
+MatchBonus_Item_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -862,9 +862,9 @@ Func_09_458b::
 	ld [hl], $00
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $ca
+	ld [hl], LOW(MatchBonus_Item_Stopped)
 	inc l
-	ld [hl], $46
+	ld [hl], HIGH(MatchBonus_Item_Stopped)
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, de
 	ld a, [hl]
@@ -937,7 +937,7 @@ Func_09_458b::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_4623::
+ShuffleBonus_Spot_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -982,7 +982,7 @@ Func_09_4623::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_4669::
+StompBonus_Klaptrap_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -993,13 +993,13 @@ Func_09_4669::
 	ld a, [hl]
 	or a
 	jr nz, .jump_4695
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_469b
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	and $7f
 	cp $03
 	jr z, .jump_4698
-	call Func_09_5feb
+	call BouncePlayer
 	ld hl, ObjInit_09_46aa
 	call ApplyObjInit
 	ldh a, [$ffa7]
@@ -1024,15 +1024,15 @@ Func_09_4669::
 
 ObjInit_09_46aa::
 	obj_byte OBJ_FLAGS, $31
-	obj_byte OBJ_BANK, BANK(Func_08_4a6c)
-	obj_word OBJ_HANDLER, Func_08_4a6c
+	obj_byte OBJ_BANK, BANK(StompBonus_Klaptrap_Stomped)
+	obj_word OBJ_HANDLER, StompBonus_Klaptrap_Stomped
 	obj_word OBJ_ANIM, Anim_04_4c69
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_30, $64
 	obj_byte OBJ_VAR_31, $3c
 	obj_end
 
-Func_09_46bb::
+StompBonus_Bananas_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -1051,10 +1051,10 @@ Func_09_46bb::
 	add hl, de
 	ld [hl], $01
 .jump_46d7:
-	jp Func_09_6b2e
+	jp BananaBunch_Touch
 
 
-Func_09_46da::
+BonusCoin_Touch::
 	ld a, $07
 	ld [$c32a], a
 	ld a, $54
@@ -1068,7 +1068,7 @@ Func_09_46da::
 	ld a, [hl]
 	or $0b
 	ld [hl], a
-	call Func_09_6bfc
+	call Obj_ToScreenCoords
 	ld de, $0050
 	call MoveTowardsX
 	ld de, $0010
@@ -1077,8 +1077,8 @@ Func_09_46da::
 
 
 ObjInit_09_4708::
-	obj_byte OBJ_BANK, BANK(Func_08_4c45)
-	obj_word OBJ_HANDLER, Func_08_4c45
+	obj_byte OBJ_BANK, BANK(BonusCoin_FlyToHUD)
+	obj_word OBJ_HANDLER, BonusCoin_FlyToHUD
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_2F, $20
 	obj_end
@@ -1100,7 +1100,7 @@ StompBoss_Touch::
 	rlca
 	jr c, .jump_4786
 .jump_4730:
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_4778
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
@@ -1124,7 +1124,7 @@ StompBoss_Touch::
 	ld hl, ObjInit_09_47b2
 .jump_4758:
 	call ApplyObjInit
-	call Func_09_5feb
+	call BouncePlayer
 	jr .jump_4786
 
 .jump_4760:
@@ -1163,7 +1163,7 @@ StompBoss_Touch::
 	ld hl, ObjInit_09_47cd
 .jump_479c:
 	call ApplyObjInit
-	call Func_09_5feb
+	call BouncePlayer
 	jr .jump_4786
 
 
@@ -1226,7 +1226,7 @@ QueenB_Touch::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
@@ -1311,7 +1311,7 @@ KingKRool_Touch::
 	jr z, .jump_4913
 	cp $1b
 	jr z, .jump_4913
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_4910
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -1328,7 +1328,7 @@ KingKRool_Touch::
 .jump_48b8:
 	call ApplyObjInit
 .jump_48bb:
-	call Func_09_5feb
+	call BouncePlayer
 	jr .jump_48f1
 
 .jump_48c0:
@@ -1430,9 +1430,9 @@ Player_EnterLevel::
 	inc l
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_6eed)
+	ld [hl], LOW(LevelFadeIn)
 	inc l
-	ld [hl], HIGH(Func_0a_6eed)
+	ld [hl], HIGH(LevelFadeIn)
 	pop bc
 	ld a, [wPlayer + OBJ_VAR_3A]
 	cp $03
@@ -1599,13 +1599,13 @@ ObjInit_09_498d::
 	ld hl, wPlayer + OBJ_BANK
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_4aa8)
+	ld [hl], LOW(Player_EnterLevel_Walk)
 	inc l
-	ld [hl], HIGH(Func_09_4aa8)
+	ld [hl], HIGH(Player_EnterLevel_Walk)
 	jr .jump_4a2b
 
 
-Func_09_4aa8::
+Player_EnterLevel_Walk::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -1702,7 +1702,7 @@ Player_OnGround::
 	call Func_09_6983
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_4b5c:
 	ld a, [wPlayer + OBJ_VAR_0A]
@@ -1975,7 +1975,7 @@ Player_InAir::
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 Player_Crouch::
@@ -2016,7 +2016,7 @@ Player_Crouch::
 	call Func_09_6983
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 Player_HandSlap::
@@ -2068,7 +2068,7 @@ Player_HandSlap::
 	call Func_09_6983
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 ObjInit_09_4df0::
@@ -2105,7 +2105,7 @@ Player_HandSlapEnd::
 	call Func_09_6983
 	ld a, $de
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 Player_Roll::
@@ -2162,7 +2162,7 @@ Player_Roll::
 	call nz, UndoXVelocity
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_4e94:
 	ld hl, wPlayer + OBJ_XVEL + 1
@@ -2251,7 +2251,7 @@ Player_Carry::
 	call Func_09_6983
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_4f33:
 	ld hl, wPlayer + OBJ_TARGET_XVEL
@@ -2287,7 +2287,7 @@ Player_AfterThrow::
 .jump_4f69:
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_4f71:
 	call Func_09_4abb
@@ -2348,7 +2348,7 @@ Player_Swim::
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_4fdd:
 	ld a, [$c30f]
@@ -2492,7 +2492,7 @@ PlayerRambi::
 	ld a, $7e
 	call CheckPlayerContact
 .jump_50dd:
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_50e0:
 	ld a, [wPlayer + OBJ_TERRAIN_B]
@@ -2604,7 +2604,7 @@ PlayerRambi_InAir::
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 Func_09_51b3::
@@ -2708,7 +2708,7 @@ PlayerExpresso::
 	ld a, $5e
 	call CheckPlayerContact
 .jump_5268:
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_526b:
 	ldh a, [$ff82]
@@ -2824,7 +2824,7 @@ PlayerExpresso_InAir::
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_5346:
 	ld hl, $ff82
@@ -2873,7 +2873,7 @@ PlayerExpresso_Flap::
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 Func_09_53a8::
@@ -2939,7 +2939,7 @@ PlayerEnguarde::
 	ld a, $5e
 	call CheckPlayerContact
 .jump_541f:
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_5422:
 	call Func_09_546a
@@ -3073,7 +3073,7 @@ PlayerWinky::
 	ld a, $5e
 	call CheckPlayerContact
 .jump_550a:
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_550d:
 	ldh a, [$ff82]
@@ -3199,7 +3199,7 @@ PlayerWinky_InAir::
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_55ff:
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
@@ -3345,7 +3345,7 @@ Player_Launched::
 	rst_farcall CollideWithTerrain
 	ld a, $1e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_5701:
 	xor a
@@ -3400,14 +3400,14 @@ Player_Launched::
 	jr .jump_56ef
 
 
-Func_09_5753::
+Player_Hurt::
 	ld hl, wPlayer + OBJ_VAR_31
 	dec [hl]
 	call z, Func_09_4abb
 	call Func_09_6986
 	ld a, $1a
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 Func_09_5765::
@@ -3448,7 +3448,7 @@ Func_09_5765::
 	ld a, $5e
 	call CheckPlayerContact
 .jump_57ad:
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_57b0:
 	ldh a, [$ff82]
@@ -3578,7 +3578,7 @@ Func_09_5863::
 	call nz, Func_09_599f
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_58a6:
 	call Func_09_599f
@@ -3612,14 +3612,14 @@ Func_09_58b7::
 	add hl, de
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_6d5c)
+	ld [hl], LOW(Barrel_Carried)
 	inc l
-	ld [hl], HIGH(Func_09_6d5c)
+	ld [hl], HIGH(Barrel_Carried)
 .jump_58e1:
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
 Func_09_58ec::
@@ -3630,16 +3630,16 @@ Func_09_58ec::
 	set 7, [hl]
 	xor a
 	ld [wPlayer + OBJ_VAR_37], a
-	call Func_09_590c
+	call Player_ThrowCarried
 	call Func_09_4abb
 .jump_5901:
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
-Func_09_590c::
+Player_ThrowCarried::
 	ld hl, wPlayer + OBJ_VAR_33
 	push bc
 	ld a, [hli]
@@ -3700,10 +3700,10 @@ Func_09_5953::
 	call Func_09_6986
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 
-Func_09_5976::
+Player_PickUp::
 	push bc
 	ld bc, $0000
 	call Func_09_4abb
@@ -3886,7 +3886,7 @@ Player_OnRope::
 	call Func_09_676a
 	ld a, $5e
 	call CheckPlayerContact
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_5ab5:
 	ld de, $fea5
@@ -3992,9 +3992,9 @@ Func_09_5b60::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_6088)
+	ld [hl], LOW(Rope_Released)
 	inc l
-	ld [hl], HIGH(Func_0a_6088)
+	ld [hl], HIGH(Rope_Released)
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, de
 	ld [hl], $0a
@@ -4075,7 +4075,7 @@ Func_09_5bf5::
 	ret
 
 
-Func_09_5c02::
+Player_OnSwingingRope::
 	ld e, $08
 	call Func_09_685d
 	ldh a, [$ff81]
@@ -4105,9 +4105,9 @@ Func_09_5c02::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_6245)
+	ld [hl], LOW(SwingingRope_Released)
 	inc l
-	ld [hl], HIGH(Func_0a_6245)
+	ld [hl], HIGH(SwingingRope_Released)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, de
 	ld [hl], $1e
@@ -4117,7 +4117,7 @@ Func_09_5c02::
 	jr .jump_5c0d
 
 
-Func_09_5c49::
+HurtKong_RunAway::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -4192,7 +4192,7 @@ Func_09_5cc0::
 	ret
 
 
-Func_09_5cd1::
+CheckPlayerAttack::
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jr nz, .jump_5d53
@@ -4260,7 +4260,7 @@ Func_09_5cd1::
 	bit 0, [hl]
 	jr nz, .jump_5d1c
 .jump_5d4c:
-	call Func_09_6c35
+	call SpawnCollectedBanana
 	jr .jump_5d1c
 
 .jump_5d51:
@@ -4407,9 +4407,9 @@ HurtPlayer::
 	inc l
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_5c49)
+	ld [hl], LOW(HurtKong_RunAway)
 	inc l
-	ld [hl], HIGH(Func_09_5c49)
+	ld [hl], HIGH(HurtKong_RunAway)
 	ld a, [$c30f]
 	rrca
 	ld de, $40f5
@@ -4572,7 +4572,7 @@ ObjInit_09_5f56::
 	ld [hli], a
 	ld a, [$c44c]
 	ld [hli], a
-	rst_farcall Func_09_66d6
+	rst_farcall Player_ExitToEntrance
 	ld bc, $0000
 	ld a, $89
 	call SetPlayerAnimation
@@ -4583,7 +4583,7 @@ ObjInit_09_5f56::
 
 Func_09_5f8f::
 	cp $01
-	jp z, Func_09_61ba.jump_61c3
+	jp z, Player_DropCarried.jump_61c3
 	cp $02
 	jr z, .jump_5fa1
 	cp $03
@@ -4603,9 +4603,9 @@ Func_09_5f8f::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_5fd9)
+	ld [hl], LOW(Rope)
 	inc l
-	ld [hl], HIGH(Func_0a_5fd9)
+	ld [hl], HIGH(Rope)
 	ret
 
 .jump_5fb9:
@@ -4617,9 +4617,9 @@ Func_09_5f8f::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_61e7)
+	ld [hl], LOW(SwingingRope)
 	inc l
-	ld [hl], HIGH(Func_0a_61e7)
+	ld [hl], HIGH(SwingingRope)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, de
 	ld [hl], $08
@@ -4644,7 +4644,7 @@ ObjInit_09_5fe1::
 	obj_byte OBJ_COLLISION, $08
 	obj_end
 
-Func_09_5feb::
+BouncePlayer::
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jp nz, .jump_6072
@@ -4661,7 +4661,7 @@ Func_09_5feb::
 	ld a, [hl]
 	ld [hl], $00
 	cp $01
-	call z, Func_09_590c
+	call z, Player_ThrowCarried
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	and $7f
 	cp $1a
@@ -4689,7 +4689,7 @@ Func_09_5feb::
 .jump_603e:
 	ld hl, $c441
 	set 0, [hl]
-	call Func_09_4095
+	call GiveExtraLife
 .jump_6046:
 	ld hl, ObjInit_09_6082
 	call ApplyObjInit
@@ -4841,7 +4841,7 @@ Func_09_611e::
 	ld a, [hl]
 	ld [hl], $00
 	cp $01
-	call z, Func_09_590c
+	call z, Player_ThrowCarried
 	ld hl, wPlayer + OBJ_YVEL + 1
 	ld a, [hld]
 	rlca
@@ -4862,8 +4862,8 @@ Func_09_611e::
 
 
 ObjInit_09_615b::
-	obj_byte OBJ_BANK, BANK(Func_09_5753)
-	obj_word OBJ_HANDLER, Func_09_5753
+	obj_byte OBJ_BANK, BANK(Player_Hurt)
+	obj_word OBJ_HANDLER, Player_Hurt
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_XACCEL, $0005
 	obj_word OBJ_YACCEL, $0080
@@ -4934,7 +4934,7 @@ PlayerEnguarde_UpDown::
 	ret
 
 
-Func_09_61ba::
+Player_DropCarried::
 	ld hl, wPlayer + OBJ_VAR_37
 	ld a, [hl]
 	ld [hl], $00
@@ -4946,7 +4946,7 @@ Func_09_61ba::
 	ld c, a
 	ld a, [wPlayer + OBJ_VAR_34]
 	ld b, a
-	call Func_09_41fd
+	call Obj_FallOffScreen
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -5268,7 +5268,7 @@ Player_InMineCart::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, de
 	ld e, [hl]
-	rst_farcall Func_08_5aba
+	rst_farcall MineCart_SetSlopeVelocity
 .jump_6405:
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $20
@@ -5327,9 +5327,9 @@ Player_InMineCart::
 	inc l
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_08_59d7)
+	ld [hl], LOW(MineCart_Ridden)
 	inc l
-	ld [hl], HIGH(Func_08_59d7)
+	ld [hl], HIGH(MineCart_Ridden)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, de
 	ld [hl], $08
@@ -5342,7 +5342,7 @@ Player_InMineCart::
 	ld hl, wPlayer + OBJ_VAR_33
 	ld [hli], a
 	ld [hl], a
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_6493:
 	ld hl, wPlayer + OBJ_YVEL
@@ -5423,7 +5423,7 @@ Func_09_6538::
 	ld b, [hl]
 	ld c, a
 	rst_farcall MoveObjectToSavedPosition
-	rst_farcall Func_08_5ba3
+	rst_farcall MineCart_SetSlopeAnim
 	call AnimateObject
 	call DrawObject
 	pop bc
@@ -5494,7 +5494,7 @@ Func_09_6554::
 	call DrawObject
 	pop bc
 .jump_65c5:
-	jp Func_09_5c49.jump_5ca4
+	jp HurtKong_RunAway.jump_5ca4
 
 .jump_65c8:
 	xor a
@@ -5563,7 +5563,7 @@ Func_09_6600::
 	ret
 
 
-Func_09_6638::
+Player_WinAndExit::
 	push bc
 	ld a, $09
 	call PlaySong
@@ -5607,7 +5607,7 @@ ObjInit_09_6674::
 	obj_byte OBJ_VAR_30, $00
 	obj_end
 
-Func_09_6687::
+Player_LoseAndExit::
 	push bc
 	ld a, $1d
 	call PlaySong
@@ -5651,16 +5651,16 @@ ObjInit_09_66c3::
 	obj_byte OBJ_VAR_30, $00
 	obj_end
 
-Func_09_66d6::
+Player_ExitToEntrance::
 	ld a, [$c444]
 	and $20
-	jr nz, Func_09_66e4
+	jr nz, Player_BeginExit
 	ld hl, $c443
 	set 3, [hl]
-	jr Func_09_66e4
+	jr Player_BeginExit
 
 
-Func_09_66e4::
+Player_BeginExit::
 	ld hl, $c443
 	res 4, [hl]
 	ldh a, [$ffa6]
@@ -5710,7 +5710,7 @@ Player_ExitAfterJingle::
 	ld [hli], a
 	ld a, [$c44c]
 	ld [hli], a
-	call Func_09_66d6
+	call Player_ExitToEntrance
 	jr .jump_6743
 
 .jump_673d:
@@ -5726,7 +5726,7 @@ Func_09_6746::
 	jr nz, .jump_6764
 	ld a, $12
 	ld [$c32c], a
-	call Func_09_6fe2
+	call SpawnBarrelDebris
 	ld hl, wPlayer + OBJ_BANK
 	ld [hl], $09
 	inc l
@@ -5907,7 +5907,7 @@ Func_09_676a::
 	ld [hli], a
 	ld a, [$c44c]
 	ld [hli], a
-	rst_farcall Func_09_66d6
+	rst_farcall Player_ExitToEntrance
 	ret
 
 .jump_6850:
@@ -6080,7 +6080,7 @@ Func_09_6986::
 	ret
 
 
-Func_09_6994::
+KongLetter_Touch::
 	ld hl, $c448
 	inc [hl]
 	ld a, $44
@@ -6103,7 +6103,7 @@ Func_09_6994::
 	ld a, [hl]
 	or $0b
 	ld [hl], a
-	call Func_09_6bfc
+	call Obj_ToScreenCoords
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld e, [hl]
@@ -6148,7 +6148,7 @@ Func_09_6994::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6a05::
+AnimalToken_Touch::
 	ld hl, $c448
 	inc [hl]
 	ld a, $2e
@@ -6166,15 +6166,15 @@ Func_09_6a05::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_5855)
+	ld [hl], LOW(AnimalToken_FlyToHUD)
 	inc l
-	ld [hl], HIGH(Func_0a_5855)
+	ld [hl], HIGH(AnimalToken_FlyToHUD)
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
 	or $0b
 	ld [hl], a
-	call Func_09_6bfc
+	call Obj_ToScreenCoords
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
@@ -6217,7 +6217,7 @@ Func_09_6a05::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6a7e::
+Bananas_Touch::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -6300,7 +6300,7 @@ Func_09_6a7e::
 	push de
 	ld a, $08
 	ld [$c32a], a
-	call Func_09_6c35
+	call SpawnCollectedBanana
 	pop de
 	pop hl
 	nop
@@ -6334,7 +6334,7 @@ Func_09_6a7e::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6b2e::
+BananaBunch_Touch::
 	ld hl, $c448
 	inc [hl]
 	ld a, $0a
@@ -6343,9 +6343,9 @@ Func_09_6b2e::
 	add hl, bc
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_6b6c)
+	ld [hl], LOW(BananaBunch_Count)
 	inc l
-	ld [hl], HIGH(Func_09_6b6c)
+	ld [hl], HIGH(BananaBunch_Count)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -6368,7 +6368,7 @@ Func_09_6b2e::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6b6c::
+BananaBunch_Count::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	dec [hl]
@@ -6388,7 +6388,7 @@ Func_09_6b6c::
 	ldh [$ffb5], a
 	ld hl, $c31c
 	dec [hl]
-	call Func_09_6c35
+	call SpawnCollectedBanana
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -6400,7 +6400,7 @@ Func_09_6b6c::
 	jp NextObject
 
 
-Func_09_6ba1::
+CollectedBanana_Fly::
 	ld hl, $c441
 	set 1, [hl]
 	call ApplyVelocity
@@ -6454,7 +6454,7 @@ Func_09_6ba1::
 	jp NextObject
 
 
-Func_09_6bfc::
+Obj_ToScreenCoords::
 	ldh a, [$ff89]
 	ld e, a
 	ldh a, [$ff8a]
@@ -6493,11 +6493,11 @@ Func_09_6c1d::
 	ld [$c31b], a
 	ld hl, $c441
 	set 0, [hl]
-	rst_farcall Func_09_4095
+	rst_farcall GiveExtraLife
 	ret
 
 
-Func_09_6c35::
+SpawnCollectedBanana::
 	push bc
 	call AllocObject
 	jr nc, .jump_6c40
@@ -6514,9 +6514,9 @@ Func_09_6c35::
 	add hl, bc
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_6ba1)
+	ld [hl], LOW(CollectedBanana_Fly)
 	inc l
-	ld [hl], HIGH(Func_09_6ba1)
+	ld [hl], HIGH(CollectedBanana_Fly)
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -6585,7 +6585,7 @@ AnimTable_09_6cb4::
 AnimTableNull_09_6cca::
 	dw $0000 ; empty animation table entry
 
-Func_09_6ccc::
+Barrel_Touch::
 	ldh a, [$ff80]
 	bit 1, a
 	jr z, .jump_6d1b
@@ -6600,7 +6600,7 @@ Func_09_6ccc::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_6d1b
-	rst_farcall Func_09_5976
+	rst_farcall Player_PickUp
 	ld hl, wPlayer + OBJ_VAR_33
 	ld a, c
 	ld [hli], a
@@ -6626,9 +6626,9 @@ Func_09_6ccc::
 	add hl, bc
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_6d5c)
+	ld [hl], LOW(Barrel_Carried)
 	inc l
-	ld [hl], HIGH(Func_09_6d5c)
+	ld [hl], HIGH(Barrel_Carried)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -6670,7 +6670,7 @@ Func_09_6d1e::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6d5c::
+Barrel_Carried::
 	ld a, $24
 	call CheckPlayerContact
 	call AnimateObject
@@ -6797,7 +6797,7 @@ Func_09_6da5::
 	jp NextObject
 
 .jump_6e30:
-	call Func_09_6f16
+	call BreakBarrel
 	jp NextObject
 
 
@@ -6822,7 +6822,7 @@ Func_09_6e36::
 	ld a, [hl]
 	cp $02
 	jr z, .jump_6e65
-	call Func_09_6f16
+	call BreakBarrel
 	jp NextObject
 
 .jump_6e65:
@@ -6853,11 +6853,11 @@ Func_09_6e36::
 	jr .jump_6e43
 
 .jump_6e92:
-	call Func_09_41fd
+	call Obj_FallOffScreen
 	jr .jump_6e43
 
 
-Func_09_6e97::
+DKBarrel_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -6888,9 +6888,9 @@ Func_09_6e97::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_5978)
+	ld [hl], LOW(StarBarrel_Sparkle)
 	inc l
-	ld [hl], HIGH(Func_0a_5978)
+	ld [hl], HIGH(StarBarrel_Sparkle)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_5103)
@@ -6899,7 +6899,7 @@ Func_09_6e97::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $64
-	call Func_09_6fe2
+	call SpawnBarrelDebris
 	call MarkObjectSpawnDone
 	ld a, $12
 	ld [$c32c], a
@@ -6912,12 +6912,12 @@ Func_09_6e97::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
-	call Func_09_6f16
+	call BreakBarrel
 .jump_6ef5:
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6ef8::
+FuelBarrel_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [$c446]
@@ -6933,7 +6933,7 @@ Func_09_6ef8::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6f16::
+BreakBarrel::
 	ld hl, wObjects + OBJ_VAR_2C
 	add hl, bc
 	ld a, [hl]
@@ -6961,7 +6961,7 @@ Func_09_6f16::
 	cp $02
 	jr nz, .jump_6f59
 	call MarkObjectSpawnDone
-	jp Func_09_41fd
+	jp Obj_FallOffScreen
 
 .jump_6f4c:
 	ld hl, wObjects + OBJ_VAR_2E
@@ -6973,7 +6973,7 @@ Func_09_6f16::
 	ret
 
 .jump_6f59:
-	call Func_09_6fe2
+	call SpawnBarrelDebris
 	call MarkObjectSpawnDone
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -7007,7 +7007,7 @@ Func_09_6f16::
 	ldh [$ffa6], a
 	ld hl, ObjInit_09_6fc5
 	call ApplyObjInit
-	call Func_09_6bfc
+	call Obj_ToScreenCoords
 	ld de, $0010
 	call MoveTowardsX
 	ld de, $008c
@@ -7048,7 +7048,7 @@ ObjInit_09_6fd1::
 	obj_byte OBJ_ANIM_PARAM, $0d
 	obj_end
 
-Func_09_6fe2::
+SpawnBarrelDebris::
 	ld a, [wObjectFreeCount]
 	cp $03
 	ret c
@@ -7134,7 +7134,7 @@ Func_09_7075::
 	dec [hl]
 	or a
 	jr nz, .jump_7081
-	call Func_09_6f16
+	call BreakBarrel
 .jump_7081:
 	call AnimateObject
 	call DespawnIfOutOfRange
@@ -7162,7 +7162,7 @@ Func_09_708a::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 .jump_70ac:
 	ld hl, wObjects + OBJ_ANIM
@@ -7170,7 +7170,7 @@ Func_09_708a::
 	ld [hl], LOW(Anim_04_4a45)
 	inc l
 	ld [hl], HIGH(Anim_04_4a45)
-	call Func_09_41cd
+	call DefeatObject
 	ld a, $3e
 	ld [$c329], a
 	ld hl, wObjects + OBJ_XACCEL
@@ -7204,18 +7204,18 @@ Func_09_708a::
 	sbc a, [hl]
 	rlca
 	jr nc, .jump_70a0
-	call Func_09_5feb
+	call BouncePlayer
 	jr .jump_70ac
 
 
-Func_09_70f5::
+Gnawty_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
 	or d
 	jr nz, .jump_713c
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_7139
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
@@ -7230,14 +7230,14 @@ Func_09_70f5::
 	rrca
 	jr c, .jump_712d
 .jump_711c:
-	call Func_09_5feb
+	call BouncePlayer
 .jump_711f:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_49ed)
 	inc l
 	ld [hl], HIGH(Anim_04_49ed)
-	call Func_09_41cd
+	call DefeatObject
 	jr .jump_7139
 
 .jump_712d:
@@ -7252,7 +7252,7 @@ Func_09_70f5::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 	jr .jump_711f
 
@@ -7264,7 +7264,7 @@ ObjInit_09_7145::
 	obj_byte OBJ_VAR_32, $14
 	obj_end
 
-Func_09_7150::
+BouncingCoconut_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
@@ -7278,16 +7278,16 @@ Func_09_7150::
 	jr .jump_71a5
 
 .jump_7165:
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_71a5
-	call Func_09_5feb
+	call BouncePlayer
 	jr .jump_7176
 
 .jump_716f:
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 .jump_7176:
 	ld hl, wObjects + OBJ_BANK
@@ -7320,7 +7320,7 @@ Func_09_7150::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_71a8::
+TireHalf_Touch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jr c, .jump_71e1
@@ -7339,7 +7339,7 @@ Func_09_71a8::
 	ld [wPlayer + OBJ_Y + 1], a
 	ld hl, wPlayer + OBJ_VAR_0A
 	set 3, [hl]
-	call Func_09_72b2
+	call Tire_BouncePlayer
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
@@ -7354,18 +7354,18 @@ Func_09_71a8::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_71e4::
+Tire_PushDown_Touch::
 	ld hl, wPlayer + OBJ_YVEL + 1
 	bit 7, [hl]
-	jr z, Func_09_71f3.jump_7213
+	jr z, Tire_SmallBounce_Touch.jump_7213
 	ld a, $03
 	ld [hld], a
 	ld a, $00
 	ld [hl], a
-	jr Func_09_71f3.jump_7200
+	jr Tire_SmallBounce_Touch.jump_7200
 
 
-Func_09_71f3::
+Tire_SmallBounce_Touch::
 	ld hl, wPlayer + OBJ_YVEL + 1
 	bit 7, [hl]
 	jr nz, .jump_7213
@@ -7389,10 +7389,10 @@ Func_09_71f3::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7216::
+Tire_Touch::
 	ld hl, wPlayer + OBJ_VAR_0A
 	bit 0, [hl]
-	jp z, Func_09_7272
+	jp z, Tire_Top_Touch
 	ldh a, [$ffb6]
 	ld e, a
 	ld hl, wObjects + OBJ_X
@@ -7414,7 +7414,7 @@ Func_09_7216::
 	add a, e
 	ld e, a
 	cp $06
-	jp nc, Func_09_7272
+	jp nc, Tire_Top_Touch
 	jr .jump_7252
 
 .jump_7244:
@@ -7424,7 +7424,7 @@ Func_09_7216::
 	sub e
 	ld e, a
 	cp $fa
-	jp c, Func_09_7272
+	jp c, Tire_Top_Touch
 .jump_7252:
 	ld d, $00
 	bit 7, e
@@ -7449,7 +7449,7 @@ Func_09_7216::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7272::
+Tire_Top_Touch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jp c, CheckPlayerContact.jump_44f5
@@ -7468,7 +7468,7 @@ Func_09_7272::
 	ld [wPlayer + OBJ_Y + 1], a
 	ld hl, wPlayer + OBJ_VAR_0A
 	set 3, [hl]
-	call Func_09_72b2
+	call Tire_BouncePlayer
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
@@ -7485,7 +7485,7 @@ Func_09_7272::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_72b2::
+Tire_BouncePlayer::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	bit 7, [hl]
@@ -7525,14 +7525,14 @@ Func_09_72b2::
 	ret
 
 
-Func_09_72f4::
+BarrelCannon_Touch::
 	ld a, $5e
 	ld [$c32c], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], $95
+	ld [hl], LOW(BarrelCannon_Loaded)
 	inc l
-	ld [hl], $51
+	ld [hl], HIGH(BarrelCannon_Loaded)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -7545,7 +7545,7 @@ Func_09_72f4::
 	ld [hl], LOW(Player_InBarrelCannon)
 	inc l
 	ld [hl], HIGH(Player_InBarrelCannon)
-	call Func_09_61ba
+	call Player_DropCarried
 	ld a, $05
 	ld [wPlayer + OBJ_VAR_37], a
 	ld hl, wPlayer + OBJ_VAR_33
@@ -7564,14 +7564,14 @@ Func_09_72f4::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_733f::
+Army_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
 	or d
 	jr nz, .jump_738a
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_7387
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
@@ -7589,14 +7589,14 @@ Func_09_733f::
 	rrca
 	jr c, .jump_737b
 .jump_736a:
-	call Func_09_5feb
+	call BouncePlayer
 .jump_736d:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_4aab)
 	inc hl
 	ld [hl], HIGH(Anim_04_4aab)
-	call Func_09_41cd
+	call DefeatObject
 	jr .jump_7387
 
 .jump_737b:
@@ -7611,7 +7611,7 @@ Func_09_733f::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 	jr .jump_736d
 
@@ -7623,8 +7623,8 @@ ObjInit_09_7393::
 	obj_byte OBJ_VAR_32, $14
 	obj_end
 
-Func_09_739e::
-	call Func_09_73e2
+Squidge_Touch::
+	call Fish_HandleContact
 	jr nc, .jump_73ac
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
@@ -7635,8 +7635,8 @@ Func_09_739e::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_73af::
-	call Func_09_73e2
+Chomps_Touch::
+	call Fish_HandleContact
 	jr nc, .jump_73bd
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
@@ -7647,8 +7647,8 @@ Func_09_73af::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_73c0::
-	call Func_09_73e2
+ChompsJr_Touch::
+	call Fish_HandleContact
 	jr nc, .jump_73ce
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
@@ -7660,7 +7660,7 @@ Func_09_73c0::
 
 
 Func_09_73d1::
-	call Func_09_73e2
+	call Fish_HandleContact
 	jr nc, .jump_73df
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
@@ -7671,7 +7671,7 @@ Func_09_73d1::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_73e2::
+Fish_HandleContact::
 	ld a, [wPlayer + OBJ_VAR_35]
 	cp $28
 	jr nz, .jump_7400
@@ -7694,8 +7694,8 @@ Func_09_73e2::
 	ret
 
 .jump_7405:
-	call Func_09_5feb
-	call Func_09_41cd
+	call BouncePlayer
+	call DefeatObject
 	scf
 	ret
 
@@ -7725,7 +7725,7 @@ Func_09_7416::
 	jr nz, .jump_746b
 	ld a, $16
 	ld [$c32c], a
-	call Func_09_5feb
+	call BouncePlayer
 	xor a
 	ld [wPlayer + OBJ_VAR_3B], a
 	push bc
@@ -7759,7 +7759,7 @@ Func_09_7416::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_746e::
+BreakableWall_Touch::
 	ld a, $2b
 	ld [$c32a], a
 	push bc
@@ -7769,7 +7769,7 @@ Func_09_746e::
 	ld c, a
 	or b
 	jr z, .jump_7480
-	call Func_09_6f16
+	call BreakBarrel
 .jump_7480:
 	pop bc
 	push bc
@@ -7792,7 +7792,7 @@ Func_09_746e::
 	set 7, [hl]
 	ld hl, ObjInit_09_74b7
 	call ApplyObjInit
-	rst_farcall Func_08_57c0
+	rst_farcall SetLevelFlag
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	ld a, [hl]
@@ -7806,14 +7806,14 @@ Func_09_746e::
 
 ObjInit_09_74b7::
 	obj_byte OBJ_FLAGS, $03
-	obj_byte OBJ_BANK, BANK(Func_08_5648)
-	obj_word OBJ_HANDLER, Func_08_5648
-	obj_word OBJ_TOUCH_HANDLER, Func_09_74c6
+	obj_byte OBJ_BANK, BANK(Entrance_WaitForSound)
+	obj_word OBJ_HANDLER, Entrance_WaitForSound
+	obj_word OBJ_TOUCH_HANDLER, Entrance_Touch
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $0a
 	obj_end
 
-Func_09_74c6::
+Entrance_Touch::
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	ld a, [hl]
@@ -7844,7 +7844,7 @@ Func_09_74c6::
 	add hl, bc
 	ld [hl], a
 	ldh [$ffa7], a
-	rst_farcall Func_08_57c0
+	rst_farcall SetLevelFlag
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, a
@@ -7872,15 +7872,15 @@ Func_09_74c6::
 	ld [$c44b], a
 	ld a, [hli]
 	ld [$c44c], a
-	rst_farcall Func_09_66d6
+	rst_farcall Player_ExitToEntrance
 .jump_752f:
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7532::
+Entrance_Blast_Touch::
 	ld a, $5e
 	ld [$c32c], a
-	rst_farcall Func_08_57c0
+	rst_farcall SetLevelFlag
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -7900,12 +7900,12 @@ Func_09_7532::
 	res 4, [hl]
 	ld a, $05
 	ld [wPlayer + OBJ_VAR_37], a
-	call Func_09_61ba
-	rst_farcall Func_09_66d6
+	call Player_DropCarried
+	rst_farcall Player_ExitToEntrance
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_756b::
+StickerPad_Touch::
 	ld hl, ObjInit_09_7574
 	call ApplyObjInit
 	jp CheckPlayerContact.jump_44f5
@@ -7913,15 +7913,15 @@ Func_09_756b::
 
 ObjInit_09_7574::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_08_56fd)
-	obj_word OBJ_HANDLER, Func_08_56fd
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7586
+	obj_byte OBJ_BANK, BANK(Sticker_Appear)
+	obj_word OBJ_HANDLER, Sticker_Appear
+	obj_word OBJ_TOUCH_HANDLER, Sticker_Touch
 	obj_word OBJ_ANIM, Anim_04_553d
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_2F, $3c
 	obj_end
 
-Func_09_7586::
+Sticker_Touch::
 	ld a, $07
 	ld [$c32a], a
 	ld a, $64
@@ -7930,7 +7930,7 @@ Func_09_7586::
 	inc [hl]
 	ld hl, ObjInit_09_75ac
 	call ApplyObjInit
-	call Func_09_6bfc
+	call Obj_ToScreenCoords
 	ld de, $0050
 	call MoveTowardsX
 	ld de, $0010
@@ -7940,22 +7940,22 @@ Func_09_7586::
 
 ObjInit_09_75ac::
 	obj_byte OBJ_FLAGS, $1b
-	obj_byte OBJ_BANK, BANK(Func_08_5718)
-	obj_word OBJ_HANDLER, Func_08_5718
+	obj_byte OBJ_BANK, BANK(Sticker_FlyToHUD)
+	obj_word OBJ_HANDLER, Sticker_FlyToHUD
 	obj_word OBJ_ANIM, Anim_04_5517
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_2F, $20
 	obj_end
 
-Func_09_75bd::
+Klaptrap_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
 	or d
 	jr nz, .jump_75ea
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_75e7
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	and $7f
@@ -7963,14 +7963,14 @@ Func_09_75bd::
 	jr z, .jump_75f3
 	cp $04
 	jr z, .jump_75f3
-	call Func_09_5feb
+	call BouncePlayer
 .jump_75db:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_4c9d)
 	inc hl
 	ld [hl], HIGH(Anim_04_4c9d)
-	call Func_09_41cd
+	call DefeatObject
 .jump_75e7:
 	jp CheckPlayerContact.jump_44f5
 
@@ -7978,7 +7978,7 @@ Func_09_75bd::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 	jr .jump_75db
 
@@ -8024,7 +8024,7 @@ ObjInit_09_7629::
 	obj_end
 
 Rockkroc_CurledUp::
-	rst_farcall Func_09_4243
+	rst_farcall Obj_MoveOnTerrain
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
@@ -8053,7 +8053,7 @@ Rockkroc_CurledUp::
 
 
 Rockkroc_Uncurl::
-	rst_farcall Func_09_4243
+	rst_farcall Obj_MoveOnTerrain
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
@@ -8077,7 +8077,7 @@ Rockkroc_Uncurl::
 	jp NextObject
 
 
-Func_09_769d::
+Platform_Touch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jr c, .jump_76c3
@@ -8104,7 +8104,7 @@ Func_09_769d::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_76c6::
+BlackDrum_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
@@ -8131,7 +8131,7 @@ Func_09_76c6::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 .jump_76f6:
 	ld hl, wObjects + OBJ_VAR_2E
@@ -8275,7 +8275,7 @@ Func_09_76c6::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_77dc::
+ArrowPlatform_Move::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -8284,7 +8284,7 @@ Func_09_77dc::
 .jump_77e4:
 	call ApplyVelocity
 	call DespawnIfOutOfRange
-	rst_farcall Func_0a_68f8
+	rst_farcall Platform_Register
 	jp NextObject
 
 .jump_77f1:
@@ -8294,14 +8294,14 @@ Func_09_77dc::
 
 
 ObjInit_09_77f9::
-	obj_byte OBJ_BANK, BANK(Func_0a_68e9)
-	obj_word OBJ_HANDLER, Func_0a_68e9
+	obj_byte OBJ_BANK, BANK(ArrowPlatform_Fall)
+	obj_word OBJ_HANDLER, ArrowPlatform_Fall
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_XACCEL, $0003
 	obj_word OBJ_YACCEL, $0005
 	obj_end
 
-Func_09_7808::
+Klump_Touch::
 	ldh a, [$ffa7]
 	and $80
 	jr nz, .jump_785f
@@ -8316,7 +8316,7 @@ Func_09_7808::
 	jr z, .jump_7868
 	cp $0e
 	jr z, .jump_7868
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_7865
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
@@ -8337,14 +8337,14 @@ Func_09_7808::
 	rrca
 	jr c, .jump_785c
 .jump_784b:
-	call Func_09_5feb
+	call BouncePlayer
 .jump_784e:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_4bd7)
 	inc hl
 	ld [hl], HIGH(Anim_04_4bd7)
-	call Func_09_41cd
+	call DefeatObject
 	jr .jump_7865
 
 .jump_785c:
@@ -8359,7 +8359,7 @@ Func_09_7808::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 	jr .jump_784e
 
@@ -8373,7 +8373,7 @@ ObjInit_09_7871::
 	obj_word OBJ_XACCEL, $0000
 	obj_end
 
-Func_09_7882::
+Nut_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
@@ -8387,25 +8387,25 @@ Func_09_7882::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
-	call Func_09_41fd
+	call Obj_FallOffScreen
 .jump_78a0:
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_78a3::
+Nut::
 	call ApplyVelocity
 	call DespawnIfOutOfRange
 	call AnimateObject
 	jp NextObject
 
 
-Func_09_78af::
-	call Func_09_4179
+MankyKong_Touch::
+	call Enemy_HandleContact
 	jr nc, .jump_78ca
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
@@ -8425,8 +8425,8 @@ Func_09_78af::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_78cd::
-	call Func_09_6f16
+MankyBarrel_Touch::
+	call BreakBarrel
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
@@ -8436,9 +8436,9 @@ Func_09_78cd::
 	ld a, [wPlayer + OBJ_VAR_35]
 	cp $08
 	jr nz, .jump_78ea
-	call Func_09_5cd1
+	call CheckPlayerAttack
 	jr nc, .jump_78f6
-	call Func_09_5feb
+	call BouncePlayer
 	jr .jump_78f6
 
 .jump_78ea:
@@ -8449,13 +8449,13 @@ Func_09_78cd::
 	push bc
 	ld b, d
 	ld c, e
-	call Func_09_6f16
+	call BreakBarrel
 	pop bc
 .jump_78f6:
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_78f9::
+MineCartKrash_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -8463,23 +8463,23 @@ Func_09_78f9::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7905::
+MineCartKrash_Parked_Touch::
 	push bc
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	call Func_09_41cd
+	call DefeatObject
 	ld hl, ObjInit_09_792a
 	call ApplyObjInit
 	pop bc
-	call Func_09_5feb
+	call BouncePlayer
 	ld hl, wObjects + OBJ_TOUCH_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_09_7930)
+	ld [hl], LOW(MineCart_Touch)
 	inc l
-	ld [hl], HIGH(Func_09_7930)
+	ld [hl], HIGH(MineCart_Touch)
 	rst_farcall Func_08_40d4
 	jp CheckPlayerContact.jump_44f5
 
@@ -8489,7 +8489,7 @@ ObjInit_09_792a::
 	obj_word OBJ_ANIM, Anim_04_496f
 	obj_end
 
-Func_09_7930::
+MineCart_Touch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jr c, .jump_7992
@@ -8544,7 +8544,7 @@ Func_09_7930::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7995::
+SquawksCrate_Touch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	bit 7, a
 	jr nz, .jump_79be
@@ -8557,7 +8557,7 @@ Func_09_7995::
 	jr z, .jump_79be
 	cp $04
 	jr z, .jump_79be
-	call Func_09_5feb
+	call BouncePlayer
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 3, [hl]
 	ld hl, ObjInit_09_79c1
@@ -8568,13 +8568,13 @@ Func_09_7995::
 
 ObjInit_09_79c1::
 	obj_byte OBJ_FLAGS, $13
-	obj_byte OBJ_BANK, BANK(Func_08_5c71)
-	obj_word OBJ_HANDLER, Func_08_5c71
+	obj_byte OBJ_BANK, BANK(SquawksCrate_Open)
+	obj_word OBJ_HANDLER, SquawksCrate_Open
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
-Func_09_79cd::
+AnimalCrate_Touch::
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jr nz, .jump_7a3b
@@ -8603,9 +8603,9 @@ Func_09_79cd::
 	add hl, bc
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_7a3e)
+	ld [hl], LOW(AnimalCrate_Open)
 	inc l
-	ld [hl], HIGH(Func_09_7a3e)
+	ld [hl], HIGH(AnimalCrate_Open)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -8633,7 +8633,7 @@ Func_09_79cd::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7a3e::
+AnimalCrate_Open::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -8643,7 +8643,7 @@ Func_09_7a3e::
 	jp NextObject
 
 .jump_7a4c:
-	call Func_09_61ba
+	call Player_DropCarried
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -8720,7 +8720,7 @@ Func_09_7a3e::
 	jr .jump_7a73
 
 
-Func_09_7ad5::
+SwitchBarrel_Touch::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -8751,12 +8751,12 @@ Func_09_7ad5::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7b05::
+ExtraLifeBalloon_Touch::
 	ld a, $1a
 	ld [$c32a], a
 	ld hl, $c441
 	set 0, [hl]
-	rst_farcall Func_08_57c0
+	rst_farcall SetLevelFlag
 	ld hl, $c448
 	inc [hl]
 	ld hl, wObjects + OBJ_VAR_2E
@@ -8771,7 +8771,7 @@ Func_09_7b05::
 	ld [hl], a
 	ld hl, ObjInit_09_7b42
 	call ApplyObjInit
-	call Func_09_6bfc
+	call Obj_ToScreenCoords
 	ld de, $0081
 	call MoveTowardsX
 	ld de, $000c
@@ -8786,7 +8786,7 @@ ObjInit_09_7b42::
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
-Func_09_7b4c::
+BigAnimalToken_Touch::
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -8808,21 +8808,21 @@ Func_09_7b4c::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_08_61cb)
+	ld [hl], LOW(BigAnimalToken_Count)
 	inc l
-	ld [hl], HIGH(Func_08_61cb)
+	ld [hl], HIGH(BigAnimalToken_Count)
 	rst_farcall Func_08_6205
 	ld a, $31
 	ld [$c329], a
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_7b84::
+MiniAnimalToken_Touch::
 	ld hl, $c448
 	inc [hl]
 	ld hl, ObjInit_09_7ba5
 	call ApplyObjInit
-	call Func_09_6bfc
+	call Obj_ToScreenCoords
 	ld de, $0004
 	call MoveTowardsX
 	ld de, $0004
@@ -8834,8 +8834,8 @@ Func_09_7b84::
 
 ObjInit_09_7ba5::
 	obj_byte OBJ_FLAGS, $0b
-	obj_byte OBJ_BANK, BANK(Func_08_61a4)
-	obj_word OBJ_HANDLER, Func_08_61a4
+	obj_byte OBJ_BANK, BANK(MiniAnimalToken_Collected)
+	obj_word OBJ_HANDLER, MiniAnimalToken_Collected
 	obj_byte OBJ_VAR_2E, $20
 	obj_end
 	ds 850, $00 ; $7baf

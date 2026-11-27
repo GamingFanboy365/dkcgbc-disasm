@@ -5,302 +5,302 @@ SECTION "Bank $0e", ROMX[$4000], BANK[$0e]
 
 ObjInit_0e_4000::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(LetterWord)
-	obj_word OBJ_HANDLER, LetterWord
+	obj_byte OBJ_BANK, BANK(SpellBonus)
+	obj_word OBJ_HANDLER, SpellBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $06
 	obj_byte OBJ_VAR_34, $2a
-	obj_word OBJ_VAR_35, LetterWord_08_4e6f
+	obj_word OBJ_VAR_35, SpellWord_08_4e6f
 	obj_word OBJ_VAR_3B, ObjInit_08_507a
 	obj_end
 
 ObjInit_0e_4019::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(LetterWord)
-	obj_word OBJ_HANDLER, LetterWord
+	obj_byte OBJ_BANK, BANK(SpellBonus)
+	obj_word OBJ_HANDLER, SpellBonus
 	obj_byte OBJ_VAR_2E, $0b
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, LetterWord_08_4ea2
+	obj_word OBJ_VAR_35, SpellWord_08_4ea2
 	obj_end
 
 ObjInit_0e_402f::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(LetterWord)
-	obj_word OBJ_HANDLER, LetterWord
+	obj_byte OBJ_BANK, BANK(SpellBonus)
+	obj_word OBJ_HANDLER, SpellBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, LetterWord_08_4eca
+	obj_word OBJ_VAR_35, SpellWord_08_4eca
 	obj_end
 
 ObjInit_0e_4045::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(LetterWord)
-	obj_word OBJ_HANDLER, LetterWord
+	obj_byte OBJ_BANK, BANK(SpellBonus)
+	obj_word OBJ_HANDLER, SpellBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_30, $16
 	obj_word OBJ_VAR_31, $0180
 	obj_byte OBJ_VAR_33, $07
 	obj_byte OBJ_VAR_34, $24
-	obj_word OBJ_VAR_35, LetterWord_08_4f54
+	obj_word OBJ_VAR_35, SpellWord_08_4f54
 	obj_word OBJ_VAR_3B, ObjInit_08_50ac
 	obj_end
 
 ObjInit_0e_405e::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, StepPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_406f::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0a
-	obj_word OBJ_VAR_33, StepPattern_08_4f8f
+	obj_word OBJ_VAR_33, MatchPattern_08_4f8f
 	obj_end
 
 ObjInit_0e_4084::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, StepPattern_08_5007
+	obj_word OBJ_VAR_33, MatchPattern_08_5007
 	obj_end
 
 ObjInit_0e_4095::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(LetterWord)
-	obj_word OBJ_HANDLER, LetterWord
+	obj_byte OBJ_BANK, BANK(SpellBonus)
+	obj_word OBJ_HANDLER, SpellBonus
 	obj_byte OBJ_VAR_2E, $0d
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, LetterWord_08_4ee2
+	obj_word OBJ_VAR_35, SpellWord_08_4ee2
 	obj_end
 
 ObjInit_0e_40ab::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, StepPattern_08_4fb3
+	obj_word OBJ_VAR_33, MatchPattern_08_4fb3
 	obj_end
 
 ObjInit_0e_40bc::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, StepPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_40cd::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, StepPattern_08_4fcb
+	obj_word OBJ_VAR_33, MatchPattern_08_4fcb
 	obj_end
 
 ObjInit_0e_40de::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, StepPattern_08_4fef
+	obj_word OBJ_VAR_33, MatchPattern_08_4fef
 	obj_end
 
 ObjInit_0e_40ef::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, StepPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_4100::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(LetterWord)
-	obj_word OBJ_HANDLER, LetterWord
+	obj_byte OBJ_BANK, BANK(SpellBonus)
+	obj_word OBJ_HANDLER, SpellBonus
 	obj_byte OBJ_VAR_2E, $0a
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $05
 	obj_byte OBJ_VAR_34, $33
-	obj_word OBJ_VAR_35, LetterWord_08_4f31
+	obj_word OBJ_VAR_35, SpellWord_08_4f31
 	obj_word OBJ_VAR_3B, ObjInit_08_502f
 	obj_end
 
 ObjInit_0e_4119::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, StepPattern_08_4fb3
+	obj_word OBJ_VAR_33, MatchPattern_08_4fb3
 	obj_end
 
 ObjInit_0e_412a::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $30
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, StepPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
 	obj_end
 
 ObjInit_0e_413b::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
 ObjInit_0e_4145::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
 ObjInit_0e_414f::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0c
 	obj_end
 
 ObjInit_0e_4159::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $06
 	obj_end
 
 ObjInit_0e_4163::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StepRow)
-	obj_word OBJ_HANDLER, StepRow
+	obj_byte OBJ_BANK, BANK(MatchBonus)
+	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, StepPattern_08_501f
+	obj_word OBJ_VAR_33, MatchPattern_08_501f
 	obj_end
 
 ObjInit_0e_4174::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
 ObjInit_0e_417e::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0d
 	obj_end
 
 ObjInit_0e_4188::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
 ObjInit_0e_4192::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0a
 	obj_end
 
 ObjInit_0e_419c::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_473a)
-	obj_word OBJ_HANDLER, Func_08_473a
+	obj_byte OBJ_BANK, BANK(ShuffleBonus)
+	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0f
 	obj_end
 
 ObjInit_0e_41a6::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4914)
-	obj_word OBJ_HANDLER, Func_08_4914
+	obj_byte OBJ_BANK, BANK(StompBonus)
+	obj_word OBJ_HANDLER, StompBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
 ObjInit_0e_41b2::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(LetterWord)
-	obj_word OBJ_HANDLER, LetterWord
+	obj_byte OBJ_BANK, BANK(SpellBonus)
+	obj_word OBJ_HANDLER, SpellBonus
 	obj_byte OBJ_VAR_2E, $07
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0200
 	obj_byte OBJ_VAR_33, $0a
 	obj_byte OBJ_VAR_34, $19
-	obj_word OBJ_VAR_35, LetterWord_08_4f40
+	obj_word OBJ_VAR_35, SpellWord_08_4f40
 	obj_end
 
 ObjInit_0e_41c8::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4914)
-	obj_word OBJ_HANDLER, Func_08_4914
+	obj_byte OBJ_BANK, BANK(StompBonus)
+	obj_word OBJ_HANDLER, StompBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
 ObjInit_0e_41d4::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4914)
-	obj_word OBJ_HANDLER, Func_08_4914
+	obj_byte OBJ_BANK, BANK(StompBonus)
+	obj_word OBJ_HANDLER, StompBonus
 	obj_byte OBJ_VAR_2E, $0c
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
 ObjInit_0e_41e0::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4914)
-	obj_word OBJ_HANDLER, Func_08_4914
+	obj_byte OBJ_BANK, BANK(StompBonus)
+	obj_word OBJ_HANDLER, StompBonus
 	obj_byte OBJ_VAR_2E, $0c
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
 ObjInit_0e_41ec::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4914)
-	obj_word OBJ_HANDLER, Func_08_4914
+	obj_byte OBJ_BANK, BANK(StompBonus)
+	obj_word OBJ_HANDLER, StompBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_33, $01
 	obj_byte OBJ_VAR_34, $01
@@ -308,8 +308,8 @@ ObjInit_0e_41ec::
 
 ObjInit_0e_41fa::
 	obj_byte OBJ_FLAGS, $03
-	obj_byte OBJ_BANK, BANK(Func_0a_5fd9)
-	obj_word OBJ_HANDLER, Func_0a_5fd9
+	obj_byte OBJ_BANK, BANK(Rope)
+	obj_word OBJ_HANDLER, Rope
 	obj_word OBJ_XACCEL, $0010
 	obj_byte OBJ_PALETTE, $00
 	obj_end
@@ -318,7 +318,7 @@ ObjInit_0e_4207::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(BarrelCannon)
 	obj_word OBJ_HANDLER, BarrelCannon
-	obj_word OBJ_TOUCH_HANDLER, Func_09_72f4
+	obj_word OBJ_TOUCH_HANDLER, BarrelCannon_Touch
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $45
@@ -329,9 +329,9 @@ ObjInit_0e_4207::
 
 ObjInit_0e_4220::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(StarBarrel)
-	obj_word OBJ_HANDLER, StarBarrel
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7532
+	obj_byte OBJ_BANK, BANK(Entrance)
+	obj_word OBJ_HANDLER, Entrance
+	obj_word OBJ_TOUCH_HANDLER, Entrance_Blast_Touch
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $45
@@ -346,7 +346,7 @@ ObjInit_0e_4234::
 
 ObjInit_0e_423b::
 	obj_include ObjInit_0e_4234
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6994
+	obj_word OBJ_TOUCH_HANDLER, KongLetter_Touch
 	obj_byte OBJ_BANK, BANK(KongLetter)
 	obj_word OBJ_HANDLER, KongLetter
 	obj_byte OBJ_COLLISION, $00
@@ -354,7 +354,7 @@ ObjInit_0e_423b::
 
 ObjInit_0e_4249::
 	obj_include ObjInit_0e_4234
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6a05
+	obj_word OBJ_TOUCH_HANDLER, AnimalToken_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_byte OBJ_VAR_2E, $08
@@ -363,7 +363,7 @@ ObjInit_0e_4249::
 
 ObjInit_0e_4259::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7b05
+	obj_word OBJ_TOUCH_HANDLER, ExtraLifeBalloon_Touch
 	obj_byte OBJ_BANK, BANK(ExtraLifeBalloon)
 	obj_word OBJ_HANDLER, ExtraLifeBalloon
 	obj_word OBJ_ANIM, Anim_04_4e8f
@@ -392,7 +392,7 @@ ObjInit_0e_4283::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(StopGoBarrel)
 	obj_word OBJ_HANDLER, StopGoBarrel
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7ad5
+	obj_word OBJ_TOUCH_HANDLER, SwitchBarrel_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_PALETTE, $06
@@ -403,7 +403,7 @@ ObjInit_0e_4296::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(OnOffBarrel)
 	obj_word OBJ_HANDLER, OnOffBarrel
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7ad5
+	obj_word OBJ_TOUCH_HANDLER, SwitchBarrel_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_PALETTE, $03
@@ -414,7 +414,7 @@ ObjInit_0e_42a9::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Gnawty_Red)
 	obj_word OBJ_HANDLER, Gnawty_Red
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4007
+	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $01
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $42
@@ -439,7 +439,7 @@ ObjInit_0e_42d4::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Kritter_Walk)
 	obj_word OBJ_HANDLER, Kritter_Walk
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4007
+	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $02
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_OAM_ATTR, $20
@@ -467,9 +467,9 @@ ObjInit_0e_42ff::
 
 ObjInit_0e_4305::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_61e7)
-	obj_word OBJ_HANDLER, Func_0a_61e7
-	obj_word OBJ_TOUCH_HANDLER, Func_00_3c1b
+	obj_byte OBJ_BANK, BANK(SwingingRope)
+	obj_word OBJ_HANDLER, SwingingRope
+	obj_word OBJ_TOUCH_HANDLER, SwingingRope_Touch
 	obj_byte OBJ_ANIM_PARAM, $09
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_PALETTE, $00
@@ -480,7 +480,7 @@ ObjInit_0e_4318::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Kritter_Jump)
 	obj_word OBJ_HANDLER, Kritter_Jump
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4007
+	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $02
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_OAM_ATTR, $20
@@ -494,7 +494,7 @@ ObjInit_0e_4334::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Gnawty_Red)
 	obj_word OBJ_HANDLER, Gnawty_Red
-	obj_word OBJ_TOUCH_HANDLER, Func_09_70f5
+	obj_word OBJ_TOUCH_HANDLER, Gnawty_Touch
 	obj_byte OBJ_VAR_2C, $04
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $43
@@ -510,7 +510,7 @@ ObjInit_0e_4355::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Klump)
 	obj_word OBJ_HANDLER, Klump
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7808
+	obj_word OBJ_TOUCH_HANDLER, Klump_Touch
 	obj_byte OBJ_VAR_2C, $07
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $47
@@ -526,7 +526,7 @@ ObjInit_0e_4376::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Gnawty_Red)
 	obj_word OBJ_HANDLER, Gnawty_Red
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4007
+	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $03
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
@@ -571,7 +571,7 @@ ObjInit_0e_43c2::
 
 ObjInit_0e_43cb::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4001
+	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $4c
 	obj_byte OBJ_PALETTE, $03
@@ -626,7 +626,7 @@ ObjInit_0e_4423::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Chomps)
 	obj_word OBJ_HANDLER, Chomps
-	obj_word OBJ_TOUCH_HANDLER, Func_09_73af
+	obj_word OBJ_TOUCH_HANDLER, Chomps_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $3b
 	obj_byte OBJ_PALETTE, $15
@@ -640,7 +640,7 @@ ObjInit_0e_443f::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(ChompsJr)
 	obj_word OBJ_HANDLER, ChompsJr
-	obj_word OBJ_TOUCH_HANDLER, Func_09_73c0
+	obj_word OBJ_TOUCH_HANDLER, ChompsJr_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $44
 	obj_byte OBJ_PALETTE, $14
@@ -652,7 +652,7 @@ ObjInit_0e_443f::
 
 ObjInit_0e_445b::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4007
+	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $08
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $38
@@ -680,7 +680,7 @@ ObjInit_0e_4488::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Klaptrap)
 	obj_word OBJ_HANDLER, Klaptrap
-	obj_word OBJ_TOUCH_HANDLER, Func_09_75bd
+	obj_word OBJ_TOUCH_HANDLER, Klaptrap_Touch
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
@@ -706,7 +706,7 @@ ObjInit_0e_44b5::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Rockkroc)
 	obj_word OBJ_HANDLER, Rockkroc
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4001
+	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_VAR_2C, $06
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $39
@@ -747,9 +747,9 @@ ObjInit_0e_44f8::
 
 ObjInit_0e_4501::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_68b4)
-	obj_word OBJ_HANDLER, Func_0a_68b4
-	obj_word OBJ_TOUCH_HANDLER, Func_09_769d
+	obj_byte OBJ_BANK, BANK(ArrowPlatform_Wait)
+	obj_word OBJ_HANDLER, ArrowPlatform_Wait
+	obj_word OBJ_TOUCH_HANDLER, Platform_Touch
 	obj_byte OBJ_COLLISION, $10
 	obj_byte OBJ_ANIM_PARAM, $06
 	obj_byte OBJ_LAYER, $02
@@ -760,7 +760,7 @@ ObjInit_0e_4514::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Squidge)
 	obj_word OBJ_HANDLER, Squidge
-	obj_word OBJ_TOUCH_HANDLER, Func_09_739e
+	obj_word OBJ_TOUCH_HANDLER, Squidge_Touch
 	obj_word OBJ_ANIM, Anim_04_4ca7
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $3a
@@ -772,7 +772,7 @@ ObjInit_0e_452a::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(MiniNecky)
 	obj_word OBJ_HANDLER, MiniNecky
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4007
+	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $09
 	obj_word OBJ_ANIM, Anim_04_4c1b
 	obj_byte OBJ_COLLISION, $04
@@ -785,7 +785,7 @@ ObjInit_0e_4542::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(MankyKong)
 	obj_word OBJ_HANDLER, MankyKong
-	obj_word OBJ_TOUCH_HANDLER, Func_09_78af
+	obj_word OBJ_TOUCH_HANDLER, MankyKong_Touch
 	obj_byte OBJ_VAR_2C, $0a
 	obj_word OBJ_ANIM, Anim_04_4b57
 	obj_byte OBJ_COLLISION, $04
@@ -799,7 +799,7 @@ ObjInit_0e_455c::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Necky_ThrowNuts)
 	obj_word OBJ_HANDLER, Necky_ThrowNuts
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4007
+	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $08
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $37
@@ -812,7 +812,7 @@ ObjInit_0e_4574::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Clambo)
 	obj_word OBJ_HANDLER, Clambo
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4001
+	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $41
 	obj_word OBJ_ANIM, Anim_04_4cc7
@@ -824,7 +824,7 @@ ObjInit_0e_458a::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Croctopus)
 	obj_word OBJ_HANDLER, Croctopus
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4001
+	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_word OBJ_ANIM, Anim_04_4dd5
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $48
@@ -836,7 +836,7 @@ ObjInit_0e_45a0::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Patrol)
 	obj_word OBJ_HANDLER, Obj_Patrol
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7272
+	obj_word OBJ_TOUCH_HANDLER, Tire_Top_Touch
 	obj_word OBJ_ANIM, Anim_04_4f83
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $02
@@ -861,7 +861,7 @@ ObjInit_0e_45cf::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(AnimalCrate)
 	obj_word OBJ_HANDLER, AnimalCrate
-	obj_word OBJ_TOUCH_HANDLER, Func_09_79cd
+	obj_word OBJ_TOUCH_HANDLER, AnimalCrate_Touch
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $00
 	obj_byte OBJ_ANIM_PARAM, $0a
@@ -870,16 +870,16 @@ ObjInit_0e_45cf::
 
 ObjInit_0e_45e2::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(StarBarrel)
-	obj_word OBJ_HANDLER, StarBarrel
-	obj_word OBJ_TOUCH_HANDLER, Func_09_74c6
+	obj_byte OBJ_BANK, BANK(Entrance)
+	obj_word OBJ_HANDLER, Entrance
+	obj_word OBJ_TOUCH_HANDLER, Entrance_Touch
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_end
 
 ObjInit_0e_45f1::
 	obj_byte OBJ_FLAGS, $13
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4001
+	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $4a
 	obj_word OBJ_ANIM, Anim_04_4ecd
@@ -905,7 +905,7 @@ ObjInit_0e_4618::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(BlackDrum)
 	obj_word OBJ_HANDLER, BlackDrum
-	obj_word OBJ_TOUCH_HANDLER, Func_09_76c6
+	obj_word OBJ_TOUCH_HANDLER, BlackDrum_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $0b
 	obj_end
@@ -914,7 +914,7 @@ ObjInit_0e_4627::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(BlackDrum)
 	obj_word OBJ_HANDLER, BlackDrum
-	obj_word OBJ_TOUCH_HANDLER, Func_09_76c6
+	obj_word OBJ_TOUCH_HANDLER, BlackDrum_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $0b
 	obj_end
@@ -930,7 +930,7 @@ ObjInit_0e_4636::
 ObjInit_0e_4643::
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6b2e
+	obj_word OBJ_TOUCH_HANDLER, BananaBunch_Touch
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_ANIM, Anim_04_4e0b
 	obj_byte OBJ_COLLISION, $02
@@ -940,14 +940,14 @@ ObjInit_0e_4643::
 
 ObjInit_0e_4657::
 	obj_include ObjInit_0e_4643
-	obj_byte OBJ_BANK, BANK(Func_08_56b8)
-	obj_word OBJ_HANDLER, Func_08_56b8
+	obj_byte OBJ_BANK, BANK(StickerBananaBunch)
+	obj_word OBJ_HANDLER, StickerBananaBunch
 	obj_end
 
 ObjInit_0e_4660::
 	obj_byte OBJ_BANK, BANK(DKBarrel2)
 	obj_word OBJ_HANDLER, DKBarrel2
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6e97
+	obj_word OBJ_TOUCH_HANDLER, DKBarrel_Touch
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_PALETTE, $02
 	obj_word OBJ_ANIM, Anim_04_505f
@@ -959,8 +959,8 @@ ObjInit_0e_4660::
 	obj_end
 
 ObjInit_0e_467a::
-	obj_byte OBJ_BANK, BANK(Func_0a_59f0)
-	obj_word OBJ_HANDLER, Func_0a_59f0
+	obj_byte OBJ_BANK, BANK(BarrelSupply)
+	obj_word OBJ_HANDLER, BarrelSupply
 	obj_byte OBJ_FLAGS, $01
 	obj_end
 
@@ -968,7 +968,7 @@ ObjInit_0e_4682::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6ef8
+	obj_word OBJ_TOUCH_HANDLER, FuelBarrel_Touch
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $02
@@ -988,17 +988,17 @@ ObjInit_0e_4695::
 
 ObjInit_0e_46a8::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_55a0)
-	obj_word OBJ_HANDLER, Func_08_55a0
-	obj_word OBJ_TOUCH_HANDLER, Func_09_746e
+	obj_byte OBJ_BANK, BANK(BreakableWall)
+	obj_word OBJ_HANDLER, BreakableWall
+	obj_word OBJ_TOUCH_HANDLER, BreakableWall_Touch
 	obj_byte OBJ_COLLISION, $20
 	obj_byte OBJ_ANIM_PARAM, $12
 	obj_end
 
 ObjInit_0e_46b7::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_556c)
-	obj_word OBJ_HANDLER, Func_08_556c
+	obj_byte OBJ_BANK, BANK(OpenedWall)
+	obj_word OBJ_HANDLER, OpenedWall
 	obj_end
 
 ObjInit_0e_46bf::
@@ -1022,9 +1022,9 @@ ObjInit_0e_46ce::
 
 ObjInit_0e_46df::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_56e1)
-	obj_word OBJ_HANDLER, Func_08_56e1
-	obj_word OBJ_TOUCH_HANDLER, Func_09_756b
+	obj_byte OBJ_BANK, BANK(StickerPad)
+	obj_word OBJ_HANDLER, StickerPad
+	obj_word OBJ_TOUCH_HANDLER, StickerPad_Touch
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_ANIM_PARAM, $11
 	obj_word OBJ_ANIM, Anim_04_553d
@@ -1110,7 +1110,7 @@ DumbDrum_Init::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(DumbDrum)
 	obj_word OBJ_HANDLER, DumbDrum
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4001
+	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $51
@@ -1145,7 +1145,7 @@ KingKRool_Init::
 
 ObjInit_0e_47bf::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_TOUCH_HANDLER, Func_09_76c6
+	obj_word OBJ_TOUCH_HANDLER, BlackDrum_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $0b
 	obj_word OBJ_ANIM, Anim_04_4efd
@@ -1155,7 +1155,7 @@ ObjInit_0e_47bf::
 
 ObjInit_0e_47d0::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_TOUCH_HANDLER, Func_09_76c6
+	obj_word OBJ_TOUCH_HANDLER, BlackDrum_Touch
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_byte OBJ_ANIM_PARAM, $0b
@@ -1168,9 +1168,9 @@ ObjInit_0e_47d0::
 
 ObjInit_0e_47e8::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_670a)
-	obj_word OBJ_HANDLER, Func_0a_670a
-	obj_word OBJ_TOUCH_HANDLER, Func_09_769d
+	obj_byte OBJ_BANK, BANK(TrackPlatform_Wait)
+	obj_word OBJ_HANDLER, TrackPlatform_Wait
+	obj_word OBJ_TOUCH_HANDLER, Platform_Touch
 	obj_word OBJ_ANIM, Anim_04_4ee9
 	obj_byte OBJ_COLLISION, $10
 	obj_byte OBJ_ANIM_PARAM, $06
@@ -1181,9 +1181,9 @@ ObjInit_0e_47e8::
 
 ObjInit_0e_4800::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_6744)
-	obj_word OBJ_HANDLER, Func_0a_6744
-	obj_word OBJ_TOUCH_HANDLER, Func_09_769d
+	obj_byte OBJ_BANK, BANK(FuelPlatform_Wait)
+	obj_word OBJ_HANDLER, FuelPlatform_Wait
+	obj_word OBJ_TOUCH_HANDLER, Platform_Touch
 	obj_word OBJ_FRAME, Frame_20_561a
 	obj_word OBJ_ANIM, Anim_04_4ef5
 	obj_byte OBJ_COLLISION, $10
@@ -1198,7 +1198,7 @@ ObjInit_0e_481e::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7b4c
+	obj_word OBJ_TOUCH_HANDLER, BigAnimalToken_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $06
 	obj_byte OBJ_LAYER, $02
@@ -1220,7 +1220,7 @@ ObjInit_0e_4844::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6ccc
+	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_VAR_2C, $0c
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
@@ -1229,25 +1229,25 @@ ObjInit_0e_4844::
 
 ObjInit_0e_4857::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_568c)
-	obj_word OBJ_HANDLER, Func_08_568c
+	obj_byte OBJ_BANK, BANK(WinLine)
+	obj_word OBJ_HANDLER, WinLine
 	obj_end
 
 ObjInit_0e_485f::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_56a2)
-	obj_word OBJ_HANDLER, Func_08_56a2
+	obj_byte OBJ_BANK, BANK(LoseLine)
+	obj_word OBJ_HANDLER, LoseLine
 	obj_end
 
 ObjInit_0e_4867::
 	obj_byte OBJ_FLAGS, $03
-	obj_byte OBJ_BANK, BANK(Func_0a_6eda)
-	obj_word OBJ_HANDLER, Func_0a_6eda
+	obj_byte OBJ_BANK, BANK(SetBrightness)
+	obj_word OBJ_HANDLER, SetBrightness
 	obj_end
 
 ObjInit_0e_486f::
-	obj_byte OBJ_BANK, BANK(Func_0a_65e3)
-	obj_word OBJ_HANDLER, Func_0a_65e3
+	obj_byte OBJ_BANK, BANK(LoopElevator)
+	obj_word OBJ_HANDLER, LoopElevator
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $03
@@ -1308,9 +1308,9 @@ ObjInit_0e_48c9::
 
 ObjInit_0e_48d6::
 	obj_byte OBJ_FLAGS, $13
-	obj_byte OBJ_BANK, BANK(Func_08_5c58)
-	obj_word OBJ_HANDLER, Func_08_5c58
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7995
+	obj_byte OBJ_BANK, BANK(SquawksCrate)
+	obj_word OBJ_HANDLER, SquawksCrate
+	obj_word OBJ_TOUCH_HANDLER, SquawksCrate_Touch
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $00
 	obj_byte OBJ_ANIM_PARAM, $0a
@@ -2705,7 +2705,7 @@ ObjInit_0e_52a5::
 ObjInit_0e_52ac::
 	obj_byte OBJ_BANK, BANK(Army)
 	obj_word OBJ_HANDLER, Army
-	obj_word OBJ_TOUCH_HANDLER, Func_09_733f
+	obj_word OBJ_TOUCH_HANDLER, Army_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_ANIM, Anim_04_4a8f
@@ -5356,9 +5356,9 @@ ObjInit_0e_662b::
 	obj_end
 
 ObjInit_0e_663f::
-	obj_byte OBJ_BANK, BANK(Func_0a_5a9a)
-	obj_word OBJ_HANDLER, Func_0a_5a9a
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6e97
+	obj_byte OBJ_BANK, BANK(StarBarrel)
+	obj_word OBJ_HANDLER, StarBarrel
+	obj_word OBJ_TOUCH_HANDLER, DKBarrel_Touch
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_PALETTE, $01
 	obj_word OBJ_ANIM, Anim_04_4df5
@@ -5370,14 +5370,14 @@ ObjInit_0e_663f::
 
 ObjInit_0e_6657::
 	obj_include ObjInit_0e_482f
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6ccc
+	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
 ObjInit_0e_6662::
 	obj_include ObjInit_0e_482f
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6e97
+	obj_word OBJ_TOUCH_HANDLER, DKBarrel_Touch
 	obj_byte OBJ_COLLISION, $02
 	obj_end
 
@@ -5536,26 +5536,26 @@ ObjInit_0e_673c::
 
 ObjInit_0e_6747::
 	obj_include ObjInit_0e_4695
-	obj_word OBJ_TOUCH_HANDLER, Func_09_71a8
+	obj_word OBJ_TOUCH_HANDLER, TireHalf_Touch
 	obj_byte OBJ_OAM_ATTR, $00
 	obj_end
 
 ObjInit_0e_6750::
 	obj_include ObjInit_0e_4695
-	obj_word OBJ_TOUCH_HANDLER, Func_09_71e4
+	obj_word OBJ_TOUCH_HANDLER, Tire_PushDown_Touch
 	obj_byte OBJ_OAM_ATTR, $40
 	obj_end
 
 ObjInit_0e_6759::
 	obj_include ObjInit_0e_4695
-	obj_word OBJ_TOUCH_HANDLER, Func_09_71f3
+	obj_word OBJ_TOUCH_HANDLER, Tire_SmallBounce_Touch
 	obj_byte OBJ_OAM_ATTR, $00
 	obj_end
 
 ObjInit_0e_6762::
 	obj_byte OBJ_BANK, BANK(Tire)
 	obj_word OBJ_HANDLER, Tire
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7216
+	obj_word OBJ_TOUCH_HANDLER, Tire_Touch
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_ANIM, Anim_04_4f83
 	obj_byte OBJ_PALETTE, $03
@@ -5726,7 +5726,7 @@ ObjInit_0e_686f::
 	obj_end
 
 ObjInit_0e_6876::
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4049
+	obj_word OBJ_TOUCH_HANDLER, LevelExit_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_byte OBJ_FLAGS, $01
@@ -5735,7 +5735,7 @@ ObjInit_0e_6876::
 	obj_end
 
 ObjInit_0e_6885::
-	obj_word OBJ_TOUCH_HANDLER, Func_09_406d
+	obj_word OBJ_TOUCH_HANDLER, ReturnExit_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_byte OBJ_FLAGS, $01
@@ -5745,7 +5745,7 @@ ObjInit_0e_6885::
 	obj_end
 
 ObjInit_0e_6896::
-	obj_word OBJ_TOUCH_HANDLER, Func_09_4049
+	obj_word OBJ_TOUCH_HANDLER, LevelExit_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_byte OBJ_FLAGS, $01
@@ -5755,8 +5755,8 @@ ObjInit_0e_6896::
 
 ObjInit_0e_68a5::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5934
-	obj_word OBJ_VAR_30, $5ba4
+	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_JungleHijinxs_3
 	obj_word OBJ_VAR_32, MapPatch_04_6d5f
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
@@ -5770,8 +5770,8 @@ ObjInit_0e_68b6::
 
 ObjInit_0e_68bf::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5f4c
-	obj_word OBJ_VAR_30, $5bac
+	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area4_0
+	obj_word OBJ_VAR_30, LevelEntrance_JungleHijinxs_4
 	obj_word OBJ_VAR_32, MapPatch_04_6d73
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
@@ -5779,25 +5779,25 @@ ObjInit_0e_68bf::
 
 ObjInit_0e_68d0::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5fbc
-	obj_word OBJ_VAR_30, $5b9c
+	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_JungleHijinxs_2
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
 	obj_end
 
 ObjInit_0e_68de::
 	obj_include ObjInit_0e_45e2
-	obj_byte OBJ_BANK, BANK(Func_08_5665)
-	obj_word OBJ_HANDLER, Func_08_5665
-	obj_word OBJ_VAR_2E, $5efc
-	obj_word OBJ_VAR_30, $5bb4
+	obj_byte OBJ_BANK, BANK(Entrance_BananaHoard)
+	obj_word OBJ_HANDLER, Entrance_BananaHoard
+	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_JungleHijinxs_5
 	obj_byte OBJ_VAR_34, $20
 	obj_end
 
 ObjInit_0e_68ef::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5c4c
-	obj_word OBJ_VAR_30, $5c04
+	obj_word OBJ_VAR_2E, LevelEntrance_RopeyRampage_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_RopeyRampage_2
 	obj_word OBJ_VAR_32, MapPatch_04_6dbd
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $02
@@ -5805,15 +5805,15 @@ ObjInit_0e_68ef::
 
 ObjInit_0e_6900::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5f44
-	obj_word OBJ_VAR_30, $5c0c
+	obj_word OBJ_VAR_2E, LevelEntrance_RopeyRampage_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_RopeyRampage_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_690c::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5954
-	obj_word OBJ_VAR_30, $5c24
+	obj_word OBJ_VAR_2E, LevelEntrance_BarrelCannonCanyon_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_BarrelCannonCanyon_2
 	obj_word OBJ_VAR_32, MapPatch_04_6df2
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $02
@@ -5821,8 +5821,8 @@ ObjInit_0e_690c::
 
 ObjInit_0e_691d::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5c54
-	obj_word OBJ_VAR_30, $5c2c
+	obj_word OBJ_VAR_2E, LevelEntrance_BarrelCannonCanyon_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_BarrelCannonCanyon_3
 	obj_word OBJ_VAR_32, MapPatch_04_6e0c
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
@@ -5830,8 +5830,8 @@ ObjInit_0e_691d::
 
 ObjInit_0e_692e::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $593c
-	obj_word OBJ_VAR_30, $586c
+	obj_word OBJ_VAR_2E, LevelEntrance_ReptileRumble_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_ReptileRumble_2
 	obj_word OBJ_VAR_32, MapPatch_04_6e27
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $04
@@ -5839,15 +5839,15 @@ ObjInit_0e_692e::
 
 ObjInit_0e_693f::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5944
-	obj_word OBJ_VAR_30, $5874
+	obj_word OBJ_VAR_2E, LevelEntrance_ReptileRumble_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_ReptileRumble_3
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
 ObjInit_0e_694b::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $594c
-	obj_word OBJ_VAR_30, $587c
+	obj_word OBJ_VAR_2E, LevelEntrance_ReptileRumble_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_ReptileRumble_4
 	obj_word OBJ_VAR_32, MapPatch_04_6e31
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
@@ -5855,22 +5855,22 @@ ObjInit_0e_694b::
 
 ObjInit_0e_695c::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5994
-	obj_word OBJ_VAR_30, $592c
+	obj_word OBJ_VAR_2E, LevelEntrance_NeckyNutmare_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_NeckyNutmare_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6968::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $595c
-	obj_word OBJ_VAR_30, $58a4
+	obj_word OBJ_VAR_2E, LevelEntrance_BouncyBonanza_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_BouncyBonanza_4
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6974::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5eec
-	obj_word OBJ_VAR_30, $5894
+	obj_word OBJ_VAR_2E, LevelEntrance_BouncyBonanza_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_BouncyBonanza_2
 	obj_word OBJ_VAR_32, MapPatch_04_6e3b
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
@@ -5878,8 +5878,8 @@ ObjInit_0e_6974::
 
 ObjInit_0e_6985::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5964
-	obj_word OBJ_VAR_30, $589c
+	obj_word OBJ_VAR_2E, LevelEntrance_BouncyBonanza_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_BouncyBonanza_3
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_byte OBJ_VAR_36, $01
@@ -5887,28 +5887,28 @@ ObjInit_0e_6985::
 
 ObjInit_0e_6995::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5dc4
-	obj_word OBJ_VAR_30, $5d94
+	obj_word OBJ_VAR_2E, LevelEntrance_WinkysWalkway_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_WinkysWalkway_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_69a1::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5c94
+	obj_word OBJ_VAR_2E, LevelEntrance_StopAndGoStation_3
 	obj_byte OBJ_VAR_34, $20
 	obj_end
 
 ObjInit_0e_69aa::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5d04
-	obj_word OBJ_VAR_30, $5c8c
+	obj_word OBJ_VAR_2E, LevelEntrance_StopAndGoStation_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_StopAndGoStation_2
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_69b6::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5cfc
-	obj_word OBJ_VAR_30, $5c8c
+	obj_word OBJ_VAR_2E, LevelEntrance_StopAndGoStation_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_StopAndGoStation_2
 	obj_word OBJ_VAR_32, MapPatch_04_6ee4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
@@ -5916,22 +5916,22 @@ ObjInit_0e_69b6::
 
 ObjInit_0e_69c7::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5ea4
-	obj_word OBJ_VAR_30, $5e6c
+	obj_word OBJ_VAR_2E, LevelEntrance_MillstoneMayhem_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_MillstoneMayhem_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_69d3::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5eac
-	obj_word OBJ_VAR_30, $5e74
+	obj_word OBJ_VAR_2E, LevelEntrance_MillstoneMayhem_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_MillstoneMayhem_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_69df::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5ec4
-	obj_word OBJ_VAR_30, $5e7c
+	obj_word OBJ_VAR_2E, LevelEntrance_MillstoneMayhem_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_MillstoneMayhem_4
 	obj_word OBJ_VAR_32, MapPatch_04_6fdf
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
@@ -5951,15 +5951,15 @@ ObjInit_0e_69f9::
 
 ObjInit_0e_6a02::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5f04
-	obj_word OBJ_VAR_30, $5a54
+	obj_word OBJ_VAR_2E, LevelEntrance_TreeTopTown_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_TreeTopTown_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6a0e::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5a94
-	obj_word OBJ_VAR_30, $5a5c
+	obj_word OBJ_VAR_2E, LevelEntrance_TreeTopTown_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_TreeTopTown_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
@@ -5971,15 +5971,15 @@ ObjInit_0e_6a1a::
 
 ObjInit_0e_6a23::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5b64
-	obj_word OBJ_VAR_30, $5b2c
+	obj_word OBJ_VAR_2E, LevelEntrance_VultureCulture_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_VultureCulture_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6a2f::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5b6c
-	obj_word OBJ_VAR_30, $5b3c
+	obj_word OBJ_VAR_2E, LevelEntrance_VultureCulture_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_VultureCulture_4
 	obj_word OBJ_VAR_32, MapPatch_04_6eb2
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
@@ -5999,8 +5999,8 @@ ObjInit_0e_6a49::
 
 ObjInit_0e_6a52::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5b7c
-	obj_word OBJ_VAR_30, $5b34
+	obj_word OBJ_VAR_2E, LevelEntrance_VultureCulture_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_VultureCulture_3
 	obj_word OBJ_VAR_32, MapPatch_04_6ebc
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
@@ -6008,8 +6008,8 @@ ObjInit_0e_6a52::
 
 ObjInit_0e_6a63::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5b74
-	obj_word OBJ_VAR_30, $5b54
+	obj_word OBJ_VAR_2E, LevelEntrance_ForestFrenzy_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_ForestFrenzy_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
@@ -6027,8 +6027,8 @@ ObjInit_0e_6a78::
 
 ObjInit_0e_6a81::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5b84
-	obj_word OBJ_VAR_30, $5b5c
+	obj_word OBJ_VAR_2E, LevelEntrance_ForestFrenzy_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_ForestFrenzy_3
 	obj_word OBJ_VAR_32, MapPatch_04_6ed3
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
@@ -6036,15 +6036,15 @@ ObjInit_0e_6a81::
 
 ObjInit_0e_6a92::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5c44
-	obj_word OBJ_VAR_30, $5bcc
+	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6a9e::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5f74
-	obj_word OBJ_VAR_30, $5bd4
+	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area5_0
+	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_3
 	obj_word OBJ_VAR_32, MapPatch_04_6d9f
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
@@ -6064,8 +6064,8 @@ ObjInit_0e_6ab8::
 
 ObjInit_0e_6ac1::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5f6c
-	obj_word OBJ_VAR_30, $5bdc
+	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area4_0
+	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_4
 	obj_word OBJ_VAR_32, MapPatch_04_6d95
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
@@ -6073,8 +6073,8 @@ ObjInit_0e_6ac1::
 
 ObjInit_0e_6ad2::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5f64
-	obj_word OBJ_VAR_30, $5be4
+	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_5
 	obj_word OBJ_VAR_32, MapPatch_04_6db3
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $09
@@ -6082,8 +6082,8 @@ ObjInit_0e_6ad2::
 
 ObjInit_0e_6ae3::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5c5c
-	obj_word OBJ_VAR_30, $5bec
+	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_6
 	obj_word OBJ_VAR_32, MapPatch_04_6da9
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $0b
@@ -6092,8 +6092,8 @@ ObjInit_0e_6ae3::
 
 ObjInit_0e_6af6::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5ebc
-	obj_word OBJ_VAR_30, $5e94
+	obj_word OBJ_VAR_2E, LevelEntrance_TempleTempest_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_TempleTempest_2
 	obj_word OBJ_VAR_32, MapPatch_04_7014
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
@@ -6102,8 +6102,8 @@ ObjInit_0e_6af6::
 
 ObjInit_0e_6b09::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5eb4
-	obj_word OBJ_VAR_30, $5e9c
+	obj_word OBJ_VAR_2E, LevelEntrance_TempleTempest_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_TempleTempest_3
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
@@ -6115,8 +6115,8 @@ ObjInit_0e_6b15::
 
 ObjInit_0e_6b1e::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5ef4
-	obj_word OBJ_VAR_30, $58bc
+	obj_word OBJ_VAR_2E, LevelEntrance_TorchlightTrouble_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_TorchlightTrouble_2
 	obj_word OBJ_VAR_32, MapPatch_04_6e45
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
@@ -6124,8 +6124,8 @@ ObjInit_0e_6b1e::
 
 ObjInit_0e_6b2f::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $597c
-	obj_word OBJ_VAR_30, $58c4
+	obj_word OBJ_VAR_2E, LevelEntrance_TorchlightTrouble_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_TorchlightTrouble_3
 	obj_word OBJ_VAR_32, MapPatch_04_6e4f
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $06
@@ -6133,8 +6133,8 @@ ObjInit_0e_6b2f::
 
 ObjInit_0e_6b40::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $598c
-	obj_word OBJ_VAR_30, $58dc
+	obj_word OBJ_VAR_2E, LevelEntrance_ManicMincers_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_ManicMincers_2
 	obj_word OBJ_VAR_32, MapPatch_04_6e59
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
@@ -6142,8 +6142,8 @@ ObjInit_0e_6b40::
 
 ObjInit_0e_6b51::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5974
-	obj_word OBJ_VAR_30, $58e4
+	obj_word OBJ_VAR_2E, LevelEntrance_ManicMincers_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_ManicMincers_3
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_byte OBJ_VAR_36, $01
@@ -6151,8 +6151,8 @@ ObjInit_0e_6b51::
 
 ObjInit_0e_6b61::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5edc
-	obj_word OBJ_VAR_30, $58ec
+	obj_word OBJ_VAR_2E, LevelEntrance_04_5edc
+	obj_word OBJ_VAR_30, LevelEntrance_ManicMincers_4
 	obj_word OBJ_VAR_32, MapPatch_04_6e63
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $07
@@ -6160,8 +6160,8 @@ ObjInit_0e_6b61::
 
 ObjInit_0e_6b72::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5a2c
-	obj_word OBJ_VAR_30, $59fc
+	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_2
 	obj_word OBJ_VAR_32, MapPatch_04_6e6d
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $04
@@ -6170,8 +6170,8 @@ ObjInit_0e_6b72::
 ObjInit_0e_6b83::
 	obj_include ObjInit_0e_4220
 	obj_byte OBJ_PALETTE, $39
-	obj_word OBJ_VAR_2E, $5a14
-	obj_word OBJ_VAR_30, $5a14
+	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_5
+	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_5
 	obj_end
 
 ObjInit_0e_6b8f::
@@ -6182,16 +6182,16 @@ ObjInit_0e_6b8f::
 
 ObjInit_0e_6b98::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5a34
-	obj_word OBJ_VAR_30, $5a04
+	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_3
 	obj_byte OBJ_VAR_35, $07
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
 ObjInit_0e_6ba6::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5a1c
-	obj_word OBJ_VAR_30, $5a0c
+	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_4
 	obj_word OBJ_VAR_32, MapPatch_04_6e74
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
@@ -6199,16 +6199,16 @@ ObjInit_0e_6ba6::
 
 ObjInit_0e_6bb7::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5a84
-	obj_word OBJ_VAR_30, $5a74
+	obj_word OBJ_VAR_2E, LevelEntrance_RopeBridgeRumble_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_RopeBridgeRumble_2
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
 ObjInit_0e_6bc5::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5f0c
-	obj_word OBJ_VAR_30, $5a7c
+	obj_word OBJ_VAR_2E, LevelEntrance_RopeBridgeRumble_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_RopeBridgeRumble_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
@@ -6220,15 +6220,15 @@ ObjInit_0e_6bd1::
 
 ObjInit_0e_6bda::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5af4
-	obj_word OBJ_VAR_30, $5aac
+	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6be6::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5f5c
-	obj_word OBJ_VAR_30, $5ab4
+	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area4_0
+	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_3
 	obj_word OBJ_VAR_32, MapPatch_04_6cc5
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
@@ -6242,8 +6242,8 @@ ObjInit_0e_6bf7::
 
 ObjInit_0e_6c00::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5aec
-	obj_word OBJ_VAR_30, $5abc
+	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_4
 	obj_word OBJ_VAR_32, MapPatch_04_6cf4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
@@ -6287,8 +6287,8 @@ ObjInit_0e_6c3e::
 
 ObjInit_0e_6c47::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5ae4
-	obj_word OBJ_VAR_30, $5ad4
+	obj_word OBJ_VAR_2E, LevelEntrance_BlackoutBasement_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_BlackoutBasement_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
@@ -6300,8 +6300,8 @@ ObjInit_0e_6c53::
 
 ObjInit_0e_6c5c::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5f54
-	obj_word OBJ_VAR_30, $5adc
+	obj_word OBJ_VAR_2E, LevelEntrance_BlackoutBasement_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_BlackoutBasement_3
 	obj_word OBJ_VAR_32, MapPatch_04_6e90
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
@@ -6345,8 +6345,8 @@ ObjInit_0e_6c9a::
 
 ObjInit_0e_6ca3::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5cec
-	obj_word OBJ_VAR_30, $5cac
+	obj_word OBJ_VAR_2E, LevelEntrance_MistyMine_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_MistyMine_2
 	obj_word OBJ_VAR_32, MapPatch_04_6fce
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
@@ -6354,8 +6354,8 @@ ObjInit_0e_6ca3::
 
 ObjInit_0e_6cb4::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5ce4
-	obj_word OBJ_VAR_30, $5cbc
+	obj_word OBJ_VAR_2E, LevelEntrance_MistyMine_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_MistyMine_4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_byte OBJ_VAR_36, $01
@@ -6363,15 +6363,15 @@ ObjInit_0e_6cb4::
 
 ObjInit_0e_6cc4::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5cf4
-	obj_word OBJ_VAR_30, $5cd4
+	obj_word OBJ_VAR_2E, LevelEntrance_LoopyLights_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_LoopyLights_2
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
 ObjInit_0e_6cd0::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5d0c
-	obj_word OBJ_VAR_30, $5cdc
+	obj_word OBJ_VAR_2E, LevelEntrance_LoopyLights_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_LoopyLights_3
 	obj_word OBJ_VAR_32, MapPatch_04_6fd8
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
@@ -6379,130 +6379,130 @@ ObjInit_0e_6cd0::
 
 ObjInit_0e_6ce1::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5d9c
-	obj_word OBJ_VAR_30, $5d24
+	obj_word OBJ_VAR_2E, LevelEntrance_TrickTrackTrek_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_TrickTrackTrek_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6ced::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5dcc
-	obj_word OBJ_VAR_30, $5d2c
+	obj_word OBJ_VAR_2E, LevelEntrance_TrickTrackTrek_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_TrickTrackTrek_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_6cf9::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5d74
-	obj_word OBJ_VAR_30, $5d34
+	obj_word OBJ_VAR_2E, LevelEntrance_TrickTrackTrek_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_TrickTrackTrek_4
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
 ObjInit_0e_6d05::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5db4
-	obj_word OBJ_VAR_30, $5d4c
+	obj_word OBJ_VAR_2E, LevelEntrance_PlatformPerils_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_PlatformPerils_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6d11::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5dbc
-	obj_word OBJ_VAR_30, $5d54
+	obj_word OBJ_VAR_2E, LevelEntrance_PlatformPerils_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_PlatformPerils_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_6d1d::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5dac
-	obj_word OBJ_VAR_30, $5d6c
+	obj_word OBJ_VAR_2E, LevelEntrance_TankedUpTrouble_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_TankedUpTrouble_2
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
 ObjInit_0e_6d29::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5f24
-	obj_word OBJ_VAR_30, $5e0c
+	obj_word OBJ_VAR_2E, LevelEntrance_SnowBarrelBlast_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_SnowBarrelBlast_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6d35::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5e44
-	obj_word OBJ_VAR_30, $5e14
+	obj_word OBJ_VAR_2E, LevelEntrance_SnowBarrelBlast_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_SnowBarrelBlast_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_6d41::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5e4c
-	obj_word OBJ_VAR_30, $5e1c
+	obj_word OBJ_VAR_2E, LevelEntrance_SnowBarrelBlast_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_SnowBarrelBlast_4
 	obj_byte OBJ_VAR_35, $06
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
 ObjInit_0e_6d4f::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5e54
-	obj_word OBJ_VAR_30, $5e34
+	obj_word OBJ_VAR_2E, LevelEntrance_IceAgeAlley_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_IceAgeAlley_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6d5b::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5f34
-	obj_word OBJ_VAR_30, $5e3c
+	obj_word OBJ_VAR_2E, LevelEntrance_IceAgeAlley_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_IceAgeAlley_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_6d67::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $599c
-	obj_word OBJ_VAR_30, $5de4
+	obj_word OBJ_VAR_2E, LevelEntrance_MineCartMadness_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_MineCartMadness_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6d73::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5d7c
-	obj_word OBJ_VAR_30, $5dec
+	obj_word OBJ_VAR_2E, LevelEntrance_MineCartMadness_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_MineCartMadness_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_6d7f::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5da4
-	obj_word OBJ_VAR_30, $5df4
+	obj_word OBJ_VAR_2E, LevelEntrance_MineCartMadness_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_MineCartMadness_4
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
 ObjInit_0e_6d8b::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $5edc
-	obj_word OBJ_VAR_30, $5904
+	obj_word OBJ_VAR_2E, LevelEntrance_04_5edc
+	obj_word OBJ_VAR_30, LevelEntrance_ElevatorAntics_2
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
 ObjInit_0e_6d99::
 	obj_include ObjInit_0e_4220
-	obj_word OBJ_VAR_2E, $5984
-	obj_word OBJ_VAR_30, $590c
+	obj_word OBJ_VAR_2E, LevelEntrance_ElevatorAntics_Area2_0
+	obj_word OBJ_VAR_30, LevelEntrance_ElevatorAntics_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
 ObjInit_0e_6da5::
 	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, $596c
-	obj_word OBJ_VAR_30, $5914
+	obj_word OBJ_VAR_2E, LevelEntrance_ElevatorAntics_Area1_0
+	obj_word OBJ_VAR_30, LevelEntrance_ElevatorAntics_4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
 ObjInit_0e_6db3::
 	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, $5afc
-	obj_word OBJ_VAR_30, $5ab4
+	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area3_0
+	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_3
 	obj_word OBJ_VAR_32, MapPatch_04_7024
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $09
@@ -7477,25 +7477,25 @@ ObjInit_0e_74e0::
 	obj_end
 
 ObjInit_0e_74ea::
-	obj_byte OBJ_BANK, BANK(Func_08_59b8)
-	obj_word OBJ_HANDLER, Func_08_59b8
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7930
+	obj_byte OBJ_BANK, BANK(MineCart)
+	obj_word OBJ_HANDLER, MineCart
+	obj_word OBJ_TOUCH_HANDLER, MineCart_Touch
 	obj_include ObjInit_0e_45bc
 	obj_byte OBJ_VAR_2E, $00
 	obj_end
 
 ObjInit_0e_74f8::
-	obj_byte OBJ_BANK, BANK(Func_08_59b8)
-	obj_word OBJ_HANDLER, Func_08_59b8
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7930
+	obj_byte OBJ_BANK, BANK(MineCart)
+	obj_word OBJ_HANDLER, MineCart
+	obj_word OBJ_TOUCH_HANDLER, MineCart_Touch
 	obj_include ObjInit_0e_45bc
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
 ObjInit_0e_7506::
-	obj_byte OBJ_BANK, BANK(Func_08_5959)
-	obj_word OBJ_HANDLER, Func_08_5959
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7905
+	obj_byte OBJ_BANK, BANK(MineCartKrash_Parked)
+	obj_word OBJ_HANDLER, MineCartKrash_Parked
+	obj_word OBJ_TOUCH_HANDLER, MineCartKrash_Parked_Touch
 	obj_include ObjInit_0e_45bc
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
@@ -7503,9 +7503,9 @@ ObjInit_0e_7506::
 ObjInit_0e_7514::
 	obj_include ObjInit_0e_45bc
 	obj_byte OBJ_FLAGS, $13
-	obj_byte OBJ_BANK, BANK(Func_08_598e)
-	obj_word OBJ_HANDLER, Func_08_598e
-	obj_word OBJ_TOUCH_HANDLER, Func_09_78f9
+	obj_byte OBJ_BANK, BANK(MineCartKrash)
+	obj_word OBJ_HANDLER, MineCartKrash
+	obj_word OBJ_TOUCH_HANDLER, MineCartKrash_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
@@ -7513,7 +7513,7 @@ ObjInit_0e_7514::
 ObjInit_0e_7526::
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
-	obj_word OBJ_TOUCH_HANDLER, Func_09_78f9
+	obj_word OBJ_TOUCH_HANDLER, MineCartKrash_Touch
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $4b
@@ -8063,22 +8063,22 @@ ObjInit_0e_78d0::
 
 ObjInit_0e_78db::
 	obj_include ObjInit_0e_47bf
-	obj_byte OBJ_BANK, BANK(Func_0a_729b)
-	obj_word OBJ_HANDLER, Func_0a_729b
+	obj_byte OBJ_BANK, BANK(OilDrum)
+	obj_word OBJ_HANDLER, OilDrum
 	obj_word OBJ_VAR_31, ObjScript_0a_7877
 	obj_end
 
 ObjInit_0e_78e7::
 	obj_include ObjInit_0e_47bf
-	obj_byte OBJ_BANK, BANK(Func_0a_729b)
-	obj_word OBJ_HANDLER, Func_0a_729b
+	obj_byte OBJ_BANK, BANK(OilDrum)
+	obj_word OBJ_HANDLER, OilDrum
 	obj_word OBJ_VAR_31, ObjScript_0a_7883
 	obj_end
 
 ObjInit_0e_78f3::
 	obj_include ObjInit_0e_47bf
-	obj_byte OBJ_BANK, BANK(Func_0a_729b)
-	obj_word OBJ_HANDLER, Func_0a_729b
+	obj_byte OBJ_BANK, BANK(OilDrum)
+	obj_word OBJ_HANDLER, OilDrum
 	obj_byte OBJ_VAR_2E, $01
 	obj_word OBJ_VAR_31, ObjScript_0a_7877
 	obj_end
@@ -8134,8 +8134,8 @@ ObjInit_0e_7941::
 
 ObjInit_0e_7948::
 	obj_include ObjInit_0e_47bf
-	obj_byte OBJ_BANK, BANK(Func_0a_729b)
-	obj_word OBJ_HANDLER, Func_0a_729b
+	obj_byte OBJ_BANK, BANK(OilDrum)
+	obj_word OBJ_HANDLER, OilDrum
 	obj_word OBJ_VAR_31, ObjScript_0a_7893
 	obj_end
 
@@ -8168,7 +8168,7 @@ ObjInit_0e_7977::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
-	obj_word OBJ_TOUCH_HANDLER, Func_09_46da
+	obj_word OBJ_TOUCH_HANDLER, BonusCoin_Touch
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $07
@@ -8178,9 +8178,9 @@ ObjInit_0e_7977::
 
 ObjInit_0e_798d::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_61f9)
-	obj_word OBJ_HANDLER, Func_08_61f9
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7b84
+	obj_byte OBJ_BANK, BANK(MiniAnimalToken)
+	obj_word OBJ_HANDLER, MiniAnimalToken
+	obj_word OBJ_TOUCH_HANDLER, MiniAnimalToken_Touch
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $02
 	obj_end
@@ -8189,7 +8189,7 @@ ObjInit_0e_799c::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
-	obj_word OBJ_TOUCH_HANDLER, Func_09_76c6
+	obj_word OBJ_TOUCH_HANDLER, BlackDrum_Touch
 	obj_byte OBJ_ANIM_PARAM, $0f
 	obj_byte OBJ_COLLISION, $08
 	obj_end

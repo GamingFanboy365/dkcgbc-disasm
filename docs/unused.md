@@ -208,7 +208,7 @@ The two `LanguageWordTiles` pointers per language name two 8-tile words, but `Lo
 
 ## Object data
 
-Bank `$08` holds words spelled in letter blocks (`LetterWord_08_…`, used by `Func_08_4344`): DONKEY, KONG, COUNTRY, NINTENDO, RARE, EXPRESSO, ENGUARDE, RAMBI, WINKY, DIDDY, CANDY, FUNKY and CRANKY. Right after KONG comes RAREWARE (`LetterWord_08_4eb2`), which no object spawns. The only object that uses the KONG list (`ObjInit_0e_4019`) stops after its 8 entries (four letters and four blocks), so the eight RAREWARE letters are never reached.
+Bank `$08` holds words spelled in letter blocks (`SpellWord_08_…`, used by `SpellBonus`): DONKEY, KONG, COUNTRY, NINTENDO, RARE, EXPRESSO, ENGUARDE, RAMBI, WINKY, DIDDY, CANDY, FUNKY and CRANKY. Right after KONG comes RAREWARE (`SpellWord_08_4eb2`), which no object spawns. The only object that uses the KONG list (`ObjInit_0e_4019`) stops after its 8 entries (four letters and four blocks), so the eight RAREWARE letters are never reached.
 
 8 of the 92 map patches in bank `$04` have no pointer to them (`MapPatch_04_6dcd`, `6e02`, `6e16`, `6f8e`, `6f9e`, `6fae`, `6fbe`, `6ffd`). The four at `$6F8E`–`$6FBE` are the same 2×2 patch with different positions. Two movement scripts in bank `$0A` (`ObjScript_0a_7495` and `ObjScript_0a_74ac`) have no pointer either. All of these could still be picked by code arithmetic, but no such code has turned up.
 

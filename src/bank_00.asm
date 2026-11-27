@@ -4186,9 +4186,9 @@ Func_00_1841::
 
 ObjInit_00_1850::
 	obj_byte OBJ_FLAGS, $03
-	obj_byte OBJ_BANK, BANK(Func_0a_58c8)
-	obj_word OBJ_HANDLER, Func_0a_58c8
-	obj_word OBJ_TOUCH_HANDLER, Func_09_6a7e
+	obj_byte OBJ_BANK, BANK(Bananas)
+	obj_word OBJ_HANDLER, Bananas
+	obj_word OBJ_TOUCH_HANDLER, Bananas_Touch
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $03
 	obj_end
@@ -6739,9 +6739,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_5440)
+	ld [hl], LOW(HUD_Bananas_Hidden)
 	inc l
-	ld [hl], HIGH(Func_0a_5440)
+	ld [hl], HIGH(HUD_Bananas_Hidden)
 	call AllocObject
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6749,9 +6749,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_5578)
+	ld [hl], LOW(HUD_Items_Hidden)
 	inc l
-	ld [hl], HIGH(Func_0a_5578)
+	ld [hl], HIGH(HUD_Items_Hidden)
 	call AllocObject
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6759,9 +6759,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_54bf)
+	ld [hl], LOW(HUD_Lives_Hidden)
 	inc l
-	ld [hl], HIGH(Func_0a_54bf)
+	ld [hl], HIGH(HUD_Lives_Hidden)
 	call AllocObject
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6793,8 +6793,8 @@ Func_00_27ed::
 
 ObjInit_00_27f7::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_0a_6e23)
-	obj_word OBJ_HANDLER, Func_0a_6e23
+	obj_byte OBJ_BANK, BANK(StopGoTimer)
+	obj_word OBJ_HANDLER, StopGoTimer
 	obj_end
 
 Func_00_27ff::
@@ -6810,8 +6810,8 @@ Func_00_27ff::
 
 ObjInit_00_2811::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_0a_6e7e)
-	obj_word OBJ_HANDLER, Func_0a_6e7e
+	obj_byte OBJ_BANK, BANK(LightsTimer)
+	obj_word OBJ_HANDLER, LightsTimer
 	obj_word OBJ_VAR_2E, $005a
 	obj_end
 
@@ -6837,8 +6837,8 @@ Func_00_282e::
 
 ObjInit_00_2838::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_0a_70d3)
-	obj_word OBJ_HANDLER, Func_0a_70d3
+	obj_byte OBJ_BANK, BANK(Snowflakes_Init)
+	obj_word OBJ_HANDLER, Snowflakes_Init
 	obj_byte OBJ_PALETTE, $03
 	obj_end
 
@@ -6890,14 +6890,14 @@ Func_00_2861::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_08_59b8)
+	ld [hl], LOW(MineCart)
 	inc l
-	ld [hl], HIGH(Func_08_59b8)
+	ld [hl], HIGH(MineCart)
 	ld hl, wObjects + OBJ_TOUCH_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_09_7930)
+	ld [hl], LOW(MineCart_Touch)
 	inc l
-	ld [hl], HIGH(Func_09_7930)
+	ld [hl], HIGH(MineCart_Touch)
 	ld a, [$c30c]
 	cp $0b
 	ret nz
@@ -10410,7 +10410,7 @@ MoveTowardsY::
 	ret
 
 
-Func_00_3c1b::
+SwingingRope_Touch::
 	ld a, [wPlayer + OBJ_COLLISION]
 	and $01
 	jr z, .jump_3c2e
@@ -10519,18 +10519,18 @@ Func_00_3c1b::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_61f9)
+	ld [hl], LOW(SwingingRope_Held)
 	inc l
-	ld [hl], HIGH(Func_0a_61f9)
+	ld [hl], HIGH(SwingingRope_Held)
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	set 0, [hl]
 	ld hl, wPlayer + OBJ_BANK
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_5c02)
+	ld [hl], LOW(Player_OnSwingingRope)
 	inc l
-	ld [hl], HIGH(Func_09_5c02)
+	ld [hl], HIGH(Player_OnSwingingRope)
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	res 5, [hl]
 	ld a, c

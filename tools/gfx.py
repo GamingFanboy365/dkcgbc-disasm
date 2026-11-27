@@ -44,23 +44,25 @@ def off(bank, addr):
 def write_png(path, width, height, rows, palette=None):
     """rows: list of lists of color indexes (0-3). Writes a 2-bit PNG,
     indexed with the given RGB palette, or grayscale if palette is None."""
+    depth = 4 if palette is not None and len(palette) > 4 else 2  # up to 16 colors
+    per = 8 // depth
     raw = bytearray()
     for row in rows:
         raw.append(0)
-        for x in range(0, width, 4):
+        for x in range(0, width, per):
             b = 0
-            for k in range(4):
+            for k in range(per):
                 v = row[x + k] if x + k < width else 0
                 if palette is None:
                     v = 3 - v  # grayscale: 3 = white
-                b = b << 2 | v
+                b = b << depth | v
             raw.append(b)
 
     def chunk(t, d):
         c = t + d
         return struct.pack(">I", len(d)) + c + struct.pack(">I", zlib.crc32(c) & 0xFFFFFFFF)
     ctype = 0 if palette is None else 3
-    png = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 2, ctype, 0, 0, 0))
+    png = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, depth, ctype, 0, 0, 0))
     if palette is not None:
         png += chunk(b"PLTE", b"".join(bytes(c) for c in palette))
     png += chunk(b"IDAT", zlib.compress(bytes(raw), 9)) + chunk(b"IEND", b"")
@@ -417,18 +419,23 @@ def preview(rom, outdir, colored=True):
         index.append("%s,$%04x,%s,%s" % (name, a, "" if pid is None else "%d" % pid, how))
         o = off(gb, tiles)
         _, strip = tiles_to_rows(rom[o:o + n * 16])
-        pos = [(x, y) for x, y, _ in sprite_positions(rom, gb, spr, n // 2)]
+        pos = sprite_positions(rom, gb, spr, n // 2)
         x0 = min(p[0] for p in pos)
         y0 = min(p[1] for p in pos)
         w = max(p[0] for p in pos) - x0 + 8
         h = max(p[1] for p in pos) - y0 + 16
+        # a sprite of a 3-byte list uses palette (object palette + its value):
+        # colors 4 * value + color in a 16-color PNG
+        adds = sorted(set(p[2] & 3 for p in pos)) if pid is not None else [0]
+        if len(adds) > 1:
+            pal = sum(([BACKDROP] + fp.colors(pid + v)[1:] for v in range(4)), [])
         canvas = [[0] * w for _ in range(h)]
-        for k, (px, py) in enumerate(pos):
+        for k, (px, py, add) in enumerate(pos):
             for r in range(16):
                 for c in range(8):
                     v = strip[r][k * 8 + c]
                     if v:
-                        canvas[py - y0 + r][px - x0 + c] = v
+                        canvas[py - y0 + r][px - x0 + c] = v + (4 * (add & 3) if len(adds) > 1 else 0)
         write_png(os.path.join(outdir, name), w, h, canvas, pal)
         count += 1
     with open(os.path.join(outdir, "index.csv"), "w") as f:

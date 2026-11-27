@@ -86,18 +86,29 @@ class FramePalettes:
                 o += i.length
         return anims
 
+    def list_fields(self, o, depth=0):
+        """The fields an initialiser list sets, with the lists it includes
+        applied first at their place (as ApplyObjInit does)."""
+        item = self.t.data.get(o)
+        fields = {}
+        if not item or item[0] != "objinit" or depth > 10:
+            return fields
+        for e in item[2]:
+            if e[0] == "byte":
+                fields[e[1]] = e[2]
+            elif e[0] == "word":
+                fields[e[1]] = e[2] & 0xFF
+                fields[e[1] + 1] = e[2] >> 8
+            elif e[0] == "include" and e[1] < 0x8000:
+                fields.update(self.list_fields(off(0 if e[1] < 0x4000 else item[1], e[1]), depth + 1))
+        return fields
+
     def _run(self):
         t = self.t
         for o, item in t.data.items():
             if item[0] != "objinit":
                 continue
-            fields = {}
-            for e in item[2]:
-                if e[0] == "byte":
-                    fields[e[1]] = e[2]
-                elif e[0] == "word":
-                    fields[e[1]] = e[2] & 0xFF
-                    fields[e[1] + 1] = e[2] >> 8
+            fields = self.list_fields(o)
             if OBJ_PALETTE not in fields:
                 continue
             pal = fields[OBJ_PALETTE]

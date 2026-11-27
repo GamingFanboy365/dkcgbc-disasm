@@ -98,24 +98,34 @@ class Finder:
                             used.add(tok[2])
         return used
 
-    def render_frame(self, a, pal=None):
+    def render_frame(self, a, pal=None, pid=None):
+        """Assemble a frame from its sprites. With pid (the object's palette
+        number), each sprite of a 3-byte list uses palette pid + its own
+        attribute value, as the game's slots hold an object's palettes in a
+        row (the bosses' palette pairs, for example)."""
         tiles, spr, n, gb = self.frame_info[a]
         rom = self.rom
         o = off(gb, tiles)
         _, strip = gfx.tiles_to_rows(rom[o:o + n * 16])
-        pos = [(x, y) for x, y, _ in gfx.sprite_positions(rom, gb, spr, n // 2)]
+        pos = gfx.sprite_positions(rom, gb, spr, n // 2)
         x0, y0 = min(p[0] for p in pos), min(p[1] for p in pos)
         w = max(p[0] for p in pos) - x0 + 8
         h = max(p[1] for p in pos) - y0 + 16
         canvas = [[None] * w for _ in range(h)]
-        for k, (px, py) in enumerate(pos):
+        for k, (px, py, add) in enumerate(pos):
             for r in range(16):
                 for c in range(8):
                     v = strip[r][k * 8 + c]
                     if v:
-                        canvas[py - y0 + r][px - x0 + c] = v
-        colors = pal or GRAY
-        return [[colors[v] if v else (0xFF, 0xFF, 0xFF) for v in row] for row in canvas]
+                        canvas[py - y0 + r][px - x0 + c] = (v, add & 7)
+        base = pal or GRAY
+
+        def color(cell):
+            v, add = cell
+            if pid is not None and add:
+                return ([GRAY[0]] + self.fp.colors(pid + add)[1:])[v]
+            return base[v]
+        return [[color(cell) if cell else (0xFF, 0xFF, 0xFF) for cell in row] for row in canvas]
 
     def frame_colors(self, a):
         pid, _ = self.fp.palette_of(a)
@@ -142,7 +152,7 @@ class Finder:
                 continue
             dist, b = min(cands)
             pid = known[b]
-            img = self.render_frame(a, [GRAY[0]] + self.fp.colors(pid)[1:])
+            img = self.render_frame(a, [GRAY[0]] + self.fp.colors(pid)[1:], pid)
             tiles = self.frame_info[a][0]
             write_rgb_png(os.path.join(outdir, "frames_guessed_palette", "%04x_%02x_%04x.png" % (a, gb, tiles)),
                           len(img[0]), len(img), img)
@@ -244,7 +254,7 @@ class Finder:
             hits = sorted(set(h for a in r for h in self.loose_matches(a)))
             for a in r:
                 pal, pid = self.frame_colors(a)
-                img = self.render_frame(a, pal)
+                img = self.render_frame(a, pal, pid)
                 tiles, spr, n, gb = self.frame_info[a]
                 write_rgb_png(os.path.join(outdir, "frames", "%04x_%02x_%04x.png" % (a, gb, tiles)),
                               len(img[0]), len(img), img)
@@ -277,7 +287,7 @@ class Finder:
                 continue
             hits = self.loose_matches(st)
             strip = []
-            imgs = [self.render_frame(a, self.frame_colors(a)[0]) for a in frames[:24]]
+            imgs = [self.render_frame(a, *self.frame_colors(a)) for a in frames[:24]]
             h = max(len(i) for i in imgs)
             for y in range(h):
                 row = []

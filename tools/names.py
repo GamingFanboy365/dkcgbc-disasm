@@ -310,8 +310,8 @@ NAMES = {
     (0x09, 0x4AFF): "Player_OnGround",  # stand, walk; A jumps, B rolls, Down crouches
     (0x09, 0x4CFF): "Player_InAir",
     (0x09, 0x4E29): "Player_Roll",  # B; keeps rolling while B and a direction are held
-    (0x09, 0x4EF8): "Player_Carry",  # holding a barrel
-    (0x09, 0x4F5F): "Player_AfterThrow",
+    (0x09, 0x4EF8): "Player_Carry",  # tentative
+    (0x09, 0x4F5F): "Player_AfterThrow",  # tentative
     (0x09, 0x4FAB): "Player_Swim",
     (0x09, 0x56C3): "Player_Launched",  # shot from a barrel cannon; levels also start in this state
     (0x09, 0x5BCC): "Player_InBarrelCannon",  # follows the cannon object in OBJ_VAR_33
@@ -601,5 +601,5 @@ NAMES = {
     (0x09, 0x7075): "Barrel_BreakAfterDelay",
     (0x09, 0x708A): "Zinger_Touch",
     (0x09, 0x73D1): "Bitesize_Touch",
-    (0x0A, 0x5555): "HUD_PartnerIcon",  # drawn while both Kongs are there (bit 1 of $c30f)
+    (0x0A, 0x5555): "HUD_PartnerIcon",  # drawn while both Kongs are there (bit 1 of $c30f); tentative
 }

@@ -16,9 +16,9 @@ DEF wPlayer  EQU wObjects
 DEF OBJ_SIZE EQU $40
 
 DEF OBJ_FLAGS         EQU $00 ; bit 2: counted in a spawn group (see OBJ_VAR_2D); bit 5: flicker
-DEF OBJ_BANK          EQU $01 ; ROM bank of OBJ_HANDLER and OBJ_TOUCH_HANDLER
+DEF OBJ_BANK          EQU $01 ; ROM bank of OBJ_HANDLER
 DEF OBJ_HANDLER       EQU $02 ; (word) code run every frame by RunObjects
-DEF OBJ_TOUCH_HANDLER EQU $04 ; (word) jumped to when the player comes within range (tentative)
+DEF OBJ_TOUCH_HANDLER EQU $04 ; (word) routine in bank 9 jumped to when the player touches the object
 DEF OBJ_GROUND_Y      EQU $06 ; (word) height of the terrain under the object (Func_00_2214)
 DEF OBJ_TERRAIN_A     EQU $08 ; attribute of the tile under the object (Func_00_2214)
 DEF OBJ_TERRAIN_B     EQU $09 ; second attribute of that tile (Func_00_2214)

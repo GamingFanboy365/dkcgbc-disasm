@@ -9606,7 +9606,7 @@ CrankyObjPaletteSet::
 	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31,  0,  0
 
 CrankyData_fe_7891::
-	INCBIN "baserom.gbc", $3fb891, $000a
+	db $09, $08, $09, $0a, $09, $0a, $09, $0b, $09, $0b ; no reader found
 
 CrankyRecordTable::
 	dw CrankyRecords_fe_78a7 ; Buddies Beware
@@ -9892,7 +9892,271 @@ CrankyPaletteChoice::
 	db 0, 8, 12, 17, 17, 0, 0, 7 ; Kremlings and Kongs
 	db 0, 8, 19, 20, 21, 0, 0, 7 ; Galleon Gunner
 
-CrankyData_fe_7bd9::
-	INCBIN "baserom.gbc", $3fbbd9, $02af
+CrankyPairs_fe_7bd9::
+	db 0, 4 ; by [$cbf0]
+	db 0, 3
+	db 0, 2
+	db 0, 4
+	db 1, 2
+	db 0, 2
+	db $ff
+
+CrankyLevelTable::
+	dw CrankyLevel_fe_7bf4, CrankyLevel_fe_7bfc, CrankyLevel_fe_7c04, CrankyLevel_fe_7c14, CrankyLevel_fe_7c1c, CrankyLevel_fe_7c2c, CrankyLevel_fe_7c34 ; by [$cbfc]
+
+CrankyLevel_fe_7bf4::
+	db 3, $40
+	dw CrankyLevelList_fe_7c3c, CrankyLevelList_fe_7c43, CrankyLevelList_fe_7c4a
+
+CrankyLevel_fe_7bfc::
+	db 3, $40
+	dw CrankyLevelList_fe_7c51, CrankyLevelList_fe_7c58, CrankyLevelList_fe_7c61
+
+CrankyLevel_fe_7c04::
+	db 3, $40
+	dw CrankyLevelList_fe_7c6a, CrankyLevelList_fe_7c71, CrankyLevelList_fe_7c7a
+
+CrankyLevel_fe_7c0c::
+	db 3, $20
+	dw CrankyLevelList_fe_7c83, CrankyLevelList_fe_7c8a, CrankyLevelList_fe_7c91
+
+CrankyLevel_fe_7c14::
+	db 3, $20
+	dw CrankyLevelList_fe_7c98, CrankyLevelList_fe_7c9f, CrankyLevelList_fe_7ca8
+
+CrankyLevel_fe_7c1c::
+	db 3, $20
+	dw CrankyLevelList_fe_7cb1, CrankyLevelList_fe_7cb8, CrankyLevelList_fe_7cc1
+
+CrankyLevel_fe_7c24::
+	db 3, $10
+	dw CrankyLevelList_fe_7cca, CrankyLevelList_fe_7cd1, CrankyLevelList_fe_7cd8
+
+CrankyLevel_fe_7c2c::
+	db 3, $10
+	dw CrankyLevelList_fe_7cdf, CrankyLevelList_fe_7ce6, CrankyLevelList_fe_7ced
+
+CrankyLevel_fe_7c34::
+	db 3, $10
+	dw CrankyLevelList_fe_7cf4, CrankyLevelList_fe_7cfd, CrankyLevelList_fe_7d06
+
+CrankyLevelList_fe_7c3c::
+	db $02, $02, $01, $01, $60, $02, $60
+
+CrankyLevelList_fe_7c43::
+	db $02, $02, $01, $02, $60, $04, $60
+
+CrankyLevelList_fe_7c4a::
+	db $02, $04, $01, $04, $60, $04, $60
+
+CrankyLevelList_fe_7c51::
+	db $02, $02, $02, $01, $60, $02, $60
+
+CrankyLevelList_fe_7c58::
+	db $03, $02, $02, $02, $60, $03, $60, $04, $60
+
+CrankyLevelList_fe_7c61::
+	db $03, $04, $02, $03, $60, $04, $60, $05, $60
+
+CrankyLevelList_fe_7c6a::
+	db $02, $02, $03, $01, $60, $02, $60
+
+CrankyLevelList_fe_7c71::
+	db $03, $02, $03, $02, $60, $03, $60, $04, $60
+
+CrankyLevelList_fe_7c7a::
+	db $03, $04, $03, $03, $60, $04, $60, $05, $60
+
+CrankyLevelList_fe_7c83::
+	db $02, $02, $01, $01, $50, $02, $50
+
+CrankyLevelList_fe_7c8a::
+	db $02, $03, $01, $02, $50, $04, $50
+
+CrankyLevelList_fe_7c91::
+	db $02, $04, $01, $04, $50, $04, $50
+
+CrankyLevelList_fe_7c98::
+	db $02, $02, $02, $01, $50, $02, $50
+
+CrankyLevelList_fe_7c9f::
+	db $03, $03, $02, $02, $50, $03, $50, $04, $50
+
+CrankyLevelList_fe_7ca8::
+	db $03, $04, $02, $03, $50, $04, $50, $05, $50
+
+CrankyLevelList_fe_7cb1::
+	db $02, $02, $03, $01, $50, $02, $50
+
+CrankyLevelList_fe_7cb8::
+	db $03, $03, $03, $02, $50, $03, $50, $04, $50
+
+CrankyLevelList_fe_7cc1::
+	db $03, $04, $03, $03, $50, $04, $50, $05, $50
+
+CrankyLevelList_fe_7cca::
+	db $02, $02, $01, $01, $40, $02, $40
+
+CrankyLevelList_fe_7cd1::
+	db $02, $03, $01, $02, $40, $04, $40
+
+CrankyLevelList_fe_7cd8::
+	db $02, $04, $01, $04, $40, $04, $40
+
+CrankyLevelList_fe_7cdf::
+	db $02, $02, $02, $01, $40, $02, $40
+
+CrankyLevelList_fe_7ce6::
+	db $02, $03, $02, $02, $40, $04, $40
+
+CrankyLevelList_fe_7ced::
+	db $02, $04, $02, $04, $40, $04, $40
+
+CrankyLevelList_fe_7cf4::
+	db $03, $02, $03, $01, $40, $02, $40, $03, $40
+
+CrankyLevelList_fe_7cfd::
+	db $03, $03, $03, $03, $40, $04, $40, $05, $40
+
+CrankyLevelList_fe_7d06::
+	db $04, $04, $03, $02, $40, $03, $40, $04, $40, $05, $40
+
+CrankyPauseText::
+	dw CrankyPauseStrings_fe_7d1b, CrankyPauseStrings_fe_7d27, CrankyPauseStrings_fe_7d33, CrankyPauseStrings_fe_7d3f, CrankyPauseStrings_fe_7d4b ; by language
+
+CrankyPauseStrings_fe_7d1b::
+	dw CrankyPauseString_fe_7d57, CrankyPauseString_fe_7d62, CrankyPauseString_fe_7d6f, CrankyPauseString_fe_7d78, CrankyPauseString_fe_7d82, CrankyPauseString_fe_7d8a ; English
+
+CrankyPauseStrings_fe_7d27::
+	dw CrankyPauseString_fe_7dd2, CrankyPauseString_fe_7ddc, CrankyPauseString_fe_7de7, CrankyPauseString_fe_7df5, CrankyPauseString_fe_7e04, CrankyPauseString_fe_7e0b ; German
+
+CrankyPauseStrings_fe_7d33::
+	dw CrankyPauseString_fe_7d91, CrankyPauseString_fe_7d9b, CrankyPauseString_fe_7da9, CrankyPauseString_fe_7db5, CrankyPauseString_fe_7dc2, CrankyPauseString_fe_7dca ; French
+
+CrankyPauseStrings_fe_7d3f::
+	dw CrankyPauseString_fe_7e50, CrankyPauseString_fe_7e5a, CrankyPauseString_fe_7e67, CrankyPauseString_fe_7e70, CrankyPauseString_fe_7e7a, CrankyPauseString_fe_7e81 ; Italian
+
+CrankyPauseStrings_fe_7d4b::
+	dw CrankyPauseString_fe_7e14, CrankyPauseString_fe_7e1e, CrankyPauseString_fe_7e2c, CrankyPauseString_fe_7e36, CrankyPauseString_fe_7e42, CrankyPauseString_fe_7e49 ; Spanish
+
+CrankyPauseString_fe_7d57::
+	db $40, $48, 6, 0 ; x, y, length
+	db "PAUSED", $87
+
+CrankyPauseString_fe_7d62::
+	db $38, $58, 8, 0 ; x, y, length
+	db "CONTINUE", $87
+
+CrankyPauseString_fe_7d6f::
+	db $48, $68, 4, 0 ; x, y, length
+	db "QUIT", $87
+
+CrankyPauseString_fe_7d78::
+	db $44, $48, 5, 0 ; x, y, length
+	db "QUIT?", $87
+
+CrankyPauseString_fe_7d82::
+	db $4c, $58, 3, 0 ; x, y, length
+	db "YES", $87
+
+CrankyPauseString_fe_7d8a::
+	db $50, $68, 2, 0 ; x, y, length
+	db "NO", $87
+
+CrankyPauseString_fe_7d91::
+	db $44, $48, 5, 0 ; x, y, length
+	db "PAUSE", $87
+
+CrankyPauseString_fe_7d9b::
+	db $38, $58, 9, 0 ; x, y, length
+	db "CONTINUER", $87
+
+CrankyPauseString_fe_7da9::
+	db $3c, $68, 7, 0 ; x, y, length
+	db "QUITTER", $87
+
+CrankyPauseString_fe_7db5::
+	db $38, $48, 8, 0 ; x, y, length
+	db "QUITTER?", $87
+
+CrankyPauseString_fe_7dc2::
+	db $4c, $58, 3, 0 ; x, y, length
+	db "OUI", $87
+
+CrankyPauseString_fe_7dca::
+	db $4c, $68, 3, 0 ; x, y, length
+	db "NON", $87
+
+CrankyPauseString_fe_7dd2::
+	db $44, $48, 5, 0 ; x, y, length
+	db "PAUSE", $87
+
+CrankyPauseString_fe_7ddc::
+	db $40, $58, 6, 0 ; x, y, length
+	db "WEITER", $87
+
+CrankyPauseString_fe_7de7::
+	db $34, $68, 9, 0 ; x, y, length
+	db "ABBRECHEN", $87
+
+CrankyPauseString_fe_7df5::
+	db $30, $48, 10, 0 ; x, y, length
+	db "ABBRECHEN?", $87
+
+CrankyPauseString_fe_7e04::
+	db $50, $58, 2, 0 ; x, y, length
+	db "JA", $87
+
+CrankyPauseString_fe_7e0b::
+	db $48, $68, 4, 0 ; x, y, length
+	db "NEIN", $87
+
+CrankyPauseString_fe_7e14::
+	db $44, $48, 5, 0 ; x, y, length
+	db "PAUSA", $87
+
+CrankyPauseString_fe_7e1e::
+	db $34, $58, 9, 0 ; x, y, length
+	db "CONTINUAR", $87
+
+CrankyPauseString_fe_7e2c::
+	db $44, $68, 5, 0 ; x, y, length
+	db "SALIR", $87
+
+CrankyPauseString_fe_7e36::
+	db $3c, $48, 7, 0 ; x, y, length
+	db $bf, "SALIR?", $87
+
+CrankyPauseString_fe_7e42::
+	db $50, $58, 2, 0 ; x, y, length
+	db "S", $cd, $87
+
+CrankyPauseString_fe_7e49::
+	db $50, $68, 2, 0 ; x, y, length
+	db "NO", $87
+
+CrankyPauseString_fe_7e50::
+	db $44, $48, 5, 0 ; x, y, length
+	db "PAUSA", $87
+
+CrankyPauseString_fe_7e5a::
+	db $38, $58, 8, 0 ; x, y, length
+	db "CONTINUA", $87
+
+CrankyPauseString_fe_7e67::
+	db $48, $68, 4, 0 ; x, y, length
+	db "ESCI", $87
+
+CrankyPauseString_fe_7e70::
+	db $44, $48, 5, 0 ; x, y, length
+	db "ESCI?", $87
+
+CrankyPauseString_fe_7e7a::
+	db $50, $58, 2, 0 ; x, y, length
+	db "S", $cd, $87
+
+CrankyPauseString_fe_7e81::
+	db $50, $68, 2, 0 ; x, y, length
+	db "NO", $87
 	ds 376, $00 ; $7e88
 

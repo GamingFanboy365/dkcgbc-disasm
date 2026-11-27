@@ -200,6 +200,9 @@ A few more pieces of code in the main game's banks can't be reached:
 
 ## Front-end data
 
+Funky's Fishing's sprite animations 10 and 11 each have one more frame's data after their last frame: a 9-sprite layout and its tiles (`FishingLayout_52_54f0` with `FishingTiles_52_5528`, and `FishingLayout_52_58a8` with `FishingTiles_52_58e0`). The animation headers stop one frame short, and no pointer anywhere reaches them (the two byte matches in banks `$50` and `$55` are an instruction and unrelated data). Put together, each looks like the animation's regular 3-sprite figure stacked three times.
+
+
 `Unused_f1_678a` (32 bytes at `$F1:678A`, between `RingCircle` and a table read by `Func_f1_4926`) wasn't read in any emulator session, and no pointer anywhere in the ROM leads to it. It holds 10 bytes, a two-entry pointer table and the two 9-byte records it points to, so it was probably a small table of the menu code that lost its user.
 
 The two `LanguageWordTiles` pointers per language name two 8-tile words, but `LoadLanguageWordTiles` only copies the first of each pair. The second words (at `$F1:6AC0`, `$6BC0`, `$6CC0`, `$6DC0` and `$6EC0`) may be loaded somewhere not found yet.

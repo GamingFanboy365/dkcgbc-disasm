@@ -327,6 +327,10 @@ EXTRA_TILES = [
     (0x1B, 0x6000, 79, "world map animated tiles (rest of the $5fd0 strip)"),
     (0x31, 0x5CA0, 62, "sparkle sprite tiles (8x16) after the last frame tiles; no frame points here"),
     (0xF7, 0x7F60, 4, "tiles after the front-end sprites; no loader found"),
+    (0x55, 0x4870, 55, "Hi-Score tiles, copied to VRAM bank 1 at $8c90"),
+    (0x55, 0x4BE0, 128, "Hi-Score tiles, copied to $9000"),
+    (0x55, 0x53E0, 128, "Hi-Score tiles, copied to $8800"),
+    (0x55, 0x5BE0, 32, "Hi-Score tiles, copied to VRAM bank 1 at $9000"),
 ]
 
 # Front-end text in bank $ff that the text tables don't reach: per language

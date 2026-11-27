@@ -372,8 +372,15 @@ def parse_banks(t, rom):
             i += 1
     t._claim(0x0D, 0x42E9, 0x5980 - 0x42E9, "rows", rows, "=RareLogoAnimation")
     t._claim(0x0D, 0x5F00, 88, "rows", hexrow("db", rom[off(0x0D, 0x5F00):off(0x0D, 0x5F00) + 88], 8), "=RareLogoAttributes")
-    t._claim(0x55, 0x4840, 0x6100 - 0x4840, "incbin", None, "=HiScoreGraphics")  # font, scene tiles and tile maps
-    t._claim(0x55, 0x6100, 0x30, "palette", 6, "=HiScorePalettes")
+    # Hi-Score screen (bank $55): default table, tiles (HDMA'd by Func_55_45xx),
+    # the screen map and two sets of 8 palettes (Func_55_43ec)
+    hs = rom[off(0x55, 0x4840):off(0x55, 0x4863)]
+    t._claim(0x55, 0x4840, 35, "rows", [("db", ["$%02x" % v for v in hs[k:k + 3]] + ["$%02x" % v for v in hs[k + 3:k + 7]],
+                                         "name (3 tiles), score (BCD)") for k in range(0, 35, 7)], "=HiScoreDefaults")  # copied to $dd77
+    t._claim(0x55, 0x4863, 13, "rows", [("ds", ["13", "$00"], "padding")], "=Padding_55_4863")
+    t._claim(0x55, 0x5DE0, 720, "screenmap", None, "=HiScoreMap")  # Func_55_4580: attributes, then tile numbers
+    t._claim(0x55, 0x60B0, 64, "palette", 8, "=HiScorePalettes")
+    t._claim(0x55, 0x60F0, 64, "palette", 8, "=HiScoreObjPalettes_55")
     # Front-end sprite animations ($f0:5a24, Func_f0_4fa8; tools/feanim.py)
     import feanim
     fa = feanim.decode(rom)
@@ -530,8 +537,38 @@ def parse_banks(t, rom):
         for i, x in enumerate(cuts):
             y = cuts[i + 1] if i + 1 < len(cuts) else end
             t._claim(0xFE, x, y - x, "rows", hexrow("db", rom[off(0xFE, x):off(0xFE, y)], 6 if sub == "CrankyRecords" else 8), sub)
-    t._claim(0xFE, 0x7891, 10, "incbin", None, "=CrankyData_fe_7891")
-    t._claim(0xFE, 0x7BD9, 0x7E88 - 0x7BD9, "incbin", None, "=CrankyData_fe_7bd9")
+    t._claim(0xFE, 0x7891, 10, "rows", [("db", ["$%02x" % v for v in rom[off(0xFE, 0x7891):off(0xFE, 0x789B)]],
+                                         "no reader found")], "=CrankyData_fe_7891")
+    B = lambda a: rom[off(0xFE, a)]  # noqa: E731
+    W = lambda a: B(a) | B(a + 1) << 8  # noqa: E731
+    t._claim(0xFE, 0x7BD9, 13, "rows", [("db", ["%d" % B(a), "%d" % B(a + 1)], "by [$cbf0]" if a == 0x7BD9 else None)
+                                        for a in range(0x7BD9, 0x7BE5, 2)] + [("db", ["$ff"], None)], "=CrankyPairs_fe_7bd9")
+    recs = [W(0x7BE6 + 2 * k) for k in range(7)]
+    t._claim(0xFE, 0x7BE6, 14, "rows", [("dw", [ref(0xFE, r) for r in recs], "by [$cbfc]")], "=CrankyLevelTable")
+    lists = set()
+    for a in range(0x7BF4, 0x7C3C, 8):  # count, a byte, three lists
+        ps = [W(a + 2 + 2 * k) for k in range(3)]
+        lists.update(ps)
+        t._claim(0xFE, a, 8, "rows", [("db", ["%d" % B(a), "$%02x" % B(a + 1)], None), ("dw", [ref(0xFE, p) for p in ps], None)],
+                 "CrankyLevel")
+    ls = sorted(lists) + [0x7D11]
+    for x, y in zip(ls, ls[1:]):
+        t._claim(0xFE, x, y - x, "rows", [("db", ["$%02x" % B(a) for a in range(x, y)], None)], "CrankyLevelList")
+    # pause menu text: a table per language ([$c805]) of six strings, each x,
+    # y, length, 0, the letters and $87 (Func_fe_58df)
+    langs = [W(0x7D11 + 2 * k) for k in range(5)]
+    t._claim(0xFE, 0x7D11, 10, "rows", [("dw", [ref(0xFE, p) for p in langs], "by language")], "=CrankyPauseText")
+    strs = []
+    for k, p in enumerate(langs):
+        ss = [W(p + 2 * j) for j in range(6)]
+        strs += ss
+        t._claim(0xFE, p, 12, "rows", [("dw", [ref(0xFE, x) for x in ss], ("English", "German", "French", "Italian", "Spanish")[k])],
+                 "CrankyPauseStrings")
+    for x in sorted(set(strs)):
+        n = B(x + 2)
+        txt = bytes(B(x + 4 + i) for i in range(n))
+        t._claim(0xFE, x, 5 + n, "rows", [("db", ["$%02x" % B(x), "$%02x" % B(x + 1), "%d" % n, "0"], "x, y, length"),
+                                          ("db", text_tokens(txt) + ["$87"], None)], "CrankyPauseString")
     # sound driver handler tables at $3f00: 5 SFX commands, then 82 music commands
     ws = [rom[0x3F00 + 2 * k] | rom[0x3F01 + 2 * k] << 8 for k in range(87)]
     t._claim(0, 0x3F00, 10, "rows", [("dw", [ref(0, w) for w in ws[:5]], "SFX commands $00-$08")], "=SFXCommandHandlers")
@@ -683,7 +720,23 @@ def parse_banks(t, rom):
             rows.append(("db", text_tokens(rom[st:j + 1]), None))
             st = j + 1
     t._claim(0x50, 0x769A, te - 0x769A, "rows", rows, "=FishingPauseText")  # English, French, Spanish, Italian, German
-    t._claim(0x50, te, 0x769A + 1515 - te, "incbin", None, "=FishingData_50_7753")
+    # Funky's Fishing tables after the text
+    def bcd(v):  # 4-byte BCD, low byte first
+        return "".join("%02x" % x for x in reversed(v)).lstrip("0") or "0"
+    for a in range(0x7753, 0x77F3, 0x20):  # points by fish (Func_50_5aXX adds one to the score at $de9f)
+        rows = [("db", ["$%02x" % v for v in rom[off(0x50, a + 4 * k):off(0x50, a + 4 * k + 4)]], "%s points (BCD)" % bcd(rom[off(0x50, a + 4 * k):off(0x50, a + 4 * k + 4)]))
+                for k in range(8)]
+        t._claim(0x50, a, 0x20, "rows", rows, "FishPoints")
+    t._claim(0x50, 0x77F3, 36, "rows", [("db", ["$%02x" % v for v in rom[off(0x50, 0x77F3 + 4 * k):off(0x50, 0x77F7 + 4 * k)]],
+                                         "%s (BCD)" % bcd(rom[off(0x50, 0x77F3 + 4 * k):off(0x50, 0x77F7 + 4 * k)])) for k in range(9)],
+             "=FishingBonusPoints")  # the first is added by itself, the rest by index from $77f7
+    for a, n in ((0x7817, 4), (0x781B, 20), (0x782F, 6)):  # sequences set up in $df78/$df7a (length - 1)
+        t._claim(0x50, a, n, "rows", [("db", ["%d" % v for v in rom[off(0x50, a):off(0x50, a + n)]], None)], "FishingSequence")
+    t._claim(0x50, 0x7835, 80, "rows", [("db", ["%d" % v for v in rom[off(0x50, a):off(0x50, a + 16)]], "by [$deb1]" if a == 0x7835 else None)
+                                        for a in range(0x7835, 0x7885, 16)], "=FishingRamp")
+    t._claim(0x50, 0x7885, 0x400, "rows", [("dw", ["$%04x" % (rom[off(0x50, a + 2 * k)] | rom[off(0x50, a + 2 * k + 1)] << 8) for k in range(8)],
+                                            "copied to $d96f (Func_50_46xx); all below $8000" if a == 0x7885 else None)
+                                           for a in range(0x7885, 0x7C85, 16)], "=FishingWords")
     sine = [rom[off(0x51, 0x44F1 + 2 * k)] | rom[off(0x51, 0x44F1 + 2 * k) + 1] << 8 for k in range(1031)]
     t._claim(0x51, 0x44F1, 2062, "rows", [("dw", ["$%04x" % w for w in sine[j:j + 8]], None) for j in range(0, 1031, 8)],
              "=FishingSineTable")

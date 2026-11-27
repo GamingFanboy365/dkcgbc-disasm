@@ -214,9 +214,44 @@ NAMES = {
     (0x0A, 0x69F5): "MiniNecky",
     (0x0A, 0x6BA8): "Mincer",
     (0x0A, 0x71B1): "BlackDrum",               # spawns enemies (ObjScript, Func_0a_713c)
-    (0x0A, 0x5A9A): "StarBarrel",
-    (0x08, 0x55FA): "BlastBarrel",
+    (0x08, 0x55FA): "StarBarrel",                # the checkpoint; a per-level bit remembers it
     (0x08, 0x5C2E): "AnimalCrate",
     (0x08, 0x4088): "Coconut",
     (0x0A, 0x65D1): "Elevator",
+    # object states
+    (0x0A, 0x713C): "RunBlackDrumScript",
+    (0x0A, 0x71C3): "BlackDrum_Wait",            # runs the spawn script once enemies are gone and the player is near
+    (0x09, 0x401A): "Gnawty_Red_Walk",
+    (0x0A, 0x4BCC): "KingKRool_Wait",
+    (0x0A, 0x4BF4): "KingKRool_Throw",
+    (0x0A, 0x4CC5): "KingKRool_WaitForCrown",
+    (0x0A, 0x4CEE): "KingKRool_Animate",
+    (0x0A, 0x5198): "Crownerang",                # flies out, then back (Crownerang_Return)
+    (0x0A, 0x51B3): "Crownerang_Return",
+    (0x0A, 0x50F8): "KingKRool_Defeated",        # falls; plays song $09 when he lands
+    (0x0A, 0x65A5): "Klaptrap_Walk",             # jumps when the player presses A
+    (0x0A, 0x447E): "MasterNecky_Enter",
+    (0x0A, 0x6C3F): "Mincer_Fall",
+    (0x09, 0x619D): "PlayerEnguarde_UpDown",
+    (0x0A, 0x46AE): "QueenB_Fly",
+    (0x0A, 0x47FE): "QueenB_SetSpeed",           # from ObjXVelTable_0a_481d
+    (0x0A, 0x46E9): "QueenB_Hit",
+    (0x0A, 0x4729): "QueenB_HitRise",
+    (0x0A, 0x485C): "QueenB_CycleColour",        # flashes through Cycle_0a_4871
+    (0x0A, 0x4849): "QueenB_SetHitColour",
+    (0x09, 0x60EC): "BouncePlayerOffBoss",
+    (0x0A, 0x42B9): "VeryGnawty_Recoil",
+    (0x0A, 0x45E9): "MasterNecky_Recoil",
+    (0x08, 0x5168): "BarrelCannon",              # 16 directions (OBJ_VAR_38); OBJ_VAR_3C bit 3: blast barrel frames
+    (0x08, 0x5183): "BarrelCannon_Idle",
+    (0x08, 0x54FE): "BarrelCannon_SetFrame",     # FrameTable_08_5522
+    (0x08, 0x5562): "BarrelCannon_Move",
+    (0x0A, 0x6D65): "StopGoBarrel",              # STOP or GO frame and palette by the timer at $c446
+    (0x0A, 0x6DCC): "OnOffBarrel",               # ON or OFF frame by the same timer
+    (0x08, 0x50DE): "Tire",
+    (0x08, 0x44BC): "GreenBanana",
+    (0x09, 0x740D): "ClamboPearl",               # thrown by Clambo's script (ObjInit_0a_6542)
+    (0x0A, 0x51C6): "Cannonball",
+    (0x08, 0x4344): "LetterWord",                # spawns a LetterWord_08_... row of letter blocks
+    (0x08, 0x4581): "StepRow",                   # a row of parts stepping through a StepPattern
 }

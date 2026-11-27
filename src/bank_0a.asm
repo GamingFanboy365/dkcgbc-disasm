@@ -455,7 +455,7 @@ Func_0a_4270::
 Timers_0a_42af::
 	db 20, 18, 16, 14, 12, 10, 8, 6, 4, 2 ; OBJ_VAR_30 by OBJ_VAR_2E
 
-Func_0a_42b9::
+VeryGnawty_Recoil::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -678,9 +678,9 @@ MasterNecky::
 	add hl, bc
 	set 5, [hl]
 	rlca
-	jr nc, Func_0a_447e
+	jr nc, MasterNecky_Enter
 	res 5, [hl]
-	jr Func_0a_447e
+	jr MasterNecky_Enter
 
 
 ObjInitTable_0a_443c::
@@ -690,8 +690,8 @@ ObjInitTable_0a_443c::
 	dw ObjInit_0a_4478
 
 ObjInit_0a_4444::
-	obj_byte OBJ_BANK, BANK(Func_0a_447e)
-	obj_word OBJ_HANDLER, Func_0a_447e
+	obj_byte OBJ_BANK, BANK(MasterNecky_Enter)
+	obj_word OBJ_HANDLER, MasterNecky_Enter
 	obj_byte OBJ_XSUB, $00
 	obj_byte OBJ_VAR_36, $00
 	obj_byte OBJ_VAR_32, $00
@@ -730,7 +730,7 @@ ObjInit_0a_4478::
 	obj_byte OBJ_VAR_31, $60
 	obj_end
 
-Func_0a_447e::
+MasterNecky_Enter::
 	call ApplyXVelocity
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
@@ -957,7 +957,7 @@ ObjInit_0a_45d7::
 	obj_word OBJ_YACCEL, $0050
 	obj_end
 
-Func_0a_45e9::
+MasterNecky_Recoil::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -981,8 +981,8 @@ Func_0a_45e9::
 
 
 ObjInit_0a_460f::
-	obj_byte OBJ_BANK, BANK(Func_0a_447e)
-	obj_word OBJ_HANDLER, Func_0a_447e
+	obj_byte OBJ_BANK, BANK(MasterNecky_Enter)
+	obj_word OBJ_HANDLER, MasterNecky_Enter
 	obj_end
 
 ObjInit_0a_4615::
@@ -1065,19 +1065,19 @@ QueenB::
 	add hl, bc
 	add a, [hl]
 	and $03
-	call Func_0a_47fe
+	call QueenB_SetSpeed
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_46ae)
+	ld [hl], LOW(QueenB_Fly)
 	inc l
-	ld [hl], HIGH(Func_0a_46ae)
-	jr Func_0a_46ae
+	ld [hl], HIGH(QueenB_Fly)
+	jr QueenB_Fly
 
 
 Accel_0a_46a4::
 	dw $0100, $0180, $0200, $0280, $0300 ; acceleration by OBJ_VAR_2E
 
-Func_0a_46ae::
+QueenB_Fly::
 	call Func_0a_40ad
 	jr z, .jump_46c3
 	ld hl, wObjects + OBJ_VAR_32
@@ -1088,7 +1088,7 @@ Func_0a_46ae::
 	add a, [hl]
 	and $03
 	ld [hl], a
-	call Func_0a_47fe
+	call QueenB_SetSpeed
 .jump_46c3:
 	ld hl, wObjects + OBJ_XVEL + 1
 	add hl, bc
@@ -1117,18 +1117,18 @@ Func_0a_46ae::
 	jp NextObject
 
 
-Func_0a_46e9::
-	call Func_0a_485c
+QueenB_Hit::
+	call QueenB_CycleColour
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_471d
-	call Func_0a_4849
+	call QueenB_SetHitColour
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4729)
+	ld [hl], LOW(QueenB_HitRise)
 	inc l
-	ld [hl], HIGH(Func_0a_4729)
+	ld [hl], HIGH(QueenB_HitRise)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $20
@@ -1151,7 +1151,7 @@ Func_0a_46e9::
 	jp NextObject
 
 
-Func_0a_4729::
+QueenB_HitRise::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
@@ -1280,7 +1280,7 @@ BossDefeated::
 	jp NextObject
 
 
-Func_0a_47fe::
+QueenB_SetSpeed::
 	add a, a
 	add a, a
 	ld e, a
@@ -1333,7 +1333,7 @@ Func_0a_482d::
 	ret
 
 
-Func_0a_4849::
+QueenB_SetHitColour::
 	call Func_0a_482d
 	ld a, $1d
 	ld [hli], a
@@ -1351,7 +1351,7 @@ Func_0a_4852::
 	ret
 
 
-Func_0a_485c::
+QueenB_CycleColour::
 	call Func_0a_482d
 	ld a, [$c336]
 	and $0e
@@ -1869,23 +1869,23 @@ KingKRool::
 	ld [hl], HIGH(Anim_04_5489)
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4bcc)
+	ld [hl], LOW(KingKRool_Wait)
 	inc l
-	ld [hl], HIGH(Func_0a_4bcc)
+	ld [hl], HIGH(KingKRool_Wait)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $28
 
-Func_0a_4bcc::
+KingKRool_Wait::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_4beb
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4bf4)
+	ld [hl], LOW(KingKRool_Throw)
 	inc l
-	ld [hl], HIGH(Func_0a_4bf4)
+	ld [hl], HIGH(KingKRool_Throw)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -1900,7 +1900,7 @@ Func_0a_4bcc::
 	jp NextObject
 
 
-Func_0a_4bf4::
+KingKRool_Throw::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -1910,9 +1910,9 @@ Func_0a_4bf4::
 	ld [$c32c], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4cc5)
+	ld [hl], LOW(KingKRool_WaitForCrown)
 	inc l
-	ld [hl], HIGH(Func_0a_4cc5)
+	ld [hl], HIGH(KingKRool_WaitForCrown)
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld [hl], $00
@@ -2005,8 +2005,8 @@ Func_0a_4bf4::
 
 ObjInit_0a_4c9b::
 	obj_byte OBJ_FLAGS, $15
-	obj_byte OBJ_BANK, BANK(Func_0a_5198)
-	obj_word OBJ_HANDLER, Func_0a_5198
+	obj_byte OBJ_BANK, BANK(Crownerang)
+	obj_word OBJ_HANDLER, Crownerang
 	obj_word OBJ_TOUCH_HANDLER, $4001
 	obj_byte OBJ_PALETTE, $2a
 	obj_word OBJ_ANIM, Anim_04_5497
@@ -2018,7 +2018,7 @@ ObjInit_0a_4c9b::
 ObjWordTable_0a_4cb1::
 	dw $0200, $0220, $0240, $0280, $02a0, $02c0, $0300, $0320, $0340, $0400 ; by OBJ_VAR_2E
 
-Func_0a_4cc5::
+KingKRool_WaitForCrown::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -2035,15 +2035,15 @@ Func_0a_4cc5::
 
 
 ObjInit_0a_4cdf::
-	obj_byte OBJ_BANK, BANK(Func_0a_4cee)
-	obj_word OBJ_HANDLER, Func_0a_4cee
+	obj_byte OBJ_BANK, BANK(KingKRool_Animate)
+	obj_word OBJ_HANDLER, KingKRool_Animate
 	obj_word OBJ_ANIM, Anim_04_53db
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
-Func_0a_4cee::
+KingKRool_Animate::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -2455,8 +2455,8 @@ Func_0a_4f50::
 
 ObjInit_0a_4f77::
 	obj_byte OBJ_FLAGS, $15
-	obj_byte OBJ_BANK, BANK(Func_0a_51c6)
-	obj_word OBJ_HANDLER, Func_0a_51c6
+	obj_byte OBJ_BANK, BANK(Cannonball)
+	obj_word OBJ_HANDLER, Cannonball
 	obj_word OBJ_TOUCH_HANDLER, $4001
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $01
@@ -2677,7 +2677,7 @@ ObjInit_0a_50e4::
 	obj_byte OBJ_PALETTE, $03
 	obj_end
 
-Func_0a_50f8::
+KingKRool_Defeated::
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -2765,7 +2765,7 @@ ObjInit_0a_518a::
 	obj_word OBJ_VAR_30, $001e
 	obj_end
 
-Func_0a_5198::
+Crownerang::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -2773,16 +2773,16 @@ Func_0a_5198::
 	ld [hl], $96
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_51b3)
+	ld [hl], LOW(Crownerang_Return)
 	inc l
-	ld [hl], HIGH(Func_0a_51b3)
+	ld [hl], HIGH(Crownerang_Return)
 .jump_51aa:
 	call ApplyXVelocity
 	call AnimateObject
 	jp NextObject
 
 
-Func_0a_51b3::
+Crownerang_Return::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -2794,7 +2794,7 @@ Func_0a_51b3::
 	jp NextObject
 
 
-Func_0a_51c6::
+Cannonball::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	bit 0, [hl]
@@ -4195,7 +4195,7 @@ Func_0a_5a61::
 	jp NextObject
 
 
-StarBarrel::
+Func_0a_5a9a::
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -5832,8 +5832,8 @@ RunClamboScript::
 
 ObjInit_0a_6542::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_09_740d)
-	obj_word OBJ_HANDLER, Func_09_740d
+	obj_byte OBJ_BANK, BANK(ClamboPearl)
+	obj_word OBJ_HANDLER, ClamboPearl
 	obj_word OBJ_TOUCH_HANDLER, $4001
 	obj_word OBJ_FRAME, Frame_20_4ada
 	obj_byte OBJ_ANIM_PARAM, $02
@@ -5878,16 +5878,16 @@ Necky_FlyPatrol::
 Klaptrap::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_65a5)
+	ld [hl], LOW(Klaptrap_Walk)
 	inc hl
-	ld [hl], HIGH(Func_0a_65a5)
+	ld [hl], HIGH(Klaptrap_Walk)
 	rst_farcall Func_09_4212
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
-Func_0a_65a5::
+Klaptrap_Walk::
 	rst_farcall Func_09_4227
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
@@ -6952,9 +6952,9 @@ Mincer::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_6c3f)
+	ld [hl], LOW(Mincer_Fall)
 	inc l
-	ld [hl], HIGH(Func_0a_6c3f)
+	ld [hl], HIGH(Mincer_Fall)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, de
 	ld [hl], $04
@@ -7020,7 +7020,7 @@ Func_0a_6c2e::
 	ret
 
 
-Func_0a_6c3f::
+Mincer_Fall::
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -7232,7 +7232,7 @@ Func_0a_6d25::
 	jp NextObject
 
 
-Func_0a_6d65::
+StopGoBarrel::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -7286,7 +7286,7 @@ Func_0a_6d65::
 	add hl, bc
 	ld [hl], a
 .jump_6dbc:
-	ld de, $4dda
+	ld de, Frame_20_4dda
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, e
@@ -7297,7 +7297,7 @@ Func_0a_6d65::
 	jp NextObject
 
 
-Func_0a_6dcc::
+OnOffBarrel::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -7306,7 +7306,7 @@ Func_0a_6dcc::
 	jr nz, .jump_6dd6
 	ld [hl], a
 .jump_6dd6:
-	ld de, $4de6
+	ld de, Frame_20_4de6
 	ld hl, $c447
 	ld a, [hld]
 	or a
@@ -7314,7 +7314,7 @@ Func_0a_6dcc::
 	ld a, [hl]
 	cp $19
 	jr nc, .jump_6de8
-	ld de, $4dec
+	ld de, Frame_20_4dec
 .jump_6de8:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
@@ -7918,7 +7918,7 @@ Func_0a_70ec::
 	jr .jump_7125
 
 
-Func_0a_713c::
+RunBlackDrumScript::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 .jump_7140:
@@ -8013,14 +8013,14 @@ BlackDrum::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_71c3)
+	ld [hl], LOW(BlackDrum_Wait)
 	inc l
-	ld [hl], HIGH(Func_0a_71c3)
-	call Func_0a_713c
+	ld [hl], HIGH(BlackDrum_Wait)
+	call RunBlackDrumScript
 	jp NextObject
 
 
-Func_0a_71c3::
+BlackDrum_Wait::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -8037,7 +8037,7 @@ Func_0a_71c3::
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	dec [hl]
-	call z, Func_0a_713c
+	call z, RunBlackDrumScript
 	call DespawnIfOutOfRange
 	jp NextObject
 

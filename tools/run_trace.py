@@ -1079,6 +1079,18 @@ def make(rom):
     t.scan_frame_tables(hints.FRAME_TABLE_SCAN_BANKS)
     t.scan_anim_tables(hints.FRAME_TABLE_SCAN_BANKS)
     Speculator(t).run(hints.SPECULATE_BANKS)
+    # frames loaded with "ld de" and stored into OBJ_FRAME; a load whose
+    # value is a frame header in a function that stores frames that way
+    # counts too (the store can sit after a branch joins)
+    frame_funcs = set()
+    for i in t.de_frame_refs:
+        if i.imm is not None and off(t.frame_bank, i.imm) in t.frame_headers:
+            i.dataref = (t.frame_bank, i.imm)
+            frame_funcs.add((i.bank, i.addr >> 6))
+    for i in t.de_loads:
+        if i.dataref is None and off(t.frame_bank, i.imm) in t.frame_headers and \
+                any((i.bank, (i.addr >> 6) + d) in frame_funcs for d in (-1, 0, 1)):
+            i.dataref = (t.frame_bank, i.imm)
     return t
 
 if __name__ == "__main__":

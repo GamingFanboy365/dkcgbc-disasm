@@ -573,7 +573,7 @@ CollideWithTerrain::
 	ret
 
 
-Func_08_4344::
+LetterWord::
 	xor a
 	ld hl, wObjects + OBJ_VAR_37
 	add hl, bc
@@ -703,8 +703,8 @@ Func_08_4344::
 
 ObjInit_08_4408::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_08_44bc)
-	obj_word OBJ_HANDLER, Func_08_44bc
+	obj_byte OBJ_BANK, BANK(GreenBanana)
+	obj_word OBJ_HANDLER, GreenBanana
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $02
 	obj_end
@@ -814,7 +814,7 @@ Func_08_4439::
 	jp NextObject
 
 
-Func_08_44bc::
+GreenBanana::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -949,7 +949,7 @@ Func_08_4555::
 	jp Func_08_4439.jump_4486
 
 
-Func_08_4581::
+StepRow::
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -2668,8 +2668,8 @@ StepPattern_08_501f::
 
 ObjInit_08_502f::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $0c
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -2681,8 +2681,8 @@ ObjInit_08_502f::
 
 ObjInit_08_5048::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $0d
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -2694,8 +2694,8 @@ ObjInit_08_5048::
 
 ObjInit_08_5061::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $0b
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -2707,8 +2707,8 @@ ObjInit_08_5061::
 
 ObjInit_08_507a::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $06
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -2720,8 +2720,8 @@ ObjInit_08_507a::
 
 ObjInit_08_5093::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $07
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -2733,8 +2733,8 @@ ObjInit_08_5093::
 
 ObjInit_08_50ac::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $06
 	obj_byte OBJ_VAR_30, $16
 	obj_word OBJ_VAR_31, $0200
@@ -2746,8 +2746,8 @@ ObjInit_08_50ac::
 
 ObjInit_08_50c5::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $0f
 	obj_byte OBJ_VAR_30, $16
 	obj_word OBJ_VAR_31, $0280
@@ -2757,7 +2757,7 @@ ObjInit_08_50c5::
 	obj_word OBJ_VAR_3B, $0000
 	obj_end
 
-Func_08_50de::
+Tire::
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -2841,12 +2841,12 @@ Obj_Patrol::
 	jp NextObject
 
 
-Func_08_5168::
+BarrelCannon::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_5183)
+	ld [hl], LOW(BarrelCannon_Idle)
 	inc l
-	ld [hl], HIGH(Func_08_5183)
+	ld [hl], HIGH(BarrelCannon_Idle)
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
@@ -2854,16 +2854,16 @@ Func_08_5168::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld [hl], a
-	call Func_08_54fe
+	call BarrelCannon_SetFrame
 	jp NextObject
 
 
-Func_08_5183::
+BarrelCannon_Idle::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 0, [hl]
-	call nz, Func_08_5562
-	call Func_08_54fe
+	call nz, BarrelCannon_Move
+	call BarrelCannon_SetFrame
 	call DespawnIfOutOfRange
 	jp NextObject
 
@@ -2872,8 +2872,8 @@ Func_08_5195::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
-	call Func_08_54fe
+	call nz, BarrelCannon_Move
+	call BarrelCannon_SetFrame
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	dec [hl]
@@ -2901,8 +2901,8 @@ Func_08_51c8::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
-	call Func_08_54fe
+	call nz, BarrelCannon_Move
+	call BarrelCannon_SetFrame
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
@@ -2960,8 +2960,8 @@ Func_08_5227::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
-	call Func_08_54fe
+	call nz, BarrelCannon_Move
+	call BarrelCannon_SetFrame
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	dec [hl]
@@ -3143,8 +3143,8 @@ Func_08_5375::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
-	call Func_08_54fe
+	call nz, BarrelCannon_Move
+	call BarrelCannon_SetFrame
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	dec [hl]
@@ -3167,8 +3167,8 @@ Func_08_53a1::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
-	call Func_08_54fe
+	call nz, BarrelCannon_Move
+	call BarrelCannon_SetFrame
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	dec [hl]
@@ -3185,8 +3185,8 @@ Func_08_53c1::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
-	call Func_08_54fe
+	call nz, BarrelCannon_Move
+	call BarrelCannon_SetFrame
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
@@ -3216,9 +3216,9 @@ Func_08_53c1::
 .jump_53f4:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_5183)
+	ld [hl], LOW(BarrelCannon_Idle)
 	inc l
-	ld [hl], HIGH(Func_08_5183)
+	ld [hl], HIGH(BarrelCannon_Idle)
 	jp NextObject
 
 
@@ -3226,7 +3226,7 @@ Func_08_5400::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
+	call nz, BarrelCannon_Move
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 5, [hl]
@@ -3238,7 +3238,7 @@ Func_08_5400::
 	add hl, bc
 	add a, [hl]
 	ld [hl], a
-	call Func_08_54fe
+	call BarrelCannon_SetFrame
 .jump_541f:
 	ld de, $c814
 	ld hl, wObjects + OBJ_X
@@ -3279,7 +3279,7 @@ Func_08_5458::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
+	call nz, BarrelCannon_Move
 	ldh a, [$ff81]
 	bit 0, a
 	jr nz, Func_08_5499.jump_54db
@@ -3304,7 +3304,7 @@ Func_08_5458::
 	cp d
 	jr z, .jump_548e
 .jump_5488:
-	call Func_08_54fe
+	call BarrelCannon_SetFrame
 	jp NextObject
 
 .jump_548e:
@@ -3320,11 +3320,11 @@ Func_08_5499::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_08_5562
+	call nz, BarrelCannon_Move
 	ldh a, [$ff81]
 	bit 0, a
 	jr nz, .jump_54db
-	call Func_08_54fe
+	call BarrelCannon_SetFrame
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld a, [hl]
@@ -3345,7 +3345,7 @@ Func_08_5499::
 	cp d
 	jr z, .jump_54d0
 .jump_54ca:
-	call Func_08_54fe
+	call BarrelCannon_SetFrame
 	jp NextObject
 
 .jump_54d0:
@@ -3366,7 +3366,7 @@ Func_08_5499::
 	inc l
 	ld [hl], HIGH(Func_08_5227)
 	call Func_08_54f3
-	call Func_08_54fe
+	call BarrelCannon_SetFrame
 	jp NextObject
 
 
@@ -3380,7 +3380,7 @@ Func_08_54f3::
 	ret
 
 
-Func_08_54fe::
+BarrelCannon_SetFrame::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld a, [hl]
@@ -3416,7 +3416,7 @@ FrameTable_08_5522::
 	dw Frame_20_40d2, Frame_20_40d8, Frame_20_40de, Frame_20_40e4
 	dw Frame_20_40ea, Frame_20_40f0, Frame_20_40f6, Frame_20_40fc
 
-Func_08_5562::
+BarrelCannon_Move::
 	call TurnAtRangeLimit
 	call UpdateVelocity
 	call ApplyVelocity
@@ -3507,18 +3507,18 @@ Func_08_55a0::
 	inc [hl]
 	ld hl, ObjInit_08_55ed
 	call ApplyObjInit
-	jr BlastBarrel
+	jr StarBarrel
 
 
 ObjInit_08_55ed::
 	obj_word OBJ_TOUCH_HANDLER, $74c6
-	obj_byte OBJ_BANK, BANK(BlastBarrel)
-	obj_word OBJ_HANDLER, BlastBarrel
+	obj_byte OBJ_BANK, BANK(StarBarrel)
+	obj_word OBJ_HANDLER, StarBarrel
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $0a
 	obj_end
 
-BlastBarrel::
+StarBarrel::
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	ld a, [hl]
@@ -3985,8 +3985,8 @@ ObjInit_08_58b3::
 
 ObjInit_08_58ca::
 	obj_include ObjInit_08_5854
-	obj_byte OBJ_BANK, BANK(Func_08_50de)
-	obj_word OBJ_HANDLER, Func_08_50de
+	obj_byte OBJ_BANK, BANK(Tire)
+	obj_word OBJ_HANDLER, Tire
 	obj_word OBJ_TOUCH_HANDLER, $7216
 	obj_word OBJ_ANIM, Anim_04_4f83
 	obj_byte OBJ_PALETTE, $03

@@ -14,7 +14,7 @@ Something counts as unused when nothing the disassembly decodes refers to it. Th
 
 ## Sprite frames
 
-56 of the 1,414 sprite frames are never shown by any animation, object, table or script found so far. Now that every byte of the main game's banks is identified, none of them has even a loose match left (its address turning up in undecoded bytes), so these are firm finds as far as the disassembly can tell.
+53 of the 1,414 sprite frames are never shown by any animation, object, table or script found so far. Now that every byte of the main game's banks is identified, none of them has even a loose match left (its address turning up in undecoded bytes), so these are firm finds as far as the disassembly can tell.
 
 | Frames | What they show |
 |---|---|
@@ -22,7 +22,6 @@ Something counts as unused when nothing the disassembly decodes refers to it. Th
 | `Frame_20_4c1e`–`4c54` | a barrel turning, ten frames |
 | `Frame_20_5032`–`505c` | a DK barrel turning, eight frames |
 | `Frame_20_4c7e`–`4ca2` | character pictures, among them Donkey Kong, seven frames |
-| `Frame_20_4dda`, `4de6`, `4dec` | "STOP", "ON" and "OFF" signs |
 | `Frame_20_5476`, `547c`, `54d6` | Rambi in two poses and a fish (probably Enguarde) |
 | `Frame_20_5674`–`5686`, `56b0` | a mine cart tilting through four angles, and one more cart |
 | `Frame_20_57a6`–`57b8`, `581e` | a small creature (four frames plus one related frame) |
@@ -32,7 +31,7 @@ Something counts as unused when nothing the disassembly decodes refers to it. Th
 | `Frame_20_5ea8`, `5ec6` | a monkey-like character |
 | `Frame_20_4264` | a small cloud or splash |
 
-Earlier versions of this list had 89 frames. The rest turned out to be used once the tables in banks `$08` and `$0A` were decoded: the letter blocks A–Y that spell words, the credits headings ("KREDITS", "KODING", "KARACTERS", "KOLORING", "KONCEPT", "KOMMANDER"), the cast names ("KLAP TRAP", "KRUSHA", "KRITTER", "KLUMP", "KING K.ROOL") and "THE END?" in all five languages, all of which the ending draws from `CreditsCaptions` (`$0A:53BF`), and one frame in `CarrierObjectTable`.
+The "STOP", "ON" and "OFF" barrel signs (`Frame_20_4dda`, `4de6`, `4dec`) were on this list too, but the Stop/Go and On/Off barrels (`StopGoBarrel`, `OnOffBarrel`) load them with `ld de`, which the finder now follows. Earlier versions of this list had 89 frames. The rest turned out to be used once the tables in banks `$08` and `$0A` were decoded: the letter blocks A–Y that spell words, the credits headings ("KREDITS", "KODING", "KARACTERS", "KOLORING", "KONCEPT", "KOMMANDER"), the cast names ("KLAP TRAP", "KRUSHA", "KRITTER", "KLUMP", "KING K.ROOL") and "THE END?" in all five languages, all of which the ending draws from `CreditsCaptions` (`$0A:53BF`), and one frame in `CarrierObjectTable`.
 
 
 

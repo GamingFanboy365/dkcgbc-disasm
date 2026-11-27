@@ -19,12 +19,12 @@ Func_09_4007::
 Gnawty_Red::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_09_401a)
+	ld [hl], LOW(Gnawty_Red_Walk)
 	inc l
-	ld [hl], HIGH(Func_09_401a)
+	ld [hl], HIGH(Gnawty_Red_Walk)
 	rst_farcall Func_09_4212
 
-Func_09_401a::
+Gnawty_Red_Walk::
 	call Func_09_4227
 	call AnimateObject
 	call DespawnIfOutOfRange
@@ -1137,7 +1137,7 @@ StompBoss_Touch::
 	ld hl, ObjInit_09_47e4
 	call ApplyObjInit
 .jump_476e:
-	call Func_09_60ec
+	call BouncePlayerOffBoss
 	jr .jump_4786
 
 .jump_4773:
@@ -1201,15 +1201,15 @@ ObjInit_09_47cd::
 	obj_end
 
 ObjInit_09_47d8::
-	obj_byte OBJ_BANK, BANK(Func_0a_42b9)
-	obj_word OBJ_HANDLER, Func_0a_42b9
+	obj_byte OBJ_BANK, BANK(VeryGnawty_Recoil)
+	obj_word OBJ_HANDLER, VeryGnawty_Recoil
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_ANIM, Anim_04_51c1
 	obj_end
 
 ObjInit_09_47e4::
-	obj_byte OBJ_BANK, BANK(Func_0a_45e9)
-	obj_word OBJ_HANDLER, Func_0a_45e9
+	obj_byte OBJ_BANK, BANK(MasterNecky_Recoil)
+	obj_word OBJ_HANDLER, MasterNecky_Recoil
 	obj_word OBJ_ANIM, Anim_04_52f5
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
@@ -1267,8 +1267,8 @@ QueenB_Touch::
 
 
 ObjInit_09_4840::
-	obj_byte OBJ_BANK, BANK(Func_0a_46e9)
-	obj_word OBJ_HANDLER, Func_0a_46e9
+	obj_byte OBJ_BANK, BANK(QueenB_Hit)
+	obj_word OBJ_HANDLER, QueenB_Hit
 	obj_word OBJ_ANIM, Anim_04_52bb
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_30, $50
@@ -1412,8 +1412,8 @@ ObjInit_09_4934::
 	obj_end
 
 ObjInit_09_4941::
-	obj_byte OBJ_BANK, BANK(Func_0a_50f8)
-	obj_word OBJ_HANDLER, Func_0a_50f8
+	obj_byte OBJ_BANK, BANK(KingKRool_Defeated)
+	obj_word OBJ_HANDLER, KingKRool_Defeated
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YVEL, $f900
 	obj_word OBJ_YACCEL, $0050
@@ -2935,7 +2935,7 @@ PlayerEnguarde::
 	ld [wPlayer + OBJ_ANIM_FLAGS], a
 .jump_5411:
 	ld de, $01f0
-	call Func_09_619d
+	call PlayerEnguarde_UpDown
 .jump_5417:
 	call Func_09_6986
 	ld a, $5e
@@ -4807,7 +4807,7 @@ Func_09_6094::
 	jp Func_09_55a5
 
 
-Func_09_60ec::
+BouncePlayerOffBoss::
 	ld hl, $c45e
 	ld a, [wPlayer + OBJ_X]
 	sub [hl]
@@ -4920,7 +4920,7 @@ Func_09_616c::
 	ret
 
 
-Func_09_619d::
+PlayerEnguarde_UpDown::
 	ld hl, wPlayer + OBJ_TARGET_YVEL
 	ldh a, [$ff80]
 	bit 6, a
@@ -7710,7 +7710,7 @@ Func_09_73e2::
 	ret
 
 
-Func_09_740d::
+ClamboPearl::
 	call ApplyVelocity
 	call DespawnIfOutOfRange
 	jp NextObject

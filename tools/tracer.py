@@ -172,6 +172,8 @@ class Tracer:
         self.lohi = []           # (lo insn off, hi insn off, bank, target) pointer stores
         self.second_program = set()
         self.frame_headers = set()
+        self.de_frame_refs = []      # "ld de, n" later stored into OBJ_FRAME
+        self.de_loads = []           # every "ld de, n" with n in $4000-$7FFF
         self.preload_funcs = set()
         self.flow_funcs = set()
         self.farjump_stack = set()
@@ -295,6 +297,13 @@ class Tracer:
                 de_insn = i
             elif de_insn is not None and (regs["d"], regs["e"]) != (de_insn.imm >> 8, de_insn.imm & 0xFF):
                 de_insn = None
+            # "ld de, frame / ld hl, wObjects + OBJ_FRAME / add hl, bc / ld [hl], e..."
+            if i.op == 0x21 and i.imm == 0xC800 + OBJ_FRAME and de_insn is not None:
+                self.de_frame_refs.append(de_insn)
+            # (a frame loaded into de on a branch that joins later is caught
+            # by the "ld de, frame" scan below)
+            if i.op == 0x11 and i.imm is not None and 0x4000 <= i.imm < 0x8000:
+                self.de_loads.append(i)
             if i.op == 0x21:
                 hl_insn = i
             elif hl_insn is not None and (regs["h"], regs["l"]) != (hl_insn.imm >> 8, hl_insn.imm & 0xFF):
@@ -751,6 +760,8 @@ class Speculator:
         t.data.update(trial.data.maps[0])
         t.data_labels.update(trial.data_labels.maps[0])
         t.lohi += trial.lohi
+        t.de_frame_refs += trial.de_frame_refs
+        t.de_loads += trial.de_loads
         t.field_stores.update(trial.field_stores)
         for (ib, ia), src in []:
             pass

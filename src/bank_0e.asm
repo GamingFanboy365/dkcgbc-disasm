@@ -5,8 +5,8 @@ SECTION "Bank $0e", ROMX[$4000], BANK[$0e]
 
 ObjInit_0e_4000::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -18,8 +18,8 @@ ObjInit_0e_4000::
 
 ObjInit_0e_4019::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $0b
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -30,8 +30,8 @@ ObjInit_0e_4019::
 
 ObjInit_0e_402f::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -42,8 +42,8 @@ ObjInit_0e_402f::
 
 ObjInit_0e_4045::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_30, $16
 	obj_word OBJ_VAR_31, $0180
@@ -55,8 +55,8 @@ ObjInit_0e_4045::
 
 ObjInit_0e_405e::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
@@ -65,8 +65,8 @@ ObjInit_0e_405e::
 
 ObjInit_0e_406f::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_30, $04
@@ -77,8 +77,8 @@ ObjInit_0e_406f::
 
 ObjInit_0e_4084::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
@@ -87,8 +87,8 @@ ObjInit_0e_4084::
 
 ObjInit_0e_4095::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $0d
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -99,8 +99,8 @@ ObjInit_0e_4095::
 
 ObjInit_0e_40ab::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $0c
@@ -109,8 +109,8 @@ ObjInit_0e_40ab::
 
 ObjInit_0e_40bc::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $08
@@ -119,8 +119,8 @@ ObjInit_0e_40bc::
 
 ObjInit_0e_40cd::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
@@ -129,8 +129,8 @@ ObjInit_0e_40cd::
 
 ObjInit_0e_40de::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
@@ -139,8 +139,8 @@ ObjInit_0e_40de::
 
 ObjInit_0e_40ef::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
@@ -149,8 +149,8 @@ ObjInit_0e_40ef::
 
 ObjInit_0e_4100::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $0a
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0100
@@ -162,8 +162,8 @@ ObjInit_0e_4100::
 
 ObjInit_0e_4119::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
@@ -172,8 +172,8 @@ ObjInit_0e_4119::
 
 ObjInit_0e_412a::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $30
 	obj_byte OBJ_VAR_32, $08
@@ -210,8 +210,8 @@ ObjInit_0e_4159::
 
 ObjInit_0e_4163::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4581)
-	obj_word OBJ_HANDLER, Func_08_4581
+	obj_byte OBJ_BANK, BANK(StepRow)
+	obj_word OBJ_HANDLER, StepRow
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
@@ -263,8 +263,8 @@ ObjInit_0e_41a6::
 
 ObjInit_0e_41b2::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_4344)
-	obj_word OBJ_HANDLER, Func_08_4344
+	obj_byte OBJ_BANK, BANK(LetterWord)
+	obj_word OBJ_HANDLER, LetterWord
 	obj_byte OBJ_VAR_2E, $07
 	obj_byte OBJ_VAR_30, $14
 	obj_word OBJ_VAR_31, $0200
@@ -316,8 +316,8 @@ ObjInit_0e_41fa::
 
 ObjInit_0e_4207::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_08_5168)
-	obj_word OBJ_HANDLER, Func_08_5168
+	obj_byte OBJ_BANK, BANK(BarrelCannon)
+	obj_word OBJ_HANDLER, BarrelCannon
 	obj_word OBJ_TOUCH_HANDLER, $72f4
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_COLLISION, $08
@@ -329,8 +329,8 @@ ObjInit_0e_4207::
 
 ObjInit_0e_4220::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(BlastBarrel)
-	obj_word OBJ_HANDLER, BlastBarrel
+	obj_byte OBJ_BANK, BANK(StarBarrel)
+	obj_word OBJ_HANDLER, StarBarrel
 	obj_word OBJ_TOUCH_HANDLER, $7532
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_COLLISION, $08
@@ -390,8 +390,8 @@ ObjInit_0e_427b::
 
 ObjInit_0e_4283::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_6d65)
-	obj_word OBJ_HANDLER, Func_0a_6d65
+	obj_byte OBJ_BANK, BANK(StopGoBarrel)
+	obj_word OBJ_HANDLER, StopGoBarrel
 	obj_word OBJ_TOUCH_HANDLER, $7ad5
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $01
@@ -401,8 +401,8 @@ ObjInit_0e_4283::
 
 ObjInit_0e_4296::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_6dcc)
-	obj_word OBJ_HANDLER, Func_0a_6dcc
+	obj_byte OBJ_BANK, BANK(OnOffBarrel)
+	obj_word OBJ_HANDLER, OnOffBarrel
 	obj_word OBJ_TOUCH_HANDLER, $7ad5
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $01
@@ -870,8 +870,8 @@ ObjInit_0e_45cf::
 
 ObjInit_0e_45e2::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(BlastBarrel)
-	obj_word OBJ_HANDLER, BlastBarrel
+	obj_byte OBJ_BANK, BANK(StarBarrel)
+	obj_word OBJ_HANDLER, StarBarrel
 	obj_word OBJ_TOUCH_HANDLER, $74c6
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
@@ -5356,8 +5356,8 @@ ObjInit_0e_662b::
 	obj_end
 
 ObjInit_0e_663f::
-	obj_byte OBJ_BANK, BANK(StarBarrel)
-	obj_word OBJ_HANDLER, StarBarrel
+	obj_byte OBJ_BANK, BANK(Func_0a_5a9a)
+	obj_word OBJ_HANDLER, Func_0a_5a9a
 	obj_word OBJ_TOUCH_HANDLER, $6e97
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_PALETTE, $01
@@ -5553,8 +5553,8 @@ ObjInit_0e_6759::
 	obj_end
 
 ObjInit_0e_6762::
-	obj_byte OBJ_BANK, BANK(Func_08_50de)
-	obj_word OBJ_HANDLER, Func_08_50de
+	obj_byte OBJ_BANK, BANK(Tire)
+	obj_word OBJ_HANDLER, Tire
 	obj_word OBJ_TOUCH_HANDLER, $7216
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_ANIM, Anim_04_4f83

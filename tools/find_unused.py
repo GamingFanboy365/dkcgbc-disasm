@@ -78,6 +78,9 @@ class Finder:
         for o, (b, ent) in self.fp.anim_next.items():
             if ent[1] == "frame":
                 used.add(ent[2])
+        for i in t.insns.values():  # "ld de, frame" stored into OBJ_FRAME
+            if i.dataref is not None and i.dataref[0] == fb:
+                used.add(i.dataref[1])
         for (lo, hi, tb, target) in t.lohi:
             if tb == fb:
                 used.add(target)

@@ -337,6 +337,62 @@ class FramePalettes:
             return inf[o], True
         return None, False
 
+    # Screens that preload their own palettes in a fixed order before
+    # setting up their objects: (bank $0F routine, preload list in bank $80).
+    # Large sprites add their per-sprite value to the object's hardware slot,
+    # so on these screens the colours come from the next entries of the
+    # list, not from the next palette numbers (checked in mGBA at Funky's
+    # Flights: Funky's second slot holds palette 1, Donkey Kong's).
+    SCREEN_PRELOADS = [(0x4001, 0x424E),   # Candy's Challenge
+                       (0x40A9, 0x423C),   # Cranky's Cabin
+                       (0x412E, 0x4245)]   # Funky's Flights
+
+    def _screen_slots(self):
+        """{frame offset: preload list} for frames of objects set up by the
+        screens in SCREEN_PRELOADS."""
+        if getattr(self, "_slots", None) is not None:
+            return self._slots
+        t = self.t
+        self._slots = {}
+        for func, plist in self.SCREEN_PRELOADS:
+            item = t.data.get(off(t.palette_bank, plist))
+            if not item or item[0] != "preload":
+                continue
+            order = item[2]
+            seen, todo, lists = set(), [off(0x0F, func)], set()
+            while todo:
+                o = todo.pop()
+                while o in t.insns and o not in seen:
+                    seen.add(o)
+                    i = t.insns[o]
+                    if i.op == 0x21 and i.dataref is not None and i.dataref[0] == 0x0F:
+                        lists.add(off(*i.dataref))
+                    if i.flow in ("call", "callc", "jr", "jrc", "jp", "jpc") and i.target is not None \
+                            and 0x4000 <= i.target < 0x8000:
+                        todo.append(off(0x0F, i.target))
+                    if i.flow in ("jp", "jr", "ret", "jphl"):
+                        break
+                    o += i.length
+            for lo in lists:
+                f = self.list_fields(lo)
+                frames = set()
+                if OBJ_ANIM in f and OBJ_ANIM + 1 in f:
+                    frames |= self.anim_frames(f[OBJ_ANIM] | f[OBJ_ANIM + 1] << 8)
+                if OBJ_FRAME in f and OBJ_FRAME + 1 in f:
+                    frames.add(off(t.frame_bank, f[OBJ_FRAME] | f[OBJ_FRAME + 1] << 8))
+                for fr in frames:
+                    self._slots[fr] = order
+        return self._slots
+
+    def sprite_palette(self, header_addr, pal_id, add):
+        """Palette a sprite of a large frame is drawn with: the object's
+        palette pal_id plus the sprite's value add, counted in hardware
+        slots."""
+        order = self._screen_slots().get(off(self.t.frame_bank, header_addr))
+        if order and pal_id in order and order.index(pal_id) + add < len(order):
+            return order[order.index(pal_id) + add]
+        return pal_id + add
+
     def colors(self, pal_id):
         """The 4 colors of an object palette as (r, g, b) 0-255."""
         pb, (base, _) = self.t.palette_bank, (0x4000, 64)

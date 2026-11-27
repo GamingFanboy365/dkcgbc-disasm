@@ -428,7 +428,7 @@ def preview(rom, outdir, colored=True):
         # colors 4 * value + color in a 16-color PNG
         adds = sorted(set(p[2] & 3 for p in pos)) if pid is not None else [0]
         if len(adds) > 1:
-            pal = sum(([BACKDROP] + fp.colors(pid + v)[1:] for v in range(4)), [])
+            pal = sum(([BACKDROP] + fp.colors(fp.sprite_palette(a, pid, v))[1:] for v in range(4)), [])
         canvas = [[0] * w for _ in range(h)]
         for k, (px, py, add) in enumerate(pos):
             for r in range(16):

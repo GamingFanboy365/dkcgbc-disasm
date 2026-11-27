@@ -3545,10 +3545,10 @@ Func_04_574e::
 
 
 Func_04_5755::
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ld hl, ObjInit_04_5771
 	call InitObject
 	ld d, b
@@ -3570,10 +3570,10 @@ ObjInit_04_5771::
 	obj_end
 
 Func_04_577e::
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ld hl, ObjInit_04_579a
 	call InitObject
 	ld d, b

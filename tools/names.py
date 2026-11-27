@@ -116,4 +116,11 @@ NAMES = {
     (0x00, 0x3BF5): "MoveTowardsY",
     (0x00, 0x3CE1): "LoadBGPaletteSet",
     (0x00, 0x3FD5): "RestoreBankAndReturn",
+    # most-called helpers in the object banks
+    (0x09, 0x43EA): "CheckPlayerContact",      # object vs player, using Hitboxes; result in [$ffa7]
+    (0x08, 0x40E1): "CollideWithTerrain",      # GetTerrainUnderObject, then land on or slide along it
+    (0x09, 0x68E7): "SetPlayerAnimation",      # a = animation number (+1 entry for the second Kong, [$c30f] bit 0)
+    (0x0A, 0x4063): "SaveObjectPosition",      # x, y and two terrain bytes to [$ffb2]-[$ffb7]
+    (0x0A, 0x4086): "MoveObjectToSavedPosition",
+    (0x09, 0x5DBB): "HurtPlayer",              # the touch handlers of harmful objects end here
 }

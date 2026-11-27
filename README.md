@@ -25,7 +25,7 @@ You can also check the sources without RGBDS. `make check` re-assembles every fi
 
 The first pass is automatic. `tools/emit.py` (run it with `make generate`) traces the code from known entry points and writes one `src/bank_XX.asm` per bank in which it found code. Every bank with no traced code goes into `src/data_banks.asm`. The tracer starts from the reset and interrupt vectors, the entry point, the game-state jump table at `$0300`, the music command table at `$3F00`, the object initialiser lists and the start of each code bank. It follows calls and jumps across banks by watching for writes to the MBC5 bank register and calls to the game's far-call routines. Gaps it cannot reach get one cautious speculative pass: a gap is kept as code only if the whole path decodes cleanly and doesn't collide with code that is already known. Everything else is data, decoded by the claims in `tools/run_trace.py` into `db`/`dw` rows and macros, or kept in editable files (PNGs, level data, WAV samples) that the build converts.
 
-All the manual knowledge lives in `tools/hints.py`. That file holds the extra entry points, the jump and pointer tables, and the names given to routines. When you identify something, add it there and regenerate. Once a generated file has been edited by hand, list it in `hints.KEEP` so the generator won't overwrite it.
+All the manual knowledge lives in `tools/hints.py`. That file holds the extra entry points and the jump and pointer tables. Routine names are in `tools/names.py`, added bank by bank after reading each routine; `tools/autonames.py` adds the names that follow from tables in the ROM (`MusCmd_…` and `SfxCmd_…` for the sound driver's command handlers, `GameState_XX` for the `$0300` jump table). When you identify something, add it there and regenerate. Once a generated file has been edited by hand, list it in `hints.KEEP` so the generator won't overwrite it.
 
 ## What is known so far
 
@@ -276,7 +276,7 @@ The ROM rebuilds byte for byte, and no part of it is copied from `baserom.gbc` a
 | Located and labelled, format known, still raw bytes | 0 KB | 0.0% |
 | Not identified yet | 0 KB | 0.0% |
 
-The remaining 1.4 MB is empty padding and isn't counted. Measured by understanding rather than bytes, the project is much earlier: the code is traced, but only a few dozen of its roughly 8,000 labels have real names. Placeholders such as `Func_09_4001` (bank `$09`, address `$4001`) and `.jump_44f5` are waiting for names.
+The remaining 1.4 MB is empty padding and isn't counted. Naming the code (step 3) has started. Bank `$00`, the engine, is almost done: 226 of its 253 routines have names, including the object system, map loading and scrolling, the camera, the world map, OAM building and the sound driver. 1,547 routines elsewhere still have placeholder names such as `Func_09_4001` (bank `$09`, address `$4001`); local labels such as `.jump_44f5` keep their placeholders for now.
 
 Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$50`–`$52`, `$55`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Decoded so far:
 
@@ -335,7 +335,7 @@ This repository covers the retail ROM only. The goal is a complete (100%) disass
 
 1. ~~Identify every byte.~~ Done: every byte of the ROM now has a known kind (code, a decoded structure, graphics, located raw data or padding). A few things are identified but not fully explained yet; they are listed in [`docs/unused.md`](docs/unused.md) under Open questions.
 2. ~~Convert the located raw data into readable or editable form.~~ Done: level maps, blocks, terrain and samples are editable files; the Rare logo animation, the Funky's Fishing sprite animations and tables, the Hi-Score screen, Crosshair Cranky's pause text and the code the game copies to RAM are decoded.
-3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.
+3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`. In progress: bank `$00` is nearly done; next are the object handlers in banks `$08`–`$0A`, which need each object type identified (by its sprites, in the emulator) before its routines can be named.
 
 Running the ROM in an emulator (PyBoy, used only locally and never in the build) has become part of the method. It identifies what each part of the ROM is and shows which code and data the game really touches at run time, which catches what static tracing misses and settles whether content is truly unused.
 

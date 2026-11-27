@@ -7,13 +7,13 @@ BankNumber_09::
 	db $09 ; bank number
 
 Func_09_4001::
-	call Func_09_5dbb
-	jp Func_09_43ea.jump_44f5
+	call HurtPlayer
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_4007::
 	call Func_09_4179
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_400d::
@@ -65,7 +65,7 @@ Func_09_4049::
 	res 7, [hl]
 	rst_farcall Func_09_66e4
 	pop bc
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_406d::
@@ -90,7 +90,7 @@ Func_09_406d::
 	ld [hli], a
 	rst_farcall Func_09_66d6
 .jump_4092:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_4095::
@@ -402,7 +402,7 @@ Func_09_4227::
 Func_09_4243::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ret
 
 
@@ -548,7 +548,7 @@ Hitboxes::
 	db 16, 30, 0, -30 ; 81
 	db 16, 16, 0, -16 ; 82
 
-Func_09_43ea::
+CheckPlayerContact::
 	ldh [$ffa7], a
 	ld a, b
 	or c
@@ -802,7 +802,7 @@ Func_09_451d::
 	ld a, $28
 	ld [$c32a], a
 .jump_455b:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_455e::
@@ -817,7 +817,7 @@ Func_09_455e::
 	sbc a, [hl]
 	ld [hl], a
 .jump_456e:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_4571::
@@ -836,7 +836,7 @@ Func_09_4571::
 	ld [hld], a
 	ld [hl], e
 .jump_4588:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_458b::
@@ -932,7 +932,7 @@ Func_09_458b::
 	ld a, $28
 	ld [$c32a], a
 .jump_4620:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_4623::
@@ -977,7 +977,7 @@ Func_09_4623::
 	ld a, $08
 	ld [$c32a], a
 .jump_4666:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_4669::
@@ -1004,10 +1004,10 @@ Func_09_4669::
 	and $fb
 	ldh [$ffa7], a
 .jump_4695:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_4698:
-	call Func_09_5dbb
+	call HurtPlayer
 .jump_469b:
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -1071,7 +1071,7 @@ Func_09_46da::
 	call MoveTowardsX
 	ld de, $0010
 	call MoveTowardsY
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_4708::
@@ -1148,7 +1148,7 @@ Func_09_4712::
 	ld hl, ObjInit_09_47d8
 	call ApplyObjInit
 .jump_4786:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_4789:
 	ld a, $50
@@ -1217,7 +1217,7 @@ Func_09_47ef::
 	ld e, a
 	or d
 	jr nz, .jump_47fd
-	call Func_09_5dbb
+	call HurtPlayer
 	jr .jump_483d
 
 .jump_47fd:
@@ -1259,7 +1259,7 @@ Func_09_47ef::
 	ld [hli], a
 	ld [hl], d
 .jump_483d:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_4840::
@@ -1293,14 +1293,14 @@ Func_09_487a::
 	ld hl, $ffb0
 	ld a, [hli]
 	or [hl]
-	jp nz, Func_09_43ea.jump_44f5
+	jp nz, CheckPlayerContact.jump_44f5
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	rrca
 	jr nc, .jump_4890
-	call Func_09_5dbb
-	jp Func_09_43ea.jump_44f5
+	call HurtPlayer
+	jp CheckPlayerContact.jump_44f5
 
 .jump_4890:
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
@@ -1349,7 +1349,7 @@ Func_09_487a::
 	push bc
 	ld bc, $0000
 	ld a, $0a
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, ObjInit_09_4941
 	call ApplyObjInit
 	pop bc
@@ -1375,7 +1375,7 @@ Func_09_487a::
 	ld a, $50
 	ld [$c32a], a
 .jump_4910:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_4913:
 	call Func_09_611e
@@ -1587,7 +1587,7 @@ ObjInit_09_498d::
 
 .jump_4a89:
 	ld a, $01
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, wPlayer + OBJ_XVEL
 	ld [hl], $33
 	inc l
@@ -1638,7 +1638,7 @@ Func_09_4abb::
 	ld [hli], a
 	ld [hl], d
 	ld a, $00
-	call Func_09_68e7
+	call SetPlayerAnimation
 	call AnimateObject
 	ret
 
@@ -1695,11 +1695,11 @@ Func_09_4aff::
 	ld a, $00
 	cp [hl]
 	jr z, .jump_4b51
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4b51:
 	call Func_09_6983
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_4b5c:
@@ -1711,7 +1711,7 @@ Func_09_4aff::
 	inc l
 	ld [hl], HIGH(Func_09_4d4d)
 	ld a, $97
-	call Func_09_68e7
+	call SetPlayerAnimation
 	xor a
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
@@ -1742,7 +1742,7 @@ Func_09_4aff::
 	cp $02
 	jr z, .jump_4bc1
 	ld a, $82
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jr .jump_4bc1
 
 .jump_4baa:
@@ -1756,7 +1756,7 @@ Func_09_4aff::
 	cp $01
 	jr z, .jump_4bc1
 	ld a, $81
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4bc1:
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
@@ -1772,7 +1772,7 @@ Func_09_4aff::
 	ld a, $88
 	cp [hl]
 	jr z, .jump_4bdc
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4bdc:
 	jp .jump_4b51
 
@@ -1799,7 +1799,7 @@ Func_09_4aff::
 	cp $02
 	jr z, .jump_4c28
 	ld a, $82
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jr .jump_4c28
 
 .jump_4c11:
@@ -1813,7 +1813,7 @@ Func_09_4aff::
 	cp $01
 	jr z, .jump_4c28
 	ld a, $81
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4c28:
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
@@ -1829,7 +1829,7 @@ Func_09_4aff::
 	ld a, $88
 	cp [hl]
 	jr z, .jump_4c43
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4c43:
 	jp .jump_4b51
 
@@ -1903,7 +1903,7 @@ Func_09_4aff::
 	ld [hli], a
 	ld [hl], d
 	ld a, $83
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, wPlayer + OBJ_HANDLER
 	ld [hl], LOW(Func_09_4e29)
 	inc l
@@ -1920,7 +1920,7 @@ Func_09_4aff::
 .jump_4cdf:
 	call Func_09_61ec
 	ld a, $00
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jp .jump_4b51
 
 .jump_4cea:
@@ -1929,7 +1929,7 @@ Func_09_4aff::
 	inc l
 	ld [hl], HIGH(Func_09_4ef8)
 	ld a, $9c
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld a, $06
 	ld [wPlayer + OBJ_VAR_37], a
 	jp .jump_4b51
@@ -1952,7 +1952,7 @@ Func_09_4cff::
 	add hl, de
 	jr nc, .jump_4d23
 	ld a, $07
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4d23:
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
@@ -1972,7 +1972,7 @@ Func_09_4cff::
 	call Func_09_61d9
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -1990,7 +1990,7 @@ Func_09_4d4d::
 	inc l
 	ld [hl], HIGH(Func_09_4d94)
 	ld a, $9b
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jr .jump_4d83
 
 .jump_4d6d:
@@ -2005,7 +2005,7 @@ Func_09_4d4d::
 	jr nz, .jump_4d83
 	call Func_09_4abb
 	ld a, $98
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4d83:
 	xor a
 	ld hl, wPlayer + OBJ_TARGET_XVEL
@@ -2013,7 +2013,7 @@ Func_09_4d4d::
 	ld [hl], a
 	call Func_09_6983
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -2065,7 +2065,7 @@ Func_09_4d94::
 	ld [hl], a
 	call Func_09_6983
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -2082,7 +2082,7 @@ Unused_09_4dfd::
 
 Func_09_4dff::
 	ld a, $84
-	call Func_09_43ea
+	call CheckPlayerContact
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -2102,7 +2102,7 @@ Func_09_4e0f::
 	ld [hl], a
 	call Func_09_6983
 	ld a, $de
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -2131,7 +2131,7 @@ Func_09_4e29::
 	ld hl, wPlayer + OBJ_VAR_2E
 	res 6, [hl]
 	ld a, $84
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jr .jump_4e6e
 
 .jump_4e5d:
@@ -2154,12 +2154,12 @@ Func_09_4e29::
 .jump_4e7a:
 	call ApplyVelocity
 	call Func_09_676a
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $10
 	call nz, UndoXVelocity
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_4e94:
@@ -2209,7 +2209,7 @@ Func_09_4e29::
 	ld hl, ObjInit_09_4ef0
 	call ApplyObjInit
 	ld a, $00
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jr .jump_4e7a
 
 
@@ -2237,7 +2237,7 @@ Func_09_4ef8::
 	ld hl, wPlayer + OBJ_ANIM_FLAGS
 	cp [hl]
 	jr z, .jump_4f19
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4f19:
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $10
@@ -2248,7 +2248,7 @@ Func_09_4ef8::
 .jump_4f28:
 	call Func_09_6983
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_4f33:
@@ -2284,7 +2284,7 @@ Func_09_4f5f::
 	ld [wPlayer + OBJ_VAR_36], a
 .jump_4f69:
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_4f71:
@@ -2306,7 +2306,7 @@ Func_09_4f7c::
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 0, [hl]
 	ld a, $15
-	call Func_09_68e7
+	call SetPlayerAnimation
 	call Func_09_68be
 	ld hl, ObjInit_09_4f9d
 	call ApplyObjInit
@@ -2345,7 +2345,7 @@ Func_09_4fab::
 .jump_4fd2:
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_4fdd:
@@ -2366,7 +2366,7 @@ Func_09_4fab::
 	rlca
 	jr c, .jump_4ffc
 	ld a, $96
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_4ffc:
 	ld a, [$c30f]
 	rrca
@@ -2392,7 +2392,7 @@ Func_09_4fab::
 .jump_5022:
 	call Func_09_61ec
 	ld a, $15
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jp NextObject
 
 
@@ -2488,7 +2488,7 @@ Func_09_5058::
 .jump_50d5:
 	call Func_09_6983
 	ld a, $7e
-	call Func_09_43ea
+	call CheckPlayerContact
 .jump_50dd:
 	jp Func_09_5c49.jump_5ca4
 
@@ -2601,7 +2601,7 @@ Func_09_5183::
 	call Func_09_61d9
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -2704,7 +2704,7 @@ Func_09_521d::
 .jump_5260:
 	call Func_09_6983
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 .jump_5268:
 	jp Func_09_5c49.jump_5ca4
 
@@ -2821,7 +2821,7 @@ Func_09_5325::
 	call Func_09_61d9
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_5346:
@@ -2870,7 +2870,7 @@ Func_09_536c::
 	call c, Func_09_51ef
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -2935,7 +2935,7 @@ Func_09_53dc::
 .jump_5417:
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 .jump_541f:
 	jp Func_09_5c49.jump_5ca4
 
@@ -3069,7 +3069,7 @@ Func_09_54bf::
 .jump_5502:
 	call Func_09_6983
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 .jump_550a:
 	jp Func_09_5c49.jump_5ca4
 
@@ -3196,7 +3196,7 @@ Func_09_55c7::
 	call Func_09_61d9
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_55ff:
@@ -3340,9 +3340,9 @@ Func_09_56c3::
 .jump_56ef:
 	call ApplyVelocity
 	call Func_09_676a
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld a, $1e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_5701:
@@ -3404,7 +3404,7 @@ Func_09_5753::
 	call z, Func_09_4abb
 	call Func_09_6986
 	ld a, $1a
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -3437,14 +3437,14 @@ Func_09_5765::
 	ld a, $0f
 	cp [hl]
 	jr z, .jump_579d
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_579d:
 	call Func_09_6983
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $10
 	call nz, UndoXVelocity
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 .jump_57ad:
 	jp Func_09_5c49.jump_5ca4
 
@@ -3480,7 +3480,7 @@ Func_09_5765::
 	cp $0e
 	jr z, .jump_57f4
 	ld a, $8e
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_57f4:
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	ld [hl], $00
@@ -3507,7 +3507,7 @@ Func_09_5765::
 	cp $0e
 	jr z, .jump_5827
 	ld a, $8e
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_5827:
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
@@ -3524,7 +3524,7 @@ Func_09_5765::
 	bit 7, a
 	jr z, .jump_5856
 	ld a, $8c
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, wPlayer + OBJ_HANDLER
 	ld [hl], LOW(Func_09_5953)
 	inc l
@@ -3575,7 +3575,7 @@ Func_09_5863::
 	and $10
 	call nz, Func_09_599f
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_58a6:
@@ -3599,7 +3599,7 @@ Func_09_58b7::
 	inc l
 	ld [hl], HIGH(Func_09_5765)
 	ld a, $0f
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, wPlayer + OBJ_VAR_33
 	ld a, [hli]
 	ld d, [hl]
@@ -3616,7 +3616,7 @@ Func_09_58b7::
 .jump_58e1:
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -3633,7 +3633,7 @@ Func_09_58ec::
 .jump_5901:
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -3697,7 +3697,7 @@ Func_09_5953::
 .jump_596b:
 	call Func_09_6986
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 
@@ -3712,7 +3712,7 @@ Func_09_5976::
 	inc l
 	ld [hl], HIGH(Func_09_58b7)
 	ld a, $8b
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld a, $01
 	ld [wPlayer + OBJ_VAR_37], a
 	xor a
@@ -3734,7 +3734,7 @@ Func_09_599f::
 	inc l
 	ld [hl], HIGH(Func_09_58ec)
 	ld a, $8d
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ret
 
 
@@ -3769,7 +3769,7 @@ Func_09_59b0::
 	ld a, $11
 	cp [hl]
 	jr z, .jump_59ef
-	call Func_09_68e7
+	call SetPlayerAnimation
 .jump_59ef:
 	ldh a, [$ff80]
 	bit 5, a
@@ -3843,7 +3843,7 @@ Func_09_59b0::
 	jr nc, .jump_5a6d
 	call Func_09_4abb
 	ld a, $00
-	call Func_09_68e7
+	call SetPlayerAnimation
 	call Func_09_5b60
 .jump_5a6d:
 	ld hl, wPlayer + OBJ_VAR_33
@@ -3883,7 +3883,7 @@ Func_09_59b0::
 	call ApplyVelocity
 	call Func_09_676a
 	ld a, $5e
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp Func_09_5c49.jump_5ca4
 
 .jump_5ab5:
@@ -3902,7 +3902,7 @@ Func_09_59b0::
 	ld a, $13
 	cp [hl]
 	jp z, .jump_59ef
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jp .jump_59ef
 
 .jump_5ad9:
@@ -3921,7 +3921,7 @@ Func_09_59b0::
 	ld a, $14
 	cp [hl]
 	jp z, .jump_59ef
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jp .jump_59ef
 
 .jump_5afd:
@@ -3932,7 +3932,7 @@ Func_09_59b0::
 	bit 7, [hl]
 	jp nz, .jump_59fb
 	ld a, $92
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jp .jump_59fb
 
 .jump_5b15:
@@ -3943,7 +3943,7 @@ Func_09_59b0::
 	bit 7, [hl]
 	jp nz, .jump_59fb
 	ld a, $92
-	call Func_09_68e7
+	call SetPlayerAnimation
 	jp .jump_59fb
 
 .jump_5b2d:
@@ -4007,7 +4007,7 @@ Func_09_5b86::
 	inc l
 	ld [hl], HIGH(Func_09_59b0)
 	ld a, $11
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -4060,14 +4060,14 @@ Func_09_5bcc::
 	ld [wPlayer + OBJ_Y + 1], a
 	call Func_09_676a
 	ld a, $02
-	call Func_09_43ea
+	call CheckPlayerContact
 	jp NextObject
 
 
 Func_09_5bf5::
 	call Func_09_68be
 	ld a, $0a
-	call Func_09_68e7
+	call SetPlayerAnimation
 	xor a
 	ld [wPlayer + OBJ_VAR_3B], a
 	ret
@@ -4081,7 +4081,7 @@ Func_09_5c02::
 	jr nz, .jump_5c18
 .jump_5c0d:
 	ld a, $46
-	call Func_09_43ea
+	call CheckPlayerContact
 	call Func_09_5cc0
 	jp NextObject
 
@@ -4208,12 +4208,12 @@ Func_09_5cd1::
 	jr z, .jump_5d1e
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
-	jp c, Func_09_5dbb
+	jp c, HurtPlayer
 	ld a, [wPlayer + OBJ_VAR_37]
 	cp $02
-	jp z, Func_09_5dbb
+	jp z, HurtPlayer
 	cp $03
-	jp z, Func_09_5dbb
+	jp z, HurtPlayer
 	ld a, [wPlayer + OBJ_Y]
 	add a, $04
 	ld e, a
@@ -4227,7 +4227,7 @@ Func_09_5cd1::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jp c, Func_09_5dbb
+	jp c, HurtPlayer
 .jump_5d1c:
 	scf
 	ret
@@ -4246,8 +4246,8 @@ Func_09_5cd1::
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	xor [hl]
 	and $20
-	jp z, Func_09_5dbb
-	rst_farcall Func_0a_4063
+	jp z, HurtPlayer
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_VAR_2C
 	add hl, bc
 	ld a, [hl]
@@ -4275,7 +4275,7 @@ Func_09_5cd1::
 .jump_5d5d:
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
-	jr c, Func_09_5dbb
+	jr c, HurtPlayer
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [wPlayer + OBJ_Y]
@@ -4285,7 +4285,7 @@ Func_09_5cd1::
 	sbc a, [hl]
 	rlca
 	jr c, .jump_5d1c
-	jr Func_09_5dbb
+	jr HurtPlayer
 
 .jump_5d75:
 	ld hl, wObjects + OBJ_X
@@ -4303,7 +4303,7 @@ Func_09_5cd1::
 	jr nz, .jump_5d1c
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
-	jr c, Func_09_5dbb
+	jr c, HurtPlayer
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [wPlayer + OBJ_Y]
@@ -4313,7 +4313,7 @@ Func_09_5cd1::
 	sbc a, [hl]
 	rlca
 	jp c, .jump_5d1c
-	jp Func_09_5dbb
+	jp HurtPlayer
 
 .jump_5da6:
 	ldh a, [$ffb8]
@@ -4322,15 +4322,15 @@ Func_09_5cd1::
 	ld hl, $ffaa
 	sub [hl]
 	bit 7, a
-	jr nz, Func_09_5dbb
+	jr nz, HurtPlayer
 	sub e
 	ld e, a
 	cp $ec
 	jr nc, .jump_5d51
-	jr Func_09_5dbb
+	jr HurtPlayer
 
 
-Func_09_5dbb::
+HurtPlayer::
 	ld a, [wPlayer + OBJ_VAR_30]
 	or a
 	jr nz, .jump_5e20
@@ -4371,7 +4371,7 @@ Func_09_5dbb::
 	bit 1, a
 	jp nz, .jump_5e22
 	ld a, $89
-	call Func_09_68e7
+	call SetPlayerAnimation
 	push bc
 	ld bc, $0000
 	ld hl, ObjInit_09_5f56
@@ -4573,7 +4573,7 @@ ObjInit_09_5f56::
 	rst_farcall Func_09_66d6
 	ld bc, $0000
 	ld a, $89
-	call Func_09_68e7
+	call SetPlayerAnimation
 	call AnimateObject
 	pop bc
 	ret
@@ -4673,7 +4673,7 @@ Func_09_5feb::
 	cp $0a
 	jr z, .jump_6031
 	ld a, $0a
-	call Func_09_68e7
+	call SetPlayerAnimation
 	xor a
 	ld [wPlayer + OBJ_VAR_3B], a
 .jump_6031:
@@ -4767,7 +4767,7 @@ Func_09_6094::
 	cp $01
 	jr z, .jump_60d1
 	ld a, $06
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, wPlayer + OBJ_HANDLER
 	ld [hl], LOW(Func_09_4cff)
 	inc l
@@ -4776,7 +4776,7 @@ Func_09_6094::
 
 .jump_60d1:
 	ld a, $10
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, wPlayer + OBJ_HANDLER
 	ld [hl], LOW(Func_09_5863)
 	inc l
@@ -4852,7 +4852,7 @@ Func_09_611e::
 	ld [hl], a
 .jump_614e:
 	ld a, $19
-	call Func_09_68e7
+	call SetPlayerAnimation
 	ld hl, ObjInit_09_615b
 	call ApplyObjInit
 	pop bc
@@ -5277,7 +5277,7 @@ Func_09_63e6::
 .jump_6413:
 	call Func_09_6986
 	ld a, $4e
-	call Func_09_43ea
+	call CheckPlayerContact
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr c, .jump_6426
@@ -5368,7 +5368,7 @@ Func_09_64a6::
 	call Func_09_61d9
 	call Func_09_6986
 	ld a, $4e
-	call Func_09_43ea
+	call CheckPlayerContact
 	ld a, $05
 	ld [wPlayer + OBJ_TERRAIN_B], a
 	call Func_09_64d5
@@ -5413,14 +5413,14 @@ FrameTable_09_64f8::
 	dw Frame_20_571c, Frame_20_5752, Frame_20_571c, Frame_20_5752
 
 Func_09_6538::
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	rst_farcall Func_08_5ba3
 	call AnimateObject
 	call DrawObject
@@ -5480,15 +5480,15 @@ Func_09_6554::
 	and $10
 	jr nz, .jump_65c8
 	ld a, $26
-	call Func_09_43ea
-	rst_farcall Func_0a_4063
+	call CheckPlayerContact
+	rst_farcall SaveObjectPosition
 	push bc
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	call DrawObject
 	pop bc
 .jump_65c5:
@@ -5536,7 +5536,7 @@ Func_09_6600::
 	inc l
 	ld [hl], HIGH(Func_09_6554)
 	ld a, $1a
-	call Func_09_68e7
+	call SetPlayerAnimation
 	xor a
 	ld hl, wPlayer + OBJ_YVEL
 	ld [hli], a
@@ -6019,7 +6019,7 @@ Func_09_68d2::
 	ret
 
 
-Func_09_68e7::
+SetPlayerAnimation::
 	push de
 	ld [wPlayer + OBJ_ANIM_FLAGS], a
 	and $7f
@@ -6074,7 +6074,7 @@ Func_09_6986::
 	call UpdateVelocity
 	call ApplyVelocity
 	call Func_09_676a
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ret
 
 
@@ -6143,7 +6143,7 @@ Func_09_6994::
 	ld a, $05
 	ld [$c32a], a
 .jump_6a02:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6a05::
@@ -6212,7 +6212,7 @@ Func_09_6a05::
 	call MoveTowardsX
 	ld de, $0010
 	call MoveTowardsY
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6a7e::
@@ -6329,7 +6329,7 @@ Func_09_6a7e::
 	ldh [$ff9b], a
 	jr nz, .jump_6aae
 	pop bc
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6b2e::
@@ -6363,7 +6363,7 @@ Func_09_6b2e::
 	ld a, [$c31c]
 	add a, [hl]
 	ld [$c31c], a
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6b6c::
@@ -6631,7 +6631,7 @@ Func_09_6ccc::
 	add hl, bc
 	ld [hl], $00
 .jump_6d1b:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6d1e::
@@ -6658,19 +6658,19 @@ Func_09_6d1e::
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	ld bc, $0000
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	pop bc
 	rst_farcall Func_09_6600
 .jump_6d59:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6d5c::
 	ld a, $24
-	call Func_09_43ea
+	call CheckPlayerContact
 	call AnimateObject
 	jp NextObject
 
@@ -6716,9 +6716,9 @@ ObjInit_09_6d96::
 Func_09_6da5::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld a, $24
-	call Func_09_43ea
+	call CheckPlayerContact
 	ldh a, [$ff8b]
 	add a, $d0
 	ld e, a
@@ -6801,7 +6801,7 @@ Func_09_6da5::
 
 Func_09_6e36::
 	ld a, $24
-	call Func_09_43ea
+	call CheckPlayerContact
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
@@ -6809,7 +6809,7 @@ Func_09_6e36::
 .jump_6e43:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -6912,7 +6912,7 @@ Func_09_6e97::
 	ld [hl], $00
 	call Func_09_6f16
 .jump_6ef5:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6ef8::
@@ -6928,7 +6928,7 @@ Func_09_6ef8::
 	ld a, $27
 	ld [$c32a], a
 	call DeleteObjectForGood
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_6f16::
@@ -7050,7 +7050,7 @@ Func_09_6fe2::
 	ld a, [wObjectFreeCount]
 	cp $03
 	ret c
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
 	call Func_09_703d
@@ -7098,7 +7098,7 @@ Func_09_6fe2::
 Func_09_703d::
 	ld hl, ObjInit_09_7048
 	call InitObject
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ret
 
 
@@ -7115,7 +7115,7 @@ ObjInit_09_7048::
 
 Func_09_705e::
 	ld a, $24
-	call Func_09_43ea
+	call CheckPlayerContact
 	call AnimateObject
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
@@ -7153,7 +7153,7 @@ Func_09_708a::
 	cp $38
 	jr z, .jump_70d9
 .jump_70a0:
-	call Func_09_5dbb
+	call HurtPlayer
 	jr .jump_70d6
 
 .jump_70a5:
@@ -7187,7 +7187,7 @@ Func_09_708a::
 	ld [hli], a
 	ld [hl], a
 .jump_70d6:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_70d9:
 	ld hl, wPlayer + OBJ_VAR_0A
@@ -7244,7 +7244,7 @@ Func_09_70f5::
 	call Func_09_68d2
 	call Func_09_611e
 .jump_7139:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_713c:
 	push bc
@@ -7272,7 +7272,7 @@ Func_09_7150::
 	ld a, [wPlayer + OBJ_VAR_35]
 	cp $08
 	jr z, .jump_7165
-	call Func_09_5dbb
+	call HurtPlayer
 	jr .jump_71a5
 
 .jump_7165:
@@ -7315,7 +7315,7 @@ Func_09_7150::
 	inc l
 	ld [hl], $fd
 .jump_71a5:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_71a8::
@@ -7349,7 +7349,7 @@ Func_09_71a8::
 	inc l
 	ld [hl], HIGH(Anim_04_4f8b)
 .jump_71e1:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_71e4::
@@ -7379,7 +7379,7 @@ Func_09_71e4::
 	inc hl
 	ld [hl], HIGH(Anim_04_4f8b)
 .jump_7213:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_7216::
@@ -7439,12 +7439,12 @@ Func_09_7216::
 	ld a, [wPlayer + OBJ_XVEL + 1]
 	ld [hl], a
 .jump_726f:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_7272:
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
-	jp c, Func_09_43ea.jump_44f5
+	jp c, CheckPlayerContact.jump_44f5
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	ld e, [hl]
@@ -7465,7 +7465,7 @@ Func_09_7216::
 	add hl, bc
 	bit 7, [hl]
 	jr z, .jump_72a4
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_72a4:
 	ld [hl], $80
@@ -7474,7 +7474,7 @@ Func_09_7216::
 	ld [hl], LOW(Anim_04_4f41)
 	inc hl
 	ld [hl], HIGH(Anim_04_4f41)
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_72b2::
@@ -7553,7 +7553,7 @@ Func_09_72f4::
 	ld [$c450], a
 	ld a, [hli]
 	ld [$c451], a
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_733f::
@@ -7597,7 +7597,7 @@ Func_09_733f::
 	call Func_09_68d2
 	call Func_09_611e
 .jump_7387:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_738a:
 	push bc
@@ -7624,7 +7624,7 @@ Func_09_739e::
 	inc l
 	ld [hl], HIGH(Anim_04_4cbf)
 .jump_73ac:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_73af::
@@ -7636,7 +7636,7 @@ Func_09_73af::
 	inc l
 	ld [hl], HIGH(Anim_04_4d5b)
 .jump_73bd:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_73c0::
@@ -7648,7 +7648,7 @@ Func_09_73c0::
 	inc l
 	ld [hl], HIGH(Anim_04_4d9d)
 .jump_73ce:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_73d1::
@@ -7660,7 +7660,7 @@ Func_09_73d1::
 	inc l
 	ld [hl], HIGH(Anim_04_4d21)
 .jump_73df:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_73e2::
@@ -7681,7 +7681,7 @@ Func_09_73e2::
 	and $20
 	jr nz, .jump_7405
 .jump_7400:
-	call Func_09_5dbb
+	call HurtPlayer
 	xor a
 	ret
 
@@ -7748,7 +7748,7 @@ Func_09_7416::
 	ld d, $00
 	rst_farcall Func_08_57e3
 .jump_746b:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_746e::
@@ -7793,7 +7793,7 @@ Func_09_746e::
 	inc a
 	ld [hl], a
 .jump_74b4:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_74b7::
@@ -7866,7 +7866,7 @@ Func_09_74c6::
 	ld [$c44c], a
 	rst_farcall Func_09_66d6
 .jump_752f:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_7532::
@@ -7894,13 +7894,13 @@ Func_09_7532::
 	ld [wPlayer + OBJ_VAR_37], a
 	call Func_09_61ba
 	rst_farcall Func_09_66d6
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_756b::
 	ld hl, ObjInit_09_7574
 	call ApplyObjInit
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_7574::
@@ -7927,7 +7927,7 @@ Func_09_7586::
 	call MoveTowardsX
 	ld de, $0010
 	call MoveTowardsY
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_75ac::
@@ -7964,7 +7964,7 @@ Func_09_75bd::
 	ld [hl], HIGH(Anim_04_4c9d)
 	call Func_09_41cd
 .jump_75e7:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_75ea:
 	push bc
@@ -7975,8 +7975,8 @@ Func_09_75bd::
 	jr .jump_75db
 
 .jump_75f3:
-	call Func_09_5dbb
-	jp Func_09_43ea.jump_44f5
+	call HurtPlayer
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_75f9::
@@ -8093,7 +8093,7 @@ Func_09_769d::
 	add hl, bc
 	ld [hl], $f0
 .jump_76c3:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_76c6::
@@ -8107,7 +8107,7 @@ Func_09_76c6::
 	add hl, bc
 	ld a, [hl]
 	and $06
-	jp z, Func_09_43ea.jump_44f5
+	jp z, CheckPlayerContact.jump_44f5
 	ld hl, wObjects + OBJ_VAR_2C
 	add hl, de
 	ld a, [hl]
@@ -8182,9 +8182,9 @@ Func_09_76c6::
 	jr .jump_778b
 
 .jump_774a:
-	call Func_09_5dbb
+	call HurtPlayer
 .jump_774d:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_7750:
 	inc e
@@ -8264,7 +8264,7 @@ Func_09_76c6::
 	ld [wPlayer + OBJ_XVEL], a
 	ld [wPlayer + OBJ_XVEL + 1], a
 	ld [wPlayer + OBJ_XSUB], a
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_77dc::
@@ -8345,7 +8345,7 @@ Func_09_7808::
 	ld hl, ObjInit_09_7871
 	call ApplyObjInit
 .jump_7865:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 .jump_7868:
 	push bc
@@ -8372,7 +8372,7 @@ Func_09_7882::
 	ld e, a
 	or d
 	jr nz, .jump_7890
-	call Func_09_5dbb
+	call HurtPlayer
 	jr .jump_78a0
 
 .jump_7890:
@@ -8386,7 +8386,7 @@ Func_09_7882::
 	ld [hl], $00
 	call Func_09_41fd
 .jump_78a0:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_78a3::
@@ -8414,7 +8414,7 @@ Func_09_78af::
 	inc l
 	ld [hl], $40
 .jump_78ca:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_78cd::
@@ -8434,7 +8434,7 @@ Func_09_78cd::
 	jr .jump_78f6
 
 .jump_78ea:
-	call Func_09_5dbb
+	call HurtPlayer
 	jr .jump_78f6
 
 .jump_78ef:
@@ -8444,15 +8444,15 @@ Func_09_78cd::
 	call Func_09_6f16
 	pop bc
 .jump_78f6:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_78f9::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
-	call Func_09_5dbb
-	jp Func_09_43ea.jump_44f5
+	call HurtPlayer
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_7905::
@@ -8473,7 +8473,7 @@ Func_09_7905::
 	inc l
 	ld [hl], HIGH(Func_09_7930)
 	rst_farcall Func_08_40d4
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_792a::
@@ -8533,7 +8533,7 @@ Func_09_7930::
 	xor a
 	ld [wPlayer + OBJ_ANIM_FLAGS], a
 .jump_7992:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_7995::
@@ -8555,7 +8555,7 @@ Func_09_7995::
 	ld hl, ObjInit_09_79c1
 	call ApplyObjInit
 .jump_79be:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_79c1::
@@ -8616,13 +8616,13 @@ Func_09_79cd::
 	xor a
 	ld [wPlayer + OBJ_COLLISION], a
 	ldh [$ffa7], a
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	ld bc, $0000
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	pop bc
 .jump_7a3b:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_7a3e::
@@ -8740,7 +8740,7 @@ Func_09_7ad5::
 	ld a, $24
 	ld [$c32a], a
 .jump_7b02:
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_7b05::
@@ -8768,7 +8768,7 @@ Func_09_7b05::
 	call MoveTowardsX
 	ld de, $000c
 	call MoveTowardsY
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_7b42::
@@ -8806,7 +8806,7 @@ Func_09_7b4c::
 	rst_farcall Func_08_6205
 	ld a, $31
 	ld [$c329], a
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 Func_09_7b84::
@@ -8821,7 +8821,7 @@ Func_09_7b84::
 	call MoveTowardsY
 	ld a, $2c
 	ld [$c32a], a
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 ObjInit_09_7ba5::

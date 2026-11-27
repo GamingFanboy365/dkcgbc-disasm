@@ -72,7 +72,7 @@ Func_0a_4001::
 	ret
 
 
-Func_0a_4063::
+SaveObjectPosition::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -96,7 +96,7 @@ Func_0a_4063::
 	ret
 
 
-Func_0a_4086::
+MoveObjectToSavedPosition::
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
@@ -395,7 +395,7 @@ Func_0a_41c8::
 .jump_4235:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -438,7 +438,7 @@ Func_0a_4270::
 .jump_429c:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -461,7 +461,7 @@ Func_0a_42b9::
 .jump_42ca:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -495,7 +495,7 @@ Func_0a_42dd::
 .jump_4306:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -558,7 +558,7 @@ Func_0a_4319::
 .jump_4379:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -594,7 +594,7 @@ Func_0a_438c::
 .jump_43b8:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -762,7 +762,7 @@ Func_0a_44a3::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	dec [hl]
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
@@ -995,7 +995,7 @@ Func_0a_4621::
 	ld a, [hl]
 	or a
 	jr nz, .jump_466b
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -1249,7 +1249,7 @@ Func_0a_4742::
 Func_0a_47cf::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -1473,7 +1473,7 @@ Func_0a_4917::
 Func_0a_492d::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -1567,7 +1567,7 @@ Func_0a_49c3::
 	ld [hl], $20
 	ld a, $66
 	ld [$c32c], a
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -1598,7 +1598,7 @@ Func_0a_49c3::
 	call AllocObject
 	pop hl
 	call InitObject
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
 	ldh a, [$ffb8]
@@ -1846,7 +1846,7 @@ Func_0a_4b87::
 	ld [hl], a
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 .jump_4bae:
 	call Func_0a_5201
@@ -1912,7 +1912,7 @@ Func_0a_4bf4::
 	ld l, a
 	ld h, $af
 	inc [hl]
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -2181,7 +2181,7 @@ Func_0a_4d88::
 .jump_4dd3:
 	call ApplyVelocity
 	call AnimateObject
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call Func_0a_5201
 	jp NextObject
 
@@ -2265,7 +2265,7 @@ YSpeeds_0a_4e56::
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call Func_0a_5201
 	jp NextObject
 
@@ -2287,7 +2287,7 @@ Func_0a_4e6f::
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call Func_0a_5201
 	jp NextObject
 
@@ -2514,7 +2514,7 @@ ObjInit_0a_4f77::
 .jump_4ff2:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -2554,7 +2554,7 @@ Func_0a_500b::
 	jp nc, ObjInit_0a_4f77.jump_4f94
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -2592,7 +2592,7 @@ Func_0a_500b::
 .jump_507d:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call Func_0a_5201
 	jp NextObject
@@ -2661,7 +2661,7 @@ ObjInit_0a_50e4::
 Func_0a_50f8::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_513b
@@ -2802,7 +2802,7 @@ Func_0a_51c6::
 	add hl, bc
 	bit 0, [hl]
 	jr nz, .jump_51fb
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 .jump_51fb:
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -4094,10 +4094,10 @@ Func_0a_59f0::
 	ld l, a
 	ld h, $af
 	inc [hl]
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ld hl, ObjInit_0a_5a27
 	call InitObject
 	ld hl, wObjects + OBJ_VAR_2D
@@ -4208,7 +4208,7 @@ Func_0a_5a9a::
 Func_0a_5ac6::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -4472,7 +4472,7 @@ Func_0a_5c38::
 Func_0a_5c4d::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -4532,7 +4532,7 @@ Func_0a_5c4d::
 Func_0a_5cab::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
@@ -4769,7 +4769,7 @@ Func_0a_5e1d::
 	jr z, .jump_5e37
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 .jump_5e2e:
 	call AnimateObject
 	call DespawnIfOutOfRange
@@ -4918,7 +4918,7 @@ Func_0a_5eee::
 	jp NextObject
 
 .jump_5efc:
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
@@ -4936,7 +4936,7 @@ Func_0a_5eee::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ld hl, ObjInit_0a_5f2a
 	call InitObject
 	pop bc
@@ -5410,7 +5410,7 @@ Func_0a_627a::
 .jump_62dd:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 .jump_62e7:
 	call AnimateObject
 	call DespawnIfOutOfRange
@@ -5459,7 +5459,7 @@ Func_0a_62f0::
 .jump_6333:
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -5472,7 +5472,7 @@ Func_0a_6346::
 	jr z, .jump_6360
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 .jump_6357:
 	call AnimateObject
 	call DespawnIfOutOfRange
@@ -5762,9 +5762,9 @@ Func_0a_64ba::
 	ld [$c32c], a
 	push bc
 	push de
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	call AllocObject
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	pop de
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
@@ -6656,7 +6656,7 @@ Func_0a_6a2a::
 .jump_6a42:
 	ld a, $4c
 	ld [$c32c], a
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
@@ -6672,7 +6672,7 @@ Func_0a_6a2a::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ld hl, ObjInit_0a_6a77
 	call InitObject
 .jump_6a70:
@@ -6993,7 +6993,7 @@ Func_0a_6c2e::
 Func_0a_6c3f::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
@@ -7555,7 +7555,7 @@ Func_0a_6f71::
 
 Func_0a_6f89::
 	call AnimateObject
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -7925,7 +7925,7 @@ Func_0a_713c::
 	inc [hl]
 	push bc
 	push de
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	call AllocObject
 	jr c, .jump_71a3
 	ld hl, wObjects + OBJ_XSUB

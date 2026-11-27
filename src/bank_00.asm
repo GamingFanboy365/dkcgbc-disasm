@@ -10542,7 +10542,7 @@ Func_00_3c1b::
 .jump_3cd9:
 	ld a, $09
 	ld [rROMB0], a
-	jp Func_09_43ea.jump_44f5
+	jp CheckPlayerContact.jump_44f5
 
 
 LoadBGPaletteSet::

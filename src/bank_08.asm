@@ -60,7 +60,7 @@ Func_08_403d::
 Func_08_4046::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -79,7 +79,7 @@ Func_08_4046::
 Func_08_4067::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -152,7 +152,7 @@ Func_08_40d4::
 	ret
 
 
-Func_08_40e1::
+CollideWithTerrain::
 	xor a
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
@@ -1834,7 +1834,7 @@ Func_08_4a6c::
 	ldh [$ffb8], a
 	ld a, [hli]
 	ldh [$ffb9], a
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
 	ld hl, ObjInit_08_4b17
@@ -1845,7 +1845,7 @@ Func_08_4a6c::
 	ld [hli], a
 	ldh a, [$ffb9]
 	ld [hli], a
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	ldh a, [$ffa8]
 	and $20
 	ld de, $0400
@@ -2001,7 +2001,7 @@ Func_08_4bcd::
 	ld l, a
 	ld h, $af
 	inc [hl]
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -2760,7 +2760,7 @@ ObjInit_08_50c5::
 Func_08_50de::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
@@ -4130,7 +4130,7 @@ ObjInit_08_59b1::
 Func_08_59b8::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -4145,7 +4145,7 @@ Func_08_59b8::
 Func_08_59d7::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -4205,7 +4205,7 @@ Func_08_59d7::
 Func_08_5a40::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -4223,7 +4223,7 @@ Func_08_5a40::
 Func_08_5a63::
 	call UpdateVelocity
 	call ApplyVelocity
-	rst_farcall Func_08_40e1
+	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
@@ -4234,14 +4234,14 @@ Func_08_5a63::
 	call Func_08_5aba
 .jump_5a7d:
 	call Func_08_5ba3
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	call Func_08_5bf5
 	call DrawObject
 	pop bc
@@ -4251,14 +4251,14 @@ Func_08_5a63::
 
 
 Func_08_5aa0::
-	rst_farcall Func_0a_4063
+	rst_farcall SaveObjectPosition
 	push bc
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	rst_farcall Func_0a_4086
+	rst_farcall MoveObjectToSavedPosition
 	call DrawObject
 	pop bc
 	call DespawnIfOutOfRange

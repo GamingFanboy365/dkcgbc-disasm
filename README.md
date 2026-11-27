@@ -313,7 +313,7 @@ Every bank now has a known purpose:
 | `$10`–`$14` | text: English, German, French, Italian, Spanish |
 | `$18`–`$1B` | world map tilesets |
 | `$20` | sprite frame headers |
-| `$21`–`$3A` | sprite tiles |
+| `$21`–`$3A` | sprite tiles and sprite offset lists (2 bytes per sprite, or 3 with a per-sprite attribute when the object's OAM attributes have bit 4 set) |
 | `$40`, `$41` | dialogue font, map icons, DMG error screen; world map sprites |
 | `$42`, `$43`, `$74` | title tiles; shop and banana hoard screens |
 | `$44`–`$4F` | full screens loaded by the flow script; title tiles in `$45` |

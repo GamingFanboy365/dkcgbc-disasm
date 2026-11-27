@@ -592,7 +592,7 @@ def parse_banks(t, rom):
     t._claim(0x0D, 0x4000, 1, "rows", [("db", ["$0d"], "bank number")], "=Bank0D_Number")
     # bytes after a frame's sprite offset list that the draw code (Func_00_1037) never reads
     for b in range(0x21, 0x3B):
-        spr = sorted(o for o, (k, bb, pl, ln) in t.data.items() if k == "sprites" and o // 0x4000 == b)
+        spr = sorted(o for o, (k, bb, pl, ln) in t.data.items() if k in ("sprites", "sprites3") and o // 0x4000 == b)
         if not spr:
             continue
         d = rom[b * 0x4000:(b + 1) * 0x4000]

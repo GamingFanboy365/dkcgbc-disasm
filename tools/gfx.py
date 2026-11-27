@@ -234,6 +234,61 @@ def frames(rom):
             yield a, h[0] | h[1] << 8, h[2] | h[3] << 8, h[4], h[5]
 
 
+_LAYOUTS = None
+
+
+def sprite_layouts(rom):
+    """{(bank, sprite list addr): bytes per sprite (2 or 3)}.
+
+    DrawSpriteFrame (Func_00_1037) reads 2 bytes per sprite (dx, dy) unless
+    the object's OAM attributes have bit 4 set; then it reads 3 (dx, dy and a
+    value added to that sprite's attributes, i.e. its own palette). The
+    frame headers don't say which, so a list counts as 3-byte when the room
+    before the next list (or the padding at the end of the bank) is exactly
+    3 bytes per sprite."""
+    global _LAYOUTS
+    if _LAYOUTS is not None:
+        return _LAYOUTS
+    lists = {}
+    for (_, tiles, spr, n, gb) in frames(rom):
+        if n:
+            lists[(gb, spr)] = max(lists.get((gb, spr), 0), n // 2)
+    starts = {}
+    for (gb, spr) in lists:
+        starts.setdefault(gb, []).append(spr)
+    for (_, tiles, spr, n, gb) in frames(rom):
+        if n:
+            starts.setdefault(gb, []).append(tiles)
+    out = {}
+    for (gb, spr), k in lists.items():
+        nxt = [x for x in starts[gb] if x > spr]
+        if nxt:
+            three = min(nxt) - spr == 3 * k
+        else:
+            end = off(gb, 0x8000)
+            o = off(gb, spr)
+            rest = rom[o + 2 * k:end]
+            # last list in the bank: k more bytes that aren't all zero, then padding
+            three = len(rest) >= k and any(rest[:k]) and all(v in (0, 0xFF) for v in rest[k:])
+        out[(gb, spr)] = 3 if three else 2
+    _LAYOUTS = out
+    return out
+
+
+def sprite_positions(rom, gb, spr, nsprites):
+    """[(x, y, attribute add)] for a frame's sprites, following DrawSpriteFrame."""
+    step = sprite_layouts(rom).get((gb, spr), 2)
+    so = off(gb, spr)
+    x = y = 0
+    out = []
+    for k in range(nsprites):
+        dx, dy = rom[so + step * k], rom[so + step * k + 1]
+        x += dx - 256 if dx >= 128 else dx
+        y += dy - 256 if dy >= 128 else dy
+        out.append((x, y, rom[so + step * k + 2] if step == 3 else 0))
+    return out
+
+
 def frame_png_path(gbank, tiles):
     return os.path.join("gfx", "frames", "%02x" % gbank, "%04x.png" % tiles)
 
@@ -362,14 +417,7 @@ def preview(rom, outdir, colored=True):
         index.append("%s,$%04x,%s,%s" % (name, a, "" if pid is None else "%d" % pid, how))
         o = off(gb, tiles)
         _, strip = tiles_to_rows(rom[o:o + n * 16])
-        so = off(gb, spr)
-        x = y = 0
-        pos = []
-        for k in range(n // 2):
-            dx, dy = rom[so + 2 * k], rom[so + 2 * k + 1]
-            x += dx - 256 if dx >= 128 else dx
-            y += dy - 256 if dy >= 128 else dy
-            pos.append((x, y))
+        pos = [(x, y) for x, y, _ in sprite_positions(rom, gb, spr, n // 2)]
         x0 = min(p[0] for p in pos)
         y0 = min(p[1] for p in pos)
         w = max(p[0] for p in pos) - x0 + 8

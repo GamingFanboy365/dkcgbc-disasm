@@ -328,6 +328,12 @@ class Emitter:
         if kind == "sprites":
             sb = [b - 0x100 if b >= 0x80 else b for b in item[2]]
             return [(o if k == 0 else None, "db %d, %d" % (sb[k], sb[k + 1])) for k in range(0, len(sb), 2)]
+        if kind == "sprites3":
+            # dx, dy and a value added to the sprite's attributes (used when the
+            # object's OAM attributes have bit 4 set, DrawSpriteFrame .jump_11ce)
+            sb = [b - 0x100 if b >= 0x80 else b for b in item[2]]
+            return [(o if k == 0 else None, "db %d, %d, $%02x" % (sb[k], sb[k + 1], item[2][k + 2]) +
+                     (" ; dx, dy, attribute add" if k == 0 else "")) for k in range(0, len(sb), 3)]
         if kind == "frames":
             res = []
             for (a, tiles, spr, n, gb) in item[2]:

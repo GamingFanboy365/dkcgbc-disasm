@@ -181,6 +181,11 @@ class Tracer:
         self.candidates = []
         self.fell_into_old = False
 
+    def _bank_store_before(self, hist, tb):
+        """True when the handler pointer is stored in the object's own bank
+        (the handler runs in the bank the code is in)."""
+        return tb != 0
+
     def add(self, bank, addr, kind="func", ctx=None):
         if addr >= 0x8000:
             return
@@ -313,7 +318,10 @@ class Tracer:
                 elif fld is None or fld in (OBJ_HANDLER, OBJ_TOUCH_HANDLER):
                     if ptr < 0x4000 or (bank and ptr < 0x8000):
                         tb = bank if ptr >= 0x4000 else 0
-                        self.candidates.append((tb, ptr))
+                        if fld == OBJ_HANDLER and hist[0][1].addr >= 2 and self._bank_store_before(hist, tb):
+                            self.add(tb, ptr, "func", tb)  # a new handler: always code
+                        else:
+                            self.candidates.append((tb, ptr))
                         if fld is not None:
                             self.lohi.append((hist[0][0], hist[2][0], tb, ptr))
             # byte stores into object fields, e.g. OBJ_PALETTE (used by
@@ -514,15 +522,18 @@ class Tracer:
             self.data_labels[o] = "Frame"
             if n == 0:
                 continue
+            import gfx
+            three = gfx.sprite_layouts(rom).get((gb, spr), 2) == 3
             for (addr, kind, length, prefix) in ((tiles, "tiles", n * 16, "FrameTiles"),
-                                                 (spr, "sprites", n, "FrameSprites")):
+                                                 (spr, "sprites3" if three else "sprites", n * 3 // 2 if three else n,
+                                                  "FrameSprites")):
                 go = off(gb, addr)
                 if go in self.data:
                     continue
                 if any(go + j in self.owner for j in range(length)):
                     self.conflicts.append((gb, addr, "frame-" + kind))
                     continue
-                payload = list(rom[go:go + length]) if kind == "sprites" else None
+                payload = list(rom[go:go + length]) if kind.startswith("sprites") else None
                 self.data[go] = (kind, gb, payload, length)
                 self.data_labels[go] = prefix
                 for j in range(length):

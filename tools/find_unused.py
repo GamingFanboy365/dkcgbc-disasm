@@ -103,14 +103,7 @@ class Finder:
         rom = self.rom
         o = off(gb, tiles)
         _, strip = gfx.tiles_to_rows(rom[o:o + n * 16])
-        so = off(gb, spr)
-        x = y = 0
-        pos = []
-        for k in range(n // 2):
-            dx, dy = rom[so + 2 * k], rom[so + 2 * k + 1]
-            x += dx - 256 if dx >= 128 else dx
-            y += dy - 256 if dy >= 128 else dy
-            pos.append((x, y))
+        pos = [(x, y) for x, y, _ in gfx.sprite_positions(rom, gb, spr, n // 2)]
         x0, y0 = min(p[0] for p in pos), min(p[1] for p in pos)
         w = max(p[0] for p in pos) - x0 + 8
         h = max(p[1] for p in pos) - y0 + 16

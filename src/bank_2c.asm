@@ -67,455 +67,383 @@ FrameTiles_2c_6820::
 	INCBIN "gfx/frames/2c/6820.2bpp"
 
 FrameSprites_2c_6a40::
-	db -20, -41
-	db 1, -2
-	db 16, 1
-	db 10, -22
-	db 1, 0
-	db 16, 0
-	db -2, 6
-	db 0, 10
-	db -22, 1
-	db 0, 16
-	db 0, -2
-	db 16, 0
-	db 10, -35
-	db 0, 0
-	db 16, 0
-	db -2, 16
-	db 0, 10
-
-FrameSpritesTail_2c_6a62::
-	db -32, 0, 0, 16, 0, -2, 16, 0, 10, -15, 0, -34, 24, 0, -8, 0 ; never read; dx, dy pairs like the list above
-	db 0
+	db -20, -41, $01 ; dx, dy, attribute add
+	db -2, 16, $01
+	db 10, -22, $01
+	db 0, 16, $00
+	db -2, 6, $00
+	db 10, -22, $01
+	db 0, 16, $00
+	db -2, 16, $00
+	db 10, -35, $00
+	db 0, 16, $00
+	db -2, 16, $00
+	db 10, -32, $00
+	db 0, 16, $00
+	db -2, 16, $00
+	db 10, -15, $00
+	db -34, 24, $00
+	db -8, 0, $00
 
 FrameSprites_2c_6a73::
-	db -23, -30
-	db 1, 2
-	db 14, 1
-	db 8, -32
-	db 1, -2
-	db 16, 0
-	db 2, 16
-	db 0, 8
-	db -32, 1
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 8, -34
-	db 0, 0
-	db 16, 0
-	db 0, 16
-	db 0, 0
-
-FrameSpritesTail_2c_6a95::
-	db 16, 0, 8, -48, 0, 0, 16, 0, 0, 16, 0, 8, -15, 0, -29, 1 ; never read; dx, dy pairs like the list above
-	db 0
+	db -23, -30, $01 ; dx, dy, attribute add
+	db 2, 14, $01
+	db 8, -32, $01
+	db -2, 16, $00
+	db 2, 16, $00
+	db 8, -32, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -34, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -48, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -15, $00
+	db -29, 1, $00
 
 FrameSprites_2c_6aa6::
-	db -21, -29
-	db 1, 0
-	db 16, 1
-	db 8, -27
-	db 1, 16
-	db 39, 0
-	db -16, -23
-	db 0, 8
-	db -21, 1
-	db 0, 16
-	db 0, -8
-	db 21, 0
-	db 16, -41
-	db 0, 0
-	db 16, 0
-	db 0, 16
-	db 0, -8
-
-FrameSpritesTail_2c_6ac8::
-	db 4, 0, 16, -36, 0, 0, 16, 0, 0, 16, 0, 8, -15, 0, 0, 16 ; never read; dx, dy pairs like the list above
-	db 0
+	db -21, -29, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 8, -27, $01
+	db 16, 39, $00
+	db -16, -23, $00
+	db 8, -21, $01
+	db 0, 16, $00
+	db -8, 21, $00
+	db 16, -41, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db -8, 4, $00
+	db 16, -36, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -15, $00
+	db 0, 16, $00
 
 FrameSprites_2c_6ad9::
-	db -22, -29
-	db 1, 0
-	db 16, 1
-	db 8, -23
-	db 1, 0
-	db 16, 1
-	db 0, 16
-	db 0, 8
-	db -41, 1
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 8, -36
-	db 0, 0
-	db 16, 0
-
-FrameSpritesTail_2c_6af7::
-	db 0, 16, 0, 8, -32, 0, 0, 16, 0, 0, 16, 0, 8, -15, 0 ; never read; dx, dy pairs like the list above
+	db -22, -29, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 8, -23, $01
+	db 0, 16, $01
+	db 0, 16, $00
+	db 8, -41, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -36, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -32, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -15, $00
 
 FrameSprites_2c_6b06::
-	db -22, -31
-	db 1, 0
-	db 16, 1
-	db 8, -25
-	db 1, 0
-	db 16, 1
-	db 0, 16
-	db 0, 8
-	db -37, 1
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 8, -38
-	db 0, 0
-	db 16, 0
-
-FrameSpritesTail_2c_6b24::
-	db 0, 16, 0, 8, -32, 0, 0, 16, 0, 0, 16, 0, 8, -15, 0 ; never read; dx, dy pairs like the list above
+	db -22, -31, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 8, -25, $01
+	db 0, 16, $01
+	db 0, 16, $00
+	db 8, -37, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -38, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -32, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -15, $00
 
 FrameSprites_2c_6b33::
-	db -21, -31
-	db 1, 0
-	db 16, 1
-	db 8, -22
-	db 1, 0
-	db 16, 1
-	db 0, 16
-	db 0, 8
-	db -39, 1
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 8, -38
-	db 0, 0
-	db 16, 0
-	db 0, 16
-
-FrameSpritesTail_2c_6b53::
-	db 0, 0, 16, 0, 8, -48, 0, 0, 16, 0, 0, 16, 0, 8, -15, 0 ; never read; dx, dy pairs like the list above
+	db -21, -31, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 8, -22, $01
+	db 0, 16, $01
+	db 0, 16, $00
+	db 8, -39, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -38, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -48, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -15, $00
 
 FrameSprites_2c_6b63::
-	db -19, -31
-	db 1, 0
-	db 16, 1
-	db 7, -23
-	db 1, 1
-	db 16, 0
-	db 7, -22
-	db 1, 0
-	db 16, 0
-	db -3, 16
-	db 0, 11
-	db -37, 0
-	db 0, 16
-	db 0, 0
-	db 16, 0
-
-FrameSpritesTail_2c_6b81::
-	db -3, 5, 0, 11, -37, 0, 0, 16, 0, 0, 16, 0, 8, -15, 0 ; never read; dx, dy pairs like the list above
+	db -19, -31, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 7, -23, $01
+	db 1, 16, $00
+	db 7, -22, $01
+	db 0, 16, $00
+	db -3, 16, $00
+	db 11, -37, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db -3, 5, $00
+	db 11, -37, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -15, $00
 
 FrameSprites_2c_6b90::
-	db -14, -34
-	db 1, -6
-	db 12, 1
-	db 3, -4
-	db 1, 8
-	db 8, 0
-	db -3, 8
-	db 0, 6
-	db -33, 1
-	db 0, 16
-	db 0, 2
-	db 16, 0
-	db 6, -28
-	db 0, 0
-	db 16, 0
-
-FrameSpritesTail_2c_6bae::
-	db 2, 16, 0, 6, -32, 0, 0, 16, 0, 8, 7, 0, -38, 10, 0 ; never read; dx, dy pairs like the list above
+	db -14, -34, $01 ; dx, dy, attribute add
+	db -6, 12, $01
+	db 3, -4, $01
+	db 8, 8, $00
+	db -3, 8, $00
+	db 6, -33, $01
+	db 0, 16, $00
+	db 2, 16, $00
+	db 6, -28, $00
+	db 0, 16, $00
+	db 2, 16, $00
+	db 6, -32, $00
+	db 0, 16, $00
+	db 8, 7, $00
+	db -38, 10, $00
 
 FrameSprites_2c_6bbd::
-	db -20, -28
-	db 1, 0
-	db 16, 0
-	db 8, -20
-	db 1, 0
-	db 16, 0
-	db 0, 16
-	db 0, 7
-	db -44, 1
-	db 1, 16
-	db 0, 0
-	db 16, 0
-	db 7, -27
-	db 0, 1
-
-FrameSpritesTail_2c_6bd9::
-	db 16, 0, 0, 16, 0, 7, -32, 0, 1, 16, 0, 0, 16, 0 ; never read; dx, dy pairs like the list above
+	db -20, -28, $01 ; dx, dy, attribute add
+	db 0, 16, $00
+	db 8, -20, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 7, -44, $01
+	db 1, 16, $00
+	db 0, 16, $00
+	db 7, -27, $00
+	db 1, 16, $00
+	db 0, 16, $00
+	db 7, -32, $00
+	db 1, 16, $00
+	db 0, 16, $00
 
 FrameSprites_2c_6be7::
-	db -21, -30
-	db 1, 0
-	db 16, 0
-	db 8, -18
-	db 1, 0
-	db 16, 0
-	db 0, 16
-	db 0, 8
-	db -42, 1
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 8, -30
-	db 0, 0
-
-FrameSpritesTail_2c_6c03::
-	db 16, 0, 0, 16, 0, 8, -32, 0, 0, 16, 0, 0, 16, 0 ; never read; dx, dy pairs like the list above
+	db -21, -30, $01 ; dx, dy, attribute add
+	db 0, 16, $00
+	db 8, -18, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -42, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -30, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -32, $00
+	db 0, 16, $00
+	db 0, 16, $00
 
 FrameSprites_2c_6c11::
-	db -20, -35
-	db 1, 6
-	db 10, 1
-	db -8, 11
-	db 0, 10
-	db -21, 1
-	db -10, 5
-	db 1, 8
-	db 21, 0
-	db 8, -35
-	db 1, 0
-	db 25, 0
-	db 0, 16
-	db 0, 8
-	db -38, 0
-	db -6, 13
-	db 0, 6
-
-FrameSpritesTail_2c_6c33::
-	db 16, 0, 8, -29, 0, -6, 16, 0, 6, 16, 0, 2, -16, 0, 6, 11 ; never read; dx, dy pairs like the list above
-	db 0
+	db -20, -35, $01 ; dx, dy, attribute add
+	db 6, 10, $01
+	db -8, 11, $00
+	db 10, -21, $01
+	db -10, 5, $01
+	db 8, 21, $00
+	db 8, -35, $01
+	db 0, 25, $00
+	db 0, 16, $00
+	db 8, -38, $00
+	db -6, 13, $00
+	db 6, 16, $00
+	db 8, -29, $00
+	db -6, 16, $00
+	db 6, 16, $00
+	db 2, -16, $00
+	db 6, 11, $00
 
 FrameSprites_2c_6c44::
-	db -21, -29
-	db 1, 0
-	db -16, 1
-	db 0, 36
-	db 0, 5
-	db -24, 1
-	db 3, 16
-	db 0, 0
-	db 16, 0
-	db 5, -41
-	db 0, 0
-	db 16, 0
-	db 3, 9
-	db 0, 5
-	db -27, 0
-	db 0, 16
-	db 0, 3
-
-FrameSpritesTail_2c_6c66::
-	db 11, 0, 5, -16, 0, 3, 7, 0, 0, 9, 0, 8, -3, 0, -11, -29 ; never read; dx, dy pairs like the list above
-	db 0
+	db -21, -29, $01 ; dx, dy, attribute add
+	db 0, -16, $01
+	db 0, 36, $00
+	db 5, -24, $01
+	db 3, 16, $00
+	db 0, 16, $00
+	db 5, -41, $00
+	db 0, 16, $00
+	db 3, 9, $00
+	db 5, -27, $00
+	db 0, 16, $00
+	db 3, 11, $00
+	db 5, -16, $00
+	db 3, 7, $00
+	db 0, 9, $00
+	db 8, -3, $00
+	db -11, -29, $00
 
 FrameSprites_2c_6c77::
-	db -22, -40
-	db 1, 0
-	db 16, 1
-	db 0, 16
-	db 0, 8
-	db -35, 1
-	db 0, 16
-	db 1, 0
-	db 16, 0
-	db 8, -34
-	db 0, 0
-	db 16, 0
-	db 0, 16
-	db 0, 8
-	db -34, 0
-	db 0, 16
-
-FrameSpritesTail_2c_6c97::
-	db 0, 0, 16, 0, 8, -28, 0, 0, 16, 0, 0, 16, 0, 8, -23, 0 ; never read; dx, dy pairs like the list above
+	db -22, -40, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 0, 16, $00
+	db 8, -35, $01
+	db 0, 16, $01
+	db 0, 16, $00
+	db 8, -34, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -34, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -28, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -23, $00
 
 FrameSprites_2c_6ca7::
-	db -20, -29
-	db 1, -2
-	db 14, 1
-	db 6, -30
-	db 1, 4
-	db 16, 0
-	db -2, 16
-	db 1, -2
-	db -48, 0
-	db 8, 10
-	db 0, 0
-	db 16, 0
-	db 2, 16
-	db 0, 0
-	db 16, 0
-	db 6, -41
-
-FrameSpritesTail_2c_6cc7::
-	db 0, 0, 16, 0, 2, 16, 0, 6, -27, 0, 0, 16, 0, 8, -1, 0 ; never read; dx, dy pairs like the list above
+	db -20, -29, $01 ; dx, dy, attribute add
+	db -2, 14, $01
+	db 6, -30, $01
+	db 4, 16, $00
+	db -2, 16, $01
+	db -2, -48, $00
+	db 8, 10, $00
+	db 0, 16, $00
+	db 2, 16, $00
+	db 0, 16, $00
+	db 6, -41, $00
+	db 0, 16, $00
+	db 2, 16, $00
+	db 6, -27, $00
+	db 0, 16, $00
+	db 8, -1, $00
 
 FrameSprites_2c_6cd7::
-	db -24, -32
-	db 1, 0
-	db 16, 1
-	db 3, -28
-	db 1, 5
-	db 16, 0
-	db 0, 16
-	db 1, 2
-	db -48, 0
-	db 1, 16
-	db 0, 5
-	db 16, 0
-	db 0, 16
-	db 0, 3
-	db -32, 0
-	db 5, 16
-
-FrameSpritesTail_2c_6cf7::
-	db 0, 0, 16, 0, 8, -18, 0, 0, 16, 0, 8, -11, 0, -13, -19, 0 ; never read; dx, dy pairs like the list above
+	db -24, -32, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 3, -28, $01
+	db 5, 16, $00
+	db 0, 16, $01
+	db 2, -48, $00
+	db 1, 16, $00
+	db 5, 16, $00
+	db 0, 16, $00
+	db 3, -32, $00
+	db 5, 16, $00
+	db 0, 16, $00
+	db 8, -18, $00
+	db 0, 16, $00
+	db 8, -11, $00
+	db -13, -19, $00
 
 FrameSprites_2c_6d07::
-	db -23, -47
-	db 0, 0
-	db 16, 1
-	db 0, 16
-	db 1, 8
-	db -34, 0
-	db 0, 16
-	db 0, 0
-	db 16, 1
-	db 8, -27
-	db 0, 0
-	db 16, 0
-	db 0, 16
-	db 0, 8
-	db -28, 0
-
-FrameSpritesTail_2c_6d25::
-	db 0, 16, 0, 0, 16, 0, 8, -20, 0, 0, 21, 0, 8, -14, 0 ; never read; dx, dy pairs like the list above
+	db -23, -47, $00 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 0, 16, $01
+	db 8, -34, $00
+	db 0, 16, $00
+	db 0, 16, $01
+	db 8, -27, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -28, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -20, $00
+	db 0, 21, $00
+	db 8, -14, $00
 
 FrameSprites_2c_6d34::
-	db -24, -48
-	db 0, 0
-	db 24, 1
-	db 0, 16
-	db 1, 8
-	db -33, 0
-	db 0, -16
-	db 0, 0
-	db 32, 1
-	db 0, 16
-	db 1, 8
-	db -35, 0
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 8, -31
-	db 0, 0
-
-FrameSpritesTail_2c_6d56::
-	db 16, 0, 0, 16, 0, 8, -27, 0, 0, 16, 0, 0, 16, 0, 8, -6 ; never read; dx, dy pairs like the list above
-	db 0
+	db -24, -48, $00 ; dx, dy, attribute add
+	db 0, 24, $01
+	db 0, 16, $01
+	db 8, -33, $00
+	db 0, -16, $00
+	db 0, 32, $01
+	db 0, 16, $01
+	db 8, -35, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -31, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -27, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -6, $00
 
 FrameSprites_2c_6d67::
-	db -25, -22
-	db 1, 0
-	db 16, 1
-	db 8, -48
-	db 0, 0
-	db 21, 1
-	db 0, 16
-	db 1, 8
-	db -37, 0
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 0, 16
-	db 0, 8
-	db -43, 0
-	db 0, 16
-	db 0, 0
-	db 16, 0
-
-FrameSpritesTail_2c_6d8b::
-	db 0, 16, 0, 8, -41, 0, 0, 16, 0, 0, 16, 0, 8, -24, 0, 0 ; never read; dx, dy pairs like the list above
-	db 27, 0
+	db -25, -22, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 8, -48, $00
+	db 0, 21, $01
+	db 0, 16, $01
+	db 8, -37, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -43, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -41, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -24, $00
+	db 0, 27, $00
 
 FrameSprites_2c_6d9d::
-	db -23, -24
-	db 1, 0
-	db 16, 1
-	db 8, -25
-	db 1, 0
-	db 16, 1
-	db 8, 18
-	db 0, 0
-	db -48, 1
-	db 0, 16
-	db 0, 0
-	db 16, 0
-	db 8, -39
-	db 0, 0
-	db 16, 0
-	db 0, 16
-	db 0, 0
-
-FrameSpritesTail_2c_6dbf::
-	db 16, 0, 8, -48, 0, 0, 16, 0, 0, 16, 0, 0, 16, 0, 8, -27 ; never read; dx, dy pairs like the list above
-	db 0
+	db -23, -24, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 8, -25, $01
+	db 0, 16, $01
+	db 8, 18, $00
+	db 0, -48, $01
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -39, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -48, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 0, 16, $00
+	db 8, -27, $00
 
 FrameSprites_2c_6dd0::
-	db -19, -27
-	db 1, -8
-	db -3, 1
-	db 16, -4
-	db 1, -2
-	db 16, 1
-	db 5, 16
-	db 0, 5
-	db -42, 1
-	db 0, 16
-	db 0, -2
-	db 10, 0
-	db 10, -20
-	db 0, -2
-	db 16, 0
-	db -3, 16
-	db 0, 13
-
-FrameSpritesTail_2c_6df2::
-	db -38, 0, -2, 16, 0, -3, 16, 0, 13, -34, 0, -2, 16, 0, -40, 19 ; never read; dx, dy pairs like the list above
-	db 1
+	db -19, -27, $01 ; dx, dy, attribute add
+	db -8, -3, $01
+	db 16, -4, $01
+	db -2, 16, $01
+	db 5, 16, $00
+	db 5, -42, $01
+	db 0, 16, $00
+	db -2, 10, $00
+	db 10, -20, $00
+	db -2, 16, $00
+	db -3, 16, $00
+	db 13, -38, $00
+	db -2, 16, $00
+	db -3, 16, $00
+	db 13, -34, $00
+	db -2, 16, $00
+	db -40, 19, $01
 
 FrameSprites_2c_6e03::
-	db -19, -30
-	db 1, 0
-	db 16, 1
-	db 8, -17
-	db 1, -2
-	db 16, 1
-	db 8, 16
-	db 0, 2
-	db -45, 1
-	db 0, 16
-	db 0, -2
-	db 13, 0
-	db 10, -29
-	db 1, 0
-	db 16, 0
-	db -2, 16
-	db 0, 10
-
-FrameSpritesTail_2c_6e25::
-	db -24, 0, 0, 16, 0, -2, 8, 0, 10, -17, 0, 0, 16, 0, 8, -7 ; never read; dx, dy pairs like the list above
-	ds 4555, $00 ; $6e35
+	db -19, -30, $01 ; dx, dy, attribute add
+	db 0, 16, $01
+	db 8, -17, $01
+	db -2, 16, $01
+	db 8, 16, $00
+	db 2, -45, $01
+	db 0, 16, $00
+	db -2, 13, $00
+	db 10, -29, $01
+	db 0, 16, $00
+	db -2, 16, $00
+	db 10, -24, $00
+	db 0, 16, $00
+	db -2, 8, $00
+	db 10, -17, $00
+	db 0, 16, $00
+	db 8, -7, $00
+	ds 4554, $00 ; $6e36
 

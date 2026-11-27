@@ -203,8 +203,8 @@ Func_0f_412e::
 
 ObjInit_0f_418d::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte OBJ_BANK, BANK(Func_08_402e)
-	obj_word OBJ_HANDLER, Func_08_402e
+	obj_byte OBJ_BANK, BANK(Obj_Animate)
+	obj_word OBJ_HANDLER, Obj_Animate
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_word OBJ_ANIM, Anim_04_55d3
 	obj_byte OBJ_PALETTE, $30
@@ -245,8 +245,8 @@ Func_0f_41c2::
 
 ObjInit_0f_41dd::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte OBJ_BANK, BANK(Func_08_402e)
-	obj_word OBJ_HANDLER, Func_08_402e
+	obj_byte OBJ_BANK, BANK(Obj_Animate)
+	obj_word OBJ_HANDLER, Obj_Animate
 	obj_byte OBJ_PALETTE, $01
 	obj_word OBJ_ANIM, Anim_04_431b
 	obj_byte OBJ_ANIM_FLAGS, $00
@@ -301,8 +301,8 @@ Func_0f_422f::
 
 ObjInit_0f_4239::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte OBJ_BANK, BANK(Func_08_402e)
-	obj_word OBJ_HANDLER, Func_08_402e
+	obj_byte OBJ_BANK, BANK(Obj_Animate)
+	obj_word OBJ_HANDLER, Obj_Animate
 	obj_word OBJ_X, $0094
 	obj_word OBJ_Y, $0014
 	obj_word OBJ_ANIM, Anim_04_56fd

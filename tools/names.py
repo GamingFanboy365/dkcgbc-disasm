@@ -137,10 +137,9 @@ NAMES = {
     (0x09, 0x521D): "PlayerExpresso",
     (0x09, 0x53DC): "PlayerEnguarde",
     (0x09, 0x54BF): "PlayerWinky",
-    (0x0A, 0x4192): "GnawtyBoss",
-    (0x0A, 0x47CF): "GnawtyBoss2",
-    (0x0A, 0x4401): "NeckyBoss",
-    (0x0A, 0x459A): "NeckyBoss2",
+    (0x0A, 0x4192): "VeryGnawty",              # also Really Gnawty (ReallyGnawty_Init)
+    (0x0A, 0x47CF): "BossDefeated",            # a beaten boss falls; then the giant banana
+    (0x0A, 0x4401): "MasterNecky",             # also Master Necky Snr (MasterNeckySnr_Init)
     (0x0A, 0x4674): "QueenB",
     (0x0A, 0x4881): "DumbDrum",
     (0x0A, 0x4B87): "KingKRool",
@@ -185,4 +184,22 @@ NAMES = {
     (0x0A, 0x7061): "Millstone_Wait",
     (0x0A, 0x7090): "Millstone_Move",
     (0x0A, 0x72C1): "ExtraLifeBalloon",
+    # bosses: the shared routines are named after the first fight that uses
+    # them; each fight's initialiser list (spawned by its level) sets the
+    # palette and how many hits are already counted
+    (0x0E, 0x470F): "VeryGnawty_Init",
+    (0x0E, 0x471B): "ReallyGnawty_Init",
+    (0x0E, 0x4727): "QueenB_Init",
+    (0x0E, 0x475D): "MasterNecky_Init",
+    (0x0E, 0x4769): "MasterNeckySnr_Init",
+    (0x0E, 0x4775): "DumbDrum_Init",
+    (0x0E, 0x4799): "KingKRool_Init",
+    (0x0A, 0x42DD): "VeryGnawty_Hit",
+    (0x0A, 0x459A): "MasterNecky_Hit",
+    (0x0A, 0x45B9): "MasterNecky_Defeated",
+    (0x0A, 0x5232): "BossDefeated_Banana",
+    (0x0A, 0x5285): "GiantBanana",
+    (0x09, 0x4712): "StompBoss_Touch",          # beaver and Necky bosses: counts stomps to 5 or 10
+    (0x09, 0x47EF): "QueenB_Touch",              # counts barrel hits
+    (0x09, 0x487A): "KingKRool_Touch",
 }

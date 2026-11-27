@@ -1032,8 +1032,8 @@ ObjInit_0e_46df::
 
 ObjInit_0e_46f1::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(GnawtyBoss)
-	obj_word OBJ_HANDLER, GnawtyBoss
+	obj_byte OBJ_BANK, BANK(VeryGnawty)
+	obj_word OBJ_HANDLER, VeryGnawty
 	obj_word OBJ_TOUCH_HANDLER, $4712
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_byte OBJ_COLLISION, $04
@@ -1045,7 +1045,7 @@ ObjInit_0e_46f1::
 	obj_byte OBJ_VAR_35, $00
 	obj_end
 
-ObjInit_0e_470f::
+VeryGnawty_Init::
 	obj_include ObjInit_0e_46f1
 	obj_byte OBJ_PALETTE, $20
 	obj_byte OBJ_VAR_2E, $00
@@ -1053,7 +1053,7 @@ ObjInit_0e_470f::
 	obj_byte OBJ_VAR_37, $00
 	obj_end
 
-ObjInit_0e_471b::
+ReallyGnawty_Init::
 	obj_include ObjInit_0e_46f1
 	obj_byte OBJ_PALETTE, $24
 	obj_byte OBJ_VAR_2E, $05
@@ -1061,7 +1061,7 @@ ObjInit_0e_471b::
 	obj_byte OBJ_VAR_37, $03
 	obj_end
 
-ObjInit_0e_4727::
+QueenB_Init::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(QueenB)
 	obj_word OBJ_HANDLER, QueenB
@@ -1079,8 +1079,8 @@ ObjInit_0e_4727::
 
 ObjInit_0e_4745::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(NeckyBoss)
-	obj_word OBJ_HANDLER, NeckyBoss
+	obj_byte OBJ_BANK, BANK(MasterNecky)
+	obj_word OBJ_HANDLER, MasterNecky
 	obj_word OBJ_TOUCH_HANDLER, $4712
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_COLLISION, $04
@@ -1090,7 +1090,7 @@ ObjInit_0e_4745::
 	obj_byte OBJ_VAR_35, $01
 	obj_end
 
-ObjInit_0e_475d::
+MasterNecky_Init::
 	obj_include ObjInit_0e_4745
 	obj_byte OBJ_PALETTE, $22
 	obj_byte OBJ_VAR_36, $2c
@@ -1098,7 +1098,7 @@ ObjInit_0e_475d::
 	obj_byte OBJ_VAR_2E, $00
 	obj_end
 
-ObjInit_0e_4769::
+MasterNeckySnr_Init::
 	obj_include ObjInit_0e_4745
 	obj_byte OBJ_PALETTE, $28
 	obj_byte OBJ_VAR_36, $3c
@@ -1106,7 +1106,7 @@ ObjInit_0e_4769::
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
-ObjInit_0e_4775::
+DumbDrum_Init::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(DumbDrum)
 	obj_word OBJ_HANDLER, DumbDrum
@@ -1124,7 +1124,7 @@ ObjInit_0e_4775::
 	obj_byte OBJ_VAR_2F, $32
 	obj_end
 
-ObjInit_0e_4799::
+KingKRool_Init::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(KingKRool)
 	obj_word OBJ_HANDLER, KingKRool

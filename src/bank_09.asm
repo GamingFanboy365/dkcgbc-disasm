@@ -1078,7 +1078,7 @@ ObjInit_09_4708::
 	obj_byte OBJ_VAR_2F, $20
 	obj_end
 
-Func_09_4712::
+StompBoss_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	or [hl]
@@ -1163,32 +1163,32 @@ Func_09_4712::
 
 
 ObjInit_09_47a4::
-	obj_byte OBJ_BANK, BANK(Func_0a_42dd)
-	obj_word OBJ_HANDLER, Func_0a_42dd
+	obj_byte OBJ_BANK, BANK(VeryGnawty_Hit)
+	obj_word OBJ_HANDLER, VeryGnawty_Hit
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_ANIM, Anim_04_526b
 	obj_word OBJ_XVEL, $0000
 	obj_end
 
 ObjInit_09_47b2::
-	obj_byte OBJ_BANK, BANK(NeckyBoss2)
-	obj_word OBJ_HANDLER, NeckyBoss2
+	obj_byte OBJ_BANK, BANK(MasterNecky_Hit)
+	obj_word OBJ_HANDLER, MasterNecky_Hit
 	obj_word OBJ_ANIM, Anim_04_5361
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
 ObjInit_09_47bf::
-	obj_byte OBJ_BANK, BANK(GnawtyBoss2)
-	obj_word OBJ_HANDLER, GnawtyBoss2
+	obj_byte OBJ_BANK, BANK(BossDefeated)
+	obj_word OBJ_HANDLER, BossDefeated
 	obj_word OBJ_ANIM, Anim_04_521f
 	obj_word OBJ_XVEL, $0000
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
 ObjInit_09_47cd::
-	obj_byte OBJ_BANK, BANK(Func_0a_45b9)
-	obj_word OBJ_HANDLER, Func_0a_45b9
+	obj_byte OBJ_BANK, BANK(MasterNecky_Defeated)
+	obj_word OBJ_HANDLER, MasterNecky_Defeated
 	obj_word OBJ_ANIM, Anim_04_5307
 	obj_byte OBJ_COLLISION, $00
 	obj_end
@@ -1207,7 +1207,7 @@ ObjInit_09_47e4::
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
-Func_09_47ef::
+QueenB_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	ld d, [hl]
@@ -1274,8 +1274,8 @@ ObjInit_09_4840::
 	obj_end
 
 ObjInit_09_485e::
-	obj_byte OBJ_BANK, BANK(GnawtyBoss2)
-	obj_word OBJ_HANDLER, GnawtyBoss2
+	obj_byte OBJ_BANK, BANK(BossDefeated)
+	obj_word OBJ_HANDLER, BossDefeated
 	obj_word OBJ_ANIM, Anim_04_529b
 	obj_word OBJ_YVEL, $fd00
 	obj_word OBJ_TARGET_XVEL, $0000
@@ -1286,7 +1286,7 @@ ObjInit_09_485e::
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
-Func_09_487a::
+KingKRool_Touch::
 	ld hl, $ffb0
 	ld a, [hli]
 	or [hl]
@@ -1397,8 +1397,8 @@ ObjInit_09_4927::
 	obj_end
 
 ObjInit_09_4934::
-	obj_byte OBJ_BANK, BANK(GnawtyBoss2)
-	obj_word OBJ_HANDLER, GnawtyBoss2
+	obj_byte OBJ_BANK, BANK(BossDefeated)
+	obj_word OBJ_HANDLER, BossDefeated
 	obj_byte OBJ_COLLISION, $00
 	obj_word OBJ_ANIM, Anim_04_5411
 	obj_byte OBJ_ANIM_FLAGS, $80

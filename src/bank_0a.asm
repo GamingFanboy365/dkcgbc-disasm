@@ -300,7 +300,7 @@ Func_0a_40ad::
 	jp .jump_40fd
 
 
-GnawtyBoss::
+VeryGnawty::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld [hl], $00
@@ -463,9 +463,9 @@ Func_0a_42b9::
 	jr c, .jump_42ca
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(GnawtyBoss)
+	ld [hl], LOW(VeryGnawty)
 	inc l
-	ld [hl], HIGH(GnawtyBoss)
+	ld [hl], HIGH(VeryGnawty)
 .jump_42ca:
 	call UpdateVelocity
 	call ApplyVelocity
@@ -475,7 +475,7 @@ Func_0a_42b9::
 	jp NextObject
 
 
-Func_0a_42dd::
+VeryGnawty_Hit::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -645,7 +645,7 @@ Func_0a_43cb::
 	ret
 
 
-NeckyBoss::
+MasterNecky::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -897,9 +897,9 @@ Func_0a_4582::
 	jr nz, .jump_4598
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(NeckyBoss2)
+	ld [hl], LOW(MasterNecky_Hit)
 	inc l
-	ld [hl], HIGH(NeckyBoss2)
+	ld [hl], HIGH(MasterNecky_Hit)
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	ld [hl], $03
@@ -907,7 +907,7 @@ Func_0a_4582::
 	jr ObjInit_0a_4550.jump_455c
 
 
-NeckyBoss2::
+MasterNecky_Hit::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -922,13 +922,13 @@ NeckyBoss2::
 	jr nz, ObjInit_0a_4550.jump_455c
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(NeckyBoss)
+	ld [hl], LOW(MasterNecky)
 	inc l
-	ld [hl], HIGH(NeckyBoss)
+	ld [hl], HIGH(MasterNecky)
 	jr ObjInit_0a_4550.jump_455c
 
 
-Func_0a_45b9::
+MasterNecky_Defeated::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
@@ -949,8 +949,8 @@ Func_0a_45b9::
 
 
 ObjInit_0a_45d7::
-	obj_byte OBJ_BANK, BANK(GnawtyBoss2)
-	obj_word OBJ_HANDLER, GnawtyBoss2
+	obj_byte OBJ_BANK, BANK(BossDefeated)
+	obj_word OBJ_HANDLER, BossDefeated
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_YVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -986,8 +986,8 @@ ObjInit_0a_460f::
 	obj_end
 
 ObjInit_0a_4615::
-	obj_byte OBJ_BANK, BANK(NeckyBoss2)
-	obj_word OBJ_HANDLER, NeckyBoss2
+	obj_byte OBJ_BANK, BANK(MasterNecky_Hit)
+	obj_word OBJ_HANDLER, MasterNecky_Hit
 	obj_end
 
 ObjInit_0a_461b::
@@ -1257,7 +1257,7 @@ Func_0a_4774::
 	jr .jump_47a1
 
 
-GnawtyBoss2::
+BossDefeated::
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -1269,7 +1269,7 @@ GnawtyBoss2::
 	add hl, bc
 	bit 7, [hl]
 	jr nz, .jump_47f8
-	call Func_0a_5232
+	call BossDefeated_Banana
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -1823,8 +1823,8 @@ Func_0a_4b3b::
 
 
 ObjInit_0a_4b66::
-	obj_byte OBJ_BANK, BANK(GnawtyBoss2)
-	obj_word OBJ_HANDLER, GnawtyBoss2
+	obj_byte OBJ_BANK, BANK(BossDefeated)
+	obj_word OBJ_HANDLER, BossDefeated
 	obj_word OBJ_ANIM, Anim_04_54bb
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_YVEL, $0000
@@ -2861,7 +2861,7 @@ Func_0a_5201::
 	jr .jump_5220
 
 
-Func_0a_5232::
+BossDefeated_Banana::
 	ld a, [$c30b]
 	cp $3c
 	jr nz, .jump_5240
@@ -2898,8 +2898,8 @@ Func_0a_5232::
 
 ObjInit_0a_5271::
 	obj_byte OBJ_FLAGS, $13
-	obj_byte OBJ_BANK, BANK(Func_0a_5285)
-	obj_word OBJ_HANDLER, Func_0a_5285
+	obj_byte OBJ_BANK, BANK(GiantBanana)
+	obj_word OBJ_HANDLER, GiantBanana
 	obj_byte OBJ_YSUB, $00
 	obj_word OBJ_Y, $0000
 	obj_byte OBJ_OAM_ATTR, $10
@@ -2907,7 +2907,7 @@ ObjInit_0a_5271::
 	obj_word OBJ_ANIM, Anim_04_54c9
 	obj_end
 
-Func_0a_5285::
+GiantBanana::
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]

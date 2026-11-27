@@ -307,10 +307,10 @@ def parse_banks(t, rom):
         rows = []
         for (i, fl, x, y, p) in recs:
             kind = fl & 0x30
-            pr = ref(b, p) if kind == 0x10 else ref(3, p) if kind == 0 else "$%04x" % p
+            pr = ref(b, p) if kind == 0x10 else ref(3, p) if kind == 0 else ref(0x0E, p) if kind == 0x30 else "$%04x" % p
             rows.append(("db", ["$%02x" % i, "$%02x" % fl], None))
             rows.append(("dw", ["$%04x" % x, "$%04x" % y, pr], "x, y, %s" % {0: "block in bank $03", 0x10: "string",
-                                                                              0x30: "value"}.get(kind, "?")))
+                                                                              0x30: "object (bank $0E list)"}.get(kind, "?")))
         rows.append(("db", ["0"], "end"))
         t._claim(b, a, 8 * len(recs) + 1, "rows", rows, "LevelObjects")
     blocks = sorted(set(p for recs in lists.values() for (i, fl, x, y, p) in recs if fl & 0x30 == 0))

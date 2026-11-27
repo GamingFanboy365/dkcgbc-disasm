@@ -9,7 +9,7 @@ BankNumber_05::
 Func_05_4001::
 	push hl
 	ld d, $00
-	ld hl, $4022
+	ld hl, WorldMapMetasprites
 	add hl, de
 	add hl, de
 	ld a, [hli]

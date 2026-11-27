@@ -1135,7 +1135,7 @@ MatchBonus_Item_Cycle::
 	ld a, [hl]
 	or $10
 	ld [hl], a
-	ld hl, $4ca0
+	ld hl, CarrierObjectTable
 	add hl, de
 	ld d, h
 	ld e, l
@@ -1255,7 +1255,7 @@ ShuffleBonus::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $4ca0
+	ld hl, CarrierObjectTable
 	add hl, de
 	ld d, h
 	ld e, l
@@ -2812,7 +2812,7 @@ Tire::
 	rrca
 	ld e, a
 	ld d, $00
-	ld hl, $514e
+	ld hl, FrameTable_08_514e
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -3005,7 +3005,7 @@ BarrelCannon_Fire::
 	and $0f
 	ld e, a
 	ld d, $00
-	ld hl, $5365
+	ld hl, Flags_08_5365
 	add hl, de
 	ld de, $0000
 	bit 7, [hl]
@@ -3395,7 +3395,7 @@ BarrelCannon_SetFrame::
 .jump_5512:
 	ld e, a
 	ld d, $00
-	ld hl, $5522
+	ld hl, FrameTable_08_5522
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -3893,7 +3893,7 @@ Func_08_57e3::
 .jump_582d:
 	add a, a
 	ld e, a
-	ld hl, $583a
+	ld hl, ObjInitTable_08_583a
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -4371,7 +4371,7 @@ MineCart_SetSlopeAnim::
 	ld [hl], a
 	sla e
 	ld d, $00
-	ld hl, $5bd5
+	ld hl, AnimTable_08_5bd5
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -4400,7 +4400,7 @@ MineCartKrash_SetSlopeFrame::
 	ld e, a
 	sla e
 	ld d, $00
-	ld hl, $5c0e
+	ld hl, FrameTable_08_5c0e
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -4857,7 +4857,7 @@ Func_08_5fe6::
 	ldh [$ffb2], a
 	ld a, b
 	ldh [$ffb4], a
-	ld hl, $614e
+	ld hl, MapCell_08_614e
 	call SetMapCell
 	pop bc
 	push bc
@@ -5128,7 +5128,7 @@ Func_08_6246::
 	ldh [$ffb6], a
 	ldh a, [$ffb3]
 	ldh [$ffb7], a
-	ld hl, $62b6
+	ld hl, ObjectDigits
 	add hl, de
 	push bc
 	ld c, $05

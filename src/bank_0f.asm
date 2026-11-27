@@ -268,7 +268,7 @@ Func_0f_4204::
 	ld bc, $0000
 	ld a, [$c30f]
 	rrca
-	ld hl, $4217
+	ld hl, ObjInit_0f_4217
 	jr nc, .jump_4213
 	ld hl, ObjInit_0f_4223
 .jump_4213:
@@ -419,7 +419,7 @@ Func_0f_42e4::
 	cp $03
 	jr z, .jump_42ee
 	dec a
-	ld hl, $4357
+	ld hl, ObjInit_0f_4357
 	jr z, .jump_4313
 	ld a, [$c44e]
 	or a
@@ -764,7 +764,7 @@ Func_0f_43dd::
 	jr z, .jump_4550
 	push af
 	ld d, $06
-	ld hl, $4568
+	ld hl, ByteTable_0f_4568
 	ld a, [$c30a]
 	add a, l
 	ld l, a
@@ -810,7 +810,7 @@ Func_0f_456f::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $4595
+	ld hl, Entrances_0f_4595
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]

@@ -341,7 +341,7 @@ VeryGnawty_Hop::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $4248
+	ld hl, ObjYVelTable_0a_4248
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -424,7 +424,7 @@ VeryGnawty_Land::
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
-	ld hl, $42af
+	ld hl, Timers_0a_42af
 	add hl, de
 	ld a, [hl]
 	ld hl, wObjects + OBJ_VAR_30
@@ -657,7 +657,7 @@ MasterNecky::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $443c
+	ld hl, ObjInitTable_0a_443c
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -958,10 +958,10 @@ MasterNecky_Recoil::
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	ld a, [hl]
-	ld hl, $460f
+	ld hl, ObjInit_0a_460f
 	or a
 	jr z, .jump_4606
-	ld hl, $461b
+	ld hl, ObjInit_0a_461b
 	cp $01
 	jr z, .jump_4606
 	ld hl, ObjInit_0a_4615
@@ -1041,7 +1041,7 @@ QueenB::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $46a4
+	ld hl, Accel_0a_46a4
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -1279,7 +1279,7 @@ QueenB_SetSpeed::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $481d
+	ld hl, ObjXVelTable_0a_481d
 	add hl, de
 	ld d, h
 	ld e, l
@@ -1438,7 +1438,7 @@ DumbDrum_Hover::
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
-	ld hl, $4911
+	ld hl, Timers_0a_4911
 	add hl, de
 	ld a, [hl]
 	ld hl, wObjects + OBJ_VAR_2F
@@ -1591,7 +1591,7 @@ DumbDrum_SpawnEnemies::
 	ld l, a
 	ld h, $af
 	inc [hl]
-	ld hl, $4a47
+	ld hl, ObjInitTable_0a_4a47
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -1924,7 +1924,7 @@ KingKRool_Throw::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $4cb1
+	ld hl, ObjWordTable_0a_4cb1
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -2142,7 +2142,7 @@ KingKRool_Run::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $4e04
+	ld hl, WordTable_0a_4e04
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -2232,7 +2232,7 @@ WordTable_0a_4e04::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $4e56
+	ld hl, YSpeeds_0a_4e56
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -2486,7 +2486,7 @@ Func_0a_4faa::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $5005
+	ld hl, WordTable_0a_5005
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -5212,7 +5212,7 @@ Func_0a_60b7::
 	add a, a
 	ld h, $00
 	ld l, a
-	ld de, $60e7
+	ld de, FrameTable_0a_60e7
 	add hl, de
 	ld a, [hli]
 	ld e, a
@@ -6354,7 +6354,7 @@ Func_0a_6813::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $68a8
+	ld hl, FrameTable_0a_68a8
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]

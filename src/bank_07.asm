@@ -32,7 +32,7 @@ Func_07_4001::
 	ld hl, wBGPalettes
 	ld bc, $0100
 	call CopyBytes
-	ld de, $43fe
+	ld de, TitleObjPalettes
 	ld hl, $c1c0
 	ld bc, $0040
 	call CopyBytes
@@ -62,7 +62,7 @@ Func_07_4001::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $4117
+	ld hl, TitleTables
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -136,7 +136,7 @@ Func_07_4001::
 	ld c, $13
 	call FarHDMACopy
 	ld b, $07
-	ld de, $6000
+	ld de, BGTiles_07_6000
 	ld hl, $01c0
 	ld c, $0b
 	call FarHDMACopy
@@ -334,7 +334,7 @@ Func_07_4195::
 	rlca
 	ld e, a
 	ld d, $00
-	ld hl, $427a
+	ld hl, TitleSpriteFrames
 	add hl, de
 	ld a, [hli]
 	ld e, a

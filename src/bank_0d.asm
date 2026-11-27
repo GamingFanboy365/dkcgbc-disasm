@@ -25,7 +25,7 @@ RareLogoCornerOAM::
 Func_0d_4130::
 	ld a, $87
 	ldh [rLCDC], a
-	ld de, $42a9
+	ld de, RareLogoPalettes
 	ld hl, wBGPalettes
 	ld bc, $0040
 	call CopyBytes
@@ -114,7 +114,7 @@ Func_0d_4130::
 	ld hl, $c000
 	ld bc, $0020
 	call CopyBytes
-	ld de, $4010
+	ld de, BGTiles_0d_4010
 	ld hl, $05a0
 	ld bc, $000f
 	call HDMACopy
@@ -161,7 +161,7 @@ Func_0d_4216::
 	call HDMACopy
 	xor a
 	ldh [rVBK], a
-	ld de, $5980
+	ld de, BGTiles_0d_5980
 	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0580
 	call CopyBytes

@@ -216,6 +216,12 @@ class Emitter:
                 txt = self.qref(*i.dataref)
             elif v in hints.RAM_NAMES and bank not in hints.SECOND_PROGRAM_BANKS:
                 txt = hints.RAM_NAMES[v]
+            elif (i.op in (0x21, 0x11, 0x01) and 0x4000 <= v < 0x8000 and bank
+                  and bank not in hints.SECOND_PROGRAM_BANKS and off(bank, v) in self.t.data
+                  and (i.op == 0x21 or self.t.data[off(bank, v)][0] != "rows")):
+                # a table of this bank loaded as a constant (hl: any table;
+                # de, bc: only the kinds whose format the tracer parsed)
+                txt = self.qref(bank, v)
             elif (WOBJECTS <= v < WOBJECTS + OBJ_SIZE and bank not in hints.SECOND_PROGRAM_BANKS
                   and (t.startswith("ld hl,") or "[{n16}]" in t)):
                 nxt = self.t.insns.get(o + i.length)

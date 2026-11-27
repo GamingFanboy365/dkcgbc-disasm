@@ -295,7 +295,7 @@ Enemy_HandleContact::
 	jr z, .jump_41b3
 	ld e, a
 	ld d, $00
-	ld hl, $41b7
+	ld hl, AnimTableNull_09_41b7
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -436,7 +436,7 @@ Obj_TurnAround::
 	ret z
 	ld e, a
 	ld d, $00
-	ld hl, $4284
+	ld hl, AnimTableNull_09_4284
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -581,7 +581,7 @@ CheckPlayerContact::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	ld hl, $429e
+	ld hl, Hitboxes
 	add hl, de
 	add hl, de
 	add hl, de
@@ -674,7 +674,7 @@ CheckPlayerContact::
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
-	ld hl, $429e
+	ld hl, Hitboxes
 	add hl, de
 	add hl, de
 	add hl, de
@@ -1119,7 +1119,7 @@ StompBoss_Touch::
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	bit 0, [hl]
-	ld hl, $47a4
+	ld hl, ObjInit_09_47a4
 	jr z, .jump_4758
 	ld hl, ObjInit_09_47b2
 .jump_4758:
@@ -1158,7 +1158,7 @@ StompBoss_Touch::
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	bit 0, [hl]
-	ld hl, $47bf
+	ld hl, ObjInit_09_47bf
 	jr z, .jump_479c
 	ld hl, ObjInit_09_47cd
 .jump_479c:
@@ -1238,7 +1238,7 @@ QueenB_Touch::
 	inc a
 	ld [hl], a
 	cp $05
-	ld hl, $485e
+	ld hl, ObjInit_09_485e
 	jr z, .jump_481d
 	ld hl, ObjInit_09_4840
 .jump_481d:
@@ -1322,7 +1322,7 @@ KingKRool_Touch::
 	cp $07
 	jr z, .jump_48c0
 	cp $0a
-	ld hl, $4934
+	ld hl, ObjInit_09_4934
 	jr z, .jump_48b8
 	ld hl, ObjInit_09_4918
 .jump_48b8:
@@ -5214,9 +5214,9 @@ Func_09_638e::
 	ld a, [$c445]
 	and $0f
 	cp $03
-	ld hl, $63c6
+	ld hl, TerrainTable_09_63c6
 	jr nz, .jump_63a8
-	ld hl, $63d6
+	ld hl, TerrainTable_09_63d6
 .jump_63a8:
 	ld a, e
 	and $07
@@ -5393,7 +5393,7 @@ Func_09_64d5::
 .jump_64e7:
 	sla e
 	ld d, $00
-	ld hl, $64f8
+	ld hl, FrameTable_09_64f8
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -6037,7 +6037,7 @@ SetPlayerAnimation::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld d, a
-	ld hl, $690b
+	ld hl, AnimTable_09_690b
 	add hl, de
 	ld a, [hli]
 	ld [wPlayer + OBJ_ANIM], a
@@ -6762,7 +6762,7 @@ Func_09_6da5::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, $6cb2
+	ld hl, AnimTableNull_09_6cb2
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]

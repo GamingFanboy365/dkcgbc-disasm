@@ -1,5 +1,6 @@
 -- Visit sample points in every level and log what each live object uses.
--- env: JOBS (file), PART (k), PARTS (n), OUT (log file)
+-- env: JOBS (file), PART (k), PARTS (n), OUT (log file), RUN (frames per job),
+-- MODE (idle, right, left, roll, slap, up, swim), KONG (diddy)
 local KEY={A=1,B=2,SELECT=4,START=8,RIGHT=16,LEFT=32,UP=64,DOWN=128}
 local steps = { {900,"A",5},{600,"",0},{3000,"START",5},{300,"A",5},{200,"A",5},{800,"A",5},{390,"",0} }
 local PART=tonumber(os.getenv("PART")); local PARTS=tonumber(os.getenv("PARTS"))
@@ -8,8 +9,9 @@ local n=0
 for line in io.lines(os.getenv("JOBS")) do
   if n % PARTS == PART then
     local d,c,x,y,v,rest=line:match("(%x+) (%x+) (%x+) (%x+) (%x+)(.*)")
-    local th,fl=rest:match(" (%x+) (%x+)")
-    jobs[#jobs+1]={tonumber(d,16),tonumber(c,16),tonumber(x,16),tonumber(y,16),tonumber(v,16),n,th and tonumber(th,16),fl and tonumber(fl,16)}
+    local chain={}
+    for th,fl in rest:gmatch(" (%x+) (%x+)") do chain[#chain+1]={tonumber(th,16),tonumber(fl,16)} end
+    jobs[#jobs+1]={tonumber(d,16),tonumber(c,16),tonumber(x,16),tonumber(y,16),tonumber(v,16),n,chain}
   end
   n=n+1
 end
@@ -30,7 +32,9 @@ local state=nil
 local ji=0
 local t=0
 local seen={}
-local forced=false
+local forced=0      -- pairs of the job's chain applied so far
+local forcedat=0
+local KONG=os.getenv("KONG")   -- "diddy": play as Diddy Kong
 local lastpal=""
 local RUN=tonumber(os.getenv("RUN") or "330")
 local MODE=os.getenv("MODE") or "idle"
@@ -44,7 +48,8 @@ local function startjob()
   local rec={j[1]&0xff,j[1]>>8,j[2],j[3]&0xff,j[3]>>8,j[4]&0xff,j[4]>>8,j[5]}
   for k=1,8 do cart:write8(o+k-1,rec[k]) end
   log:write(string.format("J %d %04x %04x %04x\n", j[6], j[1], j[3], j[4]))
-  t=0; seen={}; lastpal=""; forced=false
+  t=0; seen={}; lastpal=""; forced=0; forcedat=0
+  if KONG=="diddy" then emu:write8(0xc30f, emu:read8(0xc30f)|1) end
 end
 -- apply an initialiser list (bank 9) to a live object, as ApplyObjInit would
 local function applylist(slot, addr, depth)
@@ -57,14 +62,19 @@ local function applylist(slot, addr, depth)
     else break end
   end
 end
+-- next pair of the job's chain: (touch handler, list) -- the list is applied
+-- to every live object with that touch handler, 150 frames in at the
+-- earliest and 70 frames after the pair before it
 local function force()
-  local j=jobs[ji]
-  if not j[7] then return end
+  local pair=jobs[ji][7][forced+1]
+  if not pair or t<forcedat+70 then return end
   local objs=emu:readRange(0xc800,0x800)
+  local hit=false
   for s=1,31 do
     local b=s*64
-    if objs:byte(b+1)~=0 and objs:byte(b+5)+objs:byte(b+6)*256==j[7] then applylist(s, j[8], 0); forced=true; log:write("F "..t.." "..s.."\n") end
+    if objs:byte(b+1)~=0 and objs:byte(b+5)+objs:byte(b+6)*256==pair[1] then applylist(s, pair[2], 0); hit=true; log:write("F "..t.." "..s.."\n") end
   end
+  if hit then forced=forced+1; forcedat=t end
 end
 local function sample()
   local pal=emu:readRange(0xc280,64)
@@ -101,9 +111,12 @@ callbacks:add("frame", function()
     elseif t>60 and MODE=="right" then k=KEY.RIGHT; if t%45<12 then k=k|KEY.A end
     elseif t>60 and MODE=="left" then k=KEY.LEFT; if t%45<12 then k=k|KEY.A end
     elseif t>60 and MODE=="roll" then if t%30<4 then k=KEY.B|KEY.RIGHT elseif t%30<20 then k=KEY.RIGHT end
+    elseif t>60 and MODE=="slap" then k=KEY.DOWN; if t%60>=30 and t%60<34 then k=k|KEY.B end   -- crouch, hand slap
+    elseif t>60 and MODE=="up" then k=KEY.UP; if t%90<6 then k=k|KEY.A end                    -- climb, look up
+    elseif t>60 and MODE=="swim" then k=KEY.RIGHT; if t%16<4 then k=k|KEY.A end; if t%120>=100 then k=k|KEY.B end
     end
     emu:setKeys(k)
-    if t>=150 and not forced then force() end
+    if t>=150 then force() end
     if t>=40 then sample() end
     if t>=RUN then startjob() end
     return

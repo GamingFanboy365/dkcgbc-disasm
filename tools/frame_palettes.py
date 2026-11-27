@@ -19,6 +19,7 @@ from run_trace import make  # noqa: E402
 from tracer import BANK_SIZE, off  # noqa: E402
 
 OBJ_BANK, OBJ_HANDLER, OBJ_FRAME, OBJ_ANIM, OBJ_PALETTE = 0x01, 0x02, 0x20, 0x22, 0x2A
+OBJ_TOUCH, TOUCH_BANK = 0x04, 0x09
 
 
 class FramePalettes:
@@ -60,7 +61,7 @@ class FramePalettes:
                 o += 4 if w is not None else 2
         return frames
 
-    def handler_anims(self, bank, addr, follow_lists=False):
+    def handler_anims(self, bank, addr, follow_lists=False, touch=False):
         """Animations stored into OBJ_ANIM by code reachable from a handler.
         With follow_lists, also the animation and handler of initialiser
         lists the code applies to the same object ("ld hl, list / call
@@ -94,8 +95,11 @@ class FramePalettes:
                             h = f[OBJ_HANDLER] | f[OBJ_HANDLER + 1] << 8
                             if 0x4000 <= h < 0x8000:
                                 todo.append(off(bank, h))
+                if touch and i.op == 0x01:
+                    break  # "ld bc, ...": the code turns to another object
                 if i.flow in ("jp", "jpc", "jr", "jrc", "call", "callc") and \
-                        i.target is not None and 0x4000 <= i.target < 0x8000:
+                        i.target is not None and 0x4000 <= i.target < 0x8000 and \
+                        not (touch and i.flow in ("call", "callc")):
                     todo.append(off(bank, i.target))
                 if i.flow in ("jp", "jr", "ret", "jphl"):
                     break
@@ -136,6 +140,12 @@ class FramePalettes:
                 hb = fields.get(OBJ_BANK, item[1])
                 if 0x4000 <= h < 0x8000 and hb:
                     anims |= self.handler_anims(hb, h)
+            if OBJ_TOUCH in fields and OBJ_TOUCH + 1 in fields:
+                # the touch handler (bank 9) changes the animation of the
+                # object it was called for: squashed, hit, collected...
+                h = fields[OBJ_TOUCH] | fields[OBJ_TOUCH + 1] << 8
+                if 0x4000 <= h < 0x8000:
+                    anims |= self.handler_anims(TOUCH_BANK, h, touch=True)
             frames = set()
             for a in anims:
                 frames |= self.anim_frames(a)

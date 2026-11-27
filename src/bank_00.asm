@@ -493,7 +493,7 @@ GameState_1F::
 
 
 GameState_22::
-	jp CharTileTable.jump_0533
+	jp Func_00_050b.jump_0533
 
 
 GameState_25::
@@ -505,11 +505,11 @@ GameState_28::
 
 
 GameState_2B::
-	jp CharTileTable.jump_0512
+	jp Func_00_050b.jump_0512
 
 
 GameState_2E::
-	jp CharTileTable.jump_050b
+	jp Func_00_050b
 
 
 GameState_31::
@@ -517,7 +517,7 @@ GameState_31::
 
 
 GameState_34::
-	jp CharTileTable.jump_0604
+	jp Func_00_050b.jump_0604
 
 
 GameState_37::
@@ -762,7 +762,8 @@ CharTileTable::
 	db $00, $00, $00, $00, $7d, $00, $22, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $d0-$df
 	db $23, $78, $00, $00, $00, $00, $00, $00, $00, $29, $00, $00, $00, $00, $00, $00 ; characters $e0-$ef
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $f0-$ff
-.jump_050b:
+
+Func_00_050b::
 	ld a, $04
 	ld [$c30c], a
 	jr .jump_0533
@@ -4224,8 +4225,8 @@ Func_00_185f::
 
 ObjInit_00_1883::
 	obj_byte OBJ_FLAGS, $03
-	obj_byte OBJ_BANK, BANK(Func_08_4001)
-	obj_word OBJ_HANDLER, Func_08_4001
+	obj_byte OBJ_BANK, BANK(Obj_ReleaseSpawnGroup)
+	obj_word OBJ_HANDLER, Obj_ReleaseSpawnGroup
 	obj_end
 
 ApplyObjInit::
@@ -6769,9 +6770,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_5555)
+	ld [hl], LOW(HUD_PartnerIcon)
 	inc l
-	ld [hl], HIGH(Func_0a_5555)
+	ld [hl], HIGH(HUD_PartnerIcon)
 	ld a, $02
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc

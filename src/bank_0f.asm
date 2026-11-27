@@ -385,7 +385,7 @@ Func_0f_42c4::
 	inc a
 	ld [hl], a
 	ld e, a
-	rst_farcall Func_09_4294
+	rst_farcall SineLookup
 	sra e
 	sra e
 	sra e
@@ -521,7 +521,7 @@ Func_0f_43a6::
 	jr nz, .jump_43b6
 	ld a, $ff
 	ld [$c44d], a
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 .jump_43b6:
 	call ApplyVelocity
 	call AnimateObject
@@ -542,7 +542,7 @@ Func_0f_43bf::
 .jump_43d2:
 	ld a, $fe
 	ld [$c44d], a
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 	jr .jump_43cf
 
 
@@ -801,7 +801,7 @@ ByteTable_0f_4568::
 Func_0f_456f::
 	ld a, [$c30c]
 	dec a
-	jr z, Entrances_0f_4595.jump_45a1
+	jr z, Func_0f_45a1
 	ld a, [$c44e]
 	or a
 	jp nz, RunFlowScript
@@ -823,7 +823,8 @@ Func_0f_456f::
 
 Entrances_0f_4595::
 	dw LevelEntrance_04_5f7c, LevelEntrance_04_5ecc, LevelEntrance_04_5f2c, LevelEntrance_04_5a24, LevelEntrance_04_5a3c, LevelEntrance_04_5b14 ; wLevelEntrance
-.jump_45a1:
+
+Func_0f_45a1::
 	ld a, [$c30a]
 	add a, $29
 	ld [$c30b], a

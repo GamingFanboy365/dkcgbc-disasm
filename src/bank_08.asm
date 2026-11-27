@@ -6,7 +6,7 @@ SECTION "Bank $08", ROMX[$4000], BANK[$08]
 BankNumber_08::
 	db $08 ; bank number
 
-Func_08_4001::
+Obj_ReleaseSpawnGroup::
 	call DespawnIfOutOfRange
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
@@ -141,7 +141,7 @@ Coconut::
 	jp NextObject
 
 
-Func_08_40d4::
+Obj_SetIdle::
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -1491,7 +1491,7 @@ ShuffleBonus_Spot::
 	jr .jump_48bd
 
 .jump_48b9:
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 .jump_48bd:
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -1524,7 +1524,7 @@ ShuffleBonus_Spot_Reveal::
 	jr .jump_4911
 
 .jump_48eb:
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 	jr .jump_4911
 
 .jump_48f1:
@@ -1544,7 +1544,7 @@ ShuffleBonus_Spot_Reveal::
 	add hl, de
 	ld a, [hl]
 	call SetObjectPalette
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 .jump_4911:
 	jp NextObject
 
@@ -3270,7 +3270,7 @@ BarrelCannon_AutoRotate::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 5, [hl]
-	call nz, Func_08_54f3
+	call nz, BarrelCannon_SnapAngle
 .jump_5455:
 	jp NextObject
 
@@ -3365,12 +3365,12 @@ BarrelCannon_SwingBack::
 	ld [hl], LOW(BarrelCannon_Fire)
 	inc l
 	ld [hl], HIGH(BarrelCannon_Fire)
-	call Func_08_54f3
+	call BarrelCannon_SnapAngle
 	call BarrelCannon_SetFrame
 	jp NextObject
 
 
-Func_08_54f3::
+BarrelCannon_SnapAngle::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld a, [hl]
@@ -3481,7 +3481,7 @@ BreakableWall::
 	and d
 	jr nz, .jump_55c6
 .jump_55bf:
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 	jp NextObject
 
 .jump_55c6:
@@ -3544,7 +3544,7 @@ Entrance::
 	and d
 	jr nz, .jump_5629
 .jump_5622:
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 .jump_5626:
 	jp NextObject
 
@@ -3582,7 +3582,7 @@ Entrance_WaitForSound::
 	jr z, .jump_5662
 	ld hl, $c448
 	dec [hl]
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 .jump_5662:
 	jp NextObject
 
@@ -3676,7 +3676,7 @@ StickerPad::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $80
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 	jr .jump_56fa
 
 .jump_56f7:
@@ -3840,7 +3840,7 @@ SetLevelFlag::
 	ret
 
 
-Func_08_57e3::
+InitKongLetter::
 	ld a, [$c30e]
 	bit 1, a
 	jr z, .jump_57ef
@@ -4137,7 +4137,7 @@ MineCart::
 	jr z, .jump_59d4
 	call MineCart_SetSlopeAnim
 	call AnimateObject
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 .jump_59d4:
 	jp NextObject
 
@@ -4440,7 +4440,7 @@ AnimalCrate::
 	add hl, bc
 	ld [hl], $00
 .jump_5c51:
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 	jp NextObject
 
 
@@ -4451,7 +4451,7 @@ SquawksCrate::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $08
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 .jump_5c69:
 	jp NextObject
 
@@ -4638,8 +4638,8 @@ Func_08_5d4a::
 
 
 ObjInit_08_5d8a::
-	obj_byte OBJ_BANK, BANK(Func_08_5fe6)
-	obj_word OBJ_HANDLER, Func_08_5fe6
+	obj_byte OBJ_BANK, BANK(TileAnimator)
+	obj_word OBJ_HANDLER, TileAnimator
 	obj_word OBJ_VAR_2F, $9928
 	obj_end
 
@@ -4739,7 +4739,7 @@ AnimalMask_08_5f78::
 	db %00000011, %00000000, %11111111, %11111111, %11111111, %11111111, %11111111, %11111100, %00000000
 	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
 
-Func_08_5fe6::
+TileAnimator::
 	ld a, $01
 	ldh [rVBK], a
 	ld hl, wObjects + OBJ_VAR_2E
@@ -4951,9 +4951,9 @@ Func_08_5fe6::
 	ldh [$ffa6], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_6163)
+	ld [hl], LOW(AnimalBonus_CountTokens)
 	inc l
-	ld [hl], HIGH(Func_08_6163)
+	ld [hl], HIGH(AnimalBonus_CountTokens)
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld [hl], $00
@@ -4962,7 +4962,7 @@ Func_08_5fe6::
 	ld a, $22
 	ld [$c32c], a
 .jump_6148:
-	call Func_08_6302
+	call AnimalBonus_DrawCount
 	jp NextObject
 
 
@@ -4979,7 +4979,7 @@ ObjInit_08_6151::
 AnimalYOffsets::
 	dw $ffe0, $ffe0, $0000, $ffe0 ; y offset by animal buddy (Func_08_5fe6)
 
-Func_08_6163::
+AnimalBonus_CountTokens::
 	ld hl, $c441
 	set 0, [hl]
 	ld a, [$c448]
@@ -5007,7 +5007,7 @@ Func_08_6163::
 	ld [hl], $00
 	rst_farcall GiveExtraLife
 .jump_6190:
-	call Func_08_6302
+	call AnimalBonus_DrawCount
 	jp NextObject
 
 .jump_6196:
@@ -5021,7 +5021,7 @@ Func_08_6163::
 MiniAnimalToken_Collected::
 	call ApplyVelocity
 	call GetObjectScreenPos_Fixed
-	call Func_08_62ca
+	call MiniAnimalToken_Draw
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -5080,12 +5080,12 @@ BigAnimalToken_Count::
 
 MiniAnimalToken::
 	call GetObjectScreenPos_Camera
-	call Func_08_62ca
+	call MiniAnimalToken_Draw
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
-Func_08_6205::
+BigAnimalToken_SpawnDigits::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -5103,7 +5103,7 @@ Func_08_6205::
 	sbc a, $00
 	ldh [$ffb5], a
 	ld de, $0000
-	call Func_08_6246
+	call SpawnObjectDigits
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -5119,11 +5119,11 @@ Func_08_6205::
 	sbc a, $00
 	ldh [$ffb5], a
 	ld de, $000a
-	call Func_08_6246
+	call SpawnObjectDigits
 	ret
 
 
-Func_08_6246::
+SpawnObjectDigits::
 	ldh a, [$ffb2]
 	ldh [$ffb6], a
 	ldh a, [$ffb3]
@@ -5202,7 +5202,7 @@ ObjectDigits::
 	db %00110000, %01001000, %00010000, %00100000, %01111000 ; 2
 	db %00110000, %01001000, %00010000, %01001000, %00110000 ; 3
 
-Func_08_62ca::
+MiniAnimalToken_Draw::
 	ld h, $c5
 	ldh a, [$ffa2]
 	ld l, a
@@ -5244,7 +5244,7 @@ Func_08_62ca::
 	ret
 
 
-Func_08_6302::
+AnimalBonus_DrawCount::
 	ld hl, $c446
 	ld a, [hli]
 	ld d, [hl]

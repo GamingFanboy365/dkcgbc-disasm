@@ -540,7 +540,7 @@ ObjInit_0e_4376::
 
 ObjInit_0e_4397::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_TOUCH_HANDLER, Func_09_708a
+	obj_word OBJ_TOUCH_HANDLER, Zinger_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $35
 	obj_byte OBJ_PALETTE, $0a
@@ -601,7 +601,7 @@ ObjInit_0e_43f4::
 
 ObjInit_0e_43fd::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_TOUCH_HANDLER, Func_09_73d1
+	obj_word OBJ_TOUCH_HANDLER, Bitesize_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $36
 	obj_byte OBJ_PALETTE, $13

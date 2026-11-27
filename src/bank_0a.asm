@@ -319,7 +319,7 @@ VeryGnawty::
 	add hl, bc
 	ld [hl], $05
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -397,7 +397,7 @@ VeryGnawty_Hop::
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -440,7 +440,7 @@ VeryGnawty_Land::
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -463,7 +463,7 @@ VeryGnawty_Recoil::
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -497,7 +497,7 @@ VeryGnawty_Hit::
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -560,7 +560,7 @@ VeryGnawty_AngryHop::
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -596,7 +596,7 @@ VeryGnawty_AngryLand::
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -729,11 +729,11 @@ MasterNecky_Enter::
 	inc [hl]
 	ld a, [hl]
 	cp $70
-	call z, Func_0a_448f
-	jp ObjInit_0a_4550.jump_455c
+	call z, VeryGnawty_ApplyHitList
+	jp Func_0a_455c
 
 
-Func_0a_448f::
+VeryGnawty_ApplyHitList::
 	ld hl, ObjInit_0a_4496
 	call ApplyObjInit
 	ret
@@ -816,7 +816,7 @@ MasterNecky_Spit::
 	ld [hl], d
 	pop bc
 .jump_4517:
-	jr ObjInit_0a_4550.jump_455c
+	jr Func_0a_455c
 
 
 ObjInit_0a_4519::
@@ -837,7 +837,7 @@ MasterNecky_AfterSpit::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, ObjInit_0a_4550.jump_455c
+	jr c, Func_0a_455c
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hl]
@@ -845,11 +845,11 @@ MasterNecky_AfterSpit::
 	jr nz, .jump_454b
 	ld hl, ObjInit_0a_4550
 	call ApplyObjInit
-	jr ObjInit_0a_4550.jump_455c
+	jr Func_0a_455c
 
 .jump_454b:
-	call Func_0a_448f
-	jr ObjInit_0a_4550.jump_455c
+	call VeryGnawty_ApplyHitList
+	jr Func_0a_455c
 
 
 ObjInit_0a_4550::
@@ -859,14 +859,15 @@ ObjInit_0a_4550::
 	obj_byte OBJ_VAR_34, $50
 	obj_byte OBJ_VAR_36, $02
 	obj_end
-.jump_455c:
+
+Func_0a_455c::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
 	add a, $02
 	ld [hl], a
 	ld e, a
-	rst_farcall Func_09_4294
+	rst_farcall SineLookup
 	sra e
 	sra e
 	sra e
@@ -896,7 +897,7 @@ MasterNecky_Pause::
 	add hl, bc
 	ld [hl], $03
 .jump_4598:
-	jr ObjInit_0a_4550.jump_455c
+	jr Func_0a_455c
 
 
 MasterNecky_Withdraw::
@@ -904,20 +905,20 @@ MasterNecky_Withdraw::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, ObjInit_0a_4550.jump_455c
+	jr c, Func_0a_455c
 	call UndoXVelocity
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, ObjInit_0a_4550.jump_455c
+	jr nz, Func_0a_455c
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(MasterNecky)
 	inc l
 	ld [hl], HIGH(MasterNecky)
-	jr ObjInit_0a_4550.jump_455c
+	jr Func_0a_455c
 
 
 MasterNecky_Defeated::
@@ -1105,7 +1106,7 @@ QueenB_Fly::
 
 .jump_46e0:
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -1211,7 +1212,7 @@ QueenB_Wave::
 .jump_478e:
 	add a, $40
 	ld e, a
-	rst_farcall Func_09_4294
+	rst_farcall SineLookup
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, $46
@@ -1226,7 +1227,7 @@ QueenB_Wave::
 	jp NextObject
 
 .jump_47aa:
-	call Func_0a_4852
+	call QueenB_SetYellow
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(QueenB)
@@ -1307,7 +1308,7 @@ ObjXVelTable_0a_481d::
 	dw $0140, $0080
 	dw $0140, $0020
 
-Func_0a_482d::
+QueenB_PaletteColour::
 	ld a, [wPaletteUpdate]
 	or $02
 	ld [wPaletteUpdate], a
@@ -1328,7 +1329,7 @@ Func_0a_482d::
 
 
 QueenB_SetHitColour::
-	call Func_0a_482d
+	call QueenB_PaletteColour
 	ld a, $1d
 	ld [hli], a
 	xor a
@@ -1336,8 +1337,8 @@ QueenB_SetHitColour::
 	ret
 
 
-Func_0a_4852::
-	call Func_0a_482d
+QueenB_SetYellow::
+	call QueenB_PaletteColour
 	ld a, $ff
 	ld [hli], a
 	ld a, $03
@@ -1346,7 +1347,7 @@ Func_0a_4852::
 
 
 QueenB_CycleColour::
-	call Func_0a_482d
+	call QueenB_PaletteColour
 	ld a, [$c336]
 	and $0e
 	add a, $71
@@ -1614,7 +1615,7 @@ DumbDrum_SpawnEnemies::
 	add a, a
 	or $80
 	ld e, a
-	rst_farcall Func_09_4294
+	rst_farcall SineLookup
 	sra e
 	sra e
 	ld a, e
@@ -1852,7 +1853,7 @@ KingKRool::
 	rst_farcall CollideWithTerrain
 	call AnimateObject
 .jump_4bae:
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 .jump_4bb4:
@@ -1890,7 +1891,7 @@ KingKRool_Wait::
 	ld [hl], HIGH(Anim_04_53b3)
 .jump_4beb:
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -1993,7 +1994,7 @@ KingKRool_Throw::
 	ldh a, [$ffb5]
 	ld [hl], a
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -2024,7 +2025,7 @@ KingKRool_WaitForCrown::
 	call ApplyObjInit
 .jump_4cd6:
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -2044,7 +2045,7 @@ KingKRool_Animate::
 	rlca
 	jp nc, KingKRool.jump_4bb4
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -2074,7 +2075,7 @@ KingKRool_BeginRuns::
 	jr c, .jump_4d48
 .jump_4d29:
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 .jump_4d32:
@@ -2092,12 +2093,12 @@ KingKRool_BeginRuns::
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-	jp WordTable_0a_4e04.jump_4e0a
+	jp Func_0a_4e0a
 
 .jump_4d48:
 	sub $06
 	ld [hl], a
-	jp ObjInit_0a_4f77.jump_4f94
+	jp Func_0a_4f94
 
 .jump_4d4e:
 	ld hl, wObjects + OBJ_VAR_30
@@ -2131,7 +2132,7 @@ KingKRool_RunPause::
 	ld [hl], HIGH(Anim_04_5381)
 .jump_4d7f:
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -2189,7 +2190,7 @@ KingKRool_Run::
 	call ApplyVelocity
 	call AnimateObject
 	rst_farcall CollideWithTerrain
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 .jump_4de3:
@@ -2217,7 +2218,8 @@ KingKRool_Run::
 
 WordTable_0a_4e04::
 	dw $0200, $0300, $0400
-.jump_4e0a:
+
+Func_0a_4e0a::
 	ld a, $82
 	ld [$c32a], a
 	ld hl, wObjects + OBJ_ANIM
@@ -2263,17 +2265,18 @@ WordTable_0a_4e04::
 	ld [hl], LOW(Func_0a_4e6f)
 	inc l
 	ld [hl], HIGH(Func_0a_4e6f)
-	jr YSpeeds_0a_4e56.jump_4e5c
+	jr Func_0a_4e5c
 
 
 YSpeeds_0a_4e56::
 	dw $f800, $f980, $fb00 ; y speeds
-.jump_4e5c:
+
+Func_0a_4e5c::
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
 	rst_farcall CollideWithTerrain
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -2287,7 +2290,7 @@ Func_0a_4e6f::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jp nz, WordTable_0a_4e04.jump_4e0a
+	jp nz, Func_0a_4e0a
 	jp .jump_4e96
 
 .jump_4e83:
@@ -2295,7 +2298,7 @@ Func_0a_4e6f::
 	call ApplyVelocity
 	call AnimateObject
 	rst_farcall CollideWithTerrain
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 .jump_4e96:
@@ -2460,7 +2463,8 @@ ObjInit_0a_4f77::
 	obj_word OBJ_YACCEL, $0050
 	obj_word OBJ_FRAME, Frame_20_53b0
 	obj_end
-.jump_4f94:
+
+Func_0a_4f94::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Func_0a_4faa)
@@ -2527,7 +2531,7 @@ Func_0a_4faa::
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -2562,12 +2566,12 @@ Func_0a_500b::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jp nc, ObjInit_0a_4f77.jump_4f94
+	jp nc, Func_0a_4f94
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 .jump_504c:
@@ -2600,14 +2604,14 @@ Func_0a_506a::
 	add hl, bc
 	dec [hl]
 	jp z, KingKRool.jump_4bb4
-	jp ObjInit_0a_4f77.jump_4f94
+	jp Func_0a_4f94
 
 .jump_507d:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-	call Func_0a_5201
+	call KingKRool_AimCamera
 	jp NextObject
 
 
@@ -2821,7 +2825,7 @@ Cannonball::
 	jp NextObject
 
 
-Func_0a_5201::
+KingKRool_AimCamera::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [wPlayer + OBJ_X]
@@ -3348,7 +3352,7 @@ HUD_Lives_SlideOut::
 	jp NextObject
 
 
-Func_0a_5555::
+HUD_PartnerIcon::
 	ld a, [wPlayer + OBJ_FLAGS]
 	and $13
 	jr z, .jump_5575
@@ -3460,7 +3464,7 @@ HUD_Items_Hidden::
 
 
 HUD_Items_SlideIn::
-	call Func_0a_56a1
+	call HUD_Items_Draw
 	call Func_00_144e
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
@@ -3478,7 +3482,7 @@ HUD_Items_SlideIn::
 
 
 HUD_Items_Shown::
-	call Func_0a_56a1
+	call HUD_Items_Draw
 	call Func_00_144e
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
@@ -3519,9 +3523,9 @@ HUD_Items_Shown::
 	set 0, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_56f4)
+	ld [hl], LOW(HUD_Items_Reward)
 	inc l
-	ld [hl], HIGH(Func_0a_56f4)
+	ld [hl], HIGH(HUD_Items_Reward)
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	push bc
@@ -3539,7 +3543,7 @@ HUD_Items_Shown::
 
 
 HUD_Items_SlideOut::
-	call Func_0a_56a1
+	call HUD_Items_Draw
 	call Func_00_144e
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
@@ -3558,7 +3562,7 @@ HUD_Items_SlideOut::
 	jp NextObject
 
 
-Func_0a_56a1::
+HUD_Items_Draw::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -3620,7 +3624,7 @@ Func_0a_56a1::
 	ret
 
 
-Func_0a_56f4::
+HUD_Items_Reward::
 	ld hl, $c441
 	set 0, [hl]
 	call Func_00_144e
@@ -3731,8 +3735,8 @@ Func_0a_56f4::
 
 ObjInit_0a_57b5::
 	obj_byte OBJ_FLAGS, $1b
-	obj_byte OBJ_BANK, BANK(Func_0a_57dc)
-	obj_word OBJ_HANDLER, Func_0a_57dc
+	obj_byte OBJ_BANK, BANK(Obj_Move)
+	obj_word OBJ_HANDLER, Obj_Move
 	obj_word OBJ_Y, $000c
 	obj_end
 
@@ -3756,7 +3760,7 @@ ObjInit_0a_57d5::
 	obj_word OBJ_X, $006e
 	obj_end
 
-Func_0a_57dc::
+Obj_Move::
 	call ApplyVelocity
 	jp NextObject
 
@@ -4068,7 +4072,7 @@ DKBarrel_Wait::
 	jp NextObject
 
 
-Func_0a_59ce::
+Obj_Remove::
 	call DeleteObjectForGood
 	jp NextObject
 
@@ -4269,9 +4273,9 @@ Func_0a_5ac6::
 	add hl, bc
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_7075)
+	ld [hl], LOW(Barrel_BreakAfterDelay)
 	inc l
-	ld [hl], HIGH(Func_09_7075)
+	ld [hl], HIGH(Barrel_BreakAfterDelay)
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	ld [hl], $3c
@@ -4337,15 +4341,15 @@ RunKritterScript::
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_5c27)
+	ld [hl], LOW(Kritter_Scripted)
 	inc l
-	ld [hl], HIGH(Func_0a_5c27)
+	ld [hl], HIGH(Kritter_Scripted)
 	pop hl
 	jp .jump_5c0e
 
 .jump_5b88:
 	push hl
-	call Func_0a_5d66
+	call Player_ReverseX
 	pop hl
 	jr .jump_5b5d
 
@@ -4454,14 +4458,14 @@ RunKritterScript::
 
 
 Kritter_Walk::
-	rst_farcall Func_09_4212
+	rst_farcall Obj_FaceMovement
 	call RunKritterScript
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
-Func_0a_5c27::
+Kritter_Scripted::
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	dec [hl]
@@ -4476,7 +4480,7 @@ Kritter_WalkTimed::
 	add hl, bc
 	dec [hl]
 	call z, RunKritterScript
-	rst_farcall Func_09_4227
+	rst_farcall Obj_PatrolOnTerrain
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -4549,7 +4553,7 @@ Kritter_Jumping::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_0a_5d66
+	call nz, Player_ReverseX
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
@@ -4658,7 +4662,7 @@ Kritter_Jump_Loop::
 	jp NextObject
 
 
-Func_0a_5d66::
+Player_ReverseX::
 	ld hl, wPlayer + OBJ_XVEL
 	call NegateObjectWord
 	ld hl, wPlayer + OBJ_TARGET_XVEL
@@ -5052,7 +5056,7 @@ Rope_Held::
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_0a_6063
+	call nz, Rope_Slide
 	call DespawnIfOutOfRange
 	jp NextObject
 
@@ -5128,19 +5132,19 @@ Rope::
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	set 1, [hl]
-	rst_farcall Func_09_5b86
+	rst_farcall Player_GrabRope
 	jp NextObject
 
 .jump_6054:
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	bit 1, [hl]
-	call nz, Func_0a_6063
+	call nz, Rope_Slide
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
-Func_0a_6063::
+Rope_Slide::
 	call GetOffsetFromSpawnX
 	call CheckRangeLimit
 	jr nc, .jump_6079
@@ -5175,7 +5179,7 @@ Rope_Released::
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	bit 2, [hl]
-	call nz, Func_0a_6063
+	call nz, Rope_Slide
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	dec [hl]
@@ -5191,7 +5195,7 @@ Rope_Released::
 	jp NextObject
 
 
-Func_0a_60b7::
+SwingingRope_SetFrame::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
@@ -5266,15 +5270,15 @@ SwingingRope::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	bit 0, [hl]
-	call nz, Func_0a_6268
-	call Func_0a_60b7
+	call nz, SwingingRope_Advance
+	call SwingingRope_SetFrame
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
 SwingingRope_Held::
-	call Func_0a_6268
-	call Func_0a_60b7
+	call SwingingRope_Advance
+	call SwingingRope_SetFrame
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [de]
@@ -5323,8 +5327,8 @@ SwingingRope_Held::
 
 
 SwingingRope_Released::
-	call Func_0a_6268
-	call Func_0a_60b7
+	call SwingingRope_Advance
+	call SwingingRope_SetFrame
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
@@ -5342,7 +5346,7 @@ SwingingRope_Released::
 	jp NextObject
 
 
-Func_0a_6268::
+SwingingRope_Advance::
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, [hli]
@@ -5376,7 +5380,7 @@ Army::
 	ld [hl], LOW(Anim_04_4a7b)
 	inc hl
 	ld [hl], HIGH(Anim_04_4a7b)
-	call Func_0a_6365
+	call Army_StopRolling
 	jr .jump_62dd
 
 .jump_6299:
@@ -5497,11 +5501,11 @@ Army_Roll::
 	jp NextObject
 
 .jump_6360:
-	call Func_0a_6365
+	call Army_StopRolling
 	jr .jump_6357
 
 
-Func_0a_6365::
+Army_StopRolling::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Army_Idle)
@@ -5525,7 +5529,7 @@ Func_0a_6365::
 
 
 Func_0a_6386::
-	rst_farcall Func_09_4212
+	rst_farcall Obj_FaceMovement
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
@@ -5573,7 +5577,7 @@ Bitesize_Wave_Loop::
 	inc [hl]
 	inc [hl]
 	ld e, [hl]
-	rst_farcall Func_09_4294
+	rst_farcall SineLookup
 	sra e
 	sra e
 	sra e
@@ -5598,7 +5602,7 @@ Bitesize_Wave_Loop::
 
 
 Chomps::
-	rst_farcall Func_09_4212
+	rst_farcall Obj_FaceMovement
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Chomps_Swim)
@@ -5623,7 +5627,7 @@ Chomps_Swim::
 
 
 ChompsJr::
-	rst_farcall Func_09_4212
+	rst_farcall Obj_FaceMovement
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(ChompsJr_Swim)
@@ -5861,7 +5865,7 @@ Necky_Fly::
 
 Necky_FlyPatrol::
 	call TurnAtRangeLimit
-	rst_farcall Func_09_4212
+	rst_farcall Obj_FaceMovement
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
@@ -5875,14 +5879,14 @@ Klaptrap::
 	ld [hl], LOW(Klaptrap_Walk)
 	inc hl
 	ld [hl], HIGH(Klaptrap_Walk)
-	rst_farcall Func_09_4212
+	rst_farcall Obj_FaceMovement
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
 Klaptrap_Walk::
-	rst_farcall Func_09_4227
+	rst_farcall Obj_PatrolOnTerrain
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	bit 0, [hl]
@@ -6514,14 +6518,14 @@ Klump::
 	ld [hl], LOW(Klump_Walk)
 	inc hl
 	ld [hl], HIGH(Klump_Walk)
-	rst_farcall Func_09_4212
+	rst_farcall Obj_FaceMovement
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
 Klump_Walk::
-	rst_farcall Func_09_4227
+	rst_farcall Obj_PatrolOnTerrain
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -6615,7 +6619,7 @@ Func_0a_6992::
 	ld [hl], LOW(Anim_04_4c2f)
 	inc l
 	ld [hl], HIGH(Anim_04_4c2f)
-	call Func_0a_6acf
+	call Obj_FacePlayer
 	pop hl
 	jr .jump_69ec
 
@@ -6644,7 +6648,7 @@ MiniNecky::
 
 
 MiniNecky_Hover::
-	call Func_0a_6acf
+	call Obj_FacePlayer
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -6717,7 +6721,7 @@ ObjInit_0a_6a77::
 	obj_end
 
 MiniNecky_Swoop::
-	call Func_0a_6acf
+	call Obj_FacePlayer
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld e, [hl]
@@ -6766,7 +6770,7 @@ MiniNecky_Swoop::
 	jr .jump_6ac1
 
 
-Func_0a_6acf::
+Obj_FacePlayer::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [wPlayer + OBJ_X]
@@ -6923,7 +6927,7 @@ Mincer::
 	call AnimateObject
 	rst_farcall Func_0a_4001
 	call DespawnIfOutOfRange
-	call c, Func_0a_6c2e
+	call c, MankyKong_RemoveBarrel
 	jp NextObject
 
 .jump_6bc0:
@@ -6994,11 +6998,11 @@ MankyKong_Throw::
 .jump_6c22:
 	call AnimateObject
 	call DespawnIfOutOfRange
-	call c, Func_0a_6c2e
+	call c, MankyKong_RemoveBarrel
 	jp NextObject
 
 
-Func_0a_6c2e::
+MankyKong_RemoveBarrel::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
@@ -7476,12 +7480,12 @@ SetBrightness::
 	ld [wPaletteBrightness], a
 	ld a, [hl]
 	ld [wPaletteUpdate], a
-	rst_farcall Func_08_40d4
+	rst_farcall Obj_SetIdle
 	jp NextObject
 
 
 LevelFadeIn::
-	call Func_0a_6f2f
+	call LevelFadeIn_SetBrightness
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -7503,7 +7507,7 @@ LevelFadeIn::
 
 
 Player_ExitFade::
-	call Func_0a_6f2f
+	call LevelFadeIn_SetBrightness
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -7523,7 +7527,7 @@ Player_ExitFade::
 	jp NextObject
 
 
-Func_0a_6f2f::
+LevelFadeIn_SetBrightness::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]

@@ -7122,7 +7122,7 @@ Func_fe_6937::
 
 
 Func_fe_6946::
-	jp Triples_fe_6958.jump_696a
+	jp Func_fe_696a
 
 
 Func_fe_6949::
@@ -7152,7 +7152,8 @@ Triples_fe_6958::
 	db $06, $b0, $34
 	db $02, $00, $54
 	db $06, $b0, $74
-.jump_696a:
+
+Func_fe_696a::
 	call Func_fe_6a0e
 	ld a, [$cbec]
 	cp $00

@@ -115,6 +115,7 @@ class Emitter:
         overrides.update({off(4, a): n for a, n in ents.items()})
         overrides.update({off(b, a): n for (b, a), n in name_table.NAMES.items()})
         overrides.update({off(b, a): n for (b, a), n in hints.NAMES.items()})
+        ends = {o + i.length: o for o, i in t.insns.items()}  # end offset -> instruction
         by_bank = {}
         for o, kind in t.labels.items():
             if o not in t.insns:
@@ -150,8 +151,21 @@ class Emitter:
                 if k < 0:
                     self.names[o] = "Jump_%02x_%04x" % (bank, addr)
                     bisect.insort(globals_sorted, o)
-                else:
-                    self.locals[o] = (globals_sorted[k], ".jump_%04x" % addr)
+                    continue
+                if globals_sorted[k] not in t.insns:
+                    # the label before is a table: the code after it gets a
+                    # global label of its own, at its first instruction
+                    start = o
+                    while start in ends and ends[start] > globals_sorted[k]:
+                        start = ends[start]
+                    if start not in self.names:
+                        self.names[start] = overrides.get(start) or "Func_%02x_%04x" % (
+                            bank, (start % BANK_SIZE) + (0x4000 if bank else 0))
+                        bisect.insort(globals_sorted, start)
+                    if start == o:
+                        continue
+                    k = bisect.bisect_right(globals_sorted, o) - 1
+                self.locals[o] = (globals_sorted[k], ".jump_%04x" % addr)
         # scope of every code offset, for deciding local vs qualified refs
         self.scope_starts = {}
         for bank in by_bank:

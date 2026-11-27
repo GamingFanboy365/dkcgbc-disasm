@@ -254,4 +254,5 @@ NAMES = {
     (0x0A, 0x51C6): "Cannonball",
     (0x08, 0x4344): "LetterWord",                # spawns a LetterWord_08_... row of letter blocks
     (0x08, 0x4581): "StepRow",                   # a row of parts stepping through a StepPattern
+    (0x09, 0x68A5): "SetPlayerPalette",          # a = palette number (1 DK, 2 Diddy, 3 Rambi, $0d Expresso, $12 Enguarde, $10 Winky)
 }

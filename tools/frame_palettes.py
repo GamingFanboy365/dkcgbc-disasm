@@ -60,8 +60,11 @@ class FramePalettes:
                 o += 4 if w is not None else 2
         return frames
 
-    def handler_anims(self, bank, addr):
-        """Animations stored into OBJ_ANIM by code reachable from a handler."""
+    def handler_anims(self, bank, addr, follow_lists=False):
+        """Animations stored into OBJ_ANIM by code reachable from a handler.
+        With follow_lists, also the animation and handler of initialiser
+        lists the code applies to the same object ("ld hl, list / call
+        ApplyObjInit"), as the player does when it changes form."""
         t = self.t
         anims = set()
         start = off(bank, addr)
@@ -78,6 +81,19 @@ class FramePalettes:
                         anims.add(target)
                     elif tb == bank and 0x4000 <= target < 0x8000:
                         todo.append(off(bank, target))  # new OBJ_HANDLER
+                if follow_lists and i.op == 0x21 and i.dataref is not None:
+                    nxt = t.insns.get(o + 3)
+                    if nxt is not None and nxt.flow == "call" and nxt.target == 0x188B:
+                        if off(*i.dataref) in getattr(self, "form_lists", ()):
+                            o += i.length
+                            continue  # another form's list (it sets its own palette)
+                        f = self.list_fields(off(*i.dataref))
+                        if OBJ_ANIM in f and OBJ_ANIM + 1 in f:
+                            anims.add(f[OBJ_ANIM] | f[OBJ_ANIM + 1] << 8)
+                        if OBJ_HANDLER in f and OBJ_HANDLER + 1 in f and f.get(OBJ_BANK, bank) == bank:
+                            h = f[OBJ_HANDLER] | f[OBJ_HANDLER + 1] << 8
+                            if 0x4000 <= h < 0x8000:
+                                todo.append(off(bank, h))
                 if i.flow in ("jp", "jpc", "jr", "jrc", "call", "callc") and \
                         i.target is not None and 0x4000 <= i.target < 0x8000:
                     todo.append(off(bank, i.target))
@@ -128,6 +144,51 @@ class FramePalettes:
             for f in frames:
                 self.votes[f][pal] += 1
                 self.sources[f].add(o)
+        self._player_palettes()
+
+    def _player_palettes(self):
+        """The player object's palette is set by SetPlayerPalette ($09:68a5)
+        with a constant in a, just before the code applies the initialiser
+        list that switches the player into a form (an animal buddy, say).
+        Vote that palette for the frames of that list's handler."""
+        t = self.t
+        found = []
+        for o, i in t.insns.items():
+            if i.flow != "call" or i.target != 0x68A5 or o // BANK_SIZE != 0x09:
+                continue
+            prev = t.insns.get(o - 2)
+            if prev is None or prev.op != 0x3E:
+                continue
+            pal = prev.imm if prev.imm is not None else t.rom[o - 1]
+            p = o + 3
+            for _ in range(8):  # the next "ld hl, list / call ApplyObjInit"
+                j = t.insns.get(p)
+                if j is None:
+                    break
+                if j.op == 0x21 and j.dataref is not None:
+                    found.append((pal, off(*j.dataref)))
+                    break
+                p += j.length
+        self.form_lists = {lo for _, lo in found}
+        reached = {}
+        for pal, lo in found:
+            f = self.list_fields(lo)
+            if OBJ_HANDLER not in f or OBJ_HANDLER + 1 not in f:
+                continue
+            h = f[OBJ_HANDLER] | f[OBJ_HANDLER + 1] << 8
+            anims = self.handler_anims(f.get(OBJ_BANK, 0x09), h, follow_lists=True)
+            if OBJ_ANIM in f and OBJ_ANIM + 1 in f:
+                anims.add(f[OBJ_ANIM] | f[OBJ_ANIM + 1] << 8)
+            for a in anims:
+                for fr in self.anim_frames(a):
+                    reached.setdefault(fr, {}).setdefault(pal, set()).add(lo)
+        # the Kongs' own palettes (1, 2) are the default form; where an animal
+        # form reaches the same frames through shared code, the animal wins
+        for fr, pals in reached.items():
+            own = {p: los for p, los in pals.items() if p not in (1, 2)} or pals
+            for p, los in own.items():
+                self.votes[fr][p] += len(los)
+                self.sources[fr] |= los
 
     def infer(self):
         """Guess palettes for scripts with no known palette: scripts for one

@@ -1626,7 +1626,7 @@ Func_09_4abb::
 	jr nc, .jump_4ac5
 	ld a, $02
 .jump_4ac5:
-	call Func_09_68a5
+	call SetPlayerPalette
 	call Func_09_68be
 	ld hl, ObjInit_09_4aef
 	call ApplyObjInit
@@ -2306,7 +2306,7 @@ Func_09_4f7c::
 	jr nc, .jump_4f86
 	ld a, $02
 .jump_4f86:
-	call Func_09_68a5
+	call SetPlayerPalette
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 0, [hl]
 	ld a, $15
@@ -2402,7 +2402,7 @@ Func_09_4fab::
 
 Func_09_502d::
 	ld a, $03
-	call Func_09_68a5
+	call SetPlayerPalette
 	call Func_09_68be
 	ld hl, ObjInit_09_503c
 	call ApplyObjInit
@@ -2647,7 +2647,7 @@ Func_09_51cd::
 
 Func_09_51ef::
 	ld a, $0d
-	call Func_09_68a5
+	call SetPlayerPalette
 	call Func_09_68be
 	ld hl, ObjInit_09_51fe
 	call ApplyObjInit
@@ -2880,7 +2880,7 @@ Func_09_536c::
 
 Func_09_53a8::
 	ld a, $12
-	call Func_09_68a5
+	call SetPlayerPalette
 	ld a, $50
 	ld [$c450], a
 	ld a, $48
@@ -3012,7 +3012,7 @@ Func_09_546a::
 
 Func_09_5491::
 	ld a, $10
-	call Func_09_68a5
+	call SetPlayerPalette
 	call Func_09_68be
 	ld hl, ObjInit_09_54a0
 	call ApplyObjInit
@@ -4136,7 +4136,7 @@ Func_09_5c49::
 	jr nc, .jump_5c66
 	ld a, $02
 .jump_5c66:
-	call Func_09_68a5
+	call SetPlayerPalette
 	ld a, $01
 	ldh [$ffa6], a
 	ld a, $01
@@ -5193,7 +5193,7 @@ Func_09_6341::
 	jr nc, .jump_635e
 	ld a, $02
 .jump_635e:
-	call Func_09_68a5
+	call SetPlayerPalette
 	ld a, $01
 	ldh [$ffa6], a
 	ld a, $01
@@ -5992,7 +5992,7 @@ Func_09_6866::
 	ret
 
 
-Func_09_68a5::
+SetPlayerPalette::
 	push af
 	ld a, [wPlayer + OBJ_PALETTE]
 	call FreeObjPalette

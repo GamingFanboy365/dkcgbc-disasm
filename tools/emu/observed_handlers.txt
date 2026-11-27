@@ -125,8 +125,8 @@ QueenB | QueenB | QueenB_Charge |
 QueenB_Fly | QueenB |  | QueenB_Hit, BossDefeated
 QueenB_Hit | QueenB | QueenB_Fly | QueenB_HitRise
 QueenB_HitRise | QueenB | QueenB_Hit | QueenB_Charge
-QueenB_Charge | QueenB | QueenB_HitRise, 0a:4774 | 0a:4774, QueenB
-0a:4774 | QueenB | QueenB_Charge | QueenB_Charge
+QueenB_Charge | QueenB | QueenB_HitRise, Func_0a_4774 | Func_0a_4774, QueenB
+Func_0a_4774 | QueenB | QueenB_Charge | QueenB_Charge
 BossDefeated | VeryGnawty, KingKRool, MasterNecky, QueenB | VeryGnawty_Hop, MasterNecky_Defeated, QueenB_Fly, KingKRool | Obj_Animate
 DumbDrum | DumbDrum |  | DumbDrum_BeginRound
 DumbDrum_BeginRound | DumbDrum | DumbDrum | DumbDrum_AimAtPlayer

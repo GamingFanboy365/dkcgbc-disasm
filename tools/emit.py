@@ -642,6 +642,8 @@ class Emitter:
                     val = self.qref(self.t.anim_bank, v)
                 elif f == 0x20 and 0x4000 <= v < 0x8000:
                     val = self.qref(self.t.frame_bank, v)
+                elif f == 0x04 and v < 0x8000:
+                    val = self.qref(9 if v >= 0x4000 else 0, v)  # see tracer.TOUCH_BANK
                 elif (f, v) in getattr(self.t, "obj_ptr_refs", {}):
                     val = self.qref(self.t.obj_ptr_refs[(f, v)], v)
                 elif f == 0x3B and bank in (8, 0x0E) and 0x502F <= v < 0x50DE:

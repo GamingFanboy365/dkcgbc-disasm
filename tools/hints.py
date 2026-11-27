@@ -138,9 +138,9 @@ OBJ_LISTS = [(0x09, 0x4934), (0x0A, 0x50E4), (0x09, 0x485E), (0x0A, 0x460F), (0x
 # variables whose meaning depends on the handler.
 OBJ_FIELD_TABLE = {
     0x00: ("OBJ_FLAGS", 1, "bit 2: counted in a spawn group (see OBJ_VAR_2D); bit 5: flicker"),
-    0x01: ("OBJ_BANK", 1, "ROM bank of OBJ_HANDLER and OBJ_TOUCH_HANDLER"),
+    0x01: ("OBJ_BANK", 1, "ROM bank of OBJ_HANDLER"),
     0x02: ("OBJ_HANDLER", 2, "code run every frame by RunObjects"),
-    0x04: ("OBJ_TOUCH_HANDLER", 2, "jumped to when the player comes within range (tentative)"),
+    0x04: ("OBJ_TOUCH_HANDLER", 2, "routine in bank 9 jumped to when the player touches the object"),
     0x06: ("OBJ_GROUND_Y", 2, "height of the terrain under the object (Func_00_2214)"),
     0x08: ("OBJ_TERRAIN_A", 1, "attribute of the tile under the object (Func_00_2214)"),
     0x09: ("OBJ_TERRAIN_B", 1, "second attribute of that tile (Func_00_2214)"),

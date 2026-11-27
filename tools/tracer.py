@@ -131,6 +131,7 @@ def apply_regs(i, regs):
 
 
 OBJ_HANDLER, OBJ_TOUCH_HANDLER, OBJ_FRAME, OBJ_ANIM = 0x02, 0x04, 0x20, 0x22
+TOUCH_BANK = 0x09  # touch handlers are jumped to from CheckPlayerContact, in this bank
 
 # Animation commands (word >> 8 & $7f): number of extra bytes after the word
 ANIM_EXTRA = {0: 2, 2: 2, 5: 2}
@@ -211,6 +212,7 @@ class Tracer:
         regs = dict.fromkeys(REG8)
         first = True
         hist = []
+        bank_store = None
         hl_insn = None
         de_insn = None
         pushbytes = []
@@ -311,6 +313,8 @@ class Tracer:
             # "ld [hl], LOW / inc l / ld [hl], HIGH" stores a pointer (often an
             # object handler); remember it as a candidate for speculation.
             hist = (hist + [(o, i, objfield)])[-3:]
+            if i.op == 0x36 and objfield == 0x01:
+                bank_store = (o, i.imm)
             if len(hist) == 3 and hist[0][1].op == 0x36 and hist[1][1].op in (0x2C, 0x23) and hist[2][1].op == 0x36:
                 ptr = hist[0][1].imm | hist[2][1].imm << 8
                 fld = hist[0][2]
@@ -320,9 +324,14 @@ class Tracer:
                         (self.anim_ref if fld == OBJ_ANIM else self.frame_ref)(ptr)
                         self.lohi.append((hist[0][0], hist[2][0], tb, ptr))
                 elif fld is None or fld in (OBJ_HANDLER, OBJ_TOUCH_HANDLER):
-                    if ptr < 0x4000 or (bank and ptr < 0x8000):
+                    stored = (fld == OBJ_HANDLER and bank_store is not None and bank_store[0] == hist[0][0] - 3)
+                    if ptr < 0x4000 or ((bank or stored or fld == OBJ_TOUCH_HANDLER) and ptr < 0x8000):
                         tb = bank if ptr >= 0x4000 else 0
-                        if fld == OBJ_HANDLER and tb and not getattr(self, "speculating", False):
+                        if fld == OBJ_TOUCH_HANDLER and ptr >= 0x4000:
+                            tb = TOUCH_BANK
+                        elif stored and ptr >= 0x4000:
+                            tb = bank_store[1]  # "ld [hl], bank / inc l" just before: OBJ_BANK
+                        if fld in (OBJ_HANDLER, OBJ_TOUCH_HANDLER) and tb and not getattr(self, "speculating", False):
                             self.add(tb, ptr, "func", tb)  # a new handler: always code
                         else:
                             self.candidates.append((tb, ptr))
@@ -429,6 +438,10 @@ class Tracer:
                 self.anim_ref(e[2])
             elif e[0] == "word" and e[1] == OBJ_FRAME:
                 self.frame_ref(e[2])
+            elif e[0] == "word" and e[1] == OBJ_TOUCH_HANDLER and e[2] < 0x8000:
+                # called by CheckPlayerContact in bank 9 (jp hl), whatever OBJ_BANK says
+                tb = TOUCH_BANK if e[2] >= 0x4000 else 0
+                self.add(tb, e[2], "func", tb)
         if 2 in fields and 3 in fields:
             handler = fields[2] | fields[3] << 8
             hb = fields.get(1)

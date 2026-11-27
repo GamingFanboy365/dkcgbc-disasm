@@ -36,13 +36,11 @@ Gnawty::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
-	jr z, Func_09_403d.jump_4040
+	jr z, .jump_4040
 	ld hl, wPlayer + OBJ_XVEL
 	call NegateObjectWord
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	call NegateObjectWord
-
-Func_09_403d::
 	call Func_09_424e
 .jump_4040:
 	call AnimateObject
@@ -1432,9 +1430,9 @@ Player_EnterLevel::
 	inc l
 	ld [hl], $0a
 	inc l
-	ld [hl], $ed
+	ld [hl], LOW(Func_0a_6eed)
 	inc l
-	ld [hl], $6e
+	ld [hl], HIGH(Func_0a_6eed)
 	pop bc
 	ld a, [wPlayer + OBJ_VAR_3A]
 	cp $03
@@ -3994,9 +3992,9 @@ Func_09_5b60::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_09_6088)
+	ld [hl], LOW(Func_0a_6088)
 	inc l
-	ld [hl], HIGH(Func_09_6088)
+	ld [hl], HIGH(Func_0a_6088)
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, de
 	ld [hl], $0a
@@ -4107,9 +4105,9 @@ Func_09_5c02::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], $45
+	ld [hl], LOW(Func_0a_6245)
 	inc l
-	ld [hl], $62
+	ld [hl], HIGH(Func_0a_6245)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, de
 	ld [hl], $1e
@@ -4480,9 +4478,9 @@ HurtPlayer::
 	inc l
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_09_403d)
+	ld [hl], LOW(Obj_MoveAndAnimate)
 	inc l
-	ld [hl], HIGH(Func_09_403d)
+	ld [hl], HIGH(Obj_MoveAndAnimate)
 	ld a, [$c30f]
 	rrca
 	ld de, $4115
@@ -4605,9 +4603,9 @@ Func_09_5f8f::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_09_5fd9)
+	ld [hl], LOW(Func_0a_5fd9)
 	inc l
-	ld [hl], HIGH(Func_09_5fd9)
+	ld [hl], HIGH(Func_0a_5fd9)
 	ret
 
 .jump_5fb9:
@@ -4619,9 +4617,9 @@ Func_09_5f8f::
 	add hl, de
 	ld [hl], $0a
 	inc l
-	ld [hl], $e7
+	ld [hl], LOW(Func_0a_61e7)
 	inc l
-	ld [hl], $61
+	ld [hl], HIGH(Func_0a_61e7)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, de
 	ld [hl], $08
@@ -4633,8 +4631,6 @@ Func_09_5f8f::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-
-Func_09_5fd9::
 	ld hl, ObjInit_09_5fe1
 	call ApplyObjInit
 	pop bc
@@ -4695,7 +4691,7 @@ Func_09_5feb::
 	set 0, [hl]
 	call Func_09_4095
 .jump_6046:
-	ld hl, $6082
+	ld hl, ObjInit_09_6082
 	call ApplyObjInit
 .jump_604c:
 	pop bc
@@ -4738,24 +4734,14 @@ Func_09_5feb::
 	ret
 
 
-Func_09_6082::
-	ld bc, $4209
-	jp Func_09_5765.jump_5856
-
-
-Func_09_6088::
-	ld d, b
-	nop
-	ld e, d
-	nop
-	ld sp, hl
-	ld d, [hl]
-	rst $38
-	rlca
-	ld [hl], c
-	nop
-	nop
-	add a, c
+ObjInit_09_6082::
+	obj_byte OBJ_BANK, BANK(Player_Launched)
+	obj_word OBJ_HANDLER, Player_Launched
+	obj_word OBJ_YACCEL, $0050
+	obj_word OBJ_YVEL, $f900
+	obj_word OBJ_TARGET_YVEL, $07ff
+	obj_word OBJ_VAR_31, $0000
+	obj_end
 
 Func_09_6094::
 	ld a, [wPlayer + OBJ_VAR_35]
@@ -5341,9 +5327,9 @@ Player_InMineCart::
 	inc l
 	ld [hl], $08
 	inc l
-	ld [hl], $d7
+	ld [hl], LOW(Func_08_59d7)
 	inc l
-	ld [hl], $59
+	ld [hl], HIGH(Func_08_59d7)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, de
 	ld [hl], $08
@@ -5706,9 +5692,9 @@ Player_ExitWait::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_09_6f10)
+	ld [hl], LOW(Player_ExitFade)
 	inc l
-	ld [hl], HIGH(Func_09_6f10)
+	ld [hl], HIGH(Player_ExitFade)
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $80
@@ -6103,9 +6089,9 @@ Func_09_6994::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $10
+	ld [hl], LOW(KongLetter_FlyUp)
 	inc l
-	ld [hl], $58
+	ld [hl], HIGH(KongLetter_FlyUp)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -6180,9 +6166,9 @@ Func_09_6a05::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $55
+	ld [hl], LOW(Func_0a_5855)
 	inc l
-	ld [hl], $58
+	ld [hl], HIGH(Func_0a_5855)
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -6661,9 +6647,9 @@ Func_09_6d1e::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $2e
+	ld [hl], LOW(Obj_Animate)
 	inc l
-	ld [hl], $40
+	ld [hl], HIGH(Obj_Animate)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -6902,9 +6888,9 @@ Func_09_6e97::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $78
+	ld [hl], LOW(Func_0a_5978)
 	inc l
-	ld [hl], $59
+	ld [hl], HIGH(Func_0a_5978)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_5103)
@@ -6943,8 +6929,6 @@ Func_09_6ef8::
 	ld [$c447], a
 	ld a, $27
 	ld [$c32a], a
-
-Func_09_6f10::
 	call DeleteObjectForGood
 	jp CheckPlayerContact.jump_44f5
 
@@ -7310,9 +7294,9 @@ Func_09_7150::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_09_403d)
+	ld [hl], LOW(Obj_MoveAndAnimate)
 	inc l
-	ld [hl], HIGH(Func_09_403d)
+	ld [hl], HIGH(Obj_MoveAndAnimate)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -7373,17 +7357,22 @@ Func_09_71a8::
 Func_09_71e4::
 	ld hl, wPlayer + OBJ_YVEL + 1
 	bit 7, [hl]
-	jr z, .jump_7213
+	jr z, Func_09_71f3.jump_7213
 	ld a, $03
 	ld [hld], a
 	ld a, $00
 	ld [hl], a
-	jr .jump_7200
+	jr Func_09_71f3.jump_7200
 
-.unreached_71f3:
-	db $21, $1b, $c8 ; ld hl, wPlayer + OBJ_YVEL + 1
-	db $cb, $7e, $20, $19 ; bit 7, [hl] / jr nz, .jump_7213
-	db $3e, $fd, $32, $3e, $00, $77 ; ld a, $fd / ld [hld], a / ld a, $00 / ld [hl], a
+
+Func_09_71f3::
+	ld hl, wPlayer + OBJ_YVEL + 1
+	bit 7, [hl]
+	jr nz, .jump_7213
+	ld a, $fd
+	ld [hld], a
+	ld a, $00
+	ld [hl], a
 .jump_7200:
 	ld a, $80
 	ld hl, wObjects + OBJ_ANIM_FLAGS
@@ -7403,7 +7392,7 @@ Func_09_71e4::
 Func_09_7216::
 	ld hl, wPlayer + OBJ_VAR_0A
 	bit 0, [hl]
-	jp z, .jump_7272
+	jp z, Func_09_7272
 	ldh a, [$ffb6]
 	ld e, a
 	ld hl, wObjects + OBJ_X
@@ -7425,7 +7414,7 @@ Func_09_7216::
 	add a, e
 	ld e, a
 	cp $06
-	jp nc, .jump_7272
+	jp nc, Func_09_7272
 	jr .jump_7252
 
 .jump_7244:
@@ -7435,7 +7424,7 @@ Func_09_7216::
 	sub e
 	ld e, a
 	cp $fa
-	jp c, .jump_7272
+	jp c, Func_09_7272
 .jump_7252:
 	ld d, $00
 	bit 7, e
@@ -7459,7 +7448,8 @@ Func_09_7216::
 .jump_726f:
 	jp CheckPlayerContact.jump_44f5
 
-.jump_7272:
+
+Func_09_7272::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jp c, CheckPlayerContact.jump_44f5
@@ -7818,7 +7808,7 @@ ObjInit_09_74b7::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Func_08_5648)
 	obj_word OBJ_HANDLER, Func_08_5648
-	obj_word OBJ_TOUCH_HANDLER, $74c6
+	obj_word OBJ_TOUCH_HANDLER, Func_09_74c6
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $0a
 	obj_end
@@ -7925,7 +7915,7 @@ ObjInit_09_7574::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Func_08_56fd)
 	obj_word OBJ_HANDLER, Func_08_56fd
-	obj_word OBJ_TOUCH_HANDLER, $7586
+	obj_word OBJ_TOUCH_HANDLER, Func_09_7586
 	obj_word OBJ_ANIM, Anim_04_553d
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_2F, $3c
@@ -8428,9 +8418,9 @@ Func_09_78af::
 	add hl, de
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_09_403d)
+	ld [hl], LOW(Obj_MoveAndAnimate)
 	inc l
-	ld [hl], HIGH(Func_09_403d)
+	ld [hl], HIGH(Obj_MoveAndAnimate)
 .jump_78ca:
 	jp CheckPlayerContact.jump_44f5
 
@@ -8818,9 +8808,9 @@ Func_09_7b4c::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $cb
+	ld [hl], LOW(Func_08_61cb)
 	inc l
-	ld [hl], $61
+	ld [hl], HIGH(Func_08_61cb)
 	rst_farcall Func_08_6205
 	ld a, $31
 	ld [$c329], a

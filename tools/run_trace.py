@@ -922,10 +922,6 @@ def parse_banks(t, rom):
     # surrounding function keeps its labels)
     t._claim(0, 0x03F5, 2, "rows", [("db", ["$18", "$ed"], "jr $03e4, never reached")], "=.unreached_03f5")
     t._claim(0, 0x1DB5, 1, "rows", [("db", ["$c9"], "ret, never reached")], "=.unreached_1db5")
-    t._claim(9, 0x71F3, 13, "rows", [("db", ["$21", "$1b", "$c8"], "ld hl, wPlayer + OBJ_YVEL + 1"),
-                                     ("db", ["$cb", "$7e", "$20", "$19"], "bit 7, [hl] / jr nz, .jump_7213"),
-                                     ("db", ["$3e", "$fd", "$32", "$3e", "$00", "$77"], "ld a, $fd / ld [hld], a / ld a, $00 / ld [hl], a")],
-             "=.unreached_71f3")  # skipped by the jr above it; an older version of the lines before
     ct = bytes_(0x50, 0x6A58, 256)
     t._claim(0x50, 0x6A58, 256, "rows", [("db", ["$%02x" % v for v in ct[k:k + 16]], "characters $%02x-$%02x" % (k, k + 15))
                                          for k in range(0, 256, 16)], "=CharTileTable_50")  # Func_50_7686

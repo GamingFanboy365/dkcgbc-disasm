@@ -4188,7 +4188,7 @@ ObjInit_00_1850::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Func_0a_58c8)
 	obj_word OBJ_HANDLER, Func_0a_58c8
-	obj_word OBJ_TOUCH_HANDLER, $6a7e
+	obj_word OBJ_TOUCH_HANDLER, Func_09_6a7e
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $03
 	obj_end
@@ -6739,9 +6739,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], $40
+	ld [hl], LOW(Func_0a_5440)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_5440)
 	call AllocObject
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6749,9 +6749,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], $78
+	ld [hl], LOW(Func_0a_5578)
 	inc l
-	ld [hl], $55
+	ld [hl], HIGH(Func_0a_5578)
 	call AllocObject
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6759,9 +6759,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], $bf
+	ld [hl], LOW(Func_0a_54bf)
 	inc l
-	ld [hl], $54
+	ld [hl], HIGH(Func_0a_54bf)
 	call AllocObject
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6769,9 +6769,9 @@ Func_00_2793::
 	ld [hli], a
 	ld [hl], $0a
 	inc l
-	ld [hl], $55
+	ld [hl], LOW(Func_0a_5555)
 	inc l
-	ld [hl], $55
+	ld [hl], HIGH(Func_0a_5555)
 	ld a, $02
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
@@ -6890,14 +6890,14 @@ Func_00_2861::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], $b8
+	ld [hl], LOW(Func_08_59b8)
 	inc l
-	ld [hl], $59
+	ld [hl], HIGH(Func_08_59b8)
 	ld hl, wObjects + OBJ_TOUCH_HANDLER
 	add hl, bc
-	ld [hl], $30
+	ld [hl], LOW(Func_09_7930)
 	inc l
-	ld [hl], $79
+	ld [hl], HIGH(Func_09_7930)
 	ld a, [$c30c]
 	cp $0b
 	ret nz
@@ -10519,18 +10519,18 @@ Func_00_3c1b::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], $f9
+	ld [hl], LOW(Func_0a_61f9)
 	inc l
-	ld [hl], $61
+	ld [hl], HIGH(Func_0a_61f9)
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	set 0, [hl]
 	ld hl, wPlayer + OBJ_BANK
 	ld [hl], $09
 	inc l
-	ld [hl], $02
+	ld [hl], LOW(Func_09_5c02)
 	inc l
-	ld [hl], $5c
+	ld [hl], HIGH(Func_09_5c02)
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	res 5, [hl]
 	ld a, c

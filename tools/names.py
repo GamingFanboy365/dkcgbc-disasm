@@ -202,4 +202,21 @@ NAMES = {
     (0x09, 0x4712): "StompBoss_Touch",          # beaver and Necky bosses: counts stomps to 5 or 10
     (0x09, 0x47EF): "QueenB_Touch",              # counts barrel hits
     (0x09, 0x487A): "KingKRool_Touch",
+    # identified with a set of labelled DKC GBC sprites
+    (0x09, 0x400D): "Gnawty_Red",
+    (0x09, 0x4026): "Gnawty",
+    (0x09, 0x75F9): "Rockkroc",
+    (0x0A, 0x5E1D): "Krusha",
+    (0x0A, 0x6940): "Klump",
+    (0x0A, 0x6963): "Klump2",
+    (0x0A, 0x658F): "Klaptrap",
+    (0x0A, 0x6477): "Squidge",
+    (0x0A, 0x69F5): "MiniNecky",
+    (0x0A, 0x6BA8): "Mincer",
+    (0x0A, 0x71B1): "BlackDrum",               # spawns enemies (ObjScript, Func_0a_713c)
+    (0x0A, 0x5A9A): "StarBarrel",
+    (0x08, 0x55FA): "BlastBarrel",
+    (0x08, 0x5C2E): "AnimalCrate",
+    (0x08, 0x4088): "Coconut",
+    (0x0A, 0x65D1): "Elevator",
 }

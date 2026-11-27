@@ -181,11 +181,6 @@ class Tracer:
         self.candidates = []
         self.fell_into_old = False
 
-    def _bank_store_before(self, hist, tb):
-        """True when the handler pointer is stored in the object's own bank
-        (the handler runs in the bank the code is in)."""
-        return tb != 0
-
     def add(self, bank, addr, kind="func", ctx=None):
         if addr >= 0x8000:
             return
@@ -318,7 +313,7 @@ class Tracer:
                 elif fld is None or fld in (OBJ_HANDLER, OBJ_TOUCH_HANDLER):
                     if ptr < 0x4000 or (bank and ptr < 0x8000):
                         tb = bank if ptr >= 0x4000 else 0
-                        if fld == OBJ_HANDLER and hist[0][1].addr >= 2 and self._bank_store_before(hist, tb):
+                        if fld == OBJ_HANDLER and tb and not getattr(self, "speculating", False):
                             self.add(tb, ptr, "func", tb)  # a new handler: always code
                         else:
                             self.candidates.append((tb, ptr))
@@ -702,6 +697,7 @@ class Speculator:
         from collections import ChainMap
         t = self.t
         trial = Tracer(t.rom)
+        trial.speculating = True  # handler pointers stay candidates in a trial
         trial.farcall_hl_a = t.farcall_hl_a
         trial.obj_init_funcs = t.obj_init_funcs
         trial.data = ChainMap({}, t.data)

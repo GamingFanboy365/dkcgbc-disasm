@@ -329,8 +329,8 @@ ObjInit_0e_4207::
 
 ObjInit_0e_4220::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_08_55fa)
-	obj_word OBJ_HANDLER, Func_08_55fa
+	obj_byte OBJ_BANK, BANK(BlastBarrel)
+	obj_word OBJ_HANDLER, BlastBarrel
 	obj_word OBJ_TOUCH_HANDLER, $7532
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_COLLISION, $08
@@ -412,8 +412,8 @@ ObjInit_0e_4296::
 
 ObjInit_0e_42a9::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_09_400d)
-	obj_word OBJ_HANDLER, Func_09_400d
+	obj_byte OBJ_BANK, BANK(Gnawty_Red)
+	obj_word OBJ_HANDLER, Gnawty_Red
 	obj_word OBJ_TOUCH_HANDLER, $4007
 	obj_byte OBJ_VAR_2C, $01
 	obj_byte OBJ_COLLISION, $04
@@ -492,8 +492,8 @@ ObjInit_0e_4318::
 
 ObjInit_0e_4334::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_09_400d)
-	obj_word OBJ_HANDLER, Func_09_400d
+	obj_byte OBJ_BANK, BANK(Gnawty_Red)
+	obj_word OBJ_HANDLER, Gnawty_Red
 	obj_word OBJ_TOUCH_HANDLER, $70f5
 	obj_byte OBJ_VAR_2C, $04
 	obj_byte OBJ_COLLISION, $04
@@ -508,8 +508,8 @@ ObjInit_0e_4334::
 
 ObjInit_0e_4355::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_6940)
-	obj_word OBJ_HANDLER, Func_0a_6940
+	obj_byte OBJ_BANK, BANK(Klump)
+	obj_word OBJ_HANDLER, Klump
 	obj_word OBJ_TOUCH_HANDLER, $7808
 	obj_byte OBJ_VAR_2C, $07
 	obj_byte OBJ_COLLISION, $04
@@ -524,8 +524,8 @@ ObjInit_0e_4355::
 
 ObjInit_0e_4376::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_09_400d)
-	obj_word OBJ_HANDLER, Func_09_400d
+	obj_byte OBJ_BANK, BANK(Gnawty_Red)
+	obj_word OBJ_HANDLER, Gnawty_Red
 	obj_word OBJ_TOUCH_HANDLER, $4007
 	obj_byte OBJ_VAR_2C, $03
 	obj_byte OBJ_COLLISION, $04
@@ -678,8 +678,8 @@ ObjInit_0e_4479::
 
 ObjInit_0e_4488::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_658f)
-	obj_word OBJ_HANDLER, Func_0a_658f
+	obj_byte OBJ_BANK, BANK(Klaptrap)
+	obj_word OBJ_HANDLER, Klaptrap
 	obj_word OBJ_TOUCH_HANDLER, $75bd
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_COLLISION, $04
@@ -704,8 +704,8 @@ ObjInit_0e_44ad::
 
 ObjInit_0e_44b5::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_09_75f9)
-	obj_word OBJ_HANDLER, Func_09_75f9
+	obj_byte OBJ_BANK, BANK(Rockkroc)
+	obj_word OBJ_HANDLER, Rockkroc
 	obj_word OBJ_TOUCH_HANDLER, $4001
 	obj_byte OBJ_VAR_2C, $06
 	obj_byte OBJ_COLLISION, $40
@@ -720,8 +720,8 @@ ObjInit_0e_44b5::
 
 ObjInit_0e_44d6::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_65d1)
-	obj_word OBJ_HANDLER, Func_0a_65d1
+	obj_byte OBJ_BANK, BANK(Elevator)
+	obj_word OBJ_HANDLER, Elevator
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_XACCEL, $0080
 	obj_word OBJ_YACCEL, $0080
@@ -758,8 +758,8 @@ ObjInit_0e_4501::
 
 ObjInit_0e_4514::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_6477)
-	obj_word OBJ_HANDLER, Func_0a_6477
+	obj_byte OBJ_BANK, BANK(Squidge)
+	obj_word OBJ_HANDLER, Squidge
 	obj_word OBJ_TOUCH_HANDLER, $739e
 	obj_word OBJ_ANIM, Anim_04_4ca7
 	obj_byte OBJ_COLLISION, $04
@@ -770,8 +770,8 @@ ObjInit_0e_4514::
 
 ObjInit_0e_452a::
 	obj_byte OBJ_FLAGS, $11
-	obj_byte OBJ_BANK, BANK(Func_0a_69f5)
-	obj_word OBJ_HANDLER, Func_0a_69f5
+	obj_byte OBJ_BANK, BANK(MiniNecky)
+	obj_word OBJ_HANDLER, MiniNecky
 	obj_word OBJ_TOUCH_HANDLER, $4007
 	obj_byte OBJ_VAR_2C, $09
 	obj_word OBJ_ANIM, Anim_04_4c1b
@@ -859,8 +859,8 @@ ObjInit_0e_45bc::
 
 ObjInit_0e_45cf::
 	obj_byte OBJ_FLAGS, $13
-	obj_byte OBJ_BANK, BANK(Func_08_5c2e)
-	obj_word OBJ_HANDLER, Func_08_5c2e
+	obj_byte OBJ_BANK, BANK(AnimalCrate)
+	obj_word OBJ_HANDLER, AnimalCrate
 	obj_word OBJ_TOUCH_HANDLER, $79cd
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $00
@@ -870,8 +870,8 @@ ObjInit_0e_45cf::
 
 ObjInit_0e_45e2::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_55fa)
-	obj_word OBJ_HANDLER, Func_08_55fa
+	obj_byte OBJ_BANK, BANK(BlastBarrel)
+	obj_word OBJ_HANDLER, BlastBarrel
 	obj_word OBJ_TOUCH_HANDLER, $74c6
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
@@ -903,8 +903,8 @@ ObjInit_0e_460f::
 
 ObjInit_0e_4618::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_0a_71b1)
-	obj_word OBJ_HANDLER, Func_0a_71b1
+	obj_byte OBJ_BANK, BANK(BlackDrum)
+	obj_word OBJ_HANDLER, BlackDrum
 	obj_word OBJ_TOUCH_HANDLER, $76c6
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $0b
@@ -912,8 +912,8 @@ ObjInit_0e_4618::
 
 ObjInit_0e_4627::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_0a_71b1)
-	obj_word OBJ_HANDLER, Func_0a_71b1
+	obj_byte OBJ_BANK, BANK(BlackDrum)
+	obj_word OBJ_HANDLER, BlackDrum
 	obj_word OBJ_TOUCH_HANDLER, $76c6
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $0b
@@ -5356,8 +5356,8 @@ ObjInit_0e_662b::
 	obj_end
 
 ObjInit_0e_663f::
-	obj_byte OBJ_BANK, BANK(Func_0a_5a9a)
-	obj_word OBJ_HANDLER, Func_0a_5a9a
+	obj_byte OBJ_BANK, BANK(StarBarrel)
+	obj_word OBJ_HANDLER, StarBarrel
 	obj_word OBJ_TOUCH_HANDLER, $6e97
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_PALETTE, $01

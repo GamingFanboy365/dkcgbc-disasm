@@ -3563,8 +3563,8 @@ Func_04_5755::
 
 ObjInit_04_5771::
 	obj_byte OBJ_FLAGS, $13
-	obj_byte OBJ_BANK, BANK(Func_08_4088)
-	obj_word OBJ_HANDLER, Func_08_4088
+	obj_byte OBJ_BANK, BANK(Coconut)
+	obj_word OBJ_HANDLER, Coconut
 	obj_word OBJ_ANIM, Anim_04_46d3
 	obj_byte OBJ_PALETTE, $02
 	obj_end
@@ -3588,8 +3588,8 @@ Func_04_577e::
 
 ObjInit_04_579a::
 	obj_byte OBJ_FLAGS, $13
-	obj_byte OBJ_BANK, BANK(Func_08_4088)
-	obj_word OBJ_HANDLER, Func_08_4088
+	obj_byte OBJ_BANK, BANK(Coconut)
+	obj_word OBJ_HANDLER, Coconut
 	obj_word OBJ_ANIM, Anim_04_46e9
 	obj_byte OBJ_PALETTE, $02
 	obj_end

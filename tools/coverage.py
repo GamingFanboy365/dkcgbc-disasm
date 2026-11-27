@@ -7,6 +7,7 @@ Categories (by byte):
   code       traced instructions
   data       decoded into readable structures (lists, scripts, palettes...)
   graphics   built from PNGs
+  files      built from other editable files (level maps, blocks, terrain)
   raw        located and labelled, format known, still raw bytes
   empty      padding (runs of 16+ identical $00/$ff bytes nothing claims)
   unknown    not identified yet, INCBIN'd from the base ROM
@@ -22,11 +23,13 @@ from run_trace import make  # noqa: E402
 NAMES = {
     "code": "Code disassembled into readable instructions",
     "data": "Data decoded into readable structures",
+    "files": "Data converted to editable files",
     "graphics": "Graphics converted to editable PNGs",
     "raw": "Located and labelled, format known, still raw bytes",
     "unknown": "Not identified yet",
 }
 RAW_KINDS = {"incbin"}
+FILE_KINDS = {"convfile"}
 GFX_KINDS = {"tiles", "bgtiles"}
 
 
@@ -38,7 +41,7 @@ def categorize(rom, t=None):
         for k in range(i.length):
             cat[o + k] = "code"
     for o, (kind, _, _, length) in t.data.items():
-        c = "raw" if kind in RAW_KINDS else "graphics" if kind in GFX_KINDS else "data"
+        c = "raw" if kind in RAW_KINDS else "graphics" if kind in GFX_KINDS else "files" if kind in FILE_KINDS else "data"
         for j in range(length):
             cat[o + j] = c
     for k in range(0x104, 0x150):  # the cartridge header (written by emit.py's HEADER)
@@ -66,7 +69,7 @@ def main():
     total = len(rom) - c["empty"]
     print("| Category | Size | Share of non-empty ROM |")
     print("|---|---|---|")
-    for k in ("code", "data", "graphics", "raw", "unknown"):
+    for k in ("code", "data", "graphics", "files", "raw", "unknown"):
         print("| %s | %d KB | %.1f%% |" % (NAMES[k], round(c[k] / 1024), 100 * c[k] / total))
     print("\nEmpty padding: %d KB (not counted)." % round(c["empty"] / 1024))
     if "--banks" in sys.argv:

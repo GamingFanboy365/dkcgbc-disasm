@@ -4,363 +4,363 @@ INCLUDE "include/common.inc"
 SECTION "Bank $eb", ROMX[$4000], BANK[$eb]
 
 LevelMap_eb_4000::
-	INCBIN "baserom.gbc", $3ac000, $014e
+	INCBIN "data/maps/eb_4000_terrain.lz"
 
 LevelMap_eb_414e::
-	INCBIN "baserom.gbc", $3ac14e, $01bf
+	INCBIN "data/maps/eb_414e_blocks.lz"
 
 LevelMap_eb_430d::
-	INCBIN "baserom.gbc", $3ac30d, $0047
+	INCBIN "data/maps/eb_430d_attrs.lz"
 
 LevelMap_eb_4354::
-	INCBIN "baserom.gbc", $3ac354, $0047
+	INCBIN "data/maps/eb_4354_terrain.lz"
 
 LevelMap_eb_439b::
-	INCBIN "baserom.gbc", $3ac39b, $006b
+	INCBIN "data/maps/eb_439b_blocks.lz"
 
 LevelMap_eb_4406::
-	INCBIN "baserom.gbc", $3ac406, $0043
+	INCBIN "data/maps/eb_4406_attrs.lz"
 
 LevelMap_eb_4449::
-	INCBIN "baserom.gbc", $3ac449, $0047
+	INCBIN "data/maps/eb_4449_terrain.lz"
 
 LevelMap_eb_4490::
-	INCBIN "baserom.gbc", $3ac490, $006b
+	INCBIN "data/maps/eb_4490_blocks.lz"
 
 LevelMap_eb_44fb::
-	INCBIN "baserom.gbc", $3ac4fb, $0043
+	INCBIN "data/maps/eb_44fb_attrs.lz"
 
 LevelMap_eb_453e::
-	INCBIN "baserom.gbc", $3ac53e, $0047
+	INCBIN "data/maps/eb_453e_terrain.lz"
 
 LevelMap_eb_4585::
-	INCBIN "baserom.gbc", $3ac585, $006b
+	INCBIN "data/maps/eb_4585_blocks.lz"
 
 LevelMap_eb_45f0::
-	INCBIN "baserom.gbc", $3ac5f0, $0043
+	INCBIN "data/maps/eb_45f0_attrs.lz"
 
 LevelMap_eb_4633::
-	INCBIN "baserom.gbc", $3ac633, $004b
+	INCBIN "data/maps/eb_4633_terrain.lz"
 
 LevelMap_eb_467e::
-	INCBIN "baserom.gbc", $3ac67e, $00c6
+	INCBIN "data/maps/eb_467e_blocks.lz"
 
 LevelMap_eb_4744::
-	INCBIN "baserom.gbc", $3ac744, $0071
+	INCBIN "data/maps/eb_4744_attrs.lz"
 
 LevelMap_eb_47b5::
-	INCBIN "baserom.gbc", $3ac7b5, $0043
+	INCBIN "data/maps/eb_47b5_terrain.lz"
 
 LevelMap_eb_47f8::
-	INCBIN "baserom.gbc", $3ac7f8, $0075
+	INCBIN "data/maps/eb_47f8_blocks.lz"
 
 LevelMap_eb_486d::
-	INCBIN "baserom.gbc", $3ac86d, $007d
+	INCBIN "data/maps/eb_486d_attrs.lz"
 
 LevelMap_eb_48ea::
-	INCBIN "baserom.gbc", $3ac8ea, $004b
+	INCBIN "data/maps/eb_48ea_terrain.lz"
 
 LevelMap_eb_4935::
-	INCBIN "baserom.gbc", $3ac935, $0071
+	INCBIN "data/maps/eb_4935_blocks.lz"
 
 LevelMap_eb_49a6::
-	INCBIN "baserom.gbc", $3ac9a6, $0067
+	INCBIN "data/maps/eb_49a6_attrs.lz"
 
 LevelMap_eb_4a0d::
-	INCBIN "baserom.gbc", $3aca0d, $004f
+	INCBIN "data/maps/eb_4a0d_terrain.lz"
 
 LevelMap_eb_4a5c::
-	INCBIN "baserom.gbc", $3aca5c, $008b
+	INCBIN "data/maps/eb_4a5c_blocks.lz"
 
 LevelMap_eb_4ae7::
-	INCBIN "baserom.gbc", $3acae7, $006b
+	INCBIN "data/maps/eb_4ae7_attrs.lz"
 
 LevelMap_eb_4b52::
-	INCBIN "baserom.gbc", $3acb52, $004b
+	INCBIN "data/maps/eb_4b52_terrain.lz"
 
 LevelMap_eb_4b9d::
-	INCBIN "baserom.gbc", $3acb9d, $008b
+	INCBIN "data/maps/eb_4b9d_blocks.lz"
 
 LevelMap_eb_4c28::
-	INCBIN "baserom.gbc", $3acc28, $006b
+	INCBIN "data/maps/eb_4c28_attrs.lz"
 
 LevelMap_eb_4c93::
-	INCBIN "baserom.gbc", $3acc93, $004c
+	INCBIN "data/maps/eb_4c93_terrain.lz"
 
 LevelMap_eb_4cdf::
-	INCBIN "baserom.gbc", $3accdf, $0066
+	INCBIN "data/maps/eb_4cdf_blocks.lz"
 
 LevelMap_eb_4d45::
-	INCBIN "baserom.gbc", $3acd45, $0055
+	INCBIN "data/maps/eb_4d45_attrs.lz"
 
 LevelMap_eb_4d9a::
-	INCBIN "baserom.gbc", $3acd9a, $0043
+	INCBIN "data/maps/eb_4d9a_terrain.lz"
 
 LevelMap_eb_4ddd::
-	INCBIN "baserom.gbc", $3acddd, $007f
+	INCBIN "data/maps/eb_4ddd_blocks.lz"
 
 LevelMap_eb_4e5c::
-	INCBIN "baserom.gbc", $3ace5c, $007a
+	INCBIN "data/maps/eb_4e5c_attrs.lz"
 
 LevelMap_eb_4ed6::
-	INCBIN "baserom.gbc", $3aced6, $015c
+	INCBIN "data/maps/eb_4ed6_terrain.lz"
 
 LevelMap_eb_5032::
-	INCBIN "baserom.gbc", $3ad032, $0228
+	INCBIN "data/maps/eb_5032_blocks.lz"
 
 LevelMap_eb_525a::
-	INCBIN "baserom.gbc", $3ad25a, $0047
+	INCBIN "data/maps/eb_525a_attrs.lz"
 
 LevelMap_eb_52a1::
-	INCBIN "baserom.gbc", $3ad2a1, $005f
+	INCBIN "data/maps/eb_52a1_terrain.lz"
 
 LevelMap_eb_5300::
-	INCBIN "baserom.gbc", $3ad300, $006a
+	INCBIN "data/maps/eb_5300_blocks.lz"
 
 LevelMap_eb_536a::
-	INCBIN "baserom.gbc", $3ad36a, $004c
+	INCBIN "data/maps/eb_536a_attrs.lz"
 
 LevelMap_eb_53b6::
-	INCBIN "baserom.gbc", $3ad3b6, $0065
+	INCBIN "data/maps/eb_53b6_terrain.lz"
 
 LevelMap_eb_541b::
-	INCBIN "baserom.gbc", $3ad41b, $00aa
+	INCBIN "data/maps/eb_541b_blocks.lz"
 
 LevelMap_eb_54c5::
-	INCBIN "baserom.gbc", $3ad4c5, $0078
+	INCBIN "data/maps/eb_54c5_attrs.lz"
 
 LevelMap_eb_553d::
-	INCBIN "baserom.gbc", $3ad53d, $004d
+	INCBIN "data/maps/eb_553d_terrain.lz"
 
 LevelMap_eb_558a::
-	INCBIN "baserom.gbc", $3ad58a, $0066
+	INCBIN "data/maps/eb_558a_blocks.lz"
 
 LevelMap_eb_55f0::
-	INCBIN "baserom.gbc", $3ad5f0, $004c
+	INCBIN "data/maps/eb_55f0_attrs.lz"
 
 LevelMap_eb_563c::
-	INCBIN "baserom.gbc", $3ad63c, $0061
+	INCBIN "data/maps/eb_563c_terrain.lz"
 
 LevelMap_eb_569d::
-	INCBIN "baserom.gbc", $3ad69d, $0066
+	INCBIN "data/maps/eb_569d_blocks.lz"
 
 LevelMap_eb_5703::
-	INCBIN "baserom.gbc", $3ad703, $0058
+	INCBIN "data/maps/eb_5703_attrs.lz"
 
 LevelMap_eb_575b::
-	INCBIN "baserom.gbc", $3ad75b, $0087
+	INCBIN "data/maps/eb_575b_terrain.lz"
 
 LevelMap_eb_57e2::
-	INCBIN "baserom.gbc", $3ad7e2, $00c1
+	INCBIN "data/maps/eb_57e2_blocks.lz"
 
 LevelMap_eb_58a3::
-	INCBIN "baserom.gbc", $3ad8a3, $00a5
+	INCBIN "data/maps/eb_58a3_attrs.lz"
 
 LevelMap_eb_5948::
-	INCBIN "baserom.gbc", $3ad948, $006b
+	INCBIN "data/maps/eb_5948_terrain.lz"
 
 LevelMap_eb_59b3::
-	INCBIN "baserom.gbc", $3ad9b3, $006f
+	INCBIN "data/maps/eb_59b3_blocks.lz"
 
 LevelMap_eb_5a22::
-	INCBIN "baserom.gbc", $3ada22, $0068
+	INCBIN "data/maps/eb_5a22_attrs.lz"
 
 LevelMap_eb_5a8a::
-	INCBIN "baserom.gbc", $3ada8a, $006d
+	INCBIN "data/maps/eb_5a8a_terrain.lz"
 
 LevelMap_eb_5af7::
-	INCBIN "baserom.gbc", $3adaf7, $00c5
+	INCBIN "data/maps/eb_5af7_blocks.lz"
 
 LevelMap_eb_5bbc::
-	INCBIN "baserom.gbc", $3adbbc, $007f
+	INCBIN "data/maps/eb_5bbc_attrs.lz"
 
 LevelMap_eb_5c3b::
-	INCBIN "baserom.gbc", $3adc3b, $0043
+	INCBIN "data/maps/eb_5c3b_terrain.lz"
 
 LevelMap_eb_5c7e::
-	INCBIN "baserom.gbc", $3adc7e, $009b
+	INCBIN "data/maps/eb_5c7e_blocks.lz"
 
 LevelMap_eb_5d19::
-	INCBIN "baserom.gbc", $3add19, $009c
+	INCBIN "data/maps/eb_5d19_attrs.lz"
 
 LevelMap_eb_5db5::
-	INCBIN "baserom.gbc", $3addb5, $0061
+	INCBIN "data/maps/eb_5db5_terrain.lz"
 
 LevelMap_eb_5e16::
-	INCBIN "baserom.gbc", $3ade16, $0066
+	INCBIN "data/maps/eb_5e16_blocks.lz"
 
 LevelMap_eb_5e7c::
-	INCBIN "baserom.gbc", $3ade7c, $0049
+	INCBIN "data/maps/eb_5e7c_attrs.lz"
 
 LevelMap_eb_5ec5::
-	INCBIN "baserom.gbc", $3adec5, $006d
+	INCBIN "data/maps/eb_5ec5_terrain.lz"
 
 LevelMap_eb_5f32::
-	INCBIN "baserom.gbc", $3adf32, $00be
+	INCBIN "data/maps/eb_5f32_blocks.lz"
 
 LevelMap_eb_5ff0::
-	INCBIN "baserom.gbc", $3adff0, $0078
+	INCBIN "data/maps/eb_5ff0_attrs.lz"
 
 LevelMap_eb_6068::
-	INCBIN "baserom.gbc", $3ae068, $007d
+	INCBIN "data/maps/eb_6068_terrain.lz"
 
 LevelMap_eb_60e5::
-	INCBIN "baserom.gbc", $3ae0e5, $009d
+	INCBIN "data/maps/eb_60e5_blocks.lz"
 
 LevelMap_eb_6182::
-	INCBIN "baserom.gbc", $3ae182, $0064
+	INCBIN "data/maps/eb_6182_attrs.lz"
 
 LevelMap_eb_61e6::
-	INCBIN "baserom.gbc", $3ae1e6, $0054
+	INCBIN "data/maps/eb_61e6_terrain.lz"
 
 LevelMap_eb_623a::
-	INCBIN "baserom.gbc", $3ae23a, $00a3
+	INCBIN "data/maps/eb_623a_blocks.lz"
 
 LevelMap_eb_62dd::
-	INCBIN "baserom.gbc", $3ae2dd, $007b
+	INCBIN "data/maps/eb_62dd_attrs.lz"
 
 LevelMap_eb_6358::
-	INCBIN "baserom.gbc", $3ae358, $004f
+	INCBIN "data/maps/eb_6358_terrain.lz"
 
 LevelMap_eb_63a7::
-	INCBIN "baserom.gbc", $3ae3a7, $0092
+	INCBIN "data/maps/eb_63a7_blocks.lz"
 
 LevelMap_eb_6439::
-	INCBIN "baserom.gbc", $3ae439, $0082
+	INCBIN "data/maps/eb_6439_attrs.lz"
 
 LevelMap_eb_64bb::
-	INCBIN "baserom.gbc", $3ae4bb, $0081
+	INCBIN "data/maps/eb_64bb_terrain.lz"
 
 LevelMap_eb_653c::
-	INCBIN "baserom.gbc", $3ae53c, $00bf
+	INCBIN "data/maps/eb_653c_blocks.lz"
 
 LevelMap_eb_65fb::
-	INCBIN "baserom.gbc", $3ae5fb, $0084
+	INCBIN "data/maps/eb_65fb_attrs.lz"
 
 LevelMap_eb_667f::
-	INCBIN "baserom.gbc", $3ae67f, $0057
+	INCBIN "data/maps/eb_667f_terrain.lz"
 
 LevelMap_eb_66d6::
-	INCBIN "baserom.gbc", $3ae6d6, $00cb
+	INCBIN "data/maps/eb_66d6_blocks.lz"
 
 LevelMap_eb_67a1::
-	INCBIN "baserom.gbc", $3ae7a1, $0093
+	INCBIN "data/maps/eb_67a1_attrs.lz"
 
 LevelMap_eb_6834::
-	INCBIN "baserom.gbc", $3ae834, $0062
+	INCBIN "data/maps/eb_6834_terrain.lz"
 
 LevelMap_eb_6896::
-	INCBIN "baserom.gbc", $3ae896, $00a4
+	INCBIN "data/maps/eb_6896_blocks.lz"
 
 LevelMap_eb_693a::
-	INCBIN "baserom.gbc", $3ae93a, $0086
+	INCBIN "data/maps/eb_693a_attrs.lz"
 
 LevelMap_eb_69c0::
-	INCBIN "baserom.gbc", $3ae9c0, $0061
+	INCBIN "data/maps/eb_69c0_terrain.lz"
 
 LevelMap_eb_6a21::
-	INCBIN "baserom.gbc", $3aea21, $00ac
+	INCBIN "data/maps/eb_6a21_blocks.lz"
 
 LevelMap_eb_6acd::
-	INCBIN "baserom.gbc", $3aeacd, $0092
+	INCBIN "data/maps/eb_6acd_attrs.lz"
 
 LevelMap_eb_6b5f::
-	INCBIN "baserom.gbc", $3aeb5f, $0043
+	INCBIN "data/maps/eb_6b5f_terrain.lz"
 
 LevelMap_eb_6ba2::
-	INCBIN "baserom.gbc", $3aeba2, $0085
+	INCBIN "data/maps/eb_6ba2_blocks.lz"
 
 LevelMap_eb_6c27::
-	INCBIN "baserom.gbc", $3aec27, $0083
+	INCBIN "data/maps/eb_6c27_attrs.lz"
 
 LevelMap_eb_6caa::
-	INCBIN "baserom.gbc", $3aecaa, $0049
+	INCBIN "data/maps/eb_6caa_terrain.lz"
 
 LevelMap_eb_6cf3::
-	INCBIN "baserom.gbc", $3aecf3, $0073
+	INCBIN "data/maps/eb_6cf3_blocks.lz"
 
 LevelMap_eb_6d66::
-	INCBIN "baserom.gbc", $3aed66, $0052
+	INCBIN "data/maps/eb_6d66_attrs.lz"
 
 LevelMap_eb_6db8::
-	INCBIN "baserom.gbc", $3aedb8, $0043
+	INCBIN "data/maps/eb_6db8_terrain.lz"
 
 LevelMap_eb_6dfb::
-	INCBIN "baserom.gbc", $3aedfb, $007f
+	INCBIN "data/maps/eb_6dfb_blocks.lz"
 
 LevelMap_eb_6e7a::
-	INCBIN "baserom.gbc", $3aee7a, $0079
+	INCBIN "data/maps/eb_6e7a_attrs.lz"
 
 LevelMap_eb_6ef3::
-	INCBIN "baserom.gbc", $3aeef3, $0049
+	INCBIN "data/maps/eb_6ef3_terrain.lz"
 
 LevelMap_eb_6f3c::
-	INCBIN "baserom.gbc", $3aef3c, $007f
+	INCBIN "data/maps/eb_6f3c_blocks.lz"
 
 LevelMap_eb_6fbb::
-	INCBIN "baserom.gbc", $3aefbb, $005e
+	INCBIN "data/maps/eb_6fbb_attrs.lz"
 
 LevelMap_eb_7019::
-	INCBIN "baserom.gbc", $3af019, $0063
+	INCBIN "data/maps/eb_7019_terrain.lz"
 
 LevelMap_eb_707c::
-	INCBIN "baserom.gbc", $3af07c, $0073
+	INCBIN "data/maps/eb_707c_blocks.lz"
 
 LevelMap_eb_70ef::
-	INCBIN "baserom.gbc", $3af0ef, $0052
+	INCBIN "data/maps/eb_70ef_attrs.lz"
 
 LevelMap_eb_7141::
-	INCBIN "baserom.gbc", $3af141, $0061
+	INCBIN "data/maps/eb_7141_terrain.lz"
 
 LevelMap_eb_71a2::
-	INCBIN "baserom.gbc", $3af1a2, $00b1
+	INCBIN "data/maps/eb_71a2_blocks.lz"
 
 LevelMap_eb_7253::
-	INCBIN "baserom.gbc", $3af253, $0093
+	INCBIN "data/maps/eb_7253_attrs.lz"
 
 LevelMap_eb_72e6::
-	INCBIN "baserom.gbc", $3af2e6, $0061
+	INCBIN "data/maps/eb_72e6_terrain.lz"
 
 LevelMap_eb_7347::
-	INCBIN "baserom.gbc", $3af347, $0073
+	INCBIN "data/maps/eb_7347_blocks.lz"
 
 LevelMap_eb_73ba::
-	INCBIN "baserom.gbc", $3af3ba, $0052
+	INCBIN "data/maps/eb_73ba_attrs.lz"
 
 LevelMap_eb_740c::
-	INCBIN "baserom.gbc", $3af40c, $0061
+	INCBIN "data/maps/eb_740c_terrain.lz"
 
 LevelMap_eb_746d::
-	INCBIN "baserom.gbc", $3af46d, $00b0
+	INCBIN "data/maps/eb_746d_blocks.lz"
 
 LevelMap_eb_751d::
-	INCBIN "baserom.gbc", $3af51d, $0092
+	INCBIN "data/maps/eb_751d_attrs.lz"
 
 LevelMap_eb_75af::
-	INCBIN "baserom.gbc", $3af5af, $0055
+	INCBIN "data/maps/eb_75af_terrain.lz"
 
 LevelMap_eb_7604::
-	INCBIN "baserom.gbc", $3af604, $00a2
+	INCBIN "data/maps/eb_7604_blocks.lz"
 
 LevelMap_eb_76a6::
-	INCBIN "baserom.gbc", $3af6a6, $0095
+	INCBIN "data/maps/eb_76a6_attrs.lz"
 
 LevelMap_eb_773b::
-	INCBIN "baserom.gbc", $3af73b, $0055
+	INCBIN "data/maps/eb_773b_terrain.lz"
 
 LevelMap_eb_7790::
-	INCBIN "baserom.gbc", $3af790, $0080
+	INCBIN "data/maps/eb_7790_blocks.lz"
 
 LevelMap_eb_7810::
-	INCBIN "baserom.gbc", $3af810, $0078
+	INCBIN "data/maps/eb_7810_attrs.lz"
 
 LevelMap_eb_7888::
-	INCBIN "baserom.gbc", $3af888, $004e
+	INCBIN "data/maps/eb_7888_terrain.lz"
 
 LevelMap_eb_78d6::
-	INCBIN "baserom.gbc", $3af8d6, $0070
+	INCBIN "data/maps/eb_78d6_blocks.lz"
 
 LevelMap_eb_7946::
-	INCBIN "baserom.gbc", $3af946, $009c
+	INCBIN "data/maps/eb_7946_attrs.lz"
 	ds 1566, $00 ; $79e2
 

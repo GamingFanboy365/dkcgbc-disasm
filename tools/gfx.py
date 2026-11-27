@@ -263,6 +263,36 @@ def extract(rom, force=False):
         write_png(path, w, 16, rows)
         written += 1
     print("frame PNGs: %d written, %d already present" % (written, kept))
+    # level map layers, decompressed (packed again by the Makefile)
+    from backgrounds import map_streams, map_headers
+    from lzcomp import decompress
+    written = kept = 0
+    for (b, a), rel in map_streams(rom).items():
+        path = os.path.join(ROOT, rel)
+        if os.path.exists(path) and not force:
+            kept += 1
+            continue
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        open(path, "wb").write(decompress(rom, off(b, a))[0])
+        written += 1
+    print("map layers: %d written, %d already present" % (written, kept))
+    # level block and terrain banks, in natural order (tools/leveldata.py)
+    from leveldata import from_rom
+    written = kept = 0
+    seen = set()
+    for _, (hdr, _) in map_headers(rom).items():
+        for b, kind in ((hdr["blocks"], "blocks"), (hdr["blocks"] + 1, "blocks"), (hdr["terrain"], "terrain")):
+            path = os.path.join(ROOT, "data", kind, "%02x.bin" % b)
+            if path in seen:
+                continue
+            seen.add(path)
+            if os.path.exists(path) and not force:
+                kept += 1
+                continue
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            open(path, "wb").write(from_rom(kind, rom[off(b, 0x4000):off(b, 0x8000)]))
+            written += 1
+    print("block and terrain banks: %d written, %d already present" % (written, kept))
     # BG tiles (level tilesets and full screens), 16 tiles per row
     from backgrounds import bg_tile_pieces
     written = kept = 0

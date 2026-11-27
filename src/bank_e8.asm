@@ -4,39 +4,39 @@ INCLUDE "include/common.inc"
 SECTION "Bank $e8", ROMX[$4000], BANK[$e8]
 
 LevelMap_e8_4000::
-	INCBIN "baserom.gbc", $3a0000, $03bf
+	INCBIN "data/maps/e8_4000_terrain.lz"
 
 LevelMap_e8_43bf::
-	INCBIN "baserom.gbc", $3a03bf, $0a66
+	INCBIN "data/maps/e8_43bf_blocks.lz"
 
 LevelMap_e8_4e25::
-	INCBIN "baserom.gbc", $3a0e25, $0550
+	INCBIN "data/maps/e8_4e25_attrs.lz"
 
 LevelMap_e8_5375::
-	INCBIN "baserom.gbc", $3a1375, $0145
+	INCBIN "data/maps/e8_5375_terrain.lz"
 
 LevelMap_e8_54ba::
-	INCBIN "baserom.gbc", $3a14ba, $028d
+	INCBIN "data/maps/e8_54ba_blocks.lz"
 
 LevelMap_e8_5747::
-	INCBIN "baserom.gbc", $3a1747, $019a
+	INCBIN "data/maps/e8_5747_attrs.lz"
 
 LevelMap_e8_58e1::
-	INCBIN "baserom.gbc", $3a18e1, $02bf
+	INCBIN "data/maps/e8_58e1_terrain.lz"
 
 LevelMap_e8_5ba0::
-	INCBIN "baserom.gbc", $3a1ba0, $07fc
+	INCBIN "data/maps/e8_5ba0_blocks.lz"
 
 LevelMap_e8_639c::
-	INCBIN "baserom.gbc", $3a239c, $03de
+	INCBIN "data/maps/e8_639c_attrs.lz"
 
 LevelMap_e8_677a::
-	INCBIN "baserom.gbc", $3a277a, $0067
+	INCBIN "data/maps/e8_677a_terrain.lz"
 
 LevelMap_e8_67e1::
-	INCBIN "baserom.gbc", $3a27e1, $00af
+	INCBIN "data/maps/e8_67e1_blocks.lz"
 
 LevelMap_e8_6890::
-	INCBIN "baserom.gbc", $3a2890, $007f
+	INCBIN "data/maps/e8_6890_attrs.lz"
 	ds 5873, $00 ; $690f
 

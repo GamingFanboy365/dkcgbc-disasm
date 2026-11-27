@@ -4,30 +4,30 @@ INCLUDE "include/common.inc"
 SECTION "Bank $e2", ROMX[$4000], BANK[$e2]
 
 LevelMap_e2_4000::
-	INCBIN "baserom.gbc", $388000, $021c
+	INCBIN "data/maps/e2_4000_terrain.lz"
 
 LevelMap_e2_421c::
-	INCBIN "baserom.gbc", $38821c, $036b
+	INCBIN "data/maps/e2_421c_blocks.lz"
 
 LevelMap_e2_4587::
-	INCBIN "baserom.gbc", $388587, $01ac
+	INCBIN "data/maps/e2_4587_attrs.lz"
 
 LevelMap_e2_4733::
-	INCBIN "baserom.gbc", $388733, $02ea
+	INCBIN "data/maps/e2_4733_terrain.lz"
 
 LevelMap_e2_4a1d::
-	INCBIN "baserom.gbc", $388a1d, $05fb
+	INCBIN "data/maps/e2_4a1d_blocks.lz"
 
 LevelMap_e2_5018::
-	INCBIN "baserom.gbc", $389018, $038c
+	INCBIN "data/maps/e2_5018_attrs.lz"
 
 LevelMap_e2_53a4::
-	INCBIN "baserom.gbc", $3893a4, $021a
+	INCBIN "data/maps/e2_53a4_terrain.lz"
 
 LevelMap_e2_55be::
-	INCBIN "baserom.gbc", $3895be, $04f5
+	INCBIN "data/maps/e2_55be_blocks.lz"
 
 LevelMap_e2_5ab3::
-	INCBIN "baserom.gbc", $389ab3, $0351
+	INCBIN "data/maps/e2_5ab3_attrs.lz"
 	ds 8700, $00 ; $5e04
 

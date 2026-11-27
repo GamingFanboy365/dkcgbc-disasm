@@ -84,7 +84,13 @@ class Asm:
         cache = self.__dict__.setdefault("_incbin", {})
         if path not in cache:
             full = os.path.join(ROOT, path)
-            if path.endswith(".2bpp") and os.path.exists(full[:-5] + ".png"):
+            if path.endswith(".lz") and os.path.exists(full[:-3] + ".bin"):
+                from lzcomp import compress
+                cache[path] = compress(open(full[:-3] + ".bin", "rb").read())
+            elif path.endswith(".planar") and os.path.exists(full[:-7] + ".bin"):
+                from leveldata import to_rom
+                cache[path] = to_rom("blocks" if "/blocks/" in path else "terrain", open(full[:-7] + ".bin", "rb").read())
+            elif path.endswith(".2bpp") and os.path.exists(full[:-5] + ".png"):
                 from gfx import png_to_2bpp, bg_png_to_2bpp
                 conv = bg_png_to_2bpp if "bgtiles" in path else png_to_2bpp
                 cache[path] = conv(full[:-5] + ".png")

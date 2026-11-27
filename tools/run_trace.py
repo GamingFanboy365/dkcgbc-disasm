@@ -16,10 +16,11 @@ def parse_backgrounds(t, rom):
         t._claim(0x04, h, hdr["length"], "mapheader", hdr, "MapHeader")
         for p in hdr["layers"]:
             n = bg.decompress(rom, hdr["map_bank"], p)[1]
-            t._claim(hdr["map_bank"], p, n, "incbin", None, "LevelMap")
-        for b, name in ((hdr["blocks"], "LevelBlocks"), (hdr["blocks"] + 1, "LevelBlocks"),
-                        (hdr["terrain"], "LevelTerrain")):
-            t._claim(b, 0x4000, 0x4000, "incbin", None, "=%s_%02x" % (name, b))
+            t._claim(hdr["map_bank"], p, n, "convfile", bg.map_streams(rom)[(hdr["map_bank"], p)], "LevelMap")
+        for b, name, d in ((hdr["blocks"], "LevelBlocks", "blocks"), (hdr["blocks"] + 1, "LevelBlocks", "blocks"),
+                           (hdr["terrain"], "LevelTerrain", "terrain")):
+            # stored in natural order; the Makefile converts (tools/leveldata.py)
+            t._claim(b, 0x4000, 0x4000, "convfile", "data/%s/%02x.bin" % (d, b), "=%s_%02x" % (name, b))
     for (b, a), pieces in sorted(bg.bg_tile_pieces(rom).items()):
         t._claim(b, a, sum(p[2] for p in pieces) * 16, "bgtiles", pieces, "BGTiles")
     for (b, p), rec in sorted(bg.screen_records(rom).items()):

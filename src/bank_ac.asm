@@ -4,4 +4,4 @@ INCLUDE "include/common.inc"
 SECTION "Bank $ac", ROMX[$4000], BANK[$ac]
 
 LevelBlocks_ac::
-	INCBIN "baserom.gbc", $2b0000, $4000
+	INCBIN "data/blocks/ac.planar"

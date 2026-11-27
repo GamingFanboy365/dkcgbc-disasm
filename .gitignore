@@ -15,3 +15,9 @@ gfx/frames/
 unused/
 gfx/backgrounds/
 gfx/bgtiles/
+# Level maps, blocks and terrain, written from baserom.gbc by "make extract"
+data/maps/
+data/blocks/
+data/terrain/
+*.lz
+*.planar

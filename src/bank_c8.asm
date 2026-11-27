@@ -4,4 +4,4 @@ INCLUDE "include/common.inc"
 SECTION "Bank $c8", ROMX[$4000], BANK[$c8]
 
 LevelTerrain_c8::
-	INCBIN "baserom.gbc", $320000, $4000
+	INCBIN "data/terrain/c8.planar"

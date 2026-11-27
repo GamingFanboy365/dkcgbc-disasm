@@ -97,6 +97,21 @@ def map_headers(rom):
     return {h: (map_header(rom, h), sorted(ds)) for h, ds in uses.items()}
 
 
+MAP_ROLES = ("blocks", "attrs", "terrain")
+
+
+def map_streams(rom):
+    """{(bank, addr): path} for every compressed map layer. The file holds the
+    layer decompressed (see tools/lzcomp.py): one byte per 32x32-pixel cell,
+    16 rows of 256 for horizontal levels or 64 rows of 64 for vertical ones,
+    giving the block number, block attribute or terrain of each cell."""
+    out = {}
+    for _, (hdr, _) in sorted(map_headers(rom).items()):
+        for k, p in enumerate(hdr["layers"]):
+            out[(hdr["map_bank"], p)] = "data/maps/%02x_%04x_%s.bin" % (hdr["map_bank"], p, MAP_ROLES[k % 3])
+    return out
+
+
 # --------------------------------------------------------------- drawing
 def gbc_rgb(v):
     return tuple(x << 3 | x >> 2 for x in (v & 31, v >> 5 & 31, v >> 10 & 31))

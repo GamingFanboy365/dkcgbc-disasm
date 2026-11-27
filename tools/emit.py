@@ -76,6 +76,11 @@ def hexb(v):
     return "$%02x" % v
 
 
+def conv_target(path):
+    """The file the build makes from an editable data file."""
+    return path[:-4] + (".lz" if path.startswith("data/maps/") else ".planar")
+
+
 def hexw(v):
     return "$%04x" % v
 
@@ -352,6 +357,12 @@ class Emitter:
             return [(o if k == 0 else None, "dw " + ", ".join(names[k:k + 4])) for k in range(0, len(names), 4)]
         if kind == "incbin":
             return [(o, 'INCBIN "baserom.gbc", $%06x, $%04x' % (o, item[3]))]
+        if kind == "convfile":
+            # stored in an editable form; the Makefile converts it back
+            # (map layers: tools/lzcomp.py, blocks and terrain: tools/leveldata.py)
+            built = conv_target(item[2])
+            self.gfx_deps.setdefault(bank, []).append(built)
+            return [(o, 'INCBIN "%s"' % built)]
         if kind == "rows":
             # rows: (directive, tokens, comment); a token is literal text or
             # ("ref", bank, addr, width) and becomes a label when there is one

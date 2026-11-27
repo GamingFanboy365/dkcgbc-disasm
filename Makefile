@@ -3,7 +3,7 @@
 #   make          build dkc.gbc and compare it with the original ROM
 #   make check    re-assemble with tools/check_asm.py (no RGBDS needed)
 #   make generate regenerate src/ from baserom.gbc with tools/emit.py
-#   make extract  write missing frame PNGs (gfx/frames/) from baserom.gbc
+#   make extract  write missing PNGs (gfx/) and level data (data/) from baserom.gbc
 
 ROM     := dkc.gbc
 BASEROM := baserom.gbc
@@ -48,6 +48,23 @@ gfx/frames/%.2bpp: gfx/frames/%.png
 gfx/bgtiles/%.2bpp: gfx/bgtiles/%.png
 	$(RGBGFX) -c dmg -o $@ $<
 
+# Level map layers: data/maps/*.bin hold them decompressed; the build packs
+# them with the game's own compression (tools/lzcomp.py).
+data/maps/%.lz: data/maps/%.bin
+	$(PYTHON) tools/lzcomp.py $< $@
+
+# Level block and terrain banks: data/blocks/*.bin and data/terrain/*.bin hold
+# them in natural order (one block or terrain type after another); the build
+# converts them to the ROM's interleaved layout (tools/leveldata.py).
+data/blocks/%.planar: data/blocks/%.bin
+	$(PYTHON) tools/leveldata.py blocks $< $@
+
+data/terrain/%.planar: data/terrain/%.bin
+	$(PYTHON) tools/leveldata.py terrain $< $@
+
+data/maps/%.bin: | gfx/frames/.extracted ;
+data/blocks/%.bin: | gfx/frames/.extracted ;
+data/terrain/%.bin: | gfx/frames/.extracted ;
 gfx/frames/%.png: | gfx/frames/.extracted ;
 gfx/bgtiles/%.png: | gfx/frames/.extracted ;
 

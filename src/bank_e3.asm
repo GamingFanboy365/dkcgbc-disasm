@@ -4,66 +4,66 @@ INCLUDE "include/common.inc"
 SECTION "Bank $e3", ROMX[$4000], BANK[$e3]
 
 LevelMap_e3_4000::
-	INCBIN "baserom.gbc", $38c000, $025c
+	INCBIN "data/maps/e3_4000_terrain.lz"
 
 LevelMap_e3_425c::
-	INCBIN "baserom.gbc", $38c25c, $05ec
+	INCBIN "data/maps/e3_425c_blocks.lz"
 
 LevelMap_e3_4848::
-	INCBIN "baserom.gbc", $38c848, $03f8
+	INCBIN "data/maps/e3_4848_attrs.lz"
 
 LevelMap_e3_4c40::
-	INCBIN "baserom.gbc", $38cc40, $0047
+	INCBIN "data/maps/e3_4c40_terrain.lz"
 
 LevelMap_e3_4c87::
-	INCBIN "baserom.gbc", $38cc87, $0059
+	INCBIN "data/maps/e3_4c87_blocks.lz"
 
 LevelMap_e3_4ce0::
-	INCBIN "baserom.gbc", $38cce0, $0050
+	INCBIN "data/maps/e3_4ce0_attrs.lz"
 
 LevelMap_e3_4d30::
-	INCBIN "baserom.gbc", $38cd30, $004f
+	INCBIN "data/maps/e3_4d30_terrain.lz"
 
 LevelMap_e3_4d7f::
-	INCBIN "baserom.gbc", $38cd7f, $006b
+	INCBIN "data/maps/e3_4d7f_blocks.lz"
 
 LevelMap_e3_4dea::
-	INCBIN "baserom.gbc", $38cdea, $0043
+	INCBIN "data/maps/e3_4dea_attrs.lz"
 
 LevelMap_e3_4e2d::
-	INCBIN "baserom.gbc", $38ce2d, $0060
+	INCBIN "data/maps/e3_4e2d_terrain.lz"
 
 LevelMap_e3_4e8d::
-	INCBIN "baserom.gbc", $38ce8d, $0084
+	INCBIN "data/maps/e3_4e8d_blocks.lz"
 
 LevelMap_e3_4f11::
-	INCBIN "baserom.gbc", $38cf11, $0043
+	INCBIN "data/maps/e3_4f11_attrs.lz"
 
 LevelMap_e3_4f54::
-	INCBIN "baserom.gbc", $38cf54, $0047
+	INCBIN "data/maps/e3_4f54_terrain.lz"
 
 LevelMap_e3_4f9b::
-	INCBIN "baserom.gbc", $38cf9b, $0084
+	INCBIN "data/maps/e3_4f9b_blocks.lz"
 
 LevelMap_e3_501f::
-	INCBIN "baserom.gbc", $38d01f, $0043
+	INCBIN "data/maps/e3_501f_attrs.lz"
 
 LevelMap_e3_5062::
-	INCBIN "baserom.gbc", $38d062, $028b
+	INCBIN "data/maps/e3_5062_terrain.lz"
 
 LevelMap_e3_52ed::
-	INCBIN "baserom.gbc", $38d2ed, $05dc
+	INCBIN "data/maps/e3_52ed_blocks.lz"
 
 LevelMap_e3_58c9::
-	INCBIN "baserom.gbc", $38d8c9, $01d1
+	INCBIN "data/maps/e3_58c9_attrs.lz"
 
 LevelMap_e3_5a9a::
-	INCBIN "baserom.gbc", $38da9a, $0260
+	INCBIN "data/maps/e3_5a9a_terrain.lz"
 
 LevelMap_e3_5cfa::
-	INCBIN "baserom.gbc", $38dcfa, $066c
+	INCBIN "data/maps/e3_5cfa_blocks.lz"
 
 LevelMap_e3_6366::
-	INCBIN "baserom.gbc", $38e366, $0266
+	INCBIN "data/maps/e3_6366_attrs.lz"
 	ds 6708, $00 ; $65cc
 

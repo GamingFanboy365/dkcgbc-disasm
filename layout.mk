@@ -202,6 +202,450 @@ OBJS := \
 	src/data_banks.o \
 
 GFX := \
+	data/blocks/90.planar \
+	data/blocks/91.planar \
+	data/blocks/93.planar \
+	data/blocks/94.planar \
+	data/blocks/96.planar \
+	data/blocks/97.planar \
+	data/blocks/99.planar \
+	data/blocks/9a.planar \
+	data/blocks/9c.planar \
+	data/blocks/9d.planar \
+	data/blocks/9f.planar \
+	data/blocks/a0.planar \
+	data/blocks/a2.planar \
+	data/blocks/a3.planar \
+	data/blocks/a5.planar \
+	data/blocks/a6.planar \
+	data/blocks/a8.planar \
+	data/blocks/a9.planar \
+	data/blocks/ab.planar \
+	data/blocks/ac.planar \
+	data/blocks/ae.planar \
+	data/blocks/af.planar \
+	data/blocks/b1.planar \
+	data/blocks/b2.planar \
+	data/blocks/b4.planar \
+	data/blocks/b5.planar \
+	data/blocks/b7.planar \
+	data/blocks/b8.planar \
+	data/blocks/ba.planar \
+	data/blocks/bb.planar \
+	data/blocks/bd.planar \
+	data/blocks/be.planar \
+	data/blocks/c0.planar \
+	data/blocks/c1.planar \
+	data/blocks/c3.planar \
+	data/blocks/c4.planar \
+	data/blocks/c6.planar \
+	data/blocks/c7.planar \
+	data/blocks/c9.planar \
+	data/blocks/ca.planar \
+	data/maps/e0_4000_terrain.lz \
+	data/maps/e0_4238_blocks.lz \
+	data/maps/e0_48ff_attrs.lz \
+	data/maps/e0_4b5b_terrain.lz \
+	data/maps/e0_4d68_blocks.lz \
+	data/maps/e0_53ab_attrs.lz \
+	data/maps/e0_5651_terrain.lz \
+	data/maps/e0_5726_blocks.lz \
+	data/maps/e0_58db_attrs.lz \
+	data/maps/e0_5a06_terrain.lz \
+	data/maps/e0_5a49_blocks.lz \
+	data/maps/e0_5ac8_attrs.lz \
+	data/maps/e0_5b25_terrain.lz \
+	data/maps/e0_5c50_blocks.lz \
+	data/maps/e0_60d8_attrs.lz \
+	data/maps/e0_62ca_terrain.lz \
+	data/maps/e0_6405_blocks.lz \
+	data/maps/e0_6c5e_attrs.lz \
+	data/maps/e0_7078_terrain.lz \
+	data/maps/e0_70e7_blocks.lz \
+	data/maps/e0_71c2_attrs.lz \
+	data/maps/e1_4000_terrain.lz \
+	data/maps/e1_43bc_blocks.lz \
+	data/maps/e1_4d30_attrs.lz \
+	data/maps/e1_514e_terrain.lz \
+	data/maps/e1_5191_blocks.lz \
+	data/maps/e1_5222_attrs.lz \
+	data/maps/e1_524d_terrain.lz \
+	data/maps/e1_5294_blocks.lz \
+	data/maps/e1_52f5_attrs.lz \
+	data/maps/e1_5352_terrain.lz \
+	data/maps/e1_55c6_blocks.lz \
+	data/maps/e1_5fe6_attrs.lz \
+	data/maps/e1_6345_terrain.lz \
+	data/maps/e1_654e_blocks.lz \
+	data/maps/e1_6d9d_attrs.lz \
+	data/maps/e2_4000_terrain.lz \
+	data/maps/e2_421c_blocks.lz \
+	data/maps/e2_4587_attrs.lz \
+	data/maps/e2_4733_terrain.lz \
+	data/maps/e2_4a1d_blocks.lz \
+	data/maps/e2_5018_attrs.lz \
+	data/maps/e2_53a4_terrain.lz \
+	data/maps/e2_55be_blocks.lz \
+	data/maps/e2_5ab3_attrs.lz \
+	data/maps/e3_4000_terrain.lz \
+	data/maps/e3_425c_blocks.lz \
+	data/maps/e3_4848_attrs.lz \
+	data/maps/e3_4c40_terrain.lz \
+	data/maps/e3_4c87_blocks.lz \
+	data/maps/e3_4ce0_attrs.lz \
+	data/maps/e3_4d30_terrain.lz \
+	data/maps/e3_4d7f_blocks.lz \
+	data/maps/e3_4dea_attrs.lz \
+	data/maps/e3_4e2d_terrain.lz \
+	data/maps/e3_4e8d_blocks.lz \
+	data/maps/e3_4f11_attrs.lz \
+	data/maps/e3_4f54_terrain.lz \
+	data/maps/e3_4f9b_blocks.lz \
+	data/maps/e3_501f_attrs.lz \
+	data/maps/e3_5062_terrain.lz \
+	data/maps/e3_52ed_blocks.lz \
+	data/maps/e3_58c9_attrs.lz \
+	data/maps/e3_5a9a_terrain.lz \
+	data/maps/e3_5cfa_blocks.lz \
+	data/maps/e3_6366_attrs.lz \
+	data/maps/e4_4000_terrain.lz \
+	data/maps/e4_4478_blocks.lz \
+	data/maps/e4_4b5f_attrs.lz \
+	data/maps/e4_4dd0_terrain.lz \
+	data/maps/e4_4f98_blocks.lz \
+	data/maps/e4_5261_attrs.lz \
+	data/maps/e4_534c_terrain.lz \
+	data/maps/e4_56e9_blocks.lz \
+	data/maps/e4_6005_attrs.lz \
+	data/maps/e4_6382_terrain.lz \
+	data/maps/e4_6458_blocks.lz \
+	data/maps/e4_66fe_attrs.lz \
+	data/maps/e4_67d1_terrain.lz \
+	data/maps/e4_693a_blocks.lz \
+	data/maps/e4_6caf_attrs.lz \
+	data/maps/e5_4000_terrain.lz \
+	data/maps/e5_42e9_blocks.lz \
+	data/maps/e5_4e13_attrs.lz \
+	data/maps/e5_519d_terrain.lz \
+	data/maps/e5_53a8_blocks.lz \
+	data/maps/e5_5dd6_attrs.lz \
+	data/maps/e5_609c_terrain.lz \
+	data/maps/e5_6132_blocks.lz \
+	data/maps/e5_631d_attrs.lz \
+	data/maps/e5_6451_terrain.lz \
+	data/maps/e5_649e_blocks.lz \
+	data/maps/e5_6556_attrs.lz \
+	data/maps/e5_65da_terrain.lz \
+	data/maps/e5_67a1_blocks.lz \
+	data/maps/e5_6c96_attrs.lz \
+	data/maps/e5_6ef1_terrain.lz \
+	data/maps/e5_7046_blocks.lz \
+	data/maps/e5_7431_attrs.lz \
+	data/maps/e5_7691_terrain.lz \
+	data/maps/e5_76f2_blocks.lz \
+	data/maps/e5_775d_attrs.lz \
+	data/maps/e5_77a0_terrain.lz \
+	data/maps/e5_77ef_blocks.lz \
+	data/maps/e5_7850_attrs.lz \
+	data/maps/e6_4000_terrain.lz \
+	data/maps/e6_41af_blocks.lz \
+	data/maps/e6_47e1_attrs.lz \
+	data/maps/e6_4aba_terrain.lz \
+	data/maps/e6_4b5c_blocks.lz \
+	data/maps/e6_4df0_attrs.lz \
+	data/maps/e6_4f3c_terrain.lz \
+	data/maps/e6_5173_blocks.lz \
+	data/maps/e6_5956_attrs.lz \
+	data/maps/e6_5e73_terrain.lz \
+	data/maps/e6_5eb6_blocks.lz \
+	data/maps/e6_5f49_attrs.lz \
+	data/maps/e6_5fd3_terrain.lz \
+	data/maps/e6_61df_blocks.lz \
+	data/maps/e6_69f5_attrs.lz \
+	data/maps/e6_6d90_terrain.lz \
+	data/maps/e6_6eb1_blocks.lz \
+	data/maps/e6_7375_attrs.lz \
+	data/maps/e6_75e1_terrain.lz \
+	data/maps/e6_77f4_blocks.lz \
+	data/maps/e6_7c89_attrs.lz \
+	data/maps/e7_4000_terrain.lz \
+	data/maps/e7_43a9_blocks.lz \
+	data/maps/e7_4ce5_attrs.lz \
+	data/maps/e7_5193_terrain.lz \
+	data/maps/e7_51eb_blocks.lz \
+	data/maps/e7_527d_attrs.lz \
+	data/maps/e7_52f1_terrain.lz \
+	data/maps/e7_5458_blocks.lz \
+	data/maps/e7_5902_attrs.lz \
+	data/maps/e7_5b8f_terrain.lz \
+	data/maps/e7_5e3a_blocks.lz \
+	data/maps/e7_6590_attrs.lz \
+	data/maps/e7_6943_terrain.lz \
+	data/maps/e7_6997_blocks.lz \
+	data/maps/e7_6a61_attrs.lz \
+	data/maps/e8_4000_terrain.lz \
+	data/maps/e8_43bf_blocks.lz \
+	data/maps/e8_4e25_attrs.lz \
+	data/maps/e8_5375_terrain.lz \
+	data/maps/e8_54ba_blocks.lz \
+	data/maps/e8_5747_attrs.lz \
+	data/maps/e8_58e1_terrain.lz \
+	data/maps/e8_5ba0_blocks.lz \
+	data/maps/e8_639c_attrs.lz \
+	data/maps/e8_677a_terrain.lz \
+	data/maps/e8_67e1_blocks.lz \
+	data/maps/e8_6890_attrs.lz \
+	data/maps/e9_4000_terrain.lz \
+	data/maps/e9_40b1_blocks.lz \
+	data/maps/e9_4838_attrs.lz \
+	data/maps/e9_4b1d_terrain.lz \
+	data/maps/e9_4bae_blocks.lz \
+	data/maps/e9_4fe0_attrs.lz \
+	data/maps/e9_51da_terrain.lz \
+	data/maps/e9_5332_blocks.lz \
+	data/maps/e9_5bf8_attrs.lz \
+	data/maps/e9_609d_terrain.lz \
+	data/maps/e9_610c_blocks.lz \
+	data/maps/e9_62a0_attrs.lz \
+	data/maps/e9_63b7_terrain.lz \
+	data/maps/e9_6490_blocks.lz \
+	data/maps/e9_6dac_attrs.lz \
+	data/maps/e9_70f2_terrain.lz \
+	data/maps/e9_715a_blocks.lz \
+	data/maps/e9_7337_attrs.lz \
+	data/maps/e9_747a_terrain.lz \
+	data/maps/e9_74ca_blocks.lz \
+	data/maps/e9_7533_attrs.lz \
+	data/maps/e9_7592_terrain.lz \
+	data/maps/e9_7717_blocks.lz \
+	data/maps/e9_7b4b_attrs.lz \
+	data/maps/ea_4000_terrain.lz \
+	data/maps/ea_41ca_blocks.lz \
+	data/maps/ea_47d6_attrs.lz \
+	data/maps/ea_4a27_terrain.lz \
+	data/maps/ea_4c42_blocks.lz \
+	data/maps/ea_5528_attrs.lz \
+	data/maps/ea_592d_terrain.lz \
+	data/maps/ea_59ab_blocks.lz \
+	data/maps/ea_5b9e_attrs.lz \
+	data/maps/ea_5c95_terrain.lz \
+	data/maps/ea_5f17_blocks.lz \
+	data/maps/ea_6775_attrs.lz \
+	data/maps/ea_6bd6_terrain.lz \
+	data/maps/ea_6cb6_blocks.lz \
+	data/maps/ea_6e87_attrs.lz \
+	data/maps/ea_6fb8_terrain.lz \
+	data/maps/ea_7021_blocks.lz \
+	data/maps/ea_7125_attrs.lz \
+	data/maps/ea_71e4_terrain.lz \
+	data/maps/ea_7306_blocks.lz \
+	data/maps/ea_751d_attrs.lz \
+	data/maps/ea_7562_terrain.lz \
+	data/maps/ea_75bf_blocks.lz \
+	data/maps/ea_7625_attrs.lz \
+	data/maps/ea_7672_terrain.lz \
+	data/maps/ea_76cf_blocks.lz \
+	data/maps/ea_7735_attrs.lz \
+	data/maps/eb_4000_terrain.lz \
+	data/maps/eb_414e_blocks.lz \
+	data/maps/eb_430d_attrs.lz \
+	data/maps/eb_4354_terrain.lz \
+	data/maps/eb_439b_blocks.lz \
+	data/maps/eb_4406_attrs.lz \
+	data/maps/eb_4449_terrain.lz \
+	data/maps/eb_4490_blocks.lz \
+	data/maps/eb_44fb_attrs.lz \
+	data/maps/eb_453e_terrain.lz \
+	data/maps/eb_4585_blocks.lz \
+	data/maps/eb_45f0_attrs.lz \
+	data/maps/eb_4633_terrain.lz \
+	data/maps/eb_467e_blocks.lz \
+	data/maps/eb_4744_attrs.lz \
+	data/maps/eb_47b5_terrain.lz \
+	data/maps/eb_47f8_blocks.lz \
+	data/maps/eb_486d_attrs.lz \
+	data/maps/eb_48ea_terrain.lz \
+	data/maps/eb_4935_blocks.lz \
+	data/maps/eb_49a6_attrs.lz \
+	data/maps/eb_4a0d_terrain.lz \
+	data/maps/eb_4a5c_blocks.lz \
+	data/maps/eb_4ae7_attrs.lz \
+	data/maps/eb_4b52_terrain.lz \
+	data/maps/eb_4b9d_blocks.lz \
+	data/maps/eb_4c28_attrs.lz \
+	data/maps/eb_4c93_terrain.lz \
+	data/maps/eb_4cdf_blocks.lz \
+	data/maps/eb_4d45_attrs.lz \
+	data/maps/eb_4d9a_terrain.lz \
+	data/maps/eb_4ddd_blocks.lz \
+	data/maps/eb_4e5c_attrs.lz \
+	data/maps/eb_4ed6_terrain.lz \
+	data/maps/eb_5032_blocks.lz \
+	data/maps/eb_525a_attrs.lz \
+	data/maps/eb_52a1_terrain.lz \
+	data/maps/eb_5300_blocks.lz \
+	data/maps/eb_536a_attrs.lz \
+	data/maps/eb_53b6_terrain.lz \
+	data/maps/eb_541b_blocks.lz \
+	data/maps/eb_54c5_attrs.lz \
+	data/maps/eb_553d_terrain.lz \
+	data/maps/eb_558a_blocks.lz \
+	data/maps/eb_55f0_attrs.lz \
+	data/maps/eb_563c_terrain.lz \
+	data/maps/eb_569d_blocks.lz \
+	data/maps/eb_5703_attrs.lz \
+	data/maps/eb_575b_terrain.lz \
+	data/maps/eb_57e2_blocks.lz \
+	data/maps/eb_58a3_attrs.lz \
+	data/maps/eb_5948_terrain.lz \
+	data/maps/eb_59b3_blocks.lz \
+	data/maps/eb_5a22_attrs.lz \
+	data/maps/eb_5a8a_terrain.lz \
+	data/maps/eb_5af7_blocks.lz \
+	data/maps/eb_5bbc_attrs.lz \
+	data/maps/eb_5c3b_terrain.lz \
+	data/maps/eb_5c7e_blocks.lz \
+	data/maps/eb_5d19_attrs.lz \
+	data/maps/eb_5db5_terrain.lz \
+	data/maps/eb_5e16_blocks.lz \
+	data/maps/eb_5e7c_attrs.lz \
+	data/maps/eb_5ec5_terrain.lz \
+	data/maps/eb_5f32_blocks.lz \
+	data/maps/eb_5ff0_attrs.lz \
+	data/maps/eb_6068_terrain.lz \
+	data/maps/eb_60e5_blocks.lz \
+	data/maps/eb_6182_attrs.lz \
+	data/maps/eb_61e6_terrain.lz \
+	data/maps/eb_623a_blocks.lz \
+	data/maps/eb_62dd_attrs.lz \
+	data/maps/eb_6358_terrain.lz \
+	data/maps/eb_63a7_blocks.lz \
+	data/maps/eb_6439_attrs.lz \
+	data/maps/eb_64bb_terrain.lz \
+	data/maps/eb_653c_blocks.lz \
+	data/maps/eb_65fb_attrs.lz \
+	data/maps/eb_667f_terrain.lz \
+	data/maps/eb_66d6_blocks.lz \
+	data/maps/eb_67a1_attrs.lz \
+	data/maps/eb_6834_terrain.lz \
+	data/maps/eb_6896_blocks.lz \
+	data/maps/eb_693a_attrs.lz \
+	data/maps/eb_69c0_terrain.lz \
+	data/maps/eb_6a21_blocks.lz \
+	data/maps/eb_6acd_attrs.lz \
+	data/maps/eb_6b5f_terrain.lz \
+	data/maps/eb_6ba2_blocks.lz \
+	data/maps/eb_6c27_attrs.lz \
+	data/maps/eb_6caa_terrain.lz \
+	data/maps/eb_6cf3_blocks.lz \
+	data/maps/eb_6d66_attrs.lz \
+	data/maps/eb_6db8_terrain.lz \
+	data/maps/eb_6dfb_blocks.lz \
+	data/maps/eb_6e7a_attrs.lz \
+	data/maps/eb_6ef3_terrain.lz \
+	data/maps/eb_6f3c_blocks.lz \
+	data/maps/eb_6fbb_attrs.lz \
+	data/maps/eb_7019_terrain.lz \
+	data/maps/eb_707c_blocks.lz \
+	data/maps/eb_70ef_attrs.lz \
+	data/maps/eb_7141_terrain.lz \
+	data/maps/eb_71a2_blocks.lz \
+	data/maps/eb_7253_attrs.lz \
+	data/maps/eb_72e6_terrain.lz \
+	data/maps/eb_7347_blocks.lz \
+	data/maps/eb_73ba_attrs.lz \
+	data/maps/eb_740c_terrain.lz \
+	data/maps/eb_746d_blocks.lz \
+	data/maps/eb_751d_attrs.lz \
+	data/maps/eb_75af_terrain.lz \
+	data/maps/eb_7604_blocks.lz \
+	data/maps/eb_76a6_attrs.lz \
+	data/maps/eb_773b_terrain.lz \
+	data/maps/eb_7790_blocks.lz \
+	data/maps/eb_7810_attrs.lz \
+	data/maps/eb_7888_terrain.lz \
+	data/maps/eb_78d6_blocks.lz \
+	data/maps/eb_7946_attrs.lz \
+	data/maps/ec_4000_terrain.lz \
+	data/maps/ec_404e_blocks.lz \
+	data/maps/ec_40bb_attrs.lz \
+	data/maps/ec_411c_terrain.lz \
+	data/maps/ec_4180_blocks.lz \
+	data/maps/ec_41ed_attrs.lz \
+	data/maps/ec_424e_terrain.lz \
+	data/maps/ec_4297_blocks.lz \
+	data/maps/ec_4304_attrs.lz \
+	data/maps/ec_4359_terrain.lz \
+	data/maps/ec_43ba_blocks.lz \
+	data/maps/ec_449f_attrs.lz \
+	data/maps/ec_454b_terrain.lz \
+	data/maps/ec_45a4_blocks.lz \
+	data/maps/ec_464b_attrs.lz \
+	data/maps/ec_46e3_terrain.lz \
+	data/maps/ec_4726_blocks.lz \
+	data/maps/ec_47a5_attrs.lz \
+	data/maps/ec_4824_terrain.lz \
+	data/maps/ec_48a4_blocks.lz \
+	data/maps/ec_4a01_attrs.lz \
+	data/maps/ec_4aec_terrain.lz \
+	data/maps/ec_4b33_blocks.lz \
+	data/maps/ec_4b8f_attrs.lz \
+	data/maps/ec_4bd9_terrain.lz \
+	data/maps/ec_4c32_blocks.lz \
+	data/maps/ec_4c9d_attrs.lz \
+	data/maps/ec_4ce7_terrain.lz \
+	data/maps/ec_4d40_blocks.lz \
+	data/maps/ec_4dab_attrs.lz \
+	data/maps/ec_4dee_terrain.lz \
+	data/maps/ec_4e48_blocks.lz \
+	data/maps/ec_4eb8_attrs.lz \
+	data/maps/ec_4f03_terrain.lz \
+	data/maps/ec_4f62_blocks.lz \
+	data/maps/ec_4fd5_attrs.lz \
+	data/maps/ec_5024_terrain.lz \
+	data/maps/ec_5083_blocks.lz \
+	data/maps/ec_50f6_attrs.lz \
+	data/maps/ec_5145_terrain.lz \
+	data/maps/ec_51a4_blocks.lz \
+	data/maps/ec_5217_attrs.lz \
+	data/maps/ec_5266_terrain.lz \
+	data/maps/ec_52b2_blocks.lz \
+	data/maps/ec_5317_attrs.lz \
+	data/maps/ec_5364_terrain.lz \
+	data/maps/ec_53b0_blocks.lz \
+	data/maps/ec_5415_attrs.lz \
+	data/maps/ec_5462_terrain.lz \
+	data/maps/ec_54c8_blocks.lz \
+	data/maps/ec_5589_attrs.lz \
+	data/maps/ec_5608_terrain.lz \
+	data/maps/ec_564f_blocks.lz \
+	data/maps/ec_56b0_attrs.lz \
+	data/maps/ec_56f3_terrain.lz \
+	data/maps/ec_579b_blocks.lz \
+	data/maps/ec_5897_attrs.lz \
+	data/maps/ec_594e_terrain.lz \
+	data/maps/ec_598e_blocks.lz \
+	data/maps/ec_5a94_attrs.lz \
+	data/terrain/92.planar \
+	data/terrain/95.planar \
+	data/terrain/98.planar \
+	data/terrain/9b.planar \
+	data/terrain/9e.planar \
+	data/terrain/a1.planar \
+	data/terrain/a4.planar \
+	data/terrain/a7.planar \
+	data/terrain/aa.planar \
+	data/terrain/ad.planar \
+	data/terrain/b0.planar \
+	data/terrain/b3.planar \
+	data/terrain/b6.planar \
+	data/terrain/b9.planar \
+	data/terrain/bc.planar \
+	data/terrain/bf.planar \
+	data/terrain/c2.planar \
+	data/terrain/c5.planar \
+	data/terrain/c8.planar \
+	data/terrain/cb.planar \
 	gfx/bgtiles/07/6000.2bpp \
 	gfx/bgtiles/08/7800.2bpp \
 	gfx/bgtiles/0d/4010.2bpp \
@@ -2413,6 +2857,79 @@ src/bank_87.o: gfx/bgtiles/87/4000.2bpp gfx/bgtiles/87/4000_end.2bpp gfx/bgtiles
 src/bank_88.o: gfx/bgtiles/88/4000.2bpp gfx/bgtiles/88/5b00.2bpp
 src/bank_89.o: gfx/bgtiles/89/4000.2bpp gfx/bgtiles/89/4000_end.2bpp gfx/bgtiles/89/5e10.2bpp
 src/bank_8a.o: gfx/bgtiles/8a/4000.2bpp gfx/bgtiles/8a/4000_end.2bpp gfx/bgtiles/8a/5ff0.2bpp
+src/bank_90.o: data/blocks/90.planar
+src/bank_91.o: data/blocks/91.planar
+src/bank_92.o: data/terrain/92.planar
+src/bank_93.o: data/blocks/93.planar
+src/bank_94.o: data/blocks/94.planar
+src/bank_95.o: data/terrain/95.planar
+src/bank_96.o: data/blocks/96.planar
+src/bank_97.o: data/blocks/97.planar
+src/bank_98.o: data/terrain/98.planar
+src/bank_99.o: data/blocks/99.planar
+src/bank_9a.o: data/blocks/9a.planar
+src/bank_9b.o: data/terrain/9b.planar
+src/bank_9c.o: data/blocks/9c.planar
+src/bank_9d.o: data/blocks/9d.planar
+src/bank_9e.o: data/terrain/9e.planar
+src/bank_9f.o: data/blocks/9f.planar
+src/bank_a0.o: data/blocks/a0.planar
+src/bank_a1.o: data/terrain/a1.planar
+src/bank_a2.o: data/blocks/a2.planar
+src/bank_a3.o: data/blocks/a3.planar
+src/bank_a4.o: data/terrain/a4.planar
+src/bank_a5.o: data/blocks/a5.planar
+src/bank_a6.o: data/blocks/a6.planar
+src/bank_a7.o: data/terrain/a7.planar
+src/bank_a8.o: data/blocks/a8.planar
+src/bank_a9.o: data/blocks/a9.planar
+src/bank_aa.o: data/terrain/aa.planar
+src/bank_ab.o: data/blocks/ab.planar
+src/bank_ac.o: data/blocks/ac.planar
+src/bank_ad.o: data/terrain/ad.planar
+src/bank_ae.o: data/blocks/ae.planar
+src/bank_af.o: data/blocks/af.planar
+src/bank_b0.o: data/terrain/b0.planar
+src/bank_b1.o: data/blocks/b1.planar
+src/bank_b2.o: data/blocks/b2.planar
+src/bank_b3.o: data/terrain/b3.planar
+src/bank_b4.o: data/blocks/b4.planar
+src/bank_b5.o: data/blocks/b5.planar
+src/bank_b6.o: data/terrain/b6.planar
+src/bank_b7.o: data/blocks/b7.planar
+src/bank_b8.o: data/blocks/b8.planar
+src/bank_b9.o: data/terrain/b9.planar
+src/bank_ba.o: data/blocks/ba.planar
+src/bank_bb.o: data/blocks/bb.planar
+src/bank_bc.o: data/terrain/bc.planar
+src/bank_bd.o: data/blocks/bd.planar
+src/bank_be.o: data/blocks/be.planar
+src/bank_bf.o: data/terrain/bf.planar
+src/bank_c0.o: data/blocks/c0.planar
+src/bank_c1.o: data/blocks/c1.planar
+src/bank_c2.o: data/terrain/c2.planar
+src/bank_c3.o: data/blocks/c3.planar
+src/bank_c4.o: data/blocks/c4.planar
+src/bank_c5.o: data/terrain/c5.planar
+src/bank_c6.o: data/blocks/c6.planar
+src/bank_c7.o: data/blocks/c7.planar
+src/bank_c8.o: data/terrain/c8.planar
+src/bank_c9.o: data/blocks/c9.planar
+src/bank_ca.o: data/blocks/ca.planar
+src/bank_cb.o: data/terrain/cb.planar
+src/bank_e0.o: data/maps/e0_4000_terrain.lz data/maps/e0_4238_blocks.lz data/maps/e0_48ff_attrs.lz data/maps/e0_4b5b_terrain.lz data/maps/e0_4d68_blocks.lz data/maps/e0_53ab_attrs.lz data/maps/e0_5651_terrain.lz data/maps/e0_5726_blocks.lz data/maps/e0_58db_attrs.lz data/maps/e0_5a06_terrain.lz data/maps/e0_5a49_blocks.lz data/maps/e0_5ac8_attrs.lz data/maps/e0_5b25_terrain.lz data/maps/e0_5c50_blocks.lz data/maps/e0_60d8_attrs.lz data/maps/e0_62ca_terrain.lz data/maps/e0_6405_blocks.lz data/maps/e0_6c5e_attrs.lz data/maps/e0_7078_terrain.lz data/maps/e0_70e7_blocks.lz data/maps/e0_71c2_attrs.lz
+src/bank_e1.o: data/maps/e1_4000_terrain.lz data/maps/e1_43bc_blocks.lz data/maps/e1_4d30_attrs.lz data/maps/e1_514e_terrain.lz data/maps/e1_5191_blocks.lz data/maps/e1_5222_attrs.lz data/maps/e1_524d_terrain.lz data/maps/e1_5294_blocks.lz data/maps/e1_52f5_attrs.lz data/maps/e1_5352_terrain.lz data/maps/e1_55c6_blocks.lz data/maps/e1_5fe6_attrs.lz data/maps/e1_6345_terrain.lz data/maps/e1_654e_blocks.lz data/maps/e1_6d9d_attrs.lz
+src/bank_e2.o: data/maps/e2_4000_terrain.lz data/maps/e2_421c_blocks.lz data/maps/e2_4587_attrs.lz data/maps/e2_4733_terrain.lz data/maps/e2_4a1d_blocks.lz data/maps/e2_5018_attrs.lz data/maps/e2_53a4_terrain.lz data/maps/e2_55be_blocks.lz data/maps/e2_5ab3_attrs.lz
+src/bank_e3.o: data/maps/e3_4000_terrain.lz data/maps/e3_425c_blocks.lz data/maps/e3_4848_attrs.lz data/maps/e3_4c40_terrain.lz data/maps/e3_4c87_blocks.lz data/maps/e3_4ce0_attrs.lz data/maps/e3_4d30_terrain.lz data/maps/e3_4d7f_blocks.lz data/maps/e3_4dea_attrs.lz data/maps/e3_4e2d_terrain.lz data/maps/e3_4e8d_blocks.lz data/maps/e3_4f11_attrs.lz data/maps/e3_4f54_terrain.lz data/maps/e3_4f9b_blocks.lz data/maps/e3_501f_attrs.lz data/maps/e3_5062_terrain.lz data/maps/e3_52ed_blocks.lz data/maps/e3_58c9_attrs.lz data/maps/e3_5a9a_terrain.lz data/maps/e3_5cfa_blocks.lz data/maps/e3_6366_attrs.lz
+src/bank_e4.o: data/maps/e4_4000_terrain.lz data/maps/e4_4478_blocks.lz data/maps/e4_4b5f_attrs.lz data/maps/e4_4dd0_terrain.lz data/maps/e4_4f98_blocks.lz data/maps/e4_5261_attrs.lz data/maps/e4_534c_terrain.lz data/maps/e4_56e9_blocks.lz data/maps/e4_6005_attrs.lz data/maps/e4_6382_terrain.lz data/maps/e4_6458_blocks.lz data/maps/e4_66fe_attrs.lz data/maps/e4_67d1_terrain.lz data/maps/e4_693a_blocks.lz data/maps/e4_6caf_attrs.lz
+src/bank_e5.o: data/maps/e5_4000_terrain.lz data/maps/e5_42e9_blocks.lz data/maps/e5_4e13_attrs.lz data/maps/e5_519d_terrain.lz data/maps/e5_53a8_blocks.lz data/maps/e5_5dd6_attrs.lz data/maps/e5_609c_terrain.lz data/maps/e5_6132_blocks.lz data/maps/e5_631d_attrs.lz data/maps/e5_6451_terrain.lz data/maps/e5_649e_blocks.lz data/maps/e5_6556_attrs.lz data/maps/e5_65da_terrain.lz data/maps/e5_67a1_blocks.lz data/maps/e5_6c96_attrs.lz data/maps/e5_6ef1_terrain.lz data/maps/e5_7046_blocks.lz data/maps/e5_7431_attrs.lz data/maps/e5_7691_terrain.lz data/maps/e5_76f2_blocks.lz data/maps/e5_775d_attrs.lz data/maps/e5_77a0_terrain.lz data/maps/e5_77ef_blocks.lz data/maps/e5_7850_attrs.lz
+src/bank_e6.o: data/maps/e6_4000_terrain.lz data/maps/e6_41af_blocks.lz data/maps/e6_47e1_attrs.lz data/maps/e6_4aba_terrain.lz data/maps/e6_4b5c_blocks.lz data/maps/e6_4df0_attrs.lz data/maps/e6_4f3c_terrain.lz data/maps/e6_5173_blocks.lz data/maps/e6_5956_attrs.lz data/maps/e6_5e73_terrain.lz data/maps/e6_5eb6_blocks.lz data/maps/e6_5f49_attrs.lz data/maps/e6_5fd3_terrain.lz data/maps/e6_61df_blocks.lz data/maps/e6_69f5_attrs.lz data/maps/e6_6d90_terrain.lz data/maps/e6_6eb1_blocks.lz data/maps/e6_7375_attrs.lz data/maps/e6_75e1_terrain.lz data/maps/e6_77f4_blocks.lz data/maps/e6_7c89_attrs.lz
+src/bank_e7.o: data/maps/e7_4000_terrain.lz data/maps/e7_43a9_blocks.lz data/maps/e7_4ce5_attrs.lz data/maps/e7_5193_terrain.lz data/maps/e7_51eb_blocks.lz data/maps/e7_527d_attrs.lz data/maps/e7_52f1_terrain.lz data/maps/e7_5458_blocks.lz data/maps/e7_5902_attrs.lz data/maps/e7_5b8f_terrain.lz data/maps/e7_5e3a_blocks.lz data/maps/e7_6590_attrs.lz data/maps/e7_6943_terrain.lz data/maps/e7_6997_blocks.lz data/maps/e7_6a61_attrs.lz
+src/bank_e8.o: data/maps/e8_4000_terrain.lz data/maps/e8_43bf_blocks.lz data/maps/e8_4e25_attrs.lz data/maps/e8_5375_terrain.lz data/maps/e8_54ba_blocks.lz data/maps/e8_5747_attrs.lz data/maps/e8_58e1_terrain.lz data/maps/e8_5ba0_blocks.lz data/maps/e8_639c_attrs.lz data/maps/e8_677a_terrain.lz data/maps/e8_67e1_blocks.lz data/maps/e8_6890_attrs.lz
+src/bank_e9.o: data/maps/e9_4000_terrain.lz data/maps/e9_40b1_blocks.lz data/maps/e9_4838_attrs.lz data/maps/e9_4b1d_terrain.lz data/maps/e9_4bae_blocks.lz data/maps/e9_4fe0_attrs.lz data/maps/e9_51da_terrain.lz data/maps/e9_5332_blocks.lz data/maps/e9_5bf8_attrs.lz data/maps/e9_609d_terrain.lz data/maps/e9_610c_blocks.lz data/maps/e9_62a0_attrs.lz data/maps/e9_63b7_terrain.lz data/maps/e9_6490_blocks.lz data/maps/e9_6dac_attrs.lz data/maps/e9_70f2_terrain.lz data/maps/e9_715a_blocks.lz data/maps/e9_7337_attrs.lz data/maps/e9_747a_terrain.lz data/maps/e9_74ca_blocks.lz data/maps/e9_7533_attrs.lz data/maps/e9_7592_terrain.lz data/maps/e9_7717_blocks.lz data/maps/e9_7b4b_attrs.lz
+src/bank_ea.o: data/maps/ea_4000_terrain.lz data/maps/ea_41ca_blocks.lz data/maps/ea_47d6_attrs.lz data/maps/ea_4a27_terrain.lz data/maps/ea_4c42_blocks.lz data/maps/ea_5528_attrs.lz data/maps/ea_592d_terrain.lz data/maps/ea_59ab_blocks.lz data/maps/ea_5b9e_attrs.lz data/maps/ea_5c95_terrain.lz data/maps/ea_5f17_blocks.lz data/maps/ea_6775_attrs.lz data/maps/ea_6bd6_terrain.lz data/maps/ea_6cb6_blocks.lz data/maps/ea_6e87_attrs.lz data/maps/ea_6fb8_terrain.lz data/maps/ea_7021_blocks.lz data/maps/ea_7125_attrs.lz data/maps/ea_71e4_terrain.lz data/maps/ea_7306_blocks.lz data/maps/ea_751d_attrs.lz data/maps/ea_7562_terrain.lz data/maps/ea_75bf_blocks.lz data/maps/ea_7625_attrs.lz data/maps/ea_7672_terrain.lz data/maps/ea_76cf_blocks.lz data/maps/ea_7735_attrs.lz
+src/bank_eb.o: data/maps/eb_4000_terrain.lz data/maps/eb_414e_blocks.lz data/maps/eb_430d_attrs.lz data/maps/eb_4354_terrain.lz data/maps/eb_439b_blocks.lz data/maps/eb_4406_attrs.lz data/maps/eb_4449_terrain.lz data/maps/eb_4490_blocks.lz data/maps/eb_44fb_attrs.lz data/maps/eb_453e_terrain.lz data/maps/eb_4585_blocks.lz data/maps/eb_45f0_attrs.lz data/maps/eb_4633_terrain.lz data/maps/eb_467e_blocks.lz data/maps/eb_4744_attrs.lz data/maps/eb_47b5_terrain.lz data/maps/eb_47f8_blocks.lz data/maps/eb_486d_attrs.lz data/maps/eb_48ea_terrain.lz data/maps/eb_4935_blocks.lz data/maps/eb_49a6_attrs.lz data/maps/eb_4a0d_terrain.lz data/maps/eb_4a5c_blocks.lz data/maps/eb_4ae7_attrs.lz data/maps/eb_4b52_terrain.lz data/maps/eb_4b9d_blocks.lz data/maps/eb_4c28_attrs.lz data/maps/eb_4c93_terrain.lz data/maps/eb_4cdf_blocks.lz data/maps/eb_4d45_attrs.lz data/maps/eb_4d9a_terrain.lz data/maps/eb_4ddd_blocks.lz data/maps/eb_4e5c_attrs.lz data/maps/eb_4ed6_terrain.lz data/maps/eb_5032_blocks.lz data/maps/eb_525a_attrs.lz data/maps/eb_52a1_terrain.lz data/maps/eb_5300_blocks.lz data/maps/eb_536a_attrs.lz data/maps/eb_53b6_terrain.lz data/maps/eb_541b_blocks.lz data/maps/eb_54c5_attrs.lz data/maps/eb_553d_terrain.lz data/maps/eb_558a_blocks.lz data/maps/eb_55f0_attrs.lz data/maps/eb_563c_terrain.lz data/maps/eb_569d_blocks.lz data/maps/eb_5703_attrs.lz data/maps/eb_575b_terrain.lz data/maps/eb_57e2_blocks.lz data/maps/eb_58a3_attrs.lz data/maps/eb_5948_terrain.lz data/maps/eb_59b3_blocks.lz data/maps/eb_5a22_attrs.lz data/maps/eb_5a8a_terrain.lz data/maps/eb_5af7_blocks.lz data/maps/eb_5bbc_attrs.lz data/maps/eb_5c3b_terrain.lz data/maps/eb_5c7e_blocks.lz data/maps/eb_5d19_attrs.lz data/maps/eb_5db5_terrain.lz data/maps/eb_5e16_blocks.lz data/maps/eb_5e7c_attrs.lz data/maps/eb_5ec5_terrain.lz data/maps/eb_5f32_blocks.lz data/maps/eb_5ff0_attrs.lz data/maps/eb_6068_terrain.lz data/maps/eb_60e5_blocks.lz data/maps/eb_6182_attrs.lz data/maps/eb_61e6_terrain.lz data/maps/eb_623a_blocks.lz data/maps/eb_62dd_attrs.lz data/maps/eb_6358_terrain.lz data/maps/eb_63a7_blocks.lz data/maps/eb_6439_attrs.lz data/maps/eb_64bb_terrain.lz data/maps/eb_653c_blocks.lz data/maps/eb_65fb_attrs.lz data/maps/eb_667f_terrain.lz data/maps/eb_66d6_blocks.lz data/maps/eb_67a1_attrs.lz data/maps/eb_6834_terrain.lz data/maps/eb_6896_blocks.lz data/maps/eb_693a_attrs.lz data/maps/eb_69c0_terrain.lz data/maps/eb_6a21_blocks.lz data/maps/eb_6acd_attrs.lz data/maps/eb_6b5f_terrain.lz data/maps/eb_6ba2_blocks.lz data/maps/eb_6c27_attrs.lz data/maps/eb_6caa_terrain.lz data/maps/eb_6cf3_blocks.lz data/maps/eb_6d66_attrs.lz data/maps/eb_6db8_terrain.lz data/maps/eb_6dfb_blocks.lz data/maps/eb_6e7a_attrs.lz data/maps/eb_6ef3_terrain.lz data/maps/eb_6f3c_blocks.lz data/maps/eb_6fbb_attrs.lz data/maps/eb_7019_terrain.lz data/maps/eb_707c_blocks.lz data/maps/eb_70ef_attrs.lz data/maps/eb_7141_terrain.lz data/maps/eb_71a2_blocks.lz data/maps/eb_7253_attrs.lz data/maps/eb_72e6_terrain.lz data/maps/eb_7347_blocks.lz data/maps/eb_73ba_attrs.lz data/maps/eb_740c_terrain.lz data/maps/eb_746d_blocks.lz data/maps/eb_751d_attrs.lz data/maps/eb_75af_terrain.lz data/maps/eb_7604_blocks.lz data/maps/eb_76a6_attrs.lz data/maps/eb_773b_terrain.lz data/maps/eb_7790_blocks.lz data/maps/eb_7810_attrs.lz data/maps/eb_7888_terrain.lz data/maps/eb_78d6_blocks.lz data/maps/eb_7946_attrs.lz
+src/bank_ec.o: data/maps/ec_4000_terrain.lz data/maps/ec_404e_blocks.lz data/maps/ec_40bb_attrs.lz data/maps/ec_411c_terrain.lz data/maps/ec_4180_blocks.lz data/maps/ec_41ed_attrs.lz data/maps/ec_424e_terrain.lz data/maps/ec_4297_blocks.lz data/maps/ec_4304_attrs.lz data/maps/ec_4359_terrain.lz data/maps/ec_43ba_blocks.lz data/maps/ec_449f_attrs.lz data/maps/ec_454b_terrain.lz data/maps/ec_45a4_blocks.lz data/maps/ec_464b_attrs.lz data/maps/ec_46e3_terrain.lz data/maps/ec_4726_blocks.lz data/maps/ec_47a5_attrs.lz data/maps/ec_4824_terrain.lz data/maps/ec_48a4_blocks.lz data/maps/ec_4a01_attrs.lz data/maps/ec_4aec_terrain.lz data/maps/ec_4b33_blocks.lz data/maps/ec_4b8f_attrs.lz data/maps/ec_4bd9_terrain.lz data/maps/ec_4c32_blocks.lz data/maps/ec_4c9d_attrs.lz data/maps/ec_4ce7_terrain.lz data/maps/ec_4d40_blocks.lz data/maps/ec_4dab_attrs.lz data/maps/ec_4dee_terrain.lz data/maps/ec_4e48_blocks.lz data/maps/ec_4eb8_attrs.lz data/maps/ec_4f03_terrain.lz data/maps/ec_4f62_blocks.lz data/maps/ec_4fd5_attrs.lz data/maps/ec_5024_terrain.lz data/maps/ec_5083_blocks.lz data/maps/ec_50f6_attrs.lz data/maps/ec_5145_terrain.lz data/maps/ec_51a4_blocks.lz data/maps/ec_5217_attrs.lz data/maps/ec_5266_terrain.lz data/maps/ec_52b2_blocks.lz data/maps/ec_5317_attrs.lz data/maps/ec_5364_terrain.lz data/maps/ec_53b0_blocks.lz data/maps/ec_5415_attrs.lz data/maps/ec_5462_terrain.lz data/maps/ec_54c8_blocks.lz data/maps/ec_5589_attrs.lz data/maps/ec_5608_terrain.lz data/maps/ec_564f_blocks.lz data/maps/ec_56b0_attrs.lz data/maps/ec_56f3_terrain.lz data/maps/ec_579b_blocks.lz data/maps/ec_5897_attrs.lz data/maps/ec_594e_terrain.lz data/maps/ec_598e_blocks.lz data/maps/ec_5a94_attrs.lz
 src/bank_f1.o: gfx/bgtiles/f1/6a40.2bpp gfx/bgtiles/f1/6f40.2bpp
 src/bank_f2.o: gfx/bgtiles/f2/5760.2bpp
 src/bank_f3.o: gfx/bgtiles/f3/4000.2bpp gfx/bgtiles/f3/41e0.2bpp gfx/bgtiles/f3/43c0.2bpp gfx/bgtiles/f3/45a0.2bpp gfx/bgtiles/f3/4780.2bpp gfx/bgtiles/f3/4960.2bpp gfx/bgtiles/f3/4b40.2bpp gfx/bgtiles/f3/4d20.2bpp gfx/bgtiles/f3/4f00.2bpp gfx/bgtiles/f3/50e0.2bpp gfx/bgtiles/f3/52c0.2bpp gfx/bgtiles/f3/54a0.2bpp gfx/bgtiles/f3/5680.2bpp gfx/bgtiles/f3/5860.2bpp gfx/bgtiles/f3/5a40.2bpp gfx/bgtiles/f3/5c20.2bpp gfx/bgtiles/f3/5e00.2bpp

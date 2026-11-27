@@ -46,9 +46,9 @@ The slot layout is in `include/objects.inc`, which `tools/emit.py` generates fro
 | Offset | Field | Meaning |
 |---|---|---|
 | `$00` | `OBJ_FLAGS` | flags (bit 2: counted in a spawn group, bit 5: flicker) |
-| `$01` | `OBJ_BANK` | bank of the handlers |
+| `$01` | `OBJ_BANK` | bank of `OBJ_HANDLER` |
 | `$02` | `OBJ_HANDLER` | per-frame code |
-| `$04` | `OBJ_TOUCH_HANDLER` | jumped to when the player is in range (tentative) |
+| `$04` | `OBJ_TOUCH_HANDLER` | routine in bank `$09` that `CheckPlayerContact` jumps to when the player touches the object |
 | `$06`–`$09` | `OBJ_GROUND_Y`, `OBJ_TERRAIN_A/B` | what the terrain lookup found under the object |
 | `$0D`–`$15` | `OBJ_TARGET_XVEL`, `OBJ_XACCEL`, `OBJ_XVEL`, `OBJ_XSUB`, `OBJ_X` | horizontal motion |
 | `$16`–`$1E` | `OBJ_TARGET_YVEL`, `OBJ_YACCEL`, `OBJ_YVEL`, `OBJ_YSUB`, `OBJ_Y` | vertical motion |
@@ -70,6 +70,18 @@ Objects are set up from initialiser lists, which `ApplyObjInit` (and `InitObject
 | `$81`–`$FF` | `obj_end` | end of list (the game uses `$81`) |
 
 In the sources these lists are labelled `ObjInit_BB_AAAA`. Code usually loads `hl` with a constant right before calling `ApplyObjInit`, so the tracer reads each list and follows its handler. Bank `$0E` is nothing but 981 consecutive lists (`$4000`–`$79F3`). Those are the ones level data refers to: the level spawner near `$17F0` maps bank `$0E` and calls `InitObject` with a pointer taken from the level's object table in RAM. Following these handlers is what opened up most of banks `$08`–`$0A`.
+
+### What the objects are
+
+Every object the levels place, and nearly every state it goes through, now has a name. The names come from watching the game: [`tools/emu`](tools/emu/README.md) runs the built ROM in mGBA, visits every level entrance and every screenful of objects, and records which routine each object runs, which touch handler it has, which frames it shows and in which palette. Two harvests (Donkey Kong standing, walking and rolling through every level; then Diddy Kong, and both crouching, slapping, climbing and swimming) saw 1,129 of the 1,415 sprite frames on screen and 284 handler routines at work. The emulator is never part of the build: its findings are two text files in `tools/emu`.
+
+A few things this settled:
+
+- **Touch handlers live in bank `$09`**, whatever bank the object's own handler is in. `CheckPlayerContact` jumps to `OBJ_TOUCH_HANDLER` when the player overlaps the object; the routine then decides what the touch means (`Touch_Enemy`: stomp or be hurt; `Barrel_Touch`: pick up with B; `KongLetter_Touch`, `BananaBunch_Touch`, `AnimalCrate_Touch`…) and returns into the loop. Initialiser lists name them as labels.
+- **Bonus rooms are four small games** in bank `$08`, each a parent object with a row of children: `SpellBonus` (letters circle a centre and must be touched in order; a blue banana reverses the circle and a green one speeds it up), `MatchBonus` (items that cycle through pictures; stop them all on the same one), `ShuffleBonus` (the prize jumps between four spots; pick where it stopped) and `StompBonus` (stomp Klaptraps and collect ten of the banana bunches they drop). `Bonus_ShowPrize` hands out the prize from `CarrierObjectTable`.
+- **Doors are objects.** `Entrance` holds the entrance record to go to and the one to come back to; `BreakableWall` becomes one when a barrel hits it, after patching the map. The Star Barrel is `StarBarrel` (one per level: it sets bit 7 of the level's flags and turns into sparkles).
+- **Sticker pads**: `StickerPad` waits to be found (its collision type, `$80`, is not the player's body; most likely the hand slap), `Sticker_Appear` shows the sticker and `Sticker_Count` adds it to the save. The banana bunch placed at the same spot (`StickerBananaBunch`) is drawn green while the sticker is still there, which is what Cranky's line about sticker packs turning bananas green refers to.
+- **The heads-up display** is three groups of objects that slide in from the top when something is collected and back out a second later: `HUD_Bananas_…`, `HUD_Lives_…` and `HUD_Items_…` (KONG letters, animal tokens, coins, stickers).
 
 ### Animation
 
@@ -108,9 +120,9 @@ At run time `wBGPalettes` and `wOBJPalettes` (`$C100`/`$C180`) hold the palettes
 
 The player's palette is set by `SetPlayerPalette` (`$09:68A5`) whenever it changes form: 1 Donkey Kong, 2 Diddy, 3 Rambi, `$0D` Expresso, `$12` Enguarde, `$10` Winky. `tools/frame_palettes.py` reads those calls to colour the ridden animals' frames. Large objects (the bosses among them) use 3-byte sprite lists (see Sprite offset lists in [`docs/unused.md`](docs/unused.md)): each sprite's third byte is added to the object's palette slot, and since a level loads an object's palettes in a row, sprite k shows palette (object palette + value). The boss levels load palettes 0, 1, 2, 46, 47 and the boss's own pair, and the level's object list gives the boss its palette number (`VeryGnawty_Init` gives `$20`, `ReallyGnawty_Init` `$24`). Running the boss fights in mGBA confirmed the colours. Object palettes are shared and reference-counted. An object's `OBJ_PALETTE` is a palette ID. `AllocObjPalette` gives the first object with that ID a free hardware slot (0–7) and copies colors 1–3 into it. Color 0 is transparent and never copied. Later objects with the same ID reuse the slot. `InitObject` ORs the slot into `OBJ_OAM_ATTR`, and `FreeObjPalette` releases it when the last user is deleted. `PreloadObjPalettes` fills slots 0, 1, 2… from a preload list. Levels call it, and so do a few screens set up directly by code at `$05A8`.
 
-Levels are described in bank `$04`. `LevelTable` has two entrance pointers per level number. Entrance records (`LevelEntrance_04_XXXX`) are 8 bytes, and there are 237 of them: the table reaches 75, and warps such as bonus rooms reach the rest. Each record points to one of 128 level descriptors (`LevelDesc_04_XXXX`, 12 bytes). A descriptor names the BG palette set, the OBJ preload list and the level's other data.
+Levels are described in bank `$04`. `LevelTable` has two entrance pointers per level number (the start and the Star Barrel). Entrance records are 8 bytes, and there are 237 of them: the table reaches 75, and `Entrance` objects (doorways, breakable walls, barrels that blast to a bonus room) reach the rest. Each record points to one of 128 level descriptors (12 bytes). A descriptor names the BG palette set, the OBJ preload list and the level's other data. Both are named after the level, in the game's own spelling: the text group at `$10:41CE` holds the level names in level-number order, so level `$21` is `LevelDesc_JungleHijinxs` with entrances `LevelEntrance_JungleHijinxs_0`, `_1`… `tools/levelnames.py` follows the `Entrance` objects of each level to find the areas that belong to it (`LevelDesc_JungleHijinxs_Area1`…); the four animal bonus levels are `LevelDesc_RambiBonus` and so on. Thirteen areas that no object leads to keep their address.
 
-`tools/frame_palettes.py` works out which palette each sprite frame is drawn with, by following objects from their init lists through their handlers to the animations they play. `tools/gfx.py preview` uses that to color the previews. Frames reached only through code the tracer doesn't follow yet stay gray, and `gfx/preview/index.csv` lists which palettes are certain and which are inferred.
+`tools/frame_palettes.py` gives the palette each sprite frame is drawn with. For 1,129 frames that is the palette seen in the running game (`tools/emu/observed_palettes.txt`). For the rest it follows objects from their init lists through their handlers and touch handlers to the animations they play (73 frames), or takes the palette of the frames next to them in the same script or table (110 frames, marked as inferred). `tools/gfx.py preview` uses that to color the previews, and `gfx/preview/index.csv` says for each frame which of the three it was. 102 frames stay gray: the 53 that nothing uses, and 49 that only appear in places the harvest does not reach yet (the credits' cast, a few screens outside the levels).
 
 ### Backgrounds
 
@@ -276,7 +288,7 @@ The ROM rebuilds byte for byte, and no part of it is copied from `baserom.gbc` a
 | Located and labelled, format known, still raw bytes | 0 KB | 0.0% |
 | Not identified yet | 0 KB | 0.0% |
 
-The remaining 1.4 MB is empty padding and isn't counted. Naming the code (step 3) has started. Bank `$00`, the engine, is almost done: 226 of its 253 routines have names, including the object system, map loading and scrolling, the camera, the world map, OAM building and the sound driver. 1,547 routines elsewhere still have placeholder names such as `Func_09_4001` (bank `$09`, address `$4001`); local labels such as `.jump_44f5` keep their placeholders for now.
+The remaining 1.4 MB is empty padding and isn't counted. Naming the code (step 3) is well under way. Bank `$00`, the engine, is almost done: 226 of its 253 routines have names, including the object system, map loading and scrolling, the camera, the world map, OAM building and the sound driver. The gameplay banks `$08`–`$0A` are close behind: 48 of their routines still have placeholder names (1 in `$08`, 21 in `$09`, 26 in `$0A`); the objects, their states and their touch handlers are named after what they are in the game, checked in the emulator (see below). 1,120 routines in all still have placeholder names such as `Func_f1_4159` (bank `$F1`, address `$4159`), nearly all of them in the front-end program (`$F0`–`$FE`), Funky's Fishing and the Hi-Score screen; local labels such as `.jump_44f5` keep their placeholders for now.
 
 Code banks found so far are `$00`, `$04`, `$05`, `$07`, `$08`, `$09`, `$0A`, `$0D`, `$0F`, `$50`–`$52`, `$55`, `$F0`, `$F1`, `$F2`, `$F5` and `$FE`. Decoded so far:
 
@@ -335,7 +347,7 @@ This repository covers the retail ROM only. The goal is a complete (100%) disass
 
 1. ~~Identify every byte.~~ Done: every byte of the ROM now has a known kind (code, a decoded structure, graphics, located raw data or padding). A few things are identified but not fully explained yet; they are listed in [`docs/unused.md`](docs/unused.md) under Open questions.
 2. ~~Convert the located raw data into readable or editable form.~~ Done: level maps, blocks, terrain and samples are editable files; the Rare logo animation, the Funky's Fishing sprite animations and tables, the Hi-Score screen, Crosshair Cranky's pause text and the code the game copies to RAM are decoded.
-3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`. In progress: bank `$00` is nearly done; next are the object handlers in banks `$08`–`$0A`, which need each object type identified (by its sprites, in the emulator) before its routines can be named.
+3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`. In progress: bank `$00` and the object handlers in banks `$08`–`$0A` are nearly done; next are the last routines there, then the front-end program, Funky's Fishing and the Hi-Score screen. Pointers that code loads as plain numbers are being turned into labels along the way (tables in the code's own bank are done; far-call targets and pointers into other banks in the front-end program are not).
 
 Running the ROM in an emulator (PyBoy and mGBA, used only locally and never in the build) has become part of the method. It identifies what each part of the ROM is and shows which code and data the game really touches at run time, which catches what static tracing misses and settles whether content is truly unused.
 

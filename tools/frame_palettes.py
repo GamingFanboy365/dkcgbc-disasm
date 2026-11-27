@@ -125,12 +125,23 @@ class FramePalettes:
 
     def _run(self):
         t = self.t
+        included = set()
+        for o, item in t.data.items():
+            if item[0] == "objinit":
+                for e in item[2]:
+                    if e[0] == "include" and 0x4000 <= e[1] < 0x8000:
+                        included.add(off(item[1], e[1]))
         for o, item in t.data.items():
             if item[0] != "objinit":
                 continue
             fields = self.list_fields(o)
             if OBJ_PALETTE not in fields:
-                continue
+                # the lists of bank $0E are only used to set up new objects
+                # (the level spawner), whose slot AllocObject has cleared:
+                # palette 0, unless the list is one included by others
+                if item[1] != 0x0E or o in included:
+                    continue
+                fields[OBJ_PALETTE] = 0
             pal = fields[OBJ_PALETTE]
             anims = set()
             if OBJ_ANIM in fields and OBJ_ANIM + 1 in fields:
@@ -245,7 +256,54 @@ class FramePalettes:
                 for f in scripts[k][1]:
                     if f not in self.votes:
                         self.inferred[f] = scripts[a][2]
+        self._infer_tables()
         return self.inferred
+
+    def _infer_tables(self):
+        """Frames listed side by side in a table (the letters of a word, a
+        platform at each fuel level, the player in a mine cart at each slope)
+        belong to one object: a frame with no palette takes the one most of
+        its neighbours have. Tables that alternate Donkey Kong and Diddy
+        frames are split by column first."""
+        t = self.t
+        fb = t.frame_bank
+        seen = self.observed()
+
+        def known(a):
+            if a in seen:
+                return seen[a][0]
+            v = self.votes.get(off(fb, a))
+            return v.most_common(1)[0][0] if v else None
+
+        def fill(group):
+            c = Counter(p for p in map(known, group) if p is not None)
+            if not c:
+                return False
+            pal = c.most_common(1)[0][0]
+            for a in group:
+                if known(a) is None and off(fb, a) not in self.inferred:
+                    self.inferred[off(fb, a)] = pal
+            return True
+
+        for o, item in t.data.items():
+            kind, payload = item[0], item[2]
+            if kind == "frameptrs":
+                cols = [payload[0::2], payload[1::2]]
+                pals = [Counter(p for p in map(known, c) if p is not None).most_common(1) for c in cols]
+                if all(pals) and pals[0][0][0] != pals[1][0][0]:
+                    for c in cols:
+                        fill(c)
+                else:
+                    fill(payload)
+            elif kind == "framestruct":
+                recs, fcols = payload
+                for j in fcols:
+                    fill([r[j] for r in recs])
+            elif kind == "rows":
+                group = [tok[2] for row in payload for tok in row[1]
+                         if isinstance(tok, tuple) and tok[0] == "ref" and tok[1] == fb]
+                if len(group) > 1:
+                    fill(group)
 
     def observed(self):
         """{frame header addr: [palette, ...]} from tools/emu/observed_palettes.txt:

@@ -1,11 +1,11 @@
 # Routines seen as an object's handler in the running game (tools/emu/analyze.py).
 # handler | objects that ran it (by the handler their list starts with) | came from | went to
-Obj_Idle | Obj_Idle, KongLetter, SetBrightness, Entrance | KongLetter, SetBrightness, Entrance, ShuffleBonus_Spot | KongLetter, KongLetter_FlyUp, Entrance, Obj_FallThenAnimate
-Obj_Animate | MasterNecky, VeryGnawty, MineCart, QueenB | MatchBonus_Item_Cycle, Mincer_Fall, LevelFadeIn, CollectedBanana_Fly | Mincer_Fall, Obj_MoveAndAnimate, CollectedBanana_Fly, BouncingCoconut_Bounce
-Obj_AnimateAndDespawn | Obj_AnimateAndDespawn, StarBarrel, StickerBananaBunch, Obj_Idle | StarBarrel, StickerBananaBunch, Obj_FallThenAnimate, BananaBunch_Count | BananaBunch_Count, StarBarrel_Sparkle, StarBarrel, StickerBananaBunch
-Obj_MoveAndAnimate | Gnawty_Red, Kritter_Walk, Klaptrap, Army | Gnawty_Red_Walk, Kritter_WalkTimed, LevelFadeIn, Klaptrap_Walk | HurtKong_RunAway, CollectedBanana_Fly, Gnawty, MasterNecky_Nut
+Obj_Idle | Obj_Idle, KongLetter, Entrance, SetBrightness | KongLetter, SetBrightness, ShuffleBonus_Spot, Entrance | KongLetter, KongLetter_FlyUp, Entrance, SetBrightness
+Obj_Animate | MasterNecky, VeryGnawty, MineCart, QueenB | MatchBonus_Item_Cycle, LevelFadeIn, Mincer_Fall, CollectedBanana_Fly | Mincer_Fall, Obj_MoveAndAnimate, CollectedBanana_Fly, BouncingCoconut_Bounce
+Obj_AnimateAndDespawn | Obj_AnimateAndDespawn, StarBarrel, StickerBananaBunch, Obj_Idle | StarBarrel, StickerBananaBunch, Obj_FallThenAnimate, BananaBunch_Count | BananaBunch_Count, StarBarrel_Sparkle, StickerBananaBunch, StarBarrel
+Obj_MoveAndAnimate | Gnawty_Red, Kritter_Walk, Klaptrap, Army | Gnawty_Red_Walk, Kritter_WalkTimed, Klaptrap_Walk, LevelFadeIn | HurtKong_RunAway, CollectedBanana_Fly, Gnawty, Kritter_Walk
 Obj_FallThenIdle | Obj_Idle | Obj_Idle | Obj_Idle
-Obj_FallThenAnimate | Obj_Idle | Obj_Idle | Obj_AnimateAndDespawn, BananaBunch_Count
+Obj_FallThenAnimate | Obj_Idle | Obj_Idle, Barrel_Carried | Obj_AnimateAndDespawn, BananaBunch_Count
 SpellBonus_Main | SpellBonus |  | 
 SpellBonus_Item_Spread |  |  | SpellBonus_Item_Circle
 SpellBonus_Item_Circle |  | SpellBonus_Item_Spread | SpellBonus_Item_Gather
@@ -23,21 +23,21 @@ StompBonus | StompBonus |  | StompBonus_Main
 StompBonus_Main | StompBonus | StompBonus | 
 StompBonus_Klaptrap_Walk |  | StompBonus_Klaptrap_Stomped | StompBonus_Klaptrap_Stomped
 StompBonus_Klaptrap_Stomped |  | StompBonus_Klaptrap_Walk | StompBonus_Klaptrap_Walk
-StompBonus_Bananas |  | LevelFadeIn | 
+StompBonus_Bananas |  | LevelFadeIn, Func_09_4dff | 
 BonusCoin_FlyToHUD | Obj_AnimateAndDespawn | Obj_AnimateAndDespawn | BonusCoin_Count
 BonusCoin_Count | Obj_AnimateAndDespawn | BonusCoin_FlyToHUD | Obj_AnimateAndDespawn
 Tire | Tire |  | 
 Obj_Patrol | Obj_Patrol |  | 
-BarrelCannon | BarrelCannon | BarrelCannon_Idle, BarrelCannon_TurnBack, OldFarCall, BarrelCannon_AfterFire | BarrelCannon_Idle, BarrelCannon_Loaded, BarrelCannon_Fire
-BarrelCannon_Idle | BarrelCannon | BarrelCannon, BarrelCannon_TurnBack | BarrelCannon_Loaded, BarrelCannon, BarrelCannon_Fire
+BarrelCannon | BarrelCannon | BarrelCannon_Idle, BarrelCannon_TurnBack, OldFarCall, BarrelCannon_AfterFire | BarrelCannon_Idle, BarrelCannon_Loaded, BarrelCannon_AutoRotate, BarrelCannon_Fire
+BarrelCannon_Idle | BarrelCannon | BarrelCannon, BarrelCannon_TurnBack | BarrelCannon_Loaded, BarrelCannon, BarrelCannon_Fire, BarrelCannon_AutoRotate
 BarrelCannon_Loaded | BarrelCannon | BarrelCannon_Idle, BarrelCannon, BarrelCannon_Cooldown | BarrelCannon_TurnToAim, BarrelCannon_AutoRotate, BarrelCannon_SwingForward
 BarrelCannon_TurnToAim | BarrelCannon | BarrelCannon_Loaded | BarrelCannon_Fire, BarrelCannon_AutoRotate
 BarrelCannon_Fire | BarrelCannon | BarrelCannon_TurnToAim, BarrelCannon_AutoRotate, BarrelCannon_SwingForward, BarrelCannon_SwingBack | BarrelCannon_AfterFire
 BarrelCannon_AfterFire | BarrelCannon | BarrelCannon_Fire | BarrelCannon_Cooldown, BarrelCannon
 BarrelCannon_Cooldown | BarrelCannon | BarrelCannon_AfterFire | BarrelCannon_TurnBack, BarrelCannon_Loaded
 BarrelCannon_TurnBack | BarrelCannon | BarrelCannon_Cooldown | BarrelCannon_Idle, BarrelCannon, BarrelCannon_Fire, BarrelCannon_AutoRotate
-BarrelCannon_AutoRotate | BarrelCannon | BarrelCannon_TurnToAim, BarrelCannon_Loaded, BarrelCannon_TurnBack | BarrelCannon_Fire
-BarrelCannon_SwingForward | BarrelCannon | BarrelCannon_Loaded | BarrelCannon_SwingBack, BarrelCannon_Fire
+BarrelCannon_AutoRotate | BarrelCannon | BarrelCannon_TurnToAim, BarrelCannon_Loaded, BarrelCannon_TurnBack, BarrelCannon | BarrelCannon_Fire
+BarrelCannon_SwingForward | BarrelCannon | BarrelCannon_Loaded | BarrelCannon_Fire, BarrelCannon_SwingBack
 BarrelCannon_SwingBack | BarrelCannon | BarrelCannon_SwingForward | BarrelCannon_Fire
 OpenedWall | OpenedWall |  | 
 BreakableWall | BreakableWall | Obj_Idle | Obj_Idle
@@ -46,14 +46,17 @@ Entrance_BananaHoard | Entrance_BananaHoard |  | Obj_Idle
 WinLine | WinLine |  | 
 LoseLine | LoseLine |  | 
 StickerBananaBunch | StickerBananaBunch | Obj_AnimateAndDespawn | Obj_AnimateAndDespawn
-StickerPad | StickerPad | Obj_Idle | Obj_Idle
-MineCartKrash_Parked | MineCartKrash_Parked |  | MineCartKrash_Parked_Main
-MineCartKrash | MineCartKrash |  | MineCartKrash_Main
-MineCart | MineCart |  | Obj_Idle
-MineCart_Ridden | MineCart | Obj_Idle | Obj_Animate, MineCart_RollAway
+StickerPad | StickerPad | Obj_Idle | Obj_Idle, Sticker_Appear
+Sticker_Appear | StickerPad | StickerPad | Obj_AnimateAndDespawn, Sticker_FlyToHUD
+Sticker_FlyToHUD | StickerPad | Sticker_Appear | Sticker_Count
+Sticker_Count | StickerPad | Sticker_FlyToHUD | 
+MineCartKrash_Parked | MineCartKrash_Parked | MineCartKrash_Parked_Main | MineCartKrash_Parked_Main
+MineCartKrash | MineCartKrash | MineCartKrash_Main | MineCartKrash_Main
+MineCart | MineCart | Obj_Idle | Obj_Idle, MineCart_Ridden
+MineCart_Ridden | MineCart | Obj_Idle, MineCart | Obj_Animate, MineCart_RollAway
 MineCart_RollAway | MineCart | MineCart_Ridden | 
-MineCartKrash_Main | MineCartKrash | MineCartKrash | 
-MineCartKrash_Parked_Main | MineCartKrash_Parked | MineCartKrash_Parked | 
+MineCartKrash_Main | MineCartKrash | MineCartKrash | MineCartKrash
+MineCartKrash_Parked_Main | MineCartKrash_Parked | MineCartKrash_Parked | MineCartKrash_Parked
 AnimalCrate | AnimalCrate | Obj_Idle, AnimalCrate_Open | Obj_Idle
 SquawksCrate | SquawksCrate | Obj_Idle, Squawks | Obj_Idle
 SquawksCrate_Open | SquawksCrate | Obj_Idle | Squawks
@@ -62,48 +65,56 @@ Func_08_5d4a | Player | Snowflakes_Init |
 MiniAnimalToken_Collected | MiniAnimalToken | MiniAnimalToken, LevelFadeIn | MiniAnimalToken
 BigAnimalToken_Count | Obj_Idle | Obj_Idle | 
 MiniAnimalToken | MiniAnimalToken | MiniAnimalToken_Collected, LevelFadeIn | MiniAnimalToken_Collected
-Gnawty_Red | Gnawty_Red | Gnawty_Red_Walk, Obj_MoveAndAnimate | Gnawty_Red_Walk, Obj_MoveAndAnimate
+Gnawty_Red | Gnawty_Red | Gnawty_Red_Walk, Obj_MoveAndAnimate | Gnawty_Red_Walk, Obj_MoveAndAnimate, Krusha
 Gnawty_Red_Walk | Gnawty_Red | Gnawty_Red, Krusha | Obj_MoveAndAnimate, Gnawty_Red, Krusha
-Gnawty |  | LevelFadeIn, Obj_MoveAndAnimate, CollectedBanana_Fly, Army | Obj_MoveAndAnimate, CollectedBanana_Fly
-Player_EnterLevel | Player | Player_Defeated_Exit, 96:9496, Player_ExitFade, ff:6f10 | Player_OnGround, Player_InAir, Player_Swim, Player_InBarrelCannon
+Gnawty |  | LevelFadeIn, CollectedBanana_Fly, Obj_MoveAndAnimate, Army | Obj_MoveAndAnimate, CollectedBanana_Fly, Func_09_4dff
+Player_EnterLevel | Player | Player_Defeated_Exit, 96:9496, Player_ExitFade, ff:6f10 | Player_OnGround, Player_InAir, Player_Swim, Player_OnRope
 Player_EnterLevel_Walk | Player | Player_EnterLevel | Player_OnGround
-Player_OnGround | Player | Player_EnterLevel, Player_InAir, Player_Roll, Player_Launched | Player_Defeated_Begin, Player_InAir, Player_Defeated_Fall, Player_Roll
-Player_InAir | Player | Player_OnGround, Player_OnRope, Player_EnterLevel, Player_Launched | Player_OnGround, Player_Defeated_Fall, Player_Launched, Player_Defeated_Begin
-Player_Roll | Player | Player_OnGround, Player_Launched, Player_Hurt, Player_InAir | Player_OnGround, Player_Defeated_Begin, Player_Defeated_Fall, Player_ExitWait
-Player_Carry | Player | Player_OnGround, Player_InAir, Player_Roll, Player_Launched | Player_OnGround, Player_Defeated_Fall, Player_InAir, Player_AfterThrow
+Player_OnGround | Player | Player_EnterLevel, Player_InAir, Player_Launched, Player_Roll | Player_Defeated_Begin, Player_InAir, Player_Defeated_Fall, Player_Roll
+Player_InAir | Player | Player_OnGround, Player_OnRope, Player_Launched, Player_EnterLevel | Player_OnGround, Player_Defeated_Fall, Player_Launched, Player_Defeated_Begin
+Player_Crouch | Player | Player_OnGround, Player_Launched, Player_InAir, Player_HandSlapEnd | Player_HandSlap, Player_Defeated_Fall, Player_InAir, Player_LiftBarrel
+Player_HandSlap | Player | Player_Crouch, Player_InAir | Player_HandSlapEnd, Player_Defeated_Fall, Player_Defeated_Begin
+Func_09_4dff |  | LevelFadeIn, CollectedBanana_Fly, Obj_MoveAndAnimate, BouncingCoconut_Bounce | CollectedBanana_Fly, Nut, BouncingCoconut_Bounce, Gnawty
+Player_HandSlapEnd | Player | Player_HandSlap | Player_Defeated_Fall, Player_Crouch, Player_Defeated_Begin
+Player_Roll | Player | Player_OnGround, Player_Launched, Player_InAir, Player_Hurt | Player_OnGround, Player_Defeated_Begin, Player_Defeated_Fall, Player_ExitWait
+Player_Carry | Player | Player_OnGround, Player_InAir, Player_Roll, Player_Launched | Player_OnGround, Player_Defeated_Fall, Player_AfterThrow, Player_InAir
 Player_AfterThrow | Player | Player_Roll, Player_Carry, Player_OnGround | Player_Defeated_Fall, Player_ExitWait, Player_OnGround, Player_Defeated_Begin
-Player_Swim | Player | Player_EnterLevel, Player_Launched | Player_Defeated_Fall, PlayerEnguarde, Player_InBarrelCannon, Player_ExitWait
+Player_Swim | Player | Player_EnterLevel, Player_Launched | Player_Defeated_Fall, PlayerEnguarde, Player_ExitWait, Player_InBarrelCannon
 PlayerRambi | Player | PlayerRambi_InAir, Player_InAir, Player_OnGround | PlayerRambi_InAir, Player_ExitWait, Player_Defeated_Begin
 PlayerRambi_InAir | Player | PlayerRambi | PlayerRambi
 PlayerExpresso | Player | PlayerExpresso_InAir, Player_InAir | PlayerExpresso_InAir
 PlayerExpresso_InAir | Player | PlayerExpresso | PlayerExpresso, PlayerExpresso_Flap
 PlayerExpresso_Flap | Player | PlayerExpresso_InAir | 
 PlayerEnguarde | Player | Player_Swim | 
-PlayerWinky | Player | PlayerWinky_InAir | PlayerWinky_InAir, Player_ExitWait
+PlayerWinky | Player | PlayerWinky_InAir | Player_ExitWait, PlayerWinky_InAir
 PlayerWinky_InAir | Player | PlayerWinky | PlayerWinky
 Player_Defeated_Fall | Player | Player_OnGround, Player_InAir, Player_Swim, Player_Roll | Player_Defeated_Begin
-Player_Defeated_Begin | Player | Player_OnGround, Player_Defeated_Fall, Player_InAir, Player_Roll | Player_Defeated_Wait
-Player_Defeated_Wait | Player | Player_Defeated_Begin, Player_EnterLevel, Player_OnGround | Player_Defeated_Exit
-Player_Defeated_Exit | Player | Player_Defeated_Wait, Player_EnterLevel | Player_EnterLevel, Player_OnGround, Player_Defeated_Begin, Player_InAir
-Player_Launched | Player | Player_InBarrelCannon, Player_OnGround, Player_InAir, Player_EnterLevel | Player_OnGround, Player_InBarrelCannon, Player_Defeated_Begin, Player_Defeated_Fall
-Player_Hurt | Player | Player_OnGround, Player_Roll, Player_Launched, Player_InAir | Player_OnGround, Player_Roll, Player_InAir, Player_Defeated_Fall
+Player_Defeated_Begin | Player | Player_OnGround, Player_Defeated_Fall, Player_InAir, Player_Launched | Player_Defeated_Wait
+Player_Defeated_Wait | Player | Player_Defeated_Begin, Player_EnterLevel, Player_OnGround | Player_Defeated_Exit, Player_OnGround
+Player_Defeated_Exit | Player | Player_Defeated_Wait, Player_OnGround, Player_EnterLevel | Player_EnterLevel, Player_OnGround, Player_Defeated_Begin, Player_InAir
+Player_Launched | Player | Player_InBarrelCannon, Player_OnGround, Player_InAir, Player_EnterLevel | Player_OnGround, Player_InBarrelCannon, Player_Defeated_Begin, Player_InAir
+Player_Hurt | Player | Player_OnGround, Player_Roll, Player_InAir, Player_Launched | Player_OnGround, Player_Roll, Player_InAir, Player_Defeated_Fall
+Player_HoldBarrel | Player | Player_LiftBarrel | Player_PutDownBarrel
+Player_LiftBarrel | Player | Player_Crouch | Player_HoldBarrel
+Player_PutDownBarrel | Player | Player_HoldBarrel | Player_Crouch
 Player_OnRope | Player | Player_InAir, Player_OnGround, Player_EnterLevel, Player_Launched | Player_InAir, Player_Defeated_Fall, Player_OnGround, Player_ExitWait
 Player_InBarrelCannon | Player | Player_Launched, Player_OnGround, Player_InAir, Player_Roll | Player_Launched, Player_InAir
-Player_OnSwingingRope | Player | Player_InAir, Player_OnGround, Player_Launched | Player_InAir
-HurtKong_RunAway |  | Obj_MoveAndAnimate, MasterNecky_Nut, CollectedBanana_Fly | MasterNecky_Nut, Gnawty
-Player_InMineCart | Player | Player_OnGround, Player_InAir, Player_Launched, Player_MineCartJump | Player_InAir, Player_Defeated_Fall, Player_Defeated_Begin, Player_MineCartJump
+Player_OnSwingingRope | Player | Player_OnGround, Player_InAir, Player_Launched, Player_Roll | Player_InAir
+HurtKong_RunAway |  | Obj_MoveAndAnimate, MasterNecky_Nut, Func_09_4dff, CollectedBanana_Fly | MasterNecky_Nut, Gnawty, Func_09_4dff
+Player_InMineCart | Player | Player_OnGround, Player_InAir, Player_Launched, Player_MineCartJump | Player_InAir, Player_Defeated_Fall, Player_Launched, Player_Defeated_Begin
 Player_MineCartJump | Player | Player_InMineCart | Player_InMineCart
-Player_ExitWait | Player | Player_OnGround, Player_InAir, Player_Roll, Player_Launched | Player_ExitFade
+Player_ExitWait | Player | Player_OnGround, Player_InAir, Player_Launched, Player_Roll | Player_ExitFade
 Player_ExitAfterJingle | Player | Player_InAir, Player_OnGround | Player_ExitWait
 BananaBunch_Count | Obj_AnimateAndDespawn, StickerBananaBunch, Obj_Idle | Obj_AnimateAndDespawn, Obj_FallThenAnimate | Obj_AnimateAndDespawn
 CollectedBanana_Fly |  | LevelFadeIn, Obj_MoveAndAnimate, ClamboPearl, Gnawty | Obj_MoveAndAnimate, Nut, Gnawty, Obj_Animate
+Barrel_Carried | Obj_Idle, DKBarrel | Obj_Idle, DKBarrel_Wait, Obj_AnimateAndDespawn | Obj_FallThenAnimate, Obj_MoveAndAnimate, DKBarrel_Wait, Obj_AnimateAndDespawn
 ClamboPearl |  | LevelFadeIn, CollectedBanana_Fly, Obj_MoveAndAnimate | CollectedBanana_Fly, Obj_MoveAndAnimate
 Rockkroc | Rockkroc | Rockkroc_Run, Rockkroc_CurledUp | Rockkroc_Run
-Rockkroc_Run | Rockkroc | Rockkroc, Rockkroc_Uncurl | Rockkroc_CurledUp, Rockkroc
+Rockkroc_Run | Rockkroc | Rockkroc, Rockkroc_Uncurl | Rockkroc, Rockkroc_CurledUp
 Rockkroc_CurledUp | Rockkroc | Rockkroc_Run, Rockkroc_Uncurl | Rockkroc_Uncurl, Rockkroc
 Rockkroc_Uncurl | Rockkroc | Rockkroc_CurledUp | Rockkroc_Run, Rockkroc_CurledUp
 ArrowPlatform_Move | ArrowPlatform_Wait | ArrowPlatform_Wait | ArrowPlatform_Fall
-Nut |  | LevelFadeIn, CollectedBanana_Fly, Obj_MoveAndAnimate | CollectedBanana_Fly
+Nut |  | LevelFadeIn, CollectedBanana_Fly, Obj_MoveAndAnimate, Func_09_4dff | CollectedBanana_Fly, Func_09_4dff, Obj_MoveAndAnimate
 AnimalCrate_Open | AnimalCrate | Obj_Idle | AnimalCrate
 VeryGnawty | VeryGnawty | VeryGnawty_Recoil, VeryGnawty_AngryLand, VeryGnawty_Hit, Obj_Animate | VeryGnawty_Hop, VeryGnawty_Recoil, VeryGnawty_Hit, VeryGnawty_Land
 VeryGnawty_Hop | VeryGnawty | VeryGnawty_Land, VeryGnawty, VeryGnawty_Hit | VeryGnawty_Land, VeryGnawty_Recoil, VeryGnawty_Hit, BossDefeated
@@ -149,7 +160,8 @@ KingKRool_RunPause | KingKRool | KingKRool_Run, KingKRool_BeginRuns | KingKRool_
 KingKRool_Run | KingKRool | KingKRool_RunPause | KingKRool_RunPause
 KingKRool_FakeDefeat | KingKRool | KingKRool | KingKRool_FakeKredits
 KingKRool_FakeKredits | KingKRool | KingKRool_FakeDefeat | 
-Crownerang |  | Obj_MoveAndAnimate | 
+Crownerang |  | Obj_MoveAndAnimate, Func_09_4dff | Crownerang_Return
+Crownerang_Return |  | Crownerang | 
 GiantBanana |  | Obj_MoveAndAnimate | 
 KingKRool_AfterKredits |  | Obj_MoveAndAnimate | 
 HUD_Bananas_Hidden |  | HUD_Bananas_SlideOut | HUD_Bananas_SlideIn
@@ -160,39 +172,40 @@ HUD_Lives_Hidden |  | HUD_Lives_SlideOut, HUD_Lives_Shown, HUD_Lives_SlideIn | H
 HUD_Lives_SlideIn |  | HUD_Lives_Hidden | HUD_Lives_Shown, HUD_Lives_Hidden
 HUD_Lives_Shown |  | HUD_Lives_SlideIn, HUD_Lives_Hidden | HUD_Lives_SlideOut, HUD_Lives_Hidden
 HUD_Lives_SlideOut |  | HUD_Lives_Shown, HUD_Lives_Hidden | HUD_Lives_Hidden
-Func_0a_5555 | Player |  | StopGoTimer
-HUD_Items_Hidden | Player | HUD_Items_SlideOut | HUD_Items_SlideIn
-HUD_Items_SlideIn |  | HUD_Items_Hidden | HUD_Items_Shown
-HUD_Items_Shown |  | HUD_Items_SlideIn | HUD_Items_SlideOut
-HUD_Items_SlideOut |  | HUD_Items_Shown | HUD_Items_Hidden
+HUD_PartnerIcon | Player |  | StopGoTimer
+HUD_Items_Hidden | Player | HUD_Items_SlideOut, HUD_Items_Shown | HUD_Items_SlideIn
+HUD_Items_SlideIn |  | HUD_Items_Hidden, HUD_Items_SlideOut | HUD_Items_Shown
+HUD_Items_Shown |  | HUD_Items_SlideIn | HUD_Items_SlideOut, HUD_Items_Hidden
+HUD_Items_SlideOut |  | HUD_Items_Shown | HUD_Items_Hidden, HUD_Items_SlideIn
 KongLetter | KongLetter | Obj_Idle, KongLetter_Collected, OldFarCall | Obj_Idle, KongLetter_FlyUp
 KongLetter_FlyUp | KongLetter | Obj_Idle, KongLetter | KongLetter_Collected
 KongLetter_Collected | KongLetter | KongLetter_FlyUp | KongLetter
 AnimalToken_FlyToHUD | Obj_Idle | Obj_Idle | AnimalToken_Count
 AnimalToken_Count | Obj_Idle | AnimalToken_FlyToHUD | 
+Bananas |  | OldFarCall | 
 StarBarrel_Sparkle | StarBarrel | Obj_AnimateAndDespawn, StarBarrel | StarBarrel
 DKBarrel | DKBarrel | DKBarrel_Wait, DKBarrel_Open | DKBarrel_Wait
-DKBarrel_Wait | DKBarrel, DKBarrel2, Obj_Idle | DKBarrel, Obj_Idle | DKBarrel_Open, DKBarrel
+DKBarrel_Wait | DKBarrel, DKBarrel2, Obj_Idle | DKBarrel, Obj_Idle, Barrel_Carried | DKBarrel, DKBarrel_Open, Barrel_Carried
 DKBarrel2 | DKBarrel2 | DKBarrel_Open | 
 BarrelSupply_Wait | BarrelSupply |  | 
 DKBarrel_Open | DKBarrel, DKBarrel2 | DKBarrel_Wait | DKBarrel, DKBarrel2
 StarBarrel | StarBarrel | Obj_AnimateAndDespawn, StarBarrel_Sparkle | Obj_AnimateAndDespawn, StarBarrel_Sparkle
-Kritter_Walk | Kritter_Walk | Kritter_WalkTimed, Kritter_JumpStart, Kritter_Jumping, Obj_MoveAndAnimate | Kritter_JumpStart, Kritter_WalkTimed, Obj_MoveAndAnimate, Kritter_Jumping
-Kritter_WalkTimed | Kritter_Walk | Kritter_Walk, Kritter_Jumping, Kritter_JumpStart | Kritter_JumpStart, Obj_MoveAndAnimate, Kritter_Walk
+Kritter_Walk | Kritter_Walk | Kritter_JumpStart, Kritter_WalkTimed, Kritter_Jumping, Obj_MoveAndAnimate | Kritter_JumpStart, Kritter_WalkTimed, Obj_MoveAndAnimate, Kritter_Jumping
+Kritter_WalkTimed | Kritter_Walk | Kritter_Walk, Kritter_Jumping, Kritter_JumpStart | Kritter_JumpStart, Obj_MoveAndAnimate, Kritter_Walk, Kritter_Jumping
 Kritter_JumpStart | Kritter_Walk | Kritter_Jumping, Kritter_Walk, Kritter_WalkTimed | Kritter_Jumping, Kritter_Walk, Obj_MoveAndAnimate, Kritter_WalkTimed
-Kritter_Jumping | Kritter_Walk | Kritter_JumpStart, Kritter_Walk | Kritter_JumpStart, Kritter_WalkTimed, Obj_MoveAndAnimate, Kritter_Walk
-Kritter_Jump | Kritter_Jump | Kritter_Jump_Loop | Kritter_Jump_Loop
+Kritter_Jumping | Kritter_Walk | Kritter_JumpStart, Kritter_Walk, Kritter_WalkTimed | Kritter_JumpStart, Kritter_WalkTimed, Obj_MoveAndAnimate, Kritter_Walk
+Kritter_Jump | Kritter_Jump | Kritter_Jump_Loop | Kritter_Jump_Loop, Obj_MoveAndAnimate
 Kritter_Jump_Loop | Kritter_Jump | Kritter_Jump | Kritter_Jump, Obj_MoveAndAnimate
 Zinger_Move | Zinger_Move | Zinger_Move_Loop | Zinger_Move_Loop
 Zinger_Move_Loop | Zinger_Move | Zinger_Move | Zinger_Move
-Zinger_Move2 | Zinger_Move2 | Zinger_Move2_Loop | Zinger_Move2_Loop
+Zinger_Move2 | Zinger_Move2 | Zinger_Move2_Loop, OldFarCall | Zinger_Move2_Loop
 Zinger_Move2_Loop | Zinger_Move2 | Zinger_Move2 | Zinger_Move2
 Zinger_Patrol | Zinger_Patrol | OldFarCall | OldFarCall
-Krusha | Gnawty_Red | Gnawty_Red_Walk | Gnawty_Red_Walk
+Krusha | Gnawty_Red | Gnawty_Red_Walk, Gnawty_Red | Gnawty_Red_Walk
 Necky_ThrowNuts | Necky_ThrowNuts | Necky_Throw | Necky_Throw, Obj_MoveAndAnimate
 Necky_Throw | Necky_ThrowNuts | Necky_ThrowNuts | Necky_ThrowNuts, Obj_MoveAndAnimate
-BouncingCoconut_Bounce |  | BouncingCoconut_Fall, LevelFadeIn, CollectedBanana_Fly, Obj_Animate | BouncingCoconut_Fall, CollectedBanana_Fly, Obj_MoveAndAnimate
-BouncingCoconut_Fall |  | BouncingCoconut_Bounce | BouncingCoconut_Bounce, CollectedBanana_Fly
+BouncingCoconut_Bounce |  | BouncingCoconut_Fall, LevelFadeIn, CollectedBanana_Fly, Func_09_4dff | BouncingCoconut_Fall, CollectedBanana_Fly, Func_09_4dff, Obj_MoveAndAnimate
+BouncingCoconut_Fall |  | BouncingCoconut_Bounce, CollectedBanana_Fly | BouncingCoconut_Bounce, CollectedBanana_Fly, Nut, Obj_MoveAndAnimate
 Rope_Held | Rope | Rope | Rope_Released, Rope
 Rope | Rope | Rope_Released, Rope_Held | Rope_Held
 Rope_Released | Rope | Rope_Held | Rope
@@ -215,7 +228,7 @@ Clambo | Clambo |  |
 Necky_Fly | Necky_Fly | Obj_MoveAndAnimate, OldFarCall | Obj_MoveAndAnimate, OldFarCall
 Necky_FlyPatrol | Necky_FlyPatrol | Obj_MoveAndAnimate | Obj_MoveAndAnimate
 Klaptrap | Klaptrap | Klaptrap_Walk, Obj_MoveAndAnimate | Klaptrap_Walk, Obj_MoveAndAnimate
-Klaptrap_Walk | Klaptrap | Klaptrap | Klaptrap, Obj_MoveAndAnimate
+Klaptrap_Walk | Klaptrap | Klaptrap | Obj_MoveAndAnimate, Klaptrap
 Elevator | Elevator |  | 
 LoopElevator | LoopElevator |  | 
 TrackPlatform_Wait | TrackPlatform_Wait |  | TrackPlatform_Move
@@ -226,24 +239,24 @@ ArrowPlatform_Fall | ArrowPlatform_Wait | ArrowPlatform_Move |
 Klump | Klump | Klump_Walk | Klump_Walk
 Klump_Walk | Klump | Klump, Klump2 | Klump, Klump2, Obj_MoveAndAnimate
 Klump2 | Klump | Klump_Walk | Klump_Walk
-MiniNecky | MiniNecky | MiniNecky_Spit, MiniNecky_Hover | MiniNecky_Spit, Obj_MoveAndAnimate
+MiniNecky | MiniNecky | MiniNecky_Spit, MiniNecky_Hover | MiniNecky_Spit, Obj_MoveAndAnimate, MiniNecky_Swoop
 MiniNecky_Hover | MiniNecky | MiniNecky_Spit | MiniNecky_Spit, Obj_MoveAndAnimate, MiniNecky
 MiniNecky_Spit | MiniNecky | MiniNecky, MiniNecky_Hover, MiniNecky_Swoop, Obj_MoveAndAnimate | MiniNecky_Hover, MiniNecky_Swoop, MiniNecky, Obj_MoveAndAnimate
-MiniNecky_Swoop | MiniNecky | MiniNecky_Spit | MiniNecky_Spit, Obj_MoveAndAnimate
+MiniNecky_Swoop | MiniNecky | MiniNecky_Spit, MiniNecky | MiniNecky_Spit, Obj_MoveAndAnimate
 MankyKong | MankyKong | Mincer, MankyKong_Throw, Obj_MoveAndAnimate | Mincer, Obj_MoveAndAnimate
 Mincer | MankyKong | MankyKong, MankyKong_Throw | MankyKong_Throw, MankyKong, Obj_MoveAndAnimate
-MankyKong_Throw | MankyKong | Mincer | Mincer, Obj_MoveAndAnimate, MankyKong
+MankyKong_Throw | MankyKong | Mincer | Mincer, MankyKong, Obj_MoveAndAnimate
 Mincer_Fall |  | Obj_Animate | Obj_Animate, CollectedBanana_Fly, Obj_MoveAndAnimate, BouncingCoconut_Bounce
-Croctopus | Croctopus | Croctopus_WaitForPlayer | Croctopus_WaitForPlayer
+Croctopus | Croctopus | Croctopus_WaitForPlayer, Croctopus_Chase | Croctopus_WaitForPlayer, Croctopus_Chase
 Croctopus_Stopped | Croctopus | Croctopus_Chase | 
-Croctopus_Chase | Croctopus | Croctopus_WaitForPlayer | Croctopus_Stopped
+Croctopus_Chase | Croctopus | Croctopus_WaitForPlayer, Croctopus | Croctopus_Stopped, Croctopus
 Croctopus_WaitForPlayer | Croctopus | Croctopus | Croctopus_Chase, Croctopus
 StopGoBarrel | StopGoBarrel |  | 
 OnOffBarrel | OnOffBarrel |  | 
-StopGoTimer | Player | Func_0a_5555 | LevelFadeIn
+StopGoTimer | Player | HUD_PartnerIcon | LevelFadeIn
 LightsTimer |  | CollectedBanana_Fly | LevelFadeIn
 SetBrightness | SetBrightness | Obj_Idle | Obj_Idle
-LevelFadeIn |  | LightsTimer, StopGoTimer, Obj_Animate | CollectedBanana_Fly, Obj_MoveAndAnimate, Nut, BouncingCoconut_Bounce
+LevelFadeIn |  | LightsTimer, CollectedBanana_Fly, StopGoTimer, Obj_Animate | CollectedBanana_Fly, Nut, Obj_MoveAndAnimate, BouncingCoconut_Bounce
 Player_ExitFade | Player | Player_ExitWait | Player_EnterLevel, Player_OnGround, ff:6f10, Player_InAir
 Millstone | Millstone | Millstone_Roll | Millstone_Roll
 Millstone_Roll | Millstone | Millstone | Millstone

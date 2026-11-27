@@ -212,10 +212,21 @@ class FramePalettes:
                 else:
                     o += 4 if ent[4] is not None else 2
             votes = Counter()
+            seen = self.observed()
             for f in frames:
-                votes.update(self.votes.get(f, {}))
+                a = f % BANK_SIZE + 0x4000
+                if a in seen:
+                    votes[seen[a][0]] += 100   # what the game showed outweighs the code reading
+                else:
+                    votes.update(self.votes.get(f, {}))
             scripts.append((st, frames, votes.most_common(1)[0][0] if votes else None))
         self.inferred = {}
+        # frames of a script whose other frames have a palette share it
+        for st, frames, pal in scripts:
+            if pal is not None:
+                for f in frames:
+                    if f not in self.votes and f % BANK_SIZE + 0x4000 not in self.observed():
+                        self.inferred[f] = pal
         known = [k for k, s_ in enumerate(scripts) if s_[2] is not None]
         for a, b in zip(known, known[1:]):
             if scripts[a][2] != scripts[b][2]:
@@ -226,9 +237,27 @@ class FramePalettes:
                         self.inferred[f] = scripts[a][2]
         return self.inferred
 
+    def observed(self):
+        """{frame header addr: [palette, ...]} from tools/emu/observed_palettes.txt:
+        what the running game used, most seen first."""
+        if getattr(self, "_observed", None) is None:
+            self._observed = {}
+            path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "emu", "observed_palettes.txt")
+            if os.path.exists(path):
+                for line in open(path):
+                    if line.startswith("#") or ":" not in line:
+                        continue
+                    a, rest = line.split(":")
+                    self._observed[int(a, 16)] = [int(x) for x in rest.split()[0::2]]
+        return self._observed
+
     def palette_of(self, header_addr):
         """(palette ID, inferred?) for the frame header at header_addr in
-        bank $20, or (None, False)."""
+        bank $20, or (None, False). A palette seen in the running game wins
+        over one worked out from the code."""
+        seen = self.observed().get(header_addr)
+        if seen:
+            return seen[0], False
         o = off(self.t.frame_bank, header_addr)
         v = self.votes.get(o)
         if v:

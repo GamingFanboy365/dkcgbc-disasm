@@ -1,0 +1,262 @@
+# Routines seen as an object's handler in the running game (tools/emu/analyze.py).
+# handler | objects that ran it (by the handler their list starts with) | came from | went to
+Obj_Idle | Obj_Idle, KongLetter, Func_0a_6eda, StarBarrel | KongLetter, Func_0a_6eda, StarBarrel, Func_08_4872 | KongLetter, KongLetter_FlyUp, StarBarrel, Obj_FallThenAnimate
+Obj_Animate | MasterNecky, VeryGnawty, Func_08_59b8, QueenB | Func_08_464f, Mincer_Fall, Func_0a_6eed, Func_09_6ba1 | Mincer_Fall, Obj_MoveAndAnimate, Func_09_6ba1, Func_0a_5f4a
+Obj_AnimateAndDespawn | Obj_AnimateAndDespawn, Func_0a_5a9a, Func_08_56b8, Obj_Idle | Func_0a_5a9a, Func_08_56b8, Obj_FallThenAnimate, Func_09_6b6c | Func_09_6b6c, Func_0a_5978, Func_0a_5a9a, Func_08_56b8
+Obj_MoveAndAnimate | Gnawty_Red, Kritter_Walk, Klaptrap, Army | Gnawty_Red_Walk, Kritter_WalkTimed, Func_0a_6eed, Klaptrap_Walk | Func_09_5c49, Func_09_6ba1, Gnawty, Func_0a_4621
+Obj_FallThenIdle | Obj_Idle | Obj_Idle | Obj_Idle
+Obj_FallThenAnimate | Obj_Idle | Obj_Idle | Obj_AnimateAndDespawn, Func_09_6b6c
+Func_08_4439 | LetterWord |  | 
+GreenBanana |  |  | Func_08_44f0
+Func_08_44f0 |  | GreenBanana | Func_08_4555
+Func_08_4555 |  | Func_08_44f0 | 
+StepRow | StepRow |  | StepRow_Idle
+StepRow_Idle | StepRow | StepRow | 
+Func_08_464f |  |  | Obj_Animate, Func_08_46ca
+Func_08_46ca |  | Func_08_464f | Obj_Animate
+Func_08_473a | Func_08_473a |  | Func_08_47fc
+Func_08_47fc | Func_08_473a | Func_08_473a | Func_08_482c
+Func_08_482c | Func_08_473a | Func_08_47fc | 
+Func_08_4872 |  | Func_0a_6eed | Obj_Idle, Func_08_48d5
+Func_08_48d5 |  | Func_08_4872 | Obj_Idle
+Func_08_4914 | Func_08_4914 |  | Func_08_49b3
+Func_08_49b3 | Func_08_4914 | Func_08_4914 | 
+Func_08_49f3 |  | Func_08_4a6c | Func_08_4a6c
+Func_08_4a6c |  | Func_08_49f3 | Func_08_49f3
+Func_08_4b3c |  | Func_0a_6eed | 
+Func_08_4c45 | Obj_AnimateAndDespawn | Obj_AnimateAndDespawn | Func_08_4c6c
+Func_08_4c6c | Obj_AnimateAndDespawn | Func_08_4c45 | Obj_AnimateAndDespawn
+Tire | Tire |  | 
+Obj_Patrol | Obj_Patrol |  | 
+BarrelCannon | BarrelCannon | BarrelCannon_Idle, BarrelCannon_TurnBack, OldFarCall, BarrelCannon_AfterFire | BarrelCannon_Idle, BarrelCannon_Loaded, BarrelCannon_Fire
+BarrelCannon_Idle | BarrelCannon | BarrelCannon, BarrelCannon_TurnBack | BarrelCannon_Loaded, BarrelCannon, BarrelCannon_Fire
+BarrelCannon_Loaded | BarrelCannon | BarrelCannon_Idle, BarrelCannon, BarrelCannon_Cooldown | BarrelCannon_TurnToAim, BarrelCannon_AutoRotate, BarrelCannon_SwingForward
+BarrelCannon_TurnToAim | BarrelCannon | BarrelCannon_Loaded | BarrelCannon_Fire, BarrelCannon_AutoRotate
+BarrelCannon_Fire | BarrelCannon | BarrelCannon_TurnToAim, BarrelCannon_AutoRotate, BarrelCannon_SwingForward, BarrelCannon_SwingBack | BarrelCannon_AfterFire
+BarrelCannon_AfterFire | BarrelCannon | BarrelCannon_Fire | BarrelCannon_Cooldown, BarrelCannon
+BarrelCannon_Cooldown | BarrelCannon | BarrelCannon_AfterFire | BarrelCannon_TurnBack, BarrelCannon_Loaded
+BarrelCannon_TurnBack | BarrelCannon | BarrelCannon_Cooldown | BarrelCannon_Idle, BarrelCannon, BarrelCannon_Fire, BarrelCannon_AutoRotate
+BarrelCannon_AutoRotate | BarrelCannon | BarrelCannon_TurnToAim, BarrelCannon_Loaded, BarrelCannon_TurnBack | BarrelCannon_Fire
+BarrelCannon_SwingForward | BarrelCannon | BarrelCannon_Loaded | BarrelCannon_SwingBack, BarrelCannon_Fire
+BarrelCannon_SwingBack | BarrelCannon | BarrelCannon_SwingForward | BarrelCannon_Fire
+Func_08_556c | Func_08_556c |  | 
+Func_08_55a0 | Func_08_55a0 | Obj_Idle | Obj_Idle
+StarBarrel | StarBarrel | Obj_Idle | Obj_Idle
+Func_08_5665 | Func_08_5665 |  | Obj_Idle
+Func_08_568c | Func_08_568c |  | 
+Func_08_56a2 | Func_08_56a2 |  | 
+Func_08_56b8 | Func_08_56b8 | Obj_AnimateAndDespawn | Obj_AnimateAndDespawn
+Func_08_56e1 | Func_08_56e1 | Obj_Idle | Obj_Idle
+Func_08_5959 | Func_08_5959 |  | Func_08_5aa0
+Func_08_598e | Func_08_598e |  | Func_08_5a63
+Func_08_59b8 | Func_08_59b8 |  | Obj_Idle
+Func_08_59d7 | Func_08_59b8 | Obj_Idle | Obj_Animate, Func_08_5a40
+Func_08_5a40 | Func_08_59b8 | Func_08_59d7 | 
+Func_08_5a63 | Func_08_598e | Func_08_598e | 
+Func_08_5aa0 | Func_08_5959 | Func_08_5959 | 
+AnimalCrate | AnimalCrate | Obj_Idle, Func_09_7a3e | Obj_Idle
+Func_08_5c58 | Func_08_5c58 | Obj_Idle, Squawks | Obj_Idle
+Func_08_5c71 | Func_08_5c58 | Obj_Idle | Squawks
+Squawks | Func_08_5c58 | Func_08_5c71 | Func_08_5c58
+Func_08_5d4a | Player | Func_0a_70d3 | 
+Func_08_61a4 | Func_08_61f9 | Func_08_61f9, Func_0a_6eed | Func_08_61f9
+Func_08_61cb | Obj_Idle | Obj_Idle | 
+Func_08_61f9 | Func_08_61f9 | Func_08_61a4, Func_0a_6eed | Func_08_61a4
+Gnawty_Red | Gnawty_Red | Gnawty_Red_Walk, Obj_MoveAndAnimate | Gnawty_Red_Walk, Obj_MoveAndAnimate
+Gnawty_Red_Walk | Gnawty_Red | Gnawty_Red, Krusha | Obj_MoveAndAnimate, Gnawty_Red, Krusha
+Gnawty |  | Func_0a_6eed, Obj_MoveAndAnimate, Func_09_6ba1, Army | Obj_MoveAndAnimate, Func_09_6ba1
+Player_EnterLevel | Player | Player_Defeated_Exit, 96:9496, Player_ExitFade, ff:6f10 | Player_OnGround, Player_InAir, Player_Swim, Player_InBarrelCannon
+Func_09_4aa8 | Player | Player_EnterLevel | Player_OnGround
+Player_OnGround | Player | Player_EnterLevel, Player_InAir, Player_Roll, Player_Launched | Player_Defeated_Begin, Player_InAir, Player_Defeated_Fall, Player_Roll
+Player_InAir | Player | Player_OnGround, Player_OnRope, Player_EnterLevel, Player_Launched | Player_OnGround, Player_Defeated_Fall, Player_Launched, Player_Defeated_Begin
+Player_Roll | Player | Player_OnGround, Player_Launched, Func_09_5753, Player_InAir | Player_OnGround, Player_Defeated_Begin, Player_Defeated_Fall, Player_ExitWait
+Player_Carry | Player | Player_OnGround, Player_InAir, Player_Roll, Player_Launched | Player_OnGround, Player_Defeated_Fall, Player_InAir, Player_AfterThrow
+Player_AfterThrow | Player | Player_Roll, Player_Carry, Player_OnGround | Player_Defeated_Fall, Player_ExitWait, Player_OnGround, Player_Defeated_Begin
+Player_Swim | Player | Player_EnterLevel, Player_Launched | Player_Defeated_Fall, PlayerEnguarde, Player_InBarrelCannon, Player_ExitWait
+PlayerRambi | Player | PlayerRambi_InAir, Player_InAir, Player_OnGround | PlayerRambi_InAir, Player_ExitWait, Player_Defeated_Begin
+PlayerRambi_InAir | Player | PlayerRambi | PlayerRambi
+PlayerExpresso | Player | PlayerExpresso_InAir, Player_InAir | PlayerExpresso_InAir
+PlayerExpresso_InAir | Player | PlayerExpresso | PlayerExpresso, PlayerExpresso_Flap
+PlayerExpresso_Flap | Player | PlayerExpresso_InAir | 
+PlayerEnguarde | Player | Player_Swim | 
+PlayerWinky | Player | PlayerWinky_InAir | PlayerWinky_InAir, Player_ExitWait
+PlayerWinky_InAir | Player | PlayerWinky | PlayerWinky
+Player_Defeated_Fall | Player | Player_OnGround, Player_InAir, Player_Swim, Player_Roll | Player_Defeated_Begin
+Player_Defeated_Begin | Player | Player_OnGround, Player_Defeated_Fall, Player_InAir, Player_Roll | Player_Defeated_Wait
+Player_Defeated_Wait | Player | Player_Defeated_Begin, Player_EnterLevel, Player_OnGround | Player_Defeated_Exit
+Player_Defeated_Exit | Player | Player_Defeated_Wait, Player_EnterLevel | Player_EnterLevel, Player_OnGround, Player_Defeated_Begin, Player_InAir
+Player_Launched | Player | Player_InBarrelCannon, Player_OnGround, Player_InAir, Player_EnterLevel | Player_OnGround, Player_InBarrelCannon, Player_Defeated_Begin, Player_Defeated_Fall
+Func_09_5753 | Player | Player_OnGround, Player_Roll, Player_Launched, Player_InAir | Player_OnGround, Player_Roll, Player_InAir, Player_Defeated_Fall
+Player_OnRope | Player | Player_InAir, Player_OnGround, Player_EnterLevel, Player_Launched | Player_InAir, Player_Defeated_Fall, Player_OnGround, Player_ExitWait
+Player_InBarrelCannon | Player | Player_Launched, Player_OnGround, Player_InAir, Player_Roll | Player_Launched, Player_InAir
+Func_09_5c02 | Player | Player_InAir, Player_OnGround, Player_Launched | Player_InAir
+Func_09_5c49 |  | Obj_MoveAndAnimate, Func_0a_4621, Func_09_6ba1 | Func_0a_4621, Gnawty
+Player_InMineCart | Player | Player_OnGround, Player_InAir, Player_Launched, Player_MineCartJump | Player_InAir, Player_Defeated_Fall, Player_Defeated_Begin, Player_MineCartJump
+Player_MineCartJump | Player | Player_InMineCart | Player_InMineCart
+Player_ExitWait | Player | Player_OnGround, Player_InAir, Player_Roll, Player_Launched | Player_ExitFade
+Player_ExitAfterJingle | Player | Player_InAir, Player_OnGround | Player_ExitWait
+Func_09_6b6c | Obj_AnimateAndDespawn, Func_08_56b8, Obj_Idle | Obj_AnimateAndDespawn, Obj_FallThenAnimate | Obj_AnimateAndDespawn
+Func_09_6ba1 |  | Func_0a_6eed, Obj_MoveAndAnimate, ClamboPearl, Gnawty | Obj_MoveAndAnimate, Func_09_78a3, Gnawty, Obj_Animate
+ClamboPearl |  | Func_0a_6eed, Func_09_6ba1, Obj_MoveAndAnimate | Func_09_6ba1, Obj_MoveAndAnimate
+Rockkroc | Rockkroc | Rockkroc_Run, Rockkroc_CurledUp | Rockkroc_Run
+Rockkroc_Run | Rockkroc | Rockkroc, Rockkroc_Uncurl | Rockkroc_CurledUp, Rockkroc
+Rockkroc_CurledUp | Rockkroc | Rockkroc_Run, Rockkroc_Uncurl | Rockkroc_Uncurl, Rockkroc
+Rockkroc_Uncurl | Rockkroc | Rockkroc_CurledUp | Rockkroc_Run, Rockkroc_CurledUp
+Func_09_77dc | Func_0a_68b4 | Func_0a_68b4 | Func_0a_68e9
+Func_09_78a3 |  | Func_0a_6eed, Func_09_6ba1, Obj_MoveAndAnimate | Func_09_6ba1
+Func_09_7a3e | AnimalCrate | Obj_Idle | AnimalCrate
+VeryGnawty | VeryGnawty | VeryGnawty_Recoil, VeryGnawty_AngryLand, VeryGnawty_Hit, Obj_Animate | VeryGnawty_Hop, VeryGnawty_Recoil, VeryGnawty_Hit, VeryGnawty_Land
+VeryGnawty_Hop | VeryGnawty | VeryGnawty_Land, VeryGnawty, VeryGnawty_Hit | VeryGnawty_Land, VeryGnawty_Recoil, VeryGnawty_Hit, BossDefeated
+VeryGnawty_Land | VeryGnawty | VeryGnawty_Hop, VeryGnawty | VeryGnawty_Hop, VeryGnawty_Recoil, VeryGnawty_Hit
+VeryGnawty_Recoil | VeryGnawty | VeryGnawty_Hop, VeryGnawty_Hit, VeryGnawty, VeryGnawty_Land | VeryGnawty_Hit, VeryGnawty
+VeryGnawty_Hit | VeryGnawty | VeryGnawty_Hop, VeryGnawty_Recoil, VeryGnawty, VeryGnawty_Land | VeryGnawty_AngryHop, VeryGnawty_Recoil, VeryGnawty, VeryGnawty_Hop
+VeryGnawty_AngryHop | VeryGnawty | VeryGnawty_Hit, VeryGnawty_AngryLand | VeryGnawty_AngryLand, VeryGnawty_Recoil
+VeryGnawty_AngryLand | VeryGnawty | VeryGnawty_AngryHop, VeryGnawty_Hit | VeryGnawty, VeryGnawty_Recoil, VeryGnawty_AngryHop
+MasterNecky | MasterNecky | MasterNecky_Withdraw | MasterNecky_Enter
+MasterNecky_Enter | MasterNecky | MasterNecky | MasterNecky_Spit, MasterNecky_Recoil, MasterNecky_Withdraw, MasterNecky_Defeated
+MasterNecky_Spit | MasterNecky | MasterNecky_Enter, MasterNecky_Recoil | MasterNecky_AfterSpit, MasterNecky_Recoil
+MasterNecky_AfterSpit | MasterNecky | MasterNecky_Spit, MasterNecky_Recoil | MasterNecky_Pause
+MasterNecky_Pause | MasterNecky | MasterNecky_AfterSpit | MasterNecky_Withdraw
+MasterNecky_Withdraw | MasterNecky | MasterNecky_Pause, MasterNecky_Enter | MasterNecky
+MasterNecky_Defeated | MasterNecky | MasterNecky_Enter | BossDefeated
+MasterNecky_Recoil | MasterNecky | MasterNecky_Enter, MasterNecky_Spit | MasterNecky_Spit, MasterNecky_AfterSpit
+Func_0a_4621 |  | Obj_MoveAndAnimate, Func_0a_6eed, Func_09_5c49 | Func_09_5c49
+QueenB | QueenB | QueenB_Charge | 
+QueenB_Fly | QueenB |  | QueenB_Hit, BossDefeated
+QueenB_Hit | QueenB | QueenB_Fly | QueenB_HitRise
+QueenB_HitRise | QueenB | QueenB_Hit | QueenB_Charge
+QueenB_Charge | QueenB | QueenB_HitRise, 0a:4774 | 0a:4774, QueenB
+0a:4774 | QueenB | QueenB_Charge | QueenB_Charge
+BossDefeated | VeryGnawty, KingKRool, MasterNecky, QueenB | VeryGnawty_Hop, MasterNecky_Defeated, QueenB_Fly, KingKRool | Obj_Animate
+DumbDrum | DumbDrum |  | DumbDrum_BeginRound
+DumbDrum_BeginRound | DumbDrum | DumbDrum | DumbDrum_AimAtPlayer
+DumbDrum_AimAtPlayer | DumbDrum | DumbDrum_BeginRound | DumbDrum_Hover
+DumbDrum_Hover | DumbDrum | DumbDrum_AimAtPlayer | DumbDrum_Pause
+DumbDrum_Pause | DumbDrum | DumbDrum_Hover | DumbDrum_Drop
+DumbDrum_Drop | DumbDrum | DumbDrum_Pause | DumbDrum_Rise
+DumbDrum_Rise | DumbDrum | DumbDrum_Drop | DumbDrum_BeginSpawn
+DumbDrum_BeginSpawn | DumbDrum | DumbDrum_Rise | DumbDrum_Descend
+DumbDrum_Descend | DumbDrum | DumbDrum_BeginSpawn | DumbDrum_SpawnEnemies
+DumbDrum_SpawnEnemies | DumbDrum | DumbDrum_Descend | DumbDrum_Leave
+DumbDrum_Leave | DumbDrum | DumbDrum_SpawnEnemies | DumbDrum_WaitForEnemies
+DumbDrum_WaitForEnemies | DumbDrum | DumbDrum_Leave | 
+KingKRool | KingKRool |  | KingKRool_Wait, KingKRool_BeginRuns, KingKRool_FakeDefeat, BossDefeated
+KingKRool_Wait | KingKRool | KingKRool | KingKRool_Throw
+KingKRool_Throw | KingKRool | KingKRool_Wait | KingKRool_WaitForCrown
+KingKRool_WaitForCrown | KingKRool | KingKRool_Throw | 
+KingKRool_BeginRuns | KingKRool | KingKRool | KingKRool_RunPause
+KingKRool_RunPause | KingKRool | KingKRool_Run, KingKRool_BeginRuns | KingKRool_Run
+KingKRool_Run | KingKRool | KingKRool_RunPause | KingKRool_RunPause
+KingKRool_FakeDefeat | KingKRool | KingKRool | KingKRool_FakeKredits
+KingKRool_FakeKredits | KingKRool | KingKRool_FakeDefeat | 
+Crownerang |  | Obj_MoveAndAnimate | 
+GiantBanana |  | Obj_MoveAndAnimate | 
+Func_0a_52a0 |  | Obj_MoveAndAnimate | 
+Func_0a_5440 |  | Func_0a_54a0 | Func_0a_5462
+Func_0a_5462 |  | Func_0a_5440 | Func_0a_547c
+Func_0a_547c |  | Func_0a_5462 | Func_0a_54a0
+Func_0a_54a0 |  | Func_0a_547c | Func_0a_5440
+Func_0a_54bf |  | Func_0a_552e, Func_0a_550a, Func_0a_54f0 | Func_0a_54f0, Func_0a_552e, Func_0a_550a
+Func_0a_54f0 |  | Func_0a_54bf | Func_0a_550a, Func_0a_54bf
+Func_0a_550a |  | Func_0a_54f0, Func_0a_54bf | Func_0a_552e, Func_0a_54bf
+Func_0a_552e |  | Func_0a_550a, Func_0a_54bf | Func_0a_54bf
+Func_0a_5555 | Player |  | Func_0a_6e23
+Func_0a_5578 | Player | Func_0a_5680 | Func_0a_5601
+Func_0a_5601 |  | Func_0a_5578 | Func_0a_561d
+Func_0a_561d |  | Func_0a_5601 | Func_0a_5680
+Func_0a_5680 |  | Func_0a_561d | Func_0a_5578
+KongLetter | KongLetter | Obj_Idle, KongLetter_Collected, OldFarCall | Obj_Idle, KongLetter_FlyUp
+KongLetter_FlyUp | KongLetter | Obj_Idle, KongLetter | KongLetter_Collected
+KongLetter_Collected | KongLetter | KongLetter_FlyUp | KongLetter
+Func_0a_5855 | Obj_Idle | Obj_Idle | Func_0a_586e
+Func_0a_586e | Obj_Idle | Func_0a_5855 | 
+Func_0a_5978 | Func_0a_5a9a | Obj_AnimateAndDespawn, Func_0a_5a9a | Func_0a_5a9a
+DKBarrel | DKBarrel | DKBarrel_Wait, DKBarrel_Open | DKBarrel_Wait
+DKBarrel_Wait | DKBarrel, DKBarrel2, Obj_Idle | DKBarrel, Obj_Idle | DKBarrel_Open, DKBarrel
+DKBarrel2 | DKBarrel2 | DKBarrel_Open | 
+Func_0a_5a43 | Func_0a_59f0 |  | 
+DKBarrel_Open | DKBarrel, DKBarrel2 | DKBarrel_Wait | DKBarrel, DKBarrel2
+Func_0a_5a9a | Func_0a_5a9a | Obj_AnimateAndDespawn, Func_0a_5978 | Obj_AnimateAndDespawn, Func_0a_5978
+Kritter_Walk | Kritter_Walk | Kritter_WalkTimed, Kritter_JumpStart, Kritter_Jumping, Obj_MoveAndAnimate | Kritter_JumpStart, Kritter_WalkTimed, Obj_MoveAndAnimate, Kritter_Jumping
+Kritter_WalkTimed | Kritter_Walk | Kritter_Walk, Kritter_Jumping, Kritter_JumpStart | Kritter_JumpStart, Obj_MoveAndAnimate, Kritter_Walk
+Kritter_JumpStart | Kritter_Walk | Kritter_Jumping, Kritter_Walk, Kritter_WalkTimed | Kritter_Jumping, Kritter_Walk, Obj_MoveAndAnimate, Kritter_WalkTimed
+Kritter_Jumping | Kritter_Walk | Kritter_JumpStart, Kritter_Walk | Kritter_JumpStart, Kritter_WalkTimed, Obj_MoveAndAnimate, Kritter_Walk
+Kritter_Jump | Kritter_Jump | Kritter_Jump_Loop | Kritter_Jump_Loop
+Kritter_Jump_Loop | Kritter_Jump | Kritter_Jump | Kritter_Jump, Obj_MoveAndAnimate
+Zinger_Move | Zinger_Move | Zinger_Move_Loop | Zinger_Move_Loop
+Zinger_Move_Loop | Zinger_Move | Zinger_Move | Zinger_Move
+Zinger_Move2 | Zinger_Move2 | Zinger_Move2_Loop | Zinger_Move2_Loop
+Zinger_Move2_Loop | Zinger_Move2 | Zinger_Move2 | Zinger_Move2
+Zinger_Patrol | Zinger_Patrol | OldFarCall | OldFarCall
+Krusha | Gnawty_Red | Gnawty_Red_Walk | Gnawty_Red_Walk
+Necky_ThrowNuts | Necky_ThrowNuts | Necky_Throw | Necky_Throw, Obj_MoveAndAnimate
+Necky_Throw | Necky_ThrowNuts | Necky_ThrowNuts | Necky_ThrowNuts, Obj_MoveAndAnimate
+Func_0a_5f4a |  | Func_0a_5f6d, Func_0a_6eed, Func_09_6ba1, Obj_Animate | Func_0a_5f6d, Func_09_6ba1, Obj_MoveAndAnimate
+Func_0a_5f6d |  | Func_0a_5f4a | Func_0a_5f4a, Func_09_6ba1
+Func_0a_5fba | Func_0a_5fd9 | Func_0a_5fd9 | Func_0a_6088, Func_0a_5fd9
+Func_0a_5fd9 | Func_0a_5fd9 | Func_0a_6088, Func_0a_5fba | Func_0a_5fba
+Func_0a_6088 | Func_0a_5fd9 | Func_0a_5fba | Func_0a_5fd9
+Func_0a_61e7 | Func_0a_61e7 | Func_0a_6245, 0a:0000, Func_0a_61f9 | Func_0a_61f9, Func_0a_6245
+Func_0a_61f9 | Func_0a_61e7 | Func_0a_61e7, Func_0a_6245 | Func_0a_6245, Func_0a_61e7
+Func_0a_6245 | Func_0a_61e7 | Func_0a_61f9, Func_0a_61e7 | Func_0a_61e7, Func_0a_61f9
+Army | Army | Army_Idle, Func_0a_6eed, Func_09_6ba1, Obj_MoveAndAnimate | Army_Idle, Obj_MoveAndAnimate, Army_Roll, Gnawty
+Army_Idle | Army | Army, Army_Roll | Army, Obj_MoveAndAnimate, Army_Roll
+Army_Roll | Army | Army, Army_Idle | Army_Idle
+Bitesize | Bitesize | Bitesize_Swim | Bitesize_Swim
+Bitesize_Wave | Bitesize_Wave | Bitesize_Wave_Loop | Bitesize_Wave_Loop
+Bitesize_Swim | Bitesize | Bitesize | Bitesize
+Bitesize_Wave_Loop | Bitesize_Wave | Bitesize_Wave | Bitesize_Wave, Obj_MoveAndAnimate
+Chomps | Chomps | Chomps_Swim | Chomps_Swim
+Chomps_Swim | Chomps | Chomps | Chomps, Obj_MoveAndAnimate
+ChompsJr | ChompsJr | ChompsJr_Swim | ChompsJr_Swim
+ChompsJr_Swim | ChompsJr | ChompsJr | ChompsJr
+Squidge | Squidge |  | 
+Clambo | Clambo |  | 
+Necky_Fly | Necky_Fly | Obj_MoveAndAnimate, OldFarCall | Obj_MoveAndAnimate, OldFarCall
+Necky_FlyPatrol | Necky_FlyPatrol | Obj_MoveAndAnimate | Obj_MoveAndAnimate
+Klaptrap | Klaptrap | Klaptrap_Walk, Obj_MoveAndAnimate | Klaptrap_Walk, Obj_MoveAndAnimate
+Klaptrap_Walk | Klaptrap | Klaptrap | Klaptrap, Obj_MoveAndAnimate
+Elevator | Elevator |  | 
+Func_0a_65e3 | Func_0a_65e3 |  | 
+Func_0a_670a | Func_0a_670a |  | Func_0a_6727
+Func_0a_6727 | Func_0a_670a | Func_0a_670a | 
+Func_0a_6744 | Func_0a_6744 |  | 
+Func_0a_68b4 | Func_0a_68b4 |  | Func_09_77dc
+Func_0a_68e9 | Func_0a_68b4 | Func_09_77dc | 
+Klump | Klump | Klump_Walk | Klump_Walk
+Klump_Walk | Klump | Klump, Klump2 | Klump, Klump2, Obj_MoveAndAnimate
+Klump2 | Klump | Klump_Walk | Klump_Walk
+MiniNecky | MiniNecky | MiniNecky_Spit, MiniNecky_Hover | MiniNecky_Spit, Obj_MoveAndAnimate
+MiniNecky_Hover | MiniNecky | MiniNecky_Spit | MiniNecky_Spit, Obj_MoveAndAnimate, MiniNecky
+MiniNecky_Spit | MiniNecky | MiniNecky, MiniNecky_Hover, MiniNecky_Swoop, Obj_MoveAndAnimate | MiniNecky_Hover, MiniNecky_Swoop, MiniNecky, Obj_MoveAndAnimate
+MiniNecky_Swoop | MiniNecky | MiniNecky_Spit | MiniNecky_Spit, Obj_MoveAndAnimate
+MankyKong | MankyKong | Mincer, Func_0a_6c18, Obj_MoveAndAnimate | Mincer, Obj_MoveAndAnimate
+Mincer | MankyKong | MankyKong, Func_0a_6c18 | Func_0a_6c18, MankyKong, Obj_MoveAndAnimate
+Func_0a_6c18 | MankyKong | Mincer | Mincer, Obj_MoveAndAnimate, MankyKong
+Mincer_Fall |  | Obj_Animate | Obj_Animate, Func_09_6ba1, Obj_MoveAndAnimate, Func_0a_5f4a
+Croctopus | Croctopus | Croctopus_WaitForPlayer | Croctopus_WaitForPlayer
+Croctopus_Stopped | Croctopus | Croctopus_Chase | 
+Croctopus_Chase | Croctopus | Croctopus_WaitForPlayer | Croctopus_Stopped
+Croctopus_WaitForPlayer | Croctopus | Croctopus | Croctopus_Chase, Croctopus
+StopGoBarrel | StopGoBarrel |  | 
+OnOffBarrel | OnOffBarrel |  | 
+Func_0a_6e23 | Player | Func_0a_5555 | Func_0a_6eed
+Func_0a_6e7e |  | Func_09_6ba1 | Func_0a_6eed
+Func_0a_6eda | Func_0a_6eda | Obj_Idle | Obj_Idle
+Func_0a_6eed |  | Func_0a_6e7e, Func_0a_6e23, Obj_Animate | Func_09_6ba1, Obj_MoveAndAnimate, Func_09_78a3, Func_0a_5f4a
+Player_ExitFade | Player | Player_ExitWait | Player_EnterLevel, Player_OnGround, ff:6f10, Player_InAir
+Millstone | Millstone | Millstone_Roll | Millstone_Roll
+Millstone_Roll | Millstone | Millstone | Millstone
+Millstone_Scripted | Millstone_Scripted | Millstone_Wait, Millstone_Move | Millstone_Wait
+Millstone_Wait | Millstone_Scripted | Millstone_Scripted | Millstone_Move, Millstone_Scripted
+Millstone_Move | Millstone_Scripted | Millstone_Wait | Millstone_Scripted
+Func_0a_70d3 | Player | Func_0a_70ec, 0a:0000 | Func_0a_70ec, Func_08_5d4a
+Func_0a_70ec |  | Func_0a_70d3 | Func_0a_70d3, 0a:0000
+BlackDrum | BlackDrum | BlackDrum_Wait | BlackDrum_Wait
+BlackDrum_Wait | BlackDrum | BlackDrum | BlackDrum
+Func_0a_729b | Func_0a_729b | Func_0a_729e, Func_0a_72af | Func_0a_729e, Func_0a_72af
+Func_0a_729e | Func_0a_729b | Func_0a_72af, Func_0a_729b | Func_0a_72af, Func_0a_729b
+Func_0a_72af | Func_0a_729b | Func_0a_729e, Func_0a_729b | Func_0a_729e, Func_0a_729b
+ExtraLifeBalloon | ExtraLifeBalloon | ExtraLifeBalloon_Count | ExtraLifeBalloon_FlyUp
+ExtraLifeBalloon_FlyUp | ExtraLifeBalloon | ExtraLifeBalloon | ExtraLifeBalloon_Count
+ExtraLifeBalloon_Count | ExtraLifeBalloon | ExtraLifeBalloon_FlyUp | ExtraLifeBalloon

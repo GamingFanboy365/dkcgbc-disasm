@@ -414,7 +414,7 @@ def preview(rom, outdir, colored=True):
             pid, inferred = fp.palette_of(a)
             if pid is not None:
                 pal = [BACKDROP] + fp.colors(pid)[1:]
-                how = "inferred" if inferred else "object"
+                how = "observed" if a in fp.observed() else "inferred" if inferred else "object"
         name = "%02x_%04x.png" % (gb, tiles)
         index.append("%s,$%04x,%s,%s" % (name, a, "" if pid is None else "%d" % pid, how))
         o = off(gb, tiles)

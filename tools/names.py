@@ -195,7 +195,6 @@ NAMES = {
     (0x0E, 0x4775): "DumbDrum_Init",
     (0x0E, 0x4799): "KingKRool_Init",
     (0x0A, 0x42DD): "VeryGnawty_Hit",
-    (0x0A, 0x459A): "MasterNecky_Hit",
     (0x0A, 0x45B9): "MasterNecky_Defeated",
     (0x0A, 0x5232): "BossDefeated_Banana",
     (0x0A, 0x5285): "GiantBanana",
@@ -255,4 +254,87 @@ NAMES = {
     (0x08, 0x4344): "LetterWord",                # spawns a LetterWord_08_... row of letter blocks
     (0x08, 0x4581): "StepRow",                   # a row of parts stepping through a StepPattern
     (0x09, 0x68A5): "SetPlayerPalette",          # a = palette number (1 DK, 2 Diddy, 3 Rambi, $0d Expresso, $12 Enguarde, $10 Winky)
+    # states named with the emulator harvest (tools/emu/observed_handlers.txt gives the order)
+    (0x0A, 0x41C8): "VeryGnawty_Hop",  # waits, then jumps (height from ObjYVelTable by hits taken)
+    (0x0A, 0x4270): "VeryGnawty_Land",
+    (0x0A, 0x4319): "VeryGnawty_AngryHop",  # after a hit: hops towards the player
+    (0x0A, 0x438C): "VeryGnawty_AngryLand",
+    (0x0A, 0x44A3): "MasterNecky_Spit",  # throws a nut
+    (0x0A, 0x4533): "MasterNecky_AfterSpit",
+    (0x0A, 0x4582): "MasterNecky_Pause",
+    (0x0A, 0x459A): "MasterNecky_Withdraw",  # the head pulls back (after spitting or being hit)
+    (0x0A, 0x4742): "QueenB_Charge",  # after a hit: flies at the player
+    (0x0A, 0x4894): "DumbDrum_BeginRound",  # drops to make = rounds done + 1
+    (0x0A, 0x48BB): "DumbDrum_AimAtPlayer",
+    (0x0A, 0x48E7): "DumbDrum_Hover",
+    (0x0A, 0x4917): "DumbDrum_Pause",
+    (0x0A, 0x492D): "DumbDrum_Drop",
+    (0x0A, 0x4957): "DumbDrum_Rise",  # back to AimAtPlayer until the drops are done
+    (0x0A, 0x497C): "DumbDrum_BeginSpawn",
+    (0x0A, 0x49A1): "DumbDrum_Descend",
+    (0x0A, 0x49C3): "DumbDrum_SpawnEnemies",  # from ObjInitTable_0a_4a47
+    (0x0A, 0x4B25): "DumbDrum_Leave",
+    (0x0A, 0x4B3B): "DumbDrum_WaitForEnemies",  # next round when they are beaten; destroyed after the fifth
+    (0x0A, 0x4D00): "KingKRool_BeginRuns",  # after a hit: number of runs by hits taken
+    (0x0A, 0x4D66): "KingKRool_RunPause",
+    (0x0A, 0x4D88): "KingKRool_Run",  # speeds from WordTable_0a_4e04
+    (0x0A, 0x5090): "KingKRool_FakeDefeat",  # starts the fake "KREDITS"
+    (0x0A, 0x5141): "KingKRool_FakeKredits",  # waits for them to end, then plays the boss song again
+    (0x08, 0x5195): "BarrelCannon_Loaded",  # the player is inside: count down, then pick the next state by type
+    (0x08, 0x51C8): "BarrelCannon_TurnToAim",  # towards the direction in OBJ_VAR_32's low nibble
+    (0x08, 0x5227): "BarrelCannon_Fire",
+    (0x08, 0x5375): "BarrelCannon_AfterFire",
+    (0x08, 0x53A1): "BarrelCannon_Cooldown",
+    (0x08, 0x53C1): "BarrelCannon_TurnBack",  # to the rest direction (OBJ_VAR_32's high nibble)
+    (0x08, 0x5400): "BarrelCannon_AutoRotate",  # OBJ_VAR_3C bit 5: keeps turning with the player inside
+    (0x08, 0x5458): "BarrelCannon_SwingForward",  # OBJ_VAR_3C bit 6: swings until A is pressed
+    (0x08, 0x5499): "BarrelCannon_SwingBack",
+    (0x08, 0x4617): "StepRow_Idle",
+    (0x09, 0x760F): "Rockkroc_Run",  # while the Stop/Go timer runs, curls up
+    (0x09, 0x763C): "Rockkroc_CurledUp",
+    (0x09, 0x7670): "Rockkroc_Uncurl",
+    (0x0A, 0x5810): "KongLetter_FlyUp",
+    (0x0A, 0x5826): "KongLetter_Collected",
+    (0x0A, 0x5A61): "DKBarrel_Open",
+    (0x0A, 0x5C38): "Kritter_WalkTimed",  # script command 2
+    (0x0A, 0x5C4D): "Kritter_JumpStart",  # script command 3
+    (0x0A, 0x5CAB): "Kritter_Jumping",
+    (0x0A, 0x62F0): "Army_Idle",
+    (0x0A, 0x6346): "Army_Roll",
+    (0x0A, 0x6956): "Klump_Walk",
+    (0x0A, 0x6A0A): "MiniNecky_Hover",
+    (0x0A, 0x6A8B): "MiniNecky_Swoop",
+    (0x0A, 0x6A2A): "MiniNecky_Spit",
+    (0x0A, 0x6D25): "Croctopus_WaitForPlayer",
+    (0x0A, 0x6D16): "Croctopus_Chase",
+    (0x0A, 0x6D0D): "Croctopus_Stopped",
+    (0x0A, 0x7308): "ExtraLifeBalloon_FlyUp",
+    (0x0A, 0x732C): "ExtraLifeBalloon_Count",
+    # the player's states (handler of object slot 0), checked with scripted input in mGBA
+    (0x09, 0x4956): "Player_EnterLevel",
+    (0x09, 0x4AFF): "Player_OnGround",  # stand, walk; A jumps, B rolls, Down crouches
+    (0x09, 0x4CFF): "Player_InAir",
+    (0x09, 0x4E29): "Player_Roll",  # B; keeps rolling while B and a direction are held
+    (0x09, 0x4EF8): "Player_Carry",  # holding a barrel
+    (0x09, 0x4F5F): "Player_AfterThrow",
+    (0x09, 0x4FAB): "Player_Swim",
+    (0x09, 0x56C3): "Player_Launched",  # shot from a barrel cannon; levels also start in this state
+    (0x09, 0x5BCC): "Player_InBarrelCannon",  # follows the cannon object in OBJ_VAR_33
+    (0x09, 0x59B0): "Player_OnRope",
+    (0x09, 0x63E6): "Player_InMineCart",
+    (0x09, 0x64A6): "Player_MineCartJump",
+    (0x09, 0x564C): "Player_Defeated_Fall",  # waits to land and for the jingle to end
+    (0x09, 0x566D): "Player_Defeated_Begin",
+    (0x09, 0x5690): "Player_Defeated_Wait",
+    (0x09, 0x56A8): "Player_Defeated_Exit",  # the other Kong takes over, or the level ends
+    (0x09, 0x6728): "Player_ExitAfterJingle",  # warps to the entrance in [$c44b]
+    (0x09, 0x670D): "Player_ExitWait",
+    (0x0A, 0x6F10): "Player_ExitFade",
+    (0x09, 0x5183): "PlayerRambi_InAir",
+    (0x09, 0x5325): "PlayerExpresso_InAir",
+    (0x09, 0x536C): "PlayerExpresso_Flap",
+    (0x09, 0x55C7): "PlayerWinky_InAir",
+    (0x09, 0x4D4D): "Player_Crouch",  # Down
+    (0x09, 0x4D94): "Player_HandSlap",  # Down + B
+    (0x09, 0x4E0F): "Player_HandSlapEnd",
 }

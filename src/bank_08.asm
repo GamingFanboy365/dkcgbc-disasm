@@ -954,9 +954,9 @@ StepRow::
 	add hl, bc
 	ld [hl], $08
 	inc l
-	ld [hl], LOW(Func_08_4617)
+	ld [hl], LOW(StepRow_Idle)
 	inc l
-	ld [hl], HIGH(Func_08_4617)
+	ld [hl], HIGH(StepRow_Idle)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
@@ -1042,7 +1042,7 @@ ObjInit_08_4604::
 	obj_byte OBJ_VAR_31, $01
 	obj_end
 
-Func_08_4617::
+StepRow_Idle::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_464c
@@ -2868,7 +2868,7 @@ BarrelCannon_Idle::
 	jp NextObject
 
 
-Func_08_5195::
+BarrelCannon_Loaded::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -2897,7 +2897,7 @@ Func_08_5195::
 	jp NextObject
 
 
-Func_08_51c8::
+BarrelCannon_TurnToAim::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -2956,7 +2956,7 @@ Func_08_51c8::
 	jp NextObject
 
 
-Func_08_5227::
+BarrelCannon_Fire::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -3125,9 +3125,9 @@ Func_08_5227::
 	ld [hl], $14
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_5375)
+	ld [hl], LOW(BarrelCannon_AfterFire)
 	inc l
-	ld [hl], HIGH(Func_08_5375)
+	ld [hl], HIGH(BarrelCannon_AfterFire)
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 7, [hl]
@@ -3139,7 +3139,7 @@ Flags_08_5365::
 	db %00001100, %10101100, %10001100, %10001110, %10000000, %10001010, %10001000, %10101000
 	db %00001000, %11101000, %11001000, %11001010, %11000000, %11001110, %11001100, %11101100
 
-Func_08_5375::
+BarrelCannon_AfterFire::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -3151,9 +3151,9 @@ Func_08_5375::
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_53a1)
+	ld [hl], LOW(BarrelCannon_Cooldown)
 	inc l
-	ld [hl], HIGH(Func_08_53a1)
+	ld [hl], HIGH(BarrelCannon_Cooldown)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $08
@@ -3163,7 +3163,7 @@ Func_08_5375::
 	jp NextObject
 
 
-Func_08_53a1::
+BarrelCannon_Cooldown::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -3175,13 +3175,13 @@ Func_08_53a1::
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_53c1)
+	ld [hl], LOW(BarrelCannon_TurnBack)
 	inc l
-	ld [hl], HIGH(Func_08_53c1)
+	ld [hl], HIGH(BarrelCannon_TurnBack)
 	jp NextObject
 
 
-Func_08_53c1::
+BarrelCannon_TurnBack::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -3222,7 +3222,7 @@ Func_08_53c1::
 	jp NextObject
 
 
-Func_08_5400::
+BarrelCannon_AutoRotate::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -3264,9 +3264,9 @@ Func_08_5400::
 	ld [hl], $05
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_5227)
+	ld [hl], LOW(BarrelCannon_Fire)
 	inc l
-	ld [hl], HIGH(Func_08_5227)
+	ld [hl], HIGH(BarrelCannon_Fire)
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 5, [hl]
@@ -3275,14 +3275,14 @@ Func_08_5400::
 	jp NextObject
 
 
-Func_08_5458::
+BarrelCannon_SwingForward::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
 	call nz, BarrelCannon_Move
 	ldh a, [$ff81]
 	bit 0, a
-	jr nz, Func_08_5499.jump_54db
+	jr nz, BarrelCannon_SwingBack.jump_54db
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld a, [hl]
@@ -3310,13 +3310,13 @@ Func_08_5458::
 .jump_548e:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_5499)
+	ld [hl], LOW(BarrelCannon_SwingBack)
 	inc l
-	ld [hl], HIGH(Func_08_5499)
+	ld [hl], HIGH(BarrelCannon_SwingBack)
 	jr .jump_5488
 
 
-Func_08_5499::
+BarrelCannon_SwingBack::
 	ld hl, wObjects + OBJ_VAR_3C
 	add hl, bc
 	bit 1, [hl]
@@ -3351,9 +3351,9 @@ Func_08_5499::
 .jump_54d0:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_5458)
+	ld [hl], LOW(BarrelCannon_SwingForward)
 	inc l
-	ld [hl], HIGH(Func_08_5458)
+	ld [hl], HIGH(BarrelCannon_SwingForward)
 	jr .jump_54ca
 
 .jump_54db:
@@ -3362,9 +3362,9 @@ Func_08_5499::
 	ld [hl], $01
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_08_5227)
+	ld [hl], LOW(BarrelCannon_Fire)
 	inc l
-	ld [hl], HIGH(Func_08_5227)
+	ld [hl], HIGH(BarrelCannon_Fire)
 	call Func_08_54f3
 	call BarrelCannon_SetFrame
 	jp NextObject

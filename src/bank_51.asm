@@ -926,7 +926,7 @@ FishingRuntime::
 	ldh a, [rSVBK]
 	push af
 	ld a, b
-	call Func_00_00f3
+	call Vector_PlaySong
 	pop af
 	ldh [rSVBK], a
 	pop af
@@ -943,7 +943,7 @@ FishingRuntime::
 	push af
 	ldh a, [rSVBK]
 	push af
-	call Func_00_00f0
+	call Vector_UpdateSound
 	pop af
 	ldh [rSVBK], a
 	pop af

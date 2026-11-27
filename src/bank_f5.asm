@@ -79,7 +79,7 @@ Func_f5_4000::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f5_4082::
@@ -109,7 +109,7 @@ Func_f5_4082::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f5_40af::
@@ -988,7 +988,7 @@ Func_f5_44f3::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f5_4520::

@@ -154,7 +154,7 @@ FE_Main::
 	push af
 	inc sp
 	ld a, $fe
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4139::
@@ -179,7 +179,7 @@ Func_f1_4139::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4159::
@@ -208,7 +208,7 @@ Func_f1_4159::
 	push af
 	inc sp
 	ld a, $f2
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_417d::
@@ -2156,7 +2156,7 @@ Func_f1_4df6::
 	push af
 	inc sp
 	ld a, $50
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4e61::
@@ -2185,7 +2185,7 @@ Func_f1_4e61::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4e87::
@@ -2230,7 +2230,7 @@ Func_f1_4e87::
 	push af
 	inc sp
 	ld a, $55
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4ecd::
@@ -2259,7 +2259,7 @@ Func_f1_4ecd::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4ef3::
@@ -2302,7 +2302,7 @@ Func_f1_4ef3::
 	push af
 	inc sp
 	ld a, $55
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4f36::
@@ -2366,7 +2366,7 @@ Func_f1_4f36::
 	push af
 	inc sp
 	ld a, $fe
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_4fa4::
@@ -2974,7 +2974,7 @@ Func_f1_5333::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_53c9::
@@ -3000,7 +3000,7 @@ Func_f1_53c9::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_53ec::
@@ -3027,7 +3027,7 @@ Func_f1_53ec::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_5411::
@@ -3958,7 +3958,7 @@ RAMCopy_f1_596b_to_ce2e::
 	push af
 	inc sp
 	ld a, $f1
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 	db $d9
 ; RAMCode_f1_ce5e:
@@ -7580,7 +7580,7 @@ Func_f1_78d2::
 	push af
 	inc sp
 	ld a, $f2
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7912::
@@ -7658,7 +7658,7 @@ Func_f1_794b::
 	push af
 	inc sp
 	ld a, $f2
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_799e::
@@ -7995,7 +7995,7 @@ Func_f1_7b15::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7b82::
@@ -8041,7 +8041,7 @@ Func_f1_7b82::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7bc5::
@@ -8074,7 +8074,7 @@ Func_f1_7bc5::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7bf1::
@@ -8108,7 +8108,7 @@ Func_f1_7bf1::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7c1a::
@@ -8153,7 +8153,7 @@ Func_f1_7c1a::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7c58::
@@ -8187,7 +8187,7 @@ Func_f1_7c58::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7c82::
@@ -8228,7 +8228,7 @@ Func_f1_7c82::
 	push af
 	inc sp
 	ld a, $f0
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_f1_7cb9::

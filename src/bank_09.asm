@@ -24,8 +24,8 @@ Func_09_400d::
 	ld [hl], $40
 	rst_farcall Func_09_4212
 	call Func_09_4227
-	call Func_00_127d
-	call Func_00_3ab5
+	call AnimateObject
+	call DespawnIfOutOfRange
 	jp NextObject
 
 
@@ -36,13 +36,13 @@ Func_09_4026::
 	bit 1, [hl]
 	jr z, .jump_4040
 	ld hl, wPlayer + OBJ_XVEL
-	call Func_00_39ab
+	call NegateObjectWord
 	ld hl, wPlayer + OBJ_TARGET_XVEL
-	call Func_00_39ab
+	call NegateObjectWord
 	call Func_09_424e
 .jump_4040:
-	call Func_00_127d
-	call Func_00_3ab5
+	call AnimateObject
+	call DespawnIfOutOfRange
 	jp NextObject
 
 
@@ -348,7 +348,7 @@ Func_09_41cd::
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-	call Func_00_18e4
+	call MarkObjectSpawnDone
 	jp Func_09_41fd
 
 
@@ -390,18 +390,18 @@ Func_09_4227::
 	bit 1, [hl]
 	jr z, .jump_423b
 	ld hl, wPlayer + OBJ_TARGET_XVEL
-	call Func_00_39ab
+	call NegateObjectWord
 	ld hl, wPlayer + OBJ_XVEL
-	call Func_00_39ab
+	call NegateObjectWord
 .jump_423b:
-	call Func_00_3ba7
+	call TurnAtRangeLimitX
 	call Func_09_424e
 	jr Func_09_4243
 
 
 Func_09_4243::
-	call Func_00_39fa
-	call Func_00_39b4
+	call UpdateVelocity
+	call ApplyVelocity
 	rst_farcall Func_08_40e1
 	ret
 
@@ -798,7 +798,7 @@ Func_09_451d::
 	add hl, de
 	ld [hl], $02
 	ld hl, wPlayer + OBJ_VAR_31
-	call Func_00_39ab
+	call NegateObjectWord
 	ld a, $28
 	ld [$c32a], a
 .jump_455b:
@@ -1068,9 +1068,9 @@ Func_09_46da::
 	ld [hl], a
 	call Func_09_6bfc
 	ld de, $0050
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $0010
-	call Func_00_3bf5
+	call MoveTowardsY
 	jp Func_09_43ea.jump_44f5
 
 
@@ -1369,7 +1369,7 @@ Func_09_487a::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	call Func_00_18f5
+	call DeleteObject
 	pop bc
 .jump_490b:
 	ld a, $50
@@ -1610,8 +1610,8 @@ Func_09_4aa8::
 	jr nz, .jump_4ab2
 	call Func_09_4abb
 .jump_4ab2:
-	call Func_00_39b4
-	call Func_00_127d
+	call ApplyVelocity
+	call AnimateObject
 	jp NextObject
 
 
@@ -1639,7 +1639,7 @@ Func_09_4abb::
 	ld [hl], d
 	ld a, $00
 	call Func_09_68e7
-	call Func_00_127d
+	call AnimateObject
 	ret
 
 
@@ -2086,7 +2086,7 @@ Func_09_4dff::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	call z, Func_00_18f5
+	call z, DeleteObject
 	jp NextObject
 
 
@@ -2150,14 +2150,14 @@ Func_09_4e29::
 	or a
 	jr nz, .jump_4e7a
 	ld [hl], a
-	call Func_00_39fa
+	call UpdateVelocity
 .jump_4e7a:
-	call Func_00_39b4
+	call ApplyVelocity
 	call Func_09_676a
 	rst_farcall Func_08_40e1
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $10
-	call nz, Func_00_39dd
+	call nz, UndoXVelocity
 	ld a, $5e
 	call Func_09_43ea
 	jp Func_09_5c49.jump_5ca4
@@ -3250,7 +3250,7 @@ Func_09_564c::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_5664
-	call Func_00_2f3d
+	call IsMusicPlaying
 	jr nz, .jump_5664
 	ld hl, wPlayer + OBJ_HANDLER
 	ld [hl], LOW(Func_09_566d)
@@ -3258,7 +3258,7 @@ Func_09_564c::
 	ld [hl], HIGH(Func_09_566d)
 .jump_5664:
 	call Func_09_6986
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -3278,7 +3278,7 @@ Func_09_566d::
 	ld hl, wPlayer + OBJ_XVEL
 	ld [hli], a
 	ld [hl], a
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -3292,7 +3292,7 @@ Func_09_5690::
 	inc l
 	ld [hl], HIGH(Func_09_56a8)
 .jump_56a2:
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -3307,7 +3307,7 @@ Func_09_56a8::
 	jr nz, .jump_56bd
 	set 2, [hl]
 .jump_56bd:
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -3336,9 +3336,9 @@ Func_09_56c3::
 	or a
 	jr nz, .jump_56ef
 	ld [hl], a
-	call Func_00_39fa
+	call UpdateVelocity
 .jump_56ef:
-	call Func_00_39b4
+	call ApplyVelocity
 	call Func_09_676a
 	rst_farcall Func_08_40e1
 	ld a, $1e
@@ -3442,7 +3442,7 @@ Func_09_5765::
 	call Func_09_6983
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $10
-	call nz, Func_00_39dd
+	call nz, UndoXVelocity
 	ld a, $5e
 	call Func_09_43ea
 .jump_57ad:
@@ -3879,8 +3879,8 @@ Func_09_59b0::
 	ld e, $0f
 .jump_5aa1:
 	call Func_09_685d
-	call Func_00_39fa
-	call Func_00_39b4
+	call UpdateVelocity
+	call ApplyVelocity
 	call Func_09_676a
 	ld a, $5e
 	call Func_09_43ea
@@ -4120,12 +4120,12 @@ Func_09_5c49::
 	add hl, bc
 	dec [hl]
 	jr z, .jump_5c59
-	call Func_00_39b4
-	call Func_00_127d
+	call ApplyVelocity
+	call AnimateObject
 	jp NextObject
 
 .jump_5c59:
-	call Func_00_18f5
+	call DeleteObject
 	ld a, [$c30f]
 	rrca
 	ld a, $01
@@ -4165,7 +4165,7 @@ Func_09_5c49::
 	jp NextObject
 
 .jump_5ca4:
-	call Func_00_127d
+	call AnimateObject
 	call Func_09_5cc0
 	ld a, [wPlayer + OBJ_VAR_37]
 	cp $01
@@ -4454,7 +4454,7 @@ Func_09_5dbb::
 	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
 	ld d, a
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld hl, $ff8b
 	ld a, [wPlayer + OBJ_Y]
 	sub [hl]
@@ -4463,7 +4463,7 @@ Func_09_5dbb::
 	ld a, [wPlayer + OBJ_Y + 1]
 	sbc a, [hl]
 	ld d, a
-	call Func_00_3bf5
+	call MoveTowardsY
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $20
@@ -4574,7 +4574,7 @@ ObjInit_09_5f56::
 	ld bc, $0000
 	ld a, $89
 	call Func_09_68e7
-	call Func_00_127d
+	call AnimateObject
 	pop bc
 	ret
 
@@ -5057,7 +5057,7 @@ Func_09_61ec::
 	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
 	ld d, a
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld hl, $ff8b
 	ld a, [wPlayer + OBJ_Y]
 	sub [hl]
@@ -5066,7 +5066,7 @@ Func_09_61ec::
 	ld a, [wPlayer + OBJ_Y + 1]
 	sbc a, [hl]
 	ld d, a
-	call Func_00_3bf5
+	call MoveTowardsY
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $20
@@ -5135,9 +5135,9 @@ Func_09_61ec::
 	sbc a, d
 	ld [hli], a
 	ld de, $0010
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $008c
-	call Func_00_3bf5
+	call MoveTowardsY
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $20
@@ -5150,13 +5150,13 @@ Func_09_632c::
 	add hl, bc
 	dec [hl]
 	jr z, .jump_633c
-	call Func_00_39b4
-	call Func_00_127d
+	call ApplyVelocity
+	call AnimateObject
 .jump_6339:
 	jp NextObject
 
 .jump_633c:
-	call Func_00_18f5
+	call DeleteObject
 	jr .jump_6339
 
 
@@ -5165,12 +5165,12 @@ Func_09_6341::
 	add hl, bc
 	dec [hl]
 	jr z, .jump_6351
-	call Func_00_39b4
-	call Func_00_127d
+	call ApplyVelocity
+	call AnimateObject
 	jp NextObject
 
 .jump_6351:
-	call Func_00_18f5
+	call DeleteObject
 	ld a, [$c30f]
 	rrca
 	ld a, $01
@@ -5422,8 +5422,8 @@ Func_09_6538::
 	ld c, a
 	rst_farcall Func_0a_4086
 	rst_farcall Func_08_5ba3
-	call Func_00_127d
-	call Func_00_1341
+	call AnimateObject
+	call DrawObject
 	pop bc
 	ret
 
@@ -5489,7 +5489,7 @@ Func_09_6554::
 	ld b, [hl]
 	ld c, a
 	rst_farcall Func_0a_4086
-	call Func_00_1341
+	call DrawObject
 	pop bc
 .jump_65c5:
 	jp Func_09_5c49.jump_5ca4
@@ -5701,7 +5701,7 @@ Func_09_670d::
 
 
 Func_09_6728::
-	call Func_00_2f3d
+	call IsMusicPlaying
 	jr nz, .jump_673d
 	ld hl, wLevelEntrance
 	ld a, [$c44b]
@@ -5713,7 +5713,7 @@ Func_09_6728::
 
 .jump_673d:
 	call Func_09_6986
-	call Func_00_127d
+	call AnimateObject
 .jump_6743:
 	jp NextObject
 
@@ -5734,7 +5734,7 @@ Func_09_6746::
 	ld hl, wPlayer + OBJ_VAR_2E
 	res 0, [hl]
 .jump_6764:
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -5839,8 +5839,8 @@ Func_09_676a::
 	ld e, a
 	ld a, [hl]
 	ld d, a
-	call Func_00_21bf
-	call Func_00_29a3
+	call SetCameraRegion
+	call InitCamera
 	jr .jump_67b7
 
 .jump_67f0:
@@ -5914,8 +5914,8 @@ Func_09_676a::
 	ld e, a
 	ld a, [hl]
 	ld d, a
-	call Func_00_21bf
-	call Func_00_29a3
+	call SetCameraRegion
+	call InitCamera
 	ret
 
 
@@ -6071,8 +6071,8 @@ Func_09_6983::
 	call Func_09_638e
 
 Func_09_6986::
-	call Func_00_39fa
-	call Func_00_39b4
+	call UpdateVelocity
+	call ApplyVelocity
 	call Func_09_676a
 	rst_farcall Func_08_40e1
 	ret
@@ -6112,9 +6112,9 @@ Func_09_6994::
 	jr nc, .jump_69c7
 	ld d, $00
 	ld e, a
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $000c
-	call Func_00_3bf5
+	call MoveTowardsY
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -6209,9 +6209,9 @@ Func_09_6a05::
 	ld [hl], $20
 	ld d, $00
 	ld e, a
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $0010
-	call Func_00_3bf5
+	call MoveTowardsY
 	jp Func_09_43ea.jump_44f5
 
 
@@ -6391,7 +6391,7 @@ Func_09_6b6c::
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_6b9e
-	call Func_00_18f0
+	call DeleteObjectForGood
 	ld hl, $c448
 	dec [hl]
 .jump_6b9e:
@@ -6401,8 +6401,8 @@ Func_09_6b6c::
 Func_09_6ba1::
 	ld hl, $c441
 	set 1, [hl]
-	call Func_00_39b4
-	call Func_00_162c
+	call ApplyVelocity
+	call GetObjectScreenPos
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
@@ -6447,7 +6447,7 @@ Func_09_6ba1::
 	ld hl, $c31c
 	dec [hl]
 	call Func_09_6c1d
-	call Func_00_18f5
+	call DeleteObject
 .jump_6bf9:
 	jp NextObject
 
@@ -6562,9 +6562,9 @@ Func_09_6c35::
 	sbc a, d
 	ld [hl], a
 	ld de, $0004
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $0004
-	call Func_00_3bf5
+	call MoveTowardsY
 	pop bc
 	ret
 
@@ -6671,7 +6671,7 @@ Func_09_6d1e::
 Func_09_6d5c::
 	ld a, $24
 	call Func_09_43ea
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -6714,8 +6714,8 @@ ObjInit_09_6d96::
 	obj_end
 
 Func_09_6da5::
-	call Func_00_39fa
-	call Func_00_39b4
+	call UpdateVelocity
+	call ApplyVelocity
 	rst_farcall Func_08_40e1
 	ld a, $24
 	call Func_09_43ea
@@ -6807,11 +6807,11 @@ Func_09_6e36::
 	bit 1, [hl]
 	jr nz, .jump_6e56
 .jump_6e43:
-	call Func_00_39fa
-	call Func_00_39b4
+	call UpdateVelocity
+	call ApplyVelocity
 	rst_farcall Func_08_40e1
-	call Func_00_127d
-	call Func_00_3ab5
+	call AnimateObject
+	call DespawnIfOutOfRange
 	jp NextObject
 
 .jump_6e56:
@@ -6833,7 +6833,7 @@ Func_09_6e36::
 	cp $04
 	jr nc, .jump_6e92
 	ld hl, wPlayer + OBJ_TARGET_XVEL
-	call Func_00_39ab
+	call NegateObjectWord
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, [hli]
@@ -6898,7 +6898,7 @@ Func_09_6e97::
 	add hl, bc
 	ld [hl], $64
 	call Func_09_6fe2
-	call Func_00_18e4
+	call MarkObjectSpawnDone
 	ld a, $12
 	ld [$c32c], a
 	jr .jump_6ef5
@@ -6927,7 +6927,7 @@ Func_09_6ef8::
 	ld [$c447], a
 	ld a, $27
 	ld [$c32a], a
-	call Func_00_18f0
+	call DeleteObjectForGood
 	jp Func_09_43ea.jump_44f5
 
 
@@ -6958,7 +6958,7 @@ Func_09_6f16::
 	ld a, [hl]
 	cp $02
 	jr nz, .jump_6f59
-	call Func_00_18e4
+	call MarkObjectSpawnDone
 	jp Func_09_41fd
 
 .jump_6f4c:
@@ -6967,12 +6967,12 @@ Func_09_6f16::
 	ld a, [hl]
 	cp $02
 	jr nz, .jump_6f59
-	call Func_00_18e4
+	call MarkObjectSpawnDone
 	ret
 
 .jump_6f59:
 	call Func_09_6fe2
-	call Func_00_18e4
+	call MarkObjectSpawnDone
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -6990,7 +6990,7 @@ Func_09_6f16::
 	ldh [$ffa7], a
 	ld a, $12
 	ld [$c32c], a
-	call Func_00_18f5
+	call DeleteObject
 	ret
 
 .jump_6f7f:
@@ -7007,9 +7007,9 @@ Func_09_6f16::
 	call ApplyObjInit
 	call Func_09_6bfc
 	ld de, $0010
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $008c
-	call Func_00_3bf5
+	call MoveTowardsY
 	ret
 
 .jump_6fa9:
@@ -7116,12 +7116,12 @@ ObjInit_09_7048::
 Func_09_705e::
 	ld a, $24
 	call Func_09_43ea
-	call Func_00_127d
+	call AnimateObject
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
 	jp nz, NextObject
-	call Func_00_18f5
+	call DeleteObject
 	jp NextObject
 
 
@@ -7134,8 +7134,8 @@ Func_09_7075::
 	jr nz, .jump_7081
 	call Func_09_6f16
 .jump_7081:
-	call Func_00_127d
-	call Func_00_3ab5
+	call AnimateObject
+	call DespawnIfOutOfRange
 	jp NextObject
 
 
@@ -7693,8 +7693,8 @@ Func_09_73e2::
 
 
 Func_09_740d::
-	call Func_00_39b4
-	call Func_00_3ab5
+	call ApplyVelocity
+	call DespawnIfOutOfRange
 	jp NextObject
 
 
@@ -7730,7 +7730,7 @@ Func_09_7416::
 	call nz, ApplyMapPatch
 	pop bc
 .jump_744b:
-	call Func_00_18e4
+	call MarkObjectSpawnDone
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -7924,9 +7924,9 @@ Func_09_7586::
 	call ApplyObjInit
 	call Func_09_6bfc
 	ld de, $0050
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $0010
-	call Func_00_3bf5
+	call MoveTowardsY
 	jp Func_09_43ea.jump_44f5
 
 
@@ -7986,8 +7986,8 @@ Func_09_75f9::
 	inc hl
 	ld [hl], HIGH(Func_09_760f)
 	rst_farcall Func_09_4212
-	call Func_00_3ab5
-	call Func_00_127d
+	call DespawnIfOutOfRange
+	call AnimateObject
 	jp NextObject
 
 
@@ -8000,8 +8000,8 @@ Func_09_760f::
 	ld hl, ObjInit_09_7629
 	call ApplyObjInit
 .jump_7620:
-	call Func_00_3ab5
-	call Func_00_127d
+	call DespawnIfOutOfRange
+	call AnimateObject
 	jp NextObject
 
 
@@ -8039,8 +8039,8 @@ Func_09_763c::
 	add hl, bc
 	ld [hl], $80
 .jump_7667:
-	call Func_00_3ab5
-	call Func_00_127d
+	call DespawnIfOutOfRange
+	call AnimateObject
 	jp NextObject
 
 
@@ -8064,8 +8064,8 @@ Func_09_7670::
 	add hl, bc
 	ld [hl], $40
 .jump_7694:
-	call Func_00_3ab5
-	call Func_00_127d
+	call DespawnIfOutOfRange
+	call AnimateObject
 	jp NextObject
 
 
@@ -8141,7 +8141,7 @@ Func_09_76c6::
 	call nz, ApplyMapPatch
 	pop bc
 .jump_770c:
-	call Func_00_18f0
+	call DeleteObjectForGood
 	jr .jump_774d
 
 .jump_7711:
@@ -8274,8 +8274,8 @@ Func_09_77dc::
 	ld a, [hl]
 	jr z, .jump_77f1
 .jump_77e4:
-	call Func_00_39b4
-	call Func_00_3ab5
+	call ApplyVelocity
+	call DespawnIfOutOfRange
 	rst_farcall Func_0a_68f8
 	jp NextObject
 
@@ -8390,9 +8390,9 @@ Func_09_7882::
 
 
 Func_09_78a3::
-	call Func_00_39b4
-	call Func_00_3ab5
-	call Func_00_127d
+	call ApplyVelocity
+	call DespawnIfOutOfRange
+	call AnimateObject
 	jp NextObject
 
 
@@ -8631,7 +8631,7 @@ Func_09_7a3e::
 	ld a, [hl]
 	rlca
 	jr nc, .jump_7a4c
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 .jump_7a4c:
@@ -8641,7 +8641,7 @@ Func_09_7a3e::
 	ld l, [hl]
 	ld h, $a8
 	set 2, [hl]
-	call Func_00_18f5
+	call DeleteObject
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -8765,9 +8765,9 @@ Func_09_7b05::
 	call ApplyObjInit
 	call Func_09_6bfc
 	ld de, $0081
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $000c
-	call Func_00_3bf5
+	call MoveTowardsY
 	jp Func_09_43ea.jump_44f5
 
 
@@ -8816,9 +8816,9 @@ Func_09_7b84::
 	call ApplyObjInit
 	call Func_09_6bfc
 	ld de, $0004
-	call Func_00_3bcf
+	call MoveTowardsX
 	ld de, $0004
-	call Func_00_3bf5
+	call MoveTowardsY
 	ld a, $2c
 	ld [$c32a], a
 	jp Func_09_43ea.jump_44f5

@@ -106,7 +106,11 @@ class Emitter:
     # ---------------------------------------------------------------- labels
     def _name_labels(self):
         t = self.t
-        overrides = {off(b, a): n for (b, a), n in hints.NAMES.items()}
+        import autonames
+        import names as name_table
+        overrides = {off(b, a): n for (b, a), n in autonames.auto_names(self.rom).items()}
+        overrides.update({off(b, a): n for (b, a), n in name_table.NAMES.items()})
+        overrides.update({off(b, a): n for (b, a), n in hints.NAMES.items()})
         by_bank = {}
         for o, kind in t.labels.items():
             if o not in t.insns:

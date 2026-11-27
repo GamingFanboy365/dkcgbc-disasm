@@ -49,11 +49,11 @@ Func_0d_4130::
 	ld de, $c800
 	ld hl, $0800
 	ld c, $7f
-	call Func_00_03a1
+	call HDMACopy
 	ld de, $c800
 	ld hl, $1000
 	ld c, $7f
-	call Func_00_03a1
+	call HDMACopy
 	ld a, $01
 	ldh [rVBK], a
 	ld a, $07
@@ -80,7 +80,7 @@ Func_0d_4130::
 	ld de, $c800
 	ld hl, $1800
 	ld c, $23
-	call Func_00_03a1
+	call HDMACopy
 	xor a
 	ldh [rVBK], a
 	ld a, $58
@@ -108,8 +108,8 @@ Func_0d_4130::
 	ld de, $c800
 	ld hl, $1800
 	ld c, $23
-	call Func_00_03a1
-	call Func_00_0eee
+	call HDMACopy
+	call ClearOAM
 	ld de, $4110
 	ld hl, $c000
 	ld bc, $0020
@@ -117,7 +117,7 @@ Func_0d_4130::
 	ld de, $4010
 	ld hl, $05a0
 	ld bc, $000f
-	call Func_00_03a1
+	call HDMACopy
 	xor a
 	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0800
@@ -158,7 +158,7 @@ Func_0d_4216::
 	ld de, $c800
 	ld hl, $1800
 	ld c, $23
-	call Func_00_03a1
+	call HDMACopy
 	xor a
 	ldh [rVBK], a
 	ld de, $5980
@@ -168,7 +168,7 @@ Func_0d_4216::
 	ld de, $c800
 	ld hl, $1000
 	ld c, $57
-	call Func_00_03a1
+	call HDMACopy
 	ret
 
 

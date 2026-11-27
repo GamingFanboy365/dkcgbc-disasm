@@ -396,7 +396,7 @@ Func_05_4274::
 	ld hl, $8200
 	xor a
 	ldh [rVBK], a
-	call Func_00_0391
+	call FarHDMACopy
 	ret
 
 

@@ -79,7 +79,7 @@ LCDInterrupt::
 	jp $c330
 
 
-Func_00_004b::
+EmptyInterrupt::
 	reti
 
 
@@ -143,7 +143,7 @@ ReadJoypad::
 	ret
 
 
-Func_00_00a1::
+SetDoubleSpeed::
 	ldh a, [rKEY1]
 	bit 7, a
 	ret nz
@@ -162,7 +162,7 @@ Func_00_00a1::
 	ret
 
 
-Func_00_00bc::
+SetNormalSpeed::
 	ldh a, [rKEY1]
 	bit 7, a
 	ret z
@@ -183,19 +183,19 @@ Func_00_00bc::
 	ds 25, $00 ; $00d7
 
 
-Func_00_00f0::
+Vector_UpdateSound::
 	jp UpdateSound
 
 
-Func_00_00f3::
+Vector_PlaySong::
 	jp PlaySong
 
 
 RAMPointer_00_00f6::
 	dw $c329 ; a RAM address, read by Func_f1_4dc4 in bank $f1
 
-Func_00_00f8::
-	jp Func_00_03e4.jump_041d
+Vector_00f8::
+	jp Decompress.jump_041d
 
 
 Padding_00_00fb::
@@ -314,23 +314,23 @@ Init::
 	ldh a, [$ff80]
 	cp $0f
 	jr z, .jump_01e8
-	call Func_00_00a1
+	call SetDoubleSpeed
 	ld a, $81
 	ldh [rLCDC], a
 	xor a
 	ldh [rIF], a
 	ld a, $01
 	ldh [rIE], a
-	call Func_00_2f0e
+	call InitSound
 	ld a, $00
 	call PlaySong
 	ld a, $ff
 	ld hl, wBGPalettes
 	ld bc, $0200
 	call FillMemory
-	call Func_00_025d
+	call InstallInterruptTrampolines
 	ld de, Flow_0d_5f58
-	call Func_00_38c7
+	call SetFlowPointer
 	ei
 .jump_021c:
 	call ReadJoypad
@@ -375,7 +375,7 @@ Init::
 	jp .jump_021c
 
 
-Func_00_025d::
+InstallInterruptTrampolines::
 	ld hl, $c32d
 	ld a, $c3
 	ld [hli], a
@@ -396,7 +396,7 @@ Func_00_025d::
 	ret
 
 
-Func_00_027c::
+DoOAMDMA::
 	ld a, $c0
 	call $ffc8
 	ld a, $01
@@ -404,9 +404,9 @@ Func_00_027c::
 	ret
 
 
-Func_00_0286::
+SimpleVBlankHandler::
 	push af
-	call Func_00_027c
+	call DoOAMDMA
 	pop af
 	reti
 
@@ -437,7 +437,7 @@ NotGBC::
 	call CopyBytes
 	ld de, $48c0
 	ld hl, $9800
-	call Func_00_2bfb
+	call CopyScreenTileMap
 	ld hl, $ff40
 	set 7, [hl]
 .jump_02ca:
@@ -448,139 +448,139 @@ NotGBC::
 	ds 51, $00 ; $02ce
 
 
-Func_00_0301::
-	jp Func_00_241d.jump_249e
+GameState_01::
+	jp RasterLCDHandler.jump_249e
 
 
-Func_00_0304::
-	jp Func_00_241d.jump_2463
+GameState_04::
+	jp RasterLCDHandler.jump_2463
 
 
-Func_00_0307::
-	jp Func_00_2214.jump_23ea
+GameState_07::
+	jp GetTerrainUnderObject.jump_23ea
 
 
-Func_00_030a::
-	jp Func_00_241d.jump_245c
+GameState_0A::
+	jp RasterLCDHandler.jump_245c
 
 
-Func_00_030d::
-	jp Func_00_19e7.jump_1a58
+GameState_0D::
+	jp SpawnObjectsOnScroll.jump_1a58
 
 
-Func_00_0310::
+GameState_10::
 	jp Func_00_2ae3.jump_2b07
 
 
-Func_00_0313::
+GameState_13::
 	jp Func_00_2ae3.jump_2b1f
 
 
-Func_00_0316::
-	jp Func_00_0eee.jump_0efc
+GameState_16::
+	jp ClearOAM.jump_0efc
 
 
-Func_00_0319::
-	jp Func_00_38cd.jump_3931
+GameState_19::
+	jp RunFlowScript.jump_3931
 
 
-Func_00_031c::
+GameState_1C::
 	jp FadePalettesToWhite.jump_2e7e
 
 
-Func_00_031f::
+GameState_1F::
 	jp Func_00_2ae3.jump_2b48
 
 
-Func_00_0322::
+GameState_22::
 	jp CharTileTable.jump_0533
 
 
-Func_00_0325::
-	jp Func_00_3ce1.jump_3d0b
+GameState_25::
+	jp LoadBGPaletteSet.jump_3d0b
 
 
-Func_00_0328::
-	jp Func_00_3ce1.jump_3cfc
+GameState_28::
+	jp LoadBGPaletteSet.jump_3cfc
 
 
-Func_00_032b::
+GameState_2B::
 	jp CharTileTable.jump_0512
 
 
-Func_00_032e::
+GameState_2E::
 	jp CharTileTable.jump_050b
 
 
-Func_00_0331::
-	jp Func_00_38cd.jump_3949
+GameState_31::
+	jp RunFlowScript.jump_3949
 
 
-Func_00_0334::
+GameState_34::
 	jp CharTileTable.jump_0604
 
 
-Func_00_0337::
-	jp Func_00_19e7.jump_1baf
+GameState_37::
+	jp SpawnObjectsOnScroll.jump_1baf
 
 
-Func_00_033a::
-	jp Func_00_19e7.jump_1c73
+GameState_3A::
+	jp SpawnObjectsOnScroll.jump_1c73
 
 
-Func_00_033d::
-	jp Func_00_2214.jump_23f7
+GameState_3D::
+	jp GetTerrainUnderObject.jump_23f7
 
 
-Func_00_0340::
-	jp Func_00_241d.jump_2644
+GameState_40::
+	jp RasterLCDHandler.jump_2644
 
 
-Func_00_0343::
+GameState_43::
 	jp FadePalettesToWhite.jump_2e94
 
 
-Func_00_0346::
+GameState_46::
 	jp Func_00_2ae3.jump_2b2e
 
 
-Func_00_0349::
-	jp Func_00_19e7.jump_1b56
+GameState_49::
+	jp SpawnObjectsOnScroll.jump_1b56
 
 
-Func_00_034c::
-	jp Func_00_38cd.jump_391b
+GameState_4C::
+	jp RunFlowScript.jump_391b
 
 
-Func_00_034f::
-	jp Func_00_38cd.jump_393a
+GameState_4F::
+	jp RunFlowScript.jump_393a
 
 
-Func_00_0352::
-	jp Func_00_38cd.jump_3941
+GameState_52::
+	jp RunFlowScript.jump_3941
 
 
-Func_00_0355::
-	jp Func_00_2b5f.jump_2b82
+GameState_55::
+	jp GetFlowRecord.jump_2b82
 
 
-Func_00_0358::
-	jp Func_00_2b5f.jump_2b6b
+GameState_58::
+	jp GetFlowRecord.jump_2b6b
 
 
-Func_00_035b::
-	jp Func_00_2b5f.jump_2bc4
+GameState_5B::
+	jp GetFlowRecord.jump_2bc4
 
 
-Func_00_035e::
-	jp Func_00_2b5f.jump_2be7
+GameState_5E::
+	jp GetFlowRecord.jump_2be7
 
 
-Func_00_0361::
-	jp Func_00_3ce1.jump_3d28
+GameState_61::
+	jp LoadBGPaletteSet.jump_3d28
 
 
-Func_00_0364::
+Random::
 	push bc
 	push hl
 	ld hl, $c302
@@ -616,18 +616,18 @@ Func_00_0364::
 	ret
 
 
-Func_00_0391::
+FarHDMACopy::
 	ld a, [$4000]
 	push af
 	ld a, b
 	ld [rROMB0], a
-	call Func_00_03a1
+	call HDMACopy
 	pop af
 	ld [rROMB0], a
 	ret
 
 
-Func_00_03a1::
+HDMACopy::
 	ld a, d
 	ldh [rHDMA1], a
 	ld a, e
@@ -650,7 +650,7 @@ Func_00_03a1::
 	ret
 
 
-Func_00_03be::
+GetBitMask::
 	bit 3, a
 	jr nz, .jump_03d3
 	ld de, $0001
@@ -679,7 +679,7 @@ Func_00_03be::
 	jr .jump_03de
 
 
-Func_00_03e4::
+Decompress::
 	ld a, [de]
 	or a
 	ret z
@@ -693,7 +693,7 @@ Func_00_03e4::
 	ld [hli], a
 	dec c
 	jr nz, .jump_03ef
-	jr Func_00_03e4
+	jr Decompress
 
 .unreached_03f5:
 	db $18, $ed ; jr $03e4, never reached
@@ -708,7 +708,7 @@ Func_00_03e4::
 	ld [hli], a
 	dec c
 	jr nz, .jump_03fe
-	jr Func_00_03e4
+	jr Decompress
 
 .jump_0406:
 	and $3f
@@ -730,7 +730,7 @@ Func_00_03e4::
 	dec c
 	jr nz, .jump_0414
 	pop de
-	jr Func_00_03e4
+	jr Decompress
 
 .jump_041d:
 	jp FadePalettesToWhite.jump_2ef2
@@ -798,7 +798,7 @@ CharTileTable::
 	ld a, $03
 	ldh [rIE], a
 	call InitObjectSlots
-	call Func_00_0e91
+	call LoadCommonSpriteTiles
 	ld hl, $c32e
 	ld a, $86
 	ld [hli], a
@@ -820,7 +820,7 @@ CharTileTable::
 	ld de, $d000
 	ld hl, $1c00
 	ld bc, $0023
-	call Func_00_03a1
+	call HDMACopy
 	ld a, $01
 	ldh [$ffa6], a
 	ld a, $ff
@@ -853,7 +853,7 @@ CharTileTable::
 	ld [rROMB0], a
 	call Func_0f_4001
 	ei
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_05bf:
 	ld hl, ObjPalPreload_80_423c
@@ -864,7 +864,7 @@ CharTileTable::
 	ld [rROMB0], a
 	call Func_0f_40a9
 	ei
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_05d6:
 	ld hl, ObjPalPreload_80_4245
@@ -875,7 +875,7 @@ CharTileTable::
 	ld [rROMB0], a
 	call Func_0f_412e
 	ei
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_05ed:
 	ld hl, ObjPalPreload_80_4245
@@ -886,19 +886,19 @@ CharTileTable::
 	ld [rROMB0], a
 	call Func_0f_41c2
 	ei
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_0604:
-	call Func_00_0ee2
+	call ResetOAMBuffers
 	call RunObjects
-	call Func_00_0f02
+	call BuildOAM
 	ld a, $0f
 	ld [rROMB0], a
 	call Func_0f_43dd
 	ret
 
 
-Func_00_0616::
+LCDSplitHandler::
 	push af
 	push hl
 	push bc
@@ -980,12 +980,12 @@ Func_00_0616::
 	reti
 
 
-Func_00_0682::
+RandomBelow::
 	ld a, [$c44f]
 	or a
 	jr z, .jump_0696
 	push hl
-	call Func_00_0364
+	call Random
 	and $03
 	inc a
 	ld hl, $c44f
@@ -994,7 +994,7 @@ Func_00_0682::
 	jr .jump_0699
 
 .jump_0696:
-	call Func_00_0364
+	call Random
 .jump_0699:
 	cp e
 	jr c, .jump_069f
@@ -1005,7 +1005,7 @@ Func_00_0682::
 	ld e, a
 	ld [$c44f], a
 
-Func_00_06a3::
+LoadTextString::
 	ld a, [$4000]
 	push af
 	push de
@@ -1069,7 +1069,7 @@ Func_00_06a3::
 	ld de, $d000
 	ld hl, $1c00
 	ld bc, $0023
-	call Func_00_03a1
+	call HDMACopy
 	ld hl, $ff41
 	set 3, [hl]
 	pop af
@@ -1077,7 +1077,7 @@ Func_00_06a3::
 	ret
 
 
-Func_00_0718::
+WriteScrollEdges::
 	ldh a, [$ff89]
 	ldh [rSCX], a
 	ldh a, [$ff8b]
@@ -1149,7 +1149,7 @@ Func_00_0718::
 	ret
 
 
-Func_00_0780::
+UpdateMapScroll::
 	ldh a, [$ff88]
 	bit 0, a
 	jp nz, .jump_07a4
@@ -1158,14 +1158,14 @@ Func_00_0780::
 	jr z, .jump_0791
 	ld bc, $ffff
 .jump_0791:
-	call Func_00_07c1
+	call LoadMapColumn
 	ldh a, [$ff88]
 	bit 5, a
 	ld bc, $ff13
 	jr z, .jump_07a0
 	ld bc, $ffff
 .jump_07a0:
-	call Func_00_0891
+	call LoadMapRow
 	ret
 
 .jump_07a4:
@@ -1174,18 +1174,18 @@ Func_00_0780::
 	jr z, .jump_07ae
 	ld bc, $ffff
 .jump_07ae:
-	call Func_00_097e
+	call LoadMapColumn_Vertical
 	ldh a, [$ff88]
 	bit 5, a
 	ld bc, $ff13
 	jr z, .jump_07bd
 	ld bc, $ffff
 .jump_07bd:
-	call Func_00_0a69
+	call LoadMapRow_Vertical
 	ret
 
 
-Func_00_07c1::
+LoadMapColumn::
 	ld a, $01
 	ldh [rSVBK], a
 	ldh a, [$ff89]
@@ -1330,7 +1330,7 @@ Func_00_07c1::
 	ret
 
 
-Func_00_0891::
+LoadMapRow::
 	ld a, $01
 	ldh [rSVBK], a
 	ldh a, [$ff8b]
@@ -1492,7 +1492,7 @@ Func_00_0891::
 	ret
 
 
-Func_00_097e::
+LoadMapColumn_Vertical::
 	ld a, $01
 	ldh [rSVBK], a
 	ldh a, [$ff89]
@@ -1657,7 +1657,7 @@ Func_00_097e::
 	ret
 
 
-Func_00_0a69::
+LoadMapRow_Vertical::
 	ld a, $01
 	ldh [rSVBK], a
 	ldh a, [$ff8b]
@@ -1817,7 +1817,7 @@ Func_00_0a69::
 	ret
 
 
-Func_00_0b4f::
+LoadMap::
 	ld a, $04
 	ld [rROMB0], a
 	push hl
@@ -1853,7 +1853,7 @@ Func_00_0b4f::
 	ld a, [hli]
 	ld d, a
 	push hl
-	call Func_00_2c0e
+	call LoadTileset
 	pop hl
 	ld a, $04
 	ld [rROMB0], a
@@ -1872,7 +1872,7 @@ Func_00_0b4f::
 	ld [rROMB0], a
 	push hl
 	ld hl, $d000
-	call Func_00_03e4
+	call Decompress
 	pop hl
 	ld a, $04
 	ld [rROMB0], a
@@ -1897,7 +1897,7 @@ Func_00_0b4f::
 	ld [rROMB0], a
 	push hl
 	ld hl, $d000
-	call Func_00_03e4
+	call Decompress
 	pop hl
 	ld a, $04
 	ld [rROMB0], a
@@ -1909,10 +1909,10 @@ Func_00_0b4f::
 	ret
 
 
-Func_00_0be4::
+DrawMapScreen::
 	ldh a, [$ff88]
 	rrca
-	jp c, Func_00_0c24.jump_0cae
+	jp c, DrawMapArea.jump_0cae
 	ldh a, [$ff8b]
 	ld l, a
 	ldh a, [$ff8c]
@@ -1942,16 +1942,16 @@ Func_00_0be4::
 	push hl
 	xor a
 	ldh [rVBK], a
-	call Func_00_0c24
+	call DrawMapArea
 	pop hl
 	ld a, $01
 	ldh [rVBK], a
 	set 6, h
-	call Func_00_0c24
+	call DrawMapArea
 	ret
 
 
-Func_00_0c24::
+DrawMapArea::
 	ld c, $08
 .jump_0c26:
 	ld b, $08
@@ -2078,16 +2078,16 @@ Func_00_0c24::
 	push hl
 	xor a
 	ldh [rVBK], a
-	call Func_00_0ce4
+	call DrawMapArea_Vertical
 	pop hl
 	ld a, $01
 	ldh [rVBK], a
 	set 7, h
-	call Func_00_0ce4
+	call DrawMapArea_Vertical
 	ret
 
 
-Func_00_0ce4::
+DrawMapArea_Vertical::
 	ld c, $08
 .jump_0ce6:
 	ld b, $08
@@ -2210,7 +2210,7 @@ ApplyMapPatch::
 .jump_0d87:
 	push de
 	push bc
-	call Func_00_0d9d
+	call SetMapCell
 	pop bc
 	inc c
 	pop de
@@ -2226,7 +2226,7 @@ ApplyMapPatch::
 	ret
 
 
-Func_00_0d9d::
+SetMapCell::
 	ld a, [hli]
 	ld e, a
 	ld a, [hld]
@@ -2410,7 +2410,7 @@ Func_00_0d9d::
 	ret
 
 
-Func_00_0e91::
+LoadCommonSpriteTiles::
 	ld a, $41
 	ld [rROMB0], a
 	xor a
@@ -2453,12 +2453,12 @@ Func_00_0e91::
 	ldh a, [rHDMA5]
 	rlca
 	jr nc, .jump_0ed6
-	call Func_00_0ee2
-	call Func_00_0eee
+	call ResetOAMBuffers
+	call ClearOAM
 	ret
 
 
-Func_00_0ee2::
+ResetOAMBuffers::
 	xor a
 	ldh [$ffa2], a
 	ldh [$ffa3], a
@@ -2468,7 +2468,7 @@ Func_00_0ee2::
 	ret
 
 
-Func_00_0eee::
+ClearOAM::
 	xor a
 	ld hl, $c000
 	ld c, $28
@@ -2482,31 +2482,31 @@ Func_00_0eee::
 	ret
 
 .jump_0efc:
-	call Func_00_0eee
-	jp Func_00_38cd
+	call ClearOAM
+	jp RunFlowScript
 
 
-Func_00_0f02::
+BuildOAM::
 	ldh a, [rSTAT]
 	and $03
-	jr z, Func_00_0f02
+	jr z, BuildOAM
 	ld hl, $c443
 	bit 0, [hl]
-	call z, Func_00_0f21
+	call z, AnimateSpriteTiles
 	ldh a, [$ffa1]
 	xor $09
 	ldh [$ffa1], a
 	rrca
 	jr c, .jump_0f1d
-	call Func_00_0f52
+	call CopyOAMBuffersForward
 	ret
 
 .jump_0f1d:
-	call Func_00_0fbb
+	call CopyOAMBuffersBackward
 	ret
 
 
-Func_00_0f21::
+AnimateSpriteTiles::
 	ld a, [$c336]
 	ld d, a
 	and $03
@@ -2539,7 +2539,7 @@ Func_00_0f21::
 	ret
 
 
-Func_00_0f52::
+CopyOAMBuffersForward::
 	ld hl, $c0a0
 	ldh a, [$ffa4]
 	or a
@@ -2634,7 +2634,7 @@ Func_00_0f52::
 	ret
 
 
-Func_00_0fbb::
+CopyOAMBuffersBackward::
 	ld hl, $c000
 	ldh a, [$ffa2]
 	ld d, $c5
@@ -2736,7 +2736,7 @@ Func_00_0fbb::
 	ret
 
 
-Func_00_1037::
+DrawSpriteFrame::
 	push bc
 	ldh a, [$ffa5]
 	or a
@@ -3130,7 +3130,7 @@ Func_00_1037::
 	jp .jump_10fd
 
 
-Func_00_127d::
+AnimateObject::
 	ld hl, wObjects + OBJ_ANIM_TIMER
 	add hl, bc
 	ld a, [hl]
@@ -3286,7 +3286,7 @@ Func_00_127d::
 	jp .jump_1295
 
 
-Func_00_1341::
+DrawObject::
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	bit 5, [hl]
@@ -3297,7 +3297,7 @@ Func_00_1341::
 .jump_134f:
 	ld a, [$4000]
 	push af
-	call Func_00_162c
+	call GetObjectScreenPos
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
@@ -3322,7 +3322,7 @@ Func_00_1341::
 	ld a, $c5
 	add a, [hl]
 	ldh [$ffa0], a
-	call Func_00_1037
+	call DrawSpriteFrame
 	ldh a, [$ffa0]
 	sub $c5
 	add a, $a2
@@ -3511,7 +3511,7 @@ Func_00_144e::
 	ldh [$ff9d], a
 	ld a, $4b
 	ldh [$ff9e], a
-	call Func_00_1037
+	call DrawSpriteFrame
 	ldh a, [$ff95]
 .jump_14ac:
 	bit 1, a
@@ -3525,7 +3525,7 @@ Func_00_144e::
 	ldh [$ff9d], a
 	ld a, $4b
 	ldh [$ff9e], a
-	call Func_00_1037
+	call DrawSpriteFrame
 	ldh a, [$ff95]
 .jump_14c7:
 	bit 2, a
@@ -3539,7 +3539,7 @@ Func_00_144e::
 	ldh [$ff9d], a
 	ld a, $4b
 	ldh [$ff9e], a
-	call Func_00_1037
+	call DrawSpriteFrame
 	ldh a, [$ff95]
 .jump_14e2:
 	bit 3, a
@@ -3553,7 +3553,7 @@ Func_00_144e::
 	ldh [$ff9d], a
 	ld a, $4b
 	ldh [$ff9e], a
-	call Func_00_1037
+	call DrawSpriteFrame
 .jump_14fb:
 	ldh a, [$ff9f]
 	ldh [$ffa2], a
@@ -3580,7 +3580,7 @@ Func_00_144e::
 	ldh a, [$ff97]
 	add a, $08
 	ldh [$ff97], a
-	call Func_00_1037
+	call DrawSpriteFrame
 	ldh a, [$ff99]
 	add a, $14
 	ldh [$ff99], a
@@ -3600,14 +3600,14 @@ Func_00_144e::
 	ldh [$ff97], a
 	ld a, $58
 	ldh [$ff99], a
-	call Func_00_127d
+	call AnimateObject
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, [hli]
 	ldh [$ff9d], a
 	ld a, [hli]
 	ldh [$ff9e], a
-	call Func_00_1037
+	call DrawSpriteFrame
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld e, [hl]
@@ -3657,7 +3657,7 @@ Func_00_144e::
 	ret
 
 
-Func_00_1598::
+CheckObjectOnScreen::
 	ld hl, $ff89
 	ld a, [hli]
 	sub $05
@@ -3765,14 +3765,14 @@ Func_00_1604::
 	ret
 
 
-Func_00_162c::
+GetObjectScreenPos::
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
 	and $08
-	jr nz, Func_00_1664
+	jr nz, GetObjectScreenPos_Fixed
 
-Func_00_1635::
+GetObjectScreenPos_Camera::
 	ld hl, $ff89
 	ld a, [hli]
 	sub $08
@@ -3806,7 +3806,7 @@ Func_00_1635::
 	ret
 
 
-Func_00_1664::
+GetObjectScreenPos_Fixed::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hl]
@@ -3937,7 +3937,7 @@ Func_00_16ab::
 	ret
 
 
-Func_00_1715::
+LoadLevelObjects::
 	ld a, $04
 	ldh [rSVBK], a
 	ld h, d
@@ -3961,7 +3961,7 @@ Func_00_1715::
 	cp $10
 	jr nz, .jump_171b
 	push hl
-	call Func_00_1761
+	call GetLevelObjStringSlot
 .jump_1737:
 	ld a, [bc]
 	ld [hli], a
@@ -3984,7 +3984,7 @@ Func_00_1715::
 	jr z, .jump_1747
 	and $30
 	jr nz, .jump_1747
-	call Func_00_1761
+	call GetLevelObjStringSlot
 .jump_1757:
 	ld a, [bc]
 	ld [hli], a
@@ -3995,7 +3995,7 @@ Func_00_1715::
 	jr .jump_1747
 
 
-Func_00_1761::
+GetLevelObjStringSlot::
 	ld l, e
 	ld h, $00
 	add hl, hl
@@ -4020,7 +4020,7 @@ Func_00_1761::
 .jump_1778:
 	pop hl
 
-Func_00_1779::
+SpawnLevelObjects::
 	ld a, [hli]
 	or a
 	ret z
@@ -4028,7 +4028,7 @@ Func_00_1779::
 	ld d, $a8
 	ld a, [de]
 	and $03
-	jr nz, Func_00_1779
+	jr nz, SpawnLevelObjects
 	ld a, [de]
 	inc d
 	push hl
@@ -4046,13 +4046,13 @@ Func_00_1779::
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr nc, Func_00_1761.jump_1778
+	jr nc, GetLevelObjStringSlot.jump_1778
 	ld a, [hli]
 	sub c
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr c, Func_00_1761.jump_1778
+	jr c, GetLevelObjStringSlot.jump_1778
 	ld a, [de]
 	ld c, a
 	inc d
@@ -4065,13 +4065,13 @@ Func_00_1779::
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr nc, Func_00_1761.jump_1778
+	jr nc, GetLevelObjStringSlot.jump_1778
 	ld a, [hli]
 	sub c
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr c, Func_00_1761.jump_1778
+	jr c, GetLevelObjStringSlot.jump_1778
 	ld hl, $c470
 	ld a, [hli]
 	sub c
@@ -4101,10 +4101,10 @@ Func_00_1779::
 	sub c
 	ld a, [hli]
 	sbc a, b
-	jr nc, Func_00_1761.jump_1778
+	jr nc, GetLevelObjStringSlot.jump_1778
 .jump_17e0:
 	call AllocObject
-	jr c, Func_00_1761.jump_1778
+	jr c, GetLevelObjStringSlot.jump_1778
 	ld d, $a9
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
@@ -4156,7 +4156,7 @@ Func_00_1779::
 	call Func_00_185f
 .jump_182b:
 	pop hl
-	jp Func_00_1779
+	jp SpawnLevelObjects
 
 
 InitObject::
@@ -4218,7 +4218,7 @@ Func_00_185f::
 
 .jump_187e:
 	pop hl
-	call Func_00_1779
+	call SpawnLevelObjects
 	ret
 
 
@@ -4309,7 +4309,7 @@ AllocObject::
 	ret
 
 
-Func_00_18e4::
+MarkObjectSpawnDone::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -4319,12 +4319,12 @@ Func_00_18e4::
 	ret
 
 
-Func_00_18f0::
-	call Func_00_18e4
-	jr Func_00_18f5.jump_18fe
+DeleteObjectForGood::
+	call MarkObjectSpawnDone
+	jr DeleteObject.jump_18fe
 
 
-Func_00_18f5::
+DeleteObject::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -4366,7 +4366,7 @@ Func_00_18f5::
 	ret
 
 
-Func_00_1933::
+UpdateSpawnWindow::
 	ld a, [$c445]
 	and $0f
 	cp $07
@@ -4489,7 +4489,7 @@ Func_00_1933::
 	ret
 
 
-Func_00_19e7::
+SpawnObjectsOnScroll::
 	ldh a, [$ff88]
 	rrca
 	jr c, .jump_1a15
@@ -4510,7 +4510,7 @@ Func_00_19e7::
 .jump_1a04:
 	push bc
 	push hl
-	call Func_00_1779
+	call SpawnLevelObjects
 	pop hl
 	ld bc, $0010
 	add hl, bc
@@ -4548,7 +4548,7 @@ Func_00_19e7::
 	rr l
 	or $a0
 	ld h, a
-	call Func_00_1779
+	call SpawnLevelObjects
 	pop hl
 	ld a, h
 	inc a
@@ -4592,14 +4592,14 @@ Func_00_19e7::
 	call CopyBytes
 	ld a, $00
 	ldh [rVBK], a
-	call Func_00_1ea4
+	call InitWorldMapGraphics
 	ld a, $01
 	ldh [rVBK], a
 	ld b, $40
 	ld de, $4000
 	ld hl, $0000
 	ld c, $7f
-	call Func_00_0391
+	call FarHDMACopy
 	ld a, $05
 	ld [rROMB0], a
 	ld a, [$c30b]
@@ -4636,7 +4636,7 @@ Func_00_19e7::
 	push hl
 	ld a, $0f
 	ld [rROMB0], a
-	call Func_00_1f8a
+	call CopyWorldTileMap
 	pop hl
 	ld a, $05
 	ld [rROMB0], a
@@ -4672,7 +4672,7 @@ Func_00_19e7::
 	ld d, a
 	ld a, [hli]
 	ld b, a
-	call Func_00_2c0e
+	call LoadTileset
 	xor a
 	ldh [$ffc6], a
 	ldh [$ffc7], a
@@ -4686,8 +4686,8 @@ Func_00_19e7::
 	call Func_05_42a6
 	call Func_05_4274
 	call Func_00_1d2f
-	call Func_00_1f0a
-	call Func_00_20bb
+	call DrawWorldMapScreen
+	call UpdateWorldMapSprites
 	ld hl, $c32e
 	ld a, $c2
 	ld [hli], a
@@ -4701,13 +4701,13 @@ Func_00_19e7::
 	ld a, $ff
 	ldh [rLYC], a
 	ei
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_1b56:
 	ld a, $05
 	ld [rROMB0], a
-	call Func_00_1e3b
-	call Func_00_20bb
+	call DrawWorldMapColumn
+	call UpdateWorldMapSprites
 	ld hl, $c310
 	bit 6, [hl]
 	jp nz, Func_00_1d2f.jump_1e0a
@@ -4736,13 +4736,13 @@ Func_00_19e7::
 .jump_1b90:
 	ld [$c601], a
 .jump_1b93:
-	call Func_00_1e83
+	call GetWorldMapColumnToDraw
 	ret
 
 .jump_1b97:
-	call Func_00_1cb1
-	call Func_00_1fc9
-	call Func_00_1e83
+	call WorldMapFrameTasks
+	call UpdateWorldMapScroll
+	call GetWorldMapColumnToDraw
 	ldh a, [$ff80]
 	and $09
 	jp nz, Func_00_1d2f.jump_1d55
@@ -4754,11 +4754,11 @@ Func_00_19e7::
 .jump_1baf:
 	ld a, $05
 	ld [rROMB0], a
-	call Func_00_1e3b
-	call Func_00_20bb
-	call Func_00_1cb1
-	call Func_00_1fc9
-	call Func_00_1e83
+	call DrawWorldMapColumn
+	call UpdateWorldMapSprites
+	call WorldMapFrameTasks
+	call UpdateWorldMapScroll
+	call GetWorldMapColumnToDraw
 	ld a, [$c613]
 	ld e, a
 	ld a, [$c614]
@@ -4866,15 +4866,15 @@ Func_00_19e7::
 .jump_1c73:
 	ld a, $05
 	ld [rROMB0], a
-	call Func_00_1e3b
-	call Func_00_20bb
-	call Func_00_1cb1
-	call Func_00_1fc9
-	call Func_00_1e83
+	call DrawWorldMapColumn
+	call UpdateWorldMapSprites
+	call WorldMapFrameTasks
+	call UpdateWorldMapScroll
+	call GetWorldMapColumnToDraw
 	ld hl, $c609
-	call Func_00_1c9d
+	call AddSignedWordTo24
 	ld hl, $c60e
-	call Func_00_1c9d
+	call AddSignedWordTo24
 	ld hl, $c615
 	dec [hl]
 	ret nz
@@ -4883,7 +4883,7 @@ Func_00_19e7::
 	ret
 
 
-Func_00_1c9d::
+AddSignedWordTo24::
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -4905,23 +4905,23 @@ Func_00_1c9d::
 	ret
 
 
-Func_00_1cb1::
+WorldMapFrameTasks::
 	di
 	ld a, [$c336]
-	call Func_00_1ebc
+	call AnimateWorldMapTiles
 	ei
-	call Func_00_0364
+	call Random
 	ld a, $05
 	ld [rROMB0], a
 	ret
 
 
-Func_00_1cc2::
+WorldMapVBlankHandler::
 	push af
 	push hl
 	push bc
 	push de
-	call Func_00_027c
+	call DoOAMDMA
 	ld hl, $ff40
 	res 2, [hl]
 	ldh a, [$ffc7]
@@ -4942,7 +4942,7 @@ Func_00_1cc2::
 	reti
 
 
-Func_00_1cec::
+WorldMapLCDHandler::
 	push af
 	push hl
 	ldh a, [$ffc6]
@@ -5070,13 +5070,13 @@ Func_00_1d2f::
 	ld hl, $c310
 	res 7, [hl]
 	ld de, Flow_0d_5f96
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 .jump_1d9c:
 	ld a, e
 	ld [$c30b], a
 	ld de, Flow_0d_5f90
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 .jump_1da6:
 	ld a, e
@@ -5084,7 +5084,7 @@ Func_00_1d2f::
 	ld hl, $c310
 	res 7, [hl]
 	ld de, Flow_0d_5f9c
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 .unreached_1db5:
 	db $c9 ; ret, never reached
@@ -5094,7 +5094,7 @@ Func_00_1d2f::
 	ret z
 	ld [$c30c], a
 	ld de, Flow_0d_5fbe
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 .jump_1dc2:
 	ld e, a
@@ -5180,7 +5180,7 @@ Func_00_1d2f::
 	ret
 
 
-Func_00_1e3b::
+DrawWorldMapColumn::
 	ld a, [$c606]
 	ld b, a
 	ld c, $00
@@ -5232,7 +5232,7 @@ Func_00_1e3b::
 	ret
 
 
-Func_00_1e83::
+GetWorldMapColumnToDraw::
 	ld hl, $ffc7
 	ld a, [$c601]
 	cp [hl]
@@ -5257,11 +5257,11 @@ Func_00_1e83::
 	ret
 
 
-Func_00_1ea4::
+InitWorldMapGraphics::
 	ld a, $08
 .jump_1ea6:
 	push af
-	call Func_00_1ebc
+	call AnimateWorldMapTiles
 	pop af
 	dec a
 	jr nz, .jump_1ea6
@@ -5269,11 +5269,11 @@ Func_00_1ea4::
 	ld de, $5220
 	ld hl, $0400
 	ld c, $1c
-	call Func_00_0391
+	call FarHDMACopy
 	ret
 
 
-Func_00_1ebc::
+AnimateWorldMapTiles::
 	ld c, a
 	xor a
 	ldh [rVBK], a
@@ -5314,20 +5314,20 @@ Func_00_1ebc::
 	add hl, hl
 	ld b, $41
 	ld c, $03
-	call Func_00_0391
+	call FarHDMACopy
 	ret
 
 
 WordTable_00_1efa::
 	dw $4620, $4820, $4a20, $4c20, $4e20, $5020, $4f20, $5120
 
-Func_00_1f0a::
-	call Func_00_1fa7
+DrawWorldMapScreen::
+	call GetWorldMapScrollTarget
 	ld a, e
 	ld [$c601], a
 	inc a
 	ldh [$ffc7], a
-	call Func_00_1e83
+	call GetWorldMapColumnToDraw
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, d
@@ -5393,12 +5393,12 @@ Func_00_1f0a::
 	ldh [rVBK], a
 	ld de, $c3c0
 	ld c, $01
-	call Func_00_03a1
+	call HDMACopy
 	ld a, $01
 	ldh [rVBK], a
 	ld de, $c3e0
 	ld c, $01
-	call Func_00_03a1
+	call HDMACopy
 	pop de
 	pop hl
 	inc hl
@@ -5410,7 +5410,7 @@ Func_00_1f0a::
 	ret
 
 
-Func_00_1f8a::
+CopyWorldTileMap::
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, [de]
@@ -5435,7 +5435,7 @@ Func_00_1f8a::
 	ret
 
 
-Func_00_1fa7::
+GetWorldMapScrollTarget::
 	ld a, [$c60c]
 	sub $50
 	ld e, a
@@ -5463,8 +5463,8 @@ Func_00_1fa7::
 	ret
 
 
-Func_00_1fc9::
-	call Func_00_1fa7
+UpdateWorldMapScroll::
+	call GetWorldMapScrollTarget
 	ld hl, $c601
 	ld a, e
 	sub [hl]
@@ -5634,7 +5634,7 @@ Func_00_1ffe::
 ByteTable_00_20b5::
 	db 0, 3, 7, 11, 13, 15
 
-Func_00_20bb::
+UpdateWorldMapSprites::
 	call Func_00_1ffe
 	ld a, $05
 	ld [rROMB0], a
@@ -5653,7 +5653,7 @@ Func_00_20bb::
 	jr .jump_20d3
 
 
-Func_00_20dd::
+UpdateCameraRegion::
 	ld a, $06
 	ld [rROMB0], a
 	ld a, [$c45c]
@@ -5708,7 +5708,7 @@ Func_00_20dd::
 	jr .jump_20ec
 
 .jump_212d:
-	call Func_00_21bf
+	call SetCameraRegion
 	ld a, [$c450]
 	ld l, a
 	ld a, [wPlayer + OBJ_X]
@@ -5794,7 +5794,7 @@ Func_00_20dd::
 	ret
 
 
-Func_00_21ad::
+GetCameraRegionEdge::
 	add hl, de
 	ld a, [hli]
 	bit 1, a
@@ -5802,7 +5802,7 @@ Func_00_21ad::
 	ld h, [hl]
 	and $f0
 	ld l, a
-	jr Func_00_21ad
+	jr GetCameraRegionEdge
 
 .jump_21b9:
 	inc l
@@ -5813,7 +5813,7 @@ Func_00_21ad::
 	ret
 
 
-Func_00_21bf::
+SetCameraRegion::
 	ld a, [$4000]
 	push af
 	ld a, $06
@@ -5828,28 +5828,28 @@ Func_00_21bf::
 	jr nz, .jump_21cd
 	ld hl, $c45c
 	ld de, $0000
-	call Func_00_21ad
+	call GetCameraRegionEdge
 	ld a, e
 	ldh [$ff8d], a
 	ld a, d
 	ldh [$ff8e], a
 	ld hl, $c45c
 	ld de, $0004
-	call Func_00_21ad
+	call GetCameraRegionEdge
 	ld a, e
 	ldh [$ff91], a
 	ld a, d
 	ldh [$ff92], a
 	ld hl, $c45c
 	ld de, $0008
-	call Func_00_21ad
+	call GetCameraRegionEdge
 	ld a, e
 	ldh [$ff8f], a
 	ld a, d
 	ldh [$ff90], a
 	ld hl, $c45c
 	ld de, $000c
-	call Func_00_21ad
+	call GetCameraRegionEdge
 	ld a, e
 	ldh [$ff93], a
 	ld a, d
@@ -5859,7 +5859,7 @@ Func_00_21bf::
 	ret
 
 
-Func_00_2214::
+GetTerrainUnderObject::
 	ld a, [$4000]
 	push af
 	ldh a, [$ff86]
@@ -6203,12 +6203,12 @@ Func_00_2214::
 	ret
 
 
-Func_00_2400::
+RasterVBlankHandler::
 	push af
 	push hl
 	push de
 	push bc
-	call Func_00_027c
+	call DoOAMDMA
 	ld hl, $ce00
 	call LoadBGPalettesHL
 	ld a, [$cf60]
@@ -6222,7 +6222,7 @@ Func_00_2400::
 	reti
 
 
-Func_00_241d::
+RasterLCDHandler::
 	push af
 	push hl
 	push bc
@@ -6276,7 +6276,7 @@ Func_00_241d::
 
 .jump_245c:
 	rst_farcall Func_0f_45b1
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_2463:
 	ld a, [$c30f]
@@ -6323,7 +6323,7 @@ Func_00_241d::
 	xor a
 	ld [$c443], a
 	call InitObjectSlots
-	call Func_00_0e91
+	call LoadCommonSpriteTiles
 	call Func_00_2ad8
 	ld hl, wLevelEntrance
 	ld a, [hli]
@@ -6371,7 +6371,7 @@ Func_00_241d::
 	push hl
 	ld h, d
 	ld l, e
-	call Func_00_0b4f
+	call LoadMap
 	pop hl
 	ld a, $04
 	ld [rROMB0], a
@@ -6382,7 +6382,7 @@ Func_00_241d::
 	ld a, [hli]
 	ld [rROMB0], a
 	push hl
-	call Func_00_1715
+	call LoadLevelObjects
 	call Func_00_16ab
 	pop hl
 	ld a, $04
@@ -6394,7 +6394,7 @@ Func_00_241d::
 	ld [rROMB0], a
 	ld a, [hli]
 	ld [$c444], a
-	call Func_00_2766
+	call InitPlayerObject
 	ld a, $50
 	ld [$c450], a
 	ld a, $55
@@ -6416,13 +6416,13 @@ Func_00_241d::
 	ld [$c446], a
 	ld [$c447], a
 	call Func_00_2793
-	call Func_00_20dd
-	call Func_00_1933
+	call UpdateCameraRegion
+	call UpdateSpawnWindow
 	xor a
 	ld hl, $c46c
 	ld bc, $0008
 	call FillMemory
-	call Func_00_19e7
+	call SpawnObjectsOnScroll
 	ld a, [$c445]
 	and $07
 	cp $01
@@ -6461,8 +6461,8 @@ Func_00_241d::
 	call nz, Func_00_2842
 	ld a, $ff
 	ld [$c45a], a
-	call Func_00_0be4
-	call Func_00_0780
+	call DrawMapScreen
+	call UpdateMapScroll
 	ld a, $01
 	ldh [$ffa6], a
 	ld a, $01
@@ -6540,7 +6540,7 @@ Func_00_241d::
 	ret
 
 .jump_2644:
-	call Func_00_0718
+	call WriteScrollEdges
 	ld a, [wPaletteUpdate]
 	and $03
 	call nz, UpdatePalettes
@@ -6555,14 +6555,14 @@ Func_00_241d::
 	bit 3, a
 	jr nz, .jump_267d
 .jump_2664:
-	call Func_00_28b5
-	call Func_00_0ee2
+	call UpdateCamera
+	call ResetOAMBuffers
 	call RunObjects
 	call Func_00_2ae3
-	call Func_00_0f02
-	call Func_00_1933
-	call Func_00_19e7
-	call Func_00_0780
+	call BuildOAM
+	call UpdateSpawnWindow
+	call SpawnObjectsOnScroll
+	call UpdateMapScroll
 	ret
 
 .jump_267d:
@@ -6570,7 +6570,7 @@ Func_00_241d::
 	set 0, [hl]
 	ld a, $0c
 	ld [$c32a], a
-	call Func_00_0eee
+	call ClearOAM
 	call Func_00_2ab7
 	ret
 
@@ -6588,8 +6588,8 @@ Func_00_241d::
 	res 0, [hl]
 	ld a, $0c
 	ld [$c32a], a
-	call Func_00_0eee
-	call Func_00_2aae
+	call ClearOAM
+	call RequestOBJPaletteUpdate
 	ret
 
 .jump_26ad:
@@ -6608,7 +6608,7 @@ Func_00_241d::
 	xor a
 	ldh [rSCX], a
 	ldh [rSCY], a
-	call Func_00_0eee
+	call ClearOAM
 	ld a, [$c31d]
 	cp $ff
 	jr z, .jump_273a
@@ -6683,19 +6683,19 @@ Func_00_241d::
 	bit 4, [hl]
 	jr nz, .jump_275e
 	ld de, Flow_0d_5f92
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 .jump_2758:
 	ld de, Flow_0d_5fa5
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 .jump_275e:
 	res 4, [hl]
 	ld de, Flow_0d_5fc1
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 
-Func_00_2766::
+InitPlayerObject::
 	ld de, $c800
 	ld a, $01
 	ld [de], a
@@ -6907,7 +6907,7 @@ Func_00_2861::
 	ret
 
 
-Func_00_28b5::
+UpdateCamera::
 	ldh a, [$ff88]
 	and $80
 	ret nz
@@ -6930,7 +6930,7 @@ Func_00_28b5::
 	ld [hli], a
 	ld [hl], d
 .jump_28cf:
-	call Func_00_29c4
+	call GetCameraTargetX
 	ld a, [$c452]
 	add a, l
 	ld l, a
@@ -7011,7 +7011,7 @@ Func_00_28b5::
 	ld [hli], a
 	ld [hl], d
 .jump_2943:
-	call Func_00_29f5
+	call GetCameraTargetY
 	ld a, [$c454]
 	add a, l
 	ld l, a
@@ -7075,8 +7075,8 @@ Func_00_28b5::
 	ret
 
 
-Func_00_29a3::
-	call Func_00_29c4
+InitCamera::
+	call GetCameraTargetX
 	ldh a, [$ff89]
 	sub l
 	ld l, a
@@ -7084,7 +7084,7 @@ Func_00_29a3::
 	ldh a, [$ff8a]
 	sbc a, h
 	ld [$c453], a
-	call Func_00_29f5
+	call GetCameraTargetY
 	ldh a, [$ff8b]
 	sub l
 	ld l, a
@@ -7095,7 +7095,7 @@ Func_00_29a3::
 	ret
 
 
-Func_00_29c4::
+GetCameraTargetX::
 	ld hl, $c450
 	ld a, [wPlayer + OBJ_X]
 	sub [hl]
@@ -7132,7 +7132,7 @@ Func_00_29c4::
 	ret
 
 
-Func_00_29f5::
+GetCameraTargetY::
 	ld hl, wPlayer + OBJ_Y
 	ld a, [hli]
 	ld d, [hl]
@@ -7209,7 +7209,7 @@ Func_00_29f5::
 
 
 Func_00_2a63::
-	call Func_00_0eee
+	call ClearOAM
 	ld a, $50
 	ldh [$ffa5], a
 	ld a, [$c336]
@@ -7235,7 +7235,7 @@ Func_00_2a63::
 	ldh [$ff99], a
 	ld a, $58
 	ldh [$ff97], a
-	call Func_00_1037
+	call DrawSpriteFrame
 	ldh a, [$ffa1]
 	xor $09
 	ldh [$ffa1], a
@@ -7246,7 +7246,7 @@ FrameTable_00_2a9e::
 	dw Frame_20_5938, Frame_20_593e, Frame_20_5944, Frame_20_594a
 	dw Frame_20_5950, Frame_20_5956, Frame_20_595c, Frame_20_5962
 
-Func_00_2aae::
+RequestOBJPaletteUpdate::
 	ld a, [wPaletteUpdate]
 	or $02
 	ld [wPaletteUpdate], a
@@ -7327,7 +7327,7 @@ Func_00_2ae3::
 	call Func_0d_4216
 	xor a
 	ld [$c402], a
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_2b2e:
 	ld a, [$c402]
@@ -7341,7 +7341,7 @@ Func_00_2ae3::
 	ret
 
 .jump_2b44:
-	call Func_00_38cd
+	call RunFlowScript
 	ret
 
 .jump_2b48:
@@ -7356,10 +7356,10 @@ Func_00_2ae3::
 	ldh [rIF], a
 	ld a, $01
 	ldh [rIE], a
-	jp Func_00_38cd
+	jp RunFlowScript
 
 
-Func_00_2b5f::
+GetFlowRecord::
 	ld hl, $c305
 	ld a, [hli]
 	ld e, a
@@ -7370,7 +7370,7 @@ Func_00_2b5f::
 	ret
 
 .jump_2b6b:
-	call Func_00_2b5f
+	call GetFlowRecord
 	ld hl, $0000
 	add hl, de
 	ld a, [hli]
@@ -7380,10 +7380,10 @@ Func_00_2b5f::
 	ld hl, wBGPalettes
 	ld bc, $0080
 	call CopyBytes
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_2b82:
-	call Func_00_2b5f
+	call GetFlowRecord
 	ld hl, $0002
 	add hl, de
 	ld a, [hli]
@@ -7396,11 +7396,11 @@ Func_00_2b5f::
 	ldh [rVBK], a
 	push de
 	ld hl, $d000
-	call Func_00_2bfb
+	call CopyScreenTileMap
 	ld de, $d000
 	ld hl, $1800
 	ld c, $23
-	call Func_00_03a1
+	call HDMACopy
 	pop hl
 	xor a
 	ldh [rVBK], a
@@ -7409,15 +7409,15 @@ Func_00_2b5f::
 	ld e, l
 	ld d, h
 	ld hl, $d000
-	call Func_00_2bfb
+	call CopyScreenTileMap
 	ld de, $d000
 	ld hl, $1800
 	ld c, $23
-	call Func_00_03a1
-	jp Func_00_38cd
+	call HDMACopy
+	jp RunFlowScript
 
 .jump_2bc4:
-	call Func_00_2b5f
+	call GetFlowRecord
 	ld hl, $0004
 	add hl, de
 	ld a, [hli]
@@ -7429,16 +7429,16 @@ Func_00_2b5f::
 .jump_2bd2:
 	ld c, $ff
 	ld hl, $1000
-	call Func_00_03a1
+	call HDMACopy
 	ld a, d
 	add a, $08
 	ld d, a
 	ld hl, $0800
-	call Func_00_03a1
-	jp Func_00_38cd
+	call HDMACopy
+	jp RunFlowScript
 
 .jump_2be7:
-	call Func_00_2b5f
+	call GetFlowRecord
 	ld hl, $0004
 	add hl, de
 	ld a, [hli]
@@ -7451,7 +7451,7 @@ Func_00_2b5f::
 	jp .jump_2bd2
 
 
-Func_00_2bfb::
+CopyScreenTileMap::
 	ld bc, $1214
 .jump_2bfe:
 	push bc
@@ -7469,7 +7469,7 @@ Func_00_2bfb::
 	ret
 
 
-Func_00_2c0e::
+LoadTileset::
 	ld a, [$4000]
 	push af
 	ld a, b
@@ -7478,30 +7478,30 @@ Func_00_2c0e::
 	ldh [rVBK], a
 	ld c, $ff
 	ld hl, $1000
-	call Func_00_03a1
+	call HDMACopy
 	ld a, d
 	add a, $08
 	ld d, a
 	ld hl, $0800
-	call Func_00_03a1
+	call HDMACopy
 	ld a, $01
 	ldh [rVBK], a
 	ld a, d
 	add a, $08
 	ld d, a
 	ld hl, $1000
-	call Func_00_03a1
+	call HDMACopy
 	ld a, d
 	add a, $08
 	ld d, a
 	ld hl, $0800
-	call Func_00_03a1
+	call HDMACopy
 	pop af
 	ld [rROMB0], a
 	ret
 
 
-Func_00_2c48::
+LoadScreen::
 	ld a, [$4000]
 	push af
 	xor a
@@ -7527,11 +7527,11 @@ Func_00_2c48::
 	ldh [rVBK], a
 	push de
 	ld hl, $d000
-	call Func_00_2bfb
+	call CopyScreenTileMap
 	ld de, $d000
 	ld hl, $1800
 	ld c, $23
-	call Func_00_03a1
+	call HDMACopy
 	pop hl
 	xor a
 	ldh [rVBK], a
@@ -7540,17 +7540,17 @@ Func_00_2c48::
 	ld e, l
 	ld d, h
 	ld hl, $d000
-	call Func_00_2bfb
+	call CopyScreenTileMap
 	ld de, $d000
 	ld hl, $1800
 	ld c, $23
-	call Func_00_03a1
+	call HDMACopy
 	pop hl
 	pop bc
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	call Func_00_2c0e
+	call LoadTileset
 	pop af
 	ld [rROMB0], a
 	ret
@@ -7811,7 +7811,7 @@ LoadOBJPalettesHL::
 UploadOBJPalettes::
 	ld hl, wOBJPalettesOut
 
-Func_00_2df0::
+LoadOBJPalettesInHBlank::
 	ld a, $80
 	ldh [rOCPS], a
 	ld b, $08
@@ -7996,7 +7996,7 @@ FadePalettesToWhite::
 	ret
 
 .jump_2eef:
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_2ef2:
 	ld a, [$c309]
@@ -8020,7 +8020,7 @@ Func_00_2f09::
 	ret
 
 
-Func_00_2f0e::
+InitSound::
 	ld a, $04
 	ldh [rSVBK], a
 	xor a
@@ -8045,7 +8045,7 @@ Func_00_2f0e::
 	ret
 
 
-Func_00_2f3d::
+IsMusicPlaying::
 	ld a, $04
 	ldh [rSVBK], a
 	xor a
@@ -8060,7 +8060,7 @@ Func_00_2f3d::
 	ret
 
 
-Func_00_2f4d::
+CheckChannelSFX::
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, $cf
@@ -8072,7 +8072,7 @@ Func_00_2f4d::
 	ret
 
 
-Func_00_2f5a::
+StartSFX::
 	ld h, b
 	ld l, $39
 	bit 0, a
@@ -8104,10 +8104,10 @@ Func_00_2f5a::
 	ld a, [de]
 	inc de
 	ld [hl], a
-	jp Func_00_3072
+	jp SfxCmd_Regs
 
 
-Func_00_2f88::
+UpdateSFXChannel::
 	ld l, $3a
 	ld a, [hli]
 	add a, [hl]
@@ -8284,13 +8284,13 @@ Func_00_2f88::
 	jp .jump_2fe0
 
 
-Func_00_306b::
+SfxCmd_End::
 	ld l, $39
 	ld [hl], $00
-	jp Func_00_33c7.jump_33d2
+	jp MusCmd_End.jump_33d2
 
 
-Func_00_3072::
+SfxCmd_Regs::
 	ld l, $4d
 	ld a, [de]
 	ld [hli], a
@@ -8325,7 +8325,7 @@ Func_00_3072::
 	ret
 
 
-Func_00_309b::
+SfxCmd_PitchSlide::
 	ld a, [de]
 	inc de
 	ld l, $45
@@ -8346,10 +8346,10 @@ Func_00_309b::
 	ld [hli], a
 	ld a, [de]
 	ld [hl], a
-	jr Func_00_3072.jump_308b
+	jr SfxCmd_Regs.jump_308b
 
 
-Func_00_30b5::
+SfxCmd_Vibrato::
 	ld l, $48
 	ld a, [de]
 	inc de
@@ -8366,13 +8366,13 @@ Func_00_30b5::
 	ld [hli], a
 	ld a, [de]
 	ld [hl], a
-	jr Func_00_3072.jump_308b
+	jr SfxCmd_Regs.jump_308b
 
 
-Func_00_30c9::
+SfxCmd_Sweep::
 	ld a, [de]
 	ldh [rNR10], a
-	jr Func_00_3072.jump_308b
+	jr SfxCmd_Regs.jump_308b
 
 
 SongBanks::
@@ -8464,11 +8464,11 @@ UpdateSound::
 	ld a, $04
 	ldh [rSVBK], a
 	call UpdateMusic
-	call Func_00_3172
+	call StartQueuedSFX
 	ret
 
 
-Func_00_3172::
+StartQueuedSFX::
 	ld a, [$b0c6]
 	bit 2, a
 	ret nz
@@ -8478,25 +8478,25 @@ Func_00_3172::
 	or a
 	jr z, .jump_3188
 	ld b, $d0
-	call Func_00_2f5a
+	call StartSFX
 .jump_3188:
 	ld a, [$c32a]
 	or a
 	jr z, .jump_3193
 	ld b, $d1
-	call Func_00_2f5a
+	call StartSFX
 .jump_3193:
 	ld a, [$c32b]
 	or a
 	jr z, .jump_319e
 	ld b, $d2
-	call Func_00_2f5a
+	call StartSFX
 .jump_319e:
 	ld a, [$c32c]
 	or a
 	jr z, .jump_31a9
 	ld b, $d3
-	call Func_00_2f5a
+	call StartSFX
 .jump_31a9:
 	xor a
 	ld [$c329], a
@@ -8527,7 +8527,7 @@ UpdateMusic::
 	ld l, $39
 	ld a, [hl]
 	and a
-	call nz, Func_00_2f88
+	call nz, UpdateSFXChannel
 	inc h
 	ld a, h
 	cp $d4
@@ -8850,7 +8850,7 @@ Func_00_333a::
 	ret
 
 
-Func_00_3360::
+MusCmd_Sweep::
 	ld h, b
 	ld a, [de]
 	ld [$c324], a
@@ -8858,7 +8858,7 @@ Func_00_3360::
 	ret
 
 
-Func_00_3367::
+MusCmd_PitchSlide::
 	ld h, b
 	ld a, [de]
 	ld l, $2c
@@ -8882,7 +8882,7 @@ Func_00_3367::
 	ret
 
 
-Func_00_337f::
+MusCmd_Portamento::
 	ld h, b
 	ld l, $31
 	ld a, [de]
@@ -8902,17 +8902,17 @@ Func_00_337f::
 	ret
 
 
-Func_00_3393::
+MusCmd_Wave::
 	push bc
 	ld a, [de]
-	call Func_00_36b8
+	call LoadWavePattern
 	pop hl
 	inc de
 	ret
 
 
-Func_00_339b::
-	call Func_00_33b4
+MusCmd_PanLeft::
+	call GetChannelPanMask
 	and $f0
 .jump_33a0:
 	ld c, a
@@ -8923,18 +8923,18 @@ Func_00_339b::
 	ret
 
 
-Func_00_33a8::
-	call Func_00_33b4
+MusCmd_PanRight::
+	call GetChannelPanMask
 	and $0f
-	jr Func_00_339b.jump_33a0
+	jr MusCmd_PanLeft.jump_33a0
 
 
-Func_00_33af::
-	call Func_00_33b4
-	jr Func_00_339b.jump_33a0
+MusCmd_PanCenter::
+	call GetChannelPanMask
+	jr MusCmd_PanLeft.jump_33a0
 
 
-Func_00_33b4::
+GetChannelPanMask::
 	ld h, b
 	ld a, h
 	sub $d0
@@ -8952,7 +8952,7 @@ Func_00_33b4::
 ChannelPanMasks::
 	db $ee, $dd, $bb, $77 ; NR51 masks per channel (Func_00_33b4)
 
-Func_00_33c7::
+MusCmd_End::
 	ld h, b
 	ld l, $1f
 	ld [hl], $00
@@ -8971,7 +8971,7 @@ Func_00_33c7::
 	ret
 
 
-Func_00_33df::
+MusCmd_Jump::
 	ld h, d
 	ld l, e
 	ld a, [hli]
@@ -8981,7 +8981,7 @@ Func_00_33df::
 	ret
 
 
-Func_00_33e6::
+MusCmd_JumpBack::
 	ld h, b
 	ld a, [de]
 	add a, e
@@ -8992,17 +8992,17 @@ Func_00_33e6::
 	ret
 
 
-Func_00_33ef::
+MusCmd_DutyEnvelope2::
 	ld a, $80
-	jr Func_00_33f7.jump_33f8
+	jr MusCmd_DutyEnvelope0.jump_33f8
 
 
-Func_00_33f3::
+MusCmd_DutyEnvelope1::
 	ld a, $40
-	jr Func_00_33f7.jump_33f8
+	jr MusCmd_DutyEnvelope0.jump_33f8
 
 
-Func_00_33f7::
+MusCmd_DutyEnvelope0::
 	xor a
 .jump_33f8:
 	ld h, b
@@ -9017,7 +9017,7 @@ Func_00_33f7::
 	ret
 
 
-Func_00_3405::
+MusCmd_Envelope::
 	ld h, b
 	ld l, $24
 	ld a, [de]
@@ -9029,7 +9029,7 @@ Func_00_3405::
 	ret
 
 
-Func_00_3411::
+MusCmd_Duty::
 	ld h, b
 	ld l, $23
 	ld a, [de]
@@ -9038,7 +9038,7 @@ Func_00_3411::
 	ret
 
 
-Func_00_3418::
+MusCmd_Regs::
 	ld h, b
 	ld l, $23
 	ld a, [de]
@@ -9058,7 +9058,7 @@ Func_00_3418::
 	ret
 
 
-Func_00_342e::
+MusCmd_Regs2::
 	ld h, b
 	ld l, $23
 	ld a, [de]
@@ -9073,42 +9073,42 @@ Func_00_342e::
 	ret
 
 
-Func_00_343d::
+MusCmd_Call::
 	ld c, $01
-	jr Func_00_3459.jump_345c
+	jr MusCmd_CallTimes.jump_345c
 
 
-Func_00_3441::
+MusCmd_CallX3::
 	ld c, $02
-	jr Func_00_3459.jump_345c
+	jr MusCmd_CallTimes.jump_345c
 
 
-Func_00_3445::
+MusCmd_CallX2::
 	ld c, $03
-	jr Func_00_3459.jump_345c
+	jr MusCmd_CallTimes.jump_345c
 
 
-Func_00_3449::
+MusCmd_CallX4::
 	ld c, $04
-	jr Func_00_3459.jump_345c
+	jr MusCmd_CallTimes.jump_345c
 
 
-Func_00_344d::
+MusCmd_CallX6::
 	ld c, $06
-	jr Func_00_3459.jump_345c
+	jr MusCmd_CallTimes.jump_345c
 
 
-Func_00_3451::
+MusCmd_CallX8::
 	ld c, $08
-	jr Func_00_3459.jump_345c
+	jr MusCmd_CallTimes.jump_345c
 
 
-Func_00_3455::
+MusCmd_CallX16::
 	ld c, $10
-	jr Func_00_3459.jump_345c
+	jr MusCmd_CallTimes.jump_345c
 
 
-Func_00_3459::
+MusCmd_CallTimes::
 	ld a, [de]
 	inc de
 	ld c, a
@@ -9136,7 +9136,7 @@ Func_00_3459::
 	ret
 
 
-Func_00_3473::
+MusCmd_Sub::
 	ld h, b
 	ld a, [de]
 	inc de
@@ -9152,7 +9152,7 @@ Func_00_3473::
 	ret
 
 
-Func_00_3481::
+MusCmd_SubRetTransposeOff::
 	ld h, b
 	ld l, $28
 	ld [hl], $00
@@ -9163,8 +9163,8 @@ Func_00_3481::
 	ret
 
 
-Func_00_348c::
-	call Func_00_33b4
+MusCmd_SubRetPanCenter::
+	call GetChannelPanMask
 	ld c, a
 	ldh a, [rNR51]
 	and b
@@ -9177,17 +9177,17 @@ Func_00_348c::
 	ret
 
 
-Func_00_349c::
+MusCmd_SubRetReset::
 	ld h, b
 	ld l, $57
 	ld [hl], $00
 
-Func_00_34a1::
+MusCmd_SubRetLengthOff::
 	ld h, b
 	ld l, $27
 	ld [hl], $00
 
-Func_00_34a6::
+MusCmd_SubRet::
 	ld h, b
 	ld l, $61
 	ld e, [hl]
@@ -9196,34 +9196,34 @@ Func_00_34a6::
 	ret
 
 
-Func_00_34ad::
+MusCmd_RetTransposeOff::
 	ld h, b
 	ld l, $28
 	ld [hl], $00
-	jr Func_00_34ca.jump_34cb
+	jr MusCmd_Ret.jump_34cb
 
 
-Func_00_34b4::
-	call Func_00_33b4
+MusCmd_RetPanCenter::
+	call GetChannelPanMask
 	ld c, a
 	ldh a, [rNR51]
 	and b
 	or c
 	ldh [rNR51], a
-	jr Func_00_34ca.jump_34cb
+	jr MusCmd_Ret.jump_34cb
 
 
-Func_00_34c0::
+MusCmd_RetReset::
 	ld h, b
 	ld l, $57
 	ld [hl], $00
 
-Func_00_34c5::
+MusCmd_RetLengthOff::
 	ld h, b
 	ld l, $27
 	ld [hl], $00
 
-Func_00_34ca::
+MusCmd_Ret::
 	ld h, b
 .jump_34cb:
 	ld l, $1e
@@ -9251,32 +9251,32 @@ Func_00_34ca::
 	ret
 
 
-Func_00_34e4::
+MusCmd_LengthX1::
 	ld a, $01
-	jr Func_00_34f8.jump_34fa
+	jr MusCmd_Length.jump_34fa
 
 
-Func_00_34e8::
+MusCmd_LengthX2::
 	ld a, $02
-	jr Func_00_34f8.jump_34fa
+	jr MusCmd_Length.jump_34fa
 
 
-Func_00_34ec::
+MusCmd_LengthX6::
 	ld a, $06
-	jr Func_00_34f8.jump_34fa
+	jr MusCmd_Length.jump_34fa
 
 
-Func_00_34f0::
+MusCmd_LengthX8::
 	ld a, $08
-	jr Func_00_34f8.jump_34fa
+	jr MusCmd_Length.jump_34fa
 
 
-Func_00_34f4::
+MusCmd_LengthX4::
 	ld a, $04
-	jr Func_00_34f8.jump_34fa
+	jr MusCmd_Length.jump_34fa
 
 
-Func_00_34f8::
+MusCmd_Length::
 	ld a, [de]
 	inc de
 .jump_34fa:
@@ -9286,7 +9286,7 @@ Func_00_34f8::
 	ret
 
 
-Func_00_34ff::
+MusCmd_LengthReset::
 	ld h, b
 	ld l, $57
 	ld [hl], $00
@@ -9295,15 +9295,15 @@ Func_00_34ff::
 	ret
 
 
-Func_00_3509::
+MusCmd_LengthOff::
 	ld h, b
 	ld l, $27
 	ld [hl], $00
 	ret
 
 
-Func_00_350f::
-	call Func_00_3519
+MusCmd_VibratoEx::
+	call MusCmd_Vibrato
 	ld a, [de]
 	inc de
 	ld [bc], a
@@ -9312,7 +9312,7 @@ Func_00_350f::
 	ret
 
 
-Func_00_3519::
+MusCmd_Vibrato::
 	ld h, b
 	ld l, $32
 	ld a, [de]
@@ -9336,14 +9336,14 @@ Func_00_3519::
 	ret
 
 
-Func_00_3533::
+MusCmd_VibratoOff::
 	ld h, b
 	ld l, $32
 	ld [hl], $00
 	ret
 
 
-Func_00_3539::
+MusCmd_Key::
 	ld h, b
 	ld a, [de]
 	ld l, $5a
@@ -9352,12 +9352,12 @@ Func_00_3539::
 	ret
 
 
-Func_00_3540::
+MusCmd_Loop2::
 	ld l, $5e
-	jr Func_00_3544.jump_3546
+	jr MusCmd_Loop.jump_3546
 
 
-Func_00_3544::
+MusCmd_Loop::
 	ld l, $5b
 .jump_3546:
 	ld h, b
@@ -9370,12 +9370,12 @@ Func_00_3544::
 	ret
 
 
-Func_00_354e::
+MusCmd_Loop2End::
 	ld l, $5e
-	jr Func_00_3552.jump_3554
+	jr MusCmd_LoopEnd.jump_3554
 
 
-Func_00_3552::
+MusCmd_LoopEnd::
 	ld l, $5b
 .jump_3554:
 	ld h, b
@@ -9388,7 +9388,7 @@ Func_00_3552::
 	ret
 
 
-Func_00_355c::
+MusCmd_NoteRepeat::
 	ld h, b
 	ld a, [de]
 	inc de
@@ -9403,17 +9403,17 @@ Func_00_355c::
 	jp Func_00_3254.jump_3257
 
 
-Func_00_356b::
+MusCmd_Echo48::
 	ld a, $48
-	jr Func_00_3573.jump_3575
+	jr MusCmd_Echo.jump_3575
 
 
-Func_00_356f::
+MusCmd_Echo5a::
 	ld a, $5a
-	jr Func_00_3573.jump_3575
+	jr MusCmd_Echo.jump_3575
 
 
-Func_00_3573::
+MusCmd_Echo::
 	ld a, [de]
 	inc de
 .jump_3575:
@@ -9427,77 +9427,77 @@ Func_00_3573::
 	ret
 
 
-Func_00_3581::
+MusCmd_Volume1::
 	ld a, $10
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_3585::
+MusCmd_Volume3::
 	ld a, $30
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_3589::
+MusCmd_Volume4::
 	ld a, $40
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_358d::
+MusCmd_Volume5::
 	ld a, $50
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_3591::
+MusCmd_Volume6::
 	ld a, $60
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_3595::
+MusCmd_Volume7::
 	ld a, $70
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_3599::
+MusCmd_Volume8::
 	ld a, $80
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_359d::
+MusCmd_Volume9::
 	ld a, $90
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_35a1::
+MusCmd_Volume10::
 	ld a, $a0
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_35a5::
+MusCmd_Volume11::
 	ld a, $b0
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_35a9::
+MusCmd_Volume12::
 	ld a, $c0
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_35ad::
+MusCmd_Volume13::
 	ld a, $d0
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_35b1::
+MusCmd_Volume14::
 	ld a, $e0
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_35b5::
+MusCmd_Volume15::
 	ld a, $f0
-	jr Func_00_35b9.jump_35bb
+	jr MusCmd_Volume2.jump_35bb
 
 
-Func_00_35b9::
+MusCmd_Volume2::
 	ld a, $20
 .jump_35bb:
 	ld h, b
@@ -9508,14 +9508,14 @@ Func_00_35b9::
 	ret
 
 
-Func_00_35c4::
+MusCmd_EchoOff::
 	ld h, b
 	ld l, $57
 	ld [hl], $00
 	ret
 
 
-Func_00_35ca::
+MusCmd_Tempo::
 	ld h, b
 	ld a, [de]
 	ld [$c322], a
@@ -9523,7 +9523,7 @@ Func_00_35ca::
 	ret
 
 
-Func_00_35d1::
+MusCmd_TempoAdd::
 	ld h, b
 	ld a, [$c322]
 	ld c, a
@@ -9534,21 +9534,21 @@ Func_00_35d1::
 	ret
 
 
-Func_00_35dd::
+MusCmd_TransposeOff::
 	ld h, b
 	ld l, $28
 	ld [hl], $00
 	ret
 
 
-Func_00_35e3::
+MusCmd_OctaveUp::
 	ld h, b
 	ld l, $28
 	ld [hl], $0c
 	ret
 
 
-Func_00_35e9::
+MusCmd_Transpose::
 	ld h, b
 	ld a, [de]
 	ld l, $28
@@ -9557,7 +9557,7 @@ Func_00_35e9::
 	ret
 
 
-Func_00_35f0::
+MusCmd_TransposeAdd::
 	ld h, b
 	ld l, $28
 	ld a, [de]
@@ -9567,7 +9567,7 @@ Func_00_35f0::
 	ret
 
 
-Func_00_35f8::
+MusCmd_TransposeAll::
 	ld h, b
 	ld a, [de]
 	ld b, $d0
@@ -9598,7 +9598,7 @@ SoundTable_00_3685::
 	dw $0060, $0060, $0061, $0070, $0062, $0079, $007a, $006e
 	dw $007d
 
-Func_00_36a7::
+ResetSoundHardware::
 	xor a
 	ldh [rNR52], a
 	ldh [rNR51], a
@@ -9609,7 +9609,7 @@ Func_00_36a7::
 	ldh [rNR50], a
 	ld a, $10
 
-Func_00_36b8::
+LoadWavePattern::
 	ld l, a
 	xor a
 	ld h, a
@@ -9736,13 +9736,13 @@ Song22_Ch2::
 Song22_Ch4::
 	mus_end 
 
-Func_00_38c7::
+SetFlowPointer::
 	ld hl, $c303
 	ld a, e
 	ld [hli], a
 	ld [hl], d
 
-Func_00_38cd::
+RunFlowScript::
 	ld a, $0d
 	ld [rROMB0], a
 	ld hl, $c303
@@ -9806,23 +9806,23 @@ Func_00_38cd::
 	ret
 
 .jump_392e:
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_3931:
 	ld a, [$c305]
 	call PlaySong
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_393a:
-	call Func_00_2f3d
+	call IsMusicPlaying
 	ret nz
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_3941:
 	ldh a, [$ff81]
 	and $0b
 	ret z
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_3949:
 	ld a, $0f
@@ -9851,7 +9851,7 @@ Func_00_38cd::
 	ld d, [hl]
 	ld e, a
 .jump_3973:
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 
 WorldFlowEntries::
@@ -9879,7 +9879,7 @@ NextObject::
 	add hl, bc
 	ld a, $10
 	and [hl]
-	call nz, Func_00_1341
+	call nz, DrawObject
 	ld a, c
 	add a, $40
 	ld c, a
@@ -9891,7 +9891,7 @@ NextObject::
 	ret
 
 
-Func_00_39ab::
+NegateObjectWord::
 	add hl, bc
 	xor a
 	sub [hl]
@@ -9902,12 +9902,12 @@ Func_00_39ab::
 	ret
 
 
-Func_00_39b4::
-	call Func_00_39ba
-	jp Func_00_39ba.jump_39bf
+ApplyVelocity::
+	call ApplyXVelocity
+	jp ApplyXVelocity.jump_39bf
 
 
-Func_00_39ba::
+ApplyXVelocity::
 	ld hl, wPlayer + OBJ_XVEL
 	jr .jump_39c2
 
@@ -9935,17 +9935,17 @@ Func_00_39ba::
 	ret
 
 
-Func_00_39d7::
-	call Func_00_39dd
-	jp Func_00_39e2
+UndoVelocity::
+	call UndoXVelocity
+	jp UndoYVelocity
 
 
-Func_00_39dd::
+UndoXVelocity::
 	ld hl, wPlayer + OBJ_XVEL
-	jr Func_00_39e2.jump_39e5
+	jr UndoYVelocity.jump_39e5
 
 
-Func_00_39e2::
+UndoYVelocity::
 	ld hl, wObjects + OBJ_YVEL
 .jump_39e5:
 	add hl, bc
@@ -9969,7 +9969,7 @@ Func_00_39e2::
 	ret
 
 
-Func_00_39fa::
+UpdateVelocity::
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, [hli]
@@ -10128,7 +10128,7 @@ Func_00_39fa::
 	ret
 
 
-Func_00_3ab5::
+DespawnIfOutOfRange::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
@@ -10227,12 +10227,12 @@ Func_00_3ab5::
 	ret
 
 .jump_3b34:
-	call Func_00_18f5
+	call DeleteObject
 	scf
 	ret
 
 
-Func_00_3b39::
+GetOffsetFromSpawnX::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -10254,7 +10254,7 @@ Func_00_3b39::
 	ret
 
 
-Func_00_3b54::
+GetOffsetFromSpawnY::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -10276,7 +10276,7 @@ Func_00_3b54::
 	ret
 
 
-Func_00_3b6f::
+CheckRangeLimit::
 	jr nz, .jump_3b7b
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -10298,39 +10298,39 @@ Func_00_3b6f::
 	ret
 
 
-Func_00_3b85::
+TurnAtRangeLimit::
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, [hli]
 	or [hl]
 	jr z, .jump_3b92
-	call Func_00_3b39
+	call GetOffsetFromSpawnX
 	jr .jump_3b95
 
 .jump_3b92:
-	call Func_00_3b54
+	call GetOffsetFromSpawnY
 .jump_3b95:
-	call Func_00_3b6f
+	call CheckRangeLimit
 	jr nc, .jump_3ba6
 	ld hl, wPlayer + OBJ_TARGET_XVEL
-	call Func_00_39ab
+	call NegateObjectWord
 	ld hl, wPlayer + OBJ_TARGET_YVEL
-	call Func_00_39ab
+	call NegateObjectWord
 .jump_3ba6:
 	ret
 
 
-Func_00_3ba7::
-	call Func_00_3b39
-	call Func_00_3b6f
+TurnAtRangeLimitX::
+	call GetOffsetFromSpawnX
+	call CheckRangeLimit
 	jr nc, .jump_3bb5
 	ld hl, wPlayer + OBJ_TARGET_XVEL
-	call Func_00_39ab
+	call NegateObjectWord
 .jump_3bb5:
 	ret
 
 
-Func_00_3bb6::
+GetPlayerDistanceX::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [wPlayer + OBJ_X]
@@ -10352,7 +10352,7 @@ Func_00_3bb6::
 	ret
 
 
-Func_00_3bcf::
+MoveTowardsX::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, e
@@ -10381,7 +10381,7 @@ Func_00_3bcf::
 	ret
 
 
-Func_00_3bf5::
+MoveTowardsY::
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, e
@@ -10545,7 +10545,7 @@ Func_00_3c1b::
 	jp Func_09_43ea.jump_44f5
 
 
-Func_00_3ce1::
+LoadBGPaletteSet::
 	ld a, [$4000]
 	push af
 	push bc
@@ -10643,7 +10643,7 @@ Func_00_3ce1::
 	ld [hli], a
 	ld [hl], d
 .jump_3d7f:
-	call Func_00_025d
+	call InstallInterruptTrampolines
 	xor a
 	ldh [rIF], a
 	ld a, $01
@@ -10651,36 +10651,36 @@ Func_00_3ce1::
 	ld a, $0a
 	ld [rRAMG], a
 	ei
-	jp Func_00_38cd
+	jp RunFlowScript
 
 	ds 366, $00 ; $3d92
 
 
 SFXCommandHandlers::
-	dw Func_00_306b, Func_00_3072, Func_00_30b5, Func_00_309b, Func_00_30c9 ; SFX commands $00-$08
+	dw SfxCmd_End, SfxCmd_Regs, SfxCmd_Vibrato, SfxCmd_PitchSlide, SfxCmd_Sweep ; SFX commands $00-$08
 
 MusicCommandHandlers::
-	dw Func_00_33c7, Func_00_33df, Func_00_33e6, Func_00_3418 ; music commands $00-
-	dw Func_00_3459, Func_00_34ca, Func_00_339b, Func_00_33a8 ; music commands $04-
-	dw Func_00_33af, Func_00_3360, Func_00_34f8, Func_00_3509 ; music commands $08-
-	dw Func_00_3519, Func_00_3533, Func_00_3367, Func_00_3367 ; music commands $0c-
-	dw Func_00_337f, Func_00_35ca, Func_00_35d1, Func_00_35e9 ; music commands $10-
-	dw Func_00_35f0, Func_00_35f8, Func_00_350f, Func_00_3581 ; music commands $14-
-	dw Func_00_35b9, Func_00_3585, Func_00_3589, Func_00_358d ; music commands $18-
-	dw Func_00_3591, Func_00_3595, Func_00_3599, Func_00_359d ; music commands $1c-
-	dw Func_00_35a1, Func_00_35a5, Func_00_35a9, Func_00_35ad ; music commands $20-
-	dw Func_00_35b1, Func_00_35b5, Func_00_343d, Func_00_3441 ; music commands $24-
-	dw Func_00_3449, Func_00_344d, Func_00_342e, Func_00_34e8 ; music commands $28-
-	dw Func_00_34e4, Func_00_3451, Func_00_34f0, Func_00_3455 ; music commands $2c-
-	dw 0, Func_00_3445, Func_00_34c5, Func_00_33f7 ; music commands $30-
-	dw Func_00_33f3, Func_00_33ef, Func_00_3573, Func_00_35c4 ; music commands $34-
-	dw Func_00_34ec, Func_00_34c0, Func_00_354e, Func_00_3393 ; music commands $38-
-	dw Func_00_356f, Func_00_356b, Func_00_34b4, Func_00_3405 ; music commands $3c-
-	dw Func_00_3411, Func_00_34f4, 0, Func_00_34ff ; music commands $40-
-	dw Func_00_355c, Func_00_3539, Func_00_3544, Func_00_3552 ; music commands $44-
-	dw Func_00_34ad, Func_00_3473, Func_00_34a6, Func_00_34a1 ; music commands $48-
-	dw Func_00_349c, Func_00_348c, Func_00_3481, Func_00_35dd ; music commands $4c-
-	dw Func_00_35e3, Func_00_3540 ; music commands $50-
+	dw MusCmd_End, MusCmd_Jump, MusCmd_JumpBack, MusCmd_Regs ; music commands $00-
+	dw MusCmd_CallTimes, MusCmd_Ret, MusCmd_PanLeft, MusCmd_PanRight ; music commands $04-
+	dw MusCmd_PanCenter, MusCmd_Sweep, MusCmd_Length, MusCmd_LengthOff ; music commands $08-
+	dw MusCmd_Vibrato, MusCmd_VibratoOff, MusCmd_PitchSlide, MusCmd_PitchSlide ; music commands $0c-
+	dw MusCmd_Portamento, MusCmd_Tempo, MusCmd_TempoAdd, MusCmd_Transpose ; music commands $10-
+	dw MusCmd_TransposeAdd, MusCmd_TransposeAll, MusCmd_VibratoEx, MusCmd_Volume1 ; music commands $14-
+	dw MusCmd_Volume2, MusCmd_Volume3, MusCmd_Volume4, MusCmd_Volume5 ; music commands $18-
+	dw MusCmd_Volume6, MusCmd_Volume7, MusCmd_Volume8, MusCmd_Volume9 ; music commands $1c-
+	dw MusCmd_Volume10, MusCmd_Volume11, MusCmd_Volume12, MusCmd_Volume13 ; music commands $20-
+	dw MusCmd_Volume14, MusCmd_Volume15, MusCmd_Call, MusCmd_CallX3 ; music commands $24-
+	dw MusCmd_CallX4, MusCmd_CallX6, MusCmd_Regs2, MusCmd_LengthX2 ; music commands $28-
+	dw MusCmd_LengthX1, MusCmd_CallX8, MusCmd_LengthX8, MusCmd_CallX16 ; music commands $2c-
+	dw 0, MusCmd_CallX2, MusCmd_RetLengthOff, MusCmd_DutyEnvelope0 ; music commands $30-
+	dw MusCmd_DutyEnvelope1, MusCmd_DutyEnvelope2, MusCmd_Echo, MusCmd_EchoOff ; music commands $34-
+	dw MusCmd_LengthX6, MusCmd_RetReset, MusCmd_Loop2End, MusCmd_Wave ; music commands $38-
+	dw MusCmd_Echo5a, MusCmd_Echo48, MusCmd_RetPanCenter, MusCmd_Envelope ; music commands $3c-
+	dw MusCmd_Duty, MusCmd_LengthX4, 0, MusCmd_LengthReset ; music commands $40-
+	dw MusCmd_NoteRepeat, MusCmd_Key, MusCmd_Loop, MusCmd_LoopEnd ; music commands $44-
+	dw MusCmd_RetTransposeOff, MusCmd_Sub, MusCmd_SubRet, MusCmd_SubRetLengthOff ; music commands $48-
+	dw MusCmd_SubRetReset, MusCmd_SubRetPanCenter, MusCmd_SubRetTransposeOff, MusCmd_TransposeOff ; music commands $4c-
+	dw MusCmd_OctaveUp, MusCmd_Loop2 ; music commands $50-
 	ds 18, $00 ; $3fae
 
 
@@ -10700,7 +10700,7 @@ FarCall_A_HL::
 	jp hl
 
 
-Func_00_3fd5::
+RestoreBankAndReturn::
 	pop af
 	ldh [$ff81], a
 	ld [rROMB0], a

@@ -9,14 +9,14 @@ BankNumber_0f::
 Func_0f_4001::
 	ld b, $43
 	ld hl, $6720
-	call Func_00_2c48
+	call LoadScreen
 	ld a, $01
 	ldh [rVBK], a
 	ld b, $40
 	ld de, $4000
 	ld hl, $0800
 	ld c, $7f
-	call Func_00_0391
+	call FarHDMACopy
 	ld a, [$c30a]
 	ld l, a
 	ld a, [$c309]
@@ -48,18 +48,18 @@ Func_0f_4001::
 	bit 1, [hl]
 	jr z, .jump_4063
 	ld de, $0e06
-	call Func_00_0682
+	call RandomBelow
 	ret
 
 .jump_4063:
 	set 1, [hl]
 	ld de, $0c00
-	call Func_00_06a3
+	call LoadTextString
 	ret
 
 .jump_406c:
 	ld de, $0e06
-	call Func_00_06a3
+	call LoadTextString
 	ret
 
 
@@ -95,14 +95,14 @@ ObjInit_0f_409d::
 Func_0f_40a9::
 	ld b, $43
 	ld hl, $6726
-	call Func_00_2c48
+	call LoadScreen
 	ld a, $01
 	ldh [rVBK], a
 	ld b, $40
 	ld de, $4000
 	ld hl, $0800
 	ld c, $7f
-	call Func_00_0391
+	call FarHDMACopy
 	call Func_0f_4204
 	ld hl, ObjInit_0f_4122
 	call ApplyObjInit
@@ -128,14 +128,14 @@ Func_0f_40a9::
 
 .jump_40fb:
 	ld de, $1800
-	call Func_00_06a3
+	call LoadTextString
 	ret
 
 .jump_4102:
 	set 0, [hl]
 	ld de, $001f
 .jump_4107:
-	call Func_00_0682
+	call RandomBelow
 	ret
 
 
@@ -161,14 +161,14 @@ ObjInit_0f_4122::
 Func_0f_412e::
 	ld b, $42
 	ld hl, $75e0
-	call Func_00_2c48
+	call LoadScreen
 	ld a, $01
 	ldh [rVBK], a
 	ld b, $40
 	ld de, $4000
 	ld hl, $0800
 	ld c, $7f
-	call Func_00_0391
+	call FarHDMACopy
 	call Func_0f_4204
 	ld hl, ObjInit_0f_41b6
 	call ApplyObjInit
@@ -191,13 +191,13 @@ Func_0f_412e::
 	jr z, .jump_4180
 	ld de, $1602
 .jump_4180:
-	call Func_00_0682
+	call RandomBelow
 	ret
 
 .jump_4184:
 	set 2, [hl]
 	ld de, $1000
-	call Func_00_06a3
+	call LoadTextString
 	ret
 
 
@@ -233,7 +233,7 @@ ObjInit_0f_41b6::
 Func_0f_41c2::
 	ld b, $74
 	ld hl, $5490
-	call Func_00_2c48
+	call LoadScreen
 	ld bc, $0000
 	ld hl, ObjInit_0f_41dd
 	call InitObject
@@ -321,7 +321,7 @@ Func_0f_424c::
 	call InitObject
 	pop bc
 .jump_4261:
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -353,10 +353,10 @@ Func_0f_427f::
 	inc l
 	ld [hl], HIGH(Anim_04_5685)
 .jump_429a:
-	call Func_00_18f5
+	call DeleteObject
 .jump_429d:
-	call Func_00_39b4
-	call Func_00_127d
+	call ApplyVelocity
+	call AnimateObject
 	jp NextObject
 
 
@@ -374,7 +374,7 @@ Func_0f_42a6::
 	inc l
 	ld [hl], HIGH(Anim_04_56bd)
 .jump_42be:
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -406,7 +406,7 @@ Func_0f_42e4::
 	bit 5, a
 	jr nz, .jump_432a
 .jump_42ee:
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 .jump_42f4:
@@ -501,7 +501,7 @@ Func_0f_4373::
 	ld hl, ObjInit_0f_4397
 	call ApplyObjInit
 .jump_4391:
-	call Func_00_127d
+	call AnimateObject
 	jp NextObject
 
 
@@ -523,8 +523,8 @@ Func_0f_43a6::
 	ld [$c44d], a
 	rst_farcall Func_08_40d4
 .jump_43b6:
-	call Func_00_39b4
-	call Func_00_127d
+	call ApplyVelocity
+	call AnimateObject
 	jp NextObject
 
 
@@ -533,9 +533,9 @@ Func_0f_43bf::
 	add hl, bc
 	dec [hl]
 	jr z, .jump_43d2
-	call Func_00_39fa
-	call Func_00_39b4
-	call Func_00_127d
+	call UpdateVelocity
+	call ApplyVelocity
+	call AnimateObject
 .jump_43cf:
 	jp NextObject
 
@@ -549,10 +549,10 @@ Func_0f_43bf::
 Func_0f_43dd::
 	ldh a, [$ff81]
 	and $0a
-	jp nz, Func_00_38cd
+	jp nz, RunFlowScript
 	ld a, [$c44d]
 	cp $ff
-	jp z, Func_00_38cd
+	jp z, RunFlowScript
 	cp $fe
 	jp z, Func_0f_456f
 	ld a, [$c30c]
@@ -588,7 +588,7 @@ Func_0f_43dd::
 	dec a
 	jp z, .jump_451b
 	dec a
-	jp z, Func_00_38cd
+	jp z, RunFlowScript
 	ret
 
 .jump_4430:
@@ -612,7 +612,7 @@ Func_0f_43dd::
 	dec a
 	jp z, .jump_44ea
 	dec a
-	jp z, Func_00_38cd
+	jp z, RunFlowScript
 	ret
 
 .jump_4456:
@@ -744,7 +744,7 @@ Func_0f_43dd::
 .jump_4513:
 	ld de, $1807
 .jump_4516:
-	call Func_00_06a3
+	call LoadTextString
 	jr .jump_455c
 
 .jump_451b:
@@ -779,7 +779,7 @@ Func_0f_43dd::
 .jump_4550:
 	inc a
 	ld [$c44e], a
-	call Func_00_0682
+	call RandomBelow
 	xor a
 	ld [$c44d], a
 	ret
@@ -790,8 +790,8 @@ Func_0f_43dd::
 	ret
 
 .jump_4561:
-	call Func_00_2f3d
-	jp z, Func_00_38cd
+	call IsMusicPlaying
+	jp z, RunFlowScript
 	ret
 
 
@@ -804,7 +804,7 @@ Func_0f_456f::
 	jr z, Entrances_0f_4595.jump_45a1
 	ld a, [$c44e]
 	or a
-	jp nz, Func_00_38cd
+	jp nz, RunFlowScript
 	ld a, [$c30a]
 	dec a
 	add a, a
@@ -818,7 +818,7 @@ Func_0f_456f::
 	ld [hli], a
 	ld [hl], d
 	ld de, Flow_0d_5fb7
-	jp Func_00_38c7
+	jp SetFlowPointer
 
 
 Entrances_0f_4595::
@@ -829,7 +829,7 @@ Entrances_0f_4595::
 	ld [$c30b], a
 	ld hl, $c310
 	set 7, [hl]
-	jp Func_00_38cd
+	jp RunFlowScript
 
 
 Func_0f_45b1::

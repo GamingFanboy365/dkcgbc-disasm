@@ -104,7 +104,7 @@ Func_07_4001::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	call Func_00_2c0e
+	call LoadTileset
 .jump_40b0:
 	ldh a, [rSTAT]
 	and $03
@@ -126,20 +126,20 @@ Func_07_4001::
 	ld de, $4200
 	ld hl, $0000
 	ld c, $03
-	call Func_00_0391
+	call FarHDMACopy
 	ld de, $4300
 	ld hl, $0040
 	ld c, $03
-	call Func_00_0391
+	call FarHDMACopy
 	ld de, $45c0
 	ld hl, $0080
 	ld c, $13
-	call Func_00_0391
+	call FarHDMACopy
 	ld b, $07
 	ld de, $6000
 	ld hl, $01c0
 	ld c, $0b
-	call Func_00_0391
+	call FarHDMACopy
 	ld a, $78
 	ld [$cf61], a
 	xor a
@@ -271,7 +271,7 @@ Func_07_4195::
 	jr z, .jump_424a
 	dec a
 	jr z, .jump_4205
-	jp Func_00_38cd
+	jp RunFlowScript
 
 .jump_41f5:
 	ld a, [$cf65]
@@ -321,7 +321,7 @@ Func_07_4195::
 
 .jump_4242:
 	ld hl, $c1c0
-	call Func_00_2df0
+	call LoadOBJPalettesInHBlank
 	jr .jump_421c
 
 .jump_424a:
@@ -348,7 +348,7 @@ Func_07_4195::
 	ret z
 	ld a, $24
 	ld [$c32a], a
-	call Func_00_0eee
+	call ClearOAM
 	jr .jump_421c
 
 

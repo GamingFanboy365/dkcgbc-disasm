@@ -3179,7 +3179,7 @@ Func_fe_52a5::
 	push af
 	inc sp
 	ld a, $f5
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_fe_52da::
@@ -3215,7 +3215,7 @@ Func_fe_52da::
 	push af
 	inc sp
 	ld a, $f5
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_fe_530f::
@@ -4228,7 +4228,7 @@ Func_fe_595a::
 	push af
 	inc sp
 	ld a, $f5
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_fe_599a::
@@ -4260,7 +4260,7 @@ Func_fe_599a::
 	push af
 	inc sp
 	ld a, $f5
-	jp Func_00_3fd5.jump_3fdc
+	jp RestoreBankAndReturn.jump_3fdc
 
 
 Func_fe_59cc::

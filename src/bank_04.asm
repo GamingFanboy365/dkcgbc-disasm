@@ -3601,7 +3601,7 @@ Func_04_57a7::
 	push bc
 	ld b, [hl]
 	ld c, a
-	call Func_00_18f5
+	call DeleteObject
 	pop bc
 	ret
 

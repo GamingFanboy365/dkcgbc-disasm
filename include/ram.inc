@@ -395,7 +395,7 @@ DEF wFishing_HookedCount   EQU $de8c
 DEF wFishing_Catch         EQU $de8d ; (8 bytes) kinds of the fish in this catch; $ff = none
 DEF wFishing_CatchCount    EQU $de95
 DEF wFishing_CatchByKind   EQU $de96 ; (5 bytes) fish of each kind in this catch, for combos
-DEF wFishing_Score         EQU $de9b ; (4 bytes) score (BCD, lowest byte first)
+DEF wFishing_Score         EQU $de9b ; (4 bytes) score, highest byte first (Fishing_CheckScore500 compares its low three bytes with 500)
 DEF wFishing_ScoreDigits   EQU $de9f ; (4 bytes) score digits being drawn
 DEF wFishing_PointsToAdd   EQU $dea3
 DEF wFishing_PartnerScore  EQU $dea4 ; (5 bytes) link play: the other player's score (and a flag before it)

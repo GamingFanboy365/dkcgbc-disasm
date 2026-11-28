@@ -662,7 +662,7 @@ FISHING = [
     (0xDE8D, 8, "wFishing_Catch", "kinds of the fish in this catch; $ff = none"),
     (0xDE95, 1, "wFishing_CatchCount", ""),
     (0xDE96, 5, "wFishing_CatchByKind", "fish of each kind in this catch, for combos"),
-    (0xDE9B, 4, "wFishing_Score", "score (BCD, lowest byte first)"),
+    (0xDE9B, 4, "wFishing_Score", "score, highest byte first (Fishing_CheckScore500 compares its low three bytes with 500)"),
     (0xDE9F, 4, "wFishing_ScoreDigits", "score digits being drawn"),
     (0xDEA3, 1, "wFishing_PointsToAdd", ""),
     (0xDEA4, 5, "wFishing_PartnerScore", "link play: the other player's score (and a flag before it)"),

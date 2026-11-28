@@ -1267,7 +1267,7 @@ Cranky_Shoot_BarrelOKremlings_Body::
 	ld a, [wCranky_TargetHit]
 	cp b
 	jr nz, .else
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -1339,7 +1339,7 @@ Cranky_Shoot_Wanted_Body::
 	ld a, [wCranky_TargetHit]
 	cp b
 	jp nz, .else_4932
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -1435,7 +1435,7 @@ Cranky_RemoveActor::
 	pop af
 	ld [hl], a
 	ld a, $00
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1724,7 +1724,7 @@ Cranky_SpawnHitEffect::
 	pop af
 	ld [hl], a
 	ld a, $00
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1882,7 +1882,7 @@ Cranky_LinkShoot_BarrelOKremlings_Body::
 	ld a, [wCranky_TargetHit]
 	cp b
 	jr nz, .else
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -1952,7 +1952,7 @@ Cranky_LinkShoot_Wanted_Body::
 	ld a, [wCranky_TargetHit]
 	cp b
 	jp nz, .else_4ccd
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -2043,7 +2043,7 @@ Cranky_RemoveActorLink::
 	pop af
 	ld [hl], a
 	ld a, $00
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2390,7 +2390,7 @@ Cranky_RemoveActorLinkHit::
 	pop af
 	ld [hl], a
 	ld a, $00
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -4442,7 +4442,7 @@ Cranky_RemoteEvent_ActorShot::
 	ld l, a
 	ld a, [hl]
 	set 2, [hl]
-	ld hl, wCranky_ActorSavedFlags
+	ld hl, wCranky_ActorLink
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -5062,7 +5062,7 @@ Cranky_Actor_BuddiesBeware_Shot::
 	ld l, a
 	ld a, [hl]
 	set 2, [hl]
-	ld hl, wCranky_ActorSavedFlags
+	ld hl, wCranky_ActorLink
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -5140,7 +5140,7 @@ Cranky_Actor_BuddiesBeware_Move::
 	ld l, a
 	pop af
 	ld [hl], a
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -5269,7 +5269,7 @@ Cranky_Actor_Barrel::
 	call Cranky_ResBitN
 	ld hl, wCranky_ActorsUp
 	dec [hl]
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -5964,7 +5964,7 @@ Cranky_Actor_GalleonSpawnShot::
 	pop af
 	ld [hl], a
 	ld a, $02
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6025,7 +6025,7 @@ Cranky_Actor_GalleonCannonball::
 	pop af
 	ld [hl], a
 	ld a, $03
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6673,7 +6673,7 @@ Cranky_Type18_Pause::
 	ld l, a
 	pop af
 	ld [hl], a
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -6777,7 +6777,7 @@ Cranky_Type18_ReachedBottom::
 
 
 Cranky_Type18_FlipOn::
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -6793,7 +6793,7 @@ Cranky_Type18_FlipOn::
 
 
 Cranky_Type18_FlipOff::
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -7107,7 +7107,7 @@ Cranky_DrawActor::
 	ld l, a
 	ld a, [hl]
 	ldh [hFE_Scratch], a
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -7403,7 +7403,7 @@ Cranky_BuddiesBeware_SpawnBuddy::
 	pop af
 	ld [hl], a
 	ld a, $05
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7467,7 +7467,7 @@ Cranky_BuddiesBeware_SpawnKremling::
 	pop af
 	ld [hl], a
 	ld a, $06
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7531,7 +7531,7 @@ Cranky_BuddiesBeware_SpawnOther::
 	pop af
 	ld [hl], a
 	ld a, $04
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7564,7 +7564,7 @@ Cranky_BuddiesBeware_SpawnOther::
 .continue:
 	call Cranky_FindFreeActor
 	ld a, l
-	ld hl, wCranky_ActorSavedFlags
+	ld hl, wCranky_ActorLink
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7622,7 +7622,7 @@ Cranky_BuddiesBeware_SpawnOther::
 	pop af
 	ld [hl], a
 	ld a, $03
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7712,7 +7712,7 @@ Cranky_InitActor::
 	ld a, d
 	cp $02
 	ret z
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
@@ -7895,7 +7895,7 @@ Cranky_BarrelOKremlings_SpawnBarrel::
 	pop de
 	ld a, e
 	add a, $02
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -8329,7 +8329,7 @@ Cranky_Wanted_SpawnRandom::
 	pop af
 	ld [hl], a
 	ld a, e
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -8564,7 +8564,7 @@ Cranky_Spawn_Kremlings_Body::
 	pop af
 	ld [hl], a
 	ld a, $03
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -8633,7 +8633,7 @@ Cranky_Kremlings_SpawnWave::
 	pop af
 	ld [hl], a
 	ld a, $04
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -8734,7 +8734,7 @@ Cranky_Kremlings_SpawnWave::
 	pop af
 	ld [hl], a
 	ld a, $02
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -8985,7 +8985,7 @@ Cranky_GalleonGunner_SpawnShip::
 	ld [hl], a
 	ld a, $03
 	set 5, a
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -9021,7 +9021,7 @@ Cranky_GalleonGunner_SpawnShip::
 	pop af
 	ld [hl], a
 	ld a, $03
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l

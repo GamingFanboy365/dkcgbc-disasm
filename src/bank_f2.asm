@@ -87,8 +87,8 @@ FE_Alphabet::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -562,8 +562,8 @@ FE_MakeFlag::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -1810,7 +1810,7 @@ FE_TurnChoiceRight::
 	dec a
 	cp $ff
 	jr nz, .skip
-	ld a, [wFE_RingHeight]
+	ld a, [wFE_RingSteps]
 	dec a
 .skip:
 	ld [wFE_RingAngle], a
@@ -1852,7 +1852,7 @@ FE_TurnChoiceLeft::
 	ld a, c
 .loop:
 	push af
-	ld a, [wFE_RingHeight]
+	ld a, [wFE_RingSteps]
 	ld b, a
 	ld a, [wFE_RingAngle]
 	inc a
@@ -4175,8 +4175,8 @@ FE_RestartFrontEnd::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -4679,8 +4679,8 @@ FE_Link_ExchangeSettings::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -5095,8 +5095,8 @@ FE_LinkMenu_Select::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientFadeFrom
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGBTarget
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -5309,8 +5309,8 @@ FE_Link_WaitForPartner::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL

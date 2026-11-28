@@ -294,18 +294,18 @@ The ROM rebuilds byte for byte, and no part of it is copied from `baserom.gbc` a
 
 The remaining 1.4 MB is empty padding and isn't counted.
 
-**Completion.** Measured against the plan below, the disassembly is at **99.9%**: steps 1 and 2 (every byte identified, every byte decoded or converted) are at 100%, and step 3, the names, at 99.7%. The step-3 figure is the average of the rows in this table, which `python3 tools/coverage.py --names` prints from the generated sources (shares are rounded down, so 100% means complete):
+**Completion.** Measured against the plan below, the disassembly is complete: steps 1 and 2 (every byte identified, every byte decoded or converted) and step 3, the names, are all at 100%. The step-3 figure is the average of the rows in this table, which `python3 tools/coverage.py --names` prints from the generated sources (shares are rounded down, so 100% means complete):
 
 | Names | Done | Share | Note |
 |---|---|---|---|
 | Routines with a name | 1,995 of 1,995 | 100% | |
-| RAM variables the code reaches by address, named | all | 100% | 519 names |
+| RAM variables the code reaches by address, named | all | 100% | 522 names |
 | Data labels with a descriptive name | 11,741 of 11,741 | 100% | most named by `tools/autodatanames.py` from what uses them |
 | Local labels with a name | 3,255 of 3,255 | 100% | 165 by hand, the others structural (`.loop`, `.skip`, `.done`…) |
 | Object fields with a fixed meaning, named | 44 of 44 bytes | 100% | 20 more bytes are `OBJ_VAR_xx`, whose use depends on the object type |
-| Names not marked tentative | 2,507 of 2,544 | 98% | 37 tentative: 4 routines, 30 RAM variables, 3 object fields |
+| Names not marked tentative | 2,547 of 2,547 | 100% | each name once marked tentative was checked against the code |
 
-What the rows count, and what they leave out: a local label counts as named when it has a structural name, since a prose name for every loop is not the goal; descriptive names for the labels of the main routines are on the to-do list instead. Of the object slot, the bytes the engine gives a fixed meaning are named, while the 20 bytes each handler uses for its own purposes stay `OBJ_VAR_xx` (listed in `hints.TYPE_SPECIFIC_FIELDS`); naming them per object type is also on the to-do list. The last row is the one still short of 100%: it counts names whose meaning has not been confirmed, mostly by running the game.
+What the rows count, and what they leave out: a local label counts as named when it has a structural name, since a prose name for every loop is not the goal. Of the object slot, the bytes the engine gives a fixed meaning are named, while the 20 bytes each handler uses for its own purposes stay `OBJ_VAR_xx` (listed in `hints.TYPE_SPECIFIC_FIELDS`). A name counts as confirmed once the code that uses it has been read for it; some of the code it rests on (link play, entering a new high score) has still not been run. These are the limits of the measure, and the to-do list below picks them up.
 
 **Names of data.** Data that used to be named by kind and address (`ObjInit_0e_4397`, `Frame_20_4f60`, `Text_10_4244`) is now named after what uses it, by `tools/autodatanames.py`, which writes `tools/datanames.py`: an object list after the object's handler (`ObjInit_Zinger_Patrol_3`), an animation after the routine or object that starts it, a sprite frame and its tiles after the animation that shows it, a level's map, map header, camera regions and object list after the level (`MapHeader_JungleHijinxs`, `LevelObjects_ElevatorAntics`), music after its song and channel (`Mus_Song20_Ch1_Sub_4`), an entry of a big table by its position (`PictureMap_041`), and text after its English words with the language added (`Text_SoYouFoundMe_German`). Data nothing uses is called so (`Frame_Unused_…`, `MusUnused_…`). Names in `tools/names.py` take precedence; `dkc.sym` still maps every label to its address. To refresh the names after a change, run `python3 tools/autodatanames.py`, then `make generate`, and repeat until the tool reports nothing new.
 
@@ -370,13 +370,13 @@ This repository covers the retail ROM only. The goal is a complete (100%) disass
 
 1. ~~Identify every byte.~~ Done: every byte of the ROM now has a known kind (code, a decoded structure, graphics, located raw data or padding). A few things are identified but not fully explained yet; they are listed in [`docs/unused.md`](docs/unused.md) under Open questions.
 2. ~~Convert the located raw data into readable or editable form.~~ Done: level maps, blocks, terrain and samples are editable files; the Rare logo animation, the Funky's Fishing sprite animations and tables, the Hi-Score screen, Crosshair Cranky's pause text and the code the game copies to RAM are decoded.
-3. Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`. Every routine has a name, and so does every RAM variable that any of the programs (the main game, the front end, Funky's Fishing and the Hi-Score screen) reaches by address; the local labels have structural names, with hand names for those other routines jump into; next is a second pass over the less certain names.
+3. ~~Name and document the code, system by system, including the separate program in banks `$F0`–`$FE`.~~ Done: every routine, every RAM variable the programs reach by address, every data label and every object field with a fixed meaning has a name, local labels have structural names (with hand names where other routines jump in), and no name is left marked tentative. See Completion above for what the measure leaves out.
 
-**To do.** What is left, roughly in order:
+**To do.** The plan's three steps are done; what is left deepens them, roughly in order:
 
-1. Check the names marked tentative (4 routines, 30 RAM variables, 3 object fields and a few hand-named labels) in the emulator, and run the code no emulator session has reached yet: link play in the front end, Funky's Fishing and Crosshair Cranky, the end of a Funky's Fishing session, entering a new high score, and the front end's action `$8A`, which no ring uses.
+1. Run the code no emulator session has reached yet, to confirm what was read from it: link play in the front end, Funky's Fishing and Crosshair Cranky, the end of a Funky's Fishing session, entering a new high score, and the front end's action `$8A`, which no ring uses.
 2. Name the type-specific object fields (`OBJ_VAR_xx`) per object type, starting with the player.
-3. Give descriptive local labels to the most-used routines (the engine in bank `$00`, the player code in bank `$09`), where the structural names say little.
+3. Give descriptive local labels to the most-used routines (the engine in bank `$00`, the player code in bank `$09`), where the structural names say little, and more telling names to generic data such as the player's animations (`Anim_SetPlayerAnimation_…`, numbered rather than named after the move).
 4. Write high bytes of RAM pointers symbolically (`ld h, $b0` as `HIGH(sSaveFile0)`) and the remaining HRAM buffers loaded into `hl` as their names.
 5. Settle the open questions in [`docs/unused.md`](docs/unused.md): the 256 tiles at `$F2:5760` and the four at `$F7:7F60` with no known loader, and the other items listed there.
 6. Later and separately: the `wiki/` folder (see below) and the demo ROM's own repository.

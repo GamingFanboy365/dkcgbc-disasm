@@ -4151,7 +4151,7 @@ LevelObjects_SlipslideRide_Area2::
 	dw $0024, $0044, ObjInit_MatchBonus_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_LevelTable_6::
+LevelObjects_BananaHoard::
 	db $01, $b0
 	dw $0065, $007f, ObjInit_Obj_Idle_4 ; x, y, object (bank $0E list)
 	db $02, $b0

@@ -310,8 +310,8 @@ NAMES = {
     (0x09, 0x4AFF): "Player_OnGround",  # stand, walk; A jumps, B rolls, Down crouches
     (0x09, 0x4CFF): "Player_InAir",
     (0x09, 0x4E29): "Player_Roll",  # B; keeps rolling while B and a direction are held
-    (0x09, 0x4EF8): "Player_Carry",  # tentative
-    (0x09, 0x4F5F): "Player_AfterThrow",  # tentative
+    (0x09, 0x4EF8): "Player_Crawl",  # on terrain with OBJ_TERRAIN_B bit 4 (a low ceiling): walk on hands and knees (animation $1c)
+    (0x09, 0x4F5F): "Player_RollPause",  # a roll that ends within the roll cooldown (OBJ_VAR_36) stops the Kong for 10 frames
     (0x09, 0x4FAB): "Player_Swim",
     (0x09, 0x56C3): "Player_Launched",  # shot from a barrel cannon; levels also start in this state
     (0x09, 0x5BCC): "Player_InBarrelCannon",  # follows the cannon object in OBJ_VAR_33
@@ -370,7 +370,7 @@ NAMES = {
     (0x09, 0x746E): "BreakableWall_Touch",
     (0x08, 0x55FA): "Entrance",  # doorway to another area (OBJ_VAR_2E-31: entrance to use)
     (0x08, 0x5648): "Entrance_WaitForSound",
-    (0x08, 0x5665): "Entrance_BananaHoard",  # start of the first level; leads elsewhere once the save has cleared levels (tentative)
+    (0x08, 0x5665): "Entrance_BananaHoard",  # doorway at the start of Jungle Hijinxs: once Gang-Plank Galleon (level $29) is cleared, it leads to DK's banana hoard (LevelEntrance_BananaHoard)
     (0x09, 0x74C6): "Entrance_Touch",
     (0x09, 0x7532): "Entrance_Blast_Touch",  # barrel that shoots the player to another area
     (0x09, 0x4049): "LevelExit_Touch",
@@ -601,7 +601,7 @@ NAMES = {
     (0x09, 0x7075): "Barrel_BreakAfterDelay",
     (0x09, 0x708A): "Zinger_Touch",
     (0x09, 0x73D1): "Bitesize_Touch",
-    (0x0A, 0x5555): "HUD_PartnerIcon",  # drawn while both Kongs are there (bit 1 of $c30f); tentative
+    (0x0A, 0x5555): "HUD_PartnerIcon",  # the partner Kong's icon at the bottom left, while both Kongs are there (wKongs bit 1)
     # --- front-end library, bank $F0
     (0xF0, 0x4000): "FE_InstallRAMRoutines",  # copies FE_HDMA_Code to $c8cd and FE_OAMDMA_Code to $ff87
     (0xF0, 0x4016): "FE_OAMDMA_Code",  # runs at $ff87 (FE_OAMDMA)
@@ -1797,6 +1797,11 @@ NAMES = {
     (0x00, 0x0512): "State_EnterCrankysCabin",  # $2b
     (0x00, 0x050B): "State_EnterBananaHoard",  # $2e
     (0x00, 0x3949): "State_ChooseEndingMessage",  # $31: 101% -> the hoard picture, else the hint in wLanguage
+    # DK's banana hoard, the room Entrance_BananaHoard leads to after the game
+    (0x04, 0x5F14): "LevelEntrance_BananaHoard",
+    (0x04, 0x65B8): "LevelDesc_BananaHoard",
+    (0x04, 0x6CA5): "MapHeader_BananaHoard",
+    (0x0C, 0x7DA7): "LevelObjects_BananaHoard",
     # two data leftovers no rule names
     (0x0B, 0x6C1F): "LevelObjects_TreeTopTown_Area1_Pad",  # a zero byte after the list
     (0x5B, 0x77F8): "PicturePalettes_Black",   # all black; no picture record points here

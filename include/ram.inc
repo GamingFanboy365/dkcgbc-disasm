@@ -137,7 +137,7 @@ DEF wFE_Language           EQU $c805 ; 0 English, 1 German, 2 French, 3 Italian,
 DEF wFE_BGPalettes         EQU $c806 ; (64 bytes) front end's BG palettes as uploaded
 DEF wFE_OBJPalettes        EQU $c846 ; (64 bytes) front end's OBJ palettes as uploaded
 DEF wFE_StackTop           EQU $cff6 ; the front end's stack (FE_Enter)
-DEF wFE_FadePalettes       EQU $da00 ; (128 bytes) colours being faded (FE_FadePaletteStep); target in another buffer
+DEF wFE_FadePalettes       EQU $da00 ; (128 bytes) palette colours being faded, as R, G, B bytes (FE_FadePaletteStep)
 DEF wFE_SavedHRAM          EQU $df00 ; (128 bytes) the main game's HRAM, kept while the front end runs (FE_SaveHRAM)
 DEF hFE_VBlankFlag         EQU $ff80 ; set to 1 by the front end's VBlank handlers; loops wait for it
 DEF hFE_ROMBank            EQU $ff81 ; current ROM bank (far calls push and restore it)
@@ -151,11 +151,11 @@ DEF hFE_FrameCounter       EQU $ff9a ; counts menu frames; seeds FE_Random when 
 
 ; Front end: the menus (banks $F0-$F4)
 DEF wFE_RingSize           EQU $c960 ; items on the current ring (2-5)
-DEF wFE_RingAngle          EQU $c961 ; ring rotation while it turns (tentative)
+DEF wFE_RingAngle          EQU $c961 ; the ring's rotation, in steps from 0 to wFE_RingSteps - 1
 DEF wFE_RingIcons          EQU $c962 ; (5 bytes) picture of each item
 DEF wFE_RingLabels         EQU $c967 ; (5 bytes) label of each item
 DEF wFE_RingItem           EQU $c96c ; item in front
-DEF wFE_RingHeight         EQU $c96d ; ring parameter from RingTable, used to place the items (tentative)
+DEF wFE_RingSteps          EQU $c96d ; steps in a full turn of the ring (the last byte of its RingTable record: 90 or 72)
 DEF wFE_Ring               EQU $c96e ; current ring (RingTable index)
 DEF wFE_ChosenFile         EQU $c96f ; save file picked to erase or copy to
 DEF wFE_RingActions        EQU $c970 ; (5 bytes) action byte of each item (see the README)
@@ -170,7 +170,7 @@ DEF wFE_EntryArg           EQU $c982 ; second entry argument (e)
 DEF wFE_CopySource         EQU $c983 ; save file copied from
 DEF wFE_CopyDest           EQU $c984 ; save file copied to
 DEF wFE_SoundTestSong      EQU $c986 ; song number in the sound test
-DEF wFE_StickerPage        EQU $c988 ; Sticker Book page; also the menu cursor's page (tentative)
+DEF wFE_StickerPage        EQU $c988 ; Sticker Book page (0-4, wrapping around)
 DEF wFE_MenuChoice         EQU $c989 ; option chosen in a menu (3 = Are you sure?)
 DEF wFE_GridMoves          EQU $c98a ; (4 bytes) item reached by up, down, left and right ($ff = none): Sticker Book and Make Flag keyboard
 DEF wFE_GridCursor         EQU $c98e ; (2 bytes) cursor sprite position (y, x)
@@ -228,17 +228,17 @@ DEF wFE_PrinterPacketLeft  EQU $ccaf ; (2 bytes) bytes left in it
 DEF wFE_PrinterError       EQU $ccb1 ; error found in the status (FE_Printer_DecodeStatus)
 DEF wFE_PrinterErrorText   EQU $ccb2 ; (2 bytes) message shown for it
 DEF wFE_PrinterErrorText2  EQU $ccb4 ; (2 bytes) 
-DEF wFE_PrinterTimeout     EQU $ccb7 ; set by the VBlank handler when printing takes too long (tentative)
-DEF wFE_PrinterTimedOut    EQU $ccb8
+DEF wFE_PrinterTickOn      EQU $ccb7 ; while set, FE_VBlank_Link sets wFE_PrinterTick every frame
+DEF wFE_PrinterTick        EQU $ccb8 ; set by the VBlank handler while wFE_PrinterTickOn is set; the print loops wait on it
 DEF wFE_PrintDelay         EQU $ccb9 ; frames to wait between bands
 DEF wFE_LinkResults        EQU $cf80 ; results the two Game Boys exchange after link Funky's Fishing
 DEF wFE_ScreenBuffer       EQU $d000 ; (2048 bytes) WRAMX: the screen being built (tile numbers, attributes at +$400), banner pieces, score digits
 DEF wFE_SavedState         EQU $d700 ; (1920 bytes) copy of $c800-$cf7f kept while a game is played (FE_SaveState)
 DEF wFE_SavedBGMap         EQU $d800 ; (2048 bytes) copy of wFE_ScreenBuffer (FE_SaveBGMap)
-DEF wFE_GradientPalettes   EQU $db00 ; (80 bytes) colours of the menus' line-by-line gradient (tentative)
-DEF wFE_TargetPalettes     EQU $db50 ; (192 bytes) colours a fade goes to
-DEF wFE_GradientTarget     EQU $dc10 ; (120 bytes) gradient colours a fade goes to (tentative)
-DEF wFE_GradientFadeFrom   EQU $dc88 ; (128 bytes) (tentative)
+DEF wFE_GradientColours    EQU $db00 ; (80 bytes) WRAMX bank 1: a colour per screen line 0-$4f; FE_STAT_Gradient writes it into BG palettes 0 and 2
+DEF wFE_TargetPalettes     EQU $db50 ; (192 bytes) palette colours a fade steps towards, as R, G, B bytes
+DEF wFE_GradientRGB        EQU $dc10 ; (120 bytes) the gradient's colours as R, G, B bytes (FE_UnpackPalettes), which fades scale and step
+DEF wFE_GradientRGBTarget  EQU $dc88 ; (128 bytes) gradient colours a colour fade steps towards, as R, G, B bytes
 DEF wFE_IRRole             EQU $dd1e ; 2 when this Game Boy starts the infrared exchange
 DEF wFE_IRStatus           EQU $dd1f ; $aa: packet received; other values are errors (FE_IR_SetError)
 DEF wFE_IRTimings          EQU $dd20 ; (4 bytes) pulse lengths measured at start-up for this CPU speed (FE_IR_Init)
@@ -322,14 +322,14 @@ DEF wCranky_ActorFrames    EQU $dba0 ; (32 bytes) frames in the animation
 DEF wCranky_ActorAnimTimer EQU $dbc0 ; (32 bytes) a carry moves to the next frame
 DEF wCranky_ActorFrame     EQU $dbe0 ; (32 bytes) current frame
 DEF wCranky_ActorSprite    EQU $dc00 ; (32 bytes) first sprite picture of the animation
-DEF wCranky_ActorFlags     EQU $dc20 ; (32 bytes) bit 5: shootable (tentative)
+DEF wCranky_ActorAttr      EQU $dc20 ; (32 bytes) OAM attributes the actor is drawn with (FE_DrawSpriteAnim); bit 5 flips it to face the other way
 DEF wCranky_ActorSpeed     EQU $dc40 ; (32 bytes) added to wCranky_ActorMoveTimer; a carry is one more step
 DEF wCranky_ActorMoveTimer EQU $dc60 ; (32 bytes) 
 DEF wCranky_ActorSteps     EQU $dc80 ; (32 bytes) whole steps a frame
 DEF wCranky_ActorDir       EQU $dca0 ; (32 bytes) direction of movement (Cranky_MoveActorStep)
 DEF wCranky_ActorTimer     EQU $dcc0 ; (32 bytes) frames to wait
 DEF wCranky_ActorTarget    EQU $dce0 ; (32 bytes) target slot the actor stands at
-DEF wCranky_ActorSavedFlags EQU $dd00 ; (32 bytes) wCranky_ActorAnimFlags kept while hit (tentative)
+DEF wCranky_ActorLink      EQU $dd00 ; (32 bytes) index of another actor this one spawned (Cranky_FindFreeActor), whose fields it changes later
 DEF wCranky_ActorVar       EQU $dd20 ; (32 bytes) per-game use (Galleon Gunner)
 DEF wCranky_ActorID        EQU $dd40 ; (32 bytes) id shared with the other Game Boy (wCranky_NextActorID)
 DEF hCranky_Actor          EQU $ff9c ; actor being run; index into the wCranky_Actor arrays
@@ -351,20 +351,20 @@ DEF wFishing_OAMBuffer     EQU $c800 ; (160 bytes) sprites built during the fram
 DEF wFishing_LinkFrameIn   EQU $c8a0 ; frame number in the last packet from the other Game Boy
 DEF wFishing_LinkFrameOut  EQU $c8a1 ; frame number sent
 DEF wFishing_LinkTimeout   EQU $c8a2 ; frames left to wait for the other Game Boy ($1e)
-DEF wFishing_PartnerFlags  EQU $c8a3 ; flags received from the other Game Boy (tentative)
+DEF wFishing_PacketApplied EQU $c8a3 ; set to 1 when a packet from the other Game Boy has been applied; nothing reads it
 DEF wFishing_TileBufferHalf EQU $c8a4 ; which half of the sprite tile buffer is streamed to VRAM by HDMA
 DEF wFishing_PauseCursor   EQU $c8a5 ; pause menu option (CONTINUE, QUIT?)
 DEF wFishing_PauseConfirm  EQU $c8a6 ; QUIT? answer
 DEF wFishing_PartnerPaused EQU $c8a9 ; the other player has paused
-DEF wFishing_FrameReady    EQU $c8aa ; set when a frame's VBlank work is done (tentative)
-DEF wFishing_Palettes      EQU $c9a0 ; (96 bytes) palettes being faded (Fishing_FadePalettes)
-DEF wFishing_LinkBuffer    EQU $ca00 ; (256 bytes) link packets (tentative)
+DEF wFishing_SamplePlaying EQU $c8aa ; set after Fishing_PlaySample starts a speech sample, cleared when it ends
+DEF wFishing_BGRGB         EQU $c9a0 ; (96 bytes) BG palettes as R, G, B bytes, for fades (Fishing_UnpackPalettes)
+DEF wFishing_LinkBuffer    EQU $ca00 ; (256 bytes) bytes received from the other Game Boy, stored by frame number (wFishing_LinkFrameOut)
 DEF wFishing_StackTop      EQU $cffb
 DEF wFishing_BGPalettes    EQU $d800 ; (128 bytes) palettes a fade goes to: BG, then OBJ at $d880
 DEF wFishing_OBJPalettes   EQU $d880 ; (128 bytes) 
-DEF wFishing_FadeWork      EQU $d900 ; (96 bytes) (tentative)
+DEF wFishing_OBJRGB        EQU $d900 ; (96 bytes) OBJ palettes as R, G, B bytes, for fades
 DEF wFishing_InitArg       EQU $d960 ; (2 bytes) bc given to Fishing_Init
-DEF wFishing_StartArg      EQU $d962 ; (2 bytes) de given to Fishing_Start (tentative)
+DEF wFishing_SeedPointer   EQU $d962 ; (2 bytes) de given to Fishing_Start: the address of bytes Fishing_InitRandom mixes into the random state
 DEF wFishing_Product       EQU $d964 ; (4 bytes) Fishing_MultiplySigned and Fishing_Multiply16's result
 DEF wFishing_Multiplier    EQU $d968 ; (2 bytes) 
 DEF wFishing_ProductSign   EQU $d96a ; bit 7: negative
@@ -382,14 +382,17 @@ DEF wFishing_HookXSpeed    EQU $dd7a ; (2 bytes)
 DEF wFishing_HookYSpeed    EQU $dd7c ; (2 bytes) 
 DEF wFishing_Reeling       EQU $dd7e ; set while the hook is reeled in
 DEF wFishing_HookInWater   EQU $dd7f
-DEF wFishing_HookState     EQU $dd80 ; 0: on the rod (tentative)
+DEF wFishing_HookState     EQU $dd80 ; 0 while the hook rides on the rod, 1 once the line is cast and the hook moves on its own
 DEF wFishing_FunkyAnim     EQU $dd81 ; (12 bytes) Funky's animation (Fishing_SetAnim): +8 x, +$a y
 DEF wFishing_RodAnim       EQU $dd8d ; (12 bytes) the rod's animation
 DEF wFishing_HookAnim      EQU $dd99 ; (12 bytes) the hook's animation
-DEF wFishing_CastState     EQU $dda5 ; (3 bytes) casting: power and direction (tentative)
+DEF wFishing_RodMove       EQU $dda5 ; (2 bytes) a word Fishing_MoveRod moves the rod by while it is nonzero
+DEF wFishing_RodRaised     EQU $dda7 ; 1 while the rod shows its raised animation (8), 0 with its resting one (9)
 DEF wFishing_Fish          EQU $dda8 ; (128 bytes) eight fish slots of 16 bytes (Fishing_SpawnFish, Fishing_MoveFish)
 DEF wFishing_FishCount     EQU $de28 ; fish swimming
-DEF wFishing_LineState     EQU $de29 ; (3 bytes) line and hook flags (tentative)
+DEF wFishing_LineOut       EQU $de29 ; set when A casts the line
+DEF wFishing_CastEnabled   EQU $de2a ; set by Fishing_InitCharacters and never cleared; casting needs it
+DEF wFishing_HookArmed     EQU $de2b ; set when the line is cast, cleared once the hook takes a fish; Fishing_CheckHookOnFish needs it
 DEF wFishing_Hooked        EQU $de2c ; (96 bytes) fish on the hook, rising with the line; $ff = empty
 DEF wFishing_HookedCount   EQU $de8c
 DEF wFishing_Catch         EQU $de8d ; (8 bytes) kinds of the fish in this catch; $ff = none
@@ -413,7 +416,7 @@ DEF wFishing_Unused_ded3   EQU $ded3 ; (2 bytes) set by Fishing_InitPause, never
 DEF wFishing_MeterTimer    EQU $ded5
 DEF wFishing_LevelMeter    EQU $ded6 ; meter value the level starts with
 DEF wFishing_PointsByKind  EQU $ded7 ; (5 bytes) points for each fish kind
-DEF wFishing_HookedKind    EQU $dedc ; kind of the fish being scored (tentative)
+DEF wFishing_CatchSample   EQU $dedc ; speech sample (Fishing_PlaySample number, 4-7) to play when the catch is scored
 DEF wFishing_HookTimer     EQU $dedd
 DEF wFishing_SampleMeter   EQU $dede ; meter level the last speech sample was played for
 DEF wFishing_Combo         EQU $dedf ; combo picked by Fishing_ComboByCount
@@ -462,7 +465,7 @@ DEF hFishing_OAMPos        EQU $ffd3 ; (2 bytes) next free entry in wFishing_OAM
 DEF hFishing_TileCount     EQU $ffd5 ; sprite tiles to stream this frame
 DEF hFishing_TileBufferPos EQU $ffd6 ; (2 bytes) next free byte in the sprite tile buffer ($d000)
 DEF hFishing_SavedSP       EQU $ffd8 ; (2 bytes) stack pointer at Fishing_Start, restored by Fishing_RestartMainLoop
-DEF hFishing_LinkSynced    EQU $ffda ; the serial handler skips the handshake while it is set (tentative)
+DEF hFishing_SerialHold    EQU $ffda ; cleared by Fishing_Init and never set; while nonzero the serial handler would skip its handshake
 DEF hFishing_Language      EQU $ffdb ; c given to Fishing_Start
 DEF hFishing_SampleFrames  EQU $ffdc ; frames the sample still plays; at 0 the VBlank work stops it
 DEF hFishing_SampleBank    EQU $ffdd ; bank of SampleTable

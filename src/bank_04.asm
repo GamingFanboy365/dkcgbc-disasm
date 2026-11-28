@@ -4510,8 +4510,8 @@ LevelEntrance_RopeBridgeRumble_Area2_0::
 	dw LevelDesc_RopeBridgeRumble_Area2
 	db $03, $1e, $00, $7e, $00, $00
 
-LevelEntrance_LevelTable_7::
-	dw LevelDesc_LevelTable_6
+LevelEntrance_BananaHoard::
+	dw LevelDesc_BananaHoard
 	db $43, $81, $00, $7e, $00, $00
 
 LevelEntrance_RambiBonus_0::
@@ -5614,12 +5614,12 @@ LevelDesc_Shop_Leave0::
 	db BANK(LevelObjects_Shop_Leave0) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_LevelTable_6::
+LevelDesc_BananaHoard::
 	db $88
 	dw BGPaletteSet_1E ; BG palettes
 	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
-	dw MapHeader_LevelTable_5, LevelObjects_LevelTable_6 ; map header (LoadMap), level objects (LoadLevelObjects)
-	db BANK(LevelObjects_LevelTable_6) ; bank of the level objects
+	dw MapHeader_BananaHoard, LevelObjects_BananaHoard ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BananaHoard) ; bank of the level objects
 	db $0b, $00
 
 MapHeader_MillstoneMayhem::
@@ -6526,7 +6526,7 @@ MapHeader_GangPlankGalleon::
 	db BANK(LevelMap_GangPlankGalleon_2)
 	dw LevelMap_GangPlankGalleon_2, LevelMap_GangPlankGalleon_3, LevelMap_GangPlankGalleon_1 ; block numbers, block attributes, terrain
 
-MapHeader_LevelTable_5::
+MapHeader_BananaHoard::
 	db BANK(LevelBlocks_ba), BANK(LevelTerrain_bc), $00 ; block bank, terrain bank, flags
 	dw CameraRegions_LevelTable_5 ; camera regions (wCameraRegion)
 	db BANK(BGTiles_LevelTable_2)

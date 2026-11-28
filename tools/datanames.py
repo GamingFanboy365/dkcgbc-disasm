@@ -1776,7 +1776,7 @@ NAMES = {
     (0x09, 0x4AEF): "ObjInit_Player_OnGround",
     (0x09, 0x4DF0): "ObjInit_HandSlap_Hitbox",
     (0x09, 0x4DFD): "Unused_Player_HandSlap",
-    (0x09, 0x4EF0): "ObjInit_Player_AfterThrow",
+    (0x09, 0x4EF0): "ObjInit_Player_RollPause",
     (0x09, 0x4F9D): "ObjInit_Player_Swim",
     (0x09, 0x503C): "ObjInit_PlayerRambi",
     (0x09, 0x51BA): "ObjInit_PlayerRambi_InAir",

@@ -1708,7 +1708,7 @@ Cranky_GalleonGunner_SetGradient::
 	pop af
 	ld [hl], a
 	ld a, $03
-	ld hl, wCranky_ActorFlags
+	ld hl, wCranky_ActorAttr
 	push af
 	ldh a, [hCranky_Actor]
 	add a, l

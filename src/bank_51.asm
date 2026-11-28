@@ -627,7 +627,7 @@ FishingRuntime::
 	jr nz, @ +90 ; RAMCode_51_cb60
 	push hl
 	push bc
-	ldh a, [hFishing_LinkSynced]
+	ldh a, [hFishing_SerialHold]
 	or a
 	jr nz, @ +36 ; RAMCode_51_cb31
 	ldh a, [rSB]
@@ -863,7 +863,7 @@ FishingRuntime::
 	ret
 
 ; Fishing_PlaySample:
-	ld a, [wFishing_FrameReady]
+	ld a, [wFishing_SamplePlaying]
 	or a
 	ret nz
 	push bc

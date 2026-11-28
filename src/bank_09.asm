@@ -1928,9 +1928,9 @@ Player_OnGround::
 
 .else_4cea:
 	ld hl, wPlayer + OBJ_HANDLER
-	ld [hl], LOW(Player_Carry)
+	ld [hl], LOW(Player_Crawl)
 	inc l
-	ld [hl], HIGH(Player_Carry)
+	ld [hl], HIGH(Player_Crawl)
 	ld a, $9c
 	call SetPlayerAnimation
 	ld a, $06
@@ -2209,20 +2209,20 @@ Player_Roll::
 .else_4ede:
 	ld hl, wPlayer + OBJ_VAR_2E
 	res 6, [hl]
-	ld hl, ObjInit_Player_AfterThrow
+	ld hl, ObjInit_Player_RollPause
 	call ApplyObjInit
 	ld a, $00
 	call SetPlayerAnimation
 	jr .loop_4e7a
 
 
-ObjInit_Player_AfterThrow::
-	obj_byte OBJ_BANK, BANK(Player_AfterThrow)
-	obj_word OBJ_HANDLER, Player_AfterThrow
+ObjInit_Player_RollPause::
+	obj_byte OBJ_BANK, BANK(Player_RollPause)
+	obj_word OBJ_HANDLER, Player_RollPause
 	obj_byte OBJ_VAR_36, $0a
 	obj_end
 
-Player_Carry::
+Player_Crawl::
 	ldh a, [hJoyHeld]
 	bit 5, a
 	jr nz, .else_4f33
@@ -2279,7 +2279,7 @@ Player_Carry::
 	jr .loop
 
 
-Player_AfterThrow::
+Player_RollPause::
 	ld a, [wPlayer + OBJ_VAR_36]
 	or a
 	jr z, .else

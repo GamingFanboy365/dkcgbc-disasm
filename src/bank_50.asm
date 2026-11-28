@@ -75,9 +75,9 @@ Fishing_Start::
 	ld a, c
 	ldh [hFishing_Language], a
 	ld a, e
-	ld [wFishing_StartArg], a
+	ld [wFishing_SeedPointer], a
 	ld a, d
-	ld [wFishing_StartArg + 1], a
+	ld [wFishing_SeedPointer + 1], a
 	ld hl, wFishing_BGPalettes
 	ld de, wFishing_OBJPalettes
 	ldh [hFishing_FarA], a
@@ -972,14 +972,14 @@ Fishing_InitCharacters::
 	ld [wFishing_HookAnim + 9], a
 	ld [wFishing_FunkyAnim + 4], a
 	ld [wFishing_RodAnim + 4], a
-	ld [wFishing_CastState], a
-	ld [wFishing_CastState + 1], a
-	ld [wFishing_CastState + 2], a
+	ld [wFishing_RodMove], a
+	ld [wFishing_RodMove + 1], a
+	ld [wFishing_RodRaised], a
 	ld [wFishing_HookState], a
-	ld [wFishing_LineState], a
-	ld [wFishing_LineState + 2], a
+	ld [wFishing_LineOut], a
+	ld [wFishing_HookArmed], a
 	ld a, $01
-	ld [wFishing_LineState + 1], a
+	ld [wFishing_CastEnabled], a
 	ret
 
 
@@ -1096,9 +1096,9 @@ Fishing_Init::
 	call Fishing_SetDoubleSpeed
 	call Fishing_InitLCD
 	call Fishing_InitSound
-	ld a, [wFishing_StartArg]
+	ld a, [wFishing_SeedPointer]
 	ldh [hFishing_Scratch], a
-	ld a, [wFishing_StartArg + 1]
+	ld a, [wFishing_SeedPointer + 1]
 	ldh [hFishing_Scratch + 1], a
 	ld bc, $0400
 	ld de, $7885
@@ -1136,10 +1136,10 @@ Fishing_Init::
 	ld [wFishing_LinkTimeout], a
 	xor a
 	ld [wFishing_LinkPacketIn], a
-	ldh [hFishing_LinkSynced], a
+	ldh [hFishing_SerialHold], a
 	ld [wFishing_FrameCounter], a
 	ld [wFishing_TileBufferHalf], a
-	ld [wFishing_PartnerFlags], a
+	ld [wFishing_PacketApplied], a
 	ld [wFishing_PartnerState], a
 	ld [wFishing_Unused_dd73], a
 	ld [wFishing_Unused_dd73 + 1], a
@@ -1162,7 +1162,7 @@ Fishing_Init::
 	ld [wFishing_EndState], a
 	ld [wFishing_EndState + 1], a
 	ld [wFishing_EndState + 2], a
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 	ld [wFishing_HookTimer], a
 	ld [wFishing_SampleMeter], a
 	ld [wFishing_Combo], a
@@ -1397,7 +1397,7 @@ Fishing_LinkApplyReceived::
 .apply:
 	ld a, $01
 	ld [wFishing_PartnerState], a
-	ld [wFishing_PartnerFlags], a
+	ld [wFishing_PacketApplied], a
 	inc l
 	ld a, [hli]
 	ld [wFishing_PartnerMeter], a
@@ -1498,7 +1498,7 @@ Fishing_LinkVBlankWork::
 	xor a
 	ld [hli], a
 	ld [hl], a
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 .done:
 	ld a, [wFishing_TileBufferHalf]
 	xor $04
@@ -1543,7 +1543,7 @@ Fishing_VBlankWork::
 	xor a
 	ld [hli], a
 	ld [hl], a
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 .done:
 	ld a, [wFishing_TileBufferHalf]
 	xor $04
@@ -2257,13 +2257,13 @@ Fishing_AnimateAll::
 
 Fishing_MoveRod::
 	call Fishing_RodFollowScroll
-	ld hl, wFishing_CastState
+	ld hl, wFishing_RodMove
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
 	or b
 	ret z
-	ld a, [wFishing_CastState + 2]
+	ld a, [wFishing_RodRaised]
 	or a
 	jr z, .else
 	ld a, [wFishing_RodX]
@@ -2305,8 +2305,8 @@ Fishing_MoveRod::
 
 .done:
 	xor a
-	ld [wFishing_CastState], a
-	ld [wFishing_CastState + 1], a
+	ld [wFishing_RodMove], a
+	ld [wFishing_RodMove + 1], a
 	ret
 
 
@@ -2830,7 +2830,7 @@ Fishing_LinkStartCombo::
 	ld c, $03
 	call Fishing_PlaySample
 	ld a, $01
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 	ret
 
 
@@ -3112,7 +3112,7 @@ Fishing_HookPhysics::
 .else_5295:
 	xor a
 	ld [wFishing_HookState], a
-	ld [wFishing_LineState], a
+	ld [wFishing_LineOut], a
 	ld bc, $0080
 	ld a, c
 	ld [wFishing_HookYSpeed], a
@@ -3121,13 +3121,13 @@ Fishing_HookPhysics::
 	ld a, [wFishing_HookTimer]
 	or a
 	jr nz, .skip
-	ld a, [wFishing_HookedKind]
+	ld a, [wFishing_CatchSample]
 	ld c, a
 	call Fishing_PlaySample
 .skip:
 	xor a
 	ld [wFishing_HookTimer], a
-	ld a, [wFishing_CastState + 2]
+	ld a, [wFishing_RodRaised]
 	or a
 	jr nz, .else_52c7
 	ld b, $0d
@@ -3193,7 +3193,7 @@ Fishing_ReelInHookedFish::
 	call Fishing_ScoreCatch
 	ld a, $01
 	ld [wFishing_HookTimer], a
-	ld a, [wFishing_HookedKind]
+	ld a, [wFishing_CatchSample]
 	ld c, a
 	call Fishing_PlaySample
 	ret
@@ -3633,7 +3633,7 @@ Fishing_Input::
 	ld a, [wFishing_JoyPressed]
 	bit 0, a
 	jr z, .continue_5605
-	ld a, [wFishing_LineState + 1]
+	ld a, [wFishing_CastEnabled]
 	or a
 	jr z, .continue_5605
 	ld a, [wFishing_HookState]
@@ -3642,8 +3642,8 @@ Fishing_Input::
 	ld a, $01
 	ld [wFishing_HookState], a
 	ld [wFishing_HookInWater], a
-	ld [wFishing_LineState + 2], a
-	ld a, [wFishing_CastState + 2]
+	ld [wFishing_HookArmed], a
+	ld a, [wFishing_RodRaised]
 	or a
 	jr nz, .else_55e9
 	ld b, $0b
@@ -3663,17 +3663,17 @@ Fishing_Input::
 	ld c, $08
 	call Fishing_PlaySample
 	ld a, $07
-	ld [wFishing_HookedKind], a
+	ld [wFishing_CatchSample], a
 	ld a, $01
-	ld [wFishing_LineState], a
+	ld [wFishing_LineOut], a
 .continue_5605:
 	ld a, [wFishing_JoyHeld]
 	bit 5, a
 	jr z, .else_5649
-	ld a, [wFishing_CastState + 2]
+	ld a, [wFishing_RodRaised]
 	or a
 	jp nz, .else_56a6
-	ld a, [wFishing_LineState]
+	ld a, [wFishing_LineOut]
 	or a
 	jr z, .else_562c
 	ld a, [wFishing_FunkyAnim + 1]
@@ -3694,20 +3694,20 @@ Fishing_Input::
 	ld hl, wFishing_RodAnim
 	call Fishing_SetAnim
 	ld a, $01
-	ld [wFishing_CastState + 2], a
+	ld [wFishing_RodRaised], a
 	xor a
-	ld [wFishing_CastState], a
-	ld [wFishing_CastState + 1], a
+	ld [wFishing_RodMove], a
+	ld [wFishing_RodMove + 1], a
 	ret
 
 .else_5649:
 	ld a, [wFishing_JoyHeld]
 	bit 4, a
 	jr z, .else_568a
-	ld a, [wFishing_CastState + 2]
+	ld a, [wFishing_RodRaised]
 	or a
 	jr z, .else_56a6
-	ld a, [wFishing_LineState]
+	ld a, [wFishing_LineOut]
 	or a
 	jr z, .else_566f
 	ld a, [wFishing_FunkyAnim + 1]
@@ -3728,13 +3728,13 @@ Fishing_Input::
 	ld hl, wFishing_RodAnim
 	call Fishing_SetAnim
 	xor a
-	ld [wFishing_CastState + 2], a
-	ld [wFishing_CastState], a
-	ld [wFishing_CastState + 1], a
+	ld [wFishing_RodRaised], a
+	ld [wFishing_RodMove], a
+	ld [wFishing_RodMove + 1], a
 	ret
 
 .else_568a:
-	ld hl, wFishing_CastState
+	ld hl, wFishing_RodMove
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
@@ -3761,7 +3761,7 @@ Fishing_Input::
 
 .else_56a6:
 	ld de, $0126
-	ld hl, wFishing_CastState
+	ld hl, wFishing_RodMove
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
@@ -3799,7 +3799,7 @@ Fishing_Input::
 
 
 Fishing_CheckHookOnFish::
-	ld a, [wFishing_LineState + 2]
+	ld a, [wFishing_HookArmed]
 	or a
 	ret z
 	ld a, [wFishing_HookY]
@@ -3863,7 +3863,7 @@ Fishing_CheckHookOnFish::
 
 .done:
 	xor a
-	ld [wFishing_LineState + 2], a
+	ld [wFishing_HookArmed], a
 	ret
 
 
@@ -4259,7 +4259,7 @@ Fishing_CheckNextLevel::
 	ld c, $0a
 	call Fishing_PlaySample
 	ld a, $01
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 	ld a, [wFishing_Level]
 	inc a
 	ld [wFishing_Level], a
@@ -4542,7 +4542,7 @@ Fishing_AddBonusPoints::
 	ld a, $3c
 	ld [wFishing_ComboTextTimer], a
 	ld a, $04
-	ld [wFishing_HookedKind], a
+	ld [wFishing_CatchSample], a
 	xor a
 	ld [wFishing_Combo], a
 	ld [wFishing_ComboKind], a
@@ -4608,7 +4608,7 @@ Fishing_ScoreCatch::
 	ld a, $3c
 	ld [wFishing_ComboTextTimer], a
 	ld a, $04
-	ld [wFishing_HookedKind], a
+	ld [wFishing_CatchSample], a
 	ld c, $19
 	call Fishing_AddToMeter
 	jr .continue_5b94
@@ -4648,7 +4648,7 @@ Fishing_ScoreCatch::
 	ld a, $3c
 	ld [wFishing_ComboTextTimer], a
 	ld a, $04
-	ld [wFishing_HookedKind], a
+	ld [wFishing_CatchSample], a
 	jr .continue_5b94
 
 .else_5b91:
@@ -4902,7 +4902,7 @@ Fishing_ScoreCatch::
 
 Fishing_PointsByType::
 	ld a, $06
-	ld [wFishing_HookedKind], a
+	ld [wFishing_CatchSample], a
 	ld b, $08
 .loop:
 	ld a, [hli]
@@ -4973,7 +4973,7 @@ Fishing_PointsByType::
 
 .else_5d40:
 	ld a, $05
-	ld [wFishing_HookedKind], a
+	ld [wFishing_CatchSample], a
 	ld a, [wFishing_PointsByKind + 4]
 	ld c, a
 	call Fishing_AddToMeter
@@ -4986,7 +4986,7 @@ Fishing_PointsByType::
 
 .else_5d58:
 	ld a, $05
-	ld [wFishing_HookedKind], a
+	ld [wFishing_CatchSample], a
 	ld a, [wFishing_PointsByKind + 4]
 	ld c, a
 	call Fishing_AddToMeter
@@ -7242,7 +7242,7 @@ Fishing_FadePalettes::
 	push bc
 	push hl
 	ld b, $08
-	ld hl, wFishing_Palettes
+	ld hl, wFishing_BGRGB
 	call Fishing_UnpackPalettes
 	pop hl
 	pop bc
@@ -7280,7 +7280,7 @@ Fishing_FadePalettes::
 	push bc
 	push hl
 	ld b, $08
-	ld de, wFishing_Palettes
+	ld de, wFishing_BGRGB
 	ld hl, wFishing_BGPalettes
 	call Fishing_ScalePalettes
 	push bc
@@ -7305,7 +7305,7 @@ Fishing_FadePalettes::
 .else_68bd:
 	ldh a, [hFishing_Scratch + 3]
 	ld b, $08
-	ld de, wFishing_Palettes
+	ld de, wFishing_BGRGB
 	ld hl, wFishing_BGPalettes
 	call Fishing_ScalePalettes
 	push bc
@@ -7333,11 +7333,11 @@ Fishing_FadeAllPalettes::
 	push bc
 	push hl
 	ld b, $08
-	ld hl, wFishing_Palettes
+	ld hl, wFishing_BGRGB
 	ld de, wFishing_BGPalettes
 	call Fishing_UnpackPalettes
 	ld b, $08
-	ld hl, wFishing_FadeWork
+	ld hl, wFishing_OBJRGB
 	ld de, wFishing_OBJPalettes
 	call Fishing_UnpackPalettes
 	pop hl
@@ -7377,12 +7377,12 @@ Fishing_FadeAllPalettes::
 	push hl
 	push af
 	ld b, $08
-	ld de, wFishing_Palettes
+	ld de, wFishing_BGRGB
 	ld hl, wFishing_BGPalettes
 	call Fishing_ScalePalettes
 	pop af
 	ld b, $08
-	ld de, wFishing_FadeWork
+	ld de, wFishing_OBJRGB
 	ld hl, wFishing_OBJPalettes
 	call Fishing_ScalePalettes
 	push bc
@@ -7409,12 +7409,12 @@ Fishing_FadeAllPalettes::
 .else_695f:
 	ldh a, [hFishing_Scratch + 3]
 	ld b, $08
-	ld de, wFishing_Palettes
+	ld de, wFishing_BGRGB
 	ld hl, wFishing_BGPalettes
 	call Fishing_ScalePalettes
 	ldh a, [hFishing_Scratch + 3]
 	ld b, $08
-	ld de, wFishing_FadeWork
+	ld de, wFishing_OBJRGB
 	ld hl, wFishing_OBJPalettes
 	call Fishing_ScalePalettes
 	push bc
@@ -8562,7 +8562,7 @@ Fishing_Pause::
 	xor a
 	ld [hli], a
 	ld [hl], a
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 	push bc
 	ld c, $41
 .loop_7076:
@@ -8623,7 +8623,7 @@ Fishing_LinkPause::
 	xor a
 	ld [hli], a
 	ld [hl], a
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 	push bc
 	ld c, $41
 .loop_70dd:
@@ -8862,7 +8862,7 @@ Fishing_PartnerPaused::
 	xor a
 	ld [hli], a
 	ld [hl], a
-	ld [wFishing_FrameReady], a
+	ld [wFishing_SamplePlaying], a
 	push bc
 	ld c, $41
 .loop_725d:

@@ -55,8 +55,8 @@ FE_Main::
 	call FE_LoadGradientColours
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -416,7 +416,7 @@ FE_ShowCrankyUnlocked::
 
 FE_LoadGradientColours::
 	ld hl, $659a
-	ld bc, wFE_GradientPalettes
+	ld bc, wFE_GradientColours
 	ld d, $50
 .loop:
 	ld a, [hli]
@@ -428,7 +428,7 @@ FE_LoadGradientColours::
 
 
 FE_ClearGradientColours::
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld d, $50
 	xor a
 .loop:
@@ -439,7 +439,7 @@ FE_ClearGradientColours::
 
 
 FE_SetGradientColoursWhite::
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld d, $50
 	ld a, $ff
 .loop:
@@ -602,8 +602,8 @@ FE_FadeInScreen::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch + 4], a
-	ld bc, wFE_GradientPalettes
-	ld de, wFE_GradientTarget
+	ld bc, wFE_GradientColours
+	ld de, wFE_GradientRGB
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -625,7 +625,7 @@ FE_FadeInScreen::
 	ldh [rSVBK], a
 	ld a, $80
 	ldh [rBCPS], a
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld a, [hli]
 	ldh [rBCPD], a
 	ld a, [hli]
@@ -652,8 +652,8 @@ FE_FadeOutScreen::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch + 4], a
-	ld bc, wFE_GradientPalettes
-	ld de, wFE_GradientTarget
+	ld bc, wFE_GradientColours
+	ld de, wFE_GradientRGB
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -675,7 +675,7 @@ FE_FadeOutScreen::
 	ldh [rSVBK], a
 	ld a, $80
 	ldh [rBCPS], a
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld a, [hli]
 	ldh [rBCPD], a
 	ld a, [hli]
@@ -708,8 +708,8 @@ FE_FadeOutScreen_NoInput::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch + 4], a
-	ld bc, wFE_GradientPalettes
-	ld de, wFE_GradientTarget
+	ld bc, wFE_GradientColours
+	ld de, wFE_GradientRGB
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -728,7 +728,7 @@ FE_FadeOutScreen_NoInput::
 	ldh [rSVBK], a
 	ld a, $80
 	ldh [rBCPS], a
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld a, [hli]
 	ldh [rBCPD], a
 	ld a, [hli]
@@ -761,8 +761,8 @@ FE_FadeOutScreenSlow::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch + 4], a
-	ld bc, wFE_GradientPalettes
-	ld de, wFE_GradientTarget
+	ld bc, wFE_GradientColours
+	ld de, wFE_GradientRGB
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -807,8 +807,8 @@ FE_FadeInScreenSlow::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch + 4], a
-	ld bc, wFE_GradientPalettes
-	ld de, wFE_GradientTarget
+	ld bc, wFE_GradientColours
+	ld de, wFE_GradientRGB
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -855,8 +855,8 @@ FE_FadeToWhite::
 	ldh [hFE_Scratch], a
 	ld a, $28
 	ldh [hFE_Scratch + 4], a
-	ld bc, wFE_GradientPalettes
-	ld de, wFE_GradientTarget
+	ld bc, wFE_GradientColours
+	ld de, wFE_GradientRGB
 	ld a, BANK(FE_FadePaletteStep)
 	ld hl, FE_FadePaletteStep
 	call FarCall_A_HL
@@ -879,7 +879,7 @@ FE_FadeToWhite::
 	ldh [rSVBK], a
 	ld a, $80
 	ldh [rBCPS], a
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld a, [hli]
 	ldh [rBCPD], a
 	ld a, [hli]
@@ -938,8 +938,8 @@ FE_FadeToColours::
 FE_FadeToColoursWithGradient::
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -958,9 +958,9 @@ FE_FadeToColoursWithGradient::
 	ld hl, wFE_TargetPalettes
 	ld a, $40
 	call FE_FadeStepToColour
-	ld bc, wFE_GradientPalettes
-	ld de, wFE_GradientTarget
-	ld hl, wFE_GradientFadeFrom
+	ld bc, wFE_GradientColours
+	ld de, wFE_GradientRGB
+	ld hl, wFE_GradientRGBTarget
 	ld a, $28
 	call FE_FadeStepToColour
 	ld a, BANK(FE_ReadJoypadHeld)
@@ -981,7 +981,7 @@ FE_FadeToColoursWithGradient::
 	ldh [rSVBK], a
 	ld a, $80
 	ldh [rBCPS], a
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld a, [hli]
 	ldh [rBCPD], a
 	ld a, [hli]
@@ -1151,7 +1151,7 @@ FE_GetRingItemPosition::
 	ld c, a
 	add hl, bc
 	add hl, bc
-	ld a, [wFE_RingHeight]
+	ld a, [wFE_RingSteps]
 	cpl
 	ld c, a
 	ld b, $ff
@@ -1160,7 +1160,7 @@ FE_GetRingItemPosition::
 	add hl, bc
 	bit 7, h
 	jr z, .skip
-	ld a, [wFE_RingHeight]
+	ld a, [wFE_RingSteps]
 	ld c, a
 	ld b, $00
 	add hl, bc
@@ -1282,7 +1282,7 @@ FE_TurnRingRight::
 	dec a
 	cp $ff
 	jr nz, .skip_4901
-	ld a, [wFE_RingHeight]
+	ld a, [wFE_RingSteps]
 	dec a
 .skip_4901:
 	ld [wFE_RingAngle], a
@@ -1588,7 +1588,7 @@ FE_TurnRingLeft::
 	ld a, [hl]
 .loop_4aaa:
 	push af
-	ld a, [wFE_RingHeight]
+	ld a, [wFE_RingSteps]
 	ld b, a
 	ld a, [wFE_RingAngle]
 	inc a
@@ -1712,7 +1712,7 @@ FE_LoadRing::
 	ld a, [hli]
 	ld [wFE_ParentRing], a
 	ld a, [hli]
-	ld [wFE_RingHeight], a
+	ld [wFE_RingSteps], a
 	xor a
 	ld [wFE_RingItem], a
 	ld [wFE_RingAngle], a
@@ -1771,8 +1771,8 @@ FE_SelectRingItem::
 	call FE_ClearBGMap
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientFadeFrom
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGBTarget
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -1859,8 +1859,8 @@ FE_BackToParentRing::
 	ld [hl], $14
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientFadeFrom
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGBTarget
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -3259,8 +3259,8 @@ FE_AskSure_FromF2::
 	call FarCall_A_HL
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -3663,7 +3663,7 @@ RAMCopy_f1_57f0_to_ccba::
 	ldh [rSVBK], a
 	ld a, $80
 	ldh [rBCPS], a
-	ld hl, wFE_GradientPalettes
+	ld hl, wFE_GradientColours
 	ld a, [hli]
 	ldh [rBCPD], a
 	ld a, [hli]
@@ -3723,11 +3723,11 @@ RAMCopy_f1_5839_to_cd03::
 	or c
 	ld [wFE_VBlankTimerActive], a
 ; RAMCode_f1_cd24:
-	ld a, [wFE_PrinterTimeout]
+	ld a, [wFE_PrinterTickOn]
 	or a
 	jr z, @ +7 ; RAMCode_f1_cd2f
 	ld a, $01
-	ld [wFE_PrinterTimedOut], a
+	ld [wFE_PrinterTick], a
 ; RAMCode_f1_cd2f:
 	ld a, $10
 	ldh [rP1], a
@@ -3825,15 +3825,15 @@ RAMCopy_f1_587d_to_cd47::
 	ld [bc], a
 	ld a, [hli]
 	ld [bc], a
-	ld a, [wFE_GradientPalettes + $10]
+	ld a, [wFE_GradientColours + $10]
 	ld [bc], a
-	ld a, [wFE_GradientPalettes + $11]
+	ld a, [wFE_GradientColours + $11]
 	ld [bc], a
 	ld a, $96
 	ldh [rBCPS], a
-	ld a, [wFE_GradientPalettes + $10]
+	ld a, [wFE_GradientColours + $10]
 	ld [bc], a
-	ld a, [wFE_GradientPalettes + $11]
+	ld a, [wFE_GradientColours + $11]
 	ld [bc], a
 	ld hl, rLCDC
 	res 4, [hl]
@@ -4143,8 +4143,8 @@ FE_ViewItems::
 	call FE_LoadGradientColours
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
@@ -5540,9 +5540,9 @@ FE_PrintPicture::
 	ld b, $10
 	call FE_SetVBlankTimer
 	ld a, $01
-	ld [wFE_PrinterTimeout], a
+	ld [wFE_PrinterTickOn], a
 .loop_6337:
-	ld a, [wFE_PrinterTimedOut]
+	ld a, [wFE_PrinterTick]
 	or a
 	jr z, .skip
 	ld bc, $000a
@@ -5636,9 +5636,9 @@ FE_PrintStickerPage::
 	ld b, [hl]
 	call FE_SetVBlankTimer
 	ld a, $01
-	ld [wFE_PrinterTimeout], a
+	ld [wFE_PrinterTickOn], a
 .loop_63f0:
-	ld a, [wFE_PrinterTimedOut]
+	ld a, [wFE_PrinterTick]
 	or a
 	jr z, .skip_6402
 	ld bc, $000a
@@ -5653,9 +5653,9 @@ FE_PrintStickerPage::
 	ld b, $07
 	call FE_WaitVBlankTimer
 	ld a, $01
-	ld [wFE_PrinterTimeout], a
+	ld [wFE_PrinterTickOn], a
 .loop_6412:
-	ld a, [wFE_PrinterTimedOut]
+	ld a, [wFE_PrinterTick]
 	or a
 	jr z, .skip_6424
 	ld bc, $000a
@@ -5687,9 +5687,9 @@ FE_PrintStickerPage::
 	ld b, $10
 	call FE_SetVBlankTimer
 	ld a, $01
-	ld [wFE_PrinterTimeout], a
+	ld [wFE_PrinterTickOn], a
 .loop_644f:
-	ld a, [wFE_PrinterTimedOut]
+	ld a, [wFE_PrinterTick]
 	or a
 	jr z, .skip_6461
 	ld bc, $000a
@@ -6306,8 +6306,8 @@ FE_StickerBook::
 	call FE_LoadGradientColours
 	ld a, $28
 	ldh [hFE_Scratch], a
-	ld de, wFE_GradientPalettes
-	ld bc, wFE_GradientTarget
+	ld de, wFE_GradientColours
+	ld bc, wFE_GradientRGB
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL

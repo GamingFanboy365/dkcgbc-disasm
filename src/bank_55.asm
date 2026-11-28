@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $55", ROMX[$4000], BANK[$55]
 
-Func_55_4000::
+HiScore_Start::
 	di
 	xor a
 	ldh [rIE], a
@@ -87,7 +87,7 @@ Func_55_4000::
 	ldh a, [rLCDC]
 	set 1, a
 	ldh [rLCDC], a
-	call Func_55_425c
+	call HiScore_SetDoubleSpeed
 	pop hl
 	pop de
 	pop bc
@@ -105,7 +105,7 @@ Func_55_4000::
 	call Fishing_PlaySong
 	pop de
 	pop bc
-	call Func_55_41f9
+	call HiScore_FindRank
 	ld a, h
 	cp $ff
 	jr z, .jump_411e
@@ -116,12 +116,12 @@ Func_55_4000::
 	ld [hli], a
 	ld [hli], a
 	ld hl, $ddf6
-	call Func_55_4161
-	call Func_55_4364
-	call Func_55_4423
+	call HiScore_InsertScore
+	call HiScore_ScoresToTiles
+	call HiScore_DrawTable
 	ld e, $00
-	call Func_55_4676
-	call Func_55_46d1
+	call HiScore_FadeIn
+	call HiScore_EnterName
 	ld a, [$ddf9]
 	ld b, a
 	add a, a
@@ -139,7 +139,7 @@ Func_55_4000::
 	inc bc
 	ld a, [bc]
 	ld [hli], a
-	call Func_55_4423
+	call HiScore_DrawTable
 	ld hl, $dd77
 	ld bc, $dd9c
 	ld de, $ddab
@@ -170,21 +170,21 @@ Func_55_4000::
 	pop af
 	dec a
 	jr nz, .jump_40e4
-	call Func_55_4381
+	call HiScore_SetChecksum
 	ld hl, $b400
 	ld de, $dd75
-	call Func_55_43a7
+	call HiScore_WriteCopy
 	ld hl, $b427
 	ld de, $dd75
-	call Func_55_43a7
+	call HiScore_WriteCopy
 	ld hl, $b44e
 	ld de, $dd75
-	call Func_55_43a7
+	call HiScore_WriteCopy
 	jr .jump_4123
 
 .jump_411e:
 	ld e, $00
-	call Func_55_4676
+	call HiScore_FadeIn
 .jump_4123:
 	push bc
 	ld c, $41
@@ -206,7 +206,7 @@ Func_55_4000::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, Func_55_4155
+	ld hl, HiScore_WaitForButton
 	push hl
 	ldh a, [$ffc5]
 	push af
@@ -218,18 +218,18 @@ Func_55_4000::
 	jp Fishing_FarJump
 
 
-Func_55_4155::
+HiScore_WaitForButton::
 	ld a, [$dd70]
 	or a
-	jr z, Func_55_4000.jump_4123
+	jr z, HiScore_Start.jump_4123
 	ld e, $01
-	call Func_55_4676
+	call HiScore_FadeIn
 	ret
 
 
-Func_55_4161::
+HiScore_InsertScore::
 	push hl
-	call Func_55_41f9
+	call HiScore_FindRank
 	ld a, h
 	cp $ff
 	jr nz, .jump_416c
@@ -341,25 +341,25 @@ Func_55_4161::
 	ret
 
 
-Func_55_41f9::
+HiScore_FindRank::
 	ld hl, $ddbb
-	call Func_55_423d
+	call HiScore_CompareScore
 	jr z, .jump_4237
 	jr c, .jump_423a
 	ld hl, $ddb7
-	call Func_55_423d
+	call HiScore_CompareScore
 	jr z, .jump_4234
 	jr c, .jump_4237
 	ld hl, $ddb3
-	call Func_55_423d
+	call HiScore_CompareScore
 	jr z, .jump_4231
 	jr c, .jump_4234
 	ld hl, $ddaf
-	call Func_55_423d
+	call HiScore_CompareScore
 	jr z, .jump_422e
 	jr c, .jump_4231
 	ld hl, $ddab
-	call Func_55_423d
+	call HiScore_CompareScore
 	jr z, .jump_422b
 	jr c, .jump_422e
 .jump_422b:
@@ -387,7 +387,7 @@ Func_55_41f9::
 	ret
 
 
-Func_55_423d::
+HiScore_CompareScore::
 	ld a, b
 	cp [hl]
 	jr z, .jump_4246
@@ -424,13 +424,13 @@ Func_55_423d::
 	ret
 
 
-Func_55_425c::
+HiScore_SetDoubleSpeed::
 	ldh [$ffcf], a
 	ld a, h
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, Func_55_4278
+	ld hl, HiScore_InitLCD
 	push hl
 	ldh a, [$ffc5]
 	push af
@@ -442,13 +442,13 @@ Func_55_425c::
 	jp Fishing_FarJump
 
 
-Func_55_4278::
+HiScore_InitLCD::
 	ldh [$ffcf], a
 	ld a, h
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, Func_55_4294
+	ld hl, HiScore_LoadTable
 	push hl
 	ldh a, [$ffc5]
 	push af
@@ -460,18 +460,18 @@ Func_55_4278::
 	jp Fishing_FarJump
 
 
-Func_55_4294::
+HiScore_LoadTable::
 	ld hl, $b400
 	ld de, $dd75
-	call Func_55_43b0
+	call HiScore_ReadCopy
 	jr nc, .jump_42e1
 	ld hl, $b427
 	ld de, $dd75
-	call Func_55_43b0
+	call HiScore_ReadCopy
 	jr nc, .jump_42e1
 	ld hl, $b44e
 	ld de, $dd75
-	call Func_55_43b0
+	call HiScore_ReadCopy
 	jr nc, .jump_42e1
 	ld hl, $4840
 	ld de, $dd77
@@ -482,25 +482,25 @@ Func_55_4294::
 	inc de
 	dec b
 	jr nz, .jump_42bd
-	call Func_55_4381
+	call HiScore_SetChecksum
 	ld hl, $b400
 	ld de, $dd75
-	call Func_55_43a7
+	call HiScore_WriteCopy
 	ld hl, $b427
 	ld de, $dd75
-	call Func_55_43a7
+	call HiScore_WriteCopy
 	ld hl, $b44e
 	ld de, $dd75
-	call Func_55_43a7
+	call HiScore_WriteCopy
 .jump_42e1:
-	call Func_55_42ee
+	call HiScore_UnpackTable
 	ld hl, $d800
 	ld de, $d880
-	call Func_55_43ec
+	call HiScore_LoadScreen
 	ret
 
 
-Func_55_42ee::
+HiScore_UnpackTable::
 	ld hl, $dd77
 	ld bc, $dd9c
 	ld de, $ddab
@@ -609,11 +609,11 @@ Func_55_42ee::
 	ld a, [hli]
 	ld [de], a
 	inc de
-	call Func_55_4364
+	call HiScore_ScoresToTiles
 	ret
 
 
-Func_55_4364::
+HiScore_ScoresToTiles::
 	ld hl, $ddab
 	ld de, $ddce
 	ld c, $14
@@ -635,7 +635,7 @@ Func_55_4364::
 	ret
 
 
-Func_55_4381::
+HiScore_SetChecksum::
 	ld a, $48
 	ld [$dd75], a
 	ld a, $08
@@ -660,7 +660,7 @@ Func_55_4381::
 	ret
 
 
-Func_55_43a7::
+HiScore_WriteCopy::
 	ld b, $27
 .jump_43a9:
 	ld a, [de]
@@ -671,7 +671,7 @@ Func_55_43a7::
 	ret
 
 
-Func_55_43b0::
+HiScore_ReadCopy::
 	ld b, $27
 .jump_43b2:
 	ld a, [hli]
@@ -715,7 +715,7 @@ Func_55_43b0::
 	ret
 
 
-Func_55_43ec::
+HiScore_LoadScreen::
 	push de
 	ld bc, $0040
 	ld de, $60b0
@@ -738,15 +738,15 @@ Func_55_43ec::
 	jr nz, .jump_4409
 	pop bc
 	ld hl, $60f0
-	call Func_55_44f9
+	call HiScore_UploadOBJPalettes
 	ld bc, $5de0
-	call Func_55_4580
-	call Func_55_45e1
-	call Func_55_4423
+	call HiScore_UploadMap
+	call HiScore_LoadTiles
+	call HiScore_DrawTable
 	ret
 
 
-Func_55_4423::
+HiScore_DrawTable::
 	ld a, $00
 	ldh [$ffc6], a
 	ldh [rVBK], a
@@ -933,7 +933,7 @@ Func_55_4423::
 	ret
 
 
-Func_55_44f9::
+HiScore_UploadOBJPalettes::
 	ld a, $80
 	ldh [rOCPS], a
 	ld c, $6b
@@ -1068,7 +1068,7 @@ Func_55_44f9::
 	ret
 
 
-Func_55_4580::
+HiScore_UploadMap::
 	ld a, $01
 	ldh [$ffc6], a
 	ldh [rVBK], a
@@ -1144,7 +1144,7 @@ Func_55_4580::
 	ret
 
 
-Func_55_45e1::
+HiScore_LoadTiles::
 	push bc
 	ld c, $41
 .jump_45e4:
@@ -1164,7 +1164,7 @@ Func_55_45e1::
 	ld hl, $4be0
 	ld de, $9000
 	ld b, $7f
-	call Func_55_4666
+	call HiScore_StartHDMA
 	push bc
 	ld c, $41
 .jump_4605:
@@ -1184,7 +1184,7 @@ Func_55_45e1::
 	ld hl, $53e0
 	ld de, $8800
 	ld b, $7f
-	call Func_55_4666
+	call HiScore_StartHDMA
 	push bc
 	ld c, $41
 .jump_4626:
@@ -1204,7 +1204,7 @@ Func_55_45e1::
 	ld hl, $5be0
 	ld de, $9000
 	ld b, $1f
-	call Func_55_4666
+	call HiScore_StartHDMA
 	push bc
 	ld c, $41
 .jump_4647:
@@ -1224,11 +1224,11 @@ Func_55_45e1::
 	ld hl, $4870
 	ld de, $8c90
 	ld b, $36
-	call Func_55_4666
+	call HiScore_StartHDMA
 	ret
 
 
-Func_55_4666::
+HiScore_StartHDMA::
 	ld a, h
 	ldh [rHDMA1], a
 	ld a, l
@@ -1242,7 +1242,7 @@ Func_55_4666::
 	ret
 
 
-Func_55_4676::
+HiScore_FadeIn::
 	ld hl, $00ff
 	ld a, e
 	cp $00
@@ -1257,7 +1257,7 @@ Func_55_4676::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, Func_55_46a4
+	ld hl, HiScore_Return46A4
 	push hl
 	ldh a, [$ffc5]
 	push af
@@ -1269,11 +1269,11 @@ Func_55_4676::
 	jp Fishing_FarJump
 
 
-Func_55_46a4::
+HiScore_Return46A4::
 	ret
 
 
-Func_55_46a5::
+HiScore_FadeInAll::
 	ld hl, $00ff
 	ld a, e
 	cp $00
@@ -1287,7 +1287,7 @@ Func_55_46a5::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, Func_55_46d0
+	ld hl, HiScore_Return46D0
 	push hl
 	ldh a, [$ffc5]
 	push af
@@ -1299,11 +1299,11 @@ Func_55_46a5::
 	jp Fishing_FarJump
 
 
-Func_55_46d0::
+HiScore_Return46D0::
 	ret
 
 
-Func_55_46d1::
+HiScore_EnterName::
 	push bc
 	ld c, $41
 .jump_46d4:
@@ -1361,7 +1361,7 @@ Func_55_46d1::
 	ld [hl], $08
 	xor a
 	ld [$ddfa], a
-	call Func_55_4754
+	call HiScore_EnterName_Loop
 	push bc
 	ld c, $41
 .jump_472c:
@@ -1393,7 +1393,7 @@ Func_55_46d1::
 	ret
 
 
-Func_55_4754::
+HiScore_EnterName_Loop::
 	push bc
 	ld c, $41
 .jump_4757:
@@ -1414,7 +1414,7 @@ Func_55_4754::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, Func_55_4786
+	ld hl, HiScore_EnterName_Input
 	push hl
 	ldh a, [$ffc5]
 	push af
@@ -1426,7 +1426,7 @@ Func_55_4754::
 	jp Fishing_FarJump
 
 
-Func_55_4786::
+HiScore_EnterName_Input::
 	ld a, [$dd70]
 	bit 0, a
 	ret nz
@@ -1444,12 +1444,12 @@ Func_55_4786::
 	jr nz, .jump_47a6
 	ld a, $c9
 	ld [hl], a
-	jr Func_55_4754
+	jr HiScore_EnterName_Loop
 
 .jump_47a6:
 	inc a
 	ld [hl], a
-	jr Func_55_4754
+	jr HiScore_EnterName_Loop
 
 .jump_47aa:
 	bit 7, a
@@ -1466,12 +1466,12 @@ Func_55_4786::
 	jr nz, .jump_47c4
 	ld a, $fc
 	ld [hl], a
-	jr Func_55_4754
+	jr HiScore_EnterName_Loop
 
 .jump_47c4:
 	dec a
 	ld [hl], a
-	jp Func_55_4754
+	jp HiScore_EnterName_Loop
 
 .jump_47c9:
 	bit 5, a
@@ -1498,11 +1498,11 @@ Func_55_4786::
 	ld [hl], a
 	ld hl, $fe05
 	ld [hl], a
-	jp Func_55_4754
+	jp HiScore_EnterName_Loop
 
 .jump_47f3:
 	bit 4, a
-	jp z, Func_55_4754
+	jp z, HiScore_EnterName_Loop
 	ld a, [$ddfa]
 	cp $02
 	jr nz, .jump_4805
@@ -1525,10 +1525,10 @@ Func_55_4786::
 	ld [hl], a
 	ld hl, $fe05
 	ld [hl], a
-	jp Func_55_4754
+	jp HiScore_EnterName_Loop
 
 
-Func_55_481e::
+HiScore_InstallRuntime_Code::
 	ldh a, [$ffc5]
 	push af
 	ld a, $51

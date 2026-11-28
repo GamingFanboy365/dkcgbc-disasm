@@ -1680,4 +1680,34 @@ NAMES = {
     (0x52, 0x413D): "Fishing_CopyFrameTiles",
     (0x52, 0x41A1): "Fishing_BeginFrame",  # resets the OAM and tile buffers (double-buffered by [$c8a4])
     (0x50, 0x5EA8): "Fishing_IsPointInBox",
+    # --- Hi-Score screen (bank $55), a second small program sharing Funky's Fishing's runtime.
+    #     Table in save RAM in three copies ($b400, $b427, $b44e): signature $48 $08, five names
+    #     ($dd9c, 3 characters) and BCD scores ($ddab, 4 bytes), checksum ($dd9a)
+    (0x55, 0x4000): "HiScore_Start",  # from the Bonus menu: h = 0 shows the table; h = 1 enters the score in bc/de
+    (0x55, 0x4155): "HiScore_WaitForButton",  # then back to the front end
+    (0x55, 0x4161): "HiScore_InsertScore",  # moves the lower entries down, puts the new one at its rank
+    (0x55, 0x41F9): "HiScore_FindRank",  # h = rank 0-4, or $ff when the score is too low
+    (0x55, 0x423D): "HiScore_CompareScore",
+    (0x55, 0x425C): "HiScore_SetDoubleSpeed",
+    (0x55, 0x4278): "HiScore_InitLCD",
+    (0x55, 0x4294): "HiScore_LoadTable",  # the first copy that checks out, else HiScoreDefaults
+    (0x55, 0x42EE): "HiScore_UnpackTable",
+    (0x55, 0x4364): "HiScore_ScoresToTiles",
+    (0x55, 0x4381): "HiScore_SetChecksum",
+    (0x55, 0x43A7): "HiScore_WriteCopy",
+    (0x55, 0x43B0): "HiScore_ReadCopy",  # carry set when the signature and checksum match
+    (0x55, 0x43EC): "HiScore_LoadScreen",  # palettes, HiScoreMap, tiles
+    (0x55, 0x4423): "HiScore_DrawTable",
+    (0x55, 0x44F9): "HiScore_UploadOBJPalettes",
+    (0x55, 0x4580): "HiScore_UploadMap",
+    (0x55, 0x45E1): "HiScore_LoadTiles",
+    (0x55, 0x4666): "HiScore_StartHDMA",
+    (0x55, 0x4676): "HiScore_FadeIn",
+    (0x55, 0x46A4): "HiScore_Return46A4",
+    (0x55, 0x46A5): "HiScore_FadeInAll",
+    (0x55, 0x46D0): "HiScore_Return46D0",
+    (0x55, 0x46D1): "HiScore_EnterName",  # three letters drawn as sprites
+    (0x55, 0x4754): "HiScore_EnterName_Loop",
+    (0x55, 0x4786): "HiScore_EnterName_Input",  # up/down change the letter, left/right move, A confirms
+    (0x55, 0x481E): "HiScore_InstallRuntime_Code",  # copied to $c800 and run: FishingRuntime -> $cb00
 }

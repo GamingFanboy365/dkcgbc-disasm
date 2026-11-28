@@ -2236,13 +2236,13 @@ FE_AfterBonusGame::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_55_4000)
+	ld a, HIGH(HiScore_Start)
 	push af
 	inc sp
-	ld a, LOW(Func_55_4000)
+	ld a, LOW(HiScore_Start)
 	push af
 	inc sp
-	ld a, BANK(Func_55_4000)
+	ld a, BANK(HiScore_Start)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -2309,13 +2309,13 @@ FE_HiScore_Start::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_55_4000)
+	ld a, HIGH(HiScore_Start)
 	push af
 	inc sp
-	ld a, LOW(Func_55_4000)
+	ld a, LOW(HiScore_Start)
 	push af
 	inc sp
-	ld a, BANK(Func_55_4000)
+	ld a, BANK(HiScore_Start)
 	jp RestoreBankAndReturn.jump_3fdc
 
 

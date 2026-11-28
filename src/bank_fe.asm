@@ -626,29 +626,30 @@ Func_fe_44a5::
 
 
 Func_fe_44b9::
-	jp Func_fe_457f.jump_4609
+	jp Func_fe_4609
 
 
 Func_fe_44bc::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_44bf::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_44c2::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_44c5::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_44c8::
-	jp .jump_44cb
+	jp Func_fe_44cb
 
-.jump_44cb:
+
+Func_fe_44cb::
 	ld a, $06
 	ldh [$ff9c], a
 	ld a, $12
@@ -750,29 +751,30 @@ Func_fe_455c::
 
 
 Func_fe_4570::
-	jp Func_fe_457f.jump_4609
+	jp Func_fe_4609
 
 
 Func_fe_4573::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_4576::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_4579::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_457c::
-	jp Func_fe_457f.jump_4582
+	jp Func_fe_4582
 
 
 Func_fe_457f::
-	jp .jump_4609
+	jp Func_fe_4609
 
-.jump_4582:
+
+Func_fe_4582::
 	ld a, $00
 	ld [$cbb3], a
 	ld a, [$cbc8]
@@ -834,7 +836,8 @@ Func_fe_457f::
 	jr nz, .jump_45fb
 	ret
 
-.jump_4609:
+
+Func_fe_4609::
 	ret
 
 
@@ -1166,29 +1169,30 @@ Func_fe_47c7::
 
 
 Func_fe_47fb::
-	jp Func_fe_480a.jump_480d
+	jp Func_fe_480d
 
 
 Func_fe_47fe::
-	jp Func_fe_480a.jump_484b
+	jp Func_fe_484b
 
 
 Func_fe_4801::
-	jp Func_fe_480a.jump_48be
+	jp Func_fe_48be
 
 
 Func_fe_4804::
-	jp Func_fe_4946.jump_49c6
+	jp Func_fe_49c6
 
 
 Func_fe_4807::
-	jp Func_fe_4946.jump_49c6
+	jp Func_fe_49c6
 
 
 Func_fe_480a::
-	jp Func_fe_4946.jump_4a6d
+	jp Func_fe_4a6d
 
-.jump_480d:
+
+Func_fe_480d::
 	ld a, [$cbb0]
 	ld b, a
 	ld hl, $cbdc
@@ -1228,7 +1232,8 @@ Func_fe_480a::
 	ld [hl], $4c
 	ret
 
-.jump_484b:
+
+Func_fe_484b::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1299,7 +1304,8 @@ Func_fe_480a::
 	ret nz
 	jp Func_fe_42ae.jump_42eb
 
-.jump_48be:
+
+Func_fe_48be::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1467,7 +1473,8 @@ Func_fe_4946::
 	ld [hl], a
 	ret
 
-.jump_49c6:
+
+Func_fe_49c6::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1568,7 +1575,8 @@ Func_fe_4946::
 	jp nz, .jump_49e0
 	ret
 
-.jump_4a6d:
+
+Func_fe_4a6d::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1781,25 +1789,26 @@ Func_fe_4aec::
 
 
 Func_fe_4ba7::
-	jp Func_fe_4bb3.jump_4bb6
+	jp Func_fe_4bb6
 
 
 Func_fe_4baa::
-	jp Func_fe_4bb3.jump_4bf1
+	jp Func_fe_4bf1
 
 
 Func_fe_4bad::
-	jp Func_fe_4bb3.jump_4c5e
+	jp Func_fe_4c5e
 
 
 Func_fe_4bb0::
-	jp Func_fe_4cd7.jump_4d57
+	jp Func_fe_4d57
 
 
 Func_fe_4bb3::
-	jp Func_fe_4cd7.jump_4d57
+	jp Func_fe_4d57
 
-.jump_4bb6:
+
+Func_fe_4bb6::
 	ld a, [$cbb0]
 	ld b, a
 	ld hl, $cbdc
@@ -1838,7 +1847,8 @@ Func_fe_4bb3::
 	ld [hl], $4c
 	ret
 
-.jump_4bf1:
+
+Func_fe_4bf1::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1907,7 +1917,8 @@ Func_fe_4bb3::
 	inc [hl]
 	ret
 
-.jump_4c5e:
+
+Func_fe_4c5e::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -2070,7 +2081,8 @@ Func_fe_4cd7::
 	ld [hl], a
 	ret
 
-.jump_4d57:
+
+Func_fe_4d57::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -2214,25 +2226,26 @@ Func_fe_4dfe::
 	db $c9 ; ret, never reached
 
 Func_fe_4e38::
-	jp Func_fe_4e44.jump_4e47
+	jp Func_fe_4e47
 
 
 Func_fe_4e3b::
-	jp Func_fe_4e44.jump_4e6c
+	jp Func_fe_4e6c
 
 
 Func_fe_4e3e::
-	jp Func_fe_4e44.jump_4e9c
+	jp Func_fe_4e9c
 
 
 Func_fe_4e41::
-	jp Func_fe_4ece.jump_4f4e
+	jp Func_fe_4f4e
 
 
 Func_fe_4e44::
-	jp Func_fe_4ece.jump_4f4e
+	jp Func_fe_4f4e
 
-.jump_4e47:
+
+Func_fe_4e47::
 	ld a, [$cbb0]
 	ld b, a
 	ld hl, $cbdc
@@ -2258,7 +2271,8 @@ Func_fe_4e44::
 	call Func_fe_517d
 	ret
 
-.jump_4e6c:
+
+Func_fe_4e6c::
 	xor a
 	ldh [$ff9c], a
 	ld a, $20
@@ -2292,7 +2306,8 @@ Func_fe_4e44::
 	jp nz, .jump_4e71
 	ret
 
-.jump_4e9c:
+
+Func_fe_4e9c::
 	xor a
 	ldh [$ff9c], a
 	ld a, $20
@@ -2413,7 +2428,8 @@ Func_fe_4ece::
 	ld [hl], a
 	ret
 
-.jump_4f4e:
+
+Func_fe_4f4e::
 	xor a
 	ldh [$ff9c], a
 	ld a, $20
@@ -2513,29 +2529,30 @@ Func_fe_4fd0::
 
 
 Func_fe_4fe4::
-	jp Func_fe_4ff3.jump_4ff6
+	jp Func_fe_4ff6
 
 
 Func_fe_4fe7::
-	jp Func_fe_5024.jump_5045
+	jp Func_fe_5045
 
 
 Func_fe_4fea::
-	jp Func_fe_5024.jump_5045
+	jp Func_fe_5045
 
 
 Func_fe_4fed::
-	jp Func_fe_5024.jump_5045
+	jp Func_fe_5045
 
 
 Func_fe_4ff0::
-	jp Func_fe_5024.jump_5045
+	jp Func_fe_5045
 
 
 Func_fe_4ff3::
-	jp Func_fe_5024.jump_5045
+	jp Func_fe_5045
 
-.jump_4ff6:
+
+Func_fe_4ff6::
 	ld a, [$cbc4]
 	cp $02
 	ret z
@@ -2582,7 +2599,8 @@ Func_fe_5024::
 	ld [hl], $08
 	ret
 
-.jump_5045:
+
+Func_fe_5045::
 	ld a, [$cbee]
 	or a
 	ret nz
@@ -2667,29 +2685,30 @@ Func_fe_509d::
 
 
 Func_fe_50ac::
-	jp Func_fe_50bb.jump_50be
+	jp Func_fe_50be
 
 
 Func_fe_50af::
-	jp Func_fe_50bb.jump_5106
+	jp Func_fe_5106
 
 
 Func_fe_50b2::
-	jp Func_fe_50bb.jump_5106
+	jp Func_fe_5106
 
 
 Func_fe_50b5::
-	jp Func_fe_50bb.jump_5106
+	jp Func_fe_5106
 
 
 Func_fe_50b8::
-	jp Func_fe_50bb.jump_5106
+	jp Func_fe_5106
 
 
 Func_fe_50bb::
-	jp .jump_5106
+	jp Func_fe_5106
 
-.jump_50be:
+
+Func_fe_50be::
 	ld hl, $cbe4
 	ld bc, $cbdc
 	ld a, $06
@@ -2737,7 +2756,8 @@ Func_fe_50bb::
 	jr nz, .jump_50c8
 	ret
 
-.jump_5106:
+
+Func_fe_5106::
 	ret
 
 
@@ -4345,13 +4365,14 @@ Func_fe_5a1d::
 
 
 Func_fe_5a39::
-	jp Func_fe_5a3c.jump_5a3f
+	jp Func_fe_5a3f
 
 
 Func_fe_5a3c::
-	jp .jump_5ab8
+	jp Func_fe_5ab8
 
-.jump_5a3f:
+
+Func_fe_5a3f::
 	ld a, [$cba6]
 	ld b, a
 	xor a
@@ -4435,7 +4456,8 @@ Func_fe_5a3c::
 	set 3, [hl]
 	ret
 
-.jump_5ab8:
+
+Func_fe_5ab8::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -4782,91 +4804,93 @@ Func_fe_5cb2::
 .jump_5ccd:
 	jp hl
 
-.jump_5cce:
+
+Func_fe_5cce::
 	ldh a, [$ff9c]
 	inc a
 	ldh [$ff9c], a
 	cp $20
-	jr nz, .jump_5cb5
+	jr nz, Func_fe_5cb2.jump_5cb5
 	ret
 
 
 Func_fe_5cd8::
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 
 Func_fe_5cdb::
-	jp Func_fe_5d0e.jump_5d11
+	jp Func_fe_5d11
 
 
 Func_fe_5cde::
-	jp Func_fe_5d0e.jump_5d11
+	jp Func_fe_5d11
 
 
 Func_fe_5ce1::
-	jp Func_fe_5d0e.jump_5d11
+	jp Func_fe_5d11
 
 
 Func_fe_5ce4::
-	jp Func_fe_5d0e.jump_5d70
+	jp Func_fe_5d70
 
 
 Func_fe_5ce7::
-	jp Func_fe_5ee7.jump_5f19
+	jp Func_fe_5f19
 
 
 Func_fe_5cea::
-	jp Func_fe_5ee7.jump_5f9d
+	jp Func_fe_5f9d
 
 
 Func_fe_5ced::
-	jp Func_fe_5ee7.jump_6104
+	jp Func_fe_6104
 
 
 Func_fe_5cf0::
-	jp Func_fe_5ee7.jump_5fc4
+	jp Func_fe_5fc4
 
 
 Func_fe_5cf3::
-	jp Func_fe_5ee7.jump_6041
+	jp Func_fe_6041
 
 
 Func_fe_5cf6::
-	jp Func_fe_5ee7.jump_61b3
+	jp Func_fe_61b3
 
 
 Func_fe_5cf9::
-	jp Func_fe_5ee7.jump_6133
+	jp Func_fe_6133
 
 
 Func_fe_5cfc::
-	jp Func_fe_5ee7.jump_61d3
+	jp Func_fe_61d3
 
 
 Func_fe_5cff::
-	jp Func_fe_5ee7.jump_6249
+	jp Func_fe_6249
 
 
 Func_fe_5d02::
-	jp Func_fe_5ee7.jump_624c
+	jp Func_fe_624c
 
 
 Func_fe_5d05::
-	jp Func_fe_5ee7.jump_62fc
+	jp Func_fe_62fc
 
 
 Func_fe_5d08::
-	jp Func_fe_5ee7.jump_62ff
+	jp Func_fe_62ff
 
 
 Func_fe_5d0b::
-	jp Func_fe_631c.jump_63bf
+	jp Func_fe_63bf
 
 
 Func_fe_5d0e::
-	jp Func_fe_631c.jump_63fa
+	jp Func_fe_63fa
 
-.jump_5d11:
+
+Func_fe_5d11::
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
@@ -4887,10 +4911,10 @@ Func_fe_5d0e::
 	call Func_fe_67f3
 	call Func_fe_5e43
 	call Func_fe_5ee7
-	jr z, Func_fe_5cb2.jump_5cce
+	jr z, Func_fe_5cce
 	dec a
 	call Func_fe_5db0
-	jr Func_fe_5cb2.jump_5cce
+	jr Func_fe_5cce
 
 .jump_5d3d:
 	ld hl, $dbe0
@@ -4899,7 +4923,7 @@ Func_fe_5d0e::
 	ld l, a
 	ld a, [hl]
 	cp $07
-	jr nz, Func_fe_5cb2.jump_5cce
+	jr nz, Func_fe_5cce
 	ld hl, $db00
 	ldh a, [$ff9c]
 	add a, l
@@ -4919,15 +4943,16 @@ Func_fe_5d0e::
 	ld a, [$cbf9]
 	dec a
 	ld [$cbf9], a
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	jp Func_fe_42ae.jump_42eb
 
-.jump_5d70:
+
+Func_fe_5d70::
 	call Func_fe_6792
 	call Func_fe_67f3
 	call Func_fe_5e43
 	call Func_fe_5ee7
-	jp z, Func_fe_5cb2.jump_5cce
+	jp z, Func_fe_5cce
 	ld b, a
 	ld hl, $dcc0
 	ldh a, [$ff9c]
@@ -4937,7 +4962,7 @@ Func_fe_5d0e::
 	or a
 	jr z, .jump_5d8f
 	dec [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_5d8f:
 	dec b
@@ -4947,7 +4972,7 @@ Func_fe_5d0e::
 	ld l, a
 	ld a, [hl]
 	cp b
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld a, $01
 	ld [$cbed], a
 	ld a, $06
@@ -4958,7 +4983,7 @@ Func_fe_5d0e::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 
 Func_fe_5db0::
@@ -5207,7 +5232,8 @@ Func_fe_5ee7::
 	inc a
 	ret
 
-.jump_5f19:
+
+Func_fe_5f19::
 	ld hl, $db60
 	ldh a, [$ff9c]
 	add a, l
@@ -5223,7 +5249,7 @@ Func_fe_5ee7::
 	or a
 	jr z, .jump_5f34
 	dec [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_5f34:
 	call Func_fe_6792
@@ -5233,7 +5259,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	or a
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld hl, $dce0
 	ldh a, [$ff9c]
 	add a, l
@@ -5263,7 +5289,7 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_5f77:
 	call Func_fe_6792
@@ -5280,16 +5306,17 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	cp b
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld hl, $db60
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	set 1, [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_5f9d:
+
+Func_fe_5f9d::
 	call Func_fe_6792
 	ld hl, $dbe0
 	ldh a, [$ff9c]
@@ -5304,7 +5331,7 @@ Func_fe_5ee7::
 	ld a, [hl]
 	dec a
 	cp b
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	xor a
 	ld hl, $db00
 	push af
@@ -5313,9 +5340,10 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_5fc4:
+
+Func_fe_5fc4::
 	call Func_fe_67f3
 	call Func_fe_6792
 	ld hl, $dbe0
@@ -5340,7 +5368,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld a, $09
 	ld hl, $db00
 	push af
@@ -5396,9 +5424,10 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_6041:
+
+Func_fe_6041::
 	call Func_fe_6792
 	ld hl, $dcc0
 	ldh a, [$ff9c]
@@ -5406,7 +5435,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -5518,9 +5547,10 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_6104:
+
+Func_fe_6104::
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
@@ -5529,7 +5559,7 @@ Func_fe_5ee7::
 	cp $02
 	jr z, .jump_6116
 	call Func_fe_6792
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_6116:
 	call Func_fe_67f3
@@ -5539,7 +5569,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	xor a
 	ld hl, $db00
 	push af
@@ -5548,9 +5578,10 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_6133:
+
+Func_fe_6133::
 	call Func_fe_67f3
 	ld hl, $dcc0
 	ldh a, [$ff9c]
@@ -5558,7 +5589,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld a, $0c
 	ld hl, $db00
 	push af
@@ -5614,7 +5645,7 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_6197:
 	inc [hl]
@@ -5634,9 +5665,10 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_61b3:
+
+Func_fe_61b3::
 	call Func_fe_67f3
 	ld hl, $dcc0
 	ldh a, [$ff9c]
@@ -5644,7 +5676,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	xor a
 	ld hl, $db00
 	push af
@@ -5654,9 +5686,10 @@ Func_fe_5ee7::
 	pop af
 	ld [hl], a
 	ld [$cbd8], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_61d3:
+
+Func_fe_61d3::
 	call Func_fe_6792
 	ld hl, $dcc0
 	ldh a, [$ff9c]
@@ -5664,7 +5697,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld hl, $dce0
 	ldh a, [$ff9c]
 	add a, l
@@ -5728,12 +5761,14 @@ Func_fe_5ee7::
 	ld a, [$cbec]
 	add a, $04
 	ld [$cbec], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_6249:
-	jp Func_fe_5cb2.jump_5cce
 
-.jump_624c:
+Func_fe_6249::
+	jp Func_fe_5cce
+
+
+Func_fe_624c::
 	ldh a, [$ff9c]
 	ld hl, $cbdc
 	add a, l
@@ -5752,7 +5787,7 @@ Func_fe_5ee7::
 	dec [hl]
 	ldh a, [$ff9a]
 	and $03
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ldh a, [$ff9c]
 	ld hl, $cbda
 	call Func_fe_517d
@@ -5766,9 +5801,9 @@ Func_fe_5ee7::
 	inc [hl]
 	ld a, [hl]
 	cp $0b
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld [hl], $01
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_6289:
 	ld hl, $dcc0
@@ -5777,7 +5812,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld a, $0d
 	ld hl, $db00
 	push af
@@ -5810,7 +5845,7 @@ Func_fe_5ee7::
 	dec a
 	jr z, .jump_62d1
 	ld [$cbf9], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_62d1:
 	ld a, $02
@@ -5833,10 +5868,12 @@ Func_fe_5ee7::
 	call FarCall_A_HL
 	jp Func_fe_42ae.jump_42eb
 
-.jump_62fc:
-	jp Func_fe_5cb2.jump_5cce
 
-.jump_62ff:
+Func_fe_62fc::
+	jp Func_fe_5cce
+
+
+Func_fe_62ff::
 	call Func_fe_6792
 	ld hl, $dcc0
 	ldh a, [$ff9c]
@@ -5844,7 +5881,7 @@ Func_fe_5ee7::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	xor a
 	ld hl, $db00
 	push af
@@ -5853,7 +5890,7 @@ Func_fe_5ee7::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 
 Func_fe_631c::
@@ -5970,7 +6007,8 @@ Func_fe_631c::
 	ld [$cc0a], a
 	ret
 
-.jump_63bf:
+
+Func_fe_63bf::
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
@@ -6002,15 +6040,16 @@ Func_fe_631c::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 .jump_63f0:
 	dec [hl]
 	call Func_fe_6792
 	call Func_fe_67f3
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_63fa:
+
+Func_fe_63fa::
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
@@ -6029,233 +6068,234 @@ Func_fe_631c::
 
 
 Func_fe_640e::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_6411::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_6414::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_6417::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_641a::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_641d::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_6420::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_6423::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_6426::
-	jp Func_fe_6733.jump_676a
+	jp Func_fe_676a
 
 
 Func_fe_6429::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_642c::
-	jp Func_fe_64b6.jump_66a1
+	jp Func_fe_66a1
 
 
 Func_fe_642f::
-	jp Func_fe_64b6.jump_656f
+	jp Func_fe_656f
 
 
 Func_fe_6432::
-	jp Func_fe_64b6.jump_658a
+	jp Func_fe_658a
 
 
 Func_fe_6435::
-	jp Func_fe_64b6.jump_656f
+	jp Func_fe_656f
 
 
 Func_fe_6438::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_643b::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_643e::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_6441::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_6444::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_6447::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_644a::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_644d::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_6450::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_6453::
-	jp Func_fe_6733.jump_677e
+	jp Func_fe_677e
 
 
 Func_fe_6456::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_6459::
-	jp Func_fe_64b6.jump_66a1
+	jp Func_fe_66a1
 
 
 Func_fe_645c::
-	jp Func_fe_64b6.jump_656f
+	jp Func_fe_656f
 
 
 Func_fe_645f::
-	jp Func_fe_64b6.jump_65e7
+	jp Func_fe_65e7
 
 
 Func_fe_6462::
-	jp Func_fe_64b6.jump_656f
+	jp Func_fe_656f
 
 
 Func_fe_6465::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_6468::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_646b::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_646e::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_6471::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_6474::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_6477::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_647a::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_647d::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_6480::
-	jp Func_fe_6733.jump_676a
+	jp Func_fe_676a
 
 
 Func_fe_6483::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_6486::
-	jp Func_fe_64b6.jump_66a1
+	jp Func_fe_66a1
 
 
 Func_fe_6489::
-	jp Func_fe_64b6.jump_656f
+	jp Func_fe_656f
 
 
 Func_fe_648c::
-	jp Func_fe_64b6.jump_6644
+	jp Func_fe_6644
 
 
 Func_fe_648f::
-	jp Func_fe_64b6.jump_656f
+	jp Func_fe_656f
 
 
 Func_fe_6492::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_6495::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_6498::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_649b::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_649e::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_64a1::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_64a4::
-	jp Func_fe_64b6.jump_64c7
+	jp Func_fe_64c7
 
 
 Func_fe_64a7::
-	jp Func_fe_64b6.jump_64f2
+	jp Func_fe_64f2
 
 
 Func_fe_64aa::
-	jp Func_fe_64b6.jump_6554
+	jp Func_fe_6554
 
 
 Func_fe_64ad::
-	jp Func_fe_64b6.jump_6514
+	jp Func_fe_6514
 
 
 Func_fe_64b0::
-	jp Func_fe_64b6.jump_66a1
+	jp Func_fe_66a1
 
 
 Func_fe_64b3::
-	jp Func_fe_64b6.jump_656f
+	jp Func_fe_656f
 
 
 Func_fe_64b6::
-	jp .jump_64b9
+	jp Func_fe_64b9
 
-.jump_64b9:
+
+Func_fe_64b9::
 	xor a
 	ld hl, $db00
 	push af
@@ -6264,12 +6304,13 @@ Func_fe_64b6::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_64c7:
+
+Func_fe_64c7::
 	call Func_fe_67f3
 	call Func_fe_66ff
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld a, $04
 	ld hl, $dca0
 	push af
@@ -6290,12 +6331,13 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_64f2:
+
+Func_fe_64f2::
 	call Func_fe_67f3
 	call Func_fe_6733
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	call Func_fe_67f3
 	ld hl, $db60
 	ldh a, [$ff9c]
@@ -6309,9 +6351,10 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_6514:
+
+Func_fe_6514::
 	call Func_fe_6792
 	ld hl, $dbe0
 	ldh a, [$ff9c]
@@ -6319,7 +6362,7 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	cp $06
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld a, $00
 	ld hl, $dca0
 	push af
@@ -6350,9 +6393,10 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_6554:
+
+Func_fe_6554::
 	call Func_fe_6792
 	ld hl, $dbe0
 	ldh a, [$ff9c]
@@ -6360,16 +6404,17 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	or a
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_656f:
+
+Func_fe_656f::
 	call Func_fe_67f3
 	ld hl, $dce0
 	ldh a, [$ff9c]
@@ -6377,16 +6422,17 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cb2.jump_5cce
+	jp nz, Func_fe_5cce
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_658a:
+
+Func_fe_658a::
 	ld a, $d5
 	ld hl, $db40
 	push af
@@ -6448,9 +6494,10 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_65e7:
+
+Func_fe_65e7::
 	ld a, $d5
 	ld hl, $db40
 	push af
@@ -6512,9 +6559,10 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_6644:
+
+Func_fe_6644::
 	ld a, $d5
 	ld hl, $db40
 	push af
@@ -6576,9 +6624,10 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
-.jump_66a1:
+
+Func_fe_66a1::
 	ld a, $20
 	ld hl, $dce0
 	push af
@@ -6630,7 +6679,7 @@ Func_fe_64b6::
 	ld l, a
 	ld a, [hl]
 	bit 5, a
-	jp z, Func_fe_5cb2.jump_5cce
+	jp z, Func_fe_5cce
 	ld a, $07
 	ld hl, $dca0
 	push af
@@ -6639,7 +6688,7 @@ Func_fe_64b6::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cb2.jump_5cce
+	jp Func_fe_5cce
 
 
 Func_fe_66ff::
@@ -6726,7 +6775,8 @@ Func_fe_6733::
 	cp e
 	ret
 
-.jump_676a:
+
+Func_fe_676a::
 	ld hl, $dc20
 	ldh a, [$ff9c]
 	add a, l
@@ -6741,7 +6791,8 @@ Func_fe_6733::
 	inc [hl]
 	ret
 
-.jump_677e:
+
+Func_fe_677e::
 	ld hl, $dc20
 	ldh a, [$ff9c]
 	add a, l
@@ -7126,23 +7177,23 @@ Func_fe_6946::
 
 
 Func_fe_6949::
-	jp Func_fe_6bdc.jump_6c5a
+	jp Func_fe_6c5a
 
 
 Func_fe_694c::
-	jp Func_fe_6cd5.jump_6d97
+	jp Func_fe_6d97
 
 
 Func_fe_694f::
-	jp Func_fe_6fb0.jump_7084
+	jp Func_fe_7084
 
 
 Func_fe_6952::
-	jp Func_fe_6fb0.jump_7084
+	jp Func_fe_7084
 
 
 Func_fe_6955::
-	jp Func_fe_71d9.jump_7303
+	jp Func_fe_7303
 
 
 Triples_fe_6958::
@@ -7669,7 +7720,8 @@ Func_fe_6bdc::
 	set 5, [hl]
 	ret
 
-.jump_6c5a:
+
+Func_fe_6c5a::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_6c74
@@ -7874,7 +7926,8 @@ Func_fe_6cd5::
 	ld [hl], a
 	ret
 
-.jump_6d97:
+
+Func_fe_6d97::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_6dc1
@@ -8331,7 +8384,8 @@ Func_fe_6fb0::
 	ld [hl], a
 	ret
 
-.jump_7084:
+
+Func_fe_7084::
 	call Func_fe_4248
 	ldh a, [$ffd4]
 	cp $bb
@@ -8744,7 +8798,8 @@ Func_fe_71d9::
 	ld [hl], a
 	ret
 
-.jump_7303:
+
+Func_fe_7303::
 	call Func_fe_4221
 	ld a, [$cbed]
 	or a

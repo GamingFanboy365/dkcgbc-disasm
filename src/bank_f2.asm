@@ -4,20 +4,20 @@ INCLUDE "include/common.inc"
 SECTION "Bank $f2", ROMX[$4000], BANK[$f2]
 
 Func_f2_4000::
-	ld a, BANK(Func_f1_43a1)
-	ld hl, Func_f1_43a1
+	ld a, BANK(FE_Alphabet_Reset)
+	ld hl, FE_Alphabet_Reset
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_45dc)
-	ld hl, Func_f1_45dc
+	ld a, BANK(FE_FadeToWhite)
+	ld hl, FE_FadeToWhite
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_624d)
-	ld hl, Func_f1_624d
+	ld a, BANK(FE_Printer_Init)
+	ld hl, FE_Printer_Init
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -33,8 +33,8 @@ Func_f2_4000::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld a, $40
 	ldh [$ff82], a
@@ -43,8 +43,8 @@ Func_f2_4000::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4322)
-	ld hl, Func_f1_4322
+	ld a, BANK(FE_SetBGPalettesWhite)
+	ld hl, FE_SetBGPalettesWhite
 	call FarCall_A_HL
 	ld a, $40
 	ldh [$ff82], a
@@ -57,33 +57,33 @@ Func_f2_4000::
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
 	call Func_f2_4350
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	ld hl, $ff40
 	res 4, [hl]
-	ld a, BANK(Func_f1_464b)
-	ld hl, Func_f1_464b
+	ld a, BANK(FE_FadeToColours)
+	ld hl, FE_FadeToColours
 	call FarCall_A_HL
 	call Func_f2_4112
 	ld a, BANK(FE_FadeOut)
 	ld hl, FE_FadeOut
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld b, $00
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_42fc)
-	ld hl, Func_f1_42fc
+	ld a, BANK(FE_LoadGradientColours)
+	ld hl, FE_LoadGradientColours
 	call FarCall_A_HL
 	ld a, $28
 	ldh [$ff82], a
@@ -92,20 +92,20 @@ Func_f2_4000::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4862)
-	ld hl, Func_f1_4862
+	ld a, BANK(FE_DrawMenu)
+	ld hl, FE_DrawMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43a6)
-	ld hl, Func_f1_43a6
+	ld a, BANK(FE_ClearFirstTile)
+	ld hl, FE_ClearFirstTile
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59bd)
-	ld hl, Func_f1_59bd
+	ld a, BANK(FE_EnableInterrupts_Menu)
+	ld hl, FE_EnableInterrupts_Menu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43e6)
-	ld hl, Func_f1_43e6
+	ld a, BANK(FE_FadeInScreen)
+	ld hl, FE_FadeInScreen
 	call FarCall_A_HL
 	ld a, BANK(FE_DrawRingLabel)
 	ld hl, FE_DrawRingLabel
@@ -228,8 +228,8 @@ Func_f2_41c5::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	ld hl, $ff40
 	res 3, [hl]
@@ -271,17 +271,17 @@ Func_f2_41f9::
 	cp $01
 	jr nz, .jump_4222
 	call FE_OAMDMA
-	ld a, BANK(Func_f1_7544)
-	ld hl, Func_f1_7544
+	ld a, BANK(FE_DrawSubMenu)
+	ld hl, FE_DrawSubMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_7504)
-	ld hl, Func_f1_7504
+	ld a, BANK(FE_MenuCursorHighlight)
+	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_75b6)
-	ld hl, Func_f1_75b6
+	ld a, BANK(FE_SlideSpritesUp)
+	ld hl, FE_SlideSpritesUp
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_728e)
-	ld hl, Func_f1_728e
+	ld a, BANK(FE_StickerBook_ReadInput)
+	ld hl, FE_StickerBook_ReadInput
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 1, a
@@ -291,18 +291,18 @@ Func_f2_41f9::
 	ld a, $02
 	sub b
 	ld b, a
-	ld a, BANK(Func_f1_6473)
-	ld hl, Func_f1_6473
+	ld a, BANK(FE_SetPrintDarkness)
+	ld hl, FE_SetPrintDarkness
 	call FarCall_A_HL
 	call Func_f2_4278
-	ld a, BANK(Func_f1_75d7)
-	ld hl, Func_f1_75d7
+	ld a, BANK(FE_SlideSpritesDown)
+	ld hl, FE_SlideSpritesDown
 	call FarCall_A_HL
 	jp Func_f2_41f9
 
 .jump_426f:
-	ld a, BANK(Func_f1_75d7)
-	ld hl, Func_f1_75d7
+	ld a, BANK(FE_SlideSpritesDown)
+	ld hl, FE_SlideSpritesDown
 	call FarCall_A_HL
 	ret
 
@@ -310,8 +310,8 @@ Func_f2_41f9::
 Func_f2_4278::
 	xor a
 	ld [$c994], a
-	ld a, BANK(Func_f1_75d7)
-	ld hl, Func_f1_75d7
+	ld a, BANK(FE_SlideSpritesDown)
+	ld hl, FE_SlideSpritesDown
 	call FarCall_A_HL
 	ld a, $03
 	ld [$c989], a
@@ -325,18 +325,18 @@ Func_f2_4278::
 	cp $01
 	jr nz, .jump_4294
 	call FE_OAMDMA
-	ld a, BANK(Func_f1_7544)
-	ld hl, Func_f1_7544
+	ld a, BANK(FE_DrawSubMenu)
+	ld hl, FE_DrawSubMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_7504)
-	ld hl, Func_f1_7504
+	ld a, BANK(FE_MenuCursorHighlight)
+	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_75b6)
-	ld hl, Func_f1_75b6
+	ld a, BANK(FE_SlideSpritesUp)
+	ld hl, FE_SlideSpritesUp
 	call FarCall_A_HL
 .jump_42b5:
-	ld a, BANK(Func_f1_728e)
-	ld hl, Func_f1_728e
+	ld a, BANK(FE_StickerBook_ReadInput)
+	ld hl, FE_StickerBook_ReadInput
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 1, a
@@ -365,8 +365,8 @@ Func_f2_42ce::
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	ld a, [$c9e5]
 	ld c, a
@@ -374,14 +374,14 @@ Func_f2_42ce::
 	ld hl, $4397
 	add hl, bc
 	ld b, [hl]
-	ld a, BANK(Func_f1_62c4)
-	ld hl, Func_f1_62c4
+	ld a, BANK(FE_PrintPicture)
+	ld hl, FE_PrintPicture
 	call FarCall_A_HL
 	ld a, b
 	cp $01
 	jr nz, .jump_433f
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld b, $01
 	ld a, [$ccb1]
@@ -398,8 +398,8 @@ Func_f2_42ce::
 	ld hl, FE_WaitForButton
 	call FarCall_A_HL
 .jump_433f:
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_RestoreBGMap)
 	ld hl, FE_RestoreBGMap
@@ -464,23 +464,23 @@ PictureByItem::
 	db $86, $87, $88, $89
 
 Func_f2_43cb::
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_438b)
-	ld hl, Func_f1_438b
+	ld a, BANK(FE_MakeFlag_Reset)
+	ld hl, FE_MakeFlag_Reset
 	call FarCall_A_HL
 	ld a, BANK(Func_f2_4600)
 	ld hl, Func_f2_4600
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_45dc)
-	ld hl, Func_f1_45dc
+	ld a, BANK(FE_FadeToWhite)
+	ld hl, FE_FadeToWhite
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_624d)
-	ld hl, Func_f1_624d
+	ld a, BANK(FE_Printer_Init)
+	ld hl, FE_Printer_Init
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -496,8 +496,8 @@ Func_f2_43cb::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld a, $40
 	ldh [$ff82], a
@@ -506,8 +506,8 @@ Func_f2_43cb::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4322)
-	ld hl, Func_f1_4322
+	ld a, BANK(FE_SetBGPalettesWhite)
+	ld hl, FE_SetBGPalettesWhite
 	call FarCall_A_HL
 	ld a, $40
 	ldh [$ff82], a
@@ -531,34 +531,34 @@ Func_f2_43cb::
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
 	call Func_f2_4946
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	call Func_f2_4714
 	ld hl, $ff40
 	res 4, [hl]
-	ld a, BANK(Func_f1_464b)
-	ld hl, Func_f1_464b
+	ld a, BANK(FE_FadeToColours)
+	ld hl, FE_FadeToColours
 	call FarCall_A_HL
 	call Func_f2_4500
 	ld a, BANK(FE_FadeOut)
 	ld hl, FE_FadeOut
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld b, $00
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_42fc)
-	ld hl, Func_f1_42fc
+	ld a, BANK(FE_LoadGradientColours)
+	ld hl, FE_LoadGradientColours
 	call FarCall_A_HL
 	ld a, $28
 	ldh [$ff82], a
@@ -567,20 +567,20 @@ Func_f2_43cb::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4862)
-	ld hl, Func_f1_4862
+	ld a, BANK(FE_DrawMenu)
+	ld hl, FE_DrawMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43a6)
-	ld hl, Func_f1_43a6
+	ld a, BANK(FE_ClearFirstTile)
+	ld hl, FE_ClearFirstTile
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59bd)
-	ld hl, Func_f1_59bd
+	ld a, BANK(FE_EnableInterrupts_Menu)
+	ld hl, FE_EnableInterrupts_Menu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43e6)
-	ld hl, Func_f1_43e6
+	ld a, BANK(FE_FadeInScreen)
+	ld hl, FE_FadeInScreen
 	call FarCall_A_HL
 	ld a, BANK(FE_DrawRingLabel)
 	ld hl, FE_DrawRingLabel
@@ -1137,8 +1137,8 @@ Func_f2_487b::
 
 
 Func_f2_48b8::
-	ld a, BANK(Func_f1_7524)
-	ld hl, Func_f1_7524
+	ld a, BANK(FE_MenuCursorUnhighlight)
+	ld hl, FE_MenuCursorUnhighlight
 	call FarCall_A_HL
 	ld a, [$c994]
 	inc a
@@ -1150,8 +1150,8 @@ Func_f2_48b8::
 	xor a
 	ld [$c994], a
 .jump_48d2:
-	ld a, BANK(Func_f1_7504)
-	ld hl, Func_f1_7504
+	ld a, BANK(FE_MenuCursorHighlight)
+	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
 	xor a
 	ldh [$ff80], a
@@ -1183,8 +1183,8 @@ Func_f2_48f3::
 
 
 Func_f2_490a::
-	ld a, BANK(Func_f1_7524)
-	ld hl, Func_f1_7524
+	ld a, BANK(FE_MenuCursorUnhighlight)
+	ld hl, FE_MenuCursorUnhighlight
 	call FarCall_A_HL
 	ld hl, $c020
 	ld a, [$c994]
@@ -1204,8 +1204,8 @@ Func_f2_490a::
 
 
 Func_f2_4928::
-	ld a, BANK(Func_f1_7504)
-	ld hl, Func_f1_7504
+	ld a, BANK(FE_MenuCursorHighlight)
+	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
 	ld hl, $c020
 	ld a, [$c994]
@@ -1299,8 +1299,8 @@ Func_f2_49a4::
 	ld e, $00
 	xor a
 	ldh [$ff98], a
-	ld a, BANK(Func_f1_4787)
-	ld hl, Func_f1_4787
+	ld a, BANK(FE_DrawRingItems)
+	ld hl, FE_DrawRingItems
 	call FarCall_A_HL
 	ld a, [$c9ae]
 	cp $04
@@ -1353,8 +1353,8 @@ Func_f2_4a15::
 	ld a, $02
 	sub b
 	ld b, a
-	ld a, BANK(Func_f1_6473)
-	ld hl, Func_f1_6473
+	ld a, BANK(FE_SetPrintDarkness)
+	ld hl, FE_SetPrintDarkness
 	call FarCall_A_HL
 	call Func_f2_4bdb
 	call Func_f2_4a39
@@ -1409,11 +1409,11 @@ Func_f2_4a39::
 	ld hl, FE_LoadRing
 	call FarCall_A_HL
 	call Func_f2_4c5e
-	ld a, BANK(Func_f1_5b02)
-	ld hl, Func_f1_5b02
+	ld a, BANK(FE_LoadViewItemsScreen)
+	ld hl, FE_LoadViewItemsScreen
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld a, $40
 	ldh [$ff82], a
@@ -1422,12 +1422,12 @@ Func_f2_4a39::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4588)
-	ld hl, Func_f1_4588
+	ld a, BANK(FE_FadeInScreenSlow)
+	ld hl, FE_FadeInScreenSlow
 	call FarCall_A_HL
 	call Func_f2_4c27
-	ld a, BANK(Func_f1_452c)
-	ld hl, Func_f1_452c
+	ld a, BANK(FE_FadeOutScreenSlow)
+	ld hl, FE_FadeOutScreenSlow
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -1443,8 +1443,8 @@ Func_f2_4a39::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld a, $80
 	ldh [$ff98], a
@@ -1461,8 +1461,8 @@ Func_f2_4a39::
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
 	call Func_f2_4946
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	call Func_f2_4714
 	call Func_f2_46b2
@@ -1562,8 +1562,8 @@ Func_f2_4b91::
 	ldh a, [rSCY]
 	add a, $fc
 	ldh [rSCY], a
-	ld a, BANK(Func_f1_7544)
-	ld hl, Func_f1_7544
+	ld a, BANK(FE_DrawSubMenu)
+	ld hl, FE_DrawSubMenu
 	call FarCall_A_HL
 	ldh a, [rSCX]
 	add a, $fc
@@ -1571,8 +1571,8 @@ Func_f2_4b91::
 	ldh a, [rSCY]
 	add a, $fc
 	ldh [rSCY], a
-	ld a, BANK(Func_f1_7504)
-	ld hl, Func_f1_7504
+	ld a, BANK(FE_MenuCursorHighlight)
+	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
 	call Func_f2_4b37
 	ret
@@ -1600,8 +1600,8 @@ Func_f2_4bdb::
 	ldh a, [rSCY]
 	add a, $fc
 	ldh [rSCY], a
-	ld a, BANK(Func_f1_7544)
-	ld hl, Func_f1_7544
+	ld a, BANK(FE_DrawSubMenu)
+	ld hl, FE_DrawSubMenu
 	call FarCall_A_HL
 	ldh a, [rSCX]
 	add a, $fc
@@ -1609,8 +1609,8 @@ Func_f2_4bdb::
 	ldh a, [rSCY]
 	add a, $fc
 	ldh [rSCY], a
-	ld a, BANK(Func_f1_7504)
-	ld hl, Func_f1_7504
+	ld a, BANK(FE_MenuCursorHighlight)
+	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
 	call Func_f2_4b37
 	ret
@@ -1654,8 +1654,8 @@ Func_f2_4c5e::
 	ld e, $00
 	xor a
 	ldh [$ff98], a
-	ld a, BANK(Func_f1_4787)
-	ld hl, Func_f1_4787
+	ld a, BANK(FE_DrawRingItems)
+	ld hl, FE_DrawRingItems
 	call FarCall_A_HL
 	ld a, [$c9ae]
 	cp $04
@@ -1702,8 +1702,8 @@ Func_f2_4cba::
 	ld e, $00
 	xor a
 	ldh [$ff98], a
-	ld a, BANK(Func_f1_4787)
-	ld hl, Func_f1_4787
+	ld a, BANK(FE_DrawRingItems)
+	ld hl, FE_DrawRingItems
 	call FarCall_A_HL
 	xor a
 	ldh [$ff80], a
@@ -1730,8 +1730,8 @@ Func_f2_4cba::
 
 .jump_4cf8:
 	call Func_f2_49a4
-	ld a, BANK(Func_f1_452c)
-	ld hl, Func_f1_452c
+	ld a, BANK(FE_FadeOutScreenSlow)
+	ld hl, FE_FadeOutScreenSlow
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -1747,8 +1747,8 @@ Func_f2_4cba::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld a, $80
 	ldh [$ff98], a
@@ -1765,8 +1765,8 @@ Func_f2_4cba::
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
 	call Func_f2_4946
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	call Func_f2_4714
 	call Func_f2_46b2
@@ -2116,13 +2116,13 @@ Func_f2_50cd::
 	jr .jump_5104
 
 .jump_50df:
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_5418
 	jp c, Func_f2_51b8.jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_RestoreBGMap)
 	ld hl, FE_RestoreBGMap
@@ -2133,15 +2133,15 @@ Func_f2_50cd::
 	ret
 
 .jump_5104:
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_543a
 	ld a, b
 	or a
 	jp nz, Func_f2_51b8.jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, [$c9ae]
 	cp $04
@@ -2151,43 +2151,43 @@ Func_f2_50cd::
 	call Func_f2_5074
 	call Func_f2_545c
 	call Func_f2_54eb
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_543a
 	ld a, b
 	or a
 	jp nz, Func_f2_51b8.jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
 	call Func_f2_508f
 	call Func_f2_5084
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_543a
 	ld a, b
 	or a
 	jp nz, Func_f2_51b8.jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
 	call Func_f2_508f
 	call Func_f2_5084
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_5418
 	ld a, b
 	or a
 	jp nz, Func_f2_51b8.jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_RestoreBGMap)
 	ld hl, FE_RestoreBGMap
@@ -2198,15 +2198,15 @@ Func_f2_50cd::
 	ret
 
 .jump_519b:
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_53f6
 	ld a, b
 	or a
 	jp nz, Func_f2_51b8.jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
@@ -2219,59 +2219,59 @@ Func_f2_51b8::
 	cp $04
 	jr z, Func_f2_50cd.jump_519b
 	call Func_f2_54aa
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_53f6
 	ld a, b
 	or a
 	jp nz, .jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
 	call Func_f2_508f
 	call Func_f2_5084
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_543a
 	ld a, b
 	or a
 	jp nz, .jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
 	call Func_f2_508f
 	call Func_f2_5084
 	call Func_f2_545c
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_543a
 	ld a, b
 	or a
 	jp nz, .jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
 	ret
 
 .jump_5229:
-	ld a, BANK(Func_f1_59f0)
-	ld hl, Func_f1_59f0
+	ld a, BANK(FE_EnableInterrupts_Printer)
+	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
 	call Func_f2_543a
 	ld a, b
 	or a
 	jr nz, .jump_5250
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
@@ -2282,8 +2282,8 @@ Func_f2_51b8::
 	ret
 
 .jump_5250:
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld b, $01
 	ld a, [$ccb1]
@@ -2570,8 +2570,8 @@ Func_f2_53f6::
 	ld [$cca3], a
 	ld a, $00
 	ld [$cca8], a
-	ld a, BANK(Func_f1_625b)
-	ld hl, Func_f1_625b
+	ld a, BANK(FE_PrintWRAMImage)
+	ld hl, FE_PrintWRAMImage
 	call FarCall_A_HL
 	ret
 
@@ -2587,8 +2587,8 @@ Func_f2_5418::
 	ld [$cca3], a
 	ld a, $00
 	ld [$cca8], a
-	ld a, BANK(Func_f1_625b)
-	ld hl, Func_f1_625b
+	ld a, BANK(FE_PrintWRAMImage)
+	ld hl, FE_PrintWRAMImage
 	call FarCall_A_HL
 	ret
 
@@ -2604,8 +2604,8 @@ Func_f2_543a::
 	ld [$cca3], a
 	ld a, $00
 	ld [$cca8], a
-	ld a, BANK(Func_f1_625b)
-	ld hl, Func_f1_625b
+	ld a, BANK(FE_PrintWRAMImage)
+	ld hl, FE_PrintWRAMImage
 	call FarCall_A_HL
 	ret
 
@@ -3317,8 +3317,8 @@ Func_f2_6a5a::
 	push bc
 	ld a, l
 	push af
-	ld a, BANK(Func_f1_59e3)
-	ld hl, Func_f1_59e3
+	ld a, BANK(FE_EnableInterrupts_VBlankOnly)
+	ld hl, FE_EnableInterrupts_VBlankOnly
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -3334,8 +3334,8 @@ Func_f2_6a5a::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	pop af
 	cp $02
@@ -3347,8 +3347,8 @@ Func_f2_6a5a::
 .jump_6a97:
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	call Func_f2_6f6e
 	call Func_f2_6fb6
@@ -3360,8 +3360,8 @@ Func_f2_6a5a::
 .jump_6ab4:
 	ld a, $0a
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ldh a, [$ffad]
 	cp $66
@@ -3388,8 +3388,8 @@ Func_f2_6a5a::
 .jump_6af1:
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ldh a, [$ffad]
 	cp $66
@@ -3445,8 +3445,8 @@ Func_f2_6a5a::
 Func_f2_6b67::
 	push de
 	push bc
-	ld a, BANK(Func_f1_59e3)
-	ld hl, Func_f1_59e3
+	ld a, BANK(FE_EnableInterrupts_VBlankOnly)
+	ld hl, FE_EnableInterrupts_VBlankOnly
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -3462,13 +3462,13 @@ Func_f2_6b67::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	call Func_f2_6f26
 	pop bc
@@ -3588,8 +3588,8 @@ Func_f2_6c5a::
 	push bc
 	push de
 	push hl
-	ld a, BANK(Func_f1_59e3)
-	ld hl, Func_f1_59e3
+	ld a, BANK(FE_EnableInterrupts_VBlankOnly)
+	ld hl, FE_EnableInterrupts_VBlankOnly
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -3618,8 +3618,8 @@ Func_f2_6c5a::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	pop af
 	ld d, a
@@ -3635,21 +3635,22 @@ Func_f2_6c5a::
 
 
 Func_f2_6caa::
-	jp Func_f2_6cb3.jump_6cb6
+	jp Func_f2_6cb6
 
 
 Func_f2_6cad::
-	jp Func_f2_6cb3.jump_6d43
+	jp Func_f2_6d43
 
 
 Func_f2_6cb0::
-	jp Func_f2_6cb3.jump_6d9c
+	jp Func_f2_6d9c
 
 
 Func_f2_6cb3::
-	jp .jump_6e68
+	jp Func_f2_6e68
 
-.jump_6cb6:
+
+Func_f2_6cb6::
 	pop de
 	pop bc
 	ld a, b
@@ -3660,8 +3661,8 @@ Func_f2_6cb3::
 .jump_6cc0:
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	call Func_f2_6edd
 	jr .jump_6cf4
@@ -3669,8 +3670,8 @@ Func_f2_6cb3::
 .jump_6cd2:
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	call Func_f2_6ef5
 	jr .jump_6cf4
@@ -3678,8 +3679,8 @@ Func_f2_6cb3::
 .jump_6ce4:
 	ld a, $0a
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	call Func_f2_6f0d
 .jump_6cf4:
@@ -3724,13 +3725,14 @@ Func_f2_6cb3::
 	call FarCall_A_HL
 	ret
 
-.jump_6d43:
+
+Func_f2_6d43::
 	pop de
 	pop bc
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	call Func_f2_6f26
 	ld a, BANK(FE_UploadBGMap)
@@ -3768,7 +3770,8 @@ Func_f2_6cb3::
 	call FarCall_A_HL
 	ret
 
-.jump_6d9c:
+
+Func_f2_6d9c::
 	pop de
 	pop bc
 	ld a, b
@@ -3789,8 +3792,8 @@ Func_f2_6cb3::
 	call Func_f2_6ff2
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	call Func_f2_6f6e
 	call Func_f2_6fb6
@@ -3801,8 +3804,8 @@ Func_f2_6cb3::
 	push bc
 	ld a, $0a
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	pop bc
 	pop de
@@ -3827,8 +3830,8 @@ Func_f2_6cb3::
 	push bc
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	pop bc
 	pop de
@@ -3876,7 +3879,8 @@ Func_f2_6cb3::
 	call FarCall_A_HL
 	ret
 
-.jump_6e68:
+
+Func_f2_6e68::
 	pop de
 	pop bc
 	ld a, b
@@ -3897,8 +3901,8 @@ Func_f2_6cb3::
 	call Func_f2_6f86
 	ld a, $09
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	jr .jump_6ea2
 
@@ -3907,8 +3911,8 @@ Func_f2_6cb3::
 	call Func_f2_6f9e
 	ld a, $0a
 	call FE_PlaySong
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 .jump_6ea2:
 	ld a, BANK(FE_UploadBGMap)
@@ -4150,8 +4154,8 @@ Func_f2_701a::
 	call FE_PlaySong
 	ld a, $01
 	ldh [rSVBK], a
-	ld a, BANK(Func_f1_59e3)
-	ld hl, Func_f1_59e3
+	ld a, BANK(FE_EnableInterrupts_VBlankOnly)
+	ld hl, FE_EnableInterrupts_VBlankOnly
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -4166,8 +4170,8 @@ Func_f2_701a::
 	ld a, BANK(FE_ClearPalettes)
 	ld hl, FE_ClearPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_42fc)
-	ld hl, Func_f1_42fc
+	ld a, BANK(FE_LoadGradientColours)
+	ld hl, FE_LoadGradientColours
 	call FarCall_A_HL
 	ld a, $28
 	ldh [$ff82], a
@@ -4176,35 +4180,35 @@ Func_f2_701a::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
 	ld a, $02
 	ld [$c96e], a
 	ld a, BANK(FE_LoadRing)
 	ld hl, FE_LoadRing
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4862)
-	ld hl, Func_f1_4862
+	ld a, BANK(FE_DrawMenu)
+	ld hl, FE_DrawMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld b, $00
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43a6)
-	ld hl, Func_f1_43a6
+	ld a, BANK(FE_ClearFirstTile)
+	ld hl, FE_ClearFirstTile
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59bd)
-	ld hl, Func_f1_59bd
+	ld a, BANK(FE_EnableInterrupts_Menu)
+	ld hl, FE_EnableInterrupts_Menu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43e6)
-	ld hl, Func_f1_43e6
+	ld a, BANK(FE_FadeInScreen)
+	ld hl, FE_FadeInScreen
 	call FarCall_A_HL
 	ld a, BANK(FE_DrawRingLabel)
 	ld hl, FE_DrawRingLabel
@@ -4213,14 +4217,14 @@ Func_f2_701a::
 
 
 Func_f2_70bd::
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_45dc)
-	ld hl, Func_f1_45dc
+	ld a, BANK(FE_FadeToWhite)
+	ld hl, FE_FadeToWhite
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -4243,8 +4247,8 @@ Func_f2_70bd::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4322)
-	ld hl, Func_f1_4322
+	ld a, BANK(FE_SetBGPalettesWhite)
+	ld hl, FE_SetBGPalettesWhite
 	call FarCall_A_HL
 	ld a, $40
 	ldh [$ff82], a
@@ -4253,8 +4257,8 @@ Func_f2_70bd::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	ld hl, $ff40
 	res 4, [hl]
@@ -4296,8 +4300,8 @@ Func_f2_70bd::
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_464b)
-	ld hl, Func_f1_464b
+	ld a, BANK(FE_FadeToColours)
+	ld hl, FE_FadeToColours
 	call FarCall_A_HL
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
@@ -4306,8 +4310,8 @@ Func_f2_70bd::
 	call Func_f2_77c5
 	ldh a, [$ff91]
 	push af
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_FadeOut)
 	ld hl, FE_FadeOut
@@ -4329,8 +4333,8 @@ Func_f2_70bd::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	ld hl, $ff40
 	res 4, [hl]
@@ -4346,8 +4350,8 @@ Func_f2_70bd::
 	ld a, BANK(FE_FadeIn)
 	ld hl, FE_FadeIn
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_5a1b)
-	ld hl, Func_f1_5a1b
+	ld a, BANK(FE_WaitForLinkPartner)
+	ld hl, FE_WaitForLinkPartner
 	call FarCall_A_HL
 .jump_7205:
 	ld a, BANK(FE_ReadJoypadPressed)
@@ -4374,11 +4378,11 @@ Func_f2_70bd::
 	ldh a, [$ffaa]
 	cp $0c
 	jr c, .jump_7205
-	ld a, BANK(Func_f1_59e3)
-	ld hl, Func_f1_59e3
+	ld a, BANK(FE_EnableInterrupts_VBlankOnly)
+	ld hl, FE_EnableInterrupts_VBlankOnly
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4456)
-	ld hl, Func_f1_4456
+	ld a, BANK(FE_FadeOutScreen)
+	ld hl, FE_FadeOutScreen
 	call FarCall_A_HL
 	call Func_f2_7943
 	call Func_f2_75d0
@@ -4667,11 +4671,11 @@ Func_f2_73c9::
 	ret
 
 .jump_73eb:
-	ld a, BANK(Func_f1_59e3)
-	ld hl, Func_f1_59e3
+	ld a, BANK(FE_EnableInterrupts_VBlankOnly)
+	ld hl, FE_EnableInterrupts_VBlankOnly
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_42fc)
-	ld hl, Func_f1_42fc
+	ld a, BANK(FE_LoadGradientColours)
+	ld hl, FE_LoadGradientColours
 	call FarCall_A_HL
 	ld a, $28
 	ldh [$ff82], a
@@ -4680,51 +4684,51 @@ Func_f2_73c9::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
 	ld a, $03
 	ld [$c96e], a
 	ld a, BANK(FE_LoadRing)
 	ld hl, FE_LoadRing
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4862)
-	ld hl, Func_f1_4862
+	ld a, BANK(FE_DrawMenu)
+	ld hl, FE_DrawMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld b, $00
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43a6)
-	ld hl, Func_f1_43a6
+	ld a, BANK(FE_ClearFirstTile)
+	ld hl, FE_ClearFirstTile
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59bd)
-	ld hl, Func_f1_59bd
+	ld a, BANK(FE_EnableInterrupts_Menu)
+	ld hl, FE_EnableInterrupts_Menu
 	call FarCall_A_HL
 	ld a, $01
 	ldh [rSVBK], a
-	ld a, BANK(Func_f1_43e6)
-	ld hl, Func_f1_43e6
+	ld a, BANK(FE_FadeInScreen)
+	ld hl, FE_FadeInScreen
 	call FarCall_A_HL
 	ld a, BANK(FE_DrawRingLabel)
 	ld hl, FE_DrawRingLabel
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_5a0a)
-	ld hl, Func_f1_5a0a
+	ld a, BANK(FE_EnableInterrupts_SerialFlag)
+	ld hl, FE_EnableInterrupts_SerialFlag
 	call FarCall_A_HL
 	call Func_f2_7640
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
 	call Func_f2_78fd
-	ld a, BANK(Func_f1_44c5)
-	ld hl, Func_f1_44c5
+	ld a, BANK(FE_FadeOutScreen_NoInput)
+	ld hl, FE_FadeOutScreen_NoInput
 	call FarCall_A_HL
 	ld a, [$c96e]
 	cp $03
@@ -4953,8 +4957,8 @@ Func_f2_75d0::
 
 Func_f2_75d1::
 	push af
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld hl, $ff40
 	res 4, [hl]
@@ -4962,8 +4966,8 @@ Func_f2_75d1::
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43be)
-	ld hl, Func_f1_43be
+	ld a, BANK(FE_LoadMenuFont)
+	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	pop af
 	add a, $05
@@ -5034,15 +5038,15 @@ Func_f2_765f::
 	ldh a, [$ff91]
 	bit 4, a
 	jr z, .jump_7675
-	ld a, BANK(Func_f1_48d6)
-	ld hl, Func_f1_48d6
+	ld a, BANK(FE_TurnRingRight)
+	ld hl, FE_TurnRingRight
 	call FarCall_A_HL
 .jump_7675:
 	ldh a, [$ff91]
 	bit 5, a
 	jr z, .jump_7683
-	ld a, BANK(Func_f1_4a8c)
-	ld hl, Func_f1_4a8c
+	ld a, BANK(FE_TurnRingLeft)
+	ld hl, FE_TurnRingLeft
 	call FarCall_A_HL
 .jump_7683:
 	ldh a, [$ff91]
@@ -5051,8 +5055,8 @@ Func_f2_765f::
 	ldh a, [$ff91]
 	bit 1, a
 	call nz, Func_f2_7742
-	ld a, BANK(Func_f1_4862)
-	ld hl, Func_f1_4862
+	ld a, BANK(FE_DrawMenu)
+	ld hl, FE_DrawMenu
 	call FarCall_A_HL
 	jr Func_f2_765f
 
@@ -5086,8 +5090,8 @@ Func_f2_76a2::
 	bit 7, a
 	jr nz, .jump_7731
 	ld [$c96e], a
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
 	ld a, $28
 	ldh [$ff82], a
@@ -5103,26 +5107,26 @@ Func_f2_76a2::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_45dc)
-	ld hl, Func_f1_45dc
+	ld a, BANK(FE_FadeToWhite)
+	ld hl, FE_FadeToWhite
 	call FarCall_A_HL
 	ld a, BANK(FE_LoadRing)
 	ld hl, FE_LoadRing
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4862)
-	ld hl, Func_f1_4862
+	ld a, BANK(FE_DrawMenu)
+	ld hl, FE_DrawMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4695)
-	ld hl, Func_f1_4695
+	ld a, BANK(FE_FadeToColoursWithGradient)
+	ld hl, FE_FadeToColoursWithGradient
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4926)
-	ld hl, Func_f1_4926
+	ld a, BANK(FE_IsRingItemHidden)
+	ld hl, FE_IsRingItemHidden
 	call FarCall_A_HL
 	ld a, d
 	cp $00
 	jr z, .jump_7728
-	ld a, BANK(Func_f1_4a8c)
-	ld hl, Func_f1_4a8c
+	ld a, BANK(FE_TurnRingLeft)
+	ld hl, FE_TurnRingLeft
 	call FarCall_A_HL
 .jump_7728:
 	ld a, BANK(FE_DrawRingLabel)
@@ -5131,11 +5135,11 @@ Func_f2_76a2::
 	ret
 
 .jump_7731:
-	ld a, BANK(Func_f1_5a34)
-	ld hl, Func_f1_5a34
+	ld a, BANK(FE_ViewItems)
+	ld hl, FE_ViewItems
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_5a0a)
-	ld hl, Func_f1_5a0a
+	ld a, BANK(FE_EnableInterrupts_SerialFlag)
+	ld hl, FE_EnableInterrupts_SerialFlag
 	call FarCall_A_HL
 	ret
 
@@ -5144,14 +5148,14 @@ Func_f2_7742::
 	ld a, [$c96e]
 	cp $03
 	jr z, .jump_7752
-	ld a, BANK(Func_f1_4c75)
-	ld hl, Func_f1_4c75
+	ld a, BANK(FE_BackToParentRing)
+	ld hl, FE_BackToParentRing
 	call FarCall_A_HL
 	ret
 
 .jump_7752:
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
 	ld a, $77
 	ldh [rSB], a
@@ -5159,8 +5163,8 @@ Func_f2_7742::
 	ldh [rSC], a
 	ld a, $83
 	ldh [rSC], a
-	ld a, BANK(Func_f1_4456)
-	ld hl, Func_f1_4456
+	ld a, BANK(FE_FadeOutScreen)
+	ld hl, FE_FadeOutScreen
 	call FarCall_A_HL
 	ld a, $77
 	ldh [rSB], a
@@ -5211,8 +5215,8 @@ Func_f2_77a0::
 	ldh [$ffa9], a
 	xor a
 	ldh [$ffaa], a
-	ld a, BANK(Func_f1_59fd)
-	ld hl, Func_f1_59fd
+	ld a, BANK(FE_EnableInterrupts_Handshake)
+	ld hl, FE_EnableInterrupts_Handshake
 	call FarCall_A_HL
 	ret
 
@@ -5281,27 +5285,27 @@ Func_f2_77c5::
 	jr Func_f2_77c5
 
 .jump_7831:
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_FadeOut)
 	ld hl, FE_FadeOut
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_433a)
-	ld hl, Func_f1_433a
+	ld a, BANK(FE_LoadMenuOBJPalettes)
+	ld hl, FE_LoadMenuOBJPalettes
 	call FarCall_A_HL
 	ld b, $00
 	ld a, BANK(FE_LoadPicture)
 	ld hl, FE_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_42fc)
-	ld hl, Func_f1_42fc
+	ld a, BANK(FE_LoadGradientColours)
+	ld hl, FE_LoadGradientColours
 	call FarCall_A_HL
 	ld a, $28
 	ldh [$ff82], a
@@ -5310,20 +5314,20 @@ Func_f2_77c5::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_4862)
-	ld hl, Func_f1_4862
+	ld a, BANK(FE_DrawMenu)
+	ld hl, FE_DrawMenu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43a6)
-	ld hl, Func_f1_43a6
+	ld a, BANK(FE_ClearFirstTile)
+	ld hl, FE_ClearFirstTile
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_59bd)
-	ld hl, Func_f1_59bd
+	ld a, BANK(FE_EnableInterrupts_Menu)
+	ld hl, FE_EnableInterrupts_Menu
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_43e6)
-	ld hl, Func_f1_43e6
+	ld a, BANK(FE_FadeInScreen)
+	ld hl, FE_FadeInScreen
 	call FarCall_A_HL
 	ld a, BANK(FE_DrawRingLabel)
 	ld hl, FE_DrawRingLabel
@@ -5368,14 +5372,14 @@ Func_f2_78ae::
 	ldh [$ffab], a
 	cp $96
 	jr nz, .jump_78b1
-	ld a, BANK(Func_f1_51cc)
-	ld hl, Func_f1_51cc
+	ld a, BANK(FE_ClearBGMap)
+	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearPalettes)
 	ld hl, FE_ClearPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f1_430b)
-	ld hl, Func_f1_430b
+	ld a, BANK(FE_ClearGradientColours)
+	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
 	jp Func_f2_7a1c
 
@@ -5487,8 +5491,8 @@ Func_f2_7987::
 .jump_79a7:
 	ld a, $87
 	ldh [rLCDC], a
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearPalettes)
 	ld hl, FE_ClearPalettes
@@ -5504,8 +5508,8 @@ Func_f2_7987::
 	jp z, Func_f2_70bd.jump_71c7
 	ld a, $01
 	ldh [rSVBK], a
-	ld a, BANK(Func_f1_5552)
-	ld hl, Func_f1_5552
+	ld a, BANK(FE_AskSure_FromF2)
+	ld hl, FE_AskSure_FromF2
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 1, a
@@ -5552,8 +5556,8 @@ Func_f2_7987::
 Func_f2_7a1c::
 	ld a, $87
 	ldh [rLCDC], a
-	ld a, BANK(Func_f1_59ce)
-	ld hl, Func_f1_59ce
+	ld a, BANK(FE_EnableInterrupts_Plain)
+	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearPalettes)
 	ld hl, FE_ClearPalettes

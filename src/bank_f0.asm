@@ -1763,12 +1763,12 @@ FE_LoadPicture::
 	ret
 
 
-FE_LoadPictureTilesInverted_Check::
+FE_LoadPictureForPrinter_Check::
 	ld a, d
 	cp $00
-	jp z, FE_LoadPictureTilesInverted.jump_496d
+	jp z, FE_LoadPictureForPrinter.jump_496d
 
-FE_LoadPictureTilesInverted::
+FE_LoadPictureForPrinter::
 	ld a, b
 	call FE_GetPictureHeight
 	push bc

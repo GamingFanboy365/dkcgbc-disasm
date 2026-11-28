@@ -650,8 +650,6 @@ NAMES = {
     (0xF0, 0x47A5): "FE_LoadPictureMap",  # by its kind in PictureMapKinds: 0 plain, 1 UniqueTileMap, 2 attributes in the second half
     (0xF0, 0x47D8): "FE_CopyPictureMap",  # PictureHeights rows of 32 bytes, PictureWidths bytes apart in the source
     (0xF0, 0x4882): "FE_LoadPicture",  # picture b of PictureTable: map, palettes and tiles
-    (0xF0, 0x48F4): "FE_LoadPictureTilesInverted_Check",
-    (0xF0, 0x48FA): "FE_LoadPictureTilesInverted",  # tiles of picture b, complemented, into WRAM bank 5 on (tentative: for printing)
     (0xF0, 0x49C3): "FE_SaveBGMap",  # $d000 -> $d800, WRAM bank 2
     (0xF0, 0x49D8): "FE_RestoreBGMap",
     (0xF0, 0x49EC): "FE_UploadBGMap",  # WRAM bank 2 -> $9800 (attributes, then tiles)
@@ -677,4 +675,270 @@ NAMES = {
     (0xF0, 0x6B44): "FE_DrawTextOnMap",  # text into the BG map copy in WRAM bank 2
     (0xF0, 0x6BB6): "FE_DrawBox",  # a frame of tiles $7d-... around the text area
     (0xF0, 0x6C60): "FE_DrawTextInBox",
+    # --- front end, bank $F1: entry, menus (rings), save files, sound test, printer, sticker book
+    (0xF1, 0x4000): "FE_Enter",  # from the main game: saves its stack pointer ($c803) and HRAM, then FE_Main
+    (0xF1, 0x4139): "FE_RestoreStateAndReturn",
+    (0xF1, 0x4159): "FE_CallF2_6c5a",
+    (0xF1, 0x417D): "FE_ReturnToGame",  # restores HRAM and the main game's stack; l = language, d = what to do next
+    (0xF1, 0x41D5): "FE_ShowCrankyUnlocked",
+    (0xF1, 0x42FC): "FE_LoadGradientColours",  # $659a -> $db00: the colours FE_VBlank_Menu/FE_STAT_Gradient draw down the screen
+    (0xF1, 0x430B): "FE_ClearGradientColours",
+    (0xF1, 0x4316): "FE_SetGradientColoursWhite",
+    (0xF1, 0x4322): "FE_SetBGPalettesWhite",
+    (0xF1, 0x432E): "FE_SetOBJPalettesWhite",
+    (0xF1, 0x433A): "FE_LoadMenuOBJPalettes",  # $65e8 -> $c846
+    (0xF1, 0x4349): "FE_InitMenuState",
+    (0xF1, 0x4361): "FE_ReadSaveFilesUsed",  # bit 7 of each file's status byte ($c341/$c345/$c349) -> $c99a-$c99c
+    (0xF1, 0x437D): "FE_StickerBook_Reset",
+    (0xF1, 0x438B): "FE_MakeFlag_Reset",
+    (0xF1, 0x43A1): "FE_Alphabet_Reset",
+    (0xF1, 0x43A6): "FE_ClearFirstTile",
+    (0xF1, 0x43BE): "FE_LoadMenuFont",  # font tiles from bank $FF
+    (0xF1, 0x43E6): "FE_FadeInScreen",  # palettes and gradient up from black, in steps of 8
+    (0xF1, 0x4456): "FE_FadeOutScreen",  # down to black, then clears the palettes
+    (0xF1, 0x44C5): "FE_FadeOutScreen_NoInput",
+    (0xF1, 0x452C): "FE_FadeOutScreenSlow",
+    (0xF1, 0x4588): "FE_FadeInScreenSlow",
+    (0xF1, 0x45DC): "FE_FadeToWhite",
+    (0xF1, 0x464B): "FE_FadeToColours",  # towards the colour list at $db50
+    (0xF1, 0x4695): "FE_FadeToColoursWithGradient",
+    (0xF1, 0x470D): "FE_FadeToColoursSlow",
+    (0xF1, 0x475D): "FE_FadeStepToColour",
+    (0xF1, 0x4787): "FE_DrawRingItems",  # each item's sprite around the ring
+    (0xF1, 0x480D): "FE_GetRingItemPosition",  # RingAngleLists by item count, rotated by $c96d
+    (0xF1, 0x4862): "FE_DrawMenu",  # clears OAM, draws the ring items and the cursor, waits for VBlank, OAM DMA
+    (0xF1, 0x48A4): "FE_MenuInput",  # right/left turn the ring, A or Start selects, B goes back
+    (0xF1, 0x48D6): "FE_TurnRingRight",
+    (0xF1, 0x4926): "FE_IsRingItemHidden",  # by the ring's rule in the table at $67aa; d = 1 when hidden
+    (0xF1, 0x4943): "FE_RingRule_SaveFiles",
+    (0xF1, 0x4946): "FE_RingRule_UsedFilesOnly",
+    (0xF1, 0x4949): "FE_RingRule_EmptyFilesOnly",
+    (0xF1, 0x494C): "FE_RingRule_Options",
+    (0xF1, 0x494F): "FE_RingRule_Main",
+    (0xF1, 0x4952): "FE_RingRule_Ring3",
+    (0xF1, 0x4955): "FE_RingRule_LinkCrankyModes",
+    (0xF1, 0x4958): "FE_RingRule_Print",
+    (0xF1, 0x495B): "FE_HideMakeFlagUntilUnlocked",  # Print ring item 2 while [$b0c7] < 6
+    (0xF1, 0x496A): "FE_HideLinkUntilUnlocked",  # main ring item 2 while [$b0c5] = 0
+    (0xF1, 0x4978): "FE_HideRing3Items",
+    (0xF1, 0x4989): "FE_HideLockedLinkModes",  # items past [$b0c5] - 2
+    (0xF1, 0x4997): "FE_HideCopyErase",  # Erase when no file is used; Copy also when all three are
+    (0xF1, 0x49A5): "FE_HideIfFileNotFinished",
+    (0xF1, 0x49C4): "FE_HideOptionsUntilFinished",  # Options items 2 and 3 need a file with bit 6 of its status set
+    (0xF1, 0x49FC): "FE_RingRuleCommon",
+    (0xF1, 0x4A66): "FE_HideUnusedFile",
+    (0xF1, 0x4A79): "FE_HideUsedFile",
+    (0xF1, 0x4A8C): "FE_TurnRingLeft",
+    (0xF1, 0x4ADA): "FE_DrawMenuTurning",
+    (0xF1, 0x4B96): "FE_SetSaveFileIcons",
+    (0xF1, 0x4BBA): "FE_SelectRingItem",  # by the item's action byte: a ring number, or bit 7 action, bit 6 file, bit 5 language, bit 4 option
+    (0xF1, 0x4C75): "FE_BackToParentRing",
+    (0xF1, 0x4CFA): "FE_Action_StickerBook",  # actions $80-$8d: jp table
+    (0xF1, 0x4CFD): "FE_Action_ViewItems",
+    (0xF1, 0x4D00): "FE_Action_None",
+    (0xF1, 0x4D03): "FE_Action_MakeFlag",
+    (0xF1, 0x4D06): "FE_Action_Link",
+    (0xF1, 0x4D09): "FE_Action_EraseFile",
+    (0xF1, 0x4D0C): "FE_Action_Alphabet",
+    (0xF1, 0x4D0F): "FE_Action_CopyFrom",
+    (0xF1, 0x4D12): "FE_Action_CopyTo",
+    (0xF1, 0x4D15): "FE_Action_FunkysFishing",
+    (0xF1, 0x4D18): "FE_Action_StartGame8A",  # no ring item uses action $8a
+    (0xF1, 0x4D1B): "FE_Action_SoundTest",
+    (0xF1, 0x4D1E): "FE_Action_HiScore",
+    (0xF1, 0x4D21): "FE_Action_CrosshairCranky",
+    (0xF1, 0x4D24): "FE_ViewItems_Start",
+    (0xF1, 0x4D28): "FE_Alphabet_Start",
+    (0xF1, 0x4D31): "FE_CrosshairCranky_Start",  # leaves the front end (main game stack) with the game number in d and e
+    (0xF1, 0x4D86): "FE_SoundTest",  # left/right pick a song, A plays it, B leaves
+    (0xF1, 0x4DC4): "FE_SoundTest_DrawNumber",
+    (0xF1, 0x4DE5): "FE_SoundTest_Previous",
+    (0xF1, 0x4DF6): "FE_SoundTest_Next",
+    (0xF1, 0x4E06): "FE_FunkysFishing_Start",
+    (0xF1, 0x4E61): "FE_FunkysFishing_Return",
+    (0xF1, 0x4E87): "FE_AfterBonusGame",
+    (0xF1, 0x4ECD): "FE_HiScore_Return",
+    (0xF1, 0x4EF3): "FE_ReturnToMenu",
+    (0xF1, 0x4EFC): "FE_HiScore_Start",
+    (0xF1, 0x4F36): "FE_RestoreAndReturnToMenu",
+    (0xF1, 0x4F4D): "FE_StartGame8A",
+    (0xF1, 0x4FA4): "FE_ReturnToMenuFromLink",
+    (0xF1, 0x4FC1): "FE_Link_Start",
+    (0xF1, 0x4FCA): "FE_CopyFrom_Start",  # remembers the source file, opens the target ring (12)
+    (0xF1, 0x4FF1): "FE_CopyTo_Confirm",  # "Sure?", then copies the 64-byte file block
+    (0xF1, 0x5071): "FE_MakeFlag_Start",
+    (0xF1, 0x507A): "FE_EraseFile_Confirm",  # "Sure?", then clears the file's 64-byte block
+    (0xF1, 0x50F1): "FE_ClearLinkFlags",
+    (0xF1, 0x51CC): "FE_ClearBGMap",
+    (0xF1, 0x5206): "FE_ReadSaveFileStatus",
+    (0xF1, 0x5243): "FE_DrawSaveFileInfo",
+    (0xF1, 0x5333): "FE_DrawRingLabelPicture",
+    (0xF1, 0x53C9): "FE_AdvanceFarPointer_F1",
+    (0xF1, 0x53EC): "FE_HDMAAcrossBanks_F1",
+    (0xF1, 0x5411): "FE_LoadLanguageWords",
+    (0xF1, 0x5419): "FE_DrawRingExtras",
+    (0xF1, 0x5508): "FE_AskSure",  # Yes/No box; [$c994] = answer
+    (0xF1, 0x5552): "FE_AskSure_FromF2",
+    (0xF1, 0x55F3): "FE_DrawYesNo",
+    (0xF1, 0x5675): "FE_YesNoInput",
+    (0xF1, 0x569E): "FE_YesNo_Next",
+    (0xF1, 0x56B4): "FE_YesNo_Previous",
+    (0xF1, 0x56C9): "FE_JP_VBlank_Menu",  # jp templates written into the interrupt slots
+    (0xF1, 0x56CC): "FE_JP_VBlank_Plain",
+    (0xF1, 0x56CF): "FE_JP_VBlank_Link",
+    (0xF1, 0x56D2): "FE_JP_STAT_Gradient",
+    (0xF1, 0x56D5): "FE_JP_STAT_Sound",
+    (0xF1, 0x56D8): "FE_JP_Serial_Printer",
+    (0xF1, 0x56DB): "FE_JP_Serial_Handshake",
+    (0xF1, 0x56DE): "FE_JP_Serial_WaitForPartner",
+    (0xF1, 0x56E1): "FE_JP_Serial_Flag",
+    (0xF1, 0x56E4): "FE_InstallInterruptHandlers",  # copies the handlers at $57f0-$59bc to $ccba-$ce80
+    (0xF1, 0x5763): "FE_SetInterrupts_Menu",
+    (0xF1, 0x5780): "FE_SetInterrupts_Plain",
+    (0xF1, 0x579D): "FE_SetInterrupts_Printer",
+    (0xF1, 0x57BA): "FE_SetInterrupts_Handshake",
+    (0xF1, 0x57C9): "FE_SetInterrupts_WaitForPartner",
+    (0xF1, 0x57D8): "FE_SetInterrupts_SerialFlag",
+    (0xF1, 0x57E7): "FE_WriteJumpSlot",
+    (0xF1, 0x59BD): "FE_EnableInterrupts_Menu",  # VBlank and per-line STAT (the gradient)
+    (0xF1, 0x59CE): "FE_EnableInterrupts_Plain",  # VBlank, STAT at line $64 updates the sound
+    (0xF1, 0x59E3): "FE_EnableInterrupts_VBlankOnly",
+    (0xF1, 0x59F0): "FE_EnableInterrupts_Printer",
+    (0xF1, 0x59FD): "FE_EnableInterrupts_Handshake",
+    (0xF1, 0x5A0A): "FE_EnableInterrupts_SerialFlag",
+    (0xF1, 0x5A1B): "FE_WaitForLinkPartner",  # sends $ea and waits for the other Game Boy
+    (0xF1, 0x5A34): "FE_ViewItems",
+    (0xF1, 0x5ADF): "FE_ViewItems_Loop",
+    (0xF1, 0x5B02): "FE_LoadViewItemsScreen",
+    (0xF1, 0x5B81): "FE_CopyTilesToMap2",
+    (0xF1, 0x5B9A): "FE_CopyTileRows",
+    (0xF1, 0x5BB3): "FE_ViewItems_ScrollIn",
+    (0xF1, 0x5BE0): "FE_ViewItems_ScrollOut",
+    (0xF1, 0x5C09): "FE_ViewItems_DrawItems",
+    (0xF1, 0x5C69): "FE_ViewItems_DrawItem",
+    (0xF1, 0x5CD1): "FE_ViewItems_LoadPalettes",
+    (0xF1, 0x5CE0): "FE_Printer_InitPackets",  # packet templates and the serial routine (copied to $ce87)
+    (0xF1, 0x5D28): "FE_Printer_InitInitPacket",
+    (0xF1, 0x5D35): "FE_Printer_InitStatusPacket",
+    (0xF1, 0x5D42): "FE_Printer_InitEmptyDataPacket",
+    (0xF1, 0x5D4F): "FE_Printer_BuildPrintPacket",  # $88 $33, command 2: sheets, margins, palette, exposure
+    (0xF1, 0x5D79): "FE_Printer_SendInit",  # command 1
+    (0xF1, 0x5D96): "FE_Printer_SendPrint",
+    (0xF1, 0x5DC3): "FE_Printer_SendPacket",  # byte by byte through the serial port, then reads the status
+    (0xF1, 0x5E15): "FE_Printer_DecodeStatus",  # printer status bits -> error number in [$ccb1]
+    (0xF1, 0x5E67): "FE_Printer_DecodeStatus2",
+    (0xF1, 0x5E80): "FE_Printer_SendData",  # command 4, 640 bytes per packet from WRAM bank 5 on
+    (0xF1, 0x5F19): "FE_Printer_SendEmptyData",
+    (0xF1, 0x5F29): "FE_Printer_CopyAcrossWRAMBanks",
+    (0xF1, 0x5F44): "FE_Printer_BuildDataPacket",
+    (0xF1, 0x5F7B): "FE_Printer_Checksum",
+    (0xF1, 0x5FAA): "FE_PrinterSerial_Code",  # runs at $ce87, from the serial interrupt
+    (0xF1, 0x5FD6): "FE_PrinterSendByte_Code",  # runs at $ceb3
+    (0xF1, 0x601A): "FE_FarCopyBankSwitching_Code",  # runs at $cef7
+    (0xF1, 0x603A): "FE_FarCopyBankSwitching",
+    (0xF1, 0x6047): "FE_SetDoubleSpeed_F1",
+    (0xF1, 0x6069): "FE_ToggleCPUSpeed",  # the printer is driven at single speed
+    (0xF1, 0x6087): "FE_SetVBlankTimer",
+    (0xF1, 0x60A2): "FE_WaitVBlankTimer",
+    (0xF1, 0x60B6): "FE_Multiply16",
+    (0xF1, 0x6136): "FE_WriteScreenAttributes",
+    (0xF1, 0x6179): "FE_OrMapRect",
+    (0xF1, 0x61B2): "FE_FillMapRect",
+    (0xF1, 0x61E1): "FE_StartHDMA_F1",
+    (0xF1, 0x61F1): "FE_HDMAToVRAMBank",
+    (0xF1, 0x6206): "FE_IsPointInRect",
+    (0xF1, 0x6218): "FE_CopyBytes_F1",  # bc bytes de -> hl
+    (0xF1, 0x6221): "FE_FillBytes_F1",  # de bytes of b at hl
+    (0xF1, 0x6229): "FE_DelayLoop",  # about bc / 8 iterations
+    (0xF1, 0x6240): "FE_BuildPointerList",
+    (0xF1, 0x624D): "FE_Printer_Init",  # palette $e4, exposure $24
+    (0xF1, 0x625B): "FE_PrintWRAMImage",
+    (0xF1, 0x62C4): "FE_PrintPicture",  # a front-end picture, through FE_LoadPictureForPrinter
+    (0xF1, 0x635D): "FE_PrintStickerPage",  # by the page's job list at $6586
+    (0xF1, 0x6473): "FE_SetPrintDarkness",  # b = 0-2, from the table at $64cb
+    (0xF1, 0x6485): "FE_GetPrintDarkness",
+    (0xF1, 0x649C): "FE_Printer_ShowError",
+    (0xF1, 0x707A): "FE_StickerBook",
+    (0xF1, 0x7148): "FE_StickerBook_Input",  # by the screen's state [$c989], jp table at $715e
+    (0xF1, 0x715E): "FE_StickerBook_State0",
+    (0xF1, 0x7161): "FE_StickerBook_State1",
+    (0xF1, 0x7164): "FE_StickerBook_State2",
+    (0xF1, 0x7167): "FE_StickerBook_State3",
+    (0xF1, 0x716A): "FE_StickerBook_State4",
+    (0xF1, 0x716D): "FE_StickerBook_OptionsMenu",
+    (0xF1, 0x7187): "FE_StickerBook_DarknessMenu",
+    (0xF1, 0x71A7): "FE_StickerBook_SendMenu",
+    (0xF1, 0x71C1): "FE_StickerBook_PrintMenu",
+    (0xF1, 0x7251): "FE_StickerBook_Browse",  # d-pad moves between stickers through MenuTable links, A opens a menu
+    (0xF1, 0x728E): "FE_StickerBook_ReadInput",
+    (0xF1, 0x72D4): "FE_MenuCursorNext",
+    (0xF1, 0x72F9): "FE_MenuCursorPrevious",
+    (0xF1, 0x7357): "FE_StickerBook_ShowPage",
+    (0xF1, 0x73AC): "FE_StickerBook_ShowSticker",
+    (0xF1, 0x73EF): "FE_StickerBook_SelectSticker",
+    (0xF1, 0x745B): "FE_StickerBook_OpenOptions",
+    (0xF1, 0x7485): "FE_StickerBook_OpenDarkness",
+    (0xF1, 0x74B0): "FE_StickerBook_OpenPrint",
+    (0xF1, 0x74DA): "FE_StickerBook_OpenSend",
+    (0xF1, 0x7504): "FE_MenuCursorHighlight",
+    (0xF1, 0x7524): "FE_MenuCursorUnhighlight",
+    (0xF1, 0x7544): "FE_DrawSubMenu",  # from SpriteLists_f1_691a by state
+    (0xF1, 0x75B6): "FE_SlideSpritesUp",
+    (0xF1, 0x75D7): "FE_SlideSpritesDown",
+    (0xF1, 0x75F8): "FE_StickerBook_DrawCursor",
+    (0xF1, 0x765A): "FE_StickerBook_MoveUp",
+    (0xF1, 0x766F): "FE_StickerBook_MoveDown",
+    (0xF1, 0x7684): "FE_StickerBook_MoveLeft",
+    (0xF1, 0x7699): "FE_StickerBook_MoveRight",
+    (0xF1, 0x76AE): "FE_StickerBook_LoadItem",  # the current MenuTable item -> $c98a-$c991
+    (0xF1, 0x76F9): "FE_LoadStickerFrameTile",
+    (0xF1, 0x7718): "FE_StickerBook_SendIR",  # sends the sticker through the infrared port
+    (0xF1, 0x7791): "FE_StickerBook_ReceiveIR",
+    (0xF1, 0x77CF): "FE_StickerBook_IsStickerFound",
+    (0xF1, 0x7803): "FE_TestStickerBit",  # bit a of the sticker bitfield at $b0c2
+    (0xF1, 0x781A): "FE_StickerBook_UnlockReceived",
+    (0xF1, 0x7840): "FE_SetStickerBit",
+    (0xF1, 0x7865): "FE_SetBitN",
+    (0xF1, 0x787E): "FE_SetBitN_Body",
+    (0xF1, 0x78A0): "FE_TestBitN",
+    (0xF1, 0x78B8): "FE_TestBitN_Body",
+    (0xF1, 0x78D2): "FE_IR_Receive",  # waits for a $aa / $37 packet in $dd1f-$dd28
+    (0xF1, 0x7912): "FE_IR_CheckPacket",
+    (0xF1, 0x794B): "FE_IR_Send",
+    (0xF1, 0x799E): "FE_IR_CheckAck",
+    (0xF1, 0x79A8): "FE_StickerBook_DrawStickers",
+    (0xF1, 0x79E2): "FE_StickerBook_DrawSticker",
+    (0xF1, 0x7A4F): "FE_StickerBook_ScrollWhileSelect",
+    (0xF1, 0x7A6F): "FE_StickerBook_ScrollUp",
+    (0xF1, 0x7A8D): "FE_StickerBook_ScrollDown",
+    (0xF1, 0x7ABB): "FE_StickerBook_LoadRowAbove",
+    (0xF1, 0x7AD6): "FE_StickerBook_LoadRowBelow",
+    (0xF1, 0x7AF6): "FE_GetMapCell",
+    (0xF1, 0x7B15): "FE_LoadPictureRow",
+    (0xF1, 0x7B82): "FE_CopyPictureRowTiles",
+    (0xF1, 0x7BC5): "FE_CopyPictureRowTiles_A",
+    (0xF1, 0x7BF1): "FE_CopyPictureRowTiles_B",
+    (0xF1, 0x7C1A): "FE_CopyPictureRowTiles_C",
+    (0xF1, 0x7C58): "FE_CopyPictureRowTiles_D",
+    (0xF1, 0x7C82): "FE_CopyPictureRowTiles_E",
+    (0xF1, 0x7CB9): "FE_LanguageSelect",  # the first screen: ring 6, the five languages
+    (0xF1, 0x7CFF): "FE_LanguageSelect_Input",
+    (0xF1, 0x7D37): "FE_LanguageSelect_Done",  # back to the main game, l = language, d = 1
+    (0xF1, 0x7D58): "FE_LanguageSelect_Draw",
+    (0xF0, 0x48FA): "FE_LoadPictureForPrinter",  # tiles of picture b, complemented, into WRAM bank 5 on
+    (0xF0, 0x48F4): "FE_LoadPictureForPrinter_Check",
+    (0xF1, 0x7870): "FE_SetBitN_0",
+    (0xF1, 0x78AA): "FE_TestBitN_0",
+    (0xF1, 0x7872): "FE_SetBitN_1",
+    (0xF1, 0x78AC): "FE_TestBitN_1",
+    (0xF1, 0x7874): "FE_SetBitN_2",
+    (0xF1, 0x78AE): "FE_TestBitN_2",
+    (0xF1, 0x7876): "FE_SetBitN_3",
+    (0xF1, 0x78B0): "FE_TestBitN_3",
+    (0xF1, 0x7878): "FE_SetBitN_4",
+    (0xF1, 0x78B2): "FE_TestBitN_4",
+    (0xF1, 0x787A): "FE_SetBitN_5",
+    (0xF1, 0x78B4): "FE_TestBitN_5",
+    (0xF1, 0x787C): "FE_SetBitN_6",
+    (0xF1, 0x78B6): "FE_TestBitN_6",
 }

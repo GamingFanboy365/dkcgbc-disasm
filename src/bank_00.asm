@@ -10570,7 +10570,7 @@ LoadBGPaletteSet::
 	ld d, $01
 	ld a, $f1
 	ld [rROMB0], a
-	call Func_f1_4000
+	call FE_Enter
 	jp .jump_3d42
 
 .jump_3d0b:
@@ -10585,7 +10585,7 @@ LoadBGPaletteSet::
 	ld d, $00
 	ld a, $f1
 	ld [rROMB0], a
-	call Func_f1_4000
+	call FE_Enter
 	jp .jump_3d42
 
 .jump_3d28:
@@ -10599,7 +10599,7 @@ LoadBGPaletteSet::
 	ld d, $02
 	ld a, $f1
 	ld [rROMB0], a
-	call Func_f1_4000
+	call FE_Enter
 	jp .jump_3d42
 
 .jump_3d42:

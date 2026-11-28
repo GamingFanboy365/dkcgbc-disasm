@@ -1087,6 +1087,17 @@ def make(rom):
         if i.dataref is None and off(t.frame_bank, i.imm) in t.frame_headers and \
                 any((i.bank, (i.addr >> 6) + d) in frame_funcs for d in (-1, 0, 1)):
             i.dataref = (t.frame_bank, i.imm)
+    # the targets of "jp" table entries are entry points of their own, even
+    # where they sit inside a longer routine (front-end program only so far)
+    for (b, start, count, stride) in hints.JP_TABLES:
+        if b < 0xF0:
+            continue
+        for k in range(count):
+            i = t.insns.get(off(b, start + k * stride))
+            if i is not None and i.op == 0xC3 and i.target is not None and i.target < 0x8000:
+                to = off(b if i.target >= 0x4000 else 0, i.target)
+                if to in t.insns:
+                    t.labels[to] = "func"
     return t
 
 if __name__ == "__main__":

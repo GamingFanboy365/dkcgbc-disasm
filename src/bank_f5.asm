@@ -1230,25 +1230,26 @@ Func_f5_46c5::
 
 
 Func_f5_46d8::
-	jp Func_f5_46e4.jump_46e7
+	jp Func_f5_46e7
 
 
 Func_f5_46db::
-	jp Func_f5_46e4.jump_4715
+	jp Func_f5_4715
 
 
 Func_f5_46de::
-	jp Func_f5_46e4.jump_4731
+	jp Func_f5_4731
 
 
 Func_f5_46e1::
-	jp Func_f5_46e4.jump_475f
+	jp Func_f5_475f
 
 
 Func_f5_46e4::
-	jp .jump_478a
+	jp Func_f5_478a
 
-.jump_46e7:
+
+Func_f5_46e7::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $04
@@ -1269,7 +1270,8 @@ Func_f5_46e4::
 	ld [$cbfb], a
 	ret
 
-.jump_4715:
+
+Func_f5_4715::
 	ld a, $a0
 	ld [$cbec], a
 	ld a, $40
@@ -1283,7 +1285,8 @@ Func_f5_46e4::
 	ld [$cbc9], a
 	ret
 
-.jump_4731:
+
+Func_f5_4731::
 	ld a, $80
 	ld [$cbec], a
 	ld [$cbed], a
@@ -1303,7 +1306,8 @@ Func_f5_46e4::
 	ld [$cc06], a
 	ret
 
-.jump_475f:
+
+Func_f5_475f::
 	ld a, $d0
 	ld [$cbec], a
 	ld a, $80
@@ -1323,7 +1327,8 @@ Func_f5_46e4::
 	ld [$cbd8], a
 	ret
 
-.jump_478a:
+
+Func_f5_478a::
 	ld a, $d0
 	ld [$cbec], a
 	ld a, $80
@@ -1360,29 +1365,30 @@ Func_f5_47b3::
 
 
 Func_f5_47c6::
-	jp Func_f5_47d5.jump_47d8
+	jp Func_f5_47d8
 
 
 Func_f5_47c9::
-	jp Func_f5_47d5.jump_4806
+	jp Func_f5_4806
 
 
 Func_f5_47cc::
-	jp Func_f5_47d5.jump_4831
+	jp Func_f5_4831
 
 
 Func_f5_47cf::
-	jp Func_f5_47d5.jump_486e
+	jp Func_f5_486e
 
 
 Func_f5_47d2::
-	jp Func_f5_47d5.jump_48a3
+	jp Func_f5_48a3
 
 
 Func_f5_47d5::
-	jp .jump_48d6
+	jp Func_f5_48d6
 
-.jump_47d8:
+
+Func_f5_47d8::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $02
@@ -1403,7 +1409,8 @@ Func_f5_47d5::
 	ld [$cbfb], a
 	ret
 
-.jump_4806:
+
+Func_f5_4806::
 	ld a, $01
 	ld [$cbf1], a
 	ld a, $00
@@ -1423,7 +1430,8 @@ Func_f5_47d5::
 	ld [$cbc9], a
 	ret
 
-.jump_4831:
+
+Func_f5_4831::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $07
@@ -1449,7 +1457,8 @@ Func_f5_47d5::
 	ld [$cc06], a
 	ret
 
-.jump_486e:
+
+Func_f5_486e::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $07
@@ -1473,7 +1482,8 @@ Func_f5_47d5::
 	ld [$cbd8], a
 	ret
 
-.jump_48a3:
+
+Func_f5_48a3::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $05
@@ -1496,7 +1506,8 @@ Func_f5_47d5::
 	ld [$cbd8], a
 	ret
 
-.jump_48d6:
+
+Func_f5_48d6::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $03

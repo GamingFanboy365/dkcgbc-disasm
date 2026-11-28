@@ -6,7 +6,7 @@ SECTION "Bank $05", ROMX[$4000], BANK[$05]
 BankNumber_05::
 	db $05 ; bank number
 
-Func_05_4001::
+WorldMap_DrawMetasprite::
 	push hl
 	ld d, $00
 	ld hl, WorldMapMetasprites
@@ -183,7 +183,7 @@ WorldMapMetasprite_05_4169::
 	db -4, -4, $40, $23 ; dy, dx, tile, attributes
 	db $80 ; end
 
-Func_05_416e::
+WorldMap_DrawKong::
 	ld a, [$c310]
 	rlca
 	jr nc, .jump_4178
@@ -216,11 +216,11 @@ Func_05_416e::
 	ld a, [$c611]
 	dec a
 	ld b, a
-	call Func_05_4001
+	call WorldMap_DrawMetasprite
 	ret
 
 
-Func_05_41a6::
+WorldMap_DrawLevelMarkers::
 	ld bc, $0000
 .jump_41a9:
 	push bc
@@ -255,7 +255,7 @@ Func_05_41a6::
 	pop hl
 	ld a, e
 	or a
-	call nz, Func_05_4001
+	call nz, WorldMap_DrawMetasprite
 	pop bc
 .jump_41da:
 	inc c
@@ -273,7 +273,7 @@ Func_05_41a6::
 	jr .jump_41da
 
 
-Func_05_41e5::
+WorldMap_DrawShopSign::
 	ld a, [$c30a]
 	cp $07
 	jr z, .jump_41ee
@@ -290,11 +290,11 @@ Func_05_41e5::
 	inc a
 	ld c, a
 	ld b, $00
-	call Func_05_4001
+	call WorldMap_DrawMetasprite
 	ret
 
 
-Func_05_4202::
+WorldMap_DrawCursor::
 	push hl
 	ld a, [$c608]
 	ld c, a
@@ -374,7 +374,7 @@ WorldMapSpriteOffsets::
 	db $fc, $f0, $44, $23
 	db $f4, $f4, $42, $23
 
-Func_05_4274::
+WorldMap_LoadSignTiles::
 	ld a, [$c30a]
 	cp $07
 	jr z, .jump_427d
@@ -408,7 +408,7 @@ WorldMapTileSources::
 	dw $5fd0
 	dw $5fd0
 
-Func_05_42a6::
+WorldMap_SetUpMarkers::
 	ld a, $04
 	ldh [rSVBK], a
 	xor a
@@ -475,7 +475,7 @@ Func_05_42a6::
 
 .jump_4304:
 	ld l, [hl]
-	call Func_05_444c
+	call WorldMap_GetLevelState
 	ld a, [$c30e]
 	and [hl]
 	push hl
@@ -499,7 +499,7 @@ Func_05_42a6::
 	add hl, hl
 	inc hl
 .jump_4326:
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	pop hl
 	bit 4, [hl]
 	jr z, .jump_4334
@@ -527,7 +527,7 @@ Func_05_42a6::
 	ld a, [hl]
 	add a, $22
 	ld l, a
-	call Func_05_444c
+	call WorldMap_GetLevelState
 	ld a, [$c30e]
 	and [hl]
 	push hl
@@ -551,7 +551,7 @@ Func_05_42a6::
 	add hl, hl
 	inc hl
 .jump_436e:
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	pop hl
 	ld a, [$c30e]
 	and [hl]
@@ -572,7 +572,7 @@ Func_05_42a6::
 	ld h, $00
 	add hl, hl
 	add hl, hl
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	pop af
 	cp $02
 	jp nz, .jump_42eb
@@ -615,7 +615,7 @@ Func_05_42a6::
 	ld h, $00
 	add hl, hl
 	add hl, hl
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	jp .jump_42eb
 
 .jump_43d9:
@@ -631,7 +631,7 @@ Func_05_42a6::
 	add hl, hl
 	add hl, hl
 	inc hl
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	jp .jump_42eb
 
 .jump_43f2:
@@ -662,7 +662,7 @@ Func_05_42a6::
 	add hl, hl
 	add hl, hl
 	inc hl
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	jp .jump_42f2
 
 .jump_4422:
@@ -674,7 +674,7 @@ Func_05_42a6::
 	ld h, $00
 	add hl, hl
 	add hl, hl
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	jp .jump_42eb
 
 .jump_4432:
@@ -690,11 +690,11 @@ Func_05_42a6::
 	ld h, $00
 	add hl, hl
 	add hl, hl
-	call Func_05_446a
+	call WorldMap_GetPathBits
 	jp .jump_42eb
 
 
-Func_05_444c::
+WorldMap_GetLevelState::
 	ld a, [$c309]
 	rrca
 	rrca
@@ -718,7 +718,7 @@ Func_05_444c::
 	ret
 
 
-Func_05_446a::
+WorldMap_GetPathBits::
 	ld a, l
 	add a, $cf
 	ld l, a

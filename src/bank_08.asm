@@ -2101,7 +2101,7 @@ BonusCoin_Count::
 	ld h, $b0
 	inc [hl]
 	push bc
-	rst_farcall Func_0f_47ab
+	rst_farcall Save_WriteFile
 	pop bc
 	call DeleteObjectForGood
 .jump_4c9d:
@@ -3100,7 +3100,7 @@ BarrelCannon_Fire::
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jr nz, .jump_532c
-	rst_farcall Func_09_5bf5
+	rst_farcall Player_ResetAnim
 	jr .jump_534a
 
 .jump_532c:
@@ -3756,7 +3756,7 @@ Sticker_Count::
 	ld l, a
 	ld h, $b0
 	set 5, [hl]
-	rst_farcall Func_0f_47ab
+	rst_farcall Save_WriteFile
 	pop bc
 	call DeleteObjectForGood
 .jump_5779:
@@ -4588,7 +4588,7 @@ Squawks::
 	jp NextObject
 
 
-Func_08_5d4a::
+AnimalBonus_LoadMask::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]

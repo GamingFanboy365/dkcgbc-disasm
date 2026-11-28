@@ -55,7 +55,7 @@ LevelExit_Touch::
 	ld [hl], a
 	ldh [$ffa7], a
 	push bc
-	rst_farcall Func_0f_464e
+	rst_farcall Save_MarkLevelCleared
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, [$c30c]
@@ -1139,7 +1139,7 @@ StompBoss_Touch::
 	jr .jump_4786
 
 .jump_4773:
-	call Func_09_611e
+	call Player_Recoil
 	jr .jump_4786
 
 .jump_4778:
@@ -1380,7 +1380,7 @@ KingKRool_Touch::
 	jp CheckPlayerContact.jump_44f5
 
 .jump_4913:
-	call Func_09_611e
+	call Player_Recoil
 	jr .jump_4910
 
 
@@ -1567,7 +1567,7 @@ Player_EnterLevel_Begin::
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jr nz, .jump_4a69
-	rst_farcall Func_09_5bf5
+	rst_farcall Player_ResetAnim
 	jr .jump_4a2b
 
 .jump_4a69:
@@ -1626,7 +1626,7 @@ Player_SetKongOnLand::
 	ld a, $02
 .jump_4ac5:
 	call SetPlayerPalette
-	call Func_09_68be
+	call Player_StoreFacing
 	ld hl, ObjInit_09_4aef
 	call ApplyObjInit
 	ld a, [$c445]
@@ -1700,7 +1700,7 @@ Player_OnGround::
 	jr z, .jump_4b51
 	call SetPlayerAnimation
 .jump_4b51:
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $5e
 	call CheckPlayerContact
 	jp HurtKong_RunAway.jump_5ca4
@@ -1731,7 +1731,7 @@ Player_OnGround::
 	jp nc, .jump_4b51
 .jump_4b86:
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ldh a, [$ff82]
 	bit 1, a
 	jr z, .jump_4baa
@@ -1788,7 +1788,7 @@ Player_OnGround::
 	jp nc, .jump_4b51
 .jump_4bed:
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ldh a, [$ff82]
 	bit 1, a
 	jr z, .jump_4c11
@@ -2014,7 +2014,7 @@ Player_Crouch::
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	ld [hli], a
 	ld [hl], a
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $5e
 	call CheckPlayerContact
 	jp HurtKong_RunAway.jump_5ca4
@@ -2066,7 +2066,7 @@ Player_HandSlap::
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	ld [hli], a
 	ld [hl], a
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $5e
 	call CheckPlayerContact
 	jp HurtKong_RunAway.jump_5ca4
@@ -2074,8 +2074,8 @@ Player_HandSlap::
 
 ObjInit_09_4df0::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_09_4dff)
-	obj_word OBJ_HANDLER, Func_09_4dff
+	obj_byte OBJ_BANK, BANK(HandSlap_Hitbox)
+	obj_word OBJ_HANDLER, HandSlap_Hitbox
 	obj_word OBJ_ANIM_PARAM, $002a
 	obj_byte OBJ_VAR_2E, $10
 	obj_end $c3
@@ -2083,7 +2083,7 @@ ObjInit_09_4df0::
 Unused_09_4dfd::
 	db $95, $39 ; with the list's end byte $c3: jp NextObject, never reached
 
-Func_09_4dff::
+HandSlap_Hitbox::
 	ld a, $84
 	call CheckPlayerContact
 	ld hl, wObjects + OBJ_VAR_2E
@@ -2103,7 +2103,7 @@ Player_HandSlapEnd::
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	ld [hli], a
 	ld [hl], a
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $de
 	call CheckPlayerContact
 	jp HurtKong_RunAway.jump_5ca4
@@ -2249,7 +2249,7 @@ Player_Carry::
 	ld [wPlayer + OBJ_VAR_37], a
 	call Player_SetKongOnLand
 .jump_4f28:
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $5e
 	call CheckPlayerContact
 	jp HurtKong_RunAway.jump_5ca4
@@ -2260,7 +2260,7 @@ Player_Carry::
 	inc l
 	ld [hl], $ff
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	set 5, [hl]
 	ld a, $9c
@@ -2272,7 +2272,7 @@ Player_Carry::
 	inc l
 	ld [hl], $01
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	res 5, [hl]
 	ld a, $9c
@@ -2310,7 +2310,7 @@ Player_SetKongSwimming::
 	set 0, [hl]
 	ld a, $15
 	call SetPlayerAnimation
-	call Func_09_68be
+	call Player_StoreFacing
 	ld hl, ObjInit_09_4f9d
 	call ApplyObjInit
 	ret
@@ -2402,7 +2402,7 @@ Player_Swim::
 Player_SetRambi::
 	ld a, $03
 	call SetPlayerPalette
-	call Func_09_68be
+	call Player_StoreFacing
 	ld hl, ObjInit_09_503c
 	call ApplyObjInit
 	ret
@@ -2440,7 +2440,7 @@ PlayerRambi::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_5080
-	call Func_09_51cd
+	call PlayerRambi_Bounce
 	jr .jump_50d5
 
 .jump_5080:
@@ -2460,7 +2460,7 @@ PlayerRambi::
 	jr nc, .jump_50a7
 	ld a, $68
 	ld [$c32a], a
-	call Func_09_51b3
+	call PlayerRambi_Jump
 	jr .jump_50d5
 
 .jump_50a7:
@@ -2489,7 +2489,7 @@ PlayerRambi::
 	inc l
 	ld [hl], HIGH(Anim_04_4741)
 .jump_50d5:
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $7e
 	call CheckPlayerContact
 .jump_50dd:
@@ -2504,7 +2504,7 @@ PlayerRambi::
 	jp nc, .jump_50d5
 .jump_50ee:
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wPlayer + OBJ_ANIM_FLAGS
 	ld a, [hl]
 	bit 7, a
@@ -2544,7 +2544,7 @@ PlayerRambi::
 	jp nc, .jump_50d5
 .jump_5139:
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -2591,7 +2591,7 @@ PlayerRambi_InAir::
 	bit 1, [hl]
 	jp nz, .jump_5198
 	set 1, [hl]
-	call Func_09_51cd
+	call PlayerRambi_Bounce
 	jr .jump_519f
 
 .jump_5198:
@@ -2608,7 +2608,7 @@ PlayerRambi_InAir::
 	jp HurtKong_RunAway.jump_5ca4
 
 
-Func_09_51b3::
+PlayerRambi_Jump::
 	ld hl, ObjInit_09_51ba
 	call ApplyObjInit
 	ret
@@ -2624,7 +2624,7 @@ ObjInit_09_51ba::
 	obj_word OBJ_ANIM, Anim_04_47b1
 	obj_end
 
-Func_09_51cd::
+PlayerRambi_Bounce::
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	and $7f
 	cp $03
@@ -2647,7 +2647,7 @@ Func_09_51cd::
 Player_SetExpresso::
 	ld a, $0d
 	call SetPlayerPalette
-	call Func_09_68be
+	call Player_StoreFacing
 	ld hl, ObjInit_09_51fe
 	call ApplyObjInit
 	ret
@@ -2705,7 +2705,7 @@ PlayerExpresso::
 	inc l
 	ld [hl], HIGH(Anim_04_47df)
 .jump_5260:
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $5e
 	call CheckPlayerContact
 .jump_5268:
@@ -2726,12 +2726,12 @@ PlayerExpresso::
 	jp nc, .jump_5232
 	ld a, $68
 	ld [$c32a], a
-	call Func_09_5308
+	call PlayerExpresso_Jump
 	jp .jump_5260
 
 .jump_5292:
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wPlayer + OBJ_ANIM_FLAGS
 	ld a, [hl]
 	bit 7, a
@@ -2758,7 +2758,7 @@ PlayerExpresso::
 
 .jump_52c6:
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -2793,7 +2793,7 @@ PlayerExpresso::
 	jp .jump_5268
 
 
-Func_09_5308::
+PlayerExpresso_Jump::
 	ld hl, ObjInit_09_530f
 	call ApplyObjInit
 	ret
@@ -2951,7 +2951,7 @@ PlayerEnguarde::
 	inc l
 	ld [hl], $01
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld a, [wPlayer + OBJ_OAM_ATTR]
 	bit 5, a
 	jr z, .jump_5411
@@ -2962,7 +2962,7 @@ PlayerEnguarde::
 	inc l
 	ld [hl], $fe
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld a, [wPlayer + OBJ_OAM_ATTR]
 	bit 5, a
 	jr nz, .jump_5411
@@ -3012,7 +3012,7 @@ PlayerEnguarde_Stab::
 Player_SetWinky::
 	ld a, $10
 	call SetPlayerPalette
-	call Func_09_68be
+	call Player_StoreFacing
 	ld hl, ObjInit_09_54a0
 	call ApplyObjInit
 	ret
@@ -3070,7 +3070,7 @@ PlayerWinky::
 	inc l
 	ld [hl], HIGH(Anim_04_4889)
 .jump_5502:
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, $5e
 	call CheckPlayerContact
 .jump_550a:
@@ -3089,12 +3089,12 @@ PlayerWinky::
 	and $07
 	cp $06
 	jp nc, .jump_54d4
-	call Func_09_55a5
+	call PlayerWinky_Jump
 	jp .jump_5502
 
 .jump_552f:
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wPlayer + OBJ_ANIM_FLAGS
 	ld a, [hl]
 	bit 7, a
@@ -3121,7 +3121,7 @@ PlayerWinky::
 
 .jump_5563:
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -3156,7 +3156,7 @@ PlayerWinky::
 	jp .jump_550a
 
 
-Func_09_55a5::
+PlayerWinky_Jump::
 	ld a, $10
 	ld [$c32a], a
 	ld hl, ObjInit_09_55b1
@@ -3442,7 +3442,7 @@ Player_HoldBarrel::
 	jr z, .jump_579d
 	call SetPlayerAnimation
 .jump_579d:
-	call Func_09_6983
+	call Player_ApplySlope_Entry
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $10
 	call nz, UndoXVelocity
@@ -3476,7 +3476,7 @@ Player_HoldBarrel::
 	jp nc, .jump_579d
 .jump_57e0:
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wPlayer + OBJ_ANIM_FLAGS
 	ld a, [hl]
 	and $7f
@@ -3502,7 +3502,7 @@ Player_HoldBarrel::
 	jp nc, .jump_579d
 .jump_5812:
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -3881,7 +3881,7 @@ Player_OnRope::
 	jr z, .jump_5aa1
 	ld e, $0f
 .jump_5aa1:
-	call Func_09_685d
+	call Player_SetFacingBits
 	call UpdateVelocity
 	call ApplyVelocity
 	call Player_ClampToLevel
@@ -4067,8 +4067,8 @@ Player_InBarrelCannon::
 	jp NextObject
 
 
-Func_09_5bf5::
-	call Func_09_68be
+Player_ResetAnim::
+	call Player_StoreFacing
 	ld a, $0a
 	call SetPlayerAnimation
 	xor a
@@ -4078,7 +4078,7 @@ Func_09_5bf5::
 
 Player_OnSwingingRope::
 	ld e, $08
-	call Func_09_685d
+	call Player_SetFacingBits
 	ldh a, [$ff81]
 	bit 0, a
 	jr nz, .jump_5c18
@@ -4173,11 +4173,11 @@ HurtKong_RunAway::
 	ld a, [wPlayer + OBJ_VAR_37]
 	cp $01
 	jr nz, .jump_5cb5
-	rst_farcall Func_0a_4001
+	rst_farcall Obj_GetFacingOffset
 .jump_5cb5:
 	ld a, [wPlayer + OBJ_VAR_2E]
 	bit 2, a
-	call z, Func_09_6866
+	call z, Player_GetFacingOffset
 	jp NextObject
 
 
@@ -4354,7 +4354,7 @@ HurtPlayer::
 .jump_5ddc:
 	ld a, [$c445]
 	and $80
-	jp nz, Func_09_5f72
+	jp nz, Player_HurtExitToEntrance
 	ld hl, wPlayer + OBJ_VAR_35
 	ld a, [hl]
 	or a
@@ -4363,7 +4363,7 @@ HurtPlayer::
 	ld a, [hl]
 	ld [hl], $00
 	or a
-	call nz, Func_09_5f8f
+	call nz, Player_LetGoWhenHurt
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 7, [hl]
 	ldh a, [$ffa6]
@@ -4567,7 +4567,7 @@ ObjInit_09_5f56::
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
-Func_09_5f72::
+Player_HurtExitToEntrance::
 	push bc
 	ld hl, wLevelEntrance
 	ld a, [$c44b]
@@ -4583,7 +4583,7 @@ Func_09_5f72::
 	ret
 
 
-Func_09_5f8f::
+Player_LetGoWhenHurt::
 	cp $01
 	jp z, Player_DropCarried.jump_61c3
 	cp $02
@@ -4728,7 +4728,7 @@ BouncePlayer::
 
 .jump_6072:
 	cp $08
-	jp z, Func_09_51cd
+	jp z, PlayerRambi_Bounce
 	cp $28
 	jp z, PlayerEnguarde_Stab
 	cp $38
@@ -4789,10 +4789,10 @@ Player_Jump::
 
 .jump_60df:
 	cp $08
-	jp z, Func_09_51b3
+	jp z, PlayerRambi_Jump
 	cp $18
-	jp z, Func_09_5308
-	jp Func_09_55a5
+	jp z, PlayerExpresso_Jump
+	jp PlayerWinky_Jump
 
 
 BouncePlayerOffBoss::
@@ -4808,7 +4808,7 @@ BouncePlayerOffBoss::
 	add hl, de
 	jr c, .jump_6105
 	ld de, $0380
-	jr Func_09_611e.jump_612b
+	jr Player_Recoil.jump_612b
 
 .jump_6105:
 	ld hl, $c462
@@ -4821,12 +4821,12 @@ BouncePlayerOffBoss::
 	ld d, a
 	ld hl, $0050
 	add hl, de
-	jr nc, Func_09_611e
+	jr nc, Player_Recoil
 	ld de, $fc80
-	jr Func_09_611e.jump_612b
+	jr Player_Recoil.jump_612b
 
 
-Func_09_611e::
+Player_Recoil::
 	ld a, [wPlayer + OBJ_OAM_ATTR]
 	bit 5, a
 	ld de, $fe00
@@ -4891,7 +4891,7 @@ Player_SteerX::
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	res 5, [hl]
 	ld e, $00
-	call Func_09_685d
+	call Player_SetFacingBits
 	ret
 
 .jump_618b:
@@ -4904,7 +4904,7 @@ Player_SteerX::
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	set 5, [hl]
 	ld e, $0f
-	call Func_09_685d
+	call Player_SetFacingBits
 	ret
 
 
@@ -5012,9 +5012,9 @@ Player_SwapKongs::
 	inc l
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_6341)
+	ld [hl], LOW(SwapKongs_Partner)
 	inc l
-	ld [hl], HIGH(Func_09_6341)
+	ld [hl], HIGH(SwapKongs_Partner)
 	ld a, [$c30f]
 	rrca
 	ld de, $40f5
@@ -5164,7 +5164,7 @@ Obj_MoveForTime::
 	jr .jump_6339
 
 
-Func_09_6341::
+SwapKongs_Partner::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -5206,7 +5206,7 @@ Func_09_6341::
 	jp NextObject
 
 
-Func_09_638e::
+Player_ApplySlope::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	ret nc
@@ -5432,8 +5432,8 @@ Player_DrawMineCart::
 	ret
 
 
-Func_09_6554::
-	call Func_09_68be
+Player_RidingBarrel::
+	call Player_StoreFacing
 	ldh a, [$ff81]
 	bit 0, a
 	jr z, .jump_6568
@@ -5532,13 +5532,13 @@ Func_09_6554::
 	jr .jump_65c5
 
 
-Func_09_6600::
+Player_StartBarrelRide::
 	ld hl, wPlayer + OBJ_BANK
 	ld [hl], $09
 	inc l
-	ld [hl], LOW(Func_09_6554)
+	ld [hl], LOW(Player_RidingBarrel)
 	inc l
-	ld [hl], HIGH(Func_09_6554)
+	ld [hl], HIGH(Player_RidingBarrel)
 	ld a, $1a
 	call SetPlayerAnimation
 	xor a
@@ -5923,7 +5923,7 @@ Player_ClampToLevel::
 	ret
 
 
-Func_09_685d::
+Player_SetFacingBits::
 	ld hl, wPlayer + OBJ_VAR_2F
 	ld a, [hl]
 	and $f0
@@ -5932,7 +5932,7 @@ Func_09_685d::
 	ret
 
 
-Func_09_6866::
+Player_GetFacingOffset::
 	ld hl, wPlayer + OBJ_VAR_2E
 	bit 1, [hl]
 	jr z, .jump_6873
@@ -5995,20 +5995,20 @@ SetPlayerPalette::
 	ret
 
 
-Func_09_68be::
+Player_StoreFacing::
 	ld a, [wPlayer + OBJ_OAM_ATTR]
 	bit 5, a
 	ld e, $00
 	jr z, .jump_68c9
 	ld e, $0f
 .jump_68c9:
-	call Func_09_685d
+	call Player_SetFacingBits
 	ld a, $55
 	ld [$c451], a
 	ret
 
 
-Func_09_68d2::
+Obj_KnockAway::
 	ld a, [wPlayer + OBJ_OAM_ATTR]
 	bit 5, a
 	ld de, $fd00
@@ -6071,8 +6071,8 @@ AnimTableNull_09_6979::
 AnimTable_09_697b::
 	dw Anim_04_42ab, Anim_04_462d, Anim_04_42cb, Anim_04_4645
 
-Func_09_6983::
-	call Func_09_638e
+Player_ApplySlope_Entry::
+	call Player_ApplySlope
 
 Player_Move::
 	call UpdateVelocity
@@ -6638,7 +6638,7 @@ Barrel_Touch::
 	jp CheckPlayerContact.jump_44f5
 
 
-Func_09_6d1e::
+Barrel_RideTouch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jr c, .jump_6d59
@@ -6667,7 +6667,7 @@ Func_09_6d1e::
 	ld bc, $0000
 	rst_farcall MoveObjectToSavedPosition
 	pop bc
-	rst_farcall Func_09_6600
+	rst_farcall Player_StartBarrelRide
 .jump_6d59:
 	jp CheckPlayerContact.jump_44f5
 
@@ -6710,8 +6710,8 @@ Barrel_PutDown::
 
 
 ObjInit_09_6d96::
-	obj_byte OBJ_BANK, BANK(Func_0a_5ac6)
-	obj_word OBJ_HANDLER, Func_0a_5ac6
+	obj_byte OBJ_BANK, BANK(Barrel_Dropped)
+	obj_word OBJ_HANDLER, Barrel_Dropped
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YVEL, $0000
@@ -6789,9 +6789,9 @@ Barrel_Thrown::
 	jr nz, .jump_6e2d
 	ld hl, wObjects + OBJ_TOUCH_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_09_6d1e)
+	ld [hl], LOW(Barrel_RideTouch)
 	inc l
-	ld [hl], HIGH(Func_09_6d1e)
+	ld [hl], HIGH(Barrel_RideTouch)
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $08
@@ -7041,8 +7041,8 @@ ObjInit_09_6fc5::
 	obj_end
 
 ObjInit_09_6fd1::
-	obj_byte OBJ_BANK, BANK(Func_09_705e)
-	obj_word OBJ_HANDLER, Func_09_705e
+	obj_byte OBJ_BANK, BANK(BarrelBreak_Effect)
+	obj_word OBJ_HANDLER, BarrelBreak_Effect
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_ANIM, Anim_04_50eb
 	obj_byte OBJ_VAR_2C, $0e
@@ -7117,7 +7117,7 @@ ObjInit_09_7048::
 	obj_byte OBJ_PALETTE, $01
 	obj_end
 
-Func_09_705e::
+BarrelBreak_Effect::
 	ld a, $24
 	call CheckPlayerContact
 	call AnimateObject
@@ -7245,8 +7245,8 @@ Gnawty_Touch::
 .jump_712d:
 	ld hl, ObjInit_09_7145
 	call ApplyObjInit
-	call Func_09_68d2
-	call Func_09_611e
+	call Obj_KnockAway
+	call Player_Recoil
 .jump_7139:
 	jp CheckPlayerContact.jump_44f5
 
@@ -7604,8 +7604,8 @@ Army_Touch::
 .jump_737b:
 	ld hl, ObjInit_09_7393
 	call ApplyObjInit
-	call Func_09_68d2
-	call Func_09_611e
+	call Obj_KnockAway
+	call Player_Recoil
 .jump_7387:
 	jp CheckPlayerContact.jump_44f5
 
@@ -7708,7 +7708,7 @@ ClamboPearl::
 	jp NextObject
 
 
-Func_09_7416::
+HiddenKongLetter_Touch::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
@@ -8350,7 +8350,7 @@ Klump_Touch::
 	jr .jump_7865
 
 .jump_785c:
-	call Func_09_611e
+	call Player_Recoil
 .jump_785f:
 	ld hl, ObjInit_09_7871
 	call ApplyObjInit

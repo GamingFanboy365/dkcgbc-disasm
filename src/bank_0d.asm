@@ -22,7 +22,7 @@ RareLogoCornerOAM::
 	db $70, $68, $66, $00
 	db $70, $70, $68, $00
 
-Func_0d_4130::
+RareLogo_Init::
 	ld a, $87
 	ldh [rLCDC], a
 	ld de, RareLogoPalettes
@@ -129,7 +129,7 @@ Func_0d_4130::
 	ret
 
 
-Func_0d_4216::
+RareLogo_LoadAttributes::
 	ld a, $01
 	ldh [rVBK], a
 	ld a, $07
@@ -172,7 +172,7 @@ Func_0d_4216::
 	ret
 
 
-Func_0d_4266::
+RareLogo_DecodeFrame::
 	ld a, [wObjectFreeList]
 	ld e, a
 	ld a, [$c401]
@@ -208,7 +208,7 @@ Func_0d_4266::
 	ret
 
 
-Func_0d_4292::
+RareLogo_StartHDMA::
 	xor a
 	ldh [rVBK], a
 	ld a, $00

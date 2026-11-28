@@ -6,7 +6,7 @@ SECTION "Bank $0a", ROMX[$4000], BANK[$0a]
 BankNumber_0a::
 	db $0a ; bank number
 
-Func_0a_4001::
+Obj_GetFacingOffset::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
@@ -409,7 +409,7 @@ ObjYVelTable_0a_4248::
 	dw $0300, $0400, $0500, $0600
 
 VeryGnawty_Land::
-	call Func_0a_43cb
+	call VeryGnawty_TurnAtEdge
 	ld hl, wObjects + OBJ_VAR_0C
 	add hl, bc
 	ld a, [hl]
@@ -565,7 +565,7 @@ VeryGnawty_AngryHop::
 
 
 VeryGnawty_AngryLand::
-	call Func_0a_43cb
+	call VeryGnawty_TurnAtEdge
 	ld hl, wObjects + OBJ_VAR_0C
 	add hl, bc
 	ld a, [hl]
@@ -600,7 +600,7 @@ VeryGnawty_AngryLand::
 	jp NextObject
 
 
-Func_0a_43cb::
+VeryGnawty_TurnAtEdge::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -730,7 +730,7 @@ MasterNecky_Enter::
 	ld a, [hl]
 	cp $70
 	call z, VeryGnawty_ApplyHitList
-	jp Func_0a_455c
+	jp MasterNecky_Bob
 
 
 VeryGnawty_ApplyHitList::
@@ -816,7 +816,7 @@ MasterNecky_Spit::
 	ld [hl], d
 	pop bc
 .jump_4517:
-	jr Func_0a_455c
+	jr MasterNecky_Bob
 
 
 ObjInit_0a_4519::
@@ -837,7 +837,7 @@ MasterNecky_AfterSpit::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, Func_0a_455c
+	jr c, MasterNecky_Bob
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hl]
@@ -845,11 +845,11 @@ MasterNecky_AfterSpit::
 	jr nz, .jump_454b
 	ld hl, ObjInit_0a_4550
 	call ApplyObjInit
-	jr Func_0a_455c
+	jr MasterNecky_Bob
 
 .jump_454b:
 	call VeryGnawty_ApplyHitList
-	jr Func_0a_455c
+	jr MasterNecky_Bob
 
 
 ObjInit_0a_4550::
@@ -860,7 +860,7 @@ ObjInit_0a_4550::
 	obj_byte OBJ_VAR_36, $02
 	obj_end
 
-Func_0a_455c::
+MasterNecky_Bob::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -897,7 +897,7 @@ MasterNecky_Pause::
 	add hl, bc
 	ld [hl], $03
 .jump_4598:
-	jr Func_0a_455c
+	jr MasterNecky_Bob
 
 
 MasterNecky_Withdraw::
@@ -905,20 +905,20 @@ MasterNecky_Withdraw::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, Func_0a_455c
+	jr c, MasterNecky_Bob
 	call UndoXVelocity
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, Func_0a_455c
+	jr nz, MasterNecky_Bob
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(MasterNecky)
 	inc l
 	ld [hl], HIGH(MasterNecky)
-	jr Func_0a_455c
+	jr MasterNecky_Bob
 
 
 MasterNecky_Defeated::
@@ -1402,7 +1402,7 @@ ObjInit_0a_48ab::
 	obj_byte OBJ_COLLISION, $40
 	obj_end
 
-Func_0a_48b8::
+Obj_DoNothing_0A::
 	jp NextObject
 
 
@@ -2093,12 +2093,12 @@ KingKRool_BeginRuns::
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-	jp Func_0a_4e0a
+	jp KingKRool_Hop
 
 .jump_4d48:
 	sub $06
 	ld [hl], a
-	jp Func_0a_4f94
+	jp KingKRool_StartThrowPause
 
 .jump_4d4e:
 	ld hl, wObjects + OBJ_VAR_30
@@ -2219,7 +2219,7 @@ KingKRool_Run::
 WordTable_0a_4e04::
 	dw $0200, $0300, $0400
 
-Func_0a_4e0a::
+KingKRool_Hop::
 	ld a, $82
 	ld [$c32a], a
 	ld hl, wObjects + OBJ_ANIM
@@ -2262,16 +2262,16 @@ Func_0a_4e0a::
 .jump_4e4b:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4e6f)
+	ld [hl], LOW(KingKRool_Hopping)
 	inc l
-	ld [hl], HIGH(Func_0a_4e6f)
-	jr Func_0a_4e5c
+	ld [hl], HIGH(KingKRool_Hopping)
+	jr KingKRool_HopInAir
 
 
 YSpeeds_0a_4e56::
 	dw $f800, $f980, $fb00 ; y speeds
 
-Func_0a_4e5c::
+KingKRool_HopInAir::
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
@@ -2280,7 +2280,7 @@ Func_0a_4e5c::
 	jp NextObject
 
 
-Func_0a_4e6f::
+KingKRool_Hopping::
 	ld hl, wObjects + OBJ_VAR_0C
 	add hl, bc
 	ld a, [hl]
@@ -2290,7 +2290,7 @@ Func_0a_4e6f::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jp nz, Func_0a_4e0a
+	jp nz, KingKRool_Hop
 	jp .jump_4e96
 
 .jump_4e83:
@@ -2325,9 +2325,9 @@ Func_0a_4e6f::
 	ld [hl], d
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4f31)
+	ld [hl], LOW(KingKRool_HopPause)
 	inc l
-	ld [hl], HIGH(Func_0a_4f31)
+	ld [hl], HIGH(KingKRool_HopPause)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_5489)
@@ -2396,22 +2396,22 @@ Func_0a_4e6f::
 	jr nz, .jump_4f2e
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4f3e)
+	ld [hl], LOW(KingKRool_WaitForProjectiles)
 	inc l
-	ld [hl], HIGH(Func_0a_4f3e)
+	ld [hl], HIGH(KingKRool_WaitForProjectiles)
 .jump_4f2e:
-	call Func_0a_4f50
+	call KingKRool_SpawnProjectile
 
-Func_0a_4f31::
+KingKRool_HopPause::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr z, Func_0a_4e6f.jump_4ef8
+	jr z, KingKRool_Hopping.jump_4ef8
 	call AnimateObject
 	jp NextObject
 
 
-Func_0a_4f3e::
+KingKRool_WaitForProjectiles::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -2423,7 +2423,7 @@ Func_0a_4f3e::
 	jp NextObject
 
 
-Func_0a_4f50::
+KingKRool_SpawnProjectile::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
@@ -2464,12 +2464,12 @@ ObjInit_0a_4f77::
 	obj_word OBJ_FRAME, Frame_20_53b0
 	obj_end
 
-Func_0a_4f94::
+KingKRool_StartThrowPause::
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_4faa)
+	ld [hl], LOW(KingKRool_ThrowPause)
 	inc l
-	ld [hl], HIGH(Func_0a_4faa)
+	ld [hl], HIGH(KingKRool_ThrowPause)
 	xor a
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
@@ -2479,7 +2479,7 @@ Func_0a_4f94::
 	add hl, bc
 	ld [hl], $0a
 
-Func_0a_4faa::
+KingKRool_ThrowPause::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
@@ -2518,9 +2518,9 @@ Func_0a_4faa::
 	ld [hl], $fb
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_500b)
+	ld [hl], LOW(KingKRool_TurnAtEdge)
 	inc l
-	ld [hl], HIGH(Func_0a_500b)
+	ld [hl], HIGH(KingKRool_TurnAtEdge)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_53f3)
@@ -2538,7 +2538,7 @@ Func_0a_4faa::
 WordTable_0a_5005::
 	dw $0300, $0280, $0200
 
-Func_0a_500b::
+KingKRool_TurnAtEdge::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -2566,7 +2566,7 @@ Func_0a_500b::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jp nc, Func_0a_4f94
+	jp nc, KingKRool_StartThrowPause
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -2590,11 +2590,11 @@ Func_0a_500b::
 	ld [hl], $01
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_506a)
+	ld [hl], LOW(KingKRool_RunAcross)
 	inc l
-	ld [hl], HIGH(Func_0a_506a)
+	ld [hl], HIGH(KingKRool_RunAcross)
 
-Func_0a_506a::
+KingKRool_RunAcross::
 	ld hl, wObjects + OBJ_VAR_0C
 	add hl, bc
 	ld a, [hl]
@@ -2604,7 +2604,7 @@ Func_0a_506a::
 	add hl, bc
 	dec [hl]
 	jp z, KingKRool.jump_4bb4
-	jp Func_0a_4f94
+	jp KingKRool_StartThrowPause
 
 .jump_507d:
 	call UpdateVelocity
@@ -2873,7 +2873,7 @@ BossDefeated_Banana::
 	ld [$c30b], a
 .jump_524d:
 	push bc
-	rst_farcall Func_0f_464e
+	rst_farcall Save_MarkLevelCleared
 	rst_farcall Player_WinAndExit
 	call AllocObject
 	ld hl, ObjInit_0a_5271
@@ -2977,9 +2977,9 @@ KingKRool_AfterKredits::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_5307)
+	ld [hl], LOW(KingKRool_KreditsRoll)
 	inc l
-	ld [hl], HIGH(Func_0a_5307)
+	ld [hl], HIGH(KingKRool_KreditsRoll)
 	ld hl, $ff89
 	ld a, [hli]
 	ld d, [hl]
@@ -2991,7 +2991,7 @@ KingKRool_AfterKredits::
 	jp NextObject
 
 
-Func_0a_5307::
+KingKRool_KreditsRoll::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -3041,10 +3041,10 @@ Func_0a_5307::
 	add hl, bc
 	ld a, [hli]
 	ld [hl], a
-	call Func_0a_5369
-	call Func_0a_5369
-	call Func_0a_5369
-	call Func_0a_5369
+	call KingKRool_KreditsDrawCaption
+	call KingKRool_KreditsDrawCaption
+	call KingKRool_KreditsDrawCaption
+	call KingKRool_KreditsDrawCaption
 .jump_5358:
 	jp NextObject
 
@@ -3053,13 +3053,13 @@ Func_0a_5307::
 	add hl, bc
 	ld [hl], $0a
 	inc l
-	ld [hl], LOW(Func_0a_53ff)
+	ld [hl], LOW(KingKRool_KreditsScrollBack)
 	inc l
-	ld [hl], HIGH(Func_0a_53ff)
+	ld [hl], HIGH(KingKRool_KreditsScrollBack)
 	jr .jump_5358
 
 
-Func_0a_5369::
+KingKRool_KreditsDrawCaption::
 	ld a, d
 	rlca
 	jr c, .jump_5371
@@ -3139,7 +3139,7 @@ CreditsCaptions::
 	dw $0030, Frame_20_5d7c ; FINE...? (Italian)
 	dw $003c, Frame_20_5d82 ; ¿FIN? (Spanish)
 
-Func_0a_53ff::
+KingKRool_KreditsScrollBack::
 	ld hl, $ff89
 	ld a, [hli]
 	ld d, [hl]
@@ -3209,7 +3209,7 @@ HUD_Bananas_Hidden::
 
 
 HUD_Bananas_SlideIn::
-	call Func_00_1391
+	call HUD_DrawBananas
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	inc [hl]
@@ -3225,7 +3225,7 @@ HUD_Bananas_SlideIn::
 
 
 HUD_Bananas_Shown::
-	call Func_00_1391
+	call HUD_DrawBananas
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [$c441]
@@ -3247,7 +3247,7 @@ HUD_Bananas_Shown::
 
 
 HUD_Bananas_SlideOut::
-	call Func_00_1391
+	call HUD_DrawBananas
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	dec [hl]
@@ -3293,7 +3293,7 @@ HUD_Lives_Hidden::
 
 
 HUD_Lives_SlideIn::
-	call Func_00_13e1
+	call HUD_DrawLives
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	inc [hl]
@@ -3309,7 +3309,7 @@ HUD_Lives_SlideIn::
 
 
 HUD_Lives_Shown::
-	call Func_00_13e1
+	call HUD_DrawLives
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [$c441]
@@ -3331,7 +3331,7 @@ HUD_Lives_Shown::
 
 
 HUD_Lives_SlideOut::
-	call Func_00_13e1
+	call HUD_DrawLives
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	dec [hl]
@@ -3367,7 +3367,7 @@ HUD_PartnerIcon::
 	ldh [$ff99], a
 	ld a, $8c
 	ldh [$ff97], a
-	call Func_00_1604
+	call DrawIcon16
 .jump_5575:
 	jp NextObject
 
@@ -3465,7 +3465,7 @@ HUD_Items_Hidden::
 
 HUD_Items_SlideIn::
 	call HUD_Items_Draw
-	call Func_00_144e
+	call HUD_DrawItems
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	inc [hl]
@@ -3483,7 +3483,7 @@ HUD_Items_SlideIn::
 
 HUD_Items_Shown::
 	call HUD_Items_Draw
-	call Func_00_144e
+	call HUD_DrawItems
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [$c441]
@@ -3544,7 +3544,7 @@ HUD_Items_Shown::
 
 HUD_Items_SlideOut::
 	call HUD_Items_Draw
-	call Func_00_144e
+	call HUD_DrawItems
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	dec [hl]
@@ -3627,7 +3627,7 @@ HUD_Items_Draw::
 HUD_Items_Reward::
 	ld hl, $c441
 	set 0, [hl]
-	call Func_00_144e
+	call HUD_DrawItems
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	dec [hl]
@@ -4176,7 +4176,7 @@ DKBarrel_Open::
 	and $07
 	or $08
 	ldh [$ff9b], a
-	call Func_00_1604
+	call DrawIcon16
 	call ApplyVelocity
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -4222,7 +4222,7 @@ StarBarrel::
 	jr .jump_5abe
 
 
-Func_0a_5ac6::
+Barrel_Dropped::
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -5528,7 +5528,7 @@ Army_StopRolling::
 	ret
 
 
-Func_0a_6386::
+Bitesize_SaveBaseY::
 	rst_farcall Obj_FaceMovement
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
@@ -5542,7 +5542,7 @@ Func_0a_6386::
 
 
 Bitesize::
-	call Func_0a_6386
+	call Bitesize_SaveBaseY
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Bitesize_Swim)
@@ -5552,7 +5552,7 @@ Bitesize::
 
 
 Bitesize_Wave::
-	call Func_0a_6386
+	call Bitesize_SaveBaseY
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Bitesize_Wave_Loop)
@@ -5562,7 +5562,7 @@ Bitesize_Wave::
 
 
 Bitesize_Swim::
-	call Func_0a_644c
+	call Fish_TurnAndFace
 	rr e
 	jr nc, Bitesize_Wave_Loop
 	ld hl, wObjects + OBJ_ANIM
@@ -5610,7 +5610,7 @@ Chomps::
 	ld [hl], HIGH(Chomps_Swim)
 
 Chomps_Swim::
-	call Func_0a_644c
+	call Fish_TurnAndFace
 	rr e
 	jr nc, .jump_6411
 	ld hl, wObjects + OBJ_ANIM
@@ -5635,7 +5635,7 @@ ChompsJr::
 	ld [hl], HIGH(ChompsJr_Swim)
 
 ChompsJr_Swim::
-	call Func_0a_644c
+	call Fish_TurnAndFace
 	rr e
 	jr nc, .jump_643d
 	ld hl, wObjects + OBJ_ANIM
@@ -5651,7 +5651,7 @@ ChompsJr_Swim::
 	jp NextObject
 
 
-Func_0a_644c::
+Fish_TurnAndFace::
 	call TurnAtRangeLimit
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
@@ -6263,7 +6263,7 @@ FuelPlatform_Move::
 	jr .jump_67bd
 
 .jump_67ba:
-	call Func_0a_6813
+	call FuelPlatform_Travel
 .jump_67bd:
 	jp NextObject
 
@@ -6305,7 +6305,7 @@ FuelPlatform_Refuel::
 	jr .jump_6801
 
 .jump_67fb:
-	call Func_0a_6813
+	call FuelPlatform_Travel
 	jp NextObject
 
 .jump_6801:
@@ -6322,7 +6322,7 @@ FuelPlatform_Refuel::
 	jr .jump_67fb
 
 
-Func_0a_6813::
+FuelPlatform_Travel::
 	call Obj_MoveToTarget
 	call nz, Platform_RunScript
 	ld hl, wObjects + OBJ_VAR_33
@@ -6558,7 +6558,7 @@ Klump2::
 	jp NextObject
 
 
-Func_0a_6992::
+MiniNecky_RunScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 .jump_6996:
@@ -6642,7 +6642,7 @@ MiniNecky::
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-	call Func_0a_6992
+	call MiniNecky_RunScript
 	call AnimateObject
 	jp NextObject
 
@@ -6664,7 +6664,7 @@ MiniNecky_Hover::
 	jp NextObject
 
 .jump_6a25:
-	call Func_0a_6992
+	call MiniNecky_RunScript
 	jr .jump_6a1c
 
 
@@ -6705,7 +6705,7 @@ MiniNecky_Spit::
 	call InitObject
 .jump_6a70:
 	pop bc
-	call Func_0a_6992
+	call MiniNecky_RunScript
 	jp .jump_6a32
 
 
@@ -6766,7 +6766,7 @@ MiniNecky_Swoop::
 	jp NextObject
 
 .jump_6aca:
-	call Func_0a_6992
+	call MiniNecky_RunScript
 	jr .jump_6ac1
 
 
@@ -6876,7 +6876,7 @@ RunMankyKongScript::
 	ld hl, ObjInit_0a_6b76
 	call InitObject
 	pop bc
-	rst_farcall Func_0a_4001
+	rst_farcall Obj_GetFacingOffset
 	pop hl
 	jr .jump_6b6d
 
@@ -6925,7 +6925,7 @@ Mincer::
 	rlca
 	jr nc, .jump_6bc0
 	call AnimateObject
-	rst_farcall Func_0a_4001
+	rst_farcall Obj_GetFacingOffset
 	call DespawnIfOutOfRange
 	call c, MankyKong_RemoveBarrel
 	jp NextObject
@@ -7069,7 +7069,7 @@ RunCroctopusScript::
 	ld [hl], LOW(Croctopus_Chase)
 	inc l
 	ld [hl], HIGH(Croctopus_Chase)
-	call Func_0a_6cd6
+	call Croctopus_SetSpinAnim
 	pop hl
 	jr .jump_6ccd
 
@@ -7107,7 +7107,7 @@ RunCroctopusScript::
 	ld [hl], LOW(Croctopus_Stopped)
 	inc l
 	ld [hl], HIGH(Croctopus_Stopped)
-	call Func_0a_6ce9
+	call Croctopus_SetMoveAnim
 	ld hl, $0000
 	jr .jump_6ccd
 
@@ -7118,7 +7118,7 @@ RunCroctopusScript::
 	ld [hl], LOW(Croctopus_WaitForPlayer)
 	inc l
 	ld [hl], HIGH(Croctopus_WaitForPlayer)
-	call Func_0a_6ce9
+	call Croctopus_SetMoveAnim
 	pop hl
 	jr .jump_6ccd
 
@@ -7132,7 +7132,7 @@ RunCroctopusScript::
 	ret
 
 
-Func_0a_6cd6::
+Croctopus_SetSpinAnim::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, $01
@@ -7147,7 +7147,7 @@ Func_0a_6cd6::
 	ret
 
 
-Func_0a_6ce9::
+Croctopus_SetMoveAnim::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, $00
@@ -7323,7 +7323,7 @@ OnOffBarrel::
 	jp NextObject
 
 
-Func_0a_6df5::
+LightsFlicker::
 	ld hl, $c446
 	dec [hl]
 	ld a, [hl]
@@ -7735,9 +7735,9 @@ RunMillstoneScript::
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
-	ld [hl], LOW(Func_0a_70a2)
+	ld [hl], LOW(Millstone_Despawn)
 	inc l
-	ld [hl], HIGH(Func_0a_70a2)
+	ld [hl], HIGH(Millstone_Despawn)
 	pop hl
 	jr .jump_704c
 
@@ -7802,7 +7802,7 @@ Millstone_Move::
 	jp NextObject
 
 
-Func_0a_70a2::
+Millstone_Despawn::
 	call DespawnIfOutOfRange
 	call Millstone_UpdateRider
 	jp NextObject

@@ -293,7 +293,7 @@ Init::
 	call FillMemory
 	ld a, $0f
 	ld [rROMB0], a
-	call Func_0f_4744
+	call Save_CheckFiles
 	ld c, $c8
 	ld b, $08
 	ld hl, $001b
@@ -449,135 +449,135 @@ NotGBC::
 
 
 GameState_01::
-	jp RasterLCDHandler.jump_249e
+	jp State_LoadLevel
 
 
 GameState_04::
-	jp RasterLCDHandler.jump_2463
+	jp State_EnterLevel
 
 
 GameState_07::
-	jp GetTerrainUnderObject.jump_23ea
+	jp State_TitleInit
 
 
 GameState_0A::
-	jp RasterLCDHandler.jump_245c
+	jp State_NewGame
 
 
 GameState_0D::
-	jp SpawnObjectsOnScroll.jump_1a58
+	jp State_WorldMapInit
 
 
 GameState_10::
-	jp Func_00_2ae3.jump_2b07
+	jp State_RareLogoInit
 
 
 GameState_13::
-	jp Func_00_2ae3.jump_2b1f
+	jp State_RareLogoLoad
 
 
 GameState_16::
-	jp ClearOAM.jump_0efc
+	jp State_ClearOAM
 
 
 GameState_19::
-	jp RunFlowScript.jump_3931
+	jp State_PlaySong
 
 
 GameState_1C::
-	jp FadePalettesToWhite.jump_2e7e
+	jp State_BeginFade
 
 
 GameState_1F::
-	jp Func_00_2ae3.jump_2b48
+	jp State_ResetLCD
 
 
 GameState_22::
-	jp Func_00_050b.jump_0533
+	jp State_EnterShop
 
 
 GameState_25::
-	jp LoadBGPaletteSet.jump_3d0b
+	jp State_FrontEndMainMenu
 
 
 GameState_28::
-	jp LoadBGPaletteSet.jump_3cfc
+	jp State_FrontEndLanguageSelect
 
 
 GameState_2B::
-	jp Func_00_050b.jump_0512
+	jp State_EnterCrankysCabin
 
 
 GameState_2E::
-	jp Func_00_050b
+	jp State_EnterBananaHoard
 
 
 GameState_31::
-	jp RunFlowScript.jump_3949
+	jp State_ChooseLevelFlow
 
 
 GameState_34::
-	jp Func_00_050b.jump_0604
+	jp State_Shop
 
 
 GameState_37::
-	jp SpawnObjectsOnScroll.jump_1baf
+	jp State_WorldMapWalk
 
 
 GameState_3A::
-	jp SpawnObjectsOnScroll.jump_1c73
+	jp State_WorldMapScroll
 
 
 GameState_3D::
-	jp GetTerrainUnderObject.jump_23f7
+	jp State_Title
 
 
 GameState_40::
-	jp RasterLCDHandler.jump_2644
+	jp State_Level
 
 
 GameState_43::
-	jp FadePalettesToWhite.jump_2e94
+	jp State_Fading
 
 
 GameState_46::
-	jp Func_00_2ae3.jump_2b2e
+	jp State_RareLogo
 
 
 GameState_49::
-	jp SpawnObjectsOnScroll.jump_1b56
+	jp State_WorldMapLook
 
 
 GameState_4C::
-	jp RunFlowScript.jump_391b
+	jp State_Wait
 
 
 GameState_4F::
-	jp RunFlowScript.jump_393a
+	jp State_WaitForMusic
 
 
 GameState_52::
-	jp RunFlowScript.jump_3941
+	jp State_WaitForButton
 
 
 GameState_55::
-	jp GetFlowRecord.jump_2b82
+	jp State_LoadScreenMap
 
 
 GameState_58::
-	jp GetFlowRecord.jump_2b6b
+	jp State_LoadScreenPalettes
 
 
 GameState_5B::
-	jp GetFlowRecord.jump_2bc4
+	jp State_LoadScreenTiles
 
 
 GameState_5E::
-	jp GetFlowRecord.jump_2be7
+	jp State_LoadScreenTilesBank1
 
 
 GameState_61::
-	jp LoadBGPaletteSet.jump_3d28
+	jp State_FrontEnd
 
 
 Random::
@@ -733,7 +733,7 @@ Decompress::
 	jr Decompress
 
 .jump_041d:
-	jp FadePalettesToWhite.jump_2ef2
+	jp State_Fading.jump_2ef2
 
 
 CharToTile::
@@ -763,16 +763,17 @@ CharTileTable::
 	db $23, $78, $00, $00, $00, $00, $00, $00, $00, $29, $00, $00, $00, $00, $00, $00 ; characters $e0-$ef
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; characters $f0-$ff
 
-Func_00_050b::
+State_EnterBananaHoard::
 	ld a, $04
 	ld [$c30c], a
-	jr .jump_0533
+	jr State_EnterShop
 
-.jump_0512:
+
+State_EnterCrankysCabin::
 	ld a, $0f
 	ld [rROMB0], a
 	ld a, [$c309]
-	call Func_0f_48c9
+	call Save_CountCompletion
 	ld a, e
 	cp $01
 	jr nz, .jump_052e
@@ -785,7 +786,8 @@ Func_00_050b::
 .jump_052e:
 	ld a, $03
 	ld [$c30c], a
-.jump_0533:
+
+State_EnterShop::
 	di
 	xor a
 	ldh [rSCX], a
@@ -852,7 +854,7 @@ Func_00_050b::
 	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
-	call Func_0f_4001
+	call Shop_CandysChallenge
 	ei
 	jp RunFlowScript
 
@@ -863,7 +865,7 @@ Func_00_050b::
 	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
-	call Func_0f_40a9
+	call Shop_CrankysCabin
 	ei
 	jp RunFlowScript
 
@@ -874,7 +876,7 @@ Func_00_050b::
 	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
-	call Func_0f_412e
+	call Shop_FunkysFlights
 	ei
 	jp RunFlowScript
 
@@ -885,17 +887,18 @@ Func_00_050b::
 	call PlaySong
 	ld a, $0f
 	ld [rROMB0], a
-	call Func_0f_41c2
+	call Shop_BananaHoard
 	ei
 	jp RunFlowScript
 
-.jump_0604:
+
+State_Shop::
 	call ResetOAMBuffers
 	call RunObjects
 	call BuildOAM
 	ld a, $0f
 	ld [rROMB0], a
-	call Func_0f_43dd
+	call Shop_Update
 	ret
 
 
@@ -2482,7 +2485,8 @@ ClearOAM::
 	jr nz, .jump_0ef4
 	ret
 
-.jump_0efc:
+
+State_ClearOAM::
 	call ClearOAM
 	jp RunFlowScript
 
@@ -3337,7 +3341,7 @@ DrawObject::
 	ret
 
 
-Func_00_1391::
+HUD_DrawBananas::
 	ld a, $0c
 	ldh [$ff99], a
 	ld hl, wObjects + OBJ_Y
@@ -3391,7 +3395,7 @@ Func_00_1391::
 	ret
 
 
-Func_00_13e1::
+HUD_DrawLives::
 	ld a, $81
 	ldh [$ff99], a
 	ld hl, wObjects + OBJ_Y
@@ -3462,7 +3466,7 @@ Func_00_13e1::
 	ret
 
 
-Func_00_144e::
+HUD_DrawItems::
 	ld a, [$4000]
 	push af
 	ld hl, wObjects + OBJ_Y
@@ -3736,7 +3740,7 @@ CheckObjectOnScreen::
 	ret
 
 
-Func_00_1604::
+DrawIcon16::
 	ldh a, [$ffa2]
 	ld l, a
 	rlca
@@ -3853,7 +3857,7 @@ InitObjectSlots::
 	ret
 
 
-Func_00_16ab::
+BuildSpawnGrid::
 	ldh a, [$ff88]
 	rrca
 	jr c, .jump_16dd
@@ -4150,11 +4154,11 @@ SpawnLevelObjects::
 	jr .jump_182b
 
 .jump_1823:
-	call Func_00_1841
+	call SpawnBananaString
 	jr .jump_182b
 
 .jump_1828:
-	call Func_00_185f
+	call SpawnObjectGroup
 .jump_182b:
 	pop hl
 	jp SpawnLevelObjects
@@ -4173,7 +4177,7 @@ InitObject::
 	ret
 
 
-Func_00_1841::
+SpawnBananaString::
 	ld d, h
 	ld a, l
 	ld hl, wObjects + OBJ_ANIM
@@ -4194,7 +4198,7 @@ ObjInit_00_1850::
 	obj_byte OBJ_ANIM_PARAM, $03
 	obj_end
 
-Func_00_185f::
+SpawnObjectGroup::
 	push hl
 	ld hl, ObjInit_00_1883
 	call ApplyObjInit
@@ -4568,7 +4572,8 @@ SpawnObjectsOnScroll::
 	jr nz, .jump_1a34
 	ret
 
-.jump_1a58:
+
+State_WorldMapInit::
 	di
 	ld a, $83
 	ldh [rLCDC], a
@@ -4684,9 +4689,9 @@ SpawnObjectsOnScroll::
 	ld [$c616], a
 	ld a, $05
 	ld [rROMB0], a
-	call Func_05_42a6
-	call Func_05_4274
-	call Func_00_1d2f
+	call WorldMap_SetUpMarkers
+	call WorldMap_LoadSignTiles
+	call WorldMap_ReadNode
 	call DrawWorldMapScreen
 	call UpdateWorldMapSprites
 	ld hl, $c32e
@@ -4704,14 +4709,15 @@ SpawnObjectsOnScroll::
 	ei
 	jp RunFlowScript
 
-.jump_1b56:
+
+State_WorldMapLook::
 	ld a, $05
 	ld [rROMB0], a
 	call DrawWorldMapColumn
 	call UpdateWorldMapSprites
 	ld hl, $c310
 	bit 6, [hl]
-	jp nz, Func_00_1d2f.jump_1e0a
+	jp nz, WorldMap_ReadNode.jump_1e0a
 	ldh a, [$ff80]
 	bit 2, a
 	jr z, .jump_1b97
@@ -4746,13 +4752,14 @@ SpawnObjectsOnScroll::
 	call GetWorldMapColumnToDraw
 	ldh a, [$ff80]
 	and $09
-	jp nz, Func_00_1d2f.jump_1d55
+	jp nz, WorldMap_ReadNode.jump_1d55
 	ldh a, [$ff80]
 	and $f0
-	jp nz, Func_00_1d2f.jump_1dc2
+	jp nz, WorldMap_ReadNode.jump_1dc2
 	ret
 
-.jump_1baf:
+
+State_WorldMapWalk::
 	ld a, $05
 	ld [rROMB0], a
 	call DrawWorldMapColumn
@@ -4864,7 +4871,8 @@ SpawnObjectsOnScroll::
 	ldh [$ff84], a
 	ret
 
-.jump_1c73:
+
+State_WorldMapScroll::
 	ld a, $05
 	ld [rROMB0], a
 	call DrawWorldMapColumn
@@ -5001,7 +5009,7 @@ WorldMapLCDHandler::
 	reti
 
 
-Func_00_1d2f::
+WorldMap_ReadNode::
 	ld a, [$c604]
 	ld l, a
 	ld a, [$c605]
@@ -5501,7 +5509,7 @@ UpdateWorldMapScroll::
 	ret
 
 
-Func_00_1ffe::
+WorldMap_UpdateNodeSong::
 	ld a, [$c604]
 	add a, $03
 	ld l, a
@@ -5636,14 +5644,14 @@ ByteTable_00_20b5::
 	db 0, 3, 7, 11, 13, 15
 
 UpdateWorldMapSprites::
-	call Func_00_1ffe
+	call WorldMap_UpdateNodeSong
 	ld a, $05
 	ld [rROMB0], a
 	ld hl, wObjectFreeList
-	call Func_05_416e
-	call Func_05_41a6
-	call Func_05_4202
-	call Func_05_41e5
+	call WorldMap_DrawKong
+	call WorldMap_DrawLevelMarkers
+	call WorldMap_DrawCursor
+	call WorldMap_DrawShopSign
 	ld a, l
 .jump_20d3:
 	cp $a0
@@ -6189,18 +6197,20 @@ GetTerrainUnderObject::
 	ld [rROMB0], a
 	ret
 
-.jump_23ea:
+
+State_TitleInit::
 	ld a, $07
 	ld [rROMB0], a
-	call Func_07_4001
+	call Title_Init
 	ld a, $3d
 	ldh [$ff84], a
 	ret
 
-.jump_23f7:
+
+State_Title::
 	ld a, $07
 	ld [rROMB0], a
-	call Func_07_4195
+	call Title_UpdatePalettes
 	ret
 
 
@@ -6275,11 +6285,13 @@ RasterLCDHandler::
 	pop af
 	reti
 
-.jump_245c:
-	rst_farcall Func_0f_45b1
+
+State_NewGame::
+	rst_farcall NewGame_InitState
 	jp RunFlowScript
 
-.jump_2463:
+
+State_EnterLevel::
 	ld a, [$c30f]
 	and $03
 	ld [$c30f], a
@@ -6312,7 +6324,8 @@ RasterLCDHandler::
 	ld [wLevelEntrance], a
 	ld a, [hli]
 	ld [$c44a], a
-.jump_249e:
+
+State_LoadLevel::
 	di
 	ld a, $87
 	ldh [rLCDC], a
@@ -6325,7 +6338,7 @@ RasterLCDHandler::
 	ld [$c443], a
 	call InitObjectSlots
 	call LoadCommonSpriteTiles
-	call Func_00_2ad8
+	call ResetPlatformList
 	ld hl, wLevelEntrance
 	ld a, [hli]
 	ld h, [hl]
@@ -6384,7 +6397,7 @@ RasterLCDHandler::
 	ld [rROMB0], a
 	push hl
 	call LoadLevelObjects
-	call Func_00_16ab
+	call BuildSpawnGrid
 	pop hl
 	ld a, $04
 	ld [rROMB0], a
@@ -6416,7 +6429,7 @@ RasterLCDHandler::
 	xor a
 	ld [$c446], a
 	ld [$c447], a
-	call Func_00_2793
+	call SpawnHUD
 	call UpdateCameraRegion
 	call UpdateSpawnWindow
 	xor a
@@ -6431,35 +6444,35 @@ RasterLCDHandler::
 	ld a, [$c444]
 	and $0f
 	cp $02
-	call z, Func_00_2861
+	call z, SpawnMineCart
 	jr .jump_25ac
 
 .jump_258a:
 	cp $04
 	jr nz, .jump_2593
-	call Func_00_27ed
+	call SpawnStopGoTimer
 	jr .jump_25ac
 
 .jump_2593:
 	cp $05
 	jr nz, .jump_259c
-	call Func_00_27ff
+	call SpawnLightsTimer
 	jr .jump_25ac
 
 .jump_259c:
 	cp $06
 	jr nz, .jump_25a5
-	call Func_00_281c
+	call SpawnLightsFlicker
 	jr .jump_25ac
 
 .jump_25a5:
 	cp $07
 	jr nz, .jump_25ac
-	call Func_00_282e
+	call SpawnSnowflakes
 .jump_25ac:
 	ld a, [$c445]
 	and $70
-	call nz, Func_00_2842
+	call nz, SpawnAnimalMask
 	ld a, $ff
 	ld [$c45a], a
 	call DrawMapScreen
@@ -6540,7 +6553,8 @@ RasterLCDHandler::
 	ei
 	ret
 
-.jump_2644:
+
+State_Level::
 	call WriteScrollEdges
 	ld a, [wPaletteUpdate]
 	and $03
@@ -6559,7 +6573,7 @@ RasterLCDHandler::
 	call UpdateCamera
 	call ResetOAMBuffers
 	call RunObjects
-	call Func_00_2ae3
+	call CommitPlatformList
 	call BuildOAM
 	call UpdateSpawnWindow
 	call SpawnObjectsOnScroll
@@ -6572,7 +6586,7 @@ RasterLCDHandler::
 	ld a, $0c
 	ld [$c32a], a
 	call ClearOAM
-	call Func_00_2ab7
+	call Pause_LoadPalette
 	ret
 
 .jump_268e:
@@ -6581,7 +6595,7 @@ RasterLCDHandler::
 	jr nz, .jump_269c
 	bit 2, a
 	jr nz, .jump_26ad
-	call Func_00_2a63
+	call DrawPauseScreen
 	ret
 
 .jump_269c:
@@ -6677,9 +6691,9 @@ RasterLCDHandler::
 	bit 2, a
 	jr nz, .jump_2758
 	bit 3, a
-	jp nz, .jump_249e
+	jp nz, State_LoadLevel
 	bit 6, a
-	jp nz, .jump_2477
+	jp nz, State_EnterLevel.jump_2477
 	ld hl, $c310
 	bit 4, [hl]
 	jr nz, .jump_275e
@@ -6732,7 +6746,7 @@ InitPlayerObject::
 	ret
 
 
-Func_00_2793::
+SpawnHUD::
 	call AllocObject
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6785,7 +6799,7 @@ Func_00_2793::
 	ret
 
 
-Func_00_27ed::
+SpawnStopGoTimer::
 	call AllocObject
 	ld hl, ObjInit_00_27f7
 	call ApplyObjInit
@@ -6798,7 +6812,7 @@ ObjInit_00_27f7::
 	obj_word OBJ_HANDLER, StopGoTimer
 	obj_end
 
-Func_00_27ff::
+SpawnLightsTimer::
 	ld hl, $c446
 	ld a, $5a
 	ld [hli], a
@@ -6816,7 +6830,7 @@ ObjInit_00_2811::
 	obj_word OBJ_VAR_2E, $005a
 	obj_end
 
-Func_00_281c::
+SpawnLightsFlicker::
 	call AllocObject
 	ld hl, ObjInit_00_2826
 	call ApplyObjInit
@@ -6825,11 +6839,11 @@ Func_00_281c::
 
 ObjInit_00_2826::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_0a_6df5)
-	obj_word OBJ_HANDLER, Func_0a_6df5
+	obj_byte OBJ_BANK, BANK(LightsFlicker)
+	obj_word OBJ_HANDLER, LightsFlicker
 	obj_end
 
-Func_00_282e::
+SpawnSnowflakes::
 	call AllocObject
 	ld hl, ObjInit_00_2838
 	call InitObject
@@ -6843,7 +6857,7 @@ ObjInit_00_2838::
 	obj_byte OBJ_PALETTE, $03
 	obj_end
 
-Func_00_2842::
+SpawnAnimalMask::
 	call AllocObject
 	ld hl, ObjInit_00_2859
 	call ApplyObjInit
@@ -6859,11 +6873,11 @@ Func_00_2842::
 
 ObjInit_00_2859::
 	obj_byte OBJ_FLAGS, $01
-	obj_byte OBJ_BANK, BANK(Func_08_5d4a)
-	obj_word OBJ_HANDLER, Func_08_5d4a
+	obj_byte OBJ_BANK, BANK(AnimalBonus_LoadMask)
+	obj_word OBJ_HANDLER, AnimalBonus_LoadMask
 	obj_end
 
-Func_00_2861::
+SpawnMineCart::
 	call AllocObject
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
@@ -7209,7 +7223,7 @@ GetCameraTargetY::
 	ret
 
 
-Func_00_2a63::
+DrawPauseScreen::
 	call ClearOAM
 	ld a, $50
 	ldh [$ffa5], a
@@ -7254,7 +7268,7 @@ RequestOBJPaletteUpdate::
 	ret
 
 
-Func_00_2ab7::
+Pause_LoadPalette::
 	ld hl, $40ea
 	ld a, $80
 	ld [rROMB0], a
@@ -7280,7 +7294,7 @@ Func_00_2ab7::
 	ret
 
 
-Func_00_2ad8::
+ResetPlatformList::
 	xor a
 	ld [$d5fd], a
 	ld [$d5fe], a
@@ -7288,7 +7302,7 @@ Func_00_2ad8::
 	ret
 
 
-Func_00_2ae3::
+CommitPlatformList::
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, [$d5fe]
@@ -7310,10 +7324,11 @@ Func_00_2ae3::
 	jr nz, .jump_2b00
 	ret
 
-.jump_2b07:
+
+State_RareLogoInit::
 	ld a, $0d
 	ld [rROMB0], a
-	call Func_0d_4130
+	call RareLogo_Init
 	call UploadBGPalettes
 	call UploadOBJPalettes
 	ld a, $3e
@@ -7322,30 +7337,33 @@ Func_00_2ae3::
 	ldh [$ff84], a
 	ret
 
-.jump_2b1f:
+
+State_RareLogoLoad::
 	ld a, $0d
 	ld [rROMB0], a
-	call Func_0d_4216
+	call RareLogo_LoadAttributes
 	xor a
 	ld [$c402], a
 	jp RunFlowScript
 
-.jump_2b2e:
+
+State_RareLogo::
 	ld a, [$c402]
 	sub $01
 	ld [$c402], a
 	jr c, .jump_2b44
 	ld a, $0d
 	ld [rROMB0], a
-	call Func_0d_4292
-	call Func_0d_4266
+	call RareLogo_StartHDMA
+	call RareLogo_DecodeFrame
 	ret
 
 .jump_2b44:
 	call RunFlowScript
 	ret
 
-.jump_2b48:
+
+State_ResetLCD::
 	xor a
 	ldh [rSCX], a
 	ldh [rSCY], a
@@ -7370,7 +7388,8 @@ GetFlowRecord::
 	ld [rROMB0], a
 	ret
 
-.jump_2b6b:
+
+State_LoadScreenPalettes::
 	call GetFlowRecord
 	ld hl, $0000
 	add hl, de
@@ -7383,7 +7402,8 @@ GetFlowRecord::
 	call CopyBytes
 	jp RunFlowScript
 
-.jump_2b82:
+
+State_LoadScreenMap::
 	call GetFlowRecord
 	ld hl, $0002
 	add hl, de
@@ -7417,7 +7437,8 @@ GetFlowRecord::
 	call HDMACopy
 	jp RunFlowScript
 
-.jump_2bc4:
+
+State_LoadScreenTiles::
 	call GetFlowRecord
 	ld hl, $0004
 	add hl, de
@@ -7438,7 +7459,8 @@ GetFlowRecord::
 	call HDMACopy
 	jp RunFlowScript
 
-.jump_2be7:
+
+State_LoadScreenTilesBank1::
 	call GetFlowRecord
 	ld hl, $0004
 	add hl, de
@@ -7449,7 +7471,7 @@ GetFlowRecord::
 	ld d, a
 	ld a, $01
 	ldh [rVBK], a
-	jp .jump_2bd2
+	jp State_LoadScreenTiles.jump_2bd2
 
 
 CopyScreenTileMap::
@@ -7931,7 +7953,8 @@ FadePalettesToWhite::
 	jr nz, .jump_2e49
 	ret
 
-.jump_2e7e:
+
+State_BeginFade::
 	ld a, $43
 	ldh [$ff84], a
 	ld a, [$c305]
@@ -7946,7 +7969,8 @@ FadePalettesToWhite::
 	ld [$c306], a
 	ret
 
-.jump_2e94:
+
+State_Fading::
 	call UploadBGPalettes
 	ld a, [$c305]
 	bit 3, a
@@ -8004,20 +8028,20 @@ FadePalettesToWhite::
 	push af
 	ld a, d
 	ld [$c309], a
-	rst_farcall Func_0f_47ab
+	rst_farcall Save_WriteFile
 	pop af
 	ld [$c309], a
 	ret
 
 
-Func_00_2f03::
+Save_EraseFile_Far::
 	ld a, d
-	rst_farcall Func_0f_4802
+	rst_farcall Save_EraseFile
 	ret
 
 
-Func_00_2f09::
-	rst_farcall Func_0f_4815
+Save_ComputeSummaries_Far::
+	rst_farcall Save_ComputeSummaries
 	ret
 
 
@@ -8179,7 +8203,7 @@ UpdateSFXChannel::
 	ld l, $3e
 	ld c, [hl]
 	ld l, $4d
-	jp Func_00_333a.jump_3347
+	jp Sound_WriteChannelRegisters.jump_3347
 
 .jump_2fe8:
 	add a, $00
@@ -8585,7 +8609,7 @@ UpdateMusic::
 UpdateMusicChannel::
 	ld a, [$c323]
 	cp $80
-	jp c, Func_00_3303.jump_332d
+	jp c, Music_UpdatePitchSlide.jump_332d
 	ld l, $20
 	dec [hl]
 	ret nz
@@ -8597,7 +8621,7 @@ UpdateMusicChannel::
 	jr z, .jump_323a
 	ld a, [hli]
 	dec [hl]
-	jr Func_00_3254.jump_325c
+	jr Music_JumpHL.jump_325c
 
 .jump_323a:
 	ld l, $21
@@ -8608,7 +8632,7 @@ UpdateMusicChannel::
 	ld a, [de]
 	inc de
 	cp $80
-	jr nc, Func_00_3254.jump_3255
+	jr nc, Music_JumpHL.jump_3255
 	ld b, h
 	add a, a
 	add a, $0a
@@ -8617,11 +8641,11 @@ UpdateMusicChannel::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call Func_00_3254
+	call Music_JumpHL
 	jr .jump_323f
 
 
-Func_00_3254::
+Music_JumpHL::
 	jp hl
 
 .jump_3255:
@@ -8671,7 +8695,7 @@ Func_00_3254::
 	ld l, $39
 	ld a, [hl]
 	and a
-	call z, Func_00_333a
+	call z, Sound_WriteChannelRegisters
 	ld l, $32
 	ld a, [hl]
 	srl a
@@ -8714,7 +8738,7 @@ Func_00_3254::
 	jr .jump_3289
 
 
-Func_00_32c5::
+Music_UpdateVibrato::
 	ld l, $2c
 	ld a, [hl]
 	and a
@@ -8770,7 +8794,7 @@ Func_00_32c5::
 	ret
 
 
-Func_00_3303::
+Music_UpdatePitchSlide::
 	ld l, $32
 	ld a, [hli]
 	and a
@@ -8808,16 +8832,16 @@ Func_00_3303::
 	ret
 
 .jump_332d:
-	call Func_00_32c5
-	call Func_00_3303
+	call Music_UpdateVibrato
+	call Music_UpdatePitchSlide
 	ld l, $39
 	ld a, [hl]
 	and a
-	jr z, Func_00_333a.jump_3342
+	jr z, Sound_WriteChannelRegisters.jump_3342
 	ret
 
 
-Func_00_333a::
+Sound_WriteChannelRegisters::
 	ld l, $56
 	ld [hl], $80
 	ld l, $51
@@ -9401,7 +9425,7 @@ MusCmd_NoteRepeat::
 	ld [hld], a
 	ld a, [hli]
 	pop bc
-	jp Func_00_3254.jump_3257
+	jp Music_JumpHL.jump_3257
 
 
 MusCmd_Echo48::
@@ -9796,7 +9820,8 @@ RunFlowScript::
 	ld [$c305], a
 	jr .jump_38ee
 
-.jump_391b:
+
+State_Wait::
 	ld a, [$c305]
 	sub $01
 	ld [$c305], a
@@ -9809,27 +9834,31 @@ RunFlowScript::
 .jump_392e:
 	jp RunFlowScript
 
-.jump_3931:
+
+State_PlaySong::
 	ld a, [$c305]
 	call PlaySong
 	jp RunFlowScript
 
-.jump_393a:
+
+State_WaitForMusic::
 	call IsMusicPlaying
 	ret nz
 	jp RunFlowScript
 
-.jump_3941:
+
+State_WaitForButton::
 	ldh a, [$ff81]
 	and $0b
 	ret z
 	jp RunFlowScript
 
-.jump_3949:
+
+State_ChooseLevelFlow::
 	ld a, $0f
 	ld [rROMB0], a
 	ld a, [$c309]
-	call Func_0f_48c9
+	call Save_CountCompletion
 	ld a, e
 	cp $01
 	jr nz, .jump_3965
@@ -10565,30 +10594,33 @@ LoadBGPaletteSet::
 	ld [rROMB0], a
 	ret
 
-.jump_3cfc:
+
+State_FrontEndLanguageSelect::
 	ld l, $00
 	ld d, $01
 	ld a, $f1
 	ld [rROMB0], a
 	call FE_Enter
-	jp .jump_3d42
+	jp State_FrontEnd.jump_3d42
 
-.jump_3d0b:
+
+State_FrontEndMainMenu::
 	di
 	xor a
 	ldh [rIF], a
 	ld a, $01
 	ldh [rIE], a
-	rst_farcall Func_0f_4815
+	rst_farcall Save_ComputeSummaries
 	ld a, [$c30d]
 	ld l, a
 	ld d, $00
 	ld a, $f1
 	ld [rROMB0], a
 	call FE_Enter
-	jp .jump_3d42
+	jp State_FrontEnd.jump_3d42
 
-.jump_3d28:
+
+State_FrontEnd::
 	di
 	ld a, [$c30d]
 	ld l, a

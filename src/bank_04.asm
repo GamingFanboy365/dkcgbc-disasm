@@ -954,7 +954,7 @@ Anim_04_4663::
 	anim_frame Frame_20_5eea
 	anim_frame Frame_20_5ef0
 	anim_frame Frame_20_5ef6
-	anim_call Func_04_577e
+	anim_call Diddy_ThrowCapHigh
 	anim_var38 $f412
 	anim_frame Frame_20_5efc
 	anim_var38 $fa12
@@ -980,7 +980,7 @@ Anim_04_4697::
 Anim_04_46a3::
 	anim_frame Frame_20_5e9c
 	anim_frame Frame_20_5ea2
-	anim_call Func_04_5755
+	anim_call Diddy_ThrowCap
 	anim_var38 $d80c
 	anim_frame Frame_20_5eae
 	anim_var38 $ce0c
@@ -991,7 +991,7 @@ Anim_04_46a3::
 	anim_frame Frame_20_5ec0
 	anim_var38 $d80c
 	anim_frame Frame_20_5eba
-	anim_call Func_04_57a7
+	anim_call Diddy_RemoveCap
 	anim_frame Frame_20_5ea2
 	anim_jump Anim_04_46a3
 
@@ -2340,7 +2340,7 @@ Anim_04_4f41::
 	anim_frame Frame_20_4ed0
 	anim_var38 $1700
 	anim_frame Frame_20_4ed6
-	anim_call Func_04_5747
+	anim_call Tire_SetBounceFlag
 	anim_frame Frame_20_4edc
 	anim_frame Frame_20_4ee2
 	anim_frame Frame_20_4edc
@@ -2348,7 +2348,7 @@ Anim_04_4f41::
 	anim_frame Frame_20_4ed0
 	anim_frame Frame_20_4eca
 	anim_frame Frame_20_4ed0
-	anim_call Func_04_574e
+	anim_call Tire_ClearBounceFlag
 	anim_clear_flag
 	anim_jump Anim_04_4f83
 
@@ -2373,7 +2373,7 @@ Anim_04_4f8b::
 	anim_frame Frame_20_45be
 	anim_var38 $1300
 	anim_frame Frame_20_45c4
-	anim_call Func_04_5747
+	anim_call Tire_SetBounceFlag
 	anim_frame Frame_20_45ca
 	anim_frame Frame_20_45d0
 	anim_frame Frame_20_45ca
@@ -2381,7 +2381,7 @@ Anim_04_4f8b::
 	anim_frame Frame_20_45be
 	anim_frame Frame_20_45b8
 	anim_frame Frame_20_45be
-	anim_call Func_04_574e
+	anim_call Tire_ClearBounceFlag
 	anim_clear_flag
 	anim_jump Anim_04_4fcd
 
@@ -3530,21 +3530,21 @@ Anim_04_572b::
 	anim_frame Frame_20_60ee
 	anim_jump Anim_04_572b
 
-Func_04_5747::
+Tire_SetBounceFlag::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld [hl], $ff
 	ret
 
 
-Func_04_574e::
+Tire_ClearBounceFlag::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld [hl], $00
 	ret
 
 
-Func_04_5755::
+Diddy_ThrowCap::
 	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
@@ -3569,7 +3569,7 @@ ObjInit_04_5771::
 	obj_byte OBJ_PALETTE, $02
 	obj_end
 
-Func_04_577e::
+Diddy_ThrowCapHigh::
 	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
@@ -3594,7 +3594,7 @@ ObjInit_04_579a::
 	obj_byte OBJ_PALETTE, $02
 	obj_end
 
-Func_04_57a7::
+Diddy_RemoveCap::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]

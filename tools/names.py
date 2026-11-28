@@ -1710,4 +1710,162 @@ NAMES = {
     (0x55, 0x4754): "HiScore_EnterName_Loop",
     (0x55, 0x4786): "HiScore_EnterName_Input",  # up/down change the letter, left/right move, A confirms
     (0x55, 0x481E): "HiScore_InstallRuntime_Code",  # copied to $c800 and run: FishingRuntime -> $cb00
+    # --- remaining main-game routines
+    (0x04, 0x5747): "Tire_SetBounceFlag",  # called from the tire's animations: OBJ_VAR_38 = $ff
+    (0x04, 0x574E): "Tire_ClearBounceFlag",
+    (0x04, 0x5755): "Diddy_ThrowCap",  # anim_call from Diddy's exit animation: the cap object (handler Coconut)
+    (0x04, 0x577E): "Diddy_ThrowCapHigh",
+    (0x04, 0x57A7): "Diddy_RemoveCap",
+    (0x05, 0x4001): "WorldMap_DrawMetasprite",  # from WorldMapMetasprites
+    (0x05, 0x416E): "WorldMap_DrawKong",  # Donkey Kong, Diddy or both, by $c30f and $c310
+    (0x05, 0x41A6): "WorldMap_DrawLevelMarkers",
+    (0x05, 0x41E5): "WorldMap_DrawShopSign",
+    (0x05, 0x4202): "WorldMap_DrawCursor",
+    (0x05, 0x4274): "WorldMap_LoadSignTiles",
+    (0x05, 0x42A6): "WorldMap_SetUpMarkers",
+    (0x05, 0x444C): "WorldMap_GetLevelState",  # 1 entered, 2 cleared with the flag of $c30e, 3 not yet
+    (0x05, 0x446A): "WorldMap_GetPathBits",
+    (0x07, 0x4001): "Title_Init",  # palettes by [$b0c1], interrupts
+    (0x07, 0x4195): "Title_UpdatePalettes",  # the colour changes listed at $cf00
+    (0x07, 0x43B2): "Title_StartHDMA",
+    (0x08, 0x5D4A): "AnimalBonus_LoadMask",  # the animal's mask from AnimalMaskTable into WRAM bank 4, then TileAnimator
+    (0x09, 0x4DFF): "HandSlap_Hitbox",  # spawned by Player_HandSlap: hits what it touches for 16 frames
+    (0x09, 0x51B3): "PlayerRambi_Jump",
+    (0x09, 0x51CD): "PlayerRambi_Bounce",
+    (0x09, 0x5308): "PlayerExpresso_Jump",
+    (0x09, 0x55A5): "PlayerWinky_Jump",
+    (0x09, 0x5BF5): "Player_ResetAnim",
+    (0x09, 0x5F72): "Player_HurtExitToEntrance",
+    (0x09, 0x5F8F): "Player_LetGoWhenHurt",  # by what the player holds (OBJ_VAR_37): barrel, rope, cart...
+    (0x09, 0x611E): "Player_Recoil",  # pushed back from the facing direction
+    (0x09, 0x6341): "SwapKongs_Partner",  # the Kong that steps aside when the two swap
+    (0x09, 0x638E): "Player_ApplySlope",  # by the terrain under the player (TerrainTable_09_63c6/63d6)
+    (0x09, 0x6554): "Player_RidingBarrel",
+    (0x09, 0x6600): "Player_StartBarrelRide",
+    (0x09, 0x685D): "Player_SetFacingBits",
+    (0x09, 0x6866): "Player_GetFacingOffset",
+    (0x09, 0x68BE): "Player_StoreFacing",
+    (0x09, 0x68D2): "Obj_KnockAway",  # sends the object away from the player
+    (0x09, 0x6983): "Player_ApplySlope_Entry",
+    (0x09, 0x6D1E): "Barrel_RideTouch",  # landing on a thrown barrel rides it
+    (0x09, 0x705E): "BarrelBreak_Effect",  # spawned by BreakBarrel
+    (0x09, 0x7416): "HiddenKongLetter_Touch",  # landing on the spot at full fall speed releases a KONG letter and patches the map
+    (0x0D, 0x4130): "RareLogo_Init",
+    (0x0D, 0x4216): "RareLogo_LoadAttributes",
+    (0x0D, 0x4266): "RareLogo_DecodeFrame",  # run-length frames into $c800
+    (0x0D, 0x4292): "RareLogo_StartHDMA",
+    (0x0A, 0x4001): "Obj_GetFacingOffset",  # (OBJ_VAR_38, OBJ_VAR_39), x mirrored when the object faces left
+    (0x0A, 0x43CB): "VeryGnawty_TurnAtEdge",
+    (0x0A, 0x455C): "MasterNecky_Bob",  # sine bob around OBJ_VAR_31
+    (0x0A, 0x48B8): "Obj_DoNothing_0A",
+    (0x0A, 0x4E0A): "KingKRool_Hop",
+    (0x0A, 0x4E5C): "KingKRool_HopInAir",
+    (0x0A, 0x4E6F): "KingKRool_Hopping",
+    (0x0A, 0x4F31): "KingKRool_HopPause",
+    (0x0A, 0x4F3E): "KingKRool_WaitForProjectiles",  # until every object of his spawn group is gone
+    (0x0A, 0x4F50): "KingKRool_SpawnProjectile",
+    (0x0A, 0x4F94): "KingKRool_StartThrowPause",
+    (0x0A, 0x4FAA): "KingKRool_ThrowPause",  # then throws at a speed from WordTable_0a_5005
+    (0x0A, 0x500B): "KingKRool_TurnAtEdge",
+    (0x0A, 0x506A): "KingKRool_RunAcross",
+    (0x0A, 0x5307): "KingKRool_KreditsRoll",  # the captions scroll up (CreditsCaptions)
+    (0x0A, 0x5369): "KingKRool_KreditsDrawCaption",
+    (0x0A, 0x53FF): "KingKRool_KreditsScrollBack",
+    (0x0A, 0x5AC6): "Barrel_Dropped",  # put down: falls, then lands as its type
+    (0x0A, 0x6386): "Bitesize_SaveBaseY",
+    (0x0A, 0x644C): "Fish_TurnAndFace",
+    (0x0A, 0x6813): "FuelPlatform_Travel",
+    (0x0A, 0x6992): "MiniNecky_RunScript",
+    (0x0A, 0x6CD6): "Croctopus_SetSpinAnim",
+    (0x0A, 0x6CE9): "Croctopus_SetMoveAnim",
+    (0x0A, 0x6DF5): "LightsFlicker",  # level kind 6: the lights go out and come back every 64 frames
+    # --- bank $00: game states (the jp table at $0301; the number is what $ff84 holds)
+    (0x00, 0x249E): "State_LoadLevel",  # $01: from wLevelEntrance
+    (0x00, 0x2463): "State_EnterLevel",  # $04: start or Star Barrel entrance (LevelTable), which Kong
+    (0x00, 0x23EA): "State_TitleInit",  # $07
+    (0x00, 0x245C): "State_NewGame",  # $0a
+    (0x00, 0x1A58): "State_WorldMapInit",  # $0d
+    (0x00, 0x2B07): "State_RareLogoInit",  # $10
+    (0x00, 0x2B1F): "State_RareLogoLoad",  # $13
+    (0x00, 0x0EFC): "State_ClearOAM",  # $16
+    (0x00, 0x3931): "State_PlaySong",  # $19: song from the flow script
+    (0x00, 0x2E7E): "State_BeginFade",  # $1c
+    (0x00, 0x2B48): "State_ResetLCD",  # $1f
+    (0x00, 0x0533): "State_EnterShop",  # $22: by the location type [$c30c]
+    (0x00, 0x3D0B): "State_FrontEndMainMenu",  # $25: FE_Enter with d = 0
+    (0x00, 0x3CFC): "State_FrontEndLanguageSelect",  # $28: d = 1
+    (0x00, 0x0512): "State_EnterCrankysCabin",  # $2b
+    (0x00, 0x050B): "State_EnterBananaHoard",  # $2e
+    (0x00, 0x3949): "State_ChooseLevelFlow",  # $31
+    (0x00, 0x0604): "State_Shop",  # $34
+    (0x00, 0x1BAF): "State_WorldMapWalk",  # $37
+    (0x00, 0x1C73): "State_WorldMapScroll",  # $3a
+    (0x00, 0x23F7): "State_Title",  # $3d
+    (0x00, 0x2644): "State_Level",  # $40: one frame of play (pause with Start)
+    (0x00, 0x2E94): "State_Fading",  # $43
+    (0x00, 0x2B2E): "State_RareLogo",  # $46
+    (0x00, 0x1B56): "State_WorldMapLook",  # $49
+    (0x00, 0x391B): "State_Wait",  # $4c
+    (0x00, 0x393A): "State_WaitForMusic",  # $4f
+    (0x00, 0x3941): "State_WaitForButton",  # $52
+    (0x00, 0x2B82): "State_LoadScreenMap",  # $55: a full screen from the flow record
+    (0x00, 0x2B6B): "State_LoadScreenPalettes",  # $58
+    (0x00, 0x2BC4): "State_LoadScreenTiles",  # $5b
+    (0x00, 0x2BE7): "State_LoadScreenTilesBank1",  # $5e
+    (0x00, 0x3D28): "State_FrontEnd",  # $61: FE_Enter with d = 2 (Crosshair Cranky), then acts on what it returns
+    # --- bank $00: other routines
+    (0x00, 0x1391): "HUD_DrawBananas",
+    (0x00, 0x13E1): "HUD_DrawLives",
+    (0x00, 0x144E): "HUD_DrawItems",
+    (0x00, 0x1604): "DrawIcon16",  # two 8x16 sprites, tiles $7c/$7e
+    (0x00, 0x16AB): "BuildSpawnGrid",  # the level's objects ($a800 table) into a grid by position
+    (0x00, 0x1841): "SpawnBananaString",  # level object type $10
+    (0x00, 0x185F): "SpawnObjectGroup",
+    (0x00, 0x1D2F): "WorldMap_ReadNode",
+    (0x00, 0x1FFE): "WorldMap_UpdateNodeSong",
+    (0x00, 0x2793): "SpawnHUD",
+    (0x00, 0x27ED): "SpawnStopGoTimer",  # level kind 4
+    (0x00, 0x27FF): "SpawnLightsTimer",  # level kind 5
+    (0x00, 0x281C): "SpawnLightsFlicker",  # level kind 6
+    (0x00, 0x282E): "SpawnSnowflakes",  # level kind 7
+    (0x00, 0x2842): "SpawnAnimalMask",  # animal bonus levels
+    (0x00, 0x2861): "SpawnMineCart",  # level kind 1 entered by cart
+    (0x00, 0x2A63): "DrawPauseScreen",
+    (0x00, 0x2AB7): "Pause_LoadPalette",
+    (0x00, 0x2AD8): "ResetPlatformList",
+    (0x00, 0x2AE3): "CommitPlatformList",  # the platforms registered this frame ($d57e) become the list collision uses ($d500)
+    (0x00, 0x2F03): "Save_EraseFile_Far",
+    (0x00, 0x2F09): "Save_ComputeSummaries_Far",
+    (0x00, 0x3254): "Music_JumpHL",
+    (0x00, 0x32C5): "Music_UpdateVibrato",
+    (0x00, 0x3303): "Music_UpdatePitchSlide",
+    (0x00, 0x333A): "Sound_WriteChannelRegisters",
+    # --- bank $0F: shops, new game, save files
+    (0x0F, 0x4001): "Shop_CandysChallenge",
+    (0x0F, 0x40A9): "Shop_CrankysCabin",
+    (0x0F, 0x412E): "Shop_FunkysFlights",
+    (0x0F, 0x41C2): "Shop_BananaHoard",
+    (0x0F, 0x4204): "Shop_SpawnKong",
+    (0x0F, 0x422F): "Shop_SpawnExtra",
+    (0x0F, 0x424C): "Shop_SpawnOnce",
+    (0x0F, 0x427F): "Shop_KongReactTimer",
+    (0x0F, 0x42A6): "Shop_KongCelebrate",
+    (0x0F, 0x42C4): "FunkysPlane_Bob",
+    (0x0F, 0x42E4): "Shop_Input",
+    (0x0F, 0x4373): "Shop_SetKongAnim",
+    (0x0F, 0x43A6): "Shop_LeaveTimer",
+    (0x0F, 0x43BF): "Shop_FlyAwayTimer",
+    (0x0F, 0x43DD): "Shop_Update",
+    (0x0F, 0x456F): "Shop_Leave",  # Funky's Flights: to the chosen world's entrance (Entrances_0f_4595)
+    (0x0F, 0x45A1): "Shop_SetDestination",
+    (0x0F, 0x45B1): "NewGame_InitState",  # five lives, counters cleared
+    (0x0F, 0x464E): "Save_MarkLevelCleared",
+    (0x0F, 0x4744): "Save_CheckFiles",  # at start-up: each file against its checksum, from the backup copies when needed
+    (0x0F, 0x47AB): "Save_WriteFile",  # with its checksum, to the three copies
+    (0x0F, 0x47E8): "Save_Checksum",  # seeded with $aa55
+    (0x0F, 0x4802): "Save_EraseFile",
+    (0x0F, 0x4815): "Save_ComputeSummaries",  # completion of each file for the save select
+    (0x0F, 0x48C9): "Save_CountCompletion",
+    (0x0F, 0x490F): "AddCarryBCD",
+    (0x0A, 0x70A2): "Millstone_Despawn",
 }

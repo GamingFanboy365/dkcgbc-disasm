@@ -1005,7 +1005,7 @@ ObjInit_0e_46bf::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7416
+	obj_word OBJ_TOUCH_HANDLER, HiddenKongLetter_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $11
 	obj_end
@@ -1014,7 +1014,7 @@ ObjInit_0e_46ce::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
-	obj_word OBJ_TOUCH_HANDLER, Func_09_7416
+	obj_word OBJ_TOUCH_HANDLER, HiddenKongLetter_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $11
 	obj_byte OBJ_VAR_2F, $01

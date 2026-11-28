@@ -6,7 +6,7 @@ SECTION "Bank $07", ROMX[$4000], BANK[$07]
 BankNumber_07::
 	db $07 ; bank number
 
-Func_07_4001::
+Title_Init::
 	di
 	ld a, $87
 	ldh [rLCDC], a
@@ -117,7 +117,7 @@ Func_07_4001::
 .jump_40be:
 	ld a, $12
 	sub c
-	call Func_07_43b2
+	call Title_StartHDMA
 	dec c
 	jr nz, .jump_40be
 	xor a
@@ -209,7 +209,7 @@ TitlePaletteSwaps_07_4179::
 	db 107, $78, $80 | 56 ; at line 107, palette 15 -> slot 7
 	db $ff
 
-Func_07_4195::
+Title_UpdatePalettes::
 	ld de, wBGPalettesOut
 	ld hl, $ce00
 	ld bc, $0040
@@ -311,7 +311,7 @@ Func_07_4195::
 	rra
 	and $1f
 	add a, $12
-	call Func_07_43b2
+	call Title_StartHDMA
 	ld a, [$cf60]
 	cp $90
 	ret nz
@@ -442,7 +442,7 @@ TitleSpriteFrame_07_438a::
 	db 80, 128, 24, 0
 	db 80, 136, 26, 0
 
-Func_07_43b2::
+Title_StartHDMA::
 	ld e, $00
 	rra
 	rr e

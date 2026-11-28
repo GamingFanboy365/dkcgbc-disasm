@@ -1088,9 +1088,10 @@ def make(rom):
                 any((i.bank, (i.addr >> 6) + d) in frame_funcs for d in (-1, 0, 1)):
             i.dataref = (t.frame_bank, i.imm)
     # the targets of "jp" table entries are entry points of their own, even
-    # where they sit inside a longer routine (front-end program only so far)
+    # where they sit inside a longer routine (the game states in bank $00 and
+    # the front-end program's tables)
     for (b, start, count, stride) in hints.JP_TABLES:
-        if b < 0xF0:
+        if 0 < b < 0xF0:
             continue
         for k in range(count):
             i = t.insns.get(off(b, start + k * stride))

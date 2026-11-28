@@ -6,7 +6,7 @@ SECTION "Bank $0f", ROMX[$4000], BANK[$0f]
 BankNumber_0f::
 	db $0f ; bank number
 
-Func_0f_4001::
+Shop_CandysChallenge::
 	ld b, $43
 	ld hl, $6720
 	call LoadScreen
@@ -31,7 +31,7 @@ Func_0f_4001::
 	ld a, $01
 .jump_402e:
 	ld [$c44e], a
-	call Func_0f_4204
+	call Shop_SpawnKong
 	ld hl, ObjInit_0f_409d
 	call ApplyObjInit
 	call AllocObject
@@ -43,7 +43,7 @@ Func_0f_4001::
 	jr nz, .jump_406c
 	ld hl, ObjInit_0f_408a
 	call InitObject
-	call Func_0f_422f
+	call Shop_SpawnExtra
 	ld hl, $c310
 	bit 1, [hl]
 	jr z, .jump_4063
@@ -65,8 +65,8 @@ Func_0f_4001::
 
 ObjInit_0f_4073::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte OBJ_BANK, BANK(Func_0f_424c)
-	obj_word OBJ_HANDLER, Func_0f_424c
+	obj_byte OBJ_BANK, BANK(Shop_SpawnOnce)
+	obj_word OBJ_HANDLER, Shop_SpawnOnce
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_byte OBJ_PALETTE, $31
 	obj_word OBJ_ANIM, Anim_04_5637
@@ -86,13 +86,13 @@ ObjInit_0f_408a::
 	obj_end
 
 ObjInit_0f_409d::
-	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
-	obj_word OBJ_HANDLER, Func_0f_42e4
+	obj_byte OBJ_BANK, BANK(Shop_Input)
+	obj_word OBJ_HANDLER, Shop_Input
 	obj_word OBJ_X, $001e
 	obj_word OBJ_Y, $0064
 	obj_end
 
-Func_0f_40a9::
+Shop_CrankysCabin::
 	ld b, $43
 	ld hl, $6726
 	call LoadScreen
@@ -103,13 +103,13 @@ Func_0f_40a9::
 	ld hl, $0800
 	ld c, $7f
 	call FarHDMACopy
-	call Func_0f_4204
+	call Shop_SpawnKong
 	ld hl, ObjInit_0f_4122
 	call ApplyObjInit
 	call AllocObject
 	ld hl, ObjInit_0f_410b
 	call InitObject
-	call Func_0f_422f
+	call Shop_SpawnExtra
 	ld a, [$c30c]
 	cp $03
 	jr z, .jump_40fb
@@ -141,8 +141,8 @@ Func_0f_40a9::
 
 ObjInit_0f_410b::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte OBJ_BANK, BANK(Func_0f_42a6)
-	obj_word OBJ_HANDLER, Func_0f_42a6
+	obj_byte OBJ_BANK, BANK(Shop_KongCelebrate)
+	obj_word OBJ_HANDLER, Shop_KongCelebrate
 	obj_byte OBJ_PALETTE, $34
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_word OBJ_ANIM, Anim_04_556b
@@ -152,13 +152,13 @@ ObjInit_0f_410b::
 	obj_end
 
 ObjInit_0f_4122::
-	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
-	obj_word OBJ_HANDLER, Func_0f_42e4
+	obj_byte OBJ_BANK, BANK(Shop_Input)
+	obj_word OBJ_HANDLER, Shop_Input
 	obj_word OBJ_X, $0028
 	obj_word OBJ_Y, $0064
 	obj_end
 
-Func_0f_412e::
+Shop_FunkysFlights::
 	ld b, $42
 	ld hl, $75e0
 	call LoadScreen
@@ -169,7 +169,7 @@ Func_0f_412e::
 	ld hl, $0800
 	ld c, $7f
 	call FarHDMACopy
-	call Func_0f_4204
+	call Shop_SpawnKong
 	ld hl, ObjInit_0f_41b6
 	call ApplyObjInit
 	call AllocObject
@@ -178,7 +178,7 @@ Func_0f_412e::
 	call AllocObject
 	ld hl, ObjInit_0f_41a2
 	call InitObject
-	call Func_0f_422f
+	call Shop_SpawnExtra
 	ld hl, $c310
 	bit 2, [hl]
 	jr z, .jump_4184
@@ -214,8 +214,8 @@ ObjInit_0f_418d::
 
 ObjInit_0f_41a2::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte OBJ_BANK, BANK(Func_0f_42c4)
-	obj_word OBJ_HANDLER, Func_0f_42c4
+	obj_byte OBJ_BANK, BANK(FunkysPlane_Bob)
+	obj_word OBJ_HANDLER, FunkysPlane_Bob
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_PALETTE, $37
 	obj_word OBJ_FRAME, Frame_20_5d40
@@ -224,13 +224,13 @@ ObjInit_0f_41a2::
 	obj_end
 
 ObjInit_0f_41b6::
-	obj_byte OBJ_BANK, BANK(Func_0f_42e4)
-	obj_word OBJ_HANDLER, Func_0f_42e4
+	obj_byte OBJ_BANK, BANK(Shop_Input)
+	obj_word OBJ_HANDLER, Shop_Input
 	obj_word OBJ_X, $0014
 	obj_word OBJ_Y, $0064
 	obj_end
 
-Func_0f_41c2::
+Shop_BananaHoard::
 	ld b, $74
 	ld hl, $5490
 	call LoadScreen
@@ -264,7 +264,7 @@ ObjInit_0f_41f4::
 	obj_word OBJ_Y, $007f
 	obj_end
 
-Func_0f_4204::
+Shop_SpawnKong::
 	ld bc, $0000
 	ld a, [$c30f]
 	rrca
@@ -292,7 +292,7 @@ ObjInit_0f_4223::
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-Func_0f_422f::
+Shop_SpawnExtra::
 	call AllocObject
 	ld hl, ObjInit_0f_4239
 	call ApplyObjInit
@@ -309,7 +309,7 @@ ObjInit_0f_4239::
 	obj_byte OBJ_OAM_ATTR, $07
 	obj_end
 
-Func_0f_424c::
+Shop_SpawnOnce::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
@@ -327,8 +327,8 @@ Func_0f_424c::
 
 ObjInit_0f_4267::
 	obj_byte OBJ_FLAGS, $19
-	obj_byte OBJ_BANK, BANK(Func_0f_427f)
-	obj_word OBJ_HANDLER, Func_0f_427f
+	obj_byte OBJ_BANK, BANK(Shop_KongReactTimer)
+	obj_word OBJ_HANDLER, Shop_KongReactTimer
 	obj_byte OBJ_PALETTE, $33
 	obj_word OBJ_ANIM, Anim_04_56f1
 	obj_word OBJ_XVEL, $fe80
@@ -337,7 +337,7 @@ ObjInit_0f_4267::
 	obj_word OBJ_Y, $0050
 	obj_end
 
-Func_0f_427f::
+Shop_KongReactTimer::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -360,7 +360,7 @@ Func_0f_427f::
 	jp NextObject
 
 
-Func_0f_42a6::
+Shop_KongCelebrate::
 	ld a, [$c30f]
 	rrca
 	jr c, .jump_42be
@@ -378,7 +378,7 @@ Func_0f_42a6::
 	jp NextObject
 
 
-Func_0f_42c4::
+FunkysPlane_Bob::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
@@ -399,7 +399,7 @@ Func_0f_42c4::
 	jp NextObject
 
 
-Func_0f_42e4::
+Shop_Input::
 	ldh a, [$ff81]
 	bit 0, a
 	jr nz, .jump_42f4
@@ -456,8 +456,8 @@ Func_0f_42e4::
 
 
 ObjInit_0f_4344::
-	obj_byte OBJ_BANK, BANK(Func_0f_43bf)
-	obj_word OBJ_HANDLER, Func_0f_43bf
+	obj_byte OBJ_BANK, BANK(Shop_FlyAwayTimer)
+	obj_word OBJ_HANDLER, Shop_FlyAwayTimer
 	obj_word OBJ_YVEL, $f900
 	obj_word OBJ_YACCEL, $0050
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -478,13 +478,13 @@ ObjInit_0f_4360::
 	obj_end
 
 ObjInit_0f_4369::
-	obj_byte OBJ_BANK, BANK(Func_0f_4373)
-	obj_word OBJ_HANDLER, Func_0f_4373
+	obj_byte OBJ_BANK, BANK(Shop_SetKongAnim)
+	obj_word OBJ_HANDLER, Shop_SetKongAnim
 	obj_byte OBJ_ANIM_FLAGS, $88
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
-Func_0f_4373::
+Shop_SetKongAnim::
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	rlca
 	jr c, .jump_4391
@@ -506,15 +506,15 @@ Func_0f_4373::
 
 
 ObjInit_0f_4397::
-	obj_byte OBJ_BANK, BANK(Func_0f_43a6)
-	obj_word OBJ_HANDLER, Func_0f_43a6
+	obj_byte OBJ_BANK, BANK(Shop_LeaveTimer)
+	obj_word OBJ_HANDLER, Shop_LeaveTimer
 	obj_byte OBJ_ANIM_FLAGS, $81
 	obj_word OBJ_XVEL, $fecd
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
-Func_0f_43a6::
+Shop_LeaveTimer::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -528,7 +528,7 @@ Func_0f_43a6::
 	jp NextObject
 
 
-Func_0f_43bf::
+Shop_FlyAwayTimer::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
@@ -546,7 +546,7 @@ Func_0f_43bf::
 	jr .jump_43cf
 
 
-Func_0f_43dd::
+Shop_Update::
 	ldh a, [$ff81]
 	and $0a
 	jp nz, RunFlowScript
@@ -554,7 +554,7 @@ Func_0f_43dd::
 	cp $ff
 	jp z, RunFlowScript
 	cp $fe
-	jp z, Func_0f_456f
+	jp z, Shop_Leave
 	ld a, [$c30c]
 	or a
 	jr z, .jump_4417
@@ -798,10 +798,10 @@ Func_0f_43dd::
 ByteTable_0f_4568::
 	db 5, 9, 14, 19, 24, 27, 27 ; by [$c30a]
 
-Func_0f_456f::
+Shop_Leave::
 	ld a, [$c30c]
 	dec a
-	jr z, Func_0f_45a1
+	jr z, Shop_SetDestination
 	ld a, [$c44e]
 	or a
 	jp nz, RunFlowScript
@@ -824,7 +824,7 @@ Func_0f_456f::
 Entrances_0f_4595::
 	dw LevelEntrance_04_5f7c, LevelEntrance_04_5ecc, LevelEntrance_04_5f2c, LevelEntrance_04_5a24, LevelEntrance_04_5a3c, LevelEntrance_04_5b14 ; wLevelEntrance
 
-Func_0f_45a1::
+Shop_SetDestination::
 	ld a, [$c30a]
 	add a, $29
 	ld [$c30b], a
@@ -833,7 +833,7 @@ Func_0f_45a1::
 	jp RunFlowScript
 
 
-Func_0f_45b1::
+NewGame_InitState::
 	ld a, $05
 	ld [$c31d], a
 	xor a
@@ -921,7 +921,7 @@ Func_0f_45b1::
 	ret
 
 
-Func_0f_464e::
+Save_MarkLevelCleared::
 	ld hl, $c310
 	res 0, [hl]
 	ld a, [$c30c]
@@ -1028,7 +1028,7 @@ Func_0f_464e::
 .jump_46e8:
 	ld a, [$c30a]
 	ld [hli], a
-	call Func_0f_47ab
+	call Save_WriteFile
 	ret
 
 
@@ -1045,12 +1045,12 @@ Masks_0f_46f0::
 	dw %1111111111111111, %1111111111111111, %1111111111111111, %1111111111111111
 	dw %1111111111111111, %1111111111111111
 
-Func_0f_4744::
+Save_CheckFiles::
 	ld de, $0004
 .jump_4747:
 	push de
 	ld a, d
-	call Func_0f_47e8
+	call Save_Checksum
 	ld a, [hli]
 	cp c
 	jr nz, .jump_4754
@@ -1098,7 +1098,7 @@ Func_0f_4744::
 	jr nz, .jump_475b
 	pop de
 	ld a, d
-	call Func_0f_47e8
+	call Save_Checksum
 	ld a, [hli]
 	cp c
 	jr nz, .jump_4796
@@ -1128,13 +1128,13 @@ Func_0f_4744::
 	ld [hli], a
 	dec c
 	jr nz, .jump_47a2
-	call Func_0f_47ab
+	call Save_WriteFile
 	jr .jump_478e
 
 
-Func_0f_47ab::
+Save_WriteFile::
 	ld a, [$c309]
-	call Func_0f_47e8
+	call Save_Checksum
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -1168,7 +1168,7 @@ Func_0f_47ab::
 	ret
 
 
-Func_0f_47e8::
+Save_Checksum::
 	rrca
 	rrca
 	ld l, a
@@ -1191,7 +1191,7 @@ Func_0f_47e8::
 	ret
 
 
-Func_0f_4802::
+Save_EraseFile::
 	ld [$c309], a
 	rrca
 	rrca
@@ -1203,16 +1203,16 @@ Func_0f_4802::
 	ld [hli], a
 	dec c
 	jr nz, .jump_480d
-	call Func_0f_47ab
+	call Save_WriteFile
 	ret
 
 
-Func_0f_4815::
+Save_ComputeSummaries::
 	ld bc, $0003
 .jump_4818:
 	push bc
 	ld a, b
-	call Func_0f_48c9
+	call Save_CountCompletion
 	push hl
 	ld a, b
 	add a, a
@@ -1317,14 +1317,14 @@ Func_0f_4815::
 	ld [$b0c6], a
 	ld a, $03
 	ld [$c309], a
-	call Func_0f_47ab
+	call Save_WriteFile
 	ret
 
 
 LevelFlagBits::
 	db 0, 0, 1, 7, 15, 2, 8, 0, 0, 3, 4, 11, 14, 12, 9, 0, 0, 5, 13, 17, 6, 16, 10, 0, 201 ; save flag bit by level (Func_0f_4830 area)
 
-Func_0f_48c9::
+Save_CountCompletion::
 	rrca
 	rrca
 	inc a
@@ -1335,13 +1335,13 @@ Func_0f_48c9::
 .jump_48d4:
 	ld a, [hl]
 	rrca
-	call Func_0f_490f
+	call AddCarryBCD
 	ld a, [hli]
 	swap a
 	rrca
-	call Func_0f_490f
+	call AddCarryBCD
 	rrca
-	call Func_0f_490f
+	call AddCarryBCD
 	dec c
 	jr nz, .jump_48d4
 	ld c, $06
@@ -1349,9 +1349,9 @@ Func_0f_48c9::
 	ld a, [hli]
 	rrca
 	jr nc, .jump_48f4
-	call Func_0f_490f
+	call AddCarryBCD
 	scf
-	call Func_0f_490f
+	call AddCarryBCD
 .jump_48f4:
 	dec c
 	jr nz, .jump_48e9
@@ -1360,11 +1360,11 @@ Func_0f_48c9::
 	jr nc, .jump_48fd
 	set 6, d
 .jump_48fd:
-	call Func_0f_490f
+	call AddCarryBCD
 	rrca
-	call Func_0f_490f
+	call AddCarryBCD
 	rrca
-	call Func_0f_490f
+	call AddCarryBCD
 	ld a, e
 	or d
 	jr z, .jump_490e
@@ -1373,7 +1373,7 @@ Func_0f_48c9::
 	ret
 
 
-Func_0f_490f::
+AddCarryBCD::
 	push af
 	ld a, e
 	adc a, $00

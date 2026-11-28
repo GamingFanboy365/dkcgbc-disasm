@@ -88,4 +88,23 @@ DEF FE_UpdateSound    EQU $c930
 DEF FE_PlaySong       EQU $c94b
 DEF FE_OAMDMA         EQU $ff87
 
+; Funky's Fishing's runtime in RAM (FISHING_RAM_NAMES in tools/hints.py)
+DEF Fishing_SerialHandler      EQU $cb00
+DEF Fishing_FarJump            EQU $cb99
+DEF Fishing_FarReturn          EQU $cba7
+DEF Fishing_FarReturnKeepFlags EQU $cbb2
+DEF Fishing_CopyBytes          EQU $cbcb
+DEF Fishing_CopyBytesShort     EQU $cbd4
+DEF Fishing_FillBytes          EQU $cbdb
+DEF Fishing_FillBytesShort     EQU $cbe3
+DEF Fishing_LinkStoreReceived  EQU $cbe9
+DEF Fishing_LinkSendNext       EQU $cbff
+DEF Fishing_RestartMainLoop    EQU $cc21
+DEF Fishing_ReadWordTable51    EQU $cc32
+DEF Fishing_PlaySample         EQU $cc4e
+DEF Fishing_PlaySong           EQU $cc91
+DEF Fishing_VBlank             EQU $cca5
+DEF Fishing_STATScroll         EQU $ccc0
+DEF Fishing_SampleTimer        EQU $cce2
+
 ENDC

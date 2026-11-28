@@ -1,6 +1,6 @@
 -- Visit sample points in every level and log what each live object uses.
 -- env: JOBS (file), PART (k), PARTS (n), OUT (log file), RUN (frames per job),
--- MODE (idle, right, left, roll, slap, up, swim), KONG (diddy)
+-- MODE (idle, right, left, roll, slap, up, swim), KONG (diddy), SILENCE (1)
 local KEY={A=1,B=2,SELECT=4,START=8,RIGHT=16,LEFT=32,UP=64,DOWN=128}
 local steps = { {900,"A",5},{600,"",0},{3000,"START",5},{300,"A",5},{200,"A",5},{800,"A",5},{390,"",0} }
 local PART=tonumber(os.getenv("PART")); local PARTS=tonumber(os.getenv("PARTS"))
@@ -117,6 +117,11 @@ callbacks:add("frame", function()
     end
     emu:setKeys(k)
     if t>=150 then force() end
+    -- SILENCE=1: from frame 700, mark the music as finished every second, so
+    -- scenes that wait for a song to end go on (K. Rool's fake Kredits)
+    if os.getenv("SILENCE")=="1" and t>=700 and t%60==0 then
+      for c=0,3 do emu.memory.wram:write8(4*0x1000+c*0x100+0x1f, 0) end
+    end
     if t>=40 then sample() end
     if t>=RUN then startjob() end
     return

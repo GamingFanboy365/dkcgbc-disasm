@@ -33,6 +33,12 @@ to the live object with that touch handler, 150 frames in, and the next pair
 70 frames later. That is how states no idle run reaches are shown: a boss
 being hit and defeated, a sticker pad giving up its sticker.
 
+Some scenes wait for a song to end, and in these runs the song never does
+(K. Rool's fake "Kredits" sit waiting after his first defeat). `SILENCE=1`
+marks the music as finished every second from frame 700 on, so they go on;
+the job `6504 21 0020 0084 01 487a 4927` with `MODE=right RUN=4000 SILENCE=1`
+shows the Kredits captions.
+
 Inputs are scripted with `MODE` (`idle`, `right`, `left`, `roll`, `slap`,
 `up`, `swim`); `KONG=diddy` plays as Diddy Kong.
 

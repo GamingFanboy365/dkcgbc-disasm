@@ -151,19 +151,21 @@ DumbDrum_Descend | DumbDrum | DumbDrum_BeginSpawn | DumbDrum_SpawnEnemies
 DumbDrum_SpawnEnemies | DumbDrum | DumbDrum_Descend | DumbDrum_Leave
 DumbDrum_Leave | DumbDrum | DumbDrum_SpawnEnemies | DumbDrum_WaitForEnemies
 DumbDrum_WaitForEnemies | DumbDrum | DumbDrum_Leave | 
-KingKRool | KingKRool |  | KingKRool_Wait, KingKRool_BeginRuns, KingKRool_FakeDefeat, BossDefeated
+KingKRool | KingKRool |  | KingKRool_Wait, KingKRool_FakeDefeat, KingKRool_BeginRuns, BossDefeated
 KingKRool_Wait | KingKRool | KingKRool | KingKRool_Throw
 KingKRool_Throw | KingKRool | KingKRool_Wait | KingKRool_WaitForCrown
 KingKRool_WaitForCrown | KingKRool | KingKRool_Throw | 
-KingKRool_BeginRuns | KingKRool | KingKRool | KingKRool_RunPause
+KingKRool_BeginRuns | KingKRool | KingKRool, KingKRool_FakeKredits | KingKRool_RunPause
 KingKRool_RunPause | KingKRool | KingKRool_Run, KingKRool_BeginRuns | KingKRool_Run
 KingKRool_Run | KingKRool | KingKRool_RunPause | KingKRool_RunPause
 KingKRool_FakeDefeat | KingKRool | KingKRool | KingKRool_FakeKredits
-KingKRool_FakeKredits | KingKRool | KingKRool_FakeDefeat | 
+KingKRool_FakeKredits | KingKRool | KingKRool_FakeDefeat | KingKRool_BeginRuns
 Crownerang |  | Obj_MoveAndAnimate, Func_09_4dff | Crownerang_Return
 Crownerang_Return |  | Crownerang | 
 GiantBanana |  | Obj_MoveAndAnimate | 
-KingKRool_AfterKredits |  | Obj_MoveAndAnimate | 
+KingKRool_AfterKredits |  | Obj_MoveAndAnimate | Func_0a_5307
+Func_0a_5307 |  | KingKRool_AfterKredits | Func_0a_53ff
+Func_0a_53ff |  | Func_0a_5307 | 
 HUD_Bananas_Hidden |  | HUD_Bananas_SlideOut | HUD_Bananas_SlideIn
 HUD_Bananas_SlideIn |  | HUD_Bananas_Hidden | HUD_Bananas_Shown
 HUD_Bananas_Shown |  | HUD_Bananas_SlideIn | HUD_Bananas_SlideOut

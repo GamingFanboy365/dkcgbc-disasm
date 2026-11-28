@@ -75,9 +75,10 @@ class Finder:
     def used_frames(self):
         t, fb = self.t, self.t.frame_bank
         used = set()
-        for o, (b, ent) in self.fp.anim_next.items():
-            if ent[1] == "frame":
-                used.add(ent[2])
+        # frames of the animation scripts something starts (following their
+        # jumps); a script reached only by its own loop does not count
+        for a in self.referenced_anims():
+            used |= {o % BANK_SIZE + 0x4000 for o in self.fp.anim_frames(a)}
         for i in t.insns.values():  # "ld de, frame" stored into OBJ_FRAME
             if i.dataref is not None and i.dataref[0] == fb:
                 used.add(i.dataref[1])
@@ -182,11 +183,22 @@ class Finder:
         return out
 
     def referenced_anims(self):
+        """Scripts started from outside the script data (code, initialiser
+        lists, tables), plus every script those reach through anim_jump."""
+        if getattr(self, "_refs", None) is not None:
+            return self._refs
         t = self.t
         refs = set()
-        for o, (b, ent) in self.fp.anim_next.items():
-            if ent[1] == "cmd" and ent[2] == 0:
-                refs.add(ent[4])
+        for i in t.insns.values():  # "ld de/hl, script" in code
+            if i.dataref is not None and i.dataref[0] == t.anim_bank:
+                refs.add(i.dataref[1])
+        for o, item in t.data.items():
+            if item[0] == "rows":
+                for row in item[2]:
+                    for tok in row[1]:
+                        if isinstance(tok, tuple) and tok[0] == "ref" and tok[1] == t.anim_bank \
+                                and off(t.anim_bank, tok[2]) in self.fp.anim_next:
+                            refs.add(tok[2])
         for (lo, hi, tb, target) in t.lohi:
             if tb == t.anim_bank:
                 refs.add(target)
@@ -198,7 +210,27 @@ class Finder:
                 for e in item[2]:
                     if e[0] == "word" and e[1] == 0x22:
                         refs.add(e[2])
-        return refs
+        # follow anim_jump from the scripts reached so far
+        todo, seen = list(refs), set()
+        while todo:
+            a = todo.pop()
+            if a in seen:
+                continue
+            seen.add(a)
+            o = off(t.anim_bank, a)
+            visited = set()
+            while o in self.fp.anim_next and o not in visited:
+                visited.add(o)
+                _, ent = self.fp.anim_next[o]
+                if ent[1] == "frame":
+                    o += 2
+                    continue
+                if ent[2] == 0:
+                    todo.append(ent[4])
+                    break
+                o += 4 if ent[4] is not None else 2
+        self._refs = seen
+        return seen
 
     # ---------------------------------------------------------- palettes
     def used_palettes(self):

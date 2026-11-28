@@ -14,7 +14,7 @@ Something counts as unused when nothing the disassembly decodes refers to it. Th
 
 ## Sprite frames
 
-53 of the 1,414 sprite frames are never shown by any animation, object, table or script found so far. Now that every byte of the main game's banks is identified, none of them has even a loose match left (its address turning up in undecoded bytes), so these are firm finds as far as the disassembly can tell.
+104 of the 1,414 sprite frames are never shown by any animation, object, table or script found so far. Now that every byte of the main game's banks is identified, none of them has even a loose match left (its address turning up in undecoded bytes), so these are firm finds as far as the disassembly can tell.
 
 | Frames | What they show |
 |---|---|
@@ -30,6 +30,12 @@ Something counts as unused when nothing the disassembly decodes refers to it. Th
 | `Frame_20_5e18`, `5e1e` | a gorilla-like character |
 | `Frame_20_5ea8`, `5ec6` | a monkey-like character |
 | `Frame_20_4264` | a small cloud or splash |
+| `Frame_20_4b58`–`4b7c`, `4f8a`–`4fae`, `44f8`–`451c`, `44c2`–`44e6` | the Rambi, Winky, Expresso and Enguarde animal tokens turning, seven frames each; the heads-up display shows only each token's first frame, as a still picture (`HUD_Items_Hidden`) |
+| `Frame_20_60ac`–`60ee` | a coin turning, twelve frames |
+| `Frame_20_4a3e`–`4a5c`, `4a62` | Croctopus: six frames of curling tentacles and a single pose, filed with his other frames |
+| `Frame_20_4e10`, `5446`, `51d6`, `5278` | one more pose each for Enguarde, Rambi, Expresso and Winky, filed after each animal's other frames |
+
+The last four groups (51 frames) were found when the finder stopped counting an animation script as used just because the script's own loop jumps back into it. Their scripts (`Anim_04_473b`, `47d9`, `4883`, `491b`, `4dc3`, `4dcf`, `4def`, `572b`, and the token scripts `4e39`, `4e4f`, `4e65`, `4e7b`) are started by nothing: no code, initialiser list or table points at them or at the `anim_speed` line just before them. Searching the whole ROM for their addresses as raw bytes turns up only coincidences (tile maps, world map markers, a list in bank `$08` that happens to sit at `$4E37`, and code in the separate front-end program). Neither emulator harvest ever showed one of their frames.
 
 The "STOP", "ON" and "OFF" barrel signs (`Frame_20_4dda`, `4de6`, `4dec`) were on this list too, but the Stop/Go and On/Off barrels (`StopGoBarrel`, `OnOffBarrel`) load them with `ld de`, which the finder now follows. Earlier versions of this list had 89 frames. The rest turned out to be used once the tables in banks `$08` and `$0A` were decoded: the letter blocks A–Y that spell words, the credits headings ("KREDITS", "KODING", "KARACTERS", "KOLORING", "KONCEPT", "KOMMANDER"), the cast names ("KLAP TRAP", "KRUSHA", "KRITTER", "KLUMP", "KING K.ROOL") and "THE END?" in all five languages, all of which the ending draws from `CreditsCaptions` (`$0A:53BF`), and one frame in `CarrierObjectTable`.
 
@@ -39,7 +45,7 @@ Since nothing uses these frames, the ROM doesn't say which palette they would be
 
 ## Animation scripts
 
-12 scripts in bank `$04` are never started, but every frame they show is used by some other script, so nothing is hidden in them. Four have no loose match at all: `Anim_04_4aab`, `Anim_04_4d21`, `Anim_04_4d5b` and `Anim_04_4d9d`.
+13 scripts in bank `$04` are never started (counting a script as started only when code, an initialiser list or a table points at it, or a started script jumps to it). Twelve of them hold the unused frames listed above. The thirteenth, `Anim_04_479f`, shows six Rambi frames that other scripts use, so nothing is hidden in it. An earlier version of this list named `Anim_04_4aab`, `4d21`, `4d5b` and `4d9d`; the touch handlers start those, now that the finder follows code that loads a script's address.
 
 ## Palettes
 
@@ -238,4 +244,4 @@ These turned up nothing unused, which is worth knowing too:
 
 Every byte of the ROM is now identified, so this list holds things whose kind is known but whose use isn't yet. The 256 tiles at `$F2:5760` (after the letter piece records) and the four tiles at `$F7:7F60` (after the front-end sprites) have no known loader. They need more emulator runs (Link-up, Print, the credits) before they can be called unused. A few small front-end tables are decoded by size and reader but not by meaning: `Defaults_f1_5d0a` (copied to `$C9E6`, `$C9FE` and `$CA08`), `Pairs_f1_6fe0` (written relative to the RAM address `$C329` kept in ROM at `$00F6`), `Triples_fe_6958` and `ByteTable_fe_6cce`. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session, but it's in the sample table, so it isn't unused on that evidence.
 
-A few names in the gameplay banks are still guesses and are marked as tentative where they are defined in `tools/names.py`: `Entrance_BananaHoard` (the doorway at the very start of Jungle Hijinxs, whose destination changes once the save file has cleared levels), `Player_Carry` and `Player_AfterThrow`, and `HUD_PartnerIcon`. Two routines seen running in the emulator have no name yet (`Func_08_5d4a`, which copies a small grid of bytes into WRAM bank 4, and `Func_09_4dff`). 49 sprite frames that are in use have no known palette: the cast sprites of the credits, the 12 frames of `Anim_04_572b`, the 8 of `FrameTable_00_2a9e`, and a handful of single frames.
+A few names in the gameplay banks are still guesses and are marked as tentative where they are defined in `tools/names.py`: `Entrance_BananaHoard` (the doorway at the very start of Jungle Hijinxs, whose destination changes once the save file has cleared levels), `Player_Carry` and `Player_AfterThrow`, and `HUD_PartnerIcon`. Two routines seen running in the emulator have no name yet (`Func_08_5d4a`, which copies a small grid of bytes into WRAM bank 4, and `Func_09_4dff`). Every sprite frame the game uses now has a palette; the 70 frames still drawn gray are all among the unused ones above.

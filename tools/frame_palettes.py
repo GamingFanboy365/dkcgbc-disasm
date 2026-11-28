@@ -166,6 +166,38 @@ class FramePalettes:
                 self.votes[f][pal] += 1
                 self.sources[f].add(o)
         self._player_palettes()
+        self._barrel_palettes()
+        # The pause screen (Func_00_2a63) draws a frame of FrameTable_00_2a9e
+        # straight into OAM with attribute 0: hardware slot 0, which every
+        # level's preload list fills with palette 0 (seen in mGBA, paused).
+        item = t.data.get(off(0, 0x2A9E))
+        if item and item[0] == "frameptrs":
+            for a in item[2]:
+                self.votes[off(t.frame_bank, a)][0] += 1
+
+    # Barrels pick their animations from a table by type (OBJ_VAR_2E):
+    # 4 words per type at $09:6CAC; Barrel_Touch reads $6CAE + 8 * type and
+    # Barrel_PutDown $6CB0 + 8 * type. A barrel's list sets its palette.
+    BARREL_ANIMS, BARREL_TOUCH = (0x09, 0x6CAC), 0x6CCC
+
+    def _barrel_palettes(self):
+        t = self.t
+        b, a = self.BARREL_ANIMS
+        for o, item in t.data.items():
+            if item[0] != "objinit":
+                continue
+            f = self.list_fields(o)
+            if f.get(OBJ_TOUCH, 0) | f.get(OBJ_TOUCH + 1, 0) << 8 != self.BARREL_TOUCH:
+                continue
+            if OBJ_PALETTE not in f or 0x2E not in f:
+                continue
+            for k in range(4):
+                p = a + 8 * f[0x2E] + 2 * k
+                anim = self.rom[off(b, p)] | self.rom[off(b, p + 1)] << 8
+                if 0x4000 <= anim < 0x8000:
+                    for fr in self.anim_frames(anim):
+                        self.votes[fr][f[OBJ_PALETTE]] += 1
+                        self.sources[fr].add(o)
 
     def _player_palettes(self):
         """The player object's palette is set by SetPlayerPalette ($09:68a5)
@@ -257,6 +289,15 @@ class FramePalettes:
                     if f not in self.votes:
                         self.inferred[f] = scripts[a][2]
         self._infer_tables()
+        # a script runs on into the next label and follows its jumps: frames
+        # reached that way from a script with a palette are the same object
+        seen = self.observed()
+        for st, frames, pal in scripts:
+            if pal is None:
+                continue
+            for f in self.anim_frames(st % BANK_SIZE + 0x4000):
+                if f not in self.votes and f not in self.inferred and f % BANK_SIZE + 0x4000 not in seen:
+                    self.inferred[f] = pal
         return self.inferred
 
     def _infer_tables(self):

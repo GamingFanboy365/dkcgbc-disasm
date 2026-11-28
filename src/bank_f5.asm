@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $f5", ROMX[$4000], BANK[$f5]
 
-Func_f5_4000::
+Cranky_LoadPicture::
 	ld a, b
 	ld l, b
 	ld c, b
@@ -23,7 +23,7 @@ Func_f5_4000::
 	ld a, BANK(FE_LoadPictureMap)
 	ld hl, FE_LoadPictureMap
 	call FarCall_A_HL
-	call Func_f5_4142
+	call Cranky_UploadBGMap
 	ld a, $f0
 	ld [$c800], a
 	pop hl
@@ -56,7 +56,7 @@ Func_f5_4000::
 	ld [$c800], a
 	ld bc, $9000
 	ld d, $80
-	call Func_f5_40b6
+	call Cranky_HDMAAcrossBanks
 	ld bc, $0800
 	ld a, $40
 	push af
@@ -82,9 +82,9 @@ Func_f5_4000::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f5_4082::
+Cranky_LoadPictureTiles_8800::
 	ld bc, $8800
-	call Func_f5_40b6
+	call Cranky_HDMAAcrossBanks
 	ld a, $01
 	ldh [rVBK], a
 	ld bc, $0800
@@ -112,13 +112,13 @@ Func_f5_4082::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f5_40af::
+Cranky_LoadPictureTiles_9000::
 	ld bc, $9000
-	call Func_f5_40b6
+	call Cranky_HDMAAcrossBanks
 	ret
 
 
-Func_f5_40b6::
+Cranky_HDMAAcrossBanks::
 	ld a, $01
 	ldh [rSVBK], a
 	push hl
@@ -179,101 +179,101 @@ Func_f5_40b6::
 	pop hl
 	call $ccdc
 .jump_4116:
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	ld hl, $d000
 	pop de
 	pop bc
 	dec d
-	call Func_f5_44e1
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	call Cranky_StartHBlankDMA
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	pop hl
 	inc d
 	ret
 
 
-Func_f5_4142::
+Cranky_UploadBGMap::
 	ld a, $02
 	ldh [rSVBK], a
 	ld a, $01
 	ldh [rVBK], a
 	ld bc, $9800
 	ld d, $3f
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	ld hl, $d000
-	call Func_f5_44e1
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	call Cranky_StartHBlankDMA
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	xor a
 	ldh [rVBK], a
 	ld hl, $d400
-	call Func_f5_44e1
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	call Cranky_StartHBlankDMA
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f5_4193::
+Cranky_UploadBGMap9C00::
 	ld a, $02
 	ldh [rSVBK], a
 	ld a, $01
 	ldh [rVBK], a
 	ld bc, $9c00
 	ld d, $3f
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	ld hl, $d000
-	call Func_f5_44e1
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	call Cranky_StartHBlankDMA
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	xor a
 	ldh [rVBK], a
 	ld hl, $d400
-	call Func_f5_44e1
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	call Cranky_StartHBlankDMA
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f5_41e4::
+Cranky_InstallSpriteCopy::
 	ld hl, $449c
 	ld bc, $ccdc
 	ld d, $45
@@ -286,17 +286,17 @@ Func_f5_41e4::
 	ret
 
 
-Func_f5_41f3::
+Cranky_ClearPalettes::
 	ld a, $80
 	ldh [rOCPS], a
 	ldh [rBCPS], a
 	ld hl, $ff6b
 	ld d, $40
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	xor a
 .jump_420f:
@@ -312,7 +312,7 @@ Func_f5_41f3::
 	ret
 
 
-Func_f5_421d::
+Cranky_FadeIn::
 	ld a, $40
 	ldh [$ff82], a
 	ld de, $c806
@@ -331,20 +331,20 @@ Func_f5_421d::
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	call Func_f5_4291
+	call Cranky_UploadPalettes
 	pop af
 	add a, $08
 	jr nc, .jump_4230
 	ret
 
 
-Func_f5_425e::
+Cranky_FadeOut::
 	ld a, $ff
 .jump_4260:
 	push af
@@ -356,33 +356,33 @@ Func_f5_425e::
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	call Func_f5_4291
+	call Cranky_UploadPalettes
 	pop af
 	sub $08
 	jr nc, .jump_4260
-	call Func_f5_41f3
+	call Cranky_ClearPalettes
 	ret
 
 
-Func_f5_4291::
+Cranky_UploadPalettes::
 	ld a, $80
 	ldh [rOCPS], a
 	ldh [rBCPS], a
 	ld hl, $c806
 	ld bc, $ff69
 	ld d, $10
-	call Func_f5_42aa
+	call Cranky_UploadPaletteBytes
 	ld hl, $c846
 	ld bc, $ff6b
 	ld d, $10
 
-Func_f5_42aa::
+Cranky_UploadPaletteBytes::
 	ld a, [hli]
 	ld [bc], a
 	ld a, [hli]
@@ -392,11 +392,11 @@ Func_f5_42aa::
 	ld a, [hli]
 	ld [bc], a
 	dec d
-	jr nz, Func_f5_42aa
+	jr nz, Cranky_UploadPaletteBytes
 	ret
 
 
-Func_f5_42b6::
+Cranky_CopyOAM::
 	ld h, b
 	ld bc, $fe00
 	ld l, c
@@ -883,7 +883,7 @@ Func_f5_42b6::
 	ret
 
 
-Func_f5_449c::
+Cranky_FarCopySprites_Code::
 	ldh a, [$ff81]
 	push af
 	ld a, [$c800]
@@ -946,7 +946,7 @@ Func_f5_449c::
 	ret
 
 
-Func_f5_44e1::
+Cranky_StartHBlankDMA::
 	ld a, h
 	ldh [rHDMA1], a
 	ld a, l
@@ -961,7 +961,7 @@ Func_f5_44e1::
 	ret
 
 
-Func_f5_44f3::
+Cranky_RestoreBGMap::
 	ld a, $02
 	ldh [rSVBK], a
 	ld hl, $d800
@@ -991,13 +991,13 @@ Func_f5_44f3::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f5_4520::
+Cranky_SetWRAMBank1::
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f5_4525::
+Cranky_DimForPause::
 	ld a, $60
 .jump_4527:
 	push af
@@ -1009,13 +1009,13 @@ Func_f5_4525::
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	call Func_f5_4291
+	call Cranky_UploadPalettes
 	pop af
 	add a, $04
 	or a
@@ -1023,7 +1023,7 @@ Func_f5_4525::
 	ret
 
 
-Func_f5_4556::
+Cranky_UndimAfterPause::
 	ld a, $f8
 .jump_4558:
 	push af
@@ -1035,13 +1035,13 @@ Func_f5_4556::
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	call Func_f5_4291
+	call Cranky_UploadPalettes
 	pop af
 	sub $04
 	cp $60
@@ -1049,7 +1049,7 @@ Func_f5_4556::
 	ret
 
 
-Func_f5_4588::
+Cranky_DimBackground::
 	ld a, $60
 .jump_458a:
 	push af
@@ -1061,16 +1061,16 @@ Func_f5_4588::
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	call Func_f5_4291
+	call Cranky_UploadPalettes
 	pop af
 	add a, $04
 	or a
@@ -1078,7 +1078,7 @@ Func_f5_4588::
 	ret
 
 
-Func_f5_45c1::
+Cranky_UndimBackground::
 	ld a, $f8
 .jump_45c3:
 	push af
@@ -1090,16 +1090,16 @@ Func_f5_45c1::
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_77b0)
-	ld hl, Func_fe_77b0
+	ld a, BANK(Cranky_UpdateTileAnims)
+	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	call Func_f5_4291
+	call Cranky_UploadPalettes
 	pop af
 	sub $04
 	cp $60
@@ -1133,7 +1133,7 @@ CrankyBackground_f5_460f::
 CrankyBackground_f5_4611::
 	db 143, $06 ; picture, song
 
-Func_f5_4613::
+Cranky_ResetState::
 	xor a
 	ld [$cbc2], a
 	ld [$cbc0], a
@@ -1202,7 +1202,7 @@ Func_f5_4613::
 	ld a, $00
 	ld [$cbb3], a
 
-Func_f5_46ba::
+Cranky_ClearGradient::
 	xor a
 	ld hl, $db00
 	ld d, $20
@@ -1213,7 +1213,7 @@ Func_f5_46ba::
 	ret
 
 
-Func_f5_46c5::
+Cranky_SetUpLinkGame::
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, [$cbbf]
@@ -1229,27 +1229,27 @@ Func_f5_46c5::
 	jp hl
 
 
-Func_f5_46d8::
-	jp Func_f5_46e7
+Cranky_SetUpLink_BuddiesBeware::
+	jp Cranky_SetUpLink_BuddiesBeware_Body
 
 
-Func_f5_46db::
-	jp Func_f5_4715
+Cranky_SetUpLink_BarrelOKremlings::
+	jp Cranky_SetUpLink_BarrelOKremlings_Body
 
 
-Func_f5_46de::
-	jp Func_f5_4731
+Cranky_SetUpLink_Wanted::
+	jp Cranky_SetUpLink_Wanted_Body
 
 
-Func_f5_46e1::
-	jp Func_f5_475f
+Cranky_SetUpLink_KremlingKrackdown::
+	jp Cranky_SetUpLink_KremlingKrackdown_Body
 
 
-Func_f5_46e4::
-	jp Func_f5_478a
+Cranky_SetUpLink_KremlingsAndKongs::
+	jp Cranky_SetUpLink_KremlingsAndKongs_Body
 
 
-Func_f5_46e7::
+Cranky_SetUpLink_BuddiesBeware_Body::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $04
@@ -1271,7 +1271,7 @@ Func_f5_46e7::
 	ret
 
 
-Func_f5_4715::
+Cranky_SetUpLink_BarrelOKremlings_Body::
 	ld a, $a0
 	ld [$cbec], a
 	ld a, $40
@@ -1286,7 +1286,7 @@ Func_f5_4715::
 	ret
 
 
-Func_f5_4731::
+Cranky_SetUpLink_Wanted_Body::
 	ld a, $80
 	ld [$cbec], a
 	ld [$cbed], a
@@ -1307,7 +1307,7 @@ Func_f5_4731::
 	ret
 
 
-Func_f5_475f::
+Cranky_SetUpLink_KremlingKrackdown_Body::
 	ld a, $d0
 	ld [$cbec], a
 	ld a, $80
@@ -1328,7 +1328,7 @@ Func_f5_475f::
 	ret
 
 
-Func_f5_478a::
+Cranky_SetUpLink_KremlingsAndKongs_Body::
 	ld a, $d0
 	ld [$cbec], a
 	ld a, $80
@@ -1348,7 +1348,7 @@ Func_f5_478a::
 	ret
 
 
-Func_f5_47b3::
+Cranky_SetUpGame::
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, [$cbbf]
@@ -1364,31 +1364,31 @@ Func_f5_47b3::
 	jp hl
 
 
-Func_f5_47c6::
-	jp Func_f5_47d8
+Cranky_SetUp_BuddiesBeware::
+	jp Cranky_SetUp_BuddiesBeware_Body
 
 
-Func_f5_47c9::
-	jp Func_f5_4806
+Cranky_SetUp_BarrelOKremlings::
+	jp Cranky_SetUp_BarrelOKremlings_Body
 
 
-Func_f5_47cc::
-	jp Func_f5_4831
+Cranky_SetUp_Wanted::
+	jp Cranky_SetUp_Wanted_Body
 
 
-Func_f5_47cf::
-	jp Func_f5_486e
+Cranky_SetUp_KremlingKrackdown::
+	jp Cranky_SetUp_KremlingKrackdown_Body
 
 
-Func_f5_47d2::
-	jp Func_f5_48a3
+Cranky_SetUp_KremlingsAndKongs::
+	jp Cranky_SetUp_KremlingsAndKongs_Body
 
 
-Func_f5_47d5::
-	jp Func_f5_48d6
+Cranky_SetUp_GalleonGunner::
+	jp Cranky_SetUp_GalleonGunner_Body
 
 
-Func_f5_47d8::
+Cranky_SetUp_BuddiesBeware_Body::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $02
@@ -1410,7 +1410,7 @@ Func_f5_47d8::
 	ret
 
 
-Func_f5_4806::
+Cranky_SetUp_BarrelOKremlings_Body::
 	ld a, $01
 	ld [$cbf1], a
 	ld a, $00
@@ -1431,7 +1431,7 @@ Func_f5_4806::
 	ret
 
 
-Func_f5_4831::
+Cranky_SetUp_Wanted_Body::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $07
@@ -1458,7 +1458,7 @@ Func_f5_4831::
 	ret
 
 
-Func_f5_486e::
+Cranky_SetUp_KremlingKrackdown_Body::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $07
@@ -1483,7 +1483,7 @@ Func_f5_486e::
 	ret
 
 
-Func_f5_48a3::
+Cranky_SetUp_KremlingsAndKongs_Body::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $05
@@ -1507,7 +1507,7 @@ Func_f5_48a3::
 	ret
 
 
-Func_f5_48d6::
+Cranky_SetUp_GalleonGunner_Body::
 	ld a, $00
 	ld [$cbf1], a
 	ld a, $03
@@ -1550,13 +1550,13 @@ Func_f5_48d6::
 	ld [$dd25], a
 	ld a, $40
 	ld [$cc03], a
-	ld a, BANK(Func_f5_4a3e)
-	ld hl, Func_f5_4a3e
+	ld a, BANK(Cranky_GalleonGunner_SetGradient)
+	ld hl, Cranky_GalleonGunner_SetGradient
 	call FarCall_A_HL
 	ret
 
 
-Func_f5_4950::
+Cranky_LoadBackground::
 	ld a, [$cbbf]
 	add a, a
 	ld hl, $45fb
@@ -1571,11 +1571,11 @@ Func_f5_4950::
 	ld a, [hli]
 	push hl
 	ld b, a
-	ld a, BANK(Func_f5_4000)
-	ld hl, Func_f5_4000
+	ld a, BANK(Cranky_LoadPicture)
+	ld hl, Cranky_LoadPicture
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_5c0d)
-	ld hl, Func_fe_5c0d
+	ld a, BANK(Cranky_LoadPalettes)
+	ld hl, Cranky_LoadPalettes
 	call FarCall_A_HL
 	pop hl
 	ld a, [hl]
@@ -1583,7 +1583,7 @@ Func_f5_4950::
 	ret
 
 
-Func_f5_4978::
+Cranky_LoadFont::
 	ld a, $01
 	ldh [rVBK], a
 	ld hl, $6b20
@@ -1609,24 +1609,24 @@ Func_f5_4978::
 	ret
 
 
-Func_f5_49a5::
-	ld a, BANK(Func_f5_4142)
-	ld hl, Func_f5_4142
+Cranky_DrawScreen::
+	ld a, BANK(Cranky_UploadBGMap)
+	ld hl, Cranky_UploadBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_55b4)
-	ld hl, Func_fe_55b4
+	ld a, BANK(Cranky_SetAmmoIcon)
+	ld hl, Cranky_SetAmmoIcon
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_5289)
-	ld hl, Func_fe_5289
+	ld a, BANK(Cranky_BeginOAM)
+	ld hl, Cranky_BeginOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_54d8)
-	ld hl, Func_fe_54d8
+	ld a, BANK(Cranky_DrawScore)
+	ld hl, Cranky_DrawScore
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_55d8)
-	ld hl, Func_fe_55d8
+	ld a, BANK(Cranky_DrawTimer)
+	ld hl, Cranky_DrawTimer
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
 .jump_49d5:
 	ldh a, [rSTAT]
@@ -1639,26 +1639,26 @@ Func_f5_49a5::
 	dec a
 	jr nz, .jump_49dc
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_52a5)
-	ld hl, Func_fe_52a5
+	ld a, BANK(Cranky_SwapTileBuffer)
+	ld hl, Cranky_SwapTileBuffer
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_5289)
-	ld hl, Func_fe_5289
+	ld a, BANK(Cranky_BeginOAM)
+	ld hl, Cranky_BeginOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_51b8)
-	ld hl, Func_fe_51b8
+	ld a, BANK(Cranky_DrawCrosshair)
+	ld hl, Cranky_DrawCrosshair
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_54d8)
-	ld hl, Func_fe_54d8
+	ld a, BANK(Cranky_DrawScore)
+	ld hl, Cranky_DrawScore
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_55d8)
-	ld hl, Func_fe_55d8
+	ld a, BANK(Cranky_DrawTimer)
+	ld hl, Cranky_DrawTimer
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_4662)
-	ld hl, Func_fe_4662
+	ld a, BANK(Cranky_WaitLineAndUpdateSound)
+	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
 .jump_4a1d:
 	ldh a, [rSTAT]
@@ -1671,16 +1671,16 @@ Func_f5_49a5::
 	dec a
 	jr nz, .jump_4a24
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_421d)
-	ld hl, Func_f5_421d
+	ld a, BANK(Cranky_FadeIn)
+	ld hl, Cranky_FadeIn
 	call FarCall_A_HL
 	ret
 
 
-Func_f5_4a3e::
+Cranky_GalleonGunner_SetGradient::
 	ld a, $06
 	ldh [$ff9c], a
 	ld a, $11

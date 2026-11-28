@@ -4,7 +4,7 @@ INCLUDE "include/common.inc"
 SECTION "Bank $fe", ROMX[$4000], BANK[$fe]
 
 CrosshairCranky::
-	jp Func_fe_40c4.jump_4115
+	jp Cranky_MainLoop.jump_4115
 
 
 CrosshairCrankyLink::
@@ -28,11 +28,11 @@ CrosshairCrankyLink::
 	ld a, BANK(FE_SeedRandom)
 	ld hl, FE_SeedRandom
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_41f3)
-	ld hl, Func_f5_41f3
+	ld a, BANK(Cranky_ClearPalettes)
+	ld hl, Cranky_ClearPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_41e4)
-	ld hl, Func_f5_41e4
+	ld a, BANK(Cranky_InstallSpriteCopy)
+	ld hl, Cranky_InstallSpriteCopy
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -48,37 +48,37 @@ CrosshairCrankyLink::
 	dec a
 	jr nz, .jump_4048
 	call FE_OAMDMA
-	ld a, BANK(Func_f5_4978)
-	ld hl, Func_f5_4978
+	ld a, BANK(Cranky_LoadFont)
+	ld hl, Cranky_LoadFont
 	call FarCall_A_HL
 	call CrankyModeToGame
 	ld a, $02
 	ld [$cbc4], a
-	ld a, BANK(Func_f5_4613)
-	ld hl, Func_f5_4613
+	ld a, BANK(Cranky_ResetState)
+	ld hl, Cranky_ResetState
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_755a)
-	ld hl, Func_fe_755a
+	ld a, BANK(Cranky_InstallLinkRoutines)
+	ld hl, Cranky_InstallLinkRoutines
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_4950)
-	ld hl, Func_f5_4950
+	ld a, BANK(Cranky_LoadBackground)
+	ld hl, Cranky_LoadBackground
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_46c5)
-	ld hl, Func_f5_46c5
+	ld a, BANK(Cranky_SetUpLinkGame)
+	ld hl, Cranky_SetUpLinkGame
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_5adf)
-	ld hl, Func_fe_5adf
+	ld a, BANK(Cranky_DrawTargets)
+	ld hl, Cranky_DrawTargets
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_49a5)
-	ld hl, Func_f5_49a5
+	ld a, BANK(Cranky_DrawScreen)
+	ld hl, Cranky_DrawScreen
 	call FarCall_A_HL
 	ld a, [$cbcb]
 	call FE_PlaySong
-	call Func_fe_40c4
+	call Cranky_MainLoop
 	push bc
 	push af
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	pop af
 	pop bc
@@ -105,37 +105,37 @@ CrankyModeToGame_Unused::
 CrankyModeToGame_UnusedTable::
 	db 3, 4, 1, 2, 0, 5 ; game type per mode
 
-Func_fe_40c4::
+Cranky_MainLoop::
 	ldh a, [$ff9a]
 	inc a
 	ldh [$ff9a], a
 	ld a, $01
 	ldh [rSVBK], a
-	call Func_fe_5a11
-	call Func_fe_6937
-	call Func_fe_466c
-	call Func_fe_5cb2
-	call Func_fe_509d
-	call Func_fe_55b4
-	call Func_fe_5a1d
-	call Func_fe_5645
-	call Func_fe_560c
-	call Func_fe_5289
-	call Func_fe_51b8
-	call Func_fe_54d8
-	call Func_fe_55d8
-	call Func_fe_68b3
-	call Func_fe_4662
-	call Func_fe_77b0
-	call Func_fe_5354
-	call Func_fe_541c
-	call Func_fe_59d3
+	call Cranky_CheckQuit
+	call Cranky_Spawn
+	call Cranky_Input
+	call Cranky_RunActors
+	call Cranky_UpdateTargets
+	call Cranky_SetAmmoIcon
+	call Cranky_HandleRemoteEvent
+	call Cranky_CountDownTime
+	call Cranky_CheckTimeUp
+	call Cranky_BeginOAM
+	call Cranky_DrawCrosshair
+	call Cranky_DrawScore
+	call Cranky_DrawTimer
+	call Cranky_DrawActors
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
+	call Cranky_AnimateBackgroundTiles
+	call Cranky_DrawAmmo
+	call Cranky_FlashScreen
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_52a5
-	jr Func_fe_40c4
+	call Cranky_SwapTileBuffer
+	jr Cranky_MainLoop
 
 .jump_4115:
 	di
@@ -152,13 +152,13 @@ Func_fe_40c4::
 	ld [$cbbf], a
 	ld a, b
 	ld [$cbf9], a
-	ld a, BANK(Func_f5_41f3)
-	ld hl, Func_f5_41f3
+	ld a, BANK(Cranky_ClearPalettes)
+	ld hl, Cranky_ClearPalettes
 	call FarCall_A_HL
 	ld a, $00
 	call FE_PlaySong
-	ld a, BANK(Func_f5_41e4)
-	ld hl, Func_f5_41e4
+	ld a, BANK(Cranky_InstallSpriteCopy)
+	ld hl, Cranky_InstallSpriteCopy
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -174,35 +174,35 @@ Func_fe_40c4::
 	dec a
 	jr nz, .jump_4154
 	call FE_OAMDMA
-	ld a, BANK(Func_f5_4978)
-	ld hl, Func_f5_4978
+	ld a, BANK(Cranky_LoadFont)
+	ld hl, Cranky_LoadFont
 	call FarCall_A_HL
 	call CrankyShowInstructions
 	call CrankyModeToGame
 	ld a, $01
 	ld [$cbc4], a
-	ld a, BANK(Func_f5_4613)
-	ld hl, Func_f5_4613
+	ld a, BANK(Cranky_ResetState)
+	ld hl, Cranky_ResetState
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_4950)
-	ld hl, Func_f5_4950
+	ld a, BANK(Cranky_LoadBackground)
+	ld hl, Cranky_LoadBackground
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_47b3)
-	ld hl, Func_f5_47b3
+	ld a, BANK(Cranky_SetUpGame)
+	ld hl, Cranky_SetUpGame
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_5adf)
-	ld hl, Func_fe_5adf
+	ld a, BANK(Cranky_DrawTargets)
+	ld hl, Cranky_DrawTargets
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_49a5)
-	ld hl, Func_f5_49a5
+	ld a, BANK(Cranky_DrawScreen)
+	ld hl, Cranky_DrawScreen
 	call FarCall_A_HL
 	ld a, [$cbcb]
 	call FE_PlaySong
-	call Func_fe_41cb
+	call Cranky_EndingFrame
 	push bc
 	push af
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	pop af
 	pop bc
@@ -229,25 +229,25 @@ CrankyModeToGame::
 CrankyModeToGameTable::
 	db 4, 1, 3, 0, 2, 5 ; game type per mode
 
-Func_fe_41cb::
+Cranky_EndingFrame::
 	ldh a, [$ff9a]
 	inc a
 	ldh [$ff9a], a
 	ld a, $01
 	ldh [rSVBK], a
-	call Func_fe_6937
-	call Func_fe_466c
-	call Func_fe_5cb2
-	call Func_fe_509d
-	call Func_fe_55b4
-	call Func_fe_5645
-	call Func_fe_560c
-	call Func_fe_5289
-	call Func_fe_51b8
-	call Func_fe_54d8
-	call Func_fe_55d8
-	call Func_fe_68b3
-	call Func_fe_4662
+	call Cranky_Spawn
+	call Cranky_Input
+	call Cranky_RunActors
+	call Cranky_UpdateTargets
+	call Cranky_SetAmmoIcon
+	call Cranky_CountDownTime
+	call Cranky_CheckTimeUp
+	call Cranky_BeginOAM
+	call Cranky_DrawCrosshair
+	call Cranky_DrawScore
+	call Cranky_DrawTimer
+	call Cranky_DrawActors
+	call Cranky_WaitLineAndUpdateSound
 .jump_41fb:
 	ldh a, [rSTAT]
 	and $03
@@ -258,18 +258,18 @@ Func_fe_41cb::
 	and $03
 	dec a
 	jr nz, .jump_4202
-	call Func_fe_5354
-	call Func_fe_541c
-	call Func_fe_59d3
+	call Cranky_AnimateBackgroundTiles
+	call Cranky_DrawAmmo
+	call Cranky_FlashScreen
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_52a5
-	jr Func_fe_41cb
+	call Cranky_SwapTileBuffer
+	jr Cranky_EndingFrame
 
 
-Func_fe_4221::
+Cranky_GalleonGunner_CheckLost::
 	ld a, [$db00]
 	cp $0f
 	ret nz
@@ -288,34 +288,34 @@ Func_fe_4221::
 	ld a, [$db05]
 	cp $0f
 	ret nz
-	jp Func_fe_42ae.jump_42bd
+	jp Cranky_CheckGameOver.jump_42bd
 
 
-Func_fe_4248::
+Cranky_CheckAllTargetsDown::
 	ld a, [$cbdc]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbdd]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbde]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbdf]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbe0]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbe1]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbe2]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbe3]
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cbc4]
 	cp $02
 	ret z
@@ -328,20 +328,20 @@ Func_fe_4248::
 	ld a, [$cbf3]
 	or a
 	ret nz
-	jp Func_fe_42ae.jump_42bd
+	jp Cranky_CheckGameOver.jump_42bd
 
 
-Func_fe_42a0::
+Cranky_BarrelOKremlings_UseBarrel::
 	ld a, [$cbc9]
 	or a
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	dec a
 	ld [$cbc9], a
 	ld a, $21
 	ret
 
 
-Func_fe_42ae::
+Cranky_CheckGameOver::
 	ld a, [$cbf3]
 	or a
 	ret nz
@@ -355,9 +355,9 @@ Func_fe_42ae::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_431e
-	call Func_fe_44a5
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	call Cranky_EndEffect
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -380,9 +380,9 @@ Func_fe_42ae::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_431e
-	call Func_fe_455c
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	call Cranky_EndTally
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -409,12 +409,12 @@ Func_fe_42ae::
 	ld a, $03
 	ld [$cbb3], a
 .jump_4323:
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld a, [$cba2]
 	cp $03
 	jr nz, .jump_4323
-	call Func_fe_455c
+	call Cranky_EndTally
 	ld a, [$cbf1]
 	and $0f
 	ld [$cbba], a
@@ -426,8 +426,8 @@ Func_fe_42ae::
 	ld [$cbbc], a
 	ld a, $03
 	ld [$cbb3], a
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -438,7 +438,7 @@ Func_fe_42ae::
 	xor a
 	ldh [rIF], a
 	ldh [rIE], a
-	call Func_fe_4486
+	call Cranky_GetScores
 	ld h, $00
 	ret
 
@@ -446,7 +446,7 @@ Func_fe_42ae::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_43b5
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -461,11 +461,11 @@ Func_fe_42ae::
 	dec a
 	jr nz, .jump_4386
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -485,15 +485,15 @@ Func_fe_42ae::
 	ld a, $04
 	ld [$cbb3], a
 .jump_43ba:
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld a, [$cba2]
 	cp $03
 	jr nz, .jump_43ba
 .jump_43c7:
 	ld a, $03
 	ld [$cbb3], a
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -508,11 +508,11 @@ Func_fe_42ae::
 	dec a
 	jr nz, .jump_43de
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -534,8 +534,8 @@ CrankyShowInstructions::
 	cp $05
 	ret z
 	ld b, $90
-	ld a, BANK(Func_f5_4000)
-	ld hl, Func_f5_4000
+	ld a, BANK(Cranky_LoadPicture)
+	ld hl, Cranky_LoadPicture
 	call FarCall_A_HL
 	ld b, $05
 	ld a, [$cbbf]
@@ -548,20 +548,20 @@ CrankyShowInstructions::
 	ld a, BANK(FE_DrawText)
 	ld hl, FE_DrawText
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_4142)
-	ld hl, Func_f5_4142
+	ld a, BANK(Cranky_UploadBGMap)
+	ld hl, Cranky_UploadBGMap
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_4978)
-	ld hl, Func_f5_4978
+	ld a, BANK(Cranky_LoadFont)
+	ld hl, Cranky_LoadFont
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_421d)
-	ld hl, Func_f5_421d
+	ld a, BANK(Cranky_FadeIn)
+	ld hl, Cranky_FadeIn
 	call FarCall_A_HL
 .jump_444e:
 	ldh a, [$ff9a]
 	inc a
 	ldh [$ff9a], a
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 .jump_4456:
 	ldh a, [rSTAT]
 	and $03
@@ -583,13 +583,13 @@ CrankyShowInstructions::
 	ld a, BANK(FE_SeedRandom)
 	ld hl, FE_SeedRandom
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	ret
 
 
-Func_fe_4486::
+Cranky_GetScores::
 	ld a, [$cbf1]
 	ld b, a
 	ld a, [$cbf2]
@@ -609,7 +609,7 @@ Func_fe_4486::
 	ret
 
 
-Func_fe_44a5::
+Cranky_EndEffect::
 	ld a, $01
 	ld [$cc07], a
 	ld a, [$cbbf]
@@ -625,31 +625,31 @@ Func_fe_44a5::
 	jp hl
 
 
-Func_fe_44b9::
-	jp Func_fe_4609
+Cranky_EndEffect_BuddiesBeware::
+	jp Cranky_Nop
 
 
-Func_fe_44bc::
-	jp Func_fe_4582
+Cranky_EndEffect_BarrelOKremlings::
+	jp Cranky_TallyBonus
 
 
-Func_fe_44bf::
-	jp Func_fe_4582
+Cranky_EndEffect_Wanted::
+	jp Cranky_TallyBonus
 
 
-Func_fe_44c2::
-	jp Func_fe_4582
+Cranky_EndEffect_KremlingKrackdown::
+	jp Cranky_TallyBonus
 
 
-Func_fe_44c5::
-	jp Func_fe_4582
+Cranky_EndEffect_KremlingsAndKongs::
+	jp Cranky_TallyBonus
 
 
-Func_fe_44c8::
-	jp Func_fe_44cb
+Cranky_EndEffect_GalleonGunner::
+	jp Cranky_GalleonGunner_EndEffectBody
 
 
-Func_fe_44cb::
+Cranky_GalleonGunner_EndEffectBody::
 	ld a, $06
 	ldh [$ff9c], a
 	ld a, $12
@@ -712,29 +712,29 @@ Func_fe_44cb::
 	ldh [$ff9a], a
 	ld a, $01
 	ldh [rSVBK], a
-	call Func_fe_5cb2
-	call Func_fe_5645
-	call Func_fe_560c
-	call Func_fe_5289
-	call Func_fe_54d8
-	call Func_fe_55d8
-	call Func_fe_68b3
-	call Func_fe_4662
-	call Func_fe_77b0
-	call Func_fe_5354
-	call Func_fe_541c
+	call Cranky_RunActors
+	call Cranky_CountDownTime
+	call Cranky_CheckTimeUp
+	call Cranky_BeginOAM
+	call Cranky_DrawScore
+	call Cranky_DrawTimer
+	call Cranky_DrawActors
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
+	call Cranky_AnimateBackgroundTiles
+	call Cranky_DrawAmmo
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_52a5
+	call Cranky_SwapTileBuffer
 	ld a, [$db06]
 	or a
 	jr nz, .jump_451e
 	ret
 
 
-Func_fe_455c::
+Cranky_EndTally::
 	ld a, $01
 	ld [$cc07], a
 	ld a, [$cbbf]
@@ -750,31 +750,31 @@ Func_fe_455c::
 	jp hl
 
 
-Func_fe_4570::
-	jp Func_fe_4609
+Cranky_EndTally_BuddiesBeware::
+	jp Cranky_Nop
 
 
-Func_fe_4573::
-	jp Func_fe_4582
+Cranky_EndTally_BarrelOKremlings::
+	jp Cranky_TallyBonus
 
 
-Func_fe_4576::
-	jp Func_fe_4582
+Cranky_EndTally_Wanted::
+	jp Cranky_TallyBonus
 
 
-Func_fe_4579::
-	jp Func_fe_4582
+Cranky_EndTally_KremlingKrackdown::
+	jp Cranky_TallyBonus
 
 
-Func_fe_457c::
-	jp Func_fe_4582
+Cranky_EndTally_KremlingsAndKongs::
+	jp Cranky_TallyBonus
 
 
-Func_fe_457f::
-	jp Func_fe_4609
+Cranky_EndTally_GalleonGunner::
+	jp Cranky_Nop
 
 
-Func_fe_4582::
+Cranky_TallyBonus::
 	ld a, $00
 	ld [$cbb3], a
 	ld a, [$cbc8]
@@ -799,49 +799,49 @@ Func_fe_4582::
 	ldh [$ff9a], a
 	ld a, $01
 	ldh [rSVBK], a
-	call Func_fe_5cb2
-	call Func_fe_509d
-	call Func_fe_55b4
-	call Func_fe_5645
-	call Func_fe_560c
-	call Func_fe_5289
-	call Func_fe_54d5
-	call Func_fe_55d8
-	call Func_fe_68b3
-	call Func_fe_4662
-	call Func_fe_77b0
-	call Func_fe_5354
-	call Func_fe_541c
+	call Cranky_RunActors
+	call Cranky_UpdateTargets
+	call Cranky_SetAmmoIcon
+	call Cranky_CountDownTime
+	call Cranky_CheckTimeUp
+	call Cranky_BeginOAM
+	call Cranky_DrawScoreNow
+	call Cranky_DrawTimer
+	call Cranky_DrawActors
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
+	call Cranky_AnimateBackgroundTiles
+	call Cranky_DrawAmmo
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_52a5
-	call Func_fe_460a
+	call Cranky_SwapTileBuffer
+	call Cranky_AreActorsGone
 	jr nz, .jump_45a3
-	call Func_fe_4646
+	call Cranky_IsTallyDone
 	jr nz, .jump_45a3
-	call Func_fe_461b
-	call Func_fe_461b
+	call Cranky_TallyFrame
+	call Cranky_TallyFrame
 	ld a, [$cbc4]
 	cp $01
 	ret z
 	ld a, $03
 	ld [$cbb3], a
 .jump_45fb:
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld a, [$cba2]
 	cp $03
 	jr nz, .jump_45fb
 	ret
 
 
-Func_fe_4609::
+Cranky_Nop::
 	ret
 
 
-Func_fe_460a::
+Cranky_AreActorsGone::
 	ld a, $01
 	ldh [rSVBK], a
 	ld d, $20
@@ -856,28 +856,28 @@ Func_fe_460a::
 	ret
 
 
-Func_fe_461b::
+Cranky_TallyFrame::
 	ldh a, [$ff9a]
 	inc a
 	ldh [$ff9a], a
 	ld a, $01
 	ldh [rSVBK], a
-	call Func_fe_5289
-	call Func_fe_54d8
-	call Func_fe_55d8
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_BeginOAM
+	call Cranky_DrawScore
+	call Cranky_DrawTimer
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_52a5
-	call Func_fe_4646
-	jr nz, Func_fe_461b
+	call Cranky_SwapTileBuffer
+	call Cranky_IsTallyDone
+	jr nz, Cranky_TallyFrame
 	ret
 
 
-Func_fe_4646::
+Cranky_IsTallyDone::
 	ld a, [$cbf1]
 	and $f0
 	ret nz
@@ -895,44 +895,44 @@ Func_fe_4646::
 	ret
 
 
-Func_fe_4662::
+Cranky_WaitLineAndUpdateSound::
 	ldh a, [rLY]
 	cp $82
-	jr nz, Func_fe_4662
+	jr nz, Cranky_WaitLineAndUpdateSound
 	call FE_UpdateSound
 	ret
 
 
-Func_fe_466c::
+Cranky_Input::
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
-	call Func_fe_4781
+	call Cranky_AutoRepeatLeftRight
 	ld a, [$cbc4]
 	cp $01
 	jr z, .jump_4686
 	ld a, [$cba2]
 	cp $06
-	jp z, Func_fe_566d
+	jp z, Cranky_ResumeFromPause
 .jump_4686:
 	ldh a, [$ff91]
 	bit 3, a
-	call nz, Func_fe_5703
+	call nz, Cranky_Pause
 	ld a, [$cc09]
 	or a
 	jr nz, .jump_46c7
 	ldh a, [$ff91]
 	bit 4, a
-	call nz, Func_fe_4753
+	call nz, Cranky_CursorRight
 	ldh a, [$ff91]
 	bit 5, a
-	call nz, Func_fe_4725
+	call nz, Cranky_CursorLeft
 	ldh a, [$ff91]
 	bit 6, a
-	call nz, Func_fe_46d1
+	call nz, Cranky_CursorUp
 	ldh a, [$ff91]
 	bit 7, a
-	call nz, Func_fe_46fb
+	call nz, Cranky_CursorDown
 	ld a, [$cbc0]
 	ld e, a
 	ldh a, [$ffd4]
@@ -943,21 +943,21 @@ Func_fe_466c::
 .jump_46bd:
 	ld a, e
 	ld [$cbb0], a
-	call Func_fe_4fd0
-	call Func_fe_47c7
+	call Cranky_Reload
+	call Cranky_Shoot
 .jump_46c7:
 	ld a, [$cbc4]
 	cp $01
 	ret z
-	call Func_fe_4dfe
+	call Cranky_LinkReceiveShot
 	ret
 
 
-Func_fe_46d1::
+Cranky_CursorUp::
 	ldh a, [$ffd4]
 	cp $bb
 	jr z, .jump_46e9
-	call Func_fe_5065
+	call Cranky_GetTargetRecord
 	ld a, $02
 	add a, l
 	ld l, a
@@ -971,7 +971,7 @@ Func_fe_46d1::
 	ret
 
 .jump_46e9:
-	call Func_fe_5081
+	call Cranky_GetOtherTargetRecord
 	ld a, $02
 	add a, l
 	ld l, a
@@ -985,11 +985,11 @@ Func_fe_46d1::
 	ret
 
 
-Func_fe_46fb::
+Cranky_CursorDown::
 	ldh a, [$ffd4]
 	cp $bb
 	jr z, .jump_4713
-	call Func_fe_5065
+	call Cranky_GetTargetRecord
 	ld a, $03
 	add a, l
 	ld l, a
@@ -1003,7 +1003,7 @@ Func_fe_46fb::
 	ret
 
 .jump_4713:
-	call Func_fe_5081
+	call Cranky_GetOtherTargetRecord
 	ld a, $03
 	add a, l
 	ld l, a
@@ -1017,13 +1017,13 @@ Func_fe_46fb::
 	ret
 
 
-Func_fe_4725::
+Cranky_CursorLeft::
 	xor a
 	ld [$cbd9], a
 	ldh a, [$ffd4]
 	cp $bb
 	jr z, .jump_4741
-	call Func_fe_5065
+	call Cranky_GetTargetRecord
 	ld a, $04
 	add a, l
 	ld l, a
@@ -1037,7 +1037,7 @@ Func_fe_4725::
 	ret
 
 .jump_4741:
-	call Func_fe_5081
+	call Cranky_GetOtherTargetRecord
 	ld a, $04
 	add a, l
 	ld l, a
@@ -1051,13 +1051,13 @@ Func_fe_4725::
 	ret
 
 
-Func_fe_4753::
+Cranky_CursorRight::
 	xor a
 	ld [$cbd9], a
 	ldh a, [$ffd4]
 	cp $bb
 	jr z, .jump_476f
-	call Func_fe_5065
+	call Cranky_GetTargetRecord
 	ld a, $05
 	add a, l
 	ld l, a
@@ -1071,7 +1071,7 @@ Func_fe_4753::
 	ret
 
 .jump_476f:
-	call Func_fe_5081
+	call Cranky_GetOtherTargetRecord
 	ld a, $05
 	add a, l
 	ld l, a
@@ -1085,7 +1085,7 @@ Func_fe_4753::
 	ret
 
 
-Func_fe_4781::
+Cranky_AutoRepeatLeftRight::
 	ld a, [$cbbf]
 	or a
 	ret z
@@ -1096,14 +1096,14 @@ Func_fe_4781::
 	ret nz
 	ldh a, [$ff92]
 	bit 4, a
-	call nz, Func_fe_47b0
+	call nz, Cranky_RepeatRight
 	ldh a, [$ff92]
 	bit 5, a
-	call nz, Func_fe_479c
+	call nz, Cranky_RepeatLeft
 	ret
 
 
-Func_fe_479c::
+Cranky_RepeatLeft::
 	ld a, [$cbd9]
 	inc a
 	ld [$cbd9], a
@@ -1116,7 +1116,7 @@ Func_fe_479c::
 	ret
 
 
-Func_fe_47b0::
+Cranky_RepeatRight::
 	ld a, [$cbd9]
 	inc a
 	ld [$cbd9], a
@@ -1132,10 +1132,10 @@ Func_fe_47b0::
 ByteTable_fe_47c4::
 	db 1, 2, 5 ; added to [$cbc8] by [$dc20 + [$ff9c]] - 2
 
-Func_fe_47c7::
+Cranky_Shoot::
 	ld a, [$cbc4]
 	cp $02
-	jp z, Func_fe_4aec.jump_4b7b
+	jp z, Cranky_SpawnHitEffect.jump_4b7b
 	ldh a, [$ff91]
 	and $01
 	ret z
@@ -1168,31 +1168,31 @@ Func_fe_47c7::
 	ret
 
 
-Func_fe_47fb::
-	jp Func_fe_480d
+Cranky_Shoot_BuddiesBeware::
+	jp Cranky_Shoot_BuddiesBeware_Body
 
 
-Func_fe_47fe::
-	jp Func_fe_484b
+Cranky_Shoot_BarrelOKremlings::
+	jp Cranky_Shoot_BarrelOKremlings_Body
 
 
-Func_fe_4801::
-	jp Func_fe_48be
+Cranky_Shoot_Wanted::
+	jp Cranky_Shoot_Wanted_Body
 
 
-Func_fe_4804::
-	jp Func_fe_49c6
+Cranky_Shoot_KremlingKrackdown::
+	jp Cranky_Shoot_Kremlings_Body
 
 
-Func_fe_4807::
-	jp Func_fe_49c6
+Cranky_Shoot_KremlingsAndKongs::
+	jp Cranky_Shoot_Kremlings_Body
 
 
-Func_fe_480a::
-	jp Func_fe_4a6d
+Cranky_Shoot_GalleonGunner::
+	jp Cranky_Shoot_GalleonGunner_Body
 
 
-Func_fe_480d::
+Cranky_Shoot_BuddiesBeware_Body::
 	ld a, [$cbb0]
 	ld b, a
 	ld hl, $cbdc
@@ -1215,7 +1215,7 @@ Func_fe_480d::
 	ld [hl], $b4
 	ld a, b
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld hl, $cbee
 	dec [hl]
 	ld hl, $cbef
@@ -1233,7 +1233,7 @@ Func_fe_480d::
 	ret
 
 
-Func_fe_484b::
+Cranky_Shoot_BarrelOKremlings_Body::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1288,7 +1288,7 @@ Func_fe_484b::
 	ld h, a
 	inc hl
 	ld [hl], $64
-	call Func_fe_4946
+	call Cranky_RemoveActor
 	pop af
 	ret
 
@@ -1302,10 +1302,10 @@ Func_fe_484b::
 	dec a
 	ld [$cbf9], a
 	ret nz
-	jp Func_fe_42ae.jump_42eb
+	jp Cranky_CheckGameOver.jump_42eb
 
 
-Func_fe_48be::
+Cranky_Shoot_Wanted_Body::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1354,11 +1354,11 @@ Func_fe_48be::
 	ld h, a
 	inc hl
 	ld [hl], $64
-	call Func_fe_4946
+	call Cranky_RemoveActor
 	ld a, [$cbf9]
 	dec a
 	ld [$cbf9], a
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	pop af
 	ret
 
@@ -1369,8 +1369,8 @@ Func_fe_48be::
 	ld h, a
 	inc hl
 	ld [hl], $64
-	call Func_fe_5494
-	call Func_fe_4946
+	call Cranky_SubtractPoints
+	call Cranky_RemoveActor
 	pop af
 	ret
 
@@ -1383,11 +1383,11 @@ Func_fe_48be::
 	ld a, [$cbf9]
 	dec a
 	ld [$cbf9], a
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ret
 
 
-Func_fe_4946::
+Cranky_RemoveActor::
 	xor a
 	ld hl, $dbe0
 	push af
@@ -1456,7 +1456,7 @@ Func_fe_4946::
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld hl, $db20
 	ldh a, [$ff9c]
 	add a, l
@@ -1474,7 +1474,7 @@ Func_fe_4946::
 	ret
 
 
-Func_fe_49c6::
+Cranky_Shoot_Kremlings_Body::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1521,7 +1521,7 @@ Func_fe_49c6::
 	cp b
 	jr nz, .jump_4a63
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1537,7 +1537,7 @@ Func_fe_49c6::
 	ld a, [hl]
 	sub $10
 	ld [hl], a
-	call Func_fe_4946
+	call Cranky_RemoveActor
 	pop af
 	ret
 
@@ -1552,7 +1552,7 @@ Func_fe_49c6::
 	cp b
 	jr nz, .jump_4a63
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld a, $78
 	ld [$cc09], a
 	xor a
@@ -1563,7 +1563,7 @@ Func_fe_49c6::
 	ld h, a
 	inc hl
 	ld [hl], $50
-	call Func_fe_4946
+	call Cranky_RemoveActor
 	pop af
 	ret
 
@@ -1576,7 +1576,7 @@ Func_fe_49c6::
 	ret
 
 
-Func_fe_4a6d::
+Cranky_Shoot_GalleonGunner_Body::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1598,10 +1598,10 @@ Func_fe_4a6d::
 	ld a, [hl]
 	cp $0e
 	ret nz
-	call Func_fe_5494
+	call Cranky_SubtractPoints
 	ldh a, [$ff9c]
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld hl, $dd20
 	ldh a, [$ff9c]
 	add a, l
@@ -1625,7 +1625,7 @@ Func_fe_4a6d::
 	ld l, a
 	pop af
 	ld [hl], a
-	call Func_fe_4aec
+	call Cranky_SpawnHitEffect
 	ret
 
 .jump_4ac4:
@@ -1645,16 +1645,16 @@ Func_fe_4a6d::
 	ld l, a
 	pop af
 	ld [hl], a
-	call Func_fe_4aec
+	call Cranky_SpawnHitEffect
 	ld a, [$cc0b]
 	inc a
 	ld [$cc0b], a
 	cp $06
-	jp z, Func_fe_42ae.jump_42bd
+	jp z, Cranky_CheckGameOver.jump_42bd
 	ret
 
 
-Func_fe_4aec::
+Cranky_SpawnHitEffect::
 	ld a, [$cbc0]
 	ld hl, $792b
 	add a, a
@@ -1670,7 +1670,7 @@ Func_fe_4aec::
 	ld b, a
 	ld a, [hl]
 	ld c, a
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 	ld a, $06
@@ -1788,27 +1788,27 @@ Func_fe_4aec::
 	ret
 
 
-Func_fe_4ba7::
-	jp Func_fe_4bb6
+Cranky_LinkShoot_BuddiesBeware::
+	jp Cranky_LinkShoot_BuddiesBeware_Body
 
 
-Func_fe_4baa::
-	jp Func_fe_4bf1
+Cranky_LinkShoot_BarrelOKremlings::
+	jp Cranky_LinkShoot_BarrelOKremlings_Body
 
 
-Func_fe_4bad::
-	jp Func_fe_4c5e
+Cranky_LinkShoot_Wanted::
+	jp Cranky_LinkShoot_Wanted_Body
 
 
-Func_fe_4bb0::
-	jp Func_fe_4d57
+Cranky_LinkShoot_KremlingKrackdown::
+	jp Cranky_LinkShoot_Kremlings_Body
 
 
-Func_fe_4bb3::
-	jp Func_fe_4d57
+Cranky_LinkShoot_KremlingsAndKongs::
+	jp Cranky_LinkShoot_Kremlings_Body
 
 
-Func_fe_4bb6::
+Cranky_LinkShoot_BuddiesBeware_Body::
 	ld a, [$cbb0]
 	ld b, a
 	ld hl, $cbdc
@@ -1831,7 +1831,7 @@ Func_fe_4bb6::
 	ld [hl], $b4
 	ld a, b
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld a, b
 	inc a
 	ld [$cbcc], a
@@ -1848,7 +1848,7 @@ Func_fe_4bb6::
 	ret
 
 
-Func_fe_4bf1::
+Cranky_LinkShoot_BarrelOKremlings_Body::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1903,7 +1903,7 @@ Func_fe_4bf1::
 	ld h, a
 	inc hl
 	ld [hl], $64
-	call Func_fe_4cd7
+	call Cranky_RemoveActorLink
 	pop af
 	ret
 
@@ -1918,7 +1918,7 @@ Func_fe_4bf1::
 	ret
 
 
-Func_fe_4c5e::
+Cranky_LinkShoot_Wanted_Body::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1969,7 +1969,7 @@ Func_fe_4c5e::
 	ld h, a
 	inc hl
 	ld [hl], $64
-	call Func_fe_4cd7
+	call Cranky_RemoveActorLink
 	pop af
 	ret
 
@@ -1982,7 +1982,7 @@ Func_fe_4c5e::
 	ld [hl], $64
 	ld hl, $cbc7
 	inc [hl]
-	call Func_fe_4cd7
+	call Cranky_RemoveActorLink
 	pop af
 	ret
 
@@ -1995,7 +1995,7 @@ Func_fe_4c5e::
 	ret
 
 
-Func_fe_4cd7::
+Cranky_RemoveActorLink::
 	xor a
 	ld hl, $dbe0
 	push af
@@ -2064,7 +2064,7 @@ Func_fe_4cd7::
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld hl, $db20
 	ldh a, [$ff9c]
 	add a, l
@@ -2082,7 +2082,7 @@ Func_fe_4cd7::
 	ret
 
 
-Func_fe_4d57::
+Cranky_LinkShoot_Kremlings_Body::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -2129,7 +2129,7 @@ Func_fe_4d57::
 	cp b
 	jr nz, .jump_4df4
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -2145,7 +2145,7 @@ Func_fe_4d57::
 	ld a, [hl]
 	sub $10
 	ld [hl], a
-	call Func_fe_4cd7
+	call Cranky_RemoveActorLink
 	pop af
 	ret
 
@@ -2160,7 +2160,7 @@ Func_fe_4d57::
 	cp b
 	jr nz, .jump_4df4
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	xor a
 	ld [$cbd8], a
 	ld a, $78
@@ -2171,7 +2171,7 @@ Func_fe_4d57::
 	ld h, a
 	inc hl
 	ld [hl], $50
-	call Func_fe_4cd7
+	call Cranky_RemoveActorLink
 	pop af
 	ret
 
@@ -2184,7 +2184,7 @@ Func_fe_4d57::
 	ret
 
 
-Func_fe_4dfe::
+Cranky_LinkReceiveShot::
 	ld a, [$cba4]
 	or a
 	jr nz, .jump_4e0c
@@ -2225,27 +2225,27 @@ Func_fe_4dfe::
 .unreached_4e37:
 	db $c9 ; ret, never reached
 
-Func_fe_4e38::
-	jp Func_fe_4e47
+Cranky_LinkHit_BuddiesBeware::
+	jp Cranky_LinkHit_BuddiesBeware_Body
 
 
-Func_fe_4e3b::
-	jp Func_fe_4e6c
+Cranky_LinkHit_BarrelOKremlings::
+	jp Cranky_LinkHit_BarrelOKremlings_Body
 
 
-Func_fe_4e3e::
-	jp Func_fe_4e9c
+Cranky_LinkHit_Wanted::
+	jp Cranky_LinkHit_Wanted_Body
 
 
-Func_fe_4e41::
-	jp Func_fe_4f4e
+Cranky_LinkHit_KremlingKrackdown::
+	jp Cranky_LinkHit_Kremlings_Body
 
 
-Func_fe_4e44::
-	jp Func_fe_4f4e
+Cranky_LinkHit_KremlingsAndKongs::
+	jp Cranky_LinkHit_Kremlings_Body
 
 
-Func_fe_4e47::
+Cranky_LinkHit_BuddiesBeware_Body::
 	ld a, [$cbb0]
 	ld b, a
 	ld hl, $cbdc
@@ -2268,11 +2268,11 @@ Func_fe_4e47::
 	ld [hl], $b4
 	ld a, b
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ret
 
 
-Func_fe_4e6c::
+Cranky_LinkHit_BarrelOKremlings_Body::
 	xor a
 	ldh [$ff9c], a
 	ld a, $20
@@ -2294,7 +2294,7 @@ Func_fe_4e6c::
 	ld a, [$cbb0]
 	cp b
 	jr nz, .jump_4e92
-	call Func_fe_4ece
+	call Cranky_RemoveActorLinkHit
 	pop af
 	ret
 
@@ -2307,7 +2307,7 @@ Func_fe_4e6c::
 	ret
 
 
-Func_fe_4e9c::
+Cranky_LinkHit_Wanted_Body::
 	xor a
 	ldh [$ff9c], a
 	ld a, $20
@@ -2329,7 +2329,7 @@ Func_fe_4e9c::
 	ld a, [$cbb0]
 	cp b
 	jp nz, .jump_4ec4
-	call Func_fe_4ece
+	call Cranky_RemoveActorLinkHit
 	pop af
 	ret
 
@@ -2342,7 +2342,7 @@ Func_fe_4e9c::
 	ret
 
 
-Func_fe_4ece::
+Cranky_RemoveActorLinkHit::
 	xor a
 	ld hl, $dbe0
 	push af
@@ -2411,7 +2411,7 @@ Func_fe_4ece::
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld hl, $db20
 	ldh a, [$ff9c]
 	add a, l
@@ -2429,7 +2429,7 @@ Func_fe_4ece::
 	ret
 
 
-Func_fe_4f4e::
+Cranky_LinkHit_Kremlings_Body::
 	xor a
 	ldh [$ff9c], a
 	ld a, $20
@@ -2469,7 +2469,7 @@ Func_fe_4f4e::
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld hl, $db40
 	ldh a, [$ff9c]
 	add a, l
@@ -2477,7 +2477,7 @@ Func_fe_4f4e::
 	ld a, [hl]
 	sub $10
 	ld [hl], a
-	call Func_fe_4ece
+	call Cranky_RemoveActorLinkHit
 	pop af
 	ret
 
@@ -2499,8 +2499,8 @@ Func_fe_4f4e::
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
-	call Func_fe_4ece
+	call Cranky_ResBitN
+	call Cranky_RemoveActorLinkHit
 	pop af
 	ret
 
@@ -2511,7 +2511,7 @@ Func_fe_4f4e::
 	dec a
 	jp nz, .jump_4f53
 
-Func_fe_4fd0::
+Cranky_Reload::
 	ldh a, [$ff91]
 	and $02
 	ret z
@@ -2528,31 +2528,31 @@ Func_fe_4fd0::
 	jp hl
 
 
-Func_fe_4fe4::
-	jp Func_fe_4ff6
+Cranky_Reload_BuddiesBeware::
+	jp Cranky_Reload_BuddiesBeware_Body
 
 
-Func_fe_4fe7::
-	jp Func_fe_5045
+Cranky_Reload_BarrelOKremlings::
+	jp Cranky_ReloadFull
 
 
-Func_fe_4fea::
-	jp Func_fe_5045
+Cranky_Reload_Wanted::
+	jp Cranky_ReloadFull
 
 
-Func_fe_4fed::
-	jp Func_fe_5045
+Cranky_Reload_KremlingKrackdown::
+	jp Cranky_ReloadFull
 
 
-Func_fe_4ff0::
-	jp Func_fe_5045
+Cranky_Reload_KremlingsAndKongs::
+	jp Cranky_ReloadFull
 
 
-Func_fe_4ff3::
-	jp Func_fe_5045
+Cranky_Reload_GalleonGunner::
+	jp Cranky_ReloadFull
 
 
-Func_fe_4ff6::
+Cranky_Reload_BuddiesBeware_Body::
 	ld a, [$cbc4]
 	cp $02
 	ret z
@@ -2580,7 +2580,7 @@ Func_fe_4ff6::
 	ret
 
 
-Func_fe_5024::
+Cranky_ReloadOne::
 	ld a, [$cbee]
 	cp $01
 	ret z
@@ -2600,7 +2600,7 @@ Func_fe_5024::
 	ret
 
 
-Func_fe_5045::
+Cranky_ReloadFull::
 	ld a, [$cbee]
 	or a
 	ret nz
@@ -2620,7 +2620,7 @@ Func_fe_5045::
 	ret
 
 
-Func_fe_5065::
+Cranky_GetTargetRecord::
 	ld a, [$cbbf]
 	add a, a
 	ld hl, $789b
@@ -2645,7 +2645,7 @@ Func_fe_5065::
 	ret
 
 
-Func_fe_5081::
+Cranky_GetOtherTargetRecord::
 	ld a, [$cbbf]
 	add a, a
 	ld hl, $789b
@@ -2670,7 +2670,7 @@ Func_fe_5081::
 	ret
 
 
-Func_fe_509d::
+Cranky_UpdateTargets::
 	ld a, [$cbbf]
 	ld b, a
 	add a, a
@@ -2684,31 +2684,31 @@ Func_fe_509d::
 	jp hl
 
 
-Func_fe_50ac::
-	jp Func_fe_50be
+Cranky_UpdateTargets_BuddiesBeware::
+	jp Cranky_UpdateTargets_BuddiesBeware_Body
 
 
-Func_fe_50af::
-	jp Func_fe_5106
+Cranky_UpdateTargets_BarrelOKremlings::
+	jp Cranky_UpdateTargets_None
 
 
-Func_fe_50b2::
-	jp Func_fe_5106
+Cranky_UpdateTargets_Wanted::
+	jp Cranky_UpdateTargets_None
 
 
-Func_fe_50b5::
-	jp Func_fe_5106
+Cranky_UpdateTargets_KremlingKrackdown::
+	jp Cranky_UpdateTargets_None
 
 
-Func_fe_50b8::
-	jp Func_fe_5106
+Cranky_UpdateTargets_KremlingsAndKongs::
+	jp Cranky_UpdateTargets_None
 
 
-Func_fe_50bb::
-	jp Func_fe_5106
+Cranky_UpdateTargets_GalleonGunner::
+	jp Cranky_UpdateTargets_None
 
 
-Func_fe_50be::
+Cranky_UpdateTargets_BuddiesBeware_Body::
 	ld hl, $cbe4
 	ld bc, $cbdc
 	ld a, $06
@@ -2727,7 +2727,7 @@ Func_fe_50be::
 	dec [hl]
 	ld hl, $cbda
 	ld a, d
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld a, [$cbc4]
 	cp $01
 	jr z, .jump_50fd
@@ -2757,11 +2757,11 @@ Func_fe_50be::
 	ret
 
 
-Func_fe_5106::
+Cranky_UpdateTargets_None::
 	ret
 
 
-Func_fe_5107::
+Cranky_TestBitN::
 	push hl
 	add a, a
 	ld hl, $5112
@@ -2773,35 +2773,35 @@ Func_fe_5107::
 	jp hl
 
 
-Func_fe_5112::
-	jr Func_fe_5120.jump_5122
+Cranky_TestBitN_0::
+	jr Cranky_TestBitN_Body.jump_5122
 
 
-Func_fe_5114::
-	jr Func_fe_5120.jump_5126
+Cranky_TestBitN_1::
+	jr Cranky_TestBitN_Body.jump_5126
 
 
-Func_fe_5116::
-	jr Func_fe_5120.jump_512a
+Cranky_TestBitN_2::
+	jr Cranky_TestBitN_Body.jump_512a
 
 
-Func_fe_5118::
-	jr Func_fe_5120.jump_512e
+Cranky_TestBitN_3::
+	jr Cranky_TestBitN_Body.jump_512e
 
 
-Func_fe_511a::
-	jr Func_fe_5120.jump_5132
+Cranky_TestBitN_4::
+	jr Cranky_TestBitN_Body.jump_5132
 
 
-Func_fe_511c::
-	jr Func_fe_5120.jump_5136
+Cranky_TestBitN_5::
+	jr Cranky_TestBitN_Body.jump_5136
 
 
-Func_fe_511e::
-	jr Func_fe_5120.jump_513a
+Cranky_TestBitN_6::
+	jr Cranky_TestBitN_Body.jump_513a
 
 
-Func_fe_5120::
+Cranky_TestBitN_Body::
 	jr .jump_513e
 
 .jump_5122:
@@ -2845,7 +2845,7 @@ Func_fe_5120::
 	ret
 
 
-Func_fe_5142::
+Cranky_ResBitN::
 	push hl
 	add a, a
 	ld hl, $514d
@@ -2857,35 +2857,35 @@ Func_fe_5142::
 	jp hl
 
 
-Func_fe_514d::
-	jr Func_fe_515b.jump_515d
+Cranky_ResBitN_0::
+	jr Cranky_ResBitN_Body.jump_515d
 
 
-Func_fe_514f::
-	jr Func_fe_515b.jump_5161
+Cranky_ResBitN_1::
+	jr Cranky_ResBitN_Body.jump_5161
 
 
-Func_fe_5151::
-	jr Func_fe_515b.jump_5165
+Cranky_ResBitN_2::
+	jr Cranky_ResBitN_Body.jump_5165
 
 
-Func_fe_5153::
-	jr Func_fe_515b.jump_5169
+Cranky_ResBitN_3::
+	jr Cranky_ResBitN_Body.jump_5169
 
 
-Func_fe_5155::
-	jr Func_fe_515b.jump_516d
+Cranky_ResBitN_4::
+	jr Cranky_ResBitN_Body.jump_516d
 
 
-Func_fe_5157::
-	jr Func_fe_515b.jump_5171
+Cranky_ResBitN_5::
+	jr Cranky_ResBitN_Body.jump_5171
 
 
-Func_fe_5159::
-	jr Func_fe_515b.jump_5175
+Cranky_ResBitN_6::
+	jr Cranky_ResBitN_Body.jump_5175
 
 
-Func_fe_515b::
+Cranky_ResBitN_Body::
 	jr .jump_5179
 
 .jump_515d:
@@ -2929,7 +2929,7 @@ Func_fe_515b::
 	ret
 
 
-Func_fe_517d::
+Cranky_SetBitN::
 	push hl
 	add a, a
 	ld hl, $5188
@@ -2941,35 +2941,35 @@ Func_fe_517d::
 	jp hl
 
 
-Func_fe_5188::
-	jr Func_fe_5196.jump_5198
+Cranky_SetBitN_0::
+	jr Cranky_SetBitN_Body.jump_5198
 
 
-Func_fe_518a::
-	jr Func_fe_5196.jump_519c
+Cranky_SetBitN_1::
+	jr Cranky_SetBitN_Body.jump_519c
 
 
-Func_fe_518c::
-	jr Func_fe_5196.jump_51a0
+Cranky_SetBitN_2::
+	jr Cranky_SetBitN_Body.jump_51a0
 
 
-Func_fe_518e::
-	jr Func_fe_5196.jump_51a4
+Cranky_SetBitN_3::
+	jr Cranky_SetBitN_Body.jump_51a4
 
 
-Func_fe_5190::
-	jr Func_fe_5196.jump_51a8
+Cranky_SetBitN_4::
+	jr Cranky_SetBitN_Body.jump_51a8
 
 
-Func_fe_5192::
-	jr Func_fe_5196.jump_51ac
+Cranky_SetBitN_5::
+	jr Cranky_SetBitN_Body.jump_51ac
 
 
-Func_fe_5194::
-	jr Func_fe_5196.jump_51b0
+Cranky_SetBitN_6::
+	jr Cranky_SetBitN_Body.jump_51b0
 
 
-Func_fe_5196::
+Cranky_SetBitN_Body::
 	jr .jump_51b4
 
 .jump_5198:
@@ -3013,10 +3013,10 @@ Func_fe_5196::
 	ret
 
 
-Func_fe_51b8::
+Cranky_DrawCrosshair::
 	ld a, [$cbc4]
 	cp $01
-	jr z, Func_fe_51ef
+	jr z, Cranky_DrawCrosshairBlinking
 	ldh a, [$ffd4]
 	cp $66
 	jr z, .jump_51da
@@ -3027,11 +3027,11 @@ Func_fe_51b8::
 	srl a
 	srl a
 	ldh [$ff82], a
-	call Func_fe_5235
-	jr Func_fe_51ef.jump_5212
+	call Cranky_DrawCrosshairAt
+	jr Cranky_DrawCrosshairBlinking.jump_5212
 
 .jump_51da:
-	call Func_fe_51ef
+	call Cranky_DrawCrosshairBlinking
 	ld a, [$cba1]
 	ld [$cbc1], a
 	ldh a, [$ff9a]
@@ -3039,10 +3039,10 @@ Func_fe_51b8::
 	srl a
 	srl a
 	ldh [$ff82], a
-	jr Func_fe_5235.jump_525f
+	jr Cranky_DrawCrosshairAt.jump_525f
 
 
-Func_fe_51ef::
+Cranky_DrawCrosshairBlinking::
 	ld a, [$cc09]
 	or a
 	jr z, .jump_51fc
@@ -3062,7 +3062,7 @@ Func_fe_51ef::
 	ld a, $01
 	ldh [$ff82], a
 .jump_5210:
-	jr Func_fe_5235
+	jr Cranky_DrawCrosshairAt
 
 .jump_5212:
 	ld a, [$cc09]
@@ -3084,10 +3084,10 @@ Func_fe_51ef::
 	ld a, $01
 	ldh [$ff82], a
 .jump_5233:
-	jr Func_fe_5235.jump_525f
+	jr Cranky_DrawCrosshairAt.jump_525f
 
 
-Func_fe_5235::
+Cranky_DrawCrosshairAt::
 	ld hl, $794f
 	ld a, [$cbbf]
 	add a, a
@@ -3102,7 +3102,7 @@ Func_fe_5235::
 	push bc
 	ld a, $00
 	ldh [$ff99], a
-	call Func_fe_5065
+	call Cranky_GetTargetRecord
 	pop bc
 	ld a, b
 	add a, [hl]
@@ -3132,7 +3132,7 @@ Func_fe_5235::
 	push bc
 	ld a, $01
 	ldh [$ff99], a
-	call Func_fe_5081
+	call Cranky_GetOtherTargetRecord
 	pop bc
 	ld a, b
 	add a, [hl]
@@ -3148,7 +3148,7 @@ Func_fe_5235::
 	ret
 
 
-Func_fe_5289::
+Cranky_BeginOAM::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -3167,12 +3167,12 @@ Func_fe_5289::
 	ret
 
 
-Func_fe_52a5::
+Cranky_SwapTileBuffer::
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, [$cbc2]
 	or a
-	jr nz, Func_fe_52da.jump_52e3
+	jr nz, Cranky_SwapTileBuffer_B.jump_52e3
 	xor a
 	ldh [rVBK], a
 	ld hl, $d000
@@ -3192,20 +3192,20 @@ Func_fe_52a5::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f5_44e1)
+	ld a, HIGH(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, LOW(Func_f5_44e1)
+	ld a, LOW(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, BANK(Func_f5_44e1)
+	ld a, BANK(Cranky_StartHBlankDMA)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_fe_52da::
+Cranky_SwapTileBuffer_B::
 	ld a, $01
 	ld [$cbc2], a
-	call Func_fe_531a
+	call Cranky_CopyOAMBuffer
 	ret
 
 .jump_52e3:
@@ -3228,25 +3228,25 @@ Func_fe_52da::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f5_44e1)
+	ld a, HIGH(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, LOW(Func_f5_44e1)
+	ld a, LOW(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, BANK(Func_f5_44e1)
+	ld a, BANK(Cranky_StartHBlankDMA)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_fe_530f::
+Cranky_SwapTileBuffer_A::
 	xor a
 	ld [$cbc2], a
-	call Func_fe_5341
-	call Func_fe_531a
+	call Cranky_ShiftOAMTiles
+	call Cranky_CopyOAMBuffer
 	ret
 
 
-Func_fe_531a::
+Cranky_CopyOAMBuffer::
 	ld hl, $c000
 	ld bc, $cb00
 	ld d, $28
@@ -3268,7 +3268,7 @@ Func_fe_531a::
 	ret
 
 
-Func_fe_5332::
+Cranky_ClearOAMTileBank::
 	ld hl, $c003
 	ld bc, $0004
 	ld d, $28
@@ -3280,7 +3280,7 @@ Func_fe_5332::
 	ret
 
 
-Func_fe_5341::
+Cranky_ShiftOAMTiles::
 	ld hl, $c002
 	ld bc, $0003
 	ld d, $28
@@ -3295,7 +3295,7 @@ Func_fe_5341::
 	ret
 
 
-Func_fe_5354::
+Cranky_AnimateBackgroundTiles::
 	ld a, [$cbbf]
 	ld b, a
 	add a, a
@@ -3423,7 +3423,7 @@ Func_fe_5354::
 	jp $ccdc
 
 
-Func_fe_541c::
+Cranky_DrawAmmo::
 	ld a, [$cbc4]
 	cp $01
 	jr z, .jump_5438
@@ -3455,7 +3455,7 @@ Func_fe_541c::
 	jp $ccdc
 
 
-Func_fe_5457::
+Cranky_CountTargetsUp::
 	ld a, [$cbdc]
 	ld b, a
 	ld a, [$cbdd]
@@ -3475,7 +3475,7 @@ Func_fe_5457::
 	ret
 
 
-Func_fe_5474::
+Cranky_FlashScore::
 	ld hl, $cbf3
 	set 4, [hl]
 	ld a, [$cbf3]
@@ -3493,7 +3493,7 @@ Func_fe_5474::
 	ret
 
 
-Func_fe_5494::
+Cranky_SubtractPoints::
 	ld a, $03
 	ld [$cbf6], a
 	ld a, [$cbf3]
@@ -3531,12 +3531,12 @@ Func_fe_5494::
 	ret
 
 
-Func_fe_54d5::
+Cranky_DrawScoreNow::
 	xor a
-	jr Func_fe_54d8.jump_54da
+	jr Cranky_DrawScore.jump_54da
 
 
-Func_fe_54d8::
+Cranky_DrawScore::
 	ldh a, [$ff9a]
 .jump_54da:
 	and $03
@@ -3549,13 +3549,13 @@ Func_fe_54d8::
 	jr z, .jump_54f6
 	ld hl, $cbf1
 	ld bc, $cbf4
-	call Func_fe_5597
+	call Cranky_DigitBlinkDown
 	jr .jump_54ff
 
 .jump_54f6:
 	ld hl, $cbf1
 	ld bc, $cbf4
-	call Func_fe_55a1
+	call Cranky_DigitRollUp
 .jump_54ff:
 	ld a, [$cbf2]
 	swap a
@@ -3565,13 +3565,13 @@ Func_fe_54d8::
 	jr z, .jump_5517
 	ld hl, $cbf2
 	ld bc, $cbf5
-	call Func_fe_5597
+	call Cranky_DigitBlinkDown
 	jr .jump_5520
 
 .jump_5517:
 	ld hl, $cbf2
 	ld bc, $cbf5
-	call Func_fe_55a1
+	call Cranky_DigitRollUp
 .jump_5520:
 	ld a, [$cbf3]
 	swap a
@@ -3581,13 +3581,13 @@ Func_fe_54d8::
 	jr z, .jump_5538
 	ld hl, $cbf3
 	ld bc, $cbf6
-	call Func_fe_5597
+	call Cranky_DigitBlinkDown
 	jr .jump_5541
 
 .jump_5538:
 	ld hl, $cbf3
 	ld bc, $cbf6
-	call Func_fe_55a1
+	call Cranky_DigitRollUp
 .jump_5541:
 	ld a, $07
 	ldh [$ff99], a
@@ -3633,7 +3633,7 @@ Func_fe_54d8::
 	ret
 
 
-Func_fe_5597::
+Cranky_DigitBlinkDown::
 	ld a, [bc]
 	dec a
 	ld [bc], a
@@ -3645,7 +3645,7 @@ Func_fe_5597::
 	ret
 
 
-Func_fe_55a1::
+Cranky_DigitRollUp::
 	ld a, [bc]
 	inc a
 	ld [bc], a
@@ -3664,7 +3664,7 @@ Func_fe_55a1::
 	ret
 
 
-Func_fe_55b4::
+Cranky_SetAmmoIcon::
 	ld a, [$cbbf]
 	add a, a
 	ld hl, $55c1
@@ -3676,27 +3676,27 @@ Func_fe_55b4::
 	jp hl
 
 
-Func_fe_55c1::
-	jr Func_fe_55cb.jump_55cd
+Cranky_SetAmmoIcon_BuddiesBeware::
+	jr Cranky_SetAmmoIcon_Common.jump_55cd
 
 
-Func_fe_55c3::
-	jr Func_fe_55cb.jump_55cd
+Cranky_SetAmmoIcon_BarrelOKremlings::
+	jr Cranky_SetAmmoIcon_Common.jump_55cd
 
 
-Func_fe_55c5::
-	jr Func_fe_55cb.jump_55cd
+Cranky_SetAmmoIcon_Wanted::
+	jr Cranky_SetAmmoIcon_Common.jump_55cd
 
 
-Func_fe_55c7::
-	jr Func_fe_55cb.jump_55cd
+Cranky_SetAmmoIcon_KremlingKrackdown::
+	jr Cranky_SetAmmoIcon_Common.jump_55cd
 
 
-Func_fe_55c9::
-	jr Func_fe_55cb.jump_55cd
+Cranky_SetAmmoIcon_KremlingsAndKongs::
+	jr Cranky_SetAmmoIcon_Common.jump_55cd
 
 
-Func_fe_55cb::
+Cranky_SetAmmoIcon_Common::
 	jr .jump_55cd
 
 .jump_55cd:
@@ -3708,7 +3708,7 @@ Func_fe_55cb::
 	ret
 
 
-Func_fe_55d8::
+Cranky_DrawTimer::
 	ldh a, [$ffd4]
 	cp $bb
 	jr z, .jump_55f5
@@ -3736,7 +3736,7 @@ Func_fe_55d8::
 	ret
 
 
-Func_fe_560c::
+Cranky_CheckTimeUp::
 	ld a, [$cbf3]
 	bit 5, a
 	ret nz
@@ -3767,11 +3767,11 @@ Func_fe_560c::
 	or a
 	ret z
 .jump_5641:
-	call Func_fe_5494
+	call Cranky_SubtractPoints
 	ret
 
 
-Func_fe_5645::
+Cranky_CountDownTime::
 	ld a, [$cbf3]
 	bit 5, a
 	ret nz
@@ -3792,27 +3792,27 @@ Func_fe_5645::
 	ret z
 	dec a
 	ld [$cbc7], a
-	call Func_fe_5474
+	call Cranky_FlashScore
 	ret
 
 
-Func_fe_566d::
-	ld a, BANK(Func_f5_45c1)
-	ld hl, Func_f5_45c1
+Cranky_ResumeFromPause::
+	ld a, BANK(Cranky_UndimBackground)
+	ld hl, Cranky_UndimBackground
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_5c3d)
-	ld hl, Func_fe_5c3d
+	ld a, BANK(Cranky_LoadPauseFont)
+	ld hl, Cranky_LoadPauseFont
 	call FarCall_A_HL
-	call Func_fe_5944
+	call Cranky_SetPausePalettes
 .jump_5698:
 	ld a, $00
 	ld [$cbca], a
@@ -3820,22 +3820,22 @@ Func_fe_566d::
 	ldh [$ff99], a
 	ld e, $00
 	ld b, $00
-	call Func_fe_58df
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_DrawPauseText
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
 .jump_56b9:
 	ld a, [$cba2]
 	cp $06
 	jr nz, .jump_56d0
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld a, [$cba2]
 	cp $04
-	jp z, Func_fe_42ae.jump_43c7
+	jp z, Cranky_CheckGameOver.jump_43c7
 	jr .jump_56b9
 
 .jump_56d0:
@@ -3845,106 +3845,106 @@ Func_fe_566d::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_595a
-	ld a, BANK(Func_fe_5c0d)
-	ld hl, Func_fe_5c0d
+	call Cranky_ClearPauseScreen
+	ld a, BANK(Cranky_LoadPalettes)
+	ld hl, Cranky_LoadPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_4588)
-	ld hl, Func_f5_4588
+	ld a, BANK(Cranky_DimBackground)
+	ld hl, Cranky_DimBackground
 	call FarCall_A_HL
 	ret
 
 
-Func_fe_5703::
+Cranky_Pause::
 	ld a, $06
 	ld [$cbca], a
 	ld [$cbb3], a
-	ld a, BANK(Func_f5_45c1)
-	ld hl, Func_f5_45c1
+	ld a, BANK(Cranky_UndimBackground)
+	ld hl, Cranky_UndimBackground
 	call FarCall_A_HL
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_fe_5c3d)
-	ld hl, Func_fe_5c3d
+	ld a, BANK(Cranky_LoadPauseFont)
+	ld hl, Cranky_LoadPauseFont
 	call FarCall_A_HL
-	call Func_fe_5944
+	call Cranky_SetPausePalettes
 	ldh a, [$ffd4]
 	cp $bb
 	jr nz, .jump_5744
 	ld a, [$cba2]
 	cp $06
-	jp z, Func_fe_566d.jump_5698
+	jp z, Cranky_ResumeFromPause.jump_5698
 .jump_5744:
 	ld a, $00
 	ldh [$ff99], a
 	ld e, $00
 	ld b, $01
-	call Func_fe_58df
+	call Cranky_DrawPauseText
 	ld a, $00
-	call Func_fe_58ca
+	call Cranky_PauseSetItem
 	ld b, $02
-	call Func_fe_58df
+	call Cranky_DrawPauseText
 	ld a, $01
-	call Func_fe_58ca
+	call Cranky_PauseSetItem
 	xor a
 	ld [$cbce], a
 	ld a, $02
 	ld [$cbd7], a
-	call Func_fe_580b
+	call Cranky_PauseLoop
 	ld a, [$cbce]
 	or $00
 	jp z, .jump_57d8
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
 	ld a, $00
 	ldh [$ff99], a
 	ld e, $00
 	ld b, $03
-	call Func_fe_58df
+	call Cranky_DrawPauseText
 	ld b, $04
-	call Func_fe_58df
+	call Cranky_DrawPauseText
 	ld a, $00
-	call Func_fe_58ca
+	call Cranky_PauseSetItem
 	ld b, $05
-	call Func_fe_58df
+	call Cranky_DrawPauseText
 	ld a, $01
-	call Func_fe_58ca
+	call Cranky_PauseSetItem
 	ld a, $01
 	ld [$cbce], a
 	ld a, $02
 	ld [$cbd7], a
-	call Func_fe_580b
+	call Cranky_PauseLoop
 	ld a, [$cbce]
 	or a
-	jp z, Func_fe_42ae.jump_436d
+	jp z, Cranky_CheckGameOver.jump_436d
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
 	jp .jump_5744
 
@@ -3955,43 +3955,43 @@ Func_fe_5703::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_595a
-	ld a, BANK(Func_fe_5c0d)
-	ld hl, Func_fe_5c0d
+	call Cranky_ClearPauseScreen
+	ld a, BANK(Cranky_LoadPalettes)
+	ld hl, Cranky_LoadPalettes
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_4588)
-	ld hl, Func_f5_4588
+	ld a, BANK(Cranky_DimBackground)
+	ld hl, Cranky_DimBackground
 	call FarCall_A_HL
 	ret
 
 
-Func_fe_580b::
-	call Func_fe_585a
+Cranky_PauseLoop::
+	call Cranky_PauseShowCursor
 .jump_580e:
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 7, a
-	call nz, Func_fe_582e
+	call nz, Cranky_PauseNext
 	ldh a, [$ff91]
 	bit 6, a
-	call nz, Func_fe_5844
+	call nz, Cranky_PausePrevious
 	ldh a, [$ff91]
 	and $09
 	ret nz
 	jr .jump_580e
 
 
-Func_fe_582e::
-	call Func_fe_5892
+Cranky_PauseNext::
+	call Cranky_PauseHideCursor
 	ld a, [$cbd7]
 	ld b, a
 	ld a, [$cbce]
@@ -4001,12 +4001,12 @@ Func_fe_582e::
 	xor a
 .jump_583d:
 	ld [$cbce], a
-	call Func_fe_585a
+	call Cranky_PauseShowCursor
 	ret
 
 
-Func_fe_5844::
-	call Func_fe_5892
+Cranky_PausePrevious::
+	call Cranky_PauseHideCursor
 	ld a, [$cbce]
 	dec a
 	cp $ff
@@ -4015,11 +4015,11 @@ Func_fe_5844::
 	dec a
 .jump_5853:
 	ld [$cbce], a
-	call Func_fe_585a
+	call Cranky_PauseShowCursor
 	ret
 
 
-Func_fe_585a::
+Cranky_PauseShowCursor::
 	ld a, [$cbce]
 	ld hl, $cbcf
 	add a, l
@@ -4049,16 +4049,16 @@ Func_fe_585a::
 	inc e
 	dec b
 	jr nz, .jump_5879
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
 	ret
 
 
-Func_fe_5892::
+Cranky_PauseHideCursor::
 	ld a, [$cbce]
 	ld hl, $cbcf
 	add a, l
@@ -4088,16 +4088,16 @@ Func_fe_5892::
 	inc e
 	dec b
 	jr nz, .jump_58b1
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
 	ret
 
 
-Func_fe_58ca::
+Cranky_PauseSetItem::
 	push af
 	ld hl, $cbcf
 	add a, l
@@ -4117,7 +4117,7 @@ Func_fe_58ca::
 	ret
 
 
-Func_fe_58df::
+Cranky_DrawPauseText::
 	ld hl, $7d11
 	ld a, [$c805]
 	add a, a
@@ -4194,9 +4194,9 @@ CrankyObjPalettes::
 	rgb  0,  0,  0,   4,  1,  0,  16,  4,  0,  31, 12, 12
 	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31, 24,  0
 
-Func_fe_5944::
-	call Func_fe_4662
-	call Func_fe_77b0
+Cranky_SetPausePalettes::
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld hl, $5934
 	ld a, $80
 	ldh [rOCPS], a
@@ -4209,7 +4209,7 @@ Func_fe_5944::
 	ret
 
 
-Func_fe_595a::
+Cranky_ClearPauseScreen::
 	ld hl, $d000
 	ld bc, $0a00
 	xor a
@@ -4220,8 +4220,8 @@ Func_fe_595a::
 	jr nz, .jump_5961
 	cp b
 	jr nz, .jump_5961
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	xor a
 	ldh [rVBK], a
 	ld hl, $d000
@@ -4241,19 +4241,19 @@ Func_fe_595a::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f5_44e1)
+	ld a, HIGH(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, LOW(Func_f5_44e1)
+	ld a, LOW(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, BANK(Func_f5_44e1)
+	ld a, BANK(Cranky_StartHBlankDMA)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_fe_599a::
-	call Func_fe_4662
-	call Func_fe_77b0
+Cranky_UploadPauseScreen::
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld a, $01
 	ldh [rVBK], a
 	ld hl, $d000
@@ -4273,23 +4273,23 @@ Func_fe_599a::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f5_44e1)
+	ld a, HIGH(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, LOW(Func_f5_44e1)
+	ld a, LOW(Cranky_StartHBlankDMA)
 	push af
 	inc sp
-	ld a, BANK(Func_f5_44e1)
+	ld a, BANK(Cranky_StartHBlankDMA)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_fe_59cc::
-	call Func_fe_4662
-	call Func_fe_77b0
+Cranky_PauseWait::
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ret
 
 
-Func_fe_59d3::
+Cranky_FlashScreen::
 	ld a, [$cc0a]
 	or a
 	ret z
@@ -4326,24 +4326,24 @@ Func_fe_59d3::
 	ret
 
 .jump_5a04:
-	ld a, BANK(Func_f5_4291)
-	ld hl, Func_f5_4291
+	ld a, BANK(Cranky_UploadPalettes)
+	ld hl, Cranky_UploadPalettes
 	call FarCall_A_HL
 	xor a
 	ld [$cc0a], a
 	ret
 
 
-Func_fe_5a11::
+Cranky_CheckQuit::
 	ld a, [$cba2]
 	cp $00
 	ret z
 	cp $03
-	jp z, Func_fe_42ae.jump_431e
+	jp z, Cranky_CheckGameOver.jump_431e
 	ret
 
 
-Func_fe_5a1d::
+Cranky_HandleRemoteEvent::
 	ld a, [$cbac]
 	ld b, a
 	ld a, [$cbb8]
@@ -4364,15 +4364,15 @@ Func_fe_5a1d::
 	jp hl
 
 
-Func_fe_5a39::
-	jp Func_fe_5a3f
+Cranky_RemoteEvent0::
+	jp Cranky_RemoteEvent_ActorShot
 
 
-Func_fe_5a3c::
-	jp Func_fe_5ab8
+Cranky_RemoteEvent1::
+	jp Cranky_RemoteEvent_TargetHit
 
 
-Func_fe_5a3f::
+Cranky_RemoteEvent_ActorShot::
 	ld a, [$cba6]
 	ld b, a
 	xor a
@@ -4457,7 +4457,7 @@ Func_fe_5a3f::
 	ret
 
 
-Func_fe_5ab8::
+Cranky_RemoteEvent_TargetHit::
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -4475,15 +4475,15 @@ Func_fe_5ab8::
 	ld a, [hl]
 	inc a
 	cp $04
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	inc [hl]
 	ld a, b
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ret
 
 
-Func_fe_5adf::
+Cranky_DrawTargets::
 	ld a, [$cbbf]
 	add a, a
 	ld hl, $795b
@@ -4507,7 +4507,7 @@ Func_fe_5adf::
 .jump_5afe:
 	push af
 	push hl
-	call Func_fe_5bda
+	call Cranky_DrawTarget
 	pop hl
 	ld a, $04
 	add a, l
@@ -4520,7 +4520,7 @@ Func_fe_5adf::
 	jr nz, .jump_5afe
 .jump_5b0f:
 	ld d, $fc
-	call Func_fe_5bda
+	call Cranky_DrawTarget
 	ld a, $01
 	ldh [rSVBK], a
 	pop af
@@ -4535,8 +4535,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b23
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 .jump_5b32:
 	ldh a, [rSTAT]
@@ -4548,8 +4548,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b39
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 .jump_5b48:
 	ldh a, [rSTAT]
@@ -4561,8 +4561,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b4f
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 .jump_5b5e:
 	ldh a, [rSTAT]
@@ -4574,8 +4574,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b65
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 .jump_5b74:
 	ldh a, [rSTAT]
@@ -4587,8 +4587,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b7b
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 .jump_5b8a:
 	ldh a, [rSTAT]
@@ -4600,8 +4600,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b91
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 .jump_5ba0:
 	ldh a, [rSTAT]
@@ -4613,8 +4613,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5ba7
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 .jump_5bb6:
 	ldh a, [rSTAT]
@@ -4626,18 +4626,18 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5bbd
-	ld a, BANK(Func_fe_5354)
-	ld hl, Func_fe_5354
+	ld a, BANK(Cranky_AnimateBackgroundTiles)
+	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
 	ld a, $01
 	ld [$cbad], a
-	ld a, BANK(Func_fe_541c)
-	ld hl, Func_fe_541c
+	ld a, BANK(Cranky_DrawAmmo)
+	ld hl, Cranky_DrawAmmo
 	call FarCall_A_HL
 	ret
 
 
-Func_fe_5bda::
+Cranky_DrawTarget::
 	push de
 	ld b, [hl]
 	inc hl
@@ -4683,7 +4683,7 @@ Func_fe_5bda::
 	ret
 
 
-Func_fe_5c0d::
+Cranky_LoadPalettes::
 	ld a, [$cbbf]
 	add a, a
 	add a, a
@@ -4724,63 +4724,63 @@ Func_fe_5c0d::
 	ret
 
 
-Func_fe_5c3d::
+Cranky_LoadPauseFont::
 	xor a
 	ldh [rVBK], a
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	ld hl, $72e0
 	ld bc, $8000
 	ld d, $10
 	ld a, $ff
 	ld [$c800], a
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	push hl
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	pop hl
 	ld d, $10
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	push hl
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	pop hl
 	ld d, $10
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	push hl
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	pop hl
 	ld d, $10
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	push hl
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	pop hl
 	ld d, $10
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	push hl
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	pop hl
 	ld d, $10
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	push hl
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	pop hl
 	ld d, $10
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	push hl
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	pop hl
 	ld d, $10
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	call $ccdc
 	ret
 
 
-Func_fe_5cb2::
+Cranky_RunActors::
 	xor a
 	ldh [$ff9c], a
 .jump_5cb5:
@@ -4805,92 +4805,92 @@ Func_fe_5cb2::
 	jp hl
 
 
-Func_fe_5cce::
+Cranky_NextActor::
 	ldh a, [$ff9c]
 	inc a
 	ldh [$ff9c], a
 	cp $20
-	jr nz, Func_fe_5cb2.jump_5cb5
+	jr nz, Cranky_RunActors.jump_5cb5
 	ret
 
 
-Func_fe_5cd8::
-	jp Func_fe_5cce
+Cranky_ActorType00::
+	jp Cranky_NextActor
 
 
-Func_fe_5cdb::
-	jp Func_fe_5d11
+Cranky_ActorType01::
+	jp Cranky_Actor_BuddiesBeware_Pop
 
 
-Func_fe_5cde::
-	jp Func_fe_5d11
+Cranky_ActorType02::
+	jp Cranky_Actor_BuddiesBeware_Pop
 
 
-Func_fe_5ce1::
-	jp Func_fe_5d11
+Cranky_ActorType03::
+	jp Cranky_Actor_BuddiesBeware_Pop
 
 
-Func_fe_5ce4::
-	jp Func_fe_5d70
+Cranky_ActorType04::
+	jp Cranky_Actor_BuddiesBeware_Run
 
 
-Func_fe_5ce7::
-	jp Func_fe_5f19
+Cranky_ActorType05::
+	jp Cranky_Actor_Barrel
 
 
-Func_fe_5cea::
-	jp Func_fe_5f9d
+Cranky_ActorType06::
+	jp Cranky_Actor_Type6
 
 
-Func_fe_5ced::
-	jp Func_fe_6104
+Cranky_ActorType07::
+	jp Cranky_Actor_Kremling_Appear
 
 
-Func_fe_5cf0::
-	jp Func_fe_5fc4
+Cranky_ActorType08::
+	jp Cranky_Actor_Kremling
 
 
-Func_fe_5cf3::
-	jp Func_fe_6041
+Cranky_ActorType09::
+	jp Cranky_Actor_Kremling_Hide
 
 
-Func_fe_5cf6::
-	jp Func_fe_61b3
+Cranky_ActorType10::
+	jp Cranky_Actor_Kong
 
 
-Func_fe_5cf9::
-	jp Func_fe_6133
+Cranky_ActorType11::
+	jp Cranky_Actor_Kong_Hide
 
 
-Func_fe_5cfc::
-	jp Func_fe_61d3
+Cranky_ActorType12::
+	jp Cranky_Actor_Kong_Appear
 
 
-Func_fe_5cff::
-	jp Func_fe_6249
+Cranky_ActorType13::
+	jp Cranky_Actor_Galleon13
 
 
-Func_fe_5d02::
-	jp Func_fe_624c
+Cranky_ActorType14::
+	jp Cranky_Actor_GalleonShip
 
 
-Func_fe_5d05::
-	jp Func_fe_62fc
+Cranky_ActorType15::
+	jp Cranky_Actor_Type15
 
 
-Func_fe_5d08::
-	jp Func_fe_62ff
+Cranky_ActorType16::
+	jp Cranky_Actor_GalleonSink
 
 
-Func_fe_5d0b::
-	jp Func_fe_63bf
+Cranky_ActorType17::
+	jp Cranky_Actor_GalleonCannonball
 
 
-Func_fe_5d0e::
-	jp Func_fe_63fa
+Cranky_ActorType18::
+	jp Cranky_Actor_Type18
 
 
-Func_fe_5d11::
+Cranky_Actor_BuddiesBeware_Pop::
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
@@ -4900,7 +4900,7 @@ Func_fe_5d11::
 	jr z, .jump_5d1d
 	dec [hl]
 .jump_5d1d:
-	call Func_fe_6792
+	call Cranky_AnimateActor
 	ld hl, $db60
 	ldh a, [$ff9c]
 	add a, l
@@ -4908,13 +4908,13 @@ Func_fe_5d11::
 	ld a, [hl]
 	bit 2, [hl]
 	jr nz, .jump_5d3d
-	call Func_fe_67f3
-	call Func_fe_5e43
-	call Func_fe_5ee7
-	jr z, Func_fe_5cce
+	call Cranky_MoveActor
+	call Cranky_Actor_BuddiesBeware_Move
+	call Cranky_Actor_BuddiesBeware_AtEdge
+	jr z, Cranky_NextActor
 	dec a
-	call Func_fe_5db0
-	jr Func_fe_5cce
+	call Cranky_Actor_BuddiesBeware_Shot
+	jr Cranky_NextActor
 
 .jump_5d3d:
 	ld hl, $dbe0
@@ -4923,7 +4923,7 @@ Func_fe_5d11::
 	ld l, a
 	ld a, [hl]
 	cp $07
-	jr nz, Func_fe_5cce
+	jr nz, Cranky_NextActor
 	ld hl, $db00
 	ldh a, [$ff9c]
 	add a, l
@@ -4931,7 +4931,7 @@ Func_fe_5d11::
 	ld a, [hl]
 	dec a
 	ld hl, $cbfb
-	call Func_fe_5142
+	call Cranky_ResBitN
 	xor a
 	ld hl, $db00
 	push af
@@ -4943,16 +4943,16 @@ Func_fe_5d11::
 	ld a, [$cbf9]
 	dec a
 	ld [$cbf9], a
-	jp nz, Func_fe_5cce
-	jp Func_fe_42ae.jump_42eb
+	jp nz, Cranky_NextActor
+	jp Cranky_CheckGameOver.jump_42eb
 
 
-Func_fe_5d70::
-	call Func_fe_6792
-	call Func_fe_67f3
-	call Func_fe_5e43
-	call Func_fe_5ee7
-	jp z, Func_fe_5cce
+Cranky_Actor_BuddiesBeware_Run::
+	call Cranky_AnimateActor
+	call Cranky_MoveActor
+	call Cranky_Actor_BuddiesBeware_Move
+	call Cranky_Actor_BuddiesBeware_AtEdge
+	jp z, Cranky_NextActor
 	ld b, a
 	ld hl, $dcc0
 	ldh a, [$ff9c]
@@ -4962,7 +4962,7 @@ Func_fe_5d70::
 	or a
 	jr z, .jump_5d8f
 	dec [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 .jump_5d8f:
 	dec b
@@ -4972,7 +4972,7 @@ Func_fe_5d70::
 	ld l, a
 	ld a, [hl]
 	cp b
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld a, $01
 	ld [$cbed], a
 	ld a, $06
@@ -4983,10 +4983,10 @@ Func_fe_5d70::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_5db0::
+Cranky_Actor_BuddiesBeware_Shot::
 	ld b, a
 	ld hl, $cbdc
 	add a, l
@@ -5088,7 +5088,7 @@ Func_fe_5db0::
 	ret
 
 
-Func_fe_5e43::
+Cranky_Actor_BuddiesBeware_Move::
 	ld hl, $dca0
 	ldh a, [$ff9c]
 	add a, l
@@ -5178,15 +5178,15 @@ Func_fe_5e43::
 	ld a, [hl]
 	dec a
 	ld hl, $cbfb
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld hl, $db00
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $04
-	call nz, Func_fe_5494
-	call Func_fe_42ae
+	call nz, Cranky_SubtractPoints
+	call Cranky_CheckGameOver
 	xor a
 	ld hl, $db00
 	push af
@@ -5198,7 +5198,7 @@ Func_fe_5e43::
 	ret
 
 
-Func_fe_5ee7::
+Cranky_Actor_BuddiesBeware_AtEdge::
 	ld hl, $db20
 	ldh a, [$ff9c]
 	add a, l
@@ -5233,7 +5233,7 @@ Func_fe_5ee7::
 	ret
 
 
-Func_fe_5f19::
+Cranky_Actor_Barrel::
 	ld hl, $db60
 	ldh a, [$ff9c]
 	add a, l
@@ -5249,24 +5249,24 @@ Func_fe_5f19::
 	or a
 	jr z, .jump_5f34
 	dec [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 .jump_5f34:
-	call Func_fe_6792
+	call Cranky_AnimateActor
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	or a
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld hl, $dce0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld hl, $cbf0
 	dec [hl]
 	ld hl, $dc20
@@ -5289,10 +5289,10 @@ Func_fe_5f19::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 .jump_5f77:
-	call Func_fe_6792
+	call Cranky_AnimateActor
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
@@ -5306,18 +5306,18 @@ Func_fe_5f19::
 	ld l, a
 	ld a, [hl]
 	cp b
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld hl, $db60
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	set 1, [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_5f9d::
-	call Func_fe_6792
+Cranky_Actor_Type6::
+	call Cranky_AnimateActor
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
@@ -5331,7 +5331,7 @@ Func_fe_5f9d::
 	ld a, [hl]
 	dec a
 	cp b
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	xor a
 	ld hl, $db00
 	push af
@@ -5340,12 +5340,12 @@ Func_fe_5f9d::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_5fc4::
-	call Func_fe_67f3
-	call Func_fe_6792
+Cranky_Actor_Kremling::
+	call Cranky_MoveActor
+	call Cranky_AnimateActor
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
@@ -5368,7 +5368,7 @@ Func_fe_5fc4::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld a, $09
 	ld hl, $db00
 	push af
@@ -5424,18 +5424,18 @@ Func_fe_5fc4::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_6041::
-	call Func_fe_6792
+Cranky_Actor_Kremling_Hide::
+	call Cranky_AnimateActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -5468,7 +5468,7 @@ Func_fe_6041::
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 .jump_608c:
 	ld hl, $dce0
 	ldh a, [$ff9c]
@@ -5476,7 +5476,7 @@ Func_fe_6041::
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld a, $07
 	ld hl, $db00
 	push af
@@ -5547,10 +5547,10 @@ Func_fe_6041::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_6104::
+Cranky_Actor_Kremling_Appear::
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
@@ -5558,18 +5558,18 @@ Func_fe_6104::
 	ld a, [hl]
 	cp $02
 	jr z, .jump_6116
-	call Func_fe_6792
-	jp Func_fe_5cce
+	call Cranky_AnimateActor
+	jp Cranky_NextActor
 
 .jump_6116:
-	call Func_fe_67f3
+	call Cranky_MoveActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	xor a
 	ld hl, $db00
 	push af
@@ -5578,18 +5578,18 @@ Func_fe_6104::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_6133::
-	call Func_fe_67f3
+Cranky_Actor_Kong_Hide::
+	call Cranky_MoveActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld a, $0c
 	ld hl, $db00
 	push af
@@ -5645,7 +5645,7 @@ Func_fe_6133::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 .jump_6197:
 	inc [hl]
@@ -5665,18 +5665,18 @@ Func_fe_6133::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_61b3::
-	call Func_fe_67f3
+Cranky_Actor_Kong::
+	call Cranky_MoveActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	xor a
 	ld hl, $db00
 	push af
@@ -5686,25 +5686,25 @@ Func_fe_61b3::
 	pop af
 	ld [hl], a
 	ld [$cbd8], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_61d3::
-	call Func_fe_6792
+Cranky_Actor_Kong_Appear::
+	call Cranky_AnimateActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld hl, $dce0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	ld hl, $cbf7
-	call Func_fe_5142
+	call Cranky_ResBitN
 	ld a, $0a
 	ld hl, $db00
 	push af
@@ -5761,14 +5761,14 @@ Func_fe_61d3::
 	ld a, [$cbec]
 	add a, $04
 	ld [$cbec], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_6249::
-	jp Func_fe_5cce
+Cranky_Actor_Galleon13::
+	jp Cranky_NextActor
 
 
-Func_fe_624c::
+Cranky_Actor_GalleonShip::
 	ldh a, [$ff9c]
 	ld hl, $cbdc
 	add a, l
@@ -5787,10 +5787,10 @@ Func_fe_624c::
 	dec [hl]
 	ldh a, [$ff9a]
 	and $03
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ldh a, [$ff9c]
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ldh a, [$ff9c]
 	ld hl, $cbdc
 	add a, l
@@ -5801,9 +5801,9 @@ Func_fe_624c::
 	inc [hl]
 	ld a, [hl]
 	cp $0b
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld [hl], $01
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 .jump_6289:
 	ld hl, $dcc0
@@ -5812,7 +5812,7 @@ Func_fe_624c::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld a, $0d
 	ld hl, $db00
 	push af
@@ -5823,7 +5823,7 @@ Func_fe_624c::
 	ld [hl], a
 	ldh a, [$ff9c]
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ldh a, [$ff9c]
 	ld hl, $cbdc
 	add a, l
@@ -5832,7 +5832,7 @@ Func_fe_624c::
 	inc h
 .jump_62b3:
 	ld [hl], $00
-	call Func_fe_631c
+	call Cranky_Actor_GalleonSpawnShot
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -5845,13 +5845,13 @@ Func_fe_624c::
 	dec a
 	jr z, .jump_62d1
 	ld [$cbf9], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 .jump_62d1:
 	ld a, $02
 	ld [$cc0a], a
-	call Func_fe_77b0
-	call Func_fe_59d3
+	call Cranky_UpdateTileAnims
+	call Cranky_FlashScreen
 	ld d, $80
 	ld a, $ff
 	ld hl, $c806
@@ -5866,22 +5866,22 @@ Func_fe_624c::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	jp Func_fe_42ae.jump_42eb
+	jp Cranky_CheckGameOver.jump_42eb
 
 
-Func_fe_62fc::
-	jp Func_fe_5cce
+Cranky_Actor_Type15::
+	jp Cranky_NextActor
 
 
-Func_fe_62ff::
-	call Func_fe_6792
+Cranky_Actor_GalleonSink::
+	call Cranky_AnimateActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	xor a
 	ld hl, $db00
 	push af
@@ -5890,10 +5890,10 @@ Func_fe_62ff::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_631c::
+Cranky_Actor_GalleonSpawnShot::
 	ldh a, [$ff9c]
 	push af
 	ld hl, $792b
@@ -5910,7 +5910,7 @@ Func_fe_631c::
 	ld b, a
 	ld a, [hl]
 	ld c, a
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 	ld a, $10
@@ -6008,7 +6008,7 @@ Func_fe_631c::
 	ret
 
 
-Func_fe_63bf::
+Cranky_Actor_GalleonCannonball::
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
@@ -6040,16 +6040,16 @@ Func_fe_63bf::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 .jump_63f0:
 	dec [hl]
-	call Func_fe_6792
-	call Func_fe_67f3
-	jp Func_fe_5cce
+	call Cranky_AnimateActor
+	call Cranky_MoveActor
+	jp Cranky_NextActor
 
 
-Func_fe_63fa::
+Cranky_Actor_Type18::
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
@@ -6067,235 +6067,235 @@ Func_fe_63fa::
 	jp hl
 
 
-Func_fe_640e::
-	jp Func_fe_6514
+Cranky_Type18Step00::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_6411::
-	jp Func_fe_64c7
+Cranky_Type18Step01::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_6414::
-	jp Func_fe_64f2
+Cranky_Type18Step02::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_6417::
-	jp Func_fe_6554
+Cranky_Type18Step03::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_641a::
-	jp Func_fe_6514
+Cranky_Type18Step04::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_641d::
-	jp Func_fe_64c7
+Cranky_Type18Step05::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_6420::
-	jp Func_fe_64f2
+Cranky_Type18Step06::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_6423::
-	jp Func_fe_6554
+Cranky_Type18Step07::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_6426::
-	jp Func_fe_676a
+Cranky_Type18Step08::
+	jp Cranky_Type18_FlipOn
 
 
-Func_fe_6429::
-	jp Func_fe_6514
+Cranky_Type18Step09::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_642c::
-	jp Func_fe_66a1
+Cranky_Type18Step10::
+	jp Cranky_Type18_Pause
 
 
-Func_fe_642f::
-	jp Func_fe_656f
+Cranky_Type18Step11::
+	jp Cranky_Type18_Count
 
 
-Func_fe_6432::
-	jp Func_fe_658a
+Cranky_Type18Step12::
+	jp Cranky_Type18_PlaceCentre
 
 
-Func_fe_6435::
-	jp Func_fe_656f
+Cranky_Type18Step13::
+	jp Cranky_Type18_Count
 
 
-Func_fe_6438::
-	jp Func_fe_6554
+Cranky_Type18Step14::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_643b::
-	jp Func_fe_6514
+Cranky_Type18Step15::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_643e::
-	jp Func_fe_64c7
+Cranky_Type18Step16::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_6441::
-	jp Func_fe_64f2
+Cranky_Type18Step17::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_6444::
-	jp Func_fe_6554
+Cranky_Type18Step18::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_6447::
-	jp Func_fe_6514
+Cranky_Type18Step19::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_644a::
-	jp Func_fe_64c7
+Cranky_Type18Step20::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_644d::
-	jp Func_fe_64f2
+Cranky_Type18Step21::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_6450::
-	jp Func_fe_6554
+Cranky_Type18Step22::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_6453::
-	jp Func_fe_677e
+Cranky_Type18Step23::
+	jp Cranky_Type18_FlipOff
 
 
-Func_fe_6456::
-	jp Func_fe_6514
+Cranky_Type18Step24::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_6459::
-	jp Func_fe_66a1
+Cranky_Type18Step25::
+	jp Cranky_Type18_Pause
 
 
-Func_fe_645c::
-	jp Func_fe_656f
+Cranky_Type18Step26::
+	jp Cranky_Type18_Count
 
 
-Func_fe_645f::
-	jp Func_fe_65e7
+Cranky_Type18Step27::
+	jp Cranky_Type18_PlaceLeft
 
 
-Func_fe_6462::
-	jp Func_fe_656f
+Cranky_Type18Step28::
+	jp Cranky_Type18_Count
 
 
-Func_fe_6465::
-	jp Func_fe_6554
+Cranky_Type18Step29::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_6468::
-	jp Func_fe_6514
+Cranky_Type18Step30::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_646b::
-	jp Func_fe_64c7
+Cranky_Type18Step31::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_646e::
-	jp Func_fe_64f2
+Cranky_Type18Step32::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_6471::
-	jp Func_fe_6554
+Cranky_Type18Step33::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_6474::
-	jp Func_fe_6514
+Cranky_Type18Step34::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_6477::
-	jp Func_fe_64c7
+Cranky_Type18Step35::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_647a::
-	jp Func_fe_64f2
+Cranky_Type18Step36::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_647d::
-	jp Func_fe_6554
+Cranky_Type18Step37::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_6480::
-	jp Func_fe_676a
+Cranky_Type18Step38::
+	jp Cranky_Type18_FlipOn
 
 
-Func_fe_6483::
-	jp Func_fe_6514
+Cranky_Type18Step39::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_6486::
-	jp Func_fe_66a1
+Cranky_Type18Step40::
+	jp Cranky_Type18_Pause
 
 
-Func_fe_6489::
-	jp Func_fe_656f
+Cranky_Type18Step41::
+	jp Cranky_Type18_Count
 
 
-Func_fe_648c::
-	jp Func_fe_6644
+Cranky_Type18Step42::
+	jp Cranky_Type18_PlaceRight
 
 
-Func_fe_648f::
-	jp Func_fe_656f
+Cranky_Type18Step43::
+	jp Cranky_Type18_Count
 
 
-Func_fe_6492::
-	jp Func_fe_6554
+Cranky_Type18Step44::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_6495::
-	jp Func_fe_6514
+Cranky_Type18Step45::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_6498::
-	jp Func_fe_64c7
+Cranky_Type18Step46::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_649b::
-	jp Func_fe_64f2
+Cranky_Type18Step47::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_649e::
-	jp Func_fe_6554
+Cranky_Type18Step48::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_64a1::
-	jp Func_fe_6514
+Cranky_Type18Step49::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_64a4::
-	jp Func_fe_64c7
+Cranky_Type18Step50::
+	jp Cranky_Type18_MoveUp
 
 
-Func_fe_64a7::
-	jp Func_fe_64f2
+Cranky_Type18Step51::
+	jp Cranky_Type18_MoveDown
 
 
-Func_fe_64aa::
-	jp Func_fe_6554
+Cranky_Type18Step52::
+	jp Cranky_Type18_Wait
 
 
-Func_fe_64ad::
-	jp Func_fe_6514
+Cranky_Type18Step53::
+	jp Cranky_Type18_WaitTurn
 
 
-Func_fe_64b0::
-	jp Func_fe_66a1
+Cranky_Type18Step54::
+	jp Cranky_Type18_Pause
 
 
-Func_fe_64b3::
-	jp Func_fe_656f
+Cranky_Type18Step55::
+	jp Cranky_Type18_Count
 
 
-Func_fe_64b6::
-	jp Func_fe_64b9
+Cranky_Type18Step56::
+	jp Cranky_Type18_Remove
 
 
-Func_fe_64b9::
+Cranky_Type18_Remove::
 	xor a
 	ld hl, $db00
 	push af
@@ -6304,13 +6304,13 @@ Func_fe_64b9::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_64c7::
-	call Func_fe_67f3
-	call Func_fe_66ff
-	jp nz, Func_fe_5cce
+Cranky_Type18_MoveUp::
+	call Cranky_MoveActor
+	call Cranky_Type18_ReachedTop
+	jp nz, Cranky_NextActor
 	ld a, $04
 	ld hl, $dca0
 	push af
@@ -6331,14 +6331,14 @@ Func_fe_64c7::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_64f2::
-	call Func_fe_67f3
-	call Func_fe_6733
-	jp nz, Func_fe_5cce
-	call Func_fe_67f3
+Cranky_Type18_MoveDown::
+	call Cranky_MoveActor
+	call Cranky_Type18_ReachedBottom
+	jp nz, Cranky_NextActor
+	call Cranky_MoveActor
 	ld hl, $db60
 	ldh a, [$ff9c]
 	add a, l
@@ -6351,18 +6351,18 @@ Func_fe_64f2::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_6514::
-	call Func_fe_6792
+Cranky_Type18_WaitTurn::
+	call Cranky_AnimateActor
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $06
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld a, $00
 	ld hl, $dca0
 	push af
@@ -6393,46 +6393,46 @@ Func_fe_6514::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_6554::
-	call Func_fe_6792
+Cranky_Type18_Wait::
+	call Cranky_AnimateActor
 	ld hl, $dbe0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	or a
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_656f::
-	call Func_fe_67f3
+Cranky_Type18_Count::
+	call Cranky_MoveActor
 	ld hl, $dce0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jp nz, Func_fe_5cce
+	jp nz, Cranky_NextActor
 	ld hl, $dcc0
 	ldh a, [$ff9c]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_658a::
+Cranky_Type18_PlaceCentre::
 	ld a, $d5
 	ld hl, $db40
 	push af
@@ -6494,10 +6494,10 @@ Func_fe_658a::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_65e7::
+Cranky_Type18_PlaceLeft::
 	ld a, $d5
 	ld hl, $db40
 	push af
@@ -6559,10 +6559,10 @@ Func_fe_65e7::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_6644::
+Cranky_Type18_PlaceRight::
 	ld a, $d5
 	ld hl, $db40
 	push af
@@ -6624,10 +6624,10 @@ Func_fe_6644::
 	ld l, a
 	ld a, [hl]
 	inc [hl]
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_66a1::
+Cranky_Type18_Pause::
 	ld a, $20
 	ld hl, $dce0
 	push af
@@ -6679,7 +6679,7 @@ Func_fe_66a1::
 	ld l, a
 	ld a, [hl]
 	bit 5, a
-	jp z, Func_fe_5cce
+	jp z, Cranky_NextActor
 	ld a, $07
 	ld hl, $dca0
 	push af
@@ -6688,10 +6688,10 @@ Func_fe_66a1::
 	ld l, a
 	pop af
 	ld [hl], a
-	jp Func_fe_5cce
+	jp Cranky_NextActor
 
 
-Func_fe_66ff::
+Cranky_Type18_ReachedTop::
 	ld hl, $dc80
 	ldh a, [$ff9c]
 	add a, l
@@ -6733,7 +6733,7 @@ Func_fe_66ff::
 	ret
 
 
-Func_fe_6733::
+Cranky_Type18_ReachedBottom::
 	ld hl, $dc80
 	ldh a, [$ff9c]
 	add a, l
@@ -6776,7 +6776,7 @@ Func_fe_6733::
 	ret
 
 
-Func_fe_676a::
+Cranky_Type18_FlipOn::
 	ld hl, $dc20
 	ldh a, [$ff9c]
 	add a, l
@@ -6792,7 +6792,7 @@ Func_fe_676a::
 	ret
 
 
-Func_fe_677e::
+Cranky_Type18_FlipOff::
 	ld hl, $dc20
 	ldh a, [$ff9c]
 	add a, l
@@ -6808,7 +6808,7 @@ Func_fe_677e::
 	ret
 
 
-Func_fe_6792::
+Cranky_AnimateActor::
 	ld hl, $db80
 	ldh a, [$ff9c]
 	add a, l
@@ -6879,7 +6879,7 @@ Func_fe_6792::
 	ret
 
 
-Func_fe_67f3::
+Cranky_MoveActor::
 	ld hl, $dc80
 	ldh a, [$ff9c]
 	add a, l
@@ -6889,7 +6889,7 @@ Func_fe_67f3::
 	jr z, .jump_6805
 	ld d, a
 .jump_67ff:
-	call Func_fe_681d
+	call Cranky_MoveActorStep
 	dec d
 	jr nz, .jump_67ff
 .jump_6805:
@@ -6907,11 +6907,11 @@ Func_fe_67f3::
 	add a, b
 	ld [hl], a
 	ret nc
-	call Func_fe_681d
+	call Cranky_MoveActorStep
 	ret
 
 
-Func_fe_681d::
+Cranky_MoveActorStep::
 	ld hl, $dca0
 	ldh a, [$ff9c]
 	add a, l
@@ -6927,35 +6927,35 @@ Func_fe_681d::
 	jp hl
 
 
-Func_fe_682f::
-	jr Func_fe_683d.jump_683f
+Cranky_MoveActorDir0::
+	jr Cranky_MoveActorDir_Body.jump_683f
 
 
-Func_fe_6831::
-	jr Func_fe_683d.jump_6849
+Cranky_MoveActorDir1::
+	jr Cranky_MoveActorDir_Body.jump_6849
 
 
-Func_fe_6833::
-	jr Func_fe_683d.jump_685c
+Cranky_MoveActorDir2::
+	jr Cranky_MoveActorDir_Body.jump_685c
 
 
-Func_fe_6835::
-	jr Func_fe_683d.jump_6866
+Cranky_MoveActorDir3::
+	jr Cranky_MoveActorDir_Body.jump_6866
 
 
-Func_fe_6837::
-	jr Func_fe_683d.jump_6879
+Cranky_MoveActorDir4::
+	jr Cranky_MoveActorDir_Body.jump_6879
 
 
-Func_fe_6839::
-	jr Func_fe_683d.jump_6883
+Cranky_MoveActorDir5::
+	jr Cranky_MoveActorDir_Body.jump_6883
 
 
-Func_fe_683b::
-	jr Func_fe_683d.jump_6896
+Cranky_MoveActorDir6::
+	jr Cranky_MoveActorDir_Body.jump_6896
 
 
-Func_fe_683d::
+Cranky_MoveActorDir_Body::
 	jr .jump_68a0
 
 .jump_683f:
@@ -7055,7 +7055,7 @@ Func_fe_683d::
 	ret
 
 
-Func_fe_68b3::
+Cranky_DrawActors::
 	xor a
 	ldh [$ff9c], a
 .jump_68b6:
@@ -7072,7 +7072,7 @@ Func_fe_68b3::
 	ld l, a
 	ld a, [hl]
 	bit 0, a
-	call z, Func_fe_68d8
+	call z, Cranky_DrawActor
 .jump_68ce:
 	ldh a, [$ff9c]
 	inc a
@@ -7082,7 +7082,7 @@ Func_fe_68b3::
 	ret
 
 
-Func_fe_68d8::
+Cranky_DrawActor::
 	ld hl, $db20
 	ldh a, [$ff9c]
 	add a, l
@@ -7119,7 +7119,7 @@ Func_fe_68d8::
 	ret
 
 
-Func_fe_6910::
+Cranky_FindFreeActor::
 	ld hl, $db00
 	xor a
 	ld e, a
@@ -7158,7 +7158,7 @@ Func_fe_6910::
 	jr .jump_6915
 
 
-Func_fe_6937::
+Cranky_Spawn::
 	ld a, [$cbbf]
 	ld b, a
 	add a, a
@@ -7172,28 +7172,28 @@ Func_fe_6937::
 	jp hl
 
 
-Func_fe_6946::
-	jp Func_fe_696a
+Cranky_Spawn_BuddiesBeware::
+	jp Cranky_Spawn_BuddiesBeware_Body
 
 
-Func_fe_6949::
-	jp Func_fe_6c5a
+Cranky_Spawn_BarrelOKremlings::
+	jp Cranky_Spawn_BarrelOKremlings_Body
 
 
-Func_fe_694c::
-	jp Func_fe_6d97
+Cranky_Spawn_Wanted::
+	jp Cranky_Spawn_Wanted_Body
 
 
-Func_fe_694f::
-	jp Func_fe_7084
+Cranky_Spawn_KremlingKrackdown::
+	jp Cranky_Spawn_Kremlings_Body
 
 
-Func_fe_6952::
-	jp Func_fe_7084
+Cranky_Spawn_KremlingsAndKongs::
+	jp Cranky_Spawn_Kremlings_Body
 
 
-Func_fe_6955::
-	jp Func_fe_7303
+Cranky_Spawn_GalleonGunner::
+	jp Cranky_Spawn_GalleonGunner_Body
 
 
 Triples_fe_6958::
@@ -7204,8 +7204,8 @@ Triples_fe_6958::
 	db $02, $00, $54
 	db $06, $b0, $74
 
-Func_fe_696a::
-	call Func_fe_6a0e
+Cranky_Spawn_BuddiesBeware_Body::
+	call Cranky_BuddiesBeware_CountActors
 	ld a, [$cbec]
 	cp $00
 	jr z, .jump_6979
@@ -7270,11 +7270,11 @@ Func_fe_696a::
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbfb
-	call Func_fe_5107
+	call Cranky_TestBitN
 	jr nz, .jump_69c0
 	ld a, b
 	ld hl, $cbfb
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld a, b
 	or a
 	jr z, .jump_69e4
@@ -7286,7 +7286,7 @@ Func_fe_696a::
 	pop de
 	pop bc
 	pop af
-	call Func_fe_6a49
+	call Cranky_BuddiesBeware_SpawnBuddy
 	ld a, [$cbf0]
 	inc a
 	ld [$cbf0], a
@@ -7296,7 +7296,7 @@ Func_fe_696a::
 	pop de
 	pop bc
 	pop af
-	call Func_fe_6aa8
+	call Cranky_BuddiesBeware_SpawnKremling
 	ld a, [$cbf0]
 	inc a
 	ld [$cbf0], a
@@ -7306,14 +7306,14 @@ Func_fe_696a::
 	pop de
 	pop bc
 	pop af
-	call Func_fe_6b06
+	call Cranky_BuddiesBeware_SpawnOther
 	ld a, [$cbf0]
 	inc a
 	ld [$cbf0], a
 	ret
 
 
-Func_fe_6a0e::
+Cranky_BuddiesBeware_CountActors::
 	xor a
 	ldh [$ff9c], a
 	ld a, $20
@@ -7348,17 +7348,17 @@ Func_fe_6a0e::
 	pop af
 	dec a
 	jr nz, .jump_6a13
-	ld a, BANK(Func_f5_46ba)
-	ld hl, Func_f5_46ba
+	ld a, BANK(Cranky_ClearGradient)
+	ld hl, Cranky_ClearGradient
 	call FarCall_A_HL
 	ld a, $01
 	ld [$cbed], a
 	ret
 
 
-Func_fe_6a49::
+Cranky_BuddiesBeware_SpawnBuddy::
 	push af
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 	ld a, $05
@@ -7413,16 +7413,16 @@ Func_fe_6a49::
 	push de
 	push bc
 	ld a, $01
-	call Func_fe_6bdc
+	call Cranky_InitActor
 	pop bc
 	pop de
 	pop af
-	jp Func_fe_6b06.jump_6b64
+	jp Cranky_BuddiesBeware_SpawnOther.jump_6b64
 
 
-Func_fe_6aa8::
+Cranky_BuddiesBeware_SpawnKremling::
 	push af
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 	ld a, $07
@@ -7477,16 +7477,16 @@ Func_fe_6aa8::
 	push de
 	push bc
 	ld a, $03
-	call Func_fe_6bdc
+	call Cranky_InitActor
 	pop bc
 	pop de
 	pop af
-	jr Func_fe_6b06.jump_6b64
+	jr Cranky_BuddiesBeware_SpawnOther.jump_6b64
 
 
-Func_fe_6b06::
+Cranky_BuddiesBeware_SpawnOther::
 	push af
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 	ld a, $09
@@ -7541,7 +7541,7 @@ Func_fe_6b06::
 	push de
 	push bc
 	ld a, $02
-	call Func_fe_6bdc
+	call Cranky_InitActor
 	pop bc
 	pop de
 	pop af
@@ -7562,7 +7562,7 @@ Func_fe_6b06::
 	sub $20
 	ld b, a
 .jump_6b74:
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ld hl, $dd00
 	push af
@@ -7631,7 +7631,7 @@ Func_fe_6b06::
 	ld [hl], a
 	ld a, $04
 
-Func_fe_6bdc::
+Cranky_InitActor::
 	ld hl, $db00
 	push af
 	ldh a, [$ff9c]
@@ -7721,7 +7721,7 @@ Func_fe_6bdc::
 	ret
 
 
-Func_fe_6c5a::
+Cranky_Spawn_BarrelOKremlings_Body::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_6c74
@@ -7733,7 +7733,7 @@ Func_fe_6c5a::
 	jr nz, .jump_6c74
 	ld a, [$cbf3]
 	or a
-	jp z, Func_fe_42ae.jump_42bd
+	jp z, Cranky_CheckGameOver.jump_42bd
 .jump_6c74:
 	ldh a, [$ffd4]
 	cp $bb
@@ -7766,12 +7766,12 @@ Func_fe_6c5a::
 	ret
 
 .jump_6c9f:
-	call Func_fe_74b3
+	call Cranky_NextWave
 	ld a, [$cbec]
 	ld [$cc03], a
 	dec a
 	cp $20
-	call z, Func_fe_42a0
+	call z, Cranky_BarrelOKremlings_UseBarrel
 	ld [$cbec], a
 	srl a
 	ld [$cbed], a
@@ -7787,16 +7787,16 @@ Func_fe_6c5a::
 	inc h
 .jump_6cc9:
 	ld e, [hl]
-	call Func_fe_6cd5
+	call Cranky_BarrelOKremlings_SpawnBarrel
 	ret
 
 
 ByteTable_fe_6cce::
 	db 0, 0, 0, 0, 1, 1, 2 ; by a random number below 7 (Func_f0_4608)
 
-Func_fe_6cd5::
+Cranky_BarrelOKremlings_SpawnBarrel::
 	push de
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 .jump_6cdc:
@@ -7806,7 +7806,7 @@ Func_fe_6cd5::
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_5107
+	call Cranky_TestBitN
 	jr nz, .jump_6cdc
 	ld a, b
 	ld hl, $dce0
@@ -7817,7 +7817,7 @@ Func_fe_6cd5::
 	pop af
 	ld [hl], a
 	ld hl, $cbf7
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld hl, $78cb
 	ld a, b
 	add a, a
@@ -7927,7 +7927,7 @@ Func_fe_6cd5::
 	ret
 
 
-Func_fe_6d97::
+Cranky_Spawn_Wanted_Body::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_6dc1
@@ -7939,7 +7939,7 @@ Func_fe_6d97::
 	jr nz, .jump_6db1
 	ld a, [$cbf3]
 	or a
-	jp z, Func_fe_42ae.jump_42bd
+	jp z, Cranky_CheckGameOver.jump_42bd
 .jump_6db1:
 	ld a, [$cc06]
 	or a
@@ -7947,7 +7947,7 @@ Func_fe_6d97::
 	ld a, [$cbf9]
 	dec a
 	ld [$cbf9], a
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 .jump_6dc1:
 	xor a
 	ld [$cc06], a
@@ -7980,7 +7980,7 @@ Func_fe_6d97::
 	ld [$cbf7], a
 	ld a, [$cbff]
 	or a
-	jp z, Func_fe_42ae.jump_42eb
+	jp z, Cranky_CheckGameOver.jump_42eb
 	ld a, [$cc01]
 	or a
 	jr z, .jump_6e79
@@ -8031,14 +8031,14 @@ Func_fe_6d97::
 	ld a, [$cc05]
 .jump_6e3e:
 	push af
-	call Func_fe_6fa4
+	call Cranky_Wanted_SpawnWanted
 	pop af
 	dec a
 	jr nz, .jump_6e3e
 	ld a, [$cc02]
 .jump_6e49:
 	push af
-	call Func_fe_6fb0
+	call Cranky_Wanted_SpawnRandom
 	pop af
 	dec a
 	ret z
@@ -8117,40 +8117,40 @@ Func_fe_6d97::
 	ld a, b
 	add a, $02
 	ld [$cc04], a
-	call Func_fe_6ecb
+	call Cranky_Wanted_ShowPoster
 	jp .jump_6dfe
 
 
-Func_fe_6ecb::
+Cranky_Wanted_ShowPoster::
 	ld a, [$cbc4]
 	cp $01
 	jr z, .jump_6eef
 	ld a, $05
 	ld [$cbb3], a
 .jump_6ed7:
-	call Func_fe_5a11
-	call Func_fe_4662
-	call Func_fe_77b0
+	call Cranky_CheckQuit
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
 	ld a, [$cba2]
 	cp $06
-	call z, Func_fe_566d
+	call z, Cranky_ResumeFromPause
 	ld a, [$cba2]
 	cp $05
 	jr nz, .jump_6ed7
 .jump_6eef:
-	ld a, BANK(Func_f5_46ba)
-	ld hl, Func_f5_46ba
+	ld a, BANK(Cranky_ClearGradient)
+	ld hl, Cranky_ClearGradient
 	call FarCall_A_HL
-	call Func_fe_6f6a
-	ld a, BANK(Func_f5_4556)
-	ld hl, Func_f5_4556
+	call Cranky_Wanted_PosterFrames
+	ld a, BANK(Cranky_UndimAfterPause)
+	ld hl, Cranky_UndimAfterPause
 	call FarCall_A_HL
 	ld a, [$cc05]
 	ld b, $00
 .jump_6f07:
 	push af
 	push bc
-	call Func_fe_6f91
+	call Cranky_Wanted_SpawnSuspect
 	pop bc
 	inc b
 	ld a, $02
@@ -8165,30 +8165,30 @@ Func_fe_6ecb::
 	ldh a, [$ff9a]
 	inc a
 	ldh [$ff9a], a
-	call Func_fe_5cb2
-	call Func_fe_5289
-	call Func_fe_54d8
-	call Func_fe_55d8
-	call Func_fe_68b3
+	call Cranky_RunActors
+	call Cranky_BeginOAM
+	call Cranky_DrawScore
+	call Cranky_DrawTimer
+	call Cranky_DrawActors
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
-	call Func_fe_4662
-	call Func_fe_77b0
-	call Func_fe_5354
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
+	call Cranky_AnimateBackgroundTiles
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_52a5
+	call Cranky_SwapTileBuffer
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, [$db00]
 	or a
 	jr nz, .jump_6f19
-	call Func_fe_6f6a
-	ld a, BANK(Func_f5_4525)
-	ld hl, Func_f5_4525
+	call Cranky_Wanted_PosterFrames
+	ld a, BANK(Cranky_DimForPause)
+	ld hl, Cranky_DimForPause
 	call FarCall_A_HL
 	ld a, $00
 	ld [$cbb3], a
@@ -8197,28 +8197,28 @@ Func_fe_6ecb::
 	ret
 
 
-Func_fe_6f6a::
+Cranky_Wanted_PosterFrames::
 	ld a, $02
 .jump_6f6c:
 	push af
-	call Func_fe_5289
-	call Func_fe_54d8
-	call Func_fe_55d8
-	call Func_fe_4662
-	call Func_fe_77b0
-	call Func_fe_5354
+	call Cranky_BeginOAM
+	call Cranky_DrawScore
+	call Cranky_DrawTimer
+	call Cranky_WaitLineAndUpdateSound
+	call Cranky_UpdateTileAnims
+	call Cranky_AnimateBackgroundTiles
 	ld b, $cb
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	call Func_fe_52a5
+	call Cranky_SwapTileBuffer
 	pop af
 	dec a
 	jr nz, .jump_6f6c
 	ret
 
 
-Func_fe_6f91::
+Cranky_Wanted_SpawnSuspect::
 	ld a, b
 	ldh [$ff9c], a
 	ld hl, $dce0
@@ -8230,20 +8230,20 @@ Func_fe_6f91::
 	ld [hl], a
 	ld a, [$cc04]
 	ld e, a
-	jr Func_fe_6fb0.jump_6ff1
+	jr Cranky_Wanted_SpawnRandom.jump_6ff1
 
 
-Func_fe_6fa4::
-	call Func_fe_6910
+Cranky_Wanted_SpawnWanted::
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 	ld a, [$cc04]
 	ld e, a
-	jr Func_fe_6fb0.jump_6fcd
+	jr Cranky_Wanted_SpawnRandom.jump_6fcd
 
 
-Func_fe_6fb0::
-	call Func_fe_6910
+Cranky_Wanted_SpawnRandom::
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 	ld a, [$cc04]
@@ -8266,7 +8266,7 @@ Func_fe_6fb0::
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_5107
+	call Cranky_TestBitN
 	jr nz, .jump_6fcd
 	ld a, b
 	ld hl, $dce0
@@ -8277,7 +8277,7 @@ Func_fe_6fb0::
 	pop af
 	ld [hl], a
 	ld hl, $cbf7
-	call Func_fe_517d
+	call Cranky_SetBitN
 .jump_6ff1:
 	ld hl, $78cb
 	ld a, b
@@ -8385,8 +8385,8 @@ Func_fe_6fb0::
 	ret
 
 
-Func_fe_7084::
-	call Func_fe_4248
+Cranky_Spawn_Kremlings_Body::
+	call Cranky_CheckAllTargetsDown
 	ldh a, [$ffd4]
 	cp $bb
 	jr nz, .jump_70a0
@@ -8410,21 +8410,21 @@ Func_fe_7084::
 	ret
 
 .jump_70ab:
-	call Func_fe_74b3
-	call Func_fe_71b0
-	call Func_fe_71d9
+	call Cranky_NextWave
+	call Cranky_Kremlings_SpeedUp
+	call Cranky_Kremlings_SpawnWave
 	ld a, [$cbd8]
 	cp $01
-	jp z, Func_fe_71d9.jump_721b
+	jp z, Cranky_Kremlings_SpawnWave.jump_721b
 	ld a, BANK(FE_Random)
 	ld hl, FE_Random
 	call FarCall_A_HL
 	ldh a, [$ff94]
 	and $03
-	jp nz, Func_fe_71d9.jump_721b
+	jp nz, Cranky_Kremlings_SpawnWave.jump_721b
 	ld a, $01
 	ld [$cbd8], a
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 .jump_70d6:
@@ -8434,11 +8434,11 @@ Func_fe_7084::
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_5107
+	call Cranky_TestBitN
 	jr nz, .jump_70d6
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld a, b
 	ld hl, $dce0
 	push af
@@ -8554,7 +8554,7 @@ Func_fe_7084::
 	ld [hl], a
 	ldh a, [$ff95]
 	bit 4, a
-	jr z, Func_fe_71d9.jump_7202
+	jr z, Cranky_Kremlings_SpawnWave.jump_7202
 	ld a, $25
 	ld hl, $dc00
 	push af
@@ -8574,7 +8574,7 @@ Func_fe_7084::
 	ret
 
 
-Func_fe_71b0::
+Cranky_Kremlings_SpeedUp::
 	ld a, [$cc0c]
 	ld b, a
 	ld a, [$cc0d]
@@ -8590,7 +8590,7 @@ Func_fe_71b0::
 	jr z, .jump_71d0
 	ld hl, $cbc9
 	dec [hl]
-	jp z, Func_fe_42ae.jump_42bd
+	jp z, Cranky_CheckGameOver.jump_42bd
 .jump_71d0:
 	ld a, [$cbec]
 	srl a
@@ -8598,7 +8598,7 @@ Func_fe_71b0::
 	ret
 
 
-Func_fe_71d9::
+Cranky_Kremlings_SpawnWave::
 	ld a, [$cbc4]
 	cp $02
 	jr z, .jump_71f6
@@ -8643,7 +8643,7 @@ Func_fe_71d9::
 	ret
 
 .jump_721b:
-	call Func_fe_6910
+	call Cranky_FindFreeActor
 	ld a, l
 	ldh [$ff9c], a
 .jump_7221:
@@ -8653,11 +8653,11 @@ Func_fe_71d9::
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_5107
+	call Cranky_TestBitN
 	jr nz, .jump_7221
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld a, b
 	ld hl, $dce0
 	push af
@@ -8799,8 +8799,8 @@ Func_fe_71d9::
 	ret
 
 
-Func_fe_7303::
-	call Func_fe_4221
+Cranky_Spawn_GalleonGunner_Body::
+	call Cranky_GalleonGunner_CheckLost
 	ld a, [$cbed]
 	or a
 	jr z, .jump_7311
@@ -8823,7 +8823,7 @@ Func_fe_7303::
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_5107
+	call Cranky_TestBitN
 	jr nz, .jump_7321
 	ld hl, $db00
 	ld a, b
@@ -8836,14 +8836,14 @@ Func_fe_7303::
 	cp $0f
 	jr z, .jump_7321
 	push bc
-	call Func_fe_73a9
+	call Cranky_GalleonGunner_SpawnShip
 	pop bc
 	ld a, b
 	ld hl, $cbda
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_517d
+	call Cranky_SetBitN
 	ld a, b
 	ld hl, $cbdc
 	add a, l
@@ -8895,7 +8895,7 @@ Func_fe_7303::
 	ret
 
 
-Func_fe_73a9::
+Cranky_GalleonGunner_SpawnShip::
 	ldh a, [$ff94]
 	ld l, a
 	ldh a, [$ff95]
@@ -8913,7 +8913,7 @@ Func_fe_73a9::
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
-	call Func_fe_5107
+	call Cranky_TestBitN
 	jr nz, .jump_73b7
 	ld hl, $db00
 	ld a, b
@@ -9055,7 +9055,7 @@ Func_fe_73a9::
 	ret
 
 
-Func_fe_7498::
+Cranky_SaveRandomState::
 	ldh a, [$ff94]
 	ld [$cbba], a
 	ldh a, [$ff95]
@@ -9069,17 +9069,17 @@ Func_fe_7498::
 	ret
 
 
-Func_fe_74b3::
+Cranky_NextWave::
 	ldh a, [$ffd4]
 	cp $bb
-	jp z, Func_fe_73a9.jump_746a
-	call Func_fe_7498
+	jp z, Cranky_GalleonGunner_SpawnShip.jump_746a
+	call Cranky_SaveRandomState
 	ld hl, $cbb1
 	inc [hl]
 	ret
 
 
-Func_fe_74c2::
+Cranky_LinkPacket_Code::
 	ldh a, [$ffd7]
 	ld e, a
 	ld d, $ca
@@ -9114,7 +9114,7 @@ Func_fe_74c2::
 	ret
 
 
-Func_fe_74ea::
+Cranky_LinkSendPacket_Code::
 	ld c, $ad
 	ldh a, [$ffd0]
 	or a
@@ -9136,7 +9136,7 @@ Func_fe_74ea::
 	ret
 
 
-Func_fe_750a::
+Cranky_LinkExchangeByte_Code::
 	xor a
 	ldh [$ffcf], a
 .jump_750d:
@@ -9175,7 +9175,7 @@ Func_fe_750a::
 	jp Init
 
 
-Func_fe_7540::
+Cranky_LinkStart_Code::
 	ld hl, $ff9d
 	ld a, l
 	ldh [$ffcd], a
@@ -9192,7 +9192,7 @@ Func_fe_7540::
 	ret
 
 
-Func_fe_755a::
+Cranky_InstallLinkRoutines::
 	ld hl, $761b
 	ld bc, $cc0e
 	ld d, $86
@@ -9239,7 +9239,7 @@ Func_fe_755a::
 	ldh [rSC], a
 	ld a, $1e
 	ldh [$ffd8], a
-	call Func_fe_76b8
+	call Cranky_EnableSerial
 	ei
 	ld a, $1e
 .jump_75ae:
@@ -9247,7 +9247,7 @@ Func_fe_755a::
 	ld a, [$cba2]
 	cp $07
 	jr z, .jump_75d3
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
 	pop af
 	dec a
 	jr nz, .jump_75ae
@@ -9267,9 +9267,9 @@ Func_fe_755a::
 
 .jump_75d3:
 	pop af
-	call Func_fe_77b0
-	call Func_fe_77b0
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
+	call Cranky_UpdateTileAnims
+	call Cranky_UpdateTileAnims
 	ret
 
 .jump_75de:
@@ -9288,19 +9288,19 @@ Func_fe_755a::
 	jr nz, .jump_75e0
 	ld a, $07
 	ld [$cbb3], a
-	call Func_fe_76c4
+	call Cranky_LinkSendState
 	ld a, $01
 	ldh [$ffd0], a
 	ld a, $bd
 	ldh [$ffcd], a
-	call Func_fe_76b8
+	call Cranky_EnableSerial
 	ld a, $1e
 	ldh [$ffd8], a
 	call $ccbc
 	ei
-	call Func_fe_77b0
-	call Func_fe_77b0
-	call Func_fe_77b0
+	call Cranky_UpdateTileAnims
+	call Cranky_UpdateTileAnims
+	call Cranky_UpdateTileAnims
 	ld a, $00
 	ld [$cbb3], a
 	ret
@@ -9415,7 +9415,7 @@ SerialJump_fe_76a1::
 	db $c3 ; jp $cc0e, copied by Func_fe_76a4 to the serial interrupt's
 	dw $cc0e ; RAM trampoline (the address in the vector at $0059)
 
-Func_fe_76a4::
+Cranky_SetSerialJump::
 	ld a, [$0059]
 	ld l, a
 	ld a, [$005a]
@@ -9432,9 +9432,9 @@ Func_fe_76a4::
 	ret
 
 
-Func_fe_76b8::
+Cranky_EnableSerial::
 	di
-	call Func_fe_76a4
+	call Cranky_SetSerialJump
 	xor a
 	ldh [rIF], a
 	ld a, $08
@@ -9442,7 +9442,7 @@ Func_fe_76b8::
 	ret
 
 
-Func_fe_76c4::
+Cranky_LinkSendState::
 	ld a, [$cbc4]
 	cp $01
 	ret z
@@ -9532,7 +9532,7 @@ Func_fe_76c4::
 	ret
 
 
-Func_fe_7740::
+Cranky_LinkReceiveState::
 	ld a, [$cbc4]
 	cp $01
 	ret z
@@ -9564,7 +9564,7 @@ Func_fe_7740::
 	ld hl, $ffd8
 	dec [hl]
 	ret nz
-	call Func_fe_4662
+	call Cranky_WaitLineAndUpdateSound
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -9579,11 +9579,11 @@ Func_fe_7740::
 	dec a
 	jr nz, .jump_7781
 	ld b, $c0
-	ld a, BANK(Func_f5_42b6)
-	ld hl, Func_f5_42b6
+	ld a, BANK(Cranky_CopyOAM)
+	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	ld a, BANK(Func_f5_425e)
-	ld hl, Func_f5_425e
+	ld a, BANK(Cranky_FadeOut)
+	ld hl, Cranky_FadeOut
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -9600,15 +9600,15 @@ Func_fe_7740::
 	ret
 
 
-Func_fe_77b0::
+Cranky_UpdateTileAnims::
 	ld a, [$cbc4]
 	cp $01
 	jr z, .jump_77d2
 	push hl
 	push de
 	push bc
-	call Func_fe_76c4
-	call Func_fe_7740
+	call Cranky_LinkSendState
+	call Cranky_LinkReceiveState
 .jump_77c0:
 	ldh a, [rSTAT]
 	and $03

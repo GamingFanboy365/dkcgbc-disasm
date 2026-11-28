@@ -121,7 +121,7 @@ So Candy Klash and Funky Bomber are not reachable in single-player play. They lo
 
 #### Title sprites and "COMING SOON Q3"
 
-The two games also have large title words drawn as sprites, in the outlined style of the front end, with versions per language. They sit in bank `$F6` (8×16 sprites), and the front end's sprite animation table (`$F0:5A24`, run by `Func_f0_4fa8`) has entries for them:
+The two games also have large title words drawn as sprites, in the outlined style of the front end, with versions per language. They sit in bank `$F6` (8×16 sprites), and the front end's sprite animation table (`$F0:5A24`, run by `FE_DrawSpriteAnim`) has entries for them:
 
 | Animation | Tiles | Words, by language |
 |---|---|---|
@@ -129,7 +129,7 @@ The two games also have large title words drawn as sprites, in the outlined styl
 | 3 (`SpriteAnim03_CandyKlashTitle`) | `CandyKlashTitle` (`$5620`), `_German` (`$59E0`), `_French` (`$5760`), `_Italian` (`$5B20`) | "CANDY KLASH" in English and Spanish, "CANDY'S CLASH" in German, "CLASH CANDY" in French, "SCONTRO DI CANDY" (two lines) in Italian |
 | 7 (`SpriteAnim07_ComingSoon`) | `ComingSoonQ3` (`$5D00`, 40 sprites) | "COMING / SOON" over a large "Q3", one version for all languages, laid out at fixed screen positions |
 
-Each language's entry gives the sprite count, the tiles and a layout in bank `$F0` (`SpriteLayout_f0_…`): steps of (dx, dy) from sprite to sprite for the words, and absolute positions for "COMING SOON Q3". Nothing starts these three animations. Every call of `Func_f0_4fa8` with a constant number uses others, and the two that pass a number from a list (`$F1:5C89` for the Hi-Score screen, `$FE:6909` for Crosshair Cranky) don't use 2, 3 or 7. None of these tiles was read in any emulator session either. The animations get their palette from the caller (`[$ff82]`), so their colours are unknown: any coloured picture of them is a guess, and the gray tiles are the real data.
+Each language's entry gives the sprite count, the tiles and a layout in bank `$F0` (`SpriteLayout_f0_…`): steps of (dx, dy) from sprite to sprite for the words, and absolute positions for "COMING SOON Q3". Nothing starts these three animations. Every call of `FE_DrawSpriteAnim` with a constant number uses others, and the two that pass a number from a list (`$F1:5C89` for the Hi-Score screen, `$FE:6909` for Crosshair Cranky) don't use 2, 3 or 7. None of these tiles was read in any emulator session either. The animations get their palette from the caller (`[$ff82]`), so their colours are unknown: any coloured picture of them is a guess, and the gray tiles are the real data.
 
 The rest of the table is all in use as far as the data goes, with one small leftover: the 2-sprite layout at `$F0:5C7E` is followed by four more layout steps (`SpriteLayoutUnused_f0_5c82`) that no record uses, as if it once described a 6-sprite picture.
 
@@ -187,7 +187,7 @@ The short phrases are probably leftovers of edits to those songs. The song `$18`
 
 ## Code
 
-`Func_00_36a7` resets the sound hardware (NR52, NR51, NR50, the wave channel) and falls into `Func_00_36b8`, which loads wave pattern 1. Nothing in the ROM calls or jumps to `$36A7`; the game uses `Func_00_36b8` directly. It's a small leftover, probably an older entry point of the sound driver.
+`ResetSoundHardware` resets the sound hardware (NR52, NR51, NR50, the wave channel) and falls into `LoadWavePattern`, which loads wave pattern 1. Nothing in the ROM calls or jumps to `$36A7`; the game uses `LoadWavePattern` directly. It's a small leftover, probably an older entry point of the sound driver.
 
 The routines at `$F0:4707`–`$47A4` have no callers either. They step a point along a line: they take the absolute values of dx and dy and pick the direction. No call, jump, far call or table in the ROM reaches them.
 
@@ -195,11 +195,11 @@ A few more pieces of code in the main game's banks can't be reached:
 
 | Where | What |
 |---|---|
-| `Func_09_487a` | an object handler (it checks `[$ffb0]`, then spawns objects from `ObjInit_09_4918`, `$4934` or `ObjInit_09_4927`). No list, table or code points to it |
+| `KingKRool_Touch` | an object handler (it checks `[$ffb0]`, then spawns objects from `ObjInit_09_4918`, `$4934` or `ObjInit_09_4927`). No list, table or code points to it |
 | `Func_00_2f09` | `rst_farcall Func_0f_4815` and `ret`, right after another `ret`, with no caller |
 | `Func_0a_48b8` | a lone `jp NextObject` after an initialiser list, with no caller |
 | `$09:4DFC` | the same `jp NextObject`, sharing its first byte (`$C3`) with the end byte of the list before it |
-| `$09:71F3` (`.unreached_71f3`) | 13 bytes inside `Func_09_71e4` that the `jr` before them always skips. They repeat the lines above them with different values (they test bit 7 of the player's y speed and set it to `$FD00` instead of `$0300`), so they look like an older version left in place |
+| `$09:71F3` (`.unreached_71f3`) | 13 bytes inside `Tire_PushDown_Touch` that the `jr` before them always skips. They repeat the lines above them with different values (they test bit 7 of the player's y speed and set it to `$FD00` instead of `$0300`), so they look like an older version left in place |
 | `$00:03F5`, `$00:1DB5` | a `jr` and a `ret` that nothing reaches, at the end of other code |
 | `$F2:4A38`, `$F2:4A4D`, `$F2:6F25`, `$FE:4E37`, `$FE:6E52` | a `ret` (or `add a, $18`) right after a `ret`, `jr` or `jp`, in the front-end program |
 
@@ -208,7 +208,7 @@ A few more pieces of code in the main game's banks can't be reached:
 Funky's Fishing's sprite animations 10 and 11 each have one more frame's data after their last frame: a 9-sprite layout and its tiles (`FishingLayout_52_54f0` with `FishingTiles_52_5528`, and `FishingLayout_52_58a8` with `FishingTiles_52_58e0`). The animation headers stop one frame short, and no pointer anywhere reaches them (the two byte matches in banks `$50` and `$55` are an instruction and unrelated data). Put together, each looks like the animation's regular 3-sprite figure stacked three times.
 
 
-`Unused_f1_678a` (32 bytes at `$F1:678A`, between `RingCircle` and a table read by `Func_f1_4926`) wasn't read in any emulator session, and no pointer anywhere in the ROM leads to it. It holds 10 bytes, a two-entry pointer table and the two 9-byte records it points to, so it was probably a small table of the menu code that lost its user.
+`Unused_f1_678a` (32 bytes at `$F1:678A`, between `RingCircle` and a table read by `FE_IsRingItemHidden`) wasn't read in any emulator session, and no pointer anywhere in the ROM leads to it. It holds 10 bytes, a two-entry pointer table and the two 9-byte records it points to, so it was probably a small table of the menu code that lost its user.
 
 The two `LanguageWordTiles` pointers per language name two 8-tile words, but `LoadLanguageWordTiles` only copies the first of each pair. The second words (at `$F1:6AC0`, `$6BC0`, `$6CC0`, `$6DC0` and `$6EC0`) may be loaded somewhere not found yet.
 
@@ -222,7 +222,7 @@ Bank `$31` ends with 31 sparkle sprite tiles (8×16, at `$31:5CA0`) after the la
 
 ## Sprite offset lists
 
-An earlier version of this file listed 2.3 KB of bytes after sprite offset lists as never read. That was wrong. When an object's OAM attributes have bit 4 set, `DrawSpriteFrame` (`Func_00_1037`, path `.jump_11ce`) reads 3 bytes per sprite instead of 2: dx, dy and a value added to that sprite's attributes, which gives each sprite its own palette. The bosses and other large objects are drawn this way. 167 of the 1,414 frames use these 3-byte lists, and the "leftover" bytes were their third bytes. The frame headers don't say which layout a list uses; `tools/gfx.py` (`sprite_layouts`) counts a list as 3-byte when the room before the next list, or the padding at the end of the bank, is exactly 3 bytes per sprite.
+An earlier version of this file listed 2.3 KB of bytes after sprite offset lists as never read. That was wrong. When an object's OAM attributes have bit 4 set, `DrawSpriteFrame` (`DrawSpriteFrame`, path `.jump_11ce`) reads 3 bytes per sprite instead of 2: dx, dy and a value added to that sprite's attributes, which gives each sprite its own palette. The bosses and other large objects are drawn this way. 167 of the 1,414 frames use these 3-byte lists, and the "leftover" bytes were their third bytes. The frame headers don't say which layout a list uses; `tools/gfx.py` (`sprite_layouts`) counts a list as 3-byte when the room before the next list, or the padding at the end of the bank, is exactly 3 bytes per sprite.
 
 What remains after that are 15 short runs that nothing reads (`FrameSpritesTail_…`): one after a list in bank `$31` and fourteen 2-byte runs after lists in bank `$37`.
 ## Level object blocks

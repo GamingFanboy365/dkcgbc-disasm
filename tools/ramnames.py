@@ -32,7 +32,8 @@ WRAM = [
                                 "(2 and 4 picked by sOptions bits 0 and 1; tentative)"),
     (0xC30F, 1, "wKongs", "bit 0: Diddy leads (else DK), bit 1: the partner Kong is along, "
                           "bit 3: riding an animal, bits 4-5: which (Rambi, Expresso, Enguarde, Winky)"),
-    (0xC310, 1, "wMapFlags", "bit 0: cleared at a level clear, bit 5: set in Cranky's Cabin, "
+    (0xC310, 1, "wMapFlags", "bit 0: cleared at a level clear, bit 4: King K. Rool beaten (leaving the level plays "
+                             "Flow_Ending), bit 5: set in Cranky's Cabin, "
                              "bit 6: a level was newly cleared, bit 7: the Kong travels at double "
                              "speed with another sprite, as in Funky's Flights (tentative)"),
     (0xC311, 1, "wPaletteUpdate", "bit 0: upload BG, bit 1: upload OBJ, bit 2: fade mode"),

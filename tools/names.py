@@ -1796,7 +1796,16 @@ NAMES = {
     (0x00, 0x3CFC): "State_FrontEndLanguageSelect",  # $28: d = 1
     (0x00, 0x0512): "State_EnterCrankysCabin",  # $2b
     (0x00, 0x050B): "State_EnterBananaHoard",  # $2e
-    (0x00, 0x3949): "State_ChooseLevelFlow",  # $31
+    (0x00, 0x3949): "State_ChooseEndingMessage",  # $31: 101% -> the hoard picture, else the hint in wLanguage
+    # the ending (flow script, bank $0D): credits, then the end message
+    (0x0D, 0x5FC1): "Flow_Ending",           # song $13, 28 credit pictures, "thank you for playing"
+    (0x0D, 0x6184): "Flow_EndingHoard",      # 101%: DK's banana hoard, no text
+    (0x0D, 0x618F): "Flow_EndingHintFrench",
+    (0x0D, 0x619A): "Flow_EndingHintEnglish",  # "Secrets await you on another barrel option"
+    (0x0D, 0x61A5): "Flow_EndingHintGerman",
+    (0x0D, 0x61B0): "Flow_EndingHintItalian",
+    (0x0D, 0x61BB): "Flow_EndingHintSpanish",
+    (0x0D, 0x61C3): "Flow_TheEnd",
     (0x00, 0x0604): "State_Shop",  # $34
     (0x00, 0x1BAF): "State_WorldMapWalk",  # $37
     (0x00, 0x1C73): "State_WorldMapScroll",  # $3a

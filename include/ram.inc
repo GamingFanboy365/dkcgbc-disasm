@@ -27,7 +27,7 @@ DEF wLevel                 EQU $c30c ; current level number; also the location t
 DEF wLanguage              EQU $c30d ; language; the text bank is $10 + wLanguage
 DEF wGameModeBit           EQU $c30e ; 1, 2 or 4: which completion bit of a level's save byte this game sets (2 and 4 picked by sOptions bits 0 and 1; tentative)
 DEF wKongs                 EQU $c30f ; bit 0: Diddy leads (else DK), bit 1: the partner Kong is along, bit 3: riding an animal, bits 4-5: which (Rambi, Expresso, Enguarde, Winky)
-DEF wMapFlags              EQU $c310 ; bit 0: cleared at a level clear, bit 5: set in Cranky's Cabin, bit 6: a level was newly cleared, bit 7: the Kong travels at double speed with another sprite, as in Funky's Flights (tentative)
+DEF wMapFlags              EQU $c310 ; bit 0: cleared at a level clear, bit 4: King K. Rool beaten (leaving the level plays Flow_Ending), bit 5: set in Cranky's Cabin, bit 6: a level was newly cleared, bit 7: the Kong travels at double speed with another sprite, as in Funky's Flights (tentative)
 DEF wPaletteUpdate         EQU $c311 ; bit 0: upload BG, bit 1: upload OBJ, bit 2: fade mode
 DEF wPaletteBrightness     EQU $c312
 DEF wAnimalTokens          EQU $c313 ; (4 bytes) animal tokens held, one byte per animal; three start an animal bonus

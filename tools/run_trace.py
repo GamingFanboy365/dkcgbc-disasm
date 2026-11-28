@@ -580,9 +580,9 @@ def parse_banks(t, rom):
     t._claim(0, 0x3F00, 10, "rows", [("dw", [ref(0, w) for w in ws[:5]], "SFX commands $00-$08")], "=SFXCommandHandlers")
     t._claim(0, 0x3F0A, 164, "rows", [("dw", [ref(0, w) if w else "0" for w in ws[5 + k:5 + k + 4]], "music commands $%02x-" % k)
                                       for k in range(0, 82, 4)], "=MusicCommandHandlers")
-    # per-world flow script entries ($3976, see hints FLOW_ENTRIES)
+    # the ending's hint screens, one flow per language ($3976, see hints FLOW_ENTRIES)
     t._claim(0, 0x3976, 10, "rows", [("dw", [ref(0x0D, rom[0x3976 + 2 * k] | rom[0x3977 + 2 * k] << 8) for k in range(5)], None)],
-             "=WorldFlowEntries")
+             "=EndingMessageFlows")
     # world map palette blocks no map uses, and the unused second halves of used ones
     for a in (0x499C, 0x4A1C, 0x4A9C, 0x4D9C, 0x4E1C, 0x4E9C):
         t._claim(0x0F, a, 128, "palette", 16, "=UnusedWorldPalettes_%04x" % a)
@@ -1105,6 +1105,12 @@ def make(rom):
                 to = off(b if i.target >= 0x4000 else 0, i.target)
                 if to in t.insns:
                     t.labels[to] = "func"
+    # constants that point into another bank, loaded where the tracer can't
+    # tell (bank, address of the instruction, bank of the target)
+    for (b, a, tb) in hints.FAR_CONSTANTS:
+        i = t.insns.get(off(b, a))
+        if i is not None and i.imm is not None:
+            i.dataref = (tb, i.imm)
     return t
 
 if __name__ == "__main__":

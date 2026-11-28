@@ -155,6 +155,8 @@ These are stored as editable files, written by `make extract` and converted back
 
 **Flow script.** The game's overall sequence (boot, title, menus, level entry, credits) is a script in bank `$0D` (`Flow_0D_XXXX`), run by `RunFlowScript`. Each byte is a game state, an offset into the jump table at `$0300`, and a few take arguments (`flow_load_screen`, `flow_wait`, `flow_play_song`, `flow_fade`, `flow_jump`). State `$61` hands control to the separate program in banks `$F0`–`$FE`.
 
+**The ending.** Beating King K. Rool sets bit 4 of `wMapFlags`, and leaving the level starts `Flow_Ending`: 28 credit pictures with the staff names, "Thank you for playing", then an end message chosen by `State_ChooseEndingMessage` (DK's banana hoard at exactly 101%, otherwise a hint in the chosen language) and "The End". The credit pictures are staged scenes built from level scenery tiles with the characters drawn in as background tiles; [`docs/trivia.md`](docs/trivia.md) describes them and `tools/credits_tiles.py` measures what they share with the levels.
+
 `python3 tools/backgrounds.py` renders every level map, world map and full screen to `gfx/backgrounds/` (gitignored). Each map is drawn with the BG palettes of its first descriptor, as stored in the ROM. Some levels change palettes while playing, so a render can differ from what's on screen.
 
 ### Sound, text and other data

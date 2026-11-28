@@ -513,7 +513,7 @@ GameState_2E::
 
 
 GameState_31::
-	jp State_ChooseLevelFlow
+	jp State_ChooseEndingMessage
 
 
 GameState_34::
@@ -6706,7 +6706,7 @@ State_Level::
 
 .else_275e:
 	res 4, [hl]
-	ld de, Flow_0d_5fc1
+	ld de, Flow_Ending
 	jp SetFlowPointer
 
 
@@ -9854,7 +9854,7 @@ State_WaitForButton::
 	jp RunFlowScript
 
 
-State_ChooseLevelFlow::
+State_ChooseEndingMessage::
 	ld a, $0f
 	ld [rROMB0], a
 	ld a, [wSaveFile]
@@ -9866,7 +9866,7 @@ State_ChooseLevelFlow::
 	and $0f
 	cp $01
 	jr nz, .else
-	ld de, $6184
+	ld de, Flow_EndingHoard
 	jr .jp_SetFlowPointer
 
 .else:
@@ -9884,8 +9884,8 @@ State_ChooseLevelFlow::
 	jp SetFlowPointer
 
 
-WorldFlowEntries::
-	dw Flow_0d_619a, Flow_0d_61a5, Flow_0d_618f, Flow_0d_61b0, Flow_0d_61bb
+EndingMessageFlows::
+	dw Flow_EndingHintEnglish, Flow_EndingHintGerman, Flow_EndingHintFrench, Flow_EndingHintItalian, Flow_EndingHintSpanish
 
 RunObjects::
 	ld bc, $0000

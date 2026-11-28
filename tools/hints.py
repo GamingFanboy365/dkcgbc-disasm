@@ -219,9 +219,15 @@ FRAME_STRUCTS = [
 ]
 
 # Flow script (bank $0d, RunFlowScript): entry points set by code
-# (ld de, X / call SetFlowPointer) and the per-world table at $3976.
+# (ld de, X / call SetFlowPointer) and the ending messages by language at $3976.
 FLOW_ENTRIES = [0x5F58, 0x5F90, 0x5F92, 0x5F96, 0x5F9C, 0x5FA5, 0x5FB7, 0x5FBE, 0x5FC1,
                 0x618F, 0x619A, 0x61A5, 0x61B0, 0x61BB, 0x6184]
+
+# Constants that point into another bank, loaded where the tracer can't tell:
+# (bank, address of the instruction, bank of the target)
+FAR_CONSTANTS = [
+    (0x00, 0x3960, 0x0D),   # State_ChooseEndingMessage: ld de, Flow_EndingHoard (101%)
+]
 
 # Routines that start the flow script at de (bank $0d)
 FLOW_FUNCS = [0x38C7]

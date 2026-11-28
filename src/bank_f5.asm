@@ -25,18 +25,18 @@ Cranky_LoadPicture::
 	call FarCall_A_HL
 	call Cranky_UploadBGMap
 	ld a, $f0
-	ld [$c800], a
+	ld [wFE_FarBank], a
 	pop hl
 	call FE_FarReadByte
 	ld a, c
 	push af
 	call FE_FarReadWord
 	pop af
-	ld [$c800], a
+	ld [wFE_FarBank], a
 	push hl
 	ld h, b
 	ld l, c
-	ld bc, $c806
+	ld bc, wFE_BGPalettes
 	ld de, $0040
 	call FE_FarCopy
 	xor a
@@ -44,7 +44,7 @@ Cranky_LoadPicture::
 	ldh [rSCY], a
 	ldh [rVBK], a
 	ld a, $f0
-	ld [$c800], a
+	ld [wFE_FarBank], a
 	pop hl
 	call FE_FarReadByte
 	ld a, c
@@ -53,7 +53,7 @@ Cranky_LoadPicture::
 	pop af
 	ld h, b
 	ld l, c
-	ld [$c800], a
+	ld [wFE_FarBank], a
 	ld bc, $9000
 	ld d, $80
 	call Cranky_HDMAAcrossBanks
@@ -64,7 +64,7 @@ Cranky_LoadPicture::
 	ld a, $82
 	push af
 	inc sp
-	ldh a, [$ff81]
+	ldh a, [hFE_ROMBank]
 	push af
 	ld a, $3f
 	push af
@@ -94,7 +94,7 @@ Cranky_LoadPictureTiles_8800::
 	ld a, $af
 	push af
 	inc sp
-	ldh a, [$ff81]
+	ldh a, [hFE_ROMBank]
 	push af
 	ld a, $3f
 	push af
@@ -156,28 +156,28 @@ Cranky_HDMAAcrossBanks::
 	add hl, hl
 	add hl, hl
 	add hl, hl
-	ld bc, $d000
+	ld bc, wCranky_ScreenBuffer
 	add hl, bc
 	ld c, l
 	ld b, h
 	ld hl, $4000
-	ld a, [$c800]
+	ld a, [wFE_FarBank]
 	inc a
-	ld [$c800], a
-	call $ccdc
-	ld bc, $d000
+	ld [wFE_FarBank], a
+	call Cranky_FarCopySprites
+	ld bc, wCranky_ScreenBuffer
 	pop hl
 	ld d, e
-	ld a, [$c800]
+	ld a, [wFE_FarBank]
 	dec a
-	ld [$c800], a
-	call $ccdc
+	ld [wFE_FarBank], a
+	call Cranky_FarCopySprites
 	jr .jump_4116
 
 .jump_410f:
-	ld bc, $d000
+	ld bc, wCranky_ScreenBuffer
 	pop hl
-	call $ccdc
+	call Cranky_FarCopySprites
 .jump_4116:
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
@@ -185,7 +185,7 @@ Cranky_HDMAAcrossBanks::
 	ld a, BANK(Cranky_UpdateTileAnims)
 	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	ld hl, $d000
+	ld hl, wCranky_ScreenBuffer
 	pop de
 	pop bc
 	dec d
@@ -214,7 +214,7 @@ Cranky_UploadBGMap::
 	ld a, BANK(Cranky_UpdateTileAnims)
 	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	ld hl, $d000
+	ld hl, wCranky_ScreenBuffer
 	call Cranky_StartHBlankDMA
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
@@ -224,7 +224,7 @@ Cranky_UploadBGMap::
 	call FarCall_A_HL
 	xor a
 	ldh [rVBK], a
-	ld hl, $d400
+	ld hl, wCranky_ScreenBuffer + $400
 	call Cranky_StartHBlankDMA
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
@@ -250,7 +250,7 @@ Cranky_UploadBGMap9C00::
 	ld a, BANK(Cranky_UpdateTileAnims)
 	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
-	ld hl, $d000
+	ld hl, wCranky_ScreenBuffer
 	call Cranky_StartHBlankDMA
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
@@ -260,7 +260,7 @@ Cranky_UploadBGMap9C00::
 	call FarCall_A_HL
 	xor a
 	ldh [rVBK], a
-	ld hl, $d400
+	ld hl, wCranky_ScreenBuffer + $400
 	call Cranky_StartHBlankDMA
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
@@ -275,7 +275,7 @@ Cranky_UploadBGMap9C00::
 
 Cranky_InstallSpriteCopy::
 	ld hl, $449c
-	ld bc, $ccdc
+	ld bc, Cranky_FarCopySprites
 	ld d, $45
 .jump_41ec:
 	ld a, [hli]
@@ -314,20 +314,20 @@ Cranky_ClearPalettes::
 
 Cranky_FadeIn::
 	ld a, $40
-	ldh [$ff82], a
-	ld de, $c806
-	ld bc, $da00
+	ldh [hFE_Scratch], a
+	ld de, wFE_BGPalettes
+	ld bc, wFE_FadePalettes
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
 	xor a
 .jump_4230:
 	push af
-	ldh [$ff82], a
+	ldh [hFE_Scratch], a
 	ld a, $40
-	ldh [$ff86], a
-	ld bc, $c806
-	ld de, $da00
+	ldh [hFE_Scratch + 4], a
+	ld bc, wFE_BGPalettes
+	ld de, wFE_FadePalettes
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -348,11 +348,11 @@ Cranky_FadeOut::
 	ld a, $ff
 .jump_4260:
 	push af
-	ldh [$ff82], a
+	ldh [hFE_Scratch], a
 	ld a, $40
-	ldh [$ff86], a
-	ld bc, $c806
-	ld de, $da00
+	ldh [hFE_Scratch + 4], a
+	ld bc, wFE_BGPalettes
+	ld de, wFE_FadePalettes
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -374,11 +374,11 @@ Cranky_UploadPalettes::
 	ld a, $80
 	ldh [rOCPS], a
 	ldh [rBCPS], a
-	ld hl, $c806
+	ld hl, wFE_BGPalettes
 	ld bc, $ff69
 	ld d, $10
 	call Cranky_UploadPaletteBytes
-	ld hl, $c846
+	ld hl, wFE_OBJPalettes
 	ld bc, $ff6b
 	ld d, $10
 
@@ -884,10 +884,10 @@ Cranky_CopyOAM::
 
 
 Cranky_FarCopySprites_Code::
-	ldh a, [$ff81]
+	ldh a, [hFE_ROMBank]
 	push af
-	ld a, [$c800]
-	ldh [$ff81], a
+	ld a, [wFE_FarBank]
+	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
 .jump_44a7:
 	ld a, [hli]
@@ -941,7 +941,7 @@ Cranky_FarCopySprites_Code::
 	dec d
 	jr nz, .jump_44a7
 	pop af
-	ldh [$ff81], a
+	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
 	ret
 
@@ -965,7 +965,7 @@ Cranky_RestoreBGMap::
 	ld a, $02
 	ldh [rSVBK], a
 	ld hl, $d800
-	ld bc, $d000
+	ld bc, wCranky_ScreenBuffer
 	ld de, $0800
 	ld a, $45
 	push af
@@ -973,7 +973,7 @@ Cranky_RestoreBGMap::
 	ld a, $20
 	push af
 	inc sp
-	ldh a, [$ff81]
+	ldh a, [hFE_ROMBank]
 	push af
 	ld a, $3f
 	push af
@@ -1001,11 +1001,11 @@ Cranky_DimForPause::
 	ld a, $60
 .jump_4527:
 	push af
-	ldh [$ff82], a
+	ldh [hFE_Scratch], a
 	ld a, $20
-	ldh [$ff86], a
-	ld bc, $c806
-	ld de, $da00
+	ldh [hFE_Scratch + 4], a
+	ld bc, wFE_BGPalettes
+	ld de, wFE_FadePalettes
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -1027,11 +1027,11 @@ Cranky_UndimAfterPause::
 	ld a, $f8
 .jump_4558:
 	push af
-	ldh [$ff82], a
+	ldh [hFE_Scratch], a
 	ld a, $20
-	ldh [$ff86], a
-	ld bc, $c806
-	ld de, $da00
+	ldh [hFE_Scratch + 4], a
+	ld bc, wFE_BGPalettes
+	ld de, wFE_FadePalettes
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -1053,11 +1053,11 @@ Cranky_DimBackground::
 	ld a, $60
 .jump_458a:
 	push af
-	ldh [$ff82], a
+	ldh [hFE_Scratch], a
 	ld a, $40
-	ldh [$ff86], a
-	ld bc, $c806
-	ld de, $da00
+	ldh [hFE_Scratch + 4], a
+	ld bc, wFE_BGPalettes
+	ld de, wFE_FadePalettes
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -1082,11 +1082,11 @@ Cranky_UndimBackground::
 	ld a, $f8
 .jump_45c3:
 	push af
-	ldh [$ff82], a
+	ldh [hFE_Scratch], a
 	ld a, $40
-	ldh [$ff86], a
-	ld bc, $c806
-	ld de, $da00
+	ldh [hFE_Scratch + 4], a
+	ld bc, wFE_BGPalettes
+	ld de, wFE_FadePalettes
 	ld a, BANK(FE_ScalePalettes)
 	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
@@ -1135,53 +1135,53 @@ CrankyBackground_f5_4611::
 
 Cranky_ResetState::
 	xor a
-	ld [$cbc2], a
-	ld [$cbc0], a
-	ld [$cbc1], a
-	ld [$cbca], a
-	ld [$cbb1], a
-	ld [$cbdc], a
-	ld [$cbdd], a
-	ld [$cbde], a
-	ld [$cbdf], a
-	ld [$cbe0], a
-	ld [$cbe1], a
-	ld [$cbe2], a
-	ld [$cbe3], a
-	ld [$cbe4], a
-	ld [$cbe5], a
-	ld [$cbe6], a
-	ld [$cbe7], a
-	ld [$cbe8], a
-	ld [$cbe9], a
-	ld [$cbea], a
-	ld [$cbeb], a
-	ld [$cbf8], a
-	ld [$cbc7], a
-	ld [$cbc8], a
-	ld [$cbf1], a
-	ld [$cbf2], a
-	ld [$cbf3], a
-	ld [$cbf4], a
-	ld [$cbf5], a
-	ld [$cbf6], a
-	ld [$cbf7], a
-	ld [$cbf0], a
-	ld [$cc07], a
-	ld [$cc09], a
-	ld [$cc0a], a
-	ld [$cbb4], a
-	ld [$cbb2], a
-	ld [$cbcc], a
-	ld [$cbd9], a
-	ld [$cbca], a
-	ld [$cbb7], a
-	ld [$cbb8], a
-	ld [$cbb9], a
+	ld [wCranky_TileBuffer], a
+	ld [wCranky_CursorX], a
+	ld [wCranky_CursorY], a
+	ld [wCranky_DimLevel], a
+	ld [wCranky_Spawned], a
+	ld [wCranky_TargetHits], a
+	ld [wCranky_TargetHits + 1], a
+	ld [wCranky_TargetHits + 2], a
+	ld [wCranky_TargetHits + 3], a
+	ld [wCranky_TargetHits + 4], a
+	ld [wCranky_TargetHits + 5], a
+	ld [wCranky_TargetHits + 6], a
+	ld [wCranky_TargetHits + 7], a
+	ld [wCranky_TargetTimers], a
+	ld [wCranky_TargetTimers + 1], a
+	ld [wCranky_TargetTimers + 2], a
+	ld [wCranky_TargetTimers + 3], a
+	ld [wCranky_TargetTimers + 4], a
+	ld [wCranky_TargetTimers + 5], a
+	ld [wCranky_TargetTimers + 6], a
+	ld [wCranky_TargetTimers + 7], a
+	ld [wCranky_AmmoTile], a
+	ld [wCranky_Time], a
+	ld [wCranky_TimeFrames], a
+	ld [wCranky_Score], a
+	ld [wCranky_Score + 1], a
+	ld [wCranky_Score + 2], a
+	ld [wCranky_ScoreFlash], a
+	ld [wCranky_ScoreFlash + 1], a
+	ld [wCranky_ScoreFlash + 2], a
+	ld [wCranky_TargetsUp], a
+	ld [wCranky_ActorsUp], a
+	ld [wCranky_Ending], a
+	ld [wCranky_CrosshairBlink], a
+	ld [wCranky_ScreenFlash], a
+	ld [wCranky_Shots], a
+	ld [wCranky_RemoteShot], a
+	ld [wCranky_ReloadTimer], a
+	ld [wCranky_RepeatTimer], a
+	ld [wCranky_DimLevel], a
+	ld [wCranky_Events], a
+	ld [wCranky_RemoteEvents], a
+	ld [wCranky_NextActorID], a
 	ld a, $20
-	ld [$cbcd], a
+	ld [wCranky_SpawnDelay], a
 	xor a
-	ld hl, $cba0
+	ld hl, wCranky_LinkIn
 	ld c, $9d
 	ld b, $10
 .jump_46a2:
@@ -1200,11 +1200,11 @@ Cranky_ResetState::
 	dec b
 	jr nz, .jump_46af
 	ld a, $00
-	ld [$cbb3], a
+	ld [wCranky_State], a
 
 Cranky_ClearGradient::
 	xor a
-	ld hl, $db00
+	ld hl, wCranky_ActorType
 	ld d, $20
 .jump_46c0:
 	ld [hli], a
@@ -1216,7 +1216,7 @@ Cranky_ClearGradient::
 Cranky_SetUpLinkGame::
 	ld a, $01
 	ldh [rSVBK], a
-	ld a, [$cbbf]
+	ld a, [wCranky_Game]
 	ld b, a
 	add a, a
 	add a, b
@@ -1251,107 +1251,107 @@ Cranky_SetUpLink_KremlingsAndKongs::
 
 Cranky_SetUpLink_BuddiesBeware_Body::
 	ld a, $00
-	ld [$cbf1], a
+	ld [wCranky_Score], a
 	ld a, $04
-	ld [$cbf2], a
+	ld [wCranky_Score + 1], a
 	ld a, $00
-	ld [$cbf3], a
+	ld [wCranky_Score + 2], a
 	ld a, $40
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $01
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $01
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	ld a, $05
-	ld [$cbef], a
+	ld [wCranky_AmmoMax], a
 	xor a
-	ld [$cbfa], a
-	ld [$cbfb], a
+	ld [wCranky_BuddyCounts], a
+	ld [wCranky_BuddyCounts + 1], a
 	ret
 
 
 Cranky_SetUpLink_BarrelOKremlings_Body::
 	ld a, $a0
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $40
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	xor a
-	ld [$cbef], a
+	ld [wCranky_AmmoMax], a
 	ld a, $a0
-	ld [$cbc9], a
+	ld [wCranky_Barrels], a
 	ret
 
 
 Cranky_SetUpLink_Wanted_Body::
 	ld a, $80
-	ld [$cbec], a
-	ld [$cbed], a
+	ld [wCranky_SpawnRate], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	ld a, $07
-	ld [$cbff], a
+	ld [wCranky_Wanted + 3], a
 	ld a, $ff
-	ld [$cbfc], a
+	ld [wCranky_Wanted], a
 	xor a
-	ld [$cbef], a
-	ld [$cbfd], a
-	ld [$cbfe], a
-	ld [$cc01], a
-	ld [$cc00], a
-	ld [$cc06], a
+	ld [wCranky_AmmoMax], a
+	ld [wCranky_Wanted + 1], a
+	ld [wCranky_Wanted + 2], a
+	ld [wCranky_Wanted + 5], a
+	ld [wCranky_Wanted + 4], a
+	ld [wCranky_Wanted + $0a], a
 	ret
 
 
 Cranky_SetUpLink_KremlingKrackdown_Body::
 	ld a, $d0
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $80
-	ld [$cbc9], a
+	ld [wCranky_Barrels], a
 	ld a, $04
-	ld [$cc0c], a
+	ld [wCranky_KremlingSpeed], a
 	ld a, $80
-	ld [$cc0d], a
+	ld [wCranky_KremlingSpeed + 1], a
 	ld a, $40
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	xor a
-	ld [$cbef], a
+	ld [wCranky_AmmoMax], a
 	ld a, $01
-	ld [$cbd8], a
+	ld [wCranky_KongShown], a
 	ret
 
 
 Cranky_SetUpLink_KremlingsAndKongs_Body::
 	ld a, $d0
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $80
-	ld [$cbc9], a
+	ld [wCranky_Barrels], a
 	ld a, $04
-	ld [$cc0c], a
+	ld [wCranky_KremlingSpeed], a
 	ld a, $80
-	ld [$cc0d], a
+	ld [wCranky_KremlingSpeed + 1], a
 	ld a, $40
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	xor a
-	ld [$cbef], a
-	ld [$cbd8], a
+	ld [wCranky_AmmoMax], a
+	ld [wCranky_KongShown], a
 	ret
 
 
 Cranky_SetUpGame::
 	ld a, $01
 	ldh [rSVBK], a
-	ld a, [$cbbf]
+	ld a, [wCranky_Game]
 	ld b, a
 	add a, a
 	add a, b
@@ -1390,166 +1390,166 @@ Cranky_SetUp_GalleonGunner::
 
 Cranky_SetUp_BuddiesBeware_Body::
 	ld a, $00
-	ld [$cbf1], a
+	ld [wCranky_Score], a
 	ld a, $02
-	ld [$cbf2], a
+	ld [wCranky_Score + 1], a
 	ld a, $05
-	ld [$cbf3], a
+	ld [wCranky_Score + 2], a
 	ld a, $40
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $01
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $02
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	ld a, $05
-	ld [$cbef], a
+	ld [wCranky_AmmoMax], a
 	xor a
-	ld [$cbfa], a
-	ld [$cbfb], a
+	ld [wCranky_BuddyCounts], a
+	ld [wCranky_BuddyCounts + 1], a
 	ret
 
 
 Cranky_SetUp_BarrelOKremlings_Body::
 	ld a, $01
-	ld [$cbf1], a
+	ld [wCranky_Score], a
 	ld a, $00
-	ld [$cbf2], a
+	ld [wCranky_Score + 1], a
 	ld a, $00
-	ld [$cbf3], a
+	ld [wCranky_Score + 2], a
 	ld a, $80
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $40
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	xor a
-	ld [$cbef], a
+	ld [wCranky_AmmoMax], a
 	ld a, $40
-	ld [$cbc9], a
+	ld [wCranky_Barrels], a
 	ret
 
 
 Cranky_SetUp_Wanted_Body::
 	ld a, $00
-	ld [$cbf1], a
+	ld [wCranky_Score], a
 	ld a, $07
-	ld [$cbf2], a
+	ld [wCranky_Score + 1], a
 	ld a, $00
-	ld [$cbf3], a
+	ld [wCranky_Score + 2], a
 	ld a, $80
-	ld [$cbec], a
-	ld [$cbed], a
+	ld [wCranky_SpawnRate], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	ld a, $07
-	ld [$cbff], a
+	ld [wCranky_Wanted + 3], a
 	ld a, $ff
-	ld [$cbfc], a
+	ld [wCranky_Wanted], a
 	xor a
-	ld [$cbef], a
-	ld [$cbfd], a
-	ld [$cbfe], a
-	ld [$cc01], a
-	ld [$cc00], a
-	ld [$cc06], a
+	ld [wCranky_AmmoMax], a
+	ld [wCranky_Wanted + 1], a
+	ld [wCranky_Wanted + 2], a
+	ld [wCranky_Wanted + 5], a
+	ld [wCranky_Wanted + 4], a
+	ld [wCranky_Wanted + $0a], a
 	ret
 
 
 Cranky_SetUp_KremlingKrackdown_Body::
 	ld a, $00
-	ld [$cbf1], a
+	ld [wCranky_Score], a
 	ld a, $07
-	ld [$cbf2], a
+	ld [wCranky_Score + 1], a
 	ld a, $00
-	ld [$cbf3], a
+	ld [wCranky_Score + 2], a
 	ld a, $a8
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $04
-	ld [$cc0c], a
+	ld [wCranky_KremlingSpeed], a
 	ld a, $80
-	ld [$cc0d], a
+	ld [wCranky_KremlingSpeed + 1], a
 	ld a, $40
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	xor a
-	ld [$cbef], a
+	ld [wCranky_AmmoMax], a
 	ld a, $01
-	ld [$cbd8], a
+	ld [wCranky_KongShown], a
 	ret
 
 
 Cranky_SetUp_KremlingsAndKongs_Body::
 	ld a, $00
-	ld [$cbf1], a
+	ld [wCranky_Score], a
 	ld a, $05
-	ld [$cbf2], a
+	ld [wCranky_Score + 1], a
 	ld a, $00
-	ld [$cbf3], a
+	ld [wCranky_Score + 2], a
 	ld a, $d0
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $04
-	ld [$cc0c], a
+	ld [wCranky_KremlingSpeed], a
 	ld a, $80
-	ld [$cc0d], a
+	ld [wCranky_KremlingSpeed + 1], a
 	ld a, $40
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	xor a
-	ld [$cbef], a
-	ld [$cbd8], a
+	ld [wCranky_AmmoMax], a
+	ld [wCranky_KongShown], a
 	ret
 
 
 Cranky_SetUp_GalleonGunner_Body::
 	ld a, $00
-	ld [$cbf1], a
+	ld [wCranky_Score], a
 	ld a, $03
-	ld [$cbf2], a
+	ld [wCranky_Score + 1], a
 	ld a, $06
-	ld [$cbf3], a
+	ld [wCranky_Score + 2], a
 	ld a, $40
-	ld [$cbec], a
+	ld [wCranky_SpawnRate], a
 	ld a, $40
-	ld [$cbed], a
+	ld [wCranky_SpawnRate2], a
 	ld a, $01
-	ld [$cc01], a
-	ld [$cbf0], a
+	ld [wCranky_Wanted + 5], a
+	ld [wCranky_ActorsUp], a
 	ld a, $04
-	ld [$cbc3], a
-	ld [$cbee], a
+	ld [wCranky_AmmoIcon], a
+	ld [wCranky_Ammo], a
 	xor a
-	ld [$cbef], a
-	ld [$cc0b], a
+	ld [wCranky_AmmoMax], a
+	ld [wCranky_ShipsSunk], a
 	ld a, $0d
-	ld [$db00], a
-	ld [$db01], a
-	ld [$db02], a
-	ld [$db03], a
-	ld [$db04], a
-	ld [$db05], a
+	ld [wCranky_ActorType], a
+	ld [wCranky_ActorType + 1], a
+	ld [wCranky_ActorType + 2], a
+	ld [wCranky_ActorType + 3], a
+	ld [wCranky_ActorType + 4], a
+	ld [wCranky_ActorType + 5], a
 	set 0, a
-	ld [$db60], a
-	ld [$db61], a
-	ld [$db62], a
-	ld [$db63], a
-	ld [$db64], a
-	ld [$db65], a
+	ld [wCranky_ActorAnimFlags], a
+	ld [wCranky_ActorAnimFlags + 1], a
+	ld [wCranky_ActorAnimFlags + 2], a
+	ld [wCranky_ActorAnimFlags + 3], a
+	ld [wCranky_ActorAnimFlags + 4], a
+	ld [wCranky_ActorAnimFlags + 5], a
 	ld a, $06
-	ld [$dd20], a
-	ld [$dd21], a
-	ld [$dd22], a
-	ld [$dd23], a
-	ld [$dd24], a
-	ld [$dd25], a
+	ld [wCranky_ActorVar], a
+	ld [wCranky_ActorVar + 1], a
+	ld [wCranky_ActorVar + 2], a
+	ld [wCranky_ActorVar + 3], a
+	ld [wCranky_ActorVar + 4], a
+	ld [wCranky_ActorVar + 5], a
 	ld a, $40
-	ld [$cc03], a
+	ld [wCranky_Wanted + 7], a
 	ld a, BANK(Cranky_GalleonGunner_SetGradient)
 	ld hl, Cranky_GalleonGunner_SetGradient
 	call FarCall_A_HL
@@ -1557,7 +1557,7 @@ Cranky_SetUp_GalleonGunner_Body::
 
 
 Cranky_LoadBackground::
-	ld a, [$cbbf]
+	ld a, [wCranky_Game]
 	add a, a
 	ld hl, $45fb
 	add a, l
@@ -1579,7 +1579,7 @@ Cranky_LoadBackground::
 	call FarCall_A_HL
 	pop hl
 	ld a, [hl]
-	ld [$cbcb], a
+	ld [wCranky_Song], a
 	ret
 
 
@@ -1682,111 +1682,111 @@ Cranky_DrawScreen::
 
 Cranky_GalleonGunner_SetGradient::
 	ld a, $06
-	ldh [$ff9c], a
+	ldh [hCranky_Actor], a
 	ld a, $11
-	ld hl, $db00
+	ld hl, wCranky_ActorType
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $35
-	ld hl, $db40
+	ld hl, wCranky_ActorY
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $60
-	ld hl, $db20
+	ld hl, wCranky_ActorX
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $03
-	ld hl, $dc20
+	ld hl, wCranky_ActorFlags
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $2b
-	ld hl, $dc00
+	ld hl, wCranky_ActorSprite
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $40
-	ld hl, $db80
+	ld hl, wCranky_ActorAnimSpeed
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $07
-	ld hl, $dba0
+	ld hl, wCranky_ActorFrames
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $01
-	ld hl, $dc80
+	ld hl, wCranky_ActorSteps
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	ld a, $00
-	ld hl, $dc60
+	ld hl, wCranky_ActorMoveTimer
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
 	xor a
-	ld hl, $db60
+	ld hl, wCranky_ActorAnimFlags
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
-	ld hl, $dbc0
+	ld hl, wCranky_ActorAnimTimer
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
-	ld hl, $dbe0
+	ld hl, wCranky_ActorFrame
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
-	ld hl, $dc40
+	ld hl, wCranky_ActorSpeed
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af
 	ld [hl], a
-	ld hl, $dcc0
+	ld hl, wCranky_ActorTimer
 	push af
-	ldh a, [$ff9c]
+	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	pop af

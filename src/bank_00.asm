@@ -10719,10 +10719,10 @@ MusicCommandHandlers::
 
 FarCall_A_HL::
 	ldh [$ff9b], a
-	ldh a, [$ff81]
+	ldh a, [hFE_ROMBank]
 	push af
 	ldh a, [$ff9b]
-	ldh [$ff81], a
+	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
 	ld a, $3f
 	push af
@@ -10735,12 +10735,12 @@ FarCall_A_HL::
 
 RestoreBankAndReturn::
 	pop af
-	ldh [$ff81], a
+	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
 	ret
 
 .jump_3fdc::
-	ldh [$ff81], a
+	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
 	ret
 

@@ -213,9 +213,20 @@ class Emitter:
     # ----------------------------------------------------------- instructions
     def ram_name(self, v, bank, i):
         """Name of RAM address v accessed by instruction i in bank, or None."""
-        main = (bank not in hints.SECOND_PROGRAM_BANKS
-                and not (bank == 0 and any(s <= i.addr < e for s, e in hints.FE_HOME_CODE)))
-        return ramnames.lookup(v, bank, main)
+        return self.ram_name_at(v, bank, i.addr)
+
+    def ram_name_at(self, v, bank, addr):
+        fe_home = bank == 0 and any(s <= addr < e for s, e in hints.FE_HOME_CODE)
+        if 0xF0 <= bank <= 0xFE or fe_home:
+            code = ramnames.fe_ram_code(v, 0xF0 if fe_home else bank)
+            if code:
+                return code
+            if v in hints.FE_RAM_NAMES:
+                return hints.FE_RAM_NAMES[v]
+            if 0xA000 <= v < 0xC000:
+                return ramnames.lookup(v, 0xF0, False)
+            return ramnames.fe_lookup(v, 0xF0 if fe_home else bank)
+        return ramnames.lookup(v, bank, bank not in hints.SECOND_PROGRAM_BANKS)
 
     def hl_pointer(self, t, o, i):
         """ld hl, n16 whose value is then used as a pointer, not a number
@@ -447,15 +458,24 @@ class Emitter:
             class _T:
                 insns = {x: i for x, i in self.t.insns.items() if x // BANK_SIZE in pbanks}
             ents = ramcode.entries_from(_T, self.rom, dst, n) | set(extra)
-            name_of = lambda a: "RAMCode_%02x_%04x" % (bank, a)  # noqa: E731
+            fe = 0xF0 <= bank <= 0xFE
+
+            def name_of(a):
+                if fe and ramnames.fe_ram_code(a, bank):
+                    return ramnames.fe_ram_code(a, bank)
+                return "RAMCode_%02x_%04x" % (bank, a)
 
             def ext_name(v, tmpl):
-                if tmpl == "ldh" or (v >= 0xFF00 and ("[{n16}]" in tmpl)):
-                    return HW_REGS.get(v)
+                if tmpl == "ldh" or (v >= 0xFF00 and ("[{n16}]" in tmpl or tmpl.startswith("ld hl,"))):
+                    return HW_REGS.get(v) or (self.ram_name_at(v, bank, 0) if fe else None)
                 if (tmpl.startswith("jp") or tmpl.startswith("call")) and v < 0x4000:
                     return self.qref(0, v)
+                if fe and 0xA000 <= v < 0xFF00 and not tmpl.startswith("ld bc,"):
+                    return self.ram_name_at(v, bank, 0)
                 return None
             consts, body = ramcode.lines(buf, dst, ents, name_of, ext_name)
+            # entry points named in ramnames.FE_RAM_CODE are defined in ram.inc
+            consts = [(nm, a) for nm, a in consts if not nm.startswith(("FE_", "Cranky_"))]
             res = [(o, "; runs from $%04x" % dst)]
             res += [(None, "DEF %s EQU $%04x" % (nm, a)) for nm, a in consts]
             # comment lines and blank lines go out unindented (marked with \0)

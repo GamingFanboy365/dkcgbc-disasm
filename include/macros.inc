@@ -73,8 +73,8 @@ MACRO anim_clear_flag
 	db $00, $83
 ENDM
 
-; anim_param n: set OBJ_ANIM_PARAM
-MACRO anim_param
+; anim_hitbox n: set OBJ_HITBOX (the hitbox number)
+MACRO anim_hitbox
 	db \1, $84
 ENDM
 

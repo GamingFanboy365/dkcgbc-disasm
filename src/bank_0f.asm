@@ -30,7 +30,7 @@ Shop_CandysChallenge::
 	jr z, .skip
 	ld a, $01
 .skip:
-	ld [wShopChoice], a
+	ld [wShopState], a
 	call Shop_SpawnKong
 	ld hl, ObjInit_Shop_Input_1
 	call ApplyObjInit
@@ -38,7 +38,7 @@ Shop_CandysChallenge::
 	ld hl, ObjInit_Shop_SpawnOnce
 	call InitObject
 	call AllocObject
-	ld a, [wShopChoice]
+	ld a, [wShopState]
 	or a
 	jr nz, .else_406c
 	ld hl, ObjInit_NextObject
@@ -421,7 +421,7 @@ Shop_Input::
 	dec a
 	ld hl, ObjInit_Shop_FlyAwayTimer_2
 	jr z, .skip_4313
-	ld a, [wShopChoice]
+	ld a, [wShopState]
 	or a
 	jr nz, .else_432a
 	ld hl, ObjInit_Shop_FlyAwayTimer_3
@@ -654,11 +654,11 @@ Shop_Update::
 	add a, [hl]
 	ldh [hSplitTop], a
 	xor a
-	ldh [hShopTextState], a
+	ldh [hShopTextScroll], a
 	ret
 
 .else_4495:
-	ldh a, [hShopTextState]
+	ldh a, [hShopTextScroll]
 	or a
 	jr nz, .done_44e2
 	ldh a, [hTextLines]
@@ -696,7 +696,7 @@ Shop_Update::
 	add a, a
 	add a, a
 	add a, a
-	ldh [hShopTextState], a
+	ldh [hShopTextScroll], a
 	ldh a, [hTextLines]
 	sub e
 	ldh [hTextLines], a
@@ -709,7 +709,7 @@ Shop_Update::
 
 .done_44e2:
 	dec a
-	ldh [hShopTextState], a
+	ldh [hShopTextScroll], a
 	ld hl, hSplitSCY
 	inc [hl]
 	ret
@@ -753,7 +753,7 @@ Shop_Update::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld a, [wShopChoice]
+	ld a, [wShopState]
 	cp $08
 	jr z, .done_455c
 	cp $07
@@ -778,7 +778,7 @@ Shop_Update::
 	ld de, $0425
 .skip_4550:
 	inc a
-	ld [wShopChoice], a
+	ld [wShopState], a
 	call RandomBelow
 	xor a
 	ld [wShopExit], a
@@ -802,7 +802,7 @@ Shop_Leave::
 	ld a, [wLevel]
 	dec a
 	jr z, Shop_SetDestination
-	ld a, [wShopChoice]
+	ld a, [wShopState]
 	or a
 	jp nz, RunFlowScript
 	ld a, [wWorld]

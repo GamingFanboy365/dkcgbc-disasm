@@ -40,10 +40,10 @@ DEF OBJ_FRAME         EQU $20 ; (word) current sprite frame pointer, set by the 
 DEF OBJ_ANIM          EQU $22 ; (word) animation script pointer (bank $04), run by AnimateObject
 DEF OBJ_ANIM_SPEED    EQU $24 ; frames per animation step
 DEF OBJ_ANIM_TIMER    EQU $25 ; frames left in the current animation step
-DEF OBJ_ANIM_FLAGS    EQU $26 ; bit 7 is cleared by an animation command (tentative)
+DEF OBJ_ANIM_FLAGS    EQU $26 ; bit 7: set by the handler when it starts an animation, cleared by the script's anim_clear_flag when it gets there; bits 0-6 belong to the object type (the player's animation state)
 DEF OBJ_SPAWN_INDEX   EQU $27 ; index into the level object tables at $a8xx-$afxx; 0 = none
-DEF OBJ_ANIM_PARAM    EQU $28 ; set by an animation command, read by handlers (tentative)
-DEF OBJ_COLLISION     EQU $29 ; collision/interaction flags, cleared on delete (tentative)
+DEF OBJ_HITBOX        EQU $28 ; hitbox number, an index into Hitboxes; animation scripts set it with anim_hitbox
+DEF OBJ_COLLISION     EQU $29 ; contact classes: CheckPlayerContact only considers objects that share a bit with its mask (hContactMask; the player checks $5e, the hand slap $84); 0 = never touched
 DEF OBJ_PALETTE       EQU $2a ; object palette slot, allocated by InitObject
 DEF OBJ_LAYER         EQU $2b ; sprite layer used when drawing (DrawObject)
 DEF OBJ_VAR_2C        EQU $2c

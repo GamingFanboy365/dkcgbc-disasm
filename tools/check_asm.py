@@ -60,7 +60,7 @@ for k, t in enumerate(CB):
 
 
 ANIM_SIZES = {"anim_frame": 2, "anim_jump": 4, "anim_speed": 2, "anim_call": 4,
-              "anim_clear_flag": 2, "anim_param": 2, "anim_var38": 4, "anim_xor_attr": 2,
+              "anim_clear_flag": 2, "anim_hitbox": 2, "anim_var38": 4, "anim_xor_attr": 2,
               "anim_sfx": 2, "frame": 6, "frame_none": 6}
 
 
@@ -300,8 +300,8 @@ class Asm:
                 return b"\x00\x83"
             if m == "anim_sfx":
                 return bytes([ev(a[1]), 0x86 + ev(a[0])])
-            if m in ("anim_speed", "anim_param", "anim_xor_attr"):
-                return bytes([ev(a[0]), {"anim_speed": 0x81, "anim_param": 0x84, "anim_xor_attr": 0x86}[m]])
+            if m in ("anim_speed", "anim_hitbox", "anim_xor_attr"):
+                return bytes([ev(a[0]), {"anim_speed": 0x81, "anim_hitbox": 0x84, "anim_xor_attr": 0x86}[m]])
             if m == "frame_none":
                 return bytes(6)
             if m == "frame":

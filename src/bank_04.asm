@@ -7,7 +7,7 @@ BankNumber_04::
 	db $04 ; bank number
 
 Anim_SetPlayerAnimation_1::
-	anim_param $2a
+	anim_hitbox $2a
 	anim_speed 120
 	anim_frame Frame_SetPlayerAnimation_69
 	anim_speed 5
@@ -71,7 +71,7 @@ Anim_SetPlayerAnimation_2::
 	anim_jump Anim_SetPlayerAnimation_2
 
 Anim_SetPlayerAnimation_3::
-	anim_param $2a
+	anim_hitbox $2a
 	anim_speed 5
 
 Anim_SetPlayerAnimation_4::
@@ -86,7 +86,7 @@ Anim_SetPlayerAnimation_4::
 	anim_jump Anim_SetPlayerAnimation_4
 
 Anim_SetPlayerAnimation_5::
-	anim_param $29
+	anim_hitbox $29
 	anim_speed 4
 
 Anim_SetPlayerAnimation_6::
@@ -100,7 +100,7 @@ Anim_SetPlayerAnimation_6::
 	anim_jump Anim_SetPlayerAnimation_6
 
 Anim_SetPlayerAnimation_7::
-	anim_param $2b
+	anim_hitbox $2b
 	anim_speed 4
 	anim_frame Frame_SetPlayerAnimation_33
 	anim_frame Frame_SetPlayerAnimation_34
@@ -116,7 +116,7 @@ Anim_SetPlayerAnimation_7::
 	anim_jump Anim_SetPlayerAnimation_3
 
 Anim_SetPlayerAnimation_8::
-	anim_param $2b
+	anim_hitbox $2b
 	anim_speed 4
 
 Anim_SetPlayerAnimation_9::
@@ -139,7 +139,7 @@ Anim_SetPlayerAnimation_11::
 	anim_jump Anim_SetPlayerAnimation_11
 
 Anim_SetPlayerAnimation_12::
-	anim_param $28
+	anim_hitbox $28
 	anim_speed 2
 	anim_frame Frame_SetPlayerAnimation_25
 
@@ -148,7 +148,7 @@ Anim_SetPlayerAnimation_13::
 	anim_jump Anim_SetPlayerAnimation_13
 
 Anim_SetPlayerAnimation_14::
-	anim_param $28
+	anim_hitbox $28
 	anim_speed 10
 	anim_frame Frame_SetPlayerAnimation_26
 	anim_speed 2
@@ -186,7 +186,7 @@ Anim_SetPlayerAnimation_18::
 	anim_jump Anim_SetPlayerAnimation_18
 
 Anim_SetPlayerAnimation_19::
-	anim_param $28
+	anim_hitbox $28
 	anim_speed 4
 
 Anim_SetPlayerAnimation_20::
@@ -194,7 +194,7 @@ Anim_SetPlayerAnimation_20::
 	anim_jump Anim_SetPlayerAnimation_20
 
 Anim_SetPlayerAnimation_21::
-	anim_param $21
+	anim_hitbox $21
 	anim_speed 4
 
 Anim_SetPlayerAnimation_22::
@@ -206,7 +206,7 @@ Anim_SetPlayerAnimation_22::
 	anim_jump Anim_SetPlayerAnimation_22
 
 Anim_SetPlayerAnimation_23::
-	anim_param $23
+	anim_hitbox $23
 	anim_speed 4
 	anim_var38 $0005
 	anim_frame Frame_SetPlayerAnimation_27
@@ -229,7 +229,7 @@ Anim_SetPlayerAnimation_24::
 	anim_jump Anim_SetPlayerAnimation_24
 
 Anim_SetPlayerAnimation_25::
-	anim_param $23
+	anim_hitbox $23
 	anim_speed 4
 	anim_var38 $e302
 	anim_frame Frame_SetPlayerAnimation_32
@@ -248,7 +248,7 @@ Anim_SetPlayerAnimation_26::
 	anim_jump Anim_SetPlayerAnimation_26
 
 Anim_SetPlayerAnimation_27::
-	anim_param $20
+	anim_hitbox $20
 	anim_speed 4
 	anim_var38 $e5f9
 	anim_frame Frame_SetPlayerAnimation_59
@@ -262,7 +262,7 @@ Anim_SetPlayerAnimation_27::
 	anim_jump Anim_SetPlayerAnimation_1
 
 Anim_SetPlayerAnimation_28::
-	anim_param $22
+	anim_hitbox $22
 	anim_speed 4
 	anim_var38 $e20c
 
@@ -279,7 +279,7 @@ Anim_SetPlayerAnimation_29::
 	anim_jump Anim_SetPlayerAnimation_29
 
 Anim_SetPlayerAnimation_30::
-	anim_param $22
+	anim_hitbox $22
 	anim_speed 4
 	anim_var38 $e302
 
@@ -288,7 +288,7 @@ Anim_SetPlayerAnimation_31::
 	anim_jump Anim_SetPlayerAnimation_31
 
 Anim_SetPlayerAnimation_32::
-	anim_param $22
+	anim_hitbox $22
 	anim_speed 4
 
 Anim_SetPlayerAnimation_33::
@@ -296,7 +296,7 @@ Anim_SetPlayerAnimation_33::
 	anim_jump Anim_SetPlayerAnimation_33
 
 Anim_SetPlayerAnimation_34::
-	anim_param $24
+	anim_hitbox $24
 	anim_speed 4
 
 Anim_SetPlayerAnimation_35::
@@ -314,7 +314,7 @@ Anim_SetPlayerAnimation_36::
 	anim_jump Anim_SetPlayerAnimation_34
 
 Anim_SetPlayerAnimation_37::
-	anim_param $24
+	anim_hitbox $24
 	anim_speed 2
 
 Anim_SetPlayerAnimation_38::
@@ -327,7 +327,7 @@ Anim_SetPlayerAnimation_38::
 	anim_jump Anim_SetPlayerAnimation_38
 
 Anim_SetPlayerAnimation_39::
-	anim_param $27
+	anim_hitbox $27
 	anim_speed 4
 	anim_frame Frame_SetPlayerAnimation_173
 	anim_frame Frame_SetPlayerAnimation_174
@@ -355,7 +355,7 @@ Anim_SetPlayerAnimation_40::
 	anim_jump Anim_SetPlayerAnimation_40
 
 Anim_SetPlayerAnimation_41::
-	anim_param $27
+	anim_hitbox $27
 	anim_speed 4
 	anim_frame Frame_SetPlayerAnimation_176
 	anim_frame Frame_SetPlayerAnimation_175
@@ -365,7 +365,7 @@ Anim_SetPlayerAnimation_41::
 	anim_jump Anim_SetPlayerAnimation_3
 
 Anim_SetPlayerAnimation_42::
-	anim_param $25
+	anim_hitbox $25
 	anim_speed 6
 
 Anim_SetPlayerAnimation_43::
@@ -380,7 +380,7 @@ Anim_SetPlayerAnimation_43::
 	anim_jump Anim_SetPlayerAnimation_43
 
 Anim_SetPlayerAnimation_44::
-	anim_param $25
+	anim_hitbox $25
 	anim_speed 4
 	anim_frame Frame_SetPlayerAnimation_51
 	anim_frame Frame_SetPlayerAnimation_52
@@ -394,7 +394,7 @@ Anim_SetPlayerAnimation_44::
 	anim_jump Anim_SetPlayerAnimation_42
 
 Anim_SetPlayerAnimation_45::
-	anim_param $27
+	anim_hitbox $27
 	anim_speed 6
 
 Anim_SetPlayerAnimation_46::
@@ -413,7 +413,7 @@ Anim_SetPlayerAnimation_46::
 	anim_jump Anim_SetPlayerAnimation_46
 
 Anim_SetPlayerAnimation_47::
-	anim_param $27
+	anim_hitbox $27
 	anim_speed 6
 
 Anim_SetPlayerAnimation_48::
@@ -421,7 +421,7 @@ Anim_SetPlayerAnimation_48::
 	anim_jump Anim_SetPlayerAnimation_48
 
 Anim_SetPlayerAnimation_49::
-	anim_param $2c
+	anim_hitbox $2c
 	anim_speed 3
 
 Anim_SetPlayerAnimation_50::
@@ -516,7 +516,7 @@ Anim_Player_ExitAfterJingle_4::
 	anim_jump Anim_Player_ExitAfterJingle_4
 
 Anim_SetPlayerAnimation_52::
-	anim_param $1d
+	anim_hitbox $1d
 	anim_speed 120
 	anim_frame Frame_SetPlayerAnimation_156
 	anim_speed 5
@@ -580,7 +580,7 @@ Anim_SetPlayerAnimation_53::
 	anim_jump Anim_SetPlayerAnimation_53
 
 Anim_SetPlayerAnimation_54::
-	anim_param $1d
+	anim_hitbox $1d
 	anim_speed 5
 
 Anim_SetPlayerAnimation_55::
@@ -596,7 +596,7 @@ Anim_SetPlayerAnimation_55::
 	anim_jump Anim_SetPlayerAnimation_55
 
 Anim_SetPlayerAnimation_56::
-	anim_param $1c
+	anim_hitbox $1c
 	anim_speed 4
 
 Anim_SetPlayerAnimation_57::
@@ -611,7 +611,7 @@ Anim_SetPlayerAnimation_57::
 	anim_jump Anim_SetPlayerAnimation_57
 
 Anim_SetPlayerAnimation_58::
-	anim_param $1e
+	anim_hitbox $1e
 	anim_speed 4
 	anim_frame Frame_SetPlayerAnimation_163
 	anim_frame Frame_SetPlayerAnimation_164
@@ -627,7 +627,7 @@ Anim_SetPlayerAnimation_58::
 	anim_jump Anim_SetPlayerAnimation_54
 
 Anim_SetPlayerAnimation_59::
-	anim_param $1e
+	anim_hitbox $1e
 	anim_speed 6
 
 Anim_SetPlayerAnimation_60::
@@ -648,7 +648,7 @@ Anim_SetPlayerAnimation_62::
 	anim_jump Anim_SetPlayerAnimation_62
 
 Anim_SetPlayerAnimation_63::
-	anim_param $1b
+	anim_hitbox $1b
 	anim_speed 2
 	anim_frame Frame_SetPlayerAnimation_116
 
@@ -657,7 +657,7 @@ Anim_SetPlayerAnimation_64::
 	anim_jump Anim_SetPlayerAnimation_64
 
 Anim_SetPlayerAnimation_65::
-	anim_param $1b
+	anim_hitbox $1b
 	anim_speed 10
 	anim_frame Frame_SetPlayerAnimation_115
 
@@ -703,7 +703,7 @@ Anim_SetPlayerAnimation_71::
 	anim_jump Anim_SetPlayerAnimation_71
 
 Anim_SetPlayerAnimation_72::
-	anim_param $14
+	anim_hitbox $14
 	anim_speed 4
 
 Anim_SetPlayerAnimation_73::
@@ -715,7 +715,7 @@ Anim_SetPlayerAnimation_73::
 	anim_jump Anim_SetPlayerAnimation_73
 
 Anim_SetPlayerAnimation_74::
-	anim_param $16
+	anim_hitbox $16
 	anim_speed 4
 	anim_var38 $0009
 	anim_frame Frame_SetPlayerAnimation_117
@@ -734,7 +734,7 @@ Anim_SetPlayerAnimation_75::
 	anim_jump Anim_SetPlayerAnimation_75
 
 Anim_SetPlayerAnimation_76::
-	anim_param $16
+	anim_hitbox $16
 	anim_speed 4
 	anim_var38 $f909
 	anim_frame Frame_SetPlayerAnimation_122
@@ -753,7 +753,7 @@ Anim_SetPlayerAnimation_77::
 	anim_jump Anim_SetPlayerAnimation_77
 
 Anim_SetPlayerAnimation_78::
-	anim_param $13
+	anim_hitbox $13
 	anim_speed 4
 	anim_var38 $f707
 	anim_frame Frame_SetPlayerAnimation_141
@@ -770,7 +770,7 @@ Anim_SetPlayerAnimation_78::
 	anim_jump Anim_SetPlayerAnimation_52
 
 Anim_SetPlayerAnimation_79::
-	anim_param $15
+	anim_hitbox $15
 	anim_speed 4
 	anim_var38 $f909
 
@@ -787,7 +787,7 @@ Anim_SetPlayerAnimation_80::
 	anim_jump Anim_SetPlayerAnimation_80
 
 Anim_SetPlayerAnimation_81::
-	anim_param $15
+	anim_hitbox $15
 	anim_speed 4
 	anim_var38 $f906
 
@@ -796,7 +796,7 @@ Anim_SetPlayerAnimation_82::
 	anim_jump Anim_SetPlayerAnimation_82
 
 Anim_SetPlayerAnimation_83::
-	anim_param $15
+	anim_hitbox $15
 	anim_speed 4
 
 Anim_SetPlayerAnimation_84::
@@ -804,7 +804,7 @@ Anim_SetPlayerAnimation_84::
 	anim_jump Anim_SetPlayerAnimation_84
 
 Anim_SetPlayerAnimation_85::
-	anim_param $17
+	anim_hitbox $17
 	anim_speed 4
 
 Anim_SetPlayerAnimation_86::
@@ -824,7 +824,7 @@ Anim_SetPlayerAnimation_87::
 	anim_jump Anim_SetPlayerAnimation_85
 
 Anim_SetPlayerAnimation_88::
-	anim_param $17
+	anim_hitbox $17
 	anim_speed 4
 
 Anim_SetPlayerAnimation_89::
@@ -837,7 +837,7 @@ Anim_SetPlayerAnimation_89::
 	anim_jump Anim_SetPlayerAnimation_89
 
 Anim_SetPlayerAnimation_90::
-	anim_param $17
+	anim_hitbox $17
 	anim_speed 4
 
 Anim_SetPlayerAnimation_91::
@@ -850,7 +850,7 @@ Anim_SetPlayerAnimation_91::
 	anim_jump Anim_SetPlayerAnimation_91
 
 Anim_SetPlayerAnimation_92::
-	anim_param $1a
+	anim_hitbox $1a
 	anim_speed 4
 	anim_frame Frame_SetPlayerAnimation_96
 	anim_frame Frame_SetPlayerAnimation_97
@@ -870,7 +870,7 @@ Anim_SetPlayerAnimation_93::
 	anim_jump Anim_SetPlayerAnimation_93
 
 Anim_SetPlayerAnimation_94::
-	anim_param $1a
+	anim_hitbox $1a
 	anim_speed 4
 	anim_frame Frame_SetPlayerAnimation_99
 	anim_frame Frame_SetPlayerAnimation_98
@@ -880,7 +880,7 @@ Anim_SetPlayerAnimation_94::
 	anim_jump Anim_SetPlayerAnimation_52
 
 Anim_SetPlayerAnimation_95::
-	anim_param $18
+	anim_hitbox $18
 	anim_speed 4
 
 Anim_SetPlayerAnimation_96::
@@ -895,7 +895,7 @@ Anim_SetPlayerAnimation_96::
 	anim_jump Anim_SetPlayerAnimation_96
 
 Anim_SetPlayerAnimation_97::
-	anim_param $18
+	anim_hitbox $18
 	anim_speed 2
 	anim_frame Frame_SetPlayerAnimation_133
 	anim_frame Frame_SetPlayerAnimation_134
@@ -909,7 +909,7 @@ Anim_SetPlayerAnimation_97::
 	anim_jump Anim_SetPlayerAnimation_95
 
 Anim_SetPlayerAnimation_98::
-	anim_param $19
+	anim_hitbox $19
 	anim_speed 6
 
 Anim_SetPlayerAnimation_99::
@@ -924,7 +924,7 @@ Anim_SetPlayerAnimation_99::
 	anim_jump Anim_SetPlayerAnimation_99
 
 Anim_SetPlayerAnimation_100::
-	anim_param $19
+	anim_hitbox $19
 	anim_speed 6
 
 Anim_SetPlayerAnimation_101::
@@ -932,7 +932,7 @@ Anim_SetPlayerAnimation_101::
 	anim_jump Anim_SetPlayerAnimation_101
 
 Anim_SetPlayerAnimation_102::
-	anim_param $1f
+	anim_hitbox $1f
 	anim_speed 3
 
 Anim_SetPlayerAnimation_103::
@@ -1370,7 +1370,7 @@ Anim_Squawks_3::
 	anim_jump Anim_Squawks_1
 
 Anim_RunKritterScript_1::
-	anim_param $3f
+	anim_hitbox $3f
 	anim_speed 3
 
 Anim_RunKritterScript_2::
@@ -1385,7 +1385,7 @@ Anim_RunKritterScript_2::
 	anim_jump Anim_RunKritterScript_2
 
 Anim_Kritter_JumpStart_1::
-	anim_param $40
+	anim_hitbox $40
 	anim_speed 6
 	anim_frame Frame_Kritter_JumpStart_1
 	anim_frame Frame_Kritter_JumpStart_2
@@ -1416,7 +1416,7 @@ Anim_Obj_TurnAround_1::
 	anim_jump Anim_RunKritterScript_1
 
 Anim_Gnawty_1::
-	anim_param $42
+	anim_hitbox $42
 	anim_speed 3
 
 Anim_Gnawty_2::
@@ -1547,7 +1547,7 @@ Anim_Zinger_Touch_2::
 	anim_jump Anim_Zinger_Touch_2
 
 Anim_Army_1::
-	anim_param $3d
+	anim_hitbox $3d
 	anim_speed 4
 
 Anim_Army_2::
@@ -1558,7 +1558,7 @@ Anim_Army_2::
 	anim_jump Anim_Army_2
 
 Anim_Army_Idle::
-	anim_param $3e
+	anim_hitbox $3e
 	anim_speed 4
 	anim_sfx 4, $66
 	anim_frame Frame_Army_Idle_1
@@ -1570,7 +1570,7 @@ Anim_Army_Idle::
 	anim_jump Anim_Army_1
 
 Anim_Army_3::
-	anim_param $3e
+	anim_hitbox $3e
 	anim_speed 4
 	anim_frame Frame_Army_Idle_5
 	anim_frame Frame_Army_Idle_4
@@ -1581,7 +1581,7 @@ Anim_Army_3::
 	anim_jump Anim_Army_4
 
 Anim_Army_4::
-	anim_param $3c
+	anim_hitbox $3c
 
 Anim_Army_5::
 	anim_speed 4
@@ -2064,7 +2064,7 @@ Anim_ChompsJr_Touch_2::
 
 Anim_Croctopus_SetSpinAnim_1::
 	anim_speed 2
-	anim_param $49
+	anim_hitbox $49
 
 Anim_Croctopus_SetSpinAnim_2::
 	anim_frame Frame_Croctopus_SetSpinAnim_1
@@ -2090,7 +2090,7 @@ Anim_Unused_12::
 
 Anim_Croctopus_SetMoveAnim_1::
 	anim_speed 6
-	anim_param $48
+	anim_hitbox $48
 
 Anim_Croctopus_SetMoveAnim_2::
 	anim_frame Frame_Croctopus_SetMoveAnim_1
@@ -2400,7 +2400,7 @@ Anim_SpawnCollectedBanana_2::
 	anim_jump Anim_SpawnCollectedBanana_2
 
 Anim_SpawnCollectedBanana_3::
-	anim_param $46
+	anim_hitbox $46
 	anim_speed 3
 	anim_frame Frame_SpawnCollectedBanana_17
 	anim_frame Frame_SpawnCollectedBanana_18
@@ -2448,7 +2448,7 @@ Anim_MankyBarrel::
 	anim_jump Anim_SpawnCollectedBanana_8
 
 Anim_SpawnCollectedBanana_10::
-	anim_param $46
+	anim_hitbox $46
 	anim_speed 3
 	anim_frame Frame_SpawnCollectedBanana_28
 	anim_frame Frame_SpawnCollectedBanana_1
@@ -2497,7 +2497,7 @@ Anim_SpawnCollectedBanana_14::
 	anim_jump Anim_SpawnCollectedBanana_14
 
 Anim_SpawnCollectedBanana_15::
-	anim_param $46
+	anim_hitbox $46
 	anim_speed 3
 	anim_frame Frame_SpawnCollectedBanana_13
 	anim_frame Frame_SpawnCollectedBanana_14
@@ -2524,7 +2524,7 @@ Anim_SpawnCollectedBanana_19::
 	anim_jump Anim_SpawnCollectedBanana_19
 
 Anim_SpawnCollectedBanana_20::
-	anim_param $46
+	anim_hitbox $46
 	anim_speed 3
 	anim_frame Frame_SpawnCollectedBanana_29
 	anim_frame Frame_SpawnCollectedBanana_30

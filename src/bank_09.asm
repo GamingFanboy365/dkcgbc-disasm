@@ -53,7 +53,7 @@ LevelExit_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	push bc
 	rst_farcall Save_MarkLevelCleared
 	ld a, $04
@@ -84,7 +84,7 @@ ReturnExit_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	ld hl, wLevelEntrance
 	ld a, [wReturnEntrance]
 	ld [hli], a
@@ -266,9 +266,9 @@ SetOrbitPosition::
 
 
 Enemy_HandleContact::
-	ldh a, [hContactFlags]
+	ldh a, [hContactMask]
 	and $fb
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	ldh a, [hContactObject]
 	ld e, a
 	ldh a, [hContactObject + 1]
@@ -551,7 +551,7 @@ Hitboxes::
 	db 16, 16, 0, -16 ; 82
 
 CheckPlayerContact::
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	ld a, b
 	or c
 	jr nz, .skip_43f5
@@ -574,7 +574,7 @@ CheckPlayerContact::
 	ldh [hScratch + 2], a
 	ld a, [hl]
 	ldh [hScratch + 3], a
-	ld hl, wObjects + OBJ_ANIM_PARAM
+	ld hl, wObjects + OBJ_HITBOX
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
@@ -639,7 +639,7 @@ CheckPlayerContact::
 .skip_446e:
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
-	ldh a, [hContactFlags]
+	ldh a, [hContactMask]
 	and [hl]
 	jp z, .next_object
 	ld hl, wObjects + OBJ_X
@@ -670,7 +670,7 @@ CheckPlayerContact::
 	ldh [hTempY], a
 	ld a, [hli]
 	ldh [hTempY + 1], a
-	ld hl, wObjects + OBJ_ANIM_PARAM
+	ld hl, wObjects + OBJ_HITBOX
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
@@ -1002,9 +1002,9 @@ StompBonus_Klaptrap_Touch::
 	call BouncePlayer
 	ld hl, ObjInit_StompBonus_Klaptrap_Stomped
 	call ApplyObjInit
-	ldh a, [hContactFlags]
+	ldh a, [hContactMask]
 	and $fb
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 .loop:
 	jp CheckPlayerContact.next_object
 
@@ -2076,7 +2076,7 @@ ObjInit_HandSlap_Hitbox::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(HandSlap_Hitbox)
 	obj_word OBJ_HANDLER, HandSlap_Hitbox
-	obj_word OBJ_ANIM_PARAM, $002a
+	obj_word OBJ_HITBOX, $002a
 	obj_byte OBJ_VAR_2E, $10
 	obj_end $c3
 
@@ -2418,7 +2418,7 @@ ObjInit_PlayerRambi::
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_XACCEL, $0060
 	obj_word OBJ_YACCEL, $0080
-	obj_byte OBJ_ANIM_PARAM, $2d
+	obj_byte OBJ_HITBOX, $2d
 	obj_byte OBJ_VAR_35, $08
 	obj_end
 
@@ -2664,7 +2664,7 @@ ObjInit_PlayerExpresso::
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $07ff
-	obj_byte OBJ_ANIM_PARAM, $2e
+	obj_byte OBJ_HITBOX, $2e
 	obj_byte OBJ_VAR_35, $18
 	obj_end
 
@@ -2900,7 +2900,7 @@ ObjInit_PlayerEnguarde::
 	obj_word OBJ_ANIM, Anim_PlayerEnguarde_1
 	obj_word OBJ_XACCEL, $0010
 	obj_word OBJ_YACCEL, $0010
-	obj_byte OBJ_ANIM_PARAM, $30
+	obj_byte OBJ_HITBOX, $30
 	obj_byte OBJ_VAR_35, $28
 	obj_end
 
@@ -3029,7 +3029,7 @@ ObjInit_PlayerWinky::
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $07ff
-	obj_byte OBJ_ANIM_PARAM, $2f
+	obj_byte OBJ_HITBOX, $2f
 	obj_byte OBJ_VAR_35, $38
 	obj_end
 
@@ -3666,7 +3666,7 @@ Player_ThrowCarried::
 	ld a, [wKongs]
 	rrca
 	jr c, .done
-	ld hl, wObjects + OBJ_ANIM_PARAM
+	ld hl, wObjects + OBJ_HITBOX
 	add hl, bc
 	ld [hl], $08
 .done:
@@ -4338,7 +4338,7 @@ HurtPlayer::
 	or a
 	jr nz, .done
 	xor a
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	ld a, [wPlayer + OBJ_VAR_37]
 	cp $04
 	jr z, .else_5dd2
@@ -6742,7 +6742,7 @@ Barrel_Thrown::
 	ld a, [hl]
 	and $03
 	jp z, NextObject
-	ld hl, wObjects + OBJ_ANIM_PARAM
+	ld hl, wObjects + OBJ_HITBOX
 	add hl, bc
 	ld [hl], $07
 	ld hl, wObjects + OBJ_VAR_2F
@@ -6991,7 +6991,7 @@ BreakBarrel::
 	jr z, .else_6fa9
 .loop:
 	xor a
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	ld a, $12
 	ld [wSFXQueue + 3], a
 	call DeleteObject
@@ -7047,7 +7047,7 @@ ObjInit_BarrelBreak_Effect::
 	obj_word OBJ_ANIM, Anim_BarrelBreak_Effect_1
 	obj_byte OBJ_VAR_2C, $0e
 	obj_byte OBJ_COLLISION, $00
-	obj_byte OBJ_ANIM_PARAM, $0d
+	obj_byte OBJ_HITBOX, $0d
 	obj_end
 
 SpawnBarrelDebris::
@@ -7714,7 +7714,7 @@ HiddenKongLetter_Touch::
 	ld a, [hl]
 	or a
 	jr z, .skip_7424
-	ldh a, [hContactFlags]
+	ldh a, [hContactMask]
 	and $80
 	jr nz, .continue_744b
 .skip_7424:
@@ -7811,7 +7811,7 @@ ObjInit_Entrance_WaitForSound::
 	obj_byte OBJ_BANK, BANK(Entrance_WaitForSound)
 	obj_word OBJ_HANDLER, Entrance_WaitForSound
 	obj_word OBJ_TOUCH_HANDLER, Entrance_Touch
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_COLLISION, $0a
 	obj_end
 
@@ -7845,7 +7845,7 @@ Entrance_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	rst_farcall SetLevelFlag
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
@@ -7897,7 +7897,7 @@ Entrance_Blast_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	ld hl, wPlayer + OBJ_FLAGS
 	res 4, [hl]
 	ld a, $05
@@ -8304,7 +8304,7 @@ ObjInit_ArrowPlatform_Fall_1::
 	obj_end
 
 Klump_Touch::
-	ldh a, [hContactFlags]
+	ldh a, [hContactMask]
 	and $80
 	jr nz, .continue_785f
 	ld hl, hContactObject
@@ -8537,7 +8537,7 @@ MineCart_Touch::
 	ld a, b
 	ld [wPlayer + OBJ_VAR_34], a
 	ld a, $05
-	ld [wPlayer + OBJ_ANIM_PARAM], a
+	ld [wPlayer + OBJ_HITBOX], a
 	ld a, $04
 	ld [wPlayer + OBJ_VAR_37], a
 	xor a
@@ -8625,7 +8625,7 @@ AnimalCrate_Touch::
 	res 4, [hl]
 	xor a
 	ld [wPlayer + OBJ_COLLISION], a
-	ldh [hContactFlags], a
+	ldh [hContactMask], a
 	rst_farcall SaveObjectPosition
 	push bc
 	ld bc, $0000

@@ -25,16 +25,16 @@ DEF wWorld                 EQU $c30a ; current world map (0-7), from the locatio
 DEF wMapLocation           EQU $c30b ; current location on the world map
 DEF wLevel                 EQU $c30c ; current level number; also the location type at a shop
 DEF wLanguage              EQU $c30d ; language; the text bank is $10 + wLanguage
-DEF wGameModeBit           EQU $c30e ; 1, 2 or 4: which completion bit of a level's save byte this game sets (2 and 4 picked by sOptions bits 0 and 1; tentative)
+DEF wGameModeBit           EQU $c30e ; which bit of a level's save byte a clear sets: 1 normally, 2 with the DK Barrels option, 4 with the Star Barrels option (sOptions bits 0 and 1)
 DEF wKongs                 EQU $c30f ; bit 0: Diddy leads (else DK), bit 1: the partner Kong is along, bit 3: riding an animal, bits 4-5: which (Rambi, Expresso, Enguarde, Winky)
-DEF wMapFlags              EQU $c310 ; bit 0: cleared at a level clear, bit 4: King K. Rool beaten (leaving the level plays Flow_Ending), bit 5: set in Cranky's Cabin, bit 6: a level was newly cleared, bit 7: the Kong travels at double speed with another sprite, as in Funky's Flights (tentative)
+DEF wMapFlags              EQU $c310 ; bits 0-2: tested by the three shops (bit 0 is cleared at a level clear; no code sets them), bit 3: King K. Rool's fake defeat has happened, bit 4: King K. Rool beaten (leaving the level plays Flow_Ending), bit 5: the file is at 101% (Cranky's Cabin then gives a special message), bit 6: a level was newly cleared, bit 7: flying with Funky's Flights (double speed, the barrel plane's sprite)
 DEF wPaletteUpdate         EQU $c311 ; bit 0: upload BG, bit 1: upload OBJ, bit 2: fade mode
 DEF wPaletteBrightness     EQU $c312
 DEF wAnimalTokens          EQU $c313 ; (4 bytes) animal tokens held, one byte per animal; three start an animal bonus
 DEF wAnimalTokensPending   EQU $c317 ; (4 bytes) animal tokens collected in this level, added to wAnimalTokens when it ends
 DEF wBananas               EQU $c31b ; banana count (BCD); 100 give an extra life
 DEF wBananasPending        EQU $c31c ; bananas collected but still flying to the counter
-DEF wLives                 EQU $c31d ; lives (BCD); $ff is treated as a special value by State_Level and GiveExtraLife (tentative)
+DEF wLives                 EQU $c31d ; lives (BCD); LoseLife takes it from 0 to $ff when the last one is lost: game over
 DEF wLivesOver99           EQU $c31e ; extra lives beyond 99
 DEF wLivesPending          EQU $c31f ; extra lives collected but not yet added
 DEF wStickers              EQU $c320 ; stickers found (BCD)
@@ -56,9 +56,9 @@ DEF wMapColumnBuffer       EQU $c380 ; (64 bytes) tile and attribute pairs of th
 DEF wMapRowBuffer          EQU $c3c0 ; (64 bytes) tile and attribute pairs of the BG row to write
 DEF wObjectFreeList        EQU $c400 ; (64 bytes) stack of free object slot offsets (words)
 DEF wObjectFreeCount       EQU $c440 ; number of entries in wObjectFreeList
-DEF wHUDFlags              EQU $c441 ; bit 0: show the banana counter, bit 1: show lives, bit 2: collected items are not counted (tentative)
-DEF wHUDState              EQU $c442 ; bits set while the HUD counters slide out
-DEF wLevelFlags            EQU $c443 ; bit 0: paused, bit 1: leave the level, bit 2-3, 6: how it is left, bit 4: pausing allowed, bit 5: leaving from the pause screen allowed, bit 7: three animal tokens collected
+DEF wHUDFlags              EQU $c441 ; panels to show: bit 0 lives, bit 1 bananas, bit 2 the item panel, bits 4-7 which item ($4x KONG letter, $5x bonus coin, else the animal token); a collected item waits while bit 2 is still set
+DEF wHUDState              EQU $c442 ; bit 0 lives, bit 1 bananas, bit 2 item panel: set while that panel is on screen
+DEF wLevelFlags            EQU $c443 ; bit 0: paused, bit 1: leave the level, bit 2: game over, bit 3: on to another area (State_LoadLevel), bit 6: restart (State_EnterLevel), bit 4: pausing allowed, bit 5: leaving from the pause screen allowed, bit 7: three animal tokens collected
 DEF wEntranceKind          EQU $c444 ; last byte of the entrance record; low nibble 2 = arrived by mine cart
 DEF wLevelKind             EQU $c445 ; first byte of the level descriptor; bits 0-2 the level type (4 Stop & Go, 5 Loopy Lights, 6 flickering lights, 7 snowflakes), bits 4-6 the animal bonus
 DEF wLevelTimer            EQU $c446 ; (2 bytes) per-level counter: Stop & Go and lights timers, mine cart fuel, animal bonus tokens
@@ -66,7 +66,7 @@ DEF wItemsInFlight         EQU $c448 ; collected items still flying to the HUD
 DEF wLevelEntrance         EQU $c449 ; (2 bytes) pointer to the current LevelEntrance record (bank $04)
 DEF wReturnEntrance        EQU $c44b ; (2 bytes) entrance to go back to when leaving a bonus level
 DEF wShopExit              EQU $c44d ; shop result: $ff leave, $fe fly away (Funky's Flights)
-DEF wShopChoice            EQU $c44e ; shop's selected option (tentative)
+DEF wShopState             EQU $c44e ; per shop: Candy's, 1 if this world's bonus coin is taken; Cranky's, hints given (5-8 pick the closing ones); Funky's, 0 = take the flight (Shop_Leave)
 DEF wLastRandom            EQU $c44f ; RandomBelow's last result, so the next differs
 DEF wCameraPlayerX         EQU $c450 ; where the camera keeps the player across the screen
 DEF wCameraPlayerY         EQU $c451 ; where the camera keeps the player down the screen
@@ -160,9 +160,9 @@ DEF wFE_Ring               EQU $c96e ; current ring (RingTable index)
 DEF wFE_ChosenFile         EQU $c96f ; save file picked to erase or copy to
 DEF wFE_RingActions        EQU $c970 ; (5 bytes) action byte of each item (see the README)
 DEF wFE_ParentRing         EQU $c975 ; ring B goes back to
-DEF wFE_LinkGame           EQU $c976 ; link game chosen (tentative)
-DEF wFE_FileState          EQU $c977 ; state of the chosen file for the ring rules (1 = finished; tentative)
-DEF wFE_FileState2         EQU $c978 ; second value the ring rules test (tentative)
+DEF wFE_OptionSFX          EQU $c976 ; SFX option, toggled by ring action $10: 1 = sound effects off (sOptions bit 2)
+DEF wFE_OptionDKBarrels    EQU $c977 ; DK Barrels option, ring action $12 (sOptions bit 0)
+DEF wFE_OptionStarBarrels  EQU $c978 ; Star Barrels option, ring action $11 (sOptions bit 1)
 DEF wFE_RingExtra          EQU $c979 ; picks the extra picture FE_DrawRingExtras draws
 DEF wFE_FileInfoDigits     EQU $c97a ; (7 bytes) digits shown for a save file: completion and play time (FE_ReadSaveFileStatus)
 DEF wFE_EntryMode          EQU $c981 ; how the front end was entered (d): 0 main menu, 1 language select, 2 Crosshair Cranky, 3 Cranky unlocked message
@@ -510,7 +510,7 @@ DEF sSystemFile            EQU $b0c0 ; fourth record: settings shared by the fil
 DEF sTitlePicture          EQU $b0c1 ; title screen picture, advanced at every power-on (0-2)
 DEF sStickersFound         EQU $b0c2 ; (3 bytes) one bit per sticker found in any file
 DEF sMostBonusCoins        EQU $b0c5 ; most bonus coins in any file; unlocks link modes in the front end
-DEF sOptions               EQU $b0c6 ; set by the front end: bits 0-1 game mode (see wGameModeBit), bit 2: sound effects off
+DEF sOptions               EQU $b0c6 ; the front end's options: bit 0 DK Barrels, bit 1 Star Barrels (see wGameModeBit), bit 2 sound effects off
 DEF sCrankyUnlock          EQU $b0c7 ; Crosshair Cranky unlock level (0-6)
 DEF sSaveBackup1           EQU $b100 ; (256 bytes) copies of the four records
 DEF sSaveBackup2           EQU $b200 ; (256 bytes) 
@@ -553,9 +553,9 @@ DEF hSpriteLayerPos        EQU $ff9f ; fill position in the sprite layer buffer
 DEF hSpriteLayerHigh       EQU $ffa0 ; high byte of that buffer ($c5-$c7)
 DEF hSpriteBufferPhase     EQU $ffa1 ; flips every frame: bit 0 picks the VRAM bank of sprite tiles
 DEF hSpriteLayerFill       EQU $ffa2 ; (3 bytes) bytes used in each sprite layer buffer ($c500, $c600, $c700)
-DEF hSpriteTileSpace       EQU $ffa5 ; sprite tile space left this frame ($60 at the start; tentative)
+DEF hSpriteTileSpace       EQU $ffa5 ; sprite tile slots still free this frame, from $60 down; a frame's tiles go by HDMA to $8000 + 16 x the new value
 DEF hObjectRunMask         EQU $ffa6 ; RunObjects runs the objects whose OBJ_FLAGS share a bit with this
-DEF hContactFlags          EQU $ffa7 ; collision flags of the player's last contact (tentative)
+DEF hContactMask           EQU $ffa7 ; mask of the contact check in progress (CheckPlayerContact's a); a touch handler that sets OBJ_COLLISION sets it too, and Enemy_HandleContact clears bit 2
 DEF hScratch               EQU $ffa8 ; (8 bytes) scratch: contact and terrain checks, bonus games
 DEF hContactObject         EQU $ffb0 ; (2 bytes) slot of the object touching the player
 DEF hTempX                 EQU $ffb2 ; (2 bytes) scratch position, e.g. where SpawnObjectDigits puts digits
@@ -569,7 +569,7 @@ DEF hSplitBottom           EQU $ffc1 ; line where it ends
 DEF hSplitTarget           EQU $ffc2 ; line the box slides to
 DEF hTextLines             EQU $ffc3 ; lines LoadTextString wrote
 DEF hSplitSCY              EQU $ffc4 ; rSCY inside the text box
-DEF hShopTextState         EQU $ffc5 ; shop dialogue progress (tentative)
+DEF hShopTextScroll        EQU $ffc5 ; pixels left to scroll the dialogue text up (8 a line); hSplitSCY follows
 DEF hRasterPos             EQU $ffc6 ; next entry of wRasterTable (world map)
 DEF hMapSCX                EQU $ffc7 ; world map rSCX, set at VBlank
 DEF hOAMDMA                EQU $ffc8 ; (8 bytes) OAMDMARoutine, copied here at power-on; call with a = $c0

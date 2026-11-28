@@ -825,7 +825,7 @@ ObjInit_MasterNecky_Nut::
 	obj_word OBJ_HANDLER, MasterNecky_Nut
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_word OBJ_ANIM, Anim_MasterNecky_Nut_1
-	obj_byte OBJ_ANIM_PARAM, $33
+	obj_byte OBJ_HITBOX, $33
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_PALETTE, $01
 	obj_word OBJ_YACCEL, $0050
@@ -1719,7 +1719,7 @@ ObjInit_Gnawty_10::
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $03
-	obj_byte OBJ_ANIM_PARAM, $39
+	obj_byte OBJ_HITBOX, $39
 	obj_byte OBJ_PALETTE, $0f
 	obj_word OBJ_ANIM, Anim_Gnawty_3
 	obj_word OBJ_XACCEL, $0040
@@ -1731,7 +1731,7 @@ ObjInit_Gnawty_11::
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Gnawty_Touch
 	obj_byte OBJ_VAR_2C, $04
-	obj_byte OBJ_ANIM_PARAM, $43
+	obj_byte OBJ_HITBOX, $43
 	obj_byte OBJ_PALETTE, $09
 	obj_word OBJ_ANIM, Anim_Krusha_1
 	obj_word OBJ_XACCEL, $0020
@@ -1743,7 +1743,7 @@ ObjInit_Gnawty_12::
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Klaptrap_Touch
 	obj_byte OBJ_VAR_2C, $05
-	obj_byte OBJ_ANIM_PARAM, $39
+	obj_byte OBJ_HITBOX, $39
 	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Walk_1
 	obj_word OBJ_XACCEL, $0020
 	obj_byte OBJ_PALETTE, $0e
@@ -2005,7 +2005,7 @@ ObjInit_Crownerang::
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_PALETTE, $2a
 	obj_word OBJ_ANIM, Anim_Crownerang_1
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_VAR_2E, $96
 	obj_end
@@ -2456,7 +2456,7 @@ ObjInit_Cannonball::
 	obj_word OBJ_HANDLER, Cannonball
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_COLLISION, $40
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_PALETTE, $03
 	obj_word OBJ_Y, $fff8
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -4134,7 +4134,7 @@ ObjInit_Barrel_6::
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
-	obj_byte OBJ_ANIM_PARAM, $07
+	obj_byte OBJ_HITBOX, $07
 	obj_byte OBJ_VAR_2E, $01
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_2C, $0c
@@ -4972,7 +4972,7 @@ ObjInit_BouncingCoconut_Bounce::
 	obj_word OBJ_HANDLER, BouncingCoconut_Bounce
 	obj_word OBJ_TOUCH_HANDLER, BouncingCoconut_Touch
 	obj_word OBJ_ANIM, Anim_MasterNecky_Nut_1
-	obj_byte OBJ_ANIM_PARAM, $33
+	obj_byte OBJ_HITBOX, $33
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_PALETTE, $01
 	obj_word OBJ_YACCEL, $0080
@@ -5834,7 +5834,7 @@ ObjInit_ClamboPearl::
 	obj_word OBJ_HANDLER, ClamboPearl
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_word OBJ_FRAME, Frame_ClamboPearl
-	obj_byte OBJ_ANIM_PARAM, $02
+	obj_byte OBJ_HITBOX, $02
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_PALETTE, $03
 	obj_end
@@ -6716,7 +6716,7 @@ ObjInit_Nut::
 	obj_word OBJ_TOUCH_HANDLER, Nut_Touch
 	obj_word OBJ_ANIM, Anim_Nut_1
 	obj_byte OBJ_COLLISION, $04
-	obj_byte OBJ_ANIM_PARAM, $02
+	obj_byte OBJ_HITBOX, $02
 	obj_byte OBJ_PALETTE, $01
 	obj_end
 
@@ -6899,7 +6899,7 @@ ObjInit_MankyBarrel::
 	obj_word OBJ_ANIM, Anim_MankyBarrel
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
-	obj_byte OBJ_ANIM_PARAM, $07
+	obj_byte OBJ_HITBOX, $07
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_VAR_2E, $01
 	obj_byte OBJ_VAR_2C, $0c
@@ -9205,7 +9205,7 @@ ObjInit_Gnawty_13::
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $01
-	obj_byte OBJ_ANIM_PARAM, $42
+	obj_byte OBJ_HITBOX, $42
 	obj_word OBJ_ANIM, Anim_Gnawty_1
 	obj_byte OBJ_PALETTE, $08
 	obj_word OBJ_XACCEL, $0020
@@ -9229,7 +9229,7 @@ ObjInit_Gnawty_16::
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $03
-	obj_byte OBJ_ANIM_PARAM, $39
+	obj_byte OBJ_HITBOX, $39
 	obj_byte OBJ_PALETTE, $0f
 	obj_word OBJ_ANIM, Anim_Gnawty_3
 	obj_word OBJ_XACCEL, $0040
@@ -9253,7 +9253,7 @@ ObjInit_Gnawty_19::
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Klaptrap_Touch
 	obj_byte OBJ_VAR_2C, $05
-	obj_byte OBJ_ANIM_PARAM, $39
+	obj_byte OBJ_HITBOX, $39
 	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Walk_1
 	obj_word OBJ_XACCEL, $0020
 	obj_byte OBJ_PALETTE, $0b

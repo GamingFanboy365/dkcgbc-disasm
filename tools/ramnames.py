@@ -28,21 +28,22 @@ WRAM = [
     (0xC30B, 1, "wMapLocation", "current location on the world map"),
     (0xC30C, 1, "wLevel", "current level number; also the location type at a shop"),
     (0xC30D, 1, "wLanguage", "language; the text bank is $10 + wLanguage"),
-    (0xC30E, 1, "wGameModeBit", "1, 2 or 4: which completion bit of a level's save byte this game sets "
-                                "(2 and 4 picked by sOptions bits 0 and 1; tentative)"),
+    (0xC30E, 1, "wGameModeBit", "which bit of a level's save byte a clear sets: 1 normally, 2 with the "
+                                "DK Barrels option, 4 with the Star Barrels option (sOptions bits 0 and 1)"),
     (0xC30F, 1, "wKongs", "bit 0: Diddy leads (else DK), bit 1: the partner Kong is along, "
                           "bit 3: riding an animal, bits 4-5: which (Rambi, Expresso, Enguarde, Winky)"),
-    (0xC310, 1, "wMapFlags", "bit 0: cleared at a level clear, bit 4: King K. Rool beaten (leaving the level plays "
-                             "Flow_Ending), bit 5: set in Cranky's Cabin, "
-                             "bit 6: a level was newly cleared, bit 7: the Kong travels at double "
-                             "speed with another sprite, as in Funky's Flights (tentative)"),
+    (0xC310, 1, "wMapFlags", "bits 0-2: tested by the three shops (bit 0 is cleared at a level clear; no code "
+                             "sets them), bit 3: King K. Rool's fake defeat has happened, bit 4: King K. Rool "
+                             "beaten (leaving the level plays Flow_Ending), bit 5: the file is at 101% "
+                             "(Cranky's Cabin then gives a special message), bit 6: a level was newly cleared, "
+                             "bit 7: flying with Funky's Flights (double speed, the barrel plane's sprite)"),
     (0xC311, 1, "wPaletteUpdate", "bit 0: upload BG, bit 1: upload OBJ, bit 2: fade mode"),
     (0xC312, 1, "wPaletteBrightness", ""),
     (0xC313, 4, "wAnimalTokens", "animal tokens held, one byte per animal; three start an animal bonus"),
     (0xC317, 4, "wAnimalTokensPending", "animal tokens collected in this level, added to wAnimalTokens when it ends"),
     (0xC31B, 1, "wBananas", "banana count (BCD); 100 give an extra life"),
     (0xC31C, 1, "wBananasPending", "bananas collected but still flying to the counter"),
-    (0xC31D, 1, "wLives", "lives (BCD); $ff is treated as a special value by State_Level and GiveExtraLife (tentative)"),
+    (0xC31D, 1, "wLives", "lives (BCD); LoseLife takes it from 0 to $ff when the last one is lost: game over"),
     (0xC31E, 1, "wLivesOver99", "extra lives beyond 99"),
     (0xC31F, 1, "wLivesPending", "extra lives collected but not yet added"),
     (0xC320, 1, "wStickers", "stickers found (BCD)"),
@@ -65,10 +66,12 @@ WRAM = [
     (0xC3C0, 0x40, "wMapRowBuffer", "tile and attribute pairs of the BG row to write"),
     (0xC400, 0x40, "wObjectFreeList", "stack of free object slot offsets (words)"),
     (0xC440, 1, "wObjectFreeCount", "number of entries in wObjectFreeList"),
-    (0xC441, 1, "wHUDFlags", "bit 0: show the banana counter, bit 1: show lives, "
-                             "bit 2: collected items are not counted (tentative)"),
-    (0xC442, 1, "wHUDState", "bits set while the HUD counters slide out"),
-    (0xC443, 1, "wLevelFlags", "bit 0: paused, bit 1: leave the level, bit 2-3, 6: how it is left, "
+    (0xC441, 1, "wHUDFlags", "panels to show: bit 0 lives, bit 1 bananas, bit 2 the item panel, bits 4-7 "
+                             "which item ($4x KONG letter, $5x bonus coin, else the animal token); a collected "
+                             "item waits while bit 2 is still set"),
+    (0xC442, 1, "wHUDState", "bit 0 lives, bit 1 bananas, bit 2 item panel: set while that panel is on screen"),
+    (0xC443, 1, "wLevelFlags", "bit 0: paused, bit 1: leave the level, bit 2: game over, bit 3: on to another "
+                               "area (State_LoadLevel), bit 6: restart (State_EnterLevel), "
                                "bit 4: pausing allowed, bit 5: leaving from the pause screen allowed, "
                                "bit 7: three animal tokens collected"),
     (0xC444, 1, "wEntranceKind", "last byte of the entrance record; low nibble 2 = arrived by mine cart"),
@@ -81,7 +84,8 @@ WRAM = [
     (0xC449, 2, "wLevelEntrance", "pointer to the current LevelEntrance record (bank $04)"),
     (0xC44B, 2, "wReturnEntrance", "entrance to go back to when leaving a bonus level"),
     (0xC44D, 1, "wShopExit", "shop result: $ff leave, $fe fly away (Funky's Flights)"),
-    (0xC44E, 1, "wShopChoice", "shop's selected option (tentative)"),
+    (0xC44E, 1, "wShopState", "per shop: Candy's, 1 if this world's bonus coin is taken; Cranky's, hints given "
+                               "(5-8 pick the closing ones); Funky's, 0 = take the flight (Shop_Leave)"),
     (0xC44F, 1, "wLastRandom", "RandomBelow's last result, so the next differs"),
     (0xC450, 1, "wCameraPlayerX", "where the camera keeps the player across the screen"),
     (0xC451, 1, "wCameraPlayerY", "where the camera keeps the player down the screen"),
@@ -175,8 +179,8 @@ SRAM = [
     (0xB0C1, 1, "sTitlePicture", "title screen picture, advanced at every power-on (0-2)"),
     (0xB0C2, 3, "sStickersFound", "one bit per sticker found in any file"),
     (0xB0C5, 1, "sMostBonusCoins", "most bonus coins in any file; unlocks link modes in the front end"),
-    (0xB0C6, 1, "sOptions", "set by the front end: bits 0-1 game mode (see wGameModeBit), "
-                            "bit 2: sound effects off"),
+    (0xB0C6, 1, "sOptions", "the front end's options: bit 0 DK Barrels, bit 1 Star Barrels "
+                            "(see wGameModeBit), bit 2 sound effects off"),
     (0xB0C7, 1, "sCrankyUnlock", "Crosshair Cranky unlock level (0-6)"),
     (0xB100, 0x100, "sSaveBackup1", "copies of the four records"),
     (0xB200, 0x100, "sSaveBackup2", ""),
@@ -225,9 +229,10 @@ HRAM = [
     (0xFFA0, 1, "hSpriteLayerHigh", "high byte of that buffer ($c5-$c7)"),
     (0xFFA1, 1, "hSpriteBufferPhase", "flips every frame: bit 0 picks the VRAM bank of sprite tiles"),
     (0xFFA2, 3, "hSpriteLayerFill", "bytes used in each sprite layer buffer ($c500, $c600, $c700)"),
-    (0xFFA5, 1, "hSpriteTileSpace", "sprite tile space left this frame ($60 at the start; tentative)"),
+    (0xFFA5, 1, "hSpriteTileSpace", "sprite tile slots still free this frame, from $60 down; a frame's tiles go by "
+                                     "HDMA to $8000 + 16 x the new value"),
     (0xFFA6, 1, "hObjectRunMask", "RunObjects runs the objects whose OBJ_FLAGS share a bit with this"),
-    (0xFFA7, 1, "hContactFlags", "collision flags of the player's last contact (tentative)"),
+    (0xFFA7, 1, "hContactMask", "mask of the contact check in progress (CheckPlayerContact's a); a touch handler that sets OBJ_COLLISION sets it too, and Enemy_HandleContact clears bit 2"),
     (0xFFA8, 8, "hScratch", "scratch: contact and terrain checks, bonus games"),
     (0xFFB0, 2, "hContactObject", "slot of the object touching the player"),
     (0xFFB2, 2, "hTempX", "scratch position, e.g. where SpawnObjectDigits puts digits"),
@@ -241,7 +246,7 @@ HRAM = [
     (0xFFC2, 1, "hSplitTarget", "line the box slides to"),
     (0xFFC3, 1, "hTextLines", "lines LoadTextString wrote"),
     (0xFFC4, 1, "hSplitSCY", "rSCY inside the text box"),
-    (0xFFC5, 1, "hShopTextState", "shop dialogue progress (tentative)"),
+    (0xFFC5, 1, "hShopTextScroll", "pixels left to scroll the dialogue text up (8 a line); hSplitSCY follows"),
     (0xFFC6, 1, "hRasterPos", "next entry of wRasterTable (world map)"),
     (0xFFC7, 1, "hMapSCX", "world map rSCX, set at VBlank"),
     (0xFFC8, 8, "hOAMDMA", "OAMDMARoutine, copied here at power-on; call with a = $c0"),
@@ -373,9 +378,9 @@ FE_MENUS = [
     (0xC96F, 1, "wFE_ChosenFile", "save file picked to erase or copy to"),
     (0xC970, 5, "wFE_RingActions", "action byte of each item (see the README)"),
     (0xC975, 1, "wFE_ParentRing", "ring B goes back to"),
-    (0xC976, 1, "wFE_LinkGame", "link game chosen (tentative)"),
-    (0xC977, 1, "wFE_FileState", "state of the chosen file for the ring rules (1 = finished; tentative)"),
-    (0xC978, 1, "wFE_FileState2", "second value the ring rules test (tentative)"),
+    (0xC976, 1, "wFE_OptionSFX", "SFX option, toggled by ring action $10: 1 = sound effects off (sOptions bit 2)"),
+    (0xC977, 1, "wFE_OptionDKBarrels", "DK Barrels option, ring action $12 (sOptions bit 0)"),
+    (0xC978, 1, "wFE_OptionStarBarrels", "Star Barrels option, ring action $11 (sOptions bit 1)"),
     (0xC979, 1, "wFE_RingExtra", "picks the extra picture FE_DrawRingExtras draws"),
     (0xC97A, 7, "wFE_FileInfoDigits", "digits shown for a save file: completion and play time (FE_ReadSaveFileStatus)"),
     (0xC981, 1, "wFE_EntryMode", "how the front end was entered (d): 0 main menu, 1 language select, "

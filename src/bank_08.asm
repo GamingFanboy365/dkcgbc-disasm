@@ -705,7 +705,7 @@ ObjInit_SpellBonus_Item_Spread::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(SpellBonus_Item_Spread)
 	obj_word OBJ_HANDLER, SpellBonus_Item_Spread
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_COLLISION, $02
 	obj_end
 
@@ -1036,7 +1036,7 @@ ObjInit_MatchBonus_Item_Cycle::
 	obj_byte OBJ_BANK, BANK(MatchBonus_Item_Cycle)
 	obj_word OBJ_HANDLER, MatchBonus_Item_Cycle
 	obj_word OBJ_TOUCH_HANDLER, MatchBonus_Item_Touch
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_OAM_ATTR, $00
 	obj_byte OBJ_VAR_31, $01
@@ -1349,7 +1349,7 @@ ObjInit_ShuffleBonus_Spot::
 	obj_byte OBJ_BANK, BANK(ShuffleBonus_Spot)
 	obj_word OBJ_HANDLER, ShuffleBonus_Spot
 	obj_word OBJ_TOUCH_HANDLER, ShuffleBonus_Spot_Touch
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_OAM_ATTR, $00
@@ -1633,7 +1633,7 @@ ObjInit_StompBonus_Klaptrap_Walk::
 	obj_word OBJ_TOUCH_HANDLER, StompBonus_Klaptrap_Touch
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_COLLISION, $04
-	obj_byte OBJ_ANIM_PARAM, $39
+	obj_byte OBJ_HITBOX, $39
 	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Walk_1
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_TARGET_XVEL, $00c0
@@ -1871,7 +1871,7 @@ ObjInit_StompBonus_Bananas::
 	obj_byte OBJ_PALETTE, $00
 	obj_word OBJ_ANIM, Anim_StompBonus_Bananas_1
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_word OBJ_YACCEL, $0050
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_YVEL, $fb80
@@ -2166,7 +2166,7 @@ ObjInit_ExtraLifeBalloon_1::
 	obj_word OBJ_TOUCH_HANDLER, ExtraLifeBalloon_Touch
 	obj_word OBJ_ANIM, Anim_ExtraLifeBalloon_1
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_TARGET_YVEL, $0000
 	obj_word OBJ_YVEL, $0100
@@ -2197,7 +2197,7 @@ ObjInit_AnimalToken_1::
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
 	obj_word OBJ_TOUCH_HANDLER, AnimalToken_Touch
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_VAR_2E, $08
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -2242,7 +2242,7 @@ ObjInit_KongLetter_1::
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
 	obj_word OBJ_TOUCH_HANDLER, KongLetter_Touch
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
@@ -2277,7 +2277,7 @@ ObjInit_BananaBunch_1::
 	obj_word OBJ_TOUCH_HANDLER, BananaBunch_Touch
 	obj_byte OBJ_PALETTE, $00
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
 	obj_end
@@ -2307,7 +2307,7 @@ ObjInit_Barrel_1::
 	obj_word OBJ_YACCEL, $0080
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
-	obj_byte OBJ_ANIM_PARAM, $07
+	obj_byte OBJ_HITBOX, $07
 	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_28
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_VAR_2E, $01
@@ -2323,7 +2323,7 @@ ObjInit_BonusCoin_1::
 	obj_word OBJ_YACCEL, $0080
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_PALETTE, $00
 	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_3
 	obj_end
@@ -2337,7 +2337,7 @@ ObjInit_BonusCoin_2::
 	obj_word OBJ_YACCEL, $0080
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
-	obj_byte OBJ_ANIM_PARAM, $07
+	obj_byte OBJ_HITBOX, $07
 	obj_byte OBJ_PALETTE, $00
 	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_3
 	obj_end
@@ -3514,7 +3514,7 @@ ObjInit_Entrance_1::
 	obj_word OBJ_TOUCH_HANDLER, Entrance_Touch
 	obj_byte OBJ_BANK, BANK(Entrance)
 	obj_word OBJ_HANDLER, Entrance
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_COLLISION, $0a
 	obj_end
 
@@ -3929,7 +3929,7 @@ ObjInit_Barrel_2::
 	obj_include ObjInit_Barrel_Common
 	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_COLLISION, $08
-	obj_byte OBJ_ANIM_PARAM, $07
+	obj_byte OBJ_HITBOX, $07
 	obj_byte OBJ_VAR_2C, $0c
 	obj_end
 
@@ -3979,7 +3979,7 @@ ObjInit_BananaBunch_4::
 	obj_word OBJ_ANIM, Anim_StompBonus_Bananas_1
 	obj_byte OBJ_PALETTE, $00
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_VAR_2E, $0a
 	obj_end
 
@@ -3991,7 +3991,7 @@ ObjInit_Tire_1::
 	obj_word OBJ_ANIM, Anim_Tire_1
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_COLLISION, $08
-	obj_byte OBJ_ANIM_PARAM, $32
+	obj_byte OBJ_HITBOX, $32
 	obj_word OBJ_XACCEL, $0008
 	obj_end
 
@@ -4001,7 +4001,7 @@ ObjInit_AnimalToken_6::
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
 	obj_word OBJ_TOUCH_HANDLER, AnimalToken_Touch
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_VAR_2E, $08
 	obj_end
 
@@ -4027,7 +4027,7 @@ ObjInit_KongLetter_6::
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
 	obj_word OBJ_TOUCH_HANDLER, KongLetter_Touch
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_end
 
 ObjInit_KongLetter_7::
@@ -4060,7 +4060,7 @@ ObjInit_BonusCoin_3::
 	obj_word OBJ_HANDLER, Obj_FallThenAnimate
 	obj_word OBJ_TOUCH_HANDLER, BonusCoin_Touch
 	obj_byte OBJ_COLLISION, $08
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_PALETTE, $00
 	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_3
 	obj_end
@@ -5192,7 +5192,7 @@ ObjInit_MiniAnimalToken_1::
 	obj_byte OBJ_BANK, BANK(MiniAnimalToken)
 	obj_word OBJ_HANDLER, MiniAnimalToken
 	obj_word OBJ_TOUCH_HANDLER, MiniAnimalToken_Touch
-	obj_byte OBJ_ANIM_PARAM, $01
+	obj_byte OBJ_HITBOX, $01
 	obj_byte OBJ_COLLISION, $02
 	obj_end
 

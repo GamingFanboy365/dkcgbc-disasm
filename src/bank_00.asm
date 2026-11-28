@@ -832,7 +832,7 @@ State_EnterShop::
 	ldh [hSplitSCY], a
 	xor a
 	ld [wShopExit], a
-	ld [wShopChoice], a
+	ld [wShopState], a
 	ld [wLastRandom], a
 	ld a, [wLevel]
 	or a
@@ -3270,7 +3270,7 @@ AnimateObject::
 
 .else_1327:
 	push hl
-	ld hl, wObjects + OBJ_ANIM_PARAM
+	ld hl, wObjects + OBJ_HITBOX
 	add hl, bc
 	ld [hl], e
 	pop hl
@@ -4195,7 +4195,7 @@ ObjInit_Bananas::
 	obj_word OBJ_HANDLER, Bananas
 	obj_word OBJ_TOUCH_HANDLER, Bananas_Touch
 	obj_byte OBJ_COLLISION, $02
-	obj_byte OBJ_ANIM_PARAM, $03
+	obj_byte OBJ_HITBOX, $03
 	obj_end
 
 SpawnObjectGroup::

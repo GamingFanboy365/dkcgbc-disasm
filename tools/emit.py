@@ -706,7 +706,7 @@ class Emitter:
                 elif c == 3:
                     txt = "anim_clear_flag"
                 elif c == 4:
-                    txt = "anim_param %s" % hexb(e)
+                    txt = "anim_hitbox %s" % hexb(e)
                 elif c == 5:
                     txt = "anim_var38 %s" % hexw(w)
                 elif c == 6:

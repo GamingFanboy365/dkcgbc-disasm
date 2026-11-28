@@ -55,7 +55,7 @@ The slot layout is in `include/objects.inc`, which `tools/emit.py` generates fro
 | `$1F` | `OBJ_OAM_ATTR` | sprite attributes |
 | `$20`–`$26` | `OBJ_FRAME`, `OBJ_ANIM`, `OBJ_ANIM_SPEED`, `OBJ_ANIM_TIMER`, `OBJ_ANIM_FLAGS` | animation state |
 | `$27` | `OBJ_SPAWN_INDEX` | entry in the level's object tables at `$A8xx`–`$AFxx` |
-| `$28`, `$29` | `OBJ_ANIM_PARAM`, `OBJ_COLLISION` | tentative |
+| `$28`, `$29` | `OBJ_HITBOX`, `OBJ_COLLISION` | hitbox number (index into `Hitboxes`); contact classes, matched against the mask of each contact check |
 | `$2A`, `$2B` | `OBJ_PALETTE`, `OBJ_LAYER` | palette slot and sprite layer |
 
 Positions are 24-bit fixed point (a fraction byte plus a pixel word), and velocities are in 1/256 pixel per frame. Each frame `UpdateVelocity` moves each velocity towards its target by the matching acceleration. The init lists show how that's used: falling objects start with `OBJ_TARGET_YVEL = $07FF` as their top fall speed and `OBJ_YACCEL = $0050` as gravity. The remaining offsets (`OBJ_VAR_0A`–`$0C` and `OBJ_VAR_2C`–`$3F`) belong to each object type, and what they mean depends on the handler.
@@ -93,7 +93,7 @@ Objects that animate call `AnimateObject` every frame. It counts `OBJ_ANIM_TIMER
 | `$81nn` | `anim_speed n` | frames per step from now on |
 | `$8200`, `dw` | `anim_call routine` | call a routine, with bank `$04` mapped |
 | `$8300` | `anim_clear_flag` | clear bit 7 of `OBJ_ANIM_FLAGS`, which handlers poll |
-| `$84nn` | `anim_param n` | set `OBJ_ANIM_PARAM` |
+| `$84nn` | `anim_hitbox n` | set `OBJ_HITBOX`, the hitbox number |
 | `$8500`, `dw` | `anim_var38 value` | set the word `OBJ_ANIM_WORD` |
 | `$86nn` | `anim_xor_attr mask` | toggle `OBJ_OAM_ATTR` bits |
 | `$87nn`–`$8Ann` | `anim_sfx channel, id` | play a sound effect on channel 1–4 |
@@ -202,7 +202,7 @@ Where songs are played, so far: levels take theirs from byte 10 of the level des
 | `ObjectDigits` | `$08:62B6` | "×", "1", "2" and "3" as 8 × 5 bitmaps, drawn with one object per set bit (`SpawnObjectDigits`) |
 | `SlopeVelocities` | `$08:5AE3` | x and y speeds by the slope under an object (`OBJ_TERRAIN_B`, `MineCart_SetSlopeVelocity`) |
 | `CreditsCaptions` | `$0A:53BF` | the ending's captions: x position and sprite frame for the six credits headings, the five cast names and "THE END?", whose entry is 11 + the language number in `[$c30d]` |
-| `Hitboxes` | `$09:429E` | 83 × 4 bytes, by `OBJ_ANIM_PARAM`: width, height and signed x and y offsets (the x offset flips with the sprite) |
+| `Hitboxes` | `$09:429E` | 83 × 4 bytes, by `OBJ_HITBOX`: width, height and signed x and y offsets (the x offset flips with the sprite) |
 
 Bank `$00` also holds `CharTileTable` (`$042B`), the tile number for each character from `$20` to `$FF`, used by `CharToTile`.
 

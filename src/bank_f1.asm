@@ -489,9 +489,9 @@ FE_InitMenuState::
 	ld [wFE_Ring], a
 	ldh [hFE_JoyInput], a
 	ldh [hFE_JoyPrevious], a
-	ld [wFE_LinkGame], a
-	ld [wFE_FileState], a
-	ld [wFE_FileState2], a
+	ld [wFE_OptionSFX], a
+	ld [wFE_OptionDKBarrels], a
+	ld [wFE_OptionStarBarrels], a
 	ld [wFE_RingExtra], a
 	call FE_ReadSaveFilesUsed
 	ret
@@ -1417,10 +1417,10 @@ FE_HideCopyErase::
 
 
 FE_HideIfFileNotFinished::
-	ld a, [wFE_FileState]
+	ld a, [wFE_OptionDKBarrels]
 	cp $01
 	jr z, .skip_49b1
-	ld a, [wFE_FileState2]
+	ld a, [wFE_OptionStarBarrels]
 	or a
 	ret z
 .skip_49b1:
@@ -1457,13 +1457,13 @@ FE_HideOptionsUntilFinished::
 	ld a, [wFE_RingItem]
 	cp $03
 	jr z, .else
-	ld a, [wFE_FileState]
+	ld a, [wFE_OptionDKBarrels]
 	cp $01
 	jp z, FE_RingRuleCommon.hide
 	ret
 
 .else:
-	ld a, [wFE_FileState2]
+	ld a, [wFE_OptionStarBarrels]
 	cp $01
 	jp z, FE_RingRuleCommon.hide
 	ret
@@ -1483,10 +1483,10 @@ FE_RingRuleCommon::
 .skip:
 	bit 6, [hl]
 	jr nz, .done
-	ld a, [wFE_FileState]
+	ld a, [wFE_OptionDKBarrels]
 	cp $01
 	jp z, .hide
-	ld a, [wFE_FileState2]
+	ld a, [wFE_OptionStarBarrels]
 	cp $01
 	jp z, .hide
 .done:
@@ -2006,16 +2006,16 @@ FE_CrosshairCranky_Start::
 	ld a, [sOptions]
 	and $f8
 	ld b, a
-	ld a, [wFE_LinkGame]
+	ld a, [wFE_OptionSFX]
 	add a, a
 	add a, a
 	add a, b
 	ld b, a
-	ld a, [wFE_FileState2]
+	ld a, [wFE_OptionStarBarrels]
 	add a, a
 	add a, b
 	ld b, a
-	ld a, [wFE_FileState]
+	ld a, [wFE_OptionDKBarrels]
 	add a, b
 	ld b, a
 	ld [sOptions], a
@@ -2577,8 +2577,8 @@ FE_EraseFile_Confirm::
 
 FE_ClearLinkFlags::
 	xor a
-	ld [wFE_FileState2], a
-	ld [wFE_FileState], a
+	ld [wFE_OptionStarBarrels], a
+	ld [wFE_OptionDKBarrels], a
 	ret
 
 .choose_file:
@@ -2615,16 +2615,16 @@ FE_ClearLinkFlags::
 	ld a, [sOptions]
 	and $f8
 	ld b, a
-	ld a, [wFE_LinkGame]
+	ld a, [wFE_OptionSFX]
 	add a, a
 	add a, a
 	add a, b
 	ld b, a
-	ld a, [wFE_FileState2]
+	ld a, [wFE_OptionStarBarrels]
 	add a, a
 	add a, b
 	ld b, a
-	ld a, [wFE_FileState]
+	ld a, [wFE_OptionDKBarrels]
 	add a, b
 	ld b, a
 	ld [sOptions], a

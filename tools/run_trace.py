@@ -748,8 +748,8 @@ def parse_banks(t, rom):
     t._claim(0xF0, 0x6CA7, 221, "rows", hexrow("db", rom[off(0xF0, 0x6CA7):off(0xF0, 0x6CA7 + 221)], 16), "=FontMapA")
     t._claim(0xF0, 0x6D84, 221, "rows", hexrow("db", rom[off(0xF0, 0x6D84):off(0xF0, 0x6D84 + 221)], 16), "=FontMapB")
     t._claim(0xF0, 0x6E61, 192, "rows", hexrow("db", rom[off(0xF0, 0x6E61):off(0xF0, 0x6F21)], 16), "=FontMapC")
-    # three bytes per front-end picture (Func_f0_4a40, Func_f0_4a49, Func_f0_4a52), 149 each
-    for a, name in ((0x5328, "PictureInfoA"), (0x53BD, "PictureInfoB"), (0x5452, "PictureInfoC")):
+    # three bytes per front-end picture (FE_GetPictureMapKind, FE_GetPictureHeight, FE_GetPictureWidth), 149 each
+    for a, name in ((0x5328, "PictureMapKinds"), (0x53BD, "PictureHeights"), (0x5452, "PictureWidths")):
         t._claim(0xF0, a, 149, "rows", hexrow("db", rom[off(0xF0, a):off(0xF0, a + 149)], 16), "=" + name)
     # bank $f1 menu data
     t._claim(0xF1, 0x64CB, 0x659A - 0x64CB, "rows", hexrow("db", rom[off(0xF1, 0x64CB):off(0xF1, 0x659A)], 16), "=MenuBytes_f1_64cb")

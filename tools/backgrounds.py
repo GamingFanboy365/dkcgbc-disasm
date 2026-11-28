@@ -335,7 +335,7 @@ def pictures(rom):
         nxt = sorted(x for x in pal_starts + starts + map_starts if x > po)
         r["palette_count"] = min(8, ((nxt[0] - po) if nxt else 64) // 8)
         # the picture's size in tiles: heights at $F0:53BD, widths at $F0:5452
-        # (PictureInfoB/C). A map is w*h tile numbers, or w*h attributes and
+        # (PictureHeights, PictureWidths). A map is w*h tile numbers, or w*h attributes and
         # w*h tile numbers when there is room for both before the next map
         r["h"] = rom[off(b, pt["heights"] + r["index"])]
         r["w"] = rom[off(b, pt["widths"] + r["index"])]

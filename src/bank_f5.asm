@@ -20,17 +20,17 @@ Func_f5_4000::
 	inc hl
 	push hl
 	ld b, a
-	ld a, $f0
-	ld hl, $47a5
+	ld a, BANK(FE_LoadPictureMap)
+	ld hl, FE_LoadPictureMap
 	call FarCall_A_HL
 	call Func_f5_4142
 	ld a, $f0
 	ld [$c800], a
 	pop hl
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	push af
-	call $c8a3
+	call FE_FarReadWord
 	pop af
 	ld [$c800], a
 	push hl
@@ -38,7 +38,7 @@ Func_f5_4000::
 	ld l, c
 	ld bc, $c806
 	ld de, $0040
-	call $c886
+	call FE_FarCopy
 	xor a
 	ldh [rSCX], a
 	ldh [rSCY], a
@@ -46,10 +46,10 @@ Func_f5_4000::
 	ld a, $f0
 	ld [$c800], a
 	pop hl
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	push af
-	call $c8a3
+	call FE_FarReadWord
 	pop af
 	ld h, b
 	ld l, c
@@ -72,13 +72,13 @@ Func_f5_4000::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, $40
+	ld a, HIGH(FE_AdvanceFarPointer)
 	push af
 	inc sp
-	ld a, $d0
+	ld a, LOW(FE_AdvanceFarPointer)
 	push af
 	inc sp
-	ld a, $f0
+	ld a, BANK(FE_AdvanceFarPointer)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -102,13 +102,13 @@ Func_f5_4082::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, $40
+	ld a, HIGH(FE_AdvanceFarPointer)
 	push af
 	inc sp
-	ld a, $d0
+	ld a, LOW(FE_AdvanceFarPointer)
 	push af
 	inc sp
-	ld a, $f0
+	ld a, BANK(FE_AdvanceFarPointer)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -179,22 +179,22 @@ Func_f5_40b6::
 	pop hl
 	call $ccdc
 .jump_4116:
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	ld hl, $d000
 	pop de
 	pop bc
 	dec d
 	call Func_f5_44e1
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	pop hl
 	inc d
@@ -208,29 +208,29 @@ Func_f5_4142::
 	ldh [rVBK], a
 	ld bc, $9800
 	ld d, $3f
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	ld hl, $d000
 	call Func_f5_44e1
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	xor a
 	ldh [rVBK], a
 	ld hl, $d400
 	call Func_f5_44e1
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	ld a, $01
 	ldh [rSVBK], a
@@ -244,29 +244,29 @@ Func_f5_4193::
 	ldh [rVBK], a
 	ld bc, $9c00
 	ld d, $3f
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	ld hl, $d000
 	call Func_f5_44e1
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	xor a
 	ldh [rVBK], a
 	ld hl, $d400
 	call Func_f5_44e1
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	ld a, $01
 	ldh [rSVBK], a
@@ -292,11 +292,11 @@ Func_f5_41f3::
 	ldh [rBCPS], a
 	ld hl, $ff6b
 	ld d, $40
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	xor a
 .jump_420f:
@@ -317,8 +317,8 @@ Func_f5_421d::
 	ldh [$ff82], a
 	ld de, $c806
 	ld bc, $da00
-	ld a, $f0
-	ld hl, $4283
+	ld a, BANK(FE_UnpackPalettes)
+	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
 	xor a
 .jump_4230:
@@ -328,14 +328,14 @@ Func_f5_421d::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	ld a, $f0
-	ld hl, $4394
+	ld a, BANK(FE_ScalePalettes)
+	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	call Func_f5_4291
 	pop af
@@ -353,14 +353,14 @@ Func_f5_425e::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	ld a, $f0
-	ld hl, $4394
+	ld a, BANK(FE_ScalePalettes)
+	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	call Func_f5_4291
 	pop af
@@ -981,13 +981,13 @@ Func_f5_44f3::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, $41
+	ld a, HIGH(FE_CopyBytes)
 	push af
 	inc sp
-	ld a, $39
+	ld a, LOW(FE_CopyBytes)
 	push af
 	inc sp
-	ld a, $f0
+	ld a, BANK(FE_CopyBytes)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -1006,14 +1006,14 @@ Func_f5_4525::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	ld a, $f0
-	ld hl, $4394
+	ld a, BANK(FE_ScalePalettes)
+	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	call Func_f5_4291
 	pop af
@@ -1032,14 +1032,14 @@ Func_f5_4556::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	ld a, $f0
-	ld hl, $4394
+	ld a, BANK(FE_ScalePalettes)
+	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	call Func_f5_4291
 	pop af
@@ -1058,17 +1058,17 @@ Func_f5_4588::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	ld a, $f0
-	ld hl, $4394
+	ld a, BANK(FE_ScalePalettes)
+	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $f0
-	ld hl, $45da
+	ld a, BANK(FE_ReadJoypadHeld)
+	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	call Func_f5_4291
 	pop af
@@ -1087,17 +1087,17 @@ Func_f5_45c1::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	ld a, $f0
-	ld hl, $4394
+	ld a, BANK(FE_ScalePalettes)
+	ld hl, FE_ScalePalettes
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
-	ld a, $f0
-	ld hl, $45da
+	ld a, BANK(FE_ReadJoypadHeld)
+	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $77b0
+	ld a, BANK(Func_fe_77b0)
+	ld hl, Func_fe_77b0
 	call FarCall_A_HL
 	call Func_f5_4291
 	pop af
@@ -1539,8 +1539,8 @@ Func_f5_47d5::
 	ld [$dd25], a
 	ld a, $40
 	ld [$cc03], a
-	ld a, $f5
-	ld hl, $4a3e
+	ld a, BANK(Func_f5_4a3e)
+	ld hl, Func_f5_4a3e
 	call FarCall_A_HL
 	ret
 
@@ -1560,11 +1560,11 @@ Func_f5_4950::
 	ld a, [hli]
 	push hl
 	ld b, a
-	ld a, $f5
-	ld hl, $4000
+	ld a, BANK(Func_f5_4000)
+	ld hl, Func_f5_4000
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $5c0d
+	ld a, BANK(Func_fe_5c0d)
+	ld hl, Func_fe_5c0d
 	call FarCall_A_HL
 	pop hl
 	ld a, [hl]
@@ -1589,33 +1589,33 @@ Func_f5_4978::
 	dec a
 	jr nz, .jump_498b
 	ld a, $ff
-	call $c8cd
+	call FE_HDMA
 	ld hl, $7aa0
 	ld bc, $8fd0
 	ld d, $02
 	ld a, $ff
-	call $c8cd
+	call FE_HDMA
 	ret
 
 
 Func_f5_49a5::
-	ld a, $f5
-	ld hl, $4142
+	ld a, BANK(Func_f5_4142)
+	ld hl, Func_f5_4142
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $55b4
+	ld a, BANK(Func_fe_55b4)
+	ld hl, Func_fe_55b4
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $5289
+	ld a, BANK(Func_fe_5289)
+	ld hl, Func_fe_5289
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $54d8
+	ld a, BANK(Func_fe_54d8)
+	ld hl, Func_fe_54d8
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $55d8
+	ld a, BANK(Func_fe_55d8)
+	ld hl, Func_fe_55d8
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
 .jump_49d5:
 	ldh a, [rSTAT]
@@ -1628,26 +1628,26 @@ Func_f5_49a5::
 	dec a
 	jr nz, .jump_49dc
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $52a5
+	ld a, BANK(Func_fe_52a5)
+	ld hl, Func_fe_52a5
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $5289
+	ld a, BANK(Func_fe_5289)
+	ld hl, Func_fe_5289
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $51b8
+	ld a, BANK(Func_fe_51b8)
+	ld hl, Func_fe_51b8
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $54d8
+	ld a, BANK(Func_fe_54d8)
+	ld hl, Func_fe_54d8
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $55d8
+	ld a, BANK(Func_fe_55d8)
+	ld hl, Func_fe_55d8
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $4662
+	ld a, BANK(Func_fe_4662)
+	ld hl, Func_fe_4662
 	call FarCall_A_HL
 .jump_4a1d:
 	ldh a, [rSTAT]
@@ -1660,11 +1660,11 @@ Func_f5_49a5::
 	dec a
 	jr nz, .jump_4a24
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $421d
+	ld a, BANK(Func_f5_421d)
+	ld hl, Func_f5_421d
 	call FarCall_A_HL
 	ret
 

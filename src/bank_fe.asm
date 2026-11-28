@@ -25,17 +25,17 @@ CrosshairCrankyLink::
 	ldh [$ffd3], a
 	ldh [$ffd4], a
 	ld b, e
-	ld a, $f0
-	ld hl, $4642
+	ld a, BANK(FE_SeedRandom)
+	ld hl, FE_SeedRandom
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $41f3
+	ld a, BANK(Func_f5_41f3)
+	ld hl, Func_f5_41f3
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $41e4
+	ld a, BANK(Func_f5_41e4)
+	ld hl, Func_f5_41e4
 	call FarCall_A_HL
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 .jump_4041:
 	ldh a, [rSTAT]
@@ -47,38 +47,38 @@ CrosshairCrankyLink::
 	and $03
 	dec a
 	jr nz, .jump_4048
-	call $ff87
-	ld a, $f5
-	ld hl, $4978
+	call FE_OAMDMA
+	ld a, BANK(Func_f5_4978)
+	ld hl, Func_f5_4978
 	call FarCall_A_HL
 	call CrankyModeToGame
 	ld a, $02
 	ld [$cbc4], a
-	ld a, $f5
-	ld hl, $4613
+	ld a, BANK(Func_f5_4613)
+	ld hl, Func_f5_4613
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $755a
+	ld a, BANK(Func_fe_755a)
+	ld hl, Func_fe_755a
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $4950
+	ld a, BANK(Func_f5_4950)
+	ld hl, Func_f5_4950
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $46c5
+	ld a, BANK(Func_f5_46c5)
+	ld hl, Func_f5_46c5
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $5adf
+	ld a, BANK(Func_fe_5adf)
+	ld hl, Func_fe_5adf
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $49a5
+	ld a, BANK(Func_f5_49a5)
+	ld hl, Func_f5_49a5
 	call FarCall_A_HL
 	ld a, [$cbcb]
-	call $c94b
+	call FE_PlaySong
 	call Func_fe_40c4
 	push bc
 	push af
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	pop af
 	pop bc
@@ -131,8 +131,8 @@ Func_fe_40c4::
 	call Func_fe_541c
 	call Func_fe_59d3
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_52a5
 	jr Func_fe_40c4
@@ -152,16 +152,16 @@ Func_fe_40c4::
 	ld [$cbbf], a
 	ld a, b
 	ld [$cbf9], a
-	ld a, $f5
-	ld hl, $41f3
+	ld a, BANK(Func_f5_41f3)
+	ld hl, Func_f5_41f3
 	call FarCall_A_HL
 	ld a, $00
-	call $c94b
-	ld a, $f5
-	ld hl, $41e4
+	call FE_PlaySong
+	ld a, BANK(Func_f5_41e4)
+	ld hl, Func_f5_41e4
 	call FarCall_A_HL
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 .jump_414d:
 	ldh a, [rSTAT]
@@ -173,36 +173,36 @@ Func_fe_40c4::
 	and $03
 	dec a
 	jr nz, .jump_4154
-	call $ff87
-	ld a, $f5
-	ld hl, $4978
+	call FE_OAMDMA
+	ld a, BANK(Func_f5_4978)
+	ld hl, Func_f5_4978
 	call FarCall_A_HL
 	call CrankyShowInstructions
 	call CrankyModeToGame
 	ld a, $01
 	ld [$cbc4], a
-	ld a, $f5
-	ld hl, $4613
+	ld a, BANK(Func_f5_4613)
+	ld hl, Func_f5_4613
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $4950
+	ld a, BANK(Func_f5_4950)
+	ld hl, Func_f5_4950
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $47b3
+	ld a, BANK(Func_f5_47b3)
+	ld hl, Func_f5_47b3
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $5adf
+	ld a, BANK(Func_fe_5adf)
+	ld hl, Func_fe_5adf
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $49a5
+	ld a, BANK(Func_f5_49a5)
+	ld hl, Func_f5_49a5
 	call FarCall_A_HL
 	ld a, [$cbcb]
-	call $c94b
+	call FE_PlaySong
 	call Func_fe_41cb
 	push bc
 	push af
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	pop af
 	pop bc
@@ -262,8 +262,8 @@ Func_fe_41cb::
 	call Func_fe_541c
 	call Func_fe_59d3
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_52a5
 	jr Func_fe_41cb
@@ -356,8 +356,8 @@ Func_fe_42ae::
 	cp $02
 	jr z, .jump_431e
 	call Func_fe_44a5
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -381,8 +381,8 @@ Func_fe_42ae::
 	cp $02
 	jr z, .jump_431e
 	call Func_fe_455c
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -426,8 +426,8 @@ Func_fe_42ae::
 	ld [$cbbc], a
 	ld a, $03
 	ld [$cbb3], a
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -447,8 +447,8 @@ Func_fe_42ae::
 	cp $02
 	jr z, .jump_43b5
 	call Func_fe_4662
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 .jump_437f:
 	ldh a, [rSTAT]
@@ -461,11 +461,11 @@ Func_fe_42ae::
 	dec a
 	jr nz, .jump_4386
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -494,8 +494,8 @@ Func_fe_42ae::
 	ld a, $03
 	ld [$cbb3], a
 	call Func_fe_4662
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 .jump_43d7:
 	ldh a, [rSTAT]
@@ -508,11 +508,11 @@ Func_fe_42ae::
 	dec a
 	jr nz, .jump_43de
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a
@@ -534,8 +534,8 @@ CrankyShowInstructions::
 	cp $05
 	ret z
 	ld b, $90
-	ld a, $f5
-	ld hl, $4000
+	ld a, BANK(Func_f5_4000)
+	ld hl, Func_f5_4000
 	call FarCall_A_HL
 	ld b, $05
 	ld a, [$cbbf]
@@ -545,17 +545,17 @@ CrankyShowInstructions::
 	ldh [$ff98], a
 	ld a, $0f
 	ldh [$ff99], a
-	ld a, $f0
-	ld hl, $6ada
+	ld a, BANK(FE_DrawText)
+	ld hl, FE_DrawText
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $4142
+	ld a, BANK(Func_f5_4142)
+	ld hl, Func_f5_4142
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $4978
+	ld a, BANK(Func_f5_4978)
+	ld hl, Func_f5_4978
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $421d
+	ld a, BANK(Func_f5_421d)
+	ld hl, Func_f5_421d
 	call FarCall_A_HL
 .jump_444e:
 	ldh a, [$ff9a]
@@ -572,19 +572,19 @@ CrankyShowInstructions::
 	and $03
 	dec a
 	jr nz, .jump_445d
-	ld a, $f0
-	ld hl, $451a
+	ld a, BANK(FE_ReadJoypadPressed)
+	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	and $0f
 	jr z, .jump_444e
 	ldh a, [$ff9a]
 	ld b, a
-	ld a, $f0
-	ld hl, $4642
+	ld a, BANK(FE_SeedRandom)
+	ld hl, FE_SeedRandom
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	ret
 
@@ -723,8 +723,8 @@ Func_fe_44c8::
 	call Func_fe_5354
 	call Func_fe_541c
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_52a5
 	ld a, [$db06]
@@ -811,8 +811,8 @@ Func_fe_457f::
 	call Func_fe_5354
 	call Func_fe_541c
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_52a5
 	call Func_fe_460a
@@ -865,8 +865,8 @@ Func_fe_461b::
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_52a5
 	call Func_fe_4646
@@ -896,13 +896,13 @@ Func_fe_4662::
 	ldh a, [rLY]
 	cp $82
 	jr nz, Func_fe_4662
-	call $c930
+	call FE_UpdateSound
 	ret
 
 
 Func_fe_466c::
-	ld a, $f0
-	ld hl, $451a
+	ld a, BANK(FE_ReadJoypadPressed)
+	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
 	call Func_fe_4781
 	ld a, [$cbc4]
@@ -3092,8 +3092,8 @@ Func_fe_5235::
 	add a, [hl]
 	ld c, a
 	ld d, $13
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ret
 
@@ -3122,15 +3122,15 @@ Func_fe_5235::
 	add a, [hl]
 	ld c, a
 	ld d, $14
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ret
 
 
 Func_fe_5289::
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 	ld a, [$cbc2]
 	or $00
@@ -3172,13 +3172,13 @@ Func_fe_52a5::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, $44
+	ld a, HIGH(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $e1
+	ld a, LOW(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $f5
+	ld a, BANK(Func_f5_44e1)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -3208,13 +3208,13 @@ Func_fe_52da::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, $44
+	ld a, HIGH(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $e1
+	ld a, LOW(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $f5
+	ld a, BANK(Func_f5_44e1)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -3581,8 +3581,8 @@ Func_fe_54d8::
 	ldh [$ff82], a
 	ld bc, $7d8c
 	ld d, $21
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ld a, [$cbf2]
 	and $0f
@@ -3594,8 +3594,8 @@ Func_fe_54d8::
 	ldh [$ff82], a
 	ld bc, $898c
 	ld d, $21
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ld a, [$cbf3]
 	and $0f
@@ -3607,8 +3607,8 @@ Func_fe_54d8::
 	ldh [$ff82], a
 	ld bc, $958c
 	ld d, $21
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ret
 
@@ -3698,8 +3698,8 @@ Func_fe_55d8::
 	ldh [$ff82], a
 	ld bc, $1090
 	ld d, $22
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ret
 
@@ -3710,8 +3710,8 @@ Func_fe_55d8::
 	ldh [$ff82], a
 	ld bc, $1f90
 	ld d, $23
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ret
 
@@ -3777,20 +3777,20 @@ Func_fe_5645::
 
 
 Func_fe_566d::
-	ld a, $f5
-	ld hl, $45c1
+	ld a, BANK(Func_f5_45c1)
+	ld hl, Func_f5_45c1
 	call FarCall_A_HL
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $5c3d
+	ld a, BANK(Func_fe_5c3d)
+	ld hl, Func_fe_5c3d
 	call FarCall_A_HL
 	call Func_fe_5944
 .jump_5698:
@@ -3804,8 +3804,8 @@ Func_fe_566d::
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 .jump_56b9:
 	ld a, [$cba2]
@@ -3822,21 +3822,21 @@ Func_fe_566d::
 	xor a
 	ld [$cbca], a
 	ld [$cbb3], a
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_595a
-	ld a, $fe
-	ld hl, $5c0d
+	ld a, BANK(Func_fe_5c0d)
+	ld hl, Func_fe_5c0d
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $4588
+	ld a, BANK(Func_f5_4588)
+	ld hl, Func_f5_4588
 	call FarCall_A_HL
 	ret
 
@@ -3845,20 +3845,20 @@ Func_fe_5703::
 	ld a, $06
 	ld [$cbca], a
 	ld [$cbb3], a
-	ld a, $f5
-	ld hl, $45c1
+	ld a, BANK(Func_f5_45c1)
+	ld hl, Func_f5_45c1
 	call FarCall_A_HL
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
-	ld a, $fe
-	ld hl, $5c3d
+	ld a, BANK(Func_fe_5c3d)
+	ld hl, Func_fe_5c3d
 	call FarCall_A_HL
 	call Func_fe_5944
 	ldh a, [$ffd4]
@@ -3887,14 +3887,14 @@ Func_fe_5703::
 	ld a, [$cbce]
 	or $00
 	jp z, .jump_57d8
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	ld a, $00
 	ldh [$ff99], a
@@ -3917,14 +3917,14 @@ Func_fe_5703::
 	ld a, [$cbce]
 	or a
 	jp z, Func_fe_42ae.jump_436d
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	jp .jump_5744
 
@@ -3932,21 +3932,21 @@ Func_fe_5703::
 	xor a
 	ld [$cbca], a
 	ld [$cbb3], a
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_595a
-	ld a, $fe
-	ld hl, $5c0d
+	ld a, BANK(Func_fe_5c0d)
+	ld hl, Func_fe_5c0d
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $4588
+	ld a, BANK(Func_f5_4588)
+	ld hl, Func_f5_4588
 	call FarCall_A_HL
 	ret
 
@@ -3955,8 +3955,8 @@ Func_fe_580b::
 	call Func_fe_585a
 .jump_580e:
 	call Func_fe_4662
-	ld a, $f0
-	ld hl, $451a
+	ld a, BANK(FE_ReadJoypadPressed)
+	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 7, a
@@ -4032,8 +4032,8 @@ Func_fe_585a::
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	ret
 
@@ -4071,8 +4071,8 @@ Func_fe_5892::
 	call Func_fe_4662
 	call Func_fe_77b0
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	ret
 
@@ -4153,7 +4153,7 @@ Func_fe_58df::
 	jr nc, .jump_5923
 	inc h
 .jump_5923:
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	add a, a
 	ld [de], a
@@ -4221,13 +4221,13 @@ Func_fe_595a::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, $44
+	ld a, HIGH(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $e1
+	ld a, LOW(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $f5
+	ld a, BANK(Func_f5_44e1)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -4253,13 +4253,13 @@ Func_fe_599a::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, $44
+	ld a, HIGH(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $e1
+	ld a, LOW(Func_f5_44e1)
 	push af
 	inc sp
-	ld a, $f5
+	ld a, BANK(Func_f5_44e1)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -4306,8 +4306,8 @@ Func_fe_59d3::
 	ret
 
 .jump_5a04:
-	ld a, $f5
-	ld hl, $4291
+	ld a, BANK(Func_f5_4291)
+	ld hl, Func_f5_4291
 	call FarCall_A_HL
 	xor a
 	ld [$cc0a], a
@@ -4513,8 +4513,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b23
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 .jump_5b32:
 	ldh a, [rSTAT]
@@ -4526,8 +4526,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b39
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 .jump_5b48:
 	ldh a, [rSTAT]
@@ -4539,8 +4539,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b4f
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 .jump_5b5e:
 	ldh a, [rSTAT]
@@ -4552,8 +4552,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b65
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 .jump_5b74:
 	ldh a, [rSTAT]
@@ -4565,8 +4565,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b7b
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 .jump_5b8a:
 	ldh a, [rSTAT]
@@ -4578,8 +4578,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5b91
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 .jump_5ba0:
 	ldh a, [rSTAT]
@@ -4591,8 +4591,8 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5ba7
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 .jump_5bb6:
 	ldh a, [rSTAT]
@@ -4604,13 +4604,13 @@ Func_fe_5adf::
 	and $03
 	dec a
 	jr nz, .jump_5bbd
-	ld a, $fe
-	ld hl, $5354
+	ld a, BANK(Func_fe_5354)
+	ld hl, Func_fe_5354
 	call FarCall_A_HL
 	ld a, $01
 	ld [$cbad], a
-	ld a, $fe
-	ld hl, $541c
+	ld a, BANK(Func_fe_541c)
+	ld hl, Func_fe_541c
 	call FarCall_A_HL
 	ret
 
@@ -5828,8 +5828,8 @@ Func_fe_5ee7::
 	ldh [$ff82], a
 	ld de, $c806
 	ld bc, $da00
-	ld a, $f0
-	ld hl, $4283
+	ld a, BANK(FE_UnpackPalettes)
+	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
 	jp Func_fe_42ae.jump_42eb
 
@@ -7062,8 +7062,8 @@ Func_fe_68d8::
 	ld l, a
 	ld a, [hl]
 	ldh [$ff99], a
-	ld a, $f0
-	ld hl, $4fa8
+	ld a, BANK(FE_DrawSpriteAnim)
+	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 	ret
 
@@ -7214,8 +7214,8 @@ Func_fe_696a::
 	push de
 .jump_69c0:
 	ld b, $02
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbfb
@@ -7297,8 +7297,8 @@ Func_fe_6a0e::
 	pop af
 	dec a
 	jr nz, .jump_6a13
-	ld a, $f5
-	ld hl, $46ba
+	ld a, BANK(Func_f5_46ba)
+	ld hl, Func_f5_46ba
 	call FarCall_A_HL
 	ld a, $01
 	ld [$cbed], a
@@ -7724,8 +7724,8 @@ Func_fe_6bdc::
 	srl a
 	ld [$cbed], a
 	ld b, $06
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld hl, $6cce
 	ld a, b
@@ -7749,8 +7749,8 @@ Func_fe_6cd5::
 	ldh [$ff9c], a
 .jump_6cdc:
 	ld b, $07
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
@@ -8058,8 +8058,8 @@ Func_fe_6cd5::
 	ld a, $ff
 	ld [$cbfe], a
 	ld b, $02
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	add a, $02
@@ -8085,12 +8085,12 @@ Func_fe_6ecb::
 	cp $05
 	jr nz, .jump_6ed7
 .jump_6eef:
-	ld a, $f5
-	ld hl, $46ba
+	ld a, BANK(Func_f5_46ba)
+	ld hl, Func_f5_46ba
 	call FarCall_A_HL
 	call Func_fe_6f6a
-	ld a, $f5
-	ld hl, $4556
+	ld a, BANK(Func_f5_4556)
+	ld hl, Func_f5_4556
 	call FarCall_A_HL
 	ld a, [$cc05]
 	ld b, $00
@@ -8117,15 +8117,15 @@ Func_fe_6ecb::
 	call Func_fe_54d8
 	call Func_fe_55d8
 	call Func_fe_68b3
-	ld a, $f0
-	ld hl, $451a
+	ld a, BANK(FE_ReadJoypadPressed)
+	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
 	call Func_fe_4662
 	call Func_fe_77b0
 	call Func_fe_5354
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_52a5
 	ld a, $01
@@ -8134,8 +8134,8 @@ Func_fe_6ecb::
 	or a
 	jr nz, .jump_6f19
 	call Func_fe_6f6a
-	ld a, $f5
-	ld hl, $4525
+	ld a, BANK(Func_f5_4525)
+	ld hl, Func_f5_4525
 	call FarCall_A_HL
 	ld a, $00
 	ld [$cbb3], a
@@ -8155,8 +8155,8 @@ Func_fe_6f6a::
 	call Func_fe_77b0
 	call Func_fe_5354
 	ld b, $cb
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
 	call Func_fe_52a5
 	pop af
@@ -8198,8 +8198,8 @@ Func_fe_6fb0::
 .jump_6fba:
 	ld a, [$cc08]
 	ld b, a
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	add a, $02
@@ -8208,8 +8208,8 @@ Func_fe_6fb0::
 	ld e, a
 .jump_6fcd:
 	ld b, $07
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
@@ -8362,8 +8362,8 @@ Func_fe_6fb0::
 	ld a, [$cbd8]
 	cp $01
 	jp z, Func_fe_71d9.jump_721b
-	ld a, $f0
-	ld hl, $4620
+	ld a, BANK(FE_Random)
+	ld hl, FE_Random
 	call FarCall_A_HL
 	ldh a, [$ff94]
 	and $03
@@ -8375,8 +8375,8 @@ Func_fe_6fb0::
 	ldh [$ff9c], a
 .jump_70d6:
 	ld b, $07
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
@@ -8594,8 +8594,8 @@ Func_fe_71d9::
 	ldh [$ff9c], a
 .jump_7221:
 	ld b, $07
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
@@ -8763,8 +8763,8 @@ Func_fe_71d9::
 	ld [$cbed], a
 .jump_7321:
 	ld b, $05
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
@@ -8853,8 +8853,8 @@ Func_fe_73a9::
 	push bc
 .jump_73b7:
 	ld b, $05
-	ld a, $f0
-	ld hl, $4608
+	ld a, BANK(FE_RandomBelow)
+	ld hl, FE_RandomBelow
 	call FarCall_A_HL
 	ld a, b
 	ld hl, $cbf7
@@ -9510,8 +9510,8 @@ Func_fe_7740::
 	dec [hl]
 	ret nz
 	call Func_fe_4662
-	ld a, $f0
-	ld hl, $52d4
+	ld a, BANK(FE_ClearOAM)
+	ld hl, FE_ClearOAM
 	call FarCall_A_HL
 .jump_777a:
 	ldh a, [rSTAT]
@@ -9524,11 +9524,11 @@ Func_fe_7740::
 	dec a
 	jr nz, .jump_7781
 	ld b, $c0
-	ld a, $f5
-	ld hl, $42b6
+	ld a, BANK(Func_f5_42b6)
+	ld hl, Func_f5_42b6
 	call FarCall_A_HL
-	ld a, $f5
-	ld hl, $425e
+	ld a, BANK(Func_f5_425e)
+	ld hl, Func_f5_425e
 	call FarCall_A_HL
 	ld a, [$cbc5]
 	ld l, a

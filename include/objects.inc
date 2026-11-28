@@ -78,4 +78,14 @@ DEF wObjectFreeList   EQU $c400
 DEF wObjectFreeCount  EQU $c440
 DEF wLevelEntrance    EQU $c449
 
+; Front-end routines copied to RAM (FE_RAM_NAMES in tools/hints.py)
+DEF FE_FarCopy        EQU $c886
+DEF FE_FarReadWord    EQU $c8a3
+DEF FE_FarReadByte    EQU $c8b9
+DEF FE_HDMA           EQU $c8cd
+DEF FE_FarCopySprites EQU $c8e7
+DEF FE_UpdateSound    EQU $c930
+DEF FE_PlaySong       EQU $c94b
+DEF FE_OAMDMA         EQU $ff87
+
 ENDC

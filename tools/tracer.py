@@ -16,7 +16,8 @@ def off(bank, addr):
 
 
 class Insn:
-    __slots__ = ("bank", "addr", "op", "length", "flow", "imm", "target", "text", "raw", "ctx", "farcall", "dataref")
+    __slots__ = ("bank", "addr", "op", "length", "flow", "imm", "target", "text", "raw", "ctx", "farcall", "dataref",
+                 "farref")
 
 
 def decode(rom, bank, addr):
@@ -35,6 +36,7 @@ def decode(rom, bank, addr):
     i.target = None
     i.farcall = None
     i.dataref = None
+    i.farref = None  # (bank, addr, part): this immediate is part of a far call's target
     if op == 0xC7:
         # rst $00 = far call with inline arguments: dw address, db bank
         if (addr & 0x3FFF) + 4 > 0x4000:
@@ -220,7 +222,9 @@ class Tracer:
         bank_store = None
         hl_insn = None
         de_insn = None
+        a_insn = None
         pushbytes = []
+        pushinsns = []
         pushwords = []
         objfield = None
         player = False
@@ -254,12 +258,17 @@ class Tracer:
                     h, l, a = regs["h"], regs["l"], regs["a"]
                     if None not in (h, l, a):
                         self.add(a, h << 8 | l, "func", a)
+                        if hl_insn is not None and hl_insn.imm == h << 8 | l:
+                            hl_insn.farref = (a, h << 8 | l, "addr")
+                        if a_insn is not None and a_insn.imm == a:
+                            a_insn.farref = (a, h << 8 | l, "BANK")
                     else:
                         self.unresolved.append((None, 0, "farcall@%02x:%04x" % (bank, addr)))
             # "ld a, n / push af / inc sp" pushes single bytes; the far jump at
             # $3fdc switches to bank a and returns into the last two pushed
             if i.op == 0x33 and prev is not None and prev.op == 0xF5:
                 pushbytes.append(regs["a"])
+                pushinsns.append(a_insn if a_insn is not None and a_insn.imm == regs["a"] else None)
             # "ld hl, target / push hl / ld a, bank / jp $cb99" (bank $50
             # program): the last pushed word is the target; pushed words in
             # this bank's ROM area are return points
@@ -279,6 +288,9 @@ class Tracer:
                 hi, lo, a = pushbytes[-2], pushbytes[-1], regs["a"]
                 if None not in (hi, lo, a):
                     self.add(a, hi << 8 | lo, "func", a)
+                    for ins, part in ((pushinsns[-2], "HIGH"), (pushinsns[-1], "LOW"), (a_insn, "BANK")):
+                        if ins is not None and (part != "BANK" or ins.imm == a):
+                            ins.farref = (a, hi << 8 | lo, part)
                 else:
                     self.unresolved.append((bank, addr, "farjump-stack"))
             if i.flow in ("call", "jp") and i.target in self.flow_funcs and de_insn is not None:
@@ -311,6 +323,10 @@ class Tracer:
             # by the "ld de, frame" scan below)
             if i.op == 0x11 and i.imm is not None and 0x4000 <= i.imm < 0x8000:
                 self.de_loads.append(i)
+            if i.op == 0x3E:
+                a_insn = i
+            elif a_insn is not None and regs["a"] != a_insn.imm:
+                a_insn = None
             if i.op == 0x21:
                 hl_insn = i
             elif hl_insn is not None and (regs["h"], regs["l"]) != (hl_insn.imm >> 8, hl_insn.imm & 0xFF):

@@ -351,6 +351,20 @@ THUMBNAILS = {"table": (0xF1, 0x693A), "count": 18}
 # handlers installed by storing their address, and the like).
 FE_BANKS = tuple(range(0xF0, 0x100))
 FISHING_BANKS = tuple(range(0x50, 0x57))
+# Routines the front-end program (banks $F0-$FE) copies from bank $F0 into
+# RAM at start-up and then calls there: RAM address -> name. The ROM copies
+# are named ..._Code in tools/names.py.
+FE_RAM_NAMES = {
+    0xC886: "FE_FarCopy",        # $F0:40EB, by Func_f0_40e0: copy de bytes hl -> bc from bank [$c800]
+    0xC8A3: "FE_FarReadWord",    # $F0:4108: bc = word at hl in bank [$c800], hl += 2
+    0xC8B9: "FE_FarReadByte",    # $F0:411E: c = byte at hl in bank [$c800], hl += 1
+    0xC8CD: "FE_HDMA",           # $F0:4020, by FE_InstallRAMRoutines: bank a, hl -> bc, d blocks
+    0xC8E7: "FE_FarCopySprites", # $F0:528B, by FE_InstallSpriteCopy
+    0xC930: "FE_UpdateSound",    # $F0:52F8, by FE_InstallSoundRoutines
+    0xC94B: "FE_PlaySong",       # $F0:5313
+    0xFF87: "FE_OAMDMA",         # $F0:4016 (HRAM)
+}
+
 RAM_CODE = [
     (0x51, 0x42F4, 0x1FD, 0xCB00, FISHING_BANKS, (0xCBB2, 0xCCA5, 0xCCC0, 0xCCE2), "=FishingRuntime"),
     (0xF1, 0x57F0, 65, 0xCCBA, FE_BANKS, (), None),

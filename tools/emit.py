@@ -62,6 +62,9 @@ def write_objects_inc(path):
     lines.append("\n; Other RAM (from RAM_NAMES in tools/hints.py)\n")
     for a, n in sorted(hints.RAM_NAMES.items()):
         lines.append("DEF %-17s EQU $%04x\n" % (n, a))
+    lines.append("\n; Front-end routines copied to RAM (FE_RAM_NAMES in tools/hints.py)\n")
+    for a, n in sorted(hints.FE_RAM_NAMES.items()):
+        lines.append("DEF %-17s EQU $%04x\n" % (n, a))
     lines.append("\nENDC\n")
     with open(path, "w") as f:
         f.write("".join(lines))
@@ -216,10 +219,20 @@ class Emitter:
             if lab and "." not in lab:
                 return "rst_farcall %s" % lab
             return "rst $00\n\tdw %s\n\tdb %s" % (hexw(fa), hexb(fb))
+        fr = getattr(i, "farref", None)
+        if fr is not None:
+            lab = self.qref(fr[0], fr[1])
+            if lab:
+                if fr[2] == "addr" and "{n16}" in t:
+                    return t.replace("{n16}", lab)
+                if fr[2] != "addr" and "{n8}" in t:
+                    return t.replace("{n8}", "%s(%s)" % (fr[2], lab))
         if "{n16}" in t:
             v = i.imm
             txt = None
-            if i.flow in ("jp", "jpc", "call", "callc"):
+            if 0xF0 <= bank <= 0xFE and v in hints.FE_RAM_NAMES:
+                txt = hints.FE_RAM_NAMES[v]
+            elif i.flow in ("jp", "jpc", "call", "callc"):
                 if v < 0x4000:
                     txt = self.ref(0, v, o)
                 elif v < 0x8000:

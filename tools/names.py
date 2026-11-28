@@ -602,4 +602,79 @@ NAMES = {
     (0x09, 0x708A): "Zinger_Touch",
     (0x09, 0x73D1): "Bitesize_Touch",
     (0x0A, 0x5555): "HUD_PartnerIcon",  # drawn while both Kongs are there (bit 1 of $c30f); tentative
+    # --- front-end library, bank $F0
+    (0xF0, 0x4000): "FE_InstallRAMRoutines",  # copies FE_HDMA_Code to $c8cd and FE_OAMDMA_Code to $ff87
+    (0xF0, 0x4016): "FE_OAMDMA_Code",  # runs at $ff87 (FE_OAMDMA)
+    (0xF0, 0x4020): "FE_HDMA_Code",  # runs at $c8cd (FE_HDMA): bank a, source hl, destination bc, d+1 blocks of 16 bytes
+    (0xF0, 0x403A): "FE_StartHBlankDMA",
+    (0xF0, 0x404C): "FE_HDMAAcrossBanks",  # like FE_HDMA, split in two where the source runs past $7FFF into the next bank
+    (0xF0, 0x40D0): "FE_AdvanceFarPointer",  # hl += bc; past $7FFF wraps to $4000 of the next bank ([$c800])
+    (0xF0, 0x40E0): "FE_InstallFarCopy",  # copies FE_FarCopy_Code and the two read routines to $c886
+    (0xF0, 0x40EB): "FE_FarCopy_Code",  # runs at $c886 (FE_FarCopy)
+    (0xF0, 0x4108): "FE_FarReadWord_Code",  # runs at $c8a3
+    (0xF0, 0x411E): "FE_FarReadByte_Code",  # runs at $c8b9
+    (0xF0, 0x4132): "FE_CopyBytesShort",  # d bytes hl -> bc
+    (0xF0, 0x4139): "FE_CopyBytes",  # de bytes hl -> bc
+    (0xF0, 0x4145): "FE_SetDoubleSpeed",
+    (0xF0, 0x4159): "FE_SaveHRAM",  # $ff80-$fffe -> WRAM bank 6 $df00
+    (0xF0, 0x416D): "FE_SaveState",  # $c800-$cf7f -> $d700 and HRAM -> $de80, WRAM bank 6
+    (0xF0, 0x418D): "FE_RestoreHRAM",
+    (0xF0, 0x41A1): "FE_FillWithBB",  # fills de bytes at bc with $bb (debug)
+    (0xF0, 0x41AF): "FE_FillWithBBShort",
+    (0xF0, 0x41B8): "FE_RestoreState",
+    (0xF0, 0x41DE): "FE_ClearPalettes",
+    (0xF0, 0x4201): "FE_FadeToTargetPalettes",  # steps the palettes in $c806 towards $da00 until they match
+    (0xF0, 0x4223): "FE_FadeIn",  # from black, brightness rising in steps of 8
+    (0xF0, 0x4256): "FE_FadeOut",
+    (0xF0, 0x4283): "FE_UnpackPalettes",  # RGB555 words -> one byte per channel
+    (0xF0, 0x42AD): "FE_ReadPalettesFromHW",  # BG and OBJ palette RAM -> $c806/$c846
+    (0xF0, 0x42E9): "FE_PackColor",
+    (0xF0, 0x4306): "FE_StepChannelTowards",
+    (0xF0, 0x4326): "FE_FadePaletteStep",
+    (0xF0, 0x4394): "FE_ScalePalettes",  # multiplies every channel by the brightness in [$ff82]
+    (0xF0, 0x4439): "FE_UploadPalettes",  # $c806 -> BG and OBJ palette RAM
+    (0xF0, 0x451A): "FE_ReadJoypadPressed",  # [$ff92] held, [$ff91] newly pressed; A+B+Select+Start resets
+    (0xF0, 0x4547): "FE_ReadJoypadPressed_Link",  # the same; the reset first tells the other Game Boy (sends $ef)
+    (0xF0, 0x4596): "FE_ReadJoypadHeld_Link",  # [$ff91] held, [$ff93] previous; reset as FE_ReadJoypadPressed_Link
+    (0xF0, 0x45BC): "FE_WaitForButton",  # until a newly pressed A, B, Select or Start
+    (0xF0, 0x45DA): "FE_ReadJoypadHeld",  # [$ff91] held, [$ff93] previous; A+B+Select+Start resets
+    (0xF0, 0x4608): "FE_RandomBelow",  # b = random number below b+1
+    (0xF0, 0x4620): "FE_Random",
+    (0xF0, 0x4642): "FE_SeedRandom",
+    (0xF0, 0x4657): "FE_Multiply",  # hl = b * c
+    (0xF0, 0x46A5): "FE_Divide",  # c / b
+    (0xF0, 0x46E4): "FE_WaitFrames",  # d frames, reading the joypad
+    (0xF0, 0x46F6): "FE_WaitSeconds",  # d times 60 frames
+    (0xF0, 0x4707): "FE_InitLineStep",  # sets up a record (at de) that steps along a line by (b, c)
+    (0xF0, 0x4761): "FE_LineStep",  # next (dx, dy) step of a FE_InitLineStep record
+    (0xF0, 0x47A5): "FE_LoadPictureMap",  # by its kind in PictureMapKinds: 0 plain, 1 UniqueTileMap, 2 attributes in the second half
+    (0xF0, 0x47D8): "FE_CopyPictureMap",  # PictureHeights rows of 32 bytes, PictureWidths bytes apart in the source
+    (0xF0, 0x4882): "FE_LoadPicture",  # picture b of PictureTable: map, palettes and tiles
+    (0xF0, 0x48F4): "FE_LoadPictureTilesInverted_Check",
+    (0xF0, 0x48FA): "FE_LoadPictureTilesInverted",  # tiles of picture b, complemented, into WRAM bank 5 on (tentative: for printing)
+    (0xF0, 0x49C3): "FE_SaveBGMap",  # $d000 -> $d800, WRAM bank 2
+    (0xF0, 0x49D8): "FE_RestoreBGMap",
+    (0xF0, 0x49EC): "FE_UploadBGMap",  # WRAM bank 2 -> $9800 (attributes, then tiles)
+    (0xF0, 0x4A16): "FE_UploadBGMap9C00",
+    (0xF0, 0x4A40): "FE_GetPictureMapKind",
+    (0xF0, 0x4A49): "FE_GetPictureWidth",
+    (0xF0, 0x4A52): "FE_GetPictureHeight",
+    (0xF0, 0x4A5B): "FE_GetPictureMapPointer",
+    (0xF0, 0x4A71): "FE_GetPictureTilesPointer",
+    (0xF0, 0x4A87): "FE_GetPicturePalettesPointer",
+    (0xF0, 0x4F9D): "FE_InstallSpriteCopy",  # copies FE_FarCopySprites_Code to $c8e7
+    (0xF0, 0x4FA8): "FE_DrawSpriteAnim",  # entry d of SpriteAnimTable, variant [$ff82]
+    (0xF0, 0x50F7): "FE_PlaceSpritesFixed",  # record types 1 and 3: offsets from the anchor
+    (0xF0, 0x513B): "FE_PlaceSpritesStepped",  # type 4: each sprite steps from the last
+    (0xF0, 0x517F): "FE_AddSpriteAttributes",  # types 2-4: one attribute byte per sprite
+    (0xF0, 0x519A): "FE_PlaceSpritesSteppedFlip",  # types 0 and 2, mirrored as the attributes in [$ff99] ask
+    (0xF0, 0x528B): "FE_FarCopySprites_Code",  # runs at $c8e7
+    (0xF0, 0x52D4): "FE_ClearOAM",
+    (0xF0, 0x52E2): "FE_InstallSoundRoutines",
+    (0xF0, 0x52F8): "FE_UpdateSound_Code",  # runs at $c930
+    (0xF0, 0x5313): "FE_PlaySong_Code",  # runs at $c94b
+    (0xF0, 0x6AD5): "FE_DrawTextFromPointer",
+    (0xF0, 0x6B44): "FE_DrawTextOnMap",  # text into the BG map copy in WRAM bank 2
+    (0xF0, 0x6BB6): "FE_DrawBox",  # a frame of tiles $7d-... around the text area
+    (0xF0, 0x6C60): "FE_DrawTextInBox",
 }

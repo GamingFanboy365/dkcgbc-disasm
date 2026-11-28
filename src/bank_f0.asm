@@ -3,18 +3,18 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $f0", ROMX[$4000], BANK[$f0]
 
-Func_f0_4000::
+FE_InstallRAMRoutines::
 	ld hl, $4020
-	ld bc, $c8cd
+	ld bc, FE_HDMA
 	ld d, $1a
-	call Func_f0_4132
+	call FE_CopyBytesShort
 	ld hl, $4016
-	ld bc, $ff87
+	ld bc, FE_OAMDMA
 	ld d, $0a
-	jp Func_f0_4132
+	jp FE_CopyBytesShort
 
 
-Func_f0_4016::
+FE_OAMDMA_Code::
 	ld a, $c0
 	ldh [rDMA], a
 	ld a, $28
@@ -24,7 +24,7 @@ Func_f0_4016::
 	ret
 
 
-Func_f0_4020::
+FE_HDMA_Code::
 	ld [rROMB0], a
 	ld a, h
 	ldh [rHDMA1], a
@@ -42,7 +42,7 @@ Func_f0_4020::
 	ret
 
 
-Func_f0_403a::
+FE_StartHBlankDMA::
 	ld a, h
 	ldh [rHDMA1], a
 	ld a, l
@@ -57,7 +57,7 @@ Func_f0_403a::
 	ret
 
 
-Func_f0_404c::
+FE_HDMAAcrossBanks::
 	push de
 	push hl
 	push bc
@@ -118,7 +118,7 @@ Func_f0_404c::
 	jr nz, .jump_4095
 	ld a, [$c800]
 	inc a
-	call $c8cd
+	call FE_HDMA
 	pop bc
 	pop hl
 	ld d, e
@@ -134,7 +134,7 @@ Func_f0_404c::
 	cp $01
 	jr nz, .jump_40ae
 	ld a, [$c800]
-	call $c8cd
+	call FE_HDMA
 	pop de
 	ret
 
@@ -149,12 +149,12 @@ Func_f0_404c::
 	cp $01
 	jr nz, .jump_40c2
 	ld a, [$c800]
-	call $c8cd
+	call FE_HDMA
 	pop de
 	ret
 
 
-Func_f0_40d0::
+FE_AdvanceFarPointer::
 	add hl, bc
 	bit 7, h
 	ret z
@@ -166,14 +166,14 @@ Func_f0_40d0::
 	ret
 
 
-Func_f0_40e0::
+FE_InstallFarCopy::
 	ld hl, $40eb
-	ld bc, $c886
+	ld bc, FE_FarCopy
 	ld d, $47
-	jp Func_f0_4132
+	jp FE_CopyBytesShort
 
 
-Func_f0_40eb::
+FE_FarCopy_Code::
 	ldh a, [$ff81]
 	push af
 	ld a, [$c800]
@@ -195,7 +195,7 @@ Func_f0_40eb::
 	ret
 
 
-Func_f0_4108::
+FE_FarReadWord_Code::
 	ldh a, [$ff81]
 	push af
 	ld a, [$c800]
@@ -211,7 +211,7 @@ Func_f0_4108::
 	ret
 
 
-Func_f0_411e::
+FE_FarReadByte_Code::
 	ldh a, [$ff81]
 	push af
 	ld a, [$c800]
@@ -225,29 +225,29 @@ Func_f0_411e::
 	ret
 
 
-Func_f0_4132::
+FE_CopyBytesShort::
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	dec d
-	jr nz, Func_f0_4132
+	jr nz, FE_CopyBytesShort
 	ret
 
 
-Func_f0_4139::
+FE_CopyBytes::
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	dec de
 	xor a
 	cp e
-	jr nz, Func_f0_4139
+	jr nz, FE_CopyBytes
 	cp d
-	jr nz, Func_f0_4139
+	jr nz, FE_CopyBytes
 	ret
 
 
-Func_f0_4145::
+FE_SetDoubleSpeed::
 	ld hl, $ff4d
 	bit 7, [hl]
 	ret nz
@@ -261,47 +261,47 @@ Func_f0_4145::
 	ret
 
 
-Func_f0_4159::
+FE_SaveHRAM::
 	ld a, $06
 	ldh [rSVBK], a
 	ld hl, $ff80
 	ld bc, $df00
 	ld d, $7f
-	call Func_f0_4132
+	call FE_CopyBytesShort
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f0_416d::
+FE_SaveState::
 	ld a, $06
 	ldh [rSVBK], a
 	ld hl, $c800
 	ld bc, $d700
 	ld de, $0780
-	call Func_f0_4139
+	call FE_CopyBytes
 	ld hl, $ff80
 	ld bc, $de80
 	ld d, $7f
-	call Func_f0_4132
+	call FE_CopyBytesShort
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f0_418d::
+FE_RestoreHRAM::
 	ld a, $06
 	ldh [rSVBK], a
 	ld bc, $ff80
 	ld hl, $df00
 	ld d, $7f
-	call Func_f0_4132
+	call FE_CopyBytesShort
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f0_41a1::
+FE_FillWithBB::
 	ld a, [hli]
 	ld a, $bb
 	ld [bc], a
@@ -309,23 +309,23 @@ Func_f0_41a1::
 	dec de
 	xor a
 	cp e
-	jr nz, Func_f0_41a1
+	jr nz, FE_FillWithBB
 	cp d
-	jr nz, Func_f0_41a1
+	jr nz, FE_FillWithBB
 	ret
 
 
-Func_f0_41af::
+FE_FillWithBBShort::
 	ld a, [hli]
 	ld a, $bb
 	ld [bc], a
 	inc bc
 	dec d
-	jr nz, Func_f0_41af
+	jr nz, FE_FillWithBBShort
 	ret
 
 
-Func_f0_41b8::
+FE_RestoreState::
 	push bc
 	push de
 	push hl
@@ -334,11 +334,11 @@ Func_f0_41b8::
 	ld bc, $c800
 	ld hl, $d700
 	ld de, $0780
-	call Func_f0_4139
+	call FE_CopyBytes
 	ld bc, $ff80
 	ld hl, $de80
 	ld d, $7f
-	call Func_f0_4132
+	call FE_CopyBytesShort
 	ld a, $01
 	ldh [rSVBK], a
 	pop hl
@@ -347,7 +347,7 @@ Func_f0_41b8::
 	ret
 
 
-Func_f0_41de::
+FE_ClearPalettes::
 	ld a, $80
 	ldh [rOCPS], a
 	ldh [rBCPS], a
@@ -373,12 +373,12 @@ Func_f0_41de::
 	ret
 
 
-Func_f0_4201::
+FE_FadeToTargetPalettes::
 	ld a, $40
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	call Func_f0_4326
+	call FE_FadePaletteStep
 	ld a, b
 	cp $00
 	ret z
@@ -388,17 +388,17 @@ Func_f0_4201::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_4215
-	call Func_f0_4439
-	call Func_f0_45da
-	jr Func_f0_4201
+	call FE_UploadPalettes
+	call FE_ReadJoypadHeld
+	jr FE_FadeToTargetPalettes
 
 
-Func_f0_4223::
+FE_FadeIn::
 	ld a, $40
 	ldh [$ff82], a
 	ld de, $c806
 	ld bc, $da00
-	call Func_f0_4283
+	call FE_UnpackPalettes
 	xor a
 .jump_4231:
 	push af
@@ -407,23 +407,23 @@ Func_f0_4223::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	call Func_f0_4394
-	call Func_f0_451a
+	call FE_ScalePalettes
+	call FE_ReadJoypadPressed
 	xor a
 	ldh [$ff80], a
 .jump_4247:
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_4247
-	call Func_f0_4439
+	call FE_UploadPalettes
 	pop af
 	add a, $08
 	jr nc, .jump_4231
 	ret
 
 
-Func_f0_4256::
-	call Func_f0_42ad
+FE_FadeOut::
+	call FE_ReadPalettesFromHW
 	ld a, $ff
 .jump_425b:
 	push af
@@ -432,23 +432,23 @@ Func_f0_4256::
 	ldh [$ff86], a
 	ld bc, $c806
 	ld de, $da00
-	call Func_f0_4394
-	call Func_f0_451a
+	call FE_ScalePalettes
+	call FE_ReadJoypadPressed
 	xor a
 	ldh [$ff80], a
 .jump_4271:
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_4271
-	call Func_f0_4439
+	call FE_UploadPalettes
 	pop af
 	sub $08
 	jr nc, .jump_425b
-	call Func_f0_41de
+	call FE_ClearPalettes
 	ret
 
 
-Func_f0_4283::
+FE_UnpackPalettes::
 	ld h, b
 	ld l, c
 	ldh a, [$ff82]
@@ -484,7 +484,7 @@ Func_f0_4283::
 	ret
 
 
-Func_f0_42ad::
+FE_ReadPalettesFromHW::
 	xor a
 	ldh [$ff80], a
 .jump_42b0:
@@ -518,11 +518,11 @@ Func_f0_42ad::
 	ldh [$ff82], a
 	ld de, $c806
 	ld bc, $da00
-	call Func_f0_4283
+	call FE_UnpackPalettes
 	ret
 
 
-Func_f0_42e9::
+FE_PackColor::
 	push bc
 	push de
 	xor a
@@ -545,7 +545,7 @@ Func_f0_42e9::
 	ret
 
 
-Func_f0_4306::
+FE_StepChannelTowards::
 	ld a, b
 	cp d
 	jr z, .jump_4324
@@ -579,7 +579,7 @@ Func_f0_4306::
 	ret
 
 
-Func_f0_4326::
+FE_FadePaletteStep::
 	ld h, d
 	ld l, e
 	ld d, b
@@ -598,7 +598,7 @@ Func_f0_4326::
 	ld b, a
 	ldh a, [$ff83]
 	ld d, a
-	call Func_f0_4306
+	call FE_StepChannelTowards
 	jr nc, .jump_4343
 	inc hl
 	jr .jump_4349
@@ -613,7 +613,7 @@ Func_f0_4326::
 	ld b, a
 	ldh a, [$ff84]
 	ld d, a
-	call Func_f0_4306
+	call FE_StepChannelTowards
 	jr nc, .jump_4356
 	inc hl
 	jr .jump_435c
@@ -628,7 +628,7 @@ Func_f0_4326::
 	ld b, a
 	ldh a, [$ff85]
 	ld d, a
-	call Func_f0_4306
+	call FE_StepChannelTowards
 	jr nc, .jump_4369
 	inc hl
 	jr .jump_436f
@@ -649,7 +649,7 @@ Func_f0_4326::
 	ld d, a
 	ld a, [hli]
 	ld e, a
-	call Func_f0_42e9
+	call FE_PackColor
 	pop de
 	ld a, l
 	ld [de], a
@@ -672,7 +672,7 @@ Func_f0_4326::
 	ret
 
 
-Func_f0_4394::
+FE_ScalePalettes::
 	ld h, b
 	ld l, c
 	ldh a, [$ff86]
@@ -819,7 +819,7 @@ Func_f0_4394::
 	ret
 
 
-Func_f0_4439::
+FE_UploadPalettes::
 	ld a, $80
 	ldh [rOCPS], a
 	ldh [rBCPS], a
@@ -1030,7 +1030,7 @@ Func_f0_4439::
 	ret
 
 
-Func_f0_451a::
+FE_ReadJoypadPressed::
 	ldh a, [$ff92]
 	ldh [$ff93], a
 	ld a, $20
@@ -1049,7 +1049,7 @@ Func_f0_451a::
 	ldh [$ff92], a
 	and $0f
 	cp $0f
-	jp z, Func_f0_45da.jump_4600
+	jp z, FE_ReadJoypadHeld.jump_4600
 	ldh a, [$ff92]
 	ld c, a
 	ldh a, [$ff93]
@@ -1059,7 +1059,7 @@ Func_f0_451a::
 	ret
 
 
-Func_f0_4547::
+FE_ReadJoypadPressed_Link::
 	ldh a, [$ff92]
 	ldh [$ff93], a
 	ld a, $20
@@ -1110,7 +1110,7 @@ Func_f0_4547::
 	jp Init
 
 
-Func_f0_4596::
+FE_ReadJoypadHeld_Link::
 	ldh a, [$ff91]
 	ldh [$ff93], a
 	ld a, $10
@@ -1130,13 +1130,13 @@ Func_f0_4596::
 	ldh [$ff91], a
 	and $0f
 	cp $0f
-	jp z, Func_f0_4547.jump_4572
+	jp z, FE_ReadJoypadPressed_Link.jump_4572
 	ld a, b
 	ret
 
 
-Func_f0_45bc::
-	call Func_f0_45da
+FE_WaitForButton::
+	call FE_ReadJoypadHeld
 .jump_45bf:
 	xor a
 	ldh [$ff80], a
@@ -1144,7 +1144,7 @@ Func_f0_45bc::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_45c2
-	call Func_f0_45da
+	call FE_ReadJoypadHeld
 	ldh a, [$ff91]
 	and $0f
 	jr z, .jump_45bf
@@ -1156,7 +1156,7 @@ Func_f0_45bc::
 	ret
 
 
-Func_f0_45da::
+FE_ReadJoypadHeld::
 	ldh a, [$ff91]
 	ldh [$ff93], a
 	ld a, $10
@@ -1187,7 +1187,7 @@ Func_f0_45da::
 	jp Init
 
 
-Func_f0_4608::
+FE_RandomBelow::
 	ld a, b
 	inc a
 	cp $00
@@ -1201,7 +1201,7 @@ Func_f0_4608::
 	jr .jump_4610
 
 .jump_4617:
-	call Func_f0_4620
+	call FE_Random
 	and b
 	cp c
 	jr nc, .jump_4617
@@ -1209,7 +1209,7 @@ Func_f0_4608::
 	ret
 
 
-Func_f0_4620::
+FE_Random::
 	push hl
 	push bc
 	ldh a, [$ff95]
@@ -1236,7 +1236,7 @@ Func_f0_4620::
 	ret
 
 
-Func_f0_4642::
+FE_SeedRandom::
 	ld a, b
 	cp $00
 	jr nz, .jump_4649
@@ -1252,7 +1252,7 @@ Func_f0_4642::
 	ret
 
 
-Func_f0_4657::
+FE_Multiply::
 	push hl
 	ld a, b
 	ld b, $00
@@ -1310,7 +1310,7 @@ Func_f0_4657::
 	ret
 
 
-Func_f0_46a5::
+FE_Divide::
 	xor a
 	rl c
 	rla
@@ -1368,7 +1368,7 @@ Func_f0_46a5::
 	ret
 
 
-Func_f0_46e4::
+FE_WaitFrames::
 	push de
 	xor a
 	ldh [$ff80], a
@@ -1376,27 +1376,27 @@ Func_f0_46e4::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_46e8
-	call Func_f0_45da
+	call FE_ReadJoypadHeld
 	pop de
 	dec d
-	jr nz, Func_f0_46e4
+	jr nz, FE_WaitFrames
 	ret
 
 
-Func_f0_46f6::
+FE_WaitSeconds::
 	push de
 	ld d, $3c
-	call Func_f0_46e4
+	call FE_WaitFrames
 	pop de
 	dec d
-	jr nz, Func_f0_46f6
+	jr nz, FE_WaitSeconds
 	ret
 
 
 Padding_f0_4701::
 	ds 6, $00 ; padding
 
-Func_f0_4707::
+FE_InitLineStep::
 	ld h, d
 	ld l, e
 	ld de, $0101
@@ -1480,7 +1480,7 @@ Func_f0_4707::
 	ret
 
 
-Func_f0_4761::
+FE_LineStep::
 	ld h, d
 	ld l, e
 	ld a, [hli]
@@ -1546,20 +1546,20 @@ Func_f0_4761::
 	ret
 
 
-Func_f0_47a5::
+FE_LoadPictureMap::
 	ld d, b
-	call Func_f0_4a40
+	call FE_GetPictureMapKind
 	ld a, b
 	ldh [$ff82], a
 	ld b, d
 	cp $00
-	jp z, Func_f0_47d8
+	jp z, FE_CopyPictureMap
 	cp $01
-	jp z, Func_f0_47d8.jump_4840
+	jp z, FE_CopyPictureMap.jump_4840
 	cp $02
 	jp z, .jump_47bc
 .jump_47bc:
-	call Func_f0_47d8
+	call FE_CopyPictureMap
 	ld a, $02
 	ldh [rSVBK], a
 	ld hl, $d000
@@ -1577,12 +1577,12 @@ Func_f0_47a5::
 	ret
 
 
-Func_f0_47d8::
+FE_CopyPictureMap::
 	ld e, b
-	call Func_f0_4a52
+	call FE_GetPictureHeight
 	ld a, b
 	ldh [$ff84], a
-	call Func_f0_4a49
+	call FE_GetPictureWidth
 	ld a, b
 	ldh [$ff83], a
 	ld a, e
@@ -1611,7 +1611,7 @@ Func_f0_47d8::
 	push hl
 	ld b, $20
 .jump_480a:
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	ld [de], a
 	inc de
@@ -1632,7 +1632,7 @@ Func_f0_47d8::
 	push hl
 	ld b, $20
 .jump_4827:
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	ld [de], a
 	inc de
@@ -1699,7 +1699,7 @@ Func_f0_47d8::
 	ret
 
 
-Func_f0_4882::
+FE_LoadPicture::
 	ld a, b
 	ld l, b
 	ld h, $00
@@ -1716,8 +1716,8 @@ Func_f0_4882::
 	inc hl
 	push hl
 	ld b, a
-	call Func_f0_47a5
-	call Func_f0_49ec
+	call FE_LoadPictureMap
+	call FE_UploadBGMap
 	pop hl
 	ld a, [hli]
 	ld [$c800], a
@@ -1730,7 +1730,7 @@ Func_f0_4882::
 	ld l, c
 	ld bc, $c806
 	ld de, $0040
-	call $c886
+	call FE_FarCopy
 	xor a
 	ldh [rSCX], a
 	ldh [rSCY], a
@@ -1742,35 +1742,35 @@ Func_f0_4882::
 	ld l, a
 	ld bc, $9000
 	ld d, $7f
-	call Func_f0_404c
+	call FE_HDMAAcrossBanks
 	ld bc, $0800
-	call Func_f0_40d0
+	call FE_AdvanceFarPointer
 	ld bc, $8800
-	call Func_f0_404c
+	call FE_HDMAAcrossBanks
 	ldh a, [$ff82]
 	cp $02
 	ret z
 	ld a, $01
 	ldh [rVBK], a
 	ld bc, $0800
-	call Func_f0_40d0
+	call FE_AdvanceFarPointer
 	ld bc, $9000
-	call Func_f0_404c
+	call FE_HDMAAcrossBanks
 	ld bc, $0800
-	call Func_f0_40d0
+	call FE_AdvanceFarPointer
 	ld bc, $8800
-	call Func_f0_404c
+	call FE_HDMAAcrossBanks
 	ret
 
 
-Func_f0_48f4::
+FE_LoadPictureTilesInverted_Check::
 	ld a, d
 	cp $00
-	jp z, Func_f0_48fa.jump_496d
+	jp z, FE_LoadPictureTilesInverted.jump_496d
 
-Func_f0_48fa::
+FE_LoadPictureTilesInverted::
 	ld a, b
-	call Func_f0_4a52
+	call FE_GetPictureHeight
 	push bc
 	ld c, a
 	ld b, $00
@@ -1812,7 +1812,7 @@ Func_f0_48fa::
 	push bc
 	ldh a, [$ff83]
 	ld [$c800], a
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	pop bc
 	push hl
@@ -1824,11 +1824,11 @@ Func_f0_48fa::
 	ld h, a
 	ldh a, [$ff84]
 	ld [$c800], a
-	call Func_f0_40d0
+	call FE_AdvanceFarPointer
 	push bc
 	ld b, $10
 .jump_494d:
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	cpl
 	ld [de], a
@@ -1854,7 +1854,7 @@ Func_f0_48fa::
 
 .jump_496d:
 	ld a, b
-	call Func_f0_4a52
+	call FE_GetPictureHeight
 	ld c, b
 	ld l, a
 	ld e, a
@@ -1875,12 +1875,12 @@ Func_f0_48fa::
 	ldh [rSVBK], a
 	ld de, $d000
 	ld b, $14
-	call Func_f0_4657
+	call FE_Multiply
 .jump_4992:
 	push bc
 	ld b, $10
 .jump_4995:
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	cpl
 	ld [de], a
@@ -1913,30 +1913,30 @@ Func_f0_48fa::
 	ret
 
 
-Func_f0_49c3::
+FE_SaveBGMap::
 	ld a, $02
 	ldh [rSVBK], a
 	ld hl, $d000
 	ld bc, $d800
 	ld de, $0800
-	call Func_f0_4139
+	call FE_CopyBytes
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f0_49d8::
+FE_RestoreBGMap::
 	ld a, $02
 	ldh [rSVBK], a
 	ld hl, $d800
 	ld bc, $d000
 	ld de, $0800
-	call Func_f0_4139
-	call Func_f0_49ec
+	call FE_CopyBytes
+	call FE_UploadBGMap
 	ret
 
 
-Func_f0_49ec::
+FE_UploadBGMap::
 	ld a, $02
 	ldh [rSVBK], a
 	ld a, $01
@@ -1950,17 +1950,17 @@ Func_f0_49ec::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_49ff
-	call $c8cd
+	call FE_HDMA
 	xor a
 	ldh [rVBK], a
 	ld hl, $d400
-	call $c8cd
+	call FE_HDMA
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f0_4a16::
+FE_UploadBGMap9C00::
 	ld a, $02
 	ldh [rSVBK], a
 	ld a, $01
@@ -1974,17 +1974,17 @@ Func_f0_4a16::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_4a29
-	call $c8cd
+	call FE_HDMA
 	xor a
 	ldh [rVBK], a
 	ld hl, $d400
-	call $c8cd
+	call FE_HDMA
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f0_4a40::
+FE_GetPictureMapKind::
 	ld hl, $5328
 	ld c, b
 	ld b, $00
@@ -1993,7 +1993,7 @@ Func_f0_4a40::
 	ret
 
 
-Func_f0_4a49::
+FE_GetPictureWidth::
 	ld hl, $5452
 	ld c, b
 	ld b, $00
@@ -2002,7 +2002,7 @@ Func_f0_4a49::
 	ret
 
 
-Func_f0_4a52::
+FE_GetPictureHeight::
 	ld hl, $53bd
 	ld c, b
 	ld b, $00
@@ -2011,7 +2011,7 @@ Func_f0_4a52::
 	ret
 
 
-Func_f0_4a5b::
+FE_GetPictureMapPointer::
 	ld l, b
 	ld c, b
 	ld h, $00
@@ -2031,7 +2031,7 @@ Func_f0_4a5b::
 	ret
 
 
-Func_f0_4a71::
+FE_GetPictureTilesPointer::
 	ld l, b
 	ld c, b
 	ld h, $00
@@ -2051,7 +2051,7 @@ Func_f0_4a71::
 	ret
 
 
-Func_f0_4a87::
+FE_GetPicturePalettesPointer::
 	ld l, b
 	ld c, b
 	ld h, $00
@@ -2137,14 +2137,14 @@ UniqueTileMap::
 	db $dc, $dd, $de, $df, $e0, $e1, $e2, $e3, $e4, $e5, $e6, $e7, $e8, $e9, $ea, $eb, $ec, $ed, $ee, $ef
 	db $f0, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $fa, $fb, $fc, $fd, $fe, $ff, $00, $01, $02, $03
 
-Func_f0_4f9d::
+FE_InstallSpriteCopy::
 	ld hl, $528b
-	ld bc, $c8e7
+	ld bc, FE_FarCopySprites
 	ld d, $49
-	jp Func_f0_4132
+	jp FE_CopyBytesShort
 
 
-Func_f0_4fa8::
+FE_DrawSpriteAnim::
 	ld a, d
 	add a, a
 	add a, a
@@ -2183,7 +2183,7 @@ Func_f0_4fa8::
 	add hl, de
 	ld e, a
 	ld d, $c0
-	call Func_f0_519a
+	call FE_PlaceSpritesSteppedFlip
 	ld a, c
 	cp $00
 	ret z
@@ -2205,7 +2205,7 @@ Func_f0_4fa8::
 	ld a, b
 	ldh [$ff82], a
 	pop bc
-	call $c8e7
+	call FE_FarCopySprites
 	pop de
 	ret
 
@@ -2222,7 +2222,7 @@ Func_f0_4fa8::
 	add hl, de
 	ld d, $c0
 	ld e, a
-	call Func_f0_50f7
+	call FE_PlaceSpritesFixed
 	ld a, c
 	cp $00
 	ret z
@@ -2244,7 +2244,7 @@ Func_f0_4fa8::
 	ld a, b
 	ldh [$ff82], a
 	pop bc
-	call $c8e7
+	call FE_FarCopySprites
 	pop de
 	ret
 
@@ -2267,7 +2267,7 @@ Func_f0_4fa8::
 	ld e, a
 	push hl
 	push de
-	call Func_f0_519a
+	call FE_PlaceSpritesSteppedFlip
 	ld a, c
 	cp $00
 	jr z, .jump_5039
@@ -2288,13 +2288,13 @@ Func_f0_4fa8::
 	ld a, b
 	ldh [$ff82], a
 	pop bc
-	call $c8e7
+	call FE_FarCopySprites
 	ldh a, [$ff83]
 	srl a
 	ldh [$ff82], a
 	pop de
 	pop bc
-	call Func_f0_517f
+	call FE_AddSpriteAttributes
 	ret
 
 .jump_507b:
@@ -2311,7 +2311,7 @@ Func_f0_4fa8::
 	ld e, a
 	push hl
 	push de
-	call Func_f0_50f7
+	call FE_PlaceSpritesFixed
 	ld a, c
 	cp $00
 	jr z, .jump_5039
@@ -2332,13 +2332,13 @@ Func_f0_4fa8::
 	ld a, b
 	ldh [$ff82], a
 	pop bc
-	call $c8e7
+	call FE_FarCopySprites
 	ldh a, [$ff83]
 	srl a
 	ldh [$ff82], a
 	pop de
 	pop bc
-	call Func_f0_517f
+	call FE_AddSpriteAttributes
 	ret
 
 .jump_50ba:
@@ -2355,7 +2355,7 @@ Func_f0_4fa8::
 	ld e, a
 	push hl
 	push de
-	call Func_f0_513b
+	call FE_PlaceSpritesStepped
 	ld a, c
 	cp $00
 	jp z, .jump_5039
@@ -2375,16 +2375,16 @@ Func_f0_4fa8::
 	ld a, b
 	ldh [$ff82], a
 	pop bc
-	call $c8e7
+	call FE_FarCopySprites
 	ldh a, [$ff83]
 	ldh [$ff82], a
 	pop de
 	pop bc
-	call Func_f0_517f
+	call FE_AddSpriteAttributes
 	ret
 
 
-Func_f0_50f7::
+FE_PlaceSpritesFixed::
 	push hl
 	ld d, [hl]
 	ld a, $04
@@ -2448,7 +2448,7 @@ Func_f0_50f7::
 	ret
 
 
-Func_f0_513b::
+FE_PlaceSpritesStepped::
 	push hl
 	ld d, [hl]
 	ld a, $04
@@ -2513,7 +2513,7 @@ Func_f0_513b::
 	ret
 
 
-Func_f0_517f::
+FE_AddSpriteAttributes::
 	ld l, $06
 	ld h, $00
 	add hl, bc
@@ -2540,7 +2540,7 @@ Func_f0_517f::
 	ret
 
 
-Func_f0_519a::
+FE_PlaceSpritesSteppedFlip::
 	push hl
 	ld d, [hl]
 	ld a, $04
@@ -2751,7 +2751,7 @@ Func_f0_519a::
 	ret
 
 
-Func_f0_528b::
+FE_FarCopySprites_Code::
 	ldh a, [$ff81]
 	push af
 	ldh a, [$ff82]
@@ -2818,7 +2818,7 @@ Func_f0_528b::
 	ret
 
 
-Func_f0_52d4::
+FE_ClearOAM::
 	ld hl, $c000
 	ld d, $28
 	xor a
@@ -2832,18 +2832,18 @@ Func_f0_52d4::
 	ret
 
 
-Func_f0_52e2::
+FE_InstallSoundRoutines::
 	ld hl, $52f8
-	ld bc, $c930
+	ld bc, FE_UpdateSound
 	ld d, $1b
-	call Func_f0_4132
+	call FE_CopyBytesShort
 	ld hl, $5313
-	ld bc, $c94b
+	ld bc, FE_PlaySong
 	ld d, $15
-	jp Func_f0_4132
+	jp FE_CopyBytesShort
 
 
-Func_f0_52f8::
+FE_UpdateSound_Code::
 	push af
 	push bc
 	push de
@@ -2865,7 +2865,7 @@ Func_f0_52f8::
 	ret
 
 
-Func_f0_5313::
+FE_PlaySong_Code::
 	ld b, a
 	ldh a, [$ff81]
 	push af
@@ -2881,7 +2881,7 @@ Func_f0_5313::
 	ret
 
 
-PictureInfoA::
+PictureMapKinds::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $01, $01, $01, $02, $02, $02, $01, $01
 	db $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00, $00, $02
 	db $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02
@@ -2893,7 +2893,7 @@ PictureInfoA::
 	db $00, $00, $00, $00, $00, $02, $02, $02, $02, $02, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00
 
-PictureInfoB::
+PictureHeights::
 	db $12, $12, $12, $12, $12, $12, $10, $10, $12, $12, $12, $12, $12, $12, $12, $12
 	db $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12
 	db $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12
@@ -2905,7 +2905,7 @@ PictureInfoB::
 	db $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12, $12
 	db $12, $12, $12, $12, $12
 
-PictureInfoC::
+PictureWidths::
 	db $14, $14, $14, $14, $14, $14, $10, $10, $14, $14, $14, $14, $14, $14, $14, $14
 	db $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14
 	db $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14, $14
@@ -5028,7 +5028,7 @@ SpriteLayout_f0_6ad1::
 	db -6, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-Func_f0_6ad5::
+FE_DrawTextFromPointer::
 	ld h, d
 	ld l, e
 	push bc
@@ -5041,11 +5041,11 @@ FE_DrawText::
 	push de
 	call FE_GetTextPointer
 	pop de
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	add a, e
 	ld b, a
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	add a, d
 	ld d, b
@@ -5068,7 +5068,7 @@ FE_DrawText::
 	push bc
 .jump_6b02:
 	push bc
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	pop bc
 	cp $20
@@ -5118,15 +5118,15 @@ FE_DrawText::
 	ret
 
 
-Func_f0_6b44::
+FE_DrawTextOnMap::
 	ld a, $02
 	ldh [rSVBK], a
 	call FE_GetTextPointer
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	add a, e
 	ld b, a
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	add a, d
 	ld d, b
@@ -5149,7 +5149,7 @@ Func_f0_6b44::
 	push bc
 .jump_6b6a:
 	push bc
-	call $c8b9
+	call FE_FarReadByte
 	ld a, c
 	pop bc
 	cp $20
@@ -5205,7 +5205,7 @@ Func_f0_6b44::
 	ret
 
 
-Func_f0_6bb6::
+FE_DrawBox::
 	dec c
 	dec b
 	dec c
@@ -5319,12 +5319,12 @@ Func_f0_6bb6::
 	ret
 
 
-Func_f0_6c60::
+FE_DrawTextInBox::
 	push bc
 	push de
 	push de
 	call FE_GetTextPointer
-	call $c8a3
+	call FE_FarReadWord
 	pop de
 	ld a, d
 	add a, b
@@ -5333,11 +5333,11 @@ Func_f0_6c60::
 	add a, c
 	ld c, a
 	push bc
-	call $c8a3
+	call FE_FarReadWord
 	pop de
 	dec e
 	dec d
-	call Func_f0_6bb6
+	call FE_DrawBox
 	pop de
 	pop bc
 	call FE_DrawText

@@ -3,247 +3,247 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $34", ROMX[$4000], BANK[$34]
 
-FrameTiles_34_4000::
+FrameTiles_Touch_Hurt_1::
 	INCBIN "gfx/frames/34/4000.2bpp"
 
-FrameTiles_34_41a0::
+FrameTiles_Touch_Hurt_2::
 	INCBIN "gfx/frames/34/41a0.2bpp"
 
-FrameTiles_34_4340::
+FrameTiles_Touch_Hurt_3::
 	INCBIN "gfx/frames/34/4340.2bpp"
 
-FrameTiles_34_44e0::
+FrameTiles_Touch_Hurt_4::
 	INCBIN "gfx/frames/34/44e0.2bpp"
 
-FrameTiles_34_4680::
+FrameTiles_MineCartKrash_SetSlopeFrame_1::
 	INCBIN "gfx/frames/34/4680.2bpp"
 
-FrameTiles_34_4700::
+FrameTiles_MineCartKrash_SetSlopeFrame_2::
 	INCBIN "gfx/frames/34/4700.2bpp"
 
-FrameTiles_34_4780::
+FrameTiles_MineCartKrash_SetSlopeFrame_3::
 	INCBIN "gfx/frames/34/4780.2bpp"
 
-FrameTiles_34_4800::
+FrameTiles_MineCartKrash_SetSlopeFrame_4::
 	INCBIN "gfx/frames/34/4800.2bpp"
 
-FrameTiles_34_4860::
+FrameTiles_MineCartKrash_SetSlopeFrame_5::
 	INCBIN "gfx/frames/34/4860.2bpp"
 
-FrameTiles_34_48c0::
+FrameTiles_MineCartKrash_SetSlopeFrame_6::
 	INCBIN "gfx/frames/34/48c0.2bpp"
 
-FrameTiles_34_4940::
+FrameTiles_MineCartKrash_SetSlopeFrame_7::
 	INCBIN "gfx/frames/34/4940.2bpp"
 
-FrameTiles_34_49c0::
+FrameTiles_MineCartKrash_SetSlopeFrame_8::
 	INCBIN "gfx/frames/34/49c0.2bpp"
 
-FrameTiles_34_4a40::
+FrameTiles_MineCartKrash_SetSlopeFrame_9::
 	INCBIN "gfx/frames/34/4a40.2bpp"
 
-FrameTiles_34_4aa0::
+FrameTiles_Unused_80::
 	INCBIN "gfx/frames/34/4aa0.2bpp"
 
-FrameTiles_34_4b20::
+FrameTiles_Unused_81::
 	INCBIN "gfx/frames/34/4b20.2bpp"
 
-FrameTiles_34_4ba0::
+FrameTiles_Unused_82::
 	INCBIN "gfx/frames/34/4ba0.2bpp"
 
-FrameTiles_34_4c20::
+FrameTiles_Unused_83::
 	INCBIN "gfx/frames/34/4c20.2bpp"
 
-FrameTiles_34_4ca0::
+FrameTiles_SetPlayerAnimation_194::
 	INCBIN "gfx/frames/34/4ca0.2bpp"
 
-FrameTiles_34_4d60::
+FrameTiles_SetPlayerAnimation_195::
 	INCBIN "gfx/frames/34/4d60.2bpp"
 
-FrameTiles_34_4e40::
+FrameTiles_SetPlayerAnimation_196::
 	INCBIN "gfx/frames/34/4e40.2bpp"
 
-FrameTiles_34_4f20::
+FrameTiles_SetPlayerAnimation_197::
 	INCBIN "gfx/frames/34/4f20.2bpp"
 
-FrameTiles_34_5000::
+FrameTiles_SetPlayerAnimation_198::
 	INCBIN "gfx/frames/34/5000.2bpp"
 
-FrameTiles_34_50c0::
+FrameTiles_SetPlayerAnimation_199::
 	INCBIN "gfx/frames/34/50c0.2bpp"
 
-FrameTiles_34_5180::
+FrameTiles_SetPlayerAnimation_200::
 	INCBIN "gfx/frames/34/5180.2bpp"
 
-FrameTiles_34_5280::
+FrameTiles_SetPlayerAnimation_201::
 	INCBIN "gfx/frames/34/5280.2bpp"
 
-FrameTiles_34_53a0::
+FrameTiles_SetPlayerAnimation_202::
 	INCBIN "gfx/frames/34/53a0.2bpp"
 
-FrameTiles_34_54e0::
+FrameTiles_SetPlayerAnimation_203::
 	INCBIN "gfx/frames/34/54e0.2bpp"
 
-FrameTiles_34_5600::
+FrameTiles_SetPlayerAnimation_204::
 	INCBIN "gfx/frames/34/5600.2bpp"
 
-FrameTiles_34_5740::
+FrameTiles_SetPlayerAnimation_205::
 	INCBIN "gfx/frames/34/5740.2bpp"
 
-FrameTiles_34_5880::
+FrameTiles_Touch_Hurt_5::
 	INCBIN "gfx/frames/34/5880.2bpp"
 
-FrameTiles_34_5980::
+FrameTiles_Touch_Hurt_6::
 	INCBIN "gfx/frames/34/5980.2bpp"
 
-FrameTiles_34_5a60::
+FrameTiles_Touch_Hurt_7::
 	INCBIN "gfx/frames/34/5a60.2bpp"
 
-FrameTiles_34_5b60::
+FrameTiles_Touch_Hurt_8::
 	INCBIN "gfx/frames/34/5b60.2bpp"
 
-FrameTiles_34_5c40::
+FrameTiles_Unused_84::
 	INCBIN "gfx/frames/34/5c40.2bpp"
 
-FrameTiles_34_5ca0::
+FrameTiles_OilDrum_Burn_1::
 	INCBIN "gfx/frames/34/5ca0.2bpp"
 
-FrameTiles_34_5d00::
+FrameTiles_OilDrum_Burn_2::
 	INCBIN "gfx/frames/34/5d00.2bpp"
 
-FrameTiles_34_5d60::
+FrameTiles_OilDrum_Burn_3::
 	INCBIN "gfx/frames/34/5d60.2bpp"
 
-FrameTiles_34_5da0::
+FrameTiles_OilDrum_Burn_4::
 	INCBIN "gfx/frames/34/5da0.2bpp"
 
-FrameTiles_34_5de0::
+FrameTiles_OilDrum_Burn_5::
 	INCBIN "gfx/frames/34/5de0.2bpp"
 
-FrameTiles_34_5e00::
+FrameTiles_OilDrum_Burn_6::
 	INCBIN "gfx/frames/34/5e00.2bpp"
 
-FrameTiles_34_5e20::
+FrameTiles_OilDrum_Wait_1::
 	INCBIN "gfx/frames/34/5e20.2bpp"
 
-FrameTiles_34_5e80::
+FrameTiles_OilDrum_Wait_2::
 	INCBIN "gfx/frames/34/5e80.2bpp"
 
-FrameTiles_34_5ee0::
+FrameTiles_OilDrum_Wait_3::
 	INCBIN "gfx/frames/34/5ee0.2bpp"
 
-FrameTiles_34_5f40::
+FrameTiles_OilDrum_Wait_4::
 	INCBIN "gfx/frames/34/5f40.2bpp"
 
-FrameTiles_34_5fa0::
+FrameTiles_OilDrum_Wait_5::
 	INCBIN "gfx/frames/34/5fa0.2bpp"
 
-FrameTiles_34_6000::
+FrameTiles_OilDrum_Wait_6::
 	INCBIN "gfx/frames/34/6000.2bpp"
 
-FrameTiles_34_6060::
+FrameTiles_OilDrum_Wait_7::
 	INCBIN "gfx/frames/34/6060.2bpp"
 
-FrameTiles_34_60c0::
+FrameTiles_SetPlayerAnimation_206::
 	INCBIN "gfx/frames/34/60c0.2bpp"
 
-FrameTiles_34_61a0::
+FrameTiles_SetPlayerAnimation_207::
 	INCBIN "gfx/frames/34/61a0.2bpp"
 
-FrameTiles_34_62c0::
+FrameTiles_SetPlayerAnimation_208::
 	INCBIN "gfx/frames/34/62c0.2bpp"
 
-FrameTiles_34_63c0::
+FrameTiles_SetPlayerAnimation_209::
 	INCBIN "gfx/frames/34/63c0.2bpp"
 
-FrameTiles_34_64a0::
+FrameTiles_SetPlayerAnimation_210::
 	INCBIN "gfx/frames/34/64a0.2bpp"
 
-FrameTiles_34_6580::
+FrameTiles_SetPlayerAnimation_211::
 	INCBIN "gfx/frames/34/6580.2bpp"
 
-FrameTiles_34_6660::
+FrameTiles_SetPlayerAnimation_212::
 	INCBIN "gfx/frames/34/6660.2bpp"
 
-FrameTiles_34_6740::
+FrameTiles_SetPlayerAnimation_213::
 	INCBIN "gfx/frames/34/6740.2bpp"
 
-FrameTiles_34_6840::
+FrameTiles_SetPlayerAnimation_214::
 	INCBIN "gfx/frames/34/6840.2bpp"
 
-FrameTiles_34_6940::
+FrameTiles_SetPlayerAnimation_215::
 	INCBIN "gfx/frames/34/6940.2bpp"
 
-FrameTiles_34_6a20::
+FrameTiles_SetPlayerAnimation_216::
 	INCBIN "gfx/frames/34/6a20.2bpp"
 
-FrameTiles_34_6b20::
+FrameTiles_SetPlayerAnimation_217::
 	INCBIN "gfx/frames/34/6b20.2bpp"
 
-FrameTiles_34_6c00::
+FrameTiles_SetPlayerAnimation_218::
 	INCBIN "gfx/frames/34/6c00.2bpp"
 
-FrameTiles_34_6cc0::
+FrameTiles_SetPlayerAnimation_219::
 	INCBIN "gfx/frames/34/6cc0.2bpp"
 
-FrameTiles_34_6d80::
+FrameTiles_SetPlayerAnimation_220::
 	INCBIN "gfx/frames/34/6d80.2bpp"
 
-FrameTiles_34_6e40::
+FrameTiles_SetPlayerAnimation_221::
 	INCBIN "gfx/frames/34/6e40.2bpp"
 
-FrameTiles_34_6f00::
+FrameTiles_SetPlayerAnimation_222::
 	INCBIN "gfx/frames/34/6f00.2bpp"
 
-FrameTiles_34_6fc0::
+FrameTiles_SetPlayerAnimation_223::
 	INCBIN "gfx/frames/34/6fc0.2bpp"
 
-FrameTiles_34_7080::
+FrameTiles_SetPlayerAnimation_224::
 	INCBIN "gfx/frames/34/7080.2bpp"
 
-FrameTiles_34_7160::
+FrameTiles_SetPlayerAnimation_225::
 	INCBIN "gfx/frames/34/7160.2bpp"
 
-FrameTiles_34_7220::
+FrameTiles_SetPlayerAnimation_226::
 	INCBIN "gfx/frames/34/7220.2bpp"
 
-FrameTiles_34_72e0::
+FrameTiles_SetPlayerAnimation_227::
 	INCBIN "gfx/frames/34/72e0.2bpp"
 
-FrameTiles_34_73a0::
+FrameTiles_SetPlayerAnimation_228::
 	INCBIN "gfx/frames/34/73a0.2bpp"
 
-FrameTiles_34_7460::
+FrameTiles_SetPlayerAnimation_229::
 	INCBIN "gfx/frames/34/7460.2bpp"
 
-FrameTiles_34_7500::
+FrameTiles_SetPlayerAnimation_230::
 	INCBIN "gfx/frames/34/7500.2bpp"
 
-FrameTiles_34_75a0::
+FrameTiles_SetPlayerAnimation_231::
 	INCBIN "gfx/frames/34/75a0.2bpp"
 
-FrameTiles_34_7640::
+FrameTiles_SetPlayerAnimation_232::
 	INCBIN "gfx/frames/34/7640.2bpp"
 
-FrameTiles_34_7700::
+FrameTiles_SetPlayerAnimation_233::
 	INCBIN "gfx/frames/34/7700.2bpp"
 
-FrameTiles_34_77c0::
+FrameTiles_SetPlayerAnimation_234::
 	INCBIN "gfx/frames/34/77c0.2bpp"
 
-FrameTiles_34_7880::
+FrameTiles_LoopElevator::
 	INCBIN "gfx/frames/34/7880.2bpp"
 
-FrameTiles_34_7900::
+FrameTiles_BlackDrum::
 	INCBIN "gfx/frames/34/7900.2bpp"
 
-FrameTiles_34_79c0::
+FrameTiles_Unused_85::
 	INCBIN "gfx/frames/34/79c0.2bpp"
 
-FrameTiles_34_7a00::
+FrameTiles_Unused_86::
 	INCBIN "gfx/frames/34/7a00.2bpp"
 
-FrameSprites_34_7a60::
+FrameSprites_Touch_Hurt_1::
 	db -19, -34
 	db 0, 16
 	db 8, -20
@@ -258,7 +258,7 @@ FrameSprites_34_7a60::
 	db 8, -28
 	db 0, 16
 
-FrameSprites_34_7a7a::
+FrameSprites_Touch_Hurt_2::
 	db -19, -34
 	db 0, 16
 	db 8, -20
@@ -273,7 +273,7 @@ FrameSprites_34_7a7a::
 	db 8, -28
 	db 0, 16
 
-FrameSprites_34_7a94::
+FrameSprites_Touch_Hurt_3::
 	db -19, -34
 	db 0, 16
 	db 8, -20
@@ -288,7 +288,7 @@ FrameSprites_34_7a94::
 	db 8, -28
 	db 0, 16
 
-FrameSprites_34_7aae::
+FrameSprites_Touch_Hurt_4::
 	db -19, -34
 	db 0, 16
 	db 8, -20
@@ -303,82 +303,82 @@ FrameSprites_34_7aae::
 	db 8, -28
 	db 0, 16
 
-FrameSprites_34_7ac8::
+FrameSprites_MineCartKrash_SetSlopeFrame_1::
 	db -20, -37
 	db 8, 0
 	db 8, 0
 	db 8, 2
 
-FrameSprites_34_7ad0::
+FrameSprites_MineCartKrash_SetSlopeFrame_2::
 	db -24, -33
 	db 8, -2
 	db 8, -2
 	db 8, -2
 
-FrameSprites_34_7ad8::
+FrameSprites_MineCartKrash_SetSlopeFrame_3::
 	db -34, -27
 	db 16, -6
 	db -8, 4
 	db 16, -8
 
-FrameSprites_34_7ae0::
+FrameSprites_MineCartKrash_SetSlopeFrame_4::
 	db -30, -22
 	db 5, -7
 	db 8, -3
 
-FrameSprites_34_7ae6::
+FrameSprites_MineCartKrash_SetSlopeFrame_5::
 	db -30, -28
 	db -1, 16
 	db 9, -16
 
-FrameSprites_34_7aec::
+FrameSprites_MineCartKrash_SetSlopeFrame_6::
 	db -13, -39
 	db 8, 3
 	db 8, 2
 	db 8, 1
 
-FrameSprites_34_7af4::
+FrameSprites_MineCartKrash_SetSlopeFrame_7::
 	db -8, -39
 	db 8, 4
 	db 8, 5
 	db 8, 2
 
-FrameSprites_34_7afc::
+FrameSprites_MineCartKrash_SetSlopeFrame_8::
 	db -5, -41
 	db 8, 8
 	db 8, 8
 	db 8, 3
 
-FrameSprites_34_7b04::
+FrameSprites_MineCartKrash_SetSlopeFrame_9::
 	db 6, -35
 	db 8, 16
 	db 7, 3
 
-FrameSprites_34_7b0a::
+FrameSprites_Unused_80::
 	db -21, -37
 	db 8, 0
 	db 8, 0
 	db 8, 3
 
-FrameSprites_34_7b12::
+FrameSprites_Unused_81::
 	db -21, -37
 	db 8, 0
 	db 8, 0
 	db 8, 3
 
-FrameSprites_34_7b1a::
+FrameSprites_Unused_82::
 	db -21, -37
 	db 8, 0
 	db 8, 0
 	db 8, 3
 
-FrameSprites_34_7b22::
+FrameSprites_Unused_83::
 	db -19, -37
 	db 9, 0
 	db 8, 0
 	db 8, 3
 
-FrameSprites_34_7b2a::
+FrameSprites_SetPlayerAnimation_194::
 	db -19, -44
 	db 3, 16
 	db 5, -16
@@ -386,7 +386,7 @@ FrameSprites_34_7b2a::
 	db 5, -16
 	db 3, 16
 
-FrameSprites_34_7b36::
+FrameSprites_SetPlayerAnimation_195::
 	db -16, -35
 	db 0, 16
 	db 8, -21
@@ -395,7 +395,7 @@ FrameSprites_34_7b36::
 	db 0, 16
 	db 8, 10
 
-FrameSprites_34_7b44::
+FrameSprites_SetPlayerAnimation_196::
 	db -16, -36
 	db 0, 16
 	db 8, -20
@@ -404,7 +404,7 @@ FrameSprites_34_7b44::
 	db 0, 16
 	db 8, 4
 
-FrameSprites_34_7b52::
+FrameSprites_SetPlayerAnimation_197::
 	db -16, -36
 	db 0, 16
 	db 8, -19
@@ -413,7 +413,7 @@ FrameSprites_34_7b52::
 	db 0, 16
 	db 8, 3
 
-FrameSprites_34_7b60::
+FrameSprites_SetPlayerAnimation_198::
 	db -16, -35
 	db 0, 16
 	db 8, -20
@@ -421,7 +421,7 @@ FrameSprites_34_7b60::
 	db 8, -19
 	db 0, 16
 
-FrameSprites_34_7b6c::
+FrameSprites_SetPlayerAnimation_199::
 	db -16, -35
 	db 0, 16
 	db 8, -22
@@ -429,7 +429,7 @@ FrameSprites_34_7b6c::
 	db 8, -18
 	db 0, 16
 
-FrameSprites_34_7b78::
+FrameSprites_SetPlayerAnimation_200::
 	db -28, -40
 	db 8, -1
 	db 8, -10
@@ -439,7 +439,7 @@ FrameSprites_34_7b78::
 	db 8, -9
 	db 0, 21
 
-FrameSprites_34_7b88::
+FrameSprites_SetPlayerAnimation_201::
 	db -26, -43
 	db 8, 1
 	db 8, -9
@@ -450,7 +450,7 @@ FrameSprites_34_7b88::
 	db 8, -3
 	db 0, 16
 
-FrameSprites_34_7b9a::
+FrameSprites_SetPlayerAnimation_202::
 	db -25, -43
 	db 8, 0
 	db 0, 17
@@ -462,7 +462,7 @@ FrameSprites_34_7b9a::
 	db 0, 16
 	db 8, -18
 
-FrameSprites_34_7bae::
+FrameSprites_SetPlayerAnimation_203::
 	db -26, -40
 	db 8, -2
 	db 8, -9
@@ -473,7 +473,7 @@ FrameSprites_34_7bae::
 	db 0, 16
 	db 8, -21
 
-FrameSprites_34_7bc0::
+FrameSprites_SetPlayerAnimation_204::
 	db -27, -37
 	db 8, -4
 	db 8, -10
@@ -485,7 +485,7 @@ FrameSprites_34_7bc0::
 	db 8, -22
 	db 0, 16
 
-FrameSprites_34_7bd4::
+FrameSprites_SetPlayerAnimation_205::
 	db -27, -38
 	db 8, -8
 	db 0, 16
@@ -497,7 +497,7 @@ FrameSprites_34_7bd4::
 	db 8, -9
 	db 0, 16
 
-FrameSprites_34_7be8::
+FrameSprites_Touch_Hurt_5::
 	db -19, -11
 	db 0, 16
 	db 8, -21
@@ -507,7 +507,7 @@ FrameSprites_34_7be8::
 	db 8, -12
 	db 0, 16
 
-FrameSprites_34_7bf8::
+FrameSprites_Touch_Hurt_6::
 	db -17, -10
 	db 0, 16
 	db 8, -21
@@ -516,7 +516,7 @@ FrameSprites_34_7bf8::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_34_7c06::
+FrameSprites_Touch_Hurt_7::
 	db -17, -11
 	db 0, 16
 	db 8, -22
@@ -526,7 +526,7 @@ FrameSprites_34_7c06::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_34_7c16::
+FrameSprites_Touch_Hurt_8::
 	db -17, -10
 	db 0, 16
 	db 8, -21
@@ -535,71 +535,71 @@ FrameSprites_34_7c16::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_34_7c24::
+FrameSprites_Unused_84::
 	db -11, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c2a::
+FrameSprites_OilDrum_Burn_1::
 	db -12, -37
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c30::
+FrameSprites_OilDrum_Burn_2::
 	db -11, -35
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c36::
+FrameSprites_OilDrum_Burn_3::
 	db -7, -34
 	db 8, 0
 
-FrameSprites_34_7c3a::
+FrameSprites_OilDrum_Burn_4::
 	db -7, -32
 	db 8, 0
 
-FrameSprites_34_7c3e::
+FrameSprites_OilDrum_Burn_5::
 	db -4, -31
 
-FrameSprites_34_7c40::
+FrameSprites_OilDrum_Burn_6::
 	db -4, -28
 
-FrameSprites_34_7c42::
+FrameSprites_OilDrum_Wait_1::
 	db -12, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c48::
+FrameSprites_OilDrum_Wait_2::
 	db -12, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c4e::
+FrameSprites_OilDrum_Wait_3::
 	db -12, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c54::
+FrameSprites_OilDrum_Wait_4::
 	db -12, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c5a::
+FrameSprites_OilDrum_Wait_5::
 	db -12, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c60::
+FrameSprites_OilDrum_Wait_6::
 	db -12, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c66::
+FrameSprites_OilDrum_Wait_7::
 	db -12, -39
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7c6c::
+FrameSprites_SetPlayerAnimation_206::
 	db -6, -28
 	db 0, 16
 	db 8, -20
@@ -608,7 +608,7 @@ FrameSprites_34_7c6c::
 	db 8, -32
 	db 0, 22
 
-FrameSprites_34_7c7a::
+FrameSprites_SetPlayerAnimation_207::
 	db -13, -26
 	db 0, 16
 	db 8, -22
@@ -619,7 +619,7 @@ FrameSprites_34_7c7a::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_34_7c8c::
+FrameSprites_SetPlayerAnimation_208::
 	db -13, -24
 	db 0, 16
 	db 8, -24
@@ -629,7 +629,7 @@ FrameSprites_34_7c8c::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_34_7c9c::
+FrameSprites_SetPlayerAnimation_209::
 	db -13, -23
 	db 0, 16
 	db 8, -24
@@ -638,7 +638,7 @@ FrameSprites_34_7c9c::
 	db 0, 16
 	db 8, -3
 
-FrameSprites_34_7caa::
+FrameSprites_SetPlayerAnimation_210::
 	db -12, -23
 	db 0, 16
 	db 8, -23
@@ -647,7 +647,7 @@ FrameSprites_34_7caa::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_34_7cb8::
+FrameSprites_SetPlayerAnimation_211::
 	db -12, -23
 	db 0, 16
 	db 8, -24
@@ -656,7 +656,7 @@ FrameSprites_34_7cb8::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_34_7cc6::
+FrameSprites_SetPlayerAnimation_212::
 	db -12, -25
 	db 0, 16
 	db 8, -23
@@ -665,7 +665,7 @@ FrameSprites_34_7cc6::
 	db 8, -32
 	db 0, 16
 
-FrameSprites_34_7cd4::
+FrameSprites_SetPlayerAnimation_213::
 	db -11, -24
 	db 0, 16
 	db 8, -24
@@ -675,7 +675,7 @@ FrameSprites_34_7cd4::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_34_7ce4::
+FrameSprites_SetPlayerAnimation_214::
 	db -12, -24
 	db 0, 16
 	db 8, -24
@@ -685,7 +685,7 @@ FrameSprites_34_7ce4::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_34_7cf4::
+FrameSprites_SetPlayerAnimation_215::
 	db -10, -27
 	db 0, 16
 	db 8, -22
@@ -694,7 +694,7 @@ FrameSprites_34_7cf4::
 	db 8, -28
 	db 8, 7
 
-FrameSprites_34_7d02::
+FrameSprites_SetPlayerAnimation_216::
 	db -12, -25
 	db 0, 16
 	db 8, -24
@@ -704,7 +704,7 @@ FrameSprites_34_7d02::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_34_7d12::
+FrameSprites_SetPlayerAnimation_217::
 	db -11, -25
 	db 0, 16
 	db 8, -23
@@ -713,7 +713,7 @@ FrameSprites_34_7d12::
 	db 8, -32
 	db 0, 16
 
-FrameSprites_34_7d20::
+FrameSprites_SetPlayerAnimation_218::
 	db -11, -24
 	db 0, 16
 	db 8, -23
@@ -721,7 +721,7 @@ FrameSprites_34_7d20::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_34_7d2c::
+FrameSprites_SetPlayerAnimation_219::
 	db -11, -24
 	db 0, 16
 	db 8, -22
@@ -729,7 +729,7 @@ FrameSprites_34_7d2c::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_34_7d38::
+FrameSprites_SetPlayerAnimation_220::
 	db -12, -24
 	db 0, 16
 	db 8, -22
@@ -737,7 +737,7 @@ FrameSprites_34_7d38::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_34_7d44::
+FrameSprites_SetPlayerAnimation_221::
 	db -13, -24
 	db 0, 16
 	db 8, -22
@@ -745,7 +745,7 @@ FrameSprites_34_7d44::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_34_7d50::
+FrameSprites_SetPlayerAnimation_222::
 	db -12, -24
 	db 0, 16
 	db 8, -22
@@ -753,7 +753,7 @@ FrameSprites_34_7d50::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_34_7d5c::
+FrameSprites_SetPlayerAnimation_223::
 	db -11, -25
 	db 0, 16
 	db 8, -22
@@ -761,7 +761,7 @@ FrameSprites_34_7d5c::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_34_7d68::
+FrameSprites_SetPlayerAnimation_224::
 	db -8, -26
 	db 0, 16
 	db 8, -22
@@ -770,7 +770,7 @@ FrameSprites_34_7d68::
 	db 8, -32
 	db 0, 18
 
-FrameSprites_34_7d76::
+FrameSprites_SetPlayerAnimation_225::
 	db -10, -24
 	db 0, 16
 	db 8, -15
@@ -778,7 +778,7 @@ FrameSprites_34_7d76::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_34_7d82::
+FrameSprites_SetPlayerAnimation_226::
 	db -9, -24
 	db 0, 16
 	db 8, -15
@@ -786,7 +786,7 @@ FrameSprites_34_7d82::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_34_7d8e::
+FrameSprites_SetPlayerAnimation_227::
 	db -9, -24
 	db 0, 16
 	db 8, -15
@@ -794,7 +794,7 @@ FrameSprites_34_7d8e::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_34_7d9a::
+FrameSprites_SetPlayerAnimation_228::
 	db -8, -23
 	db 0, 16
 	db 8, -18
@@ -802,28 +802,28 @@ FrameSprites_34_7d9a::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_34_7da6::
+FrameSprites_SetPlayerAnimation_229::
 	db -8, -21
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -9
 
-FrameSprites_34_7db0::
+FrameSprites_SetPlayerAnimation_230::
 	db -9, -20
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -4
 
-FrameSprites_34_7dba::
+FrameSprites_SetPlayerAnimation_231::
 	db -10, -20
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -9
 
-FrameSprites_34_7dc4::
+FrameSprites_SetPlayerAnimation_232::
 	db -9, -21
 	db 0, 16
 	db 8, -17
@@ -831,7 +831,7 @@ FrameSprites_34_7dc4::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_34_7dd0::
+FrameSprites_SetPlayerAnimation_233::
 	db -9, -23
 	db 0, 16
 	db 8, -16
@@ -839,7 +839,7 @@ FrameSprites_34_7dd0::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_34_7ddc::
+FrameSprites_SetPlayerAnimation_234::
 	db -9, -23
 	db 0, 16
 	db 8, -16
@@ -847,13 +847,13 @@ FrameSprites_34_7ddc::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_34_7de8::
+FrameSprites_LoopElevator::
 	db -15, -4
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7df0::
+FrameSprites_BlackDrum::
 	db -12, -32
 	db 8, 0
 	db 8, 0
@@ -861,11 +861,11 @@ FrameSprites_34_7df0::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_34_7dfc::
+FrameSprites_Unused_85::
 	db 0, 0
 	db 0, 16
 
-FrameSprites_34_7e00::
+FrameSprites_Unused_86::
 	db 0, 0
 	db 0, 16
 	db 0, 16

@@ -3,142 +3,142 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $38", ROMX[$4000], BANK[$38]
 
-FrameTiles_38_4000::
+FrameTiles_Obj_Animate_15::
 	INCBIN "gfx/frames/38/4000.2bpp"
 
-FrameTiles_38_4160::
+FrameTiles_Obj_Animate_16::
 	INCBIN "gfx/frames/38/4160.2bpp"
 
-FrameTiles_38_42e0::
+FrameTiles_Obj_Animate_17::
 	INCBIN "gfx/frames/38/42e0.2bpp"
 
-FrameTiles_38_4460::
+FrameTiles_Obj_Animate_18::
 	INCBIN "gfx/frames/38/4460.2bpp"
 
-FrameTiles_38_45c0::
+FrameTiles_Shop_SpawnOnce_10::
 	INCBIN "gfx/frames/38/45c0.2bpp"
 
-FrameTiles_38_4760::
+FrameTiles_Shop_SpawnOnce_11::
 	INCBIN "gfx/frames/38/4760.2bpp"
 
-FrameTiles_38_48c0::
+FrameTiles_Shop_SpawnOnce_12::
 	INCBIN "gfx/frames/38/48c0.2bpp"
 
-FrameTiles_38_4a00::
+FrameTiles_Shop_SpawnOnce_13::
 	INCBIN "gfx/frames/38/4a00.2bpp"
 
-FrameTiles_38_4b60::
+FrameTiles_Shop_SpawnOnce_14::
 	INCBIN "gfx/frames/38/4b60.2bpp"
 
-FrameTiles_38_4cc0::
+FrameTiles_Obj_Animate_1::
 	INCBIN "gfx/frames/38/4cc0.2bpp"
 
-FrameTiles_38_4e40::
+FrameTiles_Obj_Animate_2::
 	INCBIN "gfx/frames/38/4e40.2bpp"
 
-FrameTiles_38_4fc0::
+FrameTiles_Obj_Animate_3::
 	INCBIN "gfx/frames/38/4fc0.2bpp"
 
-FrameTiles_38_5140::
+FrameTiles_Obj_Animate_4::
 	INCBIN "gfx/frames/38/5140.2bpp"
 
-FrameTiles_38_52c0::
+FrameTiles_Obj_Animate_5::
 	INCBIN "gfx/frames/38/52c0.2bpp"
 
-FrameTiles_38_5440::
+FrameTiles_Obj_Animate_6::
 	INCBIN "gfx/frames/38/5440.2bpp"
 
-FrameTiles_38_55c0::
+FrameTiles_Obj_Animate_7::
 	INCBIN "gfx/frames/38/55c0.2bpp"
 
-FrameTiles_38_5760::
+FrameTiles_Obj_Animate_8::
 	INCBIN "gfx/frames/38/5760.2bpp"
 
-FrameTiles_38_5900::
+FrameTiles_Obj_Animate_9::
 	INCBIN "gfx/frames/38/5900.2bpp"
 
-FrameTiles_38_5a80::
+FrameTiles_Obj_Animate_10::
 	INCBIN "gfx/frames/38/5a80.2bpp"
 
-FrameTiles_38_5c00::
+FrameTiles_Obj_Animate_11::
 	INCBIN "gfx/frames/38/5c00.2bpp"
 
-FrameTiles_38_5d80::
+FrameTiles_Obj_Animate_12::
 	INCBIN "gfx/frames/38/5d80.2bpp"
 
-FrameTiles_38_5f20::
+FrameTiles_Obj_Animate_13::
 	INCBIN "gfx/frames/38/5f20.2bpp"
 
-FrameTiles_38_60c0::
+FrameTiles_Obj_Animate_14::
 	INCBIN "gfx/frames/38/60c0.2bpp"
 
-FrameTiles_38_6260::
+FrameTiles_FunkysPlane_Bob::
 	INCBIN "gfx/frames/38/6260.2bpp"
 
-FrameTiles_38_64a0::
+FrameTiles_AnimalToken_9::
 	INCBIN "gfx/frames/38/64a0.2bpp"
 
-FrameTiles_38_6520::
+FrameTiles_AnimalToken_10::
 	INCBIN "gfx/frames/38/6520.2bpp"
 
-FrameTiles_38_65a0::
+FrameTiles_AnimalToken_11::
 	INCBIN "gfx/frames/38/65a0.2bpp"
 
-FrameTiles_38_6640::
+FrameTiles_AnimalToken_12::
 	INCBIN "gfx/frames/38/6640.2bpp"
 
-FrameTiles_38_66c0::
+FrameTiles_AnimalToken_13::
 	INCBIN "gfx/frames/38/66c0.2bpp"
 
-FrameTiles_38_6760::
+FrameTiles_AnimalToken_14::
 	INCBIN "gfx/frames/38/6760.2bpp"
 
-FrameTiles_38_67e0::
+FrameTiles_AnimalToken_15::
 	INCBIN "gfx/frames/38/67e0.2bpp"
 
-FrameTiles_38_6880::
+FrameTiles_AnimalToken_16::
 	INCBIN "gfx/frames/38/6880.2bpp"
 
-FrameTiles_38_6900::
+FrameTiles_Player_ExitAfterJingle_1::
 	INCBIN "gfx/frames/38/6900.2bpp"
 
-FrameTiles_38_69e0::
+FrameTiles_Player_ExitAfterJingle_2::
 	INCBIN "gfx/frames/38/69e0.2bpp"
 
-FrameTiles_38_6aa0::
+FrameTiles_Player_ExitAfterJingle_3::
 	INCBIN "gfx/frames/38/6aa0.2bpp"
 
-FrameTiles_38_6b60::
+FrameTiles_Player_ExitAfterJingle_4::
 	INCBIN "gfx/frames/38/6b60.2bpp"
 
-FrameTiles_38_6c20::
+FrameTiles_Player_ExitAfterJingle_5::
 	INCBIN "gfx/frames/38/6c20.2bpp"
 
-FrameTiles_38_6ce0::
+FrameTiles_Player_ExitAfterJingle_6::
 	INCBIN "gfx/frames/38/6ce0.2bpp"
 
-FrameTiles_38_6da0::
+FrameTiles_Player_ExitAfterJingle_7::
 	INCBIN "gfx/frames/38/6da0.2bpp"
 
-FrameTiles_38_6e60::
+FrameTiles_Player_ExitAfterJingle_8::
 	INCBIN "gfx/frames/38/6e60.2bpp"
 
-FrameTiles_38_6f20::
+FrameTiles_Player_ExitAfterJingle_9::
 	INCBIN "gfx/frames/38/6f20.2bpp"
 
-FrameTiles_38_6fe0::
+FrameTiles_Player_ExitAfterJingle_10::
 	INCBIN "gfx/frames/38/6fe0.2bpp"
 
-FrameTiles_38_70a0::
+FrameTiles_Player_ExitAfterJingle_11::
 	INCBIN "gfx/frames/38/70a0.2bpp"
 
-FrameTiles_38_7160::
+FrameTiles_Unused_89::
 	INCBIN "gfx/frames/38/7160.2bpp"
 
-FrameTiles_38_7220::
+FrameTiles_Unused_90::
 	INCBIN "gfx/frames/38/7220.2bpp"
 
-FrameSprites_38_7300::
+FrameSprites_Obj_Animate_15::
 	db -19, -16, $00 ; dx, dy, attribute add
 	db 16, -17, $01
 	db -8, 20, $01
@@ -151,7 +151,7 @@ FrameSprites_38_7300::
 	db -37, 2, $00
 	db 24, 12, $01
 
-FrameSprites_38_7321::
+FrameSprites_Obj_Animate_16::
 	db -19, -15, $00 ; dx, dy, attribute add
 	db 16, -17, $01
 	db -3, 32, $01
@@ -165,7 +165,7 @@ FrameSprites_38_7321::
 	db 0, -16, $01
 	db -16, 19, $00
 
-FrameSprites_38_7345::
+FrameSprites_Obj_Animate_17::
 	db 5, -31, $01 ; dx, dy, attribute add
 	db -11, 31, $01
 	db 3, -16, $00
@@ -179,7 +179,7 @@ FrameSprites_38_7345::
 	db -16, 17, $00
 	db -8, 3, $00
 
-FrameSprites_38_7369::
+FrameSprites_Obj_Animate_18::
 	db -19, -14, $00 ; dx, dy, attribute add
 	db 8, -17, $01
 	db 5, 32, $01
@@ -192,7 +192,7 @@ FrameSprites_38_7369::
 	db -5, -17, $01
 	db -24, 20, $00
 
-FrameSprites_38_738a::
+FrameSprites_Shop_SpawnOnce_10::
 	db -11, -41, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -207,7 +207,7 @@ FrameSprites_38_738a::
 	db -13, -48, $01
 	db 8, 0, $01
 
-FrameSprites_38_73b1::
+FrameSprites_Shop_SpawnOnce_11::
 	db -9, -45, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -220,7 +220,7 @@ FrameSprites_38_73b1::
 	db -11, -22, $01
 	db 8, 2, $01
 
-FrameSprites_38_73d2::
+FrameSprites_Shop_SpawnOnce_12::
 	db -10, -42, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -232,7 +232,7 @@ FrameSprites_38_73d2::
 	db -11, -1, $01
 	db 8, 0, $01
 
-FrameSprites_38_73f0::
+FrameSprites_Shop_SpawnOnce_13::
 	db -12, -37, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -27, $00
@@ -245,7 +245,7 @@ FrameSprites_38_73f0::
 	db -8, -45, $01
 	db 8, 1, $01
 
-FrameSprites_38_7411::
+FrameSprites_Shop_SpawnOnce_14::
 	db -12, -37, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -27, $00
@@ -258,7 +258,7 @@ FrameSprites_38_7411::
 	db -8, -45, $01
 	db 8, 1, $01
 
-FrameSprites_38_7432::
+FrameSprites_Obj_Animate_1::
 	db -18, -16, $00 ; dx, dy, attribute add
 	db 8, -17, $01
 	db 0, 16, $01
@@ -272,7 +272,7 @@ FrameSprites_38_7432::
 	db -16, 29, $01
 	db -8, 0, $01
 
-FrameSprites_38_7456::
+FrameSprites_Obj_Animate_2::
 	db -3, -34, $01 ; dx, dy, attribute add
 	db 8, 0, $01
 	db -16, 17, $01
@@ -286,7 +286,7 @@ FrameSprites_38_7456::
 	db -8, 16, $00
 	db -8, 4, $00
 
-FrameSprites_38_747a::
+FrameSprites_Obj_Animate_3::
 	db 2, -1, $01 ; dx, dy, attribute add
 	db -13, -32, $01
 	db 8, 31, $01
@@ -300,7 +300,7 @@ FrameSprites_38_747a::
 	db -8, 3, $00
 	db 16, 12, $01
 
-FrameSprites_38_749e::
+FrameSprites_Obj_Animate_4::
 	db -18, -16, $00 ; dx, dy, attribute add
 	db -8, 3, $00
 	db 16, -5, $01
@@ -314,7 +314,7 @@ FrameSprites_38_749e::
 	db 8, 1, $01
 	db 0, 32, $01
 
-FrameSprites_38_74c2::
+FrameSprites_Obj_Animate_5::
 	db -26, -13, $00 ; dx, dy, attribute add
 	db 16, -20, $01
 	db -8, 18, $00
@@ -328,7 +328,7 @@ FrameSprites_38_74c2::
 	db -8, -17, $01
 	db -16, 32, $01
 
-FrameSprites_38_74e6::
+FrameSprites_Obj_Animate_6::
 	db -19, -15, $00 ; dx, dy, attribute add
 	db -8, 3, $00
 	db 16, -5, $01
@@ -342,7 +342,7 @@ FrameSprites_38_74e6::
 	db -16, 0, $01
 	db 16, -16, $00
 
-FrameSprites_38_750a::
+FrameSprites_Obj_Animate_7::
 	db -27, -12, $00 ; dx, dy, attribute add
 	db 24, -22, $01
 	db -16, 19, $00
@@ -357,7 +357,7 @@ FrameSprites_38_750a::
 	db 16, -15, $01
 	db 8, 1, $01
 
-FrameSprites_38_7531::
+FrameSprites_Obj_Animate_8::
 	db -19, -15, $00 ; dx, dy, attribute add
 	db -8, 3, $00
 	db 16, -5, $01
@@ -372,7 +372,7 @@ FrameSprites_38_7531::
 	db 8, 1, $01
 	db 8, 0, $01
 
-FrameSprites_38_7558::
+FrameSprites_Obj_Animate_9::
 	db -19, -15, $00 ; dx, dy, attribute add
 	db -8, 4, $00
 	db 16, -6, $01
@@ -386,7 +386,7 @@ FrameSprites_38_7558::
 	db 8, 0, $01
 	db 6, 3, $01
 
-FrameSprites_38_757c::
+FrameSprites_Obj_Animate_10::
 	db -19, -15, $00 ; dx, dy, attribute add
 	db -8, 4, $00
 	db 16, -6, $01
@@ -400,7 +400,7 @@ FrameSprites_38_757c::
 	db -19, 32, $01
 	db 8, 0, $01
 
-FrameSprites_38_75a0::
+FrameSprites_Obj_Animate_11::
 	db -9, -1, $01 ; dx, dy, attribute add
 	db -10, -14, $00
 	db 8, -2, $01
@@ -414,7 +414,7 @@ FrameSprites_38_75a0::
 	db -7, -16, $01
 	db 8, 0, $01
 
-FrameSprites_38_75c4::
+FrameSprites_Obj_Animate_12::
 	db -19, -15, $00 ; dx, dy, attribute add
 	db 24, 15, $01
 	db -16, -17, $01
@@ -429,7 +429,7 @@ FrameSprites_38_75c4::
 	db 8, -32, $01
 	db -8, 0, $01
 
-FrameSprites_38_75eb::
+FrameSprites_Obj_Animate_13::
 	db 13, -32, $01 ; dx, dy, attribute add
 	db -15, -1, $01
 	db -17, 18, $00
@@ -444,7 +444,7 @@ FrameSprites_38_75eb::
 	db 8, 1, $01
 	db -16, -1, $01
 
-FrameSprites_38_7612::
+FrameSprites_Obj_Animate_14::
 	db -19, -15, $00 ; dx, dy, attribute add
 	db 8, -18, $01
 	db 0, 16, $01
@@ -459,7 +459,7 @@ FrameSprites_38_7612::
 	db 8, 1, $01
 	db -16, -1, $01
 
-FrameSprites_38_7639::
+FrameSprites_FunkysPlane_Bob::
 	db -25, -14, $00 ; dx, dy, attribute add
 	db 8, 0, $00
 	db 0, -16, $01
@@ -479,58 +479,58 @@ FrameSprites_38_7639::
 	db 8, -16, $02
 	db 0, 16, $02
 
-FrameSprites_38_766f::
+FrameSprites_AnimalToken_9::
 	db -10, -7
 	db 8, -3
 	db 0, 16
 	db 8, -16
 
-FrameSprites_38_7677::
+FrameSprites_AnimalToken_10::
 	db -9, -7
 	db 8, -2
 	db 0, 16
 	db 8, -16
 
-FrameSprites_38_767f::
+FrameSprites_AnimalToken_11::
 	db -11, -5
 	db 0, 16
 	db 8, -19
 	db 0, 16
 	db 8, -15
 
-FrameSprites_38_7689::
+FrameSprites_AnimalToken_12::
 	db -10, -4
 	db 8, -3
 	db 0, 16
 	db 8, -15
 
-FrameSprites_38_7691::
+FrameSprites_AnimalToken_13::
 	db -13, -6
 	db 8, -6
 	db 0, 16
 	db 8, -8
 	db 8, 4
 
-FrameSprites_38_769b::
+FrameSprites_AnimalToken_14::
 	db -11, -6
 	db 8, -6
 	db 0, 16
 	db 8, -7
 
-FrameSprites_38_76a3::
+FrameSprites_AnimalToken_15::
 	db -9, -4
 	db 0, 16
 	db 8, -21
 	db 0, 16
 	db 8, -18
 
-FrameSprites_38_76ad::
+FrameSprites_AnimalToken_16::
 	db -9, -4
 	db 8, -5
 	db 0, 16
 	db 8, -17
 
-FrameSprites_38_76b5::
+FrameSprites_Player_ExitAfterJingle_1::
 	db -10, -20
 	db 0, 16
 	db 8, -18
@@ -539,7 +539,7 @@ FrameSprites_38_76b5::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_38_76c3::
+FrameSprites_Player_ExitAfterJingle_2::
 	db -10, -21
 	db 0, 16
 	db 8, -22
@@ -547,7 +547,7 @@ FrameSprites_38_76c3::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_38_76cf::
+FrameSprites_Player_ExitAfterJingle_3::
 	db -10, -22
 	db 0, 16
 	db 8, -21
@@ -555,7 +555,7 @@ FrameSprites_38_76cf::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_38_76db::
+FrameSprites_Player_ExitAfterJingle_4::
 	db -12, -25
 	db 0, 16
 	db 8, -20
@@ -563,7 +563,7 @@ FrameSprites_38_76db::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_38_76e7::
+FrameSprites_Player_ExitAfterJingle_5::
 	db -11, -22
 	db 0, 16
 	db 8, -22
@@ -571,7 +571,7 @@ FrameSprites_38_76e7::
 	db 8, -11
 	db 0, 16
 
-FrameSprites_38_76f3::
+FrameSprites_Player_ExitAfterJingle_6::
 	db -11, -21
 	db 0, 16
 	db 8, -20
@@ -579,7 +579,7 @@ FrameSprites_38_76f3::
 	db 8, -12
 	db 0, 16
 
-FrameSprites_38_76ff::
+FrameSprites_Player_ExitAfterJingle_7::
 	db -11, -20
 	db 0, 16
 	db 8, -19
@@ -587,7 +587,7 @@ FrameSprites_38_76ff::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_38_770b::
+FrameSprites_Player_ExitAfterJingle_8::
 	db -12, -20
 	db 0, 16
 	db 8, -18
@@ -595,7 +595,7 @@ FrameSprites_38_770b::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_38_7717::
+FrameSprites_Player_ExitAfterJingle_9::
 	db -12, -20
 	db 0, 16
 	db 8, -18
@@ -603,7 +603,7 @@ FrameSprites_38_7717::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_38_7723::
+FrameSprites_Player_ExitAfterJingle_10::
 	db -12, -20
 	db 0, 16
 	db 8, -18
@@ -611,7 +611,7 @@ FrameSprites_38_7723::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_38_772f::
+FrameSprites_Player_ExitAfterJingle_11::
 	db -12, -20
 	db 0, 16
 	db 8, -18
@@ -619,7 +619,7 @@ FrameSprites_38_772f::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_38_773b::
+FrameSprites_Unused_89::
 	db -10, -20
 	db 0, 16
 	db 8, -19
@@ -627,7 +627,7 @@ FrameSprites_38_773b::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_38_7747::
+FrameSprites_Unused_90::
 	db -10, -20
 	db 0, 16
 	db 8, -18

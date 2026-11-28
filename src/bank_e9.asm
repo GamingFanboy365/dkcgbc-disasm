@@ -3,76 +3,76 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e9", ROMX[$4000], BANK[$e9]
 
-LevelMap_e9_4000::
+LevelMap_TrickTrackTrek2::
 	INCBIN "data/maps/e9_4000_terrain.lz"
 
-LevelMap_e9_40b1::
+LevelMap_TrickTrackTrek0::
 	INCBIN "data/maps/e9_40b1_blocks.lz"
 
-LevelMap_e9_4838::
+LevelMap_TrickTrackTrek1::
 	INCBIN "data/maps/e9_4838_attrs.lz"
 
-LevelMap_e9_4b1d::
+LevelMap_TrickTrackTrek5::
 	INCBIN "data/maps/e9_4b1d_terrain.lz"
 
-LevelMap_e9_4bae::
+LevelMap_TrickTrackTrek3::
 	INCBIN "data/maps/e9_4bae_blocks.lz"
 
-LevelMap_e9_4fe0::
+LevelMap_TrickTrackTrek4::
 	INCBIN "data/maps/e9_4fe0_attrs.lz"
 
-LevelMap_e9_51da::
+LevelMap_PlatformPerils2::
 	INCBIN "data/maps/e9_51da_terrain.lz"
 
-LevelMap_e9_5332::
+LevelMap_PlatformPerils0::
 	INCBIN "data/maps/e9_5332_blocks.lz"
 
-LevelMap_e9_5bf8::
+LevelMap_PlatformPerils1::
 	INCBIN "data/maps/e9_5bf8_attrs.lz"
 
-LevelMap_e9_609d::
+LevelMap_PlatformPerils5::
 	INCBIN "data/maps/e9_609d_terrain.lz"
 
-LevelMap_e9_610c::
+LevelMap_PlatformPerils3::
 	INCBIN "data/maps/e9_610c_blocks.lz"
 
-LevelMap_e9_62a0::
+LevelMap_PlatformPerils4::
 	INCBIN "data/maps/e9_62a0_attrs.lz"
 
-LevelMap_e9_63b7::
+LevelMap_TankedUpTrouble2::
 	INCBIN "data/maps/e9_63b7_terrain.lz"
 
-LevelMap_e9_6490::
+LevelMap_TankedUpTrouble0::
 	INCBIN "data/maps/e9_6490_blocks.lz"
 
-LevelMap_e9_6dac::
+LevelMap_TankedUpTrouble1::
 	INCBIN "data/maps/e9_6dac_attrs.lz"
 
-LevelMap_e9_70f2::
+LevelMap_TankedUpTrouble5::
 	INCBIN "data/maps/e9_70f2_terrain.lz"
 
-LevelMap_e9_715a::
+LevelMap_TankedUpTrouble3::
 	INCBIN "data/maps/e9_715a_blocks.lz"
 
-LevelMap_e9_7337::
+LevelMap_TankedUpTrouble4::
 	INCBIN "data/maps/e9_7337_attrs.lz"
 
-LevelMap_e9_747a::
+LevelMap_TrickTrackTrek_Area1_1::
 	INCBIN "data/maps/e9_747a_terrain.lz"
 
-LevelMap_e9_74ca::
+LevelMap_TrickTrackTrek_Area1_2::
 	INCBIN "data/maps/e9_74ca_blocks.lz"
 
-LevelMap_e9_7533::
+LevelMap_TrickTrackTrek_Area1_3::
 	INCBIN "data/maps/e9_7533_attrs.lz"
 
-LevelMap_e9_7592::
+LevelMap_WinkysWalkway_1::
 	INCBIN "data/maps/e9_7592_terrain.lz"
 
-LevelMap_e9_7717::
+LevelMap_WinkysWalkway_2::
 	INCBIN "data/maps/e9_7717_blocks.lz"
 
-LevelMap_e9_7b4b::
+LevelMap_WinkysWalkway_3::
 	INCBIN "data/maps/e9_7b4b_attrs.lz"
 	ds 500, $00 ; $7e0c
 

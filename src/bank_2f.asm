@@ -3,163 +3,163 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $2f", ROMX[$4000], BANK[$2f]
 
-FrameTiles_2f_4000::
+FrameTiles_Unused_70::
 	INCBIN "gfx/frames/2f/4000.2bpp"
 
-FrameTiles_2f_4120::
+FrameTiles_PlayerWinky_InAir_1::
 	INCBIN "gfx/frames/2f/4120.2bpp"
 
-FrameTiles_2f_4200::
+FrameTiles_PlayerWinky_InAir_2::
 	INCBIN "gfx/frames/2f/4200.2bpp"
 
-FrameTiles_2f_42e0::
+FrameTiles_PlayerWinky_InAir_3::
 	INCBIN "gfx/frames/2f/42e0.2bpp"
 
-FrameTiles_2f_4440::
+FrameTiles_PlayerWinky_InAir_4::
 	INCBIN "gfx/frames/2f/4440.2bpp"
 
-FrameTiles_2f_4580::
+FrameTiles_PlayerWinky_InAir_5::
 	INCBIN "gfx/frames/2f/4580.2bpp"
 
-FrameTiles_2f_46c0::
+FrameTiles_PlayerWinky_InAir_6::
 	INCBIN "gfx/frames/2f/46c0.2bpp"
 
-FrameTiles_2f_4820::
+FrameTiles_PlayerWinky_InAir_7::
 	INCBIN "gfx/frames/2f/4820.2bpp"
 
-FrameTiles_2f_4940::
+FrameTiles_PlayerWinky_InAir_8::
 	INCBIN "gfx/frames/2f/4940.2bpp"
 
-FrameTiles_2f_4a80::
+FrameTiles_PlayerWinky_InAir_9::
 	INCBIN "gfx/frames/2f/4a80.2bpp"
 
-FrameTiles_2f_4b80::
+FrameTiles_PlayerWinky_InAir_10::
 	INCBIN "gfx/frames/2f/4b80.2bpp"
 
-FrameTiles_2f_4c40::
+FrameTiles_PlayerWinky_1::
 	INCBIN "gfx/frames/2f/4c40.2bpp"
 
-FrameTiles_2f_4d20::
+FrameTiles_PlayerWinky_2::
 	INCBIN "gfx/frames/2f/4d20.2bpp"
 
-FrameTiles_2f_4e00::
+FrameTiles_PlayerWinky_3::
 	INCBIN "gfx/frames/2f/4e00.2bpp"
 
-FrameTiles_2f_4ee0::
+FrameTiles_PlayerWinky_4::
 	INCBIN "gfx/frames/2f/4ee0.2bpp"
 
-FrameTiles_2f_4fc0::
+FrameTiles_PlayerWinky_5::
 	INCBIN "gfx/frames/2f/4fc0.2bpp"
 
-FrameTiles_2f_50a0::
+FrameTiles_PlayerWinky_6::
 	INCBIN "gfx/frames/2f/50a0.2bpp"
 
-FrameTiles_2f_5180::
+FrameTiles_PlayerWinky_7::
 	INCBIN "gfx/frames/2f/5180.2bpp"
 
-FrameTiles_2f_5240::
+FrameTiles_PlayerWinky_8::
 	INCBIN "gfx/frames/2f/5240.2bpp"
 
-FrameTiles_2f_5300::
+FrameTiles_PlayerWinky_9::
 	INCBIN "gfx/frames/2f/5300.2bpp"
 
-FrameTiles_2f_53c0::
+FrameTiles_PlayerWinky_10::
 	INCBIN "gfx/frames/2f/53c0.2bpp"
 
-FrameTiles_2f_54a0::
+FrameTiles_PlayerWinky_11::
 	INCBIN "gfx/frames/2f/54a0.2bpp"
 
-FrameTiles_2f_5580::
+FrameTiles_PlayerWinky_12::
 	INCBIN "gfx/frames/2f/5580.2bpp"
 
-FrameTiles_2f_5640::
+FrameTiles_Klump2_11::
 	INCBIN "gfx/frames/2f/5640.2bpp"
 
-FrameTiles_2f_5780::
+FrameTiles_Klump2_12::
 	INCBIN "gfx/frames/2f/5780.2bpp"
 
-FrameTiles_2f_58c0::
+FrameTiles_Klump2_13::
 	INCBIN "gfx/frames/2f/58c0.2bpp"
 
-FrameTiles_2f_5a00::
+FrameTiles_Klump2_14::
 	INCBIN "gfx/frames/2f/5a00.2bpp"
 
-FrameTiles_2f_5b20::
+FrameTiles_Klump2_15::
 	INCBIN "gfx/frames/2f/5b20.2bpp"
 
-FrameTiles_2f_5c40::
+FrameTiles_Crownerang_1::
 	INCBIN "gfx/frames/2f/5c40.2bpp"
 
-FrameTiles_2f_5c80::
+FrameTiles_Crownerang_2::
 	INCBIN "gfx/frames/2f/5c80.2bpp"
 
-FrameTiles_2f_5cc0::
+FrameTiles_Crownerang_3::
 	INCBIN "gfx/frames/2f/5cc0.2bpp"
 
-FrameTiles_2f_5d00::
+FrameTiles_Crownerang_4::
 	INCBIN "gfx/frames/2f/5d00.2bpp"
 
-FrameTiles_2f_5d40::
+FrameTiles_Crownerang_5::
 	INCBIN "gfx/frames/2f/5d40.2bpp"
 
-FrameTiles_2f_5d80::
+FrameTiles_Crownerang_6::
 	INCBIN "gfx/frames/2f/5d80.2bpp"
 
-FrameTiles_2f_5dc0::
+FrameTiles_Shop_KongCelebrate_1::
 	INCBIN "gfx/frames/2f/5dc0.2bpp"
 
-FrameTiles_2f_5f60::
+FrameTiles_Shop_KongCelebrate_2::
 	INCBIN "gfx/frames/2f/5f60.2bpp"
 
-FrameTiles_2f_6100::
+FrameTiles_Shop_KongCelebrate_3::
 	INCBIN "gfx/frames/2f/6100.2bpp"
 
-FrameTiles_2f_62a0::
+FrameTiles_Shop_KongCelebrate_4::
 	INCBIN "gfx/frames/2f/62a0.2bpp"
 
-FrameTiles_2f_6420::
+FrameTiles_Shop_KongCelebrate_5::
 	INCBIN "gfx/frames/2f/6420.2bpp"
 
-FrameTiles_2f_65a0::
+FrameTiles_Shop_KongCelebrate_6::
 	INCBIN "gfx/frames/2f/65a0.2bpp"
 
-FrameTiles_2f_6720::
+FrameTiles_Shop_KongCelebrate_7::
 	INCBIN "gfx/frames/2f/6720.2bpp"
 
-FrameTiles_2f_68a0::
+FrameTiles_Shop_KongCelebrate_8::
 	INCBIN "gfx/frames/2f/68a0.2bpp"
 
-FrameTiles_2f_6a40::
+FrameTiles_Shop_KongCelebrate_9::
 	INCBIN "gfx/frames/2f/6a40.2bpp"
 
-FrameTiles_2f_6bc0::
+FrameTiles_Klump_Touch_1::
 	INCBIN "gfx/frames/2f/6bc0.2bpp"
 
-FrameTiles_2f_6d40::
+FrameTiles_Klump_Touch_2::
 	INCBIN "gfx/frames/2f/6d40.2bpp"
 
-FrameTiles_2f_6ea0::
+FrameTiles_Klump_Touch_3::
 	INCBIN "gfx/frames/2f/6ea0.2bpp"
 
-FrameTiles_2f_6fc0::
+FrameTiles_Klump_Touch_4::
 	INCBIN "gfx/frames/2f/6fc0.2bpp"
 
-FrameTiles_2f_7100::
+FrameTiles_Klump_Touch_5::
 	INCBIN "gfx/frames/2f/7100.2bpp"
 
-FrameTiles_2f_7280::
+FrameTiles_Klump_Touch_6::
 	INCBIN "gfx/frames/2f/7280.2bpp"
 
-FrameTiles_2f_7420::
+FrameTiles_Shop_KongReactTimer_1::
 	INCBIN "gfx/frames/2f/7420.2bpp"
 
-FrameTiles_2f_7440::
+FrameTiles_Shop_KongReactTimer_2::
 	INCBIN "gfx/frames/2f/7440.2bpp"
 
-FrameTiles_2f_7460::
+FrameTiles_Shop_KongReactTimer_3::
 	INCBIN "gfx/frames/2f/7460.2bpp"
 
-FrameSprites_2f_7480::
+FrameSprites_Unused_70::
 	db -10, -28
 	db 0, 16
 	db 8, -16
@@ -170,7 +170,7 @@ FrameSprites_2f_7480::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2f_7492::
+FrameSprites_PlayerWinky_InAir_1::
 	db -9, -17
 	db 0, 16
 	db 8, -18
@@ -179,7 +179,7 @@ FrameSprites_2f_7492::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_2f_74a0::
+FrameSprites_PlayerWinky_InAir_2::
 	db -9, -26
 	db 0, 16
 	db 8, -17
@@ -188,7 +188,7 @@ FrameSprites_2f_74a0::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_2f_74ae::
+FrameSprites_PlayerWinky_InAir_3::
 	db -14, -24
 	db 0, 16
 	db 8, -26
@@ -201,7 +201,7 @@ FrameSprites_2f_74ae::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_2f_74c4::
+FrameSprites_PlayerWinky_InAir_4::
 	db -19, -20
 	db 0, 16
 	db 8, -26
@@ -213,7 +213,7 @@ FrameSprites_2f_74c4::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_2f_74d8::
+FrameSprites_PlayerWinky_InAir_5::
 	db -22, -23
 	db 0, 16
 	db 8, -25
@@ -225,7 +225,7 @@ FrameSprites_2f_74d8::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2f_74ec::
+FrameSprites_PlayerWinky_InAir_6::
 	db -28, -22
 	db 8, -4
 	db 0, 16
@@ -238,7 +238,7 @@ FrameSprites_2f_74ec::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2f_7502::
+FrameSprites_PlayerWinky_InAir_7::
 	db -19, -26
 	db 0, 16
 	db 8, -19
@@ -249,7 +249,7 @@ FrameSprites_2f_7502::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_2f_7514::
+FrameSprites_PlayerWinky_InAir_8::
 	db -14, -18
 	db 0, 16
 	db 8, -25
@@ -261,7 +261,7 @@ FrameSprites_2f_7514::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_2f_7528::
+FrameSprites_PlayerWinky_InAir_9::
 	db -9, -20
 	db 0, 16
 	db 8, -23
@@ -271,7 +271,7 @@ FrameSprites_2f_7528::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_2f_7538::
+FrameSprites_PlayerWinky_InAir_10::
 	db -5, -15
 	db 0, 16
 	db 8, -23
@@ -279,7 +279,7 @@ FrameSprites_2f_7538::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2f_7544::
+FrameSprites_PlayerWinky_1::
 	db -5, -16
 	db 0, 16
 	db 8, -17
@@ -288,7 +288,7 @@ FrameSprites_2f_7544::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_2f_7552::
+FrameSprites_PlayerWinky_2::
 	db -5, -16
 	db 0, 16
 	db 8, -17
@@ -297,7 +297,7 @@ FrameSprites_2f_7552::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_2f_7560::
+FrameSprites_PlayerWinky_3::
 	db -5, -16
 	db 0, 16
 	db 8, -17
@@ -306,7 +306,7 @@ FrameSprites_2f_7560::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_2f_756e::
+FrameSprites_PlayerWinky_4::
 	db -5, -16
 	db 0, 16
 	db 8, -17
@@ -315,7 +315,7 @@ FrameSprites_2f_756e::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_2f_757c::
+FrameSprites_PlayerWinky_5::
 	db -5, -16
 	db 0, 16
 	db 8, -17
@@ -324,7 +324,7 @@ FrameSprites_2f_757c::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_2f_758a::
+FrameSprites_PlayerWinky_6::
 	db -5, -16
 	db 0, 16
 	db 8, -17
@@ -333,7 +333,7 @@ FrameSprites_2f_758a::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_2f_7598::
+FrameSprites_PlayerWinky_7::
 	db -5, -16
 	db 0, 16
 	db 8, -20
@@ -341,7 +341,7 @@ FrameSprites_2f_7598::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2f_75a4::
+FrameSprites_PlayerWinky_8::
 	db -6, -16
 	db 0, 16
 	db 8, -22
@@ -349,7 +349,7 @@ FrameSprites_2f_75a4::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2f_75b0::
+FrameSprites_PlayerWinky_9::
 	db -6, -16
 	db 0, 16
 	db 8, -22
@@ -357,7 +357,7 @@ FrameSprites_2f_75b0::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2f_75bc::
+FrameSprites_PlayerWinky_10::
 	db -6, -16
 	db 0, 16
 	db 8, -22
@@ -366,7 +366,7 @@ FrameSprites_2f_75bc::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_2f_75ca::
+FrameSprites_PlayerWinky_11::
 	db -6, -16
 	db 0, 16
 	db 8, -22
@@ -375,7 +375,7 @@ FrameSprites_2f_75ca::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_2f_75d8::
+FrameSprites_PlayerWinky_12::
 	db -6, -16
 	db 0, 16
 	db 8, -22
@@ -383,7 +383,7 @@ FrameSprites_2f_75d8::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2f_75e4::
+FrameSprites_Klump2_11::
 	db -16, -28
 	db 0, 24
 	db 8, -32
@@ -395,7 +395,7 @@ FrameSprites_2f_75e4::
 	db 8, -23
 	db 0, 16
 
-FrameSprites_2f_75f8::
+FrameSprites_Klump2_12::
 	db -16, -29
 	db 0, 25
 	db 8, -36
@@ -407,7 +407,7 @@ FrameSprites_2f_75f8::
 	db 8, -23
 	db 0, 16
 
-FrameSprites_2f_760c::
+FrameSprites_Klump2_13::
 	db -16, -29
 	db 0, 25
 	db 8, -37
@@ -419,7 +419,7 @@ FrameSprites_2f_760c::
 	db 8, -23
 	db 0, 16
 
-FrameSprites_2f_7620::
+FrameSprites_Klump2_14::
 	db -15, -30
 	db 0, 25
 	db 8, -37
@@ -430,7 +430,7 @@ FrameSprites_2f_7620::
 	db 0, 16
 	db 8, -20
 
-FrameSprites_2f_7632::
+FrameSprites_Klump2_15::
 	db -15, -31
 	db 0, 26
 	db 8, -37
@@ -441,31 +441,31 @@ FrameSprites_2f_7632::
 	db 0, 16
 	db 8, -23
 
-FrameSprites_2f_7644::
+FrameSprites_Crownerang_1::
 	db -7, -3
 	db 8, 0
 
-FrameSprites_2f_7648::
+FrameSprites_Crownerang_2::
 	db -3, -8
 	db 8, 6
 
-FrameSprites_2f_764c::
+FrameSprites_Crownerang_3::
 	db -5, -7
 	db 8, 0
 
-FrameSprites_2f_7650::
+FrameSprites_Crownerang_4::
 	db -8, -5
 	db 8, 1
 
-FrameSprites_2f_7654::
+FrameSprites_Crownerang_5::
 	db -5, -7
 	db 8, 1
 
-FrameSprites_2f_7658::
+FrameSprites_Crownerang_6::
 	db -5, -7
 	db 8, -1
 
-FrameSprites_2f_765c::
+FrameSprites_Shop_KongCelebrate_1::
 	db -12, -32, $01 ; dx, dy, attribute add
 	db 5, 16, $01
 	db 3, -16, $00
@@ -480,7 +480,7 @@ FrameSprites_2f_765c::
 	db 0, 16, $02
 	db 8, -10, $02
 
-FrameSprites_2f_7683::
+FrameSprites_Shop_KongCelebrate_2::
 	db -13, -32, $01 ; dx, dy, attribute add
 	db 5, 16, $01
 	db 3, -16, $00
@@ -495,7 +495,7 @@ FrameSprites_2f_7683::
 	db 0, 16, $02
 	db 8, -11, $02
 
-FrameSprites_2f_76aa::
+FrameSprites_Shop_KongCelebrate_3::
 	db -14, -32, $01 ; dx, dy, attribute add
 	db 5, 16, $01
 	db 3, -16, $00
@@ -510,7 +510,7 @@ FrameSprites_2f_76aa::
 	db 8, 5, $02
 	db 0, 16, $02
 
-FrameSprites_2f_76d1::
+FrameSprites_Shop_KongCelebrate_4::
 	db -16, -28, $01 ; dx, dy, attribute add
 	db 8, 10, $01
 	db 0, -16, $00
@@ -524,7 +524,7 @@ FrameSprites_2f_76d1::
 	db 8, 4, $02
 	db 0, 16, $02
 
-FrameSprites_2f_76f5::
+FrameSprites_Shop_KongCelebrate_5::
 	db -16, -28, $01 ; dx, dy, attribute add
 	db 8, -4, $00
 	db -2, 16, $01
@@ -538,7 +538,7 @@ FrameSprites_2f_76f5::
 	db 8, 3, $02
 	db 0, 16, $02
 
-FrameSprites_2f_7719::
+FrameSprites_Shop_KongCelebrate_6::
 	db -15, -29, $01 ; dx, dy, attribute add
 	db 21, 15, $01
 	db -13, -19, $00
@@ -552,7 +552,7 @@ FrameSprites_2f_7719::
 	db 8, 3, $02
 	db 0, 16, $02
 
-FrameSprites_2f_773d::
+FrameSprites_Shop_KongCelebrate_7::
 	db -14, -29, $01 ; dx, dy, attribute add
 	db 1, 26, $01
 	db 7, -29, $00
@@ -566,7 +566,7 @@ FrameSprites_2f_773d::
 	db 8, 5, $02
 	db 0, 16, $02
 
-FrameSprites_2f_7761::
+FrameSprites_Shop_KongCelebrate_8::
 	db -13, -32, $01 ; dx, dy, attribute add
 	db 5, 16, $01
 	db 3, -16, $00
@@ -581,7 +581,7 @@ FrameSprites_2f_7761::
 	db 0, 16, $02
 	db 8, -11, $02
 
-FrameSprites_2f_7788::
+FrameSprites_Shop_KongCelebrate_9::
 	db -11, -32, $01 ; dx, dy, attribute add
 	db 3, 16, $01
 	db 5, -16, $00
@@ -595,7 +595,7 @@ FrameSprites_2f_7788::
 	db 0, 16, $02
 	db 8, -10, $02
 
-FrameSprites_2f_77ac::
+FrameSprites_Klump_Touch_1::
 	db -18, -32
 	db 0, 16
 	db 0, 16
@@ -609,7 +609,7 @@ FrameSprites_2f_77ac::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_2f_77c4::
+FrameSprites_Klump_Touch_2::
 	db -16, -29
 	db 0, 16
 	db 8, -21
@@ -622,7 +622,7 @@ FrameSprites_2f_77c4::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_2f_77da::
+FrameSprites_Klump_Touch_3::
 	db -16, -23
 	db 0, 16
 	db 8, -20
@@ -633,7 +633,7 @@ FrameSprites_2f_77da::
 	db 8, 6
 	db 8, 6
 
-FrameSprites_2f_77ec::
+FrameSprites_Klump_Touch_4::
 	db -18, -11
 	db 8, -12
 	db 0, 16
@@ -645,7 +645,7 @@ FrameSprites_2f_77ec::
 	db 8, 1
 	db 8, 4
 
-FrameSprites_2f_7800::
+FrameSprites_Klump_Touch_5::
 	db -18, -12
 	db 8, -12
 	db 0, 16
@@ -659,7 +659,7 @@ FrameSprites_2f_7800::
 	db 8, -17
 	db 8, 0
 
-FrameSprites_2f_7818::
+FrameSprites_Klump_Touch_6::
 	db -19, -13
 	db 8, -11
 	db 0, 16
@@ -674,13 +674,13 @@ FrameSprites_2f_7818::
 	db 8, -3
 	db 8, 4
 
-FrameSprites_2f_7832::
+FrameSprites_Shop_KongReactTimer_1::
 	db -3, -4
 
-FrameSprites_2f_7834::
+FrameSprites_Shop_KongReactTimer_2::
 	db -3, -5
 
-FrameSprites_2f_7836::
+FrameSprites_Shop_KongReactTimer_3::
 	db -4, -6
 	ds 1992, $00 ; $7838
 

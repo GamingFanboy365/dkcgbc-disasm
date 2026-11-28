@@ -3,354 +3,354 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $03", ROMX[$4000], BANK[$03]
 
-LevelObjBlock_03_4000::
+LevelObjBlock_CoralCapers::
 	db $00, $10, $00, $00, $10, $00, $00, $00, $44, $10, $00, $28, $10, $00, $00, $00
 
-LevelObjBlock_03_4010::
+LevelObjBlock_SnowBarrelBlast::
 	db $41, $08, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4020::
+LevelObjBlock_LoopyLights_1::
 	db $10, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4030::
+LevelObjBlock_MistyMine::
 	db $80, $00, $00, $10, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4040::
+LevelObjBlock_OilDrumAlley::
 	db $01, $00, $00, $08, $40, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4050::
+LevelObjBlock_BarrelCannonCanyon_1::
 	db $00, $00, $01, $08, $40, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4060::
+LevelObjBlockUnused_01::
 	db $10, $00, $00, $04, $00, $00, $89, $20, $00, $00, $00, $04, $10, $00, $00, $00
 
-LevelObjBlock_03_4070::
+LevelObjBlock_ClamCity_1::
 	db $00, $00, $10, $00, $00, $20, $51, $04, $00, $20, $10, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4080::
+LevelObjBlockUnused_02::
 	db $10, $00, $00, $28, $44, $10, $00, $00, $10, $00, $00, $00, $00, $10, $00, $00
 
-LevelObjBlock_03_4090::
+LevelObjBlock_MineCartCarnage7::
 	db $80, $00, $00, $08, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_40a0::
+LevelObjBlockUnused_03::
 	db $00, $08, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_40b0::
+LevelObjBlock_BouncyBonanza_1::
 	db $00, $80, $00, $00, $00, $00, $80, $00, $00, $00, $00, $00, $00, $80, $00, $00
 
-LevelObjBlock_03_40c0::
+LevelObjBlock_PoisonPond::
 	db $80, $20, $00, $00, $00, $00, $20, $80, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_40d0::
+LevelObjBlock_BlackoutBasement2::
 	db $80, $08, $00, $00, $00, $00, $08, $80, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_40e0::
+LevelObjBlock_RopeyRampage_Area1::
 	db $00, $80, $00, $00, $00, $00, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_40f0::
+LevelObjBlock_LoopyLights_2::
 	db $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4100::
+LevelObjBlockUnused_04::
 	db $80, $00, $02, $10, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4110::
+LevelObjBlock_BlackoutBasement::
 	db $08, $40, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4120::
+LevelObjBlock_RopeyRampage3::
 	db $80, $00, $00, $00, $00, $10, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4130::
+LevelObjBlock_BouncyBonanza_2::
 	db $00, $01, $00, $00, $08, $00, $00, $40, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4140::
+LevelObjBlock_BouncyBonanza_3::
 	db $80, $00, $00, $20, $08, $00, $00, $00, $00, $02, $00, $00, $01, $00, $00, $00
 
-LevelObjBlock_03_4150::
+LevelObjBlock_OrangUtanGang::
 	db $88, $20, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4160::
+LevelObjBlock_BarrelCannonCanyon_2::
 	db $08, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4170::
+LevelObjBlockUnused_05::
 	db $08, $80, $00, $00, $00, $00, $80, $00, $00, $00, $00, $00, $08, $80, $00, $00
 
-LevelObjBlock_03_4180::
+LevelObjBlock_BarrelCannonCanyon_3::
 	db $00, $02, $00, $00, $08, $00, $00, $00, $00, $20, $00, $00, $80, $00, $00, $00
 
-LevelObjBlock_03_4190::
+LevelObjBlock_ForestFrenzy::
 	db $00, $40, $00, $00, $10, $00, $00, $00, $00, $04, $00, $00, $01, $00, $00, $00
 
-LevelObjBlock_03_41a0::
+LevelObjBlock_WinkysWalkway_1::
 	db $01, $00, $00, $00, $00, $08, $00, $00, $40, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_41b0::
+LevelObjBlock_CoralCapers8::
 	db $88, $22, $00, $00, $22, $88, $00, $00, $88, $22, $00, $00, $22, $88, $00, $00
 
-LevelObjBlock_03_41c0::
+LevelObjBlock_ClamCity_2::
 	db $88, $22, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_41d0::
+LevelObjBlock_TrickTrackTrek_1::
 	db $01, $04, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_41e0::
+LevelObjBlock_CroctopusChase::
 	db $10, $00, $00, $00, $00, $00, $00, $82, $00, $00, $00, $00, $10, $00, $00, $00
 
-LevelObjBlock_03_41f0::
+LevelObjBlock_VultureCulture::
 	db $04, $00, $00, $10, $00, $00, $40, $00, $00, $00, $00, $00, $00, $80, $00, $00
 
-LevelObjBlock_03_4200::
+LevelObjBlock_OrangUtanGang0::
 	db $00, $00, $01, $00, $00, $04, $10, $00, $00, $40, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4210::
+LevelObjBlock_RopeyRampage7::
 	db $80, $20, $00, $00, $00, $00, $20, $80, $00, $00, $00, $00, $80, $20, $00, $00
 
-LevelObjBlock_03_4220::
+LevelObjBlock_ReptileRumble_1::
 	db $00, $02, $08, $00, $00, $00, $00, $20, $00, $00, $00, $00, $40, $00, $00, $00
 
-LevelObjBlock_03_4230::
+LevelObjBlock_TrickTrackTrek_2::
 	db $41, $08, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4240::
+LevelObjBlock_MineCartMadness::
 	db $08, $41, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4250::
+LevelObjBlock_ReptileRumble_2::
 	db $00, $10, $00, $00, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4260::
+LevelObjBlockUnused_06::
 	db $00, $02, $00, $00, $08, $00, $00, $20, $80, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4270::
+LevelObjBlockUnused_07::
 	db $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4280::
+LevelObjBlock_TrickTrackTrek_Area2_1::
 	db $41, $08, $00, $00, $00, $00, $08, $41, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4290::
+LevelObjBlockUnused_08::
 	db $08, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_42a0::
+LevelObjBlock_MineCartCarnage::
 	db $40, $00, $00, $10, $00, $00, $04, $00, $00, $00, $00, $00, $00, $02, $00, $00
 
-LevelObjBlock_03_42b0::
+LevelObjBlock_MineCartCarnage6::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $02, $00, $00, $10, $00, $00, $80, $00
 
-LevelObjBlock_03_42c0::
+LevelObjBlock_BarrelCannonCanyon11::
 	db $00, $40, $00, $00, $10, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_42d0::
+LevelObjBlock_BarrelCannonCanyon12::
 	db $00, $02, $00, $00, $08, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_42e0::
+LevelObjBlock_TempleTempest7::
 	db $10, $80, $00, $00, $00, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_42f0::
+LevelObjBlock_BarrelCannonCanyon08::
 	db $08, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4300::
+LevelObjBlock_TempleTempest2::
 	db $80, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4310::
+LevelObjBlockUnused_09::
 	db $80, $08, $00, $00, $00, $00, $08, $80, $00, $00, $00, $00, $80, $08, $00, $00
 
-LevelObjBlock_03_4320::
+LevelObjBlock_WinkysWalkway2::
 	db $88, $20, $00, $00, $00, $00, $20, $88, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4330::
+LevelObjBlock_BouncyBonanza10::
 	db $08, $80, $00, $00, $00, $00, $00, $00, $80, $08, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4340::
+LevelObjBlock_ForestFrenzy2::
 	db $88, $00, $00, $22, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4350::
+LevelObjBlock_OrangUtanGang6::
 	db $88, $22, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4360::
+LevelObjBlockUnused_10::
 	db $00, $02, $00, $00, $08, $00, $00, $00, $00, $20, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4370::
+LevelObjBlockUnused_11::
 	db $00, $40, $00, $00, $10, $00, $00, $00, $00, $04, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4380::
+LevelObjBlock_SnowBarrelBlast03::
 	db $00, $00, $04, $00, $00, $00, $00, $00, $00, $20, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4390::
+LevelObjBlock_SnowBarrelBlast04::
 	db $00, $00, $00, $20, $00, $00, $00, $00, $04, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_43a0::
+LevelObjBlockUnused_12::
 	db $80, $01, $00, $00, $00, $00, $01, $80, $00, $00, $00, $00, $80, $01, $00, $00
 
-LevelObjBlockUnused_03_43b0::
+LevelObjBlockUnused_13::
 	db $82, $10, $00, $00, $00, $00, $10, $82, $00, $00, $00, $00, $82, $10, $00, $00
 
-LevelObjBlock_03_43c0::
+LevelObjBlock_JungleHijinxs_Area1_2::
 	db $08, $02, $00, $20, $80, $00, $02, $08, $20, $00, $00, $80, $00, $00, $00, $00
 
-LevelObjBlock_03_43d0::
+LevelObjBlock_JungleHijinxs_Area1_0::
 	db $00, $40, $10, $00, $01, $04, $40, $00, $00, $10, $04, $01, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_43e0::
+LevelObjBlockUnused_14::
 	db $02, $00, $00, $00, $00, $00, $80, $02, $00, $00, $00, $00, $00, $80, $00, $00
 
-LevelObjBlock_03_43f0::
+LevelObjBlock_PoisonPond4::
 	db $02, $00, $00, $00, $00, $00, $00, $04, $00, $00, $10, $00, $00, $40, $00, $00
 
-LevelObjBlock_03_4400::
+LevelObjBlock_PoisonPond8::
 	db $88, $00, $00, $00, $00, $22, $00, $00, $88, $00, $00, $00, $00, $22, $00, $00
 
-LevelObjBlock_03_4410::
+LevelObjBlock_SlipslideRide_Area3_1::
 	db $80, $02, $00, $00, $00, $00, $02, $80, $00, $00, $00, $00, $80, $02, $00, $00
 
-LevelObjBlock_03_4420::
+LevelObjBlock_RopeyRampage0::
 	db $00, $00, $80, $10, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4430::
+LevelObjBlockUnused_15::
 	db $80, $00, $00, $00, $00, $20, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4440::
+LevelObjBlockUnused_16::
 	db $00, $01, $00, $00, $04, $00, $00, $40, $00, $00, $00, $00, $00, $00, $00, $00
 	ds 2224, $00 ; $4450
 
 
-LevelObjBlock_03_4d00::
+LevelObjBlock_SlipslideRide_Area3_2::
 	db $80, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d10::
+LevelObjBlock_MineCartMadness7::
 	db $00, $00, $00, $80, $10, $00, $00, $00, $00, $02, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d20::
+LevelObjBlock_SlipslideRide2::
 	db $00, $02, $00, $00, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d30::
+LevelObjBlock_SlipslideRide::
 	db $00, $80, $00, $00, $00, $00, $00, $00, $80, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d40::
+LevelObjBlock_ElevatorAntics_Area1_1::
 	db $82, $10, $00, $00, $00, $00, $00, $00, $10, $82, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d50::
+LevelObjBlock_ElevatorAntics_Area1_2::
 	db $10, $80, $00, $00, $00, $00, $00, $00, $80, $10, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d60::
+LevelObjBlock_ForestFrenzy_Area2::
 	db $82, $10, $00, $00, $00, $00, $00, $00, $10, $82, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d70::
+LevelObjBlock_OilDrumAlley_Area1::
 	db $02, $05, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4d80::
+LevelObjBlock_TrickTrackTrek_Area2_2::
 	db $80, $10, $00, $00, $00, $00, $10, $80, $00, $00, $00, $00, $80, $10, $00, $00
 
-LevelObjBlock_03_4d90::
+LevelObjBlock_WinkysWalkway_Area1::
 	db $80, $08, $00, $00, $00, $00, $08, $80, $00, $00, $00, $00, $80, $08, $00, $00
 
-LevelObjBlock_03_4da0::
+LevelObjBlock_BarrelCannonCanyon_Area2::
 	db $01, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4db0::
+LevelObjBlock_RopeBridgeRumble_Area1::
 	db $82, $10, $00, $00, $00, $00, $10, $82, $00, $00, $00, $00, $82, $10, $00, $00
 
-LevelObjBlock_03_4dc0::
+LevelObjBlock_ManicMincers4::
 	db $00, $00, $28, $00, $00, $82, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4dd0::
+LevelObjBlock_TankedUpTrouble6::
 	db $00, $00, $00, $00, $00, $20, $00, $00, $88, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4de0::
+LevelObjBlock_TankedUpTrouble5::
 	db $00, $00, $00, $00, $00, $22, $00, $00, $88, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4df0::
+LevelObjBlock_TankedUpTrouble7::
 	db $00, $00, $00, $00, $44, $00, $00, $00, $00, $11, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4e00::
+LevelObjBlock_BlackoutBasement6::
 	db $00, $01, $08, $00, $00, $40, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4e10::
+LevelObjBlock_BlackoutBasement5::
 	db $80, $00, $00, $10, $02, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4e20::
+LevelObjBlockUnused_17::
 	db $08, $02, $00, $00, $80, $20, $02, $08, $00, $00, $20, $80, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4e30::
+LevelObjBlockUnused_18::
 	db $10, $40, $00, $00, $01, $04, $40, $10, $00, $00, $04, $01, $00, $00, $00, $00
 
-LevelObjBlock_03_4e40::
+LevelObjBlock_RopeBridgeRumble4::
 	db $80, $10, $00, $00, $00, $00, $10, $80, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4e50::
+LevelObjBlockUnused_19::
 	db $00, $00, $80, $00, $00, $00, $00, $80, $00, $00, $80, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4e60::
+LevelObjBlock_MistyMine_Area1::
 	db $80, $00, $00, $00, $00, $10, $00, $00, $02, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4e70::
+LevelObjBlockUnused_20::
 	db $80, $00, $00, $20, $00, $00, $08, $00, $00, $00, $00, $00, $00, $04, $00, $00
 
-LevelObjBlock_03_4e80::
+LevelObjBlock_TrickTrackTrek_Area2_3::
 	db $82, $10, $00, $00, $00, $00, $10, $82, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4e90::
+LevelObjBlock_RopeBridgeRumble::
 	db $00, $00, $00, $00, $80, $00, $02, $10, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4ea0::
+LevelObjBlockUnused_21::
 	db $80, $00, $00, $00, $00, $10, $00, $00, $00, $00, $02, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4eb0::
+LevelObjBlock_WinkysWalkway_2::
 	db $80, $00, $00, $00, $00, $10, $00, $00, $02, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4ec0::
+LevelObjBlockUnused_22::
 	db $00, $40, $00, $00, $00, $00, $40, $00, $00, $00, $00, $00, $00, $80, $00, $00
 
-LevelObjBlockUnused_03_4ed0::
+LevelObjBlockUnused_23::
 	db $00, $00, $00, $00, $40, $00, $00, $00, $00, $00, $00, $00, $00, $40, $00, $00
 
-LevelObjBlockUnused_03_4ee0::
+LevelObjBlockUnused_24::
 	db $00, $00, $00, $00, $00, $02, $00, $00, $08, $00, $00, $20, $80, $00, $00, $00
 
-LevelObjBlockUnused_03_4ef0::
+LevelObjBlockUnused_25::
 	db $80, $00, $00, $00, $00, $00, $00, $80, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4f00::
+LevelObjBlockUnused_26::
 	db $80, $00, $00, $10, $02, $00, $00, $00, $00, $80, $10, $00, $00, $02, $00, $00
 
-LevelObjBlock_03_4f10::
+LevelObjBlock_OrangUtanGang_Area2::
 	db $00, $00, $08, $00, $00, $04, $8a, $20, $00, $04, $08, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4f20::
+LevelObjBlock_PoisonPond6::
 	db $10, $00, $00, $04, $00, $00, $89, $20, $00, $00, $00, $04, $10, $00, $00, $00
 
-LevelObjBlockUnused_03_4f30::
+LevelObjBlockUnused_27::
 	db $88, $20, $00, $00, $00, $00, $20, $88, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4f40::
+LevelObjBlockUnused_28::
 	db $80, $00, $00, $00, $00, $80, $00, $80, $80, $00, $00, $00, $00, $80, $00, $00
 
-LevelObjBlock_03_4f50::
+LevelObjBlock_JungleHijinxs_Area1::
 	db $88, $22, $00, $00, $00, $00, $22, $88, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlock_03_4f60::
+LevelObjBlock_ElevatorAntics::
 	db $88, $20, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4f70::
+LevelObjBlockUnused_29::
 	db $00, $00, $80, $00, $00, $20, $08, $00, $00, $02, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4f80::
+LevelObjBlockUnused_30::
 	db $00, $40, $00, $00, $00, $00, $00, $00, $40, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4f90::
+LevelObjBlockUnused_31::
 	db $00, $02, $00, $00, $08, $00, $00, $20, $80, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4fa0::
+LevelObjBlockUnused_32::
 	db $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4fb0::
+LevelObjBlockUnused_33::
 	db $41, $08, $00, $00, $00, $00, $08, $41, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4fc0::
+LevelObjBlockUnused_34::
 	db $08, $80, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-LevelObjBlockUnused_03_4fd0::
+LevelObjBlockUnused_35::
 	db $40, $00, $00, $10, $00, $00, $04, $00, $00, $00, $00, $00, $00, $02, $00, $00
 
-LevelObjBlockUnused_03_4fe0::
+LevelObjBlockUnused_36::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $02, $00, $00, $10, $00, $00, $80, $00
 	ds 12304, $00 ; $4ff0
 

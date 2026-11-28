@@ -3,118 +3,118 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $2d", ROMX[$4000], BANK[$2d]
 
-FrameTiles_2d_4000::
+FrameTiles_KingKRool_Wait_9::
 	INCBIN "gfx/frames/2d/4000.2bpp"
 
-FrameTiles_2d_4200::
+FrameTiles_KingKRool_Wait_10::
 	INCBIN "gfx/frames/2d/4200.2bpp"
 
-FrameTiles_2d_4400::
+FrameTiles_KingKRool_Wait_11::
 	INCBIN "gfx/frames/2d/4400.2bpp"
 
-FrameTiles_2d_4600::
+FrameTiles_KingKRool_Wait_12::
 	INCBIN "gfx/frames/2d/4600.2bpp"
 
-FrameTiles_2d_47e0::
+FrameTiles_KingKRool_FakeDefeat_1::
 	INCBIN "gfx/frames/2d/47e0.2bpp"
 
-FrameTiles_2d_4a40::
+FrameTiles_KingKRool_FakeDefeat_2::
 	INCBIN "gfx/frames/2d/4a40.2bpp"
 
-FrameTiles_2d_4c60::
+FrameTiles_KingKRool_FakeDefeat_3::
 	INCBIN "gfx/frames/2d/4c60.2bpp"
 
-FrameTiles_2d_4e60::
+FrameTiles_KingKRool_FakeDefeat_4::
 	INCBIN "gfx/frames/2d/4e60.2bpp"
 
-FrameTiles_2d_5080::
+FrameTiles_KingKRool_FakeDefeat_5::
 	INCBIN "gfx/frames/2d/5080.2bpp"
 
-FrameTiles_2d_5280::
+FrameTiles_KingKRool_FakeDefeat_6::
 	INCBIN "gfx/frames/2d/5280.2bpp"
 
-FrameTiles_2d_5440::
+FrameTiles_KingKRool_FakeDefeat_7::
 	INCBIN "gfx/frames/2d/5440.2bpp"
 
-FrameTiles_2d_5620::
+FrameTiles_KingKRool_FakeDefeat_8::
 	INCBIN "gfx/frames/2d/5620.2bpp"
 
-FrameTiles_2d_57e0::
+FrameTiles_Touch_Enemy_1::
 	INCBIN "gfx/frames/2d/57e0.2bpp"
 
-FrameTiles_2d_5920::
+FrameTiles_Touch_Enemy_2::
 	INCBIN "gfx/frames/2d/5920.2bpp"
 
-FrameTiles_2d_5a40::
+FrameTiles_Touch_Enemy_3::
 	INCBIN "gfx/frames/2d/5a40.2bpp"
 
-FrameTiles_2d_5b20::
+FrameTiles_Touch_Enemy_4::
 	INCBIN "gfx/frames/2d/5b20.2bpp"
 
-FrameTiles_2d_5ba0::
+FrameTiles_Touch_Enemy_5::
 	INCBIN "gfx/frames/2d/5ba0.2bpp"
 
-FrameTiles_2d_5ca0::
+FrameTiles_Touch_Enemy_6::
 	INCBIN "gfx/frames/2d/5ca0.2bpp"
 
-FrameTiles_2d_5de0::
+FrameTiles_Touch_Enemy_7::
 	INCBIN "gfx/frames/2d/5de0.2bpp"
 
-FrameTiles_2d_5f00::
+FrameTiles_Touch_Enemy_8::
 	INCBIN "gfx/frames/2d/5f00.2bpp"
 
-FrameTiles_2d_5fe0::
+FrameTiles_Touch_Enemy_9::
 	INCBIN "gfx/frames/2d/5fe0.2bpp"
 
-FrameTiles_2d_60e0::
+FrameTiles_Touch_Enemy_10::
 	INCBIN "gfx/frames/2d/60e0.2bpp"
 
-FrameTiles_2d_61e0::
+FrameTiles_MiniNecky_1::
 	INCBIN "gfx/frames/2d/61e0.2bpp"
 
-FrameTiles_2d_6280::
+FrameTiles_MiniNecky_2::
 	INCBIN "gfx/frames/2d/6280.2bpp"
 
-FrameTiles_2d_6340::
+FrameTiles_MiniNecky_3::
 	INCBIN "gfx/frames/2d/6340.2bpp"
 
-FrameTiles_2d_63c0::
+FrameTiles_MiniNecky_4::
 	INCBIN "gfx/frames/2d/63c0.2bpp"
 
-FrameTiles_2d_6440::
+FrameTiles_MiniNecky_5::
 	INCBIN "gfx/frames/2d/6440.2bpp"
 
-FrameTiles_2d_64e0::
+FrameTiles_MiniNecky_6::
 	INCBIN "gfx/frames/2d/64e0.2bpp"
 
-FrameTiles_2d_6580::
+FrameTiles_MiniNecky_RunScript_1::
 	INCBIN "gfx/frames/2d/6580.2bpp"
 
-FrameTiles_2d_6620::
+FrameTiles_MiniNecky_RunScript_2::
 	INCBIN "gfx/frames/2d/6620.2bpp"
 
-FrameTiles_2d_66c0::
+FrameTiles_MiniNecky_RunScript_3::
 	INCBIN "gfx/frames/2d/66c0.2bpp"
 
-FrameTiles_2d_6760::
+FrameTiles_MiniNecky_RunScript_4::
 	INCBIN "gfx/frames/2d/6760.2bpp"
 
-FrameTiles_2d_6820::
+FrameTiles_MiniNecky_RunScript_5::
 	INCBIN "gfx/frames/2d/6820.2bpp"
 
-FrameTiles_2d_68a0::
+FrameTiles_MiniNecky_RunScript_6::
 	INCBIN "gfx/frames/2d/68a0.2bpp"
 
-FrameTiles_2d_6920::
+FrameTiles_MiniNecky_RunScript_7::
 	INCBIN "gfx/frames/2d/6920.2bpp"
 
-FrameTiles_2d_69a0::
+FrameTiles_MiniNecky_RunScript_8::
 	INCBIN "gfx/frames/2d/69a0.2bpp"
 
-FrameTiles_2d_6a20::
+FrameTiles_Enemy_HandleContact_17::
 	INCBIN "gfx/frames/2d/6a20.2bpp"
 
-FrameSprites_2d_6ae0::
+FrameSprites_KingKRool_Wait_9::
 	db -21, -29, $01 ; dx, dy, attribute add
 	db 2, 16, $01
 	db 8, 1, $00
@@ -132,7 +132,7 @@ FrameSprites_2d_6ae0::
 	db 0, 16, $00
 	db -32, -29, $01
 
-FrameSprites_2d_6b10::
+FrameSprites_KingKRool_Wait_10::
 	db -21, -31, $01 ; dx, dy, attribute add
 	db 4, 16, $01
 	db 4, -16, $01
@@ -150,7 +150,7 @@ FrameSprites_2d_6b10::
 	db 2, 14, $00
 	db -28, 17, $00
 
-FrameSprites_2d_6b40::
+FrameSprites_KingKRool_Wait_11::
 	db -20, -27, $01 ; dx, dy, attribute add
 	db -2, 4, $01
 	db 10, -4, $01
@@ -168,7 +168,7 @@ FrameSprites_2d_6b40::
 	db -42, 12, $01
 	db 10, -36, $01
 
-FrameSprites_2d_6b70::
+FrameSprites_KingKRool_Wait_12::
 	db -21, -25, $01 ; dx, dy, attribute add
 	db -1, 16, $01
 	db 9, -20, $01
@@ -185,7 +185,7 @@ FrameSprites_2d_6b70::
 	db 9, -7, $00
 	db -32, -31, $01
 
-FrameSprites_2d_6b9d::
+FrameSprites_KingKRool_FakeDefeat_1::
 	db -16, -47, $01 ; dx, dy, attribute add
 	db -8, 7, $01
 	db 0, 16, $01
@@ -206,7 +206,7 @@ FrameSprites_2d_6b9d::
 	db 8, -13, $00
 	db -24, 7, $00
 
-FrameSprites_2d_6bd6::
+FrameSprites_KingKRool_FakeDefeat_2::
 	db -23, -38, $01 ; dx, dy, attribute add
 	db -1, 12, $01
 	db 0, 16, $00
@@ -225,7 +225,7 @@ FrameSprites_2d_6bd6::
 	db 0, 16, $00
 	db 8, -5, $00
 
-FrameSprites_2d_6c09::
+FrameSprites_KingKRool_FakeDefeat_3::
 	db -22, -39, $01 ; dx, dy, attribute add
 	db 8, 15, $00
 	db 0, -16, $01
@@ -243,7 +243,7 @@ FrameSprites_2d_6c09::
 	db -3, 11, $00
 	db -15, 7, $00
 
-FrameSprites_2d_6c39::
+FrameSprites_KingKRool_FakeDefeat_4::
 	db -20, -38, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -26, $01
@@ -262,7 +262,7 @@ FrameSprites_2d_6c39::
 	db 4, 5, $00
 	db -4, 11, $00
 
-FrameSprites_2d_6c6c::
+FrameSprites_KingKRool_FakeDefeat_5::
 	db -24, -30, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -26, $01
@@ -280,7 +280,7 @@ FrameSprites_2d_6c6c::
 	db 8, -13, $00
 	db -40, 13, $00
 
-FrameSprites_2d_6c9c::
+FrameSprites_KingKRool_FakeDefeat_6::
 	db -22, -27, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -29, $01
@@ -296,7 +296,7 @@ FrameSprites_2d_6c9c::
 	db 8, 0, $00
 	db 0, 16, $00
 
-FrameSprites_2d_6cc6::
+FrameSprites_KingKRool_FakeDefeat_7::
 	db -22, -25, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -28, $01
@@ -313,7 +313,7 @@ FrameSprites_2d_6cc6::
 	db 0, 16, $00
 	db -8, 1, $00
 
-FrameSprites_2d_6cf3::
+FrameSprites_KingKRool_FakeDefeat_8::
 	db -21, -24, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 1, 5, $00
@@ -329,7 +329,7 @@ FrameSprites_2d_6cf3::
 	db 0, 16, $00
 	db 8, 5, $00
 
-FrameSprites_2d_6d1d::
+FrameSprites_Touch_Enemy_1::
 	db -14, -32
 	db 0, 16
 	db 0, 16
@@ -341,7 +341,7 @@ FrameSprites_2d_6d1d::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_2d_6d31::
+FrameSprites_Touch_Enemy_2::
 	db -16, -25
 	db 0, 16
 	db 8, -5
@@ -352,7 +352,7 @@ FrameSprites_2d_6d31::
 	db 0, 18
 	db 8, 4
 
-FrameSprites_2d_6d43::
+FrameSprites_Touch_Enemy_3::
 	db -16, -13
 	db 0, 16
 	db 8, -10
@@ -361,13 +361,13 @@ FrameSprites_2d_6d43::
 	db 0, 16
 	db 8, -3
 
-FrameSprites_2d_6d51::
+FrameSprites_Touch_Enemy_4::
 	db -14, -4
 	db 8, -5
 	db 8, 0
 	db 8, 1
 
-FrameSprites_2d_6d59::
+FrameSprites_Touch_Enemy_5::
 	db -12, -6
 	db 0, 16
 	db 8, -19
@@ -377,7 +377,7 @@ FrameSprites_2d_6d59::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2d_6d69::
+FrameSprites_Touch_Enemy_6::
 	db -12, -6
 	db 0, 16
 	db 0, 16
@@ -389,7 +389,7 @@ FrameSprites_2d_6d69::
 	db 0, 16
 	db 8, -31
 
-FrameSprites_2d_6d7d::
+FrameSprites_Touch_Enemy_7::
 	db -12, -6
 	db 0, 16
 	db 8, -19
@@ -400,7 +400,7 @@ FrameSprites_2d_6d7d::
 	db 8, -15
 	db 0, 19
 
-FrameSprites_2d_6d8f::
+FrameSprites_Touch_Enemy_8::
 	db -14, -9
 	db 0, 16
 	db 8, -17
@@ -409,7 +409,7 @@ FrameSprites_2d_6d8f::
 	db 8, 0
 	db 0, 16
 
-FrameSprites_2d_6d9d::
+FrameSprites_Touch_Enemy_9::
 	db -15, -15
 	db 0, 16
 	db 8, -16
@@ -419,7 +419,7 @@ FrameSprites_2d_6d9d::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2d_6dad::
+FrameSprites_Touch_Enemy_10::
 	db -13, -29
 	db 0, 16
 	db 0, 16
@@ -429,14 +429,14 @@ FrameSprites_2d_6dad::
 	db 0, 16
 	db 8, 5
 
-FrameSprites_2d_6dbd::
+FrameSprites_MiniNecky_1::
 	db -9, -13
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -9
 
-FrameSprites_2d_6dc7::
+FrameSprites_MiniNecky_2::
 	db -12, -9
 	db 0, 16
 	db 8, -15
@@ -444,54 +444,54 @@ FrameSprites_2d_6dc7::
 	db 8, -20
 	db 8, 8
 
-FrameSprites_2d_6dd3::
+FrameSprites_MiniNecky_3::
 	db -6, -7
 	db 0, 16
 	db 8, -18
 	db 8, 4
 
-FrameSprites_2d_6ddb::
+FrameSprites_MiniNecky_4::
 	db -6, -8
 	db 0, 16
 	db 8, -17
 	db 8, 4
 
-FrameSprites_2d_6de3::
+FrameSprites_MiniNecky_5::
 	db -9, -7
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2d_6ded::
+FrameSprites_MiniNecky_6::
 	db -10, -9
 	db 0, 16
 	db 8, -18
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2d_6df7::
+FrameSprites_MiniNecky_RunScript_1::
 	db -9, -6
 	db 0, 16
 	db 8, -19
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2d_6e01::
+FrameSprites_MiniNecky_RunScript_2::
 	db -8, -10
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -15
 
-FrameSprites_2d_6e0b::
+FrameSprites_MiniNecky_RunScript_3::
 	db -7, -14
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -3
 
-FrameSprites_2d_6e15::
+FrameSprites_MiniNecky_RunScript_4::
 	db -10, -11
 	db 0, 16
 	db 8, -19
@@ -499,31 +499,31 @@ FrameSprites_2d_6e15::
 	db 8, -8
 	db 0, 16
 
-FrameSprites_2d_6e21::
+FrameSprites_MiniNecky_RunScript_5::
 	db -10, -2
 	db 8, -8
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2d_6e29::
+FrameSprites_MiniNecky_RunScript_6::
 	db -7, -1
 	db 8, -4
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2d_6e31::
+FrameSprites_MiniNecky_RunScript_7::
 	db -7, -1
 	db 8, -5
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2d_6e39::
+FrameSprites_MiniNecky_RunScript_8::
 	db -9, 1
 	db 8, -10
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2d_6e41::
+FrameSprites_Enemy_HandleContact_17::
 	db -16, -14
 	db 8, -2
 	db 0, 16

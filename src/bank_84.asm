@@ -3,11 +3,11 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $84", ROMX[$4000], BANK[$84]
 
-BGTiles_84_4000::
+BGTiles_GangPlankGalleon::
 	INCBIN "gfx/bgtiles/84/4000.2bpp"
 	INCBIN "gfx/bgtiles/84/4000_end.2bpp"
 
-BGTiles_84_59f0::
+BGTiles_CoralCapers::
 	INCBIN "gfx/bgtiles/84/59f0.2bpp"
 	ds 1552, $00 ; $79f0
 

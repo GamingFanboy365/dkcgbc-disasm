@@ -3,49 +3,49 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e7", ROMX[$4000], BANK[$e7]
 
-LevelMap_e7_4000::
+LevelMap_BouncyBonanza2::
 	INCBIN "data/maps/e7_4000_terrain.lz"
 
-LevelMap_e7_43a9::
+LevelMap_BouncyBonanza0::
 	INCBIN "data/maps/e7_43a9_blocks.lz"
 
-LevelMap_e7_4ce5::
+LevelMap_BouncyBonanza1::
 	INCBIN "data/maps/e7_4ce5_attrs.lz"
 
-LevelMap_e7_5193::
+LevelMap_BouncyBonanza5::
 	INCBIN "data/maps/e7_5193_terrain.lz"
 
-LevelMap_e7_51eb::
+LevelMap_BouncyBonanza3::
 	INCBIN "data/maps/e7_51eb_blocks.lz"
 
-LevelMap_e7_527d::
+LevelMap_BouncyBonanza4::
 	INCBIN "data/maps/e7_527d_attrs.lz"
 
-LevelMap_e7_52f1::
+LevelMap_TorchlightTrouble_1::
 	INCBIN "data/maps/e7_52f1_terrain.lz"
 
-LevelMap_e7_5458::
+LevelMap_TorchlightTrouble_2::
 	INCBIN "data/maps/e7_5458_blocks.lz"
 
-LevelMap_e7_5902::
+LevelMap_TorchlightTrouble_3::
 	INCBIN "data/maps/e7_5902_attrs.lz"
 
-LevelMap_e7_5b8f::
+LevelMap_ManicMincers2::
 	INCBIN "data/maps/e7_5b8f_terrain.lz"
 
-LevelMap_e7_5e3a::
+LevelMap_ManicMincers0::
 	INCBIN "data/maps/e7_5e3a_blocks.lz"
 
-LevelMap_e7_6590::
+LevelMap_ManicMincers1::
 	INCBIN "data/maps/e7_6590_attrs.lz"
 
-LevelMap_e7_6943::
+LevelMap_ManicMincers5::
 	INCBIN "data/maps/e7_6943_terrain.lz"
 
-LevelMap_e7_6997::
+LevelMap_ManicMincers3::
 	INCBIN "data/maps/e7_6997_blocks.lz"
 
-LevelMap_e7_6a61::
+LevelMap_ManicMincers4::
 	INCBIN "data/maps/e7_6a61_attrs.lz"
 	ds 5404, $00 ; $6ae4
 

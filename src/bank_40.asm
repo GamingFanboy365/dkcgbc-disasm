@@ -3,10 +3,10 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $40", ROMX[$4000], BANK[$40]
 
-BGTiles_40_4000::
+BGTiles_DialogueFontForThe::
 	INCBIN "gfx/bgtiles/40/4000.2bpp"
 
-BGTiles_40_4800::
+BGTiles_WorldMapArrowsAnd::
 	INCBIN "gfx/bgtiles/40/4800.2bpp"
 	ds 48, $00 ; $4890
 
@@ -31,7 +31,7 @@ NotGBCMap::
 	db $00, $ac, $ad, $ae, $af, $b0, $b1, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $b2, $b3, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-BGTiles_40_4a28::
+BGTiles_NotGBCMap::
 	INCBIN "gfx/bgtiles/40/4a28.2bpp"
 	ds 9688, $00 ; $5a28
 

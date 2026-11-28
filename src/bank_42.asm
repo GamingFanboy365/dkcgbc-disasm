@@ -3,14 +3,14 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $42", ROMX[$4000], BANK[$42]
 
-BGTiles_42_4000::
+BGTiles_FunkysFlights::
 	INCBIN "gfx/bgtiles/42/4000.2bpp"
 
-BGTiles_42_5300::
+BGTiles_TitleTables_1::
 	INCBIN "gfx/bgtiles/42/5300.2bpp"
 	INCBIN "gfx/bgtiles/42/5300_end.2bpp"
 
-ScreenPalettes_42_7290::
+ScreenPalettes_FunkysFlights::
 	rgb 11,  6,  2,  26, 18, 10,  21,  0,  0,  31, 31, 29
 	rgb  0,  0,  0,  11,  6,  2,  13, 12,  6,  23, 21, 13
 	rgb  0,  0,  0,   2, 10,  1,   4, 18,  3,   6, 27,  5
@@ -20,7 +20,7 @@ ScreenPalettes_42_7290::
 	rgb  0,  0,  0,  11,  6,  2,  12, 12,  0,  30, 28,  1
 	rgb  0,  0,  0,   0, 15, 28,  30, 28,  1,  31, 31, 29
 
-ScreenPalettesTail_42_72d0::
+ScreenPalettesTail_FunkysFlights::
 	rgb  0,  0,  0,  10,  9,  0,  20, 19,  0,  30, 28,  1
 	rgb  0,  0,  0,   5,  5,  5,  10, 10, 10,  15, 15, 15
 	rgb  0,  0,  0,   7,  7,  7,  15, 15, 15,  23, 23, 23
@@ -30,7 +30,7 @@ ScreenPalettesTail_42_72d0::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-ScreenMap_42_7310::
+ScreenMap_FunkysFlights::
 	db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $01, $01, $03, $03, $03, $03, $03 ; attributes
 	db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $05, $05, $05, $03, $03, $03, $03
 	db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $04, $04, $04, $04, $00, $00, $00, $01, $03, $03
@@ -68,7 +68,7 @@ ScreenMap_42_7310::
 	db $31, $30, $f9, $29, $2a, $2b, $f6, $f7, $f8, $2c, $0b, $0c, $98, $01, $9b, $16, $2d, $8f, $2e, $2f
 	db $06, $08, $3b, $07, $08, $09, $0a, $30, $f8, $f7, $f6, $2b, $e9, $9b, $76, $d0, $d1, $ab, $d3, $d4
 
-Screen_42_75e0::
-	dw ScreenPalettes_42_7290, ScreenMap_42_7310, BGTiles_42_4000 ; palettes, tile map, tiles
+Screen_FunkysFlights::
+	dw ScreenPalettes_FunkysFlights, ScreenMap_FunkysFlights, BGTiles_FunkysFlights ; palettes, tile map, tiles
 	ds 2586, $00 ; $75e6
 

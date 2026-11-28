@@ -55,7 +55,7 @@ FillMemory::
 	ret
 
 
-Padding_00_0035::
+Padding_FillMemory::
 	ds 3, $00 ; padding between restart vectors
 
 Rst38::
@@ -72,7 +72,7 @@ VBlankInterrupt::
 	jp wVBlankTrampoline
 
 
-Padding_00_0043::
+Padding_VBlankInterrupt::
 	ds 5, $00 ; padding between restart vectors
 
 LCDInterrupt::
@@ -83,21 +83,21 @@ EmptyInterrupt::
 	reti
 
 
-Padding_00_004c::
+Padding_EmptyInterrupt::
 	ds 4, $00 ; padding between restart vectors
 
 TimerInterrupt::
 	jp wTimerTrampoline
 
 
-Padding_00_0053::
+Padding_TimerInterrupt::
 	ds 5, $00 ; padding between restart vectors
 
 SerialInterrupt::
 	jp wSerialTrampoline
 
 
-Padding_00_005b::
+Padding_SerialInterrupt::
 	ds 5, $00 ; padding between restart vectors
 
 JoypadInterrupt::
@@ -191,14 +191,14 @@ Vector_PlaySong::
 	jp PlaySong
 
 
-RAMPointer_00_00f6::
+RAMPointer_Vector_PlaySong::
 	dw $c329 ; a RAM address, read by FE_SoundTest_DrawNumber in bank $f1
 
 Vector_00f8::
 	jp Decompress.jp_write_save_file
 
 
-Padding_00_00fb::
+Padding_Vector_00f8::
 	ds 5, $00 ; padding between restart vectors
 
 SECTION "Entry", ROM0[$0100]
@@ -329,7 +329,7 @@ Init::
 	ld bc, $0200
 	call FillMemory
 	call InstallInterruptTrampolines
-	ld de, Flow_0d_5f58
+	ld de, Flow_Init
 	call SetFlowPointer
 	ei
 .loop_021c:
@@ -848,7 +848,7 @@ State_EnterShop::
 	jr .else_05bf
 
 .else_05a8:
-	ld hl, ObjPalPreload_80_424e
+	ld hl, ObjPalPreload_State_EnterShop_3
 	call PreloadObjPalettes
 	ld a, $20
 	call PlaySong
@@ -859,7 +859,7 @@ State_EnterShop::
 	jp RunFlowScript
 
 .else_05bf:
-	ld hl, ObjPalPreload_80_423c
+	ld hl, ObjPalPreload_State_EnterShop_1
 	call PreloadObjPalettes
 	ld a, $11
 	call PlaySong
@@ -870,7 +870,7 @@ State_EnterShop::
 	jp RunFlowScript
 
 .else_05d6:
-	ld hl, ObjPalPreload_80_4245
+	ld hl, ObjPalPreload_State_EnterShop_2
 	call PreloadObjPalettes
 	ld a, $14
 	call PlaySong
@@ -881,7 +881,7 @@ State_EnterShop::
 	jp RunFlowScript
 
 .else_05ed:
-	ld hl, ObjPalPreload_80_4245
+	ld hl, ObjPalPreload_State_EnterShop_2
 	call PreloadObjPalettes
 	ld a, $09
 	call PlaySong
@@ -3278,7 +3278,7 @@ AnimateObject::
 
 .else_1331:
 	push hl
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld d, h
 	ld e, l
@@ -4184,12 +4184,12 @@ SpawnBananaString::
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-	ld hl, ObjInit_00_1850
+	ld hl, ObjInit_Bananas
 	call ApplyObjInit
 	ret
 
 
-ObjInit_00_1850::
+ObjInit_Bananas::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Bananas)
 	obj_word OBJ_HANDLER, Bananas
@@ -4200,7 +4200,7 @@ ObjInit_00_1850::
 
 SpawnObjectGroup::
 	push hl
-	ld hl, ObjInit_00_1883
+	ld hl, ObjInit_Obj_ReleaseSpawnGroup
 	call ApplyObjInit
 	pop de
 	ld hl, wObjects + OBJ_ANIM
@@ -4227,7 +4227,7 @@ SpawnObjectGroup::
 	ret
 
 
-ObjInit_00_1883::
+ObjInit_Obj_ReleaseSpawnGroup::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Obj_ReleaseSpawnGroup)
 	obj_word OBJ_HANDLER, Obj_ReleaseSpawnGroup
@@ -4341,7 +4341,7 @@ DeleteObject::
 	ld a, [hl]
 	and $04
 	jr z, .skip
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ld l, [hl]
 	ld h, $af
@@ -5078,13 +5078,13 @@ WorldMap_ReadNode::
 	ld [wLevel], a
 	ld hl, wMapFlags
 	res 7, [hl]
-	ld de, Flow_0d_5f96
+	ld de, Flow_WorldMap_ReadNode_1
 	jp SetFlowPointer
 
 .else_1d9c:
 	ld a, e
 	ld [wMapLocation], a
-	ld de, Flow_0d_5f90
+	ld de, Flow_WorldMap_ReadNode_Sub_1
 	jp SetFlowPointer
 
 .else_1da6:
@@ -5092,7 +5092,7 @@ WorldMap_ReadNode::
 	ld [wLevel], a
 	ld hl, wMapFlags
 	res 7, [hl]
-	ld de, Flow_0d_5f9c
+	ld de, Flow_WorldMap_ReadNode_2
 	jp SetFlowPointer
 
 .unreached_1db5:
@@ -5102,7 +5102,7 @@ WorldMap_ReadNode::
 	or a
 	ret z
 	ld [wLevel], a
-	ld de, Flow_0d_5fbe
+	ld de, Flow_WorldMap_ReadNode_3
 	jp SetFlowPointer
 
 .check_node:
@@ -5327,7 +5327,7 @@ AnimateWorldMapTiles::
 	ret
 
 
-WordTable_00_1efa::
+WordTable_AnimateWorldMapTiles::
 	dw $4620, $4820, $4a20, $4c20, $4e20, $5020, $4f20, $5120
 
 DrawWorldMapScreen::
@@ -5640,7 +5640,7 @@ WorldMap_UpdateNodeSong::
 	ret
 
 
-ByteTable_00_20b5::
+ByteTable_UpdateWorldMapScroll::
 	db 0, 3, 7, 11, 13, 15
 
 UpdateWorldMapSprites::
@@ -6697,11 +6697,11 @@ State_Level::
 	ld hl, wMapFlags
 	bit 4, [hl]
 	jr nz, .else_275e
-	ld de, Flow_0d_5f92
+	ld de, Flow_WorldMap_ReadNode_Sub_2
 	jp SetFlowPointer
 
 .else_2758:
-	ld de, Flow_0d_5fa5
+	ld de, Flow_State_Level
 	jp SetFlowPointer
 
 .else_275e:
@@ -6801,12 +6801,12 @@ SpawnHUD::
 
 SpawnStopGoTimer::
 	call AllocObject
-	ld hl, ObjInit_00_27f7
+	ld hl, ObjInit_StopGoTimer
 	call ApplyObjInit
 	ret
 
 
-ObjInit_00_27f7::
+ObjInit_StopGoTimer::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(StopGoTimer)
 	obj_word OBJ_HANDLER, StopGoTimer
@@ -6818,12 +6818,12 @@ SpawnLightsTimer::
 	ld [hli], a
 	ld [hl], $00
 	call AllocObject
-	ld hl, ObjInit_00_2811
+	ld hl, ObjInit_LightsTimer
 	call ApplyObjInit
 	ret
 
 
-ObjInit_00_2811::
+ObjInit_LightsTimer::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(LightsTimer)
 	obj_word OBJ_HANDLER, LightsTimer
@@ -6832,12 +6832,12 @@ ObjInit_00_2811::
 
 SpawnLightsFlicker::
 	call AllocObject
-	ld hl, ObjInit_00_2826
+	ld hl, ObjInit_LightsFlicker
 	call ApplyObjInit
 	ret
 
 
-ObjInit_00_2826::
+ObjInit_LightsFlicker::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(LightsFlicker)
 	obj_word OBJ_HANDLER, LightsFlicker
@@ -6845,12 +6845,12 @@ ObjInit_00_2826::
 
 SpawnSnowflakes::
 	call AllocObject
-	ld hl, ObjInit_00_2838
+	ld hl, ObjInit_Snowflakes_Init
 	call InitObject
 	ret
 
 
-ObjInit_00_2838::
+ObjInit_Snowflakes_Init::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Snowflakes_Init)
 	obj_word OBJ_HANDLER, Snowflakes_Init
@@ -6859,7 +6859,7 @@ ObjInit_00_2838::
 
 SpawnAnimalMask::
 	call AllocObject
-	ld hl, ObjInit_00_2859
+	ld hl, ObjInit_AnimalBonus_LoadMask
 	call ApplyObjInit
 	ld a, [wLevelKind]
 	swap a
@@ -6871,7 +6871,7 @@ SpawnAnimalMask::
 	ret
 
 
-ObjInit_00_2859::
+ObjInit_AnimalBonus_LoadMask::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(AnimalBonus_LoadMask)
 	obj_word OBJ_HANDLER, AnimalBonus_LoadMask
@@ -6899,7 +6899,7 @@ SpawnMineCart::
 	ld [hli], a
 	ld a, $0e
 	ld [rROMB0], a
-	ld hl, ObjInit_0e_45bc
+	ld hl, ObjInit_SpawnMineCart
 	call InitObject
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
@@ -7257,9 +7257,9 @@ DrawPauseScreen::
 	ret
 
 
-FrameTable_00_2a9e::
-	dw Frame_20_5938, Frame_20_593e, Frame_20_5944, Frame_20_594a
-	dw Frame_20_5950, Frame_20_5956, Frame_20_595c, Frame_20_5962
+FrameTable_DrawPauseScreen::
+	dw Frame_DrawPauseScreen_1, Frame_DrawPauseScreen_2, Frame_DrawPauseScreen_3, Frame_DrawPauseScreen_4
+	dw Frame_DrawPauseScreen_5, Frame_DrawPauseScreen_6, Frame_DrawPauseScreen_7, Frame_DrawPauseScreen_8
 
 RequestOBJPaletteUpdate::
 	ld a, [wPaletteUpdate]
@@ -9618,7 +9618,7 @@ NotePeriods::
 	dw $077b, $0782, $078a, $0790, $0797, $079c, $07a2, $07a7
 	dw $07ac, $07b1, $07b5, $07b9, $07bd, $0000, $0000
 
-SoundTable_00_3685::
+SoundTable_NotePeriods::
 	dw $0000, $0000, $0001, $0005, $0011, $0011, $0051, $0051
 	dw $0060, $0060, $0061, $0070, $0062, $0079, $007a, $006e
 	dw $007d

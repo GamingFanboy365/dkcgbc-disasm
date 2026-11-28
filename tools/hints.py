@@ -137,7 +137,7 @@ OBJ_LISTS = [(0x09, 0x4934), (0x0A, 0x50E4), (0x09, 0x485E), (0x0A, 0x460F), (0x
 # Offsets not listed here are written as OBJ_VAR_xx: per-object-type
 # variables whose meaning depends on the handler.
 OBJ_FIELD_TABLE = {
-    0x00: ("OBJ_FLAGS", 1, "bit 2: counted in a spawn group (see OBJ_VAR_2D); bit 5: flicker"),
+    0x00: ("OBJ_FLAGS", 1, "bit 2: counted in a spawn group (see OBJ_SPAWN_GROUP); bit 5: flicker"),
     0x01: ("OBJ_BANK", 1, "ROM bank of OBJ_HANDLER"),
     0x02: ("OBJ_HANDLER", 2, "code run every frame by RunObjects"),
     0x04: ("OBJ_TOUCH_HANDLER", 2, "routine in bank 9 jumped to when the player touches the object"),
@@ -165,7 +165,15 @@ OBJ_FIELD_TABLE = {
     0x29: ("OBJ_COLLISION", 1, "collision/interaction flags, cleared on delete (tentative)"),
     0x2A: ("OBJ_PALETTE", 1, "object palette slot, allocated by InitObject"),
     0x2B: ("OBJ_LAYER", 1, "sprite layer used when drawing (DrawObject)"),
+    0x2D: ("OBJ_SPAWN_GROUP", 1, "group the object counts in (OBJ_FLAGS bit 2): DeleteObject decrements its counter at $af00 + group"),
+    0x38: ("OBJ_ANIM_WORD", 2, "word the animation command anim_var38 sets; what it holds depends on the handler (a direction, an offset pair...)"),
 }
+
+# Bytes of the object slot whose meaning depends on the object type: the
+# engine never reads them, and each handler uses them for its own purposes,
+# so they stay OBJ_VAR_xx (see the README's Objects section).
+TYPE_SPECIFIC_FIELDS = [0x0A, 0x0B, 0x0C, 0x2C, 0x2E, 0x2F, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37,
+                        0x3A, 0x3B, 0x3C, 0x3D, 0x3E, 0x3F]
 
 # Banks of the separate program that has its own memory map (stack at
 # $cff6, different HRAM and WRAM use), so main-game RAM names don't apply.

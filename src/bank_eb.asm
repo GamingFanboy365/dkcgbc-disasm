@@ -3,364 +3,364 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $eb", ROMX[$4000], BANK[$eb]
 
-LevelMap_eb_4000::
+LevelMap_WinkyBonus_1::
 	INCBIN "data/maps/eb_4000_terrain.lz"
 
-LevelMap_eb_414e::
+LevelMap_WinkyBonus_2::
 	INCBIN "data/maps/eb_414e_blocks.lz"
 
-LevelMap_eb_430d::
+LevelMap_WinkyBonus_3::
 	INCBIN "data/maps/eb_430d_attrs.lz"
 
-LevelMap_eb_4354::
+LevelMap_BreakableWall_21_1::
 	INCBIN "data/maps/eb_4354_terrain.lz"
 
-LevelMap_eb_439b::
+LevelMap_BreakableWall_21_2::
 	INCBIN "data/maps/eb_439b_blocks.lz"
 
-LevelMap_eb_4406::
+LevelMap_BreakableWall_21_3::
 	INCBIN "data/maps/eb_4406_attrs.lz"
 
-LevelMap_eb_4449::
+LevelMap_BouncyBonanza_Area3_1::
 	INCBIN "data/maps/eb_4449_terrain.lz"
 
-LevelMap_eb_4490::
+LevelMap_BouncyBonanza_Area3_2::
 	INCBIN "data/maps/eb_4490_blocks.lz"
 
-LevelMap_eb_44fb::
+LevelMap_BouncyBonanza_Area3_3::
 	INCBIN "data/maps/eb_44fb_attrs.lz"
 
-LevelMap_eb_453e::
+LevelMap_JungleHijinxs_Area2_1::
 	INCBIN "data/maps/eb_453e_terrain.lz"
 
-LevelMap_eb_4585::
+LevelMap_JungleHijinxs_Area2_2::
 	INCBIN "data/maps/eb_4585_blocks.lz"
 
-LevelMap_eb_45f0::
+LevelMap_JungleHijinxs_Area2_3::
 	INCBIN "data/maps/eb_45f0_attrs.lz"
 
-LevelMap_eb_4633::
+LevelMap_OilDrumAlley_Area1_1::
 	INCBIN "data/maps/eb_4633_terrain.lz"
 
-LevelMap_eb_467e::
+LevelMap_OilDrumAlley_Area1_2::
 	INCBIN "data/maps/eb_467e_blocks.lz"
 
-LevelMap_eb_4744::
+LevelMap_OilDrumAlley_Area1_3::
 	INCBIN "data/maps/eb_4744_attrs.lz"
 
-LevelMap_eb_47b5::
+LevelMap_OilDrumAlley_Area2_1::
 	INCBIN "data/maps/eb_47b5_terrain.lz"
 
-LevelMap_eb_47f8::
+LevelMap_OilDrumAlley_Area2_2::
 	INCBIN "data/maps/eb_47f8_blocks.lz"
 
-LevelMap_eb_486d::
+LevelMap_OilDrumAlley_Area2_3::
 	INCBIN "data/maps/eb_486d_attrs.lz"
 
-LevelMap_eb_48ea::
+LevelMap_OilDrumAlley_Area3_1::
 	INCBIN "data/maps/eb_48ea_terrain.lz"
 
-LevelMap_eb_4935::
+LevelMap_OilDrumAlley_Area3_2::
 	INCBIN "data/maps/eb_4935_blocks.lz"
 
-LevelMap_eb_49a6::
+LevelMap_OilDrumAlley_Area3_3::
 	INCBIN "data/maps/eb_49a6_attrs.lz"
 
-LevelMap_eb_4a0d::
+LevelMap_LevelTable_4::
 	INCBIN "data/maps/eb_4a0d_terrain.lz"
 
-LevelMap_eb_4a5c::
+LevelMap_LevelTable_5::
 	INCBIN "data/maps/eb_4a5c_blocks.lz"
 
-LevelMap_eb_4ae7::
+LevelMap_LevelTable_6::
 	INCBIN "data/maps/eb_4ae7_attrs.lz"
 
-LevelMap_eb_4b52::
+LevelMap_LevelTable_7::
 	INCBIN "data/maps/eb_4b52_terrain.lz"
 
-LevelMap_eb_4b9d::
+LevelMap_LevelTable_8::
 	INCBIN "data/maps/eb_4b9d_blocks.lz"
 
-LevelMap_eb_4c28::
+LevelMap_LevelTable_9::
 	INCBIN "data/maps/eb_4c28_attrs.lz"
 
-LevelMap_eb_4c93::
+LevelMap_LevelTable_10::
 	INCBIN "data/maps/eb_4c93_terrain.lz"
 
-LevelMap_eb_4cdf::
+LevelMap_LevelTable_11::
 	INCBIN "data/maps/eb_4cdf_blocks.lz"
 
-LevelMap_eb_4d45::
+LevelMap_LevelTable_12::
 	INCBIN "data/maps/eb_4d45_attrs.lz"
 
-LevelMap_eb_4d9a::
+LevelMap_TreeTopTown_Area1_1::
 	INCBIN "data/maps/eb_4d9a_terrain.lz"
 
-LevelMap_eb_4ddd::
+LevelMap_TreeTopTown_Area1_2::
 	INCBIN "data/maps/eb_4ddd_blocks.lz"
 
-LevelMap_eb_4e5c::
+LevelMap_TreeTopTown_Area1_3::
 	INCBIN "data/maps/eb_4e5c_attrs.lz"
 
-LevelMap_eb_4ed6::
+LevelMap_ExpressoBonus_1::
 	INCBIN "data/maps/eb_4ed6_terrain.lz"
 
-LevelMap_eb_5032::
+LevelMap_ExpressoBonus_2::
 	INCBIN "data/maps/eb_5032_blocks.lz"
 
-LevelMap_eb_525a::
+LevelMap_ExpressoBonus_3::
 	INCBIN "data/maps/eb_525a_attrs.lz"
 
-LevelMap_eb_52a1::
+LevelMap_MillstoneMayhem_Area2_1::
 	INCBIN "data/maps/eb_52a1_terrain.lz"
 
-LevelMap_eb_5300::
+LevelMap_MillstoneMayhem_Area2_2::
 	INCBIN "data/maps/eb_5300_blocks.lz"
 
-LevelMap_eb_536a::
+LevelMap_MillstoneMayhem_Area2_3::
 	INCBIN "data/maps/eb_536a_attrs.lz"
 
-LevelMap_eb_53b6::
+LevelMap_TempleTempest_Area2_1::
 	INCBIN "data/maps/eb_53b6_terrain.lz"
 
-LevelMap_eb_541b::
+LevelMap_TempleTempest_Area2_2::
 	INCBIN "data/maps/eb_541b_blocks.lz"
 
-LevelMap_eb_54c5::
+LevelMap_TempleTempest_Area2_3::
 	INCBIN "data/maps/eb_54c5_attrs.lz"
 
-LevelMap_eb_553d::
+LevelMap_MillstoneMayhem_Area3_1::
 	INCBIN "data/maps/eb_553d_terrain.lz"
 
-LevelMap_eb_558a::
+LevelMap_MillstoneMayhem_Area3_2::
 	INCBIN "data/maps/eb_558a_blocks.lz"
 
-LevelMap_eb_55f0::
+LevelMap_MillstoneMayhem_Area3_3::
 	INCBIN "data/maps/eb_55f0_attrs.lz"
 
-LevelMap_eb_563c::
+LevelMap_SlipslideRide_Area2_1::
 	INCBIN "data/maps/eb_563c_terrain.lz"
 
-LevelMap_eb_569d::
+LevelMap_SlipslideRide_Area2_2::
 	INCBIN "data/maps/eb_569d_blocks.lz"
 
-LevelMap_eb_5703::
+LevelMap_SlipslideRide_Area2_3::
 	INCBIN "data/maps/eb_5703_attrs.lz"
 
-LevelMap_eb_575b::
+LevelMap_SlipslideRide_Area3_1::
 	INCBIN "data/maps/eb_575b_terrain.lz"
 
-LevelMap_eb_57e2::
+LevelMap_SlipslideRide_Area3_2::
 	INCBIN "data/maps/eb_57e2_blocks.lz"
 
-LevelMap_eb_58a3::
+LevelMap_SlipslideRide_Area3_3::
 	INCBIN "data/maps/eb_58a3_attrs.lz"
 
-LevelMap_eb_5948::
+LevelMap_OrangUtanGang_Area1_1::
 	INCBIN "data/maps/eb_5948_terrain.lz"
 
-LevelMap_eb_59b3::
+LevelMap_OrangUtanGang_Area1_2::
 	INCBIN "data/maps/eb_59b3_blocks.lz"
 
-LevelMap_eb_5a22::
+LevelMap_OrangUtanGang_Area1_3::
 	INCBIN "data/maps/eb_5a22_attrs.lz"
 
-LevelMap_eb_5a8a::
+LevelMap_RopeyRampage_Area1_1::
 	INCBIN "data/maps/eb_5a8a_terrain.lz"
 
-LevelMap_eb_5af7::
+LevelMap_RopeyRampage_Area1_2::
 	INCBIN "data/maps/eb_5af7_blocks.lz"
 
-LevelMap_eb_5bbc::
+LevelMap_RopeyRampage_Area1_3::
 	INCBIN "data/maps/eb_5bbc_attrs.lz"
 
-LevelMap_eb_5c3b::
+LevelMap_BarrelCannonCanyon_Area1_1::
 	INCBIN "data/maps/eb_5c3b_terrain.lz"
 
-LevelMap_eb_5c7e::
+LevelMap_BarrelCannonCanyon_Area1_2::
 	INCBIN "data/maps/eb_5c7e_blocks.lz"
 
-LevelMap_eb_5d19::
+LevelMap_BarrelCannonCanyon_Area1_3::
 	INCBIN "data/maps/eb_5d19_attrs.lz"
 
-LevelMap_eb_5db5::
+LevelMap_ForestFrenzy_Area1_1::
 	INCBIN "data/maps/eb_5db5_terrain.lz"
 
-LevelMap_eb_5e16::
+LevelMap_ForestFrenzy_Area1_2::
 	INCBIN "data/maps/eb_5e16_blocks.lz"
 
-LevelMap_eb_5e7c::
+LevelMap_ForestFrenzy_Area1_3::
 	INCBIN "data/maps/eb_5e7c_attrs.lz"
 
-LevelMap_eb_5ec5::
+LevelMap_VultureCulture_Area3_1::
 	INCBIN "data/maps/eb_5ec5_terrain.lz"
 
-LevelMap_eb_5f32::
+LevelMap_VultureCulture_Area3_2::
 	INCBIN "data/maps/eb_5f32_blocks.lz"
 
-LevelMap_eb_5ff0::
+LevelMap_VultureCulture_Area3_3::
 	INCBIN "data/maps/eb_5ff0_attrs.lz"
 
-LevelMap_eb_6068::
+LevelMap_ForestFrenzy_Area2_1::
 	INCBIN "data/maps/eb_6068_terrain.lz"
 
-LevelMap_eb_60e5::
+LevelMap_ForestFrenzy_Area2_2::
 	INCBIN "data/maps/eb_60e5_blocks.lz"
 
-LevelMap_eb_6182::
+LevelMap_ForestFrenzy_Area2_3::
 	INCBIN "data/maps/eb_6182_attrs.lz"
 
-LevelMap_eb_61e6::
+LevelMap_SnowBarrelBlast_Area2_1::
 	INCBIN "data/maps/eb_61e6_terrain.lz"
 
-LevelMap_eb_623a::
+LevelMap_SnowBarrelBlast_Area2_2::
 	INCBIN "data/maps/eb_623a_blocks.lz"
 
-LevelMap_eb_62dd::
+LevelMap_SnowBarrelBlast_Area2_3::
 	INCBIN "data/maps/eb_62dd_attrs.lz"
 
-LevelMap_eb_6358::
+LevelMap_IceAgeAlley_Area1_1::
 	INCBIN "data/maps/eb_6358_terrain.lz"
 
-LevelMap_eb_63a7::
+LevelMap_IceAgeAlley_Area1_2::
 	INCBIN "data/maps/eb_63a7_blocks.lz"
 
-LevelMap_eb_6439::
+LevelMap_IceAgeAlley_Area1_3::
 	INCBIN "data/maps/eb_6439_attrs.lz"
 
-LevelMap_eb_64bb::
+LevelMap_ReptileRumble_Area1_1::
 	INCBIN "data/maps/eb_64bb_terrain.lz"
 
-LevelMap_eb_653c::
+LevelMap_ReptileRumble_Area1_2::
 	INCBIN "data/maps/eb_653c_blocks.lz"
 
-LevelMap_eb_65fb::
+LevelMap_ReptileRumble_Area1_3::
 	INCBIN "data/maps/eb_65fb_attrs.lz"
 
-LevelMap_eb_667f::
+LevelMap_ReptileRumble_Area2_1::
 	INCBIN "data/maps/eb_667f_terrain.lz"
 
-LevelMap_eb_66d6::
+LevelMap_ReptileRumble_Area2_2::
 	INCBIN "data/maps/eb_66d6_blocks.lz"
 
-LevelMap_eb_67a1::
+LevelMap_ReptileRumble_Area2_3::
 	INCBIN "data/maps/eb_67a1_attrs.lz"
 
-LevelMap_eb_6834::
+LevelMap_ReptileRumble_Area3_1::
 	INCBIN "data/maps/eb_6834_terrain.lz"
 
-LevelMap_eb_6896::
+LevelMap_ReptileRumble_Area3_2::
 	INCBIN "data/maps/eb_6896_blocks.lz"
 
-LevelMap_eb_693a::
+LevelMap_ReptileRumble_Area3_3::
 	INCBIN "data/maps/eb_693a_attrs.lz"
 
-LevelMap_eb_69c0::
+LevelMap_BarrelCannonCanyon_Area2_1::
 	INCBIN "data/maps/eb_69c0_terrain.lz"
 
-LevelMap_eb_6a21::
+LevelMap_BarrelCannonCanyon_Area2_2::
 	INCBIN "data/maps/eb_6a21_blocks.lz"
 
-LevelMap_eb_6acd::
+LevelMap_BarrelCannonCanyon_Area2_3::
 	INCBIN "data/maps/eb_6acd_attrs.lz"
 
-LevelMap_eb_6b5f::
+LevelMap_BouncyBonanza_Area1_1::
 	INCBIN "data/maps/eb_6b5f_terrain.lz"
 
-LevelMap_eb_6ba2::
+LevelMap_BouncyBonanza_Area1_2::
 	INCBIN "data/maps/eb_6ba2_blocks.lz"
 
-LevelMap_eb_6c27::
+LevelMap_BouncyBonanza_Area1_3::
 	INCBIN "data/maps/eb_6c27_attrs.lz"
 
-LevelMap_eb_6caa::
+LevelMap_BouncyBonanza_Area2_1::
 	INCBIN "data/maps/eb_6caa_terrain.lz"
 
-LevelMap_eb_6cf3::
+LevelMap_BouncyBonanza_Area2_2::
 	INCBIN "data/maps/eb_6cf3_blocks.lz"
 
-LevelMap_eb_6d66::
+LevelMap_BouncyBonanza_Area2_3::
 	INCBIN "data/maps/eb_6d66_attrs.lz"
 
-LevelMap_eb_6db8::
+LevelMap_ElevatorAntics_Area1_1::
 	INCBIN "data/maps/eb_6db8_terrain.lz"
 
-LevelMap_eb_6dfb::
+LevelMap_ElevatorAntics_Area1_2::
 	INCBIN "data/maps/eb_6dfb_blocks.lz"
 
-LevelMap_eb_6e7a::
+LevelMap_ElevatorAntics_Area1_3::
 	INCBIN "data/maps/eb_6e7a_attrs.lz"
 
-LevelMap_eb_6ef3::
+LevelMap_ManicMincers_Area1_1::
 	INCBIN "data/maps/eb_6ef3_terrain.lz"
 
-LevelMap_eb_6f3c::
+LevelMap_ManicMincers_Area1_2::
 	INCBIN "data/maps/eb_6f3c_blocks.lz"
 
-LevelMap_eb_6fbb::
+LevelMap_ManicMincers_Area1_3::
 	INCBIN "data/maps/eb_6fbb_attrs.lz"
 
-LevelMap_eb_7019::
+LevelMap_TorchlightTrouble_Area1_1::
 	INCBIN "data/maps/eb_7019_terrain.lz"
 
-LevelMap_eb_707c::
+LevelMap_TorchlightTrouble_Area1_2::
 	INCBIN "data/maps/eb_707c_blocks.lz"
 
-LevelMap_eb_70ef::
+LevelMap_TorchlightTrouble_Area1_3::
 	INCBIN "data/maps/eb_70ef_attrs.lz"
 
-LevelMap_eb_7141::
+LevelMap_ElevatorAntics_Area2_1::
 	INCBIN "data/maps/eb_7141_terrain.lz"
 
-LevelMap_eb_71a2::
+LevelMap_ElevatorAntics_Area2_2::
 	INCBIN "data/maps/eb_71a2_blocks.lz"
 
-LevelMap_eb_7253::
+LevelMap_ElevatorAntics_Area2_3::
 	INCBIN "data/maps/eb_7253_attrs.lz"
 
-LevelMap_eb_72e6::
+LevelMap_ManicMincers_Area2_1::
 	INCBIN "data/maps/eb_72e6_terrain.lz"
 
-LevelMap_eb_7347::
+LevelMap_ManicMincers_Area2_2::
 	INCBIN "data/maps/eb_7347_blocks.lz"
 
-LevelMap_eb_73ba::
+LevelMap_ManicMincers_Area2_3::
 	INCBIN "data/maps/eb_73ba_attrs.lz"
 
-LevelMap_eb_740c::
+LevelMap_MineCartMadness_Area1_1::
 	INCBIN "data/maps/eb_740c_terrain.lz"
 
-LevelMap_eb_746d::
+LevelMap_MineCartMadness_Area1_2::
 	INCBIN "data/maps/eb_746d_blocks.lz"
 
-LevelMap_eb_751d::
+LevelMap_MineCartMadness_Area1_3::
 	INCBIN "data/maps/eb_751d_attrs.lz"
 
-LevelMap_eb_75af::
+LevelMap_TrickTrackTrek_Area2_1::
 	INCBIN "data/maps/eb_75af_terrain.lz"
 
-LevelMap_eb_7604::
+LevelMap_TrickTrackTrek_Area2_2::
 	INCBIN "data/maps/eb_7604_blocks.lz"
 
-LevelMap_eb_76a6::
+LevelMap_TrickTrackTrek_Area2_3::
 	INCBIN "data/maps/eb_76a6_attrs.lz"
 
-LevelMap_eb_773b::
+LevelMap_MineCartMadness_Area3_1::
 	INCBIN "data/maps/eb_773b_terrain.lz"
 
-LevelMap_eb_7790::
+LevelMap_MineCartMadness_Area3_2::
 	INCBIN "data/maps/eb_7790_blocks.lz"
 
-LevelMap_eb_7810::
+LevelMap_MineCartMadness_Area3_3::
 	INCBIN "data/maps/eb_7810_attrs.lz"
 
-LevelMap_eb_7888::
+LevelMap_TankedUpTrouble_Area1_1::
 	INCBIN "data/maps/eb_7888_terrain.lz"
 
-LevelMap_eb_78d6::
+LevelMap_TankedUpTrouble_Area1_2::
 	INCBIN "data/maps/eb_78d6_blocks.lz"
 
-LevelMap_eb_7946::
+LevelMap_TankedUpTrouble_Area1_3::
 	INCBIN "data/maps/eb_7946_attrs.lz"
 	ds 1566, $00 ; $79e2
 

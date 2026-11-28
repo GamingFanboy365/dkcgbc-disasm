@@ -4,1107 +4,1107 @@ INCLUDE "include/common.inc"
 SECTION "Bank $11", ROMX[$4000], BANK[$11]
 
 TextGroups_11::
-	dw TextGroup_11_4020, TextGroup_11_40a8, TextGroup_11_405e, TextGroup_11_40be
-	dw TextGroup_11_40f4, TextGroup_11_413e, TextGroup_11_417c, TextGroup_11_417e
-	dw TextGroup_11_418c, TextGroup_11_418e, TextGroup_11_4198, TextGroup_11_419c
-	dw TextGroup_11_41a0, TextGroup_11_41ba, TextGroup_11_41ca, TextGroup_11_41ce
+	dw TextGroup_German_00, TextGroup_German_02, TextGroup_German_01, TextGroup_German_03
+	dw TextGroup_German_04, TextGroup_German_05, TextGroup_German_06, TextGroup_German_07
+	dw TextGroup_German_08, TextGroup_German_09, TextGroup_German_10, TextGroup_German_11
+	dw TextGroup_German_12, TextGroup_German_13, TextGroup_German_14, TextGroup_German_15
 
-TextGroup_11_4020::
-	dw Text_11_4244
-	dw Text_11_4277
-	dw Text_11_42af
-	dw Text_11_42e6
-	dw Text_11_431e
-	dw Text_11_4353
-	dw Text_11_4389
-	dw Text_11_43c1
-	dw Text_11_43f8
-	dw Text_11_4436
-	dw Text_11_446f
-	dw Text_11_449f
-	dw Text_11_44d7
-	dw Text_11_450c
-	dw Text_11_4542
-	dw Text_11_457a
-	dw Text_11_45b1
-	dw Text_11_45f0
-	dw Text_11_4623
-	dw Text_11_465c
-	dw Text_11_4692
-	dw Text_11_46c5
-	dw Text_11_46f5
-	dw Text_11_4730
-	dw Text_11_4763
-	dw Text_11_47a1
-	dw Text_11_47d4
-	dw Text_11_480f
-	dw Text_11_4847
-	dw Text_11_487f
-	dw Text_11_48b5
+TextGroup_German_00::
+	dw Text_WellWellDidntExpect_German
+	dw Text_YoureDoingPrettyGood_German
+	dw Text_SoYouFoundMe_German
+	dw Text_WhoToldYouI_German
+	dw Text_WellWellLookWhat_German
+	dw Text_HaventSeenYouAround_German
+	dw Text_WhatDoYouWant_German
+	dw Text_AhhAtLastSomeone_German
+	dw Text_YoureLuckyYouCaught_German
+	dw Text_HaveYaBroughtBack_German
+	dw Text_LastTimeISaw_German
+	dw Text_ComeOverHereAnd_German
+	dw Text_WellLookyWhatWe_German
+	dw Text_ArentYouASight_German
+	dw Text_AWholeMobOf_German
+	dw Text_ThisHereIsRhino_German
+	dw Text_HeyBoyCanYou_German
+	dw Text_HeyBoyDidYou_German
+	dw Text_YouBigApeI_German
+	dw Text_ItsHardToFind_German
+	dw Text_SureComeOnOver_German
+	dw Text_AhhItSortaTakes_German
+	dw Text_ItsBeenRealBusy_German
+	dw Text_SureLooksLikeIm_German
+	dw Text_SureBeatsAVisit_German
+	dw Text_FancyRunningIntoYou_German
+	dw Text_IHaventGotEven_German
+	dw Text_IJustGaveMy_German
+	dw Text_WhatInTarnationDo_German
+	dw Text_IAintGotNothin_German
+	dw Text_BetchaWontGetMuch_German
 
-TextGroup_11_405e::
-	dw Text_11_48f0
-	dw Text_11_492d
-	dw Text_11_4960
-	dw Text_11_4988
-	dw Text_11_49c1
-	dw Text_11_49f3
-	dw Text_11_4a2f
-	dw Text_11_4a62
-	dw Text_11_4a96
-	dw Text_11_4ac9
-	dw Text_11_4b00
-	dw Text_11_4b27
-	dw Text_11_4b5e
-	dw Text_11_4b93
-	dw Text_11_4bd0
-	dw Text_11_4c0a
-	dw Text_11_4c48
-	dw Text_11_4c70
-	dw Text_11_4cac
-	dw Text_11_4ce6
-	dw Text_11_4d21
-	dw Text_11_4d56
-	dw Text_11_4d91
-	dw Text_11_4dc9
-	dw Text_11_4e01
-	dw Text_11_4e35
-	dw Text_11_4e70
-	dw Text_11_4ea3
-	dw Text_11_4edd
-	dw Text_11_4f12
-	dw Text_11_4f47
-	dw Text_11_4f7d
-	dw Text_11_4fb8
-	dw Text_11_4ff4
-	dw Text_11_5032
-	dw Text_11_506b
-	dw Text_11_50a3
+TextGroup_German_01::
+	dw Text_TheKidsOfToday_German
+	dw Text_TheVideoGamesIn_German
+	dw Text_AllThisFunCant_German
+	dw Text_BetThisSectionWasted_German
+	dw Text_TheyCantKeepThis_German
+	dw Text_WeWereLuckyIf_German
+	dw Text_WeUsedToHave_German
+	dw Text_ThemBarrelsWereA_German
+	dw Text_WeNeverHadAny_German
+	dw Text_WeJustHadTo_German
+	dw Text_IveNeverSeenAnything_German
+	dw Text_EnjoyThisDemoGame_German
+	dw Text_FourShadesOfGray_German
+	dw Text_ICantPlayThis_German
+	dw Text_TheBananasHaveMore_German
+	dw Text_LookAtThisMy_German
+	dw Text_ThatWasWhenWe_German
+	dw Text_UsedAllTheLatest_German
+	dw Text_TheTroubleWithYou_German
+	dw Text_GamesWereALot_German
+	dw Text_WedPlayForHours_German
+	dw Text_YouWouldntLastTwo_German
+	dw Text_ICouldGetThrough_German
+	dw Text_ImTalkingAboutWhen_German
+	dw Text_ThreeLivesAndThree_German
+	dw Text_GamesNeverLookedLike_German
+	dw Text_AndWeWereMuch_German
+	dw Text_BetYouThoughtThis_German
+	dw Text_MyBigToesGot_German
+	dw Text_YknowWhatTheySay_German
+	dw Text_With32MegYoud_German
+	dw Text_BackInMyDay_German
+	dw Text_WhatsEvenWorseYou_German
+	dw Text_YouWouldntKnowA_German
+	dw Text_AJoystickAndOne_German
+	dw Text_IWouldntBeSeen_German
+	dw Text_YouCantBetterThe_German
 
-TextGroup_11_40a8::
-	dw Text_11_50d7
-	dw Text_11_510b
-	dw Text_11_513e
-	dw Text_11_5172
-	dw Text_11_5196
-	dw Text_11_51bd
-	dw Text_11_51e2
-	dw Text_11_5208
-	dw Text_11_522d
-	dw Text_11_525d
-	dw Text_11_5295
+TextGroup_German_02::
+	dw Text_SoYerBackAgain_German
+	dw Text_TooQuickIDidnt_German
+	dw Text_ImJustWastingMy_German
+	dw Text_YouHaveToDo_German
+	dw Text_YouOnlyJustLeft_German
+	dw Text_BackAgainEhThat_German
+	dw Text_CameBackToThe_German
+	dw Text_StillGotYouBeat_German
+	dw Text_YupDontMakeGame_German
+	dw Text_DyaExpectMeTo_German
+	dw Text_HowDareYouShow_German
 
-TextGroup_11_40be::
-	dw Text_11_52ce
-	dw Text_11_5308
-	dw Text_11_533b
-	dw Text_11_5376
-	dw Text_11_53ad
-	dw Text_11_53dd
-	dw Text_11_5414
-	dw Text_11_544f
-	dw Text_11_5487
-	dw Text_11_54ba
-	dw Text_11_54f0
-	dw Text_11_552b
-	dw Text_11_555d
-	dw Text_11_5599
-	dw Text_11_55d1
-	dw Text_11_5606
-	dw Text_11_5645
-	dw Text_11_5683
-	dw Text_11_56b5
-	dw Text_11_56ed
-	dw Text_11_571f
-	dw Text_11_575b
-	dw Text_11_5794
-	dw Text_11_57ce
-	dw Text_11_5806
-	dw Text_11_5845
-	dw Text_11_587d
+TextGroup_German_03::
+	dw Text_InJungleHijinxsStick_German
+	dw Text_FindTheFunJust_German
+	dw Text_ALeapOfFaith_German
+	dw Text_GoBananasInThe_German
+	dw Text_CroctopusCornersCrocksOf_German
+	dw Text_BurnRubberForThe_German
+	dw Text_TheBananasInStop_German
+	dw Text_JumpEarlyToGet_German
+	dw Text_RollingRubberWillPut_German
+	dw Text_OnSnowBarrelBlast_German
+	dw Text_OnCroctopusChaseA_German
+	dw Text_ToGetYourWings_German
+	dw Text_BouncingTheBouncerSlides_German
+	dw Text_TheTntGivesWall_German
+	dw Text_ForElevatorAnticsClimb_German
+	dw Text_TheGnawtyGnowsA_German
+	dw Text_MineCartMadnessIs_German
+	dw Text_OnceInThePoison_German
+	dw Text_BlackoutBasementsSinkingFeeling_German
+	dw Text_LetDiddyHoldOut_German
+	dw Text_TakeEnoughRopeAnd_German
+	dw Text_TheLoopyLightsVultures_German
+	dw Text_PerilousVulturesKnowIts_German
+	dw Text_AllGassedUpAnd_German
+	dw Text_TheOrangUtanGang_German
+	dw Text_ASingleBananaIs_German
+	dw Text_GetDownWithThe_German
 
-TextGroup_11_40f4::
-	dw Text_11_58b1
-	dw Text_11_58ed
-	dw Text_11_5929
-	dw Text_11_5964
-	dw Text_11_599a
-	dw Text_11_59d9
-	dw Text_11_5a0c
-	dw Text_11_5a44
-	dw Text_11_5a81
-	dw Text_11_5ab9
-	dw Text_11_5aee
-	dw Text_11_5b28
-	dw Text_11_5b59
-	dw Text_11_5b95
-	dw Text_11_5bcc
-	dw Text_11_5bfe
-	dw Text_11_5c3a
-	dw Text_11_5c6b
-	dw Text_11_5ca4
-	dw Text_11_5cde
-	dw Text_11_5d17
-	dw Text_11_5d55
-	dw Text_11_5d89
-	dw Text_11_5dc3
-	dw Text_11_5dfd
-	dw Text_11_5e33
-	dw Text_11_5e33
-	dw Text_11_5e68
-	dw Text_11_5ea0
-	dw Text_11_5ed3
-	dw Text_11_5f05
-	dw Text_11_5f3d
-	dw Text_11_71bc
-	dw Text_11_71bc
-	dw Text_11_71bc
-	dw Text_11_71bc
-	dw Text_11_71bc
+TextGroup_German_04::
+	dw Text_AHandSlapCan_German
+	dw Text_HeCantReallyFly_German
+	dw Text_EnguardeSwordfishWillHelp_German
+	dw Text_CandysChallengesCanWin_German
+	dw Text_RollOffAPlatform_German
+	dw Text_TheySayIfYou_German
+	dw Text_IHearYouCan_German
+	dw Text_ReckonRambiRhinoCould_German
+	dw Text_BounceAKegOff_German
+	dw Text_RollAttackABaddie_German
+	dw Text_BounceOnEightBaddies_German
+	dw Text_TheySayExpressosLegs_German
+	dw Text_BreakOpenAStar_German
+	dw Text_JustFinishALevel_German
+	dw Text_FunkySendsYouWhere_German
+	dw Text_DisguisedHolesOnThe_German
+	dw Text_BananaArrowsWillPoint_German
+	dw Text_IfYouFindBananas_German
+	dw Text_SmashOpenAnyDk_German
+	dw Text_GrabThemExtraLife_German
+	dw Text_KlapTrapTeethStop_German
+	dw Text_YouCantJumpOn_German
+	dw Text_KlumpsHatProtectsAgainst_German
+	dw Text_KrushaIsToughOnly_German
+	dw Text_FloatingBarrelsWillBreak_German
+	dw Text_FollowSteelKegsAnd_German
+	dw Text_FollowSteelKegsAnd_German
+	dw Text_RunAndJumpOn_German
+	dw Text_JumpOnFixedTires_German
+	dw Text_PushFreeTiresTo_German
+	dw Text_RollOverSlippaOr_German
+	dw Text_GnawtyBeaverCanBe_German
+	dw Text_INeverLikedThose_German
+	dw Text_INeverLikedThose_German
+	dw Text_INeverLikedThose_German
+	dw Text_INeverLikedThose_German
+	dw Text_INeverLikedThose_German
 
-TextGroup_11_413e::
-	dw Text_11_5f73
-	dw Text_11_5fac
-	dw Text_11_5fcb
-	dw Text_11_5fed
-	dw Text_11_6020
-	dw Text_11_6046
-	dw Text_11_607c
-	dw Text_11_60aa
-	dw Text_11_60e4
-	dw Text_11_610b
-	dw Text_11_6142
-	dw Text_11_6179
-	dw Text_11_61af
-	dw Text_11_61e1
-	dw Text_11_6202
-	dw Text_11_622b
-	dw Text_11_626a
-	dw Text_11_629b
-	dw Text_11_62d0
-	dw Text_11_630a
-	dw Text_11_6331
-	dw Text_11_6356
-	dw Text_11_6387
-	dw Text_11_63c0
-	dw Text_11_63fa
-	dw Text_11_6444
-	dw Text_11_6481
-	dw Text_11_64cf
-	dw Text_11_6504
-	dw Text_11_6539
-	dw Text_11_6559
+TextGroup_German_05::
+	dw Text_ThatsAllSheWrote_German
+	dw Text_TheresNothingMoreI_German
+	dw Text_YouKnowAllThat_German
+	dw Text_ComeBackAndSee_German
+	dw Text_DontKnowAnyMore_German
+	dw Text_ThatsAllThereIs_German
+	dw Text_SoLongSuckersTry_German
+	dw Text_ThatsAllTheGood_German
+	dw Text_ImGettingTiredI_German
+	dw Text_YouPracticallyKnowMore_German
+	dw Text_DontHaveAnythingElse_German
+	dw Text_ICouldJustRock_German
+	dw Text_GottaGoNowIll_German
+	dw Text_WellThatsAboutThe_German
+	dw Text_IsThatTheTime_German
+	dw Text_ICouldTellYou_German
+	dw Text_YallComeBackSoon_German
+	dw Text_IfYouGetStuck_German
+	dw Text_CantSayIExpect_German
+	dw Text_ItsBeenNiceTalking_German
+	dw Text_EhSonnySpeakUp_German
+	dw Text_IveSeenEnoughThat_German
+	dw Text_ThisColorScreensMaking_German
+	dw Text_AllThisGamePlay_German
+	dw Text_RememberTheOriginalDonkey_German
+	dw Text_TooManyBaddiesHere_German
+	dw Text_IdAskYaIn_German
+	dw Text_OffYouGoSee_German
+	dw Text_ShutTheGateOn_German
+	dw Text_SeeYaLaterAlligator_German
+	dw Text_AfterAWhileCrocodile_German
 
-TextGroup_11_417c::
-	dw Text_11_657d
+TextGroup_German_06::
+	dw Text_HiImCandyKong_German
 
-TextGroup_11_417e::
-	dw Text_11_65f5
-	dw Text_11_6630
-	dw Text_11_666b
-	dw Text_11_66a3
-	dw Text_11_66db
-	dw Text_11_6713
-	dw Text_11_673e
+TextGroup_German_07::
+	dw Text_HelloGuysDoYou_German
+	dw Text_CanIHelpYou_German
+	dw Text_HowWouldYouLike_German
+	dw Text_YooHooHoneyKong_German
+	dw Text_IfYouFancyA_German
+	dw Text_YouGuysAreReally_German
+	dw Text_SeeYaLaterBoys_German
 
-TextGroup_11_418c::
-	dw Text_11_6777
+TextGroup_German_08::
+	dw Text_WhoaDudesImFunky_German
 
-TextGroup_11_418e::
-	dw Text_11_681a
-	dw Text_11_6840
-	dw Text_11_6876
-	dw Text_11_68b0
-	dw Text_11_68ea
+TextGroup_German_09::
+	dw Text_YeahKongsLikeJump_German
+	dw Text_NeedSomeLivesGet_German
+	dw Text_YoGorillasSeekThe_German
+	dw Text_LookinGoodKongsBelt_German
+	dw Text_HeyDudesTellCandy_German
 
-TextGroup_11_4198::
-	dw Text_11_6926
-	dw Text_11_6962
+TextGroup_German_10::
+	dw Text_FancyAFlightDk_German
+	dw Text_DudeskiYourBudHas_German
 
-TextGroup_11_419c::
-	dw Text_11_6992
-	dw Text_11_69cd
+TextGroup_German_11::
+	dw Text_YoDiddyLostThe_German
+	dw Text_WheresYourPalTry_German
 
-TextGroup_11_41a0::
-	dw Text_11_6a05
-	dw Text_11_6ac8
-	dw Text_11_6ac8
-	dw Text_11_6ac8
-	dw Text_11_6ac8
-	dw Text_11_6ac8
-	dw Text_11_6ac8
-	dw Text_11_6ac8
-	dw Text_11_6b2b
-	dw Text_11_6b9d
-	dw Text_11_6b9d
-	dw Text_11_6b9d
-	dw Text_11_6b9d
+TextGroup_German_12::
+	dw Text_WellDoneMyBoy_German
+	dw Text_IfIWasPlaying_German
+	dw Text_IfIWasPlaying_German
+	dw Text_IfIWasPlaying_German
+	dw Text_IfIWasPlaying_German
+	dw Text_IfIWasPlaying_German
+	dw Text_IfIWasPlaying_German
+	dw Text_IfIWasPlaying_German
+	dw Text_WhatAPlayerDk_German
+	dw Text_DkMyBoyWhere_German
+	dw Text_DkMyBoyWhere_German
+	dw Text_DkMyBoyWhere_German
+	dw Text_DkMyBoyWhere_German
 
-TextGroup_11_41ba::
-	dw Text_11_6b9d
-	dw Text_11_6bc5
-	dw Text_11_6c02
-	dw Text_11_6c3b
-	dw Text_11_6c77
-	dw Text_11_6cb0
-	dw Text_11_6cec
-	dw Text_11_6d22
+TextGroup_German_13::
+	dw Text_DkMyBoyWhere_German
+	dw Text_DkYouYoungWhippersnapper_German
+	dw Text_DonkeyBoyItSeems_German
+	dw Text_YouNeverVisitYour_German
+	dw Text_HeyCanYouSpare_German
+	dw Text_AndWhatHaveYou_German
+	dw Text_WellYouveAmazedYour_German
+	dw Text_AtLastYouveCome_German
 
-TextGroup_11_41ca::
-	dw Text_11_6d5c
-	dw Text_11_6d85
+TextGroup_German_14::
+	dw Text_DiddyMyBoyWheres_German
+	dw Text_DiddyMyYoungPup_German
 
-TextGroup_11_41ce::
-	dw Text_11_6dbc
-	dw Text_11_6dc4
-	dw Text_11_6dd4
-	dw Text_11_6de7
-	dw Text_11_6df9
-	dw Text_11_6e0d
-	dw Text_11_6e1e
-	dw Text_11_6e2e
-	dw Text_11_6e40
-	dw Text_11_6e53
-	dw Text_11_6e69
-	dw Text_11_6e78
-	dw Text_11_6e8c
-	dw Text_11_6ea0
-	dw Text_11_6eb4
-	dw Text_11_6ec9
-	dw Text_11_6edb
-	dw Text_11_6eea
-	dw Text_11_6efb
-	dw Text_11_6f0c
-	dw Text_11_6f1d
-	dw Text_11_6f2e
-	dw Text_11_6f41
-	dw Text_11_6f51
-	dw Text_11_6f6b
-	dw Text_11_6f7c
-	dw Text_11_6f8e
-	dw Text_11_6fa3
-	dw Text_11_6fb2
-	dw Text_11_6fc4
-	dw Text_11_6fcd
-	dw Text_11_6fde
-	dw Text_11_6ff2
-	dw Text_11_7001
-	dw Text_11_7015
-	dw Text_11_7025
-	dw Text_11_7033
-	dw Text_11_7041
-	dw Text_11_7055
-	dw Text_11_7064
-	dw Text_11_7077
-	dw Text_11_7088
-	dw Text_11_7098
-	dw Text_11_70a9
-	dw Text_11_70ba
-	dw Text_11_70c9
-	dw Text_11_70d7
-	dw Text_11_70e9
-	dw Text_11_70f8
-	dw Text_11_710a
-	dw Text_11_712c
-	dw Text_11_7141
-	dw Text_11_7154
-	dw Text_11_7169
-	dw Text_11_7173
-	dw Text_11_7187
-	dw Text_11_7119
-	dw Text_11_71aa
-	dw Text_11_7196
+TextGroup_German_15::
+	dw Text_Error_German
+	dw Text_RopeyRampage_German
+	dw Text_OrangUtanGang_German
+	dw Text_BarrelCannonCanyon_German
+	dw Text_ReptileRumble_German
+	dw Text_BouncyBonanza_German
+	dw Text_ManicMincers_German
+	dw Text_ElevatorAntics_German
+	dw Text_PlatformPerils_German
+	dw Text_TrickTrackTrek_German
+	dw Text_TankedUpTrouble_German
+	dw Text_MineCartMadness_German
+	dw Text_WinkysWalkway_German
+	dw Text_MistyMine_German
+	dw Text_StopGoStation_German
+	dw Text_LoopyLights_German
+	dw Text_MineCartCarnage_German
+	dw Text_PoisonPond_German
+	dw Text_CroctopusChase_German
+	dw Text_CoralCapers_German
+	dw Text_ClamCity_German
+	dw Text_MillstoneMayhem_German
+	dw Text_TempleTempest_German
+	dw Text_SnowBarrelBlast_German
+	dw Text_IceAgeAlley_German
+	dw Text_TreeTopTown_German
+	dw Text_RopeBridgeRumble_German
+	dw Text_VultureCulture_German
+	dw Text_ForestFrenzy_German
+	dw Text_SlipslideRide_German
+	dw Text_TorchlightTrouble_German
+	dw Text_OilDrumAlley_German
+	dw Text_BlackoutBasement_German
+	dw Text_JungleHijinxs_German
+	dw Text_KongoJungle_German
+	dw Text_MonkeyMines_German
+	dw Text_VineValley_German
+	dw Text_GorillaGlacier_German
+	dw Text_KremkrocIndustries_German
+	dw Text_ChimpCaverns_German
+	dw Text_VeryGnawtysLair_German
+	dw Text_NeckysNuts_German
+	dw Text_BumbleBRumble_German
+	dw Text_ReallyGnawtyRampage_German
+	dw Text_BossDumbDrum_German
+	dw Text_NeckysRevenge_German
+	dw Text_GangPlankGalleon_German
+	dw Text_CrankysCabin_German
+	dw Text_FunkysFlights_German
+	dw Text_CandysChallenge_German
+	dw Text_KremlingKrackdown_German
+	dw Text_KremlingsAndKongs_German
+	dw Text_BarrelOKremlings_German
+	dw Text_Wanted_German
+	dw Text_BuddiesBeware_German
+	dw Text_CrosshairCranky_German
+	dw Text_NeckyNutmare_German
+	dw Text_ReturnToIslandMap_German
+	dw Text_GalleonGunner_German
 
-Text_11_4244::
+Text_WellWellDidntExpect_German::
 	db "Na sowas! Mit DIR", $0d
 	db "habe ich heute", $0d
 	db "nicht gerechnet!!", $00
 
-Text_11_4277::
+Text_YoureDoingPrettyGood_German::
 	db "Donnerwetter! Wie", $0d
 	db "hast du's blo", $e1, " bis", $0d
 	db "hierher geschafft?", $00
 
-Text_11_42af::
+Text_SoYouFoundMe_German::
 	db "Du hast mich doch", $0d
 	db "noch gefunden! Nun,", $0d
 	db "was m", $94, "chtest du?", $00
 
-Text_11_42e6::
+Text_WhoToldYouI_German::
 	db "Wer hat dir gesagt,", $0d
 	db "dass ich hier bin?", $0d
 	db "Funky Kong etwa?", $00
 
-Text_11_431e::
+Text_WellWellLookWhat_German::
 	db "In welch ein Chaos", $0d
 	db "bist du nun wieder", $0d
 	db "hineingeraten?", $00
 
-Text_11_4353::
+Text_HaventSeenYouAround_German::
 	db "Lange her, seit ich", $0d
 	db "dich das letzte Mal", $0d
 	db "gesehen habe!", $00
 
-Text_11_4389::
+Text_WhatDoYouWant_German::
 	db "Was willst du schon", $0d
 	db "wieder? Ich bin", $0d
 	db "ein gefragter Affe!", $00
 
-Text_11_43c1::
+Text_AhhAtLastSomeone_German::
 	db "Ah! Endlich jemand,", $0d
 	db "mit dem ich mich", $0d
 	db "unterhalten kann!", $00
 
-Text_11_43f8::
+Text_YoureLuckyYouCaught_German::
 	db "Du hast Gl", $81, "ck, mich", $0d
 	db "noch zu treffen! Ich", $0d
 	db "wollte gerade gehen!", $00
 
-Text_11_4436::
+Text_HaveYaBroughtBack_German::
 	db "Hey! Was ist mit den", $0d
 	db "Bananen, die du mir", $0d
 	db "noch schuldest?", $00
 
-Text_11_446f::
+Text_LastTimeISaw_German::
 	db "Vor kurzem hast", $0d
 	db "du noch in die", $0d
 	db "Windeln gemacht!", $00
 
-Text_11_449f::
+Text_ComeOverHereAnd_German::
 	db "Komm her und lass", $0d
 	db "mich deine haarige", $0d
 	db "Fratze betrachten!", $00
 
-Text_11_44d7::
+Text_WellLookyWhatWe_German::
 	db "Na, wen haben wir", $0d
 	db "denn da? Einen", $0d
 	db "flohstichigen Kong!", $00
 
-Text_11_450c::
+Text_ArentYouASight_German::
 	db "Musst du meine m", $81, "den", $0d
 	db "Augen mit deinem", $0d
 	db "Anblick qu", $84, "len?", $00
 
-Text_11_4542::
+Text_AWholeMobOf_German::
 	db "Hier ist gerade eine", $0d
 	db "Horde Kremlings", $0d
 	db "entlanggebrettert!", $00
 
-Text_11_457a::
+Text_ThisHereIsRhino_German::
 	db "Du befindest dich", $0d
 	db "hier im Land des", $0d
 	db "Nashorns, h", $94, "rst du?", $00
 
-Text_11_45b1::
+Text_HeyBoyCanYou_German::
 	db "Mich laust der Affe!", $0d
 	db "Diese sch", $84, "bige H", $81, "tte", $0d
 	db "hat man mir gegeben!", $00
 
-Text_11_45f0::
+Text_HeyBoyDidYou_German::
 	db "Hast du die Zeitung,", $0d
 	db "die du mir besorgen", $0d
 	db "solltest?", $00
 
-Text_11_4623::
+Text_YouBigApeI_German::
 	db "Du Riesenbaby! Dein", $0d
 	db "Getrampel h", $94, "rt man", $0d
 	db "ja kilometerweit!", $00
 
-Text_11_465c::
+Text_ItsHardToFind_German::
 	db "In deiner Gegenwart", $0d
 	db "hat man nicht eine", $0d
 	db "ruhige Minute!", $00
 
-Text_11_4692::
+Text_SureComeOnOver_German::
 	db "Komm her! Meine", $0d
 	db "Selbstgespr", $84, "che", $0d
 	db "langweilen mich...", $00
 
-Text_11_46c5::
+Text_AhhItSortaTakes_German::
 	db "Dich hier zu sehen", $0d
 	db "weckt Erinnerungen", $0d
 	db "in mir...", $00
 
-Text_11_46f5::
+Text_ItsBeenRealBusy_German::
 	db "Die vielen Kremlings", $0d
 	db "haben ein sch", $94, "nes", $0d
 	db "Chaos veranstaltet!", $00
 
-Text_11_4730::
+Text_SureLooksLikeIm_German::
 	db "Sieht aus, als ob", $0d
 	db "mein Rat heute sehr", $0d
 	db "gefragt ist!", $00
 
-Text_11_4763::
+Text_SureBeatsAVisit_German::
 	db "Welch eine j", $84, "mmer- ", $0d
 	db "liche Figur du bist!", $0d
 	db "Soll ich dir helfen?", $00
 
-Text_11_47a1::
+Text_FancyRunningIntoYou_German::
 	db "Andauernd l", $84, "uft man", $0d
 	db "dir hier drau", $e1, "en", $0d
 	db $81, "ber den Weg!", $00
 
-Text_11_47d4::
+Text_IHaventGotEven_German::
 	db "Ich hab nichts mehr", $0d
 	db "f", $81, "r dich! Also nerv", $0d
 	db "mich nicht l", $84, "nger!", $00
 
-Text_11_480f::
+Text_IJustGaveMy_German::
 	db "Mein letztes Fass", $0d
 	db "hat dein Orang-Utan-", $0d
 	db "Kumpel erhalten!", $00
 
-Text_11_4847::
+Text_WhatInTarnationDo_German::
 	db "Was, um alles in der", $0d
 	db "Welt, willst du", $0d
 	db "schon wieder hier?", $00
 
-Text_11_487f::
+Text_IAintGotNothin_German::
 	db "Pah! Schmarotzer!", $0d
 	db "Mach dich blo", $e1, " vom", $0d
 	db "Acker, h", $94, "rst du!", $00
 
-Text_11_48b5::
+Text_BetchaWontGetMuch_German::
 	db "Du wirst nicht viel", $0d
 	db "weiter als bis zu", $0d
 	db "dieser H", $81, "tte kommen!", $00
 
-Text_11_48f0::
+Text_TheKidsOfToday_German::
 	db "Die Kids heutzutage", $0d
 	db "haben keinen Respekt", $0d
 	db "mehr vor dem Alter!", $00
 
-Text_11_492d::
+Text_TheVideoGamesIn_German::
 	db "Meinerzeit gab es", $0d
 	db "solche Animationen", $0d
 	db "noch nicht...", $00
 
-Text_11_4960::
+Text_AllThisFunCant_German::
 	db "Soviel Spa", $e1, " bekommt", $0d
 	db "dir bestimmt nicht!", $00
 
-Text_11_4988::
+Text_BetThisSectionWasted_German::
 	db "Bestimmt ist die", $0d
 	db "H", $84, "lfte des Speichers", $0d
 	db "bereits vergeudet!", $00
 
-Text_11_49c1::
+Text_TheyCantKeepThis_German::
 	db "So gut wie bisher", $0d
 	db "bleibt die Grafik", $0d
 	db "sicher nicht!", $00
 
-Text_11_49f3::
+Text_WeWereLuckyIf_German::
 	db "Wir waren froh, wenn", $0d
 	db "wir 3 Graustufen zur", $0d
 	db "Verf", $81, "gung hatten!", $00
 
-Text_11_4a2f::
+Text_WeUsedToHave_German::
 	db "Wir mussten mit 2", $0d
 	db "Animationsphasen", $0d
 	db "zufrieden sein!", $00
 
-Text_11_4a62::
+Text_ThemBarrelsWereA_German::
 	db "Diese F", $84, "sser waren", $0d
 	db "viel schwerer, als", $0d
 	db "sie aussahen!", $00
 
-Text_11_4a96::
+Text_WeNeverHadAny_German::
 	db "Damals sind wir ohne", $0d
 	db "diesen 3D-Humbug", $0d
 	db "ausgekommen!", $00
 
-Text_11_4ac9::
+Text_WeJustHadTo_German::
 	db "Wir mussten mit dem", $0d
 	db "Wenigen auskommen,", $0d
 	db "was wir hatten!", $00
 
-Text_11_4b00::
+Text_IveNeverSeenAnything_German::
 	db "So etwas habe ich", $0d
 	db "ja noch nie gesehen!", $00
 
-Text_11_4b27::
+Text_EnjoyThisDemoGame_German::
 	db "Genie", $e1, "e das Demo-", $0d
 	db "Spiel, es wird nicht", $0d
 	db "lange andauern!", $00
 
-Text_11_4b5e::
+Text_FourShadesOfGray_German::
 	db "4 Graustufen bei", $0d
 	db "8x8 Pixeln, das war", $0d
 	db "damals alles...", $00
 
-Text_11_4b93::
+Text_ICantPlayThis_German::
 	db "Ich k", $94, "nnte das nicht", $0d
 	db "spielen - die Farben", $0d
 	db "sind mir zu grell!", $00
 
-Text_11_4bd0::
+Text_TheBananasHaveMore_German::
 	db "Die Bananen haben", $0d
 	db "ja mehr Farben als", $0d
 	db "mein gesamtes Spiel!", $00
 
-Text_11_4c0a::
+Text_LookAtThisMy_German::
 	db "Sieh nur, mein Bart!", $0d
 	db "Reine Verschwendung", $0d
 	db "an Animationsphasen!", $00
 
-Text_11_4c48::
+Text_ThatWasWhenWe_German::
 	db "Damals gab es noch", $0d
 	db "wirkliches Gameplay!", $00
 
-Text_11_4c70::
+Text_UsedAllTheLatest_German::
 	db "Habt wohl mit diesen", $0d
 	db "modernen 3D-Dingern", $0d
 	db "rumgebastelt, was?", $00
 
-Text_11_4cac::
+Text_TheTroubleWithYou_German::
 	db "Das Problem mit euch", $0d
 	db "Kids ist, dass ihr", $0d
 	db "zu verw", $94, "hnt seid!", $00
 
-Text_11_4ce6::
+Text_GamesWereALot_German::
 	db "Als ich ein junger", $0d
 	db "Affe war, gab's noch", $0d
 	db "Herausforderungen!", $00
 
-Text_11_4d21::
+Text_WedPlayForHours_German::
 	db "Stundenlang haben", $0d
 	db "wir an einzelnen", $0d
 	db "Screens gespielt!", $00
 
-Text_11_4d56::
+Text_YouWouldntLastTwo_German::
 	db "In einem Klassiker", $0d
 	db "w", $81, "rdest DU keine 2", $0d
 	db "Minuten durchhalten!", $00
 
-Text_11_4d91::
+Text_ICouldGetThrough_German::
 	db "ICH w", $81, "rde das Spiel", $0d
 	db "schon beim ersten", $0d
 	db "Versuch schaffen!", $00
 
-Text_11_4dc9::
+Text_ImTalkingAboutWhen_German::
 	db "Fr", $81, "her waren Spiele", $0d
 	db "besser und echte", $0d
 	db "Herausforderungen!", $00
 
-Text_11_4e01::
+Text_ThreeLivesAndThree_German::
 	db "3 Versuche und 3", $0d
 	db "Continues - mehr", $0d
 	db "hatten wir nicht!", $00
 
-Text_11_4e35::
+Text_GamesNeverLookedLike_German::
 	db "Als ich ein strammer", $0d
 	db "Bursche war, sahen", $0d
 	db "Spiele anders aus!", $00
 
-Text_11_4e70::
+Text_AndWeWereMuch_German::
 	db "Wir waren damals", $0d
 	db "viel besser drauf,", $0d
 	db "als ihr heute!", $00
 
-Text_11_4ea3::
+Text_BetYouThoughtThis_German::
 	db "Sicher dachtest du,", $0d
 	db "das Spiel sei ein", $0d
 	db "64-Bit-Titel, oder?", $00
 
-Text_11_4edd::
+Text_MyBigToesGot_German::
 	db "In meinem gro", $e1, "en", $0d
 	db "Zeh gibt es mehr", $0d
 	db "Gameplay als hier!", $00
 
-Text_11_4f12::
+Text_YknowWhatTheySay_German::
 	db "Heute gilt nur noch:", $0d
 	db "Viel Grafik und", $0d
 	db "kaum Spielspa", $e1, "!", $00
 
-Text_11_4f47::
+Text_With32MegYoud_German::
 	db "Fr", $81, "her h", $84, "tten 32", $0d
 	db "Mbit f", $81, "r 30 tolle", $0d
 	db "Spiele gereicht!!!", $00
 
-Text_11_4f7d::
+Text_BackInMyDay_German::
 	db "Bei uns gab es noch", $0d
 	db "richtiges Gameplay", $0d
 	db "mit viel Spielspa", $e1, "!", $00
 
-Text_11_4fb8::
+Text_WhatsEvenWorseYou_German::
 	db "F", $81, "rchterlich! Dieser", $0d
 	db "Unfug hier findet", $0d
 	db "einfach kein Ende!!!", $00
 
-Text_11_4ff4::
+Text_YouWouldntKnowA_German::
 	db "Du w", $81, "rdest ein gutes", $0d
 	db "Spiel nicht mal mit", $0d
 	db "einer Lupe erkennen!", $00
 
-Text_11_5032::
+Text_AJoystickAndOne_German::
 	db "Ein Joystick und", $0d
 	db "ein Knopf reichten", $0d
 	db "f", $81, "r ein gutes Spiel!", $00
 
-Text_11_506b::
+Text_IWouldntBeSeen_German::
 	db "Freiwillig bringt", $0d
 	db "mich niemand in ein", $0d
 	db "Spiel wie dieses!", $00
 
-Text_11_50a3::
+Text_YouCantBetterThe_German::
 	db "Game & Watch$-", $0d
 	db "Grafiken kann man", $0d
 	db "nicht ", $81, "bertreffen!", $00
 
-Text_11_50d7::
+Text_SoYerBackAgain_German::
 	db "Schon zur", $81, "ck? Ich", $0d
 	db "wusste, dass du", $0d
 	db "das nicht packst!", $00
 
-Text_11_510b::
+Text_TooQuickIDidnt_German::
 	db "Langsam! Ich muss", $0d
 	db "mir erst neue", $0d
 	db "Spr", $81, "che ausdenken!", $00
 
-Text_11_513e::
+Text_ImJustWastingMy_German::
 	db "Du h", $94, "rst ja doch", $0d
 	db "nicht zu! Reine", $0d
 	db "Zeitverschwendung!", $00
 
-Text_11_5172::
+Text_YouHaveToDo_German::
 	db "Du musst dir schon", $0d
 	db "mehr M", $81, "he geben!", $00
 
-Text_11_5196::
+Text_YouOnlyJustLeft_German::
 	db "Nanu! Du bist doch", $0d
 	db "eben erst gegangen!", $00
 
-Text_11_51bd::
+Text_BackAgainEhThat_German::
 	db "Schon zur", $81, "ck? Das", $0d
 	db "ging aber schnell!", $00
 
-Text_11_51e2::
+Text_CameBackToThe_German::
 	db "Du willst wohl noch", $0d
 	db "einen Profi-Tipp?", $00
 
-Text_11_5208::
+Text_StillGotYouBeat_German::
 	db "Du gibst dich schon", $0d
 	db "geschlagen, was?", $00
 
-Text_11_522d::
+Text_YupDontMakeGame_German::
 	db "Die Spieler sind", $0d
 	db "auch nicht mehr", $0d
 	db "so wie fr", $81, "her!", $00
 
-Text_11_525d::
+Text_DyaExpectMeTo_German::
 	db "Du m", $94, "chtest wohl,", $0d
 	db "dass ICH den Level", $0d
 	db "f", $81, "r dich spiele!?!", $00
 
-Text_11_5295::
+Text_HowDareYouShow_German::
 	db "Du traust dich nach", $0d
 	db "dieser armen Vor-", $0d
 	db "stellung noch her?", $00
 
-Text_11_52ce::
+Text_InJungleHijinxsStick_German::
 	db "In den Baumkronen im", $0d
 	db "Dschungel-Fieber", $0d
 	db "gibt es Extraleben!", $00
 
-Text_11_5308::
+Text_FindTheFunJust_German::
 	db "Der Lianen-Limbo", $0d
 	db "hat einen trick-", $0d
 	db "reichen Ausgang!", $00
 
-Text_11_533b::
+Text_ALeapOfFaith_German::
 	db "Ein gewagter Sprung", $0d
 	db "f", $81, "hrt dich zu Winky", $0d
 	db "im Kanonen-Canyon!", $00
 
-Text_11_5376::
+Text_GoBananasInThe_German::
 	db "Die Schlangengrube", $0d
 	db "im Reptilien-Rabatz", $0d
 	db "verbirgt etwas!", $00
 
-Text_11_53ad::
+Text_CroctopusCornersCrocksOf_German::
 	db "Das Korallen-Kaos", $0d
 	db "steckt voller", $0d
 	db "Bananen-B", $81, "ndel!", $00
 
-Text_11_53dd::
+Text_BurnRubberForThe_German::
 	db "Gib Gummi, um Gold", $0d
 	db "bei den Hurtigen", $0d
 	db "Hopsern zu finden!", $00
 
-Text_11_5414::
+Text_TheBananasInStop_German::
 	db "In der Stop & Go-", $0d
 	db "Station geben Bana-", $0d
 	db "nen die Richtung an!", $00
 
-Text_11_544f::
+Text_JumpEarlyToGet_German::
 	db "Ein fr", $81, "her Sprung", $0d
 	db "f", $81, "hrt im Loren-Crash", $0d
 	db "direkt ans Ziel!", $00
 
-Text_11_5487::
+Text_RollingRubberWillPut_German::
 	db "Rollende Reifen", $0d
 	db "weisen den Weg im", $0d
 	db "M", $81, "hlstein-Mambo!", $00
 
-Text_11_54ba::
+Text_OnSnowBarrelBlast_German::
 	db "Am Schneefass-", $0d
 	db "Gletscher ist nicht", $0d
 	db "jede Grube gleich!", $00
 
-Text_11_54f0::
+Text_OnCroctopusChaseA_German::
 	db "Ein Fass der Krocto-", $0d
 	db "Safari markiert eine", $0d
 	db "geheime Passage!", $00
 
-Text_11_552b::
+Text_ToGetYourWings_German::
 	db "Spring auf die", $0d
 	db "beiden Geier in", $0d
 	db "der Eiszeit-Allee!", $00
 
-Text_11_555d::
+Text_BouncingTheBouncerSlides_German::
 	db "Im Eistal ist viel", $0d
 	db "Sprungkraft gefragt,", $0d
 	db "um Erfolg zu haben!", $00
 
-Text_11_5599::
+Text_TheTntGivesWall_German::
 	db "Die TNT-Power zeigt", $0d
 	db "explosive Wirkung", $0d
 	db "im Fackel-Fiasko!", $00
 
-Text_11_55d1::
+Text_ForElevatorAnticsClimb_German::
 	db "Im Fahrstuhl Fatal", $0d
 	db "musst du weit nach", $0d
 	db "oben klettern!", $00
 
-Text_11_5606::
+Text_TheGnawtyGnowsA_German::
 	db "Ein Nager f", $81, "hrt dich", $0d
 	db "im Trick-Track-Treck", $0d
 	db "zu einem Bonus-Fass!", $00
 
-Text_11_5645::
+Text_MineCartMadnessIs_German::
 	db "Im Loren-Leichtsinn", $0d
 	db "f", $81, "hren 3 Spr", $81, "nge zum", $0d
 	db "begehrten Bonusraum!", $00
 
-Text_11_5683::
+Text_OnceInThePoison_German::
 	db "Im Reiher-Weiher", $0d
 	db "f", $81, "hrt der rechte", $0d
 	db "Weg nach links!", $00
 
-Text_11_56b5::
+Text_BlackoutBasementsSinkingFeeling_German::
 	db "Im Kaos-Keller nimmt", $0d
 	db "ein Sturz manchmal", $0d
 	db "ein gutes Ende!", $00
 
-Text_11_56ed::
+Text_LetDiddyHoldOut_German::
 	db $9a, "berlasse Diddy in", $0d
 	db "den Dyna-Grotten", $0d
 	db "das TNT-Fass!", $00
 
-Text_11_571f::
+Text_TakeEnoughRopeAnd_German::
 	db "Erledige die Slippas", $0d
 	db "im Schimmer-Schacht", $0d
 	db "ohne Bodenkontakt!", $00
 
-Text_11_575b::
+Text_TheLoopyLightsVultures_German::
 	db "Achte auf das Fass", $0d
 	db "des Geiers bei den", $0d
 	db "Listigen Lichtern!", $00
 
-Text_11_5794::
+Text_PerilousVulturesKnowIts_German::
 	db "Selbst ", $81, "ble Geier", $0d
 	db "sind manchmal doch", $0d
 	db "lieber bodenst", $84, "ndig!", $00
 
-Text_11_57ce::
+Text_AllGassedUpAnd_German::
 	db "Im Tank-Terror gibt", $0d
 	db "es hin und wieder", $0d
 	db "Energie-Probleme!", $00
 
-Text_11_5806::
+Text_TheOrangUtanGang_German::
 	db "Beim Orang-Utan-Klan", $0d
 	db "spielt ein Fass eine", $0d
 	db "entscheidende Rolle!", $00
 
-Text_11_5845::
+Text_ASingleBananaIs_German::
 	db "Die einsame Banane", $0d
 	db "hilft in der Wipfel-", $0d
 	db "Kommune weiter!", $00
 
-Text_11_587d::
+Text_GetDownWithThe_German::
 	db "Begib' dich im", $0d
 	db "Tempo-Tempel auf", $0d
 	db "die Bananen-F", $84, "hrte!", $00
 
-Text_11_58b1::
+Text_AHandSlapCan_German::
 	db "Ein Handschlag legt", $0d
 	db "Secrets an verd", $84, "ch-", $0d
 	db "tigen Stellen frei!", $00
 
-Text_11_58ed::
+Text_HeCantReallyFly_German::
 	db "Expresso kann zwar", $0d
 	db "nicht fliegen, aber", $0d
 	db "wenigstens flattern!", $00
 
-Text_11_5929::
+Text_EnguardeSwordfishWillHelp_German::
 	db "Enguarde bietet dir", $0d
 	db "unter Wasser seine", $0d
 	db "hilfreiche Nase an!", $00
 
-Text_11_5964::
+Text_CandysChallengesCanWin_German::
 	db "Bei Candy kannst", $0d
 	db "du Items f", $81, "r Bonus-", $0d
 	db "Spiele gewinnen!", $00
 
-Text_11_599a::
+Text_RollOffAPlatform_German::
 	db "Rolle von einem Vor-", $0d
 	db "sprung und dr", $81, "cke A,", $0d
 	db "um weit zu springen!", $00
 
-Text_11_59d9::
+Text_TheySayIfYou_German::
 	db "Mit gedr", $81, "cktem", $0d
 	db "B-Knopf kannst du", $0d
 	db "angeblich rennen!", $00
 
-Text_11_5a0c::
+Text_IHearYouCan_German::
 	db "Wenn du den B-Knopf", $0d
 	db "dr", $81, "ckst, kannst du", $0d
 	db "weiter springen!", $00
 
-Text_11_5a44::
+Text_ReckonRambiRhinoCould_German::
 	db "Ich sch", $84, "tze, Rambi", $0d
 	db "knackt jeden noch so", $0d
 	db "versteckten Eingang!", $00
 
-Text_11_5a81::
+Text_BounceAKegOff_German::
 	db "Wirf ein Stahlfass", $0d
 	db "gegen die Wand, um", $0d
 	db "darauf zu laufen!", $00
 
-Text_11_5ab9::
+Text_RollAttackABaddie_German::
 	db "Die Rollattacke", $0d
 	db "beschleunigt dich", $0d
 	db "mit jedem Treffer!", $00
 
-Text_11_5aee::
+Text_BounceOnEightBaddies_German::
 	db "Triffst du 8 Gegner", $0d
 	db "in Folge, erh", $84, "ltst", $0d
 	db "du ein Extraleben!", $00
 
-Text_11_5b28::
+Text_TheySayExpressosLegs_German::
 	db "Expressos d", $81, "nne", $0d
 	db "Beine sind keine", $0d
 	db "wirksame Waffe!", $00
 
-Text_11_5b59::
+Text_BreakOpenAStar_German::
 	db "Zerbrich Sternen-", $0d
 	db "F", $84, "sser, um R", $81, "cksetz-", $0d
 	db "punkte zu markieren!", $00
 
-Text_11_5b95::
+Text_JustFinishALevel_German::
 	db "Beende einen Level,", $0d
 	db "um deinen Spielstand", $0d
 	db "zu speichern!", $00
 
-Text_11_5bcc::
+Text_FunkySendsYouWhere_German::
 	db "Funky bringt dich", $0d
 	db "im Nu an bereits", $0d
 	db "besuchte Orte!", $00
 
-Text_11_5bfe::
+Text_DisguisedHolesOnThe_German::
 	db "Mit einem Sprung aus", $0d
 	db "der H", $94, "he ", $94, "ffnest du", $0d
 	db "versteckte Gruben!", $00
 
-Text_11_5c3a::
+Text_BananaArrowsWillPoint_German::
 	db "Die Bananen-Pfeile", $0d
 	db "zeigen dir den", $0d
 	db "besten Weg an!", $00
 
-Text_11_5c6b::
+Text_IfYouFindBananas_German::
 	db "Bananen f", $81, "hren dich", $0d
 	db "auf die F", $84, "hrte der", $0d
 	db "fiesen Kremlings!", $00
 
-Text_11_5ca4::
+Text_SmashOpenAnyDk_German::
 	db "Zerbrich DK-F", $84, "sser!", $0d
 	db "Vielleicht steckt", $0d
 	db "dein Kumpel drin!?!", $00
 
-Text_11_5cde::
+Text_GrabThemExtraLife_German::
 	db "Sei flink bei den", $0d
 	db "1-Up-Ballons, sonst", $0d
 	db "fliegen sie davon!", $00
 
-Text_11_5d17::
+Text_KlapTrapTeethStop_German::
 	db "Klap Traps Z", $84, "hne be-", $0d
 	db "enden Rollattacken,", $0d
 	db "also spring auf ihn!", $00
 
-Text_11_5d55::
+Text_YouCantJumpOn_German::
 	db "Nur Winky kann auf", $0d
 	db "die stacheligen", $0d
 	db "Zinger springen!", $00
 
-Text_11_5d89::
+Text_KlumpsHatProtectsAgainst_German::
 	db "Aufgrund des Helms", $0d
 	db "l", $84, "sst sich Klump nur", $0d
 	db "rollend besiegen!", $00
 
-Text_11_5dc3::
+Text_KrushaIsToughOnly_German::
 	db "Nur mit F", $84, "ssern kann", $0d
 	db "man den kr", $84, "ftigen", $0d
 	db "Krusha K.O. hauen!", $00
 
-Text_11_5dfd::
+Text_FloatingBarrelsWillBreak_German::
 	db "Schwebende F", $84, "sser", $0d
 	db "zerbrechen, sobald", $0d
 	db "du sie ber", $81, "hrst.", $00
 
-Text_11_5e33::
+Text_FollowSteelKegsAnd_German::
 	db "Mit Stahlf", $84, "ssern", $0d
 	db "kannst du B", $94, "se-", $0d
 	db "wichte plattwalzen!", $00
 
-Text_11_5e68::
+Text_RunAndJumpOn_German::
 	db "Laufe und h", $81, "pfe auf", $0d
 	db "Gegner, um gro", $e1, "e", $0d
 	db "Spr", $81, "nge zu machen!", $00
 
-Text_11_5ea0::
+Text_JumpOnFixedTires_German::
 	db "Halb vergrabene", $0d
 	db "Reifen steigern", $0d
 	db "deine Sprungkraft!", $00
 
-Text_11_5ed3::
+Text_PushFreeTiresTo_German::
 	db "Nutze herumliegende", $0d
 	db "Reifen, um Boni", $0d
 	db "zu erreichen!", $00
 
-Text_11_5f05::
+Text_RollOverSlippaOr_German::
 	db $9a, "berrolle Slippa", $0d
 	db "oder zerquetsche ihn", $0d
 	db "mit einem Sprung!", $00
 
-Text_11_5f3d::
+Text_GnawtyBeaverCanBe_German::
 	db $9a, "berrolle oder", $0d
 	db "springe auf Biber,", $0d
 	db "um sie zu besiegen!", $00
 
-Text_11_5f73::
+Text_ThatsAllSheWrote_German::
 	db "Genug! Beweg deinen", $0d
 	db "pelzigen Hintern in", $0d
 	db "den Dschungel!!!", $00
 
-Text_11_5fac::
+Text_TheresNothingMoreI_German::
 	db "Mehr kann ich dir", $0d
 	db "nicht sagen!", $00
 
-Text_11_5fcb::
+Text_YouKnowAllThat_German::
 	db "Mehr brauchst du", $0d
 	db "nicht zu wissen!", $00
 
-Text_11_5fed::
+Text_ComeBackAndSee_German::
 	db "Schau doch sp", $84, "ter", $0d
 	db "noch mal vorbei!", $0d
 	db "Ich warte hier!", $00
 
-Text_11_6020::
+Text_DontKnowAnyMore_German::
 	db "Hmm... Mehr wei", $e1, $0d
 	db "ich im Moment nicht!", $00
 
-Text_11_6046::
+Text_ThatsAllThereIs_German::
 	db "Das war's! Nur eine", $0d
 	db "Kleinigkeit, wenn du", $0d
 	db "mich fragst!", $00
 
-Text_11_607c::
+Text_SoLongSuckersTry_German::
 	db "Mach's gut, du", $0d
 	db "Nervens", $84, "ge! Pass", $0d
 	db "auf dich auf!", $00
 
-Text_11_60aa::
+Text_ThatsAllTheGood_German::
 	db "Das waren meine ge-", $0d
 	db "sammelten Weisheiten", $0d
 	db "zu diesem Thema!", $00
 
-Text_11_60e4::
+Text_ImGettingTiredI_German::
 	db "Ich bin m", $81, "de! Zeit", $0d
 	db "f", $81, "r ein Nickerchen!", $00
 
-Text_11_610b::
+Text_YouPracticallyKnowMore_German::
 	db "Jetzt wei", $e1, "t du mehr", $0d
 	db "als ich! Na ja, fast", $0d
 	db "jedenfalls...", $00
 
-Text_11_6142::
+Text_DontHaveAnythingElse_German::
 	db "Ich bin am Ende mit", $0d
 	db "meinem Latein! Komm", $0d
 	db "sp", $84, "ter wieder!", $00
 
-Text_11_6179::
+Text_ICouldJustRock_German::
 	db "Musst du mich immer", $0d
 	db "noch nerven? Ich", $0d
 	db "will meine Ruhe!", $00
 
-Text_11_61af::
+Text_GottaGoNowIll_German::
 	db "Ich muss gehen!", $0d
 	db "Wir sehen uns -", $0d
 	db "wenn du's packst!", $00
 
-Text_11_61e1::
+Text_WellThatsAboutThe_German::
 	db "Nun, das m", $81, "sste es", $0d
 	db "gewesen sein!", $00
 
-Text_11_6202::
+Text_IsThatTheTime_German::
 	db "Was? Schon so sp", $84, "t?", $0d
 	db "Ich muss sofort los!", $00
 
-Text_11_622b::
+Text_ICouldTellYou_German::
 	db "Ach! Tagelang k", $94, "nnte", $0d
 	db "ich dir affige Dinge", $0d
 	db "von damals erz", $84, "hlen!", $00
 
-Text_11_626a::
+Text_YallComeBackSoon_German::
 	db "Pah! Fr", $81, "her oder", $0d
 	db "sp", $84, "ter stehst du", $0d
 	db "wieder hier!!!", $00
 
-Text_11_629b::
+Text_IfYouGetStuck_German::
 	db "Komm noch einmal", $0d
 	db "vorbei, wenn du", $0d
 	db "nicht weiter wei", $e1, "t!", $00
 
-Text_11_62d0::
+Text_CantSayIExpect_German::
 	db "Wenn du viel Gl", $81, "ck", $0d
 	db "hast, sehen wir uns", $0d
 	db "vielleicht wieder!", $00
 
-Text_11_630a::
+Text_ItsBeenNiceTalking_German::
 	db "War nett, mit dir", $0d
 	db "geplaudert zu haben!", $00
 
-Text_11_6331::
+Text_EhSonnySpeakUp_German::
 	db "Was? Du musst schon", $0d
 	db "lauter sprechen!", $00
 
-Text_11_6356::
+Text_IveSeenEnoughThat_German::
 	db "Jetzt reicht's!", $0d
 	db "Steh' nicht so", $0d
 	db "affig hier herum!", $00
 
-Text_11_6387::
+Text_ThisColorScreensMaking_German::
 	db "Die Farben auf dem", $0d
 	db "Bildschirm machen", $0d
 	db "mich ganz verr", $81, "ckt!", $00
 
-Text_11_63c0::
+Text_AllThisGamePlay_German::
 	db "Das Spiel macht mich", $0d
 	db "fertig! Ich bin reif", $0d
 	db "f", $81, "rs Affenhaus!", $00
 
-Text_11_63fa::
+Text_RememberTheOriginalDonkey_German::
 	db "Ich spiele jetzt", $0d
 	db "erstmal eine Runde", $0d
 	db $0d
@@ -1113,12 +1113,12 @@ Text_11_63fa::
 	db "Kong%! Bis sp", $84, "ter!", $0d
 	db $00
 
-Text_11_6444::
+Text_TooManyBaddiesHere_German::
 	db "Hier gibt's zu viele", $0d
 	db "Schurken f", $81, "r meinen", $0d
 	db "Geschmack! Genug!!!", $00
 
-Text_11_6481::
+Text_IdAskYaIn_German::
 	db "Ich w", $81, "rde dich ja", $0d
 	db "hereinbitten, aber", $0d
 	db $0d
@@ -1127,25 +1127,25 @@ Text_11_6481::
 	db "Speicherplatz nicht!", $0d
 	db $00
 
-Text_11_64cf::
+Text_OffYouGoSee_German::
 	db "Hau blo", $e1, " ab! Kommst", $0d
 	db "du denn nie ohne", $0d
 	db "mich zurecht?!?", $00
 
-Text_11_6504::
+Text_ShutTheGateOn_German::
 	db "T", $81, "r zu! Oder hast", $0d
 	db "du zu Hause S", $84, "cke", $0d
 	db "vor den T", $81, "ren?!?", $00
 
-Text_11_6539::
+Text_SeeYaLaterAlligator_German::
 	db "See you later,", $0d
 	db "Alligator! Haha!", $00
 
-Text_11_6559::
+Text_AfterAWhileCrocodile_German::
 	db "Tu nicht so viel,", $0d
 	db "Krokodil! Hohoho!", $00
 
-Text_11_657d::
+Text_HiImCandyKong_German::
 	db "Ich bin Candy Kong!", $0d
 	db "Bist du bereit f", $81, "r", $0d
 	db "eine kleine Pr", $81, "fung?", $0d
@@ -1154,42 +1154,42 @@ Text_11_657d::
 	db "Fass', um dein Gl", $81, "ck", $0d
 	db "herauszufordern!", $00
 
-Text_11_65f5::
+Text_HelloGuysDoYou_German::
 	db "Hi, Jungs! Wollt ihr", $0d
 	db "euch ein paar Bonus-", $0d
 	db "Items verdienen?", $00
 
-Text_11_6630::
+Text_CanIHelpYou_German::
 	db "Soll ich euch beiden", $0d
 	db "S", $81, $e1, "en helfen, Bonus-", $0d
 	db "Items zu finden?", $00
 
-Text_11_666b::
+Text_HowWouldYouLike_German::
 	db "Wie w", $84, "r's mit einer", $0d
 	db "Runde in meinem", $0d
 	db "'Kuschel-F", $84, "sschen'?", $00
 
-Text_11_66a3::
+Text_YooHooHoneyKong_German::
 	db "Hallo, ihr S", $81, $e1, "en!", $0d
 	db "Na, wollt ihr euer", $0d
 	db "Gl", $81, "ck versuchen?!?", $00
 
-Text_11_66db::
+Text_IfYouFancyA_German::
 	db "Seid ihr scharf auf", $0d
 	db "eine richtig harte", $0d
 	db "Herausforderung?", $00
 
-Text_11_6713::
+Text_YouGuysAreReally_German::
 	db "Was f", $81, "r Kerle!", $0d
 	db "Seid ihr bereit", $0d
 	db "f", $81, "r mich?!?", $00
 
-Text_11_673e::
+Text_SeeYaLaterBoys_German::
 	db "Bis sp", $84, "ter, Jungs!", $0d
 	db "Diesen Job habt ihr", $0d
 	db "bereits erledigt!", $00
 
-Text_11_6777::
+Text_WhoaDudesImFunky_German::
 	db "Hi, Kumpels! Mein", $0d
 	db "Name ist Funky Kong!", $0d
 	db $0d
@@ -1206,51 +1206,51 @@ Text_11_6777::
 	db $0d
 	db $00
 
-Text_11_681a::
+Text_YeahKongsLikeJump_German::
 	db "Hi, Kongs! Kommt an", $0d
 	db "Bord! Los geht's!", $00
 
-Text_11_6840::
+Text_NeedSomeLivesGet_German::
 	db "Extra-Versuche?!?", $0d
 	db "Die findest du im", $0d
 	db "Dschungel-Fieber!", $00
 
-Text_11_6876::
+Text_YoGorillasSeekThe_German::
 	db "Hey, Gorillas! Geht", $0d
 	db "zu Cranky, dem alten", $0d
 	db "Videospiel-Guru!", $00
 
-Text_11_68b0::
+Text_LookinGoodKongsBelt_German::
 	db "Gut gemacht, Jungs!", $0d
 	db "Schnallt euch an! Es", $0d
 	db "geht gleich los!", $00
 
-Text_11_68ea::
+Text_HeyDudesTellCandy_German::
 	db "Hi! Sagt Candy, dass", $0d
 	db "ich ihr jederzeit", $0d
 	db "zur Verf", $81, "gung stehe!", $00
 
-Text_11_6926::
+Text_FancyAFlightDk_German::
 	db "Lust auf einen Flug,", $0d
 	db "DK? Du weisst, wie's", $0d
 	db "l", $84, "uft! Viel Spa", $e1, "!", $00
 
-Text_11_6962::
+Text_DudeskiYourBudHas_German::
 	db "Hey! Dein Kumpel", $0d
 	db "h", $84, "ngt irgendwo da", $0d
 	db "drau", $e1, "en rum!", $00
 
-Text_11_6992::
+Text_YoDiddyLostThe_German::
 	db "Yo, Diddy! Wo ist", $0d
 	db "dein Freund? Spring", $0d
 	db "rein und schau nach!", $00
 
-Text_11_69cd::
+Text_WheresYourPalTry_German::
 	db "Wo ist dein Kollege?", $0d
 	db "Probier's doch mal", $0d
 	db "im Dschungel!!!", $00
 
-Text_11_6a05::
+Text_WellDoneMyBoy_German::
 	db "Prima, Kleiner!", $0d
 	db "Wer h", $84, "tte gedacht,", $0d
 	db "dass ein Gr", $81, "n-", $0d
@@ -1267,7 +1267,7 @@ Text_11_6a05::
 	db $9a, "berraschung!", $0d
 	db $00
 
-Text_11_6ac8::
+Text_IfIWasPlaying_German::
 	db "Im Gegensatz zu", $0d
 	db "dir h", $84, "tte ich", $0d
 	db "ALLES gefunden!", $0d
@@ -1276,7 +1276,7 @@ Text_11_6ac8::
 	db "s", $84, "mtliche Bonus-", $0d
 	db "R", $84, "ume gefunden!", $00
 
-Text_11_6b2b::
+Text_WhatAPlayerDk_German::
 	db "Donkey! Wahnsinn!", $0d
 	db "Die Kremlings sind", $0d
 	db "bezwungen und alle", $0d
@@ -1285,351 +1285,351 @@ Text_11_6b2b::
 	db "verf", $81, "gst ann", $84, "hernd", $0d
 	db $81, "ber meine Klasse!", $00
 
-Text_11_6b9d::
+Text_DkMyBoyWhere_German::
 	db "Hi, DK! Wo hast du", $0d
 	db "denn Diddy gelassen?", $00
 
-Text_11_6bc5::
+Text_DkYouYoungWhippersnapper_German::
 	db "DK! Du junger Spund!", $0d
 	db "Wir haben uns lange", $0d
 	db "nicht gesehen, was?", $00
 
-Text_11_6c02::
+Text_DonkeyBoyItSeems_German::
 	db "Donkey! Wir haben", $0d
 	db "uns ja seit Jahren", $0d
 	db "nicht mehr gesehen!", $00
 
-Text_11_6c3b::
+Text_YouNeverVisitYour_German::
 	db "Du kommst so selten", $0d
 	db "deinen armen, alten", $0d
 	db "Gro", $e1, "vater besuchen!", $00
 
-Text_11_6c77::
+Text_HeyCanYouSpare_German::
 	db "Hi! Hast du ein paar", $0d
 	db "Bananenb", $81, "ndel f", $81, "r", $0d
 	db "deinen alten Opa?", $00
 
-Text_11_6cb0::
+Text_AndWhatHaveYou_German::
 	db "Was? Du hast keine", $0d
 	db "Geschenke f", $81, "r deinen", $0d
 	db "betagten Gro", $e1, "vater?", $00
 
-Text_11_6cec::
+Text_WellYouveAmazedYour_German::
 	db "Ich bin ", $81, "berrascht,", $0d
 	db "dass du es so weit", $0d
 	db "gebracht hast!", $00
 
-Text_11_6d22::
+Text_AtLastYouveCome_German::
 	db "Wenigstens h", $94, "rst du", $0d
 	db "auf mich, wenn es um", $0d
 	db "Ratschl", $84, "ge geht!", $00
 
-Text_11_6d5c::
+Text_DiddyMyBoyWheres_German::
 	db "Diddy! Mein Kleiner,", $0d
 	db "wo ist denn Donkey?", $00
 
-Text_11_6d85::
+Text_DiddyMyYoungPup_German::
 	db "Na, junger H", $81, "pfer!", $0d
 	db "Unglaublich, wie du", $0d
 	db "gewachsen bist!", $00
 
-Text_11_6dbc::
+Text_Error_German::
 	db "Fehler", $0d
 	db $00
 
-Text_11_6dc4::
+Text_RopeyRampage_German::
 	db "Lianen-", $0d
 	db "Limbo", $0c, $0d
 	db $00
 
-Text_11_6dd4::
+Text_OrangUtanGang_German::
 	db "Orang-", $0d
 	db "Utan-Klan", $0c, $0d
 	db $00
 
-Text_11_6de7::
+Text_BarrelCannonCanyon_German::
 	db "Kanonen-", $0d
 	db "Canyon", $0c, $0d
 	db $00
 
-Text_11_6df9::
+Text_ReptileRumble_German::
 	db "Reptilien-", $0d
 	db "Rabatz", $0c, $0d
 	db $00
 
-Text_11_6e0d::
+Text_BouncyBonanza_German::
 	db "Hurtige", $0d
 	db "Hopser", $0c, $0d
 	db $00
 
-Text_11_6e1e::
+Text_ManicMincers_German::
 	db "Dyna-", $0d
 	db "Grotten", $0c, $0d
 	db $00
 
-Text_11_6e2e::
+Text_ElevatorAntics_German::
 	db "Fahrstuhl", $0d
 	db "Fatal", $0c, $0d
 	db $00
 
-Text_11_6e40::
+Text_PlatformPerils_German::
 	db "Plattform-", $0d
 	db "Panik", $0c, $0d
 	db $00
 
-Text_11_6e53::
+Text_TrickTrackTrek_German::
 	db "Trick-", $0d
 	db "Track-", $0d
 	db "Treck", $0c, $0d
 	db $00
 
-Text_11_6e69::
+Text_TankedUpTrouble_German::
 	db "Tank-", $0d
 	db "Terror", $0c, $0d
 	db $00
 
-Text_11_6e78::
+Text_MineCartMadness_German::
 	db "Loren-", $0d
 	db "Leichtsinn", $0c, $0d
 	db $00
 
-Text_11_6e8c::
+Text_WinkysWalkway_German::
 	db "Winkys", $0d
 	db "Wanderpfad", $0c, $0d
 	db $00
 
-Text_11_6ea0::
+Text_MistyMine_German::
 	db "Schimmer-", $0d
 	db "Schacht", $0c, $0d
 	db $00
 
-Text_11_6eb4::
+Text_StopGoStation_German::
 	db "Stop & Go-", $0d
 	db "Station", $0c, $0d
 	db $00
 
-Text_11_6ec9::
+Text_LoopyLights_German::
 	db "Listige", $0d
 	db "Lichter", $0c, $0d
 	db $00
 
-Text_11_6edb::
+Text_MineCartCarnage_German::
 	db "Loren-", $0d
 	db "Crash", $0c, $0d
 	db $00
 
-Text_11_6eea::
+Text_PoisonPond_German::
 	db "Reiher-", $0d
 	db "Weiher", $0c, $0d
 	db $00
 
-Text_11_6efb::
+Text_CroctopusChase_German::
 	db "Krocto-", $0d
 	db "Safari", $0c, $0d
 	db $00
 
-Text_11_6f0c::
+Text_CoralCapers_German::
 	db "Korallen-", $0d
 	db "Kaos", $0c, $0d
 	db $00
 
-Text_11_6f1d::
+Text_ClamCity_German::
 	db "Muschel-", $0d
 	db "Mania", $0c, $0d
 	db $00
 
-Text_11_6f2e::
+Text_MillstoneMayhem_German::
 	db "M", $81, "hlstein-", $0d
 	db "Mambo", $0c, $0d
 	db $00
 
-Text_11_6f41::
+Text_TempleTempest_German::
 	db "Tempo-", $0d
 	db "Tempel", $0c, $0d
 	db $00
 
-Text_11_6f51::
+Text_SnowBarrelBlast_German::
 	db "Schnee-", $0d
 	db "fass-", $0d
 	db "Gletscher", $0c, $0d
 	db $00
 
-Text_11_6f6b::
+Text_IceAgeAlley_German::
 	db "Eiszeit-", $0d
 	db "Allee", $0c, $0d
 	db $00
 
-Text_11_6f7c::
+Text_TreeTopTown_German::
 	db "Wipfel-", $0d
 	db "Kommune", $0c, $0d
 	db $00
 
-Text_11_6f8e::
+Text_RopeBridgeRumble_German::
 	db "Gestrickte", $0d
 	db "Br", $81, "cken", $0c, $0d
 	db $00
 
-Text_11_6fa3::
+Text_VultureCulture_German::
 	db "Geier-", $0d
 	db "Feier", $0c, $0d
 	db $00
 
-Text_11_6fb2::
+Text_ForestFrenzy_German::
 	db "Wahnsinns-", $0d
 	db "Wald", $0c, $0d
 	db $00
 
-Text_11_6fc4::
+Text_SlipslideRide_German::
 	db "Eistal", $0c, $0d
 	db $00
 
-Text_11_6fcd::
+Text_TorchlightTrouble_German::
 	db "Fackel-", $0d
 	db "Fiasko", $0c, $0d
 	db $00
 
-Text_11_6fde::
+Text_OilDrumAlley_German::
 	db $99, "lfass-", $0d
 	db "Boulevard", $0c, $0d
 	db $00
 
-Text_11_6ff2::
+Text_BlackoutBasement_German::
 	db "Kaos-", $0d
 	db "Keller", $0c, $0d
 	db $00
 
-Text_11_7001::
+Text_JungleHijinxs_German::
 	db "Dschungel-", $0d
 	db "Fieber", $0c, $0d
 	db $00
 
-Text_11_7015::
+Text_KongoJungle_German::
 	db "Tiefster", $0d
 	db "Kongo", $0d
 	db $00
 
-Text_11_7025::
+Text_MonkeyMines_German::
 	db "Affen-", $0d
 	db "Minen", $0d
 	db $00
 
-Text_11_7033::
+Text_VineValley_German::
 	db "Trauben-", $0d
 	db "Tal", $0d
 	db $00
 
-Text_11_7041::
+Text_GorillaGlacier_German::
 	db "Gorilla-", $0d
 	db "Gletscher", $0d
 	db $00
 
-Text_11_7055::
+Text_KremkrocIndustries_German::
 	db "Kremkroc", $0d
 	db "GmbH", $0d
 	db $00
 
-Text_11_7064::
+Text_ChimpCaverns_German::
 	db "Primaten-", $0d
 	db "Plateau", $0d
 	db $00
 
-Text_11_7077::
+Text_VeryGnawtysLair_German::
 	db "Gnawtys", $0d
 	db "Grotten", $0d
 	db $00
 
-Text_11_7088::
+Text_NeckysNuts_German::
 	db "Neckys", $0d
 	db "Knacker", $0d
 	db $00
 
-Text_11_7098::
+Text_BumbleBRumble_German::
 	db "Bumble B", $0d
 	db "Rumble", $0d
 	db $00
 
-Text_11_70a9::
+Text_ReallyGnawtyRampage_German::
 	db "Gnawtys", $0d
 	db "Raserei", $0d
 	db $00
 
-Text_11_70ba::
+Text_BossDumbDrum_German::
 	db "Fatale", $0d
 	db "Grande", $0d
 	db $00
 
-Text_11_70c9::
+Text_NeckysRevenge_German::
 	db "Neckys", $0d
 	db "Rache", $0d
 	db $00
 
-Text_11_70d7::
+Text_GangPlankGalleon_German::
 	db "Galions-", $0d
 	db "Planken", $0d
 	db $00
 
-Text_11_70e9::
+Text_CrankysCabin_German::
 	db "Crankys", $0d
 	db "H", $81, "tte", $0d
 	db $00
 
-Text_11_70f8::
+Text_FunkysFlights_German::
 	db "Funkys", $0d
 	db "Flugplatz", $0d
 	db $00
 
-Text_11_710a::
+Text_CandysChallenge_German::
 	db "Candys", $0d
 	db "Kabuff", $0d
 	db $00
 
-Text_11_7119::
+Text_NeckyNutmare_German::
 	db "Neckys", $0d
 	db "Nachtmahr", $0c, $0d
 	db $00
 
-Text_11_712c::
+Text_KremlingKrackdown_German::
 	db "Kremling-", $0d
 	db "Kontrolle", $0d
 	db $00
 
-Text_11_7141::
+Text_KremlingsAndKongs_German::
 	db "Kremlings", $0d
 	db "&", $0d
 	db "Kongs", $0d
 	db $00
 
-Text_11_7154::
+Text_BarrelOKremlings_German::
 	db "Kremling-", $0d
 	db "Kontainer", $0d
 	db $00
 
-Text_11_7169::
+Text_Wanted_German::
 	db "GESUCHT!", $0d
 	db $00
 
-Text_11_7173::
+Text_BuddiesBeware_German::
 	db "Gef", $84, "hrte", $0d
 	db "in", $0d
 	db "Gefahr", $0d
 	db $00
 
-Text_11_7187::
+Text_CrosshairCranky_German::
 	db "Crankys", $0d
 	db "Crash", $0d
 	db $00
 
-Text_11_7196::
+Text_GalleonGunner_German::
 	db "Korsaren-", $0d
 	db "Kanonier", $0d
 	db $00
 
-Text_11_71aa::
+Text_ReturnToIslandMap_German::
 	db "Zur", $81, "ck zur", $0d
 	db "Karte", $0d
 	db $00
 
-Text_11_71bc::
+Text_INeverLikedThose_German::
 	db "Diese Sticker sind", $0d
 	db "nutzloser als", $0d
 	db "gr", $81, "ne Bananen!!!", $00

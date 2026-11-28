@@ -3,140 +3,140 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $31", ROMX[$4000], BANK[$31]
 
-FrameTiles_31_4000::
+FrameTiles_PlayerRambi_8::
 	INCBIN "gfx/frames/31/4000.2bpp"
 
-FrameTiles_31_4120::
+FrameTiles_Unused_72::
 	INCBIN "gfx/frames/31/4120.2bpp"
 
-FrameTiles_31_4220::
+FrameTiles_Unused_73::
 	INCBIN "gfx/frames/31/4220.2bpp"
 
-FrameTiles_31_4320::
+FrameTiles_PlayerRambi_9::
 	INCBIN "gfx/frames/31/4320.2bpp"
 
-FrameTiles_31_4420::
+FrameTiles_PlayerRambi_10::
 	INCBIN "gfx/frames/31/4420.2bpp"
 
-FrameTiles_31_4520::
+FrameTiles_PlayerRambi_11::
 	INCBIN "gfx/frames/31/4520.2bpp"
 
-FrameTiles_31_4620::
+FrameTiles_PlayerRambi_12::
 	INCBIN "gfx/frames/31/4620.2bpp"
 
-FrameTiles_31_4720::
+FrameTiles_PlayerRambi_13::
 	INCBIN "gfx/frames/31/4720.2bpp"
 
-FrameTiles_31_4820::
+FrameTiles_PlayerRambi_Bounce_1::
 	INCBIN "gfx/frames/31/4820.2bpp"
 
-FrameTiles_31_4940::
+FrameTiles_PlayerRambi_Bounce_2::
 	INCBIN "gfx/frames/31/4940.2bpp"
 
-FrameTiles_31_4a80::
+FrameTiles_PlayerRambi_Bounce_3::
 	INCBIN "gfx/frames/31/4a80.2bpp"
 
-FrameTiles_31_4bc0::
+FrameTiles_PlayerRambi_Bounce_4::
 	INCBIN "gfx/frames/31/4bc0.2bpp"
 
-FrameTiles_31_4d00::
+FrameTiles_PlayerRambi_Bounce_5::
 	INCBIN "gfx/frames/31/4d00.2bpp"
 
-FrameTiles_31_4e40::
+FrameTiles_Kritter_JumpStart_1::
 	INCBIN "gfx/frames/31/4e40.2bpp"
 
-FrameTiles_31_4f40::
+FrameTiles_Kritter_JumpStart_2::
 	INCBIN "gfx/frames/31/4f40.2bpp"
 
-FrameTiles_31_5020::
+FrameTiles_Kritter_JumpStart_3::
 	INCBIN "gfx/frames/31/5020.2bpp"
 
-FrameTiles_31_50e0::
+FrameTiles_Kritter_JumpStart_4::
 	INCBIN "gfx/frames/31/50e0.2bpp"
 
-FrameTiles_31_51e0::
+FrameTiles_Unused_74::
 	INCBIN "gfx/frames/31/51e0.2bpp"
 
-FrameTiles_31_52c0::
+FrameTiles_SetPlayerAnimation_183::
 	INCBIN "gfx/frames/31/52c0.2bpp"
 
-FrameTiles_31_53a0::
+FrameTiles_SetPlayerAnimation_184::
 	INCBIN "gfx/frames/31/53a0.2bpp"
 
-FrameTiles_31_5480::
+FrameTiles_SetPlayerAnimation_185::
 	INCBIN "gfx/frames/31/5480.2bpp"
 
-FrameTiles_31_5580::
+FrameTiles_SetPlayerAnimation_186::
 	INCBIN "gfx/frames/31/5580.2bpp"
 
-FrameTiles_31_5680::
+FrameTiles_SetPlayerAnimation_187::
 	INCBIN "gfx/frames/31/5680.2bpp"
 
-FrameTiles_31_5780::
+FrameTiles_SetPlayerAnimation_188::
 	INCBIN "gfx/frames/31/5780.2bpp"
 
-FrameTiles_31_5880::
+FrameTiles_SetPlayerAnimation_189::
 	INCBIN "gfx/frames/31/5880.2bpp"
 
-FrameTiles_31_5940::
+FrameTiles_SetPlayerAnimation_190::
 	INCBIN "gfx/frames/31/5940.2bpp"
 
-FrameTiles_31_5a40::
+FrameTiles_SetPlayerAnimation_191::
 	INCBIN "gfx/frames/31/5a40.2bpp"
 
-FrameTiles_31_5b00::
+FrameTiles_SetPlayerAnimation_192::
 	INCBIN "gfx/frames/31/5b00.2bpp"
 
-FrameTiles_31_5be0::
+FrameTiles_SetPlayerAnimation_193::
 	INCBIN "gfx/frames/31/5be0.2bpp"
 
-BGTiles_31_5ca0::
+BGTiles_SparkleSpriteTiles::
 	INCBIN "gfx/bgtiles/31/5ca0.2bpp"
 	INCBIN "gfx/bgtiles/31/5ca0_end.2bpp"
 
-FrameTiles_31_6080::
+FrameTiles_Squidge_1::
 	INCBIN "gfx/frames/31/6080.2bpp"
 
-FrameTiles_31_60e0::
+FrameTiles_Squidge_2::
 	INCBIN "gfx/frames/31/60e0.2bpp"
 
-FrameTiles_31_6180::
+FrameTiles_Squidge_3::
 	INCBIN "gfx/frames/31/6180.2bpp"
 
-FrameTiles_31_6200::
+FrameTiles_Squidge_4::
 	INCBIN "gfx/frames/31/6200.2bpp"
 
-FrameTiles_31_6260::
+FrameTiles_Squidge_5::
 	INCBIN "gfx/frames/31/6260.2bpp"
 
-FrameTiles_31_6300::
+FrameTiles_Squidge_6::
 	INCBIN "gfx/frames/31/6300.2bpp"
 
-FrameTiles_31_63a0::
+FrameTiles_Squidge_7::
 	INCBIN "gfx/frames/31/63a0.2bpp"
 
-FrameTiles_31_6420::
+FrameTiles_Squidge_8::
 	INCBIN "gfx/frames/31/6420.2bpp"
 
-FrameTiles_31_64c0::
+FrameTiles_Squidge_9::
 	INCBIN "gfx/frames/31/64c0.2bpp"
 
-FrameTiles_31_6540::
+FrameTiles_Enemy_HandleContact_18::
 	INCBIN "gfx/frames/31/6540.2bpp"
 
-FrameTiles_31_6660::
+FrameTiles_Enemy_HandleContact_19::
 	INCBIN "gfx/frames/31/6660.2bpp"
 
-FrameTiles_31_6780::
+FrameTiles_Enemy_HandleContact_20::
 	INCBIN "gfx/frames/31/6780.2bpp"
 
-FrameTiles_31_6880::
+FrameTiles_Enemy_HandleContact_21::
 	INCBIN "gfx/frames/31/6880.2bpp"
 
-FrameTiles_31_69c0::
+FrameTiles_Enemy_HandleContact_22::
 	INCBIN "gfx/frames/31/69c0.2bpp"
 
-FrameSprites_31_6ae0::
+FrameSprites_PlayerRambi_8::
 	db -10, -21
 	db 0, 16
 	db 8, -19
@@ -147,7 +147,7 @@ FrameSprites_31_6ae0::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_31_6af2::
+FrameSprites_Unused_72::
 	db -12, -23
 	db 0, 16
 	db 8, -15
@@ -157,7 +157,7 @@ FrameSprites_31_6af2::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_31_6b02::
+FrameSprites_Unused_73::
 	db -14, -20
 	db 0, 16
 	db 8, -17
@@ -167,7 +167,7 @@ FrameSprites_31_6b02::
 	db 8, -20
 	db 0, 16
 
-FrameSprites_31_6b12::
+FrameSprites_PlayerRambi_9::
 	db -12, -20
 	db 0, 16
 	db 8, -22
@@ -177,7 +177,7 @@ FrameSprites_31_6b12::
 	db 0, 16
 	db 8, -24
 
-FrameSprites_31_6b22::
+FrameSprites_PlayerRambi_10::
 	db -12, -20
 	db 0, 16
 	db 8, -22
@@ -187,7 +187,7 @@ FrameSprites_31_6b22::
 	db 0, 16
 	db 8, -24
 
-FrameSprites_31_6b32::
+FrameSprites_PlayerRambi_11::
 	db -12, -20
 	db 0, 16
 	db 8, -22
@@ -197,7 +197,7 @@ FrameSprites_31_6b32::
 	db 0, 16
 	db 8, -24
 
-FrameSprites_31_6b42::
+FrameSprites_PlayerRambi_12::
 	db -10, -21
 	db 0, 16
 	db 8, -22
@@ -207,7 +207,7 @@ FrameSprites_31_6b42::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_31_6b52::
+FrameSprites_PlayerRambi_13::
 	db -10, -21
 	db 0, 16
 	db 8, -23
@@ -217,7 +217,7 @@ FrameSprites_31_6b52::
 	db 8, -22
 	db 0, 16
 
-FrameSprites_31_6b62::
+FrameSprites_PlayerRambi_Bounce_1::
 	db -14, -20
 	db 0, 16
 	db 8, -17
@@ -228,7 +228,7 @@ FrameSprites_31_6b62::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_31_6b74::
+FrameSprites_PlayerRambi_Bounce_2::
 	db -17, -19
 	db 0, 16
 	db 8, -17
@@ -240,7 +240,7 @@ FrameSprites_31_6b74::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_31_6b88::
+FrameSprites_PlayerRambi_Bounce_3::
 	db -17, -19
 	db 0, 16
 	db 8, -18
@@ -252,7 +252,7 @@ FrameSprites_31_6b88::
 	db 8, -17
 	db 0, 16
 
-FrameSprites_31_6b9c::
+FrameSprites_PlayerRambi_Bounce_4::
 	db -17, -19
 	db 0, 16
 	db 8, -18
@@ -264,7 +264,7 @@ FrameSprites_31_6b9c::
 	db 8, -11
 	db 0, 16
 
-FrameSprites_31_6bb0::
+FrameSprites_PlayerRambi_Bounce_5::
 	db -16, -19
 	db 0, 16
 	db 8, -18
@@ -276,7 +276,7 @@ FrameSprites_31_6bb0::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_31_6bc4::
+FrameSprites_Kritter_JumpStart_1::
 	db -15, -15
 	db 0, 16
 	db 8, -27
@@ -286,7 +286,7 @@ FrameSprites_31_6bc4::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_31_6bd4::
+FrameSprites_Kritter_JumpStart_2::
 	db -14, -16
 	db 8, -9
 	db 0, 16
@@ -295,7 +295,7 @@ FrameSprites_31_6bd4::
 	db 8, -17
 	db 8, 5
 
-FrameSprites_31_6be2::
+FrameSprites_Kritter_JumpStart_3::
 	db -13, -19
 	db 8, -9
 	db 0, 16
@@ -303,7 +303,7 @@ FrameSprites_31_6be2::
 	db 8, 0
 	db 8, -1
 
-FrameSprites_31_6bee::
+FrameSprites_Kritter_JumpStart_4::
 	db -12, -27
 	db 0, 16
 	db 8, -22
@@ -313,7 +313,7 @@ FrameSprites_31_6bee::
 	db 0, 20
 	db 8, -14
 
-FrameSprites_31_6bfe::
+FrameSprites_Unused_74::
 	db -10, -12
 	db 8, -4
 	db 0, 16
@@ -322,7 +322,7 @@ FrameSprites_31_6bfe::
 	db 8, -20
 	db 8, 5
 
-FrameSprites_31_6c0c::
+FrameSprites_SetPlayerAnimation_183::
 	db -11, -13
 	db 8, -2
 	db 0, 16
@@ -331,7 +331,7 @@ FrameSprites_31_6c0c::
 	db 8, -16
 	db 8, 11
 
-FrameSprites_31_6c1a::
+FrameSprites_SetPlayerAnimation_184::
 	db -17, -13
 	db 8, -1
 	db 8, 0
@@ -340,7 +340,7 @@ FrameSprites_31_6c1a::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_31_6c28::
+FrameSprites_SetPlayerAnimation_185::
 	db -14, -14
 	db 8, 0
 	db 0, 16
@@ -350,7 +350,7 @@ FrameSprites_31_6c28::
 	db 0, 16
 	db 8, 1
 
-FrameSprites_31_6c38::
+FrameSprites_SetPlayerAnimation_186::
 	db -12, -14
 	db 0, 16
 	db 8, -16
@@ -360,7 +360,7 @@ FrameSprites_31_6c38::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_31_6c48::
+FrameSprites_SetPlayerAnimation_187::
 	db -13, -14
 	db 0, 16
 	db 8, -16
@@ -370,7 +370,7 @@ FrameSprites_31_6c48::
 	db 8, -16
 	db 8, 7
 
-FrameSprites_31_6c58::
+FrameSprites_SetPlayerAnimation_188::
 	db -17, -14
 	db 8, 0
 	db 0, 16
@@ -380,7 +380,7 @@ FrameSprites_31_6c58::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_31_6c68::
+FrameSprites_SetPlayerAnimation_189::
 	db -15, -14
 	db 8, 0
 	db 0, 16
@@ -388,7 +388,7 @@ FrameSprites_31_6c68::
 	db 8, 0
 	db 8, 10
 
-FrameSprites_31_6c74::
+FrameSprites_SetPlayerAnimation_190::
 	db -12, -14
 	db 0, 16
 	db 8, -16
@@ -398,7 +398,7 @@ FrameSprites_31_6c74::
 	db 8, -15
 	db 8, 12
 
-FrameSprites_31_6c84::
+FrameSprites_SetPlayerAnimation_191::
 	db -14, -14
 	db 8, 0
 	db 0, 16
@@ -406,7 +406,7 @@ FrameSprites_31_6c84::
 	db 8, 0
 	db 8, 12
 
-FrameSprites_31_6c90::
+FrameSprites_SetPlayerAnimation_192::
 	db -17, -13
 	db 8, -1
 	db 0, 16
@@ -415,7 +415,7 @@ FrameSprites_31_6c90::
 	db 8, -15
 	db 8, 9
 
-FrameSprites_31_6c9e::
+FrameSprites_SetPlayerAnimation_193::
 	db -20, -11
 	db 8, -3
 	db 8, 0
@@ -423,69 +423,69 @@ FrameSprites_31_6c9e::
 	db 8, -15
 	db 8, 0
 
-FrameSpritesTail_31_6caa::
+FrameSpritesTail_SetPlayerAnimation_193::
 	db -8, -12, 0, 16, 8, -15, 0, 18, -7, -12, 0, 19, 8, -20, 0, 22 ; never read; dx, dy pairs like the list above
 	db -8, -13, 0, 21, 8, -21, 0, 20, -9, -14, 0, 16, 8, -15, 0, 20
 	db 8, 0, -9, -14, 0, 16, 8, -14, 0, 19, 8, -1, -9, -14, 0, 16
 	db 8, -13, 0, 17, 8, 2, -8, -13, 0, 16, 8, -7, 8, 11
 
-FrameSprites_31_6ce8::
+FrameSprites_Squidge_1::
 	db -11, 0
 	db 8, -9
 	db 8, -1
 
-FrameSprites_31_6cee::
+FrameSprites_Squidge_2::
 	db -11, -6
 	db 0, 16
 	db 8, -19
 	db 0, 16
 	db 8, -16
 
-FrameSprites_31_6cf8::
+FrameSprites_Squidge_3::
 	db -12, -5
 	db 8, -3
 	db 0, 16
 	db 8, -16
 
-FrameSprites_31_6d00::
+FrameSprites_Squidge_4::
 	db -10, -5
 	db 8, -2
 	db 8, 2
 
-FrameSprites_31_6d06::
+FrameSprites_Squidge_5::
 	db -13, -2
 	db 8, -5
 	db 0, 16
 	db 8, -17
 	db 0, 17
 
-FrameSprites_31_6d10::
+FrameSprites_Squidge_6::
 	db -12, -3
 	db 8, -5
 	db 0, 16
 	db 8, -19
 	db 0, 22
 
-FrameSprites_31_6d1a::
+FrameSprites_Squidge_7::
 	db -11, -2
 	db 8, -6
 	db 0, 17
 	db 8, -21
 
-FrameSprites_31_6d22::
+FrameSprites_Squidge_8::
 	db -11, -5
 	db 0, 16
 	db 8, -20
 	db 0, 19
 	db 8, -22
 
-FrameSprites_31_6d2c::
+FrameSprites_Squidge_9::
 	db -10, -5
 	db 0, 16
 	db 8, -21
 	db 8, -1
 
-FrameSprites_31_6d34::
+FrameSprites_Enemy_HandleContact_18::
 	db -14, -21
 	db 0, 16
 	db 8, -23
@@ -496,7 +496,7 @@ FrameSprites_31_6d34::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_31_6d46::
+FrameSprites_Enemy_HandleContact_19::
 	db -13, -26
 	db 0, 16
 	db 0, 16
@@ -507,7 +507,7 @@ FrameSprites_31_6d46::
 	db 0, 16
 	db 8, 1
 
-FrameSprites_31_6d58::
+FrameSprites_Enemy_HandleContact_20::
 	db -15, -24
 	db 0, 16
 	db 0, 16
@@ -517,7 +517,7 @@ FrameSprites_31_6d58::
 	db 8, -20
 	db 8, 5
 
-FrameSprites_31_6d68::
+FrameSprites_Enemy_HandleContact_21::
 	db -17, -21
 	db 0, 16
 	db 0, 16
@@ -529,7 +529,7 @@ FrameSprites_31_6d68::
 	db 8, -12
 	db 8, 6
 
-FrameSprites_31_6d7c::
+FrameSprites_Enemy_HandleContact_22::
 	db -15, -16
 	db 0, 16
 	db 8, -16

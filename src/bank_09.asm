@@ -295,7 +295,7 @@ Enemy_HandleContact::
 	jr z, .done_41b3
 	ld e, a
 	ld d, $00
-	ld hl, AnimTableNull_09_41b7
+	ld hl, AnimTableNull_Enemy_HandleContact_1
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -312,17 +312,17 @@ Enemy_HandleContact::
 	ret
 
 
-AnimTableNull_09_41b7::
+AnimTableNull_Enemy_HandleContact_1::
 	dw $0000 ; empty animation table entry
 
-AnimTable_09_41b9::
-	dw Anim_04_49b9, Anim_04_496f, Anim_04_4af5
+AnimTable_Enemy_HandleContact_1::
+	dw Anim_Enemy_HandleContact_3, Anim_Enemy_HandleContact_1, Anim_Enemy_HandleContact_7
 
-AnimTableNull_09_41bf::
+AnimTableNull_Enemy_HandleContact_2::
 	dw $0000, $0000, $0000, $0000 ; empty animation table entries
 
-AnimTable_09_41c7::
-	dw Anim_04_4a29, Anim_04_4c47, Anim_04_4b9b
+AnimTable_Enemy_HandleContact_2::
+	dw Anim_Enemy_HandleContact_5, Anim_Enemy_HandleContact_11, Anim_Enemy_HandleContact_9
 
 DefeatObject::
 	ld hl, wObjects + OBJ_FLAGS
@@ -355,12 +355,12 @@ DefeatObject::
 
 
 Obj_FallOffScreen::
-	ld hl, ObjInit_09_4204
+	ld hl, ObjInit_Obj_MoveAndAnimate_1
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_4204::
+ObjInit_Obj_MoveAndAnimate_1::
 	obj_byte OBJ_BANK, BANK(Obj_MoveAndAnimate)
 	obj_word OBJ_HANDLER, Obj_MoveAndAnimate
 	obj_word OBJ_YACCEL, $0050
@@ -436,7 +436,7 @@ Obj_TurnAround::
 	ret z
 	ld e, a
 	ld d, $00
-	ld hl, AnimTableNull_09_4284
+	ld hl, AnimTableNull_Obj_TurnAround
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -447,12 +447,12 @@ Obj_TurnAround::
 	ret
 
 
-AnimTableNull_09_4284::
+AnimTableNull_Obj_TurnAround::
 	dw $0000 ; empty animation table entry
 
-AnimTable_09_4286::
-	dw Anim_04_49a7, Anim_04_497d, Anim_04_4ae1, Anim_04_49df
-	dw Anim_04_4c8f, Anim_04_4b1f, Anim_04_4bc5
+AnimTable_Obj_TurnAround::
+	dw Anim_Obj_TurnAround_2, Anim_Obj_TurnAround_1, Anim_Obj_TurnAround_4, Anim_Obj_TurnAround_3
+	dw Anim_Obj_TurnAround_7, Anim_Obj_TurnAround_5, Anim_Obj_TurnAround_6
 
 SineLookup::
 	ld d, $7f
@@ -752,12 +752,12 @@ SpellBonus_CheckTouch::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, de
 	ld a, [hl]
 	or a
 	jr nz, .done
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, de
 	or [hl]
 	jr nz, .done
@@ -787,7 +787,7 @@ SpellBonus_Letter_Touch::
 	add hl, de
 	dec [hl]
 	jp nz, .skip
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, de
 	ld [hl], $01
 .skip:
@@ -796,7 +796,7 @@ SpellBonus_Letter_Touch::
 	jr .continue
 
 .else:
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, de
 	ld [hl], $02
 	ld hl, wPlayer + OBJ_VAR_31
@@ -1000,7 +1000,7 @@ StompBonus_Klaptrap_Touch::
 	cp $03
 	jr z, .else
 	call BouncePlayer
-	ld hl, ObjInit_09_46aa
+	ld hl, ObjInit_StompBonus_Klaptrap_Stomped
 	call ApplyObjInit
 	ldh a, [hContactFlags]
 	and $fb
@@ -1022,11 +1022,11 @@ StompBonus_Klaptrap_Touch::
 	jr .loop
 
 
-ObjInit_09_46aa::
+ObjInit_StompBonus_Klaptrap_Stomped::
 	obj_byte OBJ_FLAGS, $31
 	obj_byte OBJ_BANK, BANK(StompBonus_Klaptrap_Stomped)
 	obj_word OBJ_HANDLER, StompBonus_Klaptrap_Stomped
-	obj_word OBJ_ANIM, Anim_04_4c69
+	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Stomped
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_30, $64
 	obj_byte OBJ_VAR_31, $3c
@@ -1061,7 +1061,7 @@ BonusCoin_Touch::
 	ld [wHUDFlags], a
 	ld hl, wItemsInFlight
 	inc [hl]
-	ld hl, ObjInit_09_4708
+	ld hl, ObjInit_BonusCoin_FlyToHUD
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -1076,7 +1076,7 @@ BonusCoin_Touch::
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_4708::
+ObjInit_BonusCoin_FlyToHUD::
 	obj_byte OBJ_BANK, BANK(BonusCoin_FlyToHUD)
 	obj_word OBJ_HANDLER, BonusCoin_FlyToHUD
 	obj_byte OBJ_COLLISION, $00
@@ -1119,9 +1119,9 @@ StompBoss_Touch::
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	bit 0, [hl]
-	ld hl, ObjInit_09_47a4
+	ld hl, ObjInit_VeryGnawty_Hit
 	jr z, .skip_4758
-	ld hl, ObjInit_09_47b2
+	ld hl, ObjInit_MasterNecky_Withdraw_1
 .skip_4758:
 	call ApplyObjInit
 	call BouncePlayer
@@ -1132,7 +1132,7 @@ StompBoss_Touch::
 	add hl, bc
 	bit 0, [hl]
 	jr z, .skip_476e
-	ld hl, ObjInit_09_47e4
+	ld hl, ObjInit_MasterNecky_Recoil
 	call ApplyObjInit
 .skip_476e:
 	call BouncePlayerOffBoss
@@ -1147,7 +1147,7 @@ StompBoss_Touch::
 	add hl, bc
 	bit 0, [hl]
 	jr nz, .loop
-	ld hl, ObjInit_09_47d8
+	ld hl, ObjInit_VeryGnawty_Recoil
 	call ApplyObjInit
 .loop:
 	jp CheckPlayerContact.next_object
@@ -1158,57 +1158,57 @@ StompBoss_Touch::
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	bit 0, [hl]
-	ld hl, ObjInit_09_47bf
+	ld hl, ObjInit_BossDefeated_1
 	jr z, .skip_479c
-	ld hl, ObjInit_09_47cd
+	ld hl, ObjInit_MasterNecky_Defeated
 .skip_479c:
 	call ApplyObjInit
 	call BouncePlayer
 	jr .loop
 
 
-ObjInit_09_47a4::
+ObjInit_VeryGnawty_Hit::
 	obj_byte OBJ_BANK, BANK(VeryGnawty_Hit)
 	obj_word OBJ_HANDLER, VeryGnawty_Hit
 	obj_byte OBJ_ANIM_FLAGS, $80
-	obj_word OBJ_ANIM, Anim_04_526b
+	obj_word OBJ_ANIM, Anim_VeryGnawty_Hit
 	obj_word OBJ_XVEL, $0000
 	obj_end
 
-ObjInit_09_47b2::
+ObjInit_MasterNecky_Withdraw_1::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Withdraw)
 	obj_word OBJ_HANDLER, MasterNecky_Withdraw
-	obj_word OBJ_ANIM, Anim_04_5361
+	obj_word OBJ_ANIM, Anim_MasterNecky_Withdraw
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
-ObjInit_09_47bf::
+ObjInit_BossDefeated_1::
 	obj_byte OBJ_BANK, BANK(BossDefeated)
 	obj_word OBJ_HANDLER, BossDefeated
-	obj_word OBJ_ANIM, Anim_04_521f
+	obj_word OBJ_ANIM, Anim_BossDefeated_1
 	obj_word OBJ_XVEL, $0000
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
-ObjInit_09_47cd::
+ObjInit_MasterNecky_Defeated::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Defeated)
 	obj_word OBJ_HANDLER, MasterNecky_Defeated
-	obj_word OBJ_ANIM, Anim_04_5307
+	obj_word OBJ_ANIM, Anim_MasterNecky_Defeated_1
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
-ObjInit_09_47d8::
+ObjInit_VeryGnawty_Recoil::
 	obj_byte OBJ_BANK, BANK(VeryGnawty_Recoil)
 	obj_word OBJ_HANDLER, VeryGnawty_Recoil
 	obj_word OBJ_XVEL, $0000
-	obj_word OBJ_ANIM, Anim_04_51c1
+	obj_word OBJ_ANIM, Anim_VeryGnawty_Recoil
 	obj_end
 
-ObjInit_09_47e4::
+ObjInit_MasterNecky_Recoil::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Recoil)
 	obj_word OBJ_HANDLER, MasterNecky_Recoil
-	obj_word OBJ_ANIM, Anim_04_52f5
+	obj_word OBJ_ANIM, Anim_MasterNecky_Recoil
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
@@ -1238,9 +1238,9 @@ QueenB_Touch::
 	inc a
 	ld [hl], a
 	cp $05
-	ld hl, ObjInit_09_485e
+	ld hl, ObjInit_BossDefeated_2
 	jr z, .skip_481d
-	ld hl, ObjInit_09_4840
+	ld hl, ObjInit_QueenB_Hit
 .skip_481d:
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_X
@@ -1264,10 +1264,10 @@ QueenB_Touch::
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_4840::
+ObjInit_QueenB_Hit::
 	obj_byte OBJ_BANK, BANK(QueenB_Hit)
 	obj_word OBJ_HANDLER, QueenB_Hit
-	obj_word OBJ_ANIM, Anim_04_52bb
+	obj_word OBJ_ANIM, Anim_QueenB_Hit
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_30, $50
 	obj_byte OBJ_COLLISION, $00
@@ -1278,10 +1278,10 @@ ObjInit_09_4840::
 	obj_word OBJ_YVEL, $0000
 	obj_end
 
-ObjInit_09_485e::
+ObjInit_BossDefeated_2::
 	obj_byte OBJ_BANK, BANK(BossDefeated)
 	obj_word OBJ_HANDLER, BossDefeated
-	obj_word OBJ_ANIM, Anim_04_529b
+	obj_word OBJ_ANIM, Anim_BossDefeated_3
 	obj_word OBJ_YVEL, $fd00
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -1322,9 +1322,9 @@ KingKRool_Touch::
 	cp $07
 	jr z, .else_48c0
 	cp $0a
-	ld hl, ObjInit_09_4934
+	ld hl, ObjInit_BossDefeated_3
 	jr z, .skip_48b8
-	ld hl, ObjInit_09_4918
+	ld hl, ObjInit_KingKRool_BeginRuns_1
 .skip_48b8:
 	call ApplyObjInit
 .loop_48bb:
@@ -1332,7 +1332,7 @@ KingKRool_Touch::
 	jr .continue_48f1
 
 .else_48c0:
-	ld hl, ObjInit_09_4927
+	ld hl, ObjInit_KingKRool_FakeDefeat
 	call ApplyObjInit
 	ld hl, wMapFlags
 	bit 3, [hl]
@@ -1352,7 +1352,7 @@ KingKRool_Touch::
 	ld bc, $0000
 	ld a, $0a
 	call SetPlayerAnimation
-	ld hl, ObjInit_09_4941
+	ld hl, ObjInit_KingKRool_Defeated
 	call ApplyObjInit
 	pop bc
 .continue_48f1:
@@ -1384,32 +1384,32 @@ KingKRool_Touch::
 	jr .loop_4910
 
 
-ObjInit_09_4918::
+ObjInit_KingKRool_BeginRuns_1::
 	obj_byte OBJ_BANK, BANK(KingKRool_BeginRuns)
 	obj_word OBJ_HANDLER, KingKRool_BeginRuns
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_30, $1e
-	obj_word OBJ_ANIM, Anim_04_5395
+	obj_word OBJ_ANIM, Anim_KingKRool_BeginRuns_1
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
-ObjInit_09_4927::
+ObjInit_KingKRool_FakeDefeat::
 	obj_byte OBJ_BANK, BANK(KingKRool_FakeDefeat)
 	obj_word OBJ_HANDLER, KingKRool_FakeDefeat
 	obj_byte OBJ_COLLISION, $00
-	obj_word OBJ_ANIM, Anim_04_5411
+	obj_word OBJ_ANIM, Anim_KingKRool_FakeDefeat_1
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
-ObjInit_09_4934::
+ObjInit_BossDefeated_3::
 	obj_byte OBJ_BANK, BANK(BossDefeated)
 	obj_word OBJ_HANDLER, BossDefeated
 	obj_byte OBJ_COLLISION, $00
-	obj_word OBJ_ANIM, Anim_04_5411
+	obj_word OBJ_ANIM, Anim_KingKRool_FakeDefeat_1
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
-ObjInit_09_4941::
+ObjInit_KingKRool_Defeated::
 	obj_byte OBJ_BANK, BANK(KingKRool_Defeated)
 	obj_word OBJ_HANDLER, KingKRool_Defeated
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -1443,17 +1443,17 @@ Player_EnterLevel::
 	ld [wCameraPlayerX], a
 	ld a, $48
 	ld [wCameraPlayerY], a
-	ld hl, ObjInit_09_498d
+	ld hl, ObjInit_Player_EnterInBarrel
 	call InitObject
 	jp NextObject
 
 
-ObjInit_09_498d::
+ObjInit_Player_EnterInBarrel::
 	obj_byte OBJ_FLAGS, $91
 	obj_byte OBJ_BANK, BANK(Player_EnterInBarrel)
 	obj_word OBJ_HANDLER, Player_EnterInBarrel
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_ANIM, Anim_04_4df5
+	obj_word OBJ_ANIM, Anim_Player_EnterInBarrel_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0080
@@ -1627,7 +1627,7 @@ Player_SetKongOnLand::
 .skip_4ac5:
 	call SetPlayerPalette
 	call Player_StoreFacing
-	ld hl, ObjInit_09_4aef
+	ld hl, ObjInit_Player_OnGround
 	call ApplyObjInit
 	ld a, [wLevelKind]
 	and $0f
@@ -1646,7 +1646,7 @@ Player_SetKongOnLand::
 	ret
 
 
-ObjInit_09_4aef::
+ObjInit_Player_OnGround::
 	obj_byte OBJ_FLAGS, $91
 	obj_byte OBJ_BANK, BANK(Player_OnGround)
 	obj_word OBJ_HANDLER, Player_OnGround
@@ -2033,7 +2033,7 @@ Player_HandSlap::
 	push bc
 	call AllocObject
 	jr c, .continue_4dde
-	ld hl, ObjInit_09_4df0
+	ld hl, ObjInit_HandSlap_Hitbox
 	call ApplyObjInit
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	bit 5, [hl]
@@ -2072,7 +2072,7 @@ Player_HandSlap::
 	jp HurtKong_RunAway.common_update
 
 
-ObjInit_09_4df0::
+ObjInit_HandSlap_Hitbox::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(HandSlap_Hitbox)
 	obj_word OBJ_HANDLER, HandSlap_Hitbox
@@ -2080,7 +2080,7 @@ ObjInit_09_4df0::
 	obj_byte OBJ_VAR_2E, $10
 	obj_end $c3
 
-Unused_09_4dfd::
+Unused_Player_HandSlap::
 	db $95, $39 ; with the list's end byte $c3: jp NextObject, never reached
 
 HandSlap_Hitbox::
@@ -2209,14 +2209,14 @@ Player_Roll::
 .else_4ede:
 	ld hl, wPlayer + OBJ_VAR_2E
 	res 6, [hl]
-	ld hl, ObjInit_09_4ef0
+	ld hl, ObjInit_Player_AfterThrow
 	call ApplyObjInit
 	ld a, $00
 	call SetPlayerAnimation
 	jr .loop_4e7a
 
 
-ObjInit_09_4ef0::
+ObjInit_Player_AfterThrow::
 	obj_byte OBJ_BANK, BANK(Player_AfterThrow)
 	obj_word OBJ_HANDLER, Player_AfterThrow
 	obj_byte OBJ_VAR_36, $0a
@@ -2311,12 +2311,12 @@ Player_SetKongSwimming::
 	ld a, $15
 	call SetPlayerAnimation
 	call Player_StoreFacing
-	ld hl, ObjInit_09_4f9d
+	ld hl, ObjInit_Player_Swim
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_4f9d::
+ObjInit_Player_Swim::
 	obj_byte OBJ_FLAGS, $91
 	obj_byte OBJ_BANK, BANK(Player_Swim)
 	obj_word OBJ_HANDLER, Player_Swim
@@ -2403,18 +2403,18 @@ Player_SetRambi::
 	ld a, $03
 	call SetPlayerPalette
 	call Player_StoreFacing
-	ld hl, ObjInit_09_503c
+	ld hl, ObjInit_PlayerRambi
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_503c::
+ObjInit_PlayerRambi::
 	obj_byte OBJ_FLAGS, $91
 	obj_byte OBJ_BANK, BANK(PlayerRambi)
 	obj_word OBJ_HANDLER, PlayerRambi
 	obj_byte OBJ_ANIM_FLAGS, $7f
 	obj_byte OBJ_ANIM_TIMER, $00
-	obj_word OBJ_ANIM, Anim_04_4741
+	obj_word OBJ_ANIM, Anim_PlayerRambi_1
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_XACCEL, $0060
 	obj_word OBJ_YACCEL, $0080
@@ -2485,9 +2485,9 @@ PlayerRambi::
 	jr z, .loop_50d5
 	ld [hl], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_4741)
+	ld [hl], LOW(Anim_PlayerRambi_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4741)
+	ld [hl], HIGH(Anim_PlayerRambi_1)
 .loop_50d5:
 	call Player_ApplySlope_Entry
 	ld a, $7e
@@ -2517,9 +2517,9 @@ PlayerRambi::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_4789)
+	ld [hl], LOW(Anim_PlayerRambi_2)
 	inc l
-	ld [hl], HIGH(Anim_04_4789)
+	ld [hl], HIGH(Anim_PlayerRambi_2)
 .continue_5112:
 	ldh a, [hJoyUsed]
 	bit 1, a
@@ -2558,9 +2558,9 @@ PlayerRambi::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_4789)
+	ld [hl], LOW(Anim_PlayerRambi_2)
 	inc l
-	ld [hl], HIGH(Anim_04_4789)
+	ld [hl], HIGH(Anim_PlayerRambi_2)
 .continue_515e:
 	ldh a, [hJoyUsed]
 	bit 1, a
@@ -2609,19 +2609,19 @@ PlayerRambi_InAir::
 
 
 PlayerRambi_Jump::
-	ld hl, ObjInit_09_51ba
+	ld hl, ObjInit_PlayerRambi_InAir
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_51ba::
+ObjInit_PlayerRambi_InAir::
 	obj_byte OBJ_BANK, BANK(PlayerRambi_InAir)
 	obj_word OBJ_HANDLER, PlayerRambi_InAir
 	obj_word OBJ_YVEL, $f95a
 	obj_word OBJ_XACCEL, $0040
 	obj_byte OBJ_ANIM_FLAGS, $06
 	obj_byte OBJ_ANIM_TIMER, $00
-	obj_word OBJ_ANIM, Anim_04_47b1
+	obj_word OBJ_ANIM, Anim_PlayerRambi_InAir_1
 	obj_end
 
 PlayerRambi_Bounce::
@@ -2634,9 +2634,9 @@ PlayerRambi_Bounce::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_47c3)
+	ld [hl], LOW(Anim_PlayerRambi_Bounce)
 	inc l
-	ld [hl], HIGH(Anim_04_47c3)
+	ld [hl], HIGH(Anim_PlayerRambi_Bounce)
 	ld hl, wPlayer + OBJ_YVEL
 	ld [hl], $00
 	inc l
@@ -2648,18 +2648,18 @@ Player_SetExpresso::
 	ld a, $0d
 	call SetPlayerPalette
 	call Player_StoreFacing
-	ld hl, ObjInit_09_51fe
+	ld hl, ObjInit_PlayerExpresso
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_51fe::
+ObjInit_PlayerExpresso::
 	obj_byte OBJ_FLAGS, $91
 	obj_byte OBJ_BANK, BANK(PlayerExpresso)
 	obj_word OBJ_HANDLER, PlayerExpresso
 	obj_byte OBJ_ANIM_FLAGS, $7f
 	obj_byte OBJ_ANIM_TIMER, $00
-	obj_word OBJ_ANIM, Anim_04_47df
+	obj_word OBJ_ANIM, Anim_PlayerExpresso_1
 	obj_word OBJ_XACCEL, $0080
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XVEL, $0000
@@ -2701,9 +2701,9 @@ PlayerExpresso::
 	jr z, .loop_5260
 	ld [hl], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_47df)
+	ld [hl], LOW(Anim_PlayerExpresso_1)
 	inc l
-	ld [hl], HIGH(Anim_04_47df)
+	ld [hl], HIGH(Anim_PlayerExpresso_1)
 .loop_5260:
 	call Player_ApplySlope_Entry
 	ld a, $5e
@@ -2744,9 +2744,9 @@ PlayerExpresso::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_483d)
+	ld [hl], LOW(Anim_PlayerExpresso_2)
 	inc l
-	ld [hl], HIGH(Anim_04_483d)
+	ld [hl], HIGH(Anim_PlayerExpresso_2)
 .continue_52b6:
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	ld [hl], $00
@@ -2772,9 +2772,9 @@ PlayerExpresso::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_483d)
+	ld [hl], LOW(Anim_PlayerExpresso_2)
 	inc l
-	ld [hl], HIGH(Anim_04_483d)
+	ld [hl], HIGH(Anim_PlayerExpresso_2)
 .continue_52eb:
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
@@ -2794,15 +2794,15 @@ PlayerExpresso::
 
 
 PlayerExpresso_Jump::
-	ld hl, ObjInit_09_530f
+	ld hl, ObjInit_PlayerExpresso_InAir
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_530f::
+ObjInit_PlayerExpresso_InAir::
 	obj_byte OBJ_BANK, BANK(PlayerExpresso_InAir)
 	obj_word OBJ_HANDLER, PlayerExpresso_InAir
-	obj_word OBJ_ANIM, Anim_04_4857
+	obj_word OBJ_ANIM, Anim_PlayerExpresso_InAir_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_YVEL, $f900
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -2832,15 +2832,15 @@ PlayerExpresso_InAir::
 	bit 0, [hl]
 	jp nz, .loop_532b
 	set 0, [hl]
-	ld hl, ObjInit_09_5358
+	ld hl, ObjInit_PlayerExpresso_Flap
 	call ApplyObjInit
 	jr .loop_5338
 
 
-ObjInit_09_5358::
+ObjInit_PlayerExpresso_Flap::
 	obj_byte OBJ_BANK, BANK(PlayerExpresso_Flap)
 	obj_word OBJ_HANDLER, PlayerExpresso_Flap
-	obj_word OBJ_ANIM, Anim_04_486b
+	obj_word OBJ_ANIM, Anim_PlayerExpresso_Flap_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_YVEL, $fbcd
 	obj_word OBJ_TARGET_YVEL, $01e9
@@ -2886,18 +2886,18 @@ Player_SetEnguarde::
 	ld [wCameraPlayerY], a
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 0, [hl]
-	ld hl, ObjInit_09_53c3
+	ld hl, ObjInit_PlayerEnguarde
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_53c3::
+ObjInit_PlayerEnguarde::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(PlayerEnguarde)
 	obj_word OBJ_HANDLER, PlayerEnguarde
 	obj_byte OBJ_ANIM_FLAGS, $15
 	obj_byte OBJ_ANIM_TIMER, $00
-	obj_word OBJ_ANIM, Anim_04_46f5
+	obj_word OBJ_ANIM, Anim_PlayerEnguarde_1
 	obj_word OBJ_XACCEL, $0010
 	obj_word OBJ_YACCEL, $0010
 	obj_byte OBJ_ANIM_PARAM, $30
@@ -2974,9 +2974,9 @@ PlayerEnguarde::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4727)
+	ld [hl], LOW(Anim_PlayerEnguarde_3)
 	inc l
-	ld [hl], HIGH(Anim_04_4727)
+	ld [hl], HIGH(Anim_PlayerEnguarde_3)
 	jr .loop_5411
 
 .else_545f:
@@ -3003,9 +3003,9 @@ PlayerEnguarde_Stab::
 	ld a, $83
 	ld [wPlayer + OBJ_ANIM_FLAGS], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_470b)
+	ld [hl], LOW(Anim_PlayerEnguarde_Stab)
 	inc l
-	ld [hl], HIGH(Anim_04_470b)
+	ld [hl], HIGH(Anim_PlayerEnguarde_Stab)
 	ret
 
 
@@ -3013,17 +3013,17 @@ Player_SetWinky::
 	ld a, $10
 	call SetPlayerPalette
 	call Player_StoreFacing
-	ld hl, ObjInit_09_54a0
+	ld hl, ObjInit_PlayerWinky
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_54a0::
+ObjInit_PlayerWinky::
 	obj_byte OBJ_FLAGS, $91
 	obj_byte OBJ_BANK, BANK(PlayerWinky)
 	obj_word OBJ_HANDLER, PlayerWinky
 	obj_byte OBJ_ANIM_FLAGS, $7f
-	obj_word OBJ_ANIM, Anim_04_4889
+	obj_word OBJ_ANIM, Anim_PlayerWinky_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_XACCEL, $0080
 	obj_word OBJ_YACCEL, $0080
@@ -3066,9 +3066,9 @@ PlayerWinky::
 	jr z, .loop_5502
 	ld [hl], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_4889)
+	ld [hl], LOW(Anim_PlayerWinky_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4889)
+	ld [hl], HIGH(Anim_PlayerWinky_1)
 .loop_5502:
 	call Player_ApplySlope_Entry
 	ld a, $5e
@@ -3107,9 +3107,9 @@ PlayerWinky::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_48fb)
+	ld [hl], LOW(Anim_PlayerWinky_3)
 	inc l
-	ld [hl], HIGH(Anim_04_48fb)
+	ld [hl], HIGH(Anim_PlayerWinky_3)
 .continue_5553:
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	ld [hl], $80
@@ -3135,9 +3135,9 @@ PlayerWinky::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_48fb)
+	ld [hl], LOW(Anim_PlayerWinky_3)
 	inc l
-	ld [hl], HIGH(Anim_04_48fb)
+	ld [hl], HIGH(Anim_PlayerWinky_3)
 .continue_5588:
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
@@ -3159,15 +3159,15 @@ PlayerWinky::
 PlayerWinky_Jump::
 	ld a, $10
 	ld [wSFXQueue + 1], a
-	ld hl, ObjInit_09_55b1
+	ld hl, ObjInit_PlayerWinky_InAir
 	call ApplyObjInit
 	ret
 
 
-ObjInit_09_55b1::
+ObjInit_PlayerWinky_InAir::
 	obj_byte OBJ_BANK, BANK(PlayerWinky_InAir)
 	obj_word OBJ_HANDLER, PlayerWinky_InAir
-	obj_word OBJ_ANIM, Anim_04_48d1
+	obj_word OBJ_ANIM, Anim_PlayerWinky_InAir_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_YVEL, $f800
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -3189,9 +3189,9 @@ PlayerWinky_InAir::
 	ld a, $87
 	ld [wPlayer + OBJ_ANIM_FLAGS], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_48e7)
+	ld [hl], LOW(Anim_PlayerWinky_InAir_3)
 	inc l
-	ld [hl], HIGH(Anim_04_48e7)
+	ld [hl], HIGH(Anim_PlayerWinky_InAir_3)
 .skip:
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
@@ -3214,9 +3214,9 @@ PlayerWinky_InAir::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_48d1)
+	ld [hl], LOW(Anim_PlayerWinky_InAir_1)
 	inc l
-	ld [hl], HIGH(Anim_04_48d1)
+	ld [hl], HIGH(Anim_PlayerWinky_InAir_1)
 	ld hl, wPlayer + OBJ_YVEL
 	ld [hl], $00
 	inc l
@@ -3569,7 +3569,7 @@ Player_HoldBarrel_InAir::
 	ld hl, wPlayer + OBJ_XACCEL
 	ld [hli], a
 	ld [hl], d
-	ld hl, ObjInit_09_58ab
+	ld hl, ObjInit_Player_HoldBarrel
 	call ApplyObjInit
 .loop:
 	call Player_SetGravity
@@ -3586,7 +3586,7 @@ Player_HoldBarrel_InAir::
 	jr .loop
 
 
-ObjInit_09_58ab::
+ObjInit_Player_HoldBarrel::
 	obj_byte OBJ_BANK, BANK(Player_HoldBarrel)
 	obj_word OBJ_HANDLER, Player_HoldBarrel
 	obj_word OBJ_XVEL, $0000
@@ -3646,7 +3646,7 @@ Player_ThrowCarried::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, ObjInit_09_5941
+	ld hl, ObjInit_Barrel_Thrown
 	call ApplyObjInit
 	ld a, [wPlayer + OBJ_OAM_ATTR]
 	bit 5, a
@@ -3674,7 +3674,7 @@ Player_ThrowCarried::
 	ret
 
 
-ObjInit_09_5941::
+ObjInit_Barrel_Thrown::
 	obj_byte OBJ_BANK, BANK(Barrel_Thrown)
 	obj_word OBJ_HANDLER, Barrel_Thrown
 	obj_word OBJ_XACCEL, $0000
@@ -3855,7 +3855,7 @@ Player_OnRope::
 	ld e, a
 	ld a, $64
 	ld [wCameraPlayerY], a
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, de
 	bit 3, [hl]
 	jr nz, .else_5a84
@@ -3996,7 +3996,7 @@ Player_LetGoOfRope::
 	ld [hl], LOW(Rope_Released)
 	inc l
 	ld [hl], HIGH(Rope_Released)
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, de
 	ld [hl], $0a
 	ret
@@ -4377,7 +4377,7 @@ HurtPlayer::
 	call SetPlayerAnimation
 	push bc
 	ld bc, $0000
-	ld hl, ObjInit_09_5f56
+	ld hl, ObjInit_Player_Defeated_Fall
 	call ApplyObjInit
 	ld a, $0a
 	call PlaySong
@@ -4554,7 +4554,7 @@ HurtPlayer::
 	jp .done
 
 
-ObjInit_09_5f56::
+ObjInit_Player_Defeated_Fall::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(Player_Defeated_Fall)
 	obj_word OBJ_HANDLER, Player_Defeated_Fall
@@ -4633,13 +4633,13 @@ Player_LetGoWhenHurt::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, ObjInit_09_5fe1
+	ld hl, ObjInit_Obj_Animate_3
 	call ApplyObjInit
 	pop bc
 	ret
 
 
-ObjInit_09_5fe1::
+ObjInit_Obj_Animate_3::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
@@ -4693,7 +4693,7 @@ BouncePlayer::
 	set 0, [hl]
 	call GiveExtraLife
 .continue:
-	ld hl, ObjInit_09_6082
+	ld hl, ObjInit_Player_Launched
 	call ApplyObjInit
 .done:
 	pop bc
@@ -4736,7 +4736,7 @@ BouncePlayer::
 	ret
 
 
-ObjInit_09_6082::
+ObjInit_Player_Launched::
 	obj_byte OBJ_BANK, BANK(Player_Launched)
 	obj_word OBJ_HANDLER, Player_Launched
 	obj_word OBJ_YACCEL, $0050
@@ -4857,13 +4857,13 @@ Player_Recoil::
 .skip:
 	ld a, $19
 	call SetPlayerAnimation
-	ld hl, ObjInit_09_615b
+	ld hl, ObjInit_Player_Hurt
 	call ApplyObjInit
 	pop bc
 	ret
 
 
-ObjInit_09_615b::
+ObjInit_Player_Hurt::
 	obj_byte OBJ_BANK, BANK(Player_Hurt)
 	obj_word OBJ_HANDLER, Player_Hurt
 	obj_word OBJ_TARGET_XVEL, $0000
@@ -5216,9 +5216,9 @@ Player_ApplySlope::
 	ld a, [wLevelKind]
 	and $0f
 	cp $03
-	ld hl, TerrainTable_09_63c6
+	ld hl, TerrainTable_Player_ApplySlope_1
 	jr nz, .skip
-	ld hl, TerrainTable_09_63d6
+	ld hl, TerrainTable_Player_ApplySlope_2
 .skip:
 	ld a, e
 	and $07
@@ -5249,10 +5249,10 @@ Player_ApplySlope::
 	ret
 
 
-TerrainTable_09_63c6::
+TerrainTable_Player_ApplySlope_1::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $02, $00, $02, $00, $02
 
-TerrainTable_09_63d6::
+TerrainTable_Player_ApplySlope_2::
 	db $00, $00, $80, $00, $80, $00, $00, $01, $00, $01, $00, $02, $00, $02, $00, $02
 
 Player_InMineCart::
@@ -5395,7 +5395,7 @@ Player_SetMineCartFrame::
 .skip:
 	sla e
 	ld d, $00
-	ld hl, FrameTable_09_64f8
+	ld hl, FrameTable_Player_SetMineCartFrame
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -5406,15 +5406,15 @@ Player_SetMineCartFrame::
 	ret
 
 
-FrameTable_09_64f8::
-	dw Frame_20_5704, Frame_20_573a, Frame_20_56fe, Frame_20_5734
-	dw Frame_20_56f8, Frame_20_572e, Frame_20_56f8, Frame_20_572e
-	dw Frame_20_56f2, Frame_20_5728, Frame_20_56f2, Frame_20_5728
-	dw Frame_20_56ec, Frame_20_5722, Frame_20_56ec, Frame_20_5722
-	dw Frame_20_5704, Frame_20_573a, Frame_20_570a, Frame_20_5740
-	dw Frame_20_5710, Frame_20_5746, Frame_20_5710, Frame_20_5746
-	dw Frame_20_5716, Frame_20_574c, Frame_20_5716, Frame_20_574c
-	dw Frame_20_571c, Frame_20_5752, Frame_20_571c, Frame_20_5752
+FrameTable_Player_SetMineCartFrame::
+	dw Frame_Player_SetMineCartFrame_5, Frame_Player_SetMineCartFrame_14, Frame_Player_SetMineCartFrame_4, Frame_Player_SetMineCartFrame_13
+	dw Frame_Player_SetMineCartFrame_3, Frame_Player_SetMineCartFrame_12, Frame_Player_SetMineCartFrame_3, Frame_Player_SetMineCartFrame_12
+	dw Frame_Player_SetMineCartFrame_2, Frame_Player_SetMineCartFrame_11, Frame_Player_SetMineCartFrame_2, Frame_Player_SetMineCartFrame_11
+	dw Frame_Player_SetMineCartFrame_1, Frame_Player_SetMineCartFrame_10, Frame_Player_SetMineCartFrame_1, Frame_Player_SetMineCartFrame_10
+	dw Frame_Player_SetMineCartFrame_5, Frame_Player_SetMineCartFrame_14, Frame_Player_SetMineCartFrame_6, Frame_Player_SetMineCartFrame_15
+	dw Frame_Player_SetMineCartFrame_7, Frame_Player_SetMineCartFrame_16, Frame_Player_SetMineCartFrame_7, Frame_Player_SetMineCartFrame_16
+	dw Frame_Player_SetMineCartFrame_8, Frame_Player_SetMineCartFrame_17, Frame_Player_SetMineCartFrame_8, Frame_Player_SetMineCartFrame_17
+	dw Frame_Player_SetMineCartFrame_9, Frame_Player_SetMineCartFrame_18, Frame_Player_SetMineCartFrame_9, Frame_Player_SetMineCartFrame_18
 
 Player_DrawMineCart::
 	rst_farcall SaveObjectPosition
@@ -5577,32 +5577,32 @@ Player_WinAndExit::
 	ld a, [wKongs]
 	rrca
 	jr c, .else
-	ld hl, ObjInit_09_6661
+	ld hl, ObjInit_Player_ExitAfterJingle_1
 	call ApplyObjInit
 	jr .done
 
 .else:
-	ld hl, ObjInit_09_6674
+	ld hl, ObjInit_Player_ExitAfterJingle_2
 	call ApplyObjInit
 .done:
 	pop bc
 	ret
 
 
-ObjInit_09_6661::
+ObjInit_Player_ExitAfterJingle_1::
 	obj_byte OBJ_BANK, BANK(Player_ExitAfterJingle)
 	obj_word OBJ_HANDLER, Player_ExitAfterJingle
-	obj_word OBJ_ANIM, Anim_04_431b
+	obj_word OBJ_ANIM, Anim_Player_ExitAfterJingle_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_XVEL, $0000
 	obj_byte OBJ_VAR_30, $00
 	obj_end
 
-ObjInit_09_6674::
+ObjInit_Player_ExitAfterJingle_2::
 	obj_byte OBJ_BANK, BANK(Player_ExitAfterJingle)
 	obj_word OBJ_HANDLER, Player_ExitAfterJingle
-	obj_word OBJ_ANIM, Anim_04_4697
+	obj_word OBJ_ANIM, Anim_Player_ExitAfterJingle_7
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_XVEL, $0000
@@ -5621,32 +5621,32 @@ Player_LoseAndExit::
 	ld a, [wKongs]
 	rrca
 	jr c, .else
-	ld hl, ObjInit_09_66b0
+	ld hl, ObjInit_Player_ExitAfterJingle_3
 	call ApplyObjInit
 	jr .done
 
 .else:
-	ld hl, ObjInit_09_66c3
+	ld hl, ObjInit_Player_ExitAfterJingle_4
 	call ApplyObjInit
 .done:
 	pop bc
 	ret
 
 
-ObjInit_09_66b0::
+ObjInit_Player_ExitAfterJingle_3::
 	obj_byte OBJ_BANK, BANK(Player_ExitAfterJingle)
 	obj_word OBJ_HANDLER, Player_ExitAfterJingle
-	obj_word OBJ_ANIM, Anim_04_4361
+	obj_word OBJ_ANIM, Anim_Player_ExitAfterJingle_3
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_XVEL, $0000
 	obj_byte OBJ_VAR_30, $00
 	obj_end
 
-ObjInit_09_66c3::
+ObjInit_Player_ExitAfterJingle_4::
 	obj_byte OBJ_BANK, BANK(Player_ExitAfterJingle)
 	obj_word OBJ_HANDLER, Player_ExitAfterJingle
-	obj_word OBJ_ANIM, Anim_04_4663
+	obj_word OBJ_ANIM, Anim_Player_ExitAfterJingle_5
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_XVEL, $0000
@@ -6039,7 +6039,7 @@ SetPlayerAnimation::
 	xor a
 	ld [wPlayer + OBJ_ANIM_TIMER], a
 	ld d, a
-	ld hl, AnimTable_09_690b
+	ld hl, AnimTable_SetPlayerAnimation_1
 	add hl, de
 	ld a, [hli]
 	ld [wPlayer + OBJ_ANIM], a
@@ -6049,27 +6049,27 @@ SetPlayerAnimation::
 	ret
 
 
-AnimTable_09_690b::
-	dw Anim_04_4001, Anim_04_437f, Anim_04_407b, Anim_04_43f9
-	dw Anim_04_4093, Anim_04_4413, Anim_04_40a9, Anim_04_442b
-	dw Anim_04_40c7, Anim_04_4449, Anim_04_40e1, Anim_04_445f
-	dw Anim_04_40e9, Anim_04_4467, Anim_04_40f5, Anim_04_4473
-	dw Anim_04_4103, Anim_04_447f, Anim_04_4115, Anim_04_4491
-	dw Anim_04_413d, Anim_04_44bb, Anim_04_414f, Anim_04_44cd
-	dw Anim_04_4185, Anim_04_44f7, Anim_04_41af, Anim_04_4521
-	dw Anim_04_41cd, Anim_04_4549, Anim_04_41eb, Anim_04_4567
-	dw Anim_04_41f9, Anim_04_4575, Anim_04_4203, Anim_04_457f
-	dw Anim_04_420d, Anim_04_4589, Anim_04_421f, Anim_04_459f
-	dw Anim_04_421f, Anim_04_45b3, Anim_04_4279, Anim_04_45fb
-	dw Anim_04_4291, Anim_04_4613, Anim_04_4233, Anim_04_45c7
-	dw Anim_04_4267, Anim_04_45e9, Anim_04_4133, Anim_04_44b3
-	dw Anim_04_42d5, Anim_04_464f, Anim_04_42e9
+AnimTable_SetPlayerAnimation_1::
+	dw Anim_SetPlayerAnimation_1, Anim_SetPlayerAnimation_52, Anim_SetPlayerAnimation_3, Anim_SetPlayerAnimation_54
+	dw Anim_SetPlayerAnimation_5, Anim_SetPlayerAnimation_56, Anim_SetPlayerAnimation_7, Anim_SetPlayerAnimation_58
+	dw Anim_SetPlayerAnimation_8, Anim_SetPlayerAnimation_59, Anim_SetPlayerAnimation_10, Anim_SetPlayerAnimation_61
+	dw Anim_SetPlayerAnimation_12, Anim_SetPlayerAnimation_63, Anim_SetPlayerAnimation_14, Anim_SetPlayerAnimation_65
+	dw Anim_SetPlayerAnimation_16, Anim_SetPlayerAnimation_67, Anim_SetPlayerAnimation_17, Anim_SetPlayerAnimation_68
+	dw Anim_SetPlayerAnimation_21, Anim_SetPlayerAnimation_72, Anim_SetPlayerAnimation_23, Anim_SetPlayerAnimation_74
+	dw Anim_SetPlayerAnimation_25, Anim_SetPlayerAnimation_76, Anim_SetPlayerAnimation_27, Anim_SetPlayerAnimation_78
+	dw Anim_SetPlayerAnimation_28, Anim_SetPlayerAnimation_79, Anim_SetPlayerAnimation_30, Anim_SetPlayerAnimation_81
+	dw Anim_SetPlayerAnimation_32, Anim_SetPlayerAnimation_83, Anim_SetPlayerAnimation_34, Anim_SetPlayerAnimation_85
+	dw Anim_SetPlayerAnimation_36, Anim_SetPlayerAnimation_87, Anim_SetPlayerAnimation_37, Anim_SetPlayerAnimation_88
+	dw Anim_SetPlayerAnimation_37, Anim_SetPlayerAnimation_90, Anim_SetPlayerAnimation_42, Anim_SetPlayerAnimation_95
+	dw Anim_SetPlayerAnimation_44, Anim_SetPlayerAnimation_97, Anim_SetPlayerAnimation_39, Anim_SetPlayerAnimation_92
+	dw Anim_SetPlayerAnimation_41, Anim_SetPlayerAnimation_94, Anim_SetPlayerAnimation_19, Anim_SetPlayerAnimation_70
+	dw Anim_SetPlayerAnimation_49, Anim_SetPlayerAnimation_102, Anim_SetPlayerAnimation_51
 
-AnimTableNull_09_6979::
+AnimTableNull_SetPlayerAnimation::
 	dw $0000 ; empty animation table entry
 
-AnimTable_09_697b::
-	dw Anim_04_42ab, Anim_04_462d, Anim_04_42cb, Anim_04_4645
+AnimTable_SetPlayerAnimation_2::
+	dw Anim_SetPlayerAnimation_45, Anim_SetPlayerAnimation_98, Anim_SetPlayerAnimation_47, Anim_SetPlayerAnimation_100
 
 Player_ApplySlope_Entry::
 	call Player_ApplySlope
@@ -6573,18 +6573,18 @@ SpawnCollectedBanana::
 	ret
 
 
-AnimTable_09_6cac::
-	dw Anim_04_505f, Anim_04_5075, Anim_04_5085
+AnimTable_SpawnCollectedBanana_1::
+	dw Anim_SpawnCollectedBanana_13, Anim_SpawnCollectedBanana_15, Anim_SpawnCollectedBanana_17
 
-AnimTableNull_09_6cb2::
+AnimTableNull_Barrel_Thrown::
 	dw $0000 ; empty animation table entry
 
-AnimTable_09_6cb4::
-	dw Anim_04_5011, Anim_04_5027, Anim_04_5039, Anim_04_5049
-	dw Anim_04_4fd5, Anim_04_4fdd, Anim_04_4fef, Anim_04_4fff
-	dw Anim_04_5095, Anim_04_509d, Anim_04_50af
+AnimTable_SpawnCollectedBanana_2::
+	dw Anim_SpawnCollectedBanana_8, Anim_SpawnCollectedBanana_10, Anim_SpawnCollectedBanana_12, Anim_Mincer_2
+	dw Anim_SpawnCollectedBanana_1, Anim_SpawnCollectedBanana_3, Anim_SpawnCollectedBanana_5, Anim_SpawnCollectedBanana_6
+	dw Anim_SpawnCollectedBanana_18, Anim_SpawnCollectedBanana_20, Anim_SpawnCollectedBanana_22
 
-AnimTableNull_09_6cca::
+AnimTableNull_SpawnCollectedBanana::
 	dw $0000 ; empty animation table entry
 
 Barrel_Touch::
@@ -6680,7 +6680,7 @@ Barrel_Carried::
 
 
 Barrel_PutDown::
-	ld hl, ObjInit_09_6d96
+	ld hl, ObjInit_Barrel_Dropped
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -6709,7 +6709,7 @@ Barrel_PutDown::
 	ret
 
 
-ObjInit_09_6d96::
+ObjInit_Barrel_Dropped::
 	obj_byte OBJ_BANK, BANK(Barrel_Dropped)
 	obj_word OBJ_HANDLER, Barrel_Dropped
 	obj_word OBJ_YACCEL, $0080
@@ -6764,7 +6764,7 @@ Barrel_Thrown::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, AnimTableNull_09_6cb2
+	ld hl, AnimTableNull_Barrel_Thrown
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -6895,9 +6895,9 @@ DKBarrel_Touch::
 	ld [hl], HIGH(StarBarrel_Sparkle)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_5103)
+	ld [hl], LOW(Anim_DKBarrel_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_5103)
+	ld [hl], HIGH(Anim_DKBarrel_Touch_1)
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $64
@@ -7007,7 +7007,7 @@ BreakBarrel::
 	and $fc
 	or $02
 	ldh [hObjectRunMask], a
-	ld hl, ObjInit_09_6fc5
+	ld hl, ObjInit_DKBarrel_Open
 	call ApplyObjInit
 	call Obj_ToScreenCoords
 	ld de, $0010
@@ -7019,7 +7019,7 @@ BreakBarrel::
 .else_6fa9:
 	ld a, $14
 	ld [wSFXQueue + 3], a
-	ld hl, ObjInit_09_6fd1
+	ld hl, ObjInit_BarrelBreak_Effect
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
@@ -7032,7 +7032,7 @@ BreakBarrel::
 	ret
 
 
-ObjInit_09_6fc5::
+ObjInit_DKBarrel_Open::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(DKBarrel_Open)
 	obj_word OBJ_HANDLER, DKBarrel_Open
@@ -7040,11 +7040,11 @@ ObjInit_09_6fc5::
 	obj_byte OBJ_VAR_2C, $0d
 	obj_end
 
-ObjInit_09_6fd1::
+ObjInit_BarrelBreak_Effect::
 	obj_byte OBJ_BANK, BANK(BarrelBreak_Effect)
 	obj_word OBJ_HANDLER, BarrelBreak_Effect
 	obj_byte OBJ_ANIM_FLAGS, $80
-	obj_word OBJ_ANIM, Anim_04_50eb
+	obj_word OBJ_ANIM, Anim_BarrelBreak_Effect_1
 	obj_byte OBJ_VAR_2C, $0e
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_ANIM_PARAM, $0d
@@ -7060,9 +7060,9 @@ SpawnBarrelDebris::
 	call InitBarrelDebris
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_50bf)
+	ld [hl], LOW(Anim_SpawnBarrelDebris_1)
 	inc l
-	ld [hl], HIGH(Anim_04_50bf)
+	ld [hl], HIGH(Anim_SpawnBarrelDebris_1)
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld [hl], $00
@@ -7072,9 +7072,9 @@ SpawnBarrelDebris::
 	call InitBarrelDebris
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_50bf)
+	ld [hl], LOW(Anim_SpawnBarrelDebris_1)
 	inc l
-	ld [hl], HIGH(Anim_04_50bf)
+	ld [hl], HIGH(Anim_SpawnBarrelDebris_1)
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld [hl], $00
@@ -7087,9 +7087,9 @@ SpawnBarrelDebris::
 	call InitBarrelDebris
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_50d5)
+	ld [hl], LOW(Anim_SpawnBarrelDebris_3)
 	inc l
-	ld [hl], HIGH(Anim_04_50d5)
+	ld [hl], HIGH(Anim_SpawnBarrelDebris_3)
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld [hl], $00
@@ -7100,13 +7100,13 @@ SpawnBarrelDebris::
 
 
 InitBarrelDebris::
-	ld hl, ObjInit_09_7048
+	ld hl, ObjInit_Obj_MoveAndAnimate_2
 	call InitObject
 	rst_farcall MoveObjectToSavedPosition
 	ret
 
 
-ObjInit_09_7048::
+ObjInit_Obj_MoveAndAnimate_2::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(Obj_MoveAndAnimate)
 	obj_word OBJ_HANDLER, Obj_MoveAndAnimate
@@ -7169,9 +7169,9 @@ Zinger_Touch::
 .loop_70ac:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4a45)
+	ld [hl], LOW(Anim_Zinger_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4a45)
+	ld [hl], HIGH(Anim_Zinger_Touch_1)
 	call DefeatObject
 	ld a, $3e
 	ld [wSFXQueue], a
@@ -7236,14 +7236,14 @@ Gnawty_Touch::
 .loop:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_49ed)
+	ld [hl], LOW(Anim_Gnawty_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_49ed)
+	ld [hl], HIGH(Anim_Gnawty_Touch_1)
 	call DefeatObject
 	jr .continue
 
 .else_712d:
-	ld hl, ObjInit_09_7145
+	ld hl, ObjInit_Krusha
 	call ApplyObjInit
 	call Obj_KnockAway
 	call Player_Recoil
@@ -7259,10 +7259,10 @@ Gnawty_Touch::
 	jr .loop
 
 
-ObjInit_09_7145::
+ObjInit_Krusha::
 	obj_byte OBJ_BANK, BANK(Krusha)
 	obj_word OBJ_HANDLER, Krusha
-	obj_word OBJ_ANIM, Anim_04_4a01
+	obj_word OBJ_ANIM, Anim_Krusha_3
 	obj_byte OBJ_VAR_32, $14
 	obj_end
 
@@ -7326,7 +7326,7 @@ TireHalf_Touch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jr c, .skip
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld e, [hl]
 	ld hl, wObjects + OBJ_YSUB
@@ -7349,9 +7349,9 @@ TireHalf_Touch::
 	ld [hl], $80
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4f8b)
+	ld [hl], LOW(Anim_TireHalf_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4f8b)
+	ld [hl], HIGH(Anim_TireHalf_Touch_1)
 .skip:
 	jp CheckPlayerContact.next_object
 
@@ -7384,9 +7384,9 @@ Tire_SmallBounce_Touch::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4f8b)
+	ld [hl], LOW(Anim_TireHalf_Touch_1)
 	inc hl
-	ld [hl], HIGH(Anim_04_4f8b)
+	ld [hl], HIGH(Anim_TireHalf_Touch_1)
 .no_contact:
 	jp CheckPlayerContact.next_object
 
@@ -7455,7 +7455,7 @@ Tire_Top_Touch::
 	ld a, [wPlayer + OBJ_YVEL + 1]
 	rlca
 	jp c, CheckPlayerContact.next_object
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld e, [hl]
 	ld hl, wObjects + OBJ_YSUB
@@ -7481,14 +7481,14 @@ Tire_Top_Touch::
 	ld [hl], $80
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4f41)
+	ld [hl], LOW(Anim_Tire_Top_Touch)
 	inc hl
-	ld [hl], HIGH(Anim_04_4f41)
+	ld [hl], HIGH(Anim_Tire_Top_Touch)
 	jp CheckPlayerContact.next_object
 
 
 Tire_BouncePlayer::
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	bit 7, [hl]
 	jr nz, .else_72c4
@@ -7538,7 +7538,7 @@ BarrelCannon_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld [hl], $0a
 	ld hl, wPlayer + OBJ_FLAGS
@@ -7595,14 +7595,14 @@ Army_Touch::
 .loop:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4aab)
+	ld [hl], LOW(Anim_Army_Touch_1)
 	inc hl
-	ld [hl], HIGH(Anim_04_4aab)
+	ld [hl], HIGH(Anim_Army_Touch_1)
 	call DefeatObject
 	jr .continue_7387
 
 .else_737b:
-	ld hl, ObjInit_09_7393
+	ld hl, ObjInit_Army_Roll
 	call ApplyObjInit
 	call Obj_KnockAway
 	call Player_Recoil
@@ -7618,8 +7618,8 @@ Army_Touch::
 	jr .loop
 
 
-ObjInit_09_7393::
-	obj_word OBJ_ANIM, Anim_04_4abb
+ObjInit_Army_Roll::
+	obj_word OBJ_ANIM, Anim_Army_Roll
 	obj_byte OBJ_BANK, BANK(Army_Roll)
 	obj_word OBJ_HANDLER, Army_Roll
 	obj_byte OBJ_VAR_32, $14
@@ -7630,9 +7630,9 @@ Squidge_Touch::
 	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4cbf)
+	ld [hl], LOW(Anim_Squidge_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4cbf)
+	ld [hl], HIGH(Anim_Squidge_Touch_1)
 .skip:
 	jp CheckPlayerContact.next_object
 
@@ -7642,9 +7642,9 @@ Chomps_Touch::
 	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4d5b)
+	ld [hl], LOW(Anim_Chomps_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4d5b)
+	ld [hl], HIGH(Anim_Chomps_Touch_1)
 .skip:
 	jp CheckPlayerContact.next_object
 
@@ -7654,9 +7654,9 @@ ChompsJr_Touch::
 	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4d9d)
+	ld [hl], LOW(Anim_ChompsJr_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4d9d)
+	ld [hl], HIGH(Anim_ChompsJr_Touch_1)
 .skip:
 	jp CheckPlayerContact.next_object
 
@@ -7666,9 +7666,9 @@ Bitesize_Touch::
 	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4d21)
+	ld [hl], LOW(Anim_Bitesize_Touch_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4d21)
+	ld [hl], HIGH(Anim_Bitesize_Touch_1)
 .skip:
 	jp CheckPlayerContact.next_object
 
@@ -7792,7 +7792,7 @@ BreakableWall_Touch::
 	inc [hl]
 	ld hl, wLevelFlags
 	set 7, [hl]
-	ld hl, ObjInit_09_74b7
+	ld hl, ObjInit_Entrance_WaitForSound
 	call ApplyObjInit
 	rst_farcall SetLevelFlag
 	ld hl, wObjects + OBJ_VAR_35
@@ -7806,7 +7806,7 @@ BreakableWall_Touch::
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_74b7::
+ObjInit_Entrance_WaitForSound::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Entrance_WaitForSound)
 	obj_word OBJ_HANDLER, Entrance_WaitForSound
@@ -7908,17 +7908,17 @@ Entrance_Blast_Touch::
 
 
 StickerPad_Touch::
-	ld hl, ObjInit_09_7574
+	ld hl, ObjInit_Sticker_Appear
 	call ApplyObjInit
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_7574::
+ObjInit_Sticker_Appear::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Sticker_Appear)
 	obj_word OBJ_HANDLER, Sticker_Appear
 	obj_word OBJ_TOUCH_HANDLER, Sticker_Touch
-	obj_word OBJ_ANIM, Anim_04_553d
+	obj_word OBJ_ANIM, Anim_Sticker_Appear_1
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_2F, $3c
 	obj_end
@@ -7930,7 +7930,7 @@ Sticker_Touch::
 	ld [wHUDFlags], a
 	ld hl, wItemsInFlight
 	inc [hl]
-	ld hl, ObjInit_09_75ac
+	ld hl, ObjInit_Sticker_FlyToHUD
 	call ApplyObjInit
 	call Obj_ToScreenCoords
 	ld de, $0050
@@ -7940,11 +7940,11 @@ Sticker_Touch::
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_75ac::
+ObjInit_Sticker_FlyToHUD::
 	obj_byte OBJ_FLAGS, $1b
 	obj_byte OBJ_BANK, BANK(Sticker_FlyToHUD)
 	obj_word OBJ_HANDLER, Sticker_FlyToHUD
-	obj_word OBJ_ANIM, Anim_04_5517
+	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_VAR_2F, $20
@@ -7969,9 +7969,9 @@ Klaptrap_Touch::
 .loop:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4c9d)
+	ld [hl], LOW(Anim_Klaptrap_Touch_1)
 	inc hl
-	ld [hl], HIGH(Anim_04_4c9d)
+	ld [hl], HIGH(Anim_Klaptrap_Touch_1)
 	call DefeatObject
 .continue:
 	jp CheckPlayerContact.next_object
@@ -8007,7 +8007,7 @@ Rockkroc_Run::
 	ld a, [hli]
 	or [hl]
 	jr z, .skip
-	ld hl, ObjInit_09_7629
+	ld hl, ObjInit_Rockkroc_CurledUp
 	call ApplyObjInit
 .skip:
 	call DespawnIfOutOfRange
@@ -8015,10 +8015,10 @@ Rockkroc_Run::
 	jp NextObject
 
 
-ObjInit_09_7629::
+ObjInit_Rockkroc_CurledUp::
 	obj_byte OBJ_BANK, BANK(Rockkroc_CurledUp)
 	obj_word OBJ_HANDLER, Rockkroc_CurledUp
-	obj_word OBJ_ANIM, Anim_04_4b31
+	obj_word OBJ_ANIM, Anim_Rockkroc_CurledUp_1
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_XACCEL, $0000
@@ -8042,9 +8042,9 @@ Rockkroc_CurledUp::
 	ld [hl], HIGH(Rockkroc_Uncurl)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4b43)
+	ld [hl], LOW(Anim_Rockkroc_CurledUp_3)
 	inc l
-	ld [hl], HIGH(Anim_04_4b43)
+	ld [hl], HIGH(Anim_Rockkroc_CurledUp_3)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -8290,12 +8290,12 @@ ArrowPlatform_Move::
 	jp NextObject
 
 .else:
-	ld hl, ObjInit_09_77f9
+	ld hl, ObjInit_ArrowPlatform_Fall_1
 	call ApplyObjInit
 	jr .loop
 
 
-ObjInit_09_77f9::
+ObjInit_ArrowPlatform_Fall_1::
 	obj_byte OBJ_BANK, BANK(ArrowPlatform_Fall)
 	obj_word OBJ_HANDLER, ArrowPlatform_Fall
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -8343,16 +8343,16 @@ Klump_Touch::
 .loop:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4bd7)
+	ld [hl], LOW(Anim_Klump_Touch_1)
 	inc hl
-	ld [hl], HIGH(Anim_04_4bd7)
+	ld [hl], HIGH(Anim_Klump_Touch_1)
 	call DefeatObject
 	jr .continue_7865
 
 .else_785c:
 	call Player_Recoil
 .continue_785f:
-	ld hl, ObjInit_09_7871
+	ld hl, ObjInit_Klump2
 	call ApplyObjInit
 .continue_7865:
 	jp CheckPlayerContact.next_object
@@ -8366,10 +8366,10 @@ Klump_Touch::
 	jr .loop
 
 
-ObjInit_09_7871::
+ObjInit_Klump2::
 	obj_byte OBJ_BANK, BANK(Klump2)
 	obj_word OBJ_HANDLER, Klump2
-	obj_word OBJ_ANIM, Anim_04_4be9
+	obj_word OBJ_ANIM, Anim_Klump2_3
 	obj_byte OBJ_VAR_32, $3c
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_XACCEL, $0000
@@ -8473,7 +8473,7 @@ MineCartKrash_Parked_Touch::
 	ld b, [hl]
 	ld c, a
 	call DefeatObject
-	ld hl, ObjInit_09_792a
+	ld hl, ObjInit_MineCartKrash_Parked_Touch
 	call ApplyObjInit
 	pop bc
 	call BouncePlayer
@@ -8486,9 +8486,9 @@ MineCartKrash_Parked_Touch::
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_792a::
+ObjInit_MineCartKrash_Parked_Touch::
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, Anim_04_496f
+	obj_word OBJ_ANIM, Anim_Enemy_HandleContact_1
 	obj_end
 
 MineCart_Touch::
@@ -8562,13 +8562,13 @@ SquawksCrate_Touch::
 	call BouncePlayer
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 3, [hl]
-	ld hl, ObjInit_09_79c1
+	ld hl, ObjInit_SquawksCrate_Open
 	call ApplyObjInit
 .skip:
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_79c1::
+ObjInit_SquawksCrate_Open::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(SquawksCrate_Open)
 	obj_word OBJ_HANDLER, SquawksCrate_Open
@@ -8771,7 +8771,7 @@ ExtraLifeBalloon_Touch::
 	ld a, [hl]
 	or $0b
 	ld [hl], a
-	ld hl, ObjInit_09_7b42
+	ld hl, ObjInit_ExtraLifeBalloon_FlyUp
 	call ApplyObjInit
 	call Obj_ToScreenCoords
 	ld de, $0081
@@ -8781,7 +8781,7 @@ ExtraLifeBalloon_Touch::
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_7b42::
+ObjInit_ExtraLifeBalloon_FlyUp::
 	obj_byte OBJ_BANK, BANK(ExtraLifeBalloon_FlyUp)
 	obj_word OBJ_HANDLER, ExtraLifeBalloon_FlyUp
 	obj_byte OBJ_VAR_2F, $20
@@ -8822,7 +8822,7 @@ BigAnimalToken_Touch::
 MiniAnimalToken_Touch::
 	ld hl, wItemsInFlight
 	inc [hl]
-	ld hl, ObjInit_09_7ba5
+	ld hl, ObjInit_MiniAnimalToken_Collected_2
 	call ApplyObjInit
 	call Obj_ToScreenCoords
 	ld de, $0004
@@ -8834,7 +8834,7 @@ MiniAnimalToken_Touch::
 	jp CheckPlayerContact.next_object
 
 
-ObjInit_09_7ba5::
+ObjInit_MiniAnimalToken_Collected_2::
 	obj_byte OBJ_FLAGS, $0b
 	obj_byte OBJ_BANK, BANK(MiniAnimalToken_Collected)
 	obj_word OBJ_HANDLER, MiniAnimalToken_Collected
@@ -8843,7 +8843,7 @@ ObjInit_09_7ba5::
 	ds 850, $00 ; $7baf
 
 
-RampTable_09_7f01::
+RampTable_MiniAnimalToken_Touch::
 	db $01, $03, $04, $06, $07, $09, $0a, $0c, $0e, $0f, $11, $12, $14, $15, $17, $18
 	db $19, $1b, $1c, $1e, $1f, $20, $22, $23, $24, $26, $27, $28, $29, $2a, $2c, $2d
 	db $2e, $2f, $30, $31, $32, $33, $34, $35, $36, $36, $37, $38, $39, $39, $3a, $3b

@@ -1558,20 +1558,20 @@ HiScoreDefaults::
 	db $cb, $fb, $d3, $03, $17, $27, $10 ; name (3 tiles), score (BCD)
 	db $cb, $da, $c9, $01, $22, $17, $30 ; name (3 tiles), score (BCD)
 
-Padding_55_4863::
+Padding_HiScoreDefaults::
 	ds 13, $00 ; padding
 
-BGTiles_55_4870::
+BGTiles_HiScoreDefaults_1::
 	INCBIN "gfx/bgtiles/55/4870.2bpp"
 	INCBIN "gfx/bgtiles/55/4870_end.2bpp"
 
-BGTiles_55_4be0::
+BGTiles_HiScoreDefaults_2::
 	INCBIN "gfx/bgtiles/55/4be0.2bpp"
 
-BGTiles_55_53e0::
+BGTiles_HiScoreDefaults_3::
 	INCBIN "gfx/bgtiles/55/53e0.2bpp"
 
-BGTiles_55_5be0::
+BGTiles_HiScoreDefaults_4::
 	INCBIN "gfx/bgtiles/55/5be0.2bpp"
 
 HiScoreMap::

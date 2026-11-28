@@ -3,85 +3,85 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $ea", ROMX[$4000], BANK[$ea]
 
-LevelMap_ea_4000::
+LevelMap_StopAndGoStation_1::
 	INCBIN "data/maps/ea_4000_terrain.lz"
 
-LevelMap_ea_41ca::
+LevelMap_StopAndGoStation_2::
 	INCBIN "data/maps/ea_41ca_blocks.lz"
 
-LevelMap_ea_47d6::
+LevelMap_StopAndGoStation_3::
 	INCBIN "data/maps/ea_47d6_attrs.lz"
 
-LevelMap_ea_4a27::
+LevelMap_MistyMine2::
 	INCBIN "data/maps/ea_4a27_terrain.lz"
 
-LevelMap_ea_4c42::
+LevelMap_MistyMine0::
 	INCBIN "data/maps/ea_4c42_blocks.lz"
 
-LevelMap_ea_5528::
+LevelMap_MistyMine1::
 	INCBIN "data/maps/ea_5528_attrs.lz"
 
-LevelMap_ea_592d::
+LevelMap_MistyMine5::
 	INCBIN "data/maps/ea_592d_terrain.lz"
 
-LevelMap_ea_59ab::
+LevelMap_MistyMine3::
 	INCBIN "data/maps/ea_59ab_blocks.lz"
 
-LevelMap_ea_5b9e::
+LevelMap_MistyMine4::
 	INCBIN "data/maps/ea_5b9e_attrs.lz"
 
-LevelMap_ea_5c95::
+LevelMap_LoopyLights2::
 	INCBIN "data/maps/ea_5c95_terrain.lz"
 
-LevelMap_ea_5f17::
+LevelMap_LoopyLights0::
 	INCBIN "data/maps/ea_5f17_blocks.lz"
 
-LevelMap_ea_6775::
+LevelMap_LoopyLights1::
 	INCBIN "data/maps/ea_6775_attrs.lz"
 
-LevelMap_ea_6bd6::
+LevelMap_LoopyLights5::
 	INCBIN "data/maps/ea_6bd6_terrain.lz"
 
-LevelMap_ea_6cb6::
+LevelMap_LoopyLights3::
 	INCBIN "data/maps/ea_6cb6_blocks.lz"
 
-LevelMap_ea_6e87::
+LevelMap_LoopyLights4::
 	INCBIN "data/maps/ea_6e87_attrs.lz"
 
-LevelMap_ea_6fb8::
+LevelMap_MistyMine_Area1_1::
 	INCBIN "data/maps/ea_6fb8_terrain.lz"
 
-LevelMap_ea_7021::
+LevelMap_MistyMine_Area1_2::
 	INCBIN "data/maps/ea_7021_blocks.lz"
 
-LevelMap_ea_7125::
+LevelMap_MistyMine_Area1_3::
 	INCBIN "data/maps/ea_7125_attrs.lz"
 
-LevelMap_ea_71e4::
+LevelMap_RambiBonus_1::
 	INCBIN "data/maps/ea_71e4_terrain.lz"
 
-LevelMap_ea_7306::
+LevelMap_RambiBonus_2::
 	INCBIN "data/maps/ea_7306_blocks.lz"
 
-LevelMap_ea_751d::
+LevelMap_RambiBonus_3::
 	INCBIN "data/maps/ea_751d_attrs.lz"
 
-LevelMap_ea_7562::
+LevelMap_SnowBarrelBlast_Area3_1::
 	INCBIN "data/maps/ea_7562_terrain.lz"
 
-LevelMap_ea_75bf::
+LevelMap_SnowBarrelBlast_Area3_2::
 	INCBIN "data/maps/ea_75bf_blocks.lz"
 
-LevelMap_ea_7625::
+LevelMap_SnowBarrelBlast_Area3_3::
 	INCBIN "data/maps/ea_7625_attrs.lz"
 
-LevelMap_ea_7672::
+LevelMap_IceAgeAlley_Area2_1::
 	INCBIN "data/maps/ea_7672_terrain.lz"
 
-LevelMap_ea_76cf::
+LevelMap_IceAgeAlley_Area2_2::
 	INCBIN "data/maps/ea_76cf_blocks.lz"
 
-LevelMap_ea_7735::
+LevelMap_IceAgeAlley_Area2_3::
 	INCBIN "data/maps/ea_7735_attrs.lz"
 	ds 2174, $00 ; $7782
 

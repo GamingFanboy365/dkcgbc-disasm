@@ -9431,7 +9431,7 @@ FishingPauseText::
 	db "NEIN", $00
 	db "ABBRECHEN?", $00
 
-FishPoints_50_7753::
+FishPoints_FishingPauseText_1::
 	db $00, $75, $00, $00 ; 7500 points (BCD)
 	db $00, $00, $03, $00 ; 30000 points (BCD)
 	db $00, $00, $09, $00 ; 90000 points (BCD)
@@ -9441,7 +9441,7 @@ FishPoints_50_7753::
 	db $00, $75, $93, $03 ; 3937500 points (BCD)
 	db $00, $00, $18, $06 ; 6180000 points (BCD)
 
-FishPoints_50_7773::
+FishPoints_FishingPauseText_2::
 	db $50, $37, $00, $00 ; 3750 points (BCD)
 	db $00, $50, $01, $00 ; 15000 points (BCD)
 	db $00, $50, $04, $00 ; 45000 points (BCD)
@@ -9451,7 +9451,7 @@ FishPoints_50_7773::
 	db $50, $87, $96, $01 ; 1968750 points (BCD)
 	db $00, $00, $09, $03 ; 3090000 points (BCD)
 
-FishPoints_50_7793::
+FishPoints_FishingPauseText_3::
 	db $00, $50, $01, $00 ; 15000 points (BCD)
 	db $00, $00, $06, $00 ; 60000 points (BCD)
 	db $00, $00, $18, $00 ; 180000 points (BCD)
@@ -9461,7 +9461,7 @@ FishPoints_50_7793::
 	db $00, $50, $87, $07 ; 7875000 points (BCD)
 	db $00, $00, $36, $12 ; 12360000 points (BCD)
 
-FishPoints_50_77b3::
+FishPoints_FishingPauseText_4::
 	db $10, $11, $00, $00 ; 1110 points (BCD)
 	db $20, $22, $00, $00 ; 2220 points (BCD)
 	db $30, $33, $00, $00 ; 3330 points (BCD)
@@ -9471,7 +9471,7 @@ FishPoints_50_77b3::
 	db $70, $77, $00, $00 ; 7770 points (BCD)
 	db $80, $88, $00, $00 ; 8880 points (BCD)
 
-FishPoints_50_77d3::
+FishPoints_FishingPauseText_5::
 	db $50, $00, $00, $00 ; 50 points (BCD)
 	db $50, $02, $00, $00 ; 250 points (BCD)
 	db $10, $06, $00, $00 ; 610 points (BCD)
@@ -9492,13 +9492,13 @@ FishingBonusPoints::
 	db $00, $00, $50, $15 ; 15500000 (BCD)
 	db $00, $00, $50, $20 ; 20500000 (BCD)
 
-FishingSequence_50_7817::
+FishingSequence_FishingBonusPoints_1::
 	db 1, 2, 3, 4
 
-FishingSequence_50_781b::
+FishingSequence_FishingBonusPoints_2::
 	db 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 5, 6
 
-FishingSequence_50_782f::
+FishingSequence_FishingBonusPoints_3::
 	db 1, 2, 3, 4, 5, 6
 
 FishingRamp::

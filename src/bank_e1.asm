@@ -3,49 +3,49 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e1", ROMX[$4000], BANK[$e1]
 
-LevelMap_e1_4000::
+LevelMap_SlipslideRide2::
 	INCBIN "data/maps/e1_4000_terrain.lz"
 
-LevelMap_e1_43bc::
+LevelMap_SlipslideRide0::
 	INCBIN "data/maps/e1_43bc_blocks.lz"
 
-LevelMap_e1_4d30::
+LevelMap_SlipslideRide1::
 	INCBIN "data/maps/e1_4d30_attrs.lz"
 
-LevelMap_e1_514e::
+LevelMap_SlipslideRide5::
 	INCBIN "data/maps/e1_514e_terrain.lz"
 
-LevelMap_e1_5191::
+LevelMap_SlipslideRide3::
 	INCBIN "data/maps/e1_5191_blocks.lz"
 
-LevelMap_e1_5222::
+LevelMap_SlipslideRide4::
 	INCBIN "data/maps/e1_5222_attrs.lz"
 
-LevelMap_e1_524d::
+LevelMap_SlipslideRide_Area1_1::
 	INCBIN "data/maps/e1_524d_terrain.lz"
 
-LevelMap_e1_5294::
+LevelMap_SlipslideRide_Area1_2::
 	INCBIN "data/maps/e1_5294_blocks.lz"
 
-LevelMap_e1_52f5::
+LevelMap_SlipslideRide_Area1_3::
 	INCBIN "data/maps/e1_52f5_attrs.lz"
 
-LevelMap_e1_5352::
+LevelMap_MineCartCarnage2::
 	INCBIN "data/maps/e1_5352_terrain.lz"
 
-LevelMap_e1_55c6::
+LevelMap_MineCartCarnage0::
 	INCBIN "data/maps/e1_55c6_blocks.lz"
 
-LevelMap_e1_5fe6::
+LevelMap_MineCartCarnage1::
 	INCBIN "data/maps/e1_5fe6_attrs.lz"
 
-LevelMap_e1_6345::
+LevelMap_MineCartCarnage5::
 	INCBIN "data/maps/e1_6345_terrain.lz"
 
-LevelMap_e1_654e::
+LevelMap_MineCartCarnage3::
 	INCBIN "data/maps/e1_654e_blocks.lz"
 
-LevelMap_e1_6d9d::
+LevelMap_MineCartCarnage4::
 	INCBIN "data/maps/e1_6d9d_attrs.lz"
 	ds 3962, $00 ; $7086
 

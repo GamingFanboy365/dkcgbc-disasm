@@ -3,67 +3,67 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e3", ROMX[$4000], BANK[$e3]
 
-LevelMap_e3_4000::
+LevelMap_BarrelCannonCanyon_1::
 	INCBIN "data/maps/e3_4000_terrain.lz"
 
-LevelMap_e3_425c::
+LevelMap_BarrelCannonCanyon_2::
 	INCBIN "data/maps/e3_425c_blocks.lz"
 
-LevelMap_e3_4848::
+LevelMap_BarrelCannonCanyon_3::
 	INCBIN "data/maps/e3_4848_attrs.lz"
 
-LevelMap_e3_4c40::
+LevelMap_LevelTable_1::
 	INCBIN "data/maps/e3_4c40_terrain.lz"
 
-LevelMap_e3_4c87::
+LevelMap_LevelTable_2::
 	INCBIN "data/maps/e3_4c87_blocks.lz"
 
-LevelMap_e3_4ce0::
+LevelMap_LevelTable_3::
 	INCBIN "data/maps/e3_4ce0_attrs.lz"
 
-LevelMap_e3_4d30::
+LevelMap_NeckysNuts_1::
 	INCBIN "data/maps/e3_4d30_terrain.lz"
 
-LevelMap_e3_4d7f::
+LevelMap_NeckysNuts_2::
 	INCBIN "data/maps/e3_4d7f_blocks.lz"
 
-LevelMap_e3_4dea::
+LevelMap_NeckysNuts_3::
 	INCBIN "data/maps/e3_4dea_attrs.lz"
 
-LevelMap_e3_4e2d::
+LevelMap_VeryGnawtysLair_1::
 	INCBIN "data/maps/e3_4e2d_terrain.lz"
 
-LevelMap_e3_4e8d::
+LevelMap_VeryGnawtysLair_2::
 	INCBIN "data/maps/e3_4e8d_blocks.lz"
 
-LevelMap_e3_4f11::
+LevelMap_VeryGnawtysLair_3::
 	INCBIN "data/maps/e3_4f11_attrs.lz"
 
-LevelMap_e3_4f54::
+LevelMap_GangPlankGalleon_1::
 	INCBIN "data/maps/e3_4f54_terrain.lz"
 
-LevelMap_e3_4f9b::
+LevelMap_GangPlankGalleon_2::
 	INCBIN "data/maps/e3_4f9b_blocks.lz"
 
-LevelMap_e3_501f::
+LevelMap_GangPlankGalleon_3::
 	INCBIN "data/maps/e3_501f_attrs.lz"
 
-LevelMap_e3_5062::
+LevelMap_CoralCapers_1::
 	INCBIN "data/maps/e3_5062_terrain.lz"
 
-LevelMap_e3_52ed::
+LevelMap_CoralCapers_2::
 	INCBIN "data/maps/e3_52ed_blocks.lz"
 
-LevelMap_e3_58c9::
+LevelMap_CoralCapers_3::
 	INCBIN "data/maps/e3_58c9_attrs.lz"
 
-LevelMap_e3_5a9a::
+LevelMap_ClamCity_1::
 	INCBIN "data/maps/e3_5a9a_terrain.lz"
 
-LevelMap_e3_5cfa::
+LevelMap_ClamCity_2::
 	INCBIN "data/maps/e3_5cfa_blocks.lz"
 
-LevelMap_e3_6366::
+LevelMap_ClamCity_3::
 	INCBIN "data/maps/e3_6366_attrs.lz"
 	ds 6708, $00 ; $65cc
 

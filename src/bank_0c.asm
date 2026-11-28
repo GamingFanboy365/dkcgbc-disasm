@@ -3,4238 +3,4238 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $0c", ROMX[$4000], BANK[$0c]
 
-LevelObjects_0c_4000::
+LevelObjects_ForestFrenzy::
 	db $01, $80
-	dw $01e8, $00b0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $01e8, $00b0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $01e8, $00f8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $01e8, $00f8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $03, $80
-	dw $0530, $00b0, LevelObjBlock_03_4340 ; x, y, block in bank $03
+	dw $0530, $00b0, LevelObjBlock_ForestFrenzy2 ; x, y, block in bank $03
 	db $04, $80
-	dw $0530, $0100, LevelObjBlock_03_4340 ; x, y, block in bank $03
+	dw $0530, $0100, LevelObjBlock_ForestFrenzy2 ; x, y, block in bank $03
 	db $05, $80
-	dw $06b8, $0090, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $06b8, $0090, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $06, $80
-	dw $0cf0, $00d0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0cf0, $00d0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $0d68, $00b8, LevelObjBlock_03_4180 ; x, y, block in bank $03
+	dw $0d68, $00b8, LevelObjBlock_BarrelCannonCanyon_3 ; x, y, block in bank $03
 	db $08, $80
-	dw $0dc0, $00b8, LevelObjBlock_03_4190 ; x, y, block in bank $03
+	dw $0dc0, $00b8, LevelObjBlock_ForestFrenzy ; x, y, block in bank $03
 	db $09, $80
-	dw $12b8, $00c8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $12b8, $00c8, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0a, $80
-	dw $13b8, $00c8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $13b8, $00c8, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0b, $80
-	dw $1470, $00e8, LevelObjBlock_03_4190 ; x, y, block in bank $03
+	dw $1470, $00e8, LevelObjBlock_ForestFrenzy ; x, y, block in bank $03
 	db $0c, $80
-	dw $14d0, $00e8, LevelObjBlock_03_4180 ; x, y, block in bank $03
+	dw $14d0, $00e8, LevelObjBlock_BarrelCannonCanyon_3 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1900, $00b0, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1900, $00b0, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1900, $00c8, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1900, $00c8, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1900, $0100, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1900, $0100, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $10, $80
-	dw $1900, $0118, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1900, $0118, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $11, $80
-	dw $1dd8, $0028, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $1dd8, $0028, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0123, $00d4, ObjInit_0e_49b1 ; x, y, object (bank $0E list)
+	dw $0123, $00d4, ObjInit_Kritter_Walk_11 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $01a2, $0028, ObjInit_0e_6fe0 ; x, y, object (bank $0E list)
+	dw $01a2, $0028, ObjInit_Rope_25 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $02fd, $00e6, ObjInit_0e_49b1 ; x, y, object (bank $0E list)
+	dw $02fd, $00e6, ObjInit_Kritter_Walk_11 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0300, $00a6, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0300, $00a6, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $035a, $00d8, ObjInit_0e_49b1 ; x, y, object (bank $0E list)
+	dw $035a, $00d8, ObjInit_Kritter_Walk_11 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $03ec, $00e9, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $03ec, $00e9, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0415, $002b, ObjInit_0e_7028 ; x, y, object (bank $0E list)
+	dw $0415, $002b, ObjInit_Rope_28 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $04bc, $00e3, ObjInit_0e_49b1 ; x, y, object (bank $0E list)
+	dw $04bc, $00e3, ObjInit_Kritter_Walk_11 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $052f, $00c3, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $052f, $00c3, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0550, $002e, ObjInit_0e_7028 ; x, y, object (bank $0E list)
+	dw $0550, $002e, ObjInit_Rope_28 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $05f6, $002f, ObjInit_0e_7028 ; x, y, object (bank $0E list)
+	dw $05f6, $002f, ObjInit_Rope_28 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $066e, $00ea, ObjInit_0e_6a6f ; x, y, object (bank $0E list)
+	dw $066e, $00ea, ObjInit_HiddenKongLetter_8 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $06b9, $00ba, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $06b9, $00ba, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $06ce, $00b6, ObjInit_0e_49b1 ; x, y, object (bank $0E list)
+	dw $06ce, $00b6, ObjInit_Kritter_Walk_11 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0755, $001b, ObjInit_0e_6fe0 ; x, y, object (bank $0E list)
+	dw $0755, $001b, ObjInit_Rope_25 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $077f, $00a5, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $077f, $00a5, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $07a3, $00a5, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $07a3, $00a5, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0811, $00b7, ObjInit_0e_6718 ; x, y, object (bank $0E list)
+	dw $0811, $00b7, ObjInit_StickerPad_2 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0816, $0080, ObjInit_0e_6706 ; x, y, object (bank $0E list)
+	dw $0816, $0080, ObjInit_StickerBananaBunch_2 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $083d, $00ea, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $083d, $00ea, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0856, $00e4, ObjInit_0e_49b1 ; x, y, object (bank $0E list)
+	dw $0856, $00e4, ObjInit_Kritter_Walk_11 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0878, $00e4, ObjInit_0e_49b1 ; x, y, object (bank $0E list)
+	dw $0878, $00e4, ObjInit_Kritter_Walk_11 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $08ae, $003e, ObjInit_0e_7040 ; x, y, object (bank $0E list)
+	dw $08ae, $003e, ObjInit_Rope_29 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $08d8, $0093, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $08d8, $0093, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0947, $00a7, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0947, $00a7, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $094c, $0104, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $094c, $0104, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $09b0, $00de, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $09b0, $00de, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0a04, $00ac, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0a04, $00ac, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0a3d, $00fd, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0a3d, $00fd, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0aab, $00a7, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0aab, $00a7, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0ac9, $00e7, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0ac9, $00e7, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0b3a, $00c0, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0b3a, $00c0, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0b54, $0102, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0b54, $0102, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0bdb, $00a1, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0bdb, $00a1, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0be1, $00df, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0be1, $00df, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $0c5a, $00f7, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $0c5a, $00f7, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0cd4, $00a7, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0cd4, $00a7, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0d42, $0061, ObjInit_0e_6ff8 ; x, y, object (bank $0E list)
+	dw $0d42, $0061, ObjInit_Rope_26 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0d90, $00a1, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0d90, $00a1, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0d90, $00df, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $0d90, $00df, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0e30, $00f2, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $0e30, $00f2, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0e79, $00f2, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $0e79, $00f2, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $0ec2, $003e, ObjInit_0e_7040 ; x, y, object (bank $0E list)
+	dw $0ec2, $003e, ObjInit_Rope_29 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $0f0d, $00cf, ObjInit_0e_50b8 ; x, y, object (bank $0E list)
+	dw $0f0d, $00cf, ObjInit_Zinger_Patrol_12 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $0f78, $00d8, ObjInit_0e_50df ; x, y, object (bank $0E list)
+	dw $0f78, $00d8, ObjInit_Zinger_Patrol_15 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $0fec, $00cf, ObjInit_0e_50b8 ; x, y, object (bank $0E list)
+	dw $0fec, $00cf, ObjInit_Zinger_Patrol_12 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $1061, $00ce, ObjInit_0e_50c5 ; x, y, object (bank $0E list)
+	dw $1061, $00ce, ObjInit_Zinger_Patrol_13 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $10d1, $00d5, ObjInit_0e_50df ; x, y, object (bank $0E list)
+	dw $10d1, $00d5, ObjInit_Zinger_Patrol_15 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1144, $00ce, ObjInit_0e_50d2 ; x, y, object (bank $0E list)
+	dw $1144, $00ce, ObjInit_Zinger_Patrol_14 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $11af, $00cd, ObjInit_0e_50b8 ; x, y, object (bank $0E list)
+	dw $11af, $00cd, ObjInit_Zinger_Patrol_12 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $11fa, $00d8, ObjInit_0e_50df ; x, y, object (bank $0E list)
+	dw $11fa, $00d8, ObjInit_Zinger_Patrol_15 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $12ca, $00ef, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $12ca, $00ef, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $1352, $00e7, ObjInit_0e_4e4f ; x, y, object (bank $0E list)
+	dw $1352, $00e7, ObjInit_Necky_FlyPatrol_2 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $13c7, $00f1, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $13c7, $00f1, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $1433, $004c, ObjInit_0e_7058 ; x, y, object (bank $0E list)
+	dw $1433, $004c, ObjInit_Rope_30 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $149f, $00be, ObjInit_0e_4f70 ; x, y, object (bank $0E list)
+	dw $149f, $00be, ObjInit_Zinger_Move_8 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $149f, $0103, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $149f, $0103, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $1542, $00a3, ObjInit_0e_4fdc ; x, y, object (bank $0E list)
+	dw $1542, $00a3, ObjInit_Zinger_Move_17 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $15c9, $00db, ObjInit_0e_4f7c ; x, y, object (bank $0E list)
+	dw $15c9, $00db, ObjInit_Zinger_Move_9 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $1669, $00c1, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $1669, $00c1, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $1669, $00d6, ObjInit_0e_4f94 ; x, y, object (bank $0E list)
+	dw $1669, $00d6, ObjInit_Zinger_Move_11 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $1707, $0103, ObjInit_0e_4f7c ; x, y, object (bank $0E list)
+	dw $1707, $0103, ObjInit_Zinger_Move_9 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $179b, $00f0, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $179b, $00f0, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $17b4, $00cc, ObjInit_0e_5256 ; x, y, object (bank $0E list)
+	dw $17b4, $00cc, ObjInit_Zinger_Patrol_34 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $17b4, $0108, ObjInit_0e_5256 ; x, y, object (bank $0E list)
+	dw $17b4, $0108, ObjInit_Zinger_Patrol_34 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $1857, $00c2, ObjInit_0e_4fd0 ; x, y, object (bank $0E list)
+	dw $1857, $00c2, ObjInit_Zinger_Move_16 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $1859, $00c6, ObjInit_0e_66de ; x, y, object (bank $0E list)
+	dw $1859, $00c6, ObjInit_ExtraLifeBalloon_12 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $191f, $00d3, ObjInit_0e_4e48 ; x, y, object (bank $0E list)
+	dw $191f, $00d3, ObjInit_Necky_Fly_6 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $19c9, $00e9, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $19c9, $00e9, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $19e0, $009f, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $19e0, $009f, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $1a19, $00c9, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1a19, $00c9, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $1a49, $010b, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1a49, $010b, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $1a9d, $0120, ObjInit_0e_6a63 ; x, y, object (bank $0E list)
+	dw $1a9d, $0120, ObjInit_Entrance_20 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $1aa0, $00af, ObjInit_0e_4ebe ; x, y, object (bank $0E list)
+	dw $1aa0, $00af, ObjInit_Necky_Fly_8 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $1adb, $00e5, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1adb, $00e5, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $1b0c, $00c2, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1b0c, $00c2, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $1b2b, $00fb, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1b2b, $00fb, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $1b7a, $00d9, ObjInit_0e_4ebe ; x, y, object (bank $0E list)
+	dw $1b7a, $00d9, ObjInit_Necky_Fly_8 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $1b81, $00a0, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1b81, $00a0, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $af, $b0
-	dw $1bbf, $0104, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1bbf, $0104, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $b0, $b0
-	dw $1bcd, $00bb, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1bcd, $00bb, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $b1, $b0
-	dw $1c40, $00a3, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $1c40, $00a3, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $b2, $b0
-	dw $1c60, $00f4, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $1c60, $00f4, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $b3, $b0
-	dw $1c90, $00fb, ObjInit_0e_6a78 ; x, y, object (bank $0E list)
+	dw $1c90, $00fb, ObjInit_HiddenKongLetter_9 ; x, y, object (bank $0E list)
 	db $b4, $b0
-	dw $1c98, $00f5, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $1c98, $00f5, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $b5, $b0
-	dw $1cf7, $00bc, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $1cf7, $00bc, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $b6, $b0
-	dw $1d63, $007d, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $1d63, $007d, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $b7, $b0
-	dw $1dbc, $0042, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1dbc, $0042, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $b8, $b0
-	dw $1dc3, $0043, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $1dc3, $0043, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $b9, $b0
-	dw $1e56, $0081, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $1e56, $0081, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $ba, $b0
-	dw $1eb3, $00c0, ObjInit_0e_4b16 ; x, y, object (bank $0E list)
+	dw $1eb3, $00c0, ObjInit_Kritter_Walk_32 ; x, y, object (bank $0E list)
 	db $bb, $b0
-	dw $1ecd, $00fe, ObjInit_0e_6a81 ; x, y, object (bank $0E list)
+	dw $1ecd, $00fe, ObjInit_BreakableWall_12 ; x, y, object (bank $0E list)
 	db $bc, $b0
-	dw $1f66, $0102, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $1f66, $0102, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $bd, $b0
-	dw $1fbe, $0102, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $1fbe, $0102, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_4379::
+LevelObjects_JungleHijinxs::
 	db $01, $80
-	dw $00b0, $0118, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $00b0, $0118, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $02, $80
-	dw $0130, $0070, LevelObjBlock_03_4000 ; x, y, block in bank $03
+	dw $0130, $0070, LevelObjBlock_CoralCapers ; x, y, block in bank $03
 	db $03, $80
-	dw $0238, $00e8, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $0238, $00e8, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $04, $80
-	dw $02b8, $00e8, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $02b8, $00e8, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $05, $80
-	dw $0354, $00e8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0354, $00e8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $06, $80
-	dw $03d4, $00e8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $03d4, $00e8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $07, $80
-	dw $06b8, $0128, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $06b8, $0128, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $08, $80
-	dw $0738, $0128, LevelObjBlock_03_4040 ; x, y, block in bank $03
+	dw $0738, $0128, LevelObjBlock_OilDrumAlley ; x, y, block in bank $03
 	db $09, $80
-	dw $0ae8, $00f8, LevelObjBlock_03_4040 ; x, y, block in bank $03
+	dw $0ae8, $00f8, LevelObjBlock_OilDrumAlley ; x, y, block in bank $03
 	db $0a, $80
-	dw $0be8, $00a0, LevelObjBlock_03_4050 ; x, y, block in bank $03
+	dw $0be8, $00a0, LevelObjBlock_BarrelCannonCanyon_1 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0c38, $00a8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0c38, $00a8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0020, $0080, ObjInit_0e_68d0 ; x, y, object (bank $0E list)
+	dw $0020, $0080, ObjInit_Entrance_4 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0059, $010b, ObjInit_0e_68de ; x, y, object (bank $0E list)
+	dw $0059, $010b, ObjInit_Entrance_BananaHoard ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0085, $0087, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0085, $0087, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $00e8, $010b, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $00e8, $010b, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $00ff, $010a, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $00ff, $010a, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0130, $010c, ObjInit_0e_6c6d ; x, y, object (bank $0E list)
+	dw $0130, $010c, ObjInit_HiddenKongLetter_23 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0133, $010a, ObjInit_0e_535f ; x, y, object (bank $0E list)
+	dw $0133, $010a, ObjInit_Gnawty_Red_29 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0180, $0115, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0180, $0115, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $01f0, $0050, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $01f0, $0050, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $026f, $0057, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $026f, $0057, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0270, $0088, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $0270, $0088, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0271, $00cc, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0271, $00cc, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $0293, $0114, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $0293, $0114, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $02af, $00d9, ObjInit_0e_4b2d ; x, y, object (bank $0E list)
+	dw $02af, $00d9, ObjInit_Kritter_Walk_34 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0328, $0058, ObjInit_0e_66b6 ; x, y, object (bank $0E list)
+	dw $0328, $0058, ObjInit_ExtraLifeBalloon_8 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $0358, $00da, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0358, $00da, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $035a, $011a, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $035a, $011a, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0366, $00da, ObjInit_0e_4b4d ; x, y, object (bank $0E list)
+	dw $0366, $00da, ObjInit_Kritter_Walk_36 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $037d, $0058, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $037d, $0058, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0390, $00a0, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0390, $00a0, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $03d7, $011b, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $03d7, $011b, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $03d9, $00da, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $03d9, $00da, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $03e9, $00da, ObjInit_0e_4b4d ; x, y, object (bank $0E list)
+	dw $03e9, $00da, ObjInit_Kritter_Walk_36 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0480, $005a, ObjInit_0e_66b6 ; x, y, object (bank $0E list)
+	dw $0480, $005a, ObjInit_ExtraLifeBalloon_8 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0494, $00fc, ObjInit_0e_4b8d ; x, y, object (bank $0E list)
+	dw $0494, $00fc, ObjInit_Gnawty_Red_6 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $04ec, $00ec, ObjInit_0e_4b8d ; x, y, object (bank $0E list)
+	dw $04ec, $00ec, ObjInit_Gnawty_Red_6 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $052d, $0044, ObjInit_0e_66ca ; x, y, object (bank $0E list)
+	dw $052d, $0044, ObjInit_ExtraLifeBalloon_10 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $056e, $00b6, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $056e, $00b6, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $058c, $00c2, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $058c, $00c2, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0590, $0128, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0590, $0128, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0695, $0157, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $0695, $0157, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $06f6, $00eb, ObjInit_0e_4f11 ; x, y, object (bank $0E list)
+	dw $06f6, $00eb, ObjInit_Necky_ThrowNuts_2 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $06f6, $011c, ObjInit_0e_48fd ; x, y, object (bank $0E list)
+	dw $06f6, $011c, ObjInit_AnimalToken_11 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $06f7, $00eb, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $06f7, $00eb, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0858, $012a, ObjInit_0e_48a2 ; x, y, object (bank $0E list)
+	dw $0858, $012a, ObjInit_AnimalCrate_2 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $08d2, $0133, ObjInit_0e_5379 ; x, y, object (bank $0E list)
+	dw $08d2, $0133, ObjInit_Gnawty_Red_31 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0935, $012a, ObjInit_0e_5379 ; x, y, object (bank $0E list)
+	dw $0935, $012a, ObjInit_Gnawty_Red_31 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0979, $0122, ObjInit_0e_5379 ; x, y, object (bank $0E list)
+	dw $0979, $0122, ObjInit_Gnawty_Red_31 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0a18, $00e8, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $0a18, $00e8, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0aa4, $012a, ObjInit_0e_68a5 ; x, y, object (bank $0E list)
+	dw $0aa4, $012a, ObjInit_BreakableWall_2 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0b4b, $00d1, ObjInit_0e_4985 ; x, y, object (bank $0E list)
+	dw $0b4b, $00d1, ObjInit_Kritter_Walk_9 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0bad, $00a2, ObjInit_0e_4985 ; x, y, object (bank $0E list)
+	dw $0bad, $00a2, ObjInit_Kritter_Walk_9 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $0c3b, $00ce, ObjInit_0e_68b6 ; x, y, object (bank $0E list)
+	dw $0c3b, $00ce, ObjInit_OpenedWall_2 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $0c85, $00c7, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0c85, $00c7, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $0c90, $0098, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $0c90, $0098, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $0cc5, $014a, ObjInit_0e_68bf ; x, y, object (bank $0E list)
+	dw $0cc5, $014a, ObjInit_BreakableWall_3 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $0cf0, $011c, ObjInit_0e_6c76 ; x, y, object (bank $0E list)
+	dw $0cf0, $011c, ObjInit_HiddenKongLetter_24 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $0d63, $014a, ObjInit_0e_4beb ; x, y, object (bank $0E list)
+	dw $0d63, $014a, ObjInit_Gnawty_Red_14 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $0e5e, $00f5, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0e5e, $00f5, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $0e8a, $0133, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $0e8a, $0133, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $0ebc, $012a, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0ebc, $012a, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $0f17, $0155, ObjInit_0e_6706 ; x, y, object (bank $0E list)
+	dw $0f17, $0155, ObjInit_StickerBananaBunch_2 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $0f19, $0172, ObjInit_0e_6718 ; x, y, object (bank $0E list)
+	dw $0f19, $0172, ObjInit_StickerPad_2 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $0f1e, $012a, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0f1e, $012a, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $0f2f, $00aa, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0f2f, $00aa, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $0fbb, $015f, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $0fbb, $015f, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $101d, $0149, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $101d, $0149, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_459a::
+LevelObjects_OrangUtanGang::
 	db $01, $80
-	dw $0100, $0068, LevelObjBlock_03_4200 ; x, y, block in bank $03
+	dw $0100, $0068, LevelObjBlock_OrangUtanGang0 ; x, y, block in bank $03
 	db $02, $80
-	dw $0148, $0068, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0148, $0068, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $03, $80
-	dw $0270, $0078, LevelObjBlock_03_4140 ; x, y, block in bank $03
+	dw $0270, $0078, LevelObjBlock_BouncyBonanza_3 ; x, y, block in bank $03
 	db $04, $80
-	dw $0478, $00a8, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $0478, $00a8, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $05, $80
-	dw $0600, $00e8, LevelObjBlock_03_4200 ; x, y, block in bank $03
+	dw $0600, $00e8, LevelObjBlock_OrangUtanGang0 ; x, y, block in bank $03
 	db $06, $80
-	dw $0648, $00e8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0648, $00e8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $07, $80
-	dw $07f0, $0120, LevelObjBlock_03_41f0 ; x, y, block in bank $03
+	dw $07f0, $0120, LevelObjBlock_VultureCulture ; x, y, block in bank $03
 	db $08, $80
-	dw $0c40, $00a8, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $0c40, $00a8, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $09, $80
-	dw $0c80, $00a8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0c80, $00a8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0dd0, $00a8, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $0dd0, $00a8, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $0b, $80
-	dw $0e30, $00a8, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $0e30, $00a8, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $0c, $80
-	dw $0f50, $0098, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $0f50, $0098, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $0d, $80
-	dw $1164, $0178, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1164, $0178, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0e, $80
-	dw $11a4, $0178, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $11a4, $0178, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0f, $80
-	dw $11e4, $0178, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $11e4, $0178, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $10, $80
-	dw $1330, $00c8, LevelObjBlock_03_4350 ; x, y, block in bank $03
+	dw $1330, $00c8, LevelObjBlock_OrangUtanGang6 ; x, y, block in bank $03
 	db $60, $b0
-	dw $001e, $006a, ObjInit_0e_66ab ; x, y, object (bank $0E list)
+	dw $001e, $006a, ObjInit_Barrel_12 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0022, $0049, ObjInit_0e_4ff4 ; x, y, object (bank $0E list)
+	dw $0022, $0049, ObjInit_Zinger_Move_19 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $003b, $0168, ObjInit_0e_6a92 ; x, y, object (bank $0E list)
+	dw $003b, $0168, ObjInit_Entrance_21 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0188, $0043, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $0188, $0043, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0238, $0080, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $0238, $0080, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $02b2, $0107, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $02b2, $0107, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $02e0, $00b8, ObjInit_0e_4d1f ; x, y, object (bank $0E list)
+	dw $02e0, $00b8, ObjInit_Klaptrap_10 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0372, $00e9, ObjInit_0e_4d1f ; x, y, object (bank $0E list)
+	dw $0372, $00e9, ObjInit_Klaptrap_10 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $045c, $00c1, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $045c, $00c1, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $04bf, $00de, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $04bf, $00de, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $04f5, $00fb, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $04f5, $00fb, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $059d, $00bb, ObjInit_0e_4fe8 ; x, y, object (bank $0E list)
+	dw $059d, $00bb, ObjInit_Zinger_Move_18 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $059d, $00cc, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $059d, $00cc, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $06c3, $00e3, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $06c3, $00e3, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $06f0, $00f9, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $06f0, $00f9, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $0734, $0104, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $0734, $0104, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $077b, $011f, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $077b, $011f, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0946, $0106, ObjInit_0e_4ceb ; x, y, object (bank $0E list)
+	dw $0946, $0106, ObjInit_Klaptrap_6 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0957, $0089, ObjInit_0e_48af ; x, y, object (bank $0E list)
+	dw $0957, $0089, ObjInit_AnimalCrate_3 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0957, $008b, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0957, $008b, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0992, $0127, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0992, $0127, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $09f6, $00ea, ObjInit_0e_4ceb ; x, y, object (bank $0E list)
+	dw $09f6, $00ea, ObjInit_Klaptrap_6 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0a02, $0139, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0a02, $0139, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0ab1, $00a3, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0ab1, $00a3, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0b12, $00a5, ObjInit_0e_4d12 ; x, y, object (bank $0E list)
+	dw $0b12, $00a5, ObjInit_Klaptrap_9 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0b7f, $006f, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0b7f, $006f, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0c70, $00c3, ObjInit_0e_5297 ; x, y, object (bank $0E list)
+	dw $0c70, $00c3, ObjInit_MankyKong_2 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0cc3, $00a5, ObjInit_0e_66ab ; x, y, object (bank $0E list)
+	dw $0cc3, $00a5, ObjInit_Barrel_12 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0dd5, $00c5, ObjInit_0e_5297 ; x, y, object (bank $0E list)
+	dw $0dd5, $00c5, ObjInit_MankyKong_2 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0ee0, $0085, ObjInit_0e_5297 ; x, y, object (bank $0E list)
+	dw $0ee0, $0085, ObjInit_MankyKong_2 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0f6e, $00b8, ObjInit_0e_4d46 ; x, y, object (bank $0E list)
+	dw $0f6e, $00b8, ObjInit_Klaptrap_13 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $106f, $0127, ObjInit_0e_4d53 ; x, y, object (bank $0E list)
+	dw $106f, $0127, ObjInit_Klaptrap_14 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $1071, $0112, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $1071, $0112, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $10a3, $00a1, ObjInit_0e_4ceb ; x, y, object (bank $0E list)
+	dw $10a3, $00a1, ObjInit_Klaptrap_6 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $10e5, $00a3, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $10e5, $00a3, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $11a6, $00e3, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $11a6, $00e3, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $126d, $00a5, ObjInit_0e_529e ; x, y, object (bank $0E list)
+	dw $126d, $00a5, ObjInit_MankyKong_3 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $126e, $0138, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $126e, $0138, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $132e, $00e6, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $132e, $00e6, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $1390, $015b, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $1390, $015b, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $13d1, $015a, ObjInit_0e_6a9e ; x, y, object (bank $0E list)
+	dw $13d1, $015a, ObjInit_BreakableWall_13 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $13df, $00a5, ObjInit_0e_529e ; x, y, object (bank $0E list)
+	dw $13df, $00a5, ObjInit_MankyKong_3 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $14b0, $005c, ObjInit_0e_6aaf ; x, y, object (bank $0E list)
+	dw $14b0, $005c, ObjInit_HiddenKongLetter_10 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $14de, $0073, ObjInit_0e_6712 ; x, y, object (bank $0E list)
+	dw $14de, $0073, ObjInit_StickerBananaBunch_4 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $151e, $013a, ObjInit_0e_4b1d ; x, y, object (bank $0E list)
+	dw $151e, $013a, ObjInit_Kritter_Walk_33 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $151f, $0059, ObjInit_0e_6762 ; x, y, object (bank $0E list)
+	dw $151f, $0059, ObjInit_Tire_2 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $152f, $013b, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $152f, $013b, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $1542, $013a, ObjInit_0e_4b1d ; x, y, object (bank $0E list)
+	dw $1542, $013a, ObjInit_Kritter_Walk_33 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $157d, $0072, ObjInit_0e_6724 ; x, y, object (bank $0E list)
+	dw $157d, $0072, ObjInit_StickerPad_4 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $15b0, $005c, ObjInit_0e_6ab8 ; x, y, object (bank $0E list)
+	dw $15b0, $005c, ObjInit_HiddenKongLetter_11 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $164a, $00c6, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $164a, $00c6, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $167e, $0117, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $167e, $0117, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $16d9, $0165, ObjInit_0e_6ac1 ; x, y, object (bank $0E list)
+	dw $16d9, $0165, ObjInit_BreakableWall_14 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $16f4, $0168, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $16f4, $0168, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $174d, $0088, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $174d, $0088, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $1763, $013a, ObjInit_0e_6ad2 ; x, y, object (bank $0E list)
+	dw $1763, $013a, ObjInit_BreakableWall_15 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $18c3, $00ea, ObjInit_0e_6ae3 ; x, y, object (bank $0E list)
+	dw $18c3, $00ea, ObjInit_BreakableWall_16 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $18f5, $00c0, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $18f5, $00c0, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $1913, $00bb, ObjInit_0e_4af8 ; x, y, object (bank $0E list)
+	dw $1913, $00bb, ObjInit_Kritter_Walk_29 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $1974, $00f0, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $1974, $00f0, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $19b7, $00e9, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $19b7, $00e9, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_4803::
+LevelObjects_RopeyRampage::
 	db $01, $80
-	dw $0168, $00e8, LevelObjBlock_03_4420 ; x, y, block in bank $03
+	dw $0168, $00e8, LevelObjBlock_RopeyRampage0 ; x, y, block in bank $03
 	db $02, $80
-	dw $01a8, $00f8, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $01a8, $00f8, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $03, $80
-	dw $02d8, $00b0, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $02d8, $00b0, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $04, $80
-	dw $055c, $0094, LevelObjBlock_03_4120 ; x, y, block in bank $03
+	dw $055c, $0094, LevelObjBlock_RopeyRampage3 ; x, y, block in bank $03
 	db $05, $80
-	dw $05a8, $0094, LevelObjBlock_03_4130 ; x, y, block in bank $03
+	dw $05a8, $0094, LevelObjBlock_BouncyBonanza_2 ; x, y, block in bank $03
 	db $06, $80
-	dw $0718, $0060, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $0718, $0060, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $07d4, $012c, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $07d4, $012c, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $08, $80
-	dw $081c, $012c, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $081c, $012c, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $09, $80
-	dw $0860, $012c, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0860, $012c, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0a, $80
-	dw $08ac, $012c, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $08ac, $012c, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0918, $00b8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0918, $00b8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0c, $80
-	dw $0ccc, $00b0, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0ccc, $00b0, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0d, $80
-	dw $1094, $0098, LevelObjBlock_03_4210 ; x, y, block in bank $03
+	dw $1094, $0098, LevelObjBlock_RopeyRampage7 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1268, $00c0, LevelObjBlock_03_41f0 ; x, y, block in bank $03
+	dw $1268, $00c0, LevelObjBlock_VultureCulture ; x, y, block in bank $03
 	db $0f, $80
-	dw $1318, $0090, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $1318, $0090, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $10, $80
-	dw $13d8, $0090, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $13d8, $0090, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $60, $b0
-	dw $0113, $0062, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0113, $0062, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $012c, $0116, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $012c, $0116, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $01a6, $00ab, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $01a6, $00ab, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $01c6, $00aa, ObjInit_0e_4b5d ; x, y, object (bank $0E list)
+	dw $01c6, $00aa, ObjInit_Kritter_Walk_37 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $01dc, $0121, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $01dc, $0121, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0209, $008f, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $0209, $008f, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0299, $0109, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0299, $0109, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $029c, $0015, ObjInit_0e_6e1b ; x, y, object (bank $0E list)
+	dw $029c, $0015, ObjInit_Rope_2 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $02d4, $00a8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $02d4, $00a8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0314, $00a8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0314, $00a8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0325, $00a8, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0325, $00a8, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0352, $0088, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0352, $0088, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $041b, $00b0, ObjInit_0e_4b6d ; x, y, object (bank $0E list)
+	dw $041b, $00b0, ObjInit_Kritter_Walk_38 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $041d, $0005, ObjInit_0e_7088 ; x, y, object (bank $0E list)
+	dw $041d, $0005, ObjInit_Rope_32 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $045f, $003a, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $045f, $003a, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $045f, $003a, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $045f, $003a, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $04e6, $00b0, ObjInit_0e_4b6d ; x, y, object (bank $0E list)
+	dw $04e6, $00b0, ObjInit_Kritter_Walk_38 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0539, $0052, ObjInit_0e_48ef ; x, y, object (bank $0E list)
+	dw $0539, $0052, ObjInit_AnimalToken_10 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $057f, $00f5, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $057f, $00f5, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0580, $0040, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0580, $0040, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0658, $009a, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0658, $009a, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $06d1, $0032, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $06d1, $0032, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $073c, $0090, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $073c, $0090, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $076f, $0077, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $076f, $0077, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0774, $00a8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0774, $00a8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $07a9, $0113, ObjInit_0e_611a ; x, y, object (bank $0E list)
+	dw $07a9, $0113, ObjInit_BarrelCannon_121 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $07c8, $0097, ObjInit_0e_4b3d ; x, y, object (bank $0E list)
+	dw $07c8, $0097, ObjInit_Kritter_Walk_35 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0802, $00a8, ObjInit_0e_4b3d ; x, y, object (bank $0E list)
+	dw $0802, $00a8, ObjInit_Kritter_Walk_35 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $087f, $0035, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $087f, $0035, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $08bd, $0116, ObjInit_0e_68ef ; x, y, object (bank $0E list)
+	dw $08bd, $0116, ObjInit_Entrance_5 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0972, $0068, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0972, $0068, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $09cd, $00b2, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $09cd, $00b2, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0a42, $00ca, ObjInit_0e_4975 ; x, y, object (bank $0E list)
+	dw $0a42, $00ca, ObjInit_Kritter_Walk_8 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0ab2, $004e, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0ab2, $004e, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0ac9, $011f, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0ac9, $011f, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $0ac9, $0122, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0ac9, $0122, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0b3d, $0120, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0b3d, $0120, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0b3d, $0120, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0b3d, $0120, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0b68, $004e, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0b68, $004e, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0b9c, $011a, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $0b9c, $011a, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0cd0, $00ab, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0cd0, $00ab, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0cd8, $00ab, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0cd8, $00ab, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $0cea, $0129, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0cea, $0129, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $0dd1, $00bc, ObjInit_0e_4b6d ; x, y, object (bank $0E list)
+	dw $0dd1, $00bc, ObjInit_Kritter_Walk_38 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $0e5a, $003c, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0e5a, $003c, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $0ebb, $00b0, ObjInit_0e_4b3d ; x, y, object (bank $0E list)
+	dw $0ebb, $00b0, ObjInit_Kritter_Walk_35 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $0f3c, $003c, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0f3c, $003c, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $0fa3, $005b, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $0fa3, $005b, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $0ffa, $003c, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0ffa, $003c, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $1055, $00dc, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $1055, $00dc, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $10b0, $00d4, ObjInit_0e_6c7f ; x, y, object (bank $0E list)
+	dw $10b0, $00d4, ObjInit_HiddenKongLetter_25 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $11d0, $00ba, ObjInit_0e_6c88 ; x, y, object (bank $0E list)
+	dw $11d0, $00ba, ObjInit_HiddenKongLetter_26 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $11da, $00fa, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $11da, $00fa, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $11de, $00ba, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $11de, $00ba, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $12bb, $005d, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $12bb, $005d, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $1315, $00e5, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $1315, $00e5, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $1374, $005d, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $1374, $005d, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $142d, $005d, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $142d, $005d, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $148a, $00e0, ObjInit_0e_5263 ; x, y, object (bank $0E list)
+	dw $148a, $00e0, ObjInit_Zinger_Patrol_35 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $14f5, $00f1, ObjInit_0e_4b3d ; x, y, object (bank $0E list)
+	dw $14f5, $00f1, ObjInit_Kritter_Walk_35 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $1520, $0130, ObjInit_0e_6900 ; x, y, object (bank $0E list)
+	dw $1520, $0130, ObjInit_Entrance_6 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $1553, $0111, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $1553, $0111, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $1649, $0111, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $1649, $0111, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $1650, $0111, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1650, $0111, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $16b6, $0096, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $16b6, $0096, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $16b9, $013a, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $16b9, $013a, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $171b, $012a, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $171b, $012a, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_4a9c::
+LevelObjects_BarrelCannonCanyon::
 	db $01, $80
-	dw $0180, $0058, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0180, $0058, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $0180, $00a0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0180, $00a0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0230, $0028, LevelObjBlock_03_4160 ; x, y, block in bank $03
+	dw $0230, $0028, LevelObjBlock_BarrelCannonCanyon_2 ; x, y, block in bank $03
 	db $04, $80
-	dw $0250, $00c8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0250, $00c8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $05, $80
-	dw $0288, $0028, LevelObjBlock_03_4160 ; x, y, block in bank $03
+	dw $0288, $0028, LevelObjBlock_BarrelCannonCanyon_2 ; x, y, block in bank $03
 	db $06, $80
-	dw $0298, $00b0, LevelObjBlock_03_4050 ; x, y, block in bank $03
+	dw $0298, $00b0, LevelObjBlock_BarrelCannonCanyon_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $02e0, $0028, LevelObjBlock_03_4160 ; x, y, block in bank $03
+	dw $02e0, $0028, LevelObjBlock_BarrelCannonCanyon_2 ; x, y, block in bank $03
 	db $08, $80
-	dw $0340, $0028, LevelObjBlock_03_4160 ; x, y, block in bank $03
+	dw $0340, $0028, LevelObjBlock_BarrelCannonCanyon_2 ; x, y, block in bank $03
 	db $09, $80
-	dw $03a8, $0028, LevelObjBlock_03_4160 ; x, y, block in bank $03
+	dw $03a8, $0028, LevelObjBlock_BarrelCannonCanyon_2 ; x, y, block in bank $03
 	db $0a, $80
-	dw $03e0, $0098, LevelObjBlock_03_4180 ; x, y, block in bank $03
+	dw $03e0, $0098, LevelObjBlock_BarrelCannonCanyon_3 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0408, $0028, LevelObjBlock_03_4160 ; x, y, block in bank $03
+	dw $0408, $0028, LevelObjBlock_BarrelCannonCanyon_2 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0480, $0028, LevelObjBlock_03_4160 ; x, y, block in bank $03
+	dw $0480, $0028, LevelObjBlock_BarrelCannonCanyon_2 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0660, $0098, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0660, $0098, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0e, $80
-	dw $06b0, $0098, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $06b0, $0098, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0f, $80
-	dw $07e8, $00e0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $07e8, $00e0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $10, $80
-	dw $0950, $00b0, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0950, $00b0, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $11, $80
-	dw $0950, $00e0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0950, $00e0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $12, $80
-	dw $0ab4, $00c0, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0ab4, $00c0, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $13, $80
-	dw $0b18, $0040, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0b18, $0040, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $14, $80
-	dw $0b68, $0040, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0b68, $0040, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $15, $80
-	dw $0bb8, $0040, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0bb8, $0040, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $16, $80
-	dw $0bd8, $00c0, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0bd8, $00c0, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $17, $80
-	dw $0c08, $0040, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0c08, $0040, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $18, $80
-	dw $0c58, $0040, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0c58, $0040, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $19, $80
-	dw $0ca8, $0040, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0ca8, $0040, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $1a, $80
-	dw $0cf8, $0040, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0cf8, $0040, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $1b, $80
-	dw $0de0, $00a8, LevelObjBlock_03_4050 ; x, y, block in bank $03
+	dw $0de0, $00a8, LevelObjBlock_BarrelCannonCanyon_1 ; x, y, block in bank $03
 	db $1c, $80
-	dw $0e48, $00a8, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $0e48, $00a8, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $1d, $80
-	dw $10c8, $00a0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $10c8, $00a0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $1e, $80
-	dw $1430, $00c8, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1430, $00c8, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $1f, $80
-	dw $1478, $00c8, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1478, $00c8, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $20, $80
-	dw $14c0, $00c8, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $14c0, $00c8, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $21, $80
-	dw $14ec, $0138, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $14ec, $0138, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $22, $80
-	dw $1508, $00c8, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1508, $00c8, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $23, $80
-	dw $1610, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1610, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $24, $80
-	dw $1658, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1658, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $25, $80
-	dw $16a0, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $16a0, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $26, $80
-	dw $16c8, $00f8, LevelObjBlock_03_4180 ; x, y, block in bank $03
+	dw $16c8, $00f8, LevelObjBlock_BarrelCannonCanyon_3 ; x, y, block in bank $03
 	db $27, $80
-	dw $16e8, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $16e8, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $28, $80
-	dw $1730, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1730, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $29, $80
-	dw $1778, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1778, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $2a, $80
-	dw $17c0, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $17c0, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $2b, $80
-	dw $1800, $0120, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1800, $0120, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $2c, $80
-	dw $1808, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1808, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $2d, $80
-	dw $1850, $0060, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1850, $0060, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $2e, $80
-	dw $1890, $0100, LevelObjBlock_03_4190 ; x, y, block in bank $03
+	dw $1890, $0100, LevelObjBlock_ForestFrenzy ; x, y, block in bank $03
 	db $2f, $80
-	dw $18d0, $0148, LevelObjBlock_03_42c0 ; x, y, block in bank $03
+	dw $18d0, $0148, LevelObjBlock_BarrelCannonCanyon11 ; x, y, block in bank $03
 	db $30, $80
-	dw $1968, $0148, LevelObjBlock_03_42d0 ; x, y, block in bank $03
+	dw $1968, $0148, LevelObjBlock_BarrelCannonCanyon12 ; x, y, block in bank $03
 	db $31, $80
-	dw $19a8, $0100, LevelObjBlock_03_4180 ; x, y, block in bank $03
+	dw $19a8, $0100, LevelObjBlock_BarrelCannonCanyon_3 ; x, y, block in bank $03
 	db $32, $80
-	dw $1b30, $0068, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1b30, $0068, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $33, $80
-	dw $1b78, $0068, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1b78, $0068, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $34, $80
-	dw $1bc0, $0068, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1bc0, $0068, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $35, $80
-	dw $1bd0, $0178, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1bd0, $0178, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $36, $80
-	dw $1c08, $0068, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1c08, $0068, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $37, $80
-	dw $1c18, $0178, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1c18, $0178, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $38, $80
-	dw $1c50, $0068, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1c50, $0068, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $39, $80
-	dw $1c98, $0068, LevelObjBlock_03_42f0 ; x, y, block in bank $03
+	dw $1c98, $0068, LevelObjBlock_BarrelCannonCanyon08 ; x, y, block in bank $03
 	db $3a, $80
-	dw $1d90, $00b0, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1d90, $00b0, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $60, $b0
-	dw $0028, $00a0, ObjInit_0e_580e ; x, y, object (bank $0E list)
+	dw $0028, $00a0, ObjInit_BarrelCannon_22 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $00fa, $0148, ObjInit_0e_4b5d ; x, y, object (bank $0E list)
+	dw $00fa, $0148, ObjInit_Kritter_Walk_37 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0141, $013a, ObjInit_0e_4b5d ; x, y, object (bank $0E list)
+	dw $0141, $013a, ObjInit_Kritter_Walk_37 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0163, $0134, ObjInit_0e_56ba ; x, y, object (bank $0E list)
+	dw $0163, $0134, ObjInit_BarrelCannon_5 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0165, $0025, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $0165, $0025, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $01b0, $00ec, ObjInit_0e_6c91 ; x, y, object (bank $0E list)
+	dw $01b0, $00ec, ObjInit_HiddenKongLetter_27 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $01f4, $0015, ObjInit_0e_5822 ; x, y, object (bank $0E list)
+	dw $01f4, $0015, ObjInit_BarrelCannon_23 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0238, $00fe, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0238, $00fe, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $024b, $00ba, ObjInit_0e_4a21 ; x, y, object (bank $0E list)
+	dw $024b, $00ba, ObjInit_Kritter_Walk_15 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $02f3, $005b, ObjInit_0e_4a21 ; x, y, object (bank $0E list)
+	dw $02f3, $005b, ObjInit_Kritter_Walk_15 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0362, $0108, ObjInit_0e_491b ; x, y, object (bank $0E list)
+	dw $0362, $0108, ObjInit_AnimalToken_13 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0362, $0138, ObjInit_0e_62ff ; x, y, object (bank $0E list)
+	dw $0362, $0138, ObjInit_BarrelCannon_143 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $03ab, $00d4, ObjInit_0e_575a ; x, y, object (bank $0E list)
+	dw $03ab, $00d4, ObjInit_BarrelCannon_13 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0433, $0014, ObjInit_0e_5836 ; x, y, object (bank $0E list)
+	dw $0433, $0014, ObjInit_BarrelCannon_24 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $04d4, $0099, ObjInit_0e_4a21 ; x, y, object (bank $0E list)
+	dw $04d4, $0099, ObjInit_Kritter_Walk_15 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $051b, $00cb, ObjInit_0e_4b3d ; x, y, object (bank $0E list)
+	dw $051b, $00cb, ObjInit_Kritter_Walk_35 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $055f, $0014, ObjInit_0e_5836 ; x, y, object (bank $0E list)
+	dw $055f, $0014, ObjInit_BarrelCannon_24 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $056b, $00ea, ObjInit_0e_4b3d ; x, y, object (bank $0E list)
+	dw $056b, $00ea, ObjInit_Kritter_Walk_35 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0694, $0083, ObjInit_0e_58fe ; x, y, object (bank $0E list)
+	dw $0694, $0083, ObjInit_BarrelCannon_34 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0695, $0119, ObjInit_0e_4b7d ; x, y, object (bank $0E list)
+	dw $0695, $0119, ObjInit_Kritter_Walk_39 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0697, $00d6, ObjInit_0e_56a6 ; x, y, object (bank $0E list)
+	dw $0697, $00d6, ObjInit_BarrelCannon_4 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $079c, $0014, ObjInit_0e_585e ; x, y, object (bank $0E list)
+	dw $079c, $0014, ObjInit_BarrelCannon_26 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $07d0, $0118, ObjInit_0e_5938 ; x, y, object (bank $0E list)
+	dw $07d0, $0118, ObjInit_BarrelCannon_36 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0846, $00c1, ObjInit_0e_5955 ; x, y, object (bank $0E list)
+	dw $0846, $00c1, ObjInit_BarrelCannon_37 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $08be, $0118, ObjInit_0e_5938 ; x, y, object (bank $0E list)
+	dw $08be, $0118, ObjInit_BarrelCannon_36 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0984, $0048, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0984, $0048, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0a43, $00fa, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $0a43, $00fa, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0a46, $0067, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0a46, $0067, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0a6a, $00fb, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0a6a, $00fb, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0a6b, $00fb, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $0a6b, $00fb, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0aa5, $0039, ObjInit_0e_48ef ; x, y, object (bank $0E list)
+	dw $0aa5, $0039, ObjInit_AnimalToken_10 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0adb, $002a, ObjInit_0e_65aa ; x, y, object (bank $0E list)
+	dw $0adb, $002a, ObjInit_BarrelCannon_174 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0b43, $00d2, ObjInit_0e_628b ; x, y, object (bank $0E list)
+	dw $0b43, $00d2, ObjInit_BarrelCannon_139 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0bb9, $0135, ObjInit_0e_60c1 ; x, y, object (bank $0E list)
+	dw $0bb9, $0135, ObjInit_BarrelCannon_117 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0bba, $0081, ObjInit_0e_60de ; x, y, object (bank $0E list)
+	dw $0bba, $0081, ObjInit_BarrelCannon_118 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $0c51, $0081, ObjInit_0e_59ac ; x, y, object (bank $0E list)
+	dw $0c51, $0081, ObjInit_BarrelCannon_40 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0c62, $0029, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0c62, $0029, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0c9c, $00ec, ObjInit_0e_59c9 ; x, y, object (bank $0E list)
+	dw $0c9c, $00ec, ObjInit_BarrelCannon_41 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0cdd, $0108, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0cdd, $0108, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0d02, $012f, ObjInit_0e_59e9 ; x, y, object (bank $0E list)
+	dw $0d02, $012f, ObjInit_BarrelCannon_42 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0d60, $012e, ObjInit_0e_633b ; x, y, object (bank $0E list)
+	dw $0d60, $012e, ObjInit_BarrelCannon_146 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0d61, $0097, ObjInit_0e_636c ; x, y, object (bank $0E list)
+	dw $0d61, $0097, ObjInit_BarrelCannon_148 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $0d81, $012d, ObjInit_0e_690c ; x, y, object (bank $0E list)
+	dw $0d81, $012d, ObjInit_Entrance_7 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $0dc3, $00a6, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $0dc3, $00a6, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $0e82, $00a8, ObjInit_0e_6712 ; x, y, object (bank $0E list)
+	dw $0e82, $00a8, ObjInit_StickerBananaBunch_4 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $0ea1, $00af, ObjInit_0e_6724 ; x, y, object (bank $0E list)
+	dw $0ea1, $00af, ObjInit_StickerPad_4 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $0ee6, $00ba, ObjInit_0e_4945 ; x, y, object (bank $0E list)
+	dw $0ee6, $00ba, ObjInit_Kritter_Walk_5 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $0f4b, $00ca, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0f4b, $00ca, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $0fbf, $009a, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0fbf, $009a, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $10ab, $00f1, ObjInit_0e_4b0f ; x, y, object (bank $0E list)
+	dw $10ab, $00f1, ObjInit_Kritter_Walk_31 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $10ab, $00f1, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $10ab, $00f1, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $10d7, $00da, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $10d7, $00da, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $115d, $00ab, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $115d, $00ab, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $11a4, $00ea, ObjInit_0e_691d ; x, y, object (bank $0E list)
+	dw $11a4, $00ea, ObjInit_BreakableWall_4 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $11c8, $00ba, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $11c8, $00ba, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $11d4, $00ba, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $11d4, $00ba, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $120b, $00fb, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $120b, $00fb, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $1249, $00ca, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1249, $00ca, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $1319, $00fa, ObjInit_0e_4945 ; x, y, object (bank $0E list)
+	dw $1319, $00fa, ObjInit_Kritter_Walk_5 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $1399, $0052, ObjInit_0e_655a ; x, y, object (bank $0E list)
+	dw $1399, $0052, ObjInit_BarrelCannon_170 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $13db, $013a, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $13db, $013a, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $13f0, $00b0, ObjInit_0e_6380 ; x, y, object (bank $0E list)
+	dw $13f0, $00b0, ObjInit_BarrelCannon_149 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $13f7, $00f7, ObjInit_0e_5692 ; x, y, object (bank $0E list)
+	dw $13f7, $00f7, ObjInit_BarrelCannon_3 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $13f8, $013b, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $13f8, $013b, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $14f1, $014b, ObjInit_0e_4b3d ; x, y, object (bank $0E list)
+	dw $14f1, $014b, ObjInit_Kritter_Walk_35 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $1548, $00b0, ObjInit_0e_63b1 ; x, y, object (bank $0E list)
+	dw $1548, $00b0, ObjInit_BarrelCannon_151 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $1550, $012c, ObjInit_0e_6c9a ; x, y, object (bank $0E list)
+	dw $1550, $012c, ObjInit_HiddenKongLetter_28 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $15dc, $0052, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $15dc, $0052, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $15de, $014a, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $15de, $014a, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $165a, $013a, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $165a, $013a, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $1694, $012a, ObjInit_0e_63d9 ; x, y, object (bank $0E list)
+	dw $1694, $012a, ObjInit_BarrelCannon_153 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $16ee, $00d1, ObjInit_0e_59fd ; x, y, object (bank $0E list)
+	dw $16ee, $00d1, ObjInit_BarrelCannon_43 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $172d, $00d0, ObjInit_0e_5263 ; x, y, object (bank $0E list)
+	dw $172d, $00d0, ObjInit_Zinger_Patrol_35 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $177b, $00d1, ObjInit_0e_656e ; x, y, object (bank $0E list)
+	dw $177b, $00d1, ObjInit_BarrelCannon_171 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $17e3, $00d0, ObjInit_0e_5cdd ; x, y, object (bank $0E list)
+	dw $17e3, $00d0, ObjInit_BarrelCannon_69 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $1865, $00d0, ObjInit_0e_63ed ; x, y, object (bank $0E list)
+	dw $1865, $00d0, ObjInit_BarrelCannon_154 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $1880, $0053, ObjInit_0e_655a ; x, y, object (bank $0E list)
+	dw $1880, $0053, ObjInit_BarrelCannon_170 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $18dd, $0158, ObjInit_0e_589a ; x, y, object (bank $0E list)
+	dw $18dd, $0158, ObjInit_BarrelCannon_29 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $1921, $0124, ObjInit_0e_5263 ; x, y, object (bank $0E list)
+	dw $1921, $0124, ObjInit_Zinger_Patrol_35 ; x, y, object (bank $0E list)
 	db $af, $b0
-	dw $195a, $0158, ObjInit_0e_6489 ; x, y, object (bank $0E list)
+	dw $195a, $0158, ObjInit_BarrelCannon_160 ; x, y, object (bank $0E list)
 	db $b0, $b0
-	dw $19cc, $00d0, ObjInit_0e_64e2 ; x, y, object (bank $0E list)
+	dw $19cc, $00d0, ObjInit_BarrelCannon_164 ; x, y, object (bank $0E list)
 	db $b1, $b0
-	dw $1a49, $00d0, ObjInit_0e_6401 ; x, y, object (bank $0E list)
+	dw $1a49, $00d0, ObjInit_BarrelCannon_155 ; x, y, object (bank $0E list)
 	db $b2, $b0
-	dw $1a60, $013c, ObjInit_0e_65be ; x, y, object (bank $0E list)
+	dw $1a60, $013c, ObjInit_BarrelCannon_175 ; x, y, object (bank $0E list)
 	db $b3, $b0
-	dw $1a6c, $0102, ObjInit_0e_51c7 ; x, y, object (bank $0E list)
+	dw $1a6c, $0102, ObjInit_Zinger_Patrol_23 ; x, y, object (bank $0E list)
 	db $b4, $b0
-	dw $1af2, $0056, ObjInit_0e_6596 ; x, y, object (bank $0E list)
+	dw $1af2, $0056, ObjInit_BarrelCannon_173 ; x, y, object (bank $0E list)
 	db $b5, $b0
-	dw $1afd, $013c, ObjInit_0e_598f ; x, y, object (bank $0E list)
+	dw $1afd, $013c, ObjInit_BarrelCannon_39 ; x, y, object (bank $0E list)
 	db $b6, $b0
-	dw $1b41, $0132, ObjInit_0e_5179 ; x, y, object (bank $0E list)
+	dw $1b41, $0132, ObjInit_Zinger_Patrol_17 ; x, y, object (bank $0E list)
 	db $b7, $b0
-	dw $1b7a, $00f1, ObjInit_0e_5a25 ; x, y, object (bank $0E list)
+	dw $1b7a, $00f1, ObjInit_BarrelCannon_45 ; x, y, object (bank $0E list)
 	db $b8, $b0
-	dw $1c5d, $0164, ObjInit_0e_6489 ; x, y, object (bank $0E list)
+	dw $1c5d, $0164, ObjInit_BarrelCannon_160 ; x, y, object (bank $0E list)
 	db $b9, $b0
-	dw $1cb1, $0111, ObjInit_0e_64ce ; x, y, object (bank $0E list)
+	dw $1cb1, $0111, ObjInit_BarrelCannon_163 ; x, y, object (bank $0E list)
 	db $ba, $b0
-	dw $1ce0, $011a, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $1ce0, $011a, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $bb, $b0
-	dw $1d51, $012a, ObjInit_0e_4a01 ; x, y, object (bank $0E list)
+	dw $1d51, $012a, ObjInit_Kritter_Walk_13 ; x, y, object (bank $0E list)
 	db $bc, $b0
-	dw $1d95, $00a8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1d95, $00a8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $bd, $b0
-	dw $1daa, $012b, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1daa, $012b, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $be, $b0
-	dw $1dab, $012b, ObjInit_0e_4a01 ; x, y, object (bank $0E list)
+	dw $1dab, $012b, ObjInit_Kritter_Walk_13 ; x, y, object (bank $0E list)
 	db $bf, $b0
-	dw $1e31, $0089, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $1e31, $0089, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $c0, $b0
-	dw $1e31, $00a8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1e31, $00a8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $c1, $b0
-	dw $1e42, $0135, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $1e42, $0135, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $c2, $b0
-	dw $1e68, $012d, ObjInit_0e_4b08 ; x, y, object (bank $0E list)
+	dw $1e68, $012d, ObjInit_Kritter_Walk_30 ; x, y, object (bank $0E list)
 	db $c3, $b0
-	dw $1e92, $012a, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $1e92, $012a, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_4f8d::
+LevelObjects_LevelTable_4::
 	db 0 ; end
 
-LevelObjects_0c_4f8e::
+LevelObjects_RopeyRampage_Area1::
 	db $01, $80
-	dw $00d8, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $00d8, $0048, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $02, $80
-	dw $00d8, $0078, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $00d8, $0078, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0120, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0120, $0048, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $04, $80
-	dw $0120, $0078, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0120, $0078, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $05, $80
-	dw $0178, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0178, $0048, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $06, $80
-	dw $0178, $0078, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0178, $0078, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $01c8, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $01c8, $0048, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $08, $80
-	dw $01c8, $0078, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $01c8, $0078, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $09, $80
-	dw $0210, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0210, $0048, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0210, $0078, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0210, $0078, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0260, $0048, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0260, $0048, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0260, $0078, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0260, $0078, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $00bb, $000b, ObjInit_0e_6e2a ; x, y, object (bank $0E list)
+	dw $00bb, $000b, ObjInit_Rope_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0104, $000b, ObjInit_0e_6e2a ; x, y, object (bank $0E list)
+	dw $0104, $000b, ObjInit_Rope_3 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $015b, $000b, ObjInit_0e_6e2a ; x, y, object (bank $0E list)
+	dw $015b, $000b, ObjInit_Rope_3 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $01ab, $000b, ObjInit_0e_6e2a ; x, y, object (bank $0E list)
+	dw $01ab, $000b, ObjInit_Rope_3 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $01f3, $000b, ObjInit_0e_6e2a ; x, y, object (bank $0E list)
+	dw $01f3, $000b, ObjInit_Rope_3 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0244, $000b, ObjInit_0e_6e2a ; x, y, object (bank $0E list)
+	dw $0244, $000b, ObjInit_Rope_3 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0287, $0088, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $0287, $0088, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $02a2, $0088, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $02a2, $0088, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_502f::
+LevelObjects_BarrelCannonCanyon_Area1::
 	db $01, $80
-	dw $0060, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0060, $0048, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $0060, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0060, $0090, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0060, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0060, $00d8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $008c, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $008c, $0048, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $05, $80
-	dw $008c, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $008c, $0090, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $06, $80
-	dw $008c, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $008c, $00d8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $00b8, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $00b8, $0048, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $00b8, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $00b8, $0090, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $09, $80
-	dw $00b8, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $00b8, $00d8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0044, $0014, ObjInit_0e_490d ; x, y, object (bank $0E list)
+	dw $0044, $0014, ObjInit_AnimalToken_12 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0070, $0014, ObjInit_0e_66de ; x, y, object (bank $0E list)
+	dw $0070, $0014, ObjInit_ExtraLifeBalloon_12 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0070, $0118, ObjInit_0e_641e ; x, y, object (bank $0E list)
+	dw $0070, $0118, ObjInit_BarrelCannon_156 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $009c, $0014, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $009c, $0014, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_5098::
+LevelObjects_OrangUtanGang_Area2::
 	db $01, $80
-	dw $00d8, $0038, LevelObjBlock_03_4f10 ; x, y, block in bank $03
+	dw $00d8, $0038, LevelObjBlock_OrangUtanGang_Area2 ; x, y, block in bank $03
 	db $02, $80
-	dw $0138, $0048, LevelObjBlock_03_4f10 ; x, y, block in bank $03
+	dw $0138, $0048, LevelObjBlock_OrangUtanGang_Area2 ; x, y, block in bank $03
 	db $03, $80
-	dw $0198, $0058, LevelObjBlock_03_4f10 ; x, y, block in bank $03
+	dw $0198, $0058, LevelObjBlock_OrangUtanGang_Area2 ; x, y, block in bank $03
 	db $04, $80
-	dw $01f8, $0068, LevelObjBlock_03_4f10 ; x, y, block in bank $03
+	dw $01f8, $0068, LevelObjBlock_OrangUtanGang_Area2 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0060, $0069, ObjInit_0e_48af ; x, y, object (bank $0E list)
+	dw $0060, $0069, ObjInit_AnimalCrate_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0243, $00a7, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $0243, $00a7, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0260, $0051, ObjInit_0e_66e6 ; x, y, object (bank $0E list)
+	dw $0260, $0051, ObjInit_ExtraLifeBalloon_13 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_50d1::
+LevelObjects_MineCartCarnage::
 	db $01, $80
-	dw $01e0, $0088, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $01e0, $0088, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $02, $80
-	dw $0230, $0088, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0230, $0088, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0350, $0098, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $0350, $0098, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $0390, $0098, LevelObjBlock_03_42a0 ; x, y, block in bank $03
+	dw $0390, $0098, LevelObjBlock_MineCartCarnage ; x, y, block in bank $03
 	db $05, $80
-	dw $0448, $00c0, LevelObjBlock_03_42a0 ; x, y, block in bank $03
+	dw $0448, $00c0, LevelObjBlock_MineCartCarnage ; x, y, block in bank $03
 	db $06, $80
-	dw $0920, $0050, LevelObjBlock_03_41f0 ; x, y, block in bank $03
+	dw $0920, $0050, LevelObjBlock_VultureCulture ; x, y, block in bank $03
 	db $07, $80
-	dw $0b50, $0080, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0b50, $0080, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $0c10, $0080, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0c10, $0080, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $09, $80
-	dw $0edc, $0108, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0edc, $0108, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0a, $80
-	dw $14fc, $00c8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $14fc, $00c8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0b, $80
-	dw $1708, $0198, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $1708, $0198, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $0c, $80
-	dw $1748, $0198, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $1748, $0198, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1af8, $01c8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1af8, $01c8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0e, $80
-	dw $1c28, $0140, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1c28, $0140, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1edc, $0170, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1edc, $0170, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $10, $80
-	dw $1f80, $0158, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1f80, $0158, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $11, $80
-	dw $207c, $0168, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $207c, $0168, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $12, $80
-	dw $2208, $0168, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $2208, $0168, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $13, $80
-	dw $2a78, $0108, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $2a78, $0108, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $14, $80
-	dw $2be0, $00f8, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $2be0, $00f8, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $15, $80
-	dw $2c98, $00f8, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $2c98, $00f8, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $16, $80
-	dw $2dc8, $0148, LevelObjBlock_03_42b0 ; x, y, block in bank $03
+	dw $2dc8, $0148, LevelObjBlock_MineCartCarnage6 ; x, y, block in bank $03
 	db $17, $80
-	dw $2e10, $0168, LevelObjBlock_03_4090 ; x, y, block in bank $03
+	dw $2e10, $0168, LevelObjBlock_MineCartCarnage7 ; x, y, block in bank $03
 	db $18, $80
-	dw $3100, $0118, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $3100, $0118, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $19, $80
-	dw $326c, $0128, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $326c, $0128, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $60, $b0
-	dw $001d, $00a8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $001d, $00a8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $006a, $00a8, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $006a, $00a8, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $00a8, $008b, ObjInit_0e_65db ; x, y, object (bank $0E list)
+	dw $00a8, $008b, ObjInit_BarrelCannon_176 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $017f, $0086, ObjInit_0e_74ea ; x, y, object (bank $0E list)
+	dw $017f, $0086, ObjInit_MineCart_1 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $05eb, $0071, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $05eb, $0071, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $1090, $0114, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $1090, $0114, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $1255, $0149, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $1255, $0149, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $15b6, $00f9, ObjInit_0e_490d ; x, y, object (bank $0E list)
+	dw $15b6, $00f9, ObjInit_AnimalToken_12 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $177c, $0188, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $177c, $0188, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $17c6, $0198, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $17c6, $0198, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $1998, $016c, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $1998, $016c, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $1ae8, $01e9, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $1ae8, $01e9, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $1d22, $0109, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $1d22, $0109, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $1ec1, $01a8, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $1ec1, $01a8, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $1edb, $017e, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $1edb, $017e, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $1f61, $0189, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $1f61, $0189, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $20c4, $0187, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $20c4, $0187, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $20f5, $012b, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $20f5, $012b, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $2203, $0180, ObjInit_0e_66b6 ; x, y, object (bank $0E list)
+	dw $2203, $0180, ObjInit_ExtraLifeBalloon_8 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $2387, $01b9, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $2387, $01b9, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $2614, $00ec, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $2614, $00ec, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $273d, $008f, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $273d, $008f, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $29c5, $0158, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $29c5, $0158, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $2ab6, $00fd, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $2ab6, $00fd, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $2af0, $0109, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $2af0, $0109, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $300c, $0146, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $300c, $0146, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $332d, $015f, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $332d, $015f, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $33cc, $01a7, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $33cc, $01a7, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $357f, $01a5, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $357f, $01a5, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $361f, $01c7, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $361f, $01c7, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $36c0, $01a9, ObjInit_0e_7526 ; x, y, object (bank $0E list)
+	dw $36c0, $01a9, ObjInit_MineCartKrash_3 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $3716, $01cb, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $3716, $01cb, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $3a3c, $01c6, ObjInit_0e_7514 ; x, y, object (bank $0E list)
+	dw $3a3c, $01c6, ObjInit_MineCartKrash_2 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $3ae6, $01cb, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $3ae6, $01cb, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $3b3c, $01c8, ObjInit_0e_6896 ; x, y, object (bank $0E list)
+	dw $3b3c, $01c8, ObjInit_LevelExit_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_52b2::
+LevelObjects_StopAndGoStation::
 	db $01, $80
-	dw $0108, $00e8, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0108, $00e8, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $02, $80
-	dw $0368, $0070, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $0368, $0070, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $03, $80
-	dw $04b0, $00b8, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $04b0, $00b8, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $04, $80
-	dw $0580, $00c0, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $0580, $00c0, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $05, $80
-	dw $085c, $00d8, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $085c, $00d8, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $06, $80
-	dw $0b34, $00d0, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $0b34, $00d0, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $0b98, $00a0, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $0b98, $00a0, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $0bf8, $0070, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $0bf8, $0070, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $09, $80
-	dw $0c68, $0040, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $0c68, $0040, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1038, $0098, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1038, $0098, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $0b, $80
-	dw $13dc, $0058, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $13dc, $0058, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $0c, $80
-	dw $1500, $0060, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $1500, $0060, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $60, $b0
-	dw $0020, $0108, ObjInit_0e_69a1 ; x, y, object (bank $0E list)
+	dw $0020, $0108, ObjInit_Entrance_13 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $00eb, $011e, ObjInit_0e_4d05 ; x, y, object (bank $0E list)
+	dw $00eb, $011e, ObjInit_Klaptrap_8 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $017b, $00c3, ObjInit_0e_6829 ; x, y, object (bank $0E list)
+	dw $017b, $00c3, ObjInit_StopGoBarrel_8 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $017c, $0108, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $017c, $0108, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $01bd, $011a, ObjInit_0e_4ddb ; x, y, object (bank $0E list)
+	dw $01bd, $011a, ObjInit_Rockkroc_2 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0227, $00dc, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0227, $00dc, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0284, $00fc, ObjInit_0e_681b ; x, y, object (bank $0E list)
+	dw $0284, $00fc, ObjInit_StopGoBarrel_6 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $02b3, $00d8, ObjInit_0e_4ddb ; x, y, object (bank $0E list)
+	dw $02b3, $00d8, ObjInit_Rockkroc_2 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $02f2, $00a8, ObjInit_0e_4ddb ; x, y, object (bank $0E list)
+	dw $02f2, $00a8, ObjInit_Rockkroc_2 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0379, $007e, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $0379, $007e, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0390, $008b, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0390, $008b, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $03d9, $006b, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $03d9, $006b, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $0454, $0072, ObjInit_0e_680d ; x, y, object (bank $0E list)
+	dw $0454, $0072, ObjInit_StopGoBarrel_4 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0493, $00c8, ObjInit_0e_4ddb ; x, y, object (bank $0E list)
+	dw $0493, $00c8, ObjInit_Rockkroc_2 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $04c4, $00cf, ObjInit_0e_4ddb ; x, y, object (bank $0E list)
+	dw $04c4, $00cf, ObjInit_Rockkroc_2 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $05cf, $00d4, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $05cf, $00d4, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $05dc, $0091, ObjInit_0e_6806 ; x, y, object (bank $0E list)
+	dw $05dc, $0091, ObjInit_StopGoBarrel_3 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0630, $00d8, ObjInit_0e_4de8 ; x, y, object (bank $0E list)
+	dw $0630, $00d8, ObjInit_Rockkroc_3 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $06b4, $0092, ObjInit_0e_6814 ; x, y, object (bank $0E list)
+	dw $06b4, $0092, ObjInit_StopGoBarrel_5 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $070d, $00e2, ObjInit_0e_4d1f ; x, y, object (bank $0E list)
+	dw $070d, $00e2, ObjInit_Klaptrap_10 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0773, $00e6, ObjInit_0e_4d1f ; x, y, object (bank $0E list)
+	dw $0773, $00e6, ObjInit_Klaptrap_10 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0811, $00e8, ObjInit_0e_4dee ; x, y, object (bank $0E list)
+	dw $0811, $00e8, ObjInit_Rockkroc_4 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0855, $00e8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0855, $00e8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $088e, $00e8, ObjInit_0e_4dfb ; x, y, object (bank $0E list)
+	dw $088e, $00e8, ObjInit_Rockkroc_5 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $08d4, $0091, ObjInit_0e_6830 ; x, y, object (bank $0E list)
+	dw $08d4, $0091, ObjInit_StopGoBarrel_9 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0939, $007a, ObjInit_0e_48fd ; x, y, object (bank $0E list)
+	dw $0939, $007a, ObjInit_AnimalToken_11 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $09b1, $00d3, ObjInit_0e_4de8 ; x, y, object (bank $0E list)
+	dw $09b1, $00d3, ObjInit_Rockkroc_3 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $09b1, $00db, ObjInit_0e_7259 ; x, y, object (bank $0E list)
+	dw $09b1, $00db, ObjInit_Elevator_5 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0a4d, $0073, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0a4d, $0073, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0aa4, $009a, ObjInit_0e_6822 ; x, y, object (bank $0E list)
+	dw $0aa4, $009a, ObjInit_StopGoBarrel_7 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0b51, $00e8, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $0b51, $00e8, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0ba3, $00b8, ObjInit_0e_4ddb ; x, y, object (bank $0E list)
+	dw $0ba3, $00b8, ObjInit_Rockkroc_2 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0bff, $0088, ObjInit_0e_4ddb ; x, y, object (bank $0E list)
+	dw $0bff, $0088, ObjInit_Rockkroc_2 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0c94, $0053, ObjInit_0e_4d2c ; x, y, object (bank $0E list)
+	dw $0c94, $0053, ObjInit_Klaptrap_11 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0cd0, $0062, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0cd0, $0062, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $0d2b, $0058, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0d2b, $0058, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0d77, $002b, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0d77, $002b, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0e0b, $0096, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $0e0b, $0096, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0e75, $00bb, ObjInit_0e_680d ; x, y, object (bank $0E list)
+	dw $0e75, $00bb, ObjInit_StopGoBarrel_4 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0ec4, $00c8, ObjInit_0e_4e15 ; x, y, object (bank $0E list)
+	dw $0ec4, $00c8, ObjInit_Rockkroc_7 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0f47, $00f8, ObjInit_0e_4e08 ; x, y, object (bank $0E list)
+	dw $0f47, $00f8, ObjInit_Rockkroc_6 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0f60, $00f7, ObjInit_0e_69b6 ; x, y, object (bank $0E list)
+	dw $0f60, $00f7, ObjInit_BreakableWall_8 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $0ff8, $00cc, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $0ff8, $00cc, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $101a, $0049, ObjInit_0e_69aa ; x, y, object (bank $0E list)
+	dw $101a, $0049, ObjInit_Entrance_14 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $101b, $00e8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $101b, $00e8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $1078, $00e8, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $1078, $00e8, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $109c, $00e8, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $109c, $00e8, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $10c1, $00e8, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $10c1, $00e8, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1103, $0083, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $1103, $0083, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $112d, $00bc, ObjInit_0e_6762 ; x, y, object (bank $0E list)
+	dw $112d, $00bc, ObjInit_Tire_2 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $11c6, $005a, ObjInit_0e_6830 ; x, y, object (bank $0E list)
+	dw $11c6, $005a, ObjInit_StopGoBarrel_9 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $11d1, $00d0, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $11d1, $00d0, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $1204, $00b8, ObjInit_0e_4d94 ; x, y, object (bank $0E list)
+	dw $1204, $00b8, ObjInit_Klaptrap_19 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $1250, $00a8, ObjInit_0e_4de8 ; x, y, object (bank $0E list)
+	dw $1250, $00a8, ObjInit_Rockkroc_3 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $1290, $0098, ObjInit_0e_4de8 ; x, y, object (bank $0E list)
+	dw $1290, $0098, ObjInit_Rockkroc_3 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $12cf, $0088, ObjInit_0e_4de8 ; x, y, object (bank $0E list)
+	dw $12cf, $0088, ObjInit_Rockkroc_3 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $1371, $0086, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $1371, $0086, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $13a0, $00b7, ObjInit_0e_6706 ; x, y, object (bank $0E list)
+	dw $13a0, $00b7, ObjInit_StickerBananaBunch_2 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $13be, $0086, ObjInit_0e_4d94 ; x, y, object (bank $0E list)
+	dw $13be, $0086, ObjInit_Klaptrap_19 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $13c4, $0071, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $13c4, $0071, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $13e2, $00b7, ObjInit_0e_6718 ; x, y, object (bank $0E list)
+	dw $13e2, $00b7, ObjInit_StickerPad_2 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $144f, $0088, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $144f, $0088, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $1494, $0031, ObjInit_0e_6814 ; x, y, object (bank $0E list)
+	dw $1494, $0031, ObjInit_StopGoBarrel_5 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $1615, $00ac, ObjInit_0e_680d ; x, y, object (bank $0E list)
+	dw $1615, $00ac, ObjInit_StopGoBarrel_4 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $1648, $00b8, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $1648, $00b8, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $166e, $00ad, ObjInit_0e_4e15 ; x, y, object (bank $0E list)
+	dw $166e, $00ad, ObjInit_Rockkroc_7 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $16d5, $005c, ObjInit_0e_67ff ; x, y, object (bank $0E list)
+	dw $16d5, $005c, ObjInit_StopGoBarrel_2 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $1702, $00a8, ObjInit_0e_4e15 ; x, y, object (bank $0E list)
+	dw $1702, $00a8, ObjInit_Rockkroc_7 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $171e, $00a8, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $171e, $00a8, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $176c, $0036, ObjInit_0e_680d ; x, y, object (bank $0E list)
+	dw $176c, $0036, ObjInit_StopGoBarrel_4 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $177b, $00c6, ObjInit_0e_6762 ; x, y, object (bank $0E list)
+	dw $177b, $00c6, ObjInit_Tire_2 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $182e, $00e0, ObjInit_0e_4e15 ; x, y, object (bank $0E list)
+	dw $182e, $00e0, ObjInit_Rockkroc_7 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $184c, $0053, ObjInit_0e_6837 ; x, y, object (bank $0E list)
+	dw $184c, $0053, ObjInit_StopGoBarrel_10 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $18be, $00c8, ObjInit_0e_4e22 ; x, y, object (bank $0E list)
+	dw $18be, $00c8, ObjInit_Rockkroc_8 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $1956, $00ad, ObjInit_0e_4e22 ; x, y, object (bank $0E list)
+	dw $1956, $00ad, ObjInit_Rockkroc_8 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $19bb, $00b0, ObjInit_0e_4e22 ; x, y, object (bank $0E list)
+	dw $19bb, $00b0, ObjInit_Rockkroc_8 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $19fb, $005a, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $19fb, $005a, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $1a26, $0088, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $1a26, $0088, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $1a7e, $0086, ObjInit_0e_6896 ; x, y, object (bank $0E list)
+	dw $1a7e, $0086, ObjInit_LevelExit_2 ; x, y, object (bank $0E list)
 	db $0d, $90
-	dw $14a0, $008c, LevelObjString_0c_55bb ; x, y, string
+	dw $14a0, $008c, LevelObjString_StopAndGoStation_1 ; x, y, string
 	db $af, $f0
-	dw $14a0, $0086, ObjInit_0e_4de8 ; x, y, object (bank $0E list)
+	dw $14a0, $0086, ObjInit_Rockkroc_3 ; x, y, object (bank $0E list)
 	db $b0, $f0
-	dw $14a0, $008f, ObjInit_0e_7266 ; x, y, object (bank $0E list)
+	dw $14a0, $008f, ObjInit_Elevator_6 ; x, y, object (bank $0E list)
 	db $0e, $90
-	dw $1538, $008c, LevelObjString_0c_55be ; x, y, string
+	dw $1538, $008c, LevelObjString_StopAndGoStation_2 ; x, y, string
 	db $b1, $f0
-	dw $1539, $0086, ObjInit_0e_4de8 ; x, y, object (bank $0E list)
+	dw $1539, $0086, ObjInit_Rockkroc_3 ; x, y, object (bank $0E list)
 	db $b2, $f0
-	dw $1539, $008f, ObjInit_0e_7273 ; x, y, object (bank $0E list)
+	dw $1539, $008f, ObjInit_Elevator_7 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjString_0c_55bb::
+LevelObjString_StopAndGoStation_1::
 	db $af, $b0, $00
 
-LevelObjString_0c_55be::
+LevelObjString_StopAndGoStation_2::
 	db $b1, $b2, $00
 
-LevelObjects_0c_55c1::
+LevelObjects_MistyMine::
 	db $01, $80
-	dw $01e8, $00c0, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $01e8, $00c0, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $02, $80
-	dw $0400, $00a8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0400, $00a8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $03, $80
-	dw $0450, $00a8, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0450, $00a8, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $08a0, $0070, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $08a0, $0070, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $05, $80
-	dw $0ab0, $00c0, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $0ab0, $00c0, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $06, $80
-	dw $0b78, $0100, LevelObjBlock_03_4040 ; x, y, block in bank $03
+	dw $0b78, $0100, LevelObjBlock_OilDrumAlley ; x, y, block in bank $03
 	db $07, $80
-	dw $0c58, $0120, LevelObjBlock_03_4040 ; x, y, block in bank $03
+	dw $0c58, $0120, LevelObjBlock_OilDrumAlley ; x, y, block in bank $03
 	db $08, $80
-	dw $0d50, $00bc, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $0d50, $00bc, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $09, $80
-	dw $0de8, $0088, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $0de8, $0088, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $0a, $80
-	dw $0ebc, $0084, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $0ebc, $0084, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $0b, $80
-	dw $1098, $00d8, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $1098, $00d8, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $0c, $80
-	dw $1210, $00f8, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $1210, $00f8, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1280, $00f8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $1280, $00f8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1ae0, $0108, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $1ae0, $0108, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $0f, $80
-	dw $1de8, $00b8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1de8, $00b8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $10, $80
-	dw $2180, $00a8, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $2180, $00a8, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $11, $80
-	dw $2448, $00e0, LevelObjBlock_03_4030 ; x, y, block in bank $03
+	dw $2448, $00e0, LevelObjBlock_MistyMine ; x, y, block in bank $03
 	db $60, $b0
-	dw $009a, $0108, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $009a, $0108, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0129, $00c5, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $0129, $00c5, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $015d, $00e8, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $015d, $00e8, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $01cd, $00bd, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $01cd, $00bd, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $01de, $0109, ObjInit_0e_765c ; x, y, object (bank $0E list)
+	dw $01de, $0109, ObjInit_BlackDrum_22 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0245, $0098, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $0245, $0098, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0272, $00b8, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0272, $00b8, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $02e5, $008a, ObjInit_0e_79c3 ; x, y, object (bank $0E list)
+	dw $02e5, $008a, ObjInit_SetBrightness_5 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $0343, $00d9, ObjInit_0e_75ec ; x, y, object (bank $0E list)
+	dw $0343, $00d9, ObjInit_BlackDrum_14 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0373, $0092, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $0373, $0092, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $03b4, $0039, ObjInit_0e_6f80 ; x, y, object (bank $0E list)
+	dw $03b4, $0039, ObjInit_Rope_21 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $03bd, $0108, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $03bd, $0108, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $0413, $009a, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $0413, $009a, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0465, $0111, ObjInit_0e_759c ; x, y, object (bank $0E list)
+	dw $0465, $0111, ObjInit_BlackDrum_7 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0466, $0106, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0466, $0106, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $04f6, $0074, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $04f6, $0074, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $04fb, $00c9, ObjInit_0e_75fa ; x, y, object (bank $0E list)
+	dw $04fb, $00c9, ObjInit_BlackDrum_15 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0561, $00a8, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $0561, $00a8, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $05e2, $00ee, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $05e2, $00ee, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0603, $00e1, ObjInit_0e_7608 ; x, y, object (bank $0E list)
+	dw $0603, $00e1, ObjInit_BlackDrum_16 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $061c, $0095, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $061c, $0095, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $066f, $00a8, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $066f, $00a8, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $06da, $0065, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $06da, $0065, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0713, $0091, ObjInit_0e_7616 ; x, y, object (bank $0E list)
+	dw $0713, $0091, ObjInit_BlackDrum_17 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $07bb, $00e9, ObjInit_0e_766a ; x, y, object (bank $0E list)
+	dw $07bb, $00e9, ObjInit_BlackDrum_23 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $07be, $00ed, ObjInit_0e_48ef ; x, y, object (bank $0E list)
+	dw $07be, $00ed, ObjInit_AnimalToken_10 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $07f9, $009c, ObjInit_0e_79c3 ; x, y, object (bank $0E list)
+	dw $07f9, $009c, ObjInit_SetBrightness_5 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $08eb, $0098, ObjInit_0e_7640 ; x, y, object (bank $0E list)
+	dw $08eb, $0098, ObjInit_BlackDrum_20 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $090e, $0018, ObjInit_0e_6f20 ; x, y, object (bank $0E list)
+	dw $090e, $0018, ObjInit_Rope_17 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $092b, $005c, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $092b, $005c, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0983, $00b8, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0983, $00b8, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0a3c, $00a3, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $0a3c, $00a3, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0a69, $00ab, ObjInit_0e_671e ; x, y, object (bank $0E list)
+	dw $0a69, $00ab, ObjInit_StickerPad_3 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0a6b, $00a8, ObjInit_0e_7624 ; x, y, object (bank $0E list)
+	dw $0a6b, $00a8, ObjInit_BlackDrum_18 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0a6f, $006b, ObjInit_0e_670c ; x, y, object (bank $0E list)
+	dw $0a6f, $006b, ObjInit_StickerBananaBunch_3 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $0ae3, $00c8, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0ae3, $00c8, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0ae4, $008c, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $0ae4, $008c, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0afd, $00cf, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $0afd, $00cf, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0b83, $00f7, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $0b83, $00f7, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0bc1, $00b4, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $0bc1, $00b4, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0bdd, $00f0, ObjInit_0e_768a ; x, y, object (bank $0E list)
+	dw $0bdd, $00f0, ObjInit_BlackDrum_26 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0cc0, $00c0, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $0cc0, $00c0, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $0cde, $0108, ObjInit_0e_75bc ; x, y, object (bank $0E list)
+	dw $0cde, $0108, ObjInit_BlackDrum_10 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $0d25, $0033, ObjInit_0e_6f38 ; x, y, object (bank $0E list)
+	dw $0d25, $0033, ObjInit_Rope_18 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $0df4, $00a2, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $0df4, $00a2, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $0e04, $0031, ObjInit_0e_6f50 ; x, y, object (bank $0E list)
+	dw $0e04, $0031, ObjInit_Rope_19 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $0ef3, $00e9, ObjInit_0e_764e ; x, y, object (bank $0E list)
+	dw $0ef3, $00e9, ObjInit_BlackDrum_21 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $0f34, $00b5, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $0f34, $00b5, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $0ff9, $00cf, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $0ff9, $00cf, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $103d, $008a, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $103d, $008a, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $10e2, $00d8, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $10e2, $00d8, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $1123, $00e0, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $1123, $00e0, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $118b, $00e9, ObjInit_0e_7632 ; x, y, object (bank $0E list)
+	dw $118b, $00e9, ObjInit_BlackDrum_19 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $119e, $00a5, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $119e, $00a5, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $11b6, $0025, ObjInit_0e_6f68 ; x, y, object (bank $0E list)
+	dw $11b6, $0025, ObjInit_Rope_20 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $1248, $0114, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $1248, $0114, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $12a8, $00a9, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $12a8, $00a9, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $1313, $00e8, ObjInit_0e_75de ; x, y, object (bank $0E list)
+	dw $1313, $00e8, ObjInit_BlackDrum_13 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $1317, $0186, ObjInit_0e_6cb4 ; x, y, object (bank $0E list)
+	dw $1317, $0186, ObjInit_Entrance_30 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $13c4, $00ee, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $13c4, $00ee, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $13fc, $0121, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $13fc, $0121, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $1444, $0130, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $1444, $0130, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $148c, $0136, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $148c, $0136, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $14a3, $00ee, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $14a3, $00ee, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $14d4, $0137, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $14d4, $0137, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $1506, $013b, ObjInit_0e_75b3 ; x, y, object (bank $0E list)
+	dw $1506, $013b, ObjInit_BlackDrum_9 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $15f1, $0104, ObjInit_0e_52dd ; x, y, object (bank $0E list)
+	dw $15f1, $0104, ObjInit_Gnawty_Red_19 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $162b, $0108, ObjInit_0e_75d0 ; x, y, object (bank $0E list)
+	dw $162b, $0108, ObjInit_BlackDrum_12 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $16e9, $00c6, ObjInit_0e_48fd ; x, y, object (bank $0E list)
+	dw $16e9, $00c6, ObjInit_AnimalToken_11 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $172c, $0122, ObjInit_0e_4cde ; x, y, object (bank $0E list)
+	dw $172c, $0122, ObjInit_Klaptrap_5 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $17ab, $0115, ObjInit_0e_769e ; x, y, object (bank $0E list)
+	dw $17ab, $0115, ObjInit_BlackDrum_28 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $17f7, $00fe, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $17f7, $00fe, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $1884, $0119, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $1884, $0119, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $18a2, $0158, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $18a2, $0158, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $18e1, $0140, ObjInit_0e_76a9 ; x, y, object (bank $0E list)
+	dw $18e1, $0140, ObjInit_BlackDrum_29 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $1909, $0100, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $1909, $0100, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $192a, $00c2, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $192a, $00c2, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $198e, $00e8, ObjInit_0e_4cde ; x, y, object (bank $0E list)
+	dw $198e, $00e8, ObjInit_Klaptrap_5 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $19e1, $00db, ObjInit_0e_769e ; x, y, object (bank $0E list)
+	dw $19e1, $00db, ObjInit_BlackDrum_28 ; x, y, object (bank $0E list)
 	db $af, $b0
-	dw $19e8, $00b0, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $19e8, $00b0, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $b0, $b0
-	dw $1a77, $00ba, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $1a77, $00ba, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $b1, $b0
-	dw $1a8f, $0150, ObjInit_0e_6ca3 ; x, y, object (bank $0E list)
+	dw $1a8f, $0150, ObjInit_BreakableWall_27 ; x, y, object (bank $0E list)
 	db $b2, $b0
-	dw $1b17, $00bd, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $1b17, $00bd, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $b3, $b0
-	dw $1b31, $010e, ObjInit_0e_4cde ; x, y, object (bank $0E list)
+	dw $1b31, $010e, ObjInit_Klaptrap_5 ; x, y, object (bank $0E list)
 	db $b4, $b0
-	dw $1bac, $0103, ObjInit_0e_769e ; x, y, object (bank $0E list)
+	dw $1bac, $0103, ObjInit_BlackDrum_28 ; x, y, object (bank $0E list)
 	db $b5, $b0
-	dw $1bcc, $00c4, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $1bcc, $00c4, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $b6, $b0
-	dw $1c01, $0103, ObjInit_0e_769e ; x, y, object (bank $0E list)
+	dw $1c01, $0103, ObjInit_BlackDrum_28 ; x, y, object (bank $0E list)
 	db $b7, $b0
-	dw $1ce6, $0105, ObjInit_0e_76a9 ; x, y, object (bank $0E list)
+	dw $1ce6, $0105, ObjInit_BlackDrum_29 ; x, y, object (bank $0E list)
 	db $b8, $b0
-	dw $1cea, $00cc, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $1cea, $00cc, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $b9, $b0
-	dw $1d6f, $00d0, ObjInit_0e_79c3 ; x, y, object (bank $0E list)
+	dw $1d6f, $00d0, ObjInit_SetBrightness_5 ; x, y, object (bank $0E list)
 	db $ba, $b0
-	dw $1dcd, $0104, ObjInit_0e_76a9 ; x, y, object (bank $0E list)
+	dw $1dcd, $0104, ObjInit_BlackDrum_29 ; x, y, object (bank $0E list)
 	db $bb, $b0
-	dw $1e2f, $0088, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $1e2f, $0088, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $bc, $b0
-	dw $1e6c, $00c7, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $1e6c, $00c7, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $bd, $b0
-	dw $1eda, $00c8, ObjInit_0e_76bd ; x, y, object (bank $0E list)
+	dw $1eda, $00c8, ObjInit_BlackDrum_31 ; x, y, object (bank $0E list)
 	db $be, $b0
-	dw $1f02, $0093, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $1f02, $0093, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $bf, $b0
-	dw $1fbe, $00c8, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $1fbe, $00c8, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $c0, $b0
-	dw $1fef, $0090, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $1fef, $0090, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $c1, $b0
-	dw $2081, $00c8, ObjInit_0e_76bd ; x, y, object (bank $0E list)
+	dw $2081, $00c8, ObjInit_BlackDrum_31 ; x, y, object (bank $0E list)
 	db $c2, $b0
-	dw $20bf, $00a5, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $20bf, $00a5, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $c3, $b0
-	dw $21ac, $0080, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $21ac, $0080, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $c4, $b0
-	dw $21d2, $00c9, ObjInit_0e_76bd ; x, y, object (bank $0E list)
+	dw $21d2, $00c9, ObjInit_BlackDrum_31 ; x, y, object (bank $0E list)
 	db $c5, $b0
-	dw $2243, $00ce, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $2243, $00ce, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $c6, $b0
-	dw $2279, $0080, ObjInit_0e_79bb ; x, y, object (bank $0E list)
+	dw $2279, $0080, ObjInit_SetBrightness_4 ; x, y, object (bank $0E list)
 	db $c7, $b0
-	dw $229b, $00e8, ObjInit_0e_75c7 ; x, y, object (bank $0E list)
+	dw $229b, $00e8, ObjInit_BlackDrum_11 ; x, y, object (bank $0E list)
 	db $c8, $b0
-	dw $22da, $00e8, ObjInit_0e_75c7 ; x, y, object (bank $0E list)
+	dw $22da, $00e8, ObjInit_BlackDrum_11 ; x, y, object (bank $0E list)
 	db $c9, $b0
-	dw $231a, $00e8, ObjInit_0e_75c7 ; x, y, object (bank $0E list)
+	dw $231a, $00e8, ObjInit_BlackDrum_11 ; x, y, object (bank $0E list)
 	db $ca, $b0
-	dw $2355, $0081, ObjInit_0e_79b3 ; x, y, object (bank $0E list)
+	dw $2355, $0081, ObjInit_SetBrightness_3 ; x, y, object (bank $0E list)
 	db $cb, $b0
-	dw $2359, $00e8, ObjInit_0e_75c7 ; x, y, object (bank $0E list)
+	dw $2359, $00e8, ObjInit_BlackDrum_11 ; x, y, object (bank $0E list)
 	db $cc, $b0
-	dw $24a2, $00b4, ObjInit_0e_79ab ; x, y, object (bank $0E list)
+	dw $24a2, $00b4, ObjInit_SetBrightness_2 ; x, y, object (bank $0E list)
 	db $cd, $b0
-	dw $24a8, $00f9, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $24a8, $00f9, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $ce, $b0
-	dw $2550, $00f6, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $2550, $00f6, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_59c2::
+LevelObjects_LoopyLights::
 	db $01, $80
-	dw $00e0, $0188, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $00e0, $0188, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $02, $80
-	dw $0220, $0140, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0220, $0140, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0220, $01b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0220, $01b8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $04, $80
-	dw $0608, $0150, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0608, $0150, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $05, $80
-	dw $076c, $0120, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $076c, $0120, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $06, $80
-	dw $088c, $0140, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $088c, $0140, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $07, $80
-	dw $08cc, $0160, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $08cc, $0160, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $08, $80
-	dw $090c, $0180, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $090c, $0180, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $09, $80
-	dw $094c, $0160, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $094c, $0160, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0a, $80
-	dw $098c, $0140, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $098c, $0140, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0bc8, $0188, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0bc8, $0188, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0bd8, $0188, LevelObjBlock_03_4280 ; x, y, block in bank $03
+	dw $0bd8, $0188, LevelObjBlock_TrickTrackTrek_Area2_1 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1270, $0168, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1270, $0168, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1538, $0188, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1538, $0188, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1580, $0158, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1580, $0158, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $10, $80
-	dw $1600, $0158, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1600, $0158, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $11, $80
-	dw $1648, $0188, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1648, $0188, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $12, $80
-	dw $1830, $0168, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $1830, $0168, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $13, $80
-	dw $1a00, $0110, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1a00, $0110, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $14, $80
-	dw $1f90, $0168, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1f90, $0168, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $15, $80
-	dw $2048, $0138, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $2048, $0138, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $16, $80
-	dw $20f0, $0108, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $20f0, $0108, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $17, $80
-	dw $2170, $00d8, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $2170, $00d8, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $18, $80
-	dw $2210, $00a8, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $2210, $00a8, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $19, $80
-	dw $22e8, $0098, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $22e8, $0098, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $1a, $80
-	dw $23a8, $00e8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $23a8, $00e8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0054, $0170, ObjInit_0e_6845 ; x, y, object (bank $0E list)
+	dw $0054, $0170, ObjInit_OnOffBarrel_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $00d4, $01a6, ObjInit_0e_4dae ; x, y, object (bank $0E list)
+	dw $00d4, $01a6, ObjInit_Klaptrap_21 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0173, $0152, ObjInit_0e_683e ; x, y, object (bank $0E list)
+	dw $0173, $0152, ObjInit_OnOffBarrel_2 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0204, $01b8, ObjInit_0e_6cc4 ; x, y, object (bank $0E list)
+	dw $0204, $01b8, ObjInit_Entrance_31 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0274, $0150, ObjInit_0e_6853 ; x, y, object (bank $0E list)
+	dw $0274, $0150, ObjInit_OnOffBarrel_5 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0346, $0167, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0346, $0167, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $036a, $016b, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $036a, $016b, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0422, $0144, ObjInit_0e_6845 ; x, y, object (bank $0E list)
+	dw $0422, $0144, ObjInit_OnOffBarrel_3 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $0464, $0179, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0464, $0179, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $04b9, $0180, ObjInit_0e_739f ; x, y, object (bank $0E list)
+	dw $04b9, $0180, ObjInit_Elevator_23 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0555, $013b, ObjInit_0e_6853 ; x, y, object (bank $0E list)
+	dw $0555, $013b, ObjInit_OnOffBarrel_5 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0561, $0177, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0561, $0177, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $05d6, $0171, ObjInit_0e_73ac ; x, y, object (bank $0E list)
+	dw $05d6, $0171, ObjInit_Elevator_24 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0660, $014c, ObjInit_0e_73c6 ; x, y, object (bank $0E list)
+	dw $0660, $014c, ObjInit_Elevator_26 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $06d4, $00e8, ObjInit_0e_6845 ; x, y, object (bank $0E list)
+	dw $06d4, $00e8, ObjInit_OnOffBarrel_3 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $0705, $0123, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0705, $0123, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $0750, $0158, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $0750, $0158, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $07f0, $0167, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $07f0, $0167, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $07f4, $00f8, ObjInit_0e_685a ; x, y, object (bank $0E list)
+	dw $07f4, $00f8, ObjInit_OnOffBarrel_6 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0830, $0167, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0830, $0167, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0a14, $0102, ObjInit_0e_6845 ; x, y, object (bank $0E list)
+	dw $0a14, $0102, ObjInit_OnOffBarrel_3 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0abd, $0177, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0abd, $0177, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0aff, $0177, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0aff, $0177, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0b74, $0130, ObjInit_0e_6861 ; x, y, object (bank $0E list)
+	dw $0b74, $0130, ObjInit_OnOffBarrel_7 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0cd7, $0188, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0cd7, $0188, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0d11, $0186, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0d11, $0186, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0d9e, $0167, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0d9e, $0167, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0e3e, $0166, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $0e3e, $0166, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0ed4, $0110, ObjInit_0e_686f ; x, y, object (bank $0E list)
+	dw $0ed4, $0110, ObjInit_OnOffBarrel_9 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0fdf, $010b, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0fdf, $010b, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $1054, $0101, ObjInit_0e_6853 ; x, y, object (bank $0E list)
+	dw $1054, $0101, ObjInit_OnOffBarrel_5 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $10d1, $01a5, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $10d1, $01a5, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $1100, $0186, ObjInit_0e_49c1 ; x, y, object (bank $0E list)
+	dw $1100, $0186, ObjInit_Kritter_Jump_3 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $114c, $017b, ObjInit_0e_6845 ; x, y, object (bank $0E list)
+	dw $114c, $017b, ObjInit_OnOffBarrel_3 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $119d, $0156, ObjInit_0e_6762 ; x, y, object (bank $0E list)
+	dw $119d, $0156, ObjInit_Tire_2 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $11e1, $0155, ObjInit_0e_49d9 ; x, y, object (bank $0E list)
+	dw $11e1, $0155, ObjInit_Kritter_Jump_5 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $1253, $013b, ObjInit_0e_6853 ; x, y, object (bank $0E list)
+	dw $1253, $013b, ObjInit_OnOffBarrel_5 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $12cb, $012d, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $12cb, $012d, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $12e5, $018f, ObjInit_0e_73b9 ; x, y, object (bank $0E list)
+	dw $12e5, $018f, ObjInit_Elevator_25 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $13b2, $0186, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $13b2, $0186, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $13e5, $01c6, ObjInit_0e_4dc1 ; x, y, object (bank $0E list)
+	dw $13e5, $01c6, ObjInit_Klaptrap_23 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $1417, $01c3, ObjInit_0e_4dce ; x, y, object (bank $0E list)
+	dw $1417, $01c3, ObjInit_Klaptrap_24 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $1435, $0164, ObjInit_0e_685a ; x, y, object (bank $0E list)
+	dw $1435, $0164, ObjInit_OnOffBarrel_6 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $15b2, $0117, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $15b2, $0117, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $15b4, $00d7, ObjInit_0e_4f11 ; x, y, object (bank $0E list)
+	dw $15b4, $00d7, ObjInit_Necky_ThrowNuts_2 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $15b4, $00f0, ObjInit_0e_686f ; x, y, object (bank $0E list)
+	dw $15b4, $00f0, ObjInit_OnOffBarrel_9 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $1734, $0150, ObjInit_0e_6845 ; x, y, object (bank $0E list)
+	dw $1734, $0150, ObjInit_OnOffBarrel_3 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $176f, $01a0, ObjInit_0e_6cd0 ; x, y, object (bank $0E list)
+	dw $176f, $01a0, ObjInit_BreakableWall_28 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $17a2, $0166, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $17a2, $0166, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $17c7, $019e, ObjInit_0e_4dc1 ; x, y, object (bank $0E list)
+	dw $17c7, $019e, ObjInit_Klaptrap_23 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $17fc, $019c, ObjInit_0e_4dce ; x, y, object (bank $0E list)
+	dw $17fc, $019c, ObjInit_Klaptrap_24 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $1814, $0130, ObjInit_0e_683e ; x, y, object (bank $0E list)
+	dw $1814, $0130, ObjInit_OnOffBarrel_2 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $1872, $0193, ObjInit_0e_735e ; x, y, object (bank $0E list)
+	dw $1872, $0193, ObjInit_Elevator_18 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $18b7, $018f, ObjInit_0e_736b ; x, y, object (bank $0E list)
+	dw $18b7, $018f, ObjInit_Elevator_19 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $1924, $0129, ObjInit_0e_684c ; x, y, object (bank $0E list)
+	dw $1924, $0129, ObjInit_OnOffBarrel_4 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $194e, $0164, ObjInit_0e_49c1 ; x, y, object (bank $0E list)
+	dw $194e, $0164, ObjInit_Kritter_Jump_3 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $1990, $0158, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1990, $0158, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $19d0, $0158, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $19d0, $0158, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $1a10, $0158, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1a10, $0158, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $1a50, $0158, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1a50, $0158, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $1af3, $011a, ObjInit_0e_684c ; x, y, object (bank $0E list)
+	dw $1af3, $011a, ObjInit_OnOffBarrel_4 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $1b27, $016e, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1b27, $016e, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $1b92, $0189, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1b92, $0189, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $1bf4, $0142, ObjInit_0e_685a ; x, y, object (bank $0E list)
+	dw $1bf4, $0142, ObjInit_OnOffBarrel_6 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $1bf7, $0168, ObjInit_0e_50ab ; x, y, object (bank $0E list)
+	dw $1bf7, $0168, ObjInit_Zinger_Patrol_11 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $1c7e, $0169, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1c7e, $0169, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $1cbe, $0146, ObjInit_0e_5084 ; x, y, object (bank $0E list)
+	dw $1cbe, $0146, ObjInit_Zinger_Patrol_8 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $1d04, $015f, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1d04, $015f, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $1d98, $014c, ObjInit_0e_509e ; x, y, object (bank $0E list)
+	dw $1d98, $014c, ObjInit_Zinger_Patrol_10 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $1da8, $014e, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $1da8, $014e, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $1e00, $017b, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1e00, $017b, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $1e1c, $015a, ObjInit_0e_51ad ; x, y, object (bank $0E list)
+	dw $1e1c, $015a, ObjInit_Zinger_Patrol_21 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $1eb4, $0130, ObjInit_0e_6868 ; x, y, object (bank $0E list)
+	dw $1eb4, $0130, ObjInit_OnOffBarrel_8 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $1f16, $018b, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $1f16, $018b, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $201e, $0127, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $201e, $0127, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $2142, $00c6, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $2142, $00c6, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $2266, $007c, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $2266, $007c, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $2274, $0051, ObjInit_0e_683e ; x, y, object (bank $0E list)
+	dw $2274, $0051, ObjInit_OnOffBarrel_2 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $231d, $00f2, ObjInit_0e_683e ; x, y, object (bank $0E list)
+	dw $231d, $00f2, ObjInit_OnOffBarrel_2 ; x, y, object (bank $0E list)
 	db $af, $b0
-	dw $238b, $011c, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $238b, $011c, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $b0, $b0
-	dw $23c2, $0116, ObjInit_0e_4db4 ; x, y, object (bank $0E list)
+	dw $23c2, $0116, ObjInit_Klaptrap_22 ; x, y, object (bank $0E list)
 	db $b1, $b0
-	dw $23cf, $0118, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $23cf, $0118, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_5d23::
+LevelObjects_MistyMine_Area1::
 	db $01, $80
-	dw $00a0, $00b0, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $00a0, $00b0, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $00d0, $0080, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $00d0, $0080, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $00d8, $00b8, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $00d8, $00b8, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $04, $80
-	dw $0128, $00e0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0128, $00e0, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $05, $80
-	dw $0140, $00b8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0140, $00b8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $06, $80
-	dw $0148, $0080, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $0148, $0080, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $07, $80
-	dw $0190, $0080, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0190, $0080, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $0198, $00b8, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $0198, $00b8, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $09, $80
-	dw $01e0, $0078, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $01e0, $0078, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0208, $00b8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0208, $00b8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0210, $0080, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $0210, $0080, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0268, $00a8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0268, $00a8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0288, $0080, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0288, $0080, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $0e, $80
-	dw $0290, $00b8, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $0290, $00b8, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $0f, $80
-	dw $02e0, $00e0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $02e0, $00e0, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $10, $80
-	dw $02f8, $00b8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $02f8, $00b8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $11, $80
-	dw $0300, $0080, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $0300, $0080, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $12, $80
-	dw $0348, $0080, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0348, $0080, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $13, $80
-	dw $0350, $00b8, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $0350, $00b8, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $14, $80
-	dw $03a0, $0078, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $03a0, $0078, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $15, $80
-	dw $03c8, $00b8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $03c8, $00b8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $16, $80
-	dw $03d0, $0080, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $03d0, $0080, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $17, $80
-	dw $0420, $00a8, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0420, $00a8, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0073, $0028, ObjInit_0e_7070 ; x, y, object (bank $0E list)
+	dw $0073, $0028, ObjInit_Rope_31 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $010e, $005e, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $010e, $005e, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $01cf, $00c5, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $01cf, $00c5, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $02c2, $005f, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $02c2, $005f, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $038a, $00c4, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $038a, $00c4, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0461, $00c3, ObjInit_0e_48af ; x, y, object (bank $0E list)
+	dw $0461, $00c3, ObjInit_AnimalCrate_3 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $048c, $00c3, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $048c, $00c3, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_5e14::
+LevelObjects_LoopyLights_Area1::
 	db $01, $80
-	dw $00c0, $00b8, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $00c0, $00b8, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $02, $80
-	dw $00e8, $00b8, LevelObjBlock_03_4da0 ; x, y, block in bank $03
+	dw $00e8, $00b8, LevelObjBlock_BarrelCannonCanyon_Area2 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0034, $0085, ObjInit_0e_6861 ; x, y, object (bank $0E list)
+	dw $0034, $0085, ObjInit_OnOffBarrel_7 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0071, $00a0, ObjInit_0e_5c12 ; x, y, object (bank $0E list)
+	dw $0071, $00a0, ObjInit_BarrelCannon_62 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $00d1, $00a0, ObjInit_0e_5c2f ; x, y, object (bank $0E list)
+	dw $00d1, $00a0, ObjInit_BarrelCannon_63 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0131, $00a0, ObjInit_0e_5c4c ; x, y, object (bank $0E list)
+	dw $0131, $00a0, ObjInit_BarrelCannon_64 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0161, $00a0, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0161, $00a0, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0191, $00a0, ObjInit_0e_5c69 ; x, y, object (bank $0E list)
+	dw $0191, $00a0, ObjInit_BarrelCannon_65 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $01c1, $00a0, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $01c1, $00a0, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $01f1, $00a0, ObjInit_0e_5c86 ; x, y, object (bank $0E list)
+	dw $01f1, $00a0, ObjInit_BarrelCannon_66 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $0221, $00a0, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $0221, $00a0, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0251, $00a0, ObjInit_0e_5ca3 ; x, y, object (bank $0E list)
+	dw $0251, $00a0, ObjInit_BarrelCannon_67 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $02ad, $00c1, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $02ad, $00c1, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_5e7d::
+LevelObjects_TrickTrackTrek::
 	db $01, $80
-	dw $01b8, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $01b8, $0110, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $0370, $0144, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $0370, $0144, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $03f0, $0164, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $03f0, $0164, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $04c8, $0158, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $04c8, $0158, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $05, $80
-	dw $0928, $0078, LevelObjBlock_03_4230 ; x, y, block in bank $03
+	dw $0928, $0078, LevelObjBlock_TrickTrackTrek_2 ; x, y, block in bank $03
 	db $06, $80
-	dw $12a8, $0038, LevelObjBlock_03_4230 ; x, y, block in bank $03
+	dw $12a8, $0038, LevelObjBlock_TrickTrackTrek_2 ; x, y, block in bank $03
 	db $07, $80
-	dw $1760, $00f0, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $1760, $00f0, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $1ad0, $0070, LevelObjBlock_03_4230 ; x, y, block in bank $03
+	dw $1ad0, $0070, LevelObjBlock_TrickTrackTrek_2 ; x, y, block in bank $03
 	db $09, $80
-	dw $1c20, $00f0, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $1c20, $00f0, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $0a, $80
-	dw $1d38, $0100, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $1d38, $0100, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $0b, $80
-	dw $24c8, $00f0, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $24c8, $00f0, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0c, $80
-	dw $2708, $00f0, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $2708, $00f0, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0d, $80
-	dw $2848, $00f0, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $2848, $00f0, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0e, $80
-	dw $2b80, $00d8, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $2b80, $00d8, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0f, $80
-	dw $2c88, $00b8, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $2c88, $00b8, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $60, $b0
-	dw $005b, $00d1, ObjInit_0e_4f1f ; x, y, object (bank $0E list)
+	dw $005b, $00d1, ObjInit_Necky_ThrowNuts_4 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $019d, $0139, ObjInit_0e_7954 ; x, y, object (bank $0E list)
+	dw $019d, $0139, ObjInit_TrackPlatform_Wait_2 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $028c, $00fe, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $028c, $00fe, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $028e, $012c, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $028e, $012c, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $04bf, $016a, ObjInit_0e_4e90 ; x, y, object (bank $0E list)
+	dw $04bf, $016a, ObjInit_Necky_FlyPatrol_7 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0663, $00df, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0663, $00df, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0665, $011a, ObjInit_0e_4e69 ; x, y, object (bank $0E list)
+	dw $0665, $011a, ObjInit_Necky_FlyPatrol_4 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $07ba, $00d1, ObjInit_0e_4f18 ; x, y, object (bank $0E list)
+	dw $07ba, $00d1, ObjInit_Necky_ThrowNuts_3 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $07ba, $00fb, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $07ba, $00fb, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $088b, $00fa, ObjInit_0e_4e90 ; x, y, object (bank $0E list)
+	dw $088b, $00fa, ObjInit_Necky_FlyPatrol_7 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $09a7, $0147, ObjInit_0e_4e90 ; x, y, object (bank $0E list)
+	dw $09a7, $0147, ObjInit_Necky_FlyPatrol_7 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $09a9, $00d8, ObjInit_0e_4e90 ; x, y, object (bank $0E list)
+	dw $09a9, $00d8, ObjInit_Necky_FlyPatrol_7 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $0b53, $016f, ObjInit_0e_4e3d ; x, y, object (bank $0E list)
+	dw $0b53, $016f, ObjInit_Necky_Fly_4 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0b9f, $009f, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0b9f, $009f, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0ce9, $00b5, ObjInit_0e_4e3d ; x, y, object (bank $0E list)
+	dw $0ce9, $00b5, ObjInit_Necky_Fly_4 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $0d06, $00ce, ObjInit_0e_4e3d ; x, y, object (bank $0E list)
+	dw $0d06, $00ce, ObjInit_Necky_Fly_4 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $0f1a, $00f2, ObjInit_0e_4e3d ; x, y, object (bank $0E list)
+	dw $0f1a, $00f2, ObjInit_Necky_Fly_4 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0ffe, $0115, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $0ffe, $0115, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $1108, $00f5, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $1108, $00f5, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $1113, $00ba, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $1113, $00ba, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $1133, $00d8, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $1133, $00d8, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $12d9, $007e, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $12d9, $007e, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $12d9, $00f7, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $12d9, $00f7, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $1420, $0177, ObjInit_0e_6ce1 ; x, y, object (bank $0E list)
+	dw $1420, $0177, ObjInit_Entrance_32 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $14b8, $0101, ObjInit_0e_53a6 ; x, y, object (bank $0E list)
+	dw $14b8, $0101, ObjInit_Gnawty_Red_35 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $14e8, $0119, ObjInit_0e_795b ; x, y, object (bank $0E list)
+	dw $14e8, $0119, ObjInit_TrackPlatform_Wait_3 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $14f4, $00c8, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $14f4, $00c8, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $158d, $00b5, ObjInit_0e_532b ; x, y, object (bank $0E list)
+	dw $158d, $00b5, ObjInit_Gnawty_Red_25 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $16bb, $010a, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $16bb, $010a, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $16bd, $00e0, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $16bd, $00e0, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $1769, $0097, ObjInit_0e_532b ; x, y, object (bank $0E list)
+	dw $1769, $0097, ObjInit_Gnawty_Red_25 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $180b, $00a7, ObjInit_0e_532b ; x, y, object (bank $0E list)
+	dw $180b, $00a7, ObjInit_Gnawty_Red_25 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $1823, $00b8, ObjInit_0e_671e ; x, y, object (bank $0E list)
+	dw $1823, $00b8, ObjInit_StickerPad_3 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $1823, $00e7, ObjInit_0e_670c ; x, y, object (bank $0E list)
+	dw $1823, $00e7, ObjInit_StickerBananaBunch_3 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $1a3a, $0098, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $1a3a, $0098, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $1ad3, $0088, ObjInit_0e_5186 ; x, y, object (bank $0E list)
+	dw $1ad3, $0088, ObjInit_Zinger_Patrol_18 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $1c36, $00af, ObjInit_0e_5345 ; x, y, object (bank $0E list)
+	dw $1c36, $00af, ObjInit_Gnawty_Red_27 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $1cae, $00ae, ObjInit_0e_6ced ; x, y, object (bank $0E list)
+	dw $1cae, $00ae, ObjInit_Entrance_33 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $1ebb, $00aa, ObjInit_0e_4c12 ; x, y, object (bank $0E list)
+	dw $1ebb, $00aa, ObjInit_Gnawty_Red_17 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $1ee2, $00e7, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $1ee2, $00e7, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $1fc0, $0158, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $1fc0, $0158, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $219b, $00ba, ObjInit_0e_4b9a ; x, y, object (bank $0E list)
+	dw $219b, $00ba, ObjInit_Gnawty_Red_7 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $235c, $0071, ObjInit_0e_4f18 ; x, y, object (bank $0E list)
+	dw $235c, $0071, ObjInit_Necky_ThrowNuts_3 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $235c, $0099, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $235c, $0099, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $24db, $00af, ObjInit_0e_4f18 ; x, y, object (bank $0E list)
+	dw $24db, $00af, ObjInit_Necky_ThrowNuts_3 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $25d3, $012d, ObjInit_0e_4f88 ; x, y, object (bank $0E list)
+	dw $25d3, $012d, ObjInit_Zinger_Move_10 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $25d4, $0125, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $25d4, $0125, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $271d, $00b0, ObjInit_0e_4f18 ; x, y, object (bank $0E list)
+	dw $271d, $00b0, ObjInit_Necky_ThrowNuts_3 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $285a, $00b0, ObjInit_0e_529e ; x, y, object (bank $0E list)
+	dw $285a, $00b0, ObjInit_MankyKong_3 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $2952, $0115, ObjInit_0e_51ba ; x, y, object (bank $0E list)
+	dw $2952, $0115, ObjInit_Zinger_Patrol_22 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $2d7f, $00dc, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $2d7f, $00dc, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $2e96, $0128, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $2e96, $0128, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $2eb5, $0174, ObjInit_0e_6cf9 ; x, y, object (bank $0E list)
+	dw $2eb5, $0174, ObjInit_Entrance_34 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $2ee9, $00f9, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $2ee9, $00f9, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $2f0c, $015c, ObjInit_0e_491b ; x, y, object (bank $0E list)
+	dw $2f0c, $015c, ObjInit_AnimalToken_13 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $2f25, $00f9, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $2f25, $00f9, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_60b6::
+LevelObjects_PlatformPerils::
 	db $01, $80
-	dw $0170, $01c0, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0170, $01c0, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $02, $80
-	dw $01c0, $01c0, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $01c0, $01c0, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $03, $80
-	dw $0348, $0138, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0348, $0138, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $0598, $0100, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0598, $0100, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $05, $80
-	dw $0598, $0148, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $0598, $0148, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $06, $80
-	dw $07b0, $0158, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $07b0, $0158, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $07, $80
-	dw $09e0, $013c, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $09e0, $013c, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $08, $80
-	dw $0a48, $013c, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0a48, $013c, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $09, $80
-	dw $0bd0, $0138, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0bd0, $0138, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0db0, $0138, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0db0, $0138, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0e00, $0150, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0e00, $0150, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0c, $80
-	dw $0e58, $0170, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0e58, $0170, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0d, $80
-	dw $0ea8, $0190, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0ea8, $0190, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1220, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1220, $00d8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1220, $0120, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1220, $0120, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $10, $80
-	dw $1330, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1330, $0110, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $11, $80
-	dw $1478, $0110, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1478, $0110, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $12, $80
-	dw $1670, $0120, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1670, $0120, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $13, $80
-	dw $16c0, $0120, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $16c0, $0120, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $14, $80
-	dw $1a18, $0100, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1a18, $0100, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $15, $80
-	dw $1bc0, $0150, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1bc0, $0150, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $16, $80
-	dw $1c10, $0150, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1c10, $0150, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $17, $80
-	dw $1d70, $0034, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $1d70, $0034, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $60, $b0
-	dw $002b, $0186, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $002b, $0186, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0044, $01b7, ObjInit_0e_6d05 ; x, y, object (bank $0E list)
+	dw $0044, $01b7, ObjInit_Entrance_35 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $00bc, $0195, ObjInit_0e_4c2c ; x, y, object (bank $0E list)
+	dw $00bc, $0195, ObjInit_Klump_3 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0100, $01da, ObjInit_0e_7406 ; x, y, object (bank $0E list)
+	dw $0100, $01da, ObjInit_ArrowPlatform_Wait_3 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0111, $01ae, ObjInit_0e_743a ; x, y, object (bank $0E list)
+	dw $0111, $01ae, ObjInit_ArrowPlatform_Wait_7 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0266, $0147, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0266, $0147, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $027f, $0145, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $027f, $0145, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0298, $0143, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $0298, $0143, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $02ff, $0136, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $02ff, $0136, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0331, $016b, ObjInit_0e_7454 ; x, y, object (bank $0E list)
+	dw $0331, $016b, ObjInit_ArrowPlatform_Wait_9 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $03e0, $0156, ObjInit_0e_7413 ; x, y, object (bank $0E list)
+	dw $03e0, $0156, ObjInit_ArrowPlatform_Wait_4 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0498, $0121, ObjInit_0e_4bf8 ; x, y, object (bank $0E list)
+	dw $0498, $0121, ObjInit_Gnawty_Red_15 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $04d1, $0141, ObjInit_0e_4bf8 ; x, y, object (bank $0E list)
+	dw $04d1, $0141, ObjInit_Gnawty_Red_15 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $057c, $0118, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $057c, $0118, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $057c, $015e, ObjInit_0e_7413 ; x, y, object (bank $0E list)
+	dw $057c, $015e, ObjInit_ArrowPlatform_Wait_4 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $05df, $0126, ObjInit_0e_74b9 ; x, y, object (bank $0E list)
+	dw $05df, $0126, ObjInit_ArrowPlatform_Wait_17 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $0605, $0179, ObjInit_0e_50ec ; x, y, object (bank $0E list)
+	dw $0605, $0179, ObjInit_Zinger_Patrol_16 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0620, $018e, ObjInit_0e_7488 ; x, y, object (bank $0E list)
+	dw $0620, $018e, ObjInit_ArrowPlatform_Wait_13 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0754, $016a, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $0754, $016a, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $07ff, $0175, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $07ff, $0175, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0889, $0142, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0889, $0142, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $08d1, $0145, ObjInit_0e_74b9 ; x, y, object (bank $0E list)
+	dw $08d1, $0145, ObjInit_ArrowPlatform_Wait_17 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $09c3, $014a, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $09c3, $014a, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $09f3, $0170, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $09f3, $0170, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0a2c, $0152, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $0a2c, $0152, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0a5a, $0176, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $0a5a, $0176, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0b76, $0132, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0b76, $0132, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0bbd, $0131, ObjInit_0e_74b9 ; x, y, object (bank $0E list)
+	dw $0bbd, $0131, ObjInit_ArrowPlatform_Wait_17 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0bf6, $0131, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0bf6, $0131, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0c32, $0122, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $0c32, $0122, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0c90, $0182, ObjInit_0e_491b ; x, y, object (bank $0E list)
+	dw $0c90, $0182, ObjInit_AnimalToken_13 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0c91, $0198, ObjInit_0e_7413 ; x, y, object (bank $0E list)
+	dw $0c91, $0198, ObjInit_ArrowPlatform_Wait_4 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0cb1, $00dd, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0cb1, $00dd, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0cf8, $00e5, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $0cf8, $00e5, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0d08, $01ad, ObjInit_0e_7413 ; x, y, object (bank $0E list)
+	dw $0d08, $01ad, ObjInit_ArrowPlatform_Wait_4 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $0d6d, $0154, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $0d6d, $0154, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0dbe, $0170, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $0dbe, $0170, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0dbe, $0171, ObjInit_0e_4f64 ; x, y, object (bank $0E list)
+	dw $0dbe, $0171, ObjInit_Zinger_Move_7 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0e18, $018c, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $0e18, $018c, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0e6f, $01a8, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $0e6f, $01a8, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0e70, $01a9, ObjInit_0e_4f64 ; x, y, object (bank $0E list)
+	dw $0e70, $01a9, ObjInit_Zinger_Move_7 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0f1b, $01c1, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $0f1b, $01c1, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $1027, $017b, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $1027, $017b, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $111c, $010c, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $111c, $010c, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $11c3, $00a8, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $11c3, $00a8, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $1201, $00a6, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $1201, $00a6, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $1229, $013d, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $1229, $013d, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $1296, $00fc, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $1296, $00fc, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1313, $013f, ObjInit_0e_5386 ; x, y, object (bank $0E list)
+	dw $1313, $013f, ObjInit_Gnawty_Red_32 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $1313, $0142, ObjInit_0e_7495 ; x, y, object (bank $0E list)
+	dw $1313, $0142, ObjInit_ArrowPlatform_Wait_14 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $137c, $011b, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $137c, $011b, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $137c, $011e, ObjInit_0e_74d3 ; x, y, object (bank $0E list)
+	dw $137c, $011e, ObjInit_ArrowPlatform_Wait_19 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $1414, $0120, ObjInit_0e_52ac ; x, y, object (bank $0E list)
+	dw $1414, $0120, ObjInit_Army_3 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $145c, $0140, ObjInit_0e_7461 ; x, y, object (bank $0E list)
+	dw $145c, $0140, ObjInit_ArrowPlatform_Wait_10 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $14be, $00f6, ObjInit_0e_4f64 ; x, y, object (bank $0E list)
+	dw $14be, $00f6, ObjInit_Zinger_Move_7 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $14bf, $00f7, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $14bf, $00f7, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $151b, $012e, ObjInit_0e_7461 ; x, y, object (bank $0E list)
+	dw $151b, $012e, ObjInit_ArrowPlatform_Wait_10 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $15a8, $0115, ObjInit_0e_5386 ; x, y, object (bank $0E list)
+	dw $15a8, $0115, ObjInit_Gnawty_Red_32 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $15a8, $011a, ObjInit_0e_7420 ; x, y, object (bank $0E list)
+	dw $15a8, $011a, ObjInit_ArrowPlatform_Wait_5 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $15fd, $008b, ObjInit_0e_5386 ; x, y, object (bank $0E list)
+	dw $15fd, $008b, ObjInit_Gnawty_Red_32 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $15fd, $0090, ObjInit_0e_74c6 ; x, y, object (bank $0E list)
+	dw $15fd, $0090, ObjInit_ArrowPlatform_Wait_18 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $163d, $0111, ObjInit_0e_747b ; x, y, object (bank $0E list)
+	dw $163d, $0111, ObjInit_ArrowPlatform_Wait_12 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $16ef, $0117, ObjInit_0e_4ba4 ; x, y, object (bank $0E list)
+	dw $16ef, $0117, ObjInit_Gnawty_Red_8 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $16ef, $011e, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $16ef, $011e, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $17cd, $00ba, ObjInit_0e_4bf8 ; x, y, object (bank $0E list)
+	dw $17cd, $00ba, ObjInit_Gnawty_Red_15 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $17d3, $00bb, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $17d3, $00bb, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $1826, $005f, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1826, $005f, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $1878, $002a, ObjInit_0e_74c6 ; x, y, object (bank $0E list)
+	dw $1878, $002a, ObjInit_ArrowPlatform_Wait_18 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $18b3, $0076, ObjInit_0e_5386 ; x, y, object (bank $0E list)
+	dw $18b3, $0076, ObjInit_Gnawty_Red_32 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $18b4, $007b, ObjInit_0e_74c6 ; x, y, object (bank $0E list)
+	dw $18b4, $007b, ObjInit_ArrowPlatform_Wait_18 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $18fd, $00bf, ObjInit_0e_5386 ; x, y, object (bank $0E list)
+	dw $18fd, $00bf, ObjInit_Gnawty_Red_32 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $18ff, $00c9, ObjInit_0e_74c6 ; x, y, object (bank $0E list)
+	dw $18ff, $00c9, ObjInit_ArrowPlatform_Wait_18 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $1949, $0108, ObjInit_0e_5386 ; x, y, object (bank $0E list)
+	dw $1949, $0108, ObjInit_Gnawty_Red_32 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $1949, $0112, ObjInit_0e_74c6 ; x, y, object (bank $0E list)
+	dw $1949, $0112, ObjInit_ArrowPlatform_Wait_18 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $19c2, $0139, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $19c2, $0139, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $1a1c, $011b, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $1a1c, $011b, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $1a75, $0127, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $1a75, $0127, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $1ae7, $0122, ObjInit_0e_4c4e ; x, y, object (bank $0E list)
+	dw $1ae7, $0122, ObjInit_Klump_5 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $1ae8, $0127, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $1ae8, $0127, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $af, $b0
-	dw $1b3c, $0125, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $1b3c, $0125, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $b0, $b0
-	dw $1b72, $010d, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $1b72, $010d, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $b1, $b0
-	dw $1b94, $013f, ObjInit_0e_746e ; x, y, object (bank $0E list)
+	dw $1b94, $013f, ObjInit_ArrowPlatform_Wait_11 ; x, y, object (bank $0E list)
 	db $b2, $b0
-	dw $1c2f, $0143, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $1c2f, $0143, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $b3, $b0
-	dw $1c2f, $0146, ObjInit_0e_746e ; x, y, object (bank $0E list)
+	dw $1c2f, $0146, ObjInit_ArrowPlatform_Wait_11 ; x, y, object (bank $0E list)
 	db $b4, $b0
-	dw $1cdc, $0149, ObjInit_0e_4c4e ; x, y, object (bank $0E list)
+	dw $1cdc, $0149, ObjInit_Klump_5 ; x, y, object (bank $0E list)
 	db $b5, $b0
-	dw $1cdc, $0150, ObjInit_0e_746e ; x, y, object (bank $0E list)
+	dw $1cdc, $0150, ObjInit_ArrowPlatform_Wait_11 ; x, y, object (bank $0E list)
 	db $b6, $b0
-	dw $1d44, $003b, ObjInit_0e_4c4e ; x, y, object (bank $0E list)
+	dw $1d44, $003b, ObjInit_Klump_5 ; x, y, object (bank $0E list)
 	db $b7, $b0
-	dw $1d44, $0041, ObjInit_0e_743a ; x, y, object (bank $0E list)
+	dw $1d44, $0041, ObjInit_ArrowPlatform_Wait_7 ; x, y, object (bank $0E list)
 	db $b8, $b0
-	dw $1d86, $00ee, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $1d86, $00ee, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $b9, $b0
-	dw $1d86, $00f2, ObjInit_0e_742d ; x, y, object (bank $0E list)
+	dw $1d86, $00f2, ObjInit_ArrowPlatform_Wait_6 ; x, y, object (bank $0E list)
 	db $ba, $b0
-	dw $1d88, $0130, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $1d88, $0130, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $bb, $b0
-	dw $1e13, $003f, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $1e13, $003f, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $bc, $b0
-	dw $1e5c, $013f, ObjInit_0e_7488 ; x, y, object (bank $0E list)
+	dw $1e5c, $013f, ObjInit_ArrowPlatform_Wait_13 ; x, y, object (bank $0E list)
 	db $bd, $b0
-	dw $1f04, $0111, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $1f04, $0111, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $be, $b0
-	dw $1f04, $0116, ObjInit_0e_74b9 ; x, y, object (bank $0E list)
+	dw $1f04, $0116, ObjInit_ArrowPlatform_Wait_17 ; x, y, object (bank $0E list)
 	db $bf, $b0
-	dw $1fc9, $013a, ObjInit_0e_4c4e ; x, y, object (bank $0E list)
+	dw $1fc9, $013a, ObjInit_Klump_5 ; x, y, object (bank $0E list)
 	db $c0, $b0
-	dw $1fc9, $0142, ObjInit_0e_7454 ; x, y, object (bank $0E list)
+	dw $1fc9, $0142, ObjInit_ArrowPlatform_Wait_9 ; x, y, object (bank $0E list)
 	db $c1, $b0
-	dw $1fee, $00cd, ObjInit_0e_74a2 ; x, y, object (bank $0E list)
+	dw $1fee, $00cd, ObjInit_ArrowPlatform_Wait_15 ; x, y, object (bank $0E list)
 	db $c2, $b0
-	dw $20a9, $00e5, ObjInit_0e_7406 ; x, y, object (bank $0E list)
+	dw $20a9, $00e5, ObjInit_ArrowPlatform_Wait_3 ; x, y, object (bank $0E list)
 	db $c3, $b0
-	dw $20ab, $0126, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $20ab, $0126, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $c4, $b0
-	dw $20c4, $0092, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $20c4, $0092, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $c5, $b0
-	dw $215a, $00e4, ObjInit_0e_5386 ; x, y, object (bank $0E list)
+	dw $215a, $00e4, ObjInit_Gnawty_Red_32 ; x, y, object (bank $0E list)
 	db $c6, $b0
-	dw $215a, $00ec, ObjInit_0e_74af ; x, y, object (bank $0E list)
+	dw $215a, $00ec, ObjInit_ArrowPlatform_Wait_16 ; x, y, object (bank $0E list)
 	db $c7, $b0
-	dw $221d, $01b1, ObjInit_0e_6d11 ; x, y, object (bank $0E list)
+	dw $221d, $01b1, ObjInit_Entrance_36 ; x, y, object (bank $0E list)
 	db $c8, $b0
-	dw $2279, $0122, ObjInit_0e_4bf8 ; x, y, object (bank $0E list)
+	dw $2279, $0122, ObjInit_Gnawty_Red_15 ; x, y, object (bank $0E list)
 	db $c9, $b0
-	dw $22c9, $0133, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $22c9, $0133, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $ca, $b0
-	dw $233e, $0137, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $233e, $0137, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_64c7::
+LevelObjects_TankedUpTrouble::
 	db $01, $80
-	dw $02d8, $0168, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $02d8, $0168, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $02, $80
-	dw $0330, $0168, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0330, $0168, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $03, $80
-	dw $052c, $00d8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $052c, $00d8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $04, $80
-	dw $0908, $0118, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $0908, $0118, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $05, $80
-	dw $0cf8, $00e0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0cf8, $00e0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $06, $80
-	dw $1118, $0110, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $1118, $0110, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $07, $80
-	dw $1178, $0110, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $1178, $0110, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $08, $80
-	dw $15d8, $0128, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $15d8, $0128, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $09, $80
-	dw $1998, $0148, LevelObjBlock_03_4230 ; x, y, block in bank $03
+	dw $1998, $0148, LevelObjBlock_TrickTrackTrek_2 ; x, y, block in bank $03
 	db $0a, $80
-	dw $1fe0, $0110, LevelObjBlock_03_4de0 ; x, y, block in bank $03
+	dw $1fe0, $0110, LevelObjBlock_TankedUpTrouble5 ; x, y, block in bank $03
 	db $0b, $80
-	dw $2020, $0110, LevelObjBlock_03_4dd0 ; x, y, block in bank $03
+	dw $2020, $0110, LevelObjBlock_TankedUpTrouble6 ; x, y, block in bank $03
 	db $0c, $80
-	dw $2048, $0110, LevelObjBlock_03_4df0 ; x, y, block in bank $03
+	dw $2048, $0110, LevelObjBlock_TankedUpTrouble7 ; x, y, block in bank $03
 	db $60, $b0
-	dw $00e1, $016e, ObjInit_0e_4e5c ; x, y, object (bank $0E list)
+	dw $00e1, $016e, ObjInit_Necky_FlyPatrol_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $018d, $011e, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $018d, $011e, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0233, $0134, ObjInit_0e_4955 ; x, y, object (bank $0E list)
+	dw $0233, $0134, ObjInit_Kritter_Walk_6 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0260, $015f, ObjInit_0e_7969 ; x, y, object (bank $0E list)
+	dw $0260, $015f, ObjInit_FuelPlatform_Wait_2 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0307, $0150, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $0307, $0150, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $03d4, $018f, ObjInit_0e_6d1d ; x, y, object (bank $0E list)
+	dw $03d4, $018f, ObjInit_Entrance_37 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0430, $00db, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $0430, $00db, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0430, $00f9, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0430, $00f9, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $05e9, $00ff, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $05e9, $00ff, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $06b5, $010e, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $06b5, $010e, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $06b6, $014a, ObjInit_0e_4e9d ; x, y, object (bank $0E list)
+	dw $06b6, $014a, ObjInit_Necky_FlyPatrol_8 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $079f, $0101, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $079f, $0101, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $07a0, $0135, ObjInit_0e_74e0 ; x, y, object (bank $0E list)
+	dw $07a0, $0135, ObjInit_ArrowPlatform_Wait_20 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $08ba, $0101, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $08ba, $0101, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $08ba, $013e, ObjInit_0e_4995 ; x, y, object (bank $0E list)
+	dw $08ba, $013e, ObjInit_Kritter_Walk_10 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $097c, $016d, ObjInit_0e_74e0 ; x, y, object (bank $0E list)
+	dw $097c, $016d, ObjInit_ArrowPlatform_Wait_20 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $09b9, $013f, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $09b9, $013f, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $09ec, $0159, ObjInit_0e_74e0 ; x, y, object (bank $0E list)
+	dw $09ec, $0159, ObjInit_ArrowPlatform_Wait_20 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0a2d, $013f, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0a2d, $013f, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0a59, $0169, ObjInit_0e_4e83 ; x, y, object (bank $0E list)
+	dw $0a59, $0169, ObjInit_Necky_FlyPatrol_6 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0b18, $00ef, ObjInit_0e_4995 ; x, y, object (bank $0E list)
+	dw $0b18, $00ef, ObjInit_Kritter_Walk_10 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0b1c, $00d1, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $0b1c, $00d1, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0b99, $014f, ObjInit_0e_4995 ; x, y, object (bank $0E list)
+	dw $0b99, $014f, ObjInit_Kritter_Walk_10 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0b9c, $0130, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0b9c, $0130, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0c27, $0099, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0c27, $0099, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0c29, $00ac, ObjInit_0e_74e0 ; x, y, object (bank $0E list)
+	dw $0c29, $00ac, ObjInit_ArrowPlatform_Wait_20 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0c8b, $00fb, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0c8b, $00fb, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0d1e, $00d3, ObjInit_0e_667f ; x, y, object (bank $0E list)
+	dw $0d1e, $00d3, ObjInit_FuelBarrel_4 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0d1f, $0121, ObjInit_0e_4eaa ; x, y, object (bank $0E list)
+	dw $0d1f, $0121, ObjInit_Necky_FlyPatrol_9 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0e38, $0140, ObjInit_0e_4995 ; x, y, object (bank $0E list)
+	dw $0e38, $0140, ObjInit_Kritter_Walk_10 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0eb7, $00d0, ObjInit_0e_490d ; x, y, object (bank $0E list)
+	dw $0eb7, $00d0, ObjInit_AnimalToken_12 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0ef9, $00ff, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0ef9, $00ff, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0f31, $00ef, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0f31, $00ef, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0fbe, $015d, ObjInit_0e_7970 ; x, y, object (bank $0E list)
+	dw $0fbe, $015d, ObjInit_FuelPlatform_Wait_3 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0feb, $011b, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0feb, $011b, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $1021, $0146, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $1021, $0146, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $1058, $00fb, ObjInit_0e_667f ; x, y, object (bank $0E list)
+	dw $1058, $00fb, ObjInit_FuelBarrel_4 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $10c2, $0152, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $10c2, $0152, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $1133, $012b, ObjInit_0e_4eaa ; x, y, object (bank $0E list)
+	dw $1133, $012b, ObjInit_Necky_FlyPatrol_9 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $11ae, $013c, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $11ae, $013c, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $11f0, $017d, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $11f0, $017d, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $1212, $0159, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1212, $0159, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $1249, $013d, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $1249, $013d, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $12be, $017c, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $12be, $017c, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $12f2, $0155, ObjInit_0e_51ee ; x, y, object (bank $0E list)
+	dw $12f2, $0155, ObjInit_Zinger_Patrol_26 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $1315, $0137, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $1315, $0137, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $13bc, $0138, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $13bc, $0138, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $13bf, $0138, ObjInit_0e_4fc4 ; x, y, object (bank $0E list)
+	dw $13bf, $0138, ObjInit_Zinger_Move_15 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $13f7, $00fd, ObjInit_0e_667f ; x, y, object (bank $0E list)
+	dw $13f7, $00fd, ObjInit_FuelBarrel_4 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $14e2, $012d, ObjInit_0e_5352 ; x, y, object (bank $0E list)
+	dw $14e2, $012d, ObjInit_Gnawty_Red_28 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $154c, $0127, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $154c, $0127, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $1551, $012d, ObjInit_0e_5352 ; x, y, object (bank $0E list)
+	dw $1551, $012d, ObjInit_Gnawty_Red_28 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $15b9, $00dc, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $15b9, $00dc, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $1671, $0173, ObjInit_0e_5f81 ; x, y, object (bank $0E list)
+	dw $1671, $0173, ObjInit_BarrelCannon_101 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $1673, $011c, ObjInit_0e_667f ; x, y, object (bank $0E list)
+	dw $1673, $011c, ObjInit_FuelBarrel_4 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $1673, $014a, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $1673, $014a, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $177f, $0133, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $177f, $0133, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $17c7, $00ef, ObjInit_0e_5352 ; x, y, object (bank $0E list)
+	dw $17c7, $00ef, ObjInit_Gnawty_Red_28 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $1806, $00fc, ObjInit_0e_5179 ; x, y, object (bank $0E list)
+	dw $1806, $00fc, ObjInit_Zinger_Patrol_17 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $181c, $00d5, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $181c, $00d5, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $183e, $00fc, ObjInit_0e_5179 ; x, y, object (bank $0E list)
+	dw $183e, $00fc, ObjInit_Zinger_Patrol_17 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $18d7, $0112, ObjInit_0e_5886 ; x, y, object (bank $0E list)
+	dw $18d7, $0112, ObjInit_BarrelCannon_28 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $191d, $00eb, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $191d, $00eb, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $1953, $00cc, ObjInit_0e_60ad ; x, y, object (bank $0E list)
+	dw $1953, $00cc, ObjInit_BarrelCannon_116 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $19d7, $013b, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $19d7, $013b, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $1a6f, $0121, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1a6f, $0121, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $1a70, $013a, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1a70, $013a, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $1a8c, $0100, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $1a8c, $0100, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $1b3c, $0179, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1b3c, $0179, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $1b3d, $014a, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $1b3d, $014a, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $1b3e, $011a, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1b3e, $011a, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $1bf7, $00fd, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $1bf7, $00fd, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $1bfa, $013a, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1bfa, $013a, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $1c9b, $00fd, ObjInit_0e_6689 ; x, y, object (bank $0E list)
+	dw $1c9b, $00fd, ObjInit_FuelBarrel_5 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $1c9e, $0139, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1c9e, $0139, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $1d24, $00ca, ObjInit_0e_6675 ; x, y, object (bank $0E list)
+	dw $1d24, $00ca, ObjInit_FuelBarrel_3 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $1d24, $00cf, ObjInit_0e_4fb8 ; x, y, object (bank $0E list)
+	dw $1d24, $00cf, ObjInit_Zinger_Move_14 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $1e13, $0138, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1e13, $0138, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $1e8b, $0100, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $1e8b, $0100, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $af, $b0
-	dw $1e8c, $0122, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1e8c, $0122, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $b0, $b0
-	dw $1efa, $013a, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1efa, $013a, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $b1, $b0
-	dw $20fa, $0136, ObjInit_0e_667f ; x, y, object (bank $0E list)
+	dw $20fa, $0136, ObjInit_FuelBarrel_4 ; x, y, object (bank $0E list)
 	db $b2, $b0
-	dw $20fc, $00da, ObjInit_0e_60f2 ; x, y, object (bank $0E list)
+	dw $20fc, $00da, ObjInit_BarrelCannon_119 ; x, y, object (bank $0E list)
 	db $b3, $b0
-	dw $2147, $013a, ObjInit_0e_4f36 ; x, y, object (bank $0E list)
+	dw $2147, $013a, ObjInit_Zinger_2 ; x, y, object (bank $0E list)
 	db $b4, $b0
-	dw $21a6, $013a, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $21a6, $013a, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $b5, $b0
-	dw $21c2, $0111, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $21c2, $0111, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $b6, $b0
-	dw $2204, $013a, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $2204, $013a, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $b7, $b0
-	dw $2299, $0161, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $2299, $0161, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $b8, $b0
-	dw $22d5, $0186, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $22d5, $0186, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $b9, $b0
-	dw $2362, $0140, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $2362, $0140, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $ba, $b0
-	dw $240d, $0110, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $240d, $0110, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $bb, $b0
-	dw $248b, $00ca, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $248b, $00ca, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $bc, $b0
-	dw $24ab, $00fb, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $24ab, $00fb, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $bd, $b0
-	dw $24e0, $00fa, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $24e0, $00fa, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_6818::
+LevelObjects_WinkysWalkway::
 	db $01, $80
-	dw $0110, $0078, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $0110, $0078, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $02f8, $00e8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $02f8, $00e8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0340, $00b8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0340, $00b8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $04c8, $0098, LevelObjBlock_03_4320 ; x, y, block in bank $03
+	dw $04c8, $0098, LevelObjBlock_WinkysWalkway2 ; x, y, block in bank $03
 	db $05, $80
-	dw $0718, $0030, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0718, $0030, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $06, $80
-	dw $0854, $0080, LevelObjBlock_03_4280 ; x, y, block in bank $03
+	dw $0854, $0080, LevelObjBlock_TrickTrackTrek_Area2_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $0c20, $00a8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0c20, $00a8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $0c68, $0078, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0c68, $0078, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $09, $80
-	dw $0d98, $0060, LevelObjBlock_03_4eb0 ; x, y, block in bank $03
+	dw $0d98, $0060, LevelObjBlock_WinkysWalkway_2 ; x, y, block in bank $03
 	db $0a, $80
-	dw $0ef0, $0078, LevelObjBlock_03_40c0 ; x, y, block in bank $03
+	dw $0ef0, $0078, LevelObjBlock_PoisonPond ; x, y, block in bank $03
 	db $0b, $80
-	dw $0fc0, $00c0, LevelObjBlock_03_4f50 ; x, y, block in bank $03
+	dw $0fc0, $00c0, LevelObjBlock_JungleHijinxs_Area1 ; x, y, block in bank $03
 	db $0c, $80
-	dw $1078, $00f0, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $1078, $00f0, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $0d, $80
-	dw $10c0, $00c0, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $10c0, $00c0, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1300, $0080, LevelObjBlock_03_4eb0 ; x, y, block in bank $03
+	dw $1300, $0080, LevelObjBlock_WinkysWalkway_2 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1348, $00b0, LevelObjBlock_03_4eb0 ; x, y, block in bank $03
+	dw $1348, $00b0, LevelObjBlock_WinkysWalkway_2 ; x, y, block in bank $03
 	db $10, $80
-	dw $1438, $0090, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $1438, $0090, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $11, $80
-	dw $1480, $0060, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $1480, $0060, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $12, $80
-	dw $1590, $0050, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1590, $0050, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $13, $80
-	dw $1590, $0098, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $1590, $0098, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $14, $80
-	dw $17d8, $0090, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $17d8, $0090, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $15, $80
-	dw $1820, $0060, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $1820, $0060, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0082, $00be, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0082, $00be, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0118, $00ab, ObjInit_0e_4985 ; x, y, object (bank $0E list)
+	dw $0118, $00ab, ObjInit_Kritter_Walk_9 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $013c, $0054, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $013c, $0054, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $013e, $0076, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $013e, $0076, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0170, $00e1, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0170, $00e1, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0242, $00f7, ObjInit_0e_4945 ; x, y, object (bank $0E list)
+	dw $0242, $00f7, ObjInit_Kritter_Walk_5 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $026b, $00fb, ObjInit_0e_4945 ; x, y, object (bank $0E list)
+	dw $026b, $00fb, ObjInit_Kritter_Walk_5 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $02b0, $0102, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $02b0, $0102, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $0389, $006f, ObjInit_0e_4e4f ; x, y, object (bank $0E list)
+	dw $0389, $006f, ObjInit_Necky_FlyPatrol_2 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $03b9, $009d, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $03b9, $009d, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $03bb, $0031, ObjInit_0e_48c9 ; x, y, object (bank $0E list)
+	dw $03bb, $0031, ObjInit_AnimalCrate_5 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $03e2, $006f, ObjInit_0e_4e4f ; x, y, object (bank $0E list)
+	dw $03e2, $006f, ObjInit_Necky_FlyPatrol_2 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $046c, $0088, ObjInit_0e_4945 ; x, y, object (bank $0E list)
+	dw $046c, $0088, ObjInit_Kritter_Walk_5 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $052a, $008d, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $052a, $008d, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0664, $0090, ObjInit_0e_7593 ; x, y, object (bank $0E list)
+	dw $0664, $0090, ObjInit_BlackDrum_6 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $06e6, $0036, ObjInit_0e_4e83 ; x, y, object (bank $0E list)
+	dw $06e6, $0036, ObjInit_Necky_FlyPatrol_6 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $06f9, $fffd, ObjInit_0e_6995 ; x, y, object (bank $0E list)
+	dw $06f9, $fffd, ObjInit_Entrance_12 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $07bc, $00a8, ObjInit_0e_7593 ; x, y, object (bank $0E list)
+	dw $07bc, $00a8, ObjInit_BlackDrum_6 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $08cd, $00c3, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $08cd, $00c3, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0906, $00c6, ObjInit_0e_4e90 ; x, y, object (bank $0E list)
+	dw $0906, $00c6, ObjInit_Necky_FlyPatrol_7 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0988, $0071, ObjInit_0e_5000 ; x, y, object (bank $0E list)
+	dw $0988, $0071, ObjInit_Zinger_Patrol_4 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $098b, $0061, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $098b, $0061, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0a7a, $00d1, ObjInit_0e_4e5c ; x, y, object (bank $0E list)
+	dw $0a7a, $00d1, ObjInit_Necky_FlyPatrol_3 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0ac3, $0085, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $0ac3, $0085, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0ba4, $00b0, ObjInit_0e_7593 ; x, y, object (bank $0E list)
+	dw $0ba4, $00b0, ObjInit_BlackDrum_6 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0cd7, $005d, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0cd7, $005d, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0cd8, $0021, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0cd8, $0021, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0e35, $008c, ObjInit_0e_4945 ; x, y, object (bank $0E list)
+	dw $0e35, $008c, ObjInit_Kritter_Walk_5 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0e72, $0080, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0e72, $0080, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0eac, $008c, ObjInit_0e_4e5c ; x, y, object (bank $0E list)
+	dw $0eac, $008c, ObjInit_Necky_FlyPatrol_3 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0f6b, $00d0, ObjInit_0e_4e5c ; x, y, object (bank $0E list)
+	dw $0f6b, $00d0, ObjInit_Necky_FlyPatrol_3 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0f6e, $005d, ObjInit_0e_48fd ; x, y, object (bank $0E list)
+	dw $0f6e, $005d, ObjInit_AnimalToken_11 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $1023, $0105, ObjInit_0e_4e90 ; x, y, object (bank $0E list)
+	dw $1023, $0105, ObjInit_Necky_FlyPatrol_7 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $1101, $009d, ObjInit_0e_670c ; x, y, object (bank $0E list)
+	dw $1101, $009d, ObjInit_StickerBananaBunch_3 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $1101, $00a2, ObjInit_0e_671e ; x, y, object (bank $0E list)
+	dw $1101, $00a2, ObjInit_StickerPad_3 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $113b, $009d, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $113b, $009d, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $113c, $0058, ObjInit_0e_7593 ; x, y, object (bank $0E list)
+	dw $113c, $0058, ObjInit_BlackDrum_6 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $1214, $0072, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $1214, $0072, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $124b, $0065, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $124b, $0065, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $12a4, $0068, ObjInit_0e_75aa ; x, y, object (bank $0E list)
+	dw $12a4, $0068, ObjInit_BlackDrum_8 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $1384, $00bc, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $1384, $00bc, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $13bc, $009e, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $13bc, $009e, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $1574, $002a, ObjInit_0e_4e83 ; x, y, object (bank $0E list)
+	dw $1574, $002a, ObjInit_Necky_FlyPatrol_6 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $15ec, $000d, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $15ec, $000d, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $1678, $006f, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1678, $006f, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $16a9, $0061, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $16a9, $0061, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $16fd, $0084, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $16fd, $0084, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $1743, $0089, ObjInit_0e_4e5c ; x, y, object (bank $0E list)
+	dw $1743, $0089, ObjInit_Necky_FlyPatrol_3 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1792, $0025, ObjInit_0e_66de ; x, y, object (bank $0E list)
+	dw $1792, $0025, ObjInit_ExtraLifeBalloon_12 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $1793, $0048, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1793, $0048, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $189f, $0043, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $189f, $0043, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $18d9, $0035, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $18d9, $0035, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_6a61::
+LevelObjects_MillstoneMayhem::
 	db $01, $80
-	dw $030c, $00d8, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $030c, $00d8, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $02, $80
-	dw $05e0, $00c0, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $05e0, $00c0, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $03, $80
-	dw $07c8, $00f0, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $07c8, $00f0, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $04, $80
-	dw $0b78, $00d8, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $0b78, $00d8, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $05, $80
-	dw $0e08, $00e0, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0e08, $00e0, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $06, $80
-	dw $0ea0, $00e0, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0ea0, $00e0, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $1108, $00e0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1108, $00e0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $1350, $0088, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1350, $0088, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $09, $80
-	dw $1390, $0088, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $1390, $0088, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0a, $80
-	dw $13f8, $0088, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $13f8, $0088, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0b, $80
-	dw $1438, $0088, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $1438, $0088, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0c, $80
-	dw $17e8, $0158, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $17e8, $0158, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1840, $0158, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1840, $0158, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $0e, $80
-	dw $18a0, $0100, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $18a0, $0100, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $0f, $80
-	dw $1c70, $0118, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $1c70, $0118, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $10, $80
-	dw $1cb0, $0124, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $1cb0, $0124, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $11, $80
-	dw $1ce8, $0130, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $1ce8, $0130, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $000f, $00bb, ObjInit_0e_69c7 ; x, y, object (bank $0E list)
+	dw $000f, $00bb, ObjInit_Entrance_15 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $00a9, $0165, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $00a9, $0165, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $00fa, $010a, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $00fa, $010a, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0185, $0114, ObjInit_0e_4c1f ; x, y, object (bank $0E list)
+	dw $0185, $0114, ObjInit_Klump_2 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $01c9, $0120, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $01c9, $0120, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $01f9, $012c, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $01f9, $012c, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $024f, $0138, ObjInit_0e_4c1f ; x, y, object (bank $0E list)
+	dw $024f, $0138, ObjInit_Klump_2 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0286, $0138, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0286, $0138, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $03a1, $00e7, ObjInit_0e_7535 ; x, y, object (bank $0E list)
+	dw $03a1, $00e7, ObjInit_Millstone_2 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0434, $0124, ObjInit_0e_6049 ; x, y, object (bank $0E list)
+	dw $0434, $0124, ObjInit_BarrelCannon_111 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0470, $00ea, ObjInit_0e_69f0 ; x, y, object (bank $0E list)
+	dw $0470, $00ea, ObjInit_HiddenKongLetter_3 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0523, $0100, ObjInit_0e_4a88 ; x, y, object (bank $0E list)
+	dw $0523, $0100, ObjInit_Kritter_Walk_22 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $0540, $00c4, ObjInit_0e_754f ; x, y, object (bank $0E list)
+	dw $0540, $00c4, ObjInit_Millstone_4 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $066d, $00ab, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $066d, $00ab, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0671, $0118, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $0671, $0118, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $06ca, $0118, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $06ca, $0118, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $0731, $0118, ObjInit_0e_755c ; x, y, object (bank $0E list)
+	dw $0731, $0118, ObjInit_Millstone_5 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0735, $00bc, ObjInit_0e_69d3 ; x, y, object (bank $0E list)
+	dw $0735, $00bc, ObjInit_Entrance_16 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $08c3, $0161, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $08c3, $0161, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $08c4, $00fe, ObjInit_0e_754f ; x, y, object (bank $0E list)
+	dw $08c4, $00fe, ObjInit_Millstone_4 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $09cd, $0113, ObjInit_0e_4c1f ; x, y, object (bank $0E list)
+	dw $09cd, $0113, ObjInit_Klump_2 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0a5d, $0100, ObjInit_0e_4c1f ; x, y, object (bank $0E list)
+	dw $0a5d, $0100, ObjInit_Klump_2 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0ae1, $0100, ObjInit_0e_755c ; x, y, object (bank $0E list)
+	dw $0ae1, $0100, ObjInit_Millstone_5 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0af1, $0131, ObjInit_0e_69df ; x, y, object (bank $0E list)
+	dw $0af1, $0131, ObjInit_BreakableWall_9 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0c0f, $0148, ObjInit_0e_4a71 ; x, y, object (bank $0E list)
+	dw $0c0f, $0148, ObjInit_Kritter_Walk_20 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0c42, $0148, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0c42, $0148, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0c54, $0148, ObjInit_0e_4a71 ; x, y, object (bank $0E list)
+	dw $0c54, $0148, ObjInit_Kritter_Walk_20 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0c84, $0148, ObjInit_0e_4a71 ; x, y, object (bank $0E list)
+	dw $0c84, $0148, ObjInit_Kritter_Walk_20 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0d5f, $0100, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0d5f, $0100, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0e3f, $00cd, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0e3f, $00cd, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0eed, $00e9, ObjInit_0e_6693 ; x, y, object (bank $0E list)
+	dw $0eed, $00e9, ObjInit_Barrel_10 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0fcc, $00da, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $0fcc, $00da, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $1026, $00cc, ObjInit_0e_7535 ; x, y, object (bank $0E list)
+	dw $1026, $00cc, ObjInit_Millstone_2 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $10f0, $011a, ObjInit_0e_69f9 ; x, y, object (bank $0E list)
+	dw $10f0, $011a, ObjInit_HiddenKongLetter_4 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $11ec, $00f0, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $11ec, $00f0, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $1211, $00ee, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $1211, $00ee, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $1250, $00fe, ObjInit_0e_6712 ; x, y, object (bank $0E list)
+	dw $1250, $00fe, ObjInit_StickerBananaBunch_4 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $1283, $0112, ObjInit_0e_7280 ; x, y, object (bank $0E list)
+	dw $1283, $0112, ObjInit_Elevator_8 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $1284, $00b9, ObjInit_0e_754f ; x, y, object (bank $0E list)
+	dw $1284, $00b9, ObjInit_Millstone_4 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $1289, $008e, ObjInit_0e_6724 ; x, y, object (bank $0E list)
+	dw $1289, $008e, ObjInit_StickerPad_4 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $1390, $0138, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $1390, $0138, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $13ac, $0076, ObjInit_0e_48c9 ; x, y, object (bank $0E list)
+	dw $13ac, $0076, ObjInit_AnimalCrate_5 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $13c0, $0138, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $13c0, $0138, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $13c1, $0138, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $13c1, $0138, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $13f3, $0138, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $13f3, $0138, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $149f, $00b7, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $149f, $00b7, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $15aa, $0137, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $15aa, $0137, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $15ab, $0100, ObjInit_0e_755c ; x, y, object (bank $0E list)
+	dw $15ab, $0100, ObjInit_Millstone_5 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $16a3, $00b4, ObjInit_0e_4f11 ; x, y, object (bank $0E list)
+	dw $16a3, $00b4, ObjInit_Necky_ThrowNuts_2 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $16a3, $0108, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $16a3, $0108, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $17d9, $0153, ObjInit_0e_5304 ; x, y, object (bank $0E list)
+	dw $17d9, $0153, ObjInit_Gnawty_Red_22 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $182f, $0153, ObjInit_0e_5304 ; x, y, object (bank $0E list)
+	dw $182f, $0153, ObjInit_Gnawty_Red_22 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $18a0, $0122, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $18a0, $0122, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $1a42, $00dd, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $1a42, $00dd, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $1a42, $0108, ObjInit_0e_4f11 ; x, y, object (bank $0E list)
+	dw $1a42, $0108, ObjInit_Necky_ThrowNuts_2 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $1b7f, $013a, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $1b7f, $013a, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $1b92, $0105, ObjInit_0e_755c ; x, y, object (bank $0E list)
+	dw $1b92, $0105, ObjInit_Millstone_5 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $1bb2, $013a, ObjInit_0e_52d0 ; x, y, object (bank $0E list)
+	dw $1bb2, $013a, ObjInit_Gnawty_Red_18 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $1c4a, $0108, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1c4a, $0108, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $1d11, $00d7, ObjInit_0e_754f ; x, y, object (bank $0E list)
+	dw $1d11, $00d7, ObjInit_Millstone_4 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $1db9, $00c8, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1db9, $00c8, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $1ddf, $00c8, ObjInit_0e_7542 ; x, y, object (bank $0E list)
+	dw $1ddf, $00c8, ObjInit_Millstone_3 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $1e46, $0100, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $1e46, $0100, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $1eb3, $0100, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $1eb3, $0100, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $1eb3, $0111, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $1eb3, $0111, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $1f8d, $0130, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $1f8d, $0130, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $1faa, $0128, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $1faa, $0128, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db $12, $90
-	dw $17b4, $0120, LevelObjString_0c_6d1a ; x, y, string
+	dw $17b4, $0120, LevelObjString_MillstoneMayhem ; x, y, string
 	db $13, $90
-	dw $1850, $0120, LevelObjString_0c_6d1a ; x, y, string
+	dw $1850, $0120, LevelObjString_MillstoneMayhem ; x, y, string
 	db $a3, $f0
-	dw $1802, $0121, ObjInit_0e_755c ; x, y, object (bank $0E list)
+	dw $1802, $0121, ObjInit_Millstone_5 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjString_0c_6d1a::
+LevelObjString_MillstoneMayhem::
 	db $a3, $00
 
-LevelObjects_0c_6d1c::
+LevelObjects_TempleTempest::
 	db $01, $80
-	dw $0430, $00d0, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0430, $00d0, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $04c4, $00d0, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $04c4, $00d0, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0688, $00a8, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $0688, $00a8, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $0910, $00c0, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $0910, $00c0, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $05, $80
-	dw $0d00, $0090, LevelObjBlock_03_4300 ; x, y, block in bank $03
+	dw $0d00, $0090, LevelObjBlock_TempleTempest2 ; x, y, block in bank $03
 	db $06, $80
-	dw $0ff0, $0118, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0ff0, $0118, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $1030, $0118, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1030, $0118, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $11d8, $00a0, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $11d8, $00a0, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $09, $80
-	dw $13c4, $00a8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $13c4, $00a8, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0a, $80
-	dw $141c, $00a8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $141c, $00a8, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0b, $80
-	dw $1550, $0090, LevelObjBlock_03_4000 ; x, y, block in bank $03
+	dw $1550, $0090, LevelObjBlock_CoralCapers ; x, y, block in bank $03
 	db $0c, $80
-	dw $1a2c, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1a2c, $0048, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $0d, $80
-	dw $1d40, $0040, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1d40, $0040, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0e, $80
-	dw $2120, $0098, LevelObjBlock_03_42e0 ; x, y, block in bank $03
+	dw $2120, $0098, LevelObjBlock_TempleTempest7 ; x, y, block in bank $03
 	db $0f, $80
-	dw $2180, $00b0, LevelObjBlock_03_42e0 ; x, y, block in bank $03
+	dw $2180, $00b0, LevelObjBlock_TempleTempest7 ; x, y, block in bank $03
 	db $10, $80
-	dw $21e0, $00c8, LevelObjBlock_03_42e0 ; x, y, block in bank $03
+	dw $21e0, $00c8, LevelObjBlock_TempleTempest7 ; x, y, block in bank $03
 	db $11, $80
-	dw $2540, $0054, LevelObjBlock_03_4f60 ; x, y, block in bank $03
+	dw $2540, $0054, LevelObjBlock_ElevatorAntics ; x, y, block in bank $03
 	db $60, $b0
-	dw $0030, $00b2, ObjInit_0e_48ef ; x, y, object (bank $0E list)
+	dw $0030, $00b2, ObjInit_AnimalToken_10 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $010b, $0137, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $010b, $0137, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0145, $0123, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0145, $0123, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0176, $0113, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0176, $0113, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0180, $0118, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0180, $0118, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0232, $003f, ObjInit_0e_6ef0 ; x, y, object (bank $0E list)
+	dw $0232, $003f, ObjInit_Rope_15 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0295, $00e6, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $0295, $00e6, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0325, $00e8, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0325, $00e8, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $038d, $00b9, ObjInit_0e_7569 ; x, y, object (bank $0E list)
+	dw $038d, $00b9, ObjInit_Millstone_Scripted_2 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0440, $00e5, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0440, $00e5, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0501, $00e8, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0501, $00e8, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $05d1, $00f8, ObjInit_0e_6af6 ; x, y, object (bank $0E list)
+	dw $05d1, $00f8, ObjInit_BreakableWall_17 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $06e2, $005b, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $06e2, $005b, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0783, $0096, ObjInit_0e_7570 ; x, y, object (bank $0E list)
+	dw $0783, $0096, ObjInit_Millstone_Scripted_3 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0852, $00c8, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0852, $00c8, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $08a1, $00d4, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $08a1, $00d4, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $0972, $005f, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0972, $005f, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0abd, $0077, ObjInit_0e_7577 ; x, y, object (bank $0E list)
+	dw $0abd, $0077, ObjInit_Millstone_Scripted_4 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0b65, $00b6, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0b65, $00b6, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0ba1, $00c3, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0ba1, $00c3, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0bdd, $00d0, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0bdd, $00d0, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0ca5, $005d, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0ca5, $005d, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0cfb, $0075, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0cfb, $0075, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0d4d, $005d, ObjInit_0e_67e0 ; x, y, object (bank $0E list)
+	dw $0d4d, $005d, ObjInit_SwingingRope_2 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0e50, $00f3, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0e50, $00f3, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0e8f, $0102, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0e8f, $0102, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0ece, $0108, ObjInit_0e_5338 ; x, y, object (bank $0E list)
+	dw $0ece, $0108, ObjInit_Gnawty_Red_26 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0f1a, $0026, ObjInit_0e_7097 ; x, y, object (bank $0E list)
+	dw $0f1a, $0026, ObjInit_Rope_33 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0f5e, $00a8, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0f5e, $00a8, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0fa1, $00d8, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0fa1, $00d8, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $1001, $0107, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $1001, $0107, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $109d, $00ed, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $109d, $00ed, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $1103, $00d7, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $1103, $00d7, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $1159, $00bd, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $1159, $00bd, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $11da, $004f, ObjInit_0e_7088 ; x, y, object (bank $0E list)
+	dw $11da, $004f, ObjInit_Rope_32 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $11de, $00e6, ObjInit_0e_757e ; x, y, object (bank $0E list)
+	dw $11de, $00e6, ObjInit_Millstone_Scripted_5 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $12d3, $0064, ObjInit_0e_7088 ; x, y, object (bank $0E list)
+	dw $12d3, $0064, ObjInit_Rope_32 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $13d6, $00e0, ObjInit_0e_50ec ; x, y, object (bank $0E list)
+	dw $13d6, $00e0, ObjInit_Zinger_Patrol_16 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $142f, $00e0, ObjInit_0e_50ec ; x, y, object (bank $0E list)
+	dw $142f, $00e0, ObjInit_Zinger_Patrol_16 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $1507, $0028, ObjInit_0e_6f08 ; x, y, object (bank $0E list)
+	dw $1507, $0028, ObjInit_Rope_16 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $1549, $0113, ObjInit_0e_6b09 ; x, y, object (bank $0E list)
+	dw $1549, $0113, ObjInit_Entrance_22 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $154b, $0028, ObjInit_0e_6f08 ; x, y, object (bank $0E list)
+	dw $154b, $0028, ObjInit_Rope_16 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $1590, $0028, ObjInit_0e_6f08 ; x, y, object (bank $0E list)
+	dw $1590, $0028, ObjInit_Rope_16 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $1607, $00c3, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1607, $00c3, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $16cd, $00b4, ObjInit_0e_6b15 ; x, y, object (bank $0E list)
+	dw $16cd, $00b4, ObjInit_HiddenKongLetter_12 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $1758, $009b, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $1758, $009b, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $1798, $008f, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $1798, $008f, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $1891, $00b2, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $1891, $00b2, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1892, $00b0, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1892, $00b0, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $18d9, $0098, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $18d9, $0098, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $1a10, $0085, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1a10, $0085, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $1ab5, $0094, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1ab5, $0094, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $1ad8, $002c, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $1ad8, $002c, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $1ae9, $0085, ObjInit_0e_7585 ; x, y, object (bank $0E list)
+	dw $1ae9, $0085, ObjInit_Millstone_Scripted_6 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $1d11, $0086, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1d11, $0086, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $1d72, $0086, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1d72, $0086, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $1e8f, $00a0, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1e8f, $00a0, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $1e90, $0037, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $1e90, $0037, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $1f8f, $0085, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1f8f, $0085, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $1fc4, $007f, ObjInit_0e_5179 ; x, y, object (bank $0E list)
+	dw $1fc4, $007f, ObjInit_Zinger_Patrol_17 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $1ff0, $0086, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1ff0, $0086, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $20ae, $0073, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $20ae, $0073, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $20af, $00e6, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $20af, $00e6, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $2237, $00d8, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $2237, $00d8, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $227d, $0114, ObjInit_0e_758c ; x, y, object (bank $0E list)
+	dw $227d, $0114, ObjInit_Millstone_Scripted_7 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $235d, $00b5, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $235d, $00b5, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $239e, $00a2, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $239e, $00a2, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $2430, $0006, ObjInit_0e_6ed8 ; x, y, object (bank $0E list)
+	dw $2430, $0006, ObjInit_Rope_14 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $24fb, $00ef, ObjInit_0e_5f59 ; x, y, object (bank $0E list)
+	dw $24fb, $00ef, ObjInit_BarrelCannon_99 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $24fc, $00d9, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $24fc, $00d9, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $256d, $008f, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $256d, $008f, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $25c9, $0089, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $25c9, $0089, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_6fe5::
+LevelObjects_MillstoneMayhem_Area1::
 	db $01, $80
-	dw $0040, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0040, $0048, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $0040, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0040, $0090, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $0040, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0040, $00d8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $006c, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $006c, $0048, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $05, $80
-	dw $006c, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $006c, $0090, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $06, $80
-	dw $006c, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $006c, $00d8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $0098, $0048, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0098, $0048, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $0098, $0090, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0098, $0090, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $09, $80
-	dw $0098, $00d8, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0098, $00d8, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0024, $0014, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0024, $0014, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0050, $0014, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0050, $0014, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0050, $0118, ObjInit_0e_641e ; x, y, object (bank $0E list)
+	dw $0050, $0118, ObjInit_BarrelCannon_156 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $007c, $0014, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $007c, $0014, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_704e::
+LevelObjects_TempleTempest_Area2::
 	db $60, $b0
-	dw $00a3, $0081, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $00a3, $0081, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $00e6, $0081, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $00e6, $0081, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0203, $0081, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0203, $0081, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0128, $0081, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0128, $0081, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $016b, $0081, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $016b, $0081, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $01b8, $0081, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $01b8, $0081, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0259, $0081, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0259, $0081, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $02c7, $008d, ObjInit_0e_48af ; x, y, object (bank $0E list)
+	dw $02c7, $008d, ObjInit_AnimalCrate_3 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $02e9, $0088, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $02e9, $0088, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7097::
+LevelObjects_SnowBarrelBlast::
 	db $01, $80
-	dw $0198, $00e8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $0198, $00e8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $0278, $00e8, LevelObjBlock_03_4150 ; x, y, block in bank $03
+	dw $0278, $00e8, LevelObjBlock_OrangUtanGang ; x, y, block in bank $03
 	db $03, $80
-	dw $0598, $00c0, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $0598, $00c0, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $07f8, $0130, LevelObjBlock_03_4380 ; x, y, block in bank $03
+	dw $07f8, $0130, LevelObjBlock_SnowBarrelBlast03 ; x, y, block in bank $03
 	db $05, $80
-	dw $0848, $0130, LevelObjBlock_03_4390 ; x, y, block in bank $03
+	dw $0848, $0130, LevelObjBlock_SnowBarrelBlast04 ; x, y, block in bank $03
 	db $06, $80
-	dw $0988, $00e8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $0988, $00e8, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $07, $80
-	dw $09c0, $00e8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $09c0, $00e8, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $08, $80
-	dw $09f8, $00e8, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $09f8, $00e8, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $09, $80
-	dw $1060, $0110, LevelObjBlock_03_4380 ; x, y, block in bank $03
+	dw $1060, $0110, LevelObjBlock_SnowBarrelBlast03 ; x, y, block in bank $03
 	db $0a, $80
-	dw $10b8, $0108, LevelObjBlock_03_4390 ; x, y, block in bank $03
+	dw $10b8, $0108, LevelObjBlock_SnowBarrelBlast04 ; x, y, block in bank $03
 	db $0b, $80
-	dw $1110, $0108, LevelObjBlock_03_4380 ; x, y, block in bank $03
+	dw $1110, $0108, LevelObjBlock_SnowBarrelBlast03 ; x, y, block in bank $03
 	db $0c, $80
-	dw $12d0, $0120, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $12d0, $0120, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0d, $80
-	dw $14a0, $0078, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $14a0, $0078, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1808, $0100, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1808, $0100, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0f, $80
-	dw $1858, $0100, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $1858, $0100, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $10, $80
-	dw $1c78, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1c78, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $11, $80
-	dw $1d38, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1d38, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $12, $80
-	dw $1df8, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1df8, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $13, $80
-	dw $1eb8, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1eb8, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $14, $80
-	dw $1f78, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $1f78, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $15, $80
-	dw $2038, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $2038, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $16, $80
-	dw $20f8, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $20f8, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $17, $80
-	dw $21b8, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $21b8, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $18, $80
-	dw $2278, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $2278, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $19, $80
-	dw $2338, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $2338, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $1a, $80
-	dw $23f8, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $23f8, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $1b, $80
-	dw $24b8, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $24b8, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $1c, $80
-	dw $24e8, $00c8, LevelObjBlock_03_41a0 ; x, y, block in bank $03
+	dw $24e8, $00c8, LevelObjBlock_WinkysWalkway_1 ; x, y, block in bank $03
 	db $1d, $80
-	dw $2578, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $2578, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $1e, $80
-	dw $25f4, $00d0, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $25f4, $00d0, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $1f, $80
-	dw $2638, $0198, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $2638, $0198, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $20, $80
-	dw $2694, $00d0, LevelObjBlock_03_40e0 ; x, y, block in bank $03
+	dw $2694, $00d0, LevelObjBlock_RopeyRampage_Area1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0010, $00a1, ObjInit_0e_6d29 ; x, y, object (bank $0E list)
+	dw $0010, $00a1, ObjInit_Entrance_38 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $00ad, $0109, ObjInit_0e_4ecc ; x, y, object (bank $0E list)
+	dw $00ad, $0109, ObjInit_Necky_Fly_10 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0144, $0110, ObjInit_0e_4eb7 ; x, y, object (bank $0E list)
+	dw $0144, $0110, ObjInit_Necky_Fly_7 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0168, $0118, ObjInit_0e_576e ; x, y, object (bank $0E list)
+	dw $0168, $0118, ObjInit_BarrelCannon_14 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0188, $0125, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $0188, $0125, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0270, $00ab, ObjInit_0e_4e2f ; x, y, object (bank $0E list)
+	dw $0270, $00ab, ObjInit_Necky_Fly_2 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $029f, $0097, ObjInit_0e_4e2f ; x, y, object (bank $0E list)
+	dw $029f, $0097, ObjInit_Necky_Fly_2 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $02cd, $0083, ObjInit_0e_4e2f ; x, y, object (bank $0E list)
+	dw $02cd, $0083, ObjInit_Necky_Fly_2 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $02fb, $0068, ObjInit_0e_66c0 ; x, y, object (bank $0E list)
+	dw $02fb, $0068, ObjInit_ExtraLifeBalloon_9 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0358, $00c3, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $0358, $00c3, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0390, $00c3, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $0390, $00c3, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0402, $00ac, ObjInit_0e_5159 ; x, y, object (bank $0E list)
+	dw $0402, $00ac, ObjInit_Zinger_Move2_11 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $0403, $00c0, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0403, $00c0, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $052c, $00b7, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $052c, $00b7, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0563, $00d8, ObjInit_0e_4e2f ; x, y, object (bank $0E list)
+	dw $0563, $00d8, ObjInit_Necky_Fly_2 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $057c, $0100, ObjInit_0e_5782 ; x, y, object (bank $0E list)
+	dw $057c, $0100, ObjInit_BarrelCannon_15 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $05ca, $00ea, ObjInit_0e_5025 ; x, y, object (bank $0E list)
+	dw $05ca, $00ea, ObjInit_Zinger_Patrol_5 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $06b3, $0093, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $06b3, $0093, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0700, $00f4, ObjInit_0e_4da1 ; x, y, object (bank $0E list)
+	dw $0700, $00f4, ObjInit_Klaptrap_20 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0742, $012f, ObjInit_0e_4da1 ; x, y, object (bank $0E list)
+	dw $0742, $012f, ObjInit_Klaptrap_20 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $075b, $0145, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $075b, $0145, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $07c7, $0109, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $07c7, $0109, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $07d5, $014d, ObjInit_0e_5796 ; x, y, object (bank $0E list)
+	dw $07d5, $014d, ObjInit_BarrelCannon_16 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0826, $0108, ObjInit_0e_57e6 ; x, y, object (bank $0E list)
+	dw $0826, $0108, ObjInit_BarrelCannon_20 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0873, $014c, ObjInit_0e_57fa ; x, y, object (bank $0E list)
+	dw $0873, $014c, ObjInit_BarrelCannon_21 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $09b3, $0105, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $09b3, $0105, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $09f9, $0105, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $09f9, $0105, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $0a40, $0104, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $0a40, $0104, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $0aa1, $0101, ObjInit_0e_56ce ; x, y, object (bank $0E list)
+	dw $0aa1, $0101, ObjInit_BarrelCannon_6 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $0aa2, $00f1, ObjInit_0e_5159 ; x, y, object (bank $0E list)
+	dw $0aa2, $00f1, ObjInit_Zinger_Move2_11 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $0b02, $00b2, ObjInit_0e_57e6 ; x, y, object (bank $0E list)
+	dw $0b02, $00b2, ObjInit_BarrelCannon_20 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $0b59, $00f0, ObjInit_0e_5159 ; x, y, object (bank $0E list)
+	dw $0b59, $00f0, ObjInit_Zinger_Move2_11 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $0b59, $00ff, ObjInit_0e_57fa ; x, y, object (bank $0E list)
+	dw $0b59, $00ff, ObjInit_BarrelCannon_21 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $0bb4, $00b2, ObjInit_0e_57e6 ; x, y, object (bank $0E list)
+	dw $0bb4, $00b2, ObjInit_BarrelCannon_20 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $0c98, $00c5, ObjInit_0e_66ab ; x, y, object (bank $0E list)
+	dw $0c98, $00c5, ObjInit_Barrel_12 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $0ca8, $00c0, ObjInit_0e_4cf8 ; x, y, object (bank $0E list)
+	dw $0ca8, $00c0, ObjInit_Klaptrap_7 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $0dc1, $00d6, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $0dc1, $00d6, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $0de3, $00f4, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $0de3, $00f4, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $0e11, $0121, ObjInit_0e_5311 ; x, y, object (bank $0E list)
+	dw $0e11, $0121, ObjInit_Gnawty_Red_23 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $0ea8, $012b, ObjInit_0e_6049 ; x, y, object (bank $0E list)
+	dw $0ea8, $012b, ObjInit_BarrelCannon_111 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $0eb2, $0076, ObjInit_0e_617e ; x, y, object (bank $0E list)
+	dw $0eb2, $0076, ObjInit_BarrelCannon_126 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $0ec5, $0113, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $0ec5, $0113, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $0f30, $00bd, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0f30, $00bd, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $1017, $00c0, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $1017, $00c0, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $1042, $0130, ObjInit_0e_5782 ; x, y, object (bank $0E list)
+	dw $1042, $0130, ObjInit_BarrelCannon_15 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $1079, $0115, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $1079, $0115, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $1095, $00da, ObjInit_0e_61f6 ; x, y, object (bank $0E list)
+	dw $1095, $00da, ObjInit_BarrelCannon_132 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $10df, $0130, ObjInit_0e_620a ; x, y, object (bank $0E list)
+	dw $10df, $0130, ObjInit_BarrelCannon_133 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1139, $00da, ObjInit_0e_621e ; x, y, object (bank $0E list)
+	dw $1139, $00da, ObjInit_BarrelCannon_134 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $11b0, $00e4, ObjInit_0e_671e ; x, y, object (bank $0E list)
+	dw $11b0, $00e4, ObjInit_StickerPad_3 ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $1228, $00a2, ObjInit_0e_670c ; x, y, object (bank $0E list)
+	dw $1228, $00a2, ObjInit_StickerBananaBunch_3 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $12b4, $0125, ObjInit_0e_6d35 ; x, y, object (bank $0E list)
+	dw $12b4, $0125, ObjInit_Entrance_39 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $12f3, $00e3, ObjInit_0e_4c69 ; x, y, object (bank $0E list)
+	dw $12f3, $00e3, ObjInit_Klump_7 ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $1382, $00e5, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $1382, $00e5, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $1458, $0066, ObjInit_0e_5d17 ; x, y, object (bank $0E list)
+	dw $1458, $0066, ObjInit_BarrelCannon_71 ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $14a4, $00e4, ObjInit_0e_4cd1 ; x, y, object (bank $0E list)
+	dw $14a4, $00e4, ObjInit_Klaptrap_4 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $14f1, $0079, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $14f1, $0079, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $1634, $00f6, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $1634, $00f6, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $16be, $00ff, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $16be, $00ff, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $16f2, $00fe, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $16f2, $00fe, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $1721, $00e6, ObjInit_0e_6246 ; x, y, object (bank $0E list)
+	dw $1721, $00e6, ObjInit_BarrelCannon_136 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $173b, $00ed, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $173b, $00ed, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $176e, $00d0, ObjInit_0e_4ec5 ; x, y, object (bank $0E list)
+	dw $176e, $00d0, ObjInit_Necky_Fly_9 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $17b7, $00e6, ObjInit_0e_5d2b ; x, y, object (bank $0E list)
+	dw $17b7, $00e6, ObjInit_BarrelCannon_72 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $17ed, $0114, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $17ed, $0114, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $187b, $0169, ObjInit_0e_6d41 ; x, y, object (bank $0E list)
+	dw $187b, $0169, ObjInit_Entrance_40 ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $187d, $00e6, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $187d, $00e6, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $18e2, $0193, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $18e2, $0193, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $1922, $00e9, ObjInit_0e_61ba ; x, y, object (bank $0E list)
+	dw $1922, $00e9, ObjInit_BarrelCannon_129 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $1923, $0193, ObjInit_0e_5f6d ; x, y, object (bank $0E list)
+	dw $1923, $0193, ObjInit_BarrelCannon_100 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $19e7, $008d, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $19e7, $008d, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $1a0a, $007f, ObjInit_0e_48ef ; x, y, object (bank $0E list)
+	dw $1a0a, $007f, ObjInit_AnimalToken_10 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $1a0a, $00a8, ObjInit_0e_5d3f ; x, y, object (bank $0E list)
+	dw $1a0a, $00a8, ObjInit_BarrelCannon_73 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $1a2f, $008d, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1a2f, $008d, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $1ab4, $00fe, ObjInit_0e_4e5c ; x, y, object (bank $0E list)
+	dw $1ab4, $00fe, ObjInit_Necky_FlyPatrol_3 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $1ae4, $00fe, ObjInit_0e_5d53 ; x, y, object (bank $0E list)
+	dw $1ae4, $00fe, ObjInit_BarrelCannon_74 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $1b32, $00fe, ObjInit_0e_5d8f ; x, y, object (bank $0E list)
+	dw $1b32, $00fe, ObjInit_BarrelCannon_77 ; x, y, object (bank $0E list)
 	db $ad, $b0
-	dw $1b96, $0151, ObjInit_0e_5d7b ; x, y, object (bank $0E list)
+	dw $1b96, $0151, ObjInit_BarrelCannon_76 ; x, y, object (bank $0E list)
 	db $ae, $b0
-	dw $1b97, $0185, ObjInit_0e_611a ; x, y, object (bank $0E list)
+	dw $1b97, $0185, ObjInit_BarrelCannon_121 ; x, y, object (bank $0E list)
 	db $af, $b0
-	dw $1bff, $00fd, ObjInit_0e_6142 ; x, y, object (bank $0E list)
+	dw $1bff, $00fd, ObjInit_BarrelCannon_123 ; x, y, object (bank $0E list)
 	db $b0, $b0
-	dw $1c76, $00fd, ObjInit_0e_5d53 ; x, y, object (bank $0E list)
+	dw $1c76, $00fd, ObjInit_BarrelCannon_74 ; x, y, object (bank $0E list)
 	db $b1, $b0
-	dw $1cbd, $00fd, ObjInit_0e_5032 ; x, y, object (bank $0E list)
+	dw $1cbd, $00fd, ObjInit_Zinger_Patrol_6 ; x, y, object (bank $0E list)
 	db $b2, $b0
-	dw $1d00, $00fd, ObjInit_0e_5d53 ; x, y, object (bank $0E list)
+	dw $1d00, $00fd, ObjInit_BarrelCannon_74 ; x, y, object (bank $0E list)
 	db $b3, $b0
-	dw $1d46, $00fd, ObjInit_0e_503f ; x, y, object (bank $0E list)
+	dw $1d46, $00fd, ObjInit_Zinger_Patrol_7 ; x, y, object (bank $0E list)
 	db $b4, $b0
-	dw $1d8a, $00fd, ObjInit_0e_6156 ; x, y, object (bank $0E list)
+	dw $1d8a, $00fd, ObjInit_BarrelCannon_124 ; x, y, object (bank $0E list)
 	db $b5, $b0
-	dw $1de7, $00b2, ObjInit_0e_6192 ; x, y, object (bank $0E list)
+	dw $1de7, $00b2, ObjInit_BarrelCannon_127 ; x, y, object (bank $0E list)
 	db $b6, $b0
-	dw $1e51, $00fd, ObjInit_0e_5ddf ; x, y, object (bank $0E list)
+	dw $1e51, $00fd, ObjInit_BarrelCannon_81 ; x, y, object (bank $0E list)
 	db $b7, $b0
-	dw $1edc, $00fd, ObjInit_0e_5d53 ; x, y, object (bank $0E list)
+	dw $1edc, $00fd, ObjInit_BarrelCannon_74 ; x, y, object (bank $0E list)
 	db $b8, $b0
-	dw $1ee0, $00fd, ObjInit_0e_504c ; x, y, object (bank $0E list)
+	dw $1ee0, $00fd, ObjInit_Zinger_Move2_3 ; x, y, object (bank $0E list)
 	db $b9, $b0
-	dw $1f68, $00fd, ObjInit_0e_505c ; x, y, object (bank $0E list)
+	dw $1f68, $00fd, ObjInit_Zinger_Move2_4 ; x, y, object (bank $0E list)
 	db $ba, $b0
-	dw $1f6c, $00fe, ObjInit_0e_5d53 ; x, y, object (bank $0E list)
+	dw $1f6c, $00fe, ObjInit_BarrelCannon_74 ; x, y, object (bank $0E list)
 	db $bb, $b0
-	dw $1fb3, $0184, ObjInit_0e_612e ; x, y, object (bank $0E list)
+	dw $1fb3, $0184, ObjInit_BarrelCannon_122 ; x, y, object (bank $0E list)
 	db $bc, $b0
-	dw $1ff2, $00fd, ObjInit_0e_6582 ; x, y, object (bank $0E list)
+	dw $1ff2, $00fd, ObjInit_BarrelCannon_172 ; x, y, object (bank $0E list)
 	db $bd, $b0
-	dw $207d, $00fd, ObjInit_0e_5e2f ; x, y, object (bank $0E list)
+	dw $207d, $00fd, ObjInit_BarrelCannon_85 ; x, y, object (bank $0E list)
 	db $be, $b0
-	dw $2099, $0182, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $2099, $0182, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $bf, $b0
-	dw $20c2, $00fe, ObjInit_0e_5032 ; x, y, object (bank $0E list)
+	dw $20c2, $00fe, ObjInit_Zinger_Patrol_6 ; x, y, object (bank $0E list)
 	db $c0, $b0
-	dw $2108, $00fd, ObjInit_0e_5e2f ; x, y, object (bank $0E list)
+	dw $2108, $00fd, ObjInit_BarrelCannon_85 ; x, y, object (bank $0E list)
 	db $c1, $b0
-	dw $214e, $00fd, ObjInit_0e_503f ; x, y, object (bank $0E list)
+	dw $214e, $00fd, ObjInit_Zinger_Patrol_7 ; x, y, object (bank $0E list)
 	db $c2, $b0
-	dw $2193, $00fd, ObjInit_0e_6156 ; x, y, object (bank $0E list)
+	dw $2193, $00fd, ObjInit_BarrelCannon_124 ; x, y, object (bank $0E list)
 	db $c3, $b0
-	dw $21f6, $0151, ObjInit_0e_61a6 ; x, y, object (bank $0E list)
+	dw $21f6, $0151, ObjInit_BarrelCannon_128 ; x, y, object (bank $0E list)
 	db $c4, $b0
-	dw $21f7, $00b2, ObjInit_0e_616a ; x, y, object (bank $0E list)
+	dw $21f7, $00b2, ObjInit_BarrelCannon_125 ; x, y, object (bank $0E list)
 	db $c5, $b0
-	dw $21f7, $00fd, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $21f7, $00fd, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $c6, $b0
-	dw $2263, $00fc, ObjInit_0e_5da3 ; x, y, object (bank $0E list)
+	dw $2263, $00fc, ObjInit_BarrelCannon_78 ; x, y, object (bank $0E list)
 	db $c7, $b0
-	dw $22c8, $00b2, ObjInit_0e_5db7 ; x, y, object (bank $0E list)
+	dw $22c8, $00b2, ObjInit_BarrelCannon_79 ; x, y, object (bank $0E list)
 	db $c8, $b0
-	dw $22c8, $00b3, ObjInit_0e_506c ; x, y, object (bank $0E list)
+	dw $22c8, $00b3, ObjInit_Zinger_Move_22 ; x, y, object (bank $0E list)
 	db $c9, $b0
-	dw $2339, $00fc, ObjInit_0e_5ddf ; x, y, object (bank $0E list)
+	dw $2339, $00fc, ObjInit_BarrelCannon_81 ; x, y, object (bank $0E list)
 	db $ca, $b0
-	dw $2383, $0185, ObjInit_0e_612e ; x, y, object (bank $0E list)
+	dw $2383, $0185, ObjInit_BarrelCannon_122 ; x, y, object (bank $0E list)
 	db $cb, $b0
-	dw $23c2, $00fd, ObjInit_0e_5078 ; x, y, object (bank $0E list)
+	dw $23c2, $00fd, ObjInit_Zinger_Move_23 ; x, y, object (bank $0E list)
 	db $cc, $b0
-	dw $23c4, $00fc, ObjInit_0e_5d8f ; x, y, object (bank $0E list)
+	dw $23c4, $00fc, ObjInit_BarrelCannon_77 ; x, y, object (bank $0E list)
 	db $cd, $b0
-	dw $2436, $0151, ObjInit_0e_5d7b ; x, y, object (bank $0E list)
+	dw $2436, $0151, ObjInit_BarrelCannon_76 ; x, y, object (bank $0E list)
 	db $ce, $b0
-	dw $24a2, $00fb, ObjInit_0e_5dcb ; x, y, object (bank $0E list)
+	dw $24a2, $00fb, ObjInit_BarrelCannon_80 ; x, y, object (bank $0E list)
 	db $cf, $b0
-	dw $24a2, $00fd, ObjInit_0e_5078 ; x, y, object (bank $0E list)
+	dw $24a2, $00fd, ObjInit_Zinger_Move_23 ; x, y, object (bank $0E list)
 	db $d0, $b0
-	dw $2565, $00a8, ObjInit_0e_66d4 ; x, y, object (bank $0E list)
+	dw $2565, $00a8, ObjInit_ExtraLifeBalloon_11 ; x, y, object (bank $0E list)
 	db $d1, $b0
-	dw $2565, $00dc, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $2565, $00dc, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $d2, $b0
-	dw $2626, $00b7, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $2626, $00b7, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $d3, $b0
-	dw $2626, $0125, ObjInit_0e_4f88 ; x, y, object (bank $0E list)
+	dw $2626, $0125, ObjInit_Zinger_Move_10 ; x, y, object (bank $0E list)
 	db $d4, $b0
-	dw $26aa, $0184, ObjInit_0e_584a ; x, y, object (bank $0E list)
+	dw $26aa, $0184, ObjInit_BarrelCannon_25 ; x, y, object (bank $0E list)
 	db $d5, $b0
-	dw $2735, $00a1, ObjInit_0e_6e15 ; x, y, object (bank $0E list)
+	dw $2735, $00a1, ObjInit_HiddenKongLetter_38 ; x, y, object (bank $0E list)
 	db $d6, $b0
-	dw $27a1, $00e0, ObjInit_0e_4ceb ; x, y, object (bank $0E list)
+	dw $27a1, $00e0, ObjInit_Klaptrap_6 ; x, y, object (bank $0E list)
 	db $d7, $b0
-	dw $28b4, $008e, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $28b4, $008e, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $d8, $b0
-	dw $28de, $0080, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $28de, $0080, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7560::
+LevelObjects_IceAgeAlley::
 	db $01, $80
-	dw $00b0, $0198, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $00b0, $0198, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $02, $80
-	dw $0500, $00e0, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0500, $00e0, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $03, $80
-	dw $0600, $0110, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $0600, $0110, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $04, $80
-	dw $0640, $0110, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $0640, $0110, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $05, $80
-	dw $0680, $0110, LevelObjBlock_03_4110 ; x, y, block in bank $03
+	dw $0680, $0110, LevelObjBlock_BlackoutBasement ; x, y, block in bank $03
 	db $06, $80
-	dw $0970, $0078, LevelObjBlock_03_4e60 ; x, y, block in bank $03
+	dw $0970, $0078, LevelObjBlock_MistyMine_Area1 ; x, y, block in bank $03
 	db $07, $80
-	dw $0a38, $0128, LevelObjBlock_03_4eb0 ; x, y, block in bank $03
+	dw $0a38, $0128, LevelObjBlock_WinkysWalkway_2 ; x, y, block in bank $03
 	db $08, $80
-	dw $0c38, $0128, LevelObjBlock_03_4eb0 ; x, y, block in bank $03
+	dw $0c38, $0128, LevelObjBlock_WinkysWalkway_2 ; x, y, block in bank $03
 	db $09, $80
-	dw $0d78, $00f8, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0d78, $00f8, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0a, $80
-	dw $0f68, $0130, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $0f68, $0130, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0b, $80
-	dw $0f78, $0130, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0f78, $0130, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $0c, $80
-	dw $1244, $0118, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1244, $0118, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $0d, $80
-	dw $13e8, $00b8, LevelObjBlock_03_42a0 ; x, y, block in bank $03
+	dw $13e8, $00b8, LevelObjBlock_MineCartCarnage ; x, y, block in bank $03
 	db $0e, $80
-	dw $1640, $0118, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1640, $0118, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1a70, $00f0, LevelObjBlock_03_41c0 ; x, y, block in bank $03
+	dw $1a70, $00f0, LevelObjBlock_ClamCity_2 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0036, $0152, ObjInit_0e_48af ; x, y, object (bank $0E list)
+	dw $0036, $0152, ObjInit_AnimalCrate_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0074, $0181, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $0074, $0181, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $00dd, $0180, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $00dd, $0180, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $014f, $0132, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $014f, $0132, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $017c, $0132, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $017c, $0132, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $035c, $00b1, ObjInit_0e_67e9 ; x, y, object (bank $0E list)
+	dw $035c, $00b1, ObjInit_SwingingRope_3 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $03a9, $0148, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $03a9, $0148, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $051a, $00cf, ObjInit_0e_4a11 ; x, y, object (bank $0E list)
+	dw $051a, $00cf, ObjInit_Kritter_Walk_14 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $0564, $004a, ObjInit_0e_67f4 ; x, y, object (bank $0E list)
+	dw $0564, $004a, ObjInit_SwingingRope_4 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $0629, $00ba, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0629, $00ba, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $067b, $0092, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $067b, $0092, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $069d, $0119, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $069d, $0119, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $06b6, $0068, ObjInit_0e_6d4f ; x, y, object (bank $0E list)
+	dw $06b6, $0068, ObjInit_Entrance_41 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0771, $00de, ObjInit_0e_576e ; x, y, object (bank $0E list)
+	dw $0771, $00de, ObjInit_BarrelCannon_14 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $0891, $0003, ObjInit_0e_67e9 ; x, y, object (bank $0E list)
+	dw $0891, $0003, ObjInit_SwingingRope_3 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $0930, $004f, ObjInit_0e_4ef5 ; x, y, object (bank $0E list)
+	dw $0930, $004f, ObjInit_MiniNecky_2 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $0931, $0064, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $0931, $0064, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $09d9, $00e2, ObjInit_0e_4d53 ; x, y, object (bank $0E list)
+	dw $09d9, $00e2, ObjInit_Klaptrap_14 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0af0, $00af, ObjInit_0e_67e9 ; x, y, object (bank $0E list)
+	dw $0af0, $00af, ObjInit_SwingingRope_3 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0b98, $00cb, ObjInit_0e_67f4 ; x, y, object (bank $0E list)
+	dw $0b98, $00cb, ObjInit_SwingingRope_4 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0cb9, $0152, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0cb9, $0152, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0ced, $011b, ObjInit_0e_4efc ; x, y, object (bank $0E list)
+	dw $0ced, $011b, ObjInit_MiniNecky_3 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0e02, $00a3, ObjInit_0e_67e9 ; x, y, object (bank $0E list)
+	dw $0e02, $00a3, ObjInit_SwingingRope_3 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0e6e, $00f9, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $0e6e, $00f9, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0e6e, $0143, ObjInit_0e_651e ; x, y, object (bank $0E list)
+	dw $0e6e, $0143, ObjInit_BarrelCannon_167 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $101a, $0113, ObjInit_0e_4d60 ; x, y, object (bank $0E list)
+	dw $101a, $0113, ObjInit_Klaptrap_15 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $101e, $00dc, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $101e, $00dc, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $115a, $0161, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $115a, $0161, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $11bd, $00d8, ObjInit_0e_67f4 ; x, y, object (bank $0E list)
+	dw $11bd, $00d8, ObjInit_SwingingRope_4 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $1228, $0153, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1228, $0153, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $125c, $0101, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $125c, $0101, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $1311, $010a, ObjInit_0e_4d6d ; x, y, object (bank $0E list)
+	dw $1311, $010a, ObjInit_Klaptrap_16 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $13f8, $00fe, ObjInit_0e_66a0 ; x, y, object (bank $0E list)
+	dw $13f8, $00fe, ObjInit_Barrel_11 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $14c4, $0112, ObjInit_0e_4d87 ; x, y, object (bank $0E list)
+	dw $14c4, $0112, ObjInit_Klaptrap_18 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $1506, $00a3, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $1506, $00a3, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $1523, $00a8, ObjInit_0e_6d5b ; x, y, object (bank $0E list)
+	dw $1523, $00a8, ObjInit_Entrance_42 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $1525, $0130, ObjInit_0e_4d87 ; x, y, object (bank $0E list)
+	dw $1525, $0130, ObjInit_Klaptrap_18 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $1591, $0161, ObjInit_0e_4d60 ; x, y, object (bank $0E list)
+	dw $1591, $0161, ObjInit_Klaptrap_15 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $15e3, $0162, ObjInit_0e_6657 ; x, y, object (bank $0E list)
+	dw $15e3, $0162, ObjInit_Barrel_9 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $1748, $00af, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $1748, $00af, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $17ec, $0039, ObjInit_0e_67f4 ; x, y, object (bank $0E list)
+	dw $17ec, $0039, ObjInit_SwingingRope_4 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $18c9, $00a7, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $18c9, $00a7, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $1929, $0154, ObjInit_0e_6718 ; x, y, object (bank $0E list)
+	dw $1929, $0154, ObjInit_StickerPad_2 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $1970, $0154, ObjInit_0e_6706 ; x, y, object (bank $0E list)
+	dw $1970, $0154, ObjInit_StickerBananaBunch_2 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $197a, $019d, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $197a, $019d, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $1a52, $010a, ObjInit_0e_52a5 ; x, y, object (bank $0E list)
+	dw $1a52, $010a, ObjInit_MankyKong_4 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $1b04, $0173, ObjInit_0e_4cf8 ; x, y, object (bank $0E list)
+	dw $1b04, $0173, ObjInit_Klaptrap_7 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $1b3a, $0191, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $1b3a, $0191, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1bf8, $016a, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $1bf8, $016a, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $1c1e, $015d, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $1c1e, $015d, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7769::
+LevelObjects_SnowBarrelBlast_Area1::
 	db $01, $80
-	dw $0034, $0108, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $0034, $0108, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $02, $80
-	dw $003c, $0048, LevelObjBlock_03_4d40 ; x, y, block in bank $03
+	dw $003c, $0048, LevelObjBlock_ElevatorAntics_Area1_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $003c, $0088, LevelObjBlock_03_4d40 ; x, y, block in bank $03
+	dw $003c, $0088, LevelObjBlock_ElevatorAntics_Area1_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $003c, $00c8, LevelObjBlock_03_4d40 ; x, y, block in bank $03
+	dw $003c, $00c8, LevelObjBlock_ElevatorAntics_Area1_1 ; x, y, block in bank $03
 	db $05, $80
-	dw $0084, $0048, LevelObjBlock_03_4d50 ; x, y, block in bank $03
+	dw $0084, $0048, LevelObjBlock_ElevatorAntics_Area1_2 ; x, y, block in bank $03
 	db $06, $80
-	dw $0084, $0088, LevelObjBlock_03_4d50 ; x, y, block in bank $03
+	dw $0084, $0088, LevelObjBlock_ElevatorAntics_Area1_2 ; x, y, block in bank $03
 	db $07, $80
-	dw $0084, $00c8, LevelObjBlock_03_4d50 ; x, y, block in bank $03
+	dw $0084, $00c8, LevelObjBlock_ElevatorAntics_Area1_2 ; x, y, block in bank $03
 	db $08, $80
-	dw $0084, $0108, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $0084, $0108, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0050, $0016, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0050, $0016, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0050, $011d, ObjInit_0e_5e4c ; x, y, object (bank $0E list)
+	dw $0050, $011d, ObjInit_BarrelCannon_86 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_77ba::
+LevelObjects_SnowBarrelBlast_Area2::
 	db $01, $80
-	dw $00c0, $006c, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $00c0, $006c, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $02, $80
-	dw $00e0, $006c, LevelObjBlock_03_4da0 ; x, y, block in bank $03
+	dw $00e0, $006c, LevelObjBlock_BarrelCannonCanyon_Area2 ; x, y, block in bank $03
 	db $03, $80
-	dw $0148, $006c, LevelObjBlock_03_4d70 ; x, y, block in bank $03
+	dw $0148, $006c, LevelObjBlock_OilDrumAlley_Area1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0071, $0054, ObjInit_0e_5d17 ; x, y, object (bank $0E list)
+	dw $0071, $0054, ObjInit_BarrelCannon_71 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $00ce, $0054, ObjInit_0e_5d17 ; x, y, object (bank $0E list)
+	dw $00ce, $0054, ObjInit_BarrelCannon_71 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $012b, $0054, ObjInit_0e_5d17 ; x, y, object (bank $0E list)
+	dw $012b, $0054, ObjInit_BarrelCannon_71 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0188, $0054, ObjInit_0e_5d17 ; x, y, object (bank $0E list)
+	dw $0188, $0054, ObjInit_BarrelCannon_71 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $01b8, $0054, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $01b8, $0054, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $01e5, $0054, ObjInit_0e_5d17 ; x, y, object (bank $0E list)
+	dw $01e5, $0054, ObjInit_BarrelCannon_71 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $0215, $0054, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $0215, $0054, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $0242, $0054, ObjInit_0e_5d17 ; x, y, object (bank $0E list)
+	dw $0242, $0054, ObjInit_BarrelCannon_71 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $02a1, $0060, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $02a1, $0060, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_781b::
+LevelObjects_IceAgeAlley_Area1::
 	db $01, $80
-	dw $005c, $0080, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $005c, $0080, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $00ac, $0028, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $00ac, $0028, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $03, $80
-	dw $00ac, $0108, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $00ac, $0108, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $04, $80
-	dw $013c, $0080, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $013c, $0080, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $0040, $0010, ObjInit_0e_5e1b ; x, y, object (bank $0E list)
+	dw $0040, $0010, ObjInit_BarrelCannon_84 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0040, $00f0, ObjInit_0e_5e07 ; x, y, object (bank $0E list)
+	dw $0040, $00f0, ObjInit_BarrelCannon_83 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $00b0, $0080, ObjInit_0e_48fd ; x, y, object (bank $0E list)
+	dw $00b0, $0080, ObjInit_AnimalToken_11 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0120, $0010, ObjInit_0e_5df3 ; x, y, object (bank $0E list)
+	dw $0120, $0010, ObjInit_BarrelCannon_82 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $0120, $00f0, ObjInit_0e_5e07 ; x, y, object (bank $0E list)
+	dw $0120, $00f0, ObjInit_BarrelCannon_83 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0140, $0122, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $0140, $0122, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_786c::
+LevelObjects_MineCartMadness::
 	db $01, $80
-	dw $020c, $00a4, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $020c, $00a4, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $02, $80
-	dw $0300, $0090, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $0300, $0090, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $03, $80
-	dw $04d8, $00c0, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $04d8, $00c0, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $04, $80
-	dw $07c8, $0094, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $07c8, $0094, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $05, $80
-	dw $080c, $0094, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $080c, $0094, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $06, $80
-	dw $0848, $0164, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $0848, $0164, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $07, $80
-	dw $0854, $0094, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $0854, $0094, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $08, $80
-	dw $089c, $0094, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $089c, $0094, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $09, $80
-	dw $08e8, $0094, LevelObjBlock_03_40f0 ; x, y, block in bank $03
+	dw $08e8, $0094, LevelObjBlock_LoopyLights_2 ; x, y, block in bank $03
 	db $0a, $80
-	dw $092c, $0094, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $092c, $0094, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $0b, $80
-	dw $0974, $0094, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $0974, $0094, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $0c, $80
-	dw $09bc, $0094, LevelObjBlock_03_4240 ; x, y, block in bank $03
+	dw $09bc, $0094, LevelObjBlock_MineCartMadness ; x, y, block in bank $03
 	db $0d, $80
-	dw $109c, $0064, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $109c, $0064, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0e, $80
-	dw $1188, $006c, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $1188, $006c, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $0f, $80
-	dw $1254, $0074, LevelObjBlock_03_41d0 ; x, y, block in bank $03
+	dw $1254, $0074, LevelObjBlock_TrickTrackTrek_1 ; x, y, block in bank $03
 	db $10, $80
-	dw $150c, $0140, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $150c, $0140, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $11, $80
-	dw $159c, $0128, LevelObjBlock_03_4020 ; x, y, block in bank $03
+	dw $159c, $0128, LevelObjBlock_LoopyLights_1 ; x, y, block in bank $03
 	db $12, $80
-	dw $1f14, $00d0, LevelObjBlock_03_4d10 ; x, y, block in bank $03
+	dw $1f14, $00d0, LevelObjBlock_MineCartMadness7 ; x, y, block in bank $03
 	db $13, $80
-	dw $1f5c, $00f4, LevelObjBlock_03_4d10 ; x, y, block in bank $03
+	dw $1f5c, $00f4, LevelObjBlock_MineCartMadness7 ; x, y, block in bank $03
 	db $14, $80
-	dw $228c, $0120, LevelObjBlock_03_4010 ; x, y, block in bank $03
+	dw $228c, $0120, LevelObjBlock_SnowBarrelBlast ; x, y, block in bank $03
 	db $15, $80
-	dw $2924, $00e0, LevelObjBlock_03_4d30 ; x, y, block in bank $03
+	dw $2924, $00e0, LevelObjBlock_SlipslideRide ; x, y, block in bank $03
 	db $16, $80
-	dw $2924, $0120, LevelObjBlock_03_4d30 ; x, y, block in bank $03
+	dw $2924, $0120, LevelObjBlock_SlipslideRide ; x, y, block in bank $03
 	db $17, $80
-	dw $2924, $0160, LevelObjBlock_03_4d30 ; x, y, block in bank $03
+	dw $2924, $0160, LevelObjBlock_SlipslideRide ; x, y, block in bank $03
 	db $18, $80
-	dw $2b2c, $0140, LevelObjBlock_03_4220 ; x, y, block in bank $03
+	dw $2b2c, $0140, LevelObjBlock_ReptileRumble_1 ; x, y, block in bank $03
 	db $60, $b0
-	dw $00f6, $00a3, ObjInit_0e_5352 ; x, y, object (bank $0E list)
+	dw $00f6, $00a3, ObjInit_Gnawty_Red_28 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $0156, $0060, ObjInit_0e_5352 ; x, y, object (bank $0E list)
+	dw $0156, $0060, ObjInit_Gnawty_Red_28 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $0162, $0083, ObjInit_0e_6662 ; x, y, object (bank $0E list)
+	dw $0162, $0083, ObjInit_DKBarrel_2 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $0194, $0049, ObjInit_0e_5352 ; x, y, object (bank $0E list)
+	dw $0194, $0049, ObjInit_Gnawty_Red_28 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $01f9, $00eb, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $01f9, $00eb, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $65, $b0
-	dw $0312, $00af, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0312, $00af, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $66, $b0
-	dw $03c1, $00ef, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $03c1, $00ef, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $67, $b0
-	dw $04ed, $00ed, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $04ed, $00ed, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $68, $b0
-	dw $051b, $010a, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $051b, $010a, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $69, $b0
-	dw $05f7, $00e7, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $05f7, $00e7, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $6a, $b0
-	dw $0606, $00c8, ObjInit_0e_487e ; x, y, object (bank $0E list)
+	dw $0606, $00c8, ObjInit_KongLetter_12 ; x, y, object (bank $0E list)
 	db $6b, $b0
-	dw $0673, $00e7, ObjInit_0e_4e44 ; x, y, object (bank $0E list)
+	dw $0673, $00e7, ObjInit_Necky_Fly_5 ; x, y, object (bank $0E list)
 	db $6c, $b0
-	dw $0714, $003a, ObjInit_0e_6ea2 ; x, y, object (bank $0E list)
+	dw $0714, $003a, ObjInit_Rope_11 ; x, y, object (bank $0E list)
 	db $6d, $b0
-	dw $0750, $00c0, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $0750, $00c0, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $6e, $b0
-	dw $087e, $0189, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $087e, $0189, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $6f, $b0
-	dw $08fc, $0039, ObjInit_0e_6d67 ; x, y, object (bank $0E list)
+	dw $08fc, $0039, ObjInit_Entrance_43 ; x, y, object (bank $0E list)
 	db $70, $b0
-	dw $0a56, $00f0, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $0a56, $00f0, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $71, $b0
-	dw $0b2d, $0138, ObjInit_0e_4f36 ; x, y, object (bank $0E list)
+	dw $0b2d, $0138, ObjInit_Zinger_2 ; x, y, object (bank $0E list)
 	db $72, $b0
-	dw $0b62, $0149, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $0b62, $0149, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $73, $b0
-	dw $0c62, $010d, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $0c62, $010d, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $74, $b0
-	dw $0d50, $00c7, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $0d50, $00c7, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $75, $b0
-	dw $0d51, $009f, ObjInit_0e_4887 ; x, y, object (bank $0E list)
+	dw $0d51, $009f, ObjInit_KongLetter_13 ; x, y, object (bank $0E list)
 	db $76, $b0
-	dw $0d69, $00b3, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $0d69, $00b3, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $77, $b0
-	dw $0e21, $00e9, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $0e21, $00e9, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $78, $b0
-	dw $0e64, $0189, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $0e64, $0189, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $79, $b0
-	dw $0f28, $00f7, ObjInit_0e_490d ; x, y, object (bank $0E list)
+	dw $0f28, $00f7, ObjInit_AnimalToken_12 ; x, y, object (bank $0E list)
 	db $7a, $b0
-	dw $0f64, $006c, ObjInit_0e_4f36 ; x, y, object (bank $0E list)
+	dw $0f64, $006c, ObjInit_Zinger_2 ; x, y, object (bank $0E list)
 	db $7b, $b0
-	dw $10e0, $0089, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $10e0, $0089, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $7c, $b0
-	dw $11bf, $00a9, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $11bf, $00a9, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $7d, $b0
-	dw $12a2, $0089, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $12a2, $0089, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $7e, $b0
-	dw $13ea, $00ce, ObjInit_0e_663f ; x, y, object (bank $0E list)
+	dw $13ea, $00ce, ObjInit_StarBarrel ; x, y, object (bank $0E list)
 	db $7f, $b0
-	dw $153f, $0150, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $153f, $0150, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $80, $b0
-	dw $15ce, $0131, ObjInit_0e_4e36 ; x, y, object (bank $0E list)
+	dw $15ce, $0131, ObjInit_Necky_Fly_3 ; x, y, object (bank $0E list)
 	db $81, $b0
-	dw $16f4, $0159, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $16f4, $0159, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $82, $b0
-	dw $17b1, $0117, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $17b1, $0117, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $83, $b0
-	dw $183f, $0147, ObjInit_0e_4890 ; x, y, object (bank $0E list)
+	dw $183f, $0147, ObjInit_KongLetter_14 ; x, y, object (bank $0E list)
 	db $84, $b0
-	dw $1869, $0128, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $1869, $0128, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $85, $b0
-	dw $195a, $006c, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $195a, $006c, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $86, $b0
-	dw $198e, $0041, ObjInit_0e_6d73 ; x, y, object (bank $0E list)
+	dw $198e, $0041, ObjInit_Entrance_44 ; x, y, object (bank $0E list)
 	db $87, $b0
-	dw $1a53, $00d5, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1a53, $00d5, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $88, $b0
-	dw $1a91, $00ba, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1a91, $00ba, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $89, $b0
-	dw $1bbc, $00a0, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1bbc, $00a0, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $8a, $b0
-	dw $1c22, $00c9, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $1c22, $00c9, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $8b, $b0
-	dw $1cce, $0064, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1cce, $0064, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $8c, $b0
-	dw $1cce, $00ac, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $1cce, $00ac, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $8d, $b0
-	dw $1e1c, $0035, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $1e1c, $0035, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db $8e, $b0
-	dw $1e1c, $007e, ObjInit_0e_4fac ; x, y, object (bank $0E list)
+	dw $1e1c, $007e, ObjInit_Zinger_Move_13 ; x, y, object (bank $0E list)
 	db $8f, $b0
-	dw $1e1c, $0080, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $1e1c, $0080, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $90, $b0
-	dw $1e80, $00a9, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $1e80, $00a9, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $91, $b0
-	dw $207e, $00ff, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $207e, $00ff, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $92, $b0
-	dw $207e, $0100, ObjInit_0e_4fac ; x, y, object (bank $0E list)
+	dw $207e, $0100, ObjInit_Zinger_Move_13 ; x, y, object (bank $0E list)
 	db $93, $b0
-	dw $20e2, $0149, ObjInit_0e_74f8 ; x, y, object (bank $0E list)
+	dw $20e2, $0149, ObjInit_MineCart_2 ; x, y, object (bank $0E list)
 	db $94, $b0
-	dw $217d, $0120, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $217d, $0120, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $95, $b0
-	dw $21bb, $0101, ObjInit_0e_50ab ; x, y, object (bank $0E list)
+	dw $21bb, $0101, ObjInit_Zinger_Patrol_11 ; x, y, object (bank $0E list)
 	db $96, $b0
-	dw $21fb, $0120, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $21fb, $0120, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $97, $b0
-	dw $2240, $0148, ObjInit_0e_7506 ; x, y, object (bank $0E list)
+	dw $2240, $0148, ObjInit_MineCartKrash_Parked_2 ; x, y, object (bank $0E list)
 	db $98, $b0
-	dw $23a8, $014b, ObjInit_0e_50ab ; x, y, object (bank $0E list)
+	dw $23a8, $014b, ObjInit_Zinger_Patrol_11 ; x, y, object (bank $0E list)
 	db $99, $b0
-	dw $23de, $0144, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $23de, $0144, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $9a, $b0
-	dw $2443, $0169, ObjInit_0e_7506 ; x, y, object (bank $0E list)
+	dw $2443, $0169, ObjInit_MineCartKrash_Parked_2 ; x, y, object (bank $0E list)
 	db $9b, $b0
-	dw $24e0, $014d, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $24e0, $014d, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $9c, $b0
-	dw $2541, $011c, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $2541, $011c, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $9d, $b0
-	dw $259e, $00ed, ObjInit_0e_4f3f ; x, y, object (bank $0E list)
+	dw $259e, $00ed, ObjInit_Zinger_Patrol_3 ; x, y, object (bank $0E list)
 	db $9e, $b0
-	dw $26dd, $0129, ObjInit_0e_7506 ; x, y, object (bank $0E list)
+	dw $26dd, $0129, ObjInit_MineCartKrash_Parked_2 ; x, y, object (bank $0E list)
 	db $9f, $b0
-	dw $27a3, $00d5, ObjInit_0e_6700 ; x, y, object (bank $0E list)
+	dw $27a3, $00d5, ObjInit_BananaBunch_6 ; x, y, object (bank $0E list)
 	db $a0, $b0
-	dw $27f1, $00eb, ObjInit_0e_4ebe ; x, y, object (bank $0E list)
+	dw $27f1, $00eb, ObjInit_Necky_Fly_8 ; x, y, object (bank $0E list)
 	db $a1, $b0
-	dw $28bd, $00e1, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $28bd, $00e1, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $a2, $b0
-	dw $28be, $00e2, ObjInit_0e_4fac ; x, y, object (bank $0E list)
+	dw $28be, $00e2, ObjInit_Zinger_Move_13 ; x, y, object (bank $0E list)
 	db $a3, $b0
-	dw $290a, $01aa, ObjInit_0e_7506 ; x, y, object (bank $0E list)
+	dw $290a, $01aa, ObjInit_MineCartKrash_Parked_2 ; x, y, object (bank $0E list)
 	db $a4, $b0
-	dw $2a3c, $006b, ObjInit_0e_6733 ; x, y, object (bank $0E list)
+	dw $2a3c, $006b, ObjInit_Obj_Idle_3 ; x, y, object (bank $0E list)
 	db $a5, $b0
-	dw $2a43, $00ab, ObjInit_0e_6d7f ; x, y, object (bank $0E list)
+	dw $2a43, $00ab, ObjInit_Entrance_45 ; x, y, object (bank $0E list)
 	db $a6, $b0
-	dw $2a57, $0100, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $2a57, $0100, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $a7, $b0
-	dw $2a94, $0140, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $2a94, $0140, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $a8, $b0
-	dw $2ad1, $0182, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $2ad1, $0182, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $a9, $b0
-	dw $2bd0, $013c, ObjInit_0e_5352 ; x, y, object (bank $0E list)
+	dw $2bd0, $013c, ObjInit_Gnawty_Red_28 ; x, y, object (bank $0E list)
 	db $aa, $b0
-	dw $2c81, $0159, ObjInit_0e_672a ; x, y, object (bank $0E list)
+	dw $2c81, $0159, ObjInit_Obj_Idle_2 ; x, y, object (bank $0E list)
 	db $ab, $b0
-	dw $2cc0, $012e, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $2cc0, $012e, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db $ac, $b0
-	dw $2cc1, $0148, ObjInit_0e_6876 ; x, y, object (bank $0E list)
+	dw $2cc1, $0148, ObjInit_LevelExit_1 ; x, y, object (bank $0E list)
 	db $19, $80
-	dw $1bd8, $006c, LevelObjBlock_03_40b0 ; x, y, block in bank $03
+	dw $1bd8, $006c, LevelObjBlock_BouncyBonanza_1 ; x, y, block in bank $03
 	db $1a, $80
-	dw $145c, $00e8, LevelObjBlock_03_4140 ; x, y, block in bank $03
+	dw $145c, $00e8, LevelObjBlock_BouncyBonanza_3 ; x, y, block in bank $03
 	db 0 ; end
 
-LevelObjects_0c_7ba5::
+LevelObjects_RambiBonus::
 	db $60, $b0
-	dw $0609, $0087, ObjInit_0e_4929 ; x, y, object (bank $0E list)
+	dw $0609, $0087, ObjInit_BigAnimalToken_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7bae::
+LevelObjects_WinkyBonus::
 	db $01, $b0
-	dw $004c, $015f, ObjInit_0e_493e ; x, y, object (bank $0E list)
+	dw $004c, $015f, ObjInit_BigAnimalToken_5 ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $00f8, $016b, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $00f8, $016b, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $0130, $010a, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $0130, $010a, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $04, $b0
-	dw $0178, $00a9, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $0178, $00a9, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7bcf::
+LevelObjects_JungleHijinxs_Area3::
 	db $01, $b0
-	dw $0053, $0019, ObjInit_0e_66de ; x, y, object (bank $0E list)
+	dw $0053, $0019, ObjInit_ExtraLifeBalloon_12 ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0053, $007a, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $0053, $007a, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $0090, $006d, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $0090, $006d, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7be8::
+LevelObjects_ExpressoBonus::
 	db $60, $b0
-	dw $0bad, $00e7, ObjInit_0e_4930 ; x, y, object (bank $0E list)
+	dw $0bad, $00e7, ObjInit_BigAnimalToken_3 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7bf1::
+LevelObjects_OrangUtanGang_Area3::
 	db $60, $b0
-	dw $0038, $0058, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $0038, $0058, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $008c, $008c, ObjInit_0e_6dc4 ; x, y, object (bank $0E list)
+	dw $008c, $008c, ObjInit_HiddenKongLetter_29 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $00b0, $008c, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $00b0, $008c, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c0a::
+LevelObjects_OrangUtanGang_Area4::
 	db $60, $b0
-	dw $0038, $0058, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $0038, $0058, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $006c, $008c, ObjInit_0e_6e03 ; x, y, object (bank $0E list)
+	dw $006c, $008c, ObjInit_HiddenKongLetter_36 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $008c, $008c, ObjInit_0e_6e0c ; x, y, object (bank $0E list)
+	dw $008c, $008c, ObjInit_HiddenKongLetter_37 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $00b0, $008c, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $00b0, $008c, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c2b::
+LevelObjects_OrangUtanGang_Area5::
 	db $60, $b0
-	dw $0038, $0058, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $0038, $0058, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $61, $b0
-	dw $004c, $008c, ObjInit_0e_6dcd ; x, y, object (bank $0E list)
+	dw $004c, $008c, ObjInit_HiddenKongLetter_30 ; x, y, object (bank $0E list)
 	db $62, $b0
-	dw $006c, $008c, ObjInit_0e_6dd6 ; x, y, object (bank $0E list)
+	dw $006c, $008c, ObjInit_HiddenKongLetter_31 ; x, y, object (bank $0E list)
 	db $63, $b0
-	dw $008c, $008c, ObjInit_0e_6ddf ; x, y, object (bank $0E list)
+	dw $008c, $008c, ObjInit_HiddenKongLetter_32 ; x, y, object (bank $0E list)
 	db $64, $b0
-	dw $00b0, $008c, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $00b0, $008c, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c54::
+LevelObjects_RopeyRampage_Area2::
 	db $01, $b0
-	dw $0014, $0048, ObjInit_0e_413b ; x, y, object (bank $0E list)
+	dw $0014, $0048, ObjInit_ShuffleBonus_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c5d::
+LevelObjects_JungleHijinxs_Area4::
 	db $01, $b0
-	dw $004c, $0030, ObjInit_0e_405e ; x, y, object (bank $0E list)
+	dw $004c, $0030, ObjInit_MatchBonus_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c66::
+LevelObjects_BlackoutBasement_Area2::
 	db $01, $b0
-	dw $0034, $0028, ObjInit_0e_4145 ; x, y, object (bank $0E list)
+	dw $0034, $0028, ObjInit_ShuffleBonus_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c6f::
+LevelObjects_OilDrumAlley_Area4::
 	db $01, $b0
-	dw $0044, $002c, ObjInit_0e_4084 ; x, y, object (bank $0E list)
+	dw $0044, $002c, ObjInit_MatchBonus_3 ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $00b4, $006c, ObjInit_0e_6db3 ; x, y, object (bank $0E list)
+	dw $00b4, $006c, ObjInit_BreakableWall_29 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c80::
+LevelObjects_VultureCulture_Area1::
 	db $01, $b0
-	dw $0068, $0030, ObjInit_0e_4019 ; x, y, object (bank $0E list)
+	dw $0068, $0030, ObjInit_SpellBonus_9 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c89::
+LevelObjects_VultureCulture_Area2::
 	db $01, $b0
-	dw $0064, $008a, ObjInit_0e_41c8 ; x, y, object (bank $0E list)
+	dw $0064, $008a, ObjInit_StompBonus_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c92::
+LevelObjects_ForestFrenzy_Area1::
 	db $01, $b0
-	dw $002c, $004c, ObjInit_0e_414f ; x, y, object (bank $0E list)
+	dw $002c, $004c, ObjInit_ShuffleBonus_3 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7c9b::
+LevelObjects_MillstoneMayhem_Area2::
 	db $01, $b0
-	dw $0070, $0030, ObjInit_0e_4095 ; x, y, object (bank $0E list)
+	dw $0070, $0030, ObjInit_SpellBonus_12 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7ca4::
+LevelObjects_TempleTempest_Area1::
 	db $01, $b0
-	dw $0064, $002c, ObjInit_0e_41d4 ; x, y, object (bank $0E list)
+	dw $0064, $002c, ObjInit_StompBonus_3 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cad::
+LevelObjects_MillstoneMayhem_Area3::
 	db $01, $b0
-	dw $0024, $0038, ObjInit_0e_4159 ; x, y, object (bank $0E list)
+	dw $0024, $0038, ObjInit_ShuffleBonus_4 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cb6::
+LevelObjects_Shop_Leave1::
 	db $01, $b0
-	dw $0024, $0038, ObjInit_0e_4163 ; x, y, object (bank $0E list)
+	dw $0024, $0038, ObjInit_MatchBonus_11 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cbf::
+LevelObjects_TrickTrackTrek_Area1::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_40ab ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_MatchBonus_4 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cc8::
+LevelObjects_MineCartMadness_Area2::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_40bc ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_MatchBonus_5 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cd1::
+LevelObjects_TankedUpTrouble_Area1::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_4174 ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_ShuffleBonus_5 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cda::
+LevelObjects_PlatformPerils_Area1::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_406f ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_MatchBonus_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7ce3::
+LevelObjects_PlatformPerils_Area2::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_417e ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_ShuffleBonus_6 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cec::
+LevelObjects_TrickTrackTrek_Area3::
 	db $01, $b0
-	dw $0057, $0096, ObjInit_0e_41ec ; x, y, object (bank $0E list)
+	dw $0057, $0096, ObjInit_StompBonus_5 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cf5::
+LevelObjects_BreakableWall_21::
 	db $01, $b0
-	dw $0014, $0040, ObjInit_0e_406f ; x, y, object (bank $0E list)
+	dw $0014, $0040, ObjInit_MatchBonus_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7cfe::
+LevelObjects_LevelTable_5::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_4188 ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_ShuffleBonus_7 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d07::
+LevelObjects_BouncyBonanza_Area3::
 	db $01, $b0
-	dw $002c, $0040, ObjInit_0e_40cd ; x, y, object (bank $0E list)
+	dw $002c, $0040, ObjInit_MatchBonus_6 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d10::
+LevelObjects_TorchlightTrouble_Area2::
 	db $01, $b0
-	dw $002c, $0040, ObjInit_0e_40de ; x, y, object (bank $0E list)
+	dw $002c, $0040, ObjInit_MatchBonus_7 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d19::
+LevelObjects_TreeTopTown_Area2::
 	db $01, $b0
-	dw $0024, $004c, ObjInit_0e_406f ; x, y, object (bank $0E list)
+	dw $0024, $004c, ObjInit_MatchBonus_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d22::
+LevelObjects_RopeBridgeRumble_Area2::
 	db $01, $b0
-	dw $003c, $004c, ObjInit_0e_40ef ; x, y, object (bank $0E list)
+	dw $003c, $004c, ObjInit_MatchBonus_8 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d2b::
+LevelObjects_OrangUtanGang_Area1::
 	db $01, $b0
-	dw $0070, $0030, ObjInit_0e_4100 ; x, y, object (bank $0E list)
+	dw $0070, $0030, ObjInit_SpellBonus_13 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d34::
+LevelObjects_SnowBarrelBlast_Area3::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_4192 ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_ShuffleBonus_8 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d3d::
+LevelObjects_Shop_Leave2::
 	db $01, $b0
-	dw $0024, $002c, ObjInit_0e_419c ; x, y, object (bank $0E list)
+	dw $0024, $002c, ObjInit_ShuffleBonus_9 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d46::
+LevelObjects_IceAgeAlley_Area2::
 	db $01, $b0
-	dw $003c, $0028, ObjInit_0e_4119 ; x, y, object (bank $0E list)
+	dw $003c, $0028, ObjInit_MatchBonus_9 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d4f::
+LevelObjects_TorchlightTrouble_Area1::
 	db $01, $b0
-	dw $0064, $002c, ObjInit_0e_41e0 ; x, y, object (bank $0E list)
+	dw $0064, $002c, ObjInit_StompBonus_4 ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0036, $0089, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $0036, $0089, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $00b6, $0026, ObjInit_0e_4899 ; x, y, object (bank $0E list)
+	dw $00b6, $0026, ObjInit_KongLetter_15 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d68::
+LevelObjects_ManicMincers_Area2::
 	db $01, $b0
-	dw $0070, $002c, ObjInit_0e_41a6 ; x, y, object (bank $0E list)
+	dw $0070, $002c, ObjInit_StompBonus_1 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d71::
+LevelObjects_NeckyNutmare_Area1::
 	db $01, $b0
-	dw $0070, $0040, ObjInit_0e_41b2 ; x, y, object (bank $0E list)
+	dw $0070, $0040, ObjInit_SpellBonus_14 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d7a::
+LevelObjects_OilDrumAlley_Area3::
 	db $01, $b0
-	dw $0050, $0060, ObjInit_0e_4000 ; x, y, object (bank $0E list)
+	dw $0050, $0060, ObjInit_SpellBonus_8 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d83::
+LevelObjects_MistyMine_Area2::
 	db $01, $b0
-	dw $002c, $0048, ObjInit_0e_412a ; x, y, object (bank $0E list)
+	dw $002c, $0048, ObjInit_MatchBonus_10 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d8c::
+LevelObjects_SlipslideRide_Area1::
 	db $01, $b0
-	dw $0050, $0030, ObjInit_0e_402f ; x, y, object (bank $0E list)
+	dw $0050, $0030, ObjInit_SpellBonus_10 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d95::
+LevelObjects_Shop_Leave3::
 	db $01, $b0
-	dw $0050, $0030, ObjInit_0e_4045 ; x, y, object (bank $0E list)
+	dw $0050, $0030, ObjInit_SpellBonus_11 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7d9e::
+LevelObjects_SlipslideRide_Area2::
 	db $01, $b0
-	dw $0024, $0044, ObjInit_0e_406f ; x, y, object (bank $0E list)
+	dw $0024, $0044, ObjInit_MatchBonus_2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7da7::
+LevelObjects_LevelTable_6::
 	db $01, $b0
-	dw $0065, $007f, ObjInit_0e_673c ; x, y, object (bank $0E list)
+	dw $0065, $007f, ObjInit_Obj_Idle_4 ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0090, $007e, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $0090, $007e, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $0050, $0050, ObjInit_0e_4857 ; x, y, object (bank $0E list)
+	dw $0050, $0050, ObjInit_WinLine ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7dc0::
+LevelObjects_JungleHijinxs_Area2::
 	db $01, $b0
-	dw $0065, $007f, ObjInit_0e_673c ; x, y, object (bank $0E list)
+	dw $0065, $007f, ObjInit_Obj_Idle_4 ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0090, $007e, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $0090, $007e, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $0050, $0050, ObjInit_0e_485f ; x, y, object (bank $0E list)
+	dw $0050, $0050, ObjInit_LoseLine ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7dd9::
+LevelObjects_Shop_Leave0::
 	db $01, $b0
-	dw $0038, $0058, ObjInit_0e_678e ; x, y, object (bank $0E list)
+	dw $0038, $0058, ObjInit_Tire_Top_3 ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $004c, $008c, ObjInit_0e_6de8 ; x, y, object (bank $0E list)
+	dw $004c, $008c, ObjInit_HiddenKongLetter_33 ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $006c, $008c, ObjInit_0e_6df1 ; x, y, object (bank $0E list)
+	dw $006c, $008c, ObjInit_HiddenKongLetter_34 ; x, y, object (bank $0E list)
 	db $04, $b0
-	dw $008c, $008c, ObjInit_0e_6dfa ; x, y, object (bank $0E list)
+	dw $008c, $008c, ObjInit_HiddenKongLetter_35 ; x, y, object (bank $0E list)
 	db $05, $b0
-	dw $00b0, $008c, ObjInit_0e_6885 ; x, y, object (bank $0E list)
+	dw $00b0, $008c, ObjInit_ReturnExit ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7e02::
+LevelObjects_VeryGnawtysLair::
 	db $01, $b0
 	dw $00f0, $007d, VeryGnawty_Init ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0047, $007d, ObjInit_0e_4660 ; x, y, object (bank $0E list)
+	dw $0047, $007d, ObjInit_DKBarrel2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7e13::
+LevelObjects_NeckysNuts::
 	db $01, $b0
 	dw $0096, $0050, MasterNecky_Init ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0047, $007d, ObjInit_0e_4660 ; x, y, object (bank $0E list)
+	dw $0047, $007d, ObjInit_DKBarrel2 ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $0070, $007d, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $0070, $007d, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7e2c::
+LevelObjects_BumbleBRumble::
 	db $01, $b0
 	dw $00a0, $0050, QueenB_Init ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0047, $007d, ObjInit_0e_4660 ; x, y, object (bank $0E list)
+	dw $0047, $007d, ObjInit_DKBarrel2 ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $00c0, $007d, ObjInit_0e_467a ; x, y, object (bank $0E list)
+	dw $00c0, $007d, ObjInit_BarrelSupply ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7e45::
+LevelObjects_ReallyGnawtyRampage::
 	db $01, $b0
 	dw $00f0, $007d, ReallyGnawty_Init ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0047, $007d, ObjInit_0e_4660 ; x, y, object (bank $0E list)
+	dw $0047, $007d, ObjInit_DKBarrel2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7e56::
+LevelObjects_BossDumbDrum::
 	db $01, $b0
 	dw $005c, $fff8, DumbDrum_Init ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0047, $007d, ObjInit_0e_4660 ; x, y, object (bank $0E list)
+	dw $0047, $007d, ObjInit_DKBarrel2 ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7e67::
+LevelObjects_NeckysRevenge::
 	db $01, $b0
 	dw $0096, $0050, MasterNeckySnr_Init ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0047, $007d, ObjInit_0e_4660 ; x, y, object (bank $0E list)
+	dw $0047, $007d, ObjInit_DKBarrel2 ; x, y, object (bank $0E list)
 	db $03, $b0
-	dw $0070, $007d, ObjInit_0e_6747 ; x, y, object (bank $0E list)
+	dw $0070, $007d, ObjInit_TireHalf ; x, y, object (bank $0E list)
 	db 0 ; end
 
-LevelObjects_0c_7e80::
+LevelObjects_GangPlankGalleon::
 	db $01, $b0
 	dw $0140, $fff6, KingKRool_Init ; x, y, object (bank $0E list)
 	db $02, $b0
-	dw $0047, $007d, ObjInit_0e_4660 ; x, y, object (bank $0E list)
+	dw $0047, $007d, ObjInit_DKBarrel2 ; x, y, object (bank $0E list)
 	db 0 ; end
 	ds 367, $00 ; $7e91
 

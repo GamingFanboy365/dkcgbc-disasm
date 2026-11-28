@@ -3,55 +3,55 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $f3", ROMX[$4000], BANK[$f3]
 
-BGTiles_f3_4000::
+BGTiles_Thumbnail09::
 	INCBIN "gfx/bgtiles/f3/4000.2bpp"
 
-BGTiles_f3_41e0::
+BGTiles_Thumbnail00::
 	INCBIN "gfx/bgtiles/f3/41e0.2bpp"
 
-BGTiles_f3_43c0::
+BGTiles_Thumbnail13::
 	INCBIN "gfx/bgtiles/f3/43c0.2bpp"
 
-BGTiles_f3_45a0::
+BGTiles_Thumbnail15::
 	INCBIN "gfx/bgtiles/f3/45a0.2bpp"
 
-BGTiles_f3_4780::
+BGTiles_Thumbnail14::
 	INCBIN "gfx/bgtiles/f3/4780.2bpp"
 
-BGTiles_f3_4960::
+BGTiles_Thumbnail16::
 	INCBIN "gfx/bgtiles/f3/4960.2bpp"
 
-BGTiles_f3_4b40::
+BGTiles_Thumbnail11::
 	INCBIN "gfx/bgtiles/f3/4b40.2bpp"
 
-BGTiles_f3_4d20::
+BGTiles_Thumbnail12::
 	INCBIN "gfx/bgtiles/f3/4d20.2bpp"
 
-BGTiles_f3_4f00::
+BGTiles_Thumbnail04::
 	INCBIN "gfx/bgtiles/f3/4f00.2bpp"
 
-BGTiles_f3_50e0::
+BGTiles_Thumbnail05::
 	INCBIN "gfx/bgtiles/f3/50e0.2bpp"
 
-BGTiles_f3_52c0::
+BGTiles_Thumbnail06::
 	INCBIN "gfx/bgtiles/f3/52c0.2bpp"
 
-BGTiles_f3_54a0::
+BGTiles_Thumbnail07::
 	INCBIN "gfx/bgtiles/f3/54a0.2bpp"
 
-BGTiles_f3_5680::
+BGTiles_Thumbnail08::
 	INCBIN "gfx/bgtiles/f3/5680.2bpp"
 
-BGTiles_f3_5860::
+BGTiles_Thumbnail10::
 	INCBIN "gfx/bgtiles/f3/5860.2bpp"
 
-BGTiles_f3_5a40::
+BGTiles_Thumbnail03::
 	INCBIN "gfx/bgtiles/f3/5a40.2bpp"
 
-BGTiles_f3_5c20::
+BGTiles_Thumbnail01::
 	INCBIN "gfx/bgtiles/f3/5c20.2bpp"
 
-BGTiles_f3_5e00::
+BGTiles_Thumbnail02::
 	INCBIN "gfx/bgtiles/f3/5e00.2bpp"
 	ds 8224, $00 ; $5fe0
 

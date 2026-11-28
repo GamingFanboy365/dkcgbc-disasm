@@ -4429,7 +4429,7 @@ FE_ViewItems_DrawItem::
 	ret
 
 
-SpritePositions_f1_5ca9::
+SpritePositions_FE_ViewItems_DrawItem::
 	db $58, $38, $2d, $ff
 	db $48, $58, $2e, $01
 	db $68, $58, $2e, $ff
@@ -4472,7 +4472,7 @@ FE_Printer_InitPackets::
 	ret
 
 
-Defaults_f1_5d0a::
+Defaults_FE_Printer_InitPackets::
 	db $88, $33, $01, $00, $00, $00, $01, $00, $00, $00 ; copied to $c9e6
 	db $88, $33, $04, $00, $00, $00, $04, $00, $00, $00 ; copied to $c9fe
 	db $88, $33, $0f, $00, $00, $00, $0f, $00, $00, $00 ; copied to $ca08
@@ -5779,7 +5779,7 @@ FE_Printer_ShowError::
 	ret
 
 
-MenuBytes_f1_64cb::
+MenuBytes_FE_Printer_ShowError::
 	db $48, $24, $00, $10, $10, $10, $10, $10, $10, $10, $10, $10, $10, $10, $10, $10
 	db $10, $10, $10, $10, $10, $10, $10, $10, $10, $10, $10, $12, $01, $14, $08, $00
 	db $00, $00, $00, $80, $07, $12, $01, $10, $09, $00, $01, $fa, $64, $80, $07, $08
@@ -5817,18 +5817,18 @@ FrontEndObjPalettesRest::
 	db $00, $3c, $00, $3c, $00, $3c
 
 RingAngleLists::
-	dw 0, 0, RingAngles_f1_6640, RingAngles_f1_663d, RingAngles_f1_6639, RingAngles_f1_6634 ; by ring item count
+	dw 0, 0, RingAngles_AngleLists0, RingAngles_AngleLists1, RingAngles_AngleLists2, RingAngles_AngleLists3 ; by ring item count
 
-RingAngles_f1_6634::
+RingAngles_AngleLists3::
 	db $00, $12, $24, $36, $48
 
-RingAngles_f1_6639::
+RingAngles_AngleLists2::
 	db $00, $12, $24, $36
 
-RingAngles_f1_663d::
+RingAngles_AngleLists1::
 	db $00, $1e, $3c
 
-RingAngles_f1_6640::
+RingAngles_AngleLists0::
 	db $00, $2d
 
 RingCircle::
@@ -5997,22 +5997,22 @@ RingCircle::
 	db -4, 47
 	db 0, 48
 
-Unused_f1_678a::
+Unused_RingCircle::
 	db $00, $60, $5b, $1d, $38, $b3, $c8, $b3, $a5, $1d ; not read in any session, nothing points here
 	dw $6798, $67a1
 	db $20, $02, $b0, $20, $0c, $20, $14, $29, $22
 	db $20, $03, $b0, $20, $2a, $2b, $2c, $2d, $2e
 
-ByteTable_f1_67aa::
+ByteTable_RingCircle::
 	db $04, $00, $ff, $05, $07, $03, $ff, $ff, $ff, $ff, $01, $01, $02, $ff, $ff, $06, $ff, $ff, $ff, $ff, $ff ; by [$c96e], $ff for none (FE_IsRingItemHidden)
 
 RingTable::
-	dw Ring_f1_67df, Ring_f1_67f1, Ring_f1_6803, Ring_f1_6812
-	dw Ring_f1_681e, Ring_f1_682a, Ring_f1_6839, Ring_f1_684b
-	dw 0, 0, Ring_f1_685d, Ring_f1_6869
-	dw Ring_f1_6875, 0, 0, Ring_f1_6881
+	dw Ring_00, Ring_01, Ring_02, Ring_03
+	dw Ring_04, Ring_05, Ring_06, Ring_07
+	dw 0, 0, Ring_08, Ring_09
+	dw Ring_10, 0, 0, Ring_11
 
-Ring_f1_67df::
+Ring_00::
 	db 5 ; items
 	db $04, $01, $00
 	db $1d, $02, $01
@@ -6021,7 +6021,7 @@ Ring_f1_67df::
 	db $22, $05, $04
 	db $ff, $5a
 
-Ring_f1_67f1::
+Ring_01::
 	db 5 ; items
 	db $31, $40, $05
 	db $31, $41, $06
@@ -6030,7 +6030,7 @@ Ring_f1_67f1::
 	db $17, $0a, $09
 	db $00, $5a
 
-Ring_f1_6803::
+Ring_02::
 	db 4 ; items
 	db $45, $89, $29
 	db $10, $8d, $0c
@@ -6038,21 +6038,21 @@ Ring_f1_6803::
 	db $13, $81, $0d
 	db $10, $48
 
-Ring_f1_6812::
+Ring_03::
 	db 3 ; items
 	db $45, $ff, $29
 	db $10, $0f, $0c
 	db $13, $81, $0d
 	db $fe, $5a
 
-Ring_f1_681e::
+Ring_04::
 	db 3 ; items
 	db $08, $80, $0e
 	db $02, $86, $0f
 	db $0f, $83, $10
 	db $30, $5a
 
-Ring_f1_682a::
+Ring_05::
 	db 4 ; items
 	db $12, $10, $11
 	db $03, $8b, $12
@@ -6060,7 +6060,7 @@ Ring_f1_682a::
 	db $24, $12, $14
 	db $40, $48
 
-Ring_f1_6839::
+Ring_06::
 	db 5 ; items
 	db $36, $20, $16
 	db $32, $21, $17
@@ -6069,7 +6069,7 @@ Ring_f1_6839::
 	db $33, $24, $1a
 	db $05, $5a
 
-Ring_f1_684b::
+Ring_07::
 	db 5 ; items
 	db $1e, $00, $00
 	db $04, $00, $00
@@ -6078,28 +6078,28 @@ Ring_f1_684b::
 	db $31, $00, $00
 	db $00, $5a
 
-Ring_f1_685d::
+Ring_08::
 	db 3 ; items
 	db $28, $85, $ff
 	db $29, $85, $ff
 	db $39, $85, $ff
 	db $01, $5a
 
-Ring_f1_6869::
+Ring_09::
 	db 3 ; items
 	db $28, $87, $25
 	db $29, $87, $25
 	db $39, $87, $25
 	db $01, $5a
 
-Ring_f1_6875::
+Ring_10::
 	db 3 ; items
 	db $28, $88, $26
 	db $29, $88, $26
 	db $39, $88, $26
 	db $01, $5a
 
-Ring_f1_6881::
+Ring_11::
 	db 5 ; items
 	db $40, $ff, $2b
 	db $41, $ff, $20
@@ -6108,108 +6108,108 @@ Ring_f1_6881::
 	db $44, $ff, $21
 	db $13, $5a
 
-MenuTable_f1_6893::
-	db 3, LOW(MenuItems_f1_68a2), HIGH(MenuItems_f1_68a2) ; items, list
-	db 1, LOW(MenuItems_f1_68c6), HIGH(MenuItems_f1_68c6) ; items, list
-	db 3, LOW(MenuItems_f1_68d2), HIGH(MenuItems_f1_68d2) ; items, list
-	db 2, LOW(MenuItems_f1_68f6), HIGH(MenuItems_f1_68f6) ; items, list
-	db 1, LOW(MenuItems_f1_690e), HIGH(MenuItems_f1_690e) ; items, list
+MenuTable_RingTable::
+	db 3, LOW(MenuItems_Ring0), HIGH(MenuItems_Ring0) ; items, list
+	db 1, LOW(MenuItems_Ring1), HIGH(MenuItems_Ring1) ; items, list
+	db 3, LOW(MenuItems_Ring2), HIGH(MenuItems_Ring2) ; items, list
+	db 2, LOW(MenuItems_Ring3), HIGH(MenuItems_Ring3) ; items, list
+	db 1, LOW(MenuItems_Ring4), HIGH(MenuItems_Ring4) ; items, list
 
-MenuItems_f1_68a2::
+MenuItems_Ring0::
 	db $ff, $02, $80, $01, $18, $20, $05, $06, $00, $00, $00, $01
 	db $ff, $02, $00, $02, $48, $30, $06, $0a, $01, $00, $01, $02
 	db $00, $ff, $01, $40, $18, $58, $05, $06, $02, $00, $03, $01
 
-MenuItems_f1_68c6::
+MenuItems_Ring1::
 	db $ff, $ff, $82, $40, $18, $30, $0c, $0a, $03, $00, $04, $04
 
-MenuItems_f1_68d2::
+MenuItems_Ring2::
 	db $ff, $02, $80, $01, $18, $20, $06, $05, $04, $00, $08, $01
 	db $ff, $02, $00, $02, $48, $40, $06, $05, $05, $00, $09, $01
 	db $00, $ff, $01, $40, $18, $68, $06, $05, $06, $00, $0a, $01
 
-MenuItems_f1_68f6::
+MenuItems_Ring3::
 	db $ff, $ff, $82, $01, $18, $40, $05, $06, $07, $00, $0b, $01
 	db $ff, $ff, $00, $40, $48, $30, $06, $0a, $08, $00, $0c, $02
 
-MenuItems_f1_690e::
+MenuItems_Ring4::
 	db $ff, $ff, $81, $40, $18, $30, $0c, $0a, $09, $00, $0e, $04
 
-SpriteLists_f1_691a::
-	dw SpriteList_f1_6922, SpriteList_f1_6929, SpriteList_f1_6933, SpriteList_f1_6933 ; by [$c989] - 1 (Func_f1_754x)
+SpriteLists_RingTable::
+	dw SpriteList_RingTable_1, SpriteList_RingTable_2, SpriteList_RingTable_3, SpriteList_RingTable_3 ; by [$c989] - 1 (Func_f1_754x)
 
-SpriteList_f1_6922::
+SpriteList_RingTable_1::
 	db 2 ; count
 	db $18, $18, $b0 ; variant, x, y
 	db $2f, $30, $b0 ; variant, x, y
 
-SpriteList_f1_6929::
+SpriteList_RingTable_2::
 	db 3 ; count
 	db $1a, $18, $b0 ; variant, x, y
 	db $06, $30, $b0 ; variant, x, y
 	db $1b, $48, $b0 ; variant, x, y
 
-SpriteList_f1_6933::
+SpriteList_RingTable_3::
 	db 2 ; count
 	db $05, $18, $b0 ; variant, x, y
 	db $19, $30, $b0 ; variant, x, y
 
 ThumbnailTable::
-	db $08, 2, 2, BANK(BGTiles_f3_41e0), LOW(BGTiles_f3_41e0), HIGH(BGTiles_f3_41e0), 5, 6 ; slot, x, y, tiles, width, height
-	db $26, 8, 4, BANK(BGTiles_f3_5c20), LOW(BGTiles_f3_5c20), HIGH(BGTiles_f3_5c20), 6, 5
-	db $44, 8, 9, BANK(BGTiles_f3_5e00), LOW(BGTiles_f3_5e00), HIGH(BGTiles_f3_5e00), 6, 5
-	db $62, 2, 9, BANK(BGTiles_f3_5a40), LOW(BGTiles_f3_5a40), HIGH(BGTiles_f3_5a40), 5, 6
-	db $08, 2, 4, BANK(BGTiles_f3_4f00), LOW(BGTiles_f3_4f00), HIGH(BGTiles_f3_4f00), 6, 5
-	db $26, 8, 4, BANK(BGTiles_f3_50e0), LOW(BGTiles_f3_50e0), HIGH(BGTiles_f3_50e0), 6, 5
-	db $44, 2, 9, BANK(BGTiles_f3_52c0), LOW(BGTiles_f3_52c0), HIGH(BGTiles_f3_52c0), 6, 5
-	db $62, 8, 9, BANK(BGTiles_f3_54a0), LOW(BGTiles_f3_54a0), HIGH(BGTiles_f3_54a0), 6, 5
-	db $08, 2, 2, BANK(BGTiles_f3_5680), LOW(BGTiles_f3_5680), HIGH(BGTiles_f3_5680), 6, 5
-	db $26, 8, 6, BANK(BGTiles_f3_4000), LOW(BGTiles_f3_4000), HIGH(BGTiles_f3_4000), 6, 5
-	db $44, 2, 11, BANK(BGTiles_f3_5860), LOW(BGTiles_f3_5860), HIGH(BGTiles_f3_5860), 6, 5
-	db $08, 2, 6, BANK(BGTiles_f3_41e0), LOW(BGTiles_f3_41e0), HIGH(BGTiles_f3_41e0), 5, 6
-	db $26, 8, 4, BANK(BGTiles_f3_4b40), LOW(BGTiles_f3_4b40), HIGH(BGTiles_f3_4b40), 6, 5
-	db $44, 8, 9, BANK(BGTiles_f3_4d20), LOW(BGTiles_f3_4d20), HIGH(BGTiles_f3_4d20), 6, 5
-	db $08, 2, 4, BANK(BGTiles_f3_43c0), LOW(BGTiles_f3_43c0), HIGH(BGTiles_f3_43c0), 6, 5
-	db $26, 2, 9, BANK(BGTiles_f3_4780), LOW(BGTiles_f3_4780), HIGH(BGTiles_f3_4780), 6, 5
-	db $44, 8, 4, BANK(BGTiles_f3_45a0), LOW(BGTiles_f3_45a0), HIGH(BGTiles_f3_45a0), 6, 5
-	db $62, 8, 9, BANK(BGTiles_f3_4960), LOW(BGTiles_f3_4960), HIGH(BGTiles_f3_4960), 6, 5
+	db $08, 2, 2, BANK(BGTiles_Thumbnail00), LOW(BGTiles_Thumbnail00), HIGH(BGTiles_Thumbnail00), 5, 6 ; slot, x, y, tiles, width, height
+	db $26, 8, 4, BANK(BGTiles_Thumbnail01), LOW(BGTiles_Thumbnail01), HIGH(BGTiles_Thumbnail01), 6, 5
+	db $44, 8, 9, BANK(BGTiles_Thumbnail02), LOW(BGTiles_Thumbnail02), HIGH(BGTiles_Thumbnail02), 6, 5
+	db $62, 2, 9, BANK(BGTiles_Thumbnail03), LOW(BGTiles_Thumbnail03), HIGH(BGTiles_Thumbnail03), 5, 6
+	db $08, 2, 4, BANK(BGTiles_Thumbnail04), LOW(BGTiles_Thumbnail04), HIGH(BGTiles_Thumbnail04), 6, 5
+	db $26, 8, 4, BANK(BGTiles_Thumbnail05), LOW(BGTiles_Thumbnail05), HIGH(BGTiles_Thumbnail05), 6, 5
+	db $44, 2, 9, BANK(BGTiles_Thumbnail06), LOW(BGTiles_Thumbnail06), HIGH(BGTiles_Thumbnail06), 6, 5
+	db $62, 8, 9, BANK(BGTiles_Thumbnail07), LOW(BGTiles_Thumbnail07), HIGH(BGTiles_Thumbnail07), 6, 5
+	db $08, 2, 2, BANK(BGTiles_Thumbnail08), LOW(BGTiles_Thumbnail08), HIGH(BGTiles_Thumbnail08), 6, 5
+	db $26, 8, 6, BANK(BGTiles_Thumbnail09), LOW(BGTiles_Thumbnail09), HIGH(BGTiles_Thumbnail09), 6, 5
+	db $44, 2, 11, BANK(BGTiles_Thumbnail10), LOW(BGTiles_Thumbnail10), HIGH(BGTiles_Thumbnail10), 6, 5
+	db $08, 2, 6, BANK(BGTiles_Thumbnail00), LOW(BGTiles_Thumbnail00), HIGH(BGTiles_Thumbnail00), 5, 6
+	db $26, 8, 4, BANK(BGTiles_Thumbnail11), LOW(BGTiles_Thumbnail11), HIGH(BGTiles_Thumbnail11), 6, 5
+	db $44, 8, 9, BANK(BGTiles_Thumbnail12), LOW(BGTiles_Thumbnail12), HIGH(BGTiles_Thumbnail12), 6, 5
+	db $08, 2, 4, BANK(BGTiles_Thumbnail13), LOW(BGTiles_Thumbnail13), HIGH(BGTiles_Thumbnail13), 6, 5
+	db $26, 2, 9, BANK(BGTiles_Thumbnail14), LOW(BGTiles_Thumbnail14), HIGH(BGTiles_Thumbnail14), 6, 5
+	db $44, 8, 4, BANK(BGTiles_Thumbnail15), LOW(BGTiles_Thumbnail15), HIGH(BGTiles_Thumbnail15), 6, 5
+	db $62, 8, 9, BANK(BGTiles_Thumbnail16), LOW(BGTiles_Thumbnail16), HIGH(BGTiles_Thumbnail16), 6, 5
 
-ByteTable_f1_69ca::
+ByteTable_ThumbnailTable_1::
 	db 18, 26, 26, 18, 18, 18, 18, 26, 26, 18 ; by index (Func_f1_7xxx)
 
-ByteTable_f1_69d4::
+ByteTable_ThumbnailTable_2::
 	db 0, 1, 6, 10, 3, 5, 4, 2, 7, 11 ; x offsets
 
-ByteTable_f1_69de::
+ByteTable_ThumbnailTable_3::
 	db 0, 1, 6, 8, 3, 5, 4, 2, 7, 9
 
-RAMPointers_f1_69e8::
+RAMPointers_ThumbnailTable::
 	dw $c976, $c978, $c977, $c979 ; RAM addresses
 
-Columns_f1_69f0::
-	dw LanguageColumns_f1_6a04, $c976
+Columns_ThumbnailTable::
+	dw LanguageColumns_Thumbnail0, $c976
 	dw $0000, $0000
-	dw LanguageColumns_f1_6a13, $c978
-	dw LanguageColumns_f1_6a0e, $c977
-	dw LanguageColumns_f1_6a18, $c979
+	dw LanguageColumns_Thumbnail1, $c978
+	dw LanguageColumns_Thumbnail2, $c977
+	dw LanguageColumns_Thumbnail3, $c979
 
-LanguageColumns_f1_6a04::
+LanguageColumns_Thumbnail0::
 	db 11, 11, 16, 14, 11 ; by language ([$c805])
 
-LanguageColumns_f1_6a09::
+LanguageColumns_ThumbnailTable::
 	db 12, 17, 15, 13, 14 ; by language ([$c805])
 
-LanguageColumns_f1_6a0e::
+LanguageColumns_Thumbnail2::
 	db 14, 14, 14, 14, 13 ; by language ([$c805])
 
-LanguageColumns_f1_6a13::
+LanguageColumns_Thumbnail1::
 	db 14, 16, 16, 16, 15 ; by language ([$c805])
 
-LanguageColumns_f1_6a18::
+LanguageColumns_Thumbnail3::
 	db 12, 12, 12, 12, 12 ; by language ([$c805])
 
 LanguageWordTiles::
-	dw BGTiles_f1_6a40, $6ac0 ; English
+	dw BGTiles_LanguageWordTiles_1, $6ac0 ; English
 	dw $6c40, $6cc0 ; German
 	dw $6b40, $6bc0 ; French
 	dw $6e40, $6ec0 ; Italian
@@ -6217,16 +6217,16 @@ LanguageWordTiles::
 .pad_6a31:
 	ds 15, $00 ; padding
 
-BGTiles_f1_6a40::
+BGTiles_LanguageWordTiles_1::
 	INCBIN "gfx/bgtiles/f1/6a40.2bpp"
 
-BGTiles_f1_6f40::
+BGTiles_LanguageWordTiles_2::
 	INCBIN "gfx/bgtiles/f1/6f40.2bpp"
 
-Tile_f1_6fd0::
+Tile_LanguageWordTiles::
 	db $73, $7e, $13, $1e, $f3, $fe, $83, $fe, $86, $fc, $fc, $78, $78, $00, $00, $00
 
-Pairs_f1_6fe0::
+Pairs_LanguageWordTiles::
 	db $01, $02, $03, $02, $05, $02, $07, $02, $08, $02, $0a, $02, $0c, $02, $0e, $02
 	db $10, $02, $12, $04, $14, $04, $16, $04, $18, $04, $1a, $02, $1d, $02, $1e, $02
 	db $20, $04, $22, $04, $24, $02, $27, $02, $28, $02, $2b, $02, $2c, $02, $2e, $02

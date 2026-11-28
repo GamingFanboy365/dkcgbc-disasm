@@ -3,30 +3,30 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $6d", ROMX[$4000], BANK[$6d]
 
-BGTiles_6d_4000::
+BGTiles_Picture092_Cont::
 	INCBIN "gfx/bgtiles/6d/4000.2bpp"
 	INCBIN "gfx/bgtiles/6d/4000_end.2bpp"
 
-BGTiles_6d_42d0::
+BGTiles_Picture093::
 	INCBIN "gfx/bgtiles/6d/42d0.2bpp"
 	INCBIN "gfx/bgtiles/6d/42d0_end.2bpp"
 
-BGTiles_6d_49e0::
+BGTiles_Picture094::
 	INCBIN "gfx/bgtiles/6d/49e0.2bpp"
 	INCBIN "gfx/bgtiles/6d/49e0_end.2bpp"
 
-BGTiles_6d_50f0::
+BGTiles_Picture095::
 	INCBIN "gfx/bgtiles/6d/50f0.2bpp"
 	INCBIN "gfx/bgtiles/6d/50f0_end.2bpp"
 
-BGTiles_6d_5800::
+BGTiles_Picture096::
 	INCBIN "gfx/bgtiles/6d/5800.2bpp"
 	INCBIN "gfx/bgtiles/6d/5800_end.2bpp"
 
-BGTiles_6d_6820::
+BGTiles_Picture097::
 	INCBIN "gfx/bgtiles/6d/6820.2bpp"
 	INCBIN "gfx/bgtiles/6d/6820_end.2bpp"
 
-BGTiles_6d_7b90::
+BGTiles_Picture098::
 	INCBIN "gfx/bgtiles/6d/7b90.2bpp"
 	INCBIN "gfx/bgtiles/6d/7b90_end.2bpp"

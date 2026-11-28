@@ -3,41 +3,41 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $6b", ROMX[$4000], BANK[$6b]
 
-BGTiles_6b_4000::
+BGTiles_Picture076_Cont::
 	INCBIN "gfx/bgtiles/6b/4000.2bpp"
 	INCBIN "gfx/bgtiles/6b/4000_end.2bpp"
 
-BGTiles_6b_45c0::
+BGTiles_Picture077::
 	INCBIN "gfx/bgtiles/6b/45c0.2bpp"
 	INCBIN "gfx/bgtiles/6b/45c0_end.2bpp"
 
-BGTiles_6b_4d40::
+BGTiles_Picture078::
 	INCBIN "gfx/bgtiles/6b/4d40.2bpp"
 	INCBIN "gfx/bgtiles/6b/4d40_end.2bpp"
 
-BGTiles_6b_54d0::
+BGTiles_Picture079::
 	INCBIN "gfx/bgtiles/6b/54d0.2bpp"
 	INCBIN "gfx/bgtiles/6b/54d0_end.2bpp"
 
-BGTiles_6b_5780::
+BGTiles_Picture080::
 	INCBIN "gfx/bgtiles/6b/5780.2bpp"
 	INCBIN "gfx/bgtiles/6b/5780_end.2bpp"
 
-BGTiles_6b_5a30::
+BGTiles_Picture081::
 	INCBIN "gfx/bgtiles/6b/5a30.2bpp"
 	INCBIN "gfx/bgtiles/6b/5a30_end.2bpp"
 
-BGTiles_6b_63c0::
+BGTiles_Picture082::
 	INCBIN "gfx/bgtiles/6b/63c0.2bpp"
 
-BGTiles_6b_69c0::
+BGTiles_Picture083::
 	INCBIN "gfx/bgtiles/6b/69c0.2bpp"
 	INCBIN "gfx/bgtiles/6b/69c0_end.2bpp"
 
-BGTiles_6b_6ff0::
+BGTiles_Picture084::
 	INCBIN "gfx/bgtiles/6b/6ff0.2bpp"
 	INCBIN "gfx/bgtiles/6b/6ff0_end.2bpp"
 
-BGTiles_6b_7850::
+BGTiles_Picture085::
 	INCBIN "gfx/bgtiles/6b/7850.2bpp"
 	INCBIN "gfx/bgtiles/6b/7850_end.2bpp"

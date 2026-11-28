@@ -3,11 +3,11 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $70", ROMX[$4000], BANK[$70]
 
-BGTiles_70_4000::
+BGTiles_Ending14::
 	INCBIN "gfx/bgtiles/70/4000.2bpp"
 	INCBIN "gfx/bgtiles/70/4000_end.2bpp"
 
-ScreenPalettes_70_4f60::
+ScreenPalettes_Ending14::
 	rgb  0,  0, 16,   0,  0,  0,   0, 11,  0,   4, 26,  0
 	rgb  0,  0,  0,   0,  4,  0,   0, 11,  0,   4, 26,  0
 	rgb  0,  0, 16,   7,  2,  0,  19, 12,  0,  31, 31,  0
@@ -17,7 +17,7 @@ ScreenPalettes_70_4f60::
 	rgb  0,  0, 16,   0,  0,  0,  31, 12, 12,  31, 31, 31
 	rgb  0,  0,  0,   7,  0,  0,  16,  0,  0,  23,  7,  4
 
-ScreenPalettes_70_4fa0::
+ScreenPalettes_Ending16::
 	rgb  0,  0,  0,   8,  3,  0,  16, 16, 16,  17, 12,  8
 	rgb  5,  5,  5,  11, 11, 11,   0,  5,  0,   0, 14,  0
 	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31, 24,  0
@@ -27,7 +27,7 @@ ScreenPalettes_70_4fa0::
 	rgb  0,  0,  0,   6,  4,  2,  10,  6,  4,  15, 10,  6
 	rgb  0,  0,  0,  31, 31, 31,  31,  0,  0,  31, 31,  0
 
-ScreenMap_70_4fe0::
+ScreenMap_Ending14::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; attributes
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
@@ -65,7 +65,7 @@ ScreenMap_70_4fe0::
 	db $66, $67, $68, $67, $66, $00, $00, $00, $00, $00, $00, $00, $00, $00, $69, $6a, $6b, $6c, $6c, $69
 	db $6d, $6e, $6f, $6e, $6d, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $70, $71, $72, $73, $00
 
-ScreenMap_70_52b0::
+ScreenMap_Ending16::
 	db $06, $06, $06, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $06, $06, $06, $06 ; attributes
 	db $06, $66, $06, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $06, $06, $06
 	db $06, $26, $26, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $06, $06, $06
@@ -103,10 +103,10 @@ ScreenMap_70_52b0::
 	db $e5, $e6, $e7, $e8, $e9, $00, $00, $00, $00, $00, $00, $00, $00, $00, $ea, $eb, $ec, $ed, $00, $00
 	db $ee, $ef, $f0, $f1, $f2, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $f3, $e3, $f4, $f5, $00
 
-Screen_70_5580::
-	dw ScreenPalettes_70_4f60, ScreenMap_70_4fe0, BGTiles_70_4000 ; palettes, tile map, tiles
+Screen_Ending14::
+	dw ScreenPalettes_Ending14, ScreenMap_Ending14, BGTiles_Ending14 ; palettes, tile map, tiles
 
-Screen_70_5586::
-	dw ScreenPalettes_70_4fa0, ScreenMap_70_52b0, BGTiles_70_4000 ; palettes, tile map, tiles
+Screen_Ending16::
+	dw ScreenPalettes_Ending16, ScreenMap_Ending16, BGTiles_Ending14 ; palettes, tile map, tiles
 	ds 10868, $00 ; $558c
 

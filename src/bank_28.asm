@@ -3,425 +3,425 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $28", ROMX[$4000], BANK[$28]
 
-FrameTiles_28_4000::
+FrameTiles_AnimalToken_3::
 	INCBIN "gfx/frames/28/4000.2bpp"
 
-FrameTiles_28_4040::
+FrameTiles_Unused_23::
 	INCBIN "gfx/frames/28/4040.2bpp"
 
-FrameTiles_28_4080::
+FrameTiles_Unused_24::
 	INCBIN "gfx/frames/28/4080.2bpp"
 
-FrameTiles_28_40c0::
+FrameTiles_Unused_25::
 	INCBIN "gfx/frames/28/40c0.2bpp"
 
-FrameTiles_28_4100::
+FrameTiles_Unused_26::
 	INCBIN "gfx/frames/28/4100.2bpp"
 
-FrameTiles_28_4140::
+FrameTiles_Unused_27::
 	INCBIN "gfx/frames/28/4140.2bpp"
 
-FrameTiles_28_4180::
+FrameTiles_Unused_28::
 	INCBIN "gfx/frames/28/4180.2bpp"
 
-FrameTiles_28_41c0::
+FrameTiles_Unused_29::
 	INCBIN "gfx/frames/28/41c0.2bpp"
 
-FrameTiles_28_4200::
+FrameTiles_Letter_A::
 	INCBIN "gfx/frames/28/4200.2bpp"
 
-FrameTiles_28_4240::
+FrameTiles_Letter_B::
 	INCBIN "gfx/frames/28/4240.2bpp"
 
-FrameTiles_28_4280::
+FrameTiles_Letter_C::
 	INCBIN "gfx/frames/28/4280.2bpp"
 
-FrameTiles_28_42c0::
+FrameTiles_Letter_D::
 	INCBIN "gfx/frames/28/42c0.2bpp"
 
-FrameTiles_28_4300::
+FrameTiles_Letter_E::
 	INCBIN "gfx/frames/28/4300.2bpp"
 
-FrameTiles_28_4340::
+FrameTiles_Letter_F::
 	INCBIN "gfx/frames/28/4340.2bpp"
 
-FrameTiles_28_4380::
+FrameTiles_Letter_G::
 	INCBIN "gfx/frames/28/4380.2bpp"
 
-FrameTiles_28_43c0::
+FrameTiles_Unused_30::
 	INCBIN "gfx/frames/28/43c0.2bpp"
 
-FrameTiles_28_4400::
+FrameTiles_Letter_I::
 	INCBIN "gfx/frames/28/4400.2bpp"
 
-FrameTiles_28_4440::
+FrameTiles_Unused_31::
 	INCBIN "gfx/frames/28/4440.2bpp"
 
-FrameTiles_28_4480::
+FrameTiles_Letter_K::
 	INCBIN "gfx/frames/28/4480.2bpp"
 
-FrameTiles_28_44c0::
+FrameTiles_Unused_32::
 	INCBIN "gfx/frames/28/44c0.2bpp"
 
-FrameTiles_28_4500::
+FrameTiles_Letter_M::
 	INCBIN "gfx/frames/28/4500.2bpp"
 
-FrameTiles_28_4540::
+FrameTiles_Letter_N::
 	INCBIN "gfx/frames/28/4540.2bpp"
 
-FrameTiles_28_4580::
+FrameTiles_Letter_O::
 	INCBIN "gfx/frames/28/4580.2bpp"
 
-FrameTiles_28_45c0::
+FrameTiles_Letter_P::
 	INCBIN "gfx/frames/28/45c0.2bpp"
 
-FrameTiles_28_4600::
+FrameTiles_Unused_33::
 	INCBIN "gfx/frames/28/4600.2bpp"
 
-FrameTiles_28_4640::
+FrameTiles_Letter_R::
 	INCBIN "gfx/frames/28/4640.2bpp"
 
-FrameTiles_28_4680::
+FrameTiles_Letter_S::
 	INCBIN "gfx/frames/28/4680.2bpp"
 
-FrameTiles_28_46c0::
+FrameTiles_Letter_T::
 	INCBIN "gfx/frames/28/46c0.2bpp"
 
-FrameTiles_28_4700::
+FrameTiles_Letter_U::
 	INCBIN "gfx/frames/28/4700.2bpp"
 
-FrameTiles_28_4740::
+FrameTiles_Unused_34::
 	INCBIN "gfx/frames/28/4740.2bpp"
 
-FrameTiles_28_4780::
+FrameTiles_Letter_W::
 	INCBIN "gfx/frames/28/4780.2bpp"
 
-FrameTiles_28_47c0::
+FrameTiles_Letter_X::
 	INCBIN "gfx/frames/28/47c0.2bpp"
 
-FrameTiles_28_4800::
+FrameTiles_Letter_Y::
 	INCBIN "gfx/frames/28/4800.2bpp"
 
-FrameTiles_28_4840::
+FrameTiles_Unused_35::
 	INCBIN "gfx/frames/28/4840.2bpp"
 
-FrameTiles_28_4880::
+FrameTiles_Unused_36::
 	INCBIN "gfx/frames/28/4880.2bpp"
 
-FrameTiles_28_4940::
+FrameTiles_Unused_37::
 	INCBIN "gfx/frames/28/4940.2bpp"
 
-FrameTiles_28_4a00::
+FrameTiles_Unused_38::
 	INCBIN "gfx/frames/28/4a00.2bpp"
 
-FrameTiles_28_4ae0::
+FrameTiles_Unused_39::
 	INCBIN "gfx/frames/28/4ae0.2bpp"
 
-FrameTiles_28_4ba0::
+FrameTiles_Unused_40::
 	INCBIN "gfx/frames/28/4ba0.2bpp"
 
-FrameTiles_28_4c80::
+FrameTiles_Unused_41::
 	INCBIN "gfx/frames/28/4c80.2bpp"
 
-FrameTiles_28_4d60::
+FrameTiles_Unused_42::
 	INCBIN "gfx/frames/28/4d60.2bpp"
 
-FrameTiles_28_4e40::
+FrameTiles_Unused_43::
 	INCBIN "gfx/frames/28/4e40.2bpp"
 
-FrameTiles_28_4f00::
+FrameTiles_Unused_44::
 	INCBIN "gfx/frames/28/4f00.2bpp"
 
-FrameTiles_28_4fe0::
+FrameTiles_Unused_45::
 	INCBIN "gfx/frames/28/4fe0.2bpp"
 
-FrameTiles_28_50c0::
+FrameTiles_AnimalCrate_5::
 	INCBIN "gfx/frames/28/50c0.2bpp"
 
-FrameTiles_28_5180::
+FrameTiles_AnimalCrate_6::
 	INCBIN "gfx/frames/28/5180.2bpp"
 
-FrameTiles_28_5240::
+FrameTiles_AnimalCrate_7::
 	INCBIN "gfx/frames/28/5240.2bpp"
 
-FrameTiles_28_5300::
+FrameTiles_AnimalCrate_8::
 	INCBIN "gfx/frames/28/5300.2bpp"
 
-FrameTiles_28_5360::
+FrameTiles_AnimalCrate_9::
 	INCBIN "gfx/frames/28/5360.2bpp"
 
-FrameTiles_28_5420::
+FrameTiles_AnimalCrate_10::
 	INCBIN "gfx/frames/28/5420.2bpp"
 
-FrameTiles_28_54e0::
+FrameTiles_Unused_46::
 	INCBIN "gfx/frames/28/54e0.2bpp"
 
-FrameTiles_28_5560::
+FrameTiles_Unused_47::
 	INCBIN "gfx/frames/28/5560.2bpp"
 
-FrameTiles_28_56a0::
+FrameTiles_Unused_48::
 	INCBIN "gfx/frames/28/56a0.2bpp"
 
-FrameTiles_28_57e0::
+FrameTiles_Unused_49::
 	INCBIN "gfx/frames/28/57e0.2bpp"
 
-FrameTiles_28_58a0::
+FrameTiles_Unused_50::
 	INCBIN "gfx/frames/28/58a0.2bpp"
 
-FrameTiles_28_5a00::
+FrameTiles_Unused_51::
 	INCBIN "gfx/frames/28/5a00.2bpp"
 
-FrameTiles_28_5bc0::
+FrameTiles_Unused_52::
 	INCBIN "gfx/frames/28/5bc0.2bpp"
 
-FrameTiles_28_5be0::
+FrameTiles_Chomps_Touch_1::
 	INCBIN "gfx/frames/28/5be0.2bpp"
 
-FrameTiles_28_5ca0::
+FrameTiles_Chomps_Touch_2::
 	INCBIN "gfx/frames/28/5ca0.2bpp"
 
-FrameTiles_28_5d80::
+FrameTiles_Chomps_Touch_3::
 	INCBIN "gfx/frames/28/5d80.2bpp"
 
-FrameTiles_28_5e60::
+FrameTiles_Chomps_Touch_4::
 	INCBIN "gfx/frames/28/5e60.2bpp"
 
-FrameTiles_28_5f80::
+FrameTiles_Chomps_Touch_5::
 	INCBIN "gfx/frames/28/5f80.2bpp"
 
-FrameTiles_28_6080::
+FrameTiles_Chomps_Touch_6::
 	INCBIN "gfx/frames/28/6080.2bpp"
 
-FrameTiles_28_6180::
+FrameTiles_Chomps_1::
 	INCBIN "gfx/frames/28/6180.2bpp"
 
-FrameTiles_28_6280::
+FrameTiles_Chomps_2::
 	INCBIN "gfx/frames/28/6280.2bpp"
 
-FrameTiles_28_6380::
+FrameTiles_Chomps_3::
 	INCBIN "gfx/frames/28/6380.2bpp"
 
-FrameTiles_28_6460::
+FrameTiles_Chomps_4::
 	INCBIN "gfx/frames/28/6460.2bpp"
 
-FrameTiles_28_6520::
+FrameTiles_Chomps_5::
 	INCBIN "gfx/frames/28/6520.2bpp"
 
-FrameTiles_28_65e0::
+FrameTiles_Chomps_6::
 	INCBIN "gfx/frames/28/65e0.2bpp"
 
-FrameTiles_28_66e0::
+FrameTiles_Chomps_7::
 	INCBIN "gfx/frames/28/66e0.2bpp"
 
-FrameTiles_28_67e0::
+FrameTiles_Chomps_8::
 	INCBIN "gfx/frames/28/67e0.2bpp"
 
-FrameTiles_28_68e0::
+FrameTiles_Chomps_Swim_1::
 	INCBIN "gfx/frames/28/68e0.2bpp"
 
-FrameTiles_28_69a0::
+FrameTiles_Chomps_Swim_2::
 	INCBIN "gfx/frames/28/69a0.2bpp"
 
-FrameTiles_28_6a60::
+FrameTiles_Chomps_Swim_3::
 	INCBIN "gfx/frames/28/6a60.2bpp"
 
-FrameTiles_28_6b20::
+FrameTiles_Chomps_Swim_4::
 	INCBIN "gfx/frames/28/6b20.2bpp"
 
-FrameTiles_28_6bc0::
+FrameTiles_Chomps_Swim_5::
 	INCBIN "gfx/frames/28/6bc0.2bpp"
 
-FrameTiles_28_6c80::
+FrameTiles_Gnawty_9::
 	INCBIN "gfx/frames/28/6c80.2bpp"
 
-FrameTiles_28_6d00::
+FrameTiles_Gnawty_10::
 	INCBIN "gfx/frames/28/6d00.2bpp"
 
-FrameTiles_28_6d80::
+FrameTiles_Gnawty_11::
 	INCBIN "gfx/frames/28/6d80.2bpp"
 
-FrameTiles_28_6e00::
+FrameTiles_Gnawty_12::
 	INCBIN "gfx/frames/28/6e00.2bpp"
 
-FrameTiles_28_6e80::
+FrameTiles_Gnawty_13::
 	INCBIN "gfx/frames/28/6e80.2bpp"
 
-FrameTiles_28_6f00::
+FrameTiles_Gnawty_14::
 	INCBIN "gfx/frames/28/6f00.2bpp"
 
-FrameTiles_28_6f80::
+FrameTiles_AnimalToken_4::
 	INCBIN "gfx/frames/28/6f80.2bpp"
 
-FrameTiles_28_7020::
+FrameTiles_AnimalToken_5::
 	INCBIN "gfx/frames/28/7020.2bpp"
 
-FrameTiles_28_70a0::
+FrameTiles_AnimalToken_6::
 	INCBIN "gfx/frames/28/70a0.2bpp"
 
-FrameTiles_28_7120::
+FrameTiles_AnimalToken_7::
 	INCBIN "gfx/frames/28/7120.2bpp"
 
-FrameTiles_28_71a0::
+FrameTiles_PlayerEnguarde_1::
 	INCBIN "gfx/frames/28/71a0.2bpp"
 
-FrameTiles_28_72a0::
+FrameTiles_PlayerEnguarde_2::
 	INCBIN "gfx/frames/28/72a0.2bpp"
 
-FrameTiles_28_73a0::
+FrameTiles_PlayerEnguarde_3::
 	INCBIN "gfx/frames/28/73a0.2bpp"
 
-FrameTiles_28_74a0::
+FrameTiles_PlayerEnguarde_4::
 	INCBIN "gfx/frames/28/74a0.2bpp"
 
-FrameTiles_28_7580::
+FrameTiles_PlayerEnguarde_5::
 	INCBIN "gfx/frames/28/7580.2bpp"
 
-FrameTiles_28_7680::
+FrameTiles_PlayerEnguarde_6::
 	INCBIN "gfx/frames/28/7680.2bpp"
 
-FrameTiles_28_77a0::
+FrameTiles_PlayerEnguarde_7::
 	INCBIN "gfx/frames/28/77a0.2bpp"
 
-FrameTiles_28_78c0::
+FrameTiles_PlayerEnguarde_8::
 	INCBIN "gfx/frames/28/78c0.2bpp"
 
-FrameSprites_28_79e0::
+FrameSprites_AnimalToken_3::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_79e4::
+FrameSprites_Unused_23::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_79e8::
+FrameSprites_Unused_24::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_79ec::
+FrameSprites_Unused_25::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_79f0::
+FrameSprites_Unused_26::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_79f4::
+FrameSprites_Unused_27::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_79f8::
+FrameSprites_Unused_28::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_79fc::
+FrameSprites_Unused_29::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a00::
+FrameSprites_Letter_A::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a04::
+FrameSprites_Letter_B::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a08::
+FrameSprites_Letter_C::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a0c::
+FrameSprites_Letter_D::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a10::
+FrameSprites_Letter_E::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a14::
+FrameSprites_Letter_F::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a18::
+FrameSprites_Letter_G::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a1c::
+FrameSprites_Unused_30::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a20::
+FrameSprites_Letter_I::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a24::
+FrameSprites_Unused_31::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a28::
+FrameSprites_Letter_K::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a2c::
+FrameSprites_Unused_32::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a30::
+FrameSprites_Letter_M::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a34::
+FrameSprites_Letter_N::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a38::
+FrameSprites_Letter_O::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a3c::
+FrameSprites_Letter_P::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a40::
+FrameSprites_Unused_33::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a44::
+FrameSprites_Letter_R::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a48::
+FrameSprites_Letter_S::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a4c::
+FrameSprites_Letter_T::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a50::
+FrameSprites_Letter_U::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a54::
+FrameSprites_Unused_34::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a58::
+FrameSprites_Letter_W::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a5c::
+FrameSprites_Letter_X::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a60::
+FrameSprites_Letter_Y::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a64::
+FrameSprites_Unused_35::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_28_7a68::
+FrameSprites_Unused_36::
 	db -11, -27
 	db 0, 16
 	db 8, -16
@@ -429,7 +429,7 @@ FrameSprites_28_7a68::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_28_7a74::
+FrameSprites_Unused_37::
 	db -12, -25
 	db 0, 16
 	db 8, -17
@@ -437,7 +437,7 @@ FrameSprites_28_7a74::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_28_7a80::
+FrameSprites_Unused_38::
 	db -12, -26
 	db 0, 16
 	db 8, -16
@@ -446,7 +446,7 @@ FrameSprites_28_7a80::
 	db 0, 16
 	db 8, -3
 
-FrameSprites_28_7a8e::
+FrameSprites_Unused_39::
 	db -11, -25
 	db 0, 16
 	db 8, -16
@@ -454,7 +454,7 @@ FrameSprites_28_7a8e::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_28_7a9a::
+FrameSprites_Unused_40::
 	db -12, -24
 	db 0, 16
 	db 8, -17
@@ -463,7 +463,7 @@ FrameSprites_28_7a9a::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_28_7aa8::
+FrameSprites_Unused_41::
 	db -12, -25
 	db 0, 16
 	db 8, -16
@@ -472,7 +472,7 @@ FrameSprites_28_7aa8::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_28_7ab6::
+FrameSprites_Unused_42::
 	db -12, -26
 	db 0, 16
 	db 8, -16
@@ -481,7 +481,7 @@ FrameSprites_28_7ab6::
 	db 0, 16
 	db 8, -3
 
-FrameSprites_28_7ac4::
+FrameSprites_Unused_43::
 	db -11, -25
 	db 0, 16
 	db 8, -17
@@ -489,7 +489,7 @@ FrameSprites_28_7ac4::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_28_7ad0::
+FrameSprites_Unused_44::
 	db -12, -24
 	db 0, 16
 	db 8, -17
@@ -498,7 +498,7 @@ FrameSprites_28_7ad0::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_28_7ade::
+FrameSprites_Unused_45::
 	db -12, -24
 	db 0, 16
 	db 8, -17
@@ -507,7 +507,7 @@ FrameSprites_28_7ade::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_28_7aec::
+FrameSprites_AnimalCrate_5::
 	db -12, -24
 	db 0, 16
 	db 8, -16
@@ -515,7 +515,7 @@ FrameSprites_28_7aec::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_28_7af8::
+FrameSprites_AnimalCrate_6::
 	db -12, -24
 	db 0, 16
 	db 8, -16
@@ -523,7 +523,7 @@ FrameSprites_28_7af8::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_28_7b04::
+FrameSprites_AnimalCrate_7::
 	db -12, -19
 	db 0, 16
 	db 8, -16
@@ -531,12 +531,12 @@ FrameSprites_28_7b04::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_28_7b10::
+FrameSprites_AnimalCrate_8::
 	db -12, -11
 	db 8, 0
 	db 8, 0
 
-FrameSprites_28_7b16::
+FrameSprites_AnimalCrate_9::
 	db -12, -24
 	db 0, 16
 	db 8, -16
@@ -544,7 +544,7 @@ FrameSprites_28_7b16::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_28_7b22::
+FrameSprites_AnimalCrate_10::
 	db -12, -24
 	db 0, 16
 	db 8, -16
@@ -552,13 +552,13 @@ FrameSprites_28_7b22::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_28_7b2e::
+FrameSprites_Unused_46::
 	db 19, 0
 	db 8, 0
 	db -8, 16
 	db 8, 0
 
-FrameSprites_28_7b36::
+FrameSprites_Unused_47::
 	db 27, 16
 	db -8, 0
 	db -8, 0
@@ -570,7 +570,7 @@ FrameSprites_28_7b36::
 	db 0, -16
 	db -8, 6
 
-FrameSprites_28_7b4a::
+FrameSprites_Unused_48::
 	db 35, 0
 	db 8, 0
 	db -16, 8
@@ -582,7 +582,7 @@ FrameSprites_28_7b4a::
 	db 8, 0
 	db -24, 0
 
-FrameSprites_28_7b5e::
+FrameSprites_Unused_49::
 	db 8, 16
 	db 0, -16
 	db 8, 0
@@ -590,7 +590,7 @@ FrameSprites_28_7b5e::
 	db 0, 16
 	db -8, 0
 
-FrameSprites_28_7b6a::
+FrameSprites_Unused_50::
 	db 0, 32
 	db 8, 0
 	db 8, 0
@@ -603,7 +603,7 @@ FrameSprites_28_7b6a::
 	db -8, 0
 	db 16, 0
 
-FrameSprites_28_7b80::
+FrameSprites_Unused_51::
 	db 0, 104
 	db 8, 0
 	db 8, 0
@@ -619,10 +619,10 @@ FrameSprites_28_7b80::
 	db -24, -23
 	db -8, 0
 
-FrameSprites_28_7b9c::
+FrameSprites_Unused_52::
 	db 24, 48
 
-FrameSprites_28_7b9e::
+FrameSprites_Chomps_Touch_1::
 	db -10, -17
 	db 0, 16
 	db 8, -13
@@ -630,7 +630,7 @@ FrameSprites_28_7b9e::
 	db 8, -11
 	db 0, 16
 
-FrameSprites_28_7baa::
+FrameSprites_Chomps_Touch_2::
 	db -9, -15
 	db 0, 16
 	db 0, 16
@@ -639,7 +639,7 @@ FrameSprites_28_7baa::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_28_7bb8::
+FrameSprites_Chomps_Touch_3::
 	db -10, -13
 	db 0, 16
 	db 8, -18
@@ -648,7 +648,7 @@ FrameSprites_28_7bb8::
 	db 8, -32
 	db 0, 16
 
-FrameSprites_28_7bc6::
+FrameSprites_Chomps_Touch_4::
 	db -11, -16
 	db 0, 16
 	db 8, -20
@@ -659,7 +659,7 @@ FrameSprites_28_7bc6::
 	db 0, 16
 	db 8, -26
 
-FrameSprites_28_7bd8::
+FrameSprites_Chomps_Touch_5::
 	db -10, -22
 	db 0, 16
 	db 8, -16
@@ -669,7 +669,7 @@ FrameSprites_28_7bd8::
 	db 8, -12
 	db 0, 25
 
-FrameSprites_28_7be8::
+FrameSprites_Chomps_Touch_6::
 	db -12, -22
 	db 0, 16
 	db 8, -15
@@ -679,7 +679,7 @@ FrameSprites_28_7be8::
 	db 8, -14
 	db 0, 17
 
-FrameSprites_28_7bf8::
+FrameSprites_Chomps_1::
 	db -22, -15
 	db 0, 16
 	db 8, -12
@@ -689,7 +689,7 @@ FrameSprites_28_7bf8::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_28_7c08::
+FrameSprites_Chomps_2::
 	db -19, -17
 	db 0, 16
 	db 8, -10
@@ -699,7 +699,7 @@ FrameSprites_28_7c08::
 	db 8, -9
 	db 8, 4
 
-FrameSprites_28_7c18::
+FrameSprites_Chomps_3::
 	db -11, -19
 	db 0, 16
 	db 8, -18
@@ -708,7 +708,7 @@ FrameSprites_28_7c18::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_28_7c26::
+FrameSprites_Chomps_4::
 	db -9, -18
 	db 0, 16
 	db 8, -19
@@ -716,7 +716,7 @@ FrameSprites_28_7c26::
 	db 8, -7
 	db 8, 2
 
-FrameSprites_28_7c32::
+FrameSprites_Chomps_5::
 	db -10, -18
 	db 0, 16
 	db 8, -19
@@ -724,7 +724,7 @@ FrameSprites_28_7c32::
 	db 8, -8
 	db 8, 3
 
-FrameSprites_28_7c3e::
+FrameSprites_Chomps_6::
 	db -16, -18
 	db 0, 16
 	db 8, -13
@@ -734,7 +734,7 @@ FrameSprites_28_7c3e::
 	db 8, -7
 	db 8, 3
 
-FrameSprites_28_7c4e::
+FrameSprites_Chomps_7::
 	db -22, -16
 	db 0, 16
 	db 8, -10
@@ -744,7 +744,7 @@ FrameSprites_28_7c4e::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_28_7c5e::
+FrameSprites_Chomps_8::
 	db -22, -15
 	db 0, 16
 	db 8, -11
@@ -754,7 +754,7 @@ FrameSprites_28_7c5e::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_28_7c6e::
+FrameSprites_Chomps_Swim_1::
 	db -19, -14
 	db 8, 6
 	db 8, -9
@@ -762,7 +762,7 @@ FrameSprites_28_7c6e::
 	db 8, -8
 	db 8, 4
 
-FrameSprites_28_7c7a::
+FrameSprites_Chomps_Swim_2::
 	db -10, -14
 	db 0, 18
 	db 8, -13
@@ -770,7 +770,7 @@ FrameSprites_28_7c7a::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_28_7c86::
+FrameSprites_Chomps_Swim_3::
 	db 0, -14
 	db 0, 16
 	db 8, -13
@@ -778,14 +778,14 @@ FrameSprites_28_7c86::
 	db 0, 16
 	db 8, 1
 
-FrameSprites_28_7c92::
+FrameSprites_Chomps_Swim_4::
 	db 0, -14
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -5
 
-FrameSprites_28_7c9c::
+FrameSprites_Chomps_Swim_5::
 	db -14, -7
 	db 8, -9
 	db 0, 16
@@ -793,68 +793,68 @@ FrameSprites_28_7c9c::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_28_7ca8::
+FrameSprites_Gnawty_9::
 	db -15, -8
 	db 8, 0
 	db 8, 2
 	db 8, 0
 
-FrameSprites_28_7cb0::
+FrameSprites_Gnawty_10::
 	db -15, -8
 	db 8, 0
 	db 8, 2
 	db 8, 0
 
-FrameSprites_28_7cb8::
+FrameSprites_Gnawty_11::
 	db -14, -8
 	db 8, 1
 	db 8, -1
 	db 8, 2
 
-FrameSprites_28_7cc0::
+FrameSprites_Gnawty_12::
 	db -12, -8
 	db 8, -1
 	db 8, 2
 	db 8, 1
 
-FrameSprites_28_7cc8::
+FrameSprites_Gnawty_13::
 	db -13, -7
 	db 8, -2
 	db 8, 2
 	db 8, 1
 
-FrameSprites_28_7cd0::
+FrameSprites_Gnawty_14::
 	db -15, -7
 	db 8, -1
 	db 8, 2
 	db 8, 0
 
-FrameSprites_28_7cd8::
+FrameSprites_AnimalToken_4::
 	db -14, -11
 	db 8, -8
 	db 0, 16
 	db 8, -8
 	db 8, 0
 
-FrameSprites_28_7ce2::
+FrameSprites_AnimalToken_5::
 	db -9, -23
 	db 8, 0
 	db 8, 0
 	db -11, 16
 
-FrameSprites_28_7cea::
+FrameSprites_AnimalToken_6::
 	db -11, -13
 	db 8, -3
 	db 0, 16
 	db 8, -16
 
-FrameSprites_28_7cf2::
+FrameSprites_AnimalToken_7::
 	db -12, -12
 	db 8, -5
 	db 0, 16
 	db 8, -13
 
-FrameSprites_28_7cfa::
+FrameSprites_PlayerEnguarde_1::
 	db -18, -18
 	db 0, 16
 	db 8, -12
@@ -864,7 +864,7 @@ FrameSprites_28_7cfa::
 	db 8, -5
 	db 8, 7
 
-FrameSprites_28_7d0a::
+FrameSprites_PlayerEnguarde_2::
 	db -17, -18
 	db 0, 16
 	db 8, -15
@@ -874,7 +874,7 @@ FrameSprites_28_7d0a::
 	db 8, -5
 	db 8, 7
 
-FrameSprites_28_7d1a::
+FrameSprites_PlayerEnguarde_3::
 	db -14, -17
 	db 0, 16
 	db 8, -25
@@ -884,7 +884,7 @@ FrameSprites_28_7d1a::
 	db 8, -10
 	db 8, 3
 
-FrameSprites_28_7d2a::
+FrameSprites_PlayerEnguarde_4::
 	db -13, -15
 	db 0, 17
 	db 8, -29
@@ -893,7 +893,7 @@ FrameSprites_28_7d2a::
 	db 8, 6
 	db 8, 3
 
-FrameSprites_28_7d38::
+FrameSprites_PlayerEnguarde_5::
 	db -14, -15
 	db 0, 16
 	db 8, -28
@@ -903,7 +903,7 @@ FrameSprites_28_7d38::
 	db 8, -7
 	db 8, 2
 
-FrameSprites_28_7d48::
+FrameSprites_PlayerEnguarde_6::
 	db -17, -17
 	db 0, 16
 	db 8, -26
@@ -914,7 +914,7 @@ FrameSprites_28_7d48::
 	db 8, 7
 	db 8, 2
 
-FrameSprites_28_7d5a::
+FrameSprites_PlayerEnguarde_7::
 	db -20, -17
 	db 0, 16
 	db 8, -12
@@ -925,7 +925,7 @@ FrameSprites_28_7d5a::
 	db 8, 6
 	db 8, 2
 
-FrameSprites_28_7d6c::
+FrameSprites_PlayerEnguarde_8::
 	db -20, -18
 	db 0, 16
 	db 8, -11

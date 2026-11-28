@@ -3,11 +3,11 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $74", ROMX[$4000], BANK[$74]
 
-BGTiles_74_4000::
+BGTiles_DKsBananaHoard::
 	INCBIN "gfx/bgtiles/74/4000.2bpp"
 	INCBIN "gfx/bgtiles/74/4000_end.2bpp"
 
-ScreenPalettes_74_5180::
+ScreenPalettes_DKsBananaHoard::
 	rgb  0,  0,  0,   4,  3,  2,  14,  7,  2,  27, 15,  5
 	rgb  0,  0,  0,  10,  2,  0,  21, 13,  0,  31, 23,  0
 	rgb  0,  0,  0,   6,  5,  2,  12,  9,  4,  18, 13,  6
@@ -17,7 +17,7 @@ ScreenPalettes_74_5180::
 	rgb 11,  0, 11,  17,  2, 17,  24,  5, 24,  31,  7, 31
 	rgb  0,  0,  0,  17,  2, 17,  18, 13,  6,  11,  0, 11
 
-ScreenMap_74_51c0::
+ScreenMap_DKsBananaHoard::
 	db $07, $04, $03, $02, $02, $07, $03, $07, $03, $02, $02, $07, $03, $03, $27, $22, $22, $23, $07, $07 ; attributes
 	db $04, $04, $07, $03, $07, $06, $07, $06, $07, $03, $03, $07, $07, $27, $26, $27, $23, $27, $26, $07
 	db $01, $04, $04, $07, $46, $06, $06, $06, $07, $07, $03, $07, $06, $06, $26, $66, $27, $07, $07, $02
@@ -55,7 +55,7 @@ ScreenMap_74_51c0::
 	db $fe, $ff, $00, $01, $02, $03, $04, $05, $06, $07, $08, $09, $0a, $0b, $0c, $0b, $0d, $0e, $0f, $10
 	db $11, $11, $12, $13, $11, $12, $14, $13, $15, $16, $17, $15, $15, $12, $12, $11, $13, $12, $11, $11
 
-Screen_74_5490::
-	dw ScreenPalettes_74_5180, ScreenMap_74_51c0, BGTiles_74_4000 ; palettes, tile map, tiles
+Screen_DKsBananaHoard::
+	dw ScreenPalettes_DKsBananaHoard, ScreenMap_DKsBananaHoard, BGTiles_DKsBananaHoard ; palettes, tile map, tiles
 	ds 11114, $00 ; $5496
 

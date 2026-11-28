@@ -3,11 +3,11 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $75", ROMX[$4000], BANK[$75]
 
-BGTiles_75_4000::
+BGTiles_EndingHoard::
 	INCBIN "gfx/bgtiles/75/4000.2bpp"
 	INCBIN "gfx/bgtiles/75/4000_end.2bpp"
 
-ScreenPalettes_75_50d0::
+ScreenPalettes_EndingHoard::
 	rgb  0,  0,  0,  15,  6,  0,  24, 13,  0,  31, 31,  0
 	rgb  0,  0,  0,  10,  4,  2,  22,  9,  5,  30, 18, 13
 	rgb  0,  0,  0,  17,  0,  0,  10,  4,  2,   0,  7,  0
@@ -17,7 +17,7 @@ ScreenPalettes_75_50d0::
 	rgb  0,  7,  0,  10,  4,  2,  22,  9,  5,  30, 18, 13
 	rgb  0,  7,  0,   0,  0,  0,  10,  4,  2,  22,  9,  5
 
-ScreenMap_75_5110::
+ScreenMap_EndingHoard::
 	db $05, $05, $05, $05, $05, $05, $05, $06, $06, $06, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05 ; attributes
 	db $05, $05, $05, $05, $05, $05, $05, $06, $06, $06, $02, $02, $02, $02, $02, $07, $05, $05, $05, $05
 	db $05, $05, $05, $05, $05, $05, $05, $06, $07, $07, $01, $01, $01, $01, $07, $07, $05, $05, $05, $05
@@ -55,7 +55,7 @@ ScreenMap_75_5110::
 	db $ec, $ed, $ee, $ef, $f0, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $f1, $f0, $ef, $fa, $fb, $fc
 	db $81, $fd, $fe, $ff, $00, $01, $02, $03, $04, $05, $06, $07, $08, $09, $01, $00, $0a, $0b, $0c, $81
 
-Screen_75_53e0::
-	dw ScreenPalettes_75_50d0, ScreenMap_75_5110, BGTiles_75_4000 ; palettes, tile map, tiles
+Screen_EndingHoard::
+	dw ScreenPalettes_EndingHoard, ScreenMap_EndingHoard, BGTiles_EndingHoard ; palettes, tile map, tiles
 	ds 11290, $00 ; $53e6
 

@@ -3,40 +3,40 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e8", ROMX[$4000], BANK[$e8]
 
-LevelMap_e8_4000::
+LevelMap_ElevatorAntics2::
 	INCBIN "data/maps/e8_4000_terrain.lz"
 
-LevelMap_e8_43bf::
+LevelMap_ElevatorAntics0::
 	INCBIN "data/maps/e8_43bf_blocks.lz"
 
-LevelMap_e8_4e25::
+LevelMap_ElevatorAntics1::
 	INCBIN "data/maps/e8_4e25_attrs.lz"
 
-LevelMap_e8_5375::
+LevelMap_ElevatorAntics5::
 	INCBIN "data/maps/e8_5375_terrain.lz"
 
-LevelMap_e8_54ba::
+LevelMap_ElevatorAntics3::
 	INCBIN "data/maps/e8_54ba_blocks.lz"
 
-LevelMap_e8_5747::
+LevelMap_ElevatorAntics4::
 	INCBIN "data/maps/e8_5747_attrs.lz"
 
-LevelMap_e8_58e1::
+LevelMap_NeckyNutmare_1::
 	INCBIN "data/maps/e8_58e1_terrain.lz"
 
-LevelMap_e8_5ba0::
+LevelMap_NeckyNutmare_2::
 	INCBIN "data/maps/e8_5ba0_blocks.lz"
 
-LevelMap_e8_639c::
+LevelMap_NeckyNutmare_3::
 	INCBIN "data/maps/e8_639c_attrs.lz"
 
-LevelMap_e8_677a::
+LevelMap_JungleHijinxs_Area1_1::
 	INCBIN "data/maps/e8_677a_terrain.lz"
 
-LevelMap_e8_67e1::
+LevelMap_JungleHijinxs_Area1_2::
 	INCBIN "data/maps/e8_67e1_blocks.lz"
 
-LevelMap_e8_6890::
+LevelMap_JungleHijinxs_Area1_3::
 	INCBIN "data/maps/e8_6890_attrs.lz"
 	ds 5873, $00 ; $690f
 

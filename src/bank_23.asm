@@ -3,184 +3,184 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $23", ROMX[$4000], BANK[$23]
 
-FrameTiles_23_4000::
+FrameTiles_SetPlayerAnimation_24::
 	INCBIN "gfx/frames/23/4000.2bpp"
 
-FrameTiles_23_4120::
+FrameTiles_SetPlayerAnimation_25::
 	INCBIN "gfx/frames/23/4120.2bpp"
 
-FrameTiles_23_4200::
+FrameTiles_SetPlayerAnimation_26::
 	INCBIN "gfx/frames/23/4200.2bpp"
 
-FrameTiles_23_4320::
+FrameTiles_SetPlayerAnimation_27::
 	INCBIN "gfx/frames/23/4320.2bpp"
 
-FrameTiles_23_43e0::
+FrameTiles_SetPlayerAnimation_28::
 	INCBIN "gfx/frames/23/43e0.2bpp"
 
-FrameTiles_23_44a0::
+FrameTiles_SetPlayerAnimation_29::
 	INCBIN "gfx/frames/23/44a0.2bpp"
 
-FrameTiles_23_4580::
+FrameTiles_SetPlayerAnimation_30::
 	INCBIN "gfx/frames/23/4580.2bpp"
 
-FrameTiles_23_4680::
+FrameTiles_SetPlayerAnimation_31::
 	INCBIN "gfx/frames/23/4680.2bpp"
 
-FrameTiles_23_4780::
+FrameTiles_SetPlayerAnimation_32::
 	INCBIN "gfx/frames/23/4780.2bpp"
 
-FrameTiles_23_48a0::
+FrameTiles_SetPlayerAnimation_43::
 	INCBIN "gfx/frames/23/48a0.2bpp"
 
-FrameTiles_23_4980::
+FrameTiles_SetPlayerAnimation_44::
 	INCBIN "gfx/frames/23/4980.2bpp"
 
-FrameTiles_23_4a80::
+FrameTiles_SetPlayerAnimation_45::
 	INCBIN "gfx/frames/23/4a80.2bpp"
 
-FrameTiles_23_4b60::
+FrameTiles_SetPlayerAnimation_46::
 	INCBIN "gfx/frames/23/4b60.2bpp"
 
-FrameTiles_23_4ca0::
+FrameTiles_SetPlayerAnimation_47::
 	INCBIN "gfx/frames/23/4ca0.2bpp"
 
-FrameTiles_23_4dc0::
+FrameTiles_SetPlayerAnimation_48::
 	INCBIN "gfx/frames/23/4dc0.2bpp"
 
-FrameTiles_23_4ec0::
+FrameTiles_SetPlayerAnimation_49::
 	INCBIN "gfx/frames/23/4ec0.2bpp"
 
-FrameTiles_23_4fc0::
+FrameTiles_SetPlayerAnimation_50::
 	INCBIN "gfx/frames/23/4fc0.2bpp"
 
-FrameTiles_23_50a0::
+FrameTiles_SetPlayerAnimation_51::
 	INCBIN "gfx/frames/23/50a0.2bpp"
 
-FrameTiles_23_51a0::
+FrameTiles_SetPlayerAnimation_52::
 	INCBIN "gfx/frames/23/51a0.2bpp"
 
-FrameTiles_23_52a0::
+FrameTiles_SetPlayerAnimation_53::
 	INCBIN "gfx/frames/23/52a0.2bpp"
 
-FrameTiles_23_5380::
+FrameTiles_SetPlayerAnimation_54::
 	INCBIN "gfx/frames/23/5380.2bpp"
 
-FrameTiles_23_5480::
+FrameTiles_SetPlayerAnimation_55::
 	INCBIN "gfx/frames/23/5480.2bpp"
 
-FrameTiles_23_55a0::
+FrameTiles_SetPlayerAnimation_56::
 	INCBIN "gfx/frames/23/55a0.2bpp"
 
-FrameTiles_23_5680::
+FrameTiles_SetPlayerAnimation_57::
 	INCBIN "gfx/frames/23/5680.2bpp"
 
-FrameTiles_23_57a0::
+FrameTiles_SetPlayerAnimation_58::
 	INCBIN "gfx/frames/23/57a0.2bpp"
 
-FrameTiles_23_58a0::
+FrameTiles_SetPlayerAnimation_59::
 	INCBIN "gfx/frames/23/58a0.2bpp"
 
-FrameTiles_23_59c0::
+FrameTiles_SetPlayerAnimation_60::
 	INCBIN "gfx/frames/23/59c0.2bpp"
 
-FrameTiles_23_5b00::
+FrameTiles_SetPlayerAnimation_61::
 	INCBIN "gfx/frames/23/5b00.2bpp"
 
-FrameTiles_23_5c20::
+FrameTiles_SetPlayerAnimation_62::
 	INCBIN "gfx/frames/23/5c20.2bpp"
 
-FrameTiles_23_5d20::
+FrameTiles_SetPlayerAnimation_63::
 	INCBIN "gfx/frames/23/5d20.2bpp"
 
-FrameTiles_23_5e20::
+FrameTiles_SetPlayerAnimation_64::
 	INCBIN "gfx/frames/23/5e20.2bpp"
 
-FrameTiles_23_5ee0::
+FrameTiles_SetPlayerAnimation_65::
 	INCBIN "gfx/frames/23/5ee0.2bpp"
 
-FrameTiles_23_5fc0::
+FrameTiles_SetPlayerAnimation_66::
 	INCBIN "gfx/frames/23/5fc0.2bpp"
 
-FrameTiles_23_6080::
+FrameTiles_SetPlayerAnimation_67::
 	INCBIN "gfx/frames/23/6080.2bpp"
 
-FrameTiles_23_6180::
+FrameTiles_SetPlayerAnimation_68::
 	INCBIN "gfx/frames/23/6180.2bpp"
 
-FrameTiles_23_62a0::
+FrameTiles_SetPlayerAnimation_69::
 	INCBIN "gfx/frames/23/62a0.2bpp"
 
-FrameTiles_23_6380::
+FrameTiles_SetPlayerAnimation_70::
 	INCBIN "gfx/frames/23/6380.2bpp"
 
-FrameTiles_23_6480::
+FrameTiles_SetPlayerAnimation_71::
 	INCBIN "gfx/frames/23/6480.2bpp"
 
-FrameTiles_23_6560::
+FrameTiles_SetPlayerAnimation_72::
 	INCBIN "gfx/frames/23/6560.2bpp"
 
-FrameTiles_23_6640::
+FrameTiles_SetPlayerAnimation_73::
 	INCBIN "gfx/frames/23/6640.2bpp"
 
-FrameTiles_23_6740::
+FrameTiles_SetPlayerAnimation_74::
 	INCBIN "gfx/frames/23/6740.2bpp"
 
-FrameTiles_23_6840::
+FrameTiles_SetPlayerAnimation_75::
 	INCBIN "gfx/frames/23/6840.2bpp"
 
-FrameTiles_23_6920::
+FrameTiles_AnimalToken_1::
 	INCBIN "gfx/frames/23/6920.2bpp"
 
-FrameTiles_23_6960::
+FrameTiles_Unused_2::
 	INCBIN "gfx/frames/23/6960.2bpp"
 
-FrameTiles_23_69a0::
+FrameTiles_Unused_3::
 	INCBIN "gfx/frames/23/69a0.2bpp"
 
-FrameTiles_23_69e0::
+FrameTiles_Unused_4::
 	INCBIN "gfx/frames/23/69e0.2bpp"
 
-FrameTiles_23_6a20::
+FrameTiles_Unused_5::
 	INCBIN "gfx/frames/23/6a20.2bpp"
 
-FrameTiles_23_6a60::
+FrameTiles_Unused_6::
 	INCBIN "gfx/frames/23/6a60.2bpp"
 
-FrameTiles_23_6aa0::
+FrameTiles_Unused_7::
 	INCBIN "gfx/frames/23/6aa0.2bpp"
 
-FrameTiles_23_6ae0::
+FrameTiles_Unused_8::
 	INCBIN "gfx/frames/23/6ae0.2bpp"
 
-FrameTiles_23_6b20::
+FrameTiles_Obj_Idle_2::
 	INCBIN "gfx/frames/23/6b20.2bpp"
 
-FrameTiles_23_6ba0::
+FrameTiles_AnimalToken_2::
 	INCBIN "gfx/frames/23/6ba0.2bpp"
 
-FrameTiles_23_6be0::
+FrameTiles_Unused_9::
 	INCBIN "gfx/frames/23/6be0.2bpp"
 
-FrameTiles_23_6c20::
+FrameTiles_Unused_10::
 	INCBIN "gfx/frames/23/6c20.2bpp"
 
-FrameTiles_23_6c60::
+FrameTiles_Unused_11::
 	INCBIN "gfx/frames/23/6c60.2bpp"
 
-FrameTiles_23_6ca0::
+FrameTiles_Unused_12::
 	INCBIN "gfx/frames/23/6ca0.2bpp"
 
-FrameTiles_23_6ce0::
+FrameTiles_Unused_13::
 	INCBIN "gfx/frames/23/6ce0.2bpp"
 
-FrameTiles_23_6d20::
+FrameTiles_Unused_14::
 	INCBIN "gfx/frames/23/6d20.2bpp"
 
-FrameTiles_23_6d60::
+FrameTiles_Unused_15::
 	INCBIN "gfx/frames/23/6d60.2bpp"
 
-FrameSprites_23_6da0::
+FrameSprites_SetPlayerAnimation_24::
 	db -16, -27
 	db 8, -2
 	db 0, 16
@@ -191,7 +191,7 @@ FrameSprites_23_6da0::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_23_6db2::
+FrameSprites_SetPlayerAnimation_25::
 	db -8, -27
 	db 0, 16
 	db 8, -17
@@ -200,7 +200,7 @@ FrameSprites_23_6db2::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_23_6dc0::
+FrameSprites_SetPlayerAnimation_26::
 	db -7, -40
 	db 0, 16
 	db 0, 16
@@ -211,7 +211,7 @@ FrameSprites_23_6dc0::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_23_6dd2::
+FrameSprites_SetPlayerAnimation_27::
 	db -6, -26
 	db 0, 16
 	db 8, -20
@@ -219,7 +219,7 @@ FrameSprites_23_6dd2::
 	db 8, -16
 	db 0, 19
 
-FrameSprites_23_6dde::
+FrameSprites_SetPlayerAnimation_28::
 	db -5, -21
 	db 0, 16
 	db 8, -18
@@ -227,7 +227,7 @@ FrameSprites_23_6dde::
 	db 8, -16
 	db 0, 17
 
-FrameSprites_23_6dea::
+FrameSprites_SetPlayerAnimation_29::
 	db -6, -17
 	db 0, 16
 	db 8, -19
@@ -236,7 +236,7 @@ FrameSprites_23_6dea::
 	db 0, 16
 	db 8, 4
 
-FrameSprites_23_6df8::
+FrameSprites_SetPlayerAnimation_30::
 	db -5, -26
 	db 0, 16
 	db 8, -19
@@ -246,7 +246,7 @@ FrameSprites_23_6df8::
 	db 8, -5
 	db 8, -1
 
-FrameSprites_23_6e08::
+FrameSprites_SetPlayerAnimation_31::
 	db -5, -23
 	db 0, 16
 	db 8, -18
@@ -256,7 +256,7 @@ FrameSprites_23_6e08::
 	db 8, -16
 	db 8, 2
 
-FrameSprites_23_6e18::
+FrameSprites_SetPlayerAnimation_32::
 	db -5, -32
 	db 0, 16
 	db 0, 16
@@ -267,7 +267,7 @@ FrameSprites_23_6e18::
 	db 0, 16
 	db 8, -2
 
-FrameSprites_23_6e2a::
+FrameSprites_SetPlayerAnimation_43::
 	db -14, -12
 	db 0, 16
 	db 8, -16
@@ -276,7 +276,7 @@ FrameSprites_23_6e2a::
 	db 8, -22
 	db 0, 16
 
-FrameSprites_23_6e38::
+FrameSprites_SetPlayerAnimation_44::
 	db -11, -12
 	db 0, 16
 	db 0, 16
@@ -286,7 +286,7 @@ FrameSprites_23_6e38::
 	db 8, -21
 	db 0, 16
 
-FrameSprites_23_6e48::
+FrameSprites_SetPlayerAnimation_45::
 	db -12, -24
 	db 0, 16
 	db 8, -22
@@ -295,7 +295,7 @@ FrameSprites_23_6e48::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_23_6e56::
+FrameSprites_SetPlayerAnimation_46::
 	db -20, -13
 	db 8, -10
 	db 0, 16
@@ -307,7 +307,7 @@ FrameSprites_23_6e56::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_23_6e6a::
+FrameSprites_SetPlayerAnimation_47::
 	db -23, -14
 	db 8, -5
 	db 0, 16
@@ -318,7 +318,7 @@ FrameSprites_23_6e6a::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_23_6e7c::
+FrameSprites_SetPlayerAnimation_48::
 	db -21, -19
 	db 8, 0
 	db 0, 16
@@ -328,7 +328,7 @@ FrameSprites_23_6e7c::
 	db 8, 0
 	db 0, 16
 
-FrameSprites_23_6e8c::
+FrameSprites_SetPlayerAnimation_49::
 	db -19, -17
 	db 8, -2
 	db 0, 16
@@ -338,7 +338,7 @@ FrameSprites_23_6e8c::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_23_6e9c::
+FrameSprites_SetPlayerAnimation_50::
 	db -12, -19
 	db 0, 16
 	db 8, -19
@@ -347,7 +347,7 @@ FrameSprites_23_6e9c::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_23_6eaa::
+FrameSprites_SetPlayerAnimation_51::
 	db -20, -9
 	db 8, -3
 	db 0, 16
@@ -357,7 +357,7 @@ FrameSprites_23_6eaa::
 	db 8, 0
 	db -5, 16
 
-FrameSprites_23_6eba::
+FrameSprites_SetPlayerAnimation_52::
 	db -21, -4
 	db 8, -7
 	db 0, 16
@@ -367,7 +367,7 @@ FrameSprites_23_6eba::
 	db 8, 0
 	db -7, 16
 
-FrameSprites_23_6eca::
+FrameSprites_SetPlayerAnimation_53::
 	db -18, -6
 	db 8, -6
 	db 8, -2
@@ -376,7 +376,7 @@ FrameSprites_23_6eca::
 	db 12, -16
 	db -4, 16
 
-FrameSprites_23_6ed8::
+FrameSprites_SetPlayerAnimation_54::
 	db -16, -10
 	db 0, 16
 	db 8, -19
@@ -386,7 +386,7 @@ FrameSprites_23_6ed8::
 	db 0, 17
 	db 8, -8
 
-FrameSprites_23_6ee8::
+FrameSprites_SetPlayerAnimation_55::
 	db -18, -6
 	db 3, 9
 	db 5, -16
@@ -397,7 +397,7 @@ FrameSprites_23_6ee8::
 	db 8, 1
 	db 8, 9
 
-FrameSprites_23_6efa::
+FrameSprites_SetPlayerAnimation_56::
 	db -17, -5
 	db 8, -9
 	db 6, 15
@@ -406,7 +406,7 @@ FrameSprites_23_6efa::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_23_6f08::
+FrameSprites_SetPlayerAnimation_57::
 	db -19, -6
 	db 8, -8
 	db 0, 16
@@ -417,7 +417,7 @@ FrameSprites_23_6f08::
 	db 8, -4
 	db 0, 16
 
-FrameSprites_23_6f1a::
+FrameSprites_SetPlayerAnimation_58::
 	db -20, -10
 	db 8, -2
 	db 0, 16
@@ -427,7 +427,7 @@ FrameSprites_23_6f1a::
 	db 3, 16
 	db 5, -15
 
-FrameSprites_23_6f2a::
+FrameSprites_SetPlayerAnimation_59::
 	db -11, -42
 	db 0, 16
 	db 0, 16
@@ -438,7 +438,7 @@ FrameSprites_23_6f2a::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_23_6f3c::
+FrameSprites_SetPlayerAnimation_60::
 	db -15, -9
 	db 8, -18
 	db 0, 16
@@ -450,7 +450,7 @@ FrameSprites_23_6f3c::
 	db 8, -36
 	db 0, 16
 
-FrameSprites_23_6f50::
+FrameSprites_SetPlayerAnimation_61::
 	db -16, -9
 	db 8, -10
 	db 8, -8
@@ -461,7 +461,7 @@ FrameSprites_23_6f50::
 	db 0, 16
 	db 8, 2
 
-FrameSprites_23_6f62::
+FrameSprites_SetPlayerAnimation_62::
 	db -9, -17
 	db 0, 16
 	db 8, -23
@@ -471,7 +471,7 @@ FrameSprites_23_6f62::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_23_6f72::
+FrameSprites_SetPlayerAnimation_63::
 	db -10, -22
 	db 0, 16
 	db 8, -17
@@ -481,7 +481,7 @@ FrameSprites_23_6f72::
 	db 8, -16
 	db 0, 22
 
-FrameSprites_23_6f82::
+FrameSprites_SetPlayerAnimation_64::
 	db -9, -22
 	db 0, 16
 	db 8, -21
@@ -489,7 +489,7 @@ FrameSprites_23_6f82::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_23_6f8e::
+FrameSprites_SetPlayerAnimation_65::
 	db -15, -13
 	db 0, 16
 	db 8, -16
@@ -498,7 +498,7 @@ FrameSprites_23_6f8e::
 	db 8, -25
 	db 0, 16
 
-FrameSprites_23_6f9c::
+FrameSprites_SetPlayerAnimation_66::
 	db -15, -14
 	db 0, 16
 	db 8, -13
@@ -506,7 +506,7 @@ FrameSprites_23_6f9c::
 	db 8, -14
 	db 0, 19
 
-FrameSprites_23_6fa8::
+FrameSprites_SetPlayerAnimation_67::
 	db -16, -14
 	db 0, 16
 	db 8, -15
@@ -516,7 +516,7 @@ FrameSprites_23_6fa8::
 	db 0, 19
 	db 0, 16
 
-FrameSprites_23_6fb8::
+FrameSprites_SetPlayerAnimation_68::
 	db -18, -14
 	db 0, 16
 	db 8, -17
@@ -527,7 +527,7 @@ FrameSprites_23_6fb8::
 	db 0, 16
 	db 8, 2
 
-FrameSprites_23_6fca::
+FrameSprites_SetPlayerAnimation_69::
 	db -8, -20
 	db 0, 16
 	db 8, -18
@@ -536,7 +536,7 @@ FrameSprites_23_6fca::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_23_6fd8::
+FrameSprites_SetPlayerAnimation_70::
 	db -13, -13
 	db 0, 16
 	db 8, -23
@@ -546,7 +546,7 @@ FrameSprites_23_6fd8::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_23_6fe8::
+FrameSprites_SetPlayerAnimation_71::
 	db -11, -17
 	db 0, 16
 	db 8, -20
@@ -555,7 +555,7 @@ FrameSprites_23_6fe8::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_23_6ff6::
+FrameSprites_SetPlayerAnimation_72::
 	db -8, -20
 	db 0, 16
 	db 8, -19
@@ -564,7 +564,7 @@ FrameSprites_23_6ff6::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_23_7004::
+FrameSprites_SetPlayerAnimation_73::
 	db -12, -17
 	db 0, 16
 	db 8, -21
@@ -574,7 +574,7 @@ FrameSprites_23_7004::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_23_7014::
+FrameSprites_SetPlayerAnimation_74::
 	db -9, -18
 	db 0, 16
 	db 8, -20
@@ -584,7 +584,7 @@ FrameSprites_23_7014::
 	db 8, -16
 	db 0, 20
 
-FrameSprites_23_7024::
+FrameSprites_SetPlayerAnimation_75::
 	db -8, -19
 	db 0, 16
 	db 8, -19
@@ -593,73 +593,73 @@ FrameSprites_23_7024::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_23_7032::
+FrameSprites_AnimalToken_1::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7036::
+FrameSprites_Unused_2::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_703a::
+FrameSprites_Unused_3::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_703e::
+FrameSprites_Unused_4::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7042::
+FrameSprites_Unused_5::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7046::
+FrameSprites_Unused_6::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_704a::
+FrameSprites_Unused_7::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_704e::
+FrameSprites_Unused_8::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7052::
+FrameSprites_Obj_Idle_2::
 	db -13, -27
 	db 8, -2
 	db 0, 16
 	db 8, -15
 
-FrameSprites_23_705a::
+FrameSprites_AnimalToken_2::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_705e::
+FrameSprites_Unused_9::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7062::
+FrameSprites_Unused_10::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7066::
+FrameSprites_Unused_11::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_706a::
+FrameSprites_Unused_12::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_706e::
+FrameSprites_Unused_13::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7072::
+FrameSprites_Unused_14::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_23_7076::
+FrameSprites_Unused_15::
 	db -8, -8
 	db 8, 0
 	ds 3974, $00 ; $707a

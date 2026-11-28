@@ -3,118 +3,118 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $35", ROMX[$4000], BANK[$35]
 
-FrameTiles_35_4000::
+FrameTiles_DrawPauseScreen_1::
 	INCBIN "gfx/frames/35/4000.2bpp"
 
-FrameTiles_35_4280::
+FrameTiles_DrawPauseScreen_2::
 	INCBIN "gfx/frames/35/4280.2bpp"
 
-FrameTiles_35_44e0::
+FrameTiles_DrawPauseScreen_3::
 	INCBIN "gfx/frames/35/44e0.2bpp"
 
-FrameTiles_35_4720::
+FrameTiles_DrawPauseScreen_4::
 	INCBIN "gfx/frames/35/4720.2bpp"
 
-FrameTiles_35_4940::
+FrameTiles_DrawPauseScreen_5::
 	INCBIN "gfx/frames/35/4940.2bpp"
 
-FrameTiles_35_4c40::
+FrameTiles_DrawPauseScreen_6::
 	INCBIN "gfx/frames/35/4c40.2bpp"
 
-FrameTiles_35_4e60::
+FrameTiles_DrawPauseScreen_7::
 	INCBIN "gfx/frames/35/4e60.2bpp"
 
-FrameTiles_35_50a0::
+FrameTiles_DrawPauseScreen_8::
 	INCBIN "gfx/frames/35/50a0.2bpp"
 
-FrameTiles_35_5300::
+FrameTiles_Obj_Idle_3::
 	INCBIN "gfx/frames/35/5300.2bpp"
 
-FrameTiles_35_5480::
+FrameTiles_MankyBarrel_1::
 	INCBIN "gfx/frames/35/5480.2bpp"
 
-FrameTiles_35_54a0::
+FrameTiles_MankyBarrel_2::
 	INCBIN "gfx/frames/35/54a0.2bpp"
 
-FrameTiles_35_54e0::
+FrameTiles_MankyBarrel_3::
 	INCBIN "gfx/frames/35/54e0.2bpp"
 
-FrameTiles_35_5540::
+FrameTiles_MankyBarrel_4::
 	INCBIN "gfx/frames/35/5540.2bpp"
 
-FrameTiles_35_55a0::
+FrameTiles_FuelBarrel_1::
 	INCBIN "gfx/frames/35/55a0.2bpp"
 
-FrameTiles_35_5660::
+FrameTiles_FuelBarrel_2::
 	INCBIN "gfx/frames/35/5660.2bpp"
 
-FrameTiles_35_5720::
+FrameTiles_Unused_87::
 	INCBIN "gfx/frames/35/5720.2bpp"
 
-FrameTiles_35_57e0::
+FrameTiles_FuelBarrel_3::
 	INCBIN "gfx/frames/35/57e0.2bpp"
 
-FrameTiles_35_58a0::
+FrameTiles_FuelBarrel_4::
 	INCBIN "gfx/frames/35/58a0.2bpp"
 
-FrameTiles_35_5960::
+FrameTiles_SetPlayerAnimation_235::
 	INCBIN "gfx/frames/35/5960.2bpp"
 
-FrameTiles_35_5a20::
+FrameTiles_SetPlayerAnimation_236::
 	INCBIN "gfx/frames/35/5a20.2bpp"
 
-FrameTiles_35_5b00::
+FrameTiles_SetPlayerAnimation_237::
 	INCBIN "gfx/frames/35/5b00.2bpp"
 
-FrameTiles_35_5be0::
+FrameTiles_SetPlayerAnimation_238::
 	INCBIN "gfx/frames/35/5be0.2bpp"
 
-FrameTiles_35_5ce0::
+FrameTiles_SetPlayerAnimation_239::
 	INCBIN "gfx/frames/35/5ce0.2bpp"
 
-FrameTiles_35_5de0::
+FrameTiles_SetPlayerAnimation_240::
 	INCBIN "gfx/frames/35/5de0.2bpp"
 
-FrameTiles_35_5ea0::
+FrameTiles_SetPlayerAnimation_241::
 	INCBIN "gfx/frames/35/5ea0.2bpp"
 
-FrameTiles_35_5f80::
+FrameTiles_SetPlayerAnimation_242::
 	INCBIN "gfx/frames/35/5f80.2bpp"
 
-FrameTiles_35_60a0::
+FrameTiles_SetPlayerAnimation_243::
 	INCBIN "gfx/frames/35/60a0.2bpp"
 
-FrameTiles_35_61e0::
+FrameTiles_SetPlayerAnimation_244::
 	INCBIN "gfx/frames/35/61e0.2bpp"
 
-FrameTiles_35_62e0::
+FrameTiles_SetPlayerAnimation_245::
 	INCBIN "gfx/frames/35/62e0.2bpp"
 
-FrameTiles_35_6400::
+FrameTiles_SetPlayerAnimation_246::
 	INCBIN "gfx/frames/35/6400.2bpp"
 
-FrameTiles_35_6520::
+FrameTiles_SetPlayerAnimation_247::
 	INCBIN "gfx/frames/35/6520.2bpp"
 
-FrameTiles_35_6640::
+FrameTiles_SetPlayerAnimation_248::
 	INCBIN "gfx/frames/35/6640.2bpp"
 
-FrameTiles_35_6720::
+FrameTiles_SetPlayerAnimation_249::
 	INCBIN "gfx/frames/35/6720.2bpp"
 
-FrameTiles_35_6820::
+FrameTiles_SetPlayerAnimation_250::
 	INCBIN "gfx/frames/35/6820.2bpp"
 
-FrameTiles_35_6920::
+FrameTiles_SetPlayerAnimation_251::
 	INCBIN "gfx/frames/35/6920.2bpp"
 
-FrameTiles_35_6a20::
+FrameTiles_SetPlayerAnimation_252::
 	INCBIN "gfx/frames/35/6a20.2bpp"
 
-FrameTiles_35_6b00::
+FrameTiles_SetPlayerAnimation_253::
 	INCBIN "gfx/frames/35/6b00.2bpp"
 
-FrameSprites_35_6be0::
+FrameSprites_DrawPauseScreen_1::
 	db -37, -12
 	db 0, 16
 	db 8, -16
@@ -136,7 +136,7 @@ FrameSprites_35_6be0::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_35_6c08::
+FrameSprites_DrawPauseScreen_2::
 	db -34, -14
 	db 0, 16
 	db 8, -16
@@ -157,7 +157,7 @@ FrameSprites_35_6c08::
 	db 0, 16
 	db 8, -11
 
-FrameSprites_35_6c2e::
+FrameSprites_DrawPauseScreen_3::
 	db -32, -17
 	db 0, 16
 	db 8, -16
@@ -177,7 +177,7 @@ FrameSprites_35_6c2e::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_35_6c52::
+FrameSprites_DrawPauseScreen_4::
 	db -31, -18
 	db 0, 16
 	db 8, -15
@@ -196,7 +196,7 @@ FrameSprites_35_6c52::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_35_6c74::
+FrameSprites_DrawPauseScreen_5::
 	db -30, -20
 	db 0, 16
 	db 0, 16
@@ -222,7 +222,7 @@ FrameSprites_35_6c74::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_35_6ca4::
+FrameSprites_DrawPauseScreen_6::
 	db -31, -18
 	db 0, 16
 	db 8, -15
@@ -241,7 +241,7 @@ FrameSprites_35_6ca4::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_35_6cc6::
+FrameSprites_DrawPauseScreen_7::
 	db -32, -17
 	db 0, 16
 	db 8, -16
@@ -261,7 +261,7 @@ FrameSprites_35_6cc6::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_35_6cea::
+FrameSprites_DrawPauseScreen_8::
 	db -34, -14
 	db 0, 16
 	db 8, -16
@@ -282,7 +282,7 @@ FrameSprites_35_6cea::
 	db 0, 16
 	db 8, -11
 
-FrameSprites_35_6d10::
+FrameSprites_Obj_Idle_3::
 	db -21, -41
 	db 0, 16
 	db 8, -20
@@ -296,24 +296,24 @@ FrameSprites_35_6d10::
 	db 8, -32
 	db 0, 16
 
-FrameSprites_35_6d28::
+FrameSprites_MankyBarrel_1::
 	db -3, -2
 
-FrameSprites_35_6d2a::
+FrameSprites_MankyBarrel_2::
 	db -5, -4
 	db 8, 1
 
-FrameSprites_35_6d2e::
+FrameSprites_MankyBarrel_3::
 	db -12, -5
 	db 8, -2
 	db 8, 0
 
-FrameSprites_35_6d34::
+FrameSprites_MankyBarrel_4::
 	db -12, -5
 	db 8, -2
 	db 8, 2
 
-FrameSprites_35_6d3a::
+FrameSprites_FuelBarrel_1::
 	db -12, -15
 	db 8, -16
 	db 0, 16
@@ -321,7 +321,7 @@ FrameSprites_35_6d3a::
 	db 0, 16
 	db -16, -16
 
-FrameSprites_35_6d46::
+FrameSprites_FuelBarrel_2::
 	db -12, -15
 	db 8, 0
 	db 8, 0
@@ -329,7 +329,7 @@ FrameSprites_35_6d46::
 	db -8, 0
 	db -8, 0
 
-FrameSprites_35_6d52::
+FrameSprites_Unused_87::
 	db -12, -15
 	db 8, 0
 	db 8, 0
@@ -337,7 +337,7 @@ FrameSprites_35_6d52::
 	db -8, 0
 	db -8, 0
 
-FrameSprites_35_6d5e::
+FrameSprites_FuelBarrel_3::
 	db -12, -15
 	db 8, -16
 	db 0, 16
@@ -345,7 +345,7 @@ FrameSprites_35_6d5e::
 	db 0, 16
 	db -16, -16
 
-FrameSprites_35_6d6a::
+FrameSprites_FuelBarrel_4::
 	db -12, -31
 	db 0, 16
 	db 8, -16
@@ -353,7 +353,7 @@ FrameSprites_35_6d6a::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_35_6d76::
+FrameSprites_SetPlayerAnimation_235::
 	db -8, -26
 	db 0, 16
 	db 8, -20
@@ -361,7 +361,7 @@ FrameSprites_35_6d76::
 	db 8, -16
 	db 0, 18
 
-FrameSprites_35_6d82::
+FrameSprites_SetPlayerAnimation_236::
 	db -6, -27
 	db 0, 16
 	db 8, -21
@@ -370,7 +370,7 @@ FrameSprites_35_6d82::
 	db 8, -31
 	db 0, 16
 
-FrameSprites_35_6d90::
+FrameSprites_SetPlayerAnimation_237::
 	db -6, -27
 	db 0, 16
 	db 8, -24
@@ -379,7 +379,7 @@ FrameSprites_35_6d90::
 	db 8, -32
 	db 0, 16
 
-FrameSprites_35_6d9e::
+FrameSprites_SetPlayerAnimation_238::
 	db -5, -35
 	db 0, 16
 	db 0, 16
@@ -389,7 +389,7 @@ FrameSprites_35_6d9e::
 	db 8, -29
 	db 0, 16
 
-FrameSprites_35_6dae::
+FrameSprites_SetPlayerAnimation_239::
 	db -4, -43
 	db 0, 16
 	db 0, 16
@@ -399,7 +399,7 @@ FrameSprites_35_6dae::
 	db 8, -26
 	db 0, 16
 
-FrameSprites_35_6dbe::
+FrameSprites_SetPlayerAnimation_240::
 	db -4, -41
 	db 0, 16
 	db 0, 16
@@ -407,7 +407,7 @@ FrameSprites_35_6dbe::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_35_6dca::
+FrameSprites_SetPlayerAnimation_241::
 	db -5, -23
 	db 0, 16
 	db 8, -28
@@ -416,7 +416,7 @@ FrameSprites_35_6dca::
 	db 0, 16
 	db 8, 0
 
-FrameSprites_35_6dd8::
+FrameSprites_SetPlayerAnimation_242::
 	db -5, -16
 	db 8, -17
 	db 0, 16
@@ -427,7 +427,7 @@ FrameSprites_35_6dd8::
 	db 8, -16
 	db 0, 21
 
-FrameSprites_35_6dea::
+FrameSprites_SetPlayerAnimation_243::
 	db -4, -16
 	db 0, 16
 	db 8, -18
@@ -439,7 +439,7 @@ FrameSprites_35_6dea::
 	db 0, 16
 	db 0, 19
 
-FrameSprites_35_6dfe::
+FrameSprites_SetPlayerAnimation_244::
 	db -4, -14
 	db 8, -1
 	db 0, 16
@@ -449,7 +449,7 @@ FrameSprites_35_6dfe::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_35_6e0e::
+FrameSprites_SetPlayerAnimation_245::
 	db -4, -17
 	db 0, 16
 	db 8, -19
@@ -460,7 +460,7 @@ FrameSprites_35_6e0e::
 	db 0, 16
 	db 8, -1
 
-FrameSprites_35_6e20::
+FrameSprites_SetPlayerAnimation_246::
 	db -4, -19
 	db 0, 16
 	db 8, -19
@@ -471,7 +471,7 @@ FrameSprites_35_6e20::
 	db 0, 16
 	db 8, 2
 
-FrameSprites_35_6e32::
+FrameSprites_SetPlayerAnimation_247::
 	db -4, -23
 	db 0, 16
 	db 8, -18
@@ -482,7 +482,7 @@ FrameSprites_35_6e32::
 	db 0, 16
 	db 8, 3
 
-FrameSprites_35_6e44::
+FrameSprites_SetPlayerAnimation_248::
 	db -4, -33
 	db 0, 16
 	db 8, -24
@@ -491,7 +491,7 @@ FrameSprites_35_6e44::
 	db 0, 16
 	db 8, 0
 
-FrameSprites_35_6e52::
+FrameSprites_SetPlayerAnimation_249::
 	db -4, -42
 	db 0, 16
 	db 0, 16
@@ -501,7 +501,7 @@ FrameSprites_35_6e52::
 	db 8, -21
 	db 8, 8
 
-FrameSprites_35_6e62::
+FrameSprites_SetPlayerAnimation_250::
 	db -9, -35
 	db 0, 16
 	db 0, 16
@@ -511,7 +511,7 @@ FrameSprites_35_6e62::
 	db 8, -28
 	db 0, 16
 
-FrameSprites_35_6e72::
+FrameSprites_SetPlayerAnimation_251::
 	db -5, -34
 	db 0, 16
 	db 0, 16
@@ -521,7 +521,7 @@ FrameSprites_35_6e72::
 	db 8, -29
 	db 0, 16
 
-FrameSprites_35_6e82::
+FrameSprites_SetPlayerAnimation_252::
 	db -6, -27
 	db 0, 16
 	db 8, -24
@@ -530,7 +530,7 @@ FrameSprites_35_6e82::
 	db 8, -32
 	db 0, 16
 
-FrameSprites_35_6e90::
+FrameSprites_SetPlayerAnimation_253::
 	db -6, -27
 	db 0, 16
 	db 8, -21

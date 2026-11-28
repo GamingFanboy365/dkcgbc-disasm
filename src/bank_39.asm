@@ -3,367 +3,367 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $39", ROMX[$4000], BANK[$39]
 
-FrameTiles_39_4000::
+FrameTiles_Player_ExitAfterJingle_12::
 	INCBIN "gfx/frames/39/4000.2bpp"
 
-FrameTiles_39_40e0::
+FrameTiles_Player_ExitAfterJingle_13::
 	INCBIN "gfx/frames/39/40e0.2bpp"
 
-FrameTiles_39_41c0::
+FrameTiles_Player_ExitAfterJingle_14::
 	INCBIN "gfx/frames/39/41c0.2bpp"
 
-FrameTiles_39_42a0::
+FrameTiles_Player_ExitAfterJingle_15::
 	INCBIN "gfx/frames/39/42a0.2bpp"
 
-FrameTiles_39_4360::
+FrameTiles_Player_ExitAfterJingle_16::
 	INCBIN "gfx/frames/39/4360.2bpp"
 
-FrameTiles_39_4420::
+FrameTiles_Player_ExitAfterJingle_17::
 	INCBIN "gfx/frames/39/4420.2bpp"
 
-FrameTiles_39_44e0::
+FrameTiles_Player_ExitAfterJingle_18::
 	INCBIN "gfx/frames/39/44e0.2bpp"
 
-FrameTiles_39_45e0::
+FrameTiles_Player_ExitAfterJingle_19::
 	INCBIN "gfx/frames/39/45e0.2bpp"
 
-FrameTiles_39_4700::
+FrameTiles_Player_ExitAfterJingle_20::
 	INCBIN "gfx/frames/39/4700.2bpp"
 
-FrameTiles_39_4800::
+FrameTiles_Player_ExitAfterJingle_21::
 	INCBIN "gfx/frames/39/4800.2bpp"
 
-FrameTiles_39_48c0::
+FrameTiles_Player_ExitAfterJingle_22::
 	INCBIN "gfx/frames/39/48c0.2bpp"
 
-FrameTiles_39_4980::
+FrameTiles_Player_ExitAfterJingle_23::
 	INCBIN "gfx/frames/39/4980.2bpp"
 
-FrameTiles_39_4aa0::
+FrameTiles_Player_ExitAfterJingle_24::
 	INCBIN "gfx/frames/39/4aa0.2bpp"
 
-FrameTiles_39_4bc0::
+FrameTiles_Player_ExitAfterJingle_25::
 	INCBIN "gfx/frames/39/4bc0.2bpp"
 
-FrameTiles_39_4ce0::
+FrameTiles_Player_ExitAfterJingle_26::
 	INCBIN "gfx/frames/39/4ce0.2bpp"
 
-FrameTiles_39_4e00::
+FrameTiles_Player_ExitAfterJingle_27::
 	INCBIN "gfx/frames/39/4e00.2bpp"
 
-FrameTiles_39_4ee0::
+FrameTiles_Player_ExitAfterJingle_28::
 	INCBIN "gfx/frames/39/4ee0.2bpp"
 
-FrameTiles_39_4fc0::
+FrameTiles_Player_ExitAfterJingle_29::
 	INCBIN "gfx/frames/39/4fc0.2bpp"
 
-FrameTiles_39_50a0::
+FrameTiles_Player_ExitAfterJingle_30::
 	INCBIN "gfx/frames/39/50a0.2bpp"
 
-FrameTiles_39_5180::
+FrameTiles_Player_ExitAfterJingle_31::
 	INCBIN "gfx/frames/39/5180.2bpp"
 
-FrameTiles_39_5280::
+FrameTiles_Player_ExitAfterJingle_32::
 	INCBIN "gfx/frames/39/5280.2bpp"
 
-FrameTiles_39_5360::
+FrameTiles_Player_ExitAfterJingle_33::
 	INCBIN "gfx/frames/39/5360.2bpp"
 
-FrameTiles_39_5460::
+FrameTiles_Unused_91::
 	INCBIN "gfx/frames/39/5460.2bpp"
 
-FrameTiles_39_5500::
+FrameTiles_Player_ExitAfterJingle_34::
 	INCBIN "gfx/frames/39/5500.2bpp"
 
-FrameTiles_39_55a0::
+FrameTiles_Player_ExitAfterJingle_35::
 	INCBIN "gfx/frames/39/55a0.2bpp"
 
-FrameTiles_39_5660::
+FrameTiles_Player_ExitAfterJingle_36::
 	INCBIN "gfx/frames/39/5660.2bpp"
 
-FrameTiles_39_5720::
+FrameTiles_Player_ExitAfterJingle_37::
 	INCBIN "gfx/frames/39/5720.2bpp"
 
-FrameTiles_39_57e0::
+FrameTiles_Unused_92::
 	INCBIN "gfx/frames/39/57e0.2bpp"
 
-FrameTiles_39_58a0::
+FrameTiles_Player_ExitAfterJingle_38::
 	INCBIN "gfx/frames/39/58a0.2bpp"
 
-FrameTiles_39_5980::
+FrameTiles_Player_ExitAfterJingle_39::
 	INCBIN "gfx/frames/39/5980.2bpp"
 
-FrameTiles_39_5a60::
+FrameTiles_Player_ExitAfterJingle_40::
 	INCBIN "gfx/frames/39/5a60.2bpp"
 
-FrameTiles_39_5b20::
+FrameTiles_Player_ExitAfterJingle_41::
 	INCBIN "gfx/frames/39/5b20.2bpp"
 
-FrameTiles_39_5bc0::
+FrameTiles_Player_ExitAfterJingle_42::
 	INCBIN "gfx/frames/39/5bc0.2bpp"
 
-FrameTiles_39_5c80::
+FrameTiles_Player_ExitAfterJingle_43::
 	INCBIN "gfx/frames/39/5c80.2bpp"
 
-FrameTiles_39_5d60::
+FrameTiles_Player_ExitAfterJingle_44::
 	INCBIN "gfx/frames/39/5d60.2bpp"
 
-FrameTiles_39_5e80::
+FrameTiles_Player_ExitAfterJingle_45::
 	INCBIN "gfx/frames/39/5e80.2bpp"
 
-FrameTiles_39_5f80::
+FrameTiles_Player_ExitAfterJingle_46::
 	INCBIN "gfx/frames/39/5f80.2bpp"
 
-FrameTiles_39_60a0::
+FrameTiles_Player_ExitAfterJingle_47::
 	INCBIN "gfx/frames/39/60a0.2bpp"
 
-FrameTiles_39_6140::
+FrameTiles_Player_ExitAfterJingle_48::
 	INCBIN "gfx/frames/39/6140.2bpp"
 
-FrameTiles_39_61e0::
+FrameTiles_Player_ExitAfterJingle_49::
 	INCBIN "gfx/frames/39/61e0.2bpp"
 
-FrameTiles_39_6280::
+FrameTiles_Player_ExitAfterJingle_50::
 	INCBIN "gfx/frames/39/6280.2bpp"
 
-FrameTiles_39_6320::
+FrameTiles_Player_ExitAfterJingle_51::
 	INCBIN "gfx/frames/39/6320.2bpp"
 
-FrameTiles_39_63c0::
+FrameTiles_Player_ExitAfterJingle_52::
 	INCBIN "gfx/frames/39/63c0.2bpp"
 
-FrameTiles_39_64a0::
+FrameTiles_Coconut_1::
 	INCBIN "gfx/frames/39/64a0.2bpp"
 
-FrameTiles_39_64e0::
+FrameTiles_Coconut_2::
 	INCBIN "gfx/frames/39/64e0.2bpp"
 
-FrameTiles_39_6520::
+FrameTiles_Coconut_3::
 	INCBIN "gfx/frames/39/6520.2bpp"
 
-FrameTiles_39_6560::
+FrameTiles_Coconut_4::
 	INCBIN "gfx/frames/39/6560.2bpp"
 
-FrameTiles_39_65a0::
+FrameTiles_Coconut_5::
 	INCBIN "gfx/frames/39/65a0.2bpp"
 
-FrameTiles_39_65e0::
+FrameTiles_Coconut_6::
 	INCBIN "gfx/frames/39/65e0.2bpp"
 
-FrameTiles_39_6620::
+FrameTiles_Coconut_7::
 	INCBIN "gfx/frames/39/6620.2bpp"
 
-FrameTiles_39_6660::
+FrameTiles_Coconut_8::
 	INCBIN "gfx/frames/39/6660.2bpp"
 
-FrameTiles_39_66a0::
+FrameTiles_Coconut_9::
 	INCBIN "gfx/frames/39/66a0.2bpp"
 
-FrameTiles_39_66e0::
+FrameTiles_Coconut_10::
 	INCBIN "gfx/frames/39/66e0.2bpp"
 
-FrameTiles_39_6720::
+FrameTiles_Coconut_11::
 	INCBIN "gfx/frames/39/6720.2bpp"
 
-FrameTiles_39_6760::
+FrameTiles_CarrierObjectTable::
 	INCBIN "gfx/frames/39/6760.2bpp"
 
-FrameTiles_39_6780::
+FrameTiles_SpellBonus_BlueBanana::
 	INCBIN "gfx/frames/39/6780.2bpp"
 
-FrameTiles_39_67c0::
+FrameTiles_HUD_Items_Hidden_1::
 	INCBIN "gfx/frames/39/67c0.2bpp"
 
-FrameTiles_39_6820::
+FrameTiles_HUD_Items_Hidden_2::
 	INCBIN "gfx/frames/39/6820.2bpp"
 
-FrameTiles_39_6880::
+FrameTiles_HUD_Items_Hidden_3::
 	INCBIN "gfx/frames/39/6880.2bpp"
 
-FrameTiles_39_68e0::
+FrameTiles_HUD_Items_Hidden_4::
 	INCBIN "gfx/frames/39/68e0.2bpp"
 
-FrameTiles_39_6940::
+FrameTiles_HUD_Items_Hidden_5::
 	INCBIN "gfx/frames/39/6940.2bpp"
 
-FrameTiles_39_69a0::
+FrameTiles_HUD_Items_Hidden_6::
 	INCBIN "gfx/frames/39/69a0.2bpp"
 
-FrameTiles_39_6a00::
+FrameTiles_HUD_Items_Hidden_7::
 	INCBIN "gfx/frames/39/6a00.2bpp"
 
-FrameTiles_39_6a60::
+FrameTiles_HUD_Items_Hidden_8::
 	INCBIN "gfx/frames/39/6a60.2bpp"
 
-FrameTiles_39_6ac0::
+FrameTiles_HUD_Items_Hidden_9::
 	INCBIN "gfx/frames/39/6ac0.2bpp"
 
-FrameTiles_39_6b20::
+FrameTiles_HUD_Items_Hidden_10::
 	INCBIN "gfx/frames/39/6b20.2bpp"
 
-FrameTiles_39_6b80::
+FrameTiles_HUD_Items_Hidden_11::
 	INCBIN "gfx/frames/39/6b80.2bpp"
 
-FrameTiles_39_6be0::
+FrameTiles_HUD_Items_Hidden_12::
 	INCBIN "gfx/frames/39/6be0.2bpp"
 
-FrameTiles_39_6c40::
+FrameTiles_HUD_Items_Hidden_13::
 	INCBIN "gfx/frames/39/6c40.2bpp"
 
-FrameTiles_39_6ca0::
+FrameTiles_HUD_Items_Hidden_14::
 	INCBIN "gfx/frames/39/6ca0.2bpp"
 
-FrameTiles_39_6d00::
+FrameTiles_HUD_Items_Hidden_15::
 	INCBIN "gfx/frames/39/6d00.2bpp"
 
-FrameTiles_39_6d60::
+FrameTiles_HUD_Items_Hidden_16::
 	INCBIN "gfx/frames/39/6d60.2bpp"
 
-FrameTiles_39_6dc0::
+FrameTiles_Sticker_Appear_1::
 	INCBIN "gfx/frames/39/6dc0.2bpp"
 
-FrameTiles_39_6e00::
+FrameTiles_Sticker_Appear_2::
 	INCBIN "gfx/frames/39/6e00.2bpp"
 
-FrameTiles_39_6e40::
+FrameTiles_Sticker_Appear_3::
 	INCBIN "gfx/frames/39/6e40.2bpp"
 
-FrameTiles_39_6e80::
+FrameTiles_Sticker_Appear_4::
 	INCBIN "gfx/frames/39/6e80.2bpp"
 
-FrameTiles_39_6ec0::
+FrameTiles_Sticker_Appear_5::
 	INCBIN "gfx/frames/39/6ec0.2bpp"
 
-FrameTiles_39_6ee0::
+FrameTiles_Sticker_Appear_6::
 	INCBIN "gfx/frames/39/6ee0.2bpp"
 
-FrameTiles_39_6f00::
+FrameTiles_Sticker_Appear_7::
 	INCBIN "gfx/frames/39/6f00.2bpp"
 
-FrameTiles_39_6f20::
+FrameTiles_Sticker_Appear_8::
 	INCBIN "gfx/frames/39/6f20.2bpp"
 
-FrameTiles_39_6f60::
+FrameTiles_Sticker_Appear_9::
 	INCBIN "gfx/frames/39/6f60.2bpp"
 
-FrameTiles_39_6fa0::
+FrameTiles_Sticker_Appear_10::
 	INCBIN "gfx/frames/39/6fa0.2bpp"
 
-FrameTiles_39_6fe0::
+FrameTiles_Sticker_Appear_11::
 	INCBIN "gfx/frames/39/6fe0.2bpp"
 
-FrameTiles_39_7020::
+FrameTiles_Sticker_Appear_12::
 	INCBIN "gfx/frames/39/7020.2bpp"
 
-FrameTiles_39_7060::
+FrameTiles_Sticker_Appear_13::
 	INCBIN "gfx/frames/39/7060.2bpp"
 
-FrameTiles_39_70a0::
+FrameTiles_Sticker_Appear_14::
 	INCBIN "gfx/frames/39/70a0.2bpp"
 
-FrameTiles_39_70e0::
+FrameTiles_Sticker_Appear_15::
 	INCBIN "gfx/frames/39/70e0.2bpp"
 
-FrameTiles_39_7100::
+FrameTiles_Sticker_Appear_16::
 	INCBIN "gfx/frames/39/7100.2bpp"
 
-FrameTiles_39_7120::
+FrameTiles_Sticker_Appear_17::
 	INCBIN "gfx/frames/39/7120.2bpp"
 
-FrameTiles_39_7140::
+FrameTiles_Sticker_Appear_18::
 	INCBIN "gfx/frames/39/7140.2bpp"
 
-FrameTiles_39_7180::
+FrameTiles_Sticker_Appear_19::
 	INCBIN "gfx/frames/39/7180.2bpp"
 
-FrameTiles_39_71c0::
+FrameTiles_Sticker_Appear_20::
 	INCBIN "gfx/frames/39/71c0.2bpp"
 
-FrameTiles_39_7200::
+FrameTiles_Obj_Animate_19::
 	INCBIN "gfx/frames/39/7200.2bpp"
 
-FrameTiles_39_7240::
+FrameTiles_Obj_Animate_20::
 	INCBIN "gfx/frames/39/7240.2bpp"
 
-FrameTiles_39_7280::
+FrameTiles_Obj_Animate_21::
 	INCBIN "gfx/frames/39/7280.2bpp"
 
-FrameTiles_39_72c0::
+FrameTiles_ShuffleBonus_Spot::
 	INCBIN "gfx/frames/39/72c0.2bpp"
 
-FrameTiles_39_7300::
+FrameTiles_HUD_Items_Hidden_17::
 	INCBIN "gfx/frames/39/7300.2bpp"
 
-FrameTiles_39_7340::
+FrameTiles_HUD_Items_Hidden_18::
 	INCBIN "gfx/frames/39/7340.2bpp"
 
-FrameTiles_39_7380::
+FrameTiles_HUD_Items_Hidden_19::
 	INCBIN "gfx/frames/39/7380.2bpp"
 
-FrameTiles_39_73c0::
+FrameTiles_HUD_Items_Hidden_20::
 	INCBIN "gfx/frames/39/73c0.2bpp"
 
-FrameTiles_39_73e0::
+FrameTiles_HUD_Items_Hidden_21::
 	INCBIN "gfx/frames/39/73e0.2bpp"
 
-FrameTiles_39_7420::
+FrameTiles_HUD_Items_Hidden_22::
 	INCBIN "gfx/frames/39/7420.2bpp"
 
-FrameTiles_39_7460::
+FrameTiles_HUD_Items_Hidden_23::
 	INCBIN "gfx/frames/39/7460.2bpp"
 
-FrameTiles_39_74a0::
+FrameTiles_HUD_Items_Hidden_24::
 	INCBIN "gfx/frames/39/74a0.2bpp"
 
-FrameTiles_39_74e0::
+FrameTiles_HUD_Items_Hidden_25::
 	INCBIN "gfx/frames/39/74e0.2bpp"
 
-FrameTiles_39_7520::
+FrameTiles_HUD_Items_Hidden_26::
 	INCBIN "gfx/frames/39/7520.2bpp"
 
-FrameTiles_39_7540::
+FrameTiles_HUD_Items_Hidden_27::
 	INCBIN "gfx/frames/39/7540.2bpp"
 
-FrameTiles_39_7580::
+FrameTiles_HUD_Items_Hidden_28::
 	INCBIN "gfx/frames/39/7580.2bpp"
 
-FrameTiles_39_75c0::
+FrameTiles_Unused_93::
 	INCBIN "gfx/frames/39/75c0.2bpp"
 
-FrameTiles_39_7600::
+FrameTiles_Unused_94::
 	INCBIN "gfx/frames/39/7600.2bpp"
 
-FrameTiles_39_7640::
+FrameTiles_Unused_95::
 	INCBIN "gfx/frames/39/7640.2bpp"
 
-FrameTiles_39_7680::
+FrameTiles_Unused_96::
 	INCBIN "gfx/frames/39/7680.2bpp"
 
-FrameTiles_39_76a0::
+FrameTiles_Unused_97::
 	INCBIN "gfx/frames/39/76a0.2bpp"
 
-FrameTiles_39_76e0::
+FrameTiles_Unused_98::
 	INCBIN "gfx/frames/39/76e0.2bpp"
 
-FrameTiles_39_7720::
+FrameTiles_Unused_99::
 	INCBIN "gfx/frames/39/7720.2bpp"
 
-FrameTiles_39_7760::
+FrameTiles_Unused_100::
 	INCBIN "gfx/frames/39/7760.2bpp"
 
-FrameTiles_39_77a0::
+FrameTiles_Unused_101::
 	INCBIN "gfx/frames/39/77a0.2bpp"
 
-FrameTiles_39_77e0::
+FrameTiles_Unused_102::
 	INCBIN "gfx/frames/39/77e0.2bpp"
 
-FrameTiles_39_7800::
+FrameTiles_Unused_103::
 	INCBIN "gfx/frames/39/7800.2bpp"
 
-FrameTiles_39_7840::
+FrameTiles_Unused_104::
 	INCBIN "gfx/frames/39/7840.2bpp"
 
-FrameSprites_39_7880::
+FrameSprites_Player_ExitAfterJingle_12::
 	db -5, -22
 	db 0, 16
 	db 8, -20
@@ -372,7 +372,7 @@ FrameSprites_39_7880::
 	db 0, 16
 	db 8, 5
 
-FrameSprites_39_788e::
+FrameSprites_Player_ExitAfterJingle_13::
 	db -8, -23
 	db 0, 16
 	db 8, -22
@@ -381,7 +381,7 @@ FrameSprites_39_788e::
 	db 0, 16
 	db 8, 2
 
-FrameSprites_39_789c::
+FrameSprites_Player_ExitAfterJingle_14::
 	db -13, -22
 	db 0, 16
 	db 8, -24
@@ -390,7 +390,7 @@ FrameSprites_39_789c::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_39_78aa::
+FrameSprites_Player_ExitAfterJingle_15::
 	db -12, -23
 	db 0, 16
 	db 8, -22
@@ -398,7 +398,7 @@ FrameSprites_39_78aa::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_39_78b6::
+FrameSprites_Player_ExitAfterJingle_16::
 	db -12, -24
 	db 0, 16
 	db 8, -22
@@ -406,7 +406,7 @@ FrameSprites_39_78b6::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_39_78c2::
+FrameSprites_Player_ExitAfterJingle_17::
 	db -12, -25
 	db 0, 16
 	db 8, -22
@@ -414,7 +414,7 @@ FrameSprites_39_78c2::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_39_78ce::
+FrameSprites_Player_ExitAfterJingle_18::
 	db -13, -30
 	db 0, 16
 	db 8, -18
@@ -424,7 +424,7 @@ FrameSprites_39_78ce::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_39_78de::
+FrameSprites_Player_ExitAfterJingle_19::
 	db -14, -31
 	db 0, 16
 	db 8, -18
@@ -435,7 +435,7 @@ FrameSprites_39_78de::
 	db 0, 16
 	db 8, -28
 
-FrameSprites_39_78f0::
+FrameSprites_Player_ExitAfterJingle_20::
 	db -14, -31
 	db 0, 16
 	db 8, -17
@@ -445,7 +445,7 @@ FrameSprites_39_78f0::
 	db 0, 16
 	db 8, -11
 
-FrameSprites_39_7900::
+FrameSprites_Player_ExitAfterJingle_21::
 	db -12, -24
 	db 0, 16
 	db 8, -22
@@ -453,7 +453,7 @@ FrameSprites_39_7900::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_39_790c::
+FrameSprites_Player_ExitAfterJingle_22::
 	db -12, -25
 	db 0, 16
 	db 8, -22
@@ -461,7 +461,7 @@ FrameSprites_39_790c::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_39_7918::
+FrameSprites_Player_ExitAfterJingle_23::
 	db -14, -26
 	db 0, 24
 	db 8, -31
@@ -472,7 +472,7 @@ FrameSprites_39_7918::
 	db 0, 16
 	db 8, -24
 
-FrameSprites_39_792a::
+FrameSprites_Player_ExitAfterJingle_24::
 	db -12, -33
 	db 0, 16
 	db 0, 16
@@ -483,7 +483,7 @@ FrameSprites_39_792a::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_39_793c::
+FrameSprites_Player_ExitAfterJingle_25::
 	db -11, -39
 	db 0, 16
 	db 0, 16
@@ -494,7 +494,7 @@ FrameSprites_39_793c::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_39_794e::
+FrameSprites_Player_ExitAfterJingle_26::
 	db -10, -43
 	db 0, 16
 	db 0, 16
@@ -505,7 +505,7 @@ FrameSprites_39_794e::
 	db 0, 16
 	db 0, 20
 
-FrameSprites_39_7960::
+FrameSprites_Player_ExitAfterJingle_27::
 	db -12, -24
 	db 0, 16
 	db 8, -16
@@ -514,7 +514,7 @@ FrameSprites_39_7960::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_39_796e::
+FrameSprites_Player_ExitAfterJingle_28::
 	db -11, -25
 	db 0, 16
 	db 8, -15
@@ -523,7 +523,7 @@ FrameSprites_39_796e::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_39_797c::
+FrameSprites_Player_ExitAfterJingle_29::
 	db -10, -25
 	db 0, 16
 	db 8, -15
@@ -532,7 +532,7 @@ FrameSprites_39_797c::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_39_798a::
+FrameSprites_Player_ExitAfterJingle_30::
 	db -11, -23
 	db 0, 16
 	db 8, -15
@@ -541,7 +541,7 @@ FrameSprites_39_798a::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_39_7998::
+FrameSprites_Player_ExitAfterJingle_31::
 	db -12, -22
 	db 0, 16
 	db 8, -16
@@ -551,7 +551,7 @@ FrameSprites_39_7998::
 	db 8, -1
 	db 8, 4
 
-FrameSprites_39_79a8::
+FrameSprites_Player_ExitAfterJingle_32::
 	db -13, -22
 	db 8, -2
 	db 0, 16
@@ -560,7 +560,7 @@ FrameSprites_39_79a8::
 	db 8, -6
 	db 8, 1
 
-FrameSprites_39_79b6::
+FrameSprites_Player_ExitAfterJingle_33::
 	db -14, -21
 	db 8, -5
 	db 0, 16
@@ -570,21 +570,21 @@ FrameSprites_39_79b6::
 	db 8, -36
 	db 8, 1
 
-FrameSprites_39_79c6::
+FrameSprites_Unused_91::
 	db -14, -20
 	db 8, -7
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_39_79d0::
+FrameSprites_Player_ExitAfterJingle_34::
 	db -14, -22
 	db 8, -4
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_39_79da::
+FrameSprites_Player_ExitAfterJingle_35::
 	db -17, -22
 	db 8, -3
 	db 0, 16
@@ -592,7 +592,7 @@ FrameSprites_39_79da::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_39_79e6::
+FrameSprites_Player_ExitAfterJingle_36::
 	db -17, -22
 	db 8, -3
 	db 0, 16
@@ -600,7 +600,7 @@ FrameSprites_39_79e6::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_39_79f2::
+FrameSprites_Player_ExitAfterJingle_37::
 	db -17, -22
 	db 8, -2
 	db 0, 16
@@ -608,7 +608,7 @@ FrameSprites_39_79f2::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_39_79fe::
+FrameSprites_Unused_92::
 	db -9, -24
 	db 0, 16
 	db 8, -17
@@ -616,7 +616,7 @@ FrameSprites_39_79fe::
 	db 8, -6
 	db -24, -9
 
-FrameSprites_39_7a0a::
+FrameSprites_Player_ExitAfterJingle_38::
 	db -12, -24
 	db 0, 16
 	db 8, -14
@@ -625,7 +625,7 @@ FrameSprites_39_7a0a::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_39_7a18::
+FrameSprites_Player_ExitAfterJingle_39::
 	db -11, -24
 	db 0, 16
 	db 8, -13
@@ -634,7 +634,7 @@ FrameSprites_39_7a18::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_39_7a26::
+FrameSprites_Player_ExitAfterJingle_40::
 	db -15, -31
 	db 0, 16
 	db 8, -14
@@ -642,14 +642,14 @@ FrameSprites_39_7a26::
 	db 8, -12
 	db 0, 16
 
-FrameSprites_39_7a32::
+FrameSprites_Player_ExitAfterJingle_41::
 	db -17, -31
 	db 8, 4
 	db 0, 16
 	db 8, -15
 	db 0, 16
 
-FrameSprites_39_7a3c::
+FrameSprites_Player_ExitAfterJingle_42::
 	db -19, -32
 	db 8, 3
 	db 0, 16
@@ -657,7 +657,7 @@ FrameSprites_39_7a3c::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_39_7a48::
+FrameSprites_Player_ExitAfterJingle_43::
 	db -23, -41
 	db 8, 0
 	db 0, 16
@@ -666,7 +666,7 @@ FrameSprites_39_7a48::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_39_7a56::
+FrameSprites_Player_ExitAfterJingle_44::
 	db -14, -46
 	db 0, 16
 	db 8, -17
@@ -677,7 +677,7 @@ FrameSprites_39_7a56::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_39_7a68::
+FrameSprites_Player_ExitAfterJingle_45::
 	db -11, -44
 	db 0, 16
 	db 0, 16
@@ -687,7 +687,7 @@ FrameSprites_39_7a68::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_39_7a78::
+FrameSprites_Player_ExitAfterJingle_46::
 	db -12, -40
 	db 0, 16
 	db 8, -24
@@ -698,42 +698,42 @@ FrameSprites_39_7a78::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_39_7a8a::
+FrameSprites_Player_ExitAfterJingle_47::
 	db -11, -30
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -9
 
-FrameSprites_39_7a94::
+FrameSprites_Player_ExitAfterJingle_48::
 	db -10, -25
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -11
 
-FrameSprites_39_7a9e::
+FrameSprites_Player_ExitAfterJingle_49::
 	db -10, -27
 	db 0, 16
 	db 8, -13
 	db 0, 16
 	db 8, -16
 
-FrameSprites_39_7aa8::
+FrameSprites_Player_ExitAfterJingle_50::
 	db -10, -28
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -16
 
-FrameSprites_39_7ab2::
+FrameSprites_Player_ExitAfterJingle_51::
 	db -10, -27
 	db 0, 16
 	db 8, -13
 	db 0, 16
 	db 8, -16
 
-FrameSprites_39_7abc::
+FrameSprites_Player_ExitAfterJingle_52::
 	db -10, -23
 	db 0, 16
 	db 8, -11
@@ -742,316 +742,316 @@ FrameSprites_39_7abc::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_39_7aca::
+FrameSprites_Coconut_1::
 	db -8, -7
 	db 8, -1
 
-FrameSprites_39_7ace::
+FrameSprites_Coconut_2::
 	db -6, -8
 	db 6, 1
 
-FrameSprites_39_7ad2::
+FrameSprites_Coconut_3::
 	db -8, -6
 	db 8, 1
 
-FrameSprites_39_7ad6::
+FrameSprites_Coconut_4::
 	db -7, -4
 	db 8, 0
 
-FrameSprites_39_7ada::
+FrameSprites_Coconut_5::
 	db -8, -6
 	db 8, 0
 
-FrameSprites_39_7ade::
+FrameSprites_Coconut_6::
 	db -8, -5
 	db 8, 0
 
-FrameSprites_39_7ae2::
+FrameSprites_Coconut_7::
 	db -8, -4
 	db 8, 0
 
-FrameSprites_39_7ae6::
+FrameSprites_Coconut_8::
 	db -8, -4
 	db 8, -3
 
-FrameSprites_39_7aea::
+FrameSprites_Coconut_9::
 	db -4, -13
 	db 8, 4
 
-FrameSprites_39_7aee::
+FrameSprites_Coconut_10::
 	db -7, -9
 	db 8, 3
 
-FrameSprites_39_7af2::
+FrameSprites_Coconut_11::
 	db -7, -4
 	db 8, 0
 
-FrameSprites_39_7af6::
+FrameSprites_CarrierObjectTable::
 	db -4, -8
 
-FrameSprites_39_7af8::
+FrameSprites_SpellBonus_BlueBanana::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_39_7afc::
+FrameSprites_HUD_Items_Hidden_1::
 	db -7, -19
 	db 8, 0
 	db 8, 2
 
-FrameSprites_39_7b02::
+FrameSprites_HUD_Items_Hidden_2::
 	db -15, -18
 	db 8, -1
 	db 8, 1
 
-FrameSprites_39_7b08::
+FrameSprites_HUD_Items_Hidden_3::
 	db -20, -14
 	db 8, -4
 	db 8, -1
 
-FrameSprites_39_7b0e::
+FrameSprites_HUD_Items_Hidden_4::
 	db -21, -14
 	db 8, -1
 	db 8, -13
 
-FrameSprites_39_7b14::
+FrameSprites_HUD_Items_Hidden_5::
 	db -22, -9
 	db 8, -15
 	db 0, 16
 
-FrameSprites_39_7b1a::
+FrameSprites_HUD_Items_Hidden_6::
 	db -19, -17
 	db 0, 16
 	db 8, 4
 
-FrameSprites_39_7b20::
+FrameSprites_HUD_Items_Hidden_7::
 	db -18, -11
 	db 0, 16
 	db 8, 0
 
-FrameSprites_39_7b26::
+FrameSprites_HUD_Items_Hidden_8::
 	db -19, -3
 	db 8, 9
 	db 8, 4
 
-FrameSprites_39_7b2c::
+FrameSprites_HUD_Items_Hidden_9::
 	db -16, 6
 	db 8, 3
 	db 8, 0
 
-FrameSprites_39_7b32::
+FrameSprites_HUD_Items_Hidden_10::
 	db -10, 14
 	db 8, -5
 	db 8, -3
 
-FrameSprites_39_7b38::
+FrameSprites_HUD_Items_Hidden_11::
 	db -3, 13
 	db 8, -8
 	db 6, -7
 
-FrameSprites_39_7b3e::
+FrameSprites_HUD_Items_Hidden_12::
 	db -1, 10
 	db 8, -10
 	db 7, -1
 
-FrameSprites_39_7b44::
+FrameSprites_HUD_Items_Hidden_13::
 	db 9, -9
 	db -6, 17
 	db 10, -14
 
-FrameSprites_39_7b4a::
+FrameSprites_HUD_Items_Hidden_14::
 	db 6, -14
 	db 8, 1
 	db -4, 16
 
-FrameSprites_39_7b50::
+FrameSprites_HUD_Items_Hidden_15::
 	db 3, -20
 	db 8, 1
 	db 0, 16
 
-FrameSprites_39_7b56::
+FrameSprites_HUD_Items_Hidden_16::
 	db -3, -23
 	db 7, 6
 	db 8, 8
 
-FrameSprites_39_7b5c::
+FrameSprites_Sticker_Appear_1::
 	db -7, -11
 	db 8, 1
 
-FrameSprites_39_7b60::
+FrameSprites_Sticker_Appear_2::
 	db -5, -18
 	db 8, 1
 
-FrameSprites_39_7b64::
+FrameSprites_Sticker_Appear_3::
 	db -1, -21
 	db 8, 5
 
-FrameSprites_39_7b68::
+FrameSprites_Sticker_Appear_4::
 	db 2, -24
 	db 8, 9
 
-FrameSprites_39_7b6c::
+FrameSprites_Sticker_Appear_5::
 	db 5, -27
 
-FrameSprites_39_7b6e::
+FrameSprites_Sticker_Appear_6::
 	db 11, -29
 
-FrameSprites_39_7b70::
+FrameSprites_Sticker_Appear_7::
 	db 11, -27
 
-FrameSprites_39_7b72::
+FrameSprites_Sticker_Appear_8::
 	db 12, -24
 	db 8, 4
 
-FrameSprites_39_7b76::
+FrameSprites_Sticker_Appear_9::
 	db 13, -21
 	db 8, 3
 
-FrameSprites_39_7b7a::
+FrameSprites_Sticker_Appear_10::
 	db 13, -18
 	db 8, 1
 
-FrameSprites_39_7b7e::
+FrameSprites_Sticker_Appear_11::
 	db 15, -11
 	db 8, 1
 
-FrameSprites_39_7b82::
+FrameSprites_Sticker_Appear_12::
 	db 13, -18
 	db 8, 1
 
-FrameSprites_39_7b86::
+FrameSprites_Sticker_Appear_13::
 	db 13, -21
 	db 8, 3
 
-FrameSprites_39_7b8a::
+FrameSprites_Sticker_Appear_14::
 	db 12, -24
 	db 8, 4
 
-FrameSprites_39_7b8e::
+FrameSprites_Sticker_Appear_15::
 	db 11, -27
 
-FrameSprites_39_7b90::
+FrameSprites_Sticker_Appear_16::
 	db 11, -29
 
-FrameSprites_39_7b92::
+FrameSprites_Sticker_Appear_17::
 	db 5, -27
 
-FrameSprites_39_7b94::
+FrameSprites_Sticker_Appear_18::
 	db 2, -24
 	db 8, 9
 
-FrameSprites_39_7b98::
+FrameSprites_Sticker_Appear_19::
 	db -1, -21
 	db 8, 5
 
-FrameSprites_39_7b9c::
+FrameSprites_Sticker_Appear_20::
 	db -5, -18
 	db 8, 1
 
-FrameSprites_39_7ba0::
+FrameSprites_Obj_Animate_19::
 	db -6, -13
 	db 8, 0
 
-FrameSprites_39_7ba4::
+FrameSprites_Obj_Animate_20::
 	db -6, -15
 	db 8, 1
 
-FrameSprites_39_7ba8::
+FrameSprites_Obj_Animate_21::
 	db -6, -15
 	db 8, 2
 
-FrameSprites_39_7bac::
+FrameSprites_ShuffleBonus_Spot::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_39_7bb0::
+FrameSprites_HUD_Items_Hidden_17::
 	db -7, -8
 	db 8, 0
 
-FrameSprites_39_7bb4::
+FrameSprites_HUD_Items_Hidden_18::
 	db -5, -8
 	db 8, 0
 
-FrameSprites_39_7bb8::
+FrameSprites_HUD_Items_Hidden_19::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7bbc::
+FrameSprites_HUD_Items_Hidden_20::
 	db 0, -8
 
-FrameSprites_39_7bbe::
+FrameSprites_HUD_Items_Hidden_21::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7bc2::
+FrameSprites_HUD_Items_Hidden_22::
 	db -6, -8
 	db 8, 0
 
-FrameSprites_39_7bc6::
+FrameSprites_HUD_Items_Hidden_23::
 	db -7, -8
 	db 8, 0
 
-FrameSprites_39_7bca::
+FrameSprites_HUD_Items_Hidden_24::
 	db -5, -8
 	db 8, 0
 
-FrameSprites_39_7bce::
+FrameSprites_HUD_Items_Hidden_25::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7bd2::
+FrameSprites_HUD_Items_Hidden_26::
 	db 0, -8
 
-FrameSprites_39_7bd4::
+FrameSprites_HUD_Items_Hidden_27::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7bd8::
+FrameSprites_HUD_Items_Hidden_28::
 	db -6, -8
 	db 8, 0
 
-FrameSprites_39_7bdc::
+FrameSprites_Unused_93::
 	db -7, -8
 	db 8, 0
 
-FrameSprites_39_7be0::
+FrameSprites_Unused_94::
 	db -5, -8
 	db 8, 0
 
-FrameSprites_39_7be4::
+FrameSprites_Unused_95::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7be8::
+FrameSprites_Unused_96::
 	db 0, -8
 
-FrameSprites_39_7bea::
+FrameSprites_Unused_97::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7bee::
+FrameSprites_Unused_98::
 	db -6, -8
 	db 8, 0
 
-FrameSprites_39_7bf2::
+FrameSprites_Unused_99::
 	db -7, -8
 	db 8, 0
 
-FrameSprites_39_7bf6::
+FrameSprites_Unused_100::
 	db -5, -8
 	db 8, 0
 
-FrameSprites_39_7bfa::
+FrameSprites_Unused_101::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7bfe::
+FrameSprites_Unused_102::
 	db 0, -8
 
-FrameSprites_39_7c00::
+FrameSprites_Unused_103::
 	db -4, -8
 	db 8, 3
 
-FrameSprites_39_7c04::
+FrameSprites_Unused_104::
 	db -6, -8
 	db 8, 0
 	ds 1016, $00 ; $7c08

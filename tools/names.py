@@ -240,7 +240,7 @@ NAMES = {
     (0x09, 0x60EC): "BouncePlayerOffBoss",
     (0x0A, 0x42B9): "VeryGnawty_Recoil",
     (0x0A, 0x45E9): "MasterNecky_Recoil",
-    (0x08, 0x5168): "BarrelCannon",              # 16 directions (OBJ_VAR_38); OBJ_VAR_3C bit 3: blast barrel frames
+    (0x08, 0x5168): "BarrelCannon",              # 16 directions (OBJ_ANIM_WORD); OBJ_VAR_3C bit 3: blast barrel frames
     (0x08, 0x5183): "BarrelCannon_Idle",
     (0x08, 0x54FE): "BarrelCannon_SetFrame",     # FrameTable_08_5522
     (0x08, 0x5562): "BarrelCannon_Move",
@@ -1711,7 +1711,7 @@ NAMES = {
     (0x55, 0x4786): "HiScore_EnterName_Input",  # up/down change the letter, left/right move, A confirms
     (0x55, 0x481E): "HiScore_InstallRuntime_Code",  # copied to $c800 and run: FishingRuntime -> $cb00
     # --- remaining main-game routines
-    (0x04, 0x5747): "Tire_SetBounceFlag",  # called from the tire's animations: OBJ_VAR_38 = $ff
+    (0x04, 0x5747): "Tire_SetBounceFlag",  # called from the tire's animations: OBJ_ANIM_WORD = $ff
     (0x04, 0x574E): "Tire_ClearBounceFlag",
     (0x04, 0x5755): "Diddy_ThrowCap",  # anim_call from Diddy's exit animation: the cap object (handler Coconut)
     (0x04, 0x577E): "Diddy_ThrowCapHigh",
@@ -1754,7 +1754,7 @@ NAMES = {
     (0x0D, 0x4216): "RareLogo_LoadAttributes",
     (0x0D, 0x4266): "RareLogo_DecodeFrame",  # run-length frames into $c800
     (0x0D, 0x4292): "RareLogo_StartHDMA",
-    (0x0A, 0x4001): "Obj_GetFacingOffset",  # (OBJ_VAR_38, OBJ_VAR_39), x mirrored when the object faces left
+    (0x0A, 0x4001): "Obj_GetFacingOffset",  # (OBJ_ANIM_WORD, OBJ_ANIM_WORD + 1), x mirrored when the object faces left
     (0x0A, 0x43CB): "VeryGnawty_TurnAtEdge",
     (0x0A, 0x455C): "MasterNecky_Bob",  # sine bob around OBJ_VAR_31
     (0x0A, 0x48B8): "Obj_DoNothing_0A",
@@ -1797,6 +1797,9 @@ NAMES = {
     (0x00, 0x0512): "State_EnterCrankysCabin",  # $2b
     (0x00, 0x050B): "State_EnterBananaHoard",  # $2e
     (0x00, 0x3949): "State_ChooseEndingMessage",  # $31: 101% -> the hoard picture, else the hint in wLanguage
+    # two data leftovers no rule names
+    (0x0B, 0x6C1F): "LevelObjects_TreeTopTown_Area1_Pad",  # a zero byte after the list
+    (0x5B, 0x77F8): "PicturePalettes_Black",   # all black; no picture record points here
     # the ending (flow script, bank $0D): credits, then the end message
     (0x0D, 0x5FC1): "Flow_Ending",           # song $13, 28 credit pictures, "thank you for playing"
     (0x0D, 0x6184): "Flow_EndingHoard",      # 101%: DK's banana hoard, no text

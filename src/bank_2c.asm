@@ -3,70 +3,70 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $2c", ROMX[$4000], BANK[$2c]
 
-FrameTiles_2c_4000::
+FrameTiles_KingKRool_RunPause_1::
 	INCBIN "gfx/frames/2c/4000.2bpp"
 
-FrameTiles_2c_4220::
+FrameTiles_KingKRool_RunPause_2::
 	INCBIN "gfx/frames/2c/4220.2bpp"
 
-FrameTiles_2c_4440::
+FrameTiles_KingKRool_RunPause_3::
 	INCBIN "gfx/frames/2c/4440.2bpp"
 
-FrameTiles_2c_4660::
+FrameTiles_KingKRool_RunPause_4::
 	INCBIN "gfx/frames/2c/4660.2bpp"
 
-FrameTiles_2c_4840::
+FrameTiles_KingKRool_RunPause_5::
 	INCBIN "gfx/frames/2c/4840.2bpp"
 
-FrameTiles_2c_4a20::
+FrameTiles_KingKRool_RunPause_6::
 	INCBIN "gfx/frames/2c/4a20.2bpp"
 
-FrameTiles_2c_4c20::
+FrameTiles_KingKRool_RunPause_7::
 	INCBIN "gfx/frames/2c/4c20.2bpp"
 
-FrameTiles_2c_4e00::
+FrameTiles_KingKRool_BeginRuns_1::
 	INCBIN "gfx/frames/2c/4e00.2bpp"
 
-FrameTiles_2c_4fe0::
+FrameTiles_KingKRool_BeginRuns_2::
 	INCBIN "gfx/frames/2c/4fe0.2bpp"
 
-FrameTiles_2c_51a0::
+FrameTiles_KingKRool_BeginRuns_3::
 	INCBIN "gfx/frames/2c/51a0.2bpp"
 
-FrameTiles_2c_5360::
+FrameTiles_KingKRool_BeginRuns_4::
 	INCBIN "gfx/frames/2c/5360.2bpp"
 
-FrameTiles_2c_5580::
+FrameTiles_KingKRool_BeginRuns_5::
 	INCBIN "gfx/frames/2c/5580.2bpp"
 
-FrameTiles_2c_57a0::
+FrameTiles_KingKRool_BeginRuns_6::
 	INCBIN "gfx/frames/2c/57a0.2bpp"
 
-FrameTiles_2c_59a0::
+FrameTiles_KingKRool_Wait_1::
 	INCBIN "gfx/frames/2c/59a0.2bpp"
 
-FrameTiles_2c_5ba0::
+FrameTiles_KingKRool_Wait_2::
 	INCBIN "gfx/frames/2c/5ba0.2bpp"
 
-FrameTiles_2c_5da0::
+FrameTiles_KingKRool_Wait_3::
 	INCBIN "gfx/frames/2c/5da0.2bpp"
 
-FrameTiles_2c_5f80::
+FrameTiles_KingKRool_Wait_4::
 	INCBIN "gfx/frames/2c/5f80.2bpp"
 
-FrameTiles_2c_61a0::
+FrameTiles_KingKRool_Wait_5::
 	INCBIN "gfx/frames/2c/61a0.2bpp"
 
-FrameTiles_2c_63e0::
+FrameTiles_KingKRool_Wait_6::
 	INCBIN "gfx/frames/2c/63e0.2bpp"
 
-FrameTiles_2c_6600::
+FrameTiles_KingKRool_Wait_7::
 	INCBIN "gfx/frames/2c/6600.2bpp"
 
-FrameTiles_2c_6820::
+FrameTiles_KingKRool_Wait_8::
 	INCBIN "gfx/frames/2c/6820.2bpp"
 
-FrameSprites_2c_6a40::
+FrameSprites_KingKRool_RunPause_1::
 	db -20, -41, $01 ; dx, dy, attribute add
 	db -2, 16, $01
 	db 10, -22, $01
@@ -85,7 +85,7 @@ FrameSprites_2c_6a40::
 	db -34, 24, $00
 	db -8, 0, $00
 
-FrameSprites_2c_6a73::
+FrameSprites_KingKRool_RunPause_2::
 	db -23, -30, $01 ; dx, dy, attribute add
 	db 2, 14, $01
 	db 8, -32, $01
@@ -104,7 +104,7 @@ FrameSprites_2c_6a73::
 	db 8, -15, $00
 	db -29, 1, $00
 
-FrameSprites_2c_6aa6::
+FrameSprites_KingKRool_RunPause_3::
 	db -21, -29, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -27, $01
@@ -123,7 +123,7 @@ FrameSprites_2c_6aa6::
 	db 8, -15, $00
 	db 0, 16, $00
 
-FrameSprites_2c_6ad9::
+FrameSprites_KingKRool_RunPause_4::
 	db -22, -29, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -23, $01
@@ -140,7 +140,7 @@ FrameSprites_2c_6ad9::
 	db 0, 16, $00
 	db 8, -15, $00
 
-FrameSprites_2c_6b06::
+FrameSprites_KingKRool_RunPause_5::
 	db -22, -31, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -25, $01
@@ -157,7 +157,7 @@ FrameSprites_2c_6b06::
 	db 0, 16, $00
 	db 8, -15, $00
 
-FrameSprites_2c_6b33::
+FrameSprites_KingKRool_RunPause_6::
 	db -21, -31, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -22, $01
@@ -175,7 +175,7 @@ FrameSprites_2c_6b33::
 	db 0, 16, $00
 	db 8, -15, $00
 
-FrameSprites_2c_6b63::
+FrameSprites_KingKRool_RunPause_7::
 	db -19, -31, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 7, -23, $01
@@ -192,7 +192,7 @@ FrameSprites_2c_6b63::
 	db 0, 16, $00
 	db 8, -15, $00
 
-FrameSprites_2c_6b90::
+FrameSprites_KingKRool_BeginRuns_1::
 	db -14, -34, $01 ; dx, dy, attribute add
 	db -6, 12, $01
 	db 3, -4, $01
@@ -209,7 +209,7 @@ FrameSprites_2c_6b90::
 	db 8, 7, $00
 	db -38, 10, $00
 
-FrameSprites_2c_6bbd::
+FrameSprites_KingKRool_BeginRuns_2::
 	db -20, -28, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -20, $01
@@ -225,7 +225,7 @@ FrameSprites_2c_6bbd::
 	db 1, 16, $00
 	db 0, 16, $00
 
-FrameSprites_2c_6be7::
+FrameSprites_KingKRool_BeginRuns_3::
 	db -21, -30, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -18, $01
@@ -241,7 +241,7 @@ FrameSprites_2c_6be7::
 	db 0, 16, $00
 	db 0, 16, $00
 
-FrameSprites_2c_6c11::
+FrameSprites_KingKRool_BeginRuns_4::
 	db -20, -35, $01 ; dx, dy, attribute add
 	db 6, 10, $01
 	db -8, 11, $00
@@ -260,7 +260,7 @@ FrameSprites_2c_6c11::
 	db 2, -16, $00
 	db 6, 11, $00
 
-FrameSprites_2c_6c44::
+FrameSprites_KingKRool_BeginRuns_5::
 	db -21, -29, $01 ; dx, dy, attribute add
 	db 0, -16, $01
 	db 0, 36, $00
@@ -279,7 +279,7 @@ FrameSprites_2c_6c44::
 	db 8, -3, $00
 	db -11, -29, $00
 
-FrameSprites_2c_6c77::
+FrameSprites_KingKRool_BeginRuns_6::
 	db -22, -40, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 0, 16, $00
@@ -297,7 +297,7 @@ FrameSprites_2c_6c77::
 	db 0, 16, $00
 	db 8, -23, $00
 
-FrameSprites_2c_6ca7::
+FrameSprites_KingKRool_Wait_1::
 	db -20, -29, $01 ; dx, dy, attribute add
 	db -2, 14, $01
 	db 6, -30, $01
@@ -315,7 +315,7 @@ FrameSprites_2c_6ca7::
 	db 0, 16, $00
 	db 8, -1, $00
 
-FrameSprites_2c_6cd7::
+FrameSprites_KingKRool_Wait_2::
 	db -24, -32, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 3, -28, $01
@@ -333,7 +333,7 @@ FrameSprites_2c_6cd7::
 	db 8, -11, $00
 	db -13, -19, $00
 
-FrameSprites_2c_6d07::
+FrameSprites_KingKRool_Wait_3::
 	db -23, -47, $00 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 0, 16, $01
@@ -350,7 +350,7 @@ FrameSprites_2c_6d07::
 	db 0, 21, $00
 	db 8, -14, $00
 
-FrameSprites_2c_6d34::
+FrameSprites_KingKRool_Wait_4::
 	db -24, -48, $00 ; dx, dy, attribute add
 	db 0, 24, $01
 	db 0, 16, $01
@@ -369,7 +369,7 @@ FrameSprites_2c_6d34::
 	db 0, 16, $00
 	db 8, -6, $00
 
-FrameSprites_2c_6d67::
+FrameSprites_KingKRool_Wait_5::
 	db -25, -22, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -48, $00
@@ -389,7 +389,7 @@ FrameSprites_2c_6d67::
 	db 8, -24, $00
 	db 0, 27, $00
 
-FrameSprites_2c_6d9d::
+FrameSprites_KingKRool_Wait_6::
 	db -23, -24, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -25, $01
@@ -408,7 +408,7 @@ FrameSprites_2c_6d9d::
 	db 0, 16, $00
 	db 8, -27, $00
 
-FrameSprites_2c_6dd0::
+FrameSprites_KingKRool_Wait_7::
 	db -19, -27, $01 ; dx, dy, attribute add
 	db -8, -3, $01
 	db 16, -4, $01
@@ -427,7 +427,7 @@ FrameSprites_2c_6dd0::
 	db -2, 16, $00
 	db -40, 19, $01
 
-FrameSprites_2c_6e03::
+FrameSprites_KingKRool_Wait_8::
 	db -19, -30, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -17, $01

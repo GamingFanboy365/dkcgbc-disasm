@@ -3,154 +3,154 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $2a", ROMX[$4000], BANK[$2a]
 
-FrameTiles_2a_4000::
+FrameTiles_Zinger_1::
 	INCBIN "gfx/frames/2a/4000.2bpp"
 
-FrameTiles_2a_40e0::
+FrameTiles_Zinger_2::
 	INCBIN "gfx/frames/2a/40e0.2bpp"
 
-FrameTiles_2a_41e0::
+FrameTiles_Zinger_3::
 	INCBIN "gfx/frames/2a/41e0.2bpp"
 
-FrameTiles_2a_42c0::
+FrameTiles_Zinger_4::
 	INCBIN "gfx/frames/2a/42c0.2bpp"
 
-FrameTiles_2a_43c0::
+FrameTiles_Zinger_5::
 	INCBIN "gfx/frames/2a/43c0.2bpp"
 
-FrameTiles_2a_44a0::
+FrameTiles_Zinger_6::
 	INCBIN "gfx/frames/2a/44a0.2bpp"
 
-FrameTiles_2a_45a0::
+FrameTiles_AnimalToken_8::
 	INCBIN "gfx/frames/2a/45a0.2bpp"
 
-FrameTiles_2a_45e0::
+FrameTiles_Unused_54::
 	INCBIN "gfx/frames/2a/45e0.2bpp"
 
-FrameTiles_2a_4620::
+FrameTiles_Unused_55::
 	INCBIN "gfx/frames/2a/4620.2bpp"
 
-FrameTiles_2a_4660::
+FrameTiles_Unused_56::
 	INCBIN "gfx/frames/2a/4660.2bpp"
 
-FrameTiles_2a_46a0::
+FrameTiles_Unused_57::
 	INCBIN "gfx/frames/2a/46a0.2bpp"
 
-FrameTiles_2a_46e0::
+FrameTiles_Unused_58::
 	INCBIN "gfx/frames/2a/46e0.2bpp"
 
-FrameTiles_2a_4720::
+FrameTiles_Unused_59::
 	INCBIN "gfx/frames/2a/4720.2bpp"
 
-FrameTiles_2a_4760::
+FrameTiles_Unused_60::
 	INCBIN "gfx/frames/2a/4760.2bpp"
 
-FrameTiles_2a_47a0::
+FrameTiles_SpawnBarrelDebris_1::
 	INCBIN "gfx/frames/2a/47a0.2bpp"
 
-FrameTiles_2a_47e0::
+FrameTiles_SpawnBarrelDebris_2::
 	INCBIN "gfx/frames/2a/47e0.2bpp"
 
-FrameTiles_2a_4800::
+FrameTiles_SpawnBarrelDebris_3::
 	INCBIN "gfx/frames/2a/4800.2bpp"
 
-FrameTiles_2a_4820::
+FrameTiles_SpawnBarrelDebris_4::
 	INCBIN "gfx/frames/2a/4820.2bpp"
 
-FrameTiles_2a_4840::
+FrameTiles_SpawnBarrelDebris_5::
 	INCBIN "gfx/frames/2a/4840.2bpp"
 
-FrameTiles_2a_4880::
+FrameTiles_SpawnBarrelDebris_6::
 	INCBIN "gfx/frames/2a/4880.2bpp"
 
-FrameTiles_2a_48a0::
+FrameTiles_SpawnBarrelDebris_7::
 	INCBIN "gfx/frames/2a/48a0.2bpp"
 
-FrameTiles_2a_48c0::
+FrameTiles_SpawnBarrelDebris_8::
 	INCBIN "gfx/frames/2a/48c0.2bpp"
 
-FrameTiles_2a_48e0::
+FrameTiles_SpawnBarrelDebris_9::
 	INCBIN "gfx/frames/2a/48e0.2bpp"
 
-FrameTiles_2a_4900::
+FrameTiles_SpawnBarrelDebris_10::
 	INCBIN "gfx/frames/2a/4900.2bpp"
 
-FrameTiles_2a_4920::
+FrameTiles_SpawnBarrelDebris_11::
 	INCBIN "gfx/frames/2a/4920.2bpp"
 
-FrameTiles_2a_4940::
+FrameTiles_SpawnBarrelDebris_12::
 	INCBIN "gfx/frames/2a/4940.2bpp"
 
-FrameTiles_2a_4960::
+FrameTiles_SpawnBarrelDebris_13::
 	INCBIN "gfx/frames/2a/4960.2bpp"
 
-FrameTiles_2a_4980::
+FrameTiles_SpawnBarrelDebris_14::
 	INCBIN "gfx/frames/2a/4980.2bpp"
 
-FrameTiles_2a_49a0::
+FrameTiles_SpawnBarrelDebris_15::
 	INCBIN "gfx/frames/2a/49a0.2bpp"
 
-FrameTiles_2a_49c0::
+FrameTiles_SpawnBarrelDebris_16::
 	INCBIN "gfx/frames/2a/49c0.2bpp"
 
-FrameTiles_2a_49e0::
+FrameTiles_Zinger_Touch_1::
 	INCBIN "gfx/frames/2a/49e0.2bpp"
 
-FrameTiles_2a_4ac0::
+FrameTiles_Zinger_Touch_2::
 	INCBIN "gfx/frames/2a/4ac0.2bpp"
 
-FrameTiles_2a_4ba0::
+FrameTiles_Zinger_Touch_3::
 	INCBIN "gfx/frames/2a/4ba0.2bpp"
 
-FrameTiles_2a_4ca0::
+FrameTiles_Zinger_Touch_4::
 	INCBIN "gfx/frames/2a/4ca0.2bpp"
 
-FrameTiles_2a_4da0::
+FrameTiles_Zinger_Touch_5::
 	INCBIN "gfx/frames/2a/4da0.2bpp"
 
-FrameTiles_2a_4e80::
+FrameTiles_Unused_61::
 	INCBIN "gfx/frames/2a/4e80.2bpp"
 
-FrameTiles_2a_4f00::
+FrameTiles_Unused_62::
 	INCBIN "gfx/frames/2a/4f00.2bpp"
 
-FrameTiles_2a_4f80::
+FrameTiles_Unused_63::
 	INCBIN "gfx/frames/2a/4f80.2bpp"
 
-FrameTiles_2a_5000::
+FrameTiles_Unused_64::
 	INCBIN "gfx/frames/2a/5000.2bpp"
 
-FrameTiles_2a_5080::
+FrameTiles_Unused_65::
 	INCBIN "gfx/frames/2a/5080.2bpp"
 
-FrameTiles_2a_5100::
+FrameTiles_Unused_66::
 	INCBIN "gfx/frames/2a/5100.2bpp"
 
-FrameTiles_2a_5180::
+FrameTiles_Unused_67::
 	INCBIN "gfx/frames/2a/5180.2bpp"
 
-FrameTiles_2a_5200::
+FrameTiles_Unused_68::
 	INCBIN "gfx/frames/2a/5200.2bpp"
 
-FrameTiles_2a_5280::
+FrameTiles_Enemy_HandleContact_10::
 	INCBIN "gfx/frames/2a/5280.2bpp"
 
-FrameTiles_2a_5300::
+FrameTiles_Enemy_HandleContact_11::
 	INCBIN "gfx/frames/2a/5300.2bpp"
 
-FrameTiles_2a_5360::
+FrameTiles_Enemy_HandleContact_12::
 	INCBIN "gfx/frames/2a/5360.2bpp"
 
-FrameTiles_2a_53c0::
+FrameTiles_Enemy_HandleContact_13::
 	INCBIN "gfx/frames/2a/53c0.2bpp"
 
-FrameTiles_2a_5440::
+FrameTiles_Enemy_HandleContact_14::
 	INCBIN "gfx/frames/2a/5440.2bpp"
 
-FrameTiles_2a_54c0::
+FrameTiles_Enemy_HandleContact_15::
 	INCBIN "gfx/frames/2a/54c0.2bpp"
 
-FrameSprites_2a_5540::
+FrameSprites_Zinger_1::
 	db -12, -14
 	db 0, 16
 	db 8, -15
@@ -159,7 +159,7 @@ FrameSprites_2a_5540::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_2a_554e::
+FrameSprites_Zinger_2::
 	db -13, -12
 	db 0, 16
 	db 8, -25
@@ -169,7 +169,7 @@ FrameSprites_2a_554e::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_2a_555e::
+FrameSprites_Zinger_3::
 	db -14, -14
 	db 0, 16
 	db 8, -16
@@ -178,7 +178,7 @@ FrameSprites_2a_555e::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2a_556c::
+FrameSprites_Zinger_4::
 	db -14, -11
 	db 0, 16
 	db 8, -26
@@ -188,7 +188,7 @@ FrameSprites_2a_556c::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_2a_557c::
+FrameSprites_Zinger_5::
 	db -13, -14
 	db 0, 16
 	db 8, -16
@@ -197,7 +197,7 @@ FrameSprites_2a_557c::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_2a_558a::
+FrameSprites_Zinger_6::
 	db -13, -12
 	db 0, 16
 	db 8, -25
@@ -207,89 +207,89 @@ FrameSprites_2a_558a::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_2a_559a::
+FrameSprites_AnimalToken_8::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_559e::
+FrameSprites_Unused_54::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_55a2::
+FrameSprites_Unused_55::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_55a6::
+FrameSprites_Unused_56::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_55aa::
+FrameSprites_Unused_57::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_55ae::
+FrameSprites_Unused_58::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_55b2::
+FrameSprites_Unused_59::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_55b6::
+FrameSprites_Unused_60::
 	db -8, -8
 	db 8, 0
 
-FrameSprites_2a_55ba::
+FrameSprites_SpawnBarrelDebris_1::
 	db -7, -4
 	db 8, 0
 
-FrameSprites_2a_55be::
+FrameSprites_SpawnBarrelDebris_2::
 	db -2, -10
 
-FrameSprites_2a_55c0::
+FrameSprites_SpawnBarrelDebris_3::
 	db -3, -8
 
-FrameSprites_2a_55c2::
+FrameSprites_SpawnBarrelDebris_4::
 	db -2, -6
 
-FrameSprites_2a_55c4::
+FrameSprites_SpawnBarrelDebris_5::
 	db -7, -3
 	db 8, 0
 
-FrameSprites_2a_55c8::
+FrameSprites_SpawnBarrelDebris_6::
 	db -3, -6
 
-FrameSprites_2a_55ca::
+FrameSprites_SpawnBarrelDebris_7::
 	db -4, -8
 
-FrameSprites_2a_55cc::
+FrameSprites_SpawnBarrelDebris_8::
 	db -3, -10
 
-FrameSprites_2a_55ce::
+FrameSprites_SpawnBarrelDebris_9::
 	db -3, -8
 
-FrameSprites_2a_55d0::
+FrameSprites_SpawnBarrelDebris_10::
 	db -4, -7
 
-FrameSprites_2a_55d2::
+FrameSprites_SpawnBarrelDebris_11::
 	db -4, -8
 
-FrameSprites_2a_55d4::
+FrameSprites_SpawnBarrelDebris_12::
 	db -3, -8
 
-FrameSprites_2a_55d6::
+FrameSprites_SpawnBarrelDebris_13::
 	db -4, -8
 
-FrameSprites_2a_55d8::
+FrameSprites_SpawnBarrelDebris_14::
 	db -4, -6
 
-FrameSprites_2a_55da::
+FrameSprites_SpawnBarrelDebris_15::
 	db -3, -8
 
-FrameSprites_2a_55dc::
+FrameSprites_SpawnBarrelDebris_16::
 	db -3, -8
 
-FrameSprites_2a_55de::
+FrameSprites_Zinger_Touch_1::
 	db -13, -13
 	db 0, 16
 	db 8, -16
@@ -298,7 +298,7 @@ FrameSprites_2a_55de::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2a_55ec::
+FrameSprites_Zinger_Touch_2::
 	db -12, -16
 	db 0, 16
 	db 8, -16
@@ -307,7 +307,7 @@ FrameSprites_2a_55ec::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_2a_55fa::
+FrameSprites_Zinger_Touch_3::
 	db -12, -19
 	db 0, 16
 	db 8, -17
@@ -317,7 +317,7 @@ FrameSprites_2a_55fa::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_2a_560a::
+FrameSprites_Zinger_Touch_4::
 	db -11, -21
 	db 0, 16
 	db 8, -16
@@ -327,7 +327,7 @@ FrameSprites_2a_560a::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_2a_561a::
+FrameSprites_Zinger_Touch_5::
 	db -11, -22
 	db 0, 16
 	db 8, -16
@@ -336,83 +336,83 @@ FrameSprites_2a_561a::
 	db 0, 24
 	db 8, -23
 
-FrameSprites_2a_5628::
+FrameSprites_Unused_61::
 	db -7, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5630::
+FrameSprites_Unused_62::
 	db -6, -12
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5638::
+FrameSprites_Unused_63::
 	db -7, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5640::
+FrameSprites_Unused_64::
 	db -9, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5648::
+FrameSprites_Unused_65::
 	db -9, -14
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5650::
+FrameSprites_Unused_66::
 	db -9, -14
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5658::
+FrameSprites_Unused_67::
 	db -8, -14
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5660::
+FrameSprites_Unused_68::
 	db -7, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_2a_5668::
+FrameSprites_Enemy_HandleContact_10::
 	db -7, -13
 	db 0, 16
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2a_5670::
+FrameSprites_Enemy_HandleContact_11::
 	db -4, -11
 	db 0, 16
 	db 8, -13
 
-FrameSprites_2a_5676::
+FrameSprites_Enemy_HandleContact_12::
 	db -4, -10
 	db 0, 16
 	db 8, -15
 
-FrameSprites_2a_567c::
+FrameSprites_Enemy_HandleContact_13::
 	db -4, -11
 	db 0, 16
 	db 8, -14
 	db 0, 16
 
-FrameSprites_2a_5684::
+FrameSprites_Enemy_HandleContact_14::
 	db -4, -10
 	db 0, 16
 	db 8, -15
 	db 0, 16
 
-FrameSprites_2a_568c::
+FrameSprites_Enemy_HandleContact_15::
 	db -6, -11
 	db 0, 16
 	db 8, -15

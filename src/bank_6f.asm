@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $6f", ROMX[$4000], BANK[$6f]
 
-BGTiles_6f_4000::
+BGTiles_Picture102_Cont::
 	INCBIN "gfx/bgtiles/6f/4000.2bpp"
 	INCBIN "gfx/bgtiles/6f/4000_end.2bpp"
 	ds 15072, $00 ; $4520

@@ -3,226 +3,226 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $29", ROMX[$4000], BANK[$29]
 
-FrameTiles_29_4000::
+FrameTiles_Player_EnterInBarrel_1::
 	INCBIN "gfx/frames/29/4000.2bpp"
 
-FrameTiles_29_40c0::
+FrameTiles_Player_EnterInBarrel_2::
 	INCBIN "gfx/frames/29/40c0.2bpp"
 
-FrameTiles_29_4180::
+FrameTiles_Player_EnterInBarrel_3::
 	INCBIN "gfx/frames/29/4180.2bpp"
 
-FrameTiles_29_4240::
+FrameTiles_Player_EnterInBarrel_4::
 	INCBIN "gfx/frames/29/4240.2bpp"
 
-FrameTiles_29_4300::
+FrameTiles_Player_EnterInBarrel_5::
 	INCBIN "gfx/frames/29/4300.2bpp"
 
-FrameTiles_29_43c0::
+FrameTiles_Player_EnterInBarrel_6::
 	INCBIN "gfx/frames/29/43c0.2bpp"
 
-FrameTiles_29_4480::
+FrameTiles_Player_EnterInBarrel_7::
 	INCBIN "gfx/frames/29/4480.2bpp"
 
-FrameTiles_29_4540::
+FrameTiles_Player_EnterInBarrel_8::
 	INCBIN "gfx/frames/29/4540.2bpp"
 
-FrameTiles_29_4600::
+FrameTiles_StopGoBarrel_1::
 	INCBIN "gfx/frames/29/4600.2bpp"
 
-FrameTiles_29_4660::
+FrameTiles_StopGoBarrel_2::
 	INCBIN "gfx/frames/29/4660.2bpp"
 
-FrameTiles_29_46c0::
+FrameTiles_OnOffBarrel_1::
 	INCBIN "gfx/frames/29/46c0.2bpp"
 
-FrameTiles_29_4720::
+FrameTiles_OnOffBarrel_2::
 	INCBIN "gfx/frames/29/4720.2bpp"
 
-FrameTiles_29_4780::
+FrameTiles_Obj_TurnAround_6::
 	INCBIN "gfx/frames/29/4780.2bpp"
 
-FrameTiles_29_4800::
+FrameTiles_Obj_TurnAround_7::
 	INCBIN "gfx/frames/29/4800.2bpp"
 
-FrameTiles_29_4860::
+FrameTiles_Obj_TurnAround_8::
 	INCBIN "gfx/frames/29/4860.2bpp"
 
-FrameTiles_29_48a0::
+FrameTiles_Obj_TurnAround_9::
 	INCBIN "gfx/frames/29/48a0.2bpp"
 
-FrameTiles_29_48e0::
+FrameTiles_Obj_TurnAround_10::
 	INCBIN "gfx/frames/29/48e0.2bpp"
 
-FrameTiles_29_4960::
+FrameTiles_Unused_53::
 	INCBIN "gfx/frames/29/4960.2bpp"
 
-FrameTiles_29_4a40::
+FrameTiles_PlayerEnguarde_Stab_1::
 	INCBIN "gfx/frames/29/4a40.2bpp"
 
-FrameTiles_29_4b60::
+FrameTiles_PlayerEnguarde_Stab_2::
 	INCBIN "gfx/frames/29/4b60.2bpp"
 
-FrameTiles_29_4c80::
+FrameTiles_PlayerEnguarde_Stab_3::
 	INCBIN "gfx/frames/29/4c80.2bpp"
 
-FrameTiles_29_4d80::
+FrameTiles_PlayerEnguarde_Stab_4::
 	INCBIN "gfx/frames/29/4d80.2bpp"
 
-FrameTiles_29_4e20::
+FrameTiles_PlayerEnguarde_Stab_5::
 	INCBIN "gfx/frames/29/4e20.2bpp"
 
-FrameTiles_29_4f20::
+FrameTiles_PlayerEnguarde_Stab_6::
 	INCBIN "gfx/frames/29/4f20.2bpp"
 
-FrameTiles_29_5020::
+FrameTiles_PlayerEnguarde_Stab_7::
 	INCBIN "gfx/frames/29/5020.2bpp"
 
-FrameTiles_29_5140::
+FrameTiles_PlayerEnguarde_Stab_8::
 	INCBIN "gfx/frames/29/5140.2bpp"
 
-FrameTiles_29_5240::
+FrameTiles_PlayerEnguarde_Stab_9::
 	INCBIN "gfx/frames/29/5240.2bpp"
 
-FrameTiles_29_5360::
+FrameTiles_SwingingRope_SetFrame_35::
 	INCBIN "gfx/frames/29/5360.2bpp"
 
-FrameTiles_29_5440::
+FrameTiles_SwingingRope_SetFrame_36::
 	INCBIN "gfx/frames/29/5440.2bpp"
 
-FrameTiles_29_5520::
+FrameTiles_SwingingRope_SetFrame_37::
 	INCBIN "gfx/frames/29/5520.2bpp"
 
-FrameTiles_29_5620::
+FrameTiles_SwingingRope_SetFrame_38::
 	INCBIN "gfx/frames/29/5620.2bpp"
 
-FrameTiles_29_5700::
+FrameTiles_SwingingRope_SetFrame_39::
 	INCBIN "gfx/frames/29/5700.2bpp"
 
-FrameTiles_29_57e0::
+FrameTiles_SwingingRope_SetFrame_40::
 	INCBIN "gfx/frames/29/57e0.2bpp"
 
-FrameTiles_29_58e0::
+FrameTiles_SwingingRope_SetFrame_41::
 	INCBIN "gfx/frames/29/58e0.2bpp"
 
-FrameTiles_29_59e0::
+FrameTiles_SwingingRope_SetFrame_42::
 	INCBIN "gfx/frames/29/59e0.2bpp"
 
-FrameTiles_29_5ae0::
+FrameTiles_SwingingRope_SetFrame_43::
 	INCBIN "gfx/frames/29/5ae0.2bpp"
 
-FrameTiles_29_5be0::
+FrameTiles_SwingingRope_SetFrame_44::
 	INCBIN "gfx/frames/29/5be0.2bpp"
 
-FrameTiles_29_5ce0::
+FrameTiles_SwingingRope_SetFrame_45::
 	INCBIN "gfx/frames/29/5ce0.2bpp"
 
-FrameTiles_29_5e00::
+FrameTiles_SwingingRope_SetFrame_46::
 	INCBIN "gfx/frames/29/5e00.2bpp"
 
-FrameTiles_29_5f20::
+FrameTiles_SwingingRope_SetFrame_47::
 	INCBIN "gfx/frames/29/5f20.2bpp"
 
-FrameTiles_29_6040::
+FrameTiles_SwingingRope_SetFrame_48::
 	INCBIN "gfx/frames/29/6040.2bpp"
 
-FrameTiles_29_6160::
+FrameTiles_SwingingRope_SetFrame_49::
 	INCBIN "gfx/frames/29/6160.2bpp"
 
-FrameTiles_29_6280::
+FrameTiles_SwingingRope_SetFrame_50::
 	INCBIN "gfx/frames/29/6280.2bpp"
 
-FrameTiles_29_63a0::
+FrameTiles_PlayerEnguarde_9::
 	INCBIN "gfx/frames/29/63a0.2bpp"
 
-FrameTiles_29_64a0::
+FrameTiles_PlayerEnguarde_10::
 	INCBIN "gfx/frames/29/64a0.2bpp"
 
-FrameTiles_29_6560::
+FrameTiles_PlayerEnguarde_11::
 	INCBIN "gfx/frames/29/6560.2bpp"
 
-FrameTiles_29_6600::
+FrameTiles_PlayerEnguarde_12::
 	INCBIN "gfx/frames/29/6600.2bpp"
 
-FrameTiles_29_66c0::
+FrameTiles_Tire_Top_Touch_1::
 	INCBIN "gfx/frames/29/66c0.2bpp"
 
-FrameTiles_29_6720::
+FrameTiles_Tire_Top_Touch_2::
 	INCBIN "gfx/frames/29/6720.2bpp"
 
-FrameTiles_29_67a0::
+FrameTiles_Tire_Top_Touch_3::
 	INCBIN "gfx/frames/29/67a0.2bpp"
 
-FrameTiles_29_6840::
+FrameTiles_Tire_Top_Touch_4::
 	INCBIN "gfx/frames/29/6840.2bpp"
 
-FrameTiles_29_6900::
+FrameTiles_Tire_Top_Touch_5::
 	INCBIN "gfx/frames/29/6900.2bpp"
 
-FrameTiles_29_69c0::
+FrameTiles_Tire_Top_Touch_6::
 	INCBIN "gfx/frames/29/69c0.2bpp"
 
-FrameTiles_29_6a80::
+FrameTiles_SpawnCollectedBanana_29::
 	INCBIN "gfx/frames/29/6a80.2bpp"
 
-FrameTiles_29_6b40::
+FrameTiles_SpawnCollectedBanana_30::
 	INCBIN "gfx/frames/29/6b40.2bpp"
 
-FrameTiles_29_6c00::
+FrameTiles_SpawnCollectedBanana_31::
 	INCBIN "gfx/frames/29/6c00.2bpp"
 
-FrameTiles_29_6cc0::
+FrameTiles_SpawnCollectedBanana_32::
 	INCBIN "gfx/frames/29/6cc0.2bpp"
 
-FrameTiles_29_6d80::
+FrameTiles_SpawnCollectedBanana_33::
 	INCBIN "gfx/frames/29/6d80.2bpp"
 
-FrameTiles_29_6e40::
+FrameTiles_DKBarrel_Touch_1::
 	INCBIN "gfx/frames/29/6e40.2bpp"
 
-FrameTiles_29_6ee0::
+FrameTiles_DKBarrel_Touch_2::
 	INCBIN "gfx/frames/29/6ee0.2bpp"
 
-FrameTiles_29_6f80::
+FrameTiles_DKBarrel_Touch_3::
 	INCBIN "gfx/frames/29/6f80.2bpp"
 
-FrameTiles_29_7040::
+FrameTiles_DKBarrel_Touch_4::
 	INCBIN "gfx/frames/29/7040.2bpp"
 
-FrameTiles_29_7100::
+FrameTiles_DKBarrel_Touch_5::
 	INCBIN "gfx/frames/29/7100.2bpp"
 
-FrameTiles_29_71c0::
+FrameTiles_DKBarrel_Touch_6::
 	INCBIN "gfx/frames/29/71c0.2bpp"
 
-FrameTiles_29_7240::
+FrameTiles_Tire_1::
 	INCBIN "gfx/frames/29/7240.2bpp"
 
-FrameTiles_29_7300::
+FrameTiles_Tire_2::
 	INCBIN "gfx/frames/29/7300.2bpp"
 
-FrameTiles_29_73c0::
+FrameTiles_Tire_3::
 	INCBIN "gfx/frames/29/73c0.2bpp"
 
-FrameTiles_29_7480::
+FrameTiles_Tire_4::
 	INCBIN "gfx/frames/29/7480.2bpp"
 
-FrameTiles_29_7540::
+FrameTiles_Enemy_HandleContact_16::
 	INCBIN "gfx/frames/29/7540.2bpp"
 
-FrameTiles_29_7640::
+FrameTiles_RunNeckyScript_1::
 	INCBIN "gfx/frames/29/7640.2bpp"
 
-FrameTiles_29_7720::
+FrameTiles_RunNeckyScript_2::
 	INCBIN "gfx/frames/29/7720.2bpp"
 
-FrameTiles_29_7800::
+FrameTiles_RunNeckyScript_3::
 	INCBIN "gfx/frames/29/7800.2bpp"
 
-FrameTiles_29_78c0::
+FrameTiles_RunNeckyScript_4::
 	INCBIN "gfx/frames/29/78c0.2bpp"
 
-FrameSprites_29_79c0::
+FrameSprites_Player_EnterInBarrel_1::
 	db -12, -26
 	db 0, 16
 	db 8, -16
@@ -230,7 +230,7 @@ FrameSprites_29_79c0::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_79cc::
+FrameSprites_Player_EnterInBarrel_2::
 	db -12, -26
 	db 0, 16
 	db 8, -16
@@ -238,7 +238,7 @@ FrameSprites_29_79cc::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_79d8::
+FrameSprites_Player_EnterInBarrel_3::
 	db -12, -27
 	db 0, 16
 	db 8, -16
@@ -246,7 +246,7 @@ FrameSprites_29_79d8::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_79e4::
+FrameSprites_Player_EnterInBarrel_4::
 	db -12, -26
 	db 0, 16
 	db 8, -16
@@ -254,7 +254,7 @@ FrameSprites_29_79e4::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_79f0::
+FrameSprites_Player_EnterInBarrel_5::
 	db -12, -26
 	db 0, 16
 	db 8, -16
@@ -262,7 +262,7 @@ FrameSprites_29_79f0::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_79fc::
+FrameSprites_Player_EnterInBarrel_6::
 	db -12, -27
 	db 0, 16
 	db 8, -16
@@ -270,7 +270,7 @@ FrameSprites_29_79fc::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_7a08::
+FrameSprites_Player_EnterInBarrel_7::
 	db -12, -27
 	db 0, 16
 	db 8, -16
@@ -278,7 +278,7 @@ FrameSprites_29_7a08::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_7a14::
+FrameSprites_Player_EnterInBarrel_8::
 	db -12, -27
 	db 0, 16
 	db 8, -16
@@ -286,52 +286,52 @@ FrameSprites_29_7a14::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_29_7a20::
+FrameSprites_StopGoBarrel_1::
 	db -12, -8
 	db 8, 0
 	db 8, 0
 
-FrameSprites_29_7a26::
+FrameSprites_StopGoBarrel_2::
 	db -12, -8
 	db 8, 0
 	db 8, 0
 
-FrameSprites_29_7a2c::
+FrameSprites_OnOffBarrel_1::
 	db -12, -8
 	db 8, 0
 	db 8, 0
 
-FrameSprites_29_7a32::
+FrameSprites_OnOffBarrel_2::
 	db -12, -8
 	db 8, 0
 	db 8, 0
 
-FrameSprites_29_7a38::
+FrameSprites_Obj_TurnAround_6::
 	db -13, -7
 	db 8, -1
 	db 8, 1
 	db 8, 1
 
-FrameSprites_29_7a40::
+FrameSprites_Obj_TurnAround_7::
 	db -10, -8
 	db 8, 0
 	db 8, 3
 
-FrameSprites_29_7a46::
+FrameSprites_Obj_TurnAround_8::
 	db -6, -8
 	db 8, 0
 
-FrameSprites_29_7a4a::
+FrameSprites_Obj_TurnAround_9::
 	db -9, -5
 	db 8, -2
 
-FrameSprites_29_7a4e::
+FrameSprites_Obj_TurnAround_10::
 	db -16, -5
 	db 8, 0
 	db 8, -3
 	db 8, 0
 
-FrameSprites_29_7a56::
+FrameSprites_Unused_53::
 	db -20, -4
 	db 8, -11
 	db 8, -9
@@ -340,7 +340,7 @@ FrameSprites_29_7a56::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_29_7a64::
+FrameSprites_PlayerEnguarde_Stab_1::
 	db -16, -18
 	db 0, 16
 	db 8, -14
@@ -351,7 +351,7 @@ FrameSprites_29_7a64::
 	db 8, 7
 	db 8, 2
 
-FrameSprites_29_7a76::
+FrameSprites_PlayerEnguarde_Stab_2::
 	db -16, -17
 	db 0, 16
 	db 8, -25
@@ -362,7 +362,7 @@ FrameSprites_29_7a76::
 	db 8, -3
 	db 8, 3
 
-FrameSprites_29_7a88::
+FrameSprites_PlayerEnguarde_Stab_3::
 	db -17, -18
 	db 0, 16
 	db 8, -24
@@ -372,14 +372,14 @@ FrameSprites_29_7a88::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_29_7a98::
+FrameSprites_PlayerEnguarde_Stab_4::
 	db -16, -17
 	db 0, 16
 	db 8, -25
 	db 0, 16
 	db 8, -3
 
-FrameSprites_29_7aa2::
+FrameSprites_PlayerEnguarde_Stab_5::
 	db -18, -17
 	db 0, 16
 	db 8, -25
@@ -389,7 +389,7 @@ FrameSprites_29_7aa2::
 	db 0, 16
 	db 8, -3
 
-FrameSprites_29_7ab2::
+FrameSprites_PlayerEnguarde_Stab_6::
 	db -20, -18
 	db 0, 16
 	db 8, -11
@@ -399,7 +399,7 @@ FrameSprites_29_7ab2::
 	db 8, -4
 	db 8, 7
 
-FrameSprites_29_7ac2::
+FrameSprites_PlayerEnguarde_Stab_7::
 	db -22, -18
 	db 0, 16
 	db 8, -11
@@ -410,7 +410,7 @@ FrameSprites_29_7ac2::
 	db 8, -7
 	db 8, 7
 
-FrameSprites_29_7ad4::
+FrameSprites_PlayerEnguarde_Stab_8::
 	db -19, -18
 	db 0, 16
 	db 8, -11
@@ -420,7 +420,7 @@ FrameSprites_29_7ad4::
 	db 8, 7
 	db 8, 2
 
-FrameSprites_29_7ae4::
+FrameSprites_PlayerEnguarde_Stab_9::
 	db -16, -18
 	db 0, 16
 	db 8, -14
@@ -431,7 +431,7 @@ FrameSprites_29_7ae4::
 	db 8, 7
 	db 8, 2
 
-FrameSprites_29_7af6::
+FrameSprites_SwingingRope_SetFrame_35::
 	db -4, 1
 	db 0, 16
 	db 0, 16
@@ -440,7 +440,7 @@ FrameSprites_29_7af6::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_29_7b04::
+FrameSprites_SwingingRope_SetFrame_36::
 	db -8, 16
 	db 0, 16
 	db -1, 16
@@ -449,7 +449,7 @@ FrameSprites_29_7b04::
 	db -1, 16
 	db 6, -96
 
-FrameSprites_29_7b12::
+FrameSprites_SwingingRope_SetFrame_37::
 	db -15, 62
 	db -3, 16
 	db 0, 16
@@ -459,7 +459,7 @@ FrameSprites_29_7b12::
 	db -1, 16
 	db -2, 16
 
-FrameSprites_29_7b22::
+FrameSprites_SwingingRope_SetFrame_38::
 	db -26, 93
 	db 8, -48
 	db -2, 16
@@ -468,7 +468,7 @@ FrameSprites_29_7b22::
 	db -2, 16
 	db -2, 16
 
-FrameSprites_29_7b30::
+FrameSprites_SwingingRope_SetFrame_39::
 	db -33, 92
 	db 7, -32
 	db -4, 16
@@ -477,7 +477,7 @@ FrameSprites_29_7b30::
 	db 12, -47
 	db -5, 15
 
-FrameSprites_29_7b3e::
+FrameSprites_SwingingRope_SetFrame_40::
 	db -41, 90
 	db 10, -29
 	db -5, 14
@@ -487,7 +487,7 @@ FrameSprites_29_7b3e::
 	db 8, -32
 	db 3, -16
 
-FrameSprites_29_7b4e::
+FrameSprites_SwingingRope_SetFrame_41::
 	db -48, 88
 	db 6, -13
 	db 12, -27
@@ -497,7 +497,7 @@ FrameSprites_29_7b4e::
 	db -6, 14
 	db -4, 14
 
-FrameSprites_29_7b5e::
+FrameSprites_SwingingRope_SetFrame_42::
 	db -54, 86
 	db 8, -12
 	db 5, -15
@@ -507,7 +507,7 @@ FrameSprites_29_7b5e::
 	db 8, -31
 	db -4, 15
 
-FrameSprites_29_7b6e::
+FrameSprites_SwingingRope_SetFrame_43::
 	db -59, 83
 	db 8, -10
 	db 6, -14
@@ -517,7 +517,7 @@ FrameSprites_29_7b6e::
 	db -4, 15
 	db 9, -27
 
-FrameSprites_29_7b7e::
+FrameSprites_SwingingRope_SetFrame_44::
 	db -66, 82
 	db 8, -7
 	db 8, -14
@@ -527,7 +527,7 @@ FrameSprites_29_7b7e::
 	db 12, -29
 	db -5, 16
 
-FrameSprites_29_7b8e::
+FrameSprites_SwingingRope_SetFrame_45::
 	db -70, 80
 	db 8, -6
 	db 8, -13
@@ -538,7 +538,7 @@ FrameSprites_29_7b8e::
 	db -7, 14
 	db 12, -29
 
-FrameSprites_29_7ba0::
+FrameSprites_SwingingRope_SetFrame_46::
 	db -73, 78
 	db 8, -6
 	db 8, -12
@@ -549,7 +549,7 @@ FrameSprites_29_7ba0::
 	db 11, -27
 	db -6, 12
 
-FrameSprites_29_7bb2::
+FrameSprites_SwingingRope_SetFrame_47::
 	db -76, 76
 	db 8, -7
 	db 8, -10
@@ -560,7 +560,7 @@ FrameSprites_29_7bb2::
 	db 6, -14
 	db 7, -14
 
-FrameSprites_29_7bc4::
+FrameSprites_SwingingRope_SetFrame_48::
 	db -78, 74
 	db 8, -6
 	db 8, -9
@@ -571,7 +571,7 @@ FrameSprites_29_7bc4::
 	db 6, -12
 	db 6, -13
 
-FrameSprites_29_7bd6::
+FrameSprites_SwingingRope_SetFrame_49::
 	db -80, 75
 	db 8, -5
 	db 8, -9
@@ -582,7 +582,7 @@ FrameSprites_29_7bd6::
 	db 8, -12
 	db 5, -12
 
-FrameSprites_29_7be8::
+FrameSprites_SwingingRope_SetFrame_50::
 	db -80, 73
 	db 8, -6
 	db 8, -8
@@ -593,7 +593,7 @@ FrameSprites_29_7be8::
 	db 5, -13
 	db 7, -11
 
-FrameSprites_29_7bfa::
+FrameSprites_PlayerEnguarde_9::
 	db -15, -17
 	db 0, 16
 	db 8, -12
@@ -603,7 +603,7 @@ FrameSprites_29_7bfa::
 	db 8, -4
 	db 8, 10
 
-FrameSprites_29_7c0a::
+FrameSprites_PlayerEnguarde_10::
 	db -11, -15
 	db 0, 16
 	db 8, -18
@@ -611,14 +611,14 @@ FrameSprites_29_7c0a::
 	db 8, -21
 	db 0, 16
 
-FrameSprites_29_7c16::
+FrameSprites_PlayerEnguarde_11::
 	db -7, -17
 	db 0, 16
 	db 8, -21
 	db 0, 16
 	db 8, 10
 
-FrameSprites_29_7c20::
+FrameSprites_PlayerEnguarde_12::
 	db -19, -5
 	db 8, -8
 	db 8, -10
@@ -626,25 +626,25 @@ FrameSprites_29_7c20::
 	db 8, -9
 	db 0, 20
 
-FrameSprites_29_7c2c::
+FrameSprites_Tire_Top_Touch_1::
 	db -11, -12
 	db 8, -2
 	db 8, -1
 
-FrameSprites_29_7c32::
+FrameSprites_Tire_Top_Touch_2::
 	db -11, -15
 	db 8, -1
 	db 0, 16
 	db 8, -16
 
-FrameSprites_29_7c3a::
+FrameSprites_Tire_Top_Touch_3::
 	db -11, -19
 	db 3, 16
 	db 5, -16
 	db 3, 16
 	db 5, -16
 
-FrameSprites_29_7c44::
+FrameSprites_Tire_Top_Touch_4::
 	db -11, -25
 	db 0, 16
 	db 8, -17
@@ -652,7 +652,7 @@ FrameSprites_29_7c44::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_29_7c50::
+FrameSprites_Tire_Top_Touch_5::
 	db -10, -29
 	db 0, 16
 	db 8, -17
@@ -660,7 +660,7 @@ FrameSprites_29_7c50::
 	db 8, -12
 	db 0, 16
 
-FrameSprites_29_7c5c::
+FrameSprites_Tire_Top_Touch_6::
 	db -10, -33
 	db 0, 16
 	db 8, -16
@@ -668,7 +668,7 @@ FrameSprites_29_7c5c::
 	db 8, -12
 	db 0, 16
 
-FrameSprites_29_7c68::
+FrameSprites_SpawnCollectedBanana_29::
 	db -11, -27
 	db 0, 16
 	db 8, -19
@@ -676,7 +676,7 @@ FrameSprites_29_7c68::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_29_7c74::
+FrameSprites_SpawnCollectedBanana_30::
 	db -11, -27
 	db 0, 16
 	db 8, -17
@@ -684,7 +684,7 @@ FrameSprites_29_7c74::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_29_7c80::
+FrameSprites_SpawnCollectedBanana_31::
 	db -11, -25
 	db 0, 16
 	db 8, -17
@@ -692,7 +692,7 @@ FrameSprites_29_7c80::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_29_7c8c::
+FrameSprites_SpawnCollectedBanana_32::
 	db -11, -24
 	db 0, 16
 	db 8, -17
@@ -700,7 +700,7 @@ FrameSprites_29_7c8c::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_29_7c98::
+FrameSprites_SpawnCollectedBanana_33::
 	db -11, -25
 	db 0, 16
 	db 8, -17
@@ -708,21 +708,21 @@ FrameSprites_29_7c98::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_29_7ca4::
+FrameSprites_DKBarrel_Touch_1::
 	db -13, 4
 	db 3, -15
 	db 7, -4
 	db 7, 17
 	db 1, -16
 
-FrameSprites_29_7cae::
+FrameSprites_DKBarrel_Touch_2::
 	db -10, -19
 	db -4, 16
 	db 12, -16
 	db -4, 16
 	db 8, 0
 
-FrameSprites_29_7cb8::
+FrameSprites_DKBarrel_Touch_3::
 	db -12, -19
 	db 0, 16
 	db 9, -12
@@ -730,7 +730,7 @@ FrameSprites_29_7cb8::
 	db 9, -13
 	db -1, 16
 
-FrameSprites_29_7cc4::
+FrameSprites_DKBarrel_Touch_4::
 	db -10, -14
 	db -4, 16
 	db 12, -16
@@ -738,7 +738,7 @@ FrameSprites_29_7cc4::
 	db 12, -16
 	db -3, 16
 
-FrameSprites_29_7cd0::
+FrameSprites_DKBarrel_Touch_5::
 	db 0, -15
 	db -13, 16
 	db 4, -16
@@ -746,13 +746,13 @@ FrameSprites_29_7cd0::
 	db -13, 16
 	db 8, 0
 
-FrameSprites_29_7cdc::
+FrameSprites_DKBarrel_Touch_6::
 	db -11, 1
 	db 9, -16
 	db -1, 16
 	db 9, -14
 
-FrameSprites_29_7ce4::
+FrameSprites_Tire_1::
 	db -12, -23
 	db 0, 16
 	db 8, -16
@@ -760,7 +760,7 @@ FrameSprites_29_7ce4::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_29_7cf0::
+FrameSprites_Tire_2::
 	db -12, -22
 	db 0, 16
 	db 8, -17
@@ -768,7 +768,7 @@ FrameSprites_29_7cf0::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_29_7cfc::
+FrameSprites_Tire_3::
 	db -12, -23
 	db 0, 16
 	db 8, -16
@@ -776,7 +776,7 @@ FrameSprites_29_7cfc::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_29_7d08::
+FrameSprites_Tire_4::
 	db -12, -23
 	db 0, 16
 	db 8, -16
@@ -784,7 +784,7 @@ FrameSprites_29_7d08::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_29_7d14::
+FrameSprites_Enemy_HandleContact_16::
 	db -18, -22
 	db 8, 1
 	db 0, 16
@@ -794,7 +794,7 @@ FrameSprites_29_7d14::
 	db 8, -34
 	db 0, 16
 
-FrameSprites_29_7d24::
+FrameSprites_RunNeckyScript_1::
 	db -5, -18
 	db 0, 16
 	db 8, -24
@@ -803,7 +803,7 @@ FrameSprites_29_7d24::
 	db 0, 16
 	db 8, -2
 
-FrameSprites_29_7d32::
+FrameSprites_RunNeckyScript_2::
 	db -6, -18
 	db 0, 16
 	db 8, -24
@@ -812,7 +812,7 @@ FrameSprites_29_7d32::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_29_7d40::
+FrameSprites_RunNeckyScript_3::
 	db -10, -16
 	db 0, 16
 	db 8, -19
@@ -820,7 +820,7 @@ FrameSprites_29_7d40::
 	db 8, -21
 	db 0, 16
 
-FrameSprites_29_7d4c::
+FrameSprites_RunNeckyScript_4::
 	db -25, -32
 	db 8, 4
 	db 8, 4

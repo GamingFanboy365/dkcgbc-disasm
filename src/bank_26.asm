@@ -3,193 +3,193 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $26", ROMX[$4000], BANK[$26]
 
-FrameTiles_26_4000::
+FrameTiles_SetPlayerAnimation_149::
 	INCBIN "gfx/frames/26/4000.2bpp"
 
-FrameTiles_26_40c0::
+FrameTiles_SetPlayerAnimation_150::
 	INCBIN "gfx/frames/26/40c0.2bpp"
 
-FrameTiles_26_41a0::
+FrameTiles_SetPlayerAnimation_151::
 	INCBIN "gfx/frames/26/41a0.2bpp"
 
-FrameTiles_26_4280::
+FrameTiles_SetPlayerAnimation_152::
 	INCBIN "gfx/frames/26/4280.2bpp"
 
-FrameTiles_26_4340::
+FrameTiles_SetPlayerAnimation_153::
 	INCBIN "gfx/frames/26/4340.2bpp"
 
-FrameTiles_26_4400::
+FrameTiles_SetPlayerAnimation_154::
 	INCBIN "gfx/frames/26/4400.2bpp"
 
-FrameTiles_26_44e0::
+FrameTiles_SetPlayerAnimation_155::
 	INCBIN "gfx/frames/26/44e0.2bpp"
 
-FrameTiles_26_45a0::
+FrameTiles_SetPlayerAnimation_156::
 	INCBIN "gfx/frames/26/45a0.2bpp"
 
-FrameTiles_26_4660::
+FrameTiles_SetPlayerAnimation_157::
 	INCBIN "gfx/frames/26/4660.2bpp"
 
-FrameTiles_26_4740::
+FrameTiles_SetPlayerAnimation_158::
 	INCBIN "gfx/frames/26/4740.2bpp"
 
-FrameTiles_26_4820::
+FrameTiles_SetPlayerAnimation_159::
 	INCBIN "gfx/frames/26/4820.2bpp"
 
-FrameTiles_26_4900::
+FrameTiles_SetPlayerAnimation_160::
 	INCBIN "gfx/frames/26/4900.2bpp"
 
-FrameTiles_26_49e0::
+FrameTiles_SetPlayerAnimation_161::
 	INCBIN "gfx/frames/26/49e0.2bpp"
 
-FrameTiles_26_4ac0::
+FrameTiles_SetPlayerAnimation_162::
 	INCBIN "gfx/frames/26/4ac0.2bpp"
 
-FrameTiles_26_4b60::
+FrameTiles_SetPlayerAnimation_163::
 	INCBIN "gfx/frames/26/4b60.2bpp"
 
-FrameTiles_26_4c40::
+FrameTiles_SetPlayerAnimation_164::
 	INCBIN "gfx/frames/26/4c40.2bpp"
 
-FrameTiles_26_4d20::
+FrameTiles_SetPlayerAnimation_165::
 	INCBIN "gfx/frames/26/4d20.2bpp"
 
-FrameTiles_26_4e00::
+FrameTiles_SetPlayerAnimation_166::
 	INCBIN "gfx/frames/26/4e00.2bpp"
 
-FrameTiles_26_4ee0::
+FrameTiles_SetPlayerAnimation_167::
 	INCBIN "gfx/frames/26/4ee0.2bpp"
 
-FrameTiles_26_4fc0::
+FrameTiles_SetPlayerAnimation_168::
 	INCBIN "gfx/frames/26/4fc0.2bpp"
 
-FrameTiles_26_5080::
+FrameTiles_SetPlayerAnimation_169::
 	INCBIN "gfx/frames/26/5080.2bpp"
 
-FrameTiles_26_5160::
+FrameTiles_SetPlayerAnimation_170::
 	INCBIN "gfx/frames/26/5160.2bpp"
 
-FrameTiles_26_5260::
+FrameTiles_SetPlayerAnimation_171::
 	INCBIN "gfx/frames/26/5260.2bpp"
 
-FrameTiles_26_5360::
+FrameTiles_SetPlayerAnimation_172::
 	INCBIN "gfx/frames/26/5360.2bpp"
 
-FrameTiles_26_5440::
+FrameTiles_SetPlayerAnimation_173::
 	INCBIN "gfx/frames/26/5440.2bpp"
 
-FrameTiles_26_5560::
+FrameTiles_SetPlayerAnimation_174::
 	INCBIN "gfx/frames/26/5560.2bpp"
 
-FrameTiles_26_5640::
+FrameTiles_SetPlayerAnimation_175::
 	INCBIN "gfx/frames/26/5640.2bpp"
 
-FrameTiles_26_5720::
+FrameTiles_SetPlayerAnimation_176::
 	INCBIN "gfx/frames/26/5720.2bpp"
 
-FrameTiles_26_57e0::
+FrameTiles_SetPlayerAnimation_177::
 	INCBIN "gfx/frames/26/57e0.2bpp"
 
-FrameTiles_26_58a0::
+FrameTiles_SetPlayerAnimation_178::
 	INCBIN "gfx/frames/26/58a0.2bpp"
 
-FrameTiles_26_5980::
+FrameTiles_SetPlayerAnimation_179::
 	INCBIN "gfx/frames/26/5980.2bpp"
 
-FrameTiles_26_5a60::
+FrameTiles_SetPlayerAnimation_180::
 	INCBIN "gfx/frames/26/5a60.2bpp"
 
-FrameTiles_26_5b40::
+FrameTiles_SetPlayerAnimation_181::
 	INCBIN "gfx/frames/26/5b40.2bpp"
 
-FrameTiles_26_5c20::
+FrameTiles_SetPlayerAnimation_182::
 	INCBIN "gfx/frames/26/5c20.2bpp"
 
-FrameTiles_26_5d00::
+FrameTiles_SpawnCollectedBanana_17::
 	INCBIN "gfx/frames/26/5d00.2bpp"
 
-FrameTiles_26_5dc0::
+FrameTiles_SpawnCollectedBanana_18::
 	INCBIN "gfx/frames/26/5dc0.2bpp"
 
-FrameTiles_26_5e80::
+FrameTiles_SpawnCollectedBanana_19::
 	INCBIN "gfx/frames/26/5e80.2bpp"
 
-FrameTiles_26_5f40::
+FrameTiles_SpawnCollectedBanana_20::
 	INCBIN "gfx/frames/26/5f40.2bpp"
 
-FrameTiles_26_6000::
+FrameTiles_SpawnCollectedBanana_21::
 	INCBIN "gfx/frames/26/6000.2bpp"
 
-FrameTiles_26_60c0::
+FrameTiles_SpawnCollectedBanana_22::
 	INCBIN "gfx/frames/26/60c0.2bpp"
 
-FrameTiles_26_6180::
+FrameTiles_SpawnCollectedBanana_23::
 	INCBIN "gfx/frames/26/6180.2bpp"
 
-FrameTiles_26_6240::
+FrameTiles_SpawnCollectedBanana_24::
 	INCBIN "gfx/frames/26/6240.2bpp"
 
-FrameTiles_26_6300::
+FrameTiles_SpawnCollectedBanana_25::
 	INCBIN "gfx/frames/26/6300.2bpp"
 
-FrameTiles_26_63c0::
+FrameTiles_SpawnCollectedBanana_26::
 	INCBIN "gfx/frames/26/63c0.2bpp"
 
-FrameTiles_26_6480::
+FrameTiles_SpawnCollectedBanana_27::
 	INCBIN "gfx/frames/26/6480.2bpp"
 
-FrameTiles_26_6540::
+FrameTiles_SwingingRope_SetFrame_18::
 	INCBIN "gfx/frames/26/6540.2bpp"
 
-FrameTiles_26_6640::
+FrameTiles_SwingingRope_SetFrame_19::
 	INCBIN "gfx/frames/26/6640.2bpp"
 
-FrameTiles_26_6740::
+FrameTiles_SwingingRope_SetFrame_20::
 	INCBIN "gfx/frames/26/6740.2bpp"
 
-FrameTiles_26_6840::
+FrameTiles_SwingingRope_SetFrame_21::
 	INCBIN "gfx/frames/26/6840.2bpp"
 
-FrameTiles_26_6940::
+FrameTiles_SwingingRope_SetFrame_22::
 	INCBIN "gfx/frames/26/6940.2bpp"
 
-FrameTiles_26_6a60::
+FrameTiles_SwingingRope_SetFrame_23::
 	INCBIN "gfx/frames/26/6a60.2bpp"
 
-FrameTiles_26_6b40::
+FrameTiles_SwingingRope_SetFrame_24::
 	INCBIN "gfx/frames/26/6b40.2bpp"
 
-FrameTiles_26_6c20::
+FrameTiles_SwingingRope_SetFrame_25::
 	INCBIN "gfx/frames/26/6c20.2bpp"
 
-FrameTiles_26_6d00::
+FrameTiles_SwingingRope_SetFrame_26::
 	INCBIN "gfx/frames/26/6d00.2bpp"
 
-FrameTiles_26_6de0::
+FrameTiles_SwingingRope_SetFrame_27::
 	INCBIN "gfx/frames/26/6de0.2bpp"
 
-FrameTiles_26_6ec0::
+FrameTiles_SwingingRope_SetFrame_28::
 	INCBIN "gfx/frames/26/6ec0.2bpp"
 
-FrameTiles_26_6fa0::
+FrameTiles_SwingingRope_SetFrame_29::
 	INCBIN "gfx/frames/26/6fa0.2bpp"
 
-FrameTiles_26_7080::
+FrameTiles_SwingingRope_SetFrame_30::
 	INCBIN "gfx/frames/26/7080.2bpp"
 
-FrameTiles_26_7160::
+FrameTiles_SwingingRope_SetFrame_31::
 	INCBIN "gfx/frames/26/7160.2bpp"
 
-FrameTiles_26_7240::
+FrameTiles_SwingingRope_SetFrame_32::
 	INCBIN "gfx/frames/26/7240.2bpp"
 
-FrameTiles_26_7320::
+FrameTiles_SwingingRope_SetFrame_33::
 	INCBIN "gfx/frames/26/7320.2bpp"
 
-FrameTiles_26_7400::
+FrameTiles_SwingingRope_SetFrame_34::
 	INCBIN "gfx/frames/26/7400.2bpp"
 
-FrameSprites_26_74e0::
+FrameSprites_SetPlayerAnimation_149::
 	db -11, -15
 	db 0, 16
 	db 0, 16
@@ -197,7 +197,7 @@ FrameSprites_26_74e0::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_26_74ec::
+FrameSprites_SetPlayerAnimation_150::
 	db -11, -14
 	db 0, 16
 	db 8, -17
@@ -206,7 +206,7 @@ FrameSprites_26_74ec::
 	db 8, -22
 	db 0, 18
 
-FrameSprites_26_74fa::
+FrameSprites_SetPlayerAnimation_151::
 	db -11, -14
 	db 0, 16
 	db 8, -17
@@ -215,7 +215,7 @@ FrameSprites_26_74fa::
 	db 8, -27
 	db 0, 21
 
-FrameSprites_26_7508::
+FrameSprites_SetPlayerAnimation_152::
 	db -11, -13
 	db 0, 16
 	db 8, -18
@@ -223,7 +223,7 @@ FrameSprites_26_7508::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_26_7514::
+FrameSprites_SetPlayerAnimation_153::
 	db -11, -14
 	db 0, 16
 	db 8, -17
@@ -231,7 +231,7 @@ FrameSprites_26_7514::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_26_7520::
+FrameSprites_SetPlayerAnimation_154::
 	db -11, -15
 	db 0, 16
 	db 0, 16
@@ -240,7 +240,7 @@ FrameSprites_26_7520::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_26_752e::
+FrameSprites_SetPlayerAnimation_155::
 	db -5, -24
 	db 0, 16
 	db 8, -14
@@ -248,7 +248,7 @@ FrameSprites_26_752e::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_26_753a::
+FrameSprites_SetPlayerAnimation_156::
 	db -5, -24
 	db 0, 16
 	db 8, -13
@@ -256,7 +256,7 @@ FrameSprites_26_753a::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_26_7546::
+FrameSprites_SetPlayerAnimation_157::
 	db -6, -25
 	db 0, 16
 	db 8, -14
@@ -265,7 +265,7 @@ FrameSprites_26_7546::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_26_7554::
+FrameSprites_SetPlayerAnimation_158::
 	db -7, -26
 	db 0, 16
 	db 8, -14
@@ -274,7 +274,7 @@ FrameSprites_26_7554::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_26_7562::
+FrameSprites_SetPlayerAnimation_159::
 	db -10, -26
 	db 0, 16
 	db 8, -16
@@ -283,7 +283,7 @@ FrameSprites_26_7562::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_26_7570::
+FrameSprites_SetPlayerAnimation_160::
 	db -10, -25
 	db 0, 16
 	db 8, -16
@@ -292,7 +292,7 @@ FrameSprites_26_7570::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_26_757e::
+FrameSprites_SetPlayerAnimation_161::
 	db -9, -25
 	db 0, 16
 	db 8, -14
@@ -301,14 +301,14 @@ FrameSprites_26_757e::
 	db 0, 18
 	db 8, -16
 
-FrameSprites_26_758c::
+FrameSprites_SetPlayerAnimation_162::
 	db -6, -25
 	db 0, 16
 	db 8, -12
 	db 0, 16
 	db 8, -16
 
-FrameSprites_26_7596::
+FrameSprites_SetPlayerAnimation_163::
 	db -9, -23
 	db 0, 16
 	db 8, -17
@@ -317,7 +317,7 @@ FrameSprites_26_7596::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_26_75a4::
+FrameSprites_SetPlayerAnimation_164::
 	db -13, -16
 	db 8, -3
 	db 0, 16
@@ -326,7 +326,7 @@ FrameSprites_26_75a4::
 	db 8, -12
 	db 0, 20
 
-FrameSprites_26_75b2::
+FrameSprites_SetPlayerAnimation_165::
 	db -13, -16
 	db 8, -3
 	db 0, 16
@@ -335,7 +335,7 @@ FrameSprites_26_75b2::
 	db 8, -17
 	db 0, 21
 
-FrameSprites_26_75c0::
+FrameSprites_SetPlayerAnimation_166::
 	db -11, -30
 	db 0, 16
 	db 8, -12
@@ -344,7 +344,7 @@ FrameSprites_26_75c0::
 	db 0, 16
 	db 8, -6
 
-FrameSprites_26_75ce::
+FrameSprites_SetPlayerAnimation_167::
 	db -8, -26
 	db 0, 16
 	db 8, -19
@@ -353,7 +353,7 @@ FrameSprites_26_75ce::
 	db 8, -30
 	db 0, 16
 
-FrameSprites_26_75dc::
+FrameSprites_SetPlayerAnimation_168::
 	db -14, -17
 	db 8, -12
 	db 0, 16
@@ -361,7 +361,7 @@ FrameSprites_26_75dc::
 	db 0, 16
 	db 8, -2
 
-FrameSprites_26_75e8::
+FrameSprites_SetPlayerAnimation_169::
 	db -16, -22
 	db 8, -6
 	db 0, 16
@@ -370,7 +370,7 @@ FrameSprites_26_75e8::
 	db 8, -14
 	db 0, 19
 
-FrameSprites_26_75f6::
+FrameSprites_SetPlayerAnimation_170::
 	db -14, -15
 	db 8, -18
 	db 0, 16
@@ -380,7 +380,7 @@ FrameSprites_26_75f6::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_26_7606::
+FrameSprites_SetPlayerAnimation_171::
 	db -14, -24
 	db 0, 16
 	db 8, -15
@@ -390,7 +390,7 @@ FrameSprites_26_7606::
 	db 8, -14
 	db 8, 6
 
-FrameSprites_26_7616::
+FrameSprites_SetPlayerAnimation_172::
 	db -10, -20
 	db 0, 16
 	db 8, -17
@@ -399,7 +399,7 @@ FrameSprites_26_7616::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_26_7624::
+FrameSprites_SetPlayerAnimation_173::
 	db -13, -17
 	db 0, 16
 	db 8, -19
@@ -410,7 +410,7 @@ FrameSprites_26_7624::
 	db 0, 16
 	db 8, -1
 
-FrameSprites_26_7636::
+FrameSprites_SetPlayerAnimation_174::
 	db -13, -17
 	db 0, 16
 	db 8, -18
@@ -419,7 +419,7 @@ FrameSprites_26_7636::
 	db 8, 1
 	db 8, 2
 
-FrameSprites_26_7644::
+FrameSprites_SetPlayerAnimation_175::
 	db -14, -16
 	db 0, 16
 	db 8, -18
@@ -428,7 +428,7 @@ FrameSprites_26_7644::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_26_7652::
+FrameSprites_SetPlayerAnimation_176::
 	db -14, -15
 	db 8, -3
 	db 0, 16
@@ -436,7 +436,7 @@ FrameSprites_26_7652::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_26_765e::
+FrameSprites_SetPlayerAnimation_177::
 	db -14, -15
 	db 8, -7
 	db 0, 16
@@ -444,7 +444,7 @@ FrameSprites_26_765e::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_26_766a::
+FrameSprites_SetPlayerAnimation_178::
 	db -14, -15
 	db 8, -9
 	db 0, 16
@@ -453,7 +453,7 @@ FrameSprites_26_766a::
 	db 8, -19
 	db 0, 16
 
-FrameSprites_26_7678::
+FrameSprites_SetPlayerAnimation_179::
 	db -14, -15
 	db 8, -9
 	db 0, 16
@@ -462,7 +462,7 @@ FrameSprites_26_7678::
 	db 8, -19
 	db 0, 16
 
-FrameSprites_26_7686::
+FrameSprites_SetPlayerAnimation_180::
 	db -14, -15
 	db 8, -9
 	db 0, 16
@@ -471,7 +471,7 @@ FrameSprites_26_7686::
 	db 8, -19
 	db 0, 16
 
-FrameSprites_26_7694::
+FrameSprites_SetPlayerAnimation_181::
 	db -14, -15
 	db 8, -9
 	db 0, 16
@@ -480,7 +480,7 @@ FrameSprites_26_7694::
 	db 8, -19
 	db 0, 16
 
-FrameSprites_26_76a2::
+FrameSprites_SetPlayerAnimation_182::
 	db -14, -15
 	db 8, -9
 	db 0, 16
@@ -489,7 +489,7 @@ FrameSprites_26_76a2::
 	db 8, -18
 	db 0, 16
 
-FrameSprites_26_76b0::
+FrameSprites_SpawnCollectedBanana_17::
 	db -12, -28
 	db 0, 16
 	db 8, -16
@@ -497,7 +497,7 @@ FrameSprites_26_76b0::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_26_76bc::
+FrameSprites_SpawnCollectedBanana_18::
 	db -11, -25
 	db 0, 16
 	db 8, -17
@@ -505,7 +505,7 @@ FrameSprites_26_76bc::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_26_76c8::
+FrameSprites_SpawnCollectedBanana_19::
 	db -11, -23
 	db 0, 16
 	db 8, -16
@@ -513,7 +513,7 @@ FrameSprites_26_76c8::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_26_76d4::
+FrameSprites_SpawnCollectedBanana_20::
 	db -12, -21
 	db 0, 16
 	db 8, -17
@@ -521,7 +521,7 @@ FrameSprites_26_76d4::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_26_76e0::
+FrameSprites_SpawnCollectedBanana_21::
 	db -12, -22
 	db 0, 16
 	db 8, -17
@@ -529,7 +529,7 @@ FrameSprites_26_76e0::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_26_76ec::
+FrameSprites_SpawnCollectedBanana_22::
 	db -11, -24
 	db 0, 16
 	db 8, -16
@@ -537,7 +537,7 @@ FrameSprites_26_76ec::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_26_76f8::
+FrameSprites_SpawnCollectedBanana_23::
 	db -10, -23
 	db 0, 16
 	db 8, -16
@@ -545,7 +545,7 @@ FrameSprites_26_76f8::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_26_7704::
+FrameSprites_SpawnCollectedBanana_24::
 	db -11, -23
 	db 0, 16
 	db 8, -16
@@ -553,7 +553,7 @@ FrameSprites_26_7704::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_26_7710::
+FrameSprites_SpawnCollectedBanana_25::
 	db -10, -23
 	db 0, 16
 	db 8, -17
@@ -561,7 +561,7 @@ FrameSprites_26_7710::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_26_771c::
+FrameSprites_SpawnCollectedBanana_26::
 	db -11, -22
 	db 0, 16
 	db 8, -17
@@ -569,7 +569,7 @@ FrameSprites_26_771c::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_26_7728::
+FrameSprites_SpawnCollectedBanana_27::
 	db -11, -23
 	db 0, 16
 	db 8, -17
@@ -577,7 +577,7 @@ FrameSprites_26_7728::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_26_7734::
+FrameSprites_SwingingRope_SetFrame_18::
 	db -20, -22
 	db 0, 16
 	db 0, 16
@@ -587,7 +587,7 @@ FrameSprites_26_7734::
 	db 8, -32
 	db 0, 17
 
-FrameSprites_26_7744::
+FrameSprites_SwingingRope_SetFrame_19::
 	db -19, -22
 	db 0, 16
 	db 0, 16
@@ -597,7 +597,7 @@ FrameSprites_26_7744::
 	db 8, -32
 	db 0, 18
 
-FrameSprites_26_7754::
+FrameSprites_SwingingRope_SetFrame_20::
 	db -20, -21
 	db 0, 16
 	db 0, 16
@@ -607,7 +607,7 @@ FrameSprites_26_7754::
 	db 8, -32
 	db 0, 17
 
-FrameSprites_26_7764::
+FrameSprites_SwingingRope_SetFrame_21::
 	db -19, -20
 	db 0, 16
 	db 0, 16
@@ -617,7 +617,7 @@ FrameSprites_26_7764::
 	db 8, -32
 	db 0, 18
 
-FrameSprites_26_7774::
+FrameSprites_SwingingRope_SetFrame_22::
 	db -21, -16
 	db 0, 16
 	db 0, 16
@@ -628,7 +628,7 @@ FrameSprites_26_7774::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_26_7786::
+FrameSprites_SwingingRope_SetFrame_23::
 	db -20, -16
 	db 0, 16
 	db 8, -19
@@ -637,7 +637,7 @@ FrameSprites_26_7786::
 	db 8, -21
 	db 0, 18
 
-FrameSprites_26_7794::
+FrameSprites_SwingingRope_SetFrame_24::
 	db -19, -17
 	db 0, 16
 	db 8, -17
@@ -646,7 +646,7 @@ FrameSprites_26_7794::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_26_77a2::
+FrameSprites_SwingingRope_SetFrame_25::
 	db -18, -15
 	db 0, 16
 	db 8, -16
@@ -655,7 +655,7 @@ FrameSprites_26_77a2::
 	db 8, -19
 	db 0, 16
 
-FrameSprites_26_77b0::
+FrameSprites_SwingingRope_SetFrame_26::
 	db -18, -14
 	db 0, 16
 	db 8, -16
@@ -664,7 +664,7 @@ FrameSprites_26_77b0::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_26_77be::
+FrameSprites_SwingingRope_SetFrame_27::
 	db -18, -13
 	db 0, 16
 	db 8, -16
@@ -673,7 +673,7 @@ FrameSprites_26_77be::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_26_77cc::
+FrameSprites_SwingingRope_SetFrame_28::
 	db -17, -11
 	db 0, 16
 	db 8, -13
@@ -682,7 +682,7 @@ FrameSprites_26_77cc::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_26_77da::
+FrameSprites_SwingingRope_SetFrame_29::
 	db -18, -10
 	db 0, 16
 	db 8, -13
@@ -691,7 +691,7 @@ FrameSprites_26_77da::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_26_77e8::
+FrameSprites_SwingingRope_SetFrame_30::
 	db -18, -9
 	db 0, 16
 	db 8, -12
@@ -700,7 +700,7 @@ FrameSprites_26_77e8::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_26_77f6::
+FrameSprites_SwingingRope_SetFrame_31::
 	db -17, -8
 	db 0, 16
 	db 8, -13
@@ -709,7 +709,7 @@ FrameSprites_26_77f6::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_26_7804::
+FrameSprites_SwingingRope_SetFrame_32::
 	db -18, -8
 	db 0, 16
 	db 8, -13
@@ -718,7 +718,7 @@ FrameSprites_26_7804::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_26_7812::
+FrameSprites_SwingingRope_SetFrame_33::
 	db -18, -7
 	db 0, 16
 	db 8, -14
@@ -727,7 +727,7 @@ FrameSprites_26_7812::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_26_7820::
+FrameSprites_SwingingRope_SetFrame_34::
 	db -19, -7
 	db 0, 16
 	db 8, -14

@@ -3,67 +3,67 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e6", ROMX[$4000], BANK[$e6]
 
-LevelMap_e6_4000::
+LevelMap_SnowBarrelBlast2::
 	INCBIN "data/maps/e6_4000_terrain.lz"
 
-LevelMap_e6_41af::
+LevelMap_SnowBarrelBlast0::
 	INCBIN "data/maps/e6_41af_blocks.lz"
 
-LevelMap_e6_47e1::
+LevelMap_SnowBarrelBlast1::
 	INCBIN "data/maps/e6_47e1_attrs.lz"
 
-LevelMap_e6_4aba::
+LevelMap_SnowBarrelBlast5::
 	INCBIN "data/maps/e6_4aba_terrain.lz"
 
-LevelMap_e6_4b5c::
+LevelMap_SnowBarrelBlast3::
 	INCBIN "data/maps/e6_4b5c_blocks.lz"
 
-LevelMap_e6_4df0::
+LevelMap_SnowBarrelBlast4::
 	INCBIN "data/maps/e6_4df0_attrs.lz"
 
-LevelMap_e6_4f3c::
+LevelMap_IceAgeAlley_1::
 	INCBIN "data/maps/e6_4f3c_terrain.lz"
 
-LevelMap_e6_5173::
+LevelMap_IceAgeAlley_2::
 	INCBIN "data/maps/e6_5173_blocks.lz"
 
-LevelMap_e6_5956::
+LevelMap_IceAgeAlley_3::
 	INCBIN "data/maps/e6_5956_attrs.lz"
 
-LevelMap_e6_5e73::
+LevelMap_SnowBarrelBlast_Area1_1::
 	INCBIN "data/maps/e6_5e73_terrain.lz"
 
-LevelMap_e6_5eb6::
+LevelMap_SnowBarrelBlast_Area1_2::
 	INCBIN "data/maps/e6_5eb6_blocks.lz"
 
-LevelMap_e6_5f49::
+LevelMap_SnowBarrelBlast_Area1_3::
 	INCBIN "data/maps/e6_5f49_attrs.lz"
 
-LevelMap_e6_5fd3::
+LevelMap_MineCartMadness2::
 	INCBIN "data/maps/e6_5fd3_terrain.lz"
 
-LevelMap_e6_61df::
+LevelMap_MineCartMadness0::
 	INCBIN "data/maps/e6_61df_blocks.lz"
 
-LevelMap_e6_69f5::
+LevelMap_MineCartMadness1::
 	INCBIN "data/maps/e6_69f5_attrs.lz"
 
-LevelMap_e6_6d90::
+LevelMap_MineCartMadness5::
 	INCBIN "data/maps/e6_6d90_terrain.lz"
 
-LevelMap_e6_6eb1::
+LevelMap_MineCartMadness3::
 	INCBIN "data/maps/e6_6eb1_blocks.lz"
 
-LevelMap_e6_7375::
+LevelMap_MineCartMadness4::
 	INCBIN "data/maps/e6_7375_attrs.lz"
 
-LevelMap_e6_75e1::
+LevelMap_ReptileRumble_1::
 	INCBIN "data/maps/e6_75e1_terrain.lz"
 
-LevelMap_e6_77f4::
+LevelMap_ReptileRumble_2::
 	INCBIN "data/maps/e6_77f4_blocks.lz"
 
-LevelMap_e6_7c89::
+LevelMap_ReptileRumble_3::
 	INCBIN "data/maps/e6_7c89_attrs.lz"
 	ds 460, $00 ; $7e34
 

@@ -3,15 +3,15 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $43", ROMX[$4000], BANK[$43]
 
-BGTiles_43_4000::
+BGTiles_CandysChallenge::
 	INCBIN "gfx/bgtiles/43/4000.2bpp"
 	INCBIN "gfx/bgtiles/43/4000_end.2bpp"
 
-BGTiles_43_4e60::
+BGTiles_CrankysCabin::
 	INCBIN "gfx/bgtiles/43/4e60.2bpp"
 	INCBIN "gfx/bgtiles/43/4e60_end.2bpp"
 
-ScreenPalettes_43_6080::
+ScreenPalettes_CandysChallenge::
 	rgb  0,  0,  0,   5,  6,  3,   9,  9,  5,  13, 12,  6
 	rgb  0,  0,  0,  23,  5,  1,  31, 16,  8,  31, 31, 31
 	rgb  0,  0,  0,  28,  0,  0,  19, 19, 19,  31, 31, 31
@@ -21,7 +21,7 @@ ScreenPalettes_43_6080::
 	rgb  0,  0,  0,   4,  4, 14,  14, 14, 30,  19, 19, 19
 	rgb  0,  0,  0,  20,  4, 14,  31, 23, 30,  31, 31,  3
 
-ScreenPalettesTail_43_60c0::
+ScreenPalettesTail_CandysChallenge::
 	rgb  0,  0,  0,  10,  7, 10,  21, 15, 20,  31, 23, 30
 	rgb  0,  0,  0,   5,  5,  5,  10, 10, 10,  15, 15, 15
 	rgb  0,  0,  0,   7,  7,  7,  15, 15, 15,  23, 23, 23
@@ -31,7 +31,7 @@ ScreenPalettesTail_43_60c0::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-ScreenMap_43_6100::
+ScreenMap_CandysChallenge::
 	db $03, $03, $03, $00, $00, $00, $00, $00, $00, $00, $02, $02, $02, $02, $02, $02, $02, $20, $00, $00 ; attributes
 	db $03, $03, $20, $00, $00, $00, $00, $00, $00, $60, $02, $05, $05, $05, $05, $05, $02, $00, $00, $00
 	db $03, $03, $03, $00, $00, $00, $00, $60, $60, $00, $02, $05, $05, $05, $05, $05, $02, $20, $60, $60
@@ -69,7 +69,7 @@ ScreenMap_43_6100::
 	db $23, $de, $a3, $a0, $df, $90, $8f, $8e, $dd, $30, $e0, $d4, $d5, $e1, $e2, $e3, $e4, $e5, $9e, $9f
 	db $23, $24, $82, $84, $cf, $13, $12, $81, $82, $83, $84, $24, $93, $7a, $a2, $61, $82, $83, $78, $84
 
-ScreenPalettes_43_63d0::
+ScreenPalettes_CrankysCabin::
 	rgb 15,  9,  5,   6,  5,  5,  21, 21, 21,  31, 31, 31
 	rgb  0,  0,  0,  14,  9,  5,  12, 12, 12,  22, 21, 20
 	rgb  0,  0,  0,   8,  5,  2,  20,  0,  0,  28,  1,  0
@@ -79,7 +79,7 @@ ScreenPalettes_43_63d0::
 	rgb  0,  0,  0,   8,  5,  2,  22, 15,  0,  31, 24,  0
 	rgb 22, 23, 31,   5, 15,  1,  14, 25,  6,   0,  0,  0
 
-ScreenPalettesTail_43_6410::
+ScreenPalettesTail_CrankysCabin::
 	rgb  0,  0,  0,  10, 10, 10,  21, 21, 21,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
@@ -89,7 +89,7 @@ ScreenPalettesTail_43_6410::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-ScreenMap_43_6450::
+ScreenMap_CrankysCabin::
 	db $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07 ; attributes
 	db $07, $07, $07, $07, $07, $07, $07, $00, $00, $00, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07
 	db $07, $07, $07, $07, $07, $07, $07, $00, $00, $00, $07, $07, $07, $07, $04, $04, $04, $04, $07, $07
@@ -127,10 +127,10 @@ ScreenMap_43_6450::
 	db $71, $70, $6f, $6e, $18, $19, $1a, $1b, $18, $1c, $1d, $f4, $f3, $f7, $f9, $1e, $1f, $0a, $20, $21
 	db $84, $83, $82, $81, $80, $19, $6b, $6c, $6d, $6e, $b7, $b8, $5b, $5c, $5d, $00, $00, $71, $70, $6f
 
-Screen_43_6720::
-	dw ScreenPalettes_43_6080, ScreenMap_43_6100, BGTiles_43_4000 ; palettes, tile map, tiles
+Screen_CandysChallenge::
+	dw ScreenPalettes_CandysChallenge, ScreenMap_CandysChallenge, BGTiles_CandysChallenge ; palettes, tile map, tiles
 
-Screen_43_6726::
-	dw ScreenPalettes_43_63d0, ScreenMap_43_6450, BGTiles_43_4e60 ; palettes, tile map, tiles
+Screen_CrankysCabin::
+	dw ScreenPalettes_CrankysCabin, ScreenMap_CrankysCabin, BGTiles_CrankysCabin ; palettes, tile map, tiles
 	ds 6356, $00 ; $672c
 

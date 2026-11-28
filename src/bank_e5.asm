@@ -3,76 +3,76 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e5", ROMX[$4000], BANK[$e5]
 
-LevelMap_e5_4000::
+LevelMap_OilDrumAlley_1::
 	INCBIN "data/maps/e5_4000_terrain.lz"
 
-LevelMap_e5_42e9::
+LevelMap_OilDrumAlley_2::
 	INCBIN "data/maps/e5_42e9_blocks.lz"
 
-LevelMap_e5_4e13::
+LevelMap_OilDrumAlley_3::
 	INCBIN "data/maps/e5_4e13_attrs.lz"
 
-LevelMap_e5_519d::
+LevelMap_BlackoutBasement2::
 	INCBIN "data/maps/e5_519d_terrain.lz"
 
-LevelMap_e5_53a8::
+LevelMap_BlackoutBasement0::
 	INCBIN "data/maps/e5_53a8_blocks.lz"
 
-LevelMap_e5_5dd6::
+LevelMap_BlackoutBasement1::
 	INCBIN "data/maps/e5_5dd6_attrs.lz"
 
-LevelMap_e5_609c::
+LevelMap_BlackoutBasement5::
 	INCBIN "data/maps/e5_609c_terrain.lz"
 
-LevelMap_e5_6132::
+LevelMap_BlackoutBasement3::
 	INCBIN "data/maps/e5_6132_blocks.lz"
 
-LevelMap_e5_631d::
+LevelMap_BlackoutBasement4::
 	INCBIN "data/maps/e5_631d_attrs.lz"
 
-LevelMap_e5_6451::
+LevelMap_BlackoutBasement_Area1_1::
 	INCBIN "data/maps/e5_6451_terrain.lz"
 
-LevelMap_e5_649e::
+LevelMap_BlackoutBasement_Area1_2::
 	INCBIN "data/maps/e5_649e_blocks.lz"
 
-LevelMap_e5_6556::
+LevelMap_BlackoutBasement_Area1_3::
 	INCBIN "data/maps/e5_6556_attrs.lz"
 
-LevelMap_e5_65da::
+LevelMap_VultureCulture_1::
 	INCBIN "data/maps/e5_65da_terrain.lz"
 
-LevelMap_e5_67a1::
+LevelMap_VultureCulture_2::
 	INCBIN "data/maps/e5_67a1_blocks.lz"
 
-LevelMap_e5_6c96::
+LevelMap_VultureCulture_3::
 	INCBIN "data/maps/e5_6c96_attrs.lz"
 
-LevelMap_e5_6ef1::
+LevelMap_ForestFrenzy_1::
 	INCBIN "data/maps/e5_6ef1_terrain.lz"
 
-LevelMap_e5_7046::
+LevelMap_ForestFrenzy_2::
 	INCBIN "data/maps/e5_7046_blocks.lz"
 
-LevelMap_e5_7431::
+LevelMap_ForestFrenzy_3::
 	INCBIN "data/maps/e5_7431_attrs.lz"
 
-LevelMap_e5_7691::
+LevelMap_VultureCulture_Area1_1::
 	INCBIN "data/maps/e5_7691_terrain.lz"
 
-LevelMap_e5_76f2::
+LevelMap_VultureCulture_Area1_2::
 	INCBIN "data/maps/e5_76f2_blocks.lz"
 
-LevelMap_e5_775d::
+LevelMap_VultureCulture_Area1_3::
 	INCBIN "data/maps/e5_775d_attrs.lz"
 
-LevelMap_e5_77a0::
+LevelMap_JungleHijinxs_Area3_1::
 	INCBIN "data/maps/e5_77a0_terrain.lz"
 
-LevelMap_e5_77ef::
+LevelMap_JungleHijinxs_Area3_2::
 	INCBIN "data/maps/e5_77ef_blocks.lz"
 
-LevelMap_e5_7850::
+LevelMap_JungleHijinxs_Area3_3::
 	INCBIN "data/maps/e5_7850_attrs.lz"
 	ds 1901, $00 ; $7893
 

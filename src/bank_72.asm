@@ -3,11 +3,11 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $72", ROMX[$4000], BANK[$72]
 
-BGTiles_72_4000::
+BGTiles_EndingHintEnglish::
 	INCBIN "gfx/bgtiles/72/4000.2bpp"
 	INCBIN "gfx/bgtiles/72/4000_end.2bpp"
 
-ScreenPalettes_72_57e0::
+ScreenPalettes_EndingHintEnglish::
 	rgb  0,  0,  0,  15,  6,  0,  31,  0,  0,  31, 31,  0
 	rgb  0,  0,  0,  10,  4,  2,  22,  9,  5,  30, 18, 13
 	rgb  0,  0,  0,  17,  0,  0,  10,  4,  2,   0,  7,  0
@@ -17,7 +17,7 @@ ScreenPalettes_72_57e0::
 	rgb  0,  7,  0,  10,  4,  2,  22,  9,  5,  30, 18, 13
 	rgb  0,  7,  0,   0,  0,  0,  10,  4,  2,  22,  9,  5
 
-ScreenMap_72_5820::
+ScreenMap_EndingHintEnglish::
 	db $05, $05, $05, $05, $05, $05, $05, $06, $06, $06, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05 ; attributes
 	db $05, $05, $05, $05, $05, $05, $05, $06, $06, $06, $02, $02, $02, $02, $02, $07, $05, $05, $05, $05
 	db $05, $05, $05, $05, $05, $05, $05, $06, $07, $07, $01, $01, $01, $01, $07, $07, $05, $05, $05, $05
@@ -55,7 +55,7 @@ ScreenMap_72_5820::
 	db $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $fa, $fb, $fc, $fd, $fe, $ff, $00, $01, $02, $03, $04
 	db $05, $06, $07, $08, $09, $0a, $0b, $0c, $0d, $0e, $0f, $10, $11, $12, $13, $14, $15, $16, $17, $05
 
-ScreenPalettes_72_5af0::
+ScreenPalettes_EndingHintSpanish::
 	rgb  0,  0,  0,  15,  6,  0,  31,  0,  0,  31, 31,  0
 	rgb  0,  0,  0,  10,  4,  2,  22,  9,  5,  30, 18, 13
 	rgb  0,  0,  0,  17,  0,  0,  10,  4,  2,   0,  7,  0
@@ -65,7 +65,7 @@ ScreenPalettes_72_5af0::
 	rgb  0,  7,  0,  10,  4,  2,  22,  9,  5,  30, 18, 13
 	rgb  0,  7,  0,   0,  0,  0,  10,  4,  2,  22,  9,  5
 
-ScreenMap_72_5b30::
+ScreenMap_EndingHintSpanish::
 	db $05, $05, $05, $05, $05, $05, $05, $06, $06, $06, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05 ; attributes
 	db $05, $05, $05, $05, $05, $05, $05, $06, $06, $06, $02, $02, $02, $02, $02, $07, $05, $05, $05, $05
 	db $05, $05, $05, $05, $05, $05, $05, $06, $07, $07, $01, $01, $01, $01, $07, $07, $05, $05, $05, $05
@@ -103,10 +103,10 @@ ScreenMap_72_5b30::
 	db $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $fa, $fb, $fc, $fd, $fe, $ff, $00, $01, $02, $03, $04
 	db $05, $06, $07, $08, $09, $0a, $0b, $0c, $0d, $0e, $0f, $10, $11, $12, $13, $14, $15, $16, $17, $05
 
-Screen_72_5e00::
-	dw ScreenPalettes_72_57e0, ScreenMap_72_5820, BGTiles_72_4000 ; palettes, tile map, tiles
+Screen_EndingHintEnglish::
+	dw ScreenPalettes_EndingHintEnglish, ScreenMap_EndingHintEnglish, BGTiles_EndingHintEnglish ; palettes, tile map, tiles
 
-Screen_72_5e06::
-	dw ScreenPalettes_72_5af0, ScreenMap_72_5b30, BGTiles_72_4000 ; palettes, tile map, tiles
+Screen_EndingHintSpanish::
+	dw ScreenPalettes_EndingHintSpanish, ScreenMap_EndingHintSpanish, BGTiles_EndingHintEnglish ; palettes, tile map, tiles
 	ds 8692, $00 ; $5e0c
 

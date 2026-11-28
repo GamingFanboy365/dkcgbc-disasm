@@ -3,200 +3,200 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $25", ROMX[$4000], BANK[$25]
 
-FrameTiles_25_4000::
+FrameTiles_SetPlayerAnimation_104::
 	INCBIN "gfx/frames/25/4000.2bpp"
 
-FrameTiles_25_40a0::
+FrameTiles_SetPlayerAnimation_105::
 	INCBIN "gfx/frames/25/40a0.2bpp"
 
-FrameTiles_25_4160::
+FrameTiles_SetPlayerAnimation_106::
 	INCBIN "gfx/frames/25/4160.2bpp"
 
-FrameTiles_25_4220::
+FrameTiles_SetPlayerAnimation_107::
 	INCBIN "gfx/frames/25/4220.2bpp"
 
-FrameTiles_25_42c0::
+FrameTiles_SetPlayerAnimation_108::
 	INCBIN "gfx/frames/25/42c0.2bpp"
 
-FrameTiles_25_4360::
+FrameTiles_SetPlayerAnimation_109::
 	INCBIN "gfx/frames/25/4360.2bpp"
 
-FrameTiles_25_4400::
+FrameTiles_SetPlayerAnimation_110::
 	INCBIN "gfx/frames/25/4400.2bpp"
 
-FrameTiles_25_44c0::
+FrameTiles_SetPlayerAnimation_111::
 	INCBIN "gfx/frames/25/44c0.2bpp"
 
-FrameTiles_25_4580::
+FrameTiles_SetPlayerAnimation_112::
 	INCBIN "gfx/frames/25/4580.2bpp"
 
-FrameTiles_25_4640::
+FrameTiles_SetPlayerAnimation_113::
 	INCBIN "gfx/frames/25/4640.2bpp"
 
-FrameTiles_25_4700::
+FrameTiles_SetPlayerAnimation_114::
 	INCBIN "gfx/frames/25/4700.2bpp"
 
-FrameTiles_25_47e0::
+FrameTiles_SetPlayerAnimation_115::
 	INCBIN "gfx/frames/25/47e0.2bpp"
 
-FrameTiles_25_4900::
+FrameTiles_SetPlayerAnimation_116::
 	INCBIN "gfx/frames/25/4900.2bpp"
 
-FrameTiles_25_49c0::
+FrameTiles_SwingingRope_SetFrame_1::
 	INCBIN "gfx/frames/25/49c0.2bpp"
 
-FrameTiles_25_4a80::
+FrameTiles_SwingingRope_SetFrame_2::
 	INCBIN "gfx/frames/25/4a80.2bpp"
 
-FrameTiles_25_4b40::
+FrameTiles_SwingingRope_SetFrame_3::
 	INCBIN "gfx/frames/25/4b40.2bpp"
 
-FrameTiles_25_4c20::
+FrameTiles_SwingingRope_SetFrame_4::
 	INCBIN "gfx/frames/25/4c20.2bpp"
 
-FrameTiles_25_4d00::
+FrameTiles_SwingingRope_SetFrame_5::
 	INCBIN "gfx/frames/25/4d00.2bpp"
 
-FrameTiles_25_4de0::
+FrameTiles_SwingingRope_SetFrame_6::
 	INCBIN "gfx/frames/25/4de0.2bpp"
 
-FrameTiles_25_4ea0::
+FrameTiles_SwingingRope_SetFrame_7::
 	INCBIN "gfx/frames/25/4ea0.2bpp"
 
-FrameTiles_25_4fa0::
+FrameTiles_SwingingRope_SetFrame_8::
 	INCBIN "gfx/frames/25/4fa0.2bpp"
 
-FrameTiles_25_50a0::
+FrameTiles_SwingingRope_SetFrame_9::
 	INCBIN "gfx/frames/25/50a0.2bpp"
 
-FrameTiles_25_51a0::
+FrameTiles_SwingingRope_SetFrame_10::
 	INCBIN "gfx/frames/25/51a0.2bpp"
 
-FrameTiles_25_52a0::
+FrameTiles_SwingingRope_SetFrame_11::
 	INCBIN "gfx/frames/25/52a0.2bpp"
 
-FrameTiles_25_53a0::
+FrameTiles_SwingingRope_SetFrame_12::
 	INCBIN "gfx/frames/25/53a0.2bpp"
 
-FrameTiles_25_54a0::
+FrameTiles_SwingingRope_SetFrame_13::
 	INCBIN "gfx/frames/25/54a0.2bpp"
 
-FrameTiles_25_55a0::
+FrameTiles_SwingingRope_SetFrame_14::
 	INCBIN "gfx/frames/25/55a0.2bpp"
 
-FrameTiles_25_56a0::
+FrameTiles_SwingingRope_SetFrame_15::
 	INCBIN "gfx/frames/25/56a0.2bpp"
 
-FrameTiles_25_57a0::
+FrameTiles_SwingingRope_SetFrame_16::
 	INCBIN "gfx/frames/25/57a0.2bpp"
 
-FrameTiles_25_58a0::
+FrameTiles_SwingingRope_SetFrame_17::
 	INCBIN "gfx/frames/25/58a0.2bpp"
 
-FrameTiles_25_59a0::
+FrameTiles_SetPlayerAnimation_117::
 	INCBIN "gfx/frames/25/59a0.2bpp"
 
-FrameTiles_25_5a80::
+FrameTiles_SetPlayerAnimation_118::
 	INCBIN "gfx/frames/25/5a80.2bpp"
 
-FrameTiles_25_5b60::
+FrameTiles_SetPlayerAnimation_119::
 	INCBIN "gfx/frames/25/5b60.2bpp"
 
-FrameTiles_25_5c20::
+FrameTiles_SetPlayerAnimation_120::
 	INCBIN "gfx/frames/25/5c20.2bpp"
 
-FrameTiles_25_5ce0::
+FrameTiles_SetPlayerAnimation_121::
 	INCBIN "gfx/frames/25/5ce0.2bpp"
 
-FrameTiles_25_5da0::
+FrameTiles_SetPlayerAnimation_122::
 	INCBIN "gfx/frames/25/5da0.2bpp"
 
-FrameTiles_25_5e60::
+FrameTiles_SetPlayerAnimation_123::
 	INCBIN "gfx/frames/25/5e60.2bpp"
 
-FrameTiles_25_5f20::
+FrameTiles_SetPlayerAnimation_124::
 	INCBIN "gfx/frames/25/5f20.2bpp"
 
-FrameTiles_25_5fa0::
+FrameTiles_SetPlayerAnimation_125::
 	INCBIN "gfx/frames/25/5fa0.2bpp"
 
-FrameTiles_25_6040::
+FrameTiles_SetPlayerAnimation_126::
 	INCBIN "gfx/frames/25/6040.2bpp"
 
-FrameTiles_25_60e0::
+FrameTiles_SetPlayerAnimation_127::
 	INCBIN "gfx/frames/25/60e0.2bpp"
 
-FrameTiles_25_61a0::
+FrameTiles_SetPlayerAnimation_128::
 	INCBIN "gfx/frames/25/61a0.2bpp"
 
-FrameTiles_25_6260::
+FrameTiles_SetPlayerAnimation_129::
 	INCBIN "gfx/frames/25/6260.2bpp"
 
-FrameTiles_25_6320::
+FrameTiles_SetPlayerAnimation_130::
 	INCBIN "gfx/frames/25/6320.2bpp"
 
-FrameTiles_25_63e0::
+FrameTiles_SetPlayerAnimation_131::
 	INCBIN "gfx/frames/25/63e0.2bpp"
 
-FrameTiles_25_64c0::
+FrameTiles_SetPlayerAnimation_132::
 	INCBIN "gfx/frames/25/64c0.2bpp"
 
-FrameTiles_25_6560::
+FrameTiles_SetPlayerAnimation_133::
 	INCBIN "gfx/frames/25/6560.2bpp"
 
-FrameTiles_25_6620::
+FrameTiles_SetPlayerAnimation_134::
 	INCBIN "gfx/frames/25/6620.2bpp"
 
-FrameTiles_25_6720::
+FrameTiles_SetPlayerAnimation_135::
 	INCBIN "gfx/frames/25/6720.2bpp"
 
-FrameTiles_25_6800::
+FrameTiles_SetPlayerAnimation_136::
 	INCBIN "gfx/frames/25/6800.2bpp"
 
-FrameTiles_25_6900::
+FrameTiles_SetPlayerAnimation_137::
 	INCBIN "gfx/frames/25/6900.2bpp"
 
-FrameTiles_25_69e0::
+FrameTiles_SetPlayerAnimation_138::
 	INCBIN "gfx/frames/25/69e0.2bpp"
 
-FrameTiles_25_6ac0::
+FrameTiles_SetPlayerAnimation_139::
 	INCBIN "gfx/frames/25/6ac0.2bpp"
 
-FrameTiles_25_6be0::
+FrameTiles_SetPlayerAnimation_140::
 	INCBIN "gfx/frames/25/6be0.2bpp"
 
-FrameTiles_25_6cc0::
+FrameTiles_SetPlayerAnimation_141::
 	INCBIN "gfx/frames/25/6cc0.2bpp"
 
-FrameTiles_25_6dc0::
+FrameTiles_SetPlayerAnimation_142::
 	INCBIN "gfx/frames/25/6dc0.2bpp"
 
-FrameTiles_25_6ea0::
+FrameTiles_SetPlayerAnimation_143::
 	INCBIN "gfx/frames/25/6ea0.2bpp"
 
-FrameTiles_25_6f60::
+FrameTiles_SetPlayerAnimation_144::
 	INCBIN "gfx/frames/25/6f60.2bpp"
 
-FrameTiles_25_7020::
+FrameTiles_SetPlayerAnimation_145::
 	INCBIN "gfx/frames/25/7020.2bpp"
 
-FrameTiles_25_7120::
+FrameTiles_SetPlayerAnimation_146::
 	INCBIN "gfx/frames/25/7120.2bpp"
 
-FrameTiles_25_71e0::
+FrameTiles_SetPlayerAnimation_147::
 	INCBIN "gfx/frames/25/71e0.2bpp"
 
-FrameTiles_25_7280::
+FrameTiles_SetPlayerAnimation_148::
 	INCBIN "gfx/frames/25/7280.2bpp"
 
-FrameSprites_25_7320::
+FrameSprites_SetPlayerAnimation_104::
 	db -6, -20
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -3
 
-FrameSprites_25_732a::
+FrameSprites_SetPlayerAnimation_105::
 	db -7, -19
 	db 0, 16
 	db 8, -16
@@ -204,7 +204,7 @@ FrameSprites_25_732a::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_25_7336::
+FrameSprites_SetPlayerAnimation_106::
 	db -13, -17
 	db 0, 16
 	db 8, -16
@@ -212,28 +212,28 @@ FrameSprites_25_7336::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_25_7342::
+FrameSprites_SetPlayerAnimation_107::
 	db -17, -12
 	db 8, -1
 	db 8, 1
 	db 8, 0
 	db 8, -2
 
-FrameSprites_25_734c::
+FrameSprites_SetPlayerAnimation_108::
 	db -19, -9
 	db 8, 0
 	db 8, 1
 	db 8, 1
 	db 8, 2
 
-FrameSprites_25_7356::
+FrameSprites_SetPlayerAnimation_109::
 	db -17, -8
 	db 8, -6
 	db 8, 4
 	db 8, 5
 	db 8, 5
 
-FrameSprites_25_7360::
+FrameSprites_SetPlayerAnimation_110::
 	db -14, -14
 	db 8, -2
 	db 0, 16
@@ -241,7 +241,7 @@ FrameSprites_25_7360::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_25_736c::
+FrameSprites_SetPlayerAnimation_111::
 	db -11, -18
 	db 0, 16
 	db 8, -16
@@ -249,7 +249,7 @@ FrameSprites_25_736c::
 	db 8, -10
 	db 8, 11
 
-FrameSprites_25_7378::
+FrameSprites_SetPlayerAnimation_112::
 	db -11, -18
 	db 0, 16
 	db 8, -16
@@ -257,7 +257,7 @@ FrameSprites_25_7378::
 	db 8, -11
 	db 8, 12
 
-FrameSprites_25_7384::
+FrameSprites_SetPlayerAnimation_113::
 	db -11, -18
 	db 0, 16
 	db 8, -16
@@ -265,7 +265,7 @@ FrameSprites_25_7384::
 	db 8, -11
 	db 8, 12
 
-FrameSprites_25_7390::
+FrameSprites_SetPlayerAnimation_114::
 	db -13, -23
 	db 0, 16
 	db 8, -20
@@ -274,7 +274,7 @@ FrameSprites_25_7390::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_25_739e::
+FrameSprites_SetPlayerAnimation_115::
 	db -15, -9
 	db 0, 16
 	db 8, -36
@@ -285,7 +285,7 @@ FrameSprites_25_739e::
 	db 8, -25
 	db 0, 16
 
-FrameSprites_25_73b0::
+FrameSprites_SetPlayerAnimation_116::
 	db -12, -20
 	db 8, -5
 	db 0, 16
@@ -293,7 +293,7 @@ FrameSprites_25_73b0::
 	db 0, 16
 	db 8, -2
 
-FrameSprites_25_73bc::
+FrameSprites_SwingingRope_SetFrame_1::
 	db -10, -23
 	db 0, 16
 	db 8, -12
@@ -301,7 +301,7 @@ FrameSprites_25_73bc::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_25_73c8::
+FrameSprites_SwingingRope_SetFrame_2::
 	db -12, -23
 	db 0, 16
 	db 8, -12
@@ -309,7 +309,7 @@ FrameSprites_25_73c8::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_25_73d4::
+FrameSprites_SwingingRope_SetFrame_3::
 	db -15, -23
 	db 0, 16
 	db 8, -12
@@ -318,7 +318,7 @@ FrameSprites_25_73d4::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_25_73e2::
+FrameSprites_SwingingRope_SetFrame_4::
 	db -18, -23
 	db 0, 16
 	db 8, -11
@@ -327,7 +327,7 @@ FrameSprites_25_73e2::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_25_73f0::
+FrameSprites_SwingingRope_SetFrame_5::
 	db -23, -20
 	db 8, 2
 	db 0, 16
@@ -336,7 +336,7 @@ FrameSprites_25_73f0::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_25_73fe::
+FrameSprites_SwingingRope_SetFrame_6::
 	db -27, -14
 	db 8, 2
 	db 8, -3
@@ -344,7 +344,7 @@ FrameSprites_25_73fe::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_25_740a::
+FrameSprites_SwingingRope_SetFrame_7::
 	db -31, -9
 	db 8, 2
 	db 8, -6
@@ -354,7 +354,7 @@ FrameSprites_25_740a::
 	db 8, -8
 	db 0, 16
 
-FrameSprites_25_741a::
+FrameSprites_SwingingRope_SetFrame_8::
 	db -32, -6
 	db 8, 3
 	db 8, -8
@@ -364,7 +364,7 @@ FrameSprites_25_741a::
 	db 8, -9
 	db 0, 16
 
-FrameSprites_25_742a::
+FrameSprites_SwingingRope_SetFrame_9::
 	db -31, -4
 	db 8, 4
 	db 8, -10
@@ -374,7 +374,7 @@ FrameSprites_25_742a::
 	db 8, -10
 	db 0, 16
 
-FrameSprites_25_743a::
+FrameSprites_SwingingRope_SetFrame_10::
 	db -31, -2
 	db 8, 5
 	db 8, -12
@@ -384,7 +384,7 @@ FrameSprites_25_743a::
 	db 8, -10
 	db 0, 16
 
-FrameSprites_25_744a::
+FrameSprites_SwingingRope_SetFrame_11::
 	db -30, 1
 	db 8, -4
 	db 0, 16
@@ -394,7 +394,7 @@ FrameSprites_25_744a::
 	db 0, 16
 	db 8, -1
 
-FrameSprites_25_745a::
+FrameSprites_SwingingRope_SetFrame_12::
 	db -28, 2
 	db 8, -7
 	db 0, 16
@@ -404,7 +404,7 @@ FrameSprites_25_745a::
 	db 0, 16
 	db 8, -3
 
-FrameSprites_25_746a::
+FrameSprites_SwingingRope_SetFrame_13::
 	db -26, 4
 	db 8, -9
 	db 0, 17
@@ -414,7 +414,7 @@ FrameSprites_25_746a::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_25_747a::
+FrameSprites_SwingingRope_SetFrame_14::
 	db -26, 8
 	db 8, -11
 	db 0, 18
@@ -424,7 +424,7 @@ FrameSprites_25_747a::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_25_748a::
+FrameSprites_SwingingRope_SetFrame_15::
 	db -26, 9
 	db 8, -11
 	db 0, 18
@@ -434,7 +434,7 @@ FrameSprites_25_748a::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_25_749a::
+FrameSprites_SwingingRope_SetFrame_16::
 	db -25, 11
 	db 8, -12
 	db 0, 18
@@ -444,7 +444,7 @@ FrameSprites_25_749a::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_25_74aa::
+FrameSprites_SwingingRope_SetFrame_17::
 	db -25, 12
 	db 8, -13
 	db 0, 19
@@ -454,7 +454,7 @@ FrameSprites_25_74aa::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_25_74ba::
+FrameSprites_SetPlayerAnimation_117::
 	db -12, -23
 	db 0, 16
 	db 8, -16
@@ -463,7 +463,7 @@ FrameSprites_25_74ba::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_25_74c8::
+FrameSprites_SetPlayerAnimation_118::
 	db -10, -24
 	db 0, 16
 	db 8, -14
@@ -472,7 +472,7 @@ FrameSprites_25_74c8::
 	db 0, 18
 	db 8, -17
 
-FrameSprites_25_74d6::
+FrameSprites_SetPlayerAnimation_119::
 	db -7, -24
 	db 0, 16
 	db 8, -12
@@ -480,7 +480,7 @@ FrameSprites_25_74d6::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_25_74e2::
+FrameSprites_SetPlayerAnimation_120::
 	db -10, -23
 	db 0, 16
 	db 8, -15
@@ -488,7 +488,7 @@ FrameSprites_25_74e2::
 	db 8, -18
 	db 0, 17
 
-FrameSprites_25_74ee::
+FrameSprites_SetPlayerAnimation_121::
 	db -17, -16
 	db 8, -9
 	db 0, 16
@@ -496,7 +496,7 @@ FrameSprites_25_74ee::
 	db 0, 16
 	db 8, 2
 
-FrameSprites_25_74fa::
+FrameSprites_SetPlayerAnimation_122::
 	db -18, -12
 	db 8, -14
 	db 0, 16
@@ -504,7 +504,7 @@ FrameSprites_25_74fa::
 	db 0, 16
 	db 8, 0
 
-FrameSprites_25_7506::
+FrameSprites_SetPlayerAnimation_123::
 	db -12, -11
 	db 0, 16
 	db 8, -15
@@ -512,27 +512,27 @@ FrameSprites_25_7506::
 	db 0, 16
 	db 8, -8
 
-FrameSprites_25_7512::
+FrameSprites_SetPlayerAnimation_124::
 	db -10, -12
 	db 0, 16
 	db 8, -13
 	db 0, 16
 
-FrameSprites_25_751a::
+FrameSprites_SetPlayerAnimation_125::
 	db -8, -11
 	db 0, 16
 	db 0, 16
 	db 8, -27
 	db 0, 16
 
-FrameSprites_25_7524::
+FrameSprites_SetPlayerAnimation_126::
 	db -7, -30
 	db 0, 16
 	db 8, -10
 	db 0, 16
 	db 8, -16
 
-FrameSprites_25_752e::
+FrameSprites_SetPlayerAnimation_127::
 	db -7, -29
 	db 0, 16
 	db 8, -15
@@ -540,7 +540,7 @@ FrameSprites_25_752e::
 	db 8, -10
 	db 0, 16
 
-FrameSprites_25_753a::
+FrameSprites_SetPlayerAnimation_128::
 	db -9, -27
 	db 0, 16
 	db 8, -16
@@ -548,7 +548,7 @@ FrameSprites_25_753a::
 	db 8, -8
 	db 8, 1
 
-FrameSprites_25_7546::
+FrameSprites_SetPlayerAnimation_129::
 	db -12, -26
 	db 0, 16
 	db 8, -18
@@ -556,7 +556,7 @@ FrameSprites_25_7546::
 	db 8, -9
 	db 8, 3
 
-FrameSprites_25_7552::
+FrameSprites_SetPlayerAnimation_130::
 	db -15, -11
 	db 8, -20
 	db 0, 16
@@ -564,7 +564,7 @@ FrameSprites_25_7552::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_25_755e::
+FrameSprites_SetPlayerAnimation_131::
 	db -12, -23
 	db 0, 16
 	db 8, -24
@@ -573,14 +573,14 @@ FrameSprites_25_755e::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_25_756c::
+FrameSprites_SetPlayerAnimation_132::
 	db -7, -30
 	db 0, 16
 	db 8, -10
 	db 0, 16
 	db 8, -16
 
-FrameSprites_25_7576::
+FrameSprites_SetPlayerAnimation_133::
 	db -13, -19
 	db 0, 16
 	db 8, -10
@@ -588,7 +588,7 @@ FrameSprites_25_7576::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_25_7582::
+FrameSprites_SetPlayerAnimation_134::
 	db -14, -20
 	db 0, 16
 	db 8, -13
@@ -598,7 +598,7 @@ FrameSprites_25_7582::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_25_7592::
+FrameSprites_SetPlayerAnimation_135::
 	db -14, -21
 	db 0, 16
 	db 8, -14
@@ -607,7 +607,7 @@ FrameSprites_25_7592::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_25_75a0::
+FrameSprites_SetPlayerAnimation_136::
 	db -13, -21
 	db 0, 16
 	db 8, -15
@@ -617,7 +617,7 @@ FrameSprites_25_75a0::
 	db 8, -17
 	db 0, 16
 
-FrameSprites_25_75b0::
+FrameSprites_SetPlayerAnimation_137::
 	db -13, -21
 	db 0, 16
 	db 8, -15
@@ -626,7 +626,7 @@ FrameSprites_25_75b0::
 	db 8, 0
 	db 0, 16
 
-FrameSprites_25_75be::
+FrameSprites_SetPlayerAnimation_138::
 	db -14, -21
 	db 0, 16
 	db 8, -15
@@ -635,7 +635,7 @@ FrameSprites_25_75be::
 	db 8, 0
 	db 0, 16
 
-FrameSprites_25_75cc::
+FrameSprites_SetPlayerAnimation_139::
 	db -15, -20
 	db 0, 16
 	db 8, -15
@@ -646,7 +646,7 @@ FrameSprites_25_75cc::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_25_75de::
+FrameSprites_SetPlayerAnimation_140::
 	db -14, -19
 	db 0, 16
 	db 8, -12
@@ -655,7 +655,7 @@ FrameSprites_25_75de::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_25_75ec::
+FrameSprites_SetPlayerAnimation_141::
 	db -17, -19
 	db 0, 18
 	db 8, -24
@@ -665,7 +665,7 @@ FrameSprites_25_75ec::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_25_75fc::
+FrameSprites_SetPlayerAnimation_142::
 	db -19, -18
 	db 0, 17
 	db 8, -21
@@ -674,7 +674,7 @@ FrameSprites_25_75fc::
 	db 0, 16
 	db 8, -12
 
-FrameSprites_25_760a::
+FrameSprites_SetPlayerAnimation_143::
 	db -22, -12
 	db 8, -2
 	db 8, -9
@@ -682,7 +682,7 @@ FrameSprites_25_760a::
 	db 8, -15
 	db 0, 19
 
-FrameSprites_25_7616::
+FrameSprites_SetPlayerAnimation_144::
 	db -14, -23
 	db 0, 16
 	db 8, -16
@@ -690,7 +690,7 @@ FrameSprites_25_7616::
 	db 8, -17
 	db 8, 1
 
-FrameSprites_25_7622::
+FrameSprites_SetPlayerAnimation_145::
 	db -13, -31
 	db 0, 16
 	db 8, -18
@@ -700,7 +700,7 @@ FrameSprites_25_7622::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_25_7632::
+FrameSprites_SetPlayerAnimation_146::
 	db -9, -22
 	db 0, 16
 	db 8, -16
@@ -708,14 +708,14 @@ FrameSprites_25_7632::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_25_763e::
+FrameSprites_SetPlayerAnimation_147::
 	db -7, -23
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -15
 
-FrameSprites_25_7648::
+FrameSprites_SetPlayerAnimation_148::
 	db -8, -24
 	db 0, 16
 	db 8, -15

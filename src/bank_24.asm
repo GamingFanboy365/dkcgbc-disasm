@@ -3,181 +3,181 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $24", ROMX[$4000], BANK[$24]
 
-FrameTiles_24_4000::
+FrameTiles_Gnawty_Touch_1::
 	INCBIN "gfx/frames/24/4000.2bpp"
 
-FrameTiles_24_41a0::
+FrameTiles_Gnawty_Touch_2::
 	INCBIN "gfx/frames/24/41a0.2bpp"
 
-FrameTiles_24_4320::
+FrameTiles_Gnawty_Touch_3::
 	INCBIN "gfx/frames/24/4320.2bpp"
 
-FrameTiles_24_44c0::
+FrameTiles_Gnawty_Touch_4::
 	INCBIN "gfx/frames/24/44c0.2bpp"
 
-FrameTiles_24_4660::
+FrameTiles_Gnawty_Touch_5::
 	INCBIN "gfx/frames/24/4660.2bpp"
 
-FrameTiles_24_4780::
+FrameTiles_Gnawty_Touch_6::
 	INCBIN "gfx/frames/24/4780.2bpp"
 
-FrameTiles_24_4920::
+FrameTiles_Gnawty_Touch_7::
 	INCBIN "gfx/frames/24/4920.2bpp"
 
-FrameTiles_24_4aa0::
+FrameTiles_Obj_TurnAround_3::
 	INCBIN "gfx/frames/24/4aa0.2bpp"
 
-FrameTiles_24_4c20::
+FrameTiles_Krusha_1::
 	INCBIN "gfx/frames/24/4c20.2bpp"
 
-FrameTiles_24_4dc0::
+FrameTiles_Krusha_2::
 	INCBIN "gfx/frames/24/4dc0.2bpp"
 
-FrameTiles_24_4f00::
+FrameTiles_Krusha_3::
 	INCBIN "gfx/frames/24/4f00.2bpp"
 
-FrameTiles_24_5060::
+FrameTiles_Krusha_4::
 	INCBIN "gfx/frames/24/5060.2bpp"
 
-FrameTiles_24_51c0::
+FrameTiles_Krusha_5::
 	INCBIN "gfx/frames/24/51c0.2bpp"
 
-FrameTiles_24_5380::
+FrameTiles_Krusha_6::
 	INCBIN "gfx/frames/24/5380.2bpp"
 
-FrameTiles_24_5500::
+FrameTiles_Krusha_7::
 	INCBIN "gfx/frames/24/5500.2bpp"
 
-FrameTiles_24_5660::
+FrameTiles_Krusha_8::
 	INCBIN "gfx/frames/24/5660.2bpp"
 
-FrameTiles_24_57c0::
+FrameTiles_Krusha_9::
 	INCBIN "gfx/frames/24/57c0.2bpp"
 
-FrameTiles_24_5920::
+FrameTiles_AnimalCrate_1::
 	INCBIN "gfx/frames/24/5920.2bpp"
 
-FrameTiles_24_59e0::
+FrameTiles_AnimalCrate_2::
 	INCBIN "gfx/frames/24/59e0.2bpp"
 
-FrameTiles_24_5aa0::
+FrameTiles_Bonus_ShowPrize_2::
 	INCBIN "gfx/frames/24/5aa0.2bpp"
 
-FrameTiles_24_5ac0::
+FrameTiles_Bonus_ShowPrize_3::
 	INCBIN "gfx/frames/24/5ac0.2bpp"
 
-FrameTiles_24_5b00::
+FrameTiles_Bonus_ShowPrize_4::
 	INCBIN "gfx/frames/24/5b00.2bpp"
 
-FrameTiles_24_5b80::
+FrameTiles_Bonus_ShowPrize_5::
 	INCBIN "gfx/frames/24/5b80.2bpp"
 
-FrameTiles_24_5c20::
+FrameTiles_TireHalf_Touch_1::
 	INCBIN "gfx/frames/24/5c20.2bpp"
 
-FrameTiles_24_5c80::
+FrameTiles_TireHalf_Touch_2::
 	INCBIN "gfx/frames/24/5c80.2bpp"
 
-FrameTiles_24_5ce0::
+FrameTiles_TireHalf_Touch_3::
 	INCBIN "gfx/frames/24/5ce0.2bpp"
 
-FrameTiles_24_5d40::
+FrameTiles_TireHalf_Touch_4::
 	INCBIN "gfx/frames/24/5d40.2bpp"
 
-FrameTiles_24_5e00::
+FrameTiles_TireHalf_Touch_5::
 	INCBIN "gfx/frames/24/5e00.2bpp"
 
-FrameTiles_24_5ec0::
+FrameTiles_TireHalf_Touch_6::
 	INCBIN "gfx/frames/24/5ec0.2bpp"
 
-FrameTiles_24_5f80::
+FrameTiles_TireHalf_Touch_7::
 	INCBIN "gfx/frames/24/5f80.2bpp"
 
-FrameTiles_24_6040::
+FrameTiles_SetPlayerAnimation_76::
 	INCBIN "gfx/frames/24/6040.2bpp"
 
-FrameTiles_24_60c0::
+FrameTiles_SetPlayerAnimation_77::
 	INCBIN "gfx/frames/24/60c0.2bpp"
 
-FrameTiles_24_6140::
+FrameTiles_SetPlayerAnimation_78::
 	INCBIN "gfx/frames/24/6140.2bpp"
 
-FrameTiles_24_61c0::
+FrameTiles_SetPlayerAnimation_79::
 	INCBIN "gfx/frames/24/61c0.2bpp"
 
-FrameTiles_24_6260::
+FrameTiles_SetPlayerAnimation_80::
 	INCBIN "gfx/frames/24/6260.2bpp"
 
-FrameTiles_24_6300::
+FrameTiles_SetPlayerAnimation_81::
 	INCBIN "gfx/frames/24/6300.2bpp"
 
-FrameTiles_24_63c0::
+FrameTiles_SetPlayerAnimation_82::
 	INCBIN "gfx/frames/24/63c0.2bpp"
 
-FrameTiles_24_6480::
+FrameTiles_SetPlayerAnimation_83::
 	INCBIN "gfx/frames/24/6480.2bpp"
 
-FrameTiles_24_6540::
+FrameTiles_SetPlayerAnimation_84::
 	INCBIN "gfx/frames/24/6540.2bpp"
 
-FrameTiles_24_6620::
+FrameTiles_SetPlayerAnimation_85::
 	INCBIN "gfx/frames/24/6620.2bpp"
 
-FrameTiles_24_6700::
+FrameTiles_SetPlayerAnimation_86::
 	INCBIN "gfx/frames/24/6700.2bpp"
 
-FrameTiles_24_6800::
+FrameTiles_SetPlayerAnimation_87::
 	INCBIN "gfx/frames/24/6800.2bpp"
 
-FrameTiles_24_68c0::
+FrameTiles_SetPlayerAnimation_88::
 	INCBIN "gfx/frames/24/68c0.2bpp"
 
-FrameTiles_24_6980::
+FrameTiles_SetPlayerAnimation_89::
 	INCBIN "gfx/frames/24/6980.2bpp"
 
-FrameTiles_24_6a20::
+FrameTiles_SetPlayerAnimation_90::
 	INCBIN "gfx/frames/24/6a20.2bpp"
 
-FrameTiles_24_6ae0::
+FrameTiles_SetPlayerAnimation_91::
 	INCBIN "gfx/frames/24/6ae0.2bpp"
 
-FrameTiles_24_6ba0::
+FrameTiles_SetPlayerAnimation_92::
 	INCBIN "gfx/frames/24/6ba0.2bpp"
 
-FrameTiles_24_6c40::
+FrameTiles_SetPlayerAnimation_93::
 	INCBIN "gfx/frames/24/6c40.2bpp"
 
-FrameTiles_24_6d20::
+FrameTiles_SetPlayerAnimation_94::
 	INCBIN "gfx/frames/24/6d20.2bpp"
 
-FrameTiles_24_6da0::
+FrameTiles_SetPlayerAnimation_95::
 	INCBIN "gfx/frames/24/6da0.2bpp"
 
-FrameTiles_24_6e20::
+FrameTiles_SetPlayerAnimation_96::
 	INCBIN "gfx/frames/24/6e20.2bpp"
 
-FrameTiles_24_6f00::
+FrameTiles_SetPlayerAnimation_97::
 	INCBIN "gfx/frames/24/6f00.2bpp"
 
-FrameTiles_24_6fe0::
+FrameTiles_SetPlayerAnimation_98::
 	INCBIN "gfx/frames/24/6fe0.2bpp"
 
-FrameTiles_24_70c0::
+FrameTiles_SetPlayerAnimation_99::
 	INCBIN "gfx/frames/24/70c0.2bpp"
 
-FrameTiles_24_7160::
+FrameTiles_SetPlayerAnimation_100::
 	INCBIN "gfx/frames/24/7160.2bpp"
 
-FrameTiles_24_7220::
+FrameTiles_SetPlayerAnimation_101::
 	INCBIN "gfx/frames/24/7220.2bpp"
 
-FrameTiles_24_72e0::
+FrameTiles_SetPlayerAnimation_102::
 	INCBIN "gfx/frames/24/72e0.2bpp"
 
-FrameTiles_24_73a0::
+FrameTiles_SetPlayerAnimation_103::
 	INCBIN "gfx/frames/24/73a0.2bpp"
 
-FrameSprites_24_7460::
+FrameSprites_Gnawty_Touch_1::
 	db -22, -22
 	db 8, -17
 	db 0, 16
@@ -192,7 +192,7 @@ FrameSprites_24_7460::
 	db 0, 16
 	db 0, 22
 
-FrameSprites_24_747a::
+FrameSprites_Gnawty_Touch_2::
 	db -20, -4
 	db 8, -39
 	db 0, 16
@@ -206,7 +206,7 @@ FrameSprites_24_747a::
 	db 8, -19
 	db 0, 24
 
-FrameSprites_24_7492::
+FrameSprites_Gnawty_Touch_3::
 	db -13, -41
 	db 0, 16
 	db 0, 16
@@ -221,7 +221,7 @@ FrameSprites_24_7492::
 	db 8, -25
 	db 0, 21
 
-FrameSprites_24_74ac::
+FrameSprites_Gnawty_Touch_4::
 	db -16, -38
 	db 0, 16
 	db 0, 16
@@ -236,7 +236,7 @@ FrameSprites_24_74ac::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_24_74c6::
+FrameSprites_Gnawty_Touch_5::
 	db -18, -35
 	db 0, 16
 	db 8, -10
@@ -247,7 +247,7 @@ FrameSprites_24_74c6::
 	db 0, 16
 	db 8, -1
 
-FrameSprites_24_74d8::
+FrameSprites_Gnawty_Touch_6::
 	db -22, -29
 	db 0, 16
 	db 8, -12
@@ -262,7 +262,7 @@ FrameSprites_24_74d8::
 	db 0, 16
 	db 8, -16
 
-FrameSprites_24_74f2::
+FrameSprites_Gnawty_Touch_7::
 	db -26, -23
 	db 0, 16
 	db 8, -14
@@ -276,7 +276,7 @@ FrameSprites_24_74f2::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_24_750a::
+FrameSprites_Obj_TurnAround_3::
 	db -15, -40
 	db 0, 16
 	db 0, 16
@@ -290,7 +290,7 @@ FrameSprites_24_750a::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_24_7522::
+FrameSprites_Krusha_1::
 	db -25, -19
 	db 8, 1
 	db 0, 16
@@ -305,7 +305,7 @@ FrameSprites_24_7522::
 	db 0, 16
 	db 8, -22
 
-FrameSprites_24_753c::
+FrameSprites_Krusha_2::
 	db -15, -34
 	db 0, 16
 	db 0, 16
@@ -317,7 +317,7 @@ FrameSprites_24_753c::
 	db 0, 16
 	db 8, -15
 
-FrameSprites_24_7550::
+FrameSprites_Krusha_3::
 	db -18, -31
 	db 0, 16
 	db 8, -28
@@ -330,7 +330,7 @@ FrameSprites_24_7550::
 	db 0, 16
 	db 8, -3
 
-FrameSprites_24_7566::
+FrameSprites_Krusha_4::
 	db -23, -27
 	db 8, -5
 	db 0, 16
@@ -343,7 +343,7 @@ FrameSprites_24_7566::
 	db 8, -17
 	db 0, 16
 
-FrameSprites_24_757c::
+FrameSprites_Krusha_5::
 	db -19, -30
 	db 0, 16
 	db 8, -28
@@ -359,7 +359,7 @@ FrameSprites_24_757c::
 	db 0, 16
 	db 8, -19
 
-FrameSprites_24_7598::
+FrameSprites_Krusha_6::
 	db -15, -40
 	db 0, 16
 	db 0, 16
@@ -373,7 +373,7 @@ FrameSprites_24_7598::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_24_75b0::
+FrameSprites_Krusha_7::
 	db -16, -34
 	db 0, 26
 	db 8, -35
@@ -386,7 +386,7 @@ FrameSprites_24_75b0::
 	db 0, 16
 	db 8, 4
 
-FrameSprites_24_75c6::
+FrameSprites_Krusha_8::
 	db -16, -39
 	db 0, 16
 	db 0, 16
@@ -399,7 +399,7 @@ FrameSprites_24_75c6::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_24_75dc::
+FrameSprites_Krusha_9::
 	db -17, -30
 	db 0, 25
 	db 8, -38
@@ -412,7 +412,7 @@ FrameSprites_24_75dc::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_24_75f2::
+FrameSprites_AnimalCrate_1::
 	db -12, -24
 	db 0, 16
 	db 8, -16
@@ -420,7 +420,7 @@ FrameSprites_24_75f2::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_24_75fe::
+FrameSprites_AnimalCrate_2::
 	db -12, -24
 	db 0, 16
 	db 8, -16
@@ -428,42 +428,42 @@ FrameSprites_24_75fe::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_24_760a::
+FrameSprites_Bonus_ShowPrize_2::
 	db -3, -7
 
-FrameSprites_24_760c::
+FrameSprites_Bonus_ShowPrize_3::
 	db -7, -7
 	db 8, 0
 
-FrameSprites_24_7610::
+FrameSprites_Bonus_ShowPrize_4::
 	db -12, -6
 	db 8, -9
 	db 0, 16
 	db 8, -8
 
-FrameSprites_24_7618::
+FrameSprites_Bonus_ShowPrize_5::
 	db -11, -14
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -9
 
-FrameSprites_24_7622::
+FrameSprites_TireHalf_Touch_1::
 	db -12, -10
 	db 8, -2
 	db 8, 0
 
-FrameSprites_24_7628::
+FrameSprites_TireHalf_Touch_2::
 	db -12, -12
 	db 8, -1
 	db 8, 0
 
-FrameSprites_24_762e::
+FrameSprites_TireHalf_Touch_3::
 	db -12, -14
 	db 8, 0
 	db 8, 0
 
-FrameSprites_24_7634::
+FrameSprites_TireHalf_Touch_4::
 	db -12, -19
 	db 0, 16
 	db 8, -17
@@ -471,7 +471,7 @@ FrameSprites_24_7634::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_24_7640::
+FrameSprites_TireHalf_Touch_5::
 	db -12, -22
 	db 0, 16
 	db 8, -18
@@ -479,7 +479,7 @@ FrameSprites_24_7640::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_24_764c::
+FrameSprites_TireHalf_Touch_6::
 	db -12, -26
 	db 0, 16
 	db 8, -18
@@ -487,7 +487,7 @@ FrameSprites_24_764c::
 	db 8, -12
 	db 0, 16
 
-FrameSprites_24_7658::
+FrameSprites_TireHalf_Touch_7::
 	db -12, -16
 	db 0, 16
 	db 8, -17
@@ -495,39 +495,39 @@ FrameSprites_24_7658::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_24_7664::
+FrameSprites_SetPlayerAnimation_76::
 	db -11, -10
 	db 8, 0
 	db 0, 16
 	db 8, -12
 
-FrameSprites_24_766c::
+FrameSprites_SetPlayerAnimation_77::
 	db -8, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_24_7674::
+FrameSprites_SetPlayerAnimation_78::
 	db -10, -11
 	db 8, -2
 	db 0, 16
 	db 8, -14
 
-FrameSprites_24_767c::
+FrameSprites_SetPlayerAnimation_79::
 	db -9, -15
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -8
 
-FrameSprites_24_7686::
+FrameSprites_SetPlayerAnimation_80::
 	db -7, -13
 	db 0, 16
 	db 8, -18
 	db 0, 16
 	db 8, -10
 
-FrameSprites_24_7690::
+FrameSprites_SetPlayerAnimation_81::
 	db -14, -23
 	db 0, 16
 	db 8, -23
@@ -535,7 +535,7 @@ FrameSprites_24_7690::
 	db 8, -6
 	db 0, 16
 
-FrameSprites_24_769c::
+FrameSprites_SetPlayerAnimation_82::
 	db -14, -22
 	db 0, 16
 	db 8, -23
@@ -543,7 +543,7 @@ FrameSprites_24_769c::
 	db 8, -6
 	db 0, 16
 
-FrameSprites_24_76a8::
+FrameSprites_SetPlayerAnimation_83::
 	db -14, -21
 	db 0, 16
 	db 8, -23
@@ -551,7 +551,7 @@ FrameSprites_24_76a8::
 	db 8, -6
 	db 0, 16
 
-FrameSprites_24_76b4::
+FrameSprites_SetPlayerAnimation_84::
 	db -14, -22
 	db 0, 16
 	db 8, -23
@@ -560,7 +560,7 @@ FrameSprites_24_76b4::
 	db 8, -22
 	db 0, 16
 
-FrameSprites_24_76c2::
+FrameSprites_SetPlayerAnimation_85::
 	db -14, -23
 	db 0, 16
 	db 8, -23
@@ -569,7 +569,7 @@ FrameSprites_24_76c2::
 	db 8, -22
 	db 0, 16
 
-FrameSprites_24_76d0::
+FrameSprites_SetPlayerAnimation_86::
 	db -14, -22
 	db 0, 16
 	db 8, -23
@@ -579,7 +579,7 @@ FrameSprites_24_76d0::
 	db 0, 16
 	db 8, 1
 
-FrameSprites_24_76e0::
+FrameSprites_SetPlayerAnimation_87::
 	db -14, -21
 	db 0, 16
 	db 8, -23
@@ -587,7 +587,7 @@ FrameSprites_24_76e0::
 	db 8, -6
 	db 0, 16
 
-FrameSprites_24_76ec::
+FrameSprites_SetPlayerAnimation_88::
 	db -14, -22
 	db 0, 16
 	db 8, -23
@@ -595,14 +595,14 @@ FrameSprites_24_76ec::
 	db 8, -6
 	db 0, 16
 
-FrameSprites_24_76f8::
+FrameSprites_SetPlayerAnimation_89::
 	db -12, -14
 	db 0, 16
 	db 8, -15
 	db 8, 2
 	db 8, 0
 
-FrameSprites_24_7702::
+FrameSprites_SetPlayerAnimation_90::
 	db -11, -14
 	db 0, 16
 	db 8, -15
@@ -610,7 +610,7 @@ FrameSprites_24_7702::
 	db 8, -14
 	db 8, -1
 
-FrameSprites_24_770e::
+FrameSprites_SetPlayerAnimation_91::
 	db -12, -14
 	db 0, 16
 	db 8, -16
@@ -618,14 +618,14 @@ FrameSprites_24_770e::
 	db 8, -13
 	db 8, -1
 
-FrameSprites_24_771a::
+FrameSprites_SetPlayerAnimation_92::
 	db -13, -14
 	db 8, 0
 	db 0, 16
 	db 8, -13
 	db 8, -2
 
-FrameSprites_24_7724::
+FrameSprites_SetPlayerAnimation_93::
 	db -15, -12
 	db 8, -2
 	db 0, 16
@@ -634,19 +634,19 @@ FrameSprites_24_7724::
 	db 0, 16
 	db 8, -1
 
-FrameSprites_24_7732::
+FrameSprites_SetPlayerAnimation_94::
 	db -15, -13
 	db 8, -1
 	db 8, 2
 	db 8, 0
 
-FrameSprites_24_773a::
+FrameSprites_SetPlayerAnimation_95::
 	db -15, -13
 	db 8, -1
 	db 8, 2
 	db 8, 0
 
-FrameSprites_24_7742::
+FrameSprites_SetPlayerAnimation_96::
 	db -9, -23
 	db 0, 16
 	db 8, -12
@@ -655,7 +655,7 @@ FrameSprites_24_7742::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_24_7750::
+FrameSprites_SetPlayerAnimation_97::
 	db -11, -14
 	db 8, -7
 	db 0, 16
@@ -664,7 +664,7 @@ FrameSprites_24_7750::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_24_775e::
+FrameSprites_SetPlayerAnimation_98::
 	db -12, -14
 	db 8, -5
 	db 0, 16
@@ -673,14 +673,14 @@ FrameSprites_24_775e::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_24_776c::
+FrameSprites_SetPlayerAnimation_99::
 	db -11, -15
 	db 0, 16
 	db 8, -16
 	db 8, 0
 	db 0, 16
 
-FrameSprites_24_7776::
+FrameSprites_SetPlayerAnimation_100::
 	db -10, -15
 	db 0, 16
 	db 8, -19
@@ -688,7 +688,7 @@ FrameSprites_24_7776::
 	db 8, -17
 	db 0, 16
 
-FrameSprites_24_7782::
+FrameSprites_SetPlayerAnimation_101::
 	db -10, -15
 	db 0, 16
 	db 8, -18
@@ -696,7 +696,7 @@ FrameSprites_24_7782::
 	db 8, -18
 	db 0, 16
 
-FrameSprites_24_778e::
+FrameSprites_SetPlayerAnimation_102::
 	db -10, -15
 	db 0, 16
 	db 8, -16
@@ -704,7 +704,7 @@ FrameSprites_24_778e::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_24_779a::
+FrameSprites_SetPlayerAnimation_103::
 	db -10, -15
 	db 0, 16
 	db 8, -16

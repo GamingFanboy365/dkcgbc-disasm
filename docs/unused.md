@@ -14,6 +14,8 @@ Something counts as unused when nothing the disassembly decodes refers to it. Th
 
 ## Sprite frames
 
+Frames here are given by address: `Frame_20_XXXX` is the frame header at `$20:XXXX`. In the sources, unused frames are labelled `Frame_Unused_…` and unused scripts `Anim_Unused_…` (see `tools/autodatanames.py`); `dkc.sym` maps each label to its address.
+
 104 of the 1,414 sprite frames are never shown by any animation, object, table or script found so far. Now that every byte of the main game's banks is identified, none of them has even a loose match left (its address turning up in undecoded bytes), so these are firm finds as far as the disassembly can tell.
 
 | Frames | What they show |
@@ -244,4 +246,4 @@ These turned up nothing unused, which is worth knowing too:
 
 Every byte of the ROM is now identified, so this list holds things whose kind is known but whose use isn't yet. The 256 tiles at `$F2:5760` (after the letter piece records) and the four tiles at `$F7:7F60` (after the front-end sprites) have no known loader. They need more emulator runs (Link-up, Print, the credits) before they can be called unused. A few small front-end tables are decoded by size and reader but not by meaning: `Defaults_f1_5d0a` (copied to `$C9E6`, `$C9FE` and `$CA08`), `Pairs_f1_6fe0` (written relative to the RAM address `$C329` kept in ROM at `$00F6`), `Triples_fe_6958` and `ByteTable_fe_6cce`. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session, but it's in the sample table, so it isn't unused on that evidence.
 
-A few names in the gameplay banks are still guesses and are marked as tentative where they are defined in `tools/names.py`: `Entrance_BananaHoard` (the doorway at the very start of Jungle Hijinxs, whose destination changes once the save file has cleared levels), `Player_Carry` and `Player_AfterThrow`, and `HUD_PartnerIcon`. Two routines seen running in the emulator have no name yet (`AnimalBonus_LoadMask`, which copies a small grid of bytes into WRAM bank 4, and `HandSlap_Hitbox`). Every sprite frame the game uses now has a palette; the 70 frames still drawn gray are all among the unused ones above.
+A few names in the gameplay banks are still guesses and are marked as tentative where they are defined in `tools/names.py`: `Entrance_BananaHoard` (the doorway at the very start of Jungle Hijinxs, whose destination changes once the save file has cleared levels), `Player_Carry` and `Player_AfterThrow`, and `HUD_PartnerIcon`. Every sprite frame the game uses now has a palette; the 70 frames still drawn gray are all among the unused ones above.

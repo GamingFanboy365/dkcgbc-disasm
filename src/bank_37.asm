@@ -3,109 +3,109 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $37", ROMX[$4000], BANK[$37]
 
-FrameTiles_37_4000::
+FrameTiles_GiantBanana_1::
 	INCBIN "gfx/frames/37/4000.2bpp"
 
-FrameTiles_37_41a0::
+FrameTiles_GiantBanana_2::
 	INCBIN "gfx/frames/37/41a0.2bpp"
 
-FrameTiles_37_4300::
+FrameTiles_GiantBanana_3::
 	INCBIN "gfx/frames/37/4300.2bpp"
 
-FrameTiles_37_4460::
+FrameTiles_GiantBanana_4::
 	INCBIN "gfx/frames/37/4460.2bpp"
 
-FrameTiles_37_45e0::
+FrameTiles_GiantBanana_5::
 	INCBIN "gfx/frames/37/45e0.2bpp"
 
-FrameTiles_37_47a0::
+FrameTiles_GiantBanana_6::
 	INCBIN "gfx/frames/37/47a0.2bpp"
 
-FrameTiles_37_4900::
+FrameTiles_GiantBanana_7::
 	INCBIN "gfx/frames/37/4900.2bpp"
 
-FrameTiles_37_4a40::
+FrameTiles_GiantBanana_8::
 	INCBIN "gfx/frames/37/4a40.2bpp"
 
-FrameTiles_37_4b80::
+FrameTiles_BossDefeated_14::
 	INCBIN "gfx/frames/37/4b80.2bpp"
 
-FrameTiles_37_4d20::
+FrameTiles_BossDefeated_15::
 	INCBIN "gfx/frames/37/4d20.2bpp"
 
-FrameTiles_37_4e80::
+FrameTiles_BossDefeated_16::
 	INCBIN "gfx/frames/37/4e80.2bpp"
 
-FrameTiles_37_5020::
+FrameTiles_BossDefeated_17::
 	INCBIN "gfx/frames/37/5020.2bpp"
 
-FrameTiles_37_51a0::
+FrameTiles_BossDefeated_18::
 	INCBIN "gfx/frames/37/51a0.2bpp"
 
-FrameTiles_37_5300::
+FrameTiles_BossDefeated_19::
 	INCBIN "gfx/frames/37/5300.2bpp"
 
-FrameTiles_37_5420::
+FrameTiles_KingKRool_1::
 	INCBIN "gfx/frames/37/5420.2bpp"
 
-FrameTiles_37_5620::
+FrameTiles_KingKRool_2::
 	INCBIN "gfx/frames/37/5620.2bpp"
 
-FrameTiles_37_5820::
+FrameTiles_KingKRool_3::
 	INCBIN "gfx/frames/37/5820.2bpp"
 
-FrameTiles_37_5a20::
+FrameTiles_CreditsCaptions_1::
 	INCBIN "gfx/frames/37/5a20.2bpp"
 
-FrameTiles_37_5b00::
+FrameTiles_CreditsCaptions_2::
 	INCBIN "gfx/frames/37/5b00.2bpp"
 
-FrameTiles_37_5bc0::
+FrameTiles_CreditsCaptions_3::
 	INCBIN "gfx/frames/37/5bc0.2bpp"
 
-FrameTiles_37_5ce0::
+FrameTiles_CreditsCaptions_4::
 	INCBIN "gfx/frames/37/5ce0.2bpp"
 
-FrameTiles_37_5de0::
+FrameTiles_CreditsCaptions_5::
 	INCBIN "gfx/frames/37/5de0.2bpp"
 
-FrameTiles_37_5ec0::
+FrameTiles_CreditsCaptions_6::
 	INCBIN "gfx/frames/37/5ec0.2bpp"
 
-FrameTiles_37_5fe0::
+FrameTiles_CreditsCaptions_7::
 	INCBIN "gfx/frames/37/5fe0.2bpp"
 
-FrameTiles_37_60c0::
+FrameTiles_CreditsCaptions_8::
 	INCBIN "gfx/frames/37/60c0.2bpp"
 
-FrameTiles_37_6140::
+FrameTiles_CreditsCaptions_9::
 	INCBIN "gfx/frames/37/6140.2bpp"
 
-FrameTiles_37_6280::
+FrameTiles_CreditsCaptions_10::
 	INCBIN "gfx/frames/37/6280.2bpp"
 
-FrameTiles_37_6380::
+FrameTiles_CreditsCaptions_11::
 	INCBIN "gfx/frames/37/6380.2bpp"
 
-FrameTiles_37_6420::
+FrameTiles_CreditsCaptions_12::
 	INCBIN "gfx/frames/37/6420.2bpp"
 
-FrameTiles_37_6520::
+FrameTiles_CreditsCaptions_13::
 	INCBIN "gfx/frames/37/6520.2bpp"
 
-FrameTiles_37_65e0::
+FrameTiles_CreditsCaptions_14::
 	INCBIN "gfx/frames/37/65e0.2bpp"
 
-FrameTiles_37_66c0::
+FrameTiles_CreditsCaptions_15::
 	INCBIN "gfx/frames/37/66c0.2bpp"
 
-FrameTiles_37_6760::
+FrameTiles_CreditsCaptions_16::
 	INCBIN "gfx/frames/37/6760.2bpp"
 
-FrameTiles_37_68a0::
+FrameTiles_Unused_88::
 	INCBIN "gfx/frames/37/68a0.2bpp"
 
-FrameSprites_37_69c0::
+FrameSprites_GiantBanana_1::
 	db -22, -10, $00 ; dx, dy, attribute add
 	db 8, -3, $00
 	db 8, 1, $00
@@ -120,7 +120,7 @@ FrameSprites_37_69c0::
 	db 8, 0, $01
 	db 8, 2, $01
 
-FrameSprites_37_69e7::
+FrameSprites_GiantBanana_2::
 	db -20, -11, $00 ; dx, dy, attribute add
 	db 8, -3, $00
 	db 11, -41, $00
@@ -133,7 +133,7 @@ FrameSprites_37_69e7::
 	db 8, 0, $01
 	db 3, 1, $01
 
-FrameSprites_37_6a08::
+FrameSprites_GiantBanana_3::
 	db -4, -56, $00 ; dx, dy, attribute add
 	db -4, 16, $00
 	db 0, 16, $00
@@ -146,7 +146,7 @@ FrameSprites_37_6a08::
 	db 8, 0, $01
 	db 8, 2, $01
 
-FrameSprites_37_6a29::
+FrameSprites_GiantBanana_4::
 	db -12, -47, $00 ; dx, dy, attribute add
 	db 3, 9, $00
 	db -2, 31, $00
@@ -160,7 +160,7 @@ FrameSprites_37_6a29::
 	db 8, -1, $01
 	db 3, 2, $01
 
-FrameSprites_37_6a4d::
+FrameSprites_GiantBanana_5::
 	db -16, -45, $00 ; dx, dy, attribute add
 	db -1, 15, $00
 	db 5, 16, $00
@@ -176,7 +176,7 @@ FrameSprites_37_6a4d::
 	db 8, -1, $01
 	db 8, 7, $01
 
-FrameSprites_37_6a77::
+FrameSprites_GiantBanana_6::
 	db -12, -52, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -189,7 +189,7 @@ FrameSprites_37_6a77::
 	db -14, -14, $01
 	db 8, 9, $01
 
-FrameSprites_37_6a98::
+FrameSprites_GiantBanana_7::
 	db -8, -40, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -201,7 +201,7 @@ FrameSprites_37_6a98::
 	db -16, 8, $01
 	db 15, -1, $01
 
-FrameSprites_37_6ab6::
+FrameSprites_GiantBanana_8::
 	db -13, -11, $00 ; dx, dy, attribute add
 	db 14, -45, $00
 	db -3, 16, $00
@@ -213,7 +213,7 @@ FrameSprites_37_6ab6::
 	db -11, -14, $01
 	db 8, 2, $01
 
-FrameSprites_37_6ad4::
+FrameSprites_BossDefeated_14::
 	db -24, -23, $01 ; dx, dy, attribute add
 	db 8, -9, $01
 	db 0, 16, $01
@@ -228,7 +228,7 @@ FrameSprites_37_6ad4::
 	db 8, -15, $00
 	db 8, -1, $00
 
-FrameSprites_37_6afb::
+FrameSprites_BossDefeated_15::
 	db -24, -17, $01 ; dx, dy, attribute add
 	db 8, -13, $01
 	db 0, 16, $01
@@ -241,7 +241,7 @@ FrameSprites_37_6afb::
 	db 8, -24, $00
 	db 0, 16, $00
 
-FrameSprites_37_6b1c::
+FrameSprites_BossDefeated_16::
 	db -25, -20, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -21, $00
@@ -256,7 +256,7 @@ FrameSprites_37_6b1c::
 	db 8, -22, $00
 	db 0, 16, $00
 
-FrameSprites_37_6b43::
+FrameSprites_BossDefeated_17::
 	db -25, -12, $01 ; dx, dy, attribute add
 	db 8, -15, $01
 	db 0, 16, $01
@@ -270,7 +270,7 @@ FrameSprites_37_6b43::
 	db 10, -13, $00
 	db 0, 16, $00
 
-FrameSprites_37_6b67::
+FrameSprites_BossDefeated_18::
 	db -27, -13, $01 ; dx, dy, attribute add
 	db 8, -7, $01
 	db 0, 16, $01
@@ -283,7 +283,7 @@ FrameSprites_37_6b67::
 	db 0, 16, $00
 	db 0, 16, $00
 
-FrameSprites_37_6b88::
+FrameSprites_BossDefeated_19::
 	db -27, -6, $01 ; dx, dy, attribute add
 	db 8, -7, $01
 	db 8, -1, $00
@@ -294,7 +294,7 @@ FrameSprites_37_6b88::
 	db 0, 16, $00
 	db 8, -24, $00
 
-FrameSprites_37_6ba3::
+FrameSprites_KingKRool_1::
 	db -18, -31, $01 ; dx, dy, attribute add
 	db -1, 16, $01
 	db 9, -32, $01
@@ -312,7 +312,7 @@ FrameSprites_37_6ba3::
 	db 0, 16, $00
 	db 8, -8, $00
 
-FrameSprites_37_6bd3::
+FrameSprites_KingKRool_2::
 	db -18, -30, $01 ; dx, dy, attribute add
 	db -1, 16, $01
 	db 9, -32, $01
@@ -330,7 +330,7 @@ FrameSprites_37_6bd3::
 	db 0, 16, $00
 	db 8, -8, $00
 
-FrameSprites_37_6c03::
+FrameSprites_KingKRool_3::
 	db -18, -29, $01 ; dx, dy, attribute add
 	db -2, 16, $01
 	db 10, -32, $01
@@ -348,7 +348,7 @@ FrameSprites_37_6c03::
 	db 6, 17, $00
 	db 8, -10, $00
 
-FrameSprites_37_6c33::
+FrameSprites_CreditsCaptions_1::
 	db 0, 0
 	db 8, 0
 	db 8, 0
@@ -357,10 +357,10 @@ FrameSprites_37_6c33::
 	db 8, 0
 	db 8, 0
 
-FrameSpritesTail_37_6c41::
+FrameSpritesTail_CreditsCaptions_1::
 	db 8, 0 ; never read; dx, dy pairs like the list above
 
-FrameSprites_37_6c43::
+FrameSprites_CreditsCaptions_2::
 	db 0, 0
 	db 8, 0
 	db 8, 0
@@ -368,49 +368,10 @@ FrameSprites_37_6c43::
 	db 8, 0
 	db 8, 0
 
-FrameSpritesTail_37_6c4f::
+FrameSpritesTail_CreditsCaptions_2::
 	db 8, 0 ; never read; dx, dy pairs like the list above
 
-FrameSprites_37_6c51::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6c63::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6c65::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6c75::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6c77::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6c85::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6c87::
+FrameSprites_CreditsCaptions_3::
 	db 0, 0
 	db 8, 0
 	db 8, 0
@@ -421,10 +382,49 @@ FrameSprites_37_6c87::
 	db 8, 0
 	db 8, 0
 
-FrameSpritesTail_37_6c99::
+FrameSpritesTail_CreditsCaptions_3::
 	db 8, 0 ; never read; dx, dy pairs like the list above
 
-FrameSprites_37_6c9b::
+FrameSprites_CreditsCaptions_4::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_4::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_5::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_5::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_6::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_6::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_7::
 	db 0, 0
 	db 8, 0
 	db 8, 0
@@ -433,99 +433,17 @@ FrameSprites_37_6c9b::
 	db 8, 0
 	db 8, 0
 
-FrameSpritesTail_37_6ca9::
+FrameSpritesTail_CreditsCaptions_7::
 	db 8, 0 ; never read; dx, dy pairs like the list above
 
-FrameSprites_37_6cab::
+FrameSprites_CreditsCaptions_8::
 	db 0, 0
 	db 8, 0
 	db 8, 0
 	db 16, 0
 
-FrameSprites_37_6cb3::
+FrameSprites_CreditsCaptions_9::
 	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 16, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6cc7::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6cc9::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6cd9::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6cdb::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSprites_37_6ce5::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 16, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6cf5::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6cf7::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6d03::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6d05::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6d13::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6d15::
-	db 0, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-FrameSpritesTail_37_6d1f::
-	db 8, 0 ; never read; dx, dy pairs like the list above
-
-FrameSprites_37_6d21::
-	db 0, 0
-	db 8, 0
 	db 8, 0
 	db 8, 0
 	db 16, 0
@@ -534,11 +452,93 @@ FrameSprites_37_6d21::
 	db 8, 0
 	db 8, 0
 	db 8, 0
+	db 8, 0
 
-FrameSpritesTail_37_6d35::
+FrameSpritesTail_CreditsCaptions_9::
 	db 8, 0 ; never read; dx, dy pairs like the list above
 
-FrameSprites_37_6d37::
+FrameSprites_CreditsCaptions_10::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_10::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_11::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSprites_CreditsCaptions_12::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 16, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_12::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_13::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_13::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_14::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_14::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_15::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_15::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_CreditsCaptions_16::
+	db 0, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 16, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+FrameSpritesTail_CreditsCaptions_16::
+	db 8, 0 ; never read; dx, dy pairs like the list above
+
+FrameSprites_Unused_88::
 	db -12, -32
 	db 8, 0
 	db 8, 0

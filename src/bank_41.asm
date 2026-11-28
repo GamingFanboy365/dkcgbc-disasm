@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $41", ROMX[$4000], BANK[$41]
 
-BGTiles_41_4000::
+BGTiles_WorldMapSprites::
 	INCBIN "gfx/bgtiles/41/4000.2bpp"
 	INCBIN "gfx/bgtiles/41/4000_end.2bpp"
 

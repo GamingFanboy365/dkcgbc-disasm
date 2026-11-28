@@ -32,16 +32,16 @@ Shop_CandysChallenge::
 .skip:
 	ld [wShopChoice], a
 	call Shop_SpawnKong
-	ld hl, ObjInit_0f_409d
+	ld hl, ObjInit_Shop_Input_1
 	call ApplyObjInit
 	call AllocObject
-	ld hl, ObjInit_0f_4073
+	ld hl, ObjInit_Shop_SpawnOnce
 	call InitObject
 	call AllocObject
 	ld a, [wShopChoice]
 	or a
 	jr nz, .else_406c
-	ld hl, ObjInit_0f_408a
+	ld hl, ObjInit_NextObject
 	call InitObject
 	call Shop_SpawnExtra
 	ld hl, wMapFlags
@@ -63,29 +63,29 @@ Shop_CandysChallenge::
 	ret
 
 
-ObjInit_0f_4073::
+ObjInit_Shop_SpawnOnce::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Shop_SpawnOnce)
 	obj_word OBJ_HANDLER, Shop_SpawnOnce
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_byte OBJ_PALETTE, $31
-	obj_word OBJ_ANIM, Anim_04_5637
+	obj_word OBJ_ANIM, Anim_Shop_SpawnOnce_1
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_X, $0082
 	obj_word OBJ_Y, $0067
 	obj_end
 
-ObjInit_0f_408a::
+ObjInit_NextObject::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, $00
 	obj_word OBJ_HANDLER, NextObject
-	obj_word OBJ_FRAME, Frame_20_40a2
+	obj_word OBJ_FRAME, Frame_BarrelCannon_SetFrame_1
 	obj_byte OBJ_PALETTE, $01
 	obj_word OBJ_X, $0064
 	obj_word OBJ_Y, $0046
 	obj_end
 
-ObjInit_0f_409d::
+ObjInit_Shop_Input_1::
 	obj_byte OBJ_BANK, BANK(Shop_Input)
 	obj_word OBJ_HANDLER, Shop_Input
 	obj_word OBJ_X, $001e
@@ -104,10 +104,10 @@ Shop_CrankysCabin::
 	ld c, $7f
 	call FarHDMACopy
 	call Shop_SpawnKong
-	ld hl, ObjInit_0f_4122
+	ld hl, ObjInit_Shop_Input_2
 	call ApplyObjInit
 	call AllocObject
-	ld hl, ObjInit_0f_410b
+	ld hl, ObjInit_Shop_KongCelebrate
 	call InitObject
 	call Shop_SpawnExtra
 	ld a, [wLevel]
@@ -139,19 +139,19 @@ Shop_CrankysCabin::
 	ret
 
 
-ObjInit_0f_410b::
+ObjInit_Shop_KongCelebrate::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Shop_KongCelebrate)
 	obj_word OBJ_HANDLER, Shop_KongCelebrate
 	obj_byte OBJ_PALETTE, $34
 	obj_byte OBJ_OAM_ATTR, $30
-	obj_word OBJ_ANIM, Anim_04_556b
+	obj_word OBJ_ANIM, Anim_Shop_KongCelebrate_1
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_X, $0050
 	obj_word OBJ_Y, $0064
 	obj_end
 
-ObjInit_0f_4122::
+ObjInit_Shop_Input_2::
 	obj_byte OBJ_BANK, BANK(Shop_Input)
 	obj_word OBJ_HANDLER, Shop_Input
 	obj_word OBJ_X, $0028
@@ -170,13 +170,13 @@ Shop_FunkysFlights::
 	ld c, $7f
 	call FarHDMACopy
 	call Shop_SpawnKong
-	ld hl, ObjInit_0f_41b6
+	ld hl, ObjInit_Shop_Input_3
 	call ApplyObjInit
 	call AllocObject
-	ld hl, ObjInit_0f_418d
+	ld hl, ObjInit_Obj_Animate_5
 	call InitObject
 	call AllocObject
-	ld hl, ObjInit_0f_41a2
+	ld hl, ObjInit_FunkysPlane_Bob
 	call InitObject
 	call Shop_SpawnExtra
 	ld hl, wMapFlags
@@ -201,29 +201,29 @@ Shop_FunkysFlights::
 	ret
 
 
-ObjInit_0f_418d::
+ObjInit_Obj_Animate_5::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
 	obj_byte OBJ_OAM_ATTR, $30
-	obj_word OBJ_ANIM, Anim_04_55d3
+	obj_word OBJ_ANIM, Anim_Obj_Animate_1
 	obj_byte OBJ_PALETTE, $30
 	obj_word OBJ_X, $005a
 	obj_word OBJ_Y, $0064
 	obj_end
 
-ObjInit_0f_41a2::
+ObjInit_FunkysPlane_Bob::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(FunkysPlane_Bob)
 	obj_word OBJ_HANDLER, FunkysPlane_Bob
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_PALETTE, $37
-	obj_word OBJ_FRAME, Frame_20_5d40
+	obj_word OBJ_FRAME, Frame_FunkysPlane_Bob
 	obj_word OBJ_X, $0030
 	obj_byte OBJ_VAR_2E, $3c
 	obj_end
 
-ObjInit_0f_41b6::
+ObjInit_Shop_Input_3::
 	obj_byte OBJ_BANK, BANK(Shop_Input)
 	obj_word OBJ_HANDLER, Shop_Input
 	obj_word OBJ_X, $0014
@@ -235,30 +235,30 @@ Shop_BananaHoard::
 	ld hl, $5490
 	call LoadScreen
 	ld bc, $0000
-	ld hl, ObjInit_0f_41dd
+	ld hl, ObjInit_Obj_Animate_6
 	call InitObject
 	call AllocObject
-	ld hl, ObjInit_0f_41f4
+	ld hl, ObjInit_Shop_BananaHoard
 	call InitObject
 	ret
 
 
-ObjInit_0f_41dd::
+ObjInit_Obj_Animate_6::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_ANIM, Anim_04_431b
+	obj_word OBJ_ANIM, Anim_Player_ExitAfterJingle_1
 	obj_byte OBJ_ANIM_FLAGS, $00
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_word OBJ_X, $007c
 	obj_word OBJ_Y, $007f
 	obj_end
 
-ObjInit_0f_41f4::
+ObjInit_Shop_BananaHoard::
 	obj_byte OBJ_FLAGS, $18
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, Frame_20_5968
+	obj_word OBJ_FRAME, Frame_Obj_Idle_3
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_X, $0065
 	obj_word OBJ_Y, $007f
@@ -268,44 +268,44 @@ Shop_SpawnKong::
 	ld bc, $0000
 	ld a, [wKongs]
 	rrca
-	ld hl, ObjInit_0f_4217
+	ld hl, ObjInit_Shop_SpawnKong_1
 	jr nc, .skip
-	ld hl, ObjInit_0f_4223
+	ld hl, ObjInit_Shop_SpawnKong_2
 .skip:
 	call InitObject
 	ret
 
 
-ObjInit_0f_4217::
+ObjInit_Shop_SpawnKong_1::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_ANIM, Anim_04_567d
+	obj_word OBJ_ANIM, Anim_Shop_SpawnKong_1
 	obj_byte OBJ_ANIM_FLAGS, $00
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0f_4223::
+ObjInit_Shop_SpawnKong_2::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_PALETTE, $02
-	obj_word OBJ_ANIM, Anim_04_437f
+	obj_word OBJ_ANIM, Anim_SetPlayerAnimation_52
 	obj_byte OBJ_ANIM_FLAGS, $01
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
 Shop_SpawnExtra::
 	call AllocObject
-	ld hl, ObjInit_0f_4239
+	ld hl, ObjInit_Obj_Animate_7
 	call ApplyObjInit
 	ret
 
 
-ObjInit_0f_4239::
+ObjInit_Obj_Animate_7::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
 	obj_word OBJ_X, $0094
 	obj_word OBJ_Y, $0014
-	obj_word OBJ_ANIM, Anim_04_56fd
+	obj_word OBJ_ANIM, Anim_Obj_Animate_3
 	obj_byte OBJ_OAM_ATTR, $07
 	obj_end
 
@@ -317,7 +317,7 @@ Shop_SpawnOnce::
 	set 7, [hl]
 	push bc
 	call AllocObject
-	ld hl, ObjInit_0f_4267
+	ld hl, ObjInit_Shop_KongReactTimer
 	call InitObject
 	pop bc
 .skip:
@@ -325,12 +325,12 @@ Shop_SpawnOnce::
 	jp NextObject
 
 
-ObjInit_0f_4267::
+ObjInit_Shop_KongReactTimer::
 	obj_byte OBJ_FLAGS, $19
 	obj_byte OBJ_BANK, BANK(Shop_KongReactTimer)
 	obj_word OBJ_HANDLER, Shop_KongReactTimer
 	obj_byte OBJ_PALETTE, $33
-	obj_word OBJ_ANIM, Anim_04_56f1
+	obj_word OBJ_ANIM, Anim_Shop_KongReactTimer_2
 	obj_word OBJ_XVEL, $fe80
 	obj_byte OBJ_VAR_2E, $2d
 	obj_word OBJ_X, $0074
@@ -349,9 +349,9 @@ Shop_KongReactTimer::
 	or a
 	jr nz, .skip
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_5685)
+	ld [hl], LOW(Anim_Shop_KongReactTimer_1)
 	inc l
-	ld [hl], HIGH(Anim_04_5685)
+	ld [hl], HIGH(Anim_Shop_KongReactTimer_1)
 .skip:
 	call DeleteObject
 .continue:
@@ -370,9 +370,9 @@ Shop_KongCelebrate::
 	jr nz, .skip
 	set 7, [hl]
 	ld hl, wPlayer + OBJ_ANIM
-	ld [hl], LOW(Anim_04_56bd)
+	ld [hl], LOW(Anim_Shop_KongCelebrate_3)
 	inc l
-	ld [hl], HIGH(Anim_04_56bd)
+	ld [hl], HIGH(Anim_Shop_KongCelebrate_3)
 .skip:
 	call AnimateObject
 	jp NextObject
@@ -419,12 +419,12 @@ Shop_Input::
 	cp $03
 	jr z, .loop
 	dec a
-	ld hl, ObjInit_0f_4357
+	ld hl, ObjInit_Shop_FlyAwayTimer_2
 	jr z, .skip_4313
 	ld a, [wShopChoice]
 	or a
 	jr nz, .else_432a
-	ld hl, ObjInit_0f_4360
+	ld hl, ObjInit_Shop_FlyAwayTimer_3
 .skip_4313:
 	call ApplyObjInit
 	ld a, [wKongs]
@@ -450,12 +450,12 @@ Shop_Input::
 	ld [hl], e
 	inc l
 	ld [hl], d
-	ld hl, ObjInit_0f_4369
+	ld hl, ObjInit_Shop_SetKongAnim
 	call ApplyObjInit
 	jr .loop
 
 
-ObjInit_0f_4344::
+ObjInit_Shop_FlyAwayTimer_1::
 	obj_byte OBJ_BANK, BANK(Shop_FlyAwayTimer)
 	obj_word OBJ_HANDLER, Shop_FlyAwayTimer
 	obj_word OBJ_YVEL, $f900
@@ -465,19 +465,19 @@ ObjInit_0f_4344::
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
-ObjInit_0f_4357::
-	obj_include ObjInit_0f_4344
+ObjInit_Shop_FlyAwayTimer_2::
+	obj_include ObjInit_Shop_FlyAwayTimer_1
 	obj_word OBJ_XVEL, $00cc
 	obj_byte OBJ_VAR_2E, $23
 	obj_end
 
-ObjInit_0f_4360::
-	obj_include ObjInit_0f_4344
+ObjInit_Shop_FlyAwayTimer_3::
+	obj_include ObjInit_Shop_FlyAwayTimer_1
 	obj_word OBJ_XVEL, $01cb
 	obj_byte OBJ_VAR_2E, $27
 	obj_end
 
-ObjInit_0f_4369::
+ObjInit_Shop_SetKongAnim::
 	obj_byte OBJ_BANK, BANK(Shop_SetKongAnim)
 	obj_word OBJ_HANDLER, Shop_SetKongAnim
 	obj_byte OBJ_ANIM_FLAGS, $88
@@ -498,14 +498,14 @@ Shop_SetKongAnim::
 	ld [hl], e
 	inc l
 	ld [hl], d
-	ld hl, ObjInit_0f_4397
+	ld hl, ObjInit_Shop_LeaveTimer
 	call ApplyObjInit
 .continue:
 	call AnimateObject
 	jp NextObject
 
 
-ObjInit_0f_4397::
+ObjInit_Shop_LeaveTimer::
 	obj_byte OBJ_BANK, BANK(Shop_LeaveTimer)
 	obj_word OBJ_HANDLER, Shop_LeaveTimer
 	obj_byte OBJ_ANIM_FLAGS, $81
@@ -764,7 +764,7 @@ Shop_Update::
 	jr z, .skip_4550
 	push af
 	ld d, $06
-	ld hl, ByteTable_0f_4568
+	ld hl, ByteTable_Shop_Update
 	ld a, [wWorld]
 	add a, l
 	ld l, a
@@ -795,7 +795,7 @@ Shop_Update::
 	ret
 
 
-ByteTable_0f_4568::
+ByteTable_Shop_Update::
 	db 5, 9, 14, 19, 24, 27, 27 ; by [$c30a]
 
 Shop_Leave::
@@ -810,19 +810,19 @@ Shop_Leave::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, Entrances_0f_4595
+	ld hl, Entrances_Shop_Leave
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
 	ld hl, wLevelEntrance
 	ld [hli], a
 	ld [hl], d
-	ld de, Flow_0d_5fb7
+	ld de, Flow_Shop_Leave
 	jp SetFlowPointer
 
 
-Entrances_0f_4595::
-	dw LevelEntrance_04_5f7c, LevelEntrance_04_5ecc, LevelEntrance_04_5f2c, LevelEntrance_04_5a24, LevelEntrance_04_5a3c, LevelEntrance_04_5b14 ; wLevelEntrance
+Entrances_Shop_Leave::
+	dw LevelEntrance_Shop_Leave0, LevelEntrance_Shop_Leave1, LevelEntrance_Shop_Leave2, LevelEntrance_Shop_Leave3, LevelEntrance_Shop_Leave4, LevelEntrance_Shop_Leave5 ; wLevelEntrance
 
 Shop_SetDestination::
 	ld a, [wWorld]
@@ -1032,7 +1032,7 @@ Save_MarkLevelCleared::
 	ret
 
 
-Masks_0f_46f0::
+Masks_Save_MarkLevelCleared::
 	dw %1111111111111111, %0000000000110000, %0000111111110000, %0000000000110000
 	dw %0000000111110000, %0000000011110000, %0000000111110000, %0000000001110000
 	dw %0000000000110000, %0000000001110000, %0000000001000000, %0000000001110000
@@ -1387,7 +1387,7 @@ AddCarryBCD::
 	ret
 
 
-WorldPalettes_0f_491c::
+WorldPalettes_0::
 	rgb 11, 16, 25,  17, 22, 28,  26, 31, 31,  31, 31, 31
 	rgb  0,  0,  0,  15,  7,  4,  20, 12,  7,  23, 16, 11
 	rgb  0,  0,  0,   8,  8,  7,  16, 16, 14,  24, 24, 22
@@ -1397,7 +1397,7 @@ WorldPalettes_0f_491c::
 	rgb  0,  0,  0,   8,  8,  7,  16, 16, 14,  13, 18, 27
 	rgb  0,  0,  0,   4, 15,  1,  11, 16, 25,  16, 21, 27
 
-WorldPalettesTail_0f_495c::
+WorldPalettesTail_0::
 	rgb  6, 12, 23,  11, 16, 25,  16, 21, 28,  26, 31, 31
 	rgb  0,  0,  0,   8,  8,  4,  12, 11,  7,  17, 15,  9
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
@@ -1461,7 +1461,7 @@ UnusedWorldPalettes_4a9c::
 	rgb 29, 31, 31,  29, 31, 31,  29, 31, 31,  29, 31, 31
 	rgb 29, 31, 31,  29, 31, 31,  29, 31, 31,  29, 31, 31
 
-WorldPalettes_0f_4b1c::
+WorldPalettes_1::
 	rgb  0,  0,  0,   8,  9,  0,  22, 22,  0,  31, 31,  1
 	rgb  0,  0,  0,  13,  4,  0,  20, 10,  4,  31, 31, 31
 	rgb  0,  0,  0,  10,  9,  6,  19, 16,  9,  28, 28, 21
@@ -1471,7 +1471,7 @@ WorldPalettes_0f_4b1c::
 	rgb 27, 19,  8,  10,  9,  6,  19, 16,  9,  28, 28, 21
 	rgb 27, 19,  8,   0,  0,  0,  10,  9,  6,  19, 16,  9
 
-WorldPalettesTail_0f_4b5c::
+WorldPalettesTail_1::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 27, 19,  8,  10, 10, 26,  20, 23, 31,  31, 31, 26
@@ -1481,7 +1481,7 @@ WorldPalettesTail_0f_4b5c::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-WorldPalettes_0f_4b9c::
+WorldPalettes_2::
 	rgb  0,  0,  0,  13,  4,  0,  20, 10,  4,  28, 28, 21
 	rgb  0,  0,  0,   8,  8,  8,  15, 14, 14,  25, 21, 21
 	rgb  0,  0,  0,  10,  9,  6,  19, 16,  9,  28, 28, 21
@@ -1491,7 +1491,7 @@ WorldPalettes_0f_4b9c::
 	rgb 27, 19,  8,  10,  9,  6,  19, 16,  9,  28, 28, 21
 	rgb  0,  0,  0,  10,  9,  6,  19, 16,  9,  20, 23, 31
 
-WorldPalettesTail_0f_4bdc::
+WorldPalettesTail_2::
 	rgb  0,  0,  0,  26,  0,  0,  25, 21, 21,  31, 31, 30
 	rgb  0,  0,  0,   8,  9,  0,  22, 22,  0,  31, 31,  1
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
@@ -1501,7 +1501,7 @@ WorldPalettesTail_0f_4bdc::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-WorldPalettes_0f_4c1c::
+WorldPalettes_3::
 	rgb  0,  0,  0,   0,  7,  0,   9, 12,  0,  14, 17,  0
 	rgb 19, 16,  0,  24, 23,  0,  31, 31,  0,  31, 31, 19
 	rgb  0,  0,  0,   9, 12,  0,  24, 23,  0,  31, 31,  0
@@ -1511,7 +1511,7 @@ WorldPalettes_0f_4c1c::
 	rgb  0,  0,  0,   9,  7,  0,  18, 18, 10,  31, 31, 11
 	rgb  0,  0,  0,   0,  7,  0,   5, 12,  0,  10, 15,  0
 
-WorldPalettesTail_0f_4c5c::
+WorldPalettesTail_3::
 	rgb  0,  0,  0,   6,  2,  0,  15,  8,  0,  23, 15,  0
 	rgb  0,  7,  8,   4,  9,  9,   9, 12, 10,  14, 15, 10
 	rgb  0,  0,  0,   4,  5,  0,   9, 10,  0,   9, 12, 10
@@ -1521,7 +1521,7 @@ WorldPalettesTail_0f_4c5c::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-WorldPalettes_0f_4c9c::
+WorldPalettes_4::
 	rgb  0,  0,  0,   3,  6,  8,  12, 12, 16,  31, 31, 31
 	rgb 12, 12, 16,  17, 17, 20,  21, 22, 26,  31, 31, 31
 	rgb  6, 13, 29,  10, 17, 29,  21, 24, 30,  31, 31, 31
@@ -1531,7 +1531,7 @@ WorldPalettes_0f_4c9c::
 	rgb  0,  0,  0,  13,  4,  0,  28, 17,  8,  31, 31, 31
 	rgb  5,  5,  4,  11, 11,  8,  19, 18, 14,  31, 31, 31
 
-WorldPalettesTail_0f_4cdc::
+WorldPalettesTail_4::
 	rgb  0,  0,  0,  27,  3,  5,  11, 11, 16,  31, 31, 31
 	rgb 15, 15, 20,  13,  4,  0,  20, 10,  4,  28, 17,  8
 	rgb  0,  0, 10,   6, 13, 29,  20, 20, 26,  31, 31, 31
@@ -1541,7 +1541,7 @@ WorldPalettesTail_0f_4cdc::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-WorldPalettes_0f_4d1c::
+WorldPalettes_5::
 	rgb  0,  0,  0,   0,  5,  3,   2, 10,  7,   5, 18, 15
 	rgb  4,  5,  0,  25, 23,  0,  21, 16,  0,  31, 31,  0
 	rgb 31, 31,  0,  25, 23,  0,  19, 16,  0,  13, 11,  0
@@ -1551,7 +1551,7 @@ WorldPalettes_0f_4d1c::
 	rgb 20,  8,  0,  22, 25, 22,   0,  5,  3,   9,  7,  1
 	rgb  4, 16, 14,  25, 23,  0,   2, 10,  7,   0,  6,  4
 
-WorldPalettesTail_0f_4d5c::
+WorldPalettesTail_5::
 	rgb  0,  5,  3,   9,  5,  0,   2, 10,  7,   0,  0,  0
 	rgb  0,  0,  0,   9,  5,  0,  15,  9,  0,  24, 24,  0
 	rgb  0,  0,  0,   2, 10,  7,  15,  9,  0,  25, 15,  0
@@ -1615,7 +1615,7 @@ UnusedWorldPalettes_4e9c::
 	rgb  0, 18, 10,   6, 22, 13,  12, 27, 17,  18, 31, 21
 	rgb 31,  0,  0,  31,  7,  7,  31, 14, 15,  31, 22, 23
 
-WorldPalettes_0f_4f1c::
+WorldPalettes_6::
 	rgb  0,  0,  0,   5,  6,  4,   9, 10,  6,  18, 18, 11
 	rgb  0,  0,  0,   8,  6,  3,  17, 10,  4,  22, 16,  6
 	rgb  0,  0,  0,   5,  5, 13,   9, 10, 19,  16, 16, 23
@@ -1625,7 +1625,7 @@ WorldPalettes_0f_4f1c::
 	rgb  0,  0,  0,   5,  5,  5,  12, 12, 12,  20, 20, 20
 	rgb  0,  0,  0,   8,  6,  3,   5,  5,  5,  12, 12, 12
 
-WorldPalettesTail_0f_4f5c::
+WorldPalettesTail_6::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
@@ -1635,7 +1635,7 @@ WorldPalettesTail_0f_4f5c::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-WorldTileMap_0f_4f9c::
+WorldTileMap_0::
 	db 36 ; width in tiles; then per column 18 tiles, 18 attributes
 	db $01, $01, $01, $02, $03, $01, $04, $3b, $70, $74, $75, $77, $7a, $c4, $c8, $ca, $1b, $d2
 	db $00, $00, $00, $00, $60, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $0f, $00
@@ -1710,7 +1710,7 @@ WorldTileMap_0f_4f9c::
 	db $41, $04, $3d, $3d, $03, $3a, $40, $44, $04, $97, $57, $5b, $46, $31, $de, $c4, $c4, $7a
 	db $60, $60, $05, $05, $20, $00, $60, $00, $00, $20, $0d, $09, $09, $2d, $40, $60, $00, $00
 
-WorldTileMap_0f_54ad::
+WorldTileMap_1::
 	db 44 ; width in tiles; then per column 18 tiles, 18 attributes
 	db $01, $05, $09, $0d, $6e, $58, $73, $76, $4d, $20, $90, $81, $85, $8b, $8a, $8c, $4b, $91
 	db $03, $05, $05, $05, $03, $23, $03, $03, $63, $03, $03, $03, $03, $03, $23, $23, $23, $23
@@ -1801,7 +1801,7 @@ WorldTileMap_0f_54ad::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-WorldTileMap_0f_5ade::
+WorldTileMap_2::
 	db 48 ; width in tiles; then per column 18 tiles, 18 attributes
 	db $01, $02, $06, $09, $09, $51, $54, $55, $a1, $a3, $a5, $a9, $fb, $ff, $03, $07, $60, $09
 	db $04, $04, $04, $04, $04, $04, $04, $44, $07, $02, $02, $02, $05, $02, $09, $09, $09, $69
@@ -1900,7 +1900,7 @@ WorldTileMap_0f_5ade::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-WorldTileMap_0f_619f::
+WorldTileMap_3::
 	db 44 ; width in tiles; then per column 18 tiles, 18 attributes
 	db $01, $02, $04, $08, $39, $3d, $41, $30, $87, $8a, $8e, $91, $f4, $f7, $fb, $ff, $5f, $62
 	db $01, $01, $02, $02, $00, $00, $05, $00, $07, $07, $07, $07, $07, $07, $07, $07, $0f, $0f
@@ -1991,7 +1991,7 @@ WorldTileMap_0f_619f::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-WorldTileMap_0f_67d0::
+WorldTileMap_4::
 	db 44 ; width in tiles; then per column 18 tiles, 18 attributes
 	db $01, $04, $00, $0b, $58, $5c, $5f, $63, $b8, $74, $26, $26, $12, $16, $1a, $1e, $6b, $48
 	db $02, $02, $02, $02, $00, $01, $00, $00, $00, $00, $00, $00, $09, $09, $09, $08, $08, $08
@@ -2082,7 +2082,7 @@ WorldTileMap_0f_67d0::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-WorldTileMap_0f_6e01::
+WorldTileMap_5::
 	db 44 ; width in tiles; then per column 18 tiles, 18 attributes
 	db $01, $01, $02, $06, $34, $01, $3b, $3e, $38, $9b, $9e, $a2, $0b, $0e, $bb, $15, $bb, $3c
 	db $02, $02, $02, $02, $07, $00, $00, $00, $00, $00, $00, $00, $08, $08, $00, $08, $00, $28
@@ -2173,7 +2173,7 @@ WorldTileMap_0f_6e01::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-WorldTileMap_0f_7432::
+WorldTileMap_6::
 	db 40 ; width in tiles; then per column 18 tiles, 18 attributes
 	db $00, $00, $06, $0a, $4e, $52, $56, $5a, $39, $00, $b7, $bb, $05, $09, $0d, $0f, $6d, $0c
 	db $00, $00, $00, $00, $01, $01, $00, $00, $20, $00, $00, $00, $08, $08, $08, $08, $08, $08

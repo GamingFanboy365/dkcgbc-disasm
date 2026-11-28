@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $06", ROMX[$4000], BANK[$06]
 
-CameraRegions_06_4000::
+CameraRegions_MillstoneMayhem::
 	dw $0000, $0000, $4013, $0148, $0000, $00a0, $0000, $0180 ; left, right, top, bottom
 	dw $4003, $0148, $4033, $02c8, $0000, $00a0, $0000, $0150
 	dw $4123, $12f0, $4133, $1460, $0000, $0030, $0000, $0150
@@ -35,7 +35,7 @@ CameraRegions_06_4000::
 	dw $41b3, $1e78, $41d3, $1f18, $0000, $0088, $0000, $0118
 	dw $41c3, $1f18, $0000, $1fe0, $0000, $00a0, $0000, $0140
 
-CameraRegions_06_41e0::
+CameraRegions_TempleTempest::
 	dw $4273, $0090, $4263, $01f0, $0000, $0090, $0000, $0160 ; left, right, top, bottom
 	dw $4263, $0360, $4283, $03f8, $0000, $0070, $0000, $0120
 	dw $4283, $09f0, $4293, $0c40, $0000, $0020, $0000, $0100
@@ -49,19 +49,19 @@ CameraRegions_06_41e0::
 	dw $41f3, $03f8, $4203, $09f0, $0000, $0070, $0000, $0110
 	dw $4203, $0c40, $4213, $0e00, $0000, $0060, $0000, $0108
 
-CameraRegions_06_42a0::
+CameraRegions_MillstoneMayhem_Area1::
 	dw $0000, $0000, $0000, $00a0, $0000, $0000, $0000, $0130 ; left, right, top, bottom
 
-CameraRegions_06_42b0::
+CameraRegions_MillstoneMayhem_Area2::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_42c0::
+CameraRegions_TempleTempest_Area2::
 	dw $0000, $0008, $0000, $0318, $0000, $0010, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_42d0::
+CameraRegions_MillstoneMayhem_Area3::
 	dw $0000, $0010, $0000, $00b0, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_42e0::
+CameraRegions_TreeTopTown::
 	dw $0000, $0018, $4323, $18f8, $0000, $0040, $0000, $00e8 ; left, right, top, bottom
 	dw $4323, $1a50, $4343, $1bc0, $0000, $0030, $4331, $00f0
 	dw $4343, $1ce0, $4313, $1dc8, $0000, $0088, $0000, $0130
@@ -70,7 +70,7 @@ CameraRegions_06_42e0::
 	dw $0000, $1a50, $0000, $1bc0, $42f3, $00f0, $0000, $0140
 	dw $42f3, $1bc0, $4303, $1ce0, $0000, $0060, $0000, $00f0
 
-CameraRegions_06_4350::
+CameraRegions_RopeBridgeRumble::
 	dw $0000, $0020, $4363, $01d0, $0000, $0070, $0000, $0100 ; left, right, top, bottom
 	dw $4353, $01d0, $4373, $0708, $0000, $0070, $0000, $0138
 	dw $4363, $0708, $4383, $07d0, $0000, $0070, $0000, $0150
@@ -79,17 +79,17 @@ CameraRegions_06_4350::
 	dw $4383, $0ca0, $4393, $0d98, $0000, $0018, $0000, $0118
 	dw $4393, $1570, $0000, $17a8, $0000, $0080, $0000, $0178
 
-CameraRegions_06_43c0::
+CameraRegions_RopeBridgeRumble_Area1::
 	dw $0000, $0030, $0000, $0308, $0000, $0008, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_43d0::
+CameraRegions_LevelTable_1::
 	dw $0000, $0000, $0000, $00c0, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_43e0::
+CameraRegions_TreeTopTown_Area1::
 	dw $0000, $0000, $0000, $00a0, $0000, $0008, $0000, $0130 ; left, right, top, bottom
 	dw $0000, $0000, $0000, $00c0, $0000, $0008, $0000, $0098
 
-CameraRegions_06_4400::
+CameraRegions_SlipslideRide::
 	dw $0000, $0010, $4413, $0148, $0000, $0640, $0000, $0820 ; left, right, top, bottom
 	dw $4403, $0148, $4573, $01a0, $0000, $0760, $0000, $0820
 	dw $0000, $01a0, $45c3, $02e8, $0000, $06a0, $4573, $0760
@@ -122,19 +122,19 @@ CameraRegions_06_4400::
 	dw $4553, $01c0, $0000, $0260, $0000, $0018, $0000, $00a8
 	dw $4593, $02d0, $4543, $0390, $0000, $00a8, $0000, $01f8
 
-CameraRegions_06_45f0::
+CameraRegions_SlipslideRide_Area1::
 	dw $0000, $0000, $0000, $00a0, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_4600::
+CameraRegions_SlipslideRide_Area2::
 	dw $0000, $0000, $0000, $00c0, $0000, $0000, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_4610::
+CameraRegions_SlipslideRide_Area3::
 	dw $0000, $0010, $0000, $0210, $0000, $0008, $0000, $00d8 ; left, right, top, bottom
 
-CameraRegions_06_4620::
+CameraRegions_Shop_Leave4::
 	dw $0000, $0018, $0000, $01e0, $0000, $0000, $0000, $0130 ; left, right, top, bottom
 
-CameraRegions_06_4630::
+CameraRegions_MineCartCarnage::
 	dw $0000, $0000, $4643, $0280, $0000, $0000, $0000, $0100 ; left, right, top, bottom
 	dw $4633, $0280, $4653, $0670, $0000, $0000, $0000, $0100
 	dw $4643, $0670, $4663, $0d40, $0000, $0000, $0000, $0100
@@ -154,7 +154,7 @@ CameraRegions_06_4630::
 	dw $4723, $2cd0, $4743, $3320, $0000, $0058, $0000, $01f8
 	dw $4733, $3320, $0000, $3b58, $0000, $0110, $0000, $01f8
 
-CameraRegions_06_4750::
+CameraRegions_JungleHijinxs::
 	dw $0000, $0000, $4763, $0548, $0000, $0018, $0000, $0128 ; left, right, top, bottom
 	dw $4753, $0548, $4773, $0950, $0000, $0078, $0000, $0188
 	dw $4763, $0950, $4783, $0ab8, $0000, $00a8, $0000, $0150
@@ -163,7 +163,7 @@ CameraRegions_06_4750::
 	dw $4793, $0c18, $47b3, $0ee8, $0000, $0068, $0000, $0160
 	dw $47a3, $0ee8, $0000, $1050, $0000, $00a8, $0000, $0188
 
-CameraRegions_06_47c0::
+CameraRegions_OrangUtanGang::
 	dw $0000, $0008, $47d3, $0260, $0000, $0008, $0000, $0190 ; left, right, top, bottom
 	dw $47c3, $0260, $47e3, $0370, $0000, $0008, $0000, $0130
 	dw $47d3, $0370, $47f3, $0410, $0000, $00a0, $0000, $0130
@@ -195,7 +195,7 @@ CameraRegions_06_47c0::
 	dw $4973, $1808, $0000, $19e0, $0000, $0048, $0000, $0108
 	dw $4833, $0858, $4843, $08d0, $0000, $0080, $0000, $0170
 
-CameraRegions_06_49a0::
+CameraRegions_RopeyRampage::
 	dw $0000, $0008, $49b3, $0320, $0000, $0068, $0000, $0140 ; left, right, top, bottom
 	dw $49a3, $0320, $49c3, $0358, $0000, $0030, $0000, $0140
 	dw $49b3, $0358, $49d3, $04e0, $0000, $0008, $0000, $00d8
@@ -209,7 +209,7 @@ CameraRegions_06_49a0::
 	dw $4a33, $14a8, $4a53, $1610, $0000, $0098, $0000, $0138
 	dw $4a43, $1610, $0000, $1730, $0000, $0080, $0000, $0150
 
-CameraRegions_06_4a60::
+CameraRegions_BarrelCannonCanyon::
 	dw $4ae3, $0148, $4ad3, $04b8, $0000, $0000, $0000, $0160 ; left, right, top, bottom
 	dw $4ac3, $0930, $4a83, $0b08, $0000, $0008, $0000, $0130
 	dw $4a73, $0b08, $4a93, $0d70, $0000, $0008, $0000, $0180
@@ -220,22 +220,22 @@ CameraRegions_06_4a60::
 	dw $4a63, $04b8, $4ac3, $0798, $0000, $0000, $0000, $0130
 	dw $0000, $0008, $4a63, $0148, $0000, $0000, $0000, $0180
 
-CameraRegions_06_4af0::
+CameraRegions_LevelTable_2::
 	dw $0000, $0000, $0000, $00a0, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_4b00::
+CameraRegions_OrangUtanGang_Area1::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_4b10::
+CameraRegions_RopeyRampage_Area1::
 	dw $0000, $0018, $0000, $02e8, $0000, $0018, $0000, $00a8 ; left, right, top, bottom
 
-CameraRegions_06_4b20::
+CameraRegions_BarrelCannonCanyon_Area1::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $0130 ; left, right, top, bottom
 
-CameraRegions_06_4b30::
+CameraRegions_OrangUtanGang_Area2::
 	dw $0000, $0018, $0000, $0288, $0000, $0018, $0000, $00c0 ; left, right, top, bottom
 
-CameraRegions_06_4b40::
+CameraRegions_CoralCapers::
 	dw $0000, $0020, $4b53, $02e8, $0000, $03f8, $0000, $0480 ; left, right, top, bottom
 	dw $4b43, $02e8, $4b63, $0388, $0000, $03b0, $0000, $0480
 	dw $4b53, $0388, $0000, $0420, $4c53, $03a0, $0000, $0438
@@ -257,7 +257,7 @@ CameraRegions_06_4b40::
 	dw $0000, $04b0, $0000, $0558, $4b73, $03c0, $0000, $0440
 	dw $4c53, $0420, $4b73, $0490, $0000, $0310, $0000, $03a0
 
-CameraRegions_06_4c80::
+CameraRegions_ClamCity::
 	dw $4d63, $0118, $0000, $0240, $4d73, $0450, $0000, $0508 ; left, right, top, bottom
 	dw $4ca3, $0270, $0000, $0310, $0000, $0330, $4cb3, $0470
 	dw $4d73, $0240, $4c93, $0270, $0000, $0330, $0000, $03c8
@@ -282,7 +282,7 @@ CameraRegions_06_4c80::
 	dw $4dc3, $0228, $4cf3, $02c8, $0000, $0160, $0000, $02e8
 	dw $0000, $0048, $4d13, $0100, $4d23, $0188, $0000, $02e8
 
-CameraRegions_06_4df0::
+CameraRegions_CroctopusChase::
 	dw $0000, $0190, $0000, $0268, $4e43, $01c0, $4e83, $0350 ; left, right, top, bottom
 	dw $0000, $0050, $4f91, $0188, $0000, $0150, $0000, $0270
 	dw $0000, $0350, $4e53, $03c8, $5023, $01c0, $0000, $0230
@@ -321,7 +321,7 @@ CameraRegions_06_4df0::
 	dw $4e43, $0300, $0000, $03c8, $0000, $0128, $4e13, $01c0
 	dw $0000, $01a8, $4f53, $0238, $0000, $0730, $4ff3, $07c0
 
-CameraRegions_06_5040::
+CameraRegions_PoisonPond::
 	dw $0000, $0078, $5053, $0148, $0000, $09b0, $0000, $0a98 ; left, right, top, bottom
 	dw $5041, $0148, $5063, $01f0, $0000, $0930, $0000, $0a98
 	dw $5053, $01f0, $0000, $04a8, $5073, $0990, $0000, $0a98
@@ -359,7 +359,7 @@ CameraRegions_06_5040::
 	dw $5253, $0238, $5103, $0408, $0000, $04a0, $0000, $05a0
 	dw $51c3, $01b8, $51b3, $0298, $0000, $02e8, $0000, $03c8
 
-CameraRegions_06_5280::
+CameraRegions_EnguardeBonus::
 	dw $0000, $0048, $5293, $0100, $0000, $0040, $52a3, $0100 ; left, right, top, bottom
 	dw $5283, $0100, $0000, $01c0, $0000, $0040, $52b3, $0100
 	dw $0000, $0048, $52b3, $0100, $5283, $0100, $0000, $01c0
@@ -386,7 +386,7 @@ CameraRegions_06_5280::
 	dw $53e3, $03a0, $0000, $0458, $53b3, $03a0, $0000, $0458
 	dw $0000, $0200, $0000, $02a0, $5393, $03a0, $0000, $0478
 
-CameraRegions_06_5410::
+CameraRegions_OilDrumAlley::
 	dw $0000, $0000, $5423, $0138, $0000, $0038, $0000, $0100 ; left, right, top, bottom
 	dw $5413, $0138, $5433, $01f8, $0000, $0038, $0000, $0138
 	dw $5423, $01f8, $5453, $0290, $0000, $0058, $0000, $00e8
@@ -416,7 +416,7 @@ CameraRegions_06_5410::
 	dw $55a3, $1e08, $55c3, $1ee8, $0000, $00f8, $0000, $0190
 	dw $55b3, $1ee8, $0000, $1fe0, $0000, $00d8, $0000, $0190
 
-CameraRegions_06_55d0::
+CameraRegions_BlackoutBasement::
 	dw $56e3, $1180, $56f3, $12d0, $0000, $00a8, $0000, $0138 ; left, right, top, bottom
 	dw $0000, $0008, $5603, $00a8, $0000, $0048, $0000, $00d8
 	dw $5603, $01a0, $5613, $0240, $0000, $00c8, $0000, $0158
@@ -453,28 +453,28 @@ CameraRegions_06_55d0::
 	dw $57c3, $2218, $57f3, $22f0, $0000, $0098, $0000, $0148
 	dw $57e3, $22f0, $0000, $23a0, $0000, $0070, $0000, $0148
 
-CameraRegions_06_5800::
+CameraRegions_BlackoutBasement_Area1::
 	dw $0000, $0018, $0000, $0148, $0000, $0000, $0000, $0130 ; left, right, top, bottom
 
-CameraRegions_06_5810::
+CameraRegions_OilDrumAlley_Area1::
 	dw $0000, $0010, $0000, $0390, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_5820::
+CameraRegions_OilDrumAlley_Area2::
 	dw $0000, $0000, $0000, $00a0, $0000, $0008, $0000, $0138 ; left, right, top, bottom
 
-CameraRegions_06_5830::
+CameraRegions_OilDrumAlley_Area3::
 	dw $0000, $0000, $0000, $00a0, $0000, $0028, $0000, $00d0 ; left, right, top, bottom
 
-CameraRegions_06_5840::
+CameraRegions_LevelTable_3::
 	dw $0000, $0010, $0000, $00f0, $0000, $0008, $0000, $00d8 ; left, right, top, bottom
 
-CameraRegions_06_5850::
+CameraRegions_LevelTable_4::
 	dw $0000, $0018, $0000, $00e8, $0000, $0028, $0000, $00d8 ; left, right, top, bottom
 
-CameraRegions_06_5860::
+CameraRegions_Shop_Leave5::
 	dw $0000, $0008, $0000, $0298, $0000, $0000, $0000, $0270 ; left, right, top, bottom
 
-CameraRegions_06_5870::
+CameraRegions_VultureCulture::
 	dw $0000, $0008, $5883, $0708, $0000, $0028, $0000, $0120 ; left, right, top, bottom
 	dw $5873, $0708, $58a3, $0de8, $0000, $0058, $0000, $0120
 	dw $58c3, $1a00, $0000, $1f50, $0000, $0020, $0000, $00f8
@@ -483,7 +483,7 @@ CameraRegions_06_5870::
 	dw $58d3, $18f0, $5893, $1a00, $0000, $0040, $0000, $00f8
 	dw $58b3, $16f0, $58c3, $18f0, $0000, $0028, $0000, $00f8
 
-CameraRegions_06_58e0::
+CameraRegions_ForestFrenzy::
 	dw $5933, $0660, $5943, $06b0, $0000, $0050, $0000, $0100 ; left, right, top, bottom
 	dw $5963, $1c90, $5903, $1d58, $0000, $0020, $0000, $0100
 	dw $58f3, $1d58, $5913, $1e28, $0000, $0000, $0000, $00a0
@@ -494,19 +494,19 @@ CameraRegions_06_58e0::
 	dw $5943, $0800, $5963, $0850, $0000, $0050, $0000, $0100
 	dw $5953, $0850, $58f3, $1c90, $0000, $0088, $0000, $0118
 
-CameraRegions_06_5970::
+CameraRegions_VultureCulture_Area1::
 	dw $0000, $0018, $0000, $00b8, $0000, $0000, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_5980::
+CameraRegions_ForestFrenzy_Area1::
 	dw $0000, $0008, $0000, $00c0, $0000, $0010, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_5990::
+CameraRegions_VultureCulture_Area3::
 	dw $0000, $0008, $0000, $02c0, $0000, $0018, $0000, $00a8 ; left, right, top, bottom
 
-CameraRegions_06_59a0::
+CameraRegions_ForestFrenzy_Area2::
 	dw $0000, $0008, $0000, $0160, $0000, $0010, $0000, $0120 ; left, right, top, bottom
 
-CameraRegions_06_59b0::
+CameraRegions_SnowBarrelBlast::
 	dw $5a53, $00a0, $59c3, $0170, $0000, $0080, $0000, $0188 ; left, right, top, bottom
 	dw $59b3, $0170, $59d3, $0218, $0000, $0038, $0000, $0158
 	dw $59c3, $0218, $59e3, $04d0, $0000, $0038, $0000, $0100
@@ -523,7 +523,7 @@ CameraRegions_06_59b0::
 	dw $5a93, $27b0, $5a43, $2818, $0000, $0068, $0000, $0110
 	dw $5a73, $26b0, $5a83, $27b0, $0000, $0068, $0000, $0198
 
-CameraRegions_06_5aa0::
+CameraRegions_IceAgeAlley::
 	dw $0000, $0008, $5ab3, $0118, $0000, $00f8, $0000, $01b8 ; left, right, top, bottom
 	dw $5aa3, $0118, $5ac3, $0268, $0000, $00e0, $0000, $01a0
 	dw $5ab3, $0268, $5ad3, $0440, $0000, $00c0, $0000, $0188
@@ -547,16 +547,16 @@ CameraRegions_06_5aa0::
 	dw $5bd3, $1ab8, $0000, $1c38, $0000, $00d0, $0000, $01a8
 	dw $5ad3, $0698, $5ae3, $0790, $0000, $0038, $0000, $0148
 
-CameraRegions_06_5c00::
+CameraRegions_SnowBarrelBlast_Area1::
 	dw $0000, $0000, $0000, $00a0, $0000, $0008, $0000, $0138 ; left, right, top, bottom
 
-CameraRegions_06_5c10::
+CameraRegions_SnowBarrelBlast_Area2::
 	dw $0000, $0010, $0000, $02b0, $0000, $0010, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_5c20::
+CameraRegions_IceAgeAlley_Area1::
 	dw $0000, $0010, $0000, $0150, $0000, $0000, $0000, $0140 ; left, right, top, bottom
 
-CameraRegions_06_5c30::
+CameraRegions_MineCartMadness::
 	dw $0000, $0020, $5c43, $0320, $0000, $0018, $0000, $0108 ; left, right, top, bottom
 	dw $5c33, $0320, $5c53, $0540, $0000, $0078, $0000, $0128
 	dw $5c43, $0540, $5c63, $06b0, $0000, $0078, $0000, $0168
@@ -584,7 +584,7 @@ CameraRegions_06_5c30::
 	dw $5d03, $1b78, $5dc3, $1dd8, $0000, $0048, $0000, $00e0
 	dw $5db3, $1dd8, $5d13, $1e88, $0000, $0028, $0000, $00c0
 
-CameraRegions_06_5dd0::
+CameraRegions_ReptileRumble::
 	dw $0000, $0018, $5de3, $0158, $0000, $0018, $0000, $00e0 ; left, right, top, bottom
 	dw $5dd3, $0158, $5df3, $01e8, $0000, $0050, $0000, $00f8
 	dw $5de3, $01e8, $5e03, $02f8, $0000, $0078, $0000, $0140
@@ -608,7 +608,7 @@ CameraRegions_06_5dd0::
 	dw $5f03, $1200, $0000, $12a8, $0000, $0008, $0000, $0098
 	dw $5e43, $06f0, $5e53, $07c8, $0000, $00c8, $0000, $0180
 
-CameraRegions_06_5f30::
+CameraRegions_BouncyBonanza::
 	dw $0000, $0018, $5f43, $00a8, $0000, $00c8, $0000, $0170 ; left, right, top, bottom
 	dw $5f33, $00a8, $5f53, $01e8, $0000, $0070, $0000, $0170
 	dw $5f43, $01e8, $5f63, $0658, $0000, $0020, $0000, $0120
@@ -625,7 +625,7 @@ CameraRegions_06_5f30::
 	dw $5f93, $1528, $5fa3, $1cc8, $0000, $0098, $0000, $0180
 	dw $5f63, $0798, $5f73, $08b8, $0000, $0070, $0000, $0118
 
-CameraRegions_06_6020::
+CameraRegions_TorchlightTrouble::
 	dw $0000, $0018, $6033, $0140, $0000, $0080, $0000, $0120 ; left, right, top, bottom
 	dw $6023, $0140, $6043, $0340, $0000, $00b8, $0000, $0130
 	dw $6033, $0340, $6053, $03e8, $0000, $0090, $0000, $0120
@@ -639,7 +639,7 @@ CameraRegions_06_6020::
 	dw $60b3, $0f30, $0000, $1028, $0000, $0060, $0000, $0130
 	dw $6093, $0a18, $60a3, $0cd0, $0000, $0038, $0000, $00f0
 
-CameraRegions_06_60e0::
+CameraRegions_ManicMincers::
 	dw $0000, $0018, $60f3, $0258, $0000, $00b8, $0000, $0150 ; left, right, top, bottom
 	dw $60e3, $0258, $6103, $0460, $0000, $00b8, $0000, $0158
 	dw $60f3, $0460, $6133, $0538, $0000, $00b8, $0000, $0140
@@ -661,7 +661,7 @@ CameraRegions_06_60e0::
 	dw $61f3, $1f20, $6213, $2028, $0000, $0118, $0000, $01d8
 	dw $6203, $2028, $0000, $20e8, $0000, $0128, $0000, $01b8
 
-CameraRegions_06_6220::
+CameraRegions_ElevatorAntics::
 	dw $0000, $0018, $6413, $00a8, $0000, $0098, $0000, $0190 ; left, right, top, bottom
 	dw $6413, $00e8, $6243, $0180, $0000, $0058, $0000, $0190
 	dw $6233, $0180, $6253, $0230, $0000, $00a0, $0000, $0180
@@ -700,7 +700,7 @@ CameraRegions_06_6220::
 	dw $6443, $22f8, $6463, $2410, $0000, $00a0, $0000, $01e8
 	dw $6453, $2410, $0000, $2488, $0000, $00a0, $0000, $0130
 
-CameraRegions_06_6470::
+CameraRegions_NeckyNutmare::
 	dw $0000, $0018, $6483, $00b8, $0000, $0058, $0000, $00e8 ; left, right, top, bottom
 	dw $6473, $00b8, $6493, $02b0, $0000, $0080, $0000, $0128
 	dw $6483, $02b0, $64a3, $0410, $0000, $00a0, $0000, $0188
@@ -725,46 +725,46 @@ CameraRegions_06_6470::
 	dw $64e3, $0a48, $65d3, $0ae0, $0000, $00d8, $0000, $0178
 	dw $65c3, $0ae0, $65a3, $0d68, $0000, $00e8, $0000, $0178
 
-CameraRegions_06_65e0::
+CameraRegions_JungleHijinxs_Area1::
 	dw $0000, $0018, $0000, $0288, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_65f0::
+CameraRegions_ReptileRumble_Area1::
 	dw $0000, $0018, $0000, $02c8, $0000, $0040, $0000, $00d0 ; left, right, top, bottom
 
-CameraRegions_06_6600::
+CameraRegions_ReptileRumble_Area2::
 	dw $0000, $0008, $0000, $0158, $0000, $0028, $0000, $0160 ; left, right, top, bottom
 
-CameraRegions_06_6610::
+CameraRegions_ReptileRumble_Area3::
 	dw $0000, $0008, $0000, $0138, $0000, $0008, $0000, $0120 ; left, right, top, bottom
 
-CameraRegions_06_6620::
+CameraRegions_BarrelCannonCanyon_Area2::
 	dw $0000, $0008, $0000, $02b8, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_6630::
+CameraRegions_BouncyBonanza_Area1::
 	dw $0000, $0000, $0000, $00a0, $0000, $0018, $0000, $0138 ; left, right, top, bottom
 
-CameraRegions_06_6640::
+CameraRegions_BouncyBonanza_Area2::
 	dw $0000, $0018, $0000, $00c8, $0000, $0008, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_6650::
+CameraRegions_ElevatorAntics_Area1::
 	dw $0000, $0000, $0000, $00a0, $0000, $0008, $0000, $0138 ; left, right, top, bottom
 
-CameraRegions_06_6660::
+CameraRegions_ManicMincers_Area1::
 	dw $0000, $0018, $0000, $0148, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_6670::
+CameraRegions_TorchlightTrouble_Area1::
 	dw $0000, $0018, $0000, $00c8, $0000, $0000, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_6680::
+CameraRegions_ElevatorAntics_Area2::
 	dw $0000, $0000, $0000, $02c0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_6690::
+CameraRegions_ManicMincers_Area2::
 	dw $0000, $0020, $0000, $00c0, $0000, $0010, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_66a0::
+CameraRegions_MineCartMadness_Area1::
 	dw $0000, $0000, $0000, $02c0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_66b0::
+CameraRegions_TrickTrackTrek::
 	dw $68e3, $0088, $66c3, $0350, $0000, $00c0, $0000, $0150 ; left, right, top, bottom
 	dw $66b3, $0350, $66d3, $0448, $0000, $00c0, $0000, $0190
 	dw $66c3, $0448, $66f3, $0510, $0000, $0100, $0000, $0190
@@ -802,7 +802,7 @@ CameraRegions_06_66b0::
 	dw $6833, $2398, $6843, $2438, $0000, $0060, $0000, $0130
 	dw $0000, $0020, $66b3, $0088, $0000, $00c0, $0000, $0158
 
-CameraRegions_06_68f0::
+CameraRegions_PlatformPerils::
 	dw $6953, $0128, $6903, $0e30, $0000, $0000, $0000, $01b8 ; left, right, top, bottom
 	dw $68f3, $0e30, $6913, $1170, $0000, $0048, $0000, $01e0
 	dw $6903, $1170, $6923, $20d8, $0000, $0000, $0000, $0198
@@ -811,7 +811,7 @@ CameraRegions_06_68f0::
 	dw $0000, $0000, $0000, $0128, $6953, $01b8, $0000, $01e0
 	dw $0000, $0000, $68f3, $0128, $0000, $0000, $6941, $01b8
 
-CameraRegions_06_6960::
+CameraRegions_TankedUpTrouble::
 	dw $0000, $0030, $6973, $0220, $0000, $00d8, $0000, $01b8 ; left, right, top, bottom
 	dw $6963, $0220, $6983, $0380, $0000, $00d8, $0000, $0180
 	dw $6973, $0380, $6993, $0420, $0000, $0098, $0000, $0180
@@ -841,10 +841,10 @@ CameraRegions_06_6960::
 	dw $6b13, $21a0, $0000, $24e8, $0000, $00b0, $0000, $01a8
 	dw $6af3, $20c8, $6b03, $21a0, $0000, $00b0, $0000, $0160
 
-CameraRegions_06_6b20::
+CameraRegions_TrickTrackTrek_Area1::
 	dw $0000, $0008, $0000, $00a8, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_6b30::
+CameraRegions_WinkysWalkway::
 	dw $0000, $0000, $6b43, $0168, $0000, $0018, $0000, $0120 ; left, right, top, bottom
 	dw $6b33, $0168, $6b83, $0378, $0000, $0030, $0000, $0120
 	dw $6bd3, $0710, $6b63, $08b0, $0000, $0000, $0000, $00e8
@@ -864,22 +864,22 @@ CameraRegions_06_6b30::
 	dw $6c23, $1690, $6c43, $1800, $0000, $0020, $0000, $00c0
 	dw $6c33, $1800, $0000, $18e0, $0000, $0000, $0000, $0090
 
-CameraRegions_06_6c50::
+CameraRegions_TrickTrackTrek_Area2::
 	dw $0000, $0008, $0000, $0138, $0000, $0010, $0000, $0130 ; left, right, top, bottom
 
-CameraRegions_06_6c60::
+CameraRegions_MineCartMadness_Area3::
 	dw $0000, $0008, $0000, $0138, $0000, $0008, $0000, $00d0 ; left, right, top, bottom
 
-CameraRegions_06_6c70::
+CameraRegions_TankedUpTrouble_Area1::
 	dw $0000, $0010, $0000, $00b0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_6c80::
+CameraRegions_WinkysWalkway_Area1::
 	dw $0000, $0008, $0000, $00b8, $0000, $0000, $0000, $00b0 ; left, right, top, bottom
 
-CameraRegions_06_6c90::
+CameraRegions_TrickTrackTrek_Area3::
 	dw $0000, $0008, $0000, $00b8, $0000, $0018, $0000, $00b0 ; left, right, top, bottom
 
-CameraRegions_06_6ca0::
+CameraRegions_StopAndGoStation::
 	dw $0000, $0018, $6cb3, $0258, $0000, $0078, $0000, $0140 ; left, right, top, bottom
 	dw $6ca3, $0258, $6cc3, $0378, $0000, $0000, $0000, $0120
 	dw $6cb3, $0378, $6cd3, $0518, $0000, $0000, $0000, $0108
@@ -893,7 +893,7 @@ CameraRegions_06_6ca0::
 	dw $6d33, $1190, $6d53, $1438, $0000, $0000, $0000, $00e8
 	dw $6d43, $1438, $0000, $1a88, $0000, $0000, $0000, $00f0
 
-CameraRegions_06_6d60::
+CameraRegions_MistyMine::
 	dw $0000, $0000, $6db3, $00f8, $0000, $0090, $0000, $0120 ; left, right, top, bottom
 	dw $6e13, $0638, $6e23, $06e8, $0000, $0050, $0000, $00f8
 	dw $6e23, $0888, $6d93, $0a78, $0000, $0028, $0000, $00c8
@@ -928,7 +928,7 @@ CameraRegions_06_6d60::
 	dw $6f43, $2490, $0000, $2558, $0000, $0080, $0000, $0110
 	dw $6e33, $12b8, $6e43, $1358, $0000, $0078, $0000, $0198
 
-CameraRegions_06_6f70::
+CameraRegions_LoopyLights::
 	dw $0000, $0000, $6f83, $0158, $0000, $0138, $0000, $01d0 ; left, right, top, bottom
 	dw $6f73, $0158, $6f93, $0538, $0000, $0108, $0000, $01a0
 	dw $6f83, $0538, $7093, $06d8, $0000, $00c8, $0000, $0198
@@ -951,22 +951,22 @@ CameraRegions_06_6f70::
 	dw $7093, $07d8, $70b3, $09c8, $0000, $00e8, $0000, $0188
 	dw $70a3, $09c8, $6fa3, $0a48, $0000, $00b8, $0000, $0150
 
-CameraRegions_06_70c0::
+CameraRegions_MistyMine_Area1::
 	dw $0000, $0000, $0000, $04a0, $0000, $0048, $0000, $00d8 ; left, right, top, bottom
 
-CameraRegions_06_70d0::
+CameraRegions_MistyMine_Area2::
 	dw $0000, $0010, $0000, $00b0, $0000, $0010, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_70e0::
+CameraRegions_LoopyLights_Area1::
 	dw $0000, $0008, $0000, $02b8, $0000, $0058, $0000, $00e8 ; left, right, top, bottom
 
-CameraRegions_06_70f0::
+CameraRegions_StopAndGoStation_Area1::
 	dw $0000, $0000, $0000, $0120, $0000, $0000, $0000, $0128 ; left, right, top, bottom
 
-CameraRegions_06_7100::
+CameraRegions_StopAndGoStation_Area2::
 	dw $0000, $0000, $0000, $00a0, $0000, $0000, $0000, $0130 ; left, right, top, bottom
 
-CameraRegions_06_7110::
+CameraRegions_LoopyLights_Area2::
 	dw $0000, $0000, $7123, $0090, $0000, $0138, $0000, $01c8 ; left, right, top, bottom
 	dw $7113, $0090, $7133, $0130, $0000, $0118, $0000, $01c8
 	dw $7123, $0130, $7143, $01d0, $0000, $00f8, $0000, $01a8
@@ -974,32 +974,32 @@ CameraRegions_06_7110::
 	dw $7143, $0270, $7163, $0310, $0000, $0098, $0000, $0168
 	dw $7153, $0310, $0000, $03d8, $0000, $0058, $0000, $0128
 
-CameraRegions_06_7170::
+CameraRegions_RambiBonus::
 	dw $0000, $0008, $0000, $0658, $0000, $0008, $0000, $01f8 ; left, right, top, bottom
 
-CameraRegions_06_7180::
+CameraRegions_SnowBarrelBlast_Area3::
 	dw $0000, $0010, $0000, $00b0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_7190::
+CameraRegions_IceAgeAlley_Area2::
 	dw $0000, $0010, $0000, $00b0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_71a0::
+CameraRegions_WinkyBonus::
 	dw $0000, $01c0, $0000, $0838, $71d3, $0090, $0000, $0180 ; left, right, top, bottom
 	dw $0000, $00b8, $71d3, $01c0, $0000, $0000, $71e3, $0090
 	dw $0000, $0000, $0000, $0170, $71e3, $00c0, $0000, $0180
 	dw $71b3, $01c0, $0000, $07d0, $0000, $0000, $71a3, $0090
 	dw $0000, $00b8, $0000, $01b0, $71b3, $0090, $71c3, $00c0
 
-CameraRegions_06_71f0::
+CameraRegions_BreakableWall_21::
 	dw $0000, $0000, $0000, $00a0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_7200::
+CameraRegions_BouncyBonanza_Area3::
 	dw $0000, $0000, $0000, $00a0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_7210::
+CameraRegions_JungleHijinxs_Area2::
 	dw $0000, $0000, $0000, $00a0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_7220::
+CameraRegions_ExpressoBonus::
 	dw $0000, $0008, $72d3, $00d0, $0000, $0040, $0000, $01a0 ; left, right, top, bottom
 	dw $0000, $0210, $0000, $0470, $7243, $00d0, $0000, $01a0
 	dw $72a3, $0210, $7273, $0470, $0000, $0040, $7233, $00d0
@@ -1014,46 +1014,46 @@ CameraRegions_06_7220::
 	dw $7223, $00d0, $72a3, $0130, $0000, $0040, $0000, $00d0
 	dw $72b3, $09f0, $72c3, $0b10, $0000, $0040, $0000, $00d0
 
-CameraRegions_06_72f0::
+CameraRegions_RopeyRampage_Area2::
 	dw $0000, $0000, $0000, $00a0, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_7300::
+CameraRegions_JungleHijinxs_Area4::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_7310::
+CameraRegions_BlackoutBasement_Area2::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_7320::
+CameraRegions_OilDrumAlley_Area4::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_7330::
+CameraRegions_OrangUtanGang_Area3::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_7340::
+CameraRegions_OrangUtanGang_Area4::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_7350::
+CameraRegions_OrangUtanGang_Area5::
 	dw $0000, $0020, $0000, $00c0, $0000, $0000, $0000, $00a0 ; left, right, top, bottom
 
-CameraRegions_06_7360::
+CameraRegions_NeckysNuts::
 	dw $0000, $0020, $0000, $00c0, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_7370::
+CameraRegions_VeryGnawtysLair::
 	dw $0000, $0020, $0000, $0160, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_7380::
+CameraRegions_TreeTopTown_Area2::
 	dw $0000, $0008, $0000, $00b8, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_7390::
+CameraRegions_RopeBridgeRumble_Area2::
 	dw $0000, $0008, $0000, $00b8, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_73a0::
+CameraRegions_JungleHijinxs_Area3::
 	dw $0000, $0000, $0000, $00a0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 
-CameraRegions_06_73b0::
+CameraRegions_GangPlankGalleon::
 	dw $0000, $0020, $0000, $0160, $0000, $0008, $0000, $0098 ; left, right, top, bottom
 
-CameraRegions_06_73c0::
+CameraRegions_LevelTable_5::
 	dw $0000, $0000, $0000, $00a0, $0000, $0000, $0000, $0090 ; left, right, top, bottom
 	ds 3120, $00 ; $73d0
 

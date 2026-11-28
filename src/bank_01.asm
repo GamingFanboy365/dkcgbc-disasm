@@ -41,7 +41,7 @@ Song21_Ch1::
 Song20_Ch1::
 	mus_rest 16
 
-Mus_01_4043::
+Mus_Song20_Ch1::
 	mus_transpose_off 
 	mus_rest 128
 	mus_rest 128
@@ -63,16 +63,16 @@ Mus_01_4043::
 	mus_note B_4, 16
 	mus_note A_4, 16
 	mus_note G_4, 16
-	mus_call_x 3, Mus_01_4133
-	mus_call Mus_01_40fc
+	mus_call_x 3, Mus_Song20_Ch1_Sub_3
+	mus_call Mus_Song20_Ch1_Sub_2
 	mus_duty_envelope 1, $b6
-	mus_call Mus_01_4168
+	mus_call Mus_Song20_Ch1_Sub_4
 	mus_rest 102
-	mus_call Mus_01_407f
-	mus_jump_back Mus_01_4043
+	mus_call Mus_Song20_Ch1_Sub_1
+	mus_jump_back Mus_Song20_Ch1
 	mus_end  ; never reached
 
-Mus_01_407f::
+Mus_Song20_Ch1_Sub_1::
 	mus_duty_envelope 2, $b4
 	mus_note Fs5, 26
 	mus_duty_envelope 2, $b2
@@ -137,7 +137,7 @@ Mus_01_407f::
 	mus_note B_2, 48
 	mus_ret 
 
-Mus_01_40fc::
+Mus_Song20_Ch1_Sub_2::
 	mus_vibrato_ex $01, $01, $01, $02
 	mus_duty_envelope 1, $b7
 	mus_note B_4, 10
@@ -166,7 +166,7 @@ Mus_01_40fc::
 	mus_vibrato_off 
 	mus_ret 
 
-Mus_01_4133::
+Mus_Song20_Ch1_Sub_3::
 	mus_duty_envelope 2, $b7
 	mus_note As4, 10
 	mus_duty_envelope 2, $b2
@@ -195,7 +195,7 @@ Mus_01_4133::
 	mus_rest 58
 	mus_ret 
 
-Mus_01_4168::
+Mus_Song20_Ch1_Sub_4::
 	mus_duty_envelope 2, $b7
 	mus_note As4, 10
 	mus_duty_envelope 2, $b2
@@ -323,7 +323,7 @@ Mus_01_4168::
 Song20_Ch2::
 	mus_rest 16
 
-Mus_01_425f::
+Mus_Song20_Ch2::
 	mus_transpose_off 
 	mus_rest 128
 	mus_rest 128
@@ -346,15 +346,15 @@ Mus_01_425f::
 	mus_duty_envelope 0, $82
 	mus_note E_4, 16
 	mus_note E_4, 16
-	mus_call_x 3, Mus_01_4325
-	mus_call Mus_01_4304
-	mus_call Mus_01_4342
+	mus_call_x 3, Mus_Song20_Ch2_Sub_3
+	mus_call Mus_Song20_Ch2_Sub_2
+	mus_call Mus_Song20_Ch2_Sub_4
 	mus_rest 102
-	mus_call Mus_01_429b
-	mus_jump_back Mus_01_425f
+	mus_call Mus_Song20_Ch2_Sub_1
+	mus_jump_back Mus_Song20_Ch2
 	mus_end  ; never reached
 
-Mus_01_429b::
+Mus_Song20_Ch2_Sub_1::
 	mus_duty_envelope 2, $94
 	mus_note D_5, 26
 	mus_duty_envelope 2, $92
@@ -409,7 +409,7 @@ Mus_01_429b::
 	mus_transpose_add -12
 	mus_ret 
 
-Mus_01_4304::
+Mus_Song20_Ch2_Sub_2::
 	mus_vibrato_ex $01, $01, $01, $02
 	mus_duty_envelope 0, $93
 	mus_note A_4, 26
@@ -427,7 +427,7 @@ Mus_01_4304::
 	mus_vibrato_off 
 	mus_ret 
 
-Mus_01_4325::
+Mus_Song20_Ch2_Sub_3::
 	mus_duty_envelope 2, $85
 	mus_note G_4, 128
 	mus_note G_4, 25
@@ -444,7 +444,7 @@ Mus_01_4325::
 	mus_rest 57
 	mus_ret 
 
-Mus_01_4342::
+Mus_Song20_Ch2_Sub_4::
 	mus_duty_envelope 2, $67
 	mus_note G_4, 26
 	mus_rest 126
@@ -508,25 +508,25 @@ Mus_01_4342::
 Song20_Ch3::
 	mus_rest 16
 
-Mus_01_43bb::
+Mus_Song20_Ch3::
 	mus_regs $b0, $40, $40
 	mus_wave $60
 	mus_transpose_off 
-	mus_call_x 3, Mus_01_44a2
-	mus_call Mus_01_445b
-	mus_call Mus_01_44a2
-	mus_call Mus_01_445b
-	mus_call_x 2, Mus_01_442c
+	mus_call_x 3, Mus_Song20_Ch3_Sub_4
+	mus_call Mus_Song20_Ch3_Sub_3
+	mus_call Mus_Song20_Ch3_Sub_4
+	mus_call Mus_Song20_Ch3_Sub_3
+	mus_call_x 2, Mus_Song20_Ch3_Sub_2
 	mus_note A_2, 16
 	mus_note A_3, 16
 	mus_note B_2, 16
 	mus_note B_2, 10
 	mus_note E_2, 70
-	mus_call_x 3, Mus_01_43e1
-	mus_jump_back Mus_01_43bb
+	mus_call_x 3, Mus_Song20_Ch3_Sub_1
+	mus_jump_back Mus_Song20_Ch3
 	mus_end  ; never reached
 
-Mus_01_43e1::
+Mus_Song20_Ch3_Sub_1::
 	mus_regs $d0, $40, $40
 	mus_note B_2, 16
 	mus_note B_2, 16
@@ -562,7 +562,7 @@ Mus_01_43e1::
 	mus_note B_2, 48
 	mus_ret 
 
-Mus_01_442c::
+Mus_Song20_Ch3_Sub_2::
 	mus_regs $d0, $40, $40
 	mus_note E_2, 16
 	mus_regs $c8, $40, $40
@@ -581,7 +581,7 @@ Mus_01_442c::
 	mus_note Gs2, 6
 	mus_ret 
 
-Mus_01_445b::
+Mus_Song20_Ch3_Sub_3::
 	mus_regs $b0, $40, $40
 	mus_note C_3, 32
 	mus_note C_3, 26
@@ -609,7 +609,7 @@ Mus_01_445b::
 	mus_note G_2, 16
 	mus_ret 
 
-Mus_01_44a2::
+Mus_Song20_Ch3_Sub_4::
 	mus_regs $b0, $40, $40
 	mus_note E_2, 32
 	mus_note G_2, 26
@@ -665,17 +665,17 @@ Mus_01_44a2::
 
 Song20_Ch4::
 	mus_transpose_off 
-	mus_call Mus_01_455e
+	mus_call Mus_Song20_Ch4_Sub_2
 
-Mus_01_4535::
-	mus_call_times 78, Mus_01_4569
-	mus_call Mus_01_4546
-	mus_call_times 30, Mus_01_4569
-	mus_call Mus_01_4546
-	mus_jump_back Mus_01_4535
+Mus_Song20_Ch4::
+	mus_call_times 78, Mus_Song20_Ch4_Sub_3
+	mus_call Mus_Song20_Ch4_Sub_1
+	mus_call_times 30, Mus_Song20_Ch4_Sub_3
+	mus_call Mus_Song20_Ch4_Sub_1
+	mus_jump_back Mus_Song20_Ch4
 	mus_end  ; never reached
 
-Mus_01_4546::
+Mus_Song20_Ch4_Sub_1::
 	mus_envelope $41
 	mus_note 63, 10
 	mus_envelope $48
@@ -689,7 +689,7 @@ Mus_01_4546::
 	mus_envelope $48
 	mus_note 63, 16
 
-Mus_01_455e::
+Mus_Song20_Ch4_Sub_2::
 	mus_envelope $22
 	mus_note 66, 1
 	mus_note 66, 4
@@ -697,7 +697,7 @@ Mus_01_455e::
 	mus_note 66, 6
 	mus_ret 
 
-Mus_01_4569::
+Mus_Song20_Ch4_Sub_3::
 	mus_envelope $18
 	mus_note 66, 10
 	mus_envelope $16
@@ -711,10 +711,10 @@ Mus_01_4569::
 Song1F_Ch1::
 	mus_transpose -12
 	mus_duty_envelope 2, $b3
-	mus_call Mus_01_4582
+	mus_call Mus_Song1F_Ch1_Sub
 	mus_end 
 
-Mus_01_4582::
+Mus_Song1F_Ch1_Sub::
 	mus_note F_4, 3
 	mus_note Fs4, 3
 	mus_note G_4, 6
@@ -744,7 +744,7 @@ Song1F_Ch2::
 	mus_transpose -12
 	mus_duty_envelope 2, $46
 	mus_rest 18
-	mus_call Mus_01_4582
+	mus_call Mus_Song1F_Ch1_Sub
 	mus_end 
 
 Song1F_Ch3::
@@ -778,24 +778,24 @@ Song1F_Ch4::
 	mus_note 63, 12
 	mus_note 63, 12
 	mus_note 63, 36
-	mus_call Mus_01_460f
+	mus_call Mus_Song1F_Ch4_Sub
 	mus_note 66, 24
 	mus_envelope $64
 	mus_note 63, 12
 	mus_note 63, 36
-	mus_call Mus_01_460f
+	mus_call Mus_Song1F_Ch4_Sub
 	mus_note 66, 24
 	mus_envelope $64
 	mus_note 63, 12
 	mus_note 63, 24
-	mus_call Mus_01_460f
+	mus_call Mus_Song1F_Ch4_Sub
 	mus_note 66, 12
 	mus_envelope $64
 	mus_note 63, 24
 	mus_note 63, 120
 	mus_end 
 
-Mus_01_460f::
+Mus_Song1F_Ch4_Sub::
 	mus_transpose_off 
 	mus_envelope $33
 	mus_ret 
@@ -859,7 +859,7 @@ Song1E_Ch2::
 	mus_transpose_off 
 	mus_duty_envelope 2, $a1
 	mus_note As2, 6
-	mus_call Mus_01_4691
+	mus_call Mus_Song1E_Ch2_Sub
 	mus_end 
 
 Song1E_Ch3::
@@ -867,10 +867,10 @@ Song1E_Ch3::
 	mus_regs $cc, $50, $40
 	mus_wave $20
 	mus_rest 6
-	mus_call Mus_01_4691
+	mus_call Mus_Song1E_Ch2_Sub
 	mus_end 
 
-Mus_01_4691::
+Mus_Song1E_Ch2_Sub::
 	mus_length 12
 	mus_note C_3
 	mus_note Ds3
@@ -920,10 +920,10 @@ Song1E_Ch4::
 Song1D_Ch1::
 	mus_transpose_off 
 	mus_duty_envelope 1, $b3
-	mus_call Mus_01_46e5
+	mus_call Mus_Song1D_Ch1_Sub
 	mus_end 
 
-Mus_01_46e5::
+Mus_Song1D_Ch1_Sub::
 	mus_note Ds4, 4
 	mus_note E_4, 4
 	mus_note F_4, 16
@@ -939,7 +939,7 @@ Song1D_Ch2::
 	mus_transpose_off 
 	mus_duty_envelope 1, $57
 	mus_rest 18
-	mus_call Mus_01_46e5
+	mus_call Mus_Song1D_Ch1_Sub
 	mus_end 
 
 Song1D_Ch3::
@@ -955,7 +955,7 @@ Song1D_Ch3::
 
 Song1D_Ch4::
 	mus_rest 8
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 24
 	mus_note 63, 16
 	mus_note 63, 8
@@ -967,13 +967,13 @@ Song1D_Ch4::
 
 Song1C_Ch1::
 	mus_duty_envelope 2, $b4
-	mus_call Mus_01_4734
+	mus_call Mus_Song1C_Ch1_Sub
 	mus_note F_5, 15
 	mus_note D_5, 3
 	mus_note Ds5, 165
 	mus_end 
 
-Mus_01_4734::
+Mus_Song1C_Ch1_Sub::
 	mus_note F_4, 3
 	mus_note D_4, 9
 	mus_note F_4, 3
@@ -987,15 +987,15 @@ Mus_01_4734::
 Song1C_Ch2::
 	mus_duty_envelope 2, $67
 	mus_rest 9
-	mus_call Mus_01_4734
+	mus_call Mus_Song1C_Ch1_Sub
 	mus_note F_5, 9
 	mus_length_x 2
-	mus_call_times 7, Mus_01_4757
+	mus_call_times 7, Mus_Song1C_Ch2_Sub
 	mus_length_off 
 	mus_note C_4, 126
 	mus_end 
 
-Mus_01_4757::
+Mus_Song1C_Ch2_Sub::
 	mus_note C_4
 	mus_note A_3
 	mus_ret 
@@ -1016,15 +1016,15 @@ Song1C_Ch3::
 	mus_end 
 
 Song1C_Ch4::
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 3
 	mus_envelope $71
 	mus_note B_5, 12
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 12
 	mus_envelope $71
 	mus_note B_5, 9
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 3
 	mus_note 63, 9
 	mus_note 63, 15
@@ -1032,7 +1032,7 @@ Song1C_Ch4::
 	mus_note 63, 9
 	mus_envelope $51
 	mus_length_x 2
-	mus_call_x 8, Mus_01_4b1a
+	mus_call_x 8, Mus_Song1A_Ch4_Sub_2
 	mus_length_off 
 	mus_envelope $91
 	mus_note 63, 126
@@ -1041,7 +1041,7 @@ Song1C_Ch4::
 Song1B_Ch1::
 	mus_rest 8
 
-Mus_01_47a3::
+Mus_Song1B_Ch1::
 	mus_transpose_off 
 	mus_duty_envelope 1, $a2
 	mus_note B_4, 10
@@ -1237,12 +1237,12 @@ Mus_01_47a3::
 	mus_note Gs4, 5
 	mus_note A_4, 6
 	mus_note As4, 5
-	mus_jump Mus_01_47a3
+	mus_jump Mus_Song1B_Ch1
 
 Song1B_Ch2::
 	mus_rest 8
 
-Mus_01_492d::
+Mus_Song1B_Ch2::
 	mus_transpose_off 
 	mus_duty_envelope 0, $94
 	mus_note C_4, 10
@@ -1288,12 +1288,12 @@ Mus_01_492d::
 	mus_note E_4, 16
 	mus_note D_4, 214
 	mus_rest 240
-	mus_jump_back Mus_01_492d
+	mus_jump_back Mus_Song1B_Ch2
 
 Song1B_Ch3::
 	mus_rest 8
 
-Mus_01_498a::
+Mus_Song1B_Ch3::
 	mus_transpose_off 
 	mus_wave $30
 	mus_regs $c0, $40, $40
@@ -1307,12 +1307,12 @@ Mus_01_498a::
 	mus_regs $81, $40, $40
 	mus_note D_2, 54
 	mus_regs $bc, $50, $40
-	mus_call_x 3, Mus_01_49d8
+	mus_call_x 3, Mus_Song1B_Ch3_Sub_1
 	mus_note G_2
 	mus_note G_2
 	mus_note A_2
 	mus_note B_2
-	mus_call_x 2, Mus_01_49fb
+	mus_call_x 2, Mus_Song1B_Ch3_Sub_2
 	mus_note Fs2
 	mus_note G_2
 	mus_note G_2
@@ -1325,69 +1325,69 @@ Mus_01_498a::
 	mus_note G_2
 	mus_note A_2
 	mus_note B_2
-	mus_call_x 8, Mus_01_49fb
+	mus_call_x 8, Mus_Song1B_Ch3_Sub_2
 	mus_transpose_add -5
-	mus_call_x 8, Mus_01_49fb
+	mus_call_x 8, Mus_Song1B_Ch3_Sub_2
 	mus_transpose_add 5
-	mus_call_x 8, Mus_01_49fb
+	mus_call_x 8, Mus_Song1B_Ch3_Sub_2
 	mus_length_off 
-	mus_jump_back Mus_01_498a
+	mus_jump_back Mus_Song1B_Ch3
 
-Mus_01_49d8::
+Mus_Song1B_Ch3_Sub_1::
 	mus_length 16
-	mus_call Mus_01_49fd
+	mus_call Mus_Song1B_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_49fe
+	mus_call Mus_Song1B_Ch3_Sub_Sub_2
 	mus_note D_2
 	mus_note D_2
 	mus_note E_2
 	mus_note Fs2
-	mus_call_x 3, Mus_01_49fd
+	mus_call_x 3, Mus_Song1B_Ch3_Sub_Sub_1
 	mus_note A_2
 	mus_note D_2
 	mus_note A_2
 	mus_note B_2
-	mus_call_x 8, Mus_01_49fb
+	mus_call_x 8, Mus_Song1B_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call_times 5, Mus_01_49fb
+	mus_call_times 5, Mus_Song1B_Ch3_Sub_2
 	mus_transpose_add -2
 	mus_note D_2
 	mus_note E_2
 	mus_note Fs2
 	mus_ret 
 
-Mus_01_49fb::
+Mus_Song1B_Ch3_Sub_2::
 	mus_note C_3
 	mus_ret 
 
-Mus_01_49fd::
+Mus_Song1B_Ch3_Sub_Sub_1::
 	mus_note G_2
 
-Mus_01_49fe::
+Mus_Song1B_Ch3_Sub_Sub_2::
 	mus_note E_2
 	mus_note D_2
 	mus_note E_2
 	mus_ret 
 
 Song1B_Ch4::
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 4
 	mus_note 63, 4
 
-Mus_01_4a09::
-	mus_call Mus_01_4b16
+Mus_Song1B_Ch4::
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 10
 	mus_note 63, 16
 	mus_envelope $71
 	mus_note B_5, 14
-	mus_call Mus_01_4a22
+	mus_call Mus_Song1B_Ch4_Sub_1
 	mus_note B_5, 32
-	mus_call Mus_01_4a37
-	mus_call_times 15, Mus_01_4a30
-	mus_jump_back Mus_01_4a09
+	mus_call Mus_Song1B_Ch4_Sub_3
+	mus_call_times 15, Mus_Song1B_Ch4_Sub_2
+	mus_jump_back Mus_Song1B_Ch4
 
-Mus_01_4a22::
-	mus_call Mus_01_4b16
+Mus_Song1B_Ch4_Sub_1::
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 4
 	mus_note 63, 4
 	mus_note 63, 10
@@ -1395,25 +1395,25 @@ Mus_01_4a22::
 	mus_envelope $71
 	mus_ret 
 
-Mus_01_4a30::
-	mus_call_x 2, Mus_01_4a43
+Mus_Song1B_Ch4_Sub_2::
+	mus_call_x 2, Mus_Song1B_Ch4_Sub_Sub
 	mus_envelope $71
 	mus_note B_5, 10
 
-Mus_01_4a37::
-	mus_call Mus_01_4b16
+Mus_Song1B_Ch4_Sub_3::
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 6
 	mus_note 63, 10
 	mus_envelope $23
 	mus_note 66, 6
 	mus_ret 
 
-Mus_01_4a43::
+Mus_Song1B_Ch4_Sub_Sub::
 	mus_envelope $71
 	mus_note B_5, 10
 	mus_envelope $25
 	mus_note 66, 6
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 10
 	mus_envelope $23
 	mus_note 66, 6
@@ -1423,14 +1423,14 @@ Song1A_Ch1::
 	mus_transpose_off 
 	mus_rest 15
 	mus_duty_envelope 0, $73
-	mus_call Mus_01_4a7b
+	mus_call Mus_Song1A_Ch1_Sub
 	mus_note Fs4, 20
 	mus_note G_4, 16
 	mus_duty_envelope 2, $93
 	mus_note A_3, 12
 	mus_note A_3, 24
 	mus_duty_envelope 0, $73
-	mus_call Mus_01_4a7b
+	mus_call Mus_Song1A_Ch1_Sub
 	mus_note Fs4, 24
 	mus_length_x 8
 	mus_note G_4
@@ -1441,9 +1441,9 @@ Song1A_Ch1::
 	mus_note As4
 	mus_length_off 
 	mus_tempo 224
-	mus_jump Mus_01_47a3
+	mus_jump Mus_Song1B_Ch1
 
-Mus_01_4a7b::
+Mus_Song1A_Ch1_Sub::
 	mus_rest 8
 	mus_note E_4, 16
 	mus_note Fs4, 20
@@ -1458,11 +1458,11 @@ Song1A_Ch2::
 	mus_transpose_off 
 	mus_rest 15
 	mus_duty_envelope 1, $64
-	mus_call Mus_01_4aaa
+	mus_call Mus_Song1A_Ch2_Sub
 	mus_note D_4, 20
 	mus_note E_4, 16
 	mus_rest 36
-	mus_call Mus_01_4aaa
+	mus_call Mus_Song1A_Ch2_Sub
 	mus_note D_4, 24
 	mus_length_x 8
 	mus_note Cs4
@@ -1472,9 +1472,9 @@ Song1A_Ch2::
 	mus_note As3
 	mus_note B_3
 	mus_length_off 
-	mus_jump Mus_01_492d
+	mus_jump Mus_Song1B_Ch2
 
-Mus_01_4aaa::
+Mus_Song1A_Ch2_Sub::
 	mus_rest 8
 	mus_note Cs4, 16
 	mus_note D_4, 20
@@ -1492,9 +1492,9 @@ Song1A_Ch3::
 	mus_note E_2, 3
 	mus_note G_2, 8
 	mus_note Gs2, 4
-	mus_call_x 2, Mus_01_4adb
+	mus_call_x 2, Mus_Song1A_Ch3_Sub_1
 	mus_length 12
-	mus_call_x 4, Mus_01_4aea
+	mus_call_x 4, Mus_Song1A_Ch3_Sub_2
 	mus_length_x 8
 	mus_note A_2
 	mus_note A_2
@@ -1503,11 +1503,11 @@ Song1A_Ch3::
 	mus_note C_3
 	mus_note Cs3
 	mus_length_off 
-	mus_jump Mus_01_498a
+	mus_jump Mus_Song1B_Ch3
 
-Mus_01_4adb::
+Mus_Song1A_Ch3_Sub_1::
 	mus_length 12
-	mus_call_x 6, Mus_01_4aea
+	mus_call_x 6, Mus_Song1A_Ch3_Sub_2
 	mus_length_off 
 	mus_note A_2, 8
 	mus_note E_2, 4
@@ -1515,40 +1515,40 @@ Mus_01_4adb::
 	mus_note Gs2, 4
 	mus_ret 
 
-Mus_01_4aea::
+Mus_Song1A_Ch3_Sub_2::
 	mus_note A_2
 	mus_ret 
 
 Song1A_Ch4::
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 3
 	mus_length_x 4
-	mus_call_x 2, Mus_01_4b1a
+	mus_call_x 2, Mus_Song1A_Ch4_Sub_2
 	mus_length_off 
-	mus_call_times 14, Mus_01_4b04
-	mus_call Mus_01_4b16
+	mus_call_times 14, Mus_Song1A_Ch4_Sub_1
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_length_x 8
-	mus_call_x 6, Mus_01_4b1a
+	mus_call_x 6, Mus_Song1A_Ch4_Sub_2
 	mus_length_off 
-	mus_jump_back Mus_01_4a09
+	mus_jump_back Mus_Song1B_Ch4
 
-Mus_01_4b04::
+Mus_Song1A_Ch4_Sub_1::
 	mus_envelope $71
 	mus_note B_5, 9
 	mus_envelope $15
 	mus_note 66, 3
-	mus_call Mus_01_4b16
+	mus_call Mus_Song1C_Ch4_Sub
 	mus_note 63, 9
 	mus_envelope $13
 	mus_note 66, 3
 	mus_ret 
 
-Mus_01_4b16::
+Mus_Song1C_Ch4_Sub::
 	mus_transpose_off 
 	mus_envelope $82
 	mus_ret 
 
-Mus_01_4b1a::
+Mus_Song1A_Ch4_Sub_2::
 	mus_note 63
 	mus_ret 
 
@@ -1696,18 +1696,18 @@ Song18_Ch1::
 	mus_transpose -12
 	mus_transpose_add 12
 	mus_duty_envelope 2, $28
-	mus_call Mus_01_4d5c
+	mus_call Mus_Song18_Ch1_Sub_1
 	mus_duty_envelope 2, $46
 
-Mus_01_4c35::
-	mus_call Mus_01_4d65
+Mus_Song18_Ch1::
+	mus_call Mus_Song18_Ch1_Sub_2
 	mus_note D_5, 8
 	mus_note D_5, 8
 	mus_note D_5, 4
 	mus_note Cs5, 8
 	mus_note B_4, 32
 	mus_note A_4, 4
-	mus_call Mus_01_4d65
+	mus_call Mus_Song18_Ch1_Sub_2
 	mus_note D_5, 8
 	mus_note E_5, 8
 	mus_note D_5, 4
@@ -1726,16 +1726,16 @@ Mus_01_4c35::
 	mus_note Cs5, 8
 	mus_note B_4, 56
 	mus_duty_envelope 1, $36
-	mus_call Mus_01_4d5c
+	mus_call Mus_Song18_Ch1_Sub_1
 	mus_duty_envelope 1, $47
-	mus_call Mus_01_4d65
+	mus_call Mus_Song18_Ch1_Sub_2
 	mus_note Cs5, 8
 	mus_note D_5, 8
 	mus_note D_5, 4
 	mus_note Cs5, 8
 	mus_note B_4, 32
 	mus_note A_4, 4
-	mus_call Mus_01_4d65
+	mus_call Mus_Song18_Ch1_Sub_2
 	mus_transpose_add -12
 	mus_note E_6, 8
 	mus_note D_6, 8
@@ -1754,24 +1754,24 @@ Mus_01_4c35::
 	mus_transpose_add 12
 	mus_duty_envelope 2, $34
 	mus_transpose_add 12
-	mus_call Mus_01_4da2
-	mus_call Mus_01_4dd5
+	mus_call Mus_Song18_Ch1_Sub_4
+	mus_call Mus_Song18_Ch1_Sub_8
 	mus_note B_3, 8
 	mus_note A_3, 8
-	mus_call Mus_01_4dd5
+	mus_call Mus_Song18_Ch1_Sub_8
 	mus_rest 8
 	mus_note E_3, 4
 	mus_note E_4, 4
-	mus_call Mus_01_4dd5
+	mus_call Mus_Song18_Ch1_Sub_8
 	mus_note B_3, 8
 	mus_note A_3, 8
-	mus_call Mus_01_4dd5
+	mus_call Mus_Song18_Ch1_Sub_8
 	mus_note E_3, 8
 	mus_note A_3, 8
-	mus_call Mus_01_4dde
+	mus_call Mus_Song18_Ch1_Sub_9
 	mus_rest 8
 	mus_note D_4, 8
-	mus_call Mus_01_4dde
+	mus_call Mus_Song18_Ch1_Sub_9
 	mus_note A_3, 8
 	mus_note G_3, 8
 	mus_duty_envelope 1, $27
@@ -1786,7 +1786,7 @@ Mus_01_4c35::
 	mus_note A_3, 1
 	mus_note B_3, 1
 	mus_note C_4, 1
-	mus_call Mus_01_4dc3
+	mus_call Mus_Song18_Ch1_Sub_6
 	mus_rest 8
 	mus_note E_4, 8
 	mus_duty_envelope 2, $28
@@ -1795,22 +1795,22 @@ Mus_01_4c35::
 	mus_note B_3, 24
 	mus_note B_3, 8
 	mus_note A_3, 8
-	mus_call Mus_01_4dc3
+	mus_call Mus_Song18_Ch1_Sub_6
 	mus_rest 8
 	mus_note B_3, 8
-	mus_call Mus_01_4dc3
+	mus_call Mus_Song18_Ch1_Sub_6
 	mus_note E_4, 8
 	mus_note A_3, 8
-	mus_call Mus_01_4dcc
+	mus_call Mus_Song18_Ch1_Sub_7
 	mus_rest 8
 	mus_note D_4, 8
-	mus_call Mus_01_4dcc
+	mus_call Mus_Song18_Ch1_Sub_7
 	mus_note A_3, 8
 	mus_note G_3, 8
 	mus_note A_3, 64
 	mus_duty_envelope 2, $24
 	mus_octave_up 
-	mus_call Mus_01_4d78
+	mus_call Mus_Song18_Ch1_Sub_3
 	mus_rest 12
 	mus_transpose -12
 	mus_transpose_add 12
@@ -1835,18 +1835,18 @@ Mus_01_4c35::
 	mus_rest 128
 	mus_rest 116
 	mus_transpose_add 12
-	mus_call Mus_01_4da5
+	mus_call Mus_Song18_Ch1_Sub_5
 	mus_transpose_add -12
-	mus_jump Mus_01_4c35
+	mus_jump Mus_Song18_Ch1
 
-Mus_01_4d5c::
+Mus_Song18_Ch1_Sub_1::
 	mus_rest 2
 	mus_note A_4, 2
 	mus_note B_4, 2
 	mus_note Cs5, 2
 	mus_ret 
 
-Mus_01_4d65::
+Mus_Song18_Ch1_Sub_2::
 	mus_note D_5, 8
 	mus_note D_5, 8
 	mus_note D_5, 4
@@ -1858,30 +1858,30 @@ Mus_01_4d65::
 	mus_note Cs5, 8
 	mus_ret 
 
-Mus_01_4d78::
-	mus_call Mus_01_4db8
+Mus_Song18_Ch1_Sub_3::
+	mus_call Mus_Song18_Ch1_Sub_Sub
 	mus_transpose_add -1
-	mus_call Mus_01_4db8
+	mus_call Mus_Song18_Ch1_Sub_Sub
 	mus_transpose_add -1
-	mus_call Mus_01_4db8
+	mus_call Mus_Song18_Ch1_Sub_Sub
 	mus_transpose_add 1
-	mus_call Mus_01_4db8
+	mus_call Mus_Song18_Ch1_Sub_Sub
 	mus_transpose_add 1
-	mus_call Mus_01_4db8
+	mus_call Mus_Song18_Ch1_Sub_Sub
 	mus_transpose_add -1
-	mus_call Mus_01_4db8
+	mus_call Mus_Song18_Ch1_Sub_Sub
 	mus_transpose_add -1
-	mus_call Mus_01_4db8
+	mus_call Mus_Song18_Ch1_Sub_Sub
 	mus_transpose_add 2
 	mus_note E_3, 8
 	mus_note E_3, 4
 	mus_note E_3, 8
 	mus_ret 
 
-Mus_01_4da2::
-	mus_call Mus_01_4d78
+Mus_Song18_Ch1_Sub_4::
+	mus_call Mus_Song18_Ch1_Sub_3
 
-Mus_01_4da5::
+Mus_Song18_Ch1_Sub_5::
 	mus_duty_envelope 2, $28
 	mus_note D_3, 2
 	mus_note E_3, 2
@@ -1893,7 +1893,7 @@ Mus_01_4da5::
 	mus_duty_envelope 2, $47
 	mus_ret 
 
-Mus_01_4db8::
+Mus_Song18_Ch1_Sub_Sub::
 	mus_note F_3, 8
 	mus_note F_3, 4
 	mus_note F_3, 8
@@ -1901,28 +1901,28 @@ Mus_01_4db8::
 	mus_note F_3, 4
 	mus_ret 
 
-Mus_01_4dc3::
+Mus_Song18_Ch1_Sub_6::
 	mus_duty_envelope 2, $28
 	mus_note D_4, 24
 	mus_duty_envelope 2, $37
 	mus_note Cs4, 24
 	mus_ret 
 
-Mus_01_4dcc::
+Mus_Song18_Ch1_Sub_7::
 	mus_duty_envelope 2, $28
 	mus_note Cs4, 24
 	mus_duty_envelope 2, $37
 	mus_note B_3, 24
 	mus_ret 
 
-Mus_01_4dd5::
+Mus_Song18_Ch1_Sub_8::
 	mus_duty_envelope 1, $28
 	mus_note D_4, 24
 	mus_duty_envelope 1, $37
 	mus_note Cs4, 24
 	mus_ret 
 
-Mus_01_4dde::
+Mus_Song18_Ch1_Sub_9::
 	mus_duty_envelope 1, $28
 	mus_note Cs4, 24
 	mus_duty_envelope 1, $37
@@ -1932,11 +1932,11 @@ Mus_01_4dde::
 Song18_Ch2::
 	mus_rest 8
 
-Mus_01_4de9::
+Mus_Song18_Ch2::
 	mus_duty_envelope 1, $25
-	mus_call Mus_01_4fc6
-	mus_call Mus_01_500f
-	mus_call Mus_01_4fc6
+	mus_call Mus_Song18_Ch2_Sub_3
+	mus_call Mus_Song18_Ch2_Sub_4
+	mus_call Mus_Song18_Ch2_Sub_3
 	mus_duty_envelope 1, $17
 	mus_note A_3, 1
 	mus_duty_envelope 1, $23
@@ -1961,10 +1961,10 @@ Mus_01_4de9::
 	mus_note A_3, 1
 	mus_duty_envelope 1, $23
 	mus_note E_4, 3
-	mus_call Mus_01_4ec8
+	mus_call Mus_Song18_Ch2_Sub_1
 	mus_duty_envelope 1, $25
-	mus_call Mus_01_4fb6
-	mus_call Mus_01_515b
+	mus_call Mus_Song18_Ch2_Sub_2
+	mus_call Mus_Song18_Ch2_Sub_5
 	mus_transpose_add -12
 	mus_vibrato_ex $02, $02, $05, $14
 	mus_duty_envelope 0, $18
@@ -1983,9 +1983,9 @@ Mus_01_4de9::
 	mus_vibrato_off 
 	mus_transpose_add 12
 	mus_duty_envelope 1, $25
-	mus_call Mus_01_4fc6
-	mus_call Mus_01_500f
-	mus_call Mus_01_4fc6
+	mus_call Mus_Song18_Ch2_Sub_3
+	mus_call Mus_Song18_Ch2_Sub_4
+	mus_call Mus_Song18_Ch2_Sub_3
 	mus_duty_envelope 1, $17
 	mus_note A_3, 1
 	mus_duty_envelope 1, $23
@@ -2010,10 +2010,10 @@ Mus_01_4de9::
 	mus_note A_3, 1
 	mus_duty_envelope 1, $23
 	mus_note E_4, 3
-	mus_call Mus_01_4ec8
+	mus_call Mus_Song18_Ch2_Sub_1
 	mus_duty_envelope 1, $25
-	mus_call Mus_01_4fb6
-	mus_call Mus_01_515b
+	mus_call Mus_Song18_Ch2_Sub_2
+	mus_call Mus_Song18_Ch2_Sub_5
 	mus_transpose_add -12
 	mus_vibrato_ex $02, $02, $05, $14
 	mus_duty_envelope 0, $18
@@ -2031,10 +2031,10 @@ Mus_01_4de9::
 	mus_note A_4, 32
 	mus_vibrato_off 
 	mus_transpose_add 12
-	mus_jump_back Mus_01_4de9
+	mus_jump_back Mus_Song18_Ch2
 	mus_end  ; never reached
 
-Mus_01_4ec8::
+Mus_Song18_Ch2_Sub_1::
 	mus_transpose_add -12
 	mus_duty_envelope 1, $56
 	mus_note E_4, 8
@@ -2149,22 +2149,22 @@ Mus_01_4ec8::
 	mus_note B_3, 7
 	mus_ret 
 
-MusUnused_01_4fa9::
-	mus_call Mus_01_4fb6 ; never reached
-	mus_call MusUnused_01_50e2 ; never reached
-	mus_call Mus_01_4fb6 ; never reached
-	mus_call Mus_01_515b ; never reached
+MusUnused_01::
+	mus_call Mus_Song18_Ch2_Sub_2 ; never reached
+	mus_call MusUnused_01_Sub ; never reached
+	mus_call Mus_Song18_Ch2_Sub_2 ; never reached
+	mus_call Mus_Song18_Ch2_Sub_5 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_4fb6::
-	mus_call Mus_01_4fc6
-	mus_call Mus_01_500f
-	mus_call_x 3, Mus_01_4fc6
-	mus_call Mus_01_5050
-	mus_call Mus_01_5099
+Mus_Song18_Ch2_Sub_2::
+	mus_call Mus_Song18_Ch2_Sub_3
+	mus_call Mus_Song18_Ch2_Sub_4
+	mus_call_x 3, Mus_Song18_Ch2_Sub_3
+	mus_call Mus_Song18_Ch2_Sub_Sub_1
+	mus_call Mus_Song18_Ch2_Sub_Sub_2
 	mus_ret 
 
-Mus_01_4fc6::
+Mus_Song18_Ch2_Sub_3::
 	mus_duty_envelope 1, $17
 	mus_note A_3, 1
 	mus_duty_envelope 1, $15
@@ -2203,7 +2203,7 @@ Mus_01_4fc6::
 	mus_note E_4, 7
 	mus_ret 
 
-Mus_01_500f::
+Mus_Song18_Ch2_Sub_4::
 	mus_duty_envelope 1, $17
 	mus_note A_3, 1
 	mus_duty_envelope 1, $15
@@ -2238,7 +2238,7 @@ Mus_01_500f::
 	mus_note E_4, 7
 	mus_ret 
 
-Mus_01_5050::
+Mus_Song18_Ch2_Sub_Sub_1::
 	mus_duty_envelope 1, $17
 	mus_note G_3, 1
 	mus_duty_envelope 1, $15
@@ -2277,7 +2277,7 @@ Mus_01_5050::
 	mus_note E_4, 7
 	mus_ret 
 
-Mus_01_5099::
+Mus_Song18_Ch2_Sub_Sub_2::
 	mus_duty_envelope 1, $17
 	mus_note G_3, 1
 	mus_duty_envelope 1, $15
@@ -2316,7 +2316,7 @@ Mus_01_5099::
 	mus_note B_3, 7
 	mus_ret 
 
-MusUnused_01_50e2::
+MusUnused_01_Sub::
 	mus_duty_envelope 1, $17 ; never reached
 	mus_note D_3, 1 ; never reached
 	mus_duty_envelope 1, $15 ; never reached
@@ -2379,7 +2379,7 @@ MusUnused_01_50e2::
 	mus_note B_3, 7 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_515b::
+Mus_Song18_Ch2_Sub_5::
 	mus_duty_envelope 1, $17
 	mus_note D_3, 1
 	mus_duty_envelope 1, $15
@@ -2427,489 +2427,489 @@ Mus_01_515b::
 	mus_ret 
 
 Song18_Ch3::
-	mus_call Mus_01_5554
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_2
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note Fs5
 
-Mus_01_51c0::
-	mus_call Mus_01_554b
+Mus_Song18_Ch3::
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_5572
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_4
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_5586
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_8
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_558e
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_9
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_5582
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_7
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
-	mus_call_x 3, Mus_01_556d
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note Fs5
-	mus_call_x 2, Mus_01_556d
-	mus_call Mus_01_554b
+	mus_call_x 2, Mus_Song18_Ch3_Sub_3
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note D_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
-	mus_call_x 3, Mus_01_556d
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
-	mus_call_x 3, Mus_01_556d
-	mus_call Mus_01_554b
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note D_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_557d
+	mus_call Mus_Song18_Ch3_Sub_6
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_557d
+	mus_call Mus_Song18_Ch3_Sub_6
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_5572
+	mus_call Mus_Song18_Ch3_Sub_4
 	mus_transpose_add 12
-	mus_call_x 3, Mus_01_55a8
+	mus_call_x 3, Mus_Song18_Ch3_Sub_10
 	mus_transpose_add -12
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_5572
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_4
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_5586
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_8
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_558e
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_9
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_5582
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_7
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_556d
+	mus_call Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
-	mus_call_x 3, Mus_01_556d
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note Fs5
-	mus_call_x 2, Mus_01_556d
-	mus_call Mus_01_554b
+	mus_call_x 2, Mus_Song18_Ch3_Sub_3
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note D_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
-	mus_call_x 3, Mus_01_556d
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3
 	mus_note A_4
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note Fs5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note G_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
-	mus_call_x 3, Mus_01_556d
-	mus_call Mus_01_554b
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note D_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note E_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_557d
+	mus_call Mus_Song18_Ch3_Sub_6
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_557d
+	mus_call Mus_Song18_Ch3_Sub_6
 	mus_note A_4
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note B_3, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note D_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_note A_4
 	mus_note E_5
-	mus_call Mus_01_554b
+	mus_call Mus_Song18_Ch3_Sub_1
 	mus_note A_2, 4
-	mus_call Mus_01_5554
+	mus_call Mus_Song18_Ch3_Sub_2
 	mus_note E_5
-	mus_call Mus_01_5572
+	mus_call Mus_Song18_Ch3_Sub_4
 	mus_transpose_add 12
-	mus_call_x 3, Mus_01_55a8
+	mus_call_x 3, Mus_Song18_Ch3_Sub_10
 	mus_transpose_add -12
 	mus_length_off 
-	mus_jump Mus_01_51c0
+	mus_jump Mus_Song18_Ch3
 	mus_end  ; never reached
 
-Mus_01_554b::
+Mus_Song18_Ch3_Sub_1::
 	mus_length_off 
 	mus_transpose_off 
 	mus_regs $d0, $50, $40
 	mus_wave $60
 	mus_ret 
 
-Mus_01_5554::
+Mus_Song18_Ch3_Sub_2::
 	mus_transpose -12
 	mus_regs $f2, $70, $40
 	mus_wave $30
@@ -2917,88 +2917,88 @@ Mus_01_5554::
 	mus_transpose_add -12
 	mus_ret 
 
-MusUnused_01_5560::
-	mus_call_x 3, Mus_01_556d ; never reached
-	mus_call Mus_01_5572 ; never reached
-	mus_call_x 3, Mus_01_556d ; never reached
-	mus_call MusUnused_01_557a ; never reached
+MusUnused_02_Sub::
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3 ; never reached
+	mus_call Mus_Song18_Ch3_Sub_4 ; never reached
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3 ; never reached
+	mus_call MusUnused_02_Sub_Sub ; never reached
 	mus_ret  ; never reached
 
-Mus_01_556d::
+Mus_Song18_Ch3_Sub_3::
 	mus_note A_4
 	mus_note E_5
 	mus_note D_5
 	mus_note E_5
 	mus_ret 
 
-Mus_01_5572::
-	mus_call Mus_01_556d
+Mus_Song18_Ch3_Sub_4::
+	mus_call Mus_Song18_Ch3_Sub_3
 
-Mus_01_5575::
+Mus_Song18_Ch3_Sub_5::
 	mus_note A_4
 	mus_note Fs5
 	mus_note G_5
 	mus_note Fs5
 	mus_ret 
 
-MusUnused_01_557a::
-	mus_call Mus_01_556d ; never reached
+MusUnused_02_Sub_Sub::
+	mus_call Mus_Song18_Ch3_Sub_3 ; never reached
 
-Mus_01_557d::
+Mus_Song18_Ch3_Sub_6::
 	mus_note A_4
 	mus_note D_5
 	mus_note Cs5
 	mus_note D_5
 	mus_ret 
 
-Mus_01_5582::
-	mus_call_x 3, Mus_01_557d
+Mus_Song18_Ch3_Sub_7::
+	mus_call_x 3, Mus_Song18_Ch3_Sub_6
 	mus_ret 
 
-Mus_01_5586::
-	mus_call Mus_01_557d
+Mus_Song18_Ch3_Sub_8::
+	mus_call Mus_Song18_Ch3_Sub_6
 	mus_note A_4
 	mus_note Cs5
 	mus_note B_4
 	mus_note Cs5
 	mus_ret 
 
-Mus_01_558e::
-	mus_call Mus_01_557d
-	mus_call Mus_01_5575
+Mus_Song18_Ch3_Sub_9::
+	mus_call Mus_Song18_Ch3_Sub_6
+	mus_call Mus_Song18_Ch3_Sub_5
 	mus_ret 
 
-MusUnused_01_5595::
-	mus_call_x 3, Mus_01_5582 ; never reached
-	mus_call_x 4, Mus_01_556d ; never reached
-	mus_call_x 3, MusUnused_01_5560 ; never reached
-	mus_call_x 4, Mus_01_5582 ; never reached
-	mus_call_x 3, Mus_01_556d ; never reached
-	mus_call Mus_01_5572 ; never reached
+MusUnused_02::
+	mus_call_x 3, Mus_Song18_Ch3_Sub_7 ; never reached
+	mus_call_x 4, Mus_Song18_Ch3_Sub_3 ; never reached
+	mus_call_x 3, MusUnused_02_Sub ; never reached
+	mus_call_x 4, Mus_Song18_Ch3_Sub_7 ; never reached
+	mus_call_x 3, Mus_Song18_Ch3_Sub_3 ; never reached
+	mus_call Mus_Song18_Ch3_Sub_4 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_55a8::
-	mus_call_x 2, Mus_01_55b5
-	mus_call Mus_01_55ba
-	mus_call_x 2, Mus_01_55b5
-	mus_call Mus_01_55bf
+Mus_Song18_Ch3_Sub_10::
+	mus_call_x 2, Mus_Song18_Ch3_Sub_Sub_1
+	mus_call Mus_Song18_Ch3_Sub_Sub_2
+	mus_call_x 2, Mus_Song18_Ch3_Sub_Sub_1
+	mus_call Mus_Song18_Ch3_Sub_Sub_3
 	mus_ret 
 
-Mus_01_55b5::
+Mus_Song18_Ch3_Sub_Sub_1::
 	mus_note A_3
 	mus_note F_4
 	mus_note E_4
 	mus_note F_4
 	mus_ret 
 
-Mus_01_55ba::
+Mus_Song18_Ch3_Sub_Sub_2::
 	mus_note A_3
 	mus_note E_4
 	mus_note Ds4
 	mus_note E_4
 	mus_ret 
 
-Mus_01_55bf::
+Mus_Song18_Ch3_Sub_Sub_3::
 	mus_note A_3
 	mus_note G_4
 	mus_note Gs4
@@ -3008,37 +3008,37 @@ Mus_01_55bf::
 Song18_Ch4::
 	mus_rest 8
 
-Mus_01_55c6::
-	mus_call_x 2, Mus_01_55e9
-	mus_call Mus_01_55f6
-	mus_call Mus_01_55fe
-	mus_call Mus_01_560c
+Mus_Song18_Ch4::
+	mus_call_x 2, Mus_Song18_Ch4_Sub_1
+	mus_call Mus_Song18_Ch4_Sub_2
+	mus_call Mus_Song18_Ch4_Sub_3
+	mus_call Mus_Song18_Ch4_Sub_4
 	mus_rest 128
 	mus_rest 128
-	mus_call_x 2, Mus_01_55e9
-	mus_call Mus_01_55f6
-	mus_call Mus_01_55fe
-	mus_call Mus_01_560c
+	mus_call_x 2, Mus_Song18_Ch4_Sub_1
+	mus_call Mus_Song18_Ch4_Sub_2
+	mus_call Mus_Song18_Ch4_Sub_3
+	mus_call Mus_Song18_Ch4_Sub_4
 	mus_rest 128
 	mus_rest 128
-	mus_jump_back Mus_01_55c6
+	mus_jump_back Mus_Song18_Ch4
 	mus_end  ; never reached
 
-Mus_01_55e9::
-	mus_call Mus_01_55f6
-	mus_call Mus_01_55fe
-	mus_call Mus_01_55f6
-	mus_call Mus_01_560c
+Mus_Song18_Ch4_Sub_1::
+	mus_call Mus_Song18_Ch4_Sub_2
+	mus_call Mus_Song18_Ch4_Sub_3
+	mus_call Mus_Song18_Ch4_Sub_2
+	mus_call Mus_Song18_Ch4_Sub_4
 	mus_ret 
 
-Mus_01_55f6::
-	mus_call Mus_01_5618
+Mus_Song18_Ch4_Sub_2::
+	mus_call Mus_Song18_Ch4_Sub_Sub
 	mus_envelope $65
 	mus_note 63, 16
 	mus_ret 
 
-Mus_01_55fe::
-	mus_call Mus_01_5618
+Mus_Song18_Ch4_Sub_3::
+	mus_call Mus_Song18_Ch4_Sub_Sub
 	mus_envelope $22
 	mus_note 66, 4
 	mus_note 66, 4
@@ -3046,15 +3046,15 @@ Mus_01_55fe::
 	mus_note 63, 8
 	mus_ret 
 
-Mus_01_560c::
-	mus_call Mus_01_5618
+Mus_Song18_Ch4_Sub_4::
+	mus_call Mus_Song18_Ch4_Sub_Sub
 	mus_envelope $65
 	mus_note 63, 8
 	mus_envelope $56
 	mus_note 63, 8
 	mus_ret 
 
-Mus_01_5618::
+Mus_Song18_Ch4_Sub_Sub::
 	mus_envelope $81
 	mus_note B_5, 8
 	mus_envelope $22
@@ -3075,30 +3075,30 @@ Mus_01_5618::
 Song16_Ch1::
 	mus_rest 32
 
-Mus_01_5639::
+Mus_Song16_Ch1::
 	mus_transpose_add 2
 	mus_duty_envelope 1, $52
 	mus_length_x 4
 	mus_transpose_add -1
-	mus_call Mus_01_5a28
-	mus_call Mus_01_5a0d
+	mus_call Mus_Song16_Ch1_Sub_9
+	mus_call Mus_Song16_Ch1_Sub_8
 	mus_transpose_add 1
-	mus_call Mus_01_5a28
-	mus_call Mus_01_5a0d
+	mus_call Mus_Song16_Ch1_Sub_9
+	mus_call Mus_Song16_Ch1_Sub_8
 	mus_transpose_add 1
-	mus_call Mus_01_5a28
-	mus_call Mus_01_5a0d
+	mus_call Mus_Song16_Ch1_Sub_9
+	mus_call Mus_Song16_Ch1_Sub_8
 	mus_transpose_add 1
-	mus_call Mus_01_5a06
+	mus_call Mus_Song16_Ch2_Sub_11
 	mus_transpose_add -1
-	mus_call Mus_01_5a06
+	mus_call Mus_Song16_Ch2_Sub_11
 	mus_transpose_add -1
 	mus_note E_4
 	mus_note E_4
 	mus_length_off 
 	mus_transpose_off 
 	mus_vibrato_ex $02, $02, $02, $07
-	mus_call Mus_01_57bc
+	mus_call Mus_Song16_Ch1_Sub_1
 	mus_duty_envelope 2, $97
 	mus_note G_4, 22
 	mus_rest 2
@@ -3109,21 +3109,21 @@ Mus_01_5639::
 	mus_vibrato_off 
 	mus_duty_envelope 1, $52
 	mus_transpose_add -1
-	mus_call Mus_01_59e3
-	mus_call Mus_01_59c6
+	mus_call Mus_Song16_Ch1_Sub_7
+	mus_call Mus_Song16_Ch1_Sub_6
 	mus_transpose_add 1
-	mus_call Mus_01_59e3
-	mus_call Mus_01_59c6
-	mus_call Mus_01_593a
-	mus_call Mus_01_5976
-	mus_call Mus_01_58e6
-	mus_call Mus_01_5915
+	mus_call Mus_Song16_Ch1_Sub_7
+	mus_call Mus_Song16_Ch1_Sub_6
+	mus_call Mus_Song16_Ch1_Sub_4
+	mus_call Mus_Song16_Ch1_Sub_5
+	mus_call Mus_Song16_Ch1_Sub_2
+	mus_call Mus_Song16_Ch1_Sub_3
 	mus_rest 128
 	mus_rest 128
-	mus_jump_back Mus_01_5639
+	mus_jump_back Mus_Song16_Ch1
 	mus_end  ; never reached
 
-Mus_01_56a2::
+Mus_Song16_Ch2_Sub_1::
 	mus_duty_envelope 2, $57
 	mus_note E_5, 4
 	mus_duty_envelope 1, $32
@@ -3150,7 +3150,7 @@ Mus_01_56a2::
 	mus_note D_4, 12
 	mus_ret 
 
-Mus_01_56d3::
+Mus_Song16_Ch2_Sub_2::
 	mus_duty_envelope 2, $57
 	mus_note E_5, 4
 	mus_duty_envelope 1, $32
@@ -3170,7 +3170,7 @@ Mus_01_56d3::
 	mus_note D_4, 4
 	mus_ret 
 
-Mus_01_56f6::
+Mus_Song16_Ch2_Sub_3::
 	mus_transpose_off 
 	mus_duty_envelope 2, $57
 	mus_note E_5, 4
@@ -3208,7 +3208,7 @@ Mus_01_56f6::
 	mus_transpose_add 1
 	mus_ret 
 
-Mus_01_573c::
+Mus_Song16_Ch2_Sub_4::
 	mus_duty_envelope 2, $57
 	mus_note E_5, 4
 	mus_duty_envelope 1, $32
@@ -3234,12 +3234,12 @@ Mus_01_573c::
 	mus_transpose_add 1
 	mus_ret 
 
-Mus_01_576b::
+Mus_Song16_Ch2_Sub_5::
 	mus_note C_4, 4
 	mus_note C_4, 20
 	mus_ret 
 
-Mus_01_5770::
+Mus_Song16_Ch2_Sub_6::
 	mus_note C_4, 4
 	mus_note C_4, 20
 	mus_note B_3, 4
@@ -3250,31 +3250,7 @@ Mus_01_5770::
 	mus_note D_4, 4
 	mus_ret 
 
-Mus_01_5781::
-	mus_note C_4, 4
-	mus_note C_4, 20
-	mus_note B_3, 4
-	mus_note B_3, 44
-	mus_note C_4, 4
-	mus_note C_4, 20
-	mus_note D_4, 4
-	mus_note D_4, 12
-	mus_note D_4, 4
-	mus_note D_4, 12
-	mus_ret 
-
-Mus_01_5796::
-	mus_note C_4, 4
-	mus_note C_4, 20
-	mus_note B_3, 4
-	mus_note B_3, 44
-	mus_note C_4, 4
-	mus_note C_4, 20
-	mus_note D_4, 4
-	mus_note D_4, 4
-	mus_ret 
-
-Mus_01_57a7::
+Mus_Song16_Ch2_Sub_7::
 	mus_note C_4, 4
 	mus_note C_4, 20
 	mus_note B_3, 4
@@ -3287,7 +3263,31 @@ Mus_01_57a7::
 	mus_note D_4, 12
 	mus_ret 
 
-Mus_01_57bc::
+Mus_Song16_Ch2_Sub_8::
+	mus_note C_4, 4
+	mus_note C_4, 20
+	mus_note B_3, 4
+	mus_note B_3, 44
+	mus_note C_4, 4
+	mus_note C_4, 20
+	mus_note D_4, 4
+	mus_note D_4, 4
+	mus_ret 
+
+Mus_Song16_Ch2_Sub_9::
+	mus_note C_4, 4
+	mus_note C_4, 20
+	mus_note B_3, 4
+	mus_note B_3, 44
+	mus_note C_4, 4
+	mus_note C_4, 20
+	mus_note D_4, 4
+	mus_note D_4, 12
+	mus_note D_4, 4
+	mus_note D_4, 12
+	mus_ret 
+
+Mus_Song16_Ch1_Sub_1::
 	mus_duty_envelope 2, $97
 	mus_note F_4, 16
 	mus_note Gs4, 2
@@ -3370,21 +3370,21 @@ Mus_01_57bc::
 Song16_Ch2::
 	mus_rest 32
 
-Mus_01_5859::
+Mus_Song16_Ch2::
 	mus_duty_envelope 1, $42
 	mus_transpose_add 1
-	mus_call Mus_01_5781
-	mus_call Mus_01_5770
+	mus_call Mus_Song16_Ch2_Sub_7
+	mus_call Mus_Song16_Ch2_Sub_6
 	mus_transpose_add 1
-	mus_call Mus_01_5781
-	mus_call Mus_01_5770
+	mus_call Mus_Song16_Ch2_Sub_7
+	mus_call Mus_Song16_Ch2_Sub_6
 	mus_transpose_add 1
-	mus_call Mus_01_5781
-	mus_call Mus_01_5770
+	mus_call Mus_Song16_Ch2_Sub_7
+	mus_call Mus_Song16_Ch2_Sub_6
 	mus_transpose_add 1
-	mus_call Mus_01_576b
+	mus_call Mus_Song16_Ch2_Sub_5
 	mus_transpose_add -1
-	mus_call Mus_01_576b
+	mus_call Mus_Song16_Ch2_Sub_5
 	mus_transpose_add -1
 	mus_note C_4, 4
 	mus_note C_4, 4
@@ -3392,25 +3392,25 @@ Mus_01_5859::
 	mus_transpose_add 1
 	mus_length_x 4
 	mus_transpose_add -1
-	mus_call Mus_01_5a28
-	mus_call Mus_01_5a0d
+	mus_call Mus_Song16_Ch1_Sub_9
+	mus_call Mus_Song16_Ch1_Sub_8
 	mus_transpose_add 1
-	mus_call Mus_01_5a28
-	mus_call Mus_01_5a0d
+	mus_call Mus_Song16_Ch1_Sub_9
+	mus_call Mus_Song16_Ch1_Sub_8
 	mus_transpose_add 1
-	mus_call Mus_01_5a28
-	mus_call Mus_01_5a0d
+	mus_call Mus_Song16_Ch1_Sub_9
+	mus_call Mus_Song16_Ch1_Sub_8
 	mus_transpose_add 1
-	mus_call Mus_01_5a06
+	mus_call Mus_Song16_Ch2_Sub_11
 	mus_transpose_add -1
-	mus_call Mus_01_5a06
+	mus_call Mus_Song16_Ch2_Sub_11
 	mus_transpose_add -1
 	mus_note E_4
 	mus_note E_4
 	mus_transpose_add 1
-	mus_call Mus_01_5a06
+	mus_call Mus_Song16_Ch2_Sub_11
 	mus_transpose_add -1
-	mus_call Mus_01_5a06
+	mus_call Mus_Song16_Ch2_Sub_11
 	mus_transpose_add -1
 	mus_note E_4
 	mus_note E_4
@@ -3418,23 +3418,23 @@ Mus_01_5859::
 	mus_transpose_off 
 	mus_duty_envelope 1, $32
 	mus_transpose_add -1
-	mus_call Mus_01_57a7
-	mus_call Mus_01_5796
+	mus_call Mus_Song16_Ch2_Sub_9
+	mus_call Mus_Song16_Ch2_Sub_8
 	mus_transpose_add 1
-	mus_call Mus_01_57a7
-	mus_call Mus_01_5796
-	mus_call Mus_01_56f6
-	mus_call Mus_01_573c
-	mus_call Mus_01_56a2
-	mus_call Mus_01_56d3
+	mus_call Mus_Song16_Ch2_Sub_9
+	mus_call Mus_Song16_Ch2_Sub_8
+	mus_call Mus_Song16_Ch2_Sub_3
+	mus_call Mus_Song16_Ch2_Sub_4
+	mus_call Mus_Song16_Ch2_Sub_1
+	mus_call Mus_Song16_Ch2_Sub_2
 	mus_transpose_off 
 	mus_duty_envelope 0, $72
-	mus_call_x 3, Mus_01_59a3
+	mus_call_x 3, Mus_Song16_Ch2_Sub_10
 	mus_transpose_off 
-	mus_jump_back Mus_01_5859
+	mus_jump_back Mus_Song16_Ch2
 	mus_end  ; never reached
 
-Mus_01_58e6::
+Mus_Song16_Ch1_Sub_2::
 	mus_length_x 4
 	mus_duty_envelope 2, $37
 	mus_note C_5
@@ -3477,7 +3477,7 @@ Mus_01_58e6::
 	mus_length_off 
 	mus_ret 
 
-Mus_01_5915::
+Mus_Song16_Ch1_Sub_3::
 	mus_length_x 4
 	mus_duty_envelope 2, $37
 	mus_note C_5
@@ -3512,7 +3512,7 @@ Mus_01_5915::
 	mus_length_off 
 	mus_ret 
 
-Mus_01_593a::
+Mus_Song16_Ch1_Sub_4::
 	mus_transpose_off 
 	mus_length_x 4
 	mus_duty_envelope 2, $37
@@ -3562,7 +3562,7 @@ Mus_01_593a::
 	mus_transpose_add 1
 	mus_ret 
 
-Mus_01_5976::
+Mus_Song16_Ch1_Sub_5::
 	mus_length_x 4
 	mus_duty_envelope 2, $37
 	mus_note C_5
@@ -3601,7 +3601,7 @@ Mus_01_5976::
 	mus_transpose_add 1
 	mus_ret 
 
-Mus_01_59a3::
+Mus_Song16_Ch2_Sub_10::
 	mus_length_x 4
 	mus_note Fs4
 	mus_note Fs4
@@ -3638,7 +3638,7 @@ Mus_01_59a3::
 	mus_length_off 
 	mus_ret 
 
-Mus_01_59c6::
+Mus_Song16_Ch1_Sub_6::
 	mus_length_x 4
 	mus_note E_4
 	mus_note E_4
@@ -3669,7 +3669,7 @@ Mus_01_59c6::
 	mus_length_off 
 	mus_ret 
 
-Mus_01_59e3::
+Mus_Song16_Ch1_Sub_7::
 	mus_length_x 4
 	mus_note E_4
 	mus_note E_4
@@ -3706,7 +3706,7 @@ Mus_01_59e3::
 	mus_length_off 
 	mus_ret 
 
-Mus_01_5a06::
+Mus_Song16_Ch2_Sub_11::
 	mus_note E_4
 	mus_note E_4
 	mus_note A_3
@@ -3715,7 +3715,7 @@ Mus_01_5a06::
 	mus_note A_3
 	mus_ret 
 
-Mus_01_5a0d::
+Mus_Song16_Ch1_Sub_8::
 	mus_note E_4
 	mus_note E_4
 	mus_note A_3
@@ -3744,7 +3744,7 @@ Mus_01_5a0d::
 	mus_note F_4
 	mus_ret 
 
-Mus_01_5a28::
+Mus_Song16_Ch1_Sub_9::
 	mus_note E_4
 	mus_note E_4
 	mus_note A_3
@@ -3779,23 +3779,23 @@ Mus_01_5a28::
 	mus_note A_3
 	mus_ret 
 
-MusUnused_01_5a49::
+MusUnused_03::
 	mus_note B_3, 152 ; never reached
 	mus_note B_3, 152 ; never reached
 	mus_note B_3, 152 ; never reached
 	mus_ret  ; never reached
-	mus_call_x 3, MusUnused_01_5a49 ; never reached
+	mus_call_x 3, MusUnused_03 ; never reached
 	mus_note A_3, 151 ; never reached
 	mus_note B_3, 152 ; never reached
 	mus_note B_3, 152 ; never reached
-	mus_call MusUnused_01_5a49 ; never reached
+	mus_call MusUnused_03 ; never reached
 	mus_note B_3, 152 ; never reached
 	mus_ret  ; never reached
-	mus_call_x 3, MusUnused_01_5a49 ; never reached
+	mus_call_x 3, MusUnused_03 ; never reached
 	mus_note A_3, 151 ; never reached
 	mus_note B_3, 152 ; never reached
 	mus_note B_3, 152 ; never reached
-	mus_call MusUnused_01_5a49 ; never reached
+	mus_call MusUnused_03 ; never reached
 	mus_note B_3, 152 ; never reached
 	mus_note B_3, 152 ; never reached
 	mus_note B_3, 152 ; never reached
@@ -3805,63 +3805,63 @@ MusUnused_01_5a49::
 Song16_Ch3::
 	mus_rest 16
 
-Mus_01_5a76::
+Mus_Song16_Ch3::
 	mus_transpose_off 
 	mus_wave $30
 	mus_rest 16
 	mus_regs $e0, $40, $40
 	mus_transpose_add -1
-	mus_call Mus_01_5b64
+	mus_call Mus_Song16_Ch3_Sub_6
 	mus_transpose_add 1
-	mus_call Mus_01_5b64
+	mus_call Mus_Song16_Ch3_Sub_6
 	mus_transpose_add 1
-	mus_call Mus_01_5b64
+	mus_call Mus_Song16_Ch3_Sub_6
 	mus_transpose_add 1
-	mus_call Mus_01_5b5b
+	mus_call Mus_Song16_Ch3_Sub_5
 	mus_transpose_add -1
-	mus_call Mus_01_5b5b
-	mus_transpose_add -1
-	mus_regs $d0, $40, $40
-	mus_note B_2, 8
-	mus_regs $e0, $40, $40
-	mus_transpose_add -1
-	mus_call Mus_01_5b64
-	mus_transpose_add 1
-	mus_call Mus_01_5b64
-	mus_transpose_add 1
-	mus_call Mus_01_5b64
-	mus_transpose_add 1
-	mus_call Mus_01_5b5b
-	mus_transpose_add -1
-	mus_call Mus_01_5b5b
+	mus_call Mus_Song16_Ch3_Sub_5
 	mus_transpose_add -1
 	mus_regs $d0, $40, $40
 	mus_note B_2, 8
 	mus_regs $e0, $40, $40
-	mus_transpose_add 1
-	mus_call Mus_01_5b5b
 	mus_transpose_add -1
-	mus_call Mus_01_5b5b
+	mus_call Mus_Song16_Ch3_Sub_6
+	mus_transpose_add 1
+	mus_call Mus_Song16_Ch3_Sub_6
+	mus_transpose_add 1
+	mus_call Mus_Song16_Ch3_Sub_6
+	mus_transpose_add 1
+	mus_call Mus_Song16_Ch3_Sub_5
+	mus_transpose_add -1
+	mus_call Mus_Song16_Ch3_Sub_5
 	mus_transpose_add -1
 	mus_regs $d0, $40, $40
 	mus_note B_2, 8
-	mus_call Mus_01_5b10
+	mus_regs $e0, $40, $40
 	mus_transpose_add 1
-	mus_call Mus_01_5b10
+	mus_call Mus_Song16_Ch3_Sub_5
 	mus_transpose_add -1
-	mus_call Mus_01_5b10
+	mus_call Mus_Song16_Ch3_Sub_5
+	mus_transpose_add -1
+	mus_regs $d0, $40, $40
+	mus_note B_2, 8
+	mus_call Mus_Song16_Ch3_Sub_2
 	mus_transpose_add 1
-	mus_call Mus_01_5b10
+	mus_call Mus_Song16_Ch3_Sub_2
+	mus_transpose_add -1
+	mus_call Mus_Song16_Ch3_Sub_2
+	mus_transpose_add 1
+	mus_call Mus_Song16_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call Mus_01_5b42
-	mus_call Mus_01_5b2b
-	mus_call Mus_01_5b42
-	mus_call Mus_01_5aff
+	mus_call Mus_Song16_Ch3_Sub_4
+	mus_call Mus_Song16_Ch3_Sub_3
+	mus_call Mus_Song16_Ch3_Sub_4
+	mus_call Mus_Song16_Ch3_Sub_1
 	mus_transpose_off 
-	mus_jump_back Mus_01_5a76
+	mus_jump_back Mus_Song16_Ch3
 	mus_end  ; never reached
 
-Mus_01_5aff::
+Mus_Song16_Ch3_Sub_1::
 	mus_note A_2, 8
 	mus_volume 4
 	mus_note A_2, 8
@@ -3874,14 +3874,14 @@ Mus_01_5aff::
 	mus_note A_2, 8
 	mus_ret 
 
-Mus_01_5b10::
-	mus_call Mus_01_5b42
-	mus_call Mus_01_5b2b
-	mus_call Mus_01_5b42
-	mus_call Mus_01_5b1d
+Mus_Song16_Ch3_Sub_2::
+	mus_call Mus_Song16_Ch3_Sub_4
+	mus_call Mus_Song16_Ch3_Sub_3
+	mus_call Mus_Song16_Ch3_Sub_4
+	mus_call Mus_Song16_Ch3_Sub_Sub_1
 	mus_ret 
 
-Mus_01_5b1d::
+Mus_Song16_Ch3_Sub_Sub_1::
 	mus_note A_2, 8
 	mus_volume 4
 	mus_note A_2, 8
@@ -3889,27 +3889,27 @@ Mus_01_5b1d::
 	mus_note A_2, 8
 	mus_note A_2, 8
 	mus_volume 4
-	mus_note A_2, 8
-	mus_ret 
-
-Mus_01_5b2b::
-	mus_note A_2, 8
-	mus_volume 4
-	mus_note A_2, 8
-	mus_volume 6
-	mus_note A_2, 8
-	mus_note A_2, 8
-	mus_volume 4
-	mus_note A_2, 8
-	mus_volume 6
-	mus_note A_2, 8
-	mus_volume 4
-	mus_note A_2, 8
-	mus_volume 6
 	mus_note A_2, 8
 	mus_ret 
 
-Mus_01_5b42::
+Mus_Song16_Ch3_Sub_3::
+	mus_note A_2, 8
+	mus_volume 4
+	mus_note A_2, 8
+	mus_volume 6
+	mus_note A_2, 8
+	mus_note A_2, 8
+	mus_volume 4
+	mus_note A_2, 8
+	mus_volume 6
+	mus_note A_2, 8
+	mus_volume 4
+	mus_note A_2, 8
+	mus_volume 6
+	mus_note A_2, 8
+	mus_ret 
+
+Mus_Song16_Ch3_Sub_4::
 	mus_volume 4
 	mus_note A_2, 8
 	mus_volume 6
@@ -3927,7 +3927,7 @@ Mus_01_5b42::
 	mus_note A_2, 8
 	mus_ret 
 
-Mus_01_5b5b::
+Mus_Song16_Ch3_Sub_5::
 	mus_volume 4
 	mus_note B_2, 8
 	mus_volume 6
@@ -3935,14 +3935,14 @@ Mus_01_5b5b::
 	mus_note B_2, 8
 	mus_ret 
 
-Mus_01_5b64::
-	mus_call Mus_01_5b96
-	mus_call Mus_01_5b7f
-	mus_call Mus_01_5b96
-	mus_call Mus_01_5b71
+Mus_Song16_Ch3_Sub_6::
+	mus_call Mus_Song16_Ch3_Sub_Sub_4
+	mus_call Mus_Song16_Ch3_Sub_Sub_3
+	mus_call Mus_Song16_Ch3_Sub_Sub_4
+	mus_call Mus_Song16_Ch3_Sub_Sub_2
 	mus_ret 
 
-Mus_01_5b71::
+Mus_Song16_Ch3_Sub_Sub_2::
 	mus_note B_2, 8
 	mus_volume 4
 	mus_note B_2, 8
@@ -3950,27 +3950,27 @@ Mus_01_5b71::
 	mus_note B_2, 8
 	mus_note B_2, 8
 	mus_volume 4
-	mus_note B_2, 8
-	mus_ret 
-
-Mus_01_5b7f::
-	mus_note B_2, 8
-	mus_volume 4
-	mus_note B_2, 8
-	mus_volume 6
-	mus_note B_2, 8
-	mus_note B_2, 8
-	mus_volume 4
-	mus_note B_2, 8
-	mus_volume 6
-	mus_note B_2, 8
-	mus_volume 4
-	mus_note B_2, 8
-	mus_volume 6
 	mus_note B_2, 8
 	mus_ret 
 
-Mus_01_5b96::
+Mus_Song16_Ch3_Sub_Sub_3::
+	mus_note B_2, 8
+	mus_volume 4
+	mus_note B_2, 8
+	mus_volume 6
+	mus_note B_2, 8
+	mus_note B_2, 8
+	mus_volume 4
+	mus_note B_2, 8
+	mus_volume 6
+	mus_note B_2, 8
+	mus_volume 4
+	mus_note B_2, 8
+	mus_volume 6
+	mus_note B_2, 8
+	mus_ret 
+
+Mus_Song16_Ch3_Sub_Sub_4::
 	mus_volume 4
 	mus_note B_2, 8
 	mus_volume 6
@@ -4003,22 +4003,22 @@ Song16_Ch4::
 	mus_note 69
 	mus_length_off 
 
-Mus_01_5bc0::
+Mus_Song16_Ch4::
 	mus_length_x 4
-	mus_call Mus_01_5ccc
-	mus_call Mus_01_5c3a
-	mus_call Mus_01_5c7b
-	mus_call Mus_01_5c3a
-	mus_call Mus_01_5c7b
-	mus_call Mus_01_5c3a
-	mus_call Mus_01_5c11
-	mus_call Mus_01_5ccc
-	mus_call Mus_01_5c3a
-	mus_call Mus_01_5c7b
-	mus_call Mus_01_5c3a
-	mus_call Mus_01_5c7b
-	mus_call Mus_01_5c3a
-	mus_call_x 3, Mus_01_5c11
+	mus_call Mus_Song16_Ch4_Sub_4
+	mus_call Mus_Song16_Ch4_Sub_2
+	mus_call Mus_Song16_Ch4_Sub_3
+	mus_call Mus_Song16_Ch4_Sub_2
+	mus_call Mus_Song16_Ch4_Sub_3
+	mus_call Mus_Song16_Ch4_Sub_2
+	mus_call Mus_Song16_Ch4_Sub_1
+	mus_call Mus_Song16_Ch4_Sub_4
+	mus_call Mus_Song16_Ch4_Sub_2
+	mus_call Mus_Song16_Ch4_Sub_3
+	mus_call Mus_Song16_Ch4_Sub_2
+	mus_call Mus_Song16_Ch4_Sub_3
+	mus_call Mus_Song16_Ch4_Sub_2
+	mus_call_x 3, Mus_Song16_Ch4_Sub_1
 	mus_length_off 
 	mus_rest 232
 	mus_rest 232
@@ -4037,10 +4037,10 @@ Mus_01_5bc0::
 	mus_note 69, 24
 	mus_note 69, 16
 	mus_note 69, 16
-	mus_jump_back Mus_01_5bc0
+	mus_jump_back Mus_Song16_Ch4
 	mus_end  ; never reached
 
-Mus_01_5c11::
+Mus_Song16_Ch4_Sub_1::
 	mus_envelope $65
 	mus_note 69
 	mus_note 69
@@ -4070,7 +4070,7 @@ Mus_01_5c11::
 	mus_note 69
 	mus_ret 
 
-Mus_01_5c3a::
+Mus_Song16_Ch4_Sub_2::
 	mus_envelope $81
 	mus_note B_5
 	mus_envelope $25
@@ -4118,7 +4118,7 @@ Mus_01_5c3a::
 	mus_note B_5
 	mus_ret 
 
-Mus_01_5c7b::
+Mus_Song16_Ch4_Sub_3::
 	mus_envelope $65
 	mus_note 69
 	mus_envelope $26
@@ -4177,7 +4177,7 @@ Mus_01_5c7b::
 	mus_note 69
 	mus_ret 
 
-Mus_01_5ccc::
+Mus_Song16_Ch4_Sub_4::
 	mus_envelope $81
 	mus_note B_5
 	mus_envelope $25
@@ -4240,31 +4240,31 @@ Mus_01_5ccc::
 Song17_Ch1::
 	mus_transpose_off 
 
-Mus_01_5d20::
-	mus_call_x 4, Mus_01_5e14
+Mus_Song17_Ch1::
+	mus_call_x 4, Mus_Song17_Ch1_Sub_4
 	mus_duty_envelope 0, $92
-	mus_call Mus_01_5dad
+	mus_call Mus_Song17_Ch1_Sub_1
 	mus_note F_4, 8
 	mus_note C_4, 4
-	mus_call Mus_01_5dde
-	mus_call Mus_01_5de3
-	mus_call Mus_01_5dde
+	mus_call Mus_Song17_Ch1_Sub_2
+	mus_call Mus_Song17_Ch1_Sub_3
+	mus_call Mus_Song17_Ch1_Sub_2
 	mus_rest 36
 	mus_duty_envelope 0, $63
-	mus_call Mus_01_5dde
-	mus_call Mus_01_5de3
+	mus_call Mus_Song17_Ch1_Sub_2
+	mus_call Mus_Song17_Ch1_Sub_3
 	mus_note C_4, 12
-	mus_call Mus_01_5de3
+	mus_call Mus_Song17_Ch1_Sub_3
 	mus_note C_4, 8
 	mus_rest 100
 	mus_duty_envelope 1, $82
 	mus_transpose_add 5
-	mus_call Mus_01_5dad
+	mus_call Mus_Song17_Ch1_Sub_1
 	mus_note F_4, 8
 	mus_note C_4, 4
-	mus_call Mus_01_5dde
-	mus_call Mus_01_5de3
-	mus_call Mus_01_5dde
+	mus_call Mus_Song17_Ch1_Sub_2
+	mus_call Mus_Song17_Ch1_Sub_3
+	mus_call Mus_Song17_Ch1_Sub_2
 	mus_duty_envelope 2, $68
 	mus_vibrato_ex $02, $02, $05, $0f
 	mus_transpose_off 
@@ -4294,34 +4294,34 @@ Mus_01_5d20::
 	mus_note G_3, 24
 	mus_note A_3, 96
 	mus_vibrato_off 
-	mus_call_x 3, Mus_01_5e14
-	mus_call_x 3, Mus_01_5e14
+	mus_call_x 3, Mus_Song17_Ch1_Sub_4
+	mus_call_x 3, Mus_Song17_Ch1_Sub_4
 	mus_transpose_add 5
-	mus_call Mus_01_5e14
+	mus_call Mus_Song17_Ch1_Sub_4
 	mus_transpose_add 2
-	mus_call Mus_01_5e14
+	mus_call Mus_Song17_Ch1_Sub_4
 	mus_transpose_add -7
 	mus_transpose_off 
-	mus_jump_back Mus_01_5d20
+	mus_jump_back Mus_Song17_Ch1
 
-Mus_01_5dad::
-	mus_call Mus_01_5dc4
-	mus_call Mus_01_5dc4
-	mus_call Mus_01_5dc4
-	mus_call Mus_01_5dc4
-	mus_call Mus_01_5dcb
+Mus_Song17_Ch1_Sub_1::
+	mus_call Mus_Song17_Ch1_Sub_Sub_1
+	mus_call Mus_Song17_Ch1_Sub_Sub_1
+	mus_call Mus_Song17_Ch1_Sub_Sub_1
+	mus_call Mus_Song17_Ch1_Sub_Sub_1
+	mus_call Mus_Song17_Ch1_Sub_Sub_2
 	mus_transpose_add -3
-	mus_call Mus_01_5dcb
+	mus_call Mus_Song17_Ch1_Sub_Sub_2
 	mus_transpose_add 3
 	mus_ret 
 
-Mus_01_5dc4::
+Mus_Song17_Ch1_Sub_Sub_1::
 	mus_note C_5, 4
 	mus_note C_5, 4
 	mus_note C_5, 4
 	mus_ret 
 
-Mus_01_5dcb::
+Mus_Song17_Ch1_Sub_Sub_2::
 	mus_note C_5, 8
 	mus_note B_4, 4
 	mus_note Fs4, 8
@@ -4333,12 +4333,12 @@ Mus_01_5dcb::
 	mus_note E_4, 4
 	mus_ret 
 
-Mus_01_5dde::
+Mus_Song17_Ch1_Sub_2::
 	mus_note C_4, 8
 	mus_note C_4, 4
 	mus_ret 
 
-Mus_01_5de3::
+Mus_Song17_Ch1_Sub_3::
 	mus_note C_4, 4
 	mus_note D_4, 4
 	mus_note Cs4, 4
@@ -4350,14 +4350,14 @@ Song17_Ch2::
 	mus_rest 192
 	mus_rest 192
 	mus_rest 192
-	mus_call_x 3, Mus_01_5e14
+	mus_call_x 3, Mus_Song17_Ch1_Sub_4
 	mus_transpose_add 5
-	mus_call Mus_01_5e14
+	mus_call Mus_Song17_Ch1_Sub_4
 	mus_transpose_add 2
-	mus_call Mus_01_5e14
+	mus_call Mus_Song17_Ch1_Sub_4
 	mus_transpose_add -7
 	mus_transpose_off 
-	mus_call_x 3, Mus_01_5e14
+	mus_call_x 3, Mus_Song17_Ch1_Sub_4
 	mus_rest 192
 	mus_rest 192
 	mus_rest 192
@@ -4366,14 +4366,14 @@ Song17_Ch2::
 	mus_rest 192
 	mus_jump_back Song17_Ch2
 
-Mus_01_5e14::
-	mus_call Mus_01_5e21
-	mus_call Mus_01_5e48
-	mus_call Mus_01_5e21
-	mus_call Mus_01_5e73
+Mus_Song17_Ch1_Sub_4::
+	mus_call Mus_Song17_Ch1_Sub_Sub_3
+	mus_call Mus_Song17_Ch1_Sub_Sub_4
+	mus_call Mus_Song17_Ch1_Sub_Sub_3
+	mus_call Mus_Song17_Ch1_Sub_Sub_5
 	mus_ret 
 
-Mus_01_5e21::
+Mus_Song17_Ch1_Sub_Sub_3::
 	mus_duty_envelope 2, $91
 	mus_note C_3, 8
 	mus_duty_envelope 2, $81
@@ -4395,7 +4395,7 @@ Mus_01_5e21::
 	mus_note G_3, 4
 	mus_ret 
 
-Mus_01_5e48::
+Mus_Song17_Ch1_Sub_Sub_4::
 	mus_duty_envelope 2, $73
 	mus_note D_3, 4
 	mus_note Cs3, 4
@@ -4419,7 +4419,7 @@ Mus_01_5e48::
 	mus_note Fs4, 4
 	mus_ret 
 
-Mus_01_5e73::
+Mus_Song17_Ch1_Sub_Sub_5::
 	mus_duty_envelope 2, $73
 	mus_note D_3, 4
 	mus_note Cs3, 4
@@ -4448,25 +4448,25 @@ Song17_Ch3::
 	mus_rest 192
 	mus_rest 192
 	mus_wave $60
-	mus_call_x 2, Mus_01_5ec4
-	mus_call Mus_01_5eeb
-	mus_call_x 2, Mus_01_5ec4
-	mus_call Mus_01_5eeb
-	mus_call Mus_01_5ef1
-	mus_call Mus_01_5f16
+	mus_call_x 2, Mus_Song17_Ch3_Sub_1
+	mus_call Mus_Song17_Ch3_Sub_2
+	mus_call_x 2, Mus_Song17_Ch3_Sub_1
+	mus_call Mus_Song17_Ch3_Sub_2
+	mus_call Mus_Song17_Ch3_Sub_3
+	mus_call Mus_Song17_Ch3_Sub_4
 	mus_transpose_add 2
-	mus_call Mus_01_5ef1
-	mus_call Mus_01_5f16
+	mus_call Mus_Song17_Ch3_Sub_3
+	mus_call Mus_Song17_Ch3_Sub_4
 	mus_transpose_off 
 	mus_jump_back Song17_Ch3
 
-Mus_01_5ec4::
-	mus_call Mus_01_5ecc
+Mus_Song17_Ch3_Sub_1::
+	mus_call Mus_Song17_Ch3_Sub_Sub_1
 	mus_note C_3, 12
 	mus_note G_2, 12
 	mus_ret 
 
-Mus_01_5ecc::
+Mus_Song17_Ch3_Sub_Sub_1::
 	mus_regs $e8, $30, $40
 	mus_note C_3, 12
 	mus_note G_2, 12
@@ -4481,18 +4481,18 @@ Mus_01_5ecc::
 	mus_note G_2, 12
 	mus_ret 
 
-Mus_01_5eeb::
-	mus_call Mus_01_5ecc
+Mus_Song17_Ch3_Sub_2::
+	mus_call Mus_Song17_Ch3_Sub_Sub_1
 	mus_note C_3, 24
 	mus_ret 
 
-Mus_01_5ef1::
-	mus_call Mus_01_5ef9
+Mus_Song17_Ch3_Sub_3::
+	mus_call Mus_Song17_Ch3_Sub_Sub_2
 	mus_note F_3, 12
 	mus_note C_3, 12
 	mus_ret 
 
-Mus_01_5ef9::
+Mus_Song17_Ch3_Sub_Sub_2::
 	mus_regs $e8, $30, $40
 	mus_note F_3, 12
 	mus_note C_3, 12
@@ -4506,8 +4506,8 @@ Mus_01_5ef9::
 	mus_note C_3, 12
 	mus_ret 
 
-Mus_01_5f16::
-	mus_call Mus_01_5ef9
+Mus_Song17_Ch3_Sub_4::
+	mus_call Mus_Song17_Ch3_Sub_Sub_2
 	mus_note F_3, 24
 	mus_ret 
 
@@ -4515,26 +4515,26 @@ Song17_Ch4::
 	mus_rest 192
 	mus_rest 192
 
-Mus_01_5f20::
-	mus_call_x 6, Mus_01_5f35
+Mus_Song17_Ch4::
+	mus_call_x 6, Mus_Song17_Ch4_Sub_2
 	mus_rest 8
-	mus_call_x 16, Mus_01_5f30
-	mus_call_times 15, Mus_01_5f30
+	mus_call_x 16, Mus_Song17_Ch4_Sub_1
+	mus_call_times 15, Mus_Song17_Ch4_Sub_1
 	mus_note 66, 4
-	mus_jump_back Mus_01_5f20
+	mus_jump_back Mus_Song17_Ch4
 
-Mus_01_5f30::
+Mus_Song17_Ch4_Sub_1::
 	mus_envelope $13
 	mus_note 66, 12
 	mus_ret 
 
-Mus_01_5f35::
-	mus_call Mus_01_5f50
+Mus_Song17_Ch4_Sub_2::
+	mus_call Mus_Song17_Ch4_Sub_Sub
 	mus_envelope $65
 	mus_note 63, 12
 	mus_envelope $55
 	mus_note 63, 12
-	mus_call Mus_01_5f50
+	mus_call Mus_Song17_Ch4_Sub_Sub
 	mus_envelope $65
 	mus_note 63, 12
 	mus_envelope $36
@@ -4543,7 +4543,7 @@ Mus_01_5f35::
 	mus_note B_5, 4
 	mus_ret 
 
-Mus_01_5f50::
+Mus_Song17_Ch4_Sub_Sub::
 	mus_envelope $81
 	mus_note B_5, 12
 	mus_envelope $32
@@ -4570,18 +4570,18 @@ Mus_01_5f50::
 Song15_Ch1::
 	mus_duty_envelope 2, $22
 	mus_length_x 4
-	mus_call_times 28, Mus_01_614d
+	mus_call_times 28, Mus_Song15_Ch1_Sub_2
 	mus_length_off 
 	mus_transpose -12
-	mus_call Mus_01_5faa
+	mus_call Mus_Song15_Ch1_Sub_1
 	mus_transpose_off 
 	mus_length_x 4
-	mus_call_x 8, Mus_01_614d
-	mus_call_x 8, Mus_01_614d
-	mus_call_x 8, Mus_01_614d
+	mus_call_x 8, Mus_Song15_Ch1_Sub_2
+	mus_call_x 8, Mus_Song15_Ch1_Sub_2
+	mus_call_x 8, Mus_Song15_Ch1_Sub_2
 	mus_length_off 
 	mus_transpose -12
-	mus_call Mus_01_5faa
+	mus_call Mus_Song15_Ch1_Sub_1
 	mus_transpose_off 
 	mus_vibrato_ex $01, $02, $05, $0a
 	mus_duty_envelope 2, $28
@@ -4591,7 +4591,7 @@ Song15_Ch1::
 	mus_jump_back Song15_Ch1
 	mus_end  ; never reached
 
-Mus_01_5faa::
+Mus_Song15_Ch1_Sub_1::
 	mus_vibrato_ex $02, $02, $04, $06
 	mus_duty_envelope 2, $a5
 	mus_note As3, 12
@@ -4785,19 +4785,19 @@ Song15_Ch2::
 	mus_octave_up 
 	mus_length_x 4
 	mus_duty_envelope 2, $22
-	mus_call Mus_01_61b0
+	mus_call Mus_Song15_Ch2_Sub_2
 	mus_duty_envelope 2, $22
-	mus_call Mus_01_616f
+	mus_call Mus_Song15_Ch2_Sub_1
 	mus_length_off 
 	mus_rest 128
 	mus_rest 128
 	mus_length_x 4
-	mus_call_times 56, Mus_01_614d
+	mus_call_times 56, Mus_Song15_Ch1_Sub_2
 	mus_length_off 
 	mus_jump_back Song15_Ch2
 	mus_end  ; never reached
 
-MusUnused_01_613c::
+MusUnused_04::
 	mus_duty_envelope 2, $22 ; never reached
 	mus_note C_4 ; never reached
 	mus_duty_envelope 1, $22 ; never reached
@@ -4812,7 +4812,7 @@ MusUnused_01_613c::
 	mus_note C_4 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_614d::
+Mus_Song15_Ch1_Sub_2::
 	mus_duty_envelope 2, $22
 	mus_note D_4
 	mus_duty_envelope 1, $22
@@ -4827,7 +4827,7 @@ Mus_01_614d::
 	mus_note D_4
 	mus_ret 
 
-MusUnused_01_615e::
+MusUnused_05::
 	mus_duty_envelope 2, $22 ; never reached
 	mus_note C_4 ; never reached
 	mus_duty_envelope 1, $22 ; never reached
@@ -4842,7 +4842,7 @@ MusUnused_01_615e::
 	mus_note C_4 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_616f::
+Mus_Song15_Ch2_Sub_1::
 	mus_volume 5
 	mus_note A_3
 	mus_volume 2
@@ -4909,7 +4909,7 @@ Mus_01_616f::
 	mus_note As3
 	mus_ret 
 
-Mus_01_61b0::
+Mus_Song15_Ch2_Sub_2::
 	mus_volume 7
 	mus_note A_3
 	mus_volume 3
@@ -4982,66 +4982,66 @@ Song15_Ch3::
 	mus_transpose_off 
 	mus_regs $d5, $40, $40
 	mus_wave $60
-	mus_call_times 48, Mus_01_627e
+	mus_call_times 48, Mus_Song15_Ch3_Sub_1
 	mus_length_x 8
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 3
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add -5
-	mus_call Mus_01_6281
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 3
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add -5
-	mus_call_x 3, Mus_01_6281
+	mus_call_x 3, Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 3
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_length_off 
 	mus_transpose_off 
 	mus_transpose_add 7
-	mus_call_times 32, Mus_01_627e
+	mus_call_times 32, Mus_Song15_Ch3_Sub_1
 	mus_transpose_add -7
-	mus_call_times 32, Mus_01_627e
+	mus_call_times 32, Mus_Song15_Ch3_Sub_1
 	mus_transpose_off 
 	mus_length_x 8
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 3
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add -5
-	mus_call Mus_01_6281
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 3
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add -5
-	mus_call_x 3, Mus_01_6281
+	mus_call_x 3, Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 3
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add 2
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_off 
 	mus_transpose_add 2
-	mus_call Mus_01_6281
+	mus_call Mus_Song15_Ch3_Sub_2
 	mus_transpose_add -2
-	mus_call_x 3, Mus_01_6281
+	mus_call_x 3, Mus_Song15_Ch3_Sub_2
 	mus_length_off 
 	mus_jump_back Song15_Ch3
 	mus_end  ; never reached
 
-Mus_01_627e::
+Mus_Song15_Ch3_Sub_1::
 	mus_note D_2, 8
 	mus_ret 
 
-Mus_01_6281::
+Mus_Song15_Ch3_Sub_2::
 	mus_volume 3
 	mus_note G_2
 	mus_volume 5
@@ -5086,11 +5086,11 @@ Song15_Ch4::
 	mus_rest 128
 	mus_rest 128
 
-Mus_01_62ba::
-	mus_call Mus_01_62bf
-	mus_jump_back Mus_01_62ba
+Mus_Song15_Ch4::
+	mus_call Mus_Song15_Ch4_Sub
+	mus_jump_back Mus_Song15_Ch4
 
-Mus_01_62bf::
+Mus_Song15_Ch4_Sub::
 	mus_envelope $65
 	mus_note B_5, 8
 	mus_envelope $12
@@ -5122,57 +5122,57 @@ Mus_01_62bf::
 	mus_ret 
 
 Song14_Ch1::
-	mus_call Mus_01_633b
-	mus_call_x 2, Mus_01_6371
-	mus_call Mus_01_6341
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_call_x 2, Mus_Song14_Ch1_Sub_2
+	mus_call Mus_Song14_Ch1_Sub_1
 	mus_rest 28
 
-Mus_01_6303::
-	mus_call Mus_01_64b6
-	mus_call Mus_01_65b8
-	mus_call Mus_01_64b6
+Mus_Song14_Ch1::
+	mus_call Mus_Song14_Ch1_Sub_5
+	mus_call Mus_Song14_Ch1_Sub_6
+	mus_call Mus_Song14_Ch1_Sub_5
 	mus_rest 32
 	mus_duty_envelope 2, $a2
-	mus_call Mus_01_6402
+	mus_call Mus_Song14_Ch1_Sub_4
 	mus_note Fs4, 20
 	mus_transpose_add 4
-	mus_call Mus_01_63b9
+	mus_call Mus_Song14_Ch1_Sub_3
 	mus_vibrato_ex $01, $02, $02, $09
 	mus_duty_envelope 2, $55
-	mus_call Mus_01_6402
+	mus_call Mus_Song14_Ch1_Sub_4
 	mus_note Fs4, 72
 	mus_transpose_add 4
 	mus_vibrato_off 
 	mus_transpose_off 
-	mus_call Mus_01_633b
-	mus_call Mus_01_6371
-	mus_call Mus_01_6341
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_call Mus_Song14_Ch1_Sub_2
+	mus_call Mus_Song14_Ch1_Sub_1
 	mus_rest 28
-	mus_jump_back Mus_01_6303
+	mus_jump_back Mus_Song14_Ch1
 	mus_end  ; never reached
 
-Mus_01_6338::
+Mus_Song14_Ch1_Sub_Sub_1::
 	mus_duty_envelope 0, $91
 	mus_ret 
 
-Mus_01_633b::
+Mus_Song14_Ch1_Sub_Sub_2::
 	mus_duty_envelope 1, $91
 	mus_ret 
 
-Mus_01_633e::
+Mus_Song14_Ch1_Sub_Sub_3::
 	mus_duty_envelope 2, $91
 	mus_ret 
 
-Mus_01_6341::
-	mus_call Mus_01_6392
+Mus_Song14_Ch1_Sub_1::
+	mus_call Mus_Song14_Ch1_Sub_Sub_4
 	mus_volume 8
 	mus_note G_4, 4
 	mus_note A_4, 4
-	mus_call Mus_01_6392
+	mus_call Mus_Song14_Ch1_Sub_Sub_4
 	mus_volume 8
 	mus_note E_4, 4
 	mus_note G_4, 4
-	mus_call Mus_01_6392
+	mus_call Mus_Song14_Ch1_Sub_Sub_4
 	mus_volume 8
 	mus_note E_4, 4
 	mus_note G_4, 4
@@ -5193,26 +5193,26 @@ Mus_01_6341::
 	mus_note A_4, 4
 	mus_ret 
 
-Mus_01_6371::
-	mus_call Mus_01_6392
+Mus_Song14_Ch1_Sub_2::
+	mus_call Mus_Song14_Ch1_Sub_Sub_4
 	mus_volume 8
 	mus_note G_4, 4
 	mus_note A_4, 4
-	mus_call Mus_01_6392
+	mus_call Mus_Song14_Ch1_Sub_Sub_4
 	mus_volume 8
 	mus_note E_4, 4
 	mus_note G_4, 4
-	mus_call Mus_01_6392
+	mus_call Mus_Song14_Ch1_Sub_Sub_4
 	mus_volume 8
 	mus_note E_4, 4
 	mus_note G_4, 4
-	mus_call Mus_01_6392
+	mus_call Mus_Song14_Ch1_Sub_Sub_4
 	mus_volume 8
 	mus_note A_4, 4
 	mus_note C_5, 4
 	mus_ret 
 
-Mus_01_6392::
+Mus_Song14_Ch1_Sub_Sub_4::
 	mus_rest 8
 	mus_volume 8
 	mus_note A_4, 4
@@ -5240,47 +5240,47 @@ Mus_01_6392::
 	mus_note G_4, 4
 	mus_ret 
 
-Mus_01_63b9::
-	mus_call Mus_01_6338
+Mus_Song14_Ch1_Sub_3::
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note D_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note D_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note D_4, 4
-	mus_call Mus_01_633b
-	mus_volume 6
-	mus_note D_4, 4
-	mus_volume 4
-	mus_note D_4, 4
-	mus_call Mus_01_633e
-	mus_volume 6
-	mus_note D_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note D_4, 4
 	mus_volume 4
 	mus_note D_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note D_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note D_4, 4
-	mus_call Mus_01_633b
+	mus_volume 4
+	mus_note D_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note D_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note D_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_volume 6
+	mus_note D_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
+	mus_volume 6
+	mus_note D_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note D_4, 4
 	mus_ret 
 
-Mus_01_6402::
+Mus_Song14_Ch1_Sub_4::
 	mus_transpose_add -4
 	mus_note Cs5, 24
 	mus_note Cs5, 16
@@ -5312,33 +5312,33 @@ Mus_01_6402::
 	mus_ret 
 
 Song14_Ch2::
-	mus_call Mus_01_6338
-	mus_call_x 3, Mus_01_6473
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
+	mus_call_x 3, Mus_Song14_Ch2_Sub_1
 
-Mus_01_6441::
-	mus_call Mus_01_64b6
-	mus_call Mus_01_65b8
-	mus_call Mus_01_64b6
+Mus_Song14_Ch2::
+	mus_call Mus_Song14_Ch1_Sub_5
+	mus_call Mus_Song14_Ch1_Sub_6
+	mus_call Mus_Song14_Ch1_Sub_5
 	mus_rest 32
-	mus_call Mus_01_65e1
-	mus_call Mus_01_66e3
-	mus_call Mus_01_65e1
+	mus_call Mus_Song14_Ch2_Sub_2
+	mus_call Mus_Song14_Ch2_Sub_3
+	mus_call Mus_Song14_Ch2_Sub_2
 	mus_rest 32
 	mus_rest 7
 	mus_duty_envelope 2, $57
-	mus_call Mus_01_6402
+	mus_call Mus_Song14_Ch1_Sub_4
 	mus_note Fs4, 13
 	mus_transpose_add 4
 	mus_transpose_add 7
-	mus_call Mus_01_63b9
+	mus_call Mus_Song14_Ch1_Sub_3
 	mus_transpose_add -7
-	mus_call_x 3, Mus_01_6473
-	mus_call Mus_01_6338
+	mus_call_x 3, Mus_Song14_Ch2_Sub_1
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_transpose_off 
-	mus_jump_back Mus_01_6441
+	mus_jump_back Mus_Song14_Ch2
 	mus_end  ; never reached
 
-Mus_01_6473::
+Mus_Song14_Ch2_Sub_1::
 	mus_length_x 4
 	mus_note A_2
 	mus_note A_2
@@ -5407,11 +5407,11 @@ Mus_01_6473::
 	mus_length_off 
 	mus_ret 
 
-Mus_01_64b6::
+Mus_Song14_Ch1_Sub_5::
 	mus_volume 6
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note E_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
@@ -5420,153 +5420,153 @@ Mus_01_64b6::
 	mus_volume 4
 	mus_note E_4, 4
 	mus_volume 6
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_633b
-	mus_volume 6
-	mus_note E_4, 4
-	mus_volume 4
-	mus_note E_4, 4
-	mus_volume 6
-	mus_call Mus_01_633e
-	mus_note E_4, 4
-	mus_call Mus_01_6338
-	mus_note E_4, 4
-	mus_call Mus_01_633b
-	mus_note E_4, 4
-	mus_volume 4
-	mus_note E_4, 4
-	mus_volume 6
-	mus_call Mus_01_6338
-	mus_note E_4, 4
-	mus_call Mus_01_633b
-	mus_note E_4, 4
-	mus_volume 4
-	mus_note E_4, 4
-	mus_volume 6
-	mus_call Mus_01_633b
-	mus_note E_4, 4
-	mus_call Mus_01_633e
-	mus_note E_4, 4
-	mus_volume 4
-	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
 	mus_volume 6
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note E_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_volume 6
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note E_4, 4
+	mus_volume 4
+	mus_note E_4, 4
+	mus_volume 6
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
+	mus_note E_4, 4
+	mus_volume 4
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_volume 6
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
+	mus_note E_4, 4
+	mus_volume 4
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_6338
-	mus_volume 6
-	mus_note E_4, 4
-	mus_call Mus_01_633e
-	mus_note E_4, 4
-	mus_volume 4
-	mus_note E_4, 4
-	mus_call Mus_01_6338
-	mus_volume 6
-	mus_note E_4, 4
-	mus_call Mus_01_633b
-	mus_note E_4, 4
-	mus_volume 4
-	mus_note E_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note E_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note E_4, 4
-	mus_call Mus_01_633e
-	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note E_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note E_4, 4
+	mus_volume 4
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
+	mus_volume 6
+	mus_note E_4, 4
+	mus_volume 4
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_volume 6
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note E_4, 4
+	mus_volume 4
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_volume 6
+	mus_note E_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
 	mus_ret 
 
-Mus_01_65b8::
-	mus_call Mus_01_6338
+Mus_Song14_Ch1_Sub_6::
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note E_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note E_4, 4
 	mus_volume 4
 	mus_note E_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note E_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note E_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note E_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note E_4, 4
 	mus_ret 
 
-Mus_01_65e1::
+Mus_Song14_Ch2_Sub_2::
 	mus_volume 6
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note A_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note A_4, 4
 	mus_volume 4
 	mus_note A_4, 4
@@ -5575,145 +5575,145 @@ Mus_01_65e1::
 	mus_volume 4
 	mus_note A_4, 4
 	mus_volume 6
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note A_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note A_4, 4
 	mus_volume 4
 	mus_note A_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note A_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note A_4, 4
 	mus_volume 4
 	mus_note A_4, 4
-	mus_call Mus_01_633b
-	mus_volume 6
-	mus_note A_4, 4
-	mus_volume 4
-	mus_note A_4, 4
-	mus_volume 6
-	mus_call Mus_01_633e
-	mus_note A_4, 4
-	mus_call Mus_01_6338
-	mus_note A_4, 4
-	mus_call Mus_01_633b
-	mus_note A_4, 4
-	mus_volume 4
-	mus_note A_4, 4
-	mus_volume 6
-	mus_call Mus_01_6338
-	mus_note A_4, 4
-	mus_call Mus_01_633b
-	mus_note A_4, 4
-	mus_volume 4
-	mus_note A_4, 4
-	mus_volume 6
-	mus_call Mus_01_633b
-	mus_note A_4, 4
-	mus_call Mus_01_633e
-	mus_note A_4, 4
-	mus_volume 4
-	mus_note A_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note A_4, 4
 	mus_volume 4
 	mus_note A_4, 4
 	mus_volume 6
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note A_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note A_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note A_4, 4
+	mus_volume 4
+	mus_note A_4, 4
+	mus_volume 6
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
+	mus_note A_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note A_4, 4
+	mus_volume 4
+	mus_note A_4, 4
+	mus_volume 6
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note A_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
+	mus_note A_4, 4
+	mus_volume 4
+	mus_note A_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_volume 6
+	mus_note A_4, 4
+	mus_volume 4
+	mus_note A_4, 4
+	mus_volume 6
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
+	mus_note A_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note A_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note C_5, 4
 	mus_volume 4
 	mus_note C_5, 4
-	mus_call Mus_01_633b
-	mus_volume 6
-	mus_note C_5, 4
-	mus_volume 4
-	mus_note C_5, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_volume 6
 	mus_note C_5, 4
 	mus_volume 4
 	mus_note C_5, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_volume 6
+	mus_note C_5, 4
+	mus_volume 4
+	mus_note C_5, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note G_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note G_4, 4
 	mus_volume 4
 	mus_note G_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note G_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note G_4, 4
 	mus_volume 4
 	mus_note G_4, 4
-	mus_call Mus_01_633e
-	mus_volume 6
-	mus_note G_4, 4
-	mus_volume 4
-	mus_note G_4, 4
-	mus_call Mus_01_6338
-	mus_volume 6
-	mus_note G_4, 4
-	mus_call Mus_01_633e
-	mus_note G_4, 4
-	mus_volume 4
-	mus_note G_4, 4
-	mus_call Mus_01_6338
-	mus_volume 6
-	mus_note G_4, 4
-	mus_call Mus_01_633b
-	mus_note G_4, 4
-	mus_volume 4
-	mus_note G_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note G_4, 4
 	mus_volume 4
 	mus_note G_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note G_4, 4
-	mus_call Mus_01_633e
-	mus_note G_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note G_4, 4
 	mus_volume 4
 	mus_note G_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note G_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note G_4, 4
+	mus_volume 4
+	mus_note G_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
+	mus_volume 6
+	mus_note G_4, 4
+	mus_volume 4
+	mus_note G_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_volume 6
+	mus_note G_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
+	mus_note G_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_note G_4, 4
+	mus_volume 4
+	mus_note G_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
+	mus_volume 6
+	mus_note G_4, 4
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note G_4, 4
 	mus_volume 4
 	mus_note G_4, 4
 	mus_ret 
 
-Mus_01_66e3::
-	mus_call Mus_01_6338
+Mus_Song14_Ch2_Sub_3::
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_volume 6
 	mus_note G_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note G_4, 4
 	mus_volume 4
 	mus_note G_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_volume 6
 	mus_note G_4, 4
-	mus_call Mus_01_633e
+	mus_call Mus_Song14_Ch1_Sub_Sub_3
 	mus_note G_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note G_4, 4
-	mus_call Mus_01_633b
+	mus_call Mus_Song14_Ch1_Sub_Sub_2
 	mus_note G_4, 4
-	mus_call Mus_01_6338
+	mus_call Mus_Song14_Ch1_Sub_Sub_1
 	mus_note G_4, 4
 	mus_ret 
 
@@ -5723,39 +5723,39 @@ Song14_Ch3::
 	mus_rest 128
 	mus_rest 128
 
-Mus_01_6714::
+Mus_Song14_Ch3::
 	mus_transpose_off 
 	mus_wave $60
-	mus_call_x 2, Mus_01_6744
-	mus_call Mus_01_672a
+	mus_call_x 2, Mus_Song14_Ch3_Sub_2
+	mus_call Mus_Song14_Ch3_Sub_1
 	mus_rest 32
-	mus_call_x 2, Mus_01_6744
-	mus_call Mus_01_672a
+	mus_call_x 2, Mus_Song14_Ch3_Sub_2
+	mus_call Mus_Song14_Ch3_Sub_1
 	mus_rest 32
-	mus_jump_back Mus_01_6714
+	mus_jump_back Mus_Song14_Ch3
 	mus_end  ; never reached
 
-Mus_01_672a::
-	mus_call_times 7, Mus_01_677c
+Mus_Song14_Ch3_Sub_1::
+	mus_call_times 7, Mus_Song14_Ch3_Sub_Sub
 	mus_regs $c0, $40, $40
 	mus_note A_2, 8
 	mus_regs $ef, $50, $40
 	mus_note C_3, 4
 	mus_note C_3, 4
 	mus_transpose_add -4
-	mus_call_x 6, Mus_01_677c
+	mus_call_x 6, Mus_Song14_Ch3_Sub_Sub
 	mus_transpose_add 4
 	mus_ret 
 
-Mus_01_6744::
-	mus_call_times 7, Mus_01_677c
+Mus_Song14_Ch3_Sub_2::
+	mus_call_times 7, Mus_Song14_Ch3_Sub_Sub
 	mus_regs $c0, $40, $40
 	mus_note A_2, 8
 	mus_regs $ef, $50, $40
 	mus_note C_3, 4
 	mus_note C_3, 4
 	mus_transpose_add -4
-	mus_call_x 6, Mus_01_677c
+	mus_call_x 6, Mus_Song14_Ch3_Sub_Sub
 	mus_transpose_add 4
 	mus_regs $c0, $40, $40
 	mus_note E_2, 8
@@ -5770,7 +5770,7 @@ Mus_01_6744::
 	mus_note G_2, 4
 	mus_ret 
 
-Mus_01_677c::
+Mus_Song14_Ch3_Sub_Sub::
 	mus_regs $c0, $40, $40
 	mus_note A_2, 8
 	mus_regs $ef, $50, $40
@@ -5781,23 +5781,23 @@ Mus_01_677c::
 Song14_Ch4::
 	mus_rest 128
 	mus_rest 128
-	mus_call_times 14, Mus_01_680d
+	mus_call_times 14, Mus_Song14_Ch4_Sub_5
 	mus_note 63, 22
 	mus_envelope $96
 	mus_note Fs2, 10
 
-Mus_01_6799::
-	mus_call_times 30, Mus_01_67f3
-	mus_call Mus_01_67bf
+Mus_Song14_Ch4::
+	mus_call_times 30, Mus_Song14_Ch4_Sub_4
+	mus_call Mus_Song14_Ch4_Sub_1
 	mus_rest 16
-	mus_call_times 15, Mus_01_67e3
-	mus_call Mus_01_67c8
-	mus_call_times 15, Mus_01_67e3
-	mus_call Mus_01_67c8
-	mus_call_x 16, Mus_01_67e3
-	mus_jump_back Mus_01_6799
+	mus_call_times 15, Mus_Song14_Ch4_Sub_3
+	mus_call Mus_Song14_Ch4_Sub_2
+	mus_call_times 15, Mus_Song14_Ch4_Sub_3
+	mus_call Mus_Song14_Ch4_Sub_2
+	mus_call_x 16, Mus_Song14_Ch4_Sub_3
+	mus_jump_back Mus_Song14_Ch4
 
-MusUnused_01_67b5::
+MusUnused_06::
 	mus_note B_5, 8 ; never reached
 	mus_rest 56 ; never reached
 	mus_ret  ; never reached
@@ -5805,14 +5805,14 @@ MusUnused_01_67b5::
 	mus_rest 40 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_67bf::
+Mus_Song14_Ch4_Sub_1::
 	mus_envelope $b1
 	mus_note B_5, 8
 	mus_envelope $17
 	mus_note B_5, 8
 	mus_ret 
 
-Mus_01_67c8::
+Mus_Song14_Ch4_Sub_2::
 	mus_envelope $63
 	mus_note 69, 4
 	mus_note 69, 4
@@ -5828,8 +5828,8 @@ Mus_01_67c8::
 	mus_note 69, 4
 	mus_ret 
 
-Mus_01_67e3::
-	mus_call Mus_01_67f3
+Mus_Song14_Ch4_Sub_3::
+	mus_call Mus_Song14_Ch4_Sub_4
 	mus_envelope $65
 	mus_note 69, 4
 	mus_envelope $35
@@ -5838,7 +5838,7 @@ Mus_01_67e3::
 	mus_note 63, 8
 	mus_ret 
 
-Mus_01_67f3::
+Mus_Song14_Ch4_Sub_4::
 	mus_envelope $b1
 	mus_note B_5, 4
 	mus_envelope $31
@@ -5847,7 +5847,7 @@ Mus_01_67f3::
 	mus_note 63, 8
 	mus_ret 
 
-MusUnused_01_6800::
+MusUnused_07::
 	mus_envelope $b1 ; never reached
 	mus_note B_5, 4 ; never reached
 	mus_envelope $51 ; never reached
@@ -5856,7 +5856,7 @@ MusUnused_01_6800::
 	mus_note 69, 8 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_680d::
+Mus_Song14_Ch4_Sub_5::
 	mus_envelope $51
 	mus_note 66, 4
 	mus_envelope $31
@@ -5875,23 +5875,23 @@ Song13_Ch1::
 	mus_rest 1
 	mus_note D_4, 128
 	mus_vibrato_off 
-	mus_call_x 3, Mus_01_691a
-	mus_call_x 3, Mus_01_6980
-	mus_call_x 3, Mus_01_694d
-	mus_call_x 3, Mus_01_691a
-	mus_call_x 3, Mus_01_691a
-	mus_call_x 3, Mus_01_6980
-	mus_call_x 3, Mus_01_694d
-	mus_call_x 3, Mus_01_691a
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
+	mus_call_x 3, Mus_Song13_Ch2_Sub_3
+	mus_call_x 3, Mus_Song13_Ch2_Sub_2
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
+	mus_call_x 3, Mus_Song13_Ch2_Sub_3
+	mus_call_x 3, Mus_Song13_Ch2_Sub_2
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
 	mus_rest 128
 	mus_rest 128
 	mus_duty_envelope 2, $95
 	mus_vibrato_ex $01, $01, $03, $0a
-	mus_call Mus_01_68b8
+	mus_call Mus_Song13_Ch1_Sub_2
 	mus_note B_4, 56
 	mus_transpose_add 12
 	mus_duty_envelope 0, $66
-	mus_call Mus_01_6889
+	mus_call Mus_Song13_Ch1_Sub_1
 	mus_duty_envelope 1, $18
 	mus_vibrato_ex $01, $02, $05, $12
 	mus_note D_4, 126
@@ -5903,16 +5903,16 @@ Song13_Ch1::
 	mus_vibrato_off 
 	mus_duty_envelope 2, $95
 	mus_vibrato_ex $01, $01, $03, $0a
-	mus_call Mus_01_68b8
+	mus_call Mus_Song13_Ch1_Sub_2
 	mus_note B_4, 56
 	mus_transpose_add 24
 	mus_duty_envelope 2, $63
-	mus_call Mus_01_68eb
+	mus_call Mus_Song13_Ch1_Sub_3
 	mus_note D_5, 72
 	mus_jump_back Song13_Ch1
 	mus_end  ; never reached
 
-Mus_01_6889::
+Mus_Song13_Ch1_Sub_1::
 	mus_rest 16
 	mus_note G_4, 16
 	mus_note B_4, 40
@@ -5938,7 +5938,7 @@ Mus_01_6889::
 	mus_note B_4, 24
 	mus_ret 
 
-Mus_01_68b8::
+Mus_Song13_Ch1_Sub_2::
 	mus_transpose_add -12
 	mus_rest 16
 	mus_note G_4, 16
@@ -5966,7 +5966,7 @@ Mus_01_68b8::
 	mus_note C_5, 8
 	mus_ret 
 
-Mus_01_68eb::
+Mus_Song13_Ch1_Sub_3::
 	mus_transpose_add -12
 	mus_rest 16
 	mus_note G_4, 16
@@ -5992,7 +5992,7 @@ Mus_01_68eb::
 	mus_note E_5, 8
 	mus_ret 
 
-Mus_01_691a::
+Mus_Song13_Ch2_Sub_1::
 	mus_octave_up 
 	mus_duty_envelope 2, $52
 	mus_note G_5, 4
@@ -6021,7 +6021,7 @@ Mus_01_691a::
 	mus_note D_5, 4
 	mus_ret 
 
-Mus_01_694d::
+Mus_Song13_Ch2_Sub_2::
 	mus_octave_up 
 	mus_duty_envelope 2, $52
 	mus_note G_5, 4
@@ -6050,7 +6050,7 @@ Mus_01_694d::
 	mus_note E_5, 4
 	mus_ret 
 
-Mus_01_6980::
+Mus_Song13_Ch2_Sub_3::
 	mus_octave_up 
 	mus_duty_envelope 2, $52
 	mus_note A_5, 4
@@ -6098,14 +6098,14 @@ Song13_Ch2::
 	mus_rest 128
 	mus_rest 128
 	mus_rest 128
-	mus_call_x 3, Mus_01_691a
-	mus_call_x 3, Mus_01_6980
-	mus_call_x 3, Mus_01_694d
-	mus_call_x 3, Mus_01_691a
-	mus_call_x 3, Mus_01_691a
-	mus_call_x 3, Mus_01_6980
-	mus_call_x 3, Mus_01_694d
-	mus_call_x 3, Mus_01_691a
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
+	mus_call_x 3, Mus_Song13_Ch2_Sub_3
+	mus_call_x 3, Mus_Song13_Ch2_Sub_2
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
+	mus_call_x 3, Mus_Song13_Ch2_Sub_3
+	mus_call_x 3, Mus_Song13_Ch2_Sub_2
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
 	mus_duty_envelope 2, $28
 	mus_vibrato_ex $01, $02, $05, $09
 	mus_note G_3, 128
@@ -6122,10 +6122,10 @@ Song13_Ch2::
 	mus_rest 2
 	mus_note G_3, 128
 	mus_vibrato_off 
-	mus_call_x 3, Mus_01_691a
-	mus_call_x 3, Mus_01_6980
-	mus_call_x 3, Mus_01_694d
-	mus_call_x 3, Mus_01_691a
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
+	mus_call_x 3, Mus_Song13_Ch2_Sub_3
+	mus_call_x 3, Mus_Song13_Ch2_Sub_2
+	mus_call_x 3, Mus_Song13_Ch2_Sub_1
 	mus_jump_back Song13_Ch2
 	mus_end  ; never reached
 
@@ -6134,16 +6134,16 @@ Song13_Ch3::
 	mus_transpose_off 
 	mus_wave $60
 
-Mus_01_6a2b::
+Mus_Song13_Ch3::
 	mus_length_x 8
-	mus_call_x 16, Mus_01_6a33
+	mus_call_x 16, Mus_Song13_Ch3_Sub
 	mus_length_off 
-	mus_jump_back Mus_01_6a2b
+	mus_jump_back Mus_Song13_Ch3
 	mus_end  ; never reached
 
-Mus_01_6a33::
-	mus_call Mus_01_6a44
-	mus_call Mus_01_6a44
+Mus_Song13_Ch3_Sub::
+	mus_call Mus_Song13_Ch3_Sub_Sub
+	mus_call Mus_Song13_Ch3_Sub_Sub
 	mus_note G_2
 	mus_volume 3
 	mus_note G_2
@@ -6151,10 +6151,10 @@ Mus_01_6a33::
 	mus_note G_2
 	mus_volume 3
 	mus_note G_2
-	mus_call Mus_01_6a44
+	mus_call Mus_Song13_Ch3_Sub_Sub
 	mus_ret 
 
-Mus_01_6a44::
+Mus_Song13_Ch3_Sub_Sub::
 	mus_volume 3
 	mus_note G_2
 	mus_volume 5
@@ -6174,19 +6174,19 @@ Song13_Ch4::
 	mus_rest 128
 	mus_octave_up 
 	mus_length_x 8
-	mus_call_times 5, Mus_01_6aa7
-	mus_call Mus_01_6a7c
-	mus_call_x 2, Mus_01_6aa7
-	mus_call Mus_01_6a7c
-	mus_call_times 7, Mus_01_6aa7
-	mus_call Mus_01_6a7c
-	mus_call_times 7, Mus_01_6aa7
-	mus_call Mus_01_6a7c
+	mus_call_times 5, Mus_Song13_Ch4_Sub_2
+	mus_call Mus_Song13_Ch4_Sub_1
+	mus_call_x 2, Mus_Song13_Ch4_Sub_2
+	mus_call Mus_Song13_Ch4_Sub_1
+	mus_call_times 7, Mus_Song13_Ch4_Sub_2
+	mus_call Mus_Song13_Ch4_Sub_1
+	mus_call_times 7, Mus_Song13_Ch4_Sub_2
+	mus_call Mus_Song13_Ch4_Sub_1
 	mus_length_off 
 	mus_jump_back Song13_Ch4
 	mus_end  ; never reached
 
-Mus_01_6a7c::
+Mus_Song13_Ch4_Sub_1::
 	mus_envelope $b1
 	mus_note 78
 	mus_envelope $43
@@ -6218,7 +6218,7 @@ Mus_01_6a7c::
 	mus_note 78
 	mus_ret 
 
-Mus_01_6aa7::
+Mus_Song13_Ch4_Sub_2::
 	mus_envelope $b1
 	mus_note 78
 	mus_envelope $34
@@ -6260,11 +6260,11 @@ Song12_Ch1::
 	mus_note E_3, 128
 	mus_vibrato_off 
 
-Mus_01_6ae4::
+Mus_Song12_Ch1::
 	mus_duty_envelope 0, $91
-	mus_call_x 3, Mus_01_6c07
-	mus_call_x 3, Mus_01_6bf0
-	mus_call Mus_01_6bcf
+	mus_call_x 3, Mus_Song12_Ch1_Sub_4
+	mus_call_x 3, Mus_Song12_Ch1_Sub_3
+	mus_call Mus_Song12_Ch1_Sub_2
 	mus_duty_envelope 2, $a5
 	mus_vibrato_ex $01, $02, $02, $09
 	mus_note Fs3, 24
@@ -6294,7 +6294,7 @@ Mus_01_6ae4::
 	mus_vibrato_off 
 	mus_octave_up 
 	mus_rest 24
-	mus_call Mus_01_6b63
+	mus_call Mus_Song12_Ch1_Sub_1
 	mus_duty_envelope 2, $62
 	mus_transpose_off 
 	mus_note Fs4, 8
@@ -6315,12 +6315,12 @@ Mus_01_6ae4::
 	mus_note Fs4, 8
 	mus_note D_4, 8
 	mus_octave_up 
-	mus_call Mus_01_6b63
+	mus_call Mus_Song12_Ch1_Sub_1
 	mus_rest 96
 	mus_transpose_off 
-	mus_jump_back Mus_01_6ae4
+	mus_jump_back Mus_Song12_Ch1
 
-Mus_01_6b63::
+Mus_Song12_Ch1_Sub_1::
 	mus_duty_envelope 1, $81
 	mus_transpose_off 
 	mus_volume 4
@@ -6393,7 +6393,7 @@ Mus_01_6b63::
 	mus_rest 24
 	mus_ret 
 
-Mus_01_6bcf::
+Mus_Song12_Ch1_Sub_2::
 	mus_rest 24
 	mus_note D_4, 4
 	mus_note E_4, 4
@@ -6411,7 +6411,7 @@ Mus_01_6bcf::
 	mus_vibrato_off 
 	mus_ret 
 
-Mus_01_6bf0::
+Mus_Song12_Ch1_Sub_3::
 	mus_rest 24
 	mus_note E_4, 4
 	mus_note Fs4, 4
@@ -6425,7 +6425,7 @@ Mus_01_6bf0::
 	mus_note E_4, 4
 	mus_ret 
 
-Mus_01_6c07::
+Mus_Song12_Ch1_Sub_4::
 	mus_rest 24
 	mus_note A_3, 4
 	mus_note A_3, 4
@@ -6452,17 +6452,17 @@ Mus_01_6c07::
 
 Song12_Ch2::
 	mus_rest 128
-	mus_call Mus_01_6d72
+	mus_call Mus_Song12_Ch2_Sub_4
 	mus_rest 128
 	mus_rest 128
-	mus_call Mus_01_6d72
+	mus_call Mus_Song12_Ch2_Sub_4
 
-Mus_01_6c40::
+Mus_Song12_Ch2::
 	mus_duty_envelope 0, $81
 	mus_transpose_add -12
-	mus_call_x 3, Mus_01_6d45
-	mus_call_x 3, Mus_01_6d2e
-	mus_call Mus_01_6d0d
+	mus_call_x 3, Mus_Song12_Ch2_Sub_3
+	mus_call_x 3, Mus_Song12_Ch2_Sub_2
+	mus_call Mus_Song12_Ch2_Sub_1
 	mus_transpose_off 
 	mus_duty_envelope 2, $45
 	mus_vibrato_ex $01, $02, $02, $09
@@ -6562,9 +6562,9 @@ Mus_01_6c40::
 	mus_note G_5, 8
 	mus_rest 56
 	mus_octave_up 
-	mus_jump_back Mus_01_6c40
+	mus_jump_back Mus_Song12_Ch2
 
-Mus_01_6d0d::
+Mus_Song12_Ch2_Sub_1::
 	mus_rest 24
 	mus_note A_3, 4
 	mus_note B_3, 4
@@ -6582,7 +6582,7 @@ Mus_01_6d0d::
 	mus_vibrato_off 
 	mus_ret 
 
-Mus_01_6d2e::
+Mus_Song12_Ch2_Sub_2::
 	mus_rest 24
 	mus_note B_3, 4
 	mus_note D_4, 4
@@ -6596,7 +6596,7 @@ Mus_01_6d2e::
 	mus_note B_3, 4
 	mus_ret 
 
-Mus_01_6d45::
+Mus_Song12_Ch2_Sub_3::
 	mus_rest 24
 	mus_note Fs3, 4
 	mus_note Fs3, 4
@@ -6621,7 +6621,7 @@ Mus_01_6d45::
 	mus_note A_3, 4
 	mus_ret 
 
-Mus_01_6d72::
+Mus_Song12_Ch2_Sub_4::
 	mus_duty_envelope 2, $81
 	mus_octave_up 
 	mus_rest 8
@@ -6744,29 +6744,29 @@ Mus_01_6d72::
 	mus_ret 
 
 Song12_Ch3::
-	mus_call_times 10, Mus_01_6eeb
+	mus_call_times 10, Mus_Song12_Ch3_Sub_2
 
-Mus_01_6e2a::
-	mus_call_x 4, Mus_01_6eeb
-	mus_call_x 3, Mus_01_6eb2
-	mus_call Mus_01_6eeb
-	mus_call Mus_01_6f24
-	mus_call Mus_01_6f3d
+Mus_Song12_Ch3::
+	mus_call_x 4, Mus_Song12_Ch3_Sub_2
+	mus_call_x 3, Mus_Song12_Ch3_Sub_1
+	mus_call Mus_Song12_Ch3_Sub_2
+	mus_call Mus_Song12_Ch3_Sub_Sub_1
+	mus_call Mus_Song12_Ch3_Sub_Sub_4
 	mus_regs $81, $50, $40
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_length_x 4
 	mus_note E_3
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note E_3
 	mus_note E_3
 	mus_note E_3
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note E_3
-	mus_call Mus_01_6efa
-	mus_call_x 4, Mus_01_6eeb
-	mus_call_x 3, Mus_01_6eb2
-	mus_call_x 3, Mus_01_6eeb
-	mus_call Mus_01_6f3d
+	mus_call Mus_Song12_Ch3_Sub_3
+	mus_call_x 4, Mus_Song12_Ch3_Sub_2
+	mus_call_x 3, Mus_Song12_Ch3_Sub_1
+	mus_call_x 3, Mus_Song12_Ch3_Sub_2
+	mus_call Mus_Song12_Ch3_Sub_Sub_4
 	mus_vibrato_ex $01, $02, $05, $02
 	mus_regs $81, $50, $40
 	mus_note G_3, 16
@@ -6815,104 +6815,104 @@ Mus_01_6e2a::
 	mus_note E_3, 16
 	mus_vibrato_off 
 	mus_regs $81, $70, $40
-	mus_call_x 3, Mus_01_6eeb
-	mus_jump_back Mus_01_6e2a
+	mus_call_x 3, Mus_Song12_Ch3_Sub_2
+	mus_jump_back Mus_Song12_Ch3
 
-Mus_01_6eb2::
-	mus_call Mus_01_6f3d
+Mus_Song12_Ch3_Sub_1::
+	mus_call Mus_Song12_Ch3_Sub_Sub_4
 	mus_length_x 4
 	mus_note A_2
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note A_3
 	mus_note A_3
 	mus_note A_3
-	mus_call Mus_01_6f3d
+	mus_call Mus_Song12_Ch3_Sub_Sub_4
 	mus_note A_2
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note A_3
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note A_3
 	mus_note A_3
-	mus_call Mus_01_6f24
+	mus_call Mus_Song12_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note A_3
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note A_3
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note A_3
-	mus_call Mus_01_6f24
+	mus_call Mus_Song12_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note A_3
 	mus_note A_3
 	mus_envelope $af
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note A_3
 	mus_length_off 
 	mus_ret 
 
-Mus_01_6eeb::
-	mus_call Mus_01_6f3d
+Mus_Song12_Ch3_Sub_2::
+	mus_call Mus_Song12_Ch3_Sub_Sub_4
 	mus_length_x 4
 	mus_note E_3
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note E_3
 	mus_note E_3
 	mus_note E_3
-	mus_call Mus_01_6f3d
+	mus_call Mus_Song12_Ch3_Sub_Sub_4
 	mus_note E_3
 
-Mus_01_6efa::
-	mus_call Mus_01_6f34
+Mus_Song12_Ch3_Sub_3::
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note E_3
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note E_3
 	mus_note E_3
-	mus_call Mus_01_6f24
+	mus_call Mus_Song12_Ch3_Sub_Sub_1
 	mus_note E_2
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note E_3
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note E_3
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note E_3
-	mus_call Mus_01_6f24
+	mus_call Mus_Song12_Ch3_Sub_Sub_1
 	mus_note E_2
-	mus_call Mus_01_6f2c
+	mus_call Mus_Song12_Ch3_Sub_Sub_2
 	mus_note E_3
 	mus_note E_3
 	mus_envelope $af
-	mus_call Mus_01_6f34
+	mus_call Mus_Song12_Ch3_Sub_Sub_3
 	mus_note E_3
 	mus_length_off 
 	mus_ret 
 
-Mus_01_6f24::
+Mus_Song12_Ch3_Sub_Sub_1::
 	mus_octave_up 
 	mus_regs $ef, $60, $40
 	mus_wave $60
 	mus_ret 
 
-Mus_01_6f2c::
+Mus_Song12_Ch3_Sub_Sub_2::
 	mus_transpose_off 
 	mus_regs $f0, $60, $40
 	mus_wave $10
 	mus_ret 
 
-Mus_01_6f34::
+Mus_Song12_Ch3_Sub_Sub_3::
 	mus_transpose -12
 	mus_regs $f2, $50, $40
 	mus_wave $30
 	mus_ret 
 
-Mus_01_6f3d::
+Mus_Song12_Ch3_Sub_Sub_4::
 	mus_transpose_off 
 	mus_regs $df, $30, $40
 	mus_wave $60
 	mus_ret 
 
-MusUnused_01_6f45::
+MusUnused_08::
 	mus_transpose_off  ; never reached
 	mus_volume 4 ; never reached
 	mus_wave $60 ; never reached
@@ -6932,26 +6932,26 @@ MusUnused_01_6f45::
 
 Song12_Ch4::
 	mus_transpose_off 
-	mus_call Mus_01_6ff6
-	mus_call Mus_01_6fff
-	mus_call Mus_01_6ff6
-	mus_call Mus_01_6fcf
-	mus_call Mus_01_6fb0
-	mus_call_x 3, Mus_01_6f87
+	mus_call Mus_Song12_Ch4_Sub_4
+	mus_call Mus_Song12_Ch4_Sub_5
+	mus_call Mus_Song12_Ch4_Sub_4
+	mus_call Mus_Song12_Ch4_Sub_3
+	mus_call Mus_Song12_Ch4_Sub_2
+	mus_call_x 3, Mus_Song12_Ch4_Sub_1
 
-Mus_01_6f6c::
-	mus_call_times 7, Mus_01_6f87
+Mus_Song12_Ch4::
+	mus_call_times 7, Mus_Song12_Ch4_Sub_1
 	mus_rest 64
-	mus_call_times 7, Mus_01_6f87
-	mus_call Mus_01_6fb0
+	mus_call_times 7, Mus_Song12_Ch4_Sub_1
+	mus_call Mus_Song12_Ch4_Sub_2
 	mus_rest 128
 	mus_rest 128
 	mus_rest 128
-	mus_call Mus_01_6fcf
-	mus_call Mus_01_6fb0
-	mus_jump_back Mus_01_6f6c
+	mus_call Mus_Song12_Ch4_Sub_3
+	mus_call Mus_Song12_Ch4_Sub_2
+	mus_jump_back Mus_Song12_Ch4
 
-Mus_01_6f87::
+Mus_Song12_Ch4_Sub_1::
 	mus_envelope $51
 	mus_rest 8
 	mus_note 69, 4
@@ -6974,7 +6974,7 @@ Mus_01_6f87::
 	mus_note 69, 4
 	mus_ret 
 
-Mus_01_6fb0::
+Mus_Song12_Ch4_Sub_2::
 	mus_envelope $63
 	mus_note 78, 4
 	mus_note 78, 4
@@ -6992,7 +6992,7 @@ Mus_01_6fb0::
 	mus_note 69, 16
 	mus_ret 
 
-Mus_01_6fcf::
+Mus_Song12_Ch4_Sub_3::
 	mus_envelope $63
 	mus_note 78, 4
 	mus_note 78, 4
@@ -7014,22 +7014,22 @@ Mus_01_6fcf::
 	mus_note 69, 4
 	mus_ret 
 
-Mus_01_6ff6::
-	mus_call Mus_01_700b
+Mus_Song12_Ch4_Sub_4::
+	mus_call Mus_Song12_Ch4_Sub_Sub
 	mus_volume 4
 	mus_note 78, 40
 	mus_rest 64
 	mus_ret 
 
-Mus_01_6fff::
-	mus_call Mus_01_700b
+Mus_Song12_Ch4_Sub_5::
+	mus_call Mus_Song12_Ch4_Sub_Sub
 	mus_envelope $42
 	mus_note 69, 4
 	mus_note 69, 4
 	mus_rest 96
 	mus_ret 
 
-Mus_01_700b::
+Mus_Song12_Ch4_Sub_Sub::
 	mus_envelope $63
 	mus_note 78, 4
 	mus_note 78, 4
@@ -7044,21 +7044,21 @@ Mus_01_700b::
 Song11_Ch1::
 	mus_rest 20
 
-Mus_01_7020::
+Mus_Song11_Ch1::
 	mus_transpose_off 
 	mus_duty_envelope 2, $b6
 	mus_rest 128
 	mus_rest 112
-	mus_call Mus_01_708e
+	mus_call Mus_Song11_Ch1_Sub_2
 	mus_transpose_add -12
 	mus_duty_envelope 1, $c4
-	mus_call Mus_01_7039
+	mus_call Mus_Song11_Ch1_Sub_1
 	mus_rest 128
 	mus_rest 128
 	mus_transpose_add 12
-	mus_jump_back Mus_01_7020
+	mus_jump_back Mus_Song11_Ch1
 
-Mus_01_7039::
+Mus_Song11_Ch1_Sub_1::
 	mus_vibrato_ex $01, $02, $03, $02
 	mus_rest 8
 	mus_note A_4, 16
@@ -7102,7 +7102,7 @@ Mus_01_7039::
 	mus_vibrato_off 
 	mus_ret 
 
-Mus_01_708e::
+Mus_Song11_Ch1_Sub_2::
 	mus_vibrato_ex $01, $02, $02, $02
 	mus_duty_envelope 2, $b2
 	mus_note C_4, 8
@@ -7153,15 +7153,15 @@ Song11_Ch2::
 	mus_rest 20
 	mus_duty_envelope 0, $82
 	mus_octave_up 
-	mus_call Mus_01_71b8
-	mus_call Mus_01_712a
+	mus_call Mus_Song11_Ch2_Sub_3
+	mus_call Mus_Song11_Ch2_Sub_1
 
-Mus_01_70f4::
+Mus_Song11_Ch2::
 	mus_duty_envelope 0, $82
 	mus_rest 2
-	mus_call Mus_01_712a
+	mus_call Mus_Song11_Ch2_Sub_1
 	mus_rest 2
-	mus_call Mus_01_7140
+	mus_call Mus_Song11_Ch2_Sub_2
 	mus_rest 48
 	mus_transpose_add -12
 	mus_duty_envelope 0, $67
@@ -7181,10 +7181,10 @@ Mus_01_70f4::
 	mus_note F_4, 64
 	mus_vibrato_off 
 	mus_transpose_add 12
-	mus_jump_back Mus_01_70f4
+	mus_jump_back Mus_Song11_Ch2
 
-Mus_01_712a::
-	mus_call Mus_01_7140
+Mus_Song11_Ch2_Sub_1::
+	mus_call Mus_Song11_Ch2_Sub_2
 	mus_volume 5
 	mus_note A_4, 2
 	mus_volume 10
@@ -7199,13 +7199,13 @@ Mus_01_712a::
 	mus_note F_5, 30
 	mus_ret 
 
-Mus_01_7140::
+Mus_Song11_Ch2_Sub_2::
 	mus_rest 6
-	mus_call Mus_01_7217
+	mus_call Mus_Song11_Ch2_Sub_Sub_3
 	mus_rest 6
-	mus_call Mus_01_71f2
+	mus_call Mus_Song11_Ch2_Sub_Sub_2
 	mus_rest 6
-	mus_call Mus_01_71f2
+	mus_call Mus_Song11_Ch2_Sub_Sub_2
 	mus_rest 6
 	mus_volume 5
 	mus_note C_4, 2
@@ -7242,9 +7242,9 @@ Mus_01_7140::
 	mus_volume 6
 	mus_note C_4, 3
 	mus_rest 6
-	mus_call Mus_01_723c
+	mus_call Mus_Song11_Ch2_Sub_Sub_4
 	mus_rest 6
-	mus_call Mus_01_71f2
+	mus_call Mus_Song11_Ch2_Sub_Sub_2
 	mus_rest 6
 	mus_volume 5
 	mus_note C_4, 2
@@ -7274,18 +7274,18 @@ Mus_01_7140::
 	mus_note F_4, 14
 	mus_ret 
 
-Mus_01_71b8::
+Mus_Song11_Ch2_Sub_3::
 	mus_rest 8
-	mus_call Mus_01_7217
+	mus_call Mus_Song11_Ch2_Sub_Sub_3
 	mus_rest 6
-	mus_call Mus_01_71f2
+	mus_call Mus_Song11_Ch2_Sub_Sub_2
 	mus_rest 6
-	mus_call Mus_01_7217
+	mus_call Mus_Song11_Ch2_Sub_Sub_3
 	mus_rest 6
-	mus_call Mus_01_71cd
+	mus_call Mus_Song11_Ch2_Sub_Sub_1
 	mus_ret 
 
-Mus_01_71cd::
+Mus_Song11_Ch2_Sub_Sub_1::
 	mus_volume 5
 	mus_note E_4, 2
 	mus_volume 8
@@ -7312,7 +7312,7 @@ Mus_01_71cd::
 	mus_note C_4, 3
 	mus_ret 
 
-Mus_01_71f2::
+Mus_Song11_Ch2_Sub_Sub_2::
 	mus_volume 5
 	mus_note D_4, 2
 	mus_volume 8
@@ -7339,7 +7339,7 @@ Mus_01_71f2::
 	mus_note As3, 3
 	mus_ret 
 
-Mus_01_7217::
+Mus_Song11_Ch2_Sub_Sub_3::
 	mus_volume 5
 	mus_note C_4, 2
 	mus_volume 8
@@ -7366,7 +7366,7 @@ Mus_01_7217::
 	mus_note A_3, 3
 	mus_ret 
 
-Mus_01_723c::
+Mus_Song11_Ch2_Sub_Sub_4::
 	mus_volume 5
 	mus_note C_4, 2
 	mus_volume 8
@@ -7408,9 +7408,9 @@ Song11_Ch3::
 	mus_note Fs2
 	mus_length_off 
 	mus_volume 4
-	mus_call Mus_01_72d5
+	mus_call Mus_Song11_Ch3_Sub
 
-Mus_01_7277::
+Mus_Song11_Ch3::
 	mus_note F_2, 24
 	mus_note F_2, 8
 	mus_note A_2, 16
@@ -7458,9 +7458,9 @@ Mus_01_7277::
 	mus_note G_2, 1
 	mus_note Fs2, 1
 	mus_volume 4
-	mus_jump_back Mus_01_7277
+	mus_jump_back Mus_Song11_Ch3
 
-Mus_01_72d5::
+Mus_Song11_Ch3_Sub::
 	mus_note F_2, 24
 	mus_note F_2, 8
 	mus_note A_2, 16
@@ -7487,7 +7487,7 @@ Mus_01_72d5::
 Song11_Ch4::
 	mus_rest 20
 
-Mus_01_7302::
+Mus_Song11_Ch4::
 	mus_envelope $52
 	mus_note 69, 16
 	mus_envelope $91
@@ -7508,13 +7508,13 @@ Mus_01_7302::
 	mus_envelope $91
 	mus_note 78, 8
 	mus_note 78, 16
-	mus_jump_back Mus_01_7302
+	mus_jump_back Mus_Song11_Ch4
 
 Song10_Ch1::
 	mus_rest 192
 	mus_rest 192
 
-Mus_01_7330::
+Mus_Song10_Ch1::
 	mus_duty_envelope 0, $81
 	mus_volume 7
 	mus_note As3, 13
@@ -7533,30 +7533,30 @@ Mus_01_7330::
 	mus_volume 4
 	mus_note As3, 11
 	mus_duty_envelope 2, $84
-	mus_call Mus_01_74d5
-	mus_call Mus_01_746a
-	mus_call Mus_01_741e
+	mus_call Mus_Song10_Ch1_Sub_5
+	mus_call Mus_Song10_Ch1_Sub_4
+	mus_call Mus_Song10_Ch1_Sub_3
 	mus_rest 8
 	mus_duty_envelope 1, $51
 	mus_transpose_add 12
-	mus_call Mus_01_737a
-	mus_call Mus_01_7378
+	mus_call Mus_Song10_Ch1_Sub_2
+	mus_call Mus_Song10_Ch1_Sub_1
 	mus_vibrato_off 
 	mus_transpose_off 
 	mus_rest 192
 	mus_duty_envelope 0, $a6
-	mus_call Mus_01_7683
+	mus_call Mus_Song10_Ch1_Sub_8
 	mus_duty_envelope 1, $86
-	mus_call Mus_01_7600
-	mus_call Mus_01_75e7
+	mus_call Mus_Song10_Ch1_Sub_7
+	mus_call Mus_Song10_Ch1_Sub_6
 	mus_rest 24
 	mus_rest 96
-	mus_jump_back Mus_01_7330
+	mus_jump_back Mus_Song10_Ch1
 
-Mus_01_7378::
+Mus_Song10_Ch1_Sub_1::
 	mus_rest 8
 
-Mus_01_737a::
+Mus_Song10_Ch1_Sub_2::
 	mus_note Gs4, 8
 	mus_note G_4, 8
 	mus_volume 4
@@ -7585,18 +7585,18 @@ Mus_01_737a::
 	mus_volume 7
 	mus_ret 
 
-Mus_01_73a3::
-	mus_call Mus_01_73ee
-	mus_call Mus_01_73fb
+Mus_Song10_Ch2_Sub_1::
+	mus_call Mus_Song10_Ch2_Sub_Sub_2
+	mus_call Mus_Song10_Ch2_Sub_Sub_3
 	mus_transpose_add 12
-	mus_call Mus_01_73ee
-	mus_call Mus_01_7408
+	mus_call Mus_Song10_Ch2_Sub_Sub_2
+	mus_call Mus_Song10_Ch2_Sub_Sub_4
 	mus_transpose_add -12
-	mus_call Mus_01_73b9
+	mus_call Mus_Song10_Ch2_Sub_Sub_1
 	mus_transpose_add 12
 	mus_ret 
 
-Mus_01_73b9::
+Mus_Song10_Ch2_Sub_Sub_1::
 	mus_rest 8
 	mus_note F_3, 8
 	mus_note A_3, 8
@@ -7611,20 +7611,20 @@ Mus_01_73b9::
 	mus_note A_3, 8
 	mus_ret 
 
-Mus_01_73d2::
+Mus_Song10_Ch2_Sub_2::
 	mus_transpose_add -12
-	mus_call_x 2, Mus_01_7561
-	mus_call Mus_01_756e
+	mus_call_x 2, Mus_Song10_Ch1_Sub_Sub_7
+	mus_call Mus_Song10_Ch1_Sub_Sub_8
 	mus_transpose_add 12
-	mus_call Mus_01_7561
-	mus_call Mus_01_752d
-	mus_call Mus_01_7561
-	mus_call Mus_01_7520
+	mus_call Mus_Song10_Ch1_Sub_Sub_7
+	mus_call Mus_Song10_Ch2_Sub_Sub_7
+	mus_call Mus_Song10_Ch1_Sub_Sub_7
+	mus_call Mus_Song10_Ch2_Sub_Sub_6
 	mus_transpose_add -12
-	mus_call Mus_01_7507
+	mus_call Mus_Song10_Ch2_Sub_Sub_5
 	mus_ret 
 
-Mus_01_73ee::
+Mus_Song10_Ch2_Sub_Sub_2::
 	mus_rest 8
 	mus_note F_3, 8
 	mus_note A_3, 8
@@ -7633,7 +7633,7 @@ Mus_01_73ee::
 	mus_note F_3, 8
 	mus_ret 
 
-Mus_01_73fb::
+Mus_Song10_Ch2_Sub_Sub_3::
 	mus_rest 8
 	mus_note A_3, 8
 	mus_note As3, 8
@@ -7642,7 +7642,7 @@ Mus_01_73fb::
 	mus_note A_3, 8
 	mus_ret 
 
-Mus_01_7408::
+Mus_Song10_Ch2_Sub_Sub_4::
 	mus_note A_3, 8
 	mus_note As3, 8
 	mus_note C_4, 8
@@ -7651,14 +7651,14 @@ Mus_01_7408::
 	mus_note As3, 8
 	mus_ret 
 
-MusUnused_01_7415::
+MusUnused_09::
 	mus_note E_4, 24 ; never reached
 	mus_note E_4, 24 ; never reached
 	mus_note Ds4, 24 ; never reached
 	mus_note Ds4, 24 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_741e::
+Mus_Song10_Ch1_Sub_3::
 	mus_note A_2, 8
 	mus_note C_3, 8
 	mus_note D_3, 8
@@ -7704,12 +7704,12 @@ Mus_01_741e::
 	mus_duty_envelope 2, $84
 	mus_ret 
 
-Mus_01_746a::
+Mus_Song10_Ch1_Sub_4::
 	mus_transpose_add 12
 	mus_note C_4, 96
 	mus_transpose_off 
-	mus_call Mus_01_74b1
-	mus_call Mus_01_7493
+	mus_call Mus_Song10_Ch1_Sub_Sub_3
+	mus_call Mus_Song10_Ch1_Sub_Sub_1
 	mus_volume 4
 	mus_note Gs3, 8
 	mus_volume 7
@@ -7721,14 +7721,14 @@ Mus_01_746a::
 	mus_note D_4, 8
 	mus_note C_4, 8
 	mus_duty_envelope 0, $81
-	mus_call Mus_01_74a1
+	mus_call Mus_Song10_Ch1_Sub_Sub_2
 	mus_volume 4
 	mus_note Gs3, 8
 	mus_volume 7
 	mus_duty_envelope 2, $84
 	mus_ret 
 
-Mus_01_7493::
+Mus_Song10_Ch1_Sub_Sub_1::
 	mus_note Gs2, 8
 	mus_note Gs2, 4
 	mus_note Gs2, 4
@@ -7737,7 +7737,7 @@ Mus_01_7493::
 	mus_note Gs2, 8
 	mus_note Gs2, 8
 
-Mus_01_74a1::
+Mus_Song10_Ch1_Sub_Sub_2::
 	mus_volume 7
 	mus_note Gs3, 8
 	mus_volume 4
@@ -7750,7 +7750,7 @@ Mus_01_74a1::
 	mus_note Gs3, 8
 	mus_ret 
 
-Mus_01_74b1::
+Mus_Song10_Ch1_Sub_Sub_3::
 	mus_duty_envelope 0, $81
 	mus_note Fs4, 8
 	mus_note Fs4, 4
@@ -7774,29 +7774,29 @@ Mus_01_74b1::
 	mus_volume 10
 	mus_ret 
 
-Mus_01_74d5::
+Mus_Song10_Ch1_Sub_5::
 	mus_transpose_add -12
-	mus_call Mus_01_7561
-	mus_call Mus_01_756e
+	mus_call Mus_Song10_Ch1_Sub_Sub_7
+	mus_call Mus_Song10_Ch1_Sub_Sub_8
 	mus_transpose_add 12
-	mus_call Mus_01_7547
-	mus_call Mus_01_7554
+	mus_call Mus_Song10_Ch1_Sub_Sub_5
+	mus_call Mus_Song10_Ch1_Sub_Sub_6
 	mus_transpose_add -9
-	mus_call Mus_01_7561
-	mus_call Mus_01_756e
-	mus_call Mus_01_7561
+	mus_call Mus_Song10_Ch1_Sub_Sub_7
+	mus_call Mus_Song10_Ch1_Sub_Sub_8
+	mus_call Mus_Song10_Ch1_Sub_Sub_7
 	mus_transpose -12
-	mus_call Mus_01_757b
+	mus_call Mus_Song10_Ch1_Sub_Sub_9
 	mus_transpose_add 3
-	mus_call Mus_01_7561
-	mus_call Mus_01_756e
+	mus_call Mus_Song10_Ch1_Sub_Sub_7
+	mus_call Mus_Song10_Ch1_Sub_Sub_8
 	mus_transpose_add 12
-	mus_call Mus_01_7547
-	mus_call Mus_01_753a
+	mus_call Mus_Song10_Ch1_Sub_Sub_5
+	mus_call Mus_Song10_Ch1_Sub_Sub_4
 	mus_length_off 
 	mus_ret 
 
-Mus_01_7507::
+Mus_Song10_Ch2_Sub_Sub_5::
 	mus_note A_4, 8
 	mus_note As4, 8
 	mus_note A_4, 8
@@ -7811,7 +7811,7 @@ Mus_01_7507::
 	mus_note A_3, 8
 	mus_ret 
 
-Mus_01_7520::
+Mus_Song10_Ch2_Sub_Sub_6::
 	mus_note Fs3, 8
 	mus_note Cs4, 8
 	mus_note C_4, 8
@@ -7820,7 +7820,7 @@ Mus_01_7520::
 	mus_note As3, 8
 	mus_ret 
 
-Mus_01_752d::
+Mus_Song10_Ch2_Sub_Sub_7::
 	mus_note F_3, 8
 	mus_note Ds4, 8
 	mus_note F_4, 8
@@ -7829,7 +7829,7 @@ Mus_01_752d::
 	mus_note Cs4, 8
 	mus_ret 
 
-Mus_01_753a::
+Mus_Song10_Ch1_Sub_Sub_4::
 	mus_note A_3, 8
 	mus_note Ds4, 8
 	mus_note F_4, 8
@@ -7838,7 +7838,7 @@ Mus_01_753a::
 	mus_note Ds4, 8
 	mus_ret 
 
-Mus_01_7547::
+Mus_Song10_Ch1_Sub_Sub_5::
 	mus_rest 8
 	mus_note As3, 8
 	mus_note C_4, 8
@@ -7847,25 +7847,7 @@ Mus_01_7547::
 	mus_note As3, 8
 	mus_ret 
 
-Mus_01_7554::
-	mus_rest 8
-	mus_note Ds4, 8
-	mus_note F_4, 8
-	mus_note Fs4, 8
-	mus_note F_4, 8
-	mus_note Cs4, 8
-	mus_ret 
-
-Mus_01_7561::
-	mus_rest 8
-	mus_note As3, 8
-	mus_note C_4, 8
-	mus_note Cs4, 8
-	mus_note C_4, 8
-	mus_note As3, 8
-	mus_ret 
-
-Mus_01_756e::
+Mus_Song10_Ch1_Sub_Sub_6::
 	mus_rest 8
 	mus_note Ds4, 8
 	mus_note F_4, 8
@@ -7874,7 +7856,25 @@ Mus_01_756e::
 	mus_note Cs4, 8
 	mus_ret 
 
-Mus_01_757b::
+Mus_Song10_Ch1_Sub_Sub_7::
+	mus_rest 8
+	mus_note As3, 8
+	mus_note C_4, 8
+	mus_note Cs4, 8
+	mus_note C_4, 8
+	mus_note As3, 8
+	mus_ret 
+
+Mus_Song10_Ch1_Sub_Sub_8::
+	mus_rest 8
+	mus_note Ds4, 8
+	mus_note F_4, 8
+	mus_note Fs4, 8
+	mus_note F_4, 8
+	mus_note Cs4, 8
+	mus_ret 
+
+Mus_Song10_Ch1_Sub_Sub_9::
 	mus_note G_3, 8
 	mus_note Ds4, 8
 	mus_note Cs4, 8
@@ -7888,12 +7888,12 @@ Song10_Ch2::
 	mus_rest 192
 	mus_rest 192
 
-Mus_01_758e::
+Mus_Song10_Ch2::
 	mus_duty_envelope 0, $81
-	mus_call_x 2, Mus_01_7742
+	mus_call_x 2, Mus_Song10_Ch2_Sub_7
 	mus_rest 192
 	mus_transpose_add 3
-	mus_call_x 3, Mus_01_7742
+	mus_call_x 3, Mus_Song10_Ch2_Sub_7
 	mus_transpose_add -3
 	mus_volume 10
 	mus_note Ds4, 12
@@ -7905,35 +7905,35 @@ Mus_01_758e::
 	mus_volume 3
 	mus_rest 24
 	mus_duty_envelope 0, $81
-	mus_call Mus_01_7661
-	mus_call Mus_01_7724
+	mus_call Mus_Song10_Ch2_Sub_3
+	mus_call Mus_Song10_Ch2_Sub_6
 	mus_volume 4
 	mus_note Ds4, 8
-	mus_call Mus_01_7724
+	mus_call Mus_Song10_Ch2_Sub_6
 	mus_volume 4
 	mus_note Ds4, 8
-	mus_call Mus_01_7702
+	mus_call Mus_Song10_Ch2_Sub_5
 	mus_volume 4
 	mus_note Fs5, 12
-	mus_call Mus_01_7702
+	mus_call Mus_Song10_Ch2_Sub_5
 	mus_rest 4
 	mus_rest 8
-	mus_call_x 3, Mus_01_76d6
+	mus_call_x 3, Mus_Song10_Ch2_Sub_4
 	mus_duty_envelope 2, $54
 	mus_rest 96
 	mus_transpose_off 
 	mus_volume 5
-	mus_call Mus_01_73d2
-	mus_call Mus_01_73a3
-	mus_call Mus_01_73d2
-	mus_call Mus_01_73a3
+	mus_call Mus_Song10_Ch2_Sub_2
+	mus_call Mus_Song10_Ch2_Sub_1
+	mus_call Mus_Song10_Ch2_Sub_2
+	mus_call Mus_Song10_Ch2_Sub_1
 	mus_duty_envelope 2, $77
 	mus_note F_3, 192
 	mus_note F_3, 96
 	mus_note As2, 192
-	mus_jump_back Mus_01_758e
+	mus_jump_back Mus_Song10_Ch2
 
-Mus_01_75e7::
+Mus_Song10_Ch1_Sub_6::
 	mus_note C_5, 8
 	mus_note Cs5, 8
 	mus_note Ds5, 8
@@ -7948,7 +7948,7 @@ Mus_01_75e7::
 	mus_note As4, 72
 	mus_ret 
 
-Mus_01_7600::
+Mus_Song10_Ch1_Sub_7::
 	mus_rest 24
 	mus_note As3, 16
 	mus_note C_4, 8
@@ -7999,7 +7999,7 @@ Mus_01_7600::
 	mus_note As4, 6
 	mus_ret 
 
-Mus_01_7661::
+Mus_Song10_Ch2_Sub_3::
 	mus_note B_4, 8
 	mus_note B_4, 4
 	mus_note B_4, 4
@@ -8022,7 +8022,7 @@ Mus_01_7661::
 	mus_volume 7
 	mus_ret 
 
-Mus_01_7683::
+Mus_Song10_Ch1_Sub_8::
 	mus_rest 24
 	mus_note As3, 16
 	mus_note C_4, 8
@@ -8066,7 +8066,7 @@ Mus_01_7683::
 	mus_rest 48
 	mus_ret 
 
-Mus_01_76d6::
+Mus_Song10_Ch2_Sub_4::
 	mus_rest 8
 	mus_note Gs4, 8
 	mus_note G_4, 8
@@ -8097,7 +8097,7 @@ Mus_01_76d6::
 	mus_volume 10
 	mus_ret 
 
-Mus_01_7702::
+Mus_Song10_Ch2_Sub_5::
 	mus_volume 10
 	mus_note E_4, 12
 	mus_volume 4
@@ -8122,7 +8122,7 @@ Mus_01_7702::
 	mus_note Fs5, 4
 	mus_ret 
 
-Mus_01_7724::
+Mus_Song10_Ch2_Sub_6::
 	mus_note C_3, 8
 	mus_note C_3, 4
 	mus_note C_3, 4
@@ -8142,7 +8142,7 @@ Mus_01_7724::
 	mus_note Ds4, 8
 	mus_ret 
 
-Mus_01_7742::
+Mus_Song10_Ch2_Sub_7::
 	mus_volume 10
 	mus_note Cs4, 13
 	mus_volume 4
@@ -8165,297 +8165,297 @@ Mus_01_7742::
 Song10_Ch3::
 	mus_transpose_off 
 	mus_regs $e8, $40, $40
-	mus_call_x 4, Mus_01_7936
+	mus_call_x 4, Mus_Song10_Ch3_Sub_8
 
-Mus_01_7764::
-	mus_call_x 2, Mus_01_7936
-	mus_call_x 4, Mus_01_78fb
-	mus_call_x 3, Mus_01_78c0
-	mus_call_x 3, Mus_01_7885
-	mus_call_x 3, Mus_01_784a
-	mus_call_x 3, Mus_01_780f
-	mus_call_x 2, Mus_01_7936
-	mus_call_x 3, Mus_01_7936
-	mus_call Mus_01_77d4
-	mus_call_x 2, Mus_01_77d4
-	mus_call Mus_01_7936
-	mus_call_x 2, Mus_01_7936
-	mus_call Mus_01_77d4
-	mus_call_x 2, Mus_01_77d4
-	mus_call_x 3, Mus_01_7799
-	mus_call Mus_01_77d4
-	mus_call_x 3, Mus_01_7936
-	mus_jump_back Mus_01_7764
+Mus_Song10_Ch3::
+	mus_call_x 2, Mus_Song10_Ch3_Sub_8
+	mus_call_x 4, Mus_Song10_Ch3_Sub_7
+	mus_call_x 3, Mus_Song10_Ch3_Sub_6
+	mus_call_x 3, Mus_Song10_Ch3_Sub_5
+	mus_call_x 3, Mus_Song10_Ch3_Sub_4
+	mus_call_x 3, Mus_Song10_Ch3_Sub_3
+	mus_call_x 2, Mus_Song10_Ch3_Sub_8
+	mus_call_x 3, Mus_Song10_Ch3_Sub_8
+	mus_call Mus_Song10_Ch3_Sub_2
+	mus_call_x 2, Mus_Song10_Ch3_Sub_2
+	mus_call Mus_Song10_Ch3_Sub_8
+	mus_call_x 2, Mus_Song10_Ch3_Sub_8
+	mus_call Mus_Song10_Ch3_Sub_2
+	mus_call_x 2, Mus_Song10_Ch3_Sub_2
+	mus_call_x 3, Mus_Song10_Ch3_Sub_1
+	mus_call Mus_Song10_Ch3_Sub_2
+	mus_call_x 3, Mus_Song10_Ch3_Sub_8
+	mus_jump_back Mus_Song10_Ch3
 
-Mus_01_7799::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_1::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Fs2, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Fs2, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Fs2, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Fs2, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Fs2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Fs2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Fs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Fs2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Fs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Fs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Fs2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Fs2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Fs2
 	mus_length_off 
 	mus_ret 
 
-Mus_01_77d4::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_2::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note F_2, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note F_2, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note F_2, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note F_2, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note F_2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note F_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note F_2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note F_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note F_2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note F_2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note F_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note F_2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note F_2
 	mus_length_off 
 	mus_ret 
 
-Mus_01_780f::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_3::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note As2, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note As2, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note As2, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note As2, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note A_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note A_2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Gs2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Gs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Gs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note G_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note G_2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note G_2
 	mus_length_off 
 	mus_ret 
 
-Mus_01_784a::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_4::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note A_2, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note A_2, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note A_2, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note A_2, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note A_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note A_2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note A_2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note A_2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note A_2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note A_2
 	mus_length_off 
 	mus_ret 
 
-Mus_01_7885::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_5::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Gs2, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Gs2, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Gs2, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Gs2, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Gs2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Gs2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Gs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Gs2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Gs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Gs2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Gs2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Gs2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Gs2
 	mus_length_off 
 	mus_ret 
 
-Mus_01_78c0::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_6::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note C_3, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note C_3, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note C_3, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note C_3, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note C_3
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note C_3
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note C_3
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note C_3
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note C_3
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note C_3
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note C_3
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note C_3
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note C_3
 	mus_length_off 
 	mus_ret 
 
-Mus_01_78fb::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_7::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Cs3, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Cs3, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Cs3, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Cs3, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Cs3
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Cs3
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Cs3
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Cs3
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Cs3
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Cs3
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note Cs3
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note Cs3
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note Cs3
 	mus_length_off 
 	mus_ret 
 
-Mus_01_7936::
-	mus_call Mus_01_7971
+Mus_Song10_Ch3_Sub_8::
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note As2, 8
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note As2, 8
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note As2, 4
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note As2, 4
 	mus_length_x 8
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note As2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note As2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note As2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note As2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note As2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note As2
-	mus_call Mus_01_7971
+	mus_call Mus_Song10_Ch3_Sub_Sub_1
 	mus_note As2
-	mus_call Mus_01_7975
+	mus_call Mus_Song10_Ch3_Sub_Sub_2
 	mus_note As2
-	mus_call Mus_01_7979
+	mus_call Mus_Song10_Ch3_Sub_Sub_3
 	mus_note As2
 	mus_length_off 
 	mus_ret 
 
-Mus_01_7971::
+Mus_Song10_Ch3_Sub_Sub_1::
 	mus_volume 3
 	mus_wave $60
 	mus_ret 
 
-Mus_01_7975::
+Mus_Song10_Ch3_Sub_Sub_2::
 	mus_volume 6
 	mus_wave $20
 	mus_ret 
 
-Mus_01_7979::
+Mus_Song10_Ch3_Sub_Sub_3::
 	mus_volume 5
 	mus_wave $60
 	mus_ret 
 
 Song10_Ch4::
-	mus_call_x 8, Mus_01_7a84
+	mus_call_x 8, Mus_Song10_Ch4_Sub_2
 
-Mus_01_7980::
-	mus_call_times 14, Mus_01_7a93
-	mus_call Mus_01_7a84
+Mus_Song10_Ch4::
+	mus_call_times 14, Mus_Song10_Ch4_Sub_3
+	mus_call Mus_Song10_Ch4_Sub_2
 	mus_envelope $63
 	mus_note 78, 8
 	mus_envelope $35
@@ -8482,21 +8482,21 @@ Mus_01_7980::
 	mus_envelope $23
 	mus_note 69, 8
 	mus_envelope $42
-	mus_call_x 3, Mus_01_7a6c
-	mus_call Mus_01_7a9f
+	mus_call_x 3, Mus_Song10_Ch4_Sub_1
+	mus_call Mus_Song10_Ch4_Sub_4
 	mus_rest 40
 	mus_envelope $52
 	mus_note 69, 16
 	mus_envelope $62
 	mus_note 69, 16
-	mus_call Mus_01_7a9f
+	mus_call Mus_Song10_Ch4_Sub_4
 	mus_rest 40
 	mus_envelope $52
 	mus_note 69, 16
 	mus_envelope $62
 	mus_note 69, 16
 	mus_rest 192
-	mus_call_times 19, Mus_01_7a84
+	mus_call_times 19, Mus_Song10_Ch4_Sub_2
 	mus_envelope $83
 	mus_note 78, 8
 	mus_envelope $45
@@ -8505,7 +8505,7 @@ Mus_01_7980::
 	mus_note 69, 16
 	mus_envelope $62
 	mus_note 69, 16
-	mus_call_x 6, Mus_01_7a93
+	mus_call_x 6, Mus_Song10_Ch4_Sub_3
 	mus_envelope $42
 	mus_rest 8
 	mus_note 69, 8
@@ -8526,20 +8526,20 @@ Mus_01_7980::
 	mus_envelope $23
 	mus_note 69, 8
 	mus_envelope $42
-	mus_call Mus_01_7a9f
+	mus_call Mus_Song10_Ch4_Sub_4
 	mus_rest 40
 	mus_envelope $52
 	mus_note 69, 16
 	mus_envelope $62
 	mus_note 69, 16
-	mus_call Mus_01_7a9f
+	mus_call Mus_Song10_Ch4_Sub_4
 	mus_rest 40
 	mus_envelope $52
 	mus_note 69, 16
 	mus_envelope $62
 	mus_note 69, 16
 	mus_rest 96
-	mus_call_x 4, Mus_01_7a84
+	mus_call_x 4, Mus_Song10_Ch4_Sub_2
 	mus_envelope $83
 	mus_note 78, 8
 	mus_envelope $45
@@ -8547,9 +8547,9 @@ Mus_01_7980::
 	mus_envelope $36
 	mus_note 78, 80
 	mus_rest 192
-	mus_jump_back Mus_01_7980
+	mus_jump_back Mus_Song10_Ch4
 
-MusUnused_01_7a48::
+MusUnused_10::
 	mus_rest 48 ; never reached
 	mus_ret  ; never reached
 	mus_rest 96 ; never reached
@@ -8560,7 +8560,7 @@ MusUnused_01_7a48::
 	mus_rest 96 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_7a56::
+Mus_Song10_Ch4_Sub_Sub::
 	mus_note 69
 	mus_note 69
 	mus_note 69
@@ -8568,7 +8568,7 @@ Mus_01_7a56::
 	mus_note 69
 	mus_ret 
 
-MusUnused_01_7a5c::
+MusUnused_11::
 	mus_note 69, 8 ; never reached
 	mus_note 69, 1 ; never reached
 	mus_note 69, 3 ; never reached
@@ -8579,7 +8579,7 @@ MusUnused_01_7a5c::
 	mus_rest 96 ; never reached
 	mus_ret  ; never reached
 
-Mus_01_7a6c::
+Mus_Song10_Ch4_Sub_1::
 	mus_envelope $42
 	mus_rest 8
 	mus_note 69, 8
@@ -8590,11 +8590,11 @@ Mus_01_7a6c::
 	mus_note 69, 8
 	mus_note 69, 8
 	mus_length_x 8
-	mus_call Mus_01_7a56
+	mus_call Mus_Song10_Ch4_Sub_Sub
 	mus_length_off 
 	mus_ret 
 
-Mus_01_7a84::
+Mus_Song10_Ch4_Sub_2::
 	mus_envelope $83
 	mus_note 78, 8
 	mus_envelope $45
@@ -8604,7 +8604,7 @@ Mus_01_7a84::
 	mus_rest 24
 	mus_ret 
 
-Mus_01_7a93::
+Mus_Song10_Ch4_Sub_3::
 	mus_envelope $83
 	mus_note 78, 8
 	mus_envelope $45
@@ -8612,7 +8612,7 @@ Mus_01_7a93::
 	mus_envelope $36
 	mus_note 78, 8
 
-Mus_01_7a9f::
+Mus_Song10_Ch4_Sub_4::
 	mus_envelope $63
 	mus_note 69, 8
 	mus_envelope $45
@@ -8644,7 +8644,7 @@ Song0F_Ch1::
 	mus_rest 32
 	mus_rest 34
 
-Mus_01_7ad6::
+Mus_Song0F_Ch1::
 	mus_duty_envelope 2, $86
 	mus_vibrato_ex $01, $02, $03, $08
 	mus_note A_4, 24
@@ -8813,7 +8813,7 @@ Mus_01_7ad6::
 	mus_note E_4, 8
 	mus_note E_4, 3
 	mus_note E_4, 8
-	mus_jump Mus_01_7ad6
+	mus_jump Mus_Song0F_Ch1
 
 Song0F_Ch2::
 	mus_rest 8
@@ -8834,7 +8834,7 @@ Song0F_Ch2::
 	mus_rest 32
 	mus_rest 34
 
-Mus_01_7c50::
+Mus_Song0F_Ch2::
 	mus_note E_4, 13
 	mus_note E_4, 11
 	mus_note Fs4, 8
@@ -8980,7 +8980,7 @@ Mus_01_7c50::
 	mus_note Fs4, 3
 	mus_note Gs4, 2
 	mus_duty_envelope 1, $72
-	mus_jump Mus_01_7c50
+	mus_jump Mus_Song0F_Ch2
 
 Song0F_Ch3::
 	mus_regs $c8, $40, $40
@@ -8988,13 +8988,13 @@ Song0F_Ch3::
 	mus_transpose_off 
 	mus_volume 4
 	mus_rest 8
-	mus_call Mus_01_7e16
+	mus_call Mus_Song0F_Ch3_Sub_1
 	mus_rest 32
 	mus_rest 34
 
-Mus_01_7d86::
-	mus_call_x 3, Mus_01_7e16
-	mus_call Mus_01_7e23
+Mus_Song0F_Ch3::
+	mus_call_x 3, Mus_Song0F_Ch3_Sub_1
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 16
 	mus_note E_2, 16
@@ -9007,7 +9007,7 @@ Mus_01_7d86::
 	mus_note A_2, 8
 	mus_note B_2, 3
 	mus_note Cs3, 8
-	mus_call Mus_01_7e23
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 16
 	mus_note E_2, 16
@@ -9029,47 +9029,47 @@ Mus_01_7d86::
 	mus_note D_3, 8
 	mus_note Cs3, 3
 	mus_note B_2, 8
-	mus_call Mus_01_7e23
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 13
 	mus_note E_2, 8
 	mus_note Fs2, 3
 	mus_note Gs2, 8
-	mus_call Mus_01_7e23
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 13
 	mus_note E_2, 8
 	mus_note Fs2, 3
 	mus_note Gs2, 8
-	mus_call Mus_01_7e23
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 13
 	mus_note E_2, 8
 	mus_note Fs2, 3
 	mus_note Gs2, 8
-	mus_call Mus_01_7e23
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 13
 	mus_note E_2, 8
 	mus_note Fs2, 3
 	mus_note Gs2, 8
-	mus_call Mus_01_7e23
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 13
 	mus_note E_2, 8
 	mus_note Fs2, 3
 	mus_note Gs2, 8
-	mus_call Mus_01_7e23
+	mus_call Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 13
 	mus_note E_2, 8
 	mus_note Fs2, 3
 	mus_note Gs2, 8
-	mus_call Mus_01_7e16
-	mus_jump_back Mus_01_7d86
+	mus_call Mus_Song0F_Ch3_Sub_1
+	mus_jump_back Mus_Song0F_Ch3
 
-Mus_01_7e16::
-	mus_call_x 2, Mus_01_7e23
+Mus_Song0F_Ch3_Sub_1::
+	mus_call_x 2, Mus_Song0F_Ch3_Sub_2
 	mus_volume 4
 	mus_note A_2, 13
 	mus_note E_2, 8
@@ -9077,7 +9077,7 @@ Mus_01_7e16::
 	mus_note Gs2, 8
 	mus_ret 
 
-Mus_01_7e23::
+Mus_Song0F_Ch3_Sub_2::
 	mus_volume 4
 	mus_note A_2, 16
 	mus_note E_2, 8
@@ -9085,7 +9085,7 @@ Mus_01_7e23::
 	mus_note Cs4, 8
 	mus_ret 
 
-MusUnused_01_7e2c::
+MusUnused_12::
 	mus_volume 4 ; never reached
 	mus_note A_2, 16 ; never reached
 	mus_note E_2, 8 ; never reached
@@ -9099,8 +9099,8 @@ Song0F_Ch4::
 	mus_note 66, 3
 	mus_note 66, 3
 	mus_note 66, 2
-	mus_call Mus_01_7eb9
-	mus_call Mus_01_7ef3
+	mus_call Mus_Song0F_Ch4_Sub_1
+	mus_call Mus_Song0F_Ch4_Sub_3
 	mus_envelope $61
 	mus_note 69, 5
 	mus_note 69, 3
@@ -9116,12 +9116,12 @@ Song0F_Ch4::
 	mus_envelope $64
 	mus_note 69, 8
 
-Mus_01_7e61::
-	mus_call_times 5, Mus_01_7eb9
-	mus_call Mus_01_7ec9
-	mus_call Mus_01_7eb9
-	mus_call Mus_01_7ec9
-	mus_call Mus_01_7ef3
+Mus_Song0F_Ch4::
+	mus_call_times 5, Mus_Song0F_Ch4_Sub_1
+	mus_call Mus_Song0F_Ch4_Sub_2
+	mus_call Mus_Song0F_Ch4_Sub_1
+	mus_call Mus_Song0F_Ch4_Sub_2
+	mus_call Mus_Song0F_Ch4_Sub_3
 	mus_envelope $61
 	mus_note 69, 5
 	mus_note 69, 3
@@ -9137,8 +9137,8 @@ Mus_01_7e61::
 	mus_note 78, 3
 	mus_envelope $62
 	mus_note 69, 8
-	mus_call Mus_01_7ec9
-	mus_call Mus_01_7ef3
+	mus_call Mus_Song0F_Ch4_Sub_2
+	mus_call Mus_Song0F_Ch4_Sub_3
 	mus_envelope $61
 	mus_note 69, 5
 	mus_note 69, 3
@@ -9156,28 +9156,28 @@ Mus_01_7e61::
 	mus_note 66, 3
 	mus_note 66, 3
 	mus_note 66, 2
-	mus_jump_back Mus_01_7e61
+	mus_jump_back Mus_Song0F_Ch4
 
-Mus_01_7eb9::
-	mus_call Mus_01_7ec9
-	mus_call Mus_01_7ef3
+Mus_Song0F_Ch4_Sub_1::
+	mus_call Mus_Song0F_Ch4_Sub_2
+	mus_call Mus_Song0F_Ch4_Sub_3
 	mus_envelope $61
 	mus_note 69, 5
 	mus_note 69, 3
-	mus_call Mus_01_7eda
+	mus_call Mus_Song0F_Ch4_Sub_Sub
 	mus_ret 
 
-Mus_01_7ec9::
-	mus_call Mus_01_7ef3
+Mus_Song0F_Ch4_Sub_2::
+	mus_call Mus_Song0F_Ch4_Sub_3
 	mus_envelope $61
 	mus_note 69, 5
 	mus_note 69, 3
-	mus_call Mus_01_7ef3
+	mus_call Mus_Song0F_Ch4_Sub_3
 	mus_envelope $62
 	mus_note 69, 8
 	mus_ret 
 
-Mus_01_7eda::
+Mus_Song0F_Ch4_Sub_Sub::
 	mus_envelope $71
 	mus_note 78, 5
 	mus_envelope $21
@@ -9192,7 +9192,7 @@ Mus_01_7eda::
 	mus_note 69, 8
 	mus_ret 
 
-Mus_01_7ef3::
+Mus_Song0F_Ch4_Sub_3::
 	mus_envelope $71
 	mus_note 78, 5
 	mus_envelope $21

@@ -69,7 +69,7 @@ Objects are set up from initialiser lists, which `ApplyObjInit` (and `InitObject
 | `$80, lo, hi` | `obj_include list` | apply another list, then continue |
 | `$81`–`$FF` | `obj_end` | end of list (the game uses `$81`) |
 
-In the sources these lists are labelled `ObjInit_BB_AAAA`. Code usually loads `hl` with a constant right before calling `ApplyObjInit`, so the tracer reads each list and follows its handler. Bank `$0E` is nothing but 981 consecutive lists (`$4000`–`$79F3`). Those are the ones level data refers to: the level spawner near `$17F0` maps bank `$0E` and calls `InitObject` with a pointer taken from the level's object table in RAM. Following these handlers is what opened up most of banks `$08`–`$0A`.
+In the sources each list is named after the object it sets up, from its handler (`ObjInit_Zinger_Patrol_3`; see Names of data under Status). Code usually loads `hl` with a constant right before calling `ApplyObjInit`, so the tracer reads each list and follows its handler. Bank `$0E` is nothing but 981 consecutive lists (`$4000`–`$79F3`). Those are the ones level data refers to: the level spawner near `$17F0` maps bank `$0E` and calls `InitObject` with a pointer taken from the level's object table in RAM. Following these handlers is what opened up most of banks `$08`–`$0A`.
 
 ### What the objects are
 
@@ -94,11 +94,11 @@ Objects that animate call `AnimateObject` every frame. It counts `OBJ_ANIM_TIMER
 | `$8200`, `dw` | `anim_call routine` | call a routine, with bank `$04` mapped |
 | `$8300` | `anim_clear_flag` | clear bit 7 of `OBJ_ANIM_FLAGS`, which handlers poll |
 | `$84nn` | `anim_param n` | set `OBJ_ANIM_PARAM` |
-| `$8500`, `dw` | `anim_var38 value` | set the word `OBJ_VAR_38` |
+| `$8500`, `dw` | `anim_var38 value` | set the word `OBJ_ANIM_WORD` |
 | `$86nn` | `anim_xor_attr mask` | toggle `OBJ_OAM_ATTR` bits |
 | `$87nn`–`$8Ann` | `anim_sfx channel, id` | play a sound effect on channel 1–4 |
 
-Frames are 6-byte headers in bank `$20`: 1,415 of them, the first one empty (`frame_none`). `frame tiles, offsets, count` names the frame's graphics (`count` 8×8 tiles) and its sprite offset list, which are both in the bank stored in the header's last byte (`$21`–`$3A`). `DrawSpriteFrame` copies the tiles to VRAM with HDMA and draws one 8×16 sprite per pair of tiles. Each sprite is placed by a signed `(dx, dy)` pair relative to the sprite before it, starting from the object's screen position. The draw code mirrors the offsets when the object is flipped. Each graphics bank holds its frames' tiles from `$4000` up, followed by all of its offset lists. In the sources these are `Anim_04_XXXX`, `Frame_20_XXXX`, `FrameTiles_BB_XXXX` (see Graphics below) and `FrameSprites_BB_XXXX`. Code that stores a constant into `OBJ_ANIM` or `OBJ_FRAME` is written with `LOW()`/`HIGH()` of the label.
+Frames are 6-byte headers in bank `$20`: 1,415 of them, the first one empty (`frame_none`). `frame tiles, offsets, count` names the frame's graphics (`count` 8×8 tiles) and its sprite offset list, which are both in the bank stored in the header's last byte (`$21`–`$3A`). `DrawSpriteFrame` copies the tiles to VRAM with HDMA and draws one 8×16 sprite per pair of tiles. Each sprite is placed by a signed `(dx, dy)` pair relative to the sprite before it, starting from the object's screen position. The draw code mirrors the offsets when the object is flipped. Each graphics bank holds its frames' tiles from `$4000` up, followed by all of its offset lists. In the sources these are `Anim_…`, `Frame_…`, `FrameTiles_…` (see Graphics below) and `FrameSprites_…`, each named after the object or routine that shows it (`Anim_Zinger_1`, `Frame_Zinger_2`, `Frame_Letter_D`). Code that stores a constant into `OBJ_ANIM` or `OBJ_FRAME` is written with `LOW()`/`HIGH()` of the label.
 
 ### Graphics
 
@@ -126,7 +126,7 @@ Levels are described in bank `$04`. `LevelTable` has two entrance pointers per l
 
 ### Backgrounds
 
-**Levels.** A level descriptor points to a map header in bank `$04` (`MapHeader_04_XXXX`, 112 of them). The header names a block bank, a terrain bank, flags (bit 0: vertical level, bit 1: twice the size), a tileset and the map data. A level map is a grid of 32×32-pixel blocks: 16 rows × 256 columns for horizontal levels and 64 × 64 for vertical ones, doubled when flag bit 1 is set. Three compressed layers are unpacked by `Decompress` into WRAM banks 1–3 (plus 5–7 for the second half). They hold each cell's block number, its block attribute and its terrain. Each control byte n of the compression is one of these:
+**Levels.** A level descriptor points to a map header in bank `$04` (`MapHeader_…`, 112 of them, named after their level: `MapHeader_JungleHijinxs`). The header names a block bank, a terrain bank, flags (bit 0: vertical level, bit 1: twice the size), a tileset and the map data. A level map is a grid of 32×32-pixel blocks: 16 rows × 256 columns for horizontal levels and 64 × 64 for vertical ones, doubled when flag bit 1 is set. Three compressed layers are unpacked by `Decompress` into WRAM banks 1–3 (plus 5–7 for the second half). They hold each cell's block number, its block attribute and its terrain. Each control byte n of the compression is one of these:
 
 | n | Meaning |
 |---|---|
@@ -145,7 +145,7 @@ These are stored as editable files, written by `make extract` and converted back
 | `data/blocks/BB.bin` | a block bank in natural order: 512 blocks of 16 (tile, attribute) pairs | `tools/leveldata.py blocks` |
 | `data/terrain/BB.bin` | a terrain bank in natural order: 256 types of 32 column bytes then 32 second bytes | `tools/leveldata.py terrain` |
 
-**Full screens.** Title, credits, ending and similar screens are 20×18 tile maps. A screen record (`Screen_BB_XXXX`) points to 8 BG palettes, the tile map (360 attribute bytes, then 360 tile numbers) and the tiles. The loader copies 128 bytes of palettes, so the "OBJ palettes" it also loads are whatever bytes follow. That's harmless, since these screens have no sprites.
+**Full screens.** Title, credits, ending and similar screens are 20×18 tile maps. A screen record (`Screen_…`, named after the flow script that shows it: `Screen_Ending05`) points to 8 BG palettes, the tile map (360 attribute bytes, then 360 tile numbers) and the tiles. The loader copies 128 bytes of palettes, so the "OBJ palettes" it also loads are whatever bytes follow. That's harmless, since these screens have no sprites.
 
 **Tiles.** A tileset is 8 KB copied by HDMA into VRAM: tiles 0–127 at `$9000`, 128–255 at `$8800`, then the same in VRAM bank 1. Some tilesets overlap the next one, so each tile bank is split at every start address. Each piece is a PNG in `gfx/bgtiles/BB/AAAA.png`, 16 tiles per row (plus `AAAA_end.png` for a partial last row). PNGs are extracted from the base ROM and built with `rgbgfx -c dmg`, like the sprite frames, and are not committed.
 
@@ -187,7 +187,7 @@ Where songs are played, so far: levels take theirs from byte 10 of the level des
 
 **Camera regions (bank `$06`).** Each map header's `$c45c` pointer leads to a list of 16-byte boxes (`CameraRegions_06_XXXX`): left, right, top and bottom edges of four bytes each, a flags byte, a byte and a 16-bit coordinate. When bit 1 of an edge's flags is set, its first two bytes are instead the address of another box whose same edge is used (`GetCameraRegionEdge`). `UpdateCameraRegion` finds the first box that contains the player and clamps the scroll to it. The lists have no terminator.
 
-**Level object lists (banks `$0B`/`$0C`).** The second pointer of each level descriptor names its object list (`LevelObjects_BB_XXXX`), read by `LoadLevelObjects`. The list is 8-byte records (id, flags, x, y, pointer) ending in a 0 byte, sorted by x. Bits 4–5 of the flags say what the pointer is: `$00` a 16-byte block in bank `$03`, `$10` a zero-terminated byte string in the same bank (`LevelObjString_…`), copied to WRAM at `$D800` + 16 × id, or `$30` an object initialiser list in bank `$0E` (the object to spawn).
+**Level object lists (banks `$0B`/`$0C`).** The second pointer of each level descriptor names its object list (`LevelObjects_…`, named after the level), read by `LoadLevelObjects`. The list is 8-byte records (id, flags, x, y, pointer) ending in a 0 byte, sorted by x. Bits 4–5 of the flags say what the pointer is: `$00` a 16-byte block in bank `$03`, `$10` a zero-terminated byte string in the same bank (`LevelObjString_…`), copied to WRAM at `$D800` + 16 × id, or `$30` an object initialiser list in bank `$0E` (the object to spawn).
 
 **Object data in banks `$04`, `$08` and `$0A`.** Several object types carry a pointer to data of their own in an `OBJ_VAR_xx` field, set by their initialiser list in bank `$0E`. The sources now use labels for these pointers.
 
@@ -196,7 +196,7 @@ Where songs are played, so far: levels take theirs from byte 10 of the level des
 | `MapPatch_04_XXXX` (92) | `$04:6CB4`–`$705A` | block x, block y (bit 7: the second map layer), width, height, then width × height cells of block number, block attribute and terrain byte. `ApplyMapPatch` (`$0D74`) writes the patch into the level map in WRAM, so an object can open a wall or change the ground. Pointed to by `OBJ_VAR_2F`, `$30` or `$32` |
 | `ObjScript_0a_XXXX` | `$0A:7358`–`$7AF5` | small byte-code scripts, read by eleven handlers through ten interpreters (`tools/objscripts.py` lists the command sets). Command 0 jumps; the others wait, set speeds and accelerations, change the animation, throw or spawn objects. Pointed to by `OBJ_VAR_2E`, `$31` or `$32` |
 | `CarrierObjectTable` | `$08:4CA0` | 17 × 8 bytes, by `OBJ_VAR_2E`: sprite frame and palette of an object, and the y offset and initialiser of the object it releases (`MatchBonus_Item_Cycle at $4652` and nearby) |
-| `SpellWord_08_XXXX` | `$08:4E6F` | words in letter blocks for `SpellBonus` (`OBJ_VAR_35`, count in `OBJ_VAR_33`): `$80` or `$81` for two kinds of plain block, or a position byte and a letter frame (`Frame_20_4b82` + 6 × n is letter n). The words are DONKEY, KONG, COUNTRY, RAREWARE, NINTENDO, RARE, EXPRESSO, ENGUARDE, RAMBI, WINKY, DIDDY, CANDY, FUNKY and CRANKY |
+| `SpellWord_…` | `$08:4E6F` | words in letter blocks for `SpellBonus` (`OBJ_VAR_35`, count in `OBJ_VAR_33`): `$80` or `$81` for two kinds of plain block, or a position byte and a letter frame (`Frame_Letter_A` + 6 × n is letter n). The words are DONKEY, KONG, COUNTRY, RAREWARE, NINTENDO, RARE, EXPRESSO, ENGUARDE, RAMBI, WINKY, DIDDY, CANDY, FUNKY and CRANKY |
 | `MatchPattern_08_XXXX` | `$08:4F8F` | pairs of (frames, `CarrierObjectTable` index) that each part of a `MatchBonus` row steps through (`OBJ_VAR_33`, length in `OBJ_VAR_32`) |
 | `AnimalMaskTable` | `$08:5D93` | four 1-bit masks, one per animal buddy (`[$c445]` bits 4–6), copied to WRAM bank 4 at `$D800`, 16 bytes a row. `TileAnimator` tests the player's position against them |
 | `ObjectDigits` | `$08:62B6` | "×", "1", "2" and "3" as 8 × 5 bitmaps, drawn with one object per set bit (`SpawnObjectDigits`) |
@@ -294,17 +294,20 @@ The ROM rebuilds byte for byte, and no part of it is copied from `baserom.gbc` a
 
 The remaining 1.4 MB is empty padding and isn't counted.
 
-**Completion.** Measured against the plan below, the disassembly is about **85%** complete: steps 1 and 2 (every byte identified, every byte decoded or converted) are at 100%, and step 3, the names, stands at about 55%. The step-3 figure is the average of the rows in this table, which `python3 tools/coverage.py --names` prints from the generated sources:
+**Completion.** Measured against the plan below, the disassembly is at **99.9%**: steps 1 and 2 (every byte identified, every byte decoded or converted) are at 100%, and step 3, the names, at 99.7%. The step-3 figure is the average of the rows in this table, which `python3 tools/coverage.py --names` prints from the generated sources (shares are rounded down, so 100% means complete):
 
 | Names | Done | Share | Note |
 |---|---|---|---|
-| Routines with a name | 1,995 of 1,995 | 100% | 4 marked tentative |
-| RAM variables the code reaches by address, named | all | 100% | 519 names, 30 marked tentative |
-| Object fields with a name (bytes of the $40-byte slot) | 41 of 64 | 64% | the rest are `OBJ_VAR_xx`, whose use depends on the object type |
-| Local labels with a descriptive name | 165 of 3,255 | 5% | all others have structural names (`.loop`, `.skip`, `.done`…) |
-| Data labels with a descriptive name | 948 of 11,741 | 8% | the others are named by kind and address (`Frame_20_…`, `ObjInit_0e_…`) |
+| Routines with a name | 1,995 of 1,995 | 100% | |
+| RAM variables the code reaches by address, named | all | 100% | 519 names |
+| Data labels with a descriptive name | 11,741 of 11,741 | 100% | most named by `tools/autodatanames.py` from what uses them |
+| Local labels with a name | 3,255 of 3,255 | 100% | 165 by hand, the others structural (`.loop`, `.skip`, `.done`…) |
+| Object fields with a fixed meaning, named | 44 of 44 bytes | 100% | 20 more bytes are `OBJ_VAR_xx`, whose use depends on the object type |
+| Names not marked tentative | 2,507 of 2,544 | 98% | 37 tentative: 4 routines, 30 RAM variables, 3 object fields |
 
-The overall figure is a plain average of the three steps, and the step-3 figure a plain average of its rows, so it shows the direction of travel rather than an amount of work: the 11,741 data labels, for instance, are mostly sprite frames, text strings and object lists that already have readable kind-and-address names.
+What the rows count, and what they leave out: a local label counts as named when it has a structural name, since a prose name for every loop is not the goal; descriptive names for the labels of the main routines are on the to-do list instead. Of the object slot, the bytes the engine gives a fixed meaning are named, while the 20 bytes each handler uses for its own purposes stay `OBJ_VAR_xx` (listed in `hints.TYPE_SPECIFIC_FIELDS`); naming them per object type is also on the to-do list. The last row is the one still short of 100%: it counts names whose meaning has not been confirmed, mostly by running the game.
+
+**Names of data.** Data that used to be named by kind and address (`ObjInit_0e_4397`, `Frame_20_4f60`, `Text_10_4244`) is now named after what uses it, by `tools/autodatanames.py`, which writes `tools/datanames.py`: an object list after the object's handler (`ObjInit_Zinger_Patrol_3`), an animation after the routine or object that starts it, a sprite frame and its tiles after the animation that shows it, a level's map, map header, camera regions and object list after the level (`MapHeader_JungleHijinxs`, `LevelObjects_ElevatorAntics`), music after its song and channel (`Mus_Song20_Ch1_Sub_4`), an entry of a big table by its position (`PictureMap_041`), and text after its English words with the language added (`Text_SoYouFoundMe_German`). Data nothing uses is called so (`Frame_Unused_…`, `MusUnused_…`). Names in `tools/names.py` take precedence; `dkc.sym` still maps every label to its address. To refresh the names after a change, run `python3 tools/autodatanames.py`, then `make generate`, and repeat until the tool reports nothing new.
 
 The remaining 1.4 MB of empty padding is not counted in any of these. Every routine now has a name (step 3's first pass is done). The engine (`$00`), the gameplay banks (`$08`–`$0A`) and the front-end program (`$F0`–`$FE`) were named routine by routine, with the emulator to check what runs where; Funky's Fishing (`$50`–`$52`) and the Hi-Score screen (`$55`) the same way. The game's top-level states, the handlers of the jump table at `$0301`, are `State_…` routines named after what they do (`State_LoadLevel`, `State_Level`, `State_WorldMapWalk`, `State_FrontEnd`…); before, they sat unnamed inside unrelated routines. Some names are less certain than others: those marked tentative in `tools/names.py`, and those of code no emulator run reached (link play, the end of a Funky's Fishing session, entering a new high score). Local labels inside routines are named by `tools/localnames.py` from the shape of the code: `.loop` (jumped back to from later in the routine), `.skip` (a conditional jump a few instructions back skips to it), `.else` (only jumps reach it), `.continue` (other forward targets), `.done` (a few straight-line instructions to a `ret`), `.return` (a `ret`), `.jp_Name` (a jump to the routine `Name`, most often `.jp_NextObject` in object handlers) and `.back` (reached only from later routines). A name used once in a routine stands alone; a routine with several of a kind gives each its address (`.loop_44f5`), which also keeps them easy to find in a debugger. The 158 labels that other routines jump into, which are entry points of a kind, are named by hand in the same file (`CheckPlayerContact.next_object`, `RestoreBankAndReturn.far_jump`, `Cranky_CheckGameOver.game_over`, the sound driver's `Music_JumpHL.play_note`…). The structural names say what a label is in the control flow, not what the code there does; descriptive names for the others would need reading routine by routine.
 
@@ -372,12 +375,11 @@ This repository covers the retail ROM only. The goal is a complete (100%) disass
 **To do.** What is left, roughly in order:
 
 1. Check the names marked tentative (4 routines, 30 RAM variables, 3 object fields and a few hand-named labels) in the emulator, and run the code no emulator session has reached yet: link play in the front end, Funky's Fishing and Crosshair Cranky, the end of a Funky's Fishing session, entering a new high score, and the front end's action `$8A`, which no ring uses.
-2. Give the object types descriptive names: the 1,192 object initialiser lists (`ObjInit_0e_…`) and their handlers' `OBJ_VAR_xx` fields, per object type.
-3. Name the animations (426 `Anim_04_…`) and sprite frames (1,415 `Frame_20_…`) after the character and action they show.
-4. Give descriptive local labels to the most-used routines (the engine in bank `$00`, the player code in bank `$09`), where the structural names say little.
-5. Write high bytes of RAM pointers symbolically (`ld h, $b0` as `HIGH(sSaveFile0)`) and the remaining HRAM buffers loaded into `hl` as their names.
-6. Settle the open questions in [`docs/unused.md`](docs/unused.md): the 256 tiles at `$F2:5760` and the four at `$F7:7F60` with no known loader, and the other items listed there.
-7. Later and separately: the `wiki/` folder (see below) and the demo ROM's own repository.
+2. Name the type-specific object fields (`OBJ_VAR_xx`) per object type, starting with the player.
+3. Give descriptive local labels to the most-used routines (the engine in bank `$00`, the player code in bank `$09`), where the structural names say little.
+4. Write high bytes of RAM pointers symbolically (`ld h, $b0` as `HIGH(sSaveFile0)`) and the remaining HRAM buffers loaded into `hl` as their names.
+5. Settle the open questions in [`docs/unused.md`](docs/unused.md): the 256 tiles at `$F2:5760` and the four at `$F7:7F60` with no known loader, and the other items listed there.
+6. Later and separately: the `wiki/` folder (see below) and the demo ROM's own repository.
 
 Running the ROM in an emulator (PyBoy and mGBA, used only locally and never in the build) has become part of the method. It identifies what each part of the ROM is and shows which code and data the game really touches at run time, which catches what static tracing misses and settles whether content is truly unused.
 

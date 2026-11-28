@@ -1108,29 +1108,29 @@ Cranky_UndimBackground::
 
 
 CrankyBackgrounds::
-	dw CrankyBackground_f5_4607 ; Buddies Beware
-	dw CrankyBackground_f5_4609 ; Barrel O'Kremlings
-	dw CrankyBackground_f5_460b ; Wanted
-	dw CrankyBackground_f5_460d ; Kremling Krackdown
-	dw CrankyBackground_f5_460f ; Kremlings and Kongs
-	dw CrankyBackground_f5_4611 ; Galleon Gunner
+	dw CrankyBackground_Backgrounds0 ; Buddies Beware
+	dw CrankyBackground_Backgrounds1 ; Barrel O'Kremlings
+	dw CrankyBackground_Backgrounds2 ; Wanted
+	dw CrankyBackground_Backgrounds3 ; Kremling Krackdown
+	dw CrankyBackground_Backgrounds4 ; Kremlings and Kongs
+	dw CrankyBackground_Backgrounds5 ; Galleon Gunner
 
-CrankyBackground_f5_4607::
+CrankyBackground_Backgrounds0::
 	db 138, $02 ; picture, song
 
-CrankyBackground_f5_4609::
+CrankyBackground_Backgrounds1::
 	db 139, $08 ; picture, song
 
-CrankyBackground_f5_460b::
+CrankyBackground_Backgrounds2::
 	db 140, $07 ; picture, song
 
-CrankyBackground_f5_460d::
+CrankyBackground_Backgrounds3::
 	db 141, $02 ; picture, song
 
-CrankyBackground_f5_460f::
+CrankyBackground_Backgrounds4::
 	db 142, $04 ; picture, song
 
-CrankyBackground_f5_4611::
+CrankyBackground_Backgrounds5::
 	db 143, $06 ; picture, song
 
 Cranky_ResetState::
@@ -1794,22 +1794,22 @@ Cranky_GalleonGunner_SetGradient::
 	ret
 
 
-Padding_f5_4ae2::
+Padding_Cranky_GalleonGunner_SetGradient::
 	ds 14, $00 ; padding
 
-BGTiles_f5_4af0::
+BGTiles_0_0::
 	INCBIN "gfx/bgtiles/f5/4af0.2bpp"
 
-BGTiles_f5_4df0::
+BGTiles_Cranky_GalleonGunner_SetGradient::
 	INCBIN "gfx/bgtiles/f5/4df0.2bpp"
 
-BGTiles_f5_4ff0::
+BGTiles_2_0::
 	INCBIN "gfx/bgtiles/f5/4ff0.2bpp"
 
-BGTiles_f5_63f0::
+BGTiles_1_0::
 	INCBIN "gfx/bgtiles/f5/63f0.2bpp"
 
-BGTiles_f5_77f0::
+BGTiles_3_0::
 	INCBIN "gfx/bgtiles/f5/77f0.2bpp"
 	INCBIN "gfx/bgtiles/f5/77f0_end.2bpp"
 	ds 1360, $00 ; $7ab0

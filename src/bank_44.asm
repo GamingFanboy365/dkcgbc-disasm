@@ -3,15 +3,15 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $44", ROMX[$4000], BANK[$44]
 
-BGTiles_44_4000::
+BGTiles_State_Level::
 	INCBIN "gfx/bgtiles/44/4000.2bpp"
 	INCBIN "gfx/bgtiles/44/4000_end.2bpp"
 
-BGTiles_44_4c30::
+BGTiles_Init::
 	INCBIN "gfx/bgtiles/44/4c30.2bpp"
 	INCBIN "gfx/bgtiles/44/4c30_end.2bpp"
 
-ScreenPalettes_44_52f0::
+ScreenPalettes_State_Level::
 	rgb  0,  0,  0,   9,  6,  3,  29, 16,  8,  31, 22, 13
 	rgb  8,  5,  4,  15,  8,  6,  22, 13, 11,  27, 17, 13
 	rgb  2,  0,  0,  19, 11,  9,  13,  1,  1,  23,  2,  1
@@ -21,7 +21,7 @@ ScreenPalettes_44_52f0::
 	rgb  8,  5,  4,  22, 13, 11,  27, 17, 13,  23,  2,  1
 	rgb  0,  0,  0,   7,  3,  3,  10,  5,  4,  14,  8,  6
 
-ScreenMap_44_5330::
+ScreenMap_State_Level::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; attributes
 	db $00, $00, $00, $00, $00, $00, $00, $04, $00, $04, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $04, $00, $04, $04, $04, $04, $04, $04, $04, $00, $00, $00, $00
@@ -59,7 +59,7 @@ ScreenMap_44_5330::
 	db $00, $00, $00, $00, $b2, $b3, $b4, $b5, $00, $b6, $b7, $b8, $b9, $ba, $bb, $bc, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $bd, $be, $bf, $00, $c0, $c1, $c2, $00, $00, $00, $00, $00, $00, $00, $00
 
-ScreenPalettes_44_5600::
+ScreenPalettes_Init::
 	rgb  0,  0,  0,   0,  9,  0,   0, 15,  0,   0, 31,  0
 	rgb  0,  0,  0,  10,  7,  2,  31, 31,  9,  31, 31, 31
 	rgb  0,  0,  0,   5,  6, 13,  14, 18, 31,  31, 31, 31
@@ -69,7 +69,7 @@ ScreenPalettes_44_5600::
 	rgb  0,  0, 13,   0,  0, 20,  10,  7,  2,  31, 31,  9
 	rgb  0, 23,  0,   0, 23,  0,   0, 23,  0,   0, 23,  0
 
-ScreenMap_44_5640::
+ScreenMap_Init_1::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; attributes
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
@@ -107,7 +107,7 @@ ScreenMap_44_5640::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-ScreenMap_44_5910::
+ScreenMap_Init_2::
 	db $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02 ; attributes
 	db $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02
 	db $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02, $02
@@ -145,13 +145,13 @@ ScreenMap_44_5910::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-Screen_44_5be0::
-	dw ScreenPalettes_44_52f0, ScreenMap_44_5330, BGTiles_44_4000 ; palettes, tile map, tiles
+Screen_State_Level::
+	dw ScreenPalettes_State_Level, ScreenMap_State_Level, BGTiles_State_Level ; palettes, tile map, tiles
 
-Screen_44_5be6::
-	dw ScreenPalettes_44_5600, ScreenMap_44_5640, BGTiles_44_4c30 ; palettes, tile map, tiles
+Screen_Init_1::
+	dw ScreenPalettes_Init, ScreenMap_Init_1, BGTiles_Init ; palettes, tile map, tiles
 
-Screen_44_5bec::
-	dw ScreenPalettes_44_5600, ScreenMap_44_5910, BGTiles_44_4c30 ; palettes, tile map, tiles
+Screen_Init_2::
+	dw ScreenPalettes_Init, ScreenMap_Init_2, BGTiles_Init ; palettes, tile map, tiles
 	ds 9230, $00 ; $5bf2
 

@@ -3,82 +3,82 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $2b", ROMX[$4000], BANK[$2b]
 
-FrameTiles_2b_4000::
+FrameTiles_BossDefeated_20::
 	INCBIN "gfx/frames/2b/4000.2bpp"
 
-FrameTiles_2b_41c0::
+FrameTiles_BossDefeated_21::
 	INCBIN "gfx/frames/2b/41c0.2bpp"
 
-FrameTiles_2b_43a0::
+FrameTiles_BossDefeated_22::
 	INCBIN "gfx/frames/2b/43a0.2bpp"
 
-FrameTiles_2b_4580::
+FrameTiles_BossDefeated_23::
 	INCBIN "gfx/frames/2b/4580.2bpp"
 
-FrameTiles_2b_4760::
+FrameTiles_DumbDrum_Init_1::
 	INCBIN "gfx/frames/2b/4760.2bpp"
 
-FrameTiles_2b_49e0::
+FrameTiles_DumbDrum_Init_2::
 	INCBIN "gfx/frames/2b/49e0.2bpp"
 
-FrameTiles_2b_4ca0::
+FrameTiles_DumbDrum_Descend::
 	INCBIN "gfx/frames/2b/4ca0.2bpp"
 
-FrameTiles_2b_4de0::
+FrameTiles_BossDefeated_24::
 	INCBIN "gfx/frames/2b/4de0.2bpp"
 
-FrameTiles_2b_50c0::
+FrameTiles_MasterNecky_Defeated_1::
 	INCBIN "gfx/frames/2b/50c0.2bpp"
 
-FrameTiles_2b_52a0::
+FrameTiles_MasterNecky_Defeated_2::
 	INCBIN "gfx/frames/2b/52a0.2bpp"
 
-FrameTiles_2b_5440::
+FrameTiles_MasterNecky_Defeated_3::
 	INCBIN "gfx/frames/2b/5440.2bpp"
 
-FrameTiles_2b_55e0::
+FrameTiles_MasterNecky_Defeated_4::
 	INCBIN "gfx/frames/2b/55e0.2bpp"
 
-FrameTiles_2b_5760::
+FrameTiles_MasterNecky_Defeated_5::
 	INCBIN "gfx/frames/2b/5760.2bpp"
 
-FrameTiles_2b_58c0::
+FrameTiles_MasterNecky_Defeated_6::
 	INCBIN "gfx/frames/2b/58c0.2bpp"
 
-FrameTiles_2b_5a20::
+FrameTiles_MasterNecky_Defeated_7::
 	INCBIN "gfx/frames/2b/5a20.2bpp"
 
-FrameTiles_2b_5be0::
+FrameTiles_MasterNecky_Defeated_8::
 	INCBIN "gfx/frames/2b/5be0.2bpp"
 
-FrameTiles_2b_5dc0::
+FrameTiles_MasterNecky_Defeated_9::
 	INCBIN "gfx/frames/2b/5dc0.2bpp"
 
-FrameTiles_2b_5fe0::
+FrameTiles_MasterNecky_Defeated_10::
 	INCBIN "gfx/frames/2b/5fe0.2bpp"
 
-FrameTiles_2b_6220::
+FrameTiles_MasterNecky_Defeated_11::
 	INCBIN "gfx/frames/2b/6220.2bpp"
 
-FrameTiles_2b_6480::
+FrameTiles_MasterNecky_Defeated_12::
 	INCBIN "gfx/frames/2b/6480.2bpp"
 
-FrameTiles_2b_66e0::
+FrameTiles_MasterNecky::
 	INCBIN "gfx/frames/2b/66e0.2bpp"
 
-FrameTiles_2b_68c0::
+FrameTiles_MasterNecky_Spit_1::
 	INCBIN "gfx/frames/2b/68c0.2bpp"
 
-FrameTiles_2b_6a80::
+FrameTiles_MasterNecky_Spit_2::
 	INCBIN "gfx/frames/2b/6a80.2bpp"
 
-FrameTiles_2b_6c00::
+FrameTiles_MasterNecky_Spit_3::
 	INCBIN "gfx/frames/2b/6c00.2bpp"
 
-FrameTiles_2b_6de0::
+FrameTiles_MasterNecky_Spit_4::
 	INCBIN "gfx/frames/2b/6de0.2bpp"
 
-FrameSprites_2b_6fe0::
+FrameSprites_BossDefeated_20::
 	db -16, -39, $00 ; dx, dy, attribute add
 	db 0, 19, $00
 	db 0, 16, $00
@@ -94,7 +94,7 @@ FrameSprites_2b_6fe0::
 	db 8, -35, $01
 	db 0, 33, $00
 
-FrameSprites_2b_700a::
+FrameSprites_BossDefeated_21::
 	db -19, -38, $01 ; dx, dy, attribute add
 	db 0, 20, $00
 	db 0, 16, $00
@@ -111,7 +111,7 @@ FrameSprites_2b_700a::
 	db 0, 16, $00
 	db 0, 21, $00
 
-FrameSprites_2b_7037::
+FrameSprites_BossDefeated_22::
 	db -30, -38, $01 ; dx, dy, attribute add
 	db 8, 5, $01
 	db 0, -16, $01
@@ -128,7 +128,7 @@ FrameSprites_2b_7037::
 	db 16, -16, $00
 	db 8, 0, $00
 
-FrameSprites_2b_7064::
+FrameSprites_BossDefeated_23::
 	db -28, -32, $01 ; dx, dy, attribute add
 	db 8, -1, $01
 	db 0, 16, $00
@@ -145,7 +145,7 @@ FrameSprites_2b_7064::
 	db 8, 1, $00
 	db 8, -1, $00
 
-FrameSprites_2b_7091::
+FrameSprites_DumbDrum_Init_1::
 	db -19, -58, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -167,7 +167,7 @@ FrameSprites_2b_7091::
 	db 0, 16, $00
 	db 0, 16, $00
 
-FrameSprites_2b_70cd::
+FrameSprites_DumbDrum_Init_2::
 	db -19, -59, $00 ; dx, dy, attribute add
 	db 1, 16, $00
 	db 0, 16, $00
@@ -191,7 +191,7 @@ FrameSprites_2b_70cd::
 	db -1, -64, $00
 	db 8, 0, $00
 
-FrameSprites_2b_710f::
+FrameSprites_DumbDrum_Descend::
 	db -12, -29, $00 ; dx, dy, attribute add
 	db -12, 7, $00
 	db 28, -7, $00
@@ -203,7 +203,7 @@ FrameSprites_2b_710f::
 	db 12, -16, $00
 	db -4, 16, $00
 
-FrameSprites_2b_712d::
+FrameSprites_BossDefeated_24::
 	db -27, -57, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -16, $00
@@ -228,7 +228,7 @@ FrameSprites_2b_712d::
 	db 0, 16, $00
 	db 8, -39, $00
 
-FrameSprites_2b_7172::
+FrameSprites_MasterNecky_Defeated_1::
 	db -57, -33, $00 ; dx, dy, attribute add
 	db 8, -2, $00
 	db 8, -7, $00
@@ -245,7 +245,7 @@ FrameSprites_2b_7172::
 	db 8, 0, $00
 	db -10, -16, $00
 
-FrameSprites_2b_719f::
+FrameSprites_MasterNecky_Defeated_2::
 	db -61, -24, $00 ; dx, dy, attribute add
 	db 8, -3, $00
 	db 24, 9, $00
@@ -260,7 +260,7 @@ FrameSprites_2b_719f::
 	db 8, 2, $00
 	db 8, 3, $00
 
-FrameSprites_2b_71c6::
+FrameSprites_MasterNecky_Defeated_3::
 	db -62, -13, $00 ; dx, dy, attribute add
 	db 4, 11, $00
 	db 0, -32, $00
@@ -275,7 +275,7 @@ FrameSprites_2b_71c6::
 	db 8, 6, $00
 	db 8, 2, $00
 
-FrameSprites_2b_71ed::
+FrameSprites_MasterNecky_Defeated_4::
 	db -3, -3, $00 ; dx, dy, attribute add
 	db -56, -2, $00
 	db 3, -16, $01
@@ -289,7 +289,7 @@ FrameSprites_2b_71ed::
 	db 8, 3, $00
 	db 8, 3, $00
 
-FrameSprites_2b_7211::
+FrameSprites_MasterNecky_Defeated_5::
 	db -56, -9, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -13, $00
@@ -302,7 +302,7 @@ FrameSprites_2b_7211::
 	db 8, 0, $00
 	db 8, 0, $00
 
-FrameSprites_2b_7232::
+FrameSprites_MasterNecky_Defeated_6::
 	db -57, -16, $01 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -12, $00
@@ -315,7 +315,7 @@ FrameSprites_2b_7232::
 	db 8, 0, $00
 	db 8, 0, $00
 
-FrameSprites_2b_7253::
+FrameSprites_MasterNecky_Defeated_7::
 	db -57, -34, $00 ; dx, dy, attribute add
 	db 8, -2, $00
 	db 8, -7, $00
@@ -331,7 +331,7 @@ FrameSprites_2b_7253::
 	db 8, 3, $00
 	db 8, 2, $00
 
-FrameSprites_2b_727d::
+FrameSprites_MasterNecky_Defeated_8::
 	db -54, -36, $00 ; dx, dy, attribute add
 	db 8, -1, $00
 	db 0, 16, $00
@@ -348,7 +348,7 @@ FrameSprites_2b_727d::
 	db 8, 4, $00
 	db 8, 3, $00
 
-FrameSprites_2b_72aa::
+FrameSprites_MasterNecky_Defeated_9::
 	db -56, -37, $00 ; dx, dy, attribute add
 	db 8, -1, $00
 	db 0, 16, $00
@@ -367,7 +367,7 @@ FrameSprites_2b_72aa::
 	db 8, 2, $00
 	db 8, 1, $00
 
-FrameSprites_2b_72dd::
+FrameSprites_MasterNecky_Defeated_10::
 	db -54, -39, $00 ; dx, dy, attribute add
 	db 0, 17, $00
 	db 8, -18, $00
@@ -387,7 +387,7 @@ FrameSprites_2b_72dd::
 	db 8, 1, $00
 	db 8, 2, $00
 
-FrameSprites_2b_7313::
+FrameSprites_MasterNecky_Defeated_11::
 	db -51, -41, $00 ; dx, dy, attribute add
 	db -2, 6, $00
 	db 10, -6, $00
@@ -408,7 +408,7 @@ FrameSprites_2b_7313::
 	db 8, 2, $00
 	db 8, 1, $00
 
-FrameSprites_2b_734c::
+FrameSprites_MasterNecky_Defeated_12::
 	db -48, -42, $00 ; dx, dy, attribute add
 	db -8, 3, $00
 	db 16, -3, $00
@@ -429,7 +429,7 @@ FrameSprites_2b_734c::
 	db 8, 1, $00
 	db 8, 1, $00
 
-FrameSprites_2b_7385::
+FrameSprites_MasterNecky::
 	db -58, -30, $00 ; dx, dy, attribute add
 	db 8, -2, $00
 	db 10, 2, $00
@@ -446,7 +446,7 @@ FrameSprites_2b_7385::
 	db 8, 6, $00
 	db 8, 3, $00
 
-FrameSprites_2b_73b2::
+FrameSprites_MasterNecky_Spit_1::
 	db -47, -40, $00 ; dx, dy, attribute add
 	db 8, 0, $00
 	db 8, 1, $00
@@ -462,7 +462,7 @@ FrameSprites_2b_73b2::
 	db 8, 0, $00
 	db 8, -1, $00
 
-FrameSprites_2b_73dc::
+FrameSprites_MasterNecky_Spit_2::
 	db -40, -44, $00 ; dx, dy, attribute add
 	db 8, 0, $00
 	db 16, 46, $00
@@ -476,7 +476,7 @@ FrameSprites_2b_73dc::
 	db 0, 16, $00
 	db 0, 21, $00
 
-FrameSprites_2b_7400::
+FrameSprites_MasterNecky_Spit_3::
 	db -42, -46, $00 ; dx, dy, attribute add
 	db 8, 1, $00
 	db -16, 2, $00
@@ -493,7 +493,7 @@ FrameSprites_2b_7400::
 	db -1, 32, $00
 	db 8, 0, $00
 
-FrameSprites_2b_742d::
+FrameSprites_MasterNecky_Spit_4::
 	db -54, -42, $00 ; dx, dy, attribute add
 	db 8, 0, $00
 	db -3, 18, $00

@@ -3,220 +3,220 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $21", ROMX[$4000], BANK[$21]
 
-FrameTiles_21_4000::
+FrameTiles_Army_1::
 	INCBIN "gfx/frames/21/4000.2bpp"
 
-FrameTiles_21_4080::
+FrameTiles_Army_2::
 	INCBIN "gfx/frames/21/4080.2bpp"
 
-FrameTiles_21_4100::
+FrameTiles_Army_3::
 	INCBIN "gfx/frames/21/4100.2bpp"
 
-FrameTiles_21_4180::
+FrameTiles_Army_Touch_1::
 	INCBIN "gfx/frames/21/4180.2bpp"
 
-FrameTiles_21_4240::
+FrameTiles_Army_Touch_2::
 	INCBIN "gfx/frames/21/4240.2bpp"
 
-FrameTiles_21_42e0::
+FrameTiles_Army_Touch_3::
 	INCBIN "gfx/frames/21/42e0.2bpp"
 
-FrameTiles_21_4360::
+FrameTiles_Army_Touch_4::
 	INCBIN "gfx/frames/21/4360.2bpp"
 
-FrameTiles_21_43e0::
+FrameTiles_Army_Touch_5::
 	INCBIN "gfx/frames/21/43e0.2bpp"
 
-FrameTiles_21_4460::
+FrameTiles_Army_4::
 	INCBIN "gfx/frames/21/4460.2bpp"
 
-FrameTiles_21_4500::
+FrameTiles_Army_5::
 	INCBIN "gfx/frames/21/4500.2bpp"
 
-FrameTiles_21_45a0::
+FrameTiles_Army_6::
 	INCBIN "gfx/frames/21/45a0.2bpp"
 
-FrameTiles_21_4640::
+FrameTiles_Army_7::
 	INCBIN "gfx/frames/21/4640.2bpp"
 
-FrameTiles_21_46e0::
+FrameTiles_Obj_Idle_1::
 	INCBIN "gfx/frames/21/46e0.2bpp"
 
-FrameTiles_21_4760::
+FrameTiles_Army_Idle_1::
 	INCBIN "gfx/frames/21/4760.2bpp"
 
-FrameTiles_21_4820::
+FrameTiles_Army_Idle_2::
 	INCBIN "gfx/frames/21/4820.2bpp"
 
-FrameTiles_21_48e0::
+FrameTiles_Army_Idle_3::
 	INCBIN "gfx/frames/21/48e0.2bpp"
 
-FrameTiles_21_49a0::
+FrameTiles_Army_Idle_4::
 	INCBIN "gfx/frames/21/49a0.2bpp"
 
-FrameTiles_21_4a40::
+FrameTiles_Army_Idle_5::
 	INCBIN "gfx/frames/21/4a40.2bpp"
 
-FrameTiles_21_4ae0::
+FrameTiles_ExtraLifeBalloon_1::
 	INCBIN "gfx/frames/21/4ae0.2bpp"
 
-FrameTiles_21_4b80::
+FrameTiles_ExtraLifeBalloon_2::
 	INCBIN "gfx/frames/21/4b80.2bpp"
 
-FrameTiles_21_4c20::
+FrameTiles_ExtraLifeBalloon_3::
 	INCBIN "gfx/frames/21/4c20.2bpp"
 
-FrameTiles_21_4cc0::
+FrameTiles_ExtraLifeBalloon_4::
 	INCBIN "gfx/frames/21/4cc0.2bpp"
 
-FrameTiles_21_4d60::
+FrameTiles_ExtraLifeBalloon_5::
 	INCBIN "gfx/frames/21/4d60.2bpp"
 
-FrameTiles_21_4e00::
+FrameTiles_ExtraLifeBalloon_6::
 	INCBIN "gfx/frames/21/4e00.2bpp"
 
-FrameTiles_21_4ea0::
+FrameTiles_ExtraLifeBalloon_7::
 	INCBIN "gfx/frames/21/4ea0.2bpp"
 
-FrameTiles_21_4f40::
+FrameTiles_ExtraLifeBalloon_8::
 	INCBIN "gfx/frames/21/4f40.2bpp"
 
-FrameTiles_21_4fe0::
+FrameTiles_BarrelCannon_SetFrame_1::
 	INCBIN "gfx/frames/21/4fe0.2bpp"
 
-FrameTiles_21_50c0::
+FrameTiles_BarrelCannon_SetFrame_2::
 	INCBIN "gfx/frames/21/50c0.2bpp"
 
-FrameTiles_21_51a0::
+FrameTiles_BarrelCannon_SetFrame_3::
 	INCBIN "gfx/frames/21/51a0.2bpp"
 
-FrameTiles_21_52a0::
+FrameTiles_BarrelCannon_SetFrame_4::
 	INCBIN "gfx/frames/21/52a0.2bpp"
 
-FrameTiles_21_53a0::
+FrameTiles_BarrelCannon_SetFrame_5::
 	INCBIN "gfx/frames/21/53a0.2bpp"
 
-FrameTiles_21_54a0::
+FrameTiles_BarrelCannon_SetFrame_6::
 	INCBIN "gfx/frames/21/54a0.2bpp"
 
-FrameTiles_21_55a0::
+FrameTiles_BarrelCannon_SetFrame_7::
 	INCBIN "gfx/frames/21/55a0.2bpp"
 
-FrameTiles_21_56a0::
+FrameTiles_BarrelCannon_SetFrame_8::
 	INCBIN "gfx/frames/21/56a0.2bpp"
 
-FrameTiles_21_57a0::
+FrameTiles_BarrelCannon_SetFrame_9::
 	INCBIN "gfx/frames/21/57a0.2bpp"
 
-FrameTiles_21_5880::
+FrameTiles_BarrelCannon_SetFrame_10::
 	INCBIN "gfx/frames/21/5880.2bpp"
 
-FrameTiles_21_5980::
+FrameTiles_BarrelCannon_SetFrame_11::
 	INCBIN "gfx/frames/21/5980.2bpp"
 
-FrameTiles_21_5a80::
+FrameTiles_BarrelCannon_SetFrame_12::
 	INCBIN "gfx/frames/21/5a80.2bpp"
 
-FrameTiles_21_5b80::
+FrameTiles_BarrelCannon_SetFrame_13::
 	INCBIN "gfx/frames/21/5b80.2bpp"
 
-FrameTiles_21_5c80::
+FrameTiles_BarrelCannon_SetFrame_14::
 	INCBIN "gfx/frames/21/5c80.2bpp"
 
-FrameTiles_21_5d80::
+FrameTiles_BarrelCannon_SetFrame_15::
 	INCBIN "gfx/frames/21/5d80.2bpp"
 
-FrameTiles_21_5e80::
+FrameTiles_BarrelCannon_SetFrame_16::
 	INCBIN "gfx/frames/21/5e80.2bpp"
 
-FrameTiles_21_5f80::
+FrameTiles_Enemy_HandleContact_1::
 	INCBIN "gfx/frames/21/5f80.2bpp"
 
-FrameTiles_21_6000::
+FrameTiles_Enemy_HandleContact_2::
 	INCBIN "gfx/frames/21/6000.2bpp"
 
-FrameTiles_21_6060::
+FrameTiles_Enemy_HandleContact_3::
 	INCBIN "gfx/frames/21/6060.2bpp"
 
-FrameTiles_21_60e0::
+FrameTiles_Enemy_HandleContact_4::
 	INCBIN "gfx/frames/21/60e0.2bpp"
 
-FrameTiles_21_6160::
+FrameTiles_Enemy_HandleContact_5::
 	INCBIN "gfx/frames/21/6160.2bpp"
 
-FrameTiles_21_6220::
+FrameTiles_Obj_TurnAround_1::
 	INCBIN "gfx/frames/21/6220.2bpp"
 
-FrameTiles_21_62c0::
+FrameTiles_Obj_TurnAround_2::
 	INCBIN "gfx/frames/21/62c0.2bpp"
 
-FrameTiles_21_6360::
+FrameTiles_Gnawty_1::
 	INCBIN "gfx/frames/21/6360.2bpp"
 
-FrameTiles_21_6420::
+FrameTiles_Gnawty_2::
 	INCBIN "gfx/frames/21/6420.2bpp"
 
-FrameTiles_21_64e0::
+FrameTiles_Gnawty_3::
 	INCBIN "gfx/frames/21/64e0.2bpp"
 
-FrameTiles_21_65a0::
+FrameTiles_Gnawty_4::
 	INCBIN "gfx/frames/21/65a0.2bpp"
 
-FrameTiles_21_6660::
+FrameTiles_Gnawty_5::
 	INCBIN "gfx/frames/21/6660.2bpp"
 
-FrameTiles_21_6720::
+FrameTiles_Gnawty_6::
 	INCBIN "gfx/frames/21/6720.2bpp"
 
-FrameTiles_21_67e0::
+FrameTiles_Gnawty_7::
 	INCBIN "gfx/frames/21/67e0.2bpp"
 
-FrameTiles_21_68a0::
+FrameTiles_Gnawty_8::
 	INCBIN "gfx/frames/21/68a0.2bpp"
 
-FrameTiles_21_6960::
+FrameTiles_SpawnCollectedBanana_1::
 	INCBIN "gfx/frames/21/6960.2bpp"
 
-FrameTiles_21_6a20::
+FrameTiles_SpawnCollectedBanana_2::
 	INCBIN "gfx/frames/21/6a20.2bpp"
 
-FrameTiles_21_6ae0::
+FrameTiles_SpawnCollectedBanana_3::
 	INCBIN "gfx/frames/21/6ae0.2bpp"
 
-FrameTiles_21_6ba0::
+FrameTiles_SpawnCollectedBanana_4::
 	INCBIN "gfx/frames/21/6ba0.2bpp"
 
-FrameTiles_21_6c60::
+FrameTiles_BigAnimalToken_1::
 	INCBIN "gfx/frames/21/6c60.2bpp"
 
-FrameTiles_21_6de0::
+FrameTiles_BigAnimalToken_2::
 	INCBIN "gfx/frames/21/6de0.2bpp"
 
-FrameTiles_21_6f00::
+FrameTiles_BigAnimalToken_3::
 	INCBIN "gfx/frames/21/6f00.2bpp"
 
-FrameTiles_21_7040::
+FrameTiles_BigAnimalToken_4::
 	INCBIN "gfx/frames/21/7040.2bpp"
 
-FrameSprites_21_7180::
+FrameSprites_Army_1::
 	db -13, -12
 	db 8, -2
 	db 8, 0
 	db 8, 2
 
-FrameSprites_21_7188::
+FrameSprites_Army_2::
 	db -13, -11
 	db 8, -2
 	db 8, 0
 	db 8, 1
 
-FrameSprites_21_7190::
+FrameSprites_Army_3::
 	db -13, -11
 	db 8, -2
 	db 8, 0
 	db 8, 1
 
-FrameSprites_21_7198::
+FrameSprites_Army_Touch_1::
 	db -13, -13
 	db 8, -1
 	db 0, 16
@@ -224,66 +224,66 @@ FrameSprites_21_7198::
 	db 0, 16
 	db 8, -13
 
-FrameSprites_21_71a4::
+FrameSprites_Army_Touch_2::
 	db -14, -13
 	db 8, -1
 	db 0, 16
 	db 8, -15
 	db 8, 2
 
-FrameSprites_21_71ae::
+FrameSprites_Army_Touch_3::
 	db -14, -13
 	db 8, 0
 	db 8, 1
 	db 8, 4
 
-FrameSprites_21_71b6::
+FrameSprites_Army_Touch_4::
 	db -15, -11
 	db 8, -2
 	db 8, 1
 	db 8, 4
 
-FrameSprites_21_71be::
+FrameSprites_Army_Touch_5::
 	db -17, -9
 	db 8, -4
 	db 8, 0
 	db 8, 5
 
-FrameSprites_21_71c6::
+FrameSprites_Army_4::
 	db -8, -18
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -12
 
-FrameSprites_21_71d0::
+FrameSprites_Army_5::
 	db -7, -18
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -10
 
-FrameSprites_21_71da::
+FrameSprites_Army_6::
 	db -8, -18
 	db 0, 16
 	db 8, -15
 	db 0, 16
 	db 8, -11
 
-FrameSprites_21_71e4::
+FrameSprites_Army_7::
 	db -9, -19
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -13
 
-FrameSprites_21_71ee::
+FrameSprites_Obj_Idle_1::
 	db -13, -27
 	db 8, -2
 	db 0, 16
 	db 8, -15
 
-FrameSprites_21_71f6::
+FrameSprites_Army_Idle_1::
 	db -15, -10
 	db 8, -4
 	db 8, 0
@@ -291,7 +291,7 @@ FrameSprites_21_71f6::
 	db 8, -14
 	db 8, 5
 
-FrameSprites_21_7202::
+FrameSprites_Army_Idle_2::
 	db -13, -13
 	db 8, -2
 	db 0, 16
@@ -299,7 +299,7 @@ FrameSprites_21_7202::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_21_720e::
+FrameSprites_Army_Idle_3::
 	db -9, -16
 	db 0, 16
 	db 8, -16
@@ -307,77 +307,77 @@ FrameSprites_21_720e::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_21_721a::
+FrameSprites_Army_Idle_4::
 	db -9, -17
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -14
 
-FrameSprites_21_7224::
+FrameSprites_Army_Idle_5::
 	db -8, -17
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -12
 
-FrameSprites_21_722e::
+FrameSprites_ExtraLifeBalloon_1::
 	db -8, -13
 	db 0, 16
 	db 5, 16
 	db 3, -32
 	db 0, 16
 
-FrameSprites_21_7238::
+FrameSprites_ExtraLifeBalloon_2::
 	db -8, -13
 	db 0, 16
 	db 5, 16
 	db 3, -32
 	db 0, 16
 
-FrameSprites_21_7242::
+FrameSprites_ExtraLifeBalloon_3::
 	db -8, -13
 	db 0, 16
 	db 5, 16
 	db 3, -32
 	db 0, 16
 
-FrameSprites_21_724c::
+FrameSprites_ExtraLifeBalloon_4::
 	db -8, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db -3, 16
 
-FrameSprites_21_7256::
+FrameSprites_ExtraLifeBalloon_5::
 	db -8, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db -3, 16
 
-FrameSprites_21_7260::
+FrameSprites_ExtraLifeBalloon_6::
 	db -8, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db -3, 16
 
-FrameSprites_21_726a::
+FrameSprites_ExtraLifeBalloon_7::
 	db -8, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db -3, 16
 
-FrameSprites_21_7274::
+FrameSprites_ExtraLifeBalloon_8::
 	db -8, -13
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db -3, 16
 
-FrameSprites_21_727e::
+FrameSprites_BarrelCannon_SetFrame_1::
 	db -13, -16
 	db 0, 16
 	db 8, -16
@@ -386,7 +386,7 @@ FrameSprites_21_727e::
 	db -8, -8
 	db 0, 16
 
-FrameSprites_21_728c::
+FrameSprites_BarrelCannon_SetFrame_2::
 	db -13, 1
 	db 8, -1
 	db -8, -15
@@ -395,7 +395,7 @@ FrameSprites_21_728c::
 	db 8, 4
 	db -8, 12
 
-FrameSprites_21_729a::
+FrameSprites_BarrelCannon_SetFrame_3::
 	db -16, -17
 	db 8, 0
 	db 0, 16
@@ -405,7 +405,7 @@ FrameSprites_21_729a::
 	db 0, 16
 	db -24, 0
 
-FrameSprites_21_72aa::
+FrameSprites_BarrelCannon_SetFrame_4::
 	db -16, -16
 	db 0, 16
 	db 8, -16
@@ -415,7 +415,7 @@ FrameSprites_21_72aa::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_72ba::
+FrameSprites_BarrelCannon_SetFrame_5::
 	db -16, -16
 	db 0, 16
 	db 8, -16
@@ -425,7 +425,7 @@ FrameSprites_21_72ba::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_72ca::
+FrameSprites_BarrelCannon_SetFrame_6::
 	db -16, -16
 	db 0, 16
 	db 8, -16
@@ -435,7 +435,7 @@ FrameSprites_21_72ca::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_72da::
+FrameSprites_BarrelCannon_SetFrame_7::
 	db -16, -16
 	db 0, 16
 	db 8, -16
@@ -445,7 +445,7 @@ FrameSprites_21_72da::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_72ea::
+FrameSprites_BarrelCannon_SetFrame_8::
 	db -16, -16
 	db 0, 16
 	db 8, -16
@@ -455,7 +455,7 @@ FrameSprites_21_72ea::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_72fa::
+FrameSprites_BarrelCannon_SetFrame_9::
 	db -13, -16
 	db 0, 16
 	db 8, -16
@@ -464,7 +464,7 @@ FrameSprites_21_72fa::
 	db 0, 16
 	db 8, -9
 
-FrameSprites_21_7308::
+FrameSprites_BarrelCannon_SetFrame_10::
 	db -15, -17
 	db 8, 16
 	db 0, -16
@@ -474,7 +474,7 @@ FrameSprites_21_7308::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_7318::
+FrameSprites_BarrelCannon_SetFrame_11::
 	db -16, -17
 	db 0, 16
 	db 8, -16
@@ -484,7 +484,7 @@ FrameSprites_21_7318::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_7328::
+FrameSprites_BarrelCannon_SetFrame_12::
 	db -16, -15
 	db 8, 0
 	db 8, 0
@@ -494,7 +494,7 @@ FrameSprites_21_7328::
 	db -16, 0
 	db 8, 0
 
-FrameSprites_21_7338::
+FrameSprites_BarrelCannon_SetFrame_13::
 	db -15, -13
 	db 8, 16
 	db 0, -16
@@ -504,7 +504,7 @@ FrameSprites_21_7338::
 	db 0, -16
 	db -24, 16
 
-FrameSprites_21_7348::
+FrameSprites_BarrelCannon_SetFrame_14::
 	db -16, -15
 	db 0, 16
 	db 8, -16
@@ -514,7 +514,7 @@ FrameSprites_21_7348::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_7358::
+FrameSprites_BarrelCannon_SetFrame_15::
 	db -16, -16
 	db 0, 16
 	db 8, -16
@@ -524,7 +524,7 @@ FrameSprites_21_7358::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_7368::
+FrameSprites_BarrelCannon_SetFrame_16::
 	db -15, -16
 	db 0, 16
 	db 8, -16
@@ -534,30 +534,30 @@ FrameSprites_21_7368::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_7378::
+FrameSprites_Enemy_HandleContact_1::
 	db -12, -12
 	db 8, -4
 	db 0, 16
 	db 8, -16
 
-FrameSprites_21_7380::
+FrameSprites_Enemy_HandleContact_2::
 	db -11, -13
 	db 8, -2
 	db 8, 1
 
-FrameSprites_21_7386::
+FrameSprites_Enemy_HandleContact_3::
 	db -12, -12
 	db 8, -3
 	db 8, 1
 	db 8, 12
 
-FrameSprites_21_738e::
+FrameSprites_Enemy_HandleContact_4::
 	db -15, -6
 	db 8, -9
 	db 8, 1
 	db 8, 10
 
-FrameSprites_21_7396::
+FrameSprites_Enemy_HandleContact_5::
 	db -16, -7
 	db 8, -12
 	db 0, 16
@@ -565,21 +565,21 @@ FrameSprites_21_7396::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_21_73a2::
+FrameSprites_Obj_TurnAround_1::
 	db -10, -19
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -12
 
-FrameSprites_21_73ac::
+FrameSprites_Obj_TurnAround_2::
 	db -8, -20
 	db 0, 16
 	db 8, -16
 	db 0, 16
 	db 8, -6
 
-FrameSprites_21_73b6::
+FrameSprites_Gnawty_1::
 	db -13, -13
 	db 8, -5
 	db 0, 16
@@ -587,7 +587,7 @@ FrameSprites_21_73b6::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_21_73c2::
+FrameSprites_Gnawty_2::
 	db -14, -12
 	db 8, -6
 	db 0, 16
@@ -595,7 +595,7 @@ FrameSprites_21_73c2::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_21_73ce::
+FrameSprites_Gnawty_3::
 	db -14, -12
 	db 8, -6
 	db 0, 16
@@ -603,7 +603,7 @@ FrameSprites_21_73ce::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_21_73da::
+FrameSprites_Gnawty_4::
 	db -13, -13
 	db 8, -5
 	db 0, 16
@@ -611,7 +611,7 @@ FrameSprites_21_73da::
 	db 0, 16
 	db 8, -4
 
-FrameSprites_21_73e6::
+FrameSprites_Gnawty_5::
 	db -13, -13
 	db 8, -5
 	db 0, 16
@@ -619,7 +619,7 @@ FrameSprites_21_73e6::
 	db 0, 16
 	db 8, -5
 
-FrameSprites_21_73f2::
+FrameSprites_Gnawty_6::
 	db -13, -13
 	db 8, -5
 	db 0, 16
@@ -627,7 +627,7 @@ FrameSprites_21_73f2::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_21_73fe::
+FrameSprites_Gnawty_7::
 	db -13, -13
 	db 8, -4
 	db 0, 16
@@ -635,7 +635,7 @@ FrameSprites_21_73fe::
 	db 0, 16
 	db 8, -7
 
-FrameSprites_21_740a::
+FrameSprites_Gnawty_8::
 	db -13, -13
 	db 8, -5
 	db 0, 16
@@ -643,7 +643,7 @@ FrameSprites_21_740a::
 	db 0, 18
 	db 8, -8
 
-FrameSprites_21_7416::
+FrameSprites_SpawnCollectedBanana_1::
 	db -12, -25
 	db 0, 16
 	db 8, -17
@@ -651,7 +651,7 @@ FrameSprites_21_7416::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_21_7422::
+FrameSprites_SpawnCollectedBanana_2::
 	db -12, -23
 	db 0, 16
 	db 8, -17
@@ -659,7 +659,7 @@ FrameSprites_21_7422::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_21_742e::
+FrameSprites_SpawnCollectedBanana_3::
 	db -12, -22
 	db 0, 16
 	db 8, -17
@@ -667,7 +667,7 @@ FrameSprites_21_742e::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_21_743a::
+FrameSprites_SpawnCollectedBanana_4::
 	db -12, -23
 	db 0, 16
 	db 8, -17
@@ -675,7 +675,7 @@ FrameSprites_21_743a::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_21_7446::
+FrameSprites_BigAnimalToken_1::
 	db -24, -20
 	db 0, 16
 	db 8, -16
@@ -689,7 +689,7 @@ FrameSprites_21_7446::
 	db 8, 0
 	db 8, 9
 
-FrameSprites_21_745e::
+FrameSprites_BigAnimalToken_2::
 	db -16, -28
 	db 8, 0
 	db -3, 16
@@ -700,7 +700,7 @@ FrameSprites_21_745e::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_21_7470::
+FrameSprites_BigAnimalToken_3::
 	db -18, -29
 	db 0, 16
 	db 8, -16
@@ -712,7 +712,7 @@ FrameSprites_21_7470::
 	db 8, -17
 	db 0, 16
 
-FrameSprites_21_7484::
+FrameSprites_BigAnimalToken_4::
 	db -21, -25
 	db 8, 0
 	db 0, 16

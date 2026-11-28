@@ -3,11 +3,11 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $4e", ROMX[$4000], BANK[$4e]
 
-BGTiles_4e_4000::
+BGTiles_Ending27::
 	INCBIN "gfx/bgtiles/4e/4000.2bpp"
 	INCBIN "gfx/bgtiles/4e/4000_end.2bpp"
 
-ScreenPalettes_4e_5670::
+ScreenPalettes_Ending27::
 	rgb  9,  9, 11,  16, 16, 18,  23, 23, 25,  30, 30, 31
 	rgb  0,  0, 20,  15,  1,  0,   4,  1,  0,  31, 12, 12
 	rgb 31, 31, 31,  15,  1,  0,   4,  1,  0,  31, 12, 12
@@ -17,7 +17,7 @@ ScreenPalettes_4e_5670::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb  0,  0,  0,   0,  9,  0,   0,  0, 20,  30, 30, 31
 
-ScreenPalettes_4e_56b0::
+ScreenPalettes_Ending28::
 	rgb  0,  0,  0,  31,  0,  0,  31, 31,  0,   0,  2,  0
 	rgb 12, 12, 24,  31, 31, 31,  31, 31,  0,   0,  2,  0
 	rgb  0,  0,  0,  15, 26, 14,  31, 31,  0,   0,  2,  0
@@ -27,7 +27,7 @@ ScreenPalettes_4e_56b0::
 	rgb  0,  0,  0,  15, 26, 14,  31, 31, 31,  31, 31,  0
 	rgb  7,  7, 19,  12, 12, 24,  31, 31,  0,   0,  2,  0
 
-ScreenMap_4e_56f0::
+ScreenMap_Ending27::
 	db $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07, $07 ; attributes
 	db $07, $07, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $07, $07
 	db $07, $07, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $07, $07
@@ -65,7 +65,7 @@ ScreenMap_4e_56f0::
 	db $96, $97, $98, $99, $9a, $9b, $9c, $9d, $9e, $9f, $a0, $a1, $a2, $a3, $a4, $a5, $a6, $a7, $a7, $a8
 	db $a9, $aa, $ab, $ac, $ad, $ae, $af, $b0, $ab, $ac, $b1, $b1, $b2, $a9, $aa, $ab, $ac, $ad, $ae, $af
 
-ScreenMap_4e_59c0::
+ScreenMap_Ending28::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; attributes
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
@@ -103,10 +103,10 @@ ScreenMap_4e_59c0::
 	db $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3
 	db $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3, $b3
 
-Screen_4e_5c90::
-	dw ScreenPalettes_4e_5670, ScreenMap_4e_56f0, BGTiles_4e_4000 ; palettes, tile map, tiles
+Screen_Ending27::
+	dw ScreenPalettes_Ending27, ScreenMap_Ending27, BGTiles_Ending27 ; palettes, tile map, tiles
 
-Screen_4e_5c96::
-	dw ScreenPalettes_4e_56b0, ScreenMap_4e_59c0, BGTiles_4e_4000 ; palettes, tile map, tiles
+Screen_Ending28::
+	dw ScreenPalettes_Ending28, ScreenMap_Ending28, BGTiles_Ending27 ; palettes, tile map, tiles
 	ds 9060, $00 ; $5c9c
 

@@ -96,7 +96,7 @@ Obj_FallThenAnimate::
 
 
 Coconut::
-	ld hl, wPlayer + OBJ_VAR_38
+	ld hl, wPlayer + OBJ_ANIM_WORD
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -650,21 +650,21 @@ SpellBonus::
 	ld hl, wObjects + OBJ_VAR_3A
 	add hl, de
 	inc [hl]
-	ld hl, ObjInit_08_4414
+	ld hl, ObjInit_SpellBonus_Letter
 	call InitObject
 	pop de
 	jr .continue
 
 .else_43c1:
 	push de
-	ld hl, ObjInit_08_441d
+	ld hl, ObjInit_SpellBonus_BlueBanana
 	call InitObject
 	pop de
 	jr .continue
 
 .else_43cb:
 	push de
-	ld hl, ObjInit_08_442b
+	ld hl, ObjInit_SpellBonus_GreenBanana
 	call InitObject
 	pop de
 .continue:
@@ -701,7 +701,7 @@ SpellBonus::
 	jp NextObject
 
 
-ObjInit_08_4408::
+ObjInit_SpellBonus_Item_Spread::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(SpellBonus_Item_Spread)
 	obj_word OBJ_HANDLER, SpellBonus_Item_Spread
@@ -709,33 +709,33 @@ ObjInit_08_4408::
 	obj_byte OBJ_COLLISION, $02
 	obj_end
 
-ObjInit_08_4414::
-	obj_include ObjInit_08_4408
+ObjInit_SpellBonus_Letter::
+	obj_include ObjInit_SpellBonus_Item_Spread
 	obj_word OBJ_TOUCH_HANDLER, SpellBonus_Letter_Touch
 	obj_byte OBJ_PALETTE, $00
 	obj_end
 
-ObjInit_08_441d::
-	obj_include ObjInit_08_4408
+ObjInit_SpellBonus_BlueBanana::
+	obj_include ObjInit_SpellBonus_Item_Spread
 	obj_word OBJ_TOUCH_HANDLER, SpellBonus_BlueBanana_Touch
 	obj_byte OBJ_PALETTE, $05
 	obj_byte OBJ_VAR_33, $ff
-	obj_word OBJ_FRAME, Frame_20_5f6e
+	obj_word OBJ_FRAME, Frame_SpellBonus_BlueBanana
 	obj_end
 
-ObjInit_08_442b::
-	obj_include ObjInit_08_4408
+ObjInit_SpellBonus_GreenBanana::
+	obj_include ObjInit_SpellBonus_Item_Spread
 	obj_word OBJ_TOUCH_HANDLER, SpellBonus_GreenBanana_Touch
 	obj_byte OBJ_PALETTE, $06
 	obj_byte OBJ_VAR_33, $ff
-	obj_word OBJ_FRAME, Frame_20_5f6e
+	obj_word OBJ_FRAME, Frame_SpellBonus_BlueBanana
 	obj_end
 
 SpellBonus_Main::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .skip_4445
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], $00
 .skip_4445:
@@ -760,7 +760,7 @@ SpellBonus_Main::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jp_NextObject
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld a, [hl]
 	cp $01
@@ -856,7 +856,7 @@ SpellBonus_Item_Circle::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, de
 	ld a, [hl]
 	cp $01
@@ -984,7 +984,7 @@ MatchBonus::
 	push bc
 .loop:
 	call AllocObject
-	ld hl, ObjInit_08_4604
+	ld hl, ObjInit_MatchBonus_Item_Cycle
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -1031,7 +1031,7 @@ MatchBonus::
 	jp NextObject
 
 
-ObjInit_08_4604::
+ObjInit_MatchBonus_Item_Cycle::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus_Item_Cycle)
 	obj_word OBJ_HANDLER, MatchBonus_Item_Cycle
@@ -1180,14 +1180,14 @@ MatchBonus_Item_Stopped::
 .stop:
 	cp $01
 	jr z, .else
-	ld hl, ObjInit_08_4706
+	ld hl, ObjInit_Obj_Animate_1
 	call ApplyObjInit
 	ld a, $04
 	call SetObjectPalette
 	jp NextObject
 
 .else:
-	ld hl, ObjInit_08_4711
+	ld hl, ObjInit_MatchBonus_Item_FlyTogether
 	call ApplyObjInit
 	ld hl, hCameraX
 	ld a, [hli]
@@ -1200,14 +1200,14 @@ MatchBonus_Item_Stopped::
 	jp NextObject
 
 
-ObjInit_08_4706::
+ObjInit_Obj_Animate_1::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
-	obj_word OBJ_ANIM, Anim_04_4e25
+	obj_word OBJ_ANIM, Anim_Bonus_ShowPrize_1
 	obj_end
 
-ObjInit_08_4711::
+ObjInit_MatchBonus_Item_FlyTogether::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(MatchBonus_Item_FlyTogether)
 	obj_word OBJ_HANDLER, MatchBonus_Item_FlyTogether
@@ -1295,7 +1295,7 @@ ShuffleBonus::
 	push bc
 .loop:
 	call AllocObject
-	ld hl, ObjInit_08_47e9
+	ld hl, ObjInit_ShuffleBonus_Spot
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -1344,7 +1344,7 @@ ShuffleBonus::
 	jp NextObject
 
 
-ObjInit_08_47e9::
+ObjInit_ShuffleBonus_Spot::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus_Spot)
 	obj_word OBJ_HANDLER, ShuffleBonus_Spot
@@ -1500,9 +1500,9 @@ ShuffleBonus_Spot::
 	ld [hl], a
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], LOW(Frame_20_605e)
+	ld [hl], LOW(Frame_ShuffleBonus_Spot)
 	inc l
-	ld [hl], HIGH(Frame_20_605e)
+	ld [hl], HIGH(Frame_ShuffleBonus_Spot)
 	ld a, $1d
 	call SetObjectPalette
 	jr .jp_NextObject
@@ -1601,7 +1601,7 @@ StompBonus::
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld [hl], a
-	ld hl, ObjInit_08_4991
+	ld hl, ObjInit_StompBonus_Klaptrap_Walk
 	call InitObject
 	ld hl, wObjects + OBJ_X
 	add hl, bc
@@ -1626,7 +1626,7 @@ StompBonus::
 	jp NextObject
 
 
-ObjInit_08_4991::
+ObjInit_StompBonus_Klaptrap_Walk::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(StompBonus_Klaptrap_Walk)
 	obj_word OBJ_HANDLER, StompBonus_Klaptrap_Walk
@@ -1634,7 +1634,7 @@ ObjInit_08_4991::
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
-	obj_word OBJ_ANIM, Anim_04_4c51
+	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Walk_1
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_TARGET_XVEL, $00c0
 	obj_word OBJ_XACCEL, $0020
@@ -1693,7 +1693,7 @@ StompBonus_Klaptrap_Walk::
 	ld a, [hl]
 	or a
 	jr z, .else
-	ld hl, ObjInit_08_4a61
+	ld hl, ObjInit_Obj_Animate_2
 	call ApplyObjInit
 	ld a, $04
 	call SetObjectPalette
@@ -1747,10 +1747,10 @@ StompBonus_Klaptrap_Walk::
 	jp NextObject
 
 
-ObjInit_08_4a61::
+ObjInit_Obj_Animate_2::
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
-	obj_word OBJ_ANIM, Anim_04_4e25
+	obj_word OBJ_ANIM, Anim_Bonus_ShowPrize_1
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
@@ -1837,7 +1837,7 @@ StompBonus_Klaptrap_Stomped::
 	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
-	ld hl, ObjInit_08_4b17
+	ld hl, ObjInit_StompBonus_Bananas
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -1863,13 +1863,13 @@ StompBonus_Klaptrap_Stomped::
 	jp NextObject
 
 
-ObjInit_08_4b17::
+ObjInit_StompBonus_Bananas::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(StompBonus_Bananas)
 	obj_word OBJ_HANDLER, StompBonus_Bananas
 	obj_word OBJ_TOUCH_HANDLER, StompBonus_Bananas_Touch
 	obj_byte OBJ_PALETTE, $00
-	obj_word OBJ_ANIM, Anim_04_4e0b
+	obj_word OBJ_ANIM, Anim_StompBonus_Bananas_1
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_word OBJ_YACCEL, $0050
@@ -1982,9 +1982,9 @@ Bonus_ShowPrize::
 	ld [hl], $13
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4e25)
+	ld [hl], LOW(Anim_Bonus_ShowPrize_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4e25)
+	ld [hl], HIGH(Anim_Bonus_ShowPrize_1)
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -2040,7 +2040,7 @@ Bonus_ShowPrize::
 	adc a, [hl]
 	ld [hl], a
 	inc de
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ldh a, [hSavedSlot]
 	ld [hl], a
@@ -2064,13 +2064,13 @@ BonusCoin_FlyToHUD::
 	jr nz, .jp_NextObject
 	ld a, $1d
 	ld [wSFXQueue + 1], a
-	ld hl, ObjInit_08_4c60
+	ld hl, ObjInit_BonusCoin_Count
 	call ApplyObjInit
 .jp_NextObject:
 	jp NextObject
 
 
-ObjInit_08_4c60::
+ObjInit_BonusCoin_Count::
 	obj_byte OBJ_BANK, BANK(BonusCoin_Count)
 	obj_word OBJ_HANDLER, BonusCoin_Count
 	obj_word OBJ_X, $0050
@@ -2110,61 +2110,61 @@ BonusCoin_Count::
 
 CarrierObjectTable::
 	db $00, $00, $00, $00, $00, $00, $00, $00 ; 0: none
-	dw Frame_20_4bbe ; 1: sprite frame
+	dw Frame_Letter_K ; 1: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4dc5 ; y offset, spawned object
-	dw Frame_20_4bd6 ; 2: sprite frame
+	dw $0000, ObjInit_KongLetter_2 ; y offset, spawned object
+	dw Frame_Letter_O ; 2: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4dce ; y offset, spawned object
-	dw Frame_20_4bd0 ; 3: sprite frame
+	dw $0000, ObjInit_KongLetter_3 ; y offset, spawned object
+	dw Frame_Letter_N ; 3: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4dd7 ; y offset, spawned object
-	dw Frame_20_4ba6 ; 4: sprite frame
+	dw $0000, ObjInit_KongLetter_4 ; y offset, spawned object
+	dw Frame_Letter_G ; 4: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4de0 ; y offset, spawned object
-	dw Frame_20_4072 ; 5: sprite frame
+	dw $0000, ObjInit_KongLetter_5 ; y offset, spawned object
+	dw Frame_ExtraLifeBalloon_1 ; 5: sprite frame
 	db $04, $00 ; palette, unused
-	dw $0000, ObjInit_08_4d45 ; y offset, spawned object
-	dw Frame_20_4072 ; 6: sprite frame
+	dw $0000, ObjInit_ExtraLifeBalloon_2 ; y offset, spawned object
+	dw Frame_ExtraLifeBalloon_1 ; 6: sprite frame
 	db $06, $00 ; palette, unused
-	dw $0000, ObjInit_08_4d4d ; y offset, spawned object
-	dw Frame_20_4072 ; 7: sprite frame
+	dw $0000, ObjInit_ExtraLifeBalloon_3 ; y offset, spawned object
+	dw Frame_ExtraLifeBalloon_1 ; 7: sprite frame
 	db $05, $00 ; palette, unused
-	dw $0000, ObjInit_08_4d55 ; y offset, spawned object
-	dw Frame_20_5f68 ; 8: sprite frame
+	dw $0000, ObjInit_ExtraLifeBalloon_4 ; y offset, spawned object
+	dw Frame_CarrierObjectTable ; 8: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4dfb ; y offset, spawned object
-	dw Frame_20_426a ; 9: sprite frame
+	dw $0000, ObjInit_BananaBunch_2 ; y offset, spawned object
+	dw Frame_StompBonus_Bananas_1 ; 9: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4e09 ; y offset, spawned object
-	dw Frame_20_4d50 ; 10: sprite frame
+	dw $0000, ObjInit_BananaBunch_3 ; y offset, spawned object
+	dw Frame_AnimalToken_7 ; 10: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4d76 ; y offset, spawned object
-	dw Frame_20_4d44 ; 11: sprite frame
+	dw $0000, ObjInit_AnimalToken_2 ; y offset, spawned object
+	dw Frame_AnimalToken_5 ; 11: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4d84 ; y offset, spawned object
-	dw Frame_20_4d4a ; 12: sprite frame
+	dw $0000, ObjInit_AnimalToken_3 ; y offset, spawned object
+	dw Frame_AnimalToken_6 ; 12: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4d92 ; y offset, spawned object
-	dw Frame_20_4d3e ; 13: sprite frame
+	dw $0000, ObjInit_AnimalToken_4 ; y offset, spawned object
+	dw Frame_AnimalToken_4 ; 13: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4da0 ; y offset, spawned object
-	dw Frame_20_5f68 ; 14: sprite frame
+	dw $0000, ObjInit_AnimalToken_5 ; y offset, spawned object
+	dw Frame_CarrierObjectTable ; 14: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4e17 ; y offset, spawned object
-	dw Frame_20_6064 ; 15: sprite frame
+	dw $0000, ObjInit_Barrel_1 ; y offset, spawned object
+	dw Frame_HUD_Items_Hidden_17 ; 15: sprite frame
 	db $00, $00 ; palette, unused
-	dw $0000, ObjInit_08_4e37 ; y offset, spawned object
-	dw Frame_20_4f60 ; 16: sprite frame
+	dw $0000, ObjInit_BonusCoin_1 ; y offset, spawned object
+	dw Frame_Zinger_1 ; 16: sprite frame
 	db $0a, $00 ; palette, unused
-	dw $0000, ObjInit_08_4e53 ; y offset, spawned object
+	dw $0000, ObjInit_BonusCoin_2 ; y offset, spawned object
 
-ObjInit_08_4d28::
+ObjInit_ExtraLifeBalloon_1::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_BANK, BANK(Obj_MoveAndAnimate)
 	obj_word OBJ_HANDLER, Obj_MoveAndAnimate
 	obj_word OBJ_TOUCH_HANDLER, ExtraLifeBalloon_Touch
-	obj_word OBJ_ANIM, Anim_04_4e8f
+	obj_word OBJ_ANIM, Anim_ExtraLifeBalloon_1
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_LAYER, $01
@@ -2173,25 +2173,25 @@ ObjInit_08_4d28::
 	obj_word OBJ_YACCEL, $0005
 	obj_end
 
-ObjInit_08_4d45::
-	obj_include ObjInit_08_4d28
+ObjInit_ExtraLifeBalloon_2::
+	obj_include ObjInit_ExtraLifeBalloon_1
 	obj_byte OBJ_PALETTE, $04
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_08_4d4d::
-	obj_include ObjInit_08_4d28
+ObjInit_ExtraLifeBalloon_3::
+	obj_include ObjInit_ExtraLifeBalloon_1
 	obj_byte OBJ_PALETTE, $06
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_08_4d55::
-	obj_include ObjInit_08_4d28
+ObjInit_ExtraLifeBalloon_4::
+	obj_include ObjInit_ExtraLifeBalloon_1
 	obj_byte OBJ_PALETTE, $05
 	obj_byte OBJ_VAR_2E, $03
 	obj_end
 
-ObjInit_08_4d5d::
+ObjInit_AnimalToken_1::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
@@ -2204,39 +2204,39 @@ ObjInit_08_4d5d::
 	obj_word OBJ_YACCEL, $0050
 	obj_end
 
-ObjInit_08_4d76::
-	obj_include ObjInit_08_4d5d
-	obj_word OBJ_FRAME, Frame_20_4d50
-	obj_word OBJ_ANIM, Anim_04_54fb
+ObjInit_AnimalToken_2::
+	obj_include ObjInit_AnimalToken_1
+	obj_word OBJ_FRAME, Frame_AnimalToken_7
+	obj_word OBJ_ANIM, Anim_AnimalToken_5
 	obj_byte OBJ_VAR_2F, $03
 	obj_byte OBJ_VAR_30, $20
 	obj_end
 
-ObjInit_08_4d84::
-	obj_include ObjInit_08_4d5d
-	obj_word OBJ_FRAME, Frame_20_4d44
-	obj_word OBJ_ANIM, Anim_04_54ed
+ObjInit_AnimalToken_3::
+	obj_include ObjInit_AnimalToken_1
+	obj_word OBJ_FRAME, Frame_AnimalToken_5
+	obj_word OBJ_ANIM, Anim_AnimalToken_3
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_30, $08
 	obj_end
 
-ObjInit_08_4d92::
-	obj_include ObjInit_08_4d5d
-	obj_word OBJ_FRAME, Frame_20_4d4a
-	obj_word OBJ_ANIM, Anim_04_5509
+ObjInit_AnimalToken_4::
+	obj_include ObjInit_AnimalToken_1
+	obj_word OBJ_FRAME, Frame_AnimalToken_6
+	obj_word OBJ_ANIM, Anim_AnimalToken_7
 	obj_byte OBJ_VAR_2F, $00
 	obj_byte OBJ_VAR_30, $04
 	obj_end
 
-ObjInit_08_4da0::
-	obj_include ObjInit_08_4d5d
-	obj_word OBJ_FRAME, Frame_20_4d3e
-	obj_word OBJ_ANIM, Anim_04_54df
+ObjInit_AnimalToken_5::
+	obj_include ObjInit_AnimalToken_1
+	obj_word OBJ_FRAME, Frame_AnimalToken_4
+	obj_word OBJ_ANIM, Anim_AnimalToken_1
 	obj_byte OBJ_VAR_2F, $02
 	obj_byte OBJ_VAR_30, $10
 	obj_end
 
-ObjInit_08_4dae::
+ObjInit_KongLetter_1::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
@@ -2248,31 +2248,31 @@ ObjInit_08_4dae::
 	obj_word OBJ_YACCEL, $0050
 	obj_end
 
-ObjInit_08_4dc5::
-	obj_include ObjInit_08_4dae
-	obj_word OBJ_FRAME, Frame_20_4bbe
+ObjInit_KongLetter_2::
+	obj_include ObjInit_KongLetter_1
+	obj_word OBJ_FRAME, Frame_Letter_K
 	obj_byte OBJ_VAR_2E, $10
 	obj_end
 
-ObjInit_08_4dce::
-	obj_include ObjInit_08_4dae
-	obj_word OBJ_FRAME, Frame_20_4bd6
+ObjInit_KongLetter_3::
+	obj_include ObjInit_KongLetter_1
+	obj_word OBJ_FRAME, Frame_Letter_O
 	obj_byte OBJ_VAR_2E, $20
 	obj_end
 
-ObjInit_08_4dd7::
-	obj_include ObjInit_08_4dae
-	obj_word OBJ_FRAME, Frame_20_4bd0
+ObjInit_KongLetter_4::
+	obj_include ObjInit_KongLetter_1
+	obj_word OBJ_FRAME, Frame_Letter_N
 	obj_byte OBJ_VAR_2E, $40
 	obj_end
 
-ObjInit_08_4de0::
-	obj_include ObjInit_08_4dae
-	obj_word OBJ_FRAME, Frame_20_4ba6
+ObjInit_KongLetter_5::
+	obj_include ObjInit_KongLetter_1
+	obj_word OBJ_FRAME, Frame_Letter_G
 	obj_byte OBJ_VAR_2E, $80
 	obj_end
 
-ObjInit_08_4de9::
+ObjInit_BananaBunch_1::
 	obj_byte OBJ_FLAGS, $15
 	obj_word OBJ_TOUCH_HANDLER, BananaBunch_Touch
 	obj_byte OBJ_PALETTE, $00
@@ -2282,23 +2282,23 @@ ObjInit_08_4de9::
 	obj_word OBJ_YACCEL, $0050
 	obj_end
 
-ObjInit_08_4dfb::
-	obj_include ObjInit_08_4de9
+ObjInit_BananaBunch_2::
+	obj_include ObjInit_BananaBunch_1
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
-	obj_word OBJ_FRAME, Frame_20_5f68
+	obj_word OBJ_FRAME, Frame_CarrierObjectTable
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_08_4e09::
-	obj_include ObjInit_08_4de9
+ObjInit_BananaBunch_3::
+	obj_include ObjInit_BananaBunch_1
 	obj_byte OBJ_BANK, BANK(Obj_FallThenAnimate)
 	obj_word OBJ_HANDLER, Obj_FallThenAnimate
-	obj_word OBJ_ANIM, Anim_04_4e0b
+	obj_word OBJ_ANIM, Anim_StompBonus_Bananas_1
 	obj_byte OBJ_VAR_2E, $0a
 	obj_end
 
-ObjInit_08_4e17::
+ObjInit_Barrel_1::
 	obj_byte OBJ_FLAGS, $15
 	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
@@ -2308,13 +2308,13 @@ ObjInit_08_4e17::
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $07
-	obj_word OBJ_FRAME, Frame_20_4b4c
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_28
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_VAR_2E, $01
 	obj_byte OBJ_VAR_2C, $0c
 	obj_end
 
-ObjInit_08_4e37::
+ObjInit_BonusCoin_1::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_BANK, BANK(Obj_FallThenAnimate)
 	obj_word OBJ_HANDLER, Obj_FallThenAnimate
@@ -2325,10 +2325,10 @@ ObjInit_08_4e37::
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_PALETTE, $00
-	obj_word OBJ_ANIM, Anim_04_570b
+	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_3
 	obj_end
 
-ObjInit_08_4e53::
+ObjInit_BonusCoin_2::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_BANK, BANK(Obj_FallThenAnimate)
 	obj_word OBJ_HANDLER, Obj_FallThenAnimate
@@ -2339,240 +2339,240 @@ ObjInit_08_4e53::
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_byte OBJ_PALETTE, $00
-	obj_word OBJ_ANIM, Anim_04_570b
+	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_3
 	obj_end
 
-SpellWord_08_4e6f::
+SpellWord_SpellBonus_8::
 	db 0 ; spells DONKEY
-	dw Frame_20_4b94 ; letter D
+	dw Frame_Letter_D ; letter D
 	db 2 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 4 ; position
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 	db 1 ; position
-	dw Frame_20_4bd6 ; letter O
+	dw Frame_Letter_O ; letter O
 	db 3 ; position
-	dw Frame_20_4bbe ; letter K
+	dw Frame_Letter_K ; letter K
 	db 5 ; position
-	dw Frame_20_4c12 ; letter Y
+	dw Frame_Letter_Y ; letter Y
 
-SpellWord_08_4e81::
+SpellWord_SpellBonus_4::
 	db 0 ; spells KONG
-	dw Frame_20_4bbe ; letter K
+	dw Frame_Letter_K ; letter K
 	db 2 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 1 ; position
-	dw Frame_20_4bd6 ; letter O
+	dw Frame_Letter_O ; letter O
 	db 3 ; position
-	dw Frame_20_4ba6 ; letter G
+	dw Frame_Letter_G ; letter G
 
-SpellWord_08_4e8d::
+SpellWord_SpellBonus_5::
 	db 0 ; spells COUNTRY
-	dw Frame_20_4b8e ; letter C
+	dw Frame_Letter_C ; letter C
 	db 2 ; position
-	dw Frame_20_4bfa ; letter U
+	dw Frame_Letter_U ; letter U
 	db 4 ; position
-	dw Frame_20_4bf4 ; letter T
+	dw Frame_Letter_T ; letter T
 	db 6 ; position
-	dw Frame_20_4c12 ; letter Y
+	dw Frame_Letter_Y ; letter Y
 	db 1 ; position
-	dw Frame_20_4bd6 ; letter O
+	dw Frame_Letter_O ; letter O
 	db 5 ; position
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db 3 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 
-SpellWord_08_4ea2::
+SpellWord_SpellBonus_9::
 	db 0 ; spells KONG
-	dw Frame_20_4bbe ; letter K
+	dw Frame_Letter_K ; letter K
 	db $80 ; ObjInit_08_441d
 	db 1 ; position
-	dw Frame_20_4bd6 ; letter O
+	dw Frame_Letter_O ; letter O
 	db $80 ; ObjInit_08_441d
 	db 2 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db $80 ; ObjInit_08_441d
 	db 3 ; position
-	dw Frame_20_4ba6 ; letter G
+	dw Frame_Letter_G ; letter G
 	db $80 ; ObjInit_08_441d
 
-SpellWord_08_4eb2::
+SpellWord_CarrierObjectTable::
 	db 0 ; spells RAREWARE (no object spawns this)
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db 1 ; position
-	dw Frame_20_4b82 ; letter A
+	dw Frame_Letter_A ; letter A
 	db 2 ; position
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db 3 ; position
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 	db 4 ; position
-	dw Frame_20_4c06 ; letter W
+	dw Frame_Letter_W ; letter W
 	db 5 ; position
-	dw Frame_20_4b82 ; letter A
+	dw Frame_Letter_A ; letter A
 	db 6 ; position
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db 7 ; position
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 
-SpellWord_08_4eca::
+SpellWord_SpellBonus_10::
 	db 0 ; spells NINTENDO
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 2 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 4 ; position
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 	db 6 ; position
-	dw Frame_20_4b94 ; letter D
+	dw Frame_Letter_D ; letter D
 	db 1 ; position
-	dw Frame_20_4bb2 ; letter I
+	dw Frame_Letter_I ; letter I
 	db 3 ; position
-	dw Frame_20_4bf4 ; letter T
+	dw Frame_Letter_T ; letter T
 	db 5 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 7 ; position
-	dw Frame_20_4bd6 ; letter O
+	dw Frame_Letter_O ; letter O
 
-SpellWord_08_4ee2::
+SpellWord_SpellBonus_12::
 	db 0 ; spells RARE
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db $81 ; ObjInit_08_442b
 	db 1 ; position
-	dw Frame_20_4b82 ; letter A
+	dw Frame_Letter_A ; letter A
 	db $81 ; ObjInit_08_442b
 	db 2 ; position
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db $81 ; ObjInit_08_442b
 	db 3 ; position
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 	db $81 ; ObjInit_08_442b
 
-SpellWord_08_4ef2::
+SpellWord_SpellBonus_3::
 	db 0 ; spells EXPRESSO
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 	db 2 ; position
-	dw Frame_20_4bdc ; letter P
+	dw Frame_Letter_P ; letter P
 	db 4 ; position
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 	db 6 ; position
-	dw Frame_20_4bee ; letter S
+	dw Frame_Letter_S ; letter S
 	db 1 ; position
-	dw Frame_20_4c0c ; letter X
+	dw Frame_Letter_X ; letter X
 	db 3 ; position
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db 5 ; position
-	dw Frame_20_4bee ; letter S
+	dw Frame_Letter_S ; letter S
 	db 7 ; position
-	dw Frame_20_4bd6 ; letter O
+	dw Frame_Letter_O ; letter O
 
-SpellWord_08_4f0a::
+SpellWord_SpellBonus_2::
 	db 0 ; spells ENGUARDE
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 	db 2 ; position
-	dw Frame_20_4ba6 ; letter G
+	dw Frame_Letter_G ; letter G
 	db 4 ; position
-	dw Frame_20_4b82 ; letter A
+	dw Frame_Letter_A ; letter A
 	db 6 ; position
-	dw Frame_20_4b94 ; letter D
+	dw Frame_Letter_D ; letter D
 	db 1 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 3 ; position
-	dw Frame_20_4bfa ; letter U
+	dw Frame_Letter_U ; letter U
 	db 5 ; position
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db 7 ; position
-	dw Frame_20_4b9a ; letter E
+	dw Frame_Letter_E ; letter E
 
-SpellWord_08_4f22::
+SpellWord_SpellBonus_1::
 	db 0 ; spells RAMBI
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db 2 ; position
-	dw Frame_20_4bca ; letter M
+	dw Frame_Letter_M ; letter M
 	db 4 ; position
-	dw Frame_20_4bb2 ; letter I
+	dw Frame_Letter_I ; letter I
 	db 1 ; position
-	dw Frame_20_4b82 ; letter A
+	dw Frame_Letter_A ; letter A
 	db 3 ; position
-	dw Frame_20_4b88 ; letter B
+	dw Frame_Letter_B ; letter B
 
-SpellWord_08_4f31::
+SpellWord_SpellBonus_13::
 	db 0 ; spells WINKY
-	dw Frame_20_4c06 ; letter W
+	dw Frame_Letter_W ; letter W
 	db 2 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 4 ; position
-	dw Frame_20_4c12 ; letter Y
+	dw Frame_Letter_Y ; letter Y
 	db 1 ; position
-	dw Frame_20_4bb2 ; letter I
+	dw Frame_Letter_I ; letter I
 	db 3 ; position
-	dw Frame_20_4bbe ; letter K
+	dw Frame_Letter_K ; letter K
 
-SpellWord_08_4f40::
+SpellWord_SpellBonus_14::
 	db 2 ; spells DIDDY
-	dw Frame_20_4b94 ; letter D
+	dw Frame_Letter_D ; letter D
 	db $81 ; ObjInit_08_442b
 	db 0 ; position
-	dw Frame_20_4b94 ; letter D
+	dw Frame_Letter_D ; letter D
 	db $80 ; ObjInit_08_441d
 	db 4 ; position
-	dw Frame_20_4c12 ; letter Y
+	dw Frame_Letter_Y ; letter Y
 	db $81 ; ObjInit_08_442b
 	db 3 ; position
-	dw Frame_20_4b94 ; letter D
+	dw Frame_Letter_D ; letter D
 	db $80 ; ObjInit_08_441d
 	db 1 ; position
-	dw Frame_20_4bb2 ; letter I
+	dw Frame_Letter_I ; letter I
 	db $80 ; ObjInit_08_441d
 
-SpellWord_08_4f54::
+SpellWord_SpellBonus_11::
 	db 0 ; spells CANDY
-	dw Frame_20_4b8e ; letter C
+	dw Frame_Letter_C ; letter C
 	db $80 ; ObjInit_08_441d
 	db 2 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db 1 ; position
-	dw Frame_20_4b82 ; letter A
+	dw Frame_Letter_A ; letter A
 	db $80 ; ObjInit_08_441d
 	db 4 ; position
-	dw Frame_20_4c12 ; letter Y
+	dw Frame_Letter_Y ; letter Y
 	db 3 ; position
-	dw Frame_20_4b94 ; letter D
+	dw Frame_Letter_D ; letter D
 
-SpellWord_08_4f65::
+SpellWord_SpellBonus_6::
 	db 0 ; spells FUNKY
-	dw Frame_20_4ba0 ; letter F
+	dw Frame_Letter_F ; letter F
 	db $80 ; ObjInit_08_441d
 	db 4 ; position
-	dw Frame_20_4c12 ; letter Y
+	dw Frame_Letter_Y ; letter Y
 	db 2 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db $80 ; ObjInit_08_441d
 	db 1 ; position
-	dw Frame_20_4bfa ; letter U
+	dw Frame_Letter_U ; letter U
 	db 3 ; position
-	dw Frame_20_4bbe ; letter K
+	dw Frame_Letter_K ; letter K
 	db $80 ; ObjInit_08_441d
 
-SpellWord_08_4f77::
+SpellWord_SpellBonus_7::
 	db 0 ; spells CRANKY
-	dw Frame_20_4b8e ; letter C
+	dw Frame_Letter_C ; letter C
 	db $81 ; ObjInit_08_442b
 	db 5 ; position
-	dw Frame_20_4c12 ; letter Y
+	dw Frame_Letter_Y ; letter Y
 	db $80 ; ObjInit_08_441d
 	db 4 ; position
-	dw Frame_20_4bbe ; letter K
+	dw Frame_Letter_K ; letter K
 	db $81 ; ObjInit_08_442b
 	db 2 ; position
-	dw Frame_20_4b82 ; letter A
+	dw Frame_Letter_A ; letter A
 	db $80 ; ObjInit_08_441d
 	db 1 ; position
-	dw Frame_20_4be8 ; letter R
+	dw Frame_Letter_R ; letter R
 	db $81 ; ObjInit_08_442b
 	db 3 ; position
-	dw Frame_20_4bd0 ; letter N
+	dw Frame_Letter_N ; letter N
 	db $80 ; ObjInit_08_441d
 
-MatchPattern_08_4f8f::
+MatchPattern_MatchBonus_2::
 	db 15, 1
 	db 2, 0
 	db 15, 2
@@ -2584,7 +2584,7 @@ MatchPattern_08_4f8f::
 	db 15, 8
 	db 2, 0
 
-MatchPattern_08_4fa3::
+MatchPattern_MatchBonus_1::
 	db 2, 0
 	db 15, 10
 	db 2, 0
@@ -2594,7 +2594,7 @@ MatchPattern_08_4fa3::
 	db 2, 0
 	db 15, 13
 
-MatchPattern_08_4fb3::
+MatchPattern_MatchBonus_4::
 	db 15, 5
 	db 5, 0
 	db 15, 6
@@ -2608,7 +2608,7 @@ MatchPattern_08_4fb3::
 	db 15, 7
 	db 5, 0
 
-MatchPattern_08_4fcb::
+MatchPattern_MatchBonus_6::
 	db 2, 0
 	db 15, 8
 	db 2, 0
@@ -2628,7 +2628,7 @@ MatchPattern_08_4fcb::
 	db 10, 7
 	db 5, 0
 
-MatchPattern_08_4fef::
+MatchPattern_MatchBonus_7::
 	db 2, 0
 	db 15, 8
 	db 2, 0
@@ -2642,7 +2642,7 @@ MatchPattern_08_4fef::
 	db 2, 0
 	db 15, 9
 
-MatchPattern_08_5007::
+MatchPattern_MatchBonus_3::
 	db 2, 0
 	db 15, 14
 	db 2, 0
@@ -2656,7 +2656,7 @@ MatchPattern_08_5007::
 	db 2, 0
 	db 15, 10
 
-MatchPattern_08_501f::
+MatchPattern_MatchBonus_11::
 	db 2, 0
 	db 15, 15
 	db 2, 0
@@ -2666,7 +2666,7 @@ MatchPattern_08_501f::
 	db 2, 0
 	db 15, 16
 
-ObjInit_08_502f::
+ObjInit_SpellBonus_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -2675,11 +2675,11 @@ ObjInit_08_502f::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $05
 	obj_byte OBJ_VAR_34, $33
-	obj_word OBJ_VAR_35, SpellWord_08_4f22
-	obj_word OBJ_VAR_3B, ObjInit_08_5048
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_1
+	obj_word OBJ_VAR_3B, ObjInit_SpellBonus_2
 	obj_end
 
-ObjInit_08_5048::
+ObjInit_SpellBonus_2::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -2688,11 +2688,11 @@ ObjInit_08_5048::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, SpellWord_08_4f0a
-	obj_word OBJ_VAR_3B, ObjInit_08_5061
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_2
+	obj_word OBJ_VAR_3B, ObjInit_SpellBonus_3
 	obj_end
 
-ObjInit_08_5061::
+ObjInit_SpellBonus_3::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -2701,11 +2701,11 @@ ObjInit_08_5061::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, SpellWord_08_4ef2
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_3
 	obj_word OBJ_VAR_3B, $0000
 	obj_end
 
-ObjInit_08_507a::
+ObjInit_SpellBonus_4::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -2714,11 +2714,11 @@ ObjInit_08_507a::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $04
 	obj_byte OBJ_VAR_34, $40
-	obj_word OBJ_VAR_35, SpellWord_08_4e81
-	obj_word OBJ_VAR_3B, ObjInit_08_5093
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_4
+	obj_word OBJ_VAR_3B, ObjInit_SpellBonus_5
 	obj_end
 
-ObjInit_08_5093::
+ObjInit_SpellBonus_5::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -2727,11 +2727,11 @@ ObjInit_08_5093::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $07
 	obj_byte OBJ_VAR_34, $24
-	obj_word OBJ_VAR_35, SpellWord_08_4e8d
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_5
 	obj_word OBJ_VAR_3B, $0000
 	obj_end
 
-ObjInit_08_50ac::
+ObjInit_SpellBonus_6::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -2740,11 +2740,11 @@ ObjInit_08_50ac::
 	obj_word OBJ_VAR_31, $0200
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, SpellWord_08_4f65
-	obj_word OBJ_VAR_3B, ObjInit_08_50c5
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_6
+	obj_word OBJ_VAR_3B, ObjInit_SpellBonus_7
 	obj_end
 
-ObjInit_08_50c5::
+ObjInit_SpellBonus_7::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -2753,7 +2753,7 @@ ObjInit_08_50c5::
 	obj_word OBJ_VAR_31, $0280
 	obj_byte OBJ_VAR_33, $0c
 	obj_byte OBJ_VAR_34, $15
-	obj_word OBJ_VAR_35, SpellWord_08_4f77
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_7
 	obj_word OBJ_VAR_3B, $0000
 	obj_end
 
@@ -2812,7 +2812,7 @@ Tire::
 	rrca
 	ld e, a
 	ld d, $00
-	ld hl, FrameTable_08_514e
+	ld hl, FrameTable_Tire
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -2829,8 +2829,8 @@ Tire::
 	jr .loop
 
 
-FrameTable_08_514e::
-	dw Frame_20_4f2a, Frame_20_4f30, Frame_20_4f36, Frame_20_4f3c
+FrameTable_Tire::
+	dw Frame_Tire_1, Frame_Tire_2, Frame_Tire_3, Frame_Tire_4
 
 Obj_Patrol::
 	call TurnAtRangeLimit
@@ -2851,7 +2851,7 @@ BarrelCannon::
 	add hl, bc
 	ld a, [hl]
 	and $f0
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], a
 	call BarrelCannon_SetFrame
@@ -2874,7 +2874,7 @@ BarrelCannon_Loaded::
 	bit 1, [hl]
 	call nz, BarrelCannon_Move
 	call BarrelCannon_SetFrame
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	dec [hl]
 	jp nz, NextObject
@@ -2909,7 +2909,7 @@ BarrelCannon_TurnToAim::
 	and $0f
 	swap a
 	ld e, a
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hl]
 	ld d, a
@@ -2922,7 +2922,7 @@ BarrelCannon_TurnToAim::
 	add hl, bc
 	ld a, d
 	add a, [hl]
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], a
 	jp NextObject
@@ -2932,13 +2932,13 @@ BarrelCannon_TurnToAim::
 	add hl, bc
 	ld a, d
 	sub [hl]
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], a
 	jp NextObject
 
 .else_5209:
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld [hl], $05
 	ld de, $5227
@@ -2962,7 +2962,7 @@ BarrelCannon_Fire::
 	bit 1, [hl]
 	call nz, BarrelCannon_Move
 	call BarrelCannon_SetFrame
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	dec [hl]
 	jp nz, NextObject
@@ -2998,14 +2998,14 @@ BarrelCannon_Fire::
 	ld hl, wPlayer + OBJ_VAR_2E
 	res 0, [hl]
 	res 2, [hl]
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hl]
 	swap a
 	and $0f
 	ld e, a
 	ld d, $00
-	ld hl, Flags_08_5365
+	ld hl, Flags_BarrelCannon_Fire
 	add hl, de
 	ld de, $0000
 	bit 7, [hl]
@@ -3120,7 +3120,7 @@ BarrelCannon_Fire::
 	ld [hli], a
 	ld [hl], d
 .continue:
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld [hl], $14
 	ld hl, wObjects + OBJ_HANDLER
@@ -3135,7 +3135,7 @@ BarrelCannon_Fire::
 	jp NextObject
 
 
-Flags_08_5365::
+Flags_BarrelCannon_Fire::
 	db %00001100, %10101100, %10001100, %10001110, %10000000, %10001010, %10001000, %10101000
 	db %00001000, %11101000, %11001000, %11001010, %11000000, %11001110, %11001100, %11101100
 
@@ -3145,7 +3145,7 @@ BarrelCannon_AfterFire::
 	bit 1, [hl]
 	call nz, BarrelCannon_Move
 	call BarrelCannon_SetFrame
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	dec [hl]
 	jp nz, NextObject
@@ -3157,7 +3157,7 @@ BarrelCannon_AfterFire::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $08
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld [hl], $0a
 	jp NextObject
@@ -3169,7 +3169,7 @@ BarrelCannon_Cooldown::
 	bit 1, [hl]
 	call nz, BarrelCannon_Move
 	call BarrelCannon_SetFrame
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	dec [hl]
 	jp nz, NextObject
@@ -3192,7 +3192,7 @@ BarrelCannon_TurnBack::
 	ld a, [hl]
 	and $f0
 	ld e, a
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hl]
 	ld d, a
@@ -3208,7 +3208,7 @@ BarrelCannon_TurnBack::
 	inc a
 .skip:
 	add a, d
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], a
 	jp NextObject
@@ -3234,7 +3234,7 @@ BarrelCannon_AutoRotate::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hl]
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	add a, [hl]
 	ld [hl], a
@@ -3259,7 +3259,7 @@ BarrelCannon_AutoRotate::
 	ldh a, [hJoyPressed]
 	bit 0, a
 	jr z, .jp_NextObject
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld [hl], $05
 	ld hl, wObjects + OBJ_HANDLER
@@ -3283,13 +3283,13 @@ BarrelCannon_SwingForward::
 	ldh a, [hJoyPressed]
 	bit 0, a
 	jr nz, BarrelCannon_SwingBack.swing_back
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hl]
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	add a, [hl]
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], a
 	sub $07
@@ -3325,13 +3325,13 @@ BarrelCannon_SwingBack::
 	bit 0, a
 	jr nz, .swing_back
 	call BarrelCannon_SetFrame
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hl]
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	sub [hl]
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], a
 	add a, $1f
@@ -3357,7 +3357,7 @@ BarrelCannon_SwingBack::
 	jr .loop
 
 .swing_back:
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	ld [hl], $01
 	ld hl, wObjects + OBJ_HANDLER
@@ -3371,7 +3371,7 @@ BarrelCannon_SwingBack::
 
 
 BarrelCannon_SnapAngle::
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hl]
 	add a, $10
@@ -3381,7 +3381,7 @@ BarrelCannon_SnapAngle::
 
 
 BarrelCannon_SetFrame::
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hl]
 	and $f0
@@ -3395,7 +3395,7 @@ BarrelCannon_SetFrame::
 .skip:
 	ld e, a
 	ld d, $00
-	ld hl, FrameTable_08_5522
+	ld hl, FrameTable_BarrelCannon_SetFrame
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -3406,15 +3406,15 @@ BarrelCannon_SetFrame::
 	ret
 
 
-FrameTable_08_5522::
-	dw Frame_20_418c, Frame_20_4192, Frame_20_4198, Frame_20_419e
-	dw Frame_20_41a4, Frame_20_41aa, Frame_20_41b0, Frame_20_41b6
-	dw Frame_20_41bc, Frame_20_41c2, Frame_20_41c8, Frame_20_41ce
-	dw Frame_20_41d4, Frame_20_41da, Frame_20_41e0, Frame_20_41e6
-	dw Frame_20_40a2, Frame_20_40a8, Frame_20_40ae, Frame_20_40b4
-	dw Frame_20_40ba, Frame_20_40c0, Frame_20_40c6, Frame_20_40cc
-	dw Frame_20_40d2, Frame_20_40d8, Frame_20_40de, Frame_20_40e4
-	dw Frame_20_40ea, Frame_20_40f0, Frame_20_40f6, Frame_20_40fc
+FrameTable_BarrelCannon_SetFrame::
+	dw Frame_BarrelCannon_SetFrame_17, Frame_BarrelCannon_SetFrame_18, Frame_BarrelCannon_SetFrame_19, Frame_BarrelCannon_SetFrame_20
+	dw Frame_BarrelCannon_SetFrame_21, Frame_BarrelCannon_SetFrame_22, Frame_BarrelCannon_SetFrame_23, Frame_BarrelCannon_SetFrame_24
+	dw Frame_BarrelCannon_SetFrame_25, Frame_BarrelCannon_SetFrame_26, Frame_BarrelCannon_SetFrame_27, Frame_BarrelCannon_SetFrame_28
+	dw Frame_BarrelCannon_SetFrame_29, Frame_BarrelCannon_SetFrame_30, Frame_BarrelCannon_SetFrame_31, Frame_BarrelCannon_SetFrame_32
+	dw Frame_BarrelCannon_SetFrame_1, Frame_BarrelCannon_SetFrame_2, Frame_BarrelCannon_SetFrame_3, Frame_BarrelCannon_SetFrame_4
+	dw Frame_BarrelCannon_SetFrame_5, Frame_BarrelCannon_SetFrame_6, Frame_BarrelCannon_SetFrame_7, Frame_BarrelCannon_SetFrame_8
+	dw Frame_BarrelCannon_SetFrame_9, Frame_BarrelCannon_SetFrame_10, Frame_BarrelCannon_SetFrame_11, Frame_BarrelCannon_SetFrame_12
+	dw Frame_BarrelCannon_SetFrame_13, Frame_BarrelCannon_SetFrame_14, Frame_BarrelCannon_SetFrame_15, Frame_BarrelCannon_SetFrame_16
 
 BarrelCannon_Move::
 	call TurnAtRangeLimit
@@ -3505,12 +3505,12 @@ BreakableWall::
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	inc [hl]
-	ld hl, ObjInit_08_55ed
+	ld hl, ObjInit_Entrance_1
 	call ApplyObjInit
 	jr Entrance
 
 
-ObjInit_08_55ed::
+ObjInit_Entrance_1::
 	obj_word OBJ_TOUCH_HANDLER, Entrance_Touch
 	obj_byte OBJ_BANK, BANK(Entrance)
 	obj_word OBJ_HANDLER, Entrance
@@ -3690,14 +3690,14 @@ Sticker_Appear::
 	add hl, bc
 	dec [hl]
 	jr nz, .skip
-	ld hl, ObjInit_08_5710
+	ld hl, ObjInit_Obj_AnimateAndDespawn_1
 	call ApplyObjInit
 .skip:
 	call AnimateObject
 	jp NextObject
 
 
-ObjInit_08_5710::
+ObjInit_Obj_AnimateAndDespawn_1::
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_byte OBJ_COLLISION, $08
@@ -3712,13 +3712,13 @@ Sticker_FlyToHUD::
 	jr nz, .jp_NextObject
 	ld a, $1d
 	ld [wSFXQueue + 1], a
-	ld hl, ObjInit_08_5733
+	ld hl, ObjInit_Sticker_Count
 	call ApplyObjInit
 .jp_NextObject:
 	jp NextObject
 
 
-ObjInit_08_5733::
+ObjInit_Sticker_Count::
 	obj_byte OBJ_BANK, BANK(Sticker_Count)
 	obj_word OBJ_HANDLER, Sticker_Count
 	obj_word OBJ_X, $0050
@@ -3893,7 +3893,7 @@ InitKongLetter::
 .skip_582d:
 	add a, a
 	ld e, a
-	ld hl, ObjInitTable_08_583a
+	ld hl, ObjInitTable_InitKongLetter
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -3902,22 +3902,22 @@ InitKongLetter::
 	ret
 
 
-ObjInitTable_08_583a::
-	dw ObjInit_08_5920
-	dw ObjInit_08_5929
-	dw ObjInit_08_5932
-	dw ObjInit_08_593b
-	dw ObjInit_08_58b3
-	dw ObjInit_08_586f
-	dw ObjInit_08_587f
-	dw ObjInit_08_5891
-	dw ObjInit_08_58a3
-	dw ObjInit_08_58ca
-	dw ObjInit_08_58f4
-	dw ObjInit_08_5902
-	dw ObjInit_08_5944
+ObjInitTable_InitKongLetter::
+	dw ObjInit_KongLetter_7
+	dw ObjInit_KongLetter_8
+	dw ObjInit_KongLetter_9
+	dw ObjInit_KongLetter_10
+	dw ObjInit_BananaBunch_4
+	dw ObjInit_Barrel_3
+	dw ObjInit_DKBarrel_Wait
+	dw ObjInit_Barrel_4
+	dw ObjInit_Barrel_5
+	dw ObjInit_Tire_1
+	dw ObjInit_AnimalToken_7
+	dw ObjInit_AnimalToken_8
+	dw ObjInit_BonusCoin_3
 
-ObjInit_08_5854::
+ObjInit_Barrel_Common::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0080
@@ -3925,78 +3925,78 @@ ObjInit_08_5854::
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_08_5862::
-	obj_include ObjInit_08_5854
+ObjInit_Barrel_2::
+	obj_include ObjInit_Barrel_Common
 	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_byte OBJ_VAR_2C, $0c
 	obj_end
 
-ObjInit_08_586f::
-	obj_include ObjInit_08_5862
+ObjInit_Barrel_3::
+	obj_include ObjInit_Barrel_2
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
-	obj_word OBJ_FRAME, Frame_20_48c4
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_17
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_08_587f::
-	obj_include ObjInit_08_5862
+ObjInit_DKBarrel_Wait::
+	obj_include ObjInit_Barrel_2
 	obj_byte OBJ_BANK, BANK(DKBarrel_Wait)
 	obj_word OBJ_HANDLER, DKBarrel_Wait
 	obj_byte OBJ_PALETTE, $02
-	obj_word OBJ_ANIM, Anim_04_505f
+	obj_word OBJ_ANIM, Anim_SpawnCollectedBanana_13
 	obj_byte OBJ_VAR_2E, $00
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
-ObjInit_08_5891::
-	obj_include ObjInit_08_5862
+ObjInit_Barrel_4::
+	obj_include ObjInit_Barrel_2
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, Frame_20_4ee8
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_29
 	obj_byte OBJ_VAR_2E, $03
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
-ObjInit_08_58a3::
-	obj_include ObjInit_08_5862
+ObjInit_Barrel_5::
+	obj_include ObjInit_Barrel_2
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
-	obj_word OBJ_FRAME, Frame_20_4b4c
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_28
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_08_58b3::
-	obj_include ObjInit_08_5854
+ObjInit_BananaBunch_4::
+	obj_include ObjInit_Barrel_Common
 	obj_byte OBJ_BANK, BANK(Obj_FallThenAnimate)
 	obj_word OBJ_HANDLER, Obj_FallThenAnimate
 	obj_word OBJ_TOUCH_HANDLER, BananaBunch_Touch
-	obj_word OBJ_ANIM, Anim_04_4e0b
+	obj_word OBJ_ANIM, Anim_StompBonus_Bananas_1
 	obj_byte OBJ_PALETTE, $00
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_VAR_2E, $0a
 	obj_end
 
-ObjInit_08_58ca::
-	obj_include ObjInit_08_5854
+ObjInit_Tire_1::
+	obj_include ObjInit_Barrel_Common
 	obj_byte OBJ_BANK, BANK(Tire)
 	obj_word OBJ_HANDLER, Tire
 	obj_word OBJ_TOUCH_HANDLER, Tire_Touch
-	obj_word OBJ_ANIM, Anim_04_4f83
+	obj_word OBJ_ANIM, Anim_Tire_1
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $32
 	obj_word OBJ_XACCEL, $0008
 	obj_end
 
-ObjInit_08_58e2::
-	obj_include ObjInit_08_5854
+ObjInit_AnimalToken_6::
+	obj_include ObjInit_Barrel_Common
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
 	obj_word OBJ_TOUCH_HANDLER, AnimalToken_Touch
@@ -4005,24 +4005,24 @@ ObjInit_08_58e2::
 	obj_byte OBJ_VAR_2E, $08
 	obj_end
 
-ObjInit_08_58f4::
-	obj_include ObjInit_08_58e2
-	obj_word OBJ_FRAME, Frame_20_4d50
-	obj_word OBJ_ANIM, Anim_04_54fb
+ObjInit_AnimalToken_7::
+	obj_include ObjInit_AnimalToken_6
+	obj_word OBJ_FRAME, Frame_AnimalToken_7
+	obj_word OBJ_ANIM, Anim_AnimalToken_5
 	obj_byte OBJ_VAR_2F, $03
 	obj_byte OBJ_VAR_30, $20
 	obj_end
 
-ObjInit_08_5902::
-	obj_include ObjInit_08_58e2
-	obj_word OBJ_FRAME, Frame_20_4d3e
-	obj_word OBJ_ANIM, Anim_04_54df
+ObjInit_AnimalToken_8::
+	obj_include ObjInit_AnimalToken_6
+	obj_word OBJ_FRAME, Frame_AnimalToken_4
+	obj_word OBJ_ANIM, Anim_AnimalToken_1
 	obj_byte OBJ_VAR_2F, $02
 	obj_byte OBJ_VAR_30, $10
 	obj_end
 
-ObjInit_08_5910::
-	obj_include ObjInit_08_5854
+ObjInit_KongLetter_6::
+	obj_include ObjInit_Barrel_Common
 	obj_byte OBJ_BANK, BANK(Obj_FallThenIdle)
 	obj_word OBJ_HANDLER, Obj_FallThenIdle
 	obj_word OBJ_TOUCH_HANDLER, KongLetter_Touch
@@ -4030,39 +4030,39 @@ ObjInit_08_5910::
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_end
 
-ObjInit_08_5920::
-	obj_include ObjInit_08_5910
-	obj_word OBJ_FRAME, Frame_20_4bbe
+ObjInit_KongLetter_7::
+	obj_include ObjInit_KongLetter_6
+	obj_word OBJ_FRAME, Frame_Letter_K
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_08_5929::
-	obj_include ObjInit_08_5910
-	obj_word OBJ_FRAME, Frame_20_4bd6
+ObjInit_KongLetter_8::
+	obj_include ObjInit_KongLetter_6
+	obj_word OBJ_FRAME, Frame_Letter_O
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_08_5932::
-	obj_include ObjInit_08_5910
-	obj_word OBJ_FRAME, Frame_20_4bd0
+ObjInit_KongLetter_9::
+	obj_include ObjInit_KongLetter_6
+	obj_word OBJ_FRAME, Frame_Letter_N
 	obj_byte OBJ_VAR_2E, $04
 	obj_end
 
-ObjInit_08_593b::
-	obj_include ObjInit_08_5910
-	obj_word OBJ_FRAME, Frame_20_4ba6
+ObjInit_KongLetter_10::
+	obj_include ObjInit_KongLetter_6
+	obj_word OBJ_FRAME, Frame_Letter_G
 	obj_byte OBJ_VAR_2E, $08
 	obj_end
 
-ObjInit_08_5944::
-	obj_include ObjInit_08_5854
+ObjInit_BonusCoin_3::
+	obj_include ObjInit_Barrel_Common
 	obj_byte OBJ_BANK, BANK(Obj_FallThenAnimate)
 	obj_word OBJ_HANDLER, Obj_FallThenAnimate
 	obj_word OBJ_TOUCH_HANDLER, BonusCoin_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_PALETTE, $00
-	obj_word OBJ_ANIM, Anim_04_570b
+	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_3
 	obj_end
 
 MineCartKrash_Parked::
@@ -4084,18 +4084,18 @@ MineCartKrash_Parked::
 	ld [hl], c
 	inc l
 	ld [hl], b
-	ld hl, ObjInit_08_5982
+	ld hl, ObjInit_MineCartKrash_Parked_1
 	call InitObject
 	pop bc
 	jp NextObject
 
 
-ObjInit_08_5982::
+ObjInit_MineCartKrash_Parked_1::
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_byte OBJ_LAYER, $00
 	obj_byte OBJ_PALETTE, $0e
 	obj_byte OBJ_VAR_2C, $02
-	obj_word OBJ_FRAME, Frame_20_5770
+	obj_word OBJ_FRAME, Frame_MineCartKrash_SetSlopeFrame_1
 	obj_end
 
 MineCartKrash::
@@ -4115,13 +4115,13 @@ MineCartKrash::
 	ld [hl], c
 	inc l
 	ld [hl], b
-	ld hl, ObjInit_08_59b1
+	ld hl, ObjInit_MineCartKrash_1
 	call InitObject
 	pop bc
 	jp NextObject
 
 
-ObjInit_08_59b1::
+ObjInit_MineCartKrash_1::
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_byte OBJ_LAYER, $00
 	obj_byte OBJ_PALETTE, $0e
@@ -4371,7 +4371,7 @@ MineCart_SetSlopeAnim::
 	ld [hl], a
 	sla e
 	ld d, $00
-	ld hl, AnimTable_08_5bd5
+	ld hl, AnimTable_MineCart_SetSlopeAnim
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -4386,11 +4386,11 @@ MineCart_SetSlopeAnim::
 	ret
 
 
-AnimTable_08_5bd5::
-	dw Anim_04_5185, Anim_04_5191, Anim_04_519d, Anim_04_519d
-	dw Anim_04_51a9, Anim_04_51a9, Anim_04_51b5, Anim_04_51b5
-	dw Anim_04_5185, Anim_04_5191, Anim_04_519d, Anim_04_519d
-	dw Anim_04_51a9, Anim_04_51a9, Anim_04_51b5, Anim_04_51b5
+AnimTable_MineCart_SetSlopeAnim::
+	dw Anim_MineCart_SetSlopeAnim_1, Anim_MineCart_SetSlopeAnim_3, Anim_MineCart_SetSlopeAnim_5, Anim_MineCart_SetSlopeAnim_5
+	dw Anim_MineCart_SetSlopeAnim_7, Anim_MineCart_SetSlopeAnim_7, Anim_MineCart_SetSlopeAnim_9, Anim_MineCart_SetSlopeAnim_9
+	dw Anim_MineCart_SetSlopeAnim_1, Anim_MineCart_SetSlopeAnim_3, Anim_MineCart_SetSlopeAnim_5, Anim_MineCart_SetSlopeAnim_5
+	dw Anim_MineCart_SetSlopeAnim_7, Anim_MineCart_SetSlopeAnim_7, Anim_MineCart_SetSlopeAnim_9, Anim_MineCart_SetSlopeAnim_9
 
 MineCartKrash_SetSlopeFrame::
 	ld hl, wObjects + OBJ_TERRAIN_B
@@ -4400,7 +4400,7 @@ MineCartKrash_SetSlopeFrame::
 	ld e, a
 	sla e
 	ld d, $00
-	ld hl, FrameTable_08_5c0e
+	ld hl, FrameTable_MineCartKrash_SetSlopeFrame
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -4411,11 +4411,11 @@ MineCartKrash_SetSlopeFrame::
 	ret
 
 
-FrameTable_08_5c0e::
-	dw Frame_20_5770, Frame_20_578e, Frame_20_5794, Frame_20_5794
-	dw Frame_20_579a, Frame_20_579a, Frame_20_57a0, Frame_20_57a0
-	dw Frame_20_5770, Frame_20_5776, Frame_20_577c, Frame_20_577c
-	dw Frame_20_5782, Frame_20_5782, Frame_20_5788, Frame_20_5788
+FrameTable_MineCartKrash_SetSlopeFrame::
+	dw Frame_MineCartKrash_SetSlopeFrame_1, Frame_MineCartKrash_SetSlopeFrame_6, Frame_MineCartKrash_SetSlopeFrame_7, Frame_MineCartKrash_SetSlopeFrame_7
+	dw Frame_MineCartKrash_SetSlopeFrame_8, Frame_MineCartKrash_SetSlopeFrame_8, Frame_MineCartKrash_SetSlopeFrame_9, Frame_MineCartKrash_SetSlopeFrame_9
+	dw Frame_MineCartKrash_SetSlopeFrame_1, Frame_MineCartKrash_SetSlopeFrame_2, Frame_MineCartKrash_SetSlopeFrame_3, Frame_MineCartKrash_SetSlopeFrame_3
+	dw Frame_MineCartKrash_SetSlopeFrame_4, Frame_MineCartKrash_SetSlopeFrame_4, Frame_MineCartKrash_SetSlopeFrame_5, Frame_MineCartKrash_SetSlopeFrame_5
 
 AnimalCrate::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
@@ -4471,17 +4471,17 @@ SquawksCrate_Open::
 	ld [wPaletteUpdate], a
 	ld de, $48d7
 	call LoadBGPaletteSet
-	ld hl, ObjInit_08_5c93
+	ld hl, ObjInit_Squawks
 	call InitObject
 .continue:
 	call AnimateObject
 	jp NextObject
 
 
-ObjInit_08_5c93::
+ObjInit_Squawks::
 	obj_byte OBJ_BANK, BANK(Squawks)
 	obj_word OBJ_HANDLER, Squawks
-	obj_word OBJ_ANIM, Anim_04_4921
+	obj_word OBJ_ANIM, Anim_Squawks_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_PALETTE, $06
 	obj_word OBJ_XACCEL, $0040
@@ -4541,9 +4541,9 @@ Squawks::
 	jr z, .continue
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4935)
+	ld [hl], LOW(Anim_Squawks_3)
 	inc l
-	ld [hl], HIGH(Anim_04_4935)
+	ld [hl], HIGH(Anim_Squawks_3)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -4628,7 +4628,7 @@ AnimalBonus_LoadMask::
 	dec c
 	jr nz, .loop_5d66
 	pop bc
-	ld hl, ObjInit_08_5d8a
+	ld hl, ObjInit_TileAnimator
 	call ApplyObjInit
 	xor a
 	ld hl, wLevelTimer
@@ -4637,16 +4637,16 @@ AnimalBonus_LoadMask::
 	jp NextObject
 
 
-ObjInit_08_5d8a::
+ObjInit_TileAnimator::
 	obj_byte OBJ_BANK, BANK(TileAnimator)
 	obj_word OBJ_HANDLER, TileAnimator
 	obj_word OBJ_VAR_2F, $9928
 	obj_end
 
 AnimalMaskTable::
-	dw AnimalMask_08_5d9b, AnimalMask_08_5e0d, AnimalMask_08_5eb8, AnimalMask_08_5f78 ; by animal buddy ([$c445] bits 4-6), AnimalBonus_LoadMask
+	dw AnimalMask_0, AnimalMask_1, AnimalMask_2, AnimalMask_3 ; by animal buddy ([$c445] bits 4-6), AnimalBonus_LoadMask
 
-AnimalMask_08_5d9b::
+AnimalMask_0::
 	db 7, 16 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
 	db %01111111, %11111111, %11111111, %11111111, %11111111, %10000000, %00000000
 	db %01110001, %00100100, %10010010, %01001001, %00100100, %10000000, %00000000
@@ -4665,7 +4665,7 @@ AnimalMask_08_5d9b::
 	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
 	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
 
-AnimalMask_08_5e0d::
+AnimalMask_1::
 	db 13, 13 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
 	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
 	db %00111000, %00011111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111100, %00000000, %00000000, %00000000
@@ -4681,7 +4681,7 @@ AnimalMask_08_5e0d::
 	db %00111000, %00000000, %00111100, %00000011, %11000000, %11110000, %00001111, %00000011, %11000000, %00111100, %00000000, %00000000, %00000000
 	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
 
-AnimalMask_08_5eb8::
+AnimalMask_2::
 	db 5, 37 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
 	db %00000000, %00000000, %00000000, %00000000, %00000000
 	db %00000000, %00000000, %00000000, %00000000, %00000000
@@ -4721,10 +4721,10 @@ AnimalMask_08_5eb8::
 	db %00000000, %00000000, %00000000, %00000000, %00000000
 	db %00000000, %00000000, %00000000, %00000000, %00000000
 
-AnimalMask_Unused_08_5f73::
+AnimalMask_Unused_AnimalMaskTable::
 	db $00, $00, $00, $00, $00
 
-AnimalMask_08_5f78::
+AnimalMask_3::
 	db 9, 12 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
 	db %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000, %00000000
 	db %00000000, %00011111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111000, %00000000
@@ -4857,14 +4857,14 @@ TileAnimator::
 	ldh [hTempX], a
 	ld a, b
 	ldh [hTempY], a
-	ld hl, MapCell_08_614e
+	ld hl, MapCell_TileAnimator
 	call SetMapCell
 	pop bc
 	push bc
 	ld hl, wItemsInFlight
 	inc [hl]
 	call AllocObject
-	ld hl, ObjInit_08_6151
+	ld hl, ObjInit_MiniAnimalToken_Collected_1
 	call InitObject
 	ldh a, [hTempX]
 	ld d, a
@@ -4966,10 +4966,10 @@ TileAnimator::
 	jp NextObject
 
 
-MapCell_08_614e::
+MapCell_TileAnimator::
 	db $fc, $07, $00 ; block, attribute, terrain (written by SetMapCell)
 
-ObjInit_08_6151::
+ObjInit_MiniAnimalToken_Collected_1::
 	obj_byte OBJ_FLAGS, $0b
 	obj_byte OBJ_BANK, BANK(MiniAnimalToken_Collected)
 	obj_word OBJ_HANDLER, MiniAnimalToken_Collected
@@ -5145,7 +5145,7 @@ SpawnObjectDigits::
 .else_6260:
 	push bc
 	call AllocObject
-	ld hl, ObjInit_08_62a7
+	ld hl, ObjInit_MiniAnimalToken_1
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_X
 	add hl, bc
@@ -5187,7 +5187,7 @@ SpawnObjectDigits::
 	ret
 
 
-ObjInit_08_62a7::
+ObjInit_MiniAnimalToken_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MiniAnimalToken)
 	obj_word OBJ_HANDLER, MiniAnimalToken
@@ -5366,5 +5366,5 @@ AnimalBonus_DrawCount::
 	ds 5206, $00 ; $63aa
 
 
-BGTiles_08_7800::
+BGTiles_AnimalBonus_DrawCount::
 	INCBIN "gfx/bgtiles/08/7800.2bpp"

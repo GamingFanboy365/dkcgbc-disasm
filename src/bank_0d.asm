@@ -9,7 +9,7 @@ Bank0D_Number::
 Bank0D_Padding::
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-BGTiles_0d_4010::
+BGTiles_RareLogo_Init::
 	INCBIN "gfx/bgtiles/0d/4010.2bpp"
 
 RareLogoCornerOAM::
@@ -114,7 +114,7 @@ RareLogo_Init::
 	ld hl, wShadowOAM
 	ld bc, $0020
 	call CopyBytes
-	ld de, BGTiles_0d_4010
+	ld de, BGTiles_RareLogo_Init
 	ld hl, $05a0
 	ld bc, $000f
 	call HDMACopy
@@ -161,7 +161,7 @@ RareLogo_LoadAttributes::
 	call HDMACopy
 	xor a
 	ldh [rVBK], a
-	ld de, BGTiles_0d_5980
+	ld de, BGTiles_RareLogo_LoadAttributes
 	ld hl, $c800
 	ld bc, $0580
 	call CopyBytes
@@ -3061,7 +3061,7 @@ RareLogoAnimation::
 	db $80 + 23 ; skip
 	db 0 ; end of frame 60
 
-BGTiles_0d_5980::
+BGTiles_RareLogo_LoadAttributes::
 	INCBIN "gfx/bgtiles/0d/5980.2bpp"
 	INCBIN "gfx/bgtiles/0d/5980_end.2bpp"
 
@@ -3078,7 +3078,7 @@ RareLogoAttributes::
 	db $04, $06, $06, $06, $06, $06, $06, $01
 	db $04, $04, $04, $04, $04, $04, $04, $04
 
-Flow_0d_5f58::
+Flow_Init::
 	flow_fade $08
 	flow_play_song $05
 	db $10
@@ -3088,7 +3088,7 @@ Flow_0d_5f58::
 	flow_wait 120
 	flow_fade $00
 	db $16
-	flow_load_screen Screen_44_5be6
+	flow_load_screen Screen_Init_1
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3096,7 +3096,7 @@ Flow_0d_5f58::
 	flow_fade $01
 	flow_wait 120
 	flow_fade $00
-	flow_load_screen Screen_44_5bec
+	flow_load_screen Screen_Init_2
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3107,37 +3107,37 @@ Flow_0d_5f58::
 	flow_play_song $0e
 	db $28
 
-Flow_0d_5f87::
+Flow_State_Level_Sub::
 	flow_play_song $0e
 	db $16
 	db $07
 	db $25
 	db $0a
-	flow_jump Flow_0d_5f92
+	flow_jump Flow_WorldMap_ReadNode_Sub_2
 
-Flow_0d_5f90::
+Flow_WorldMap_ReadNode_Sub_1::
 	flow_fade $0c
 
-Flow_0d_5f92::
+Flow_WorldMap_ReadNode_Sub_2::
 	db FLOW_WORLD_MAP_INIT
 	flow_fade $0d
 	db FLOW_WORLD_MAP
 
-Flow_0d_5f96::
+Flow_WorldMap_ReadNode_1::
 	flow_fade $0c
 	db $04
-	flow_jump Flow_0d_5f92
+	flow_jump Flow_WorldMap_ReadNode_Sub_2
 
-Flow_0d_5f9c::
+Flow_WorldMap_ReadNode_2::
 	flow_fade $0c
 	db $22
 	flow_fade $0d
 	db $34
-	flow_jump Flow_0d_5f90
+	flow_jump Flow_WorldMap_ReadNode_Sub_1
 
-Flow_0d_5fa5::
+Flow_State_Level::
 	flow_play_song $19
-	flow_load_screen Screen_44_5be0
+	flow_load_screen Screen_State_Level
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3145,16 +3145,16 @@ Flow_0d_5fa5::
 	flow_fade $09
 	db FLOW_WAIT_BUTTON
 	flow_fade $00
-	flow_jump Flow_0d_5f87
+	flow_jump Flow_State_Level_Sub
 
-Flow_0d_5fb7::
+Flow_Shop_Leave::
 	flow_fade $0c
 	db FLOW_LOAD_LEVEL
 	db FLOW_WORLD_MAP_INIT
 	flow_fade $0d
 	db FLOW_WORLD_MAP
 
-Flow_0d_5fbe::
+Flow_WorldMap_ReadNode_3::
 	flow_fade $0c
 	db FLOW_RUN_SECOND_PROGRAM
 
@@ -3169,7 +3169,7 @@ Flow_Ending::
 	flow_fade $08
 	db $16
 	flow_play_song $13
-	flow_load_screen Screen_46_6170
+	flow_load_screen Screen_Ending00
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3177,7 +3177,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_46_6176
+	flow_load_screen Screen_Ending01
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3185,7 +3185,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_47_6440
+	flow_load_screen Screen_Ending02
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3193,7 +3193,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_47_6446
+	flow_load_screen Screen_Ending03
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3201,7 +3201,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_47_644c
+	flow_load_screen Screen_Ending04
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3209,7 +3209,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_48_6380
+	flow_load_screen Screen_Ending05
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3217,7 +3217,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_48_6386
+	flow_load_screen Screen_Ending06
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3225,7 +3225,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_48_638c
+	flow_load_screen Screen_Ending07
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3233,7 +3233,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_49_6590
+	flow_load_screen Screen_Ending08
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3241,7 +3241,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_49_6596
+	flow_load_screen Screen_Ending09
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3249,7 +3249,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_49_659c
+	flow_load_screen Screen_Ending10
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3257,7 +3257,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4a_7860
+	flow_load_screen Screen_Ending11
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3265,7 +3265,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4a_7866
+	flow_load_screen Screen_Ending12
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3273,7 +3273,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4a_786c
+	flow_load_screen Screen_Ending13
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3281,7 +3281,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_70_5580
+	flow_load_screen Screen_Ending14
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3289,7 +3289,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4a_7872
+	flow_load_screen Screen_Ending15
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3297,7 +3297,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_70_5586
+	flow_load_screen Screen_Ending16
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3305,7 +3305,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4b_5db0
+	flow_load_screen Screen_Ending17
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3313,7 +3313,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_71_5440
+	flow_load_screen Screen_Ending18
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3321,7 +3321,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4b_5db6
+	flow_load_screen Screen_Ending19
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3329,7 +3329,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_71_5446
+	flow_load_screen Screen_Ending20
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3337,7 +3337,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4b_5dbc
+	flow_load_screen Screen_Ending21
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3345,7 +3345,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4c_6660
+	flow_load_screen Screen_Ending22
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3353,7 +3353,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4c_6666
+	flow_load_screen Screen_Ending23
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3361,7 +3361,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4c_666c
+	flow_load_screen Screen_Ending24
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3369,7 +3369,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4d_5eb0
+	flow_load_screen Screen_Ending25
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3377,7 +3377,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4d_5eb6
+	flow_load_screen Screen_Ending26
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3385,7 +3385,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4e_5c90
+	flow_load_screen Screen_Ending27
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3393,7 +3393,7 @@ Flow_Ending::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4e_5c96
+	flow_load_screen Screen_Ending28
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3404,7 +3404,7 @@ Flow_Ending::
 	db FLOW_PICK_ENDING_MESSAGE
 
 Flow_EndingHoard::
-	flow_load_screen Screen_75_53e0
+	flow_load_screen Screen_EndingHoard
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3412,7 +3412,7 @@ Flow_EndingHoard::
 	flow_jump Flow_TheEnd
 
 Flow_EndingHintFrench::
-	flow_load_screen Screen_73_6670
+	flow_load_screen Screen_EndingHintFrench
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3420,7 +3420,7 @@ Flow_EndingHintFrench::
 	flow_jump Flow_TheEnd
 
 Flow_EndingHintEnglish::
-	flow_load_screen Screen_72_5e00
+	flow_load_screen Screen_EndingHintEnglish
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3428,7 +3428,7 @@ Flow_EndingHintEnglish::
 	flow_jump Flow_TheEnd
 
 Flow_EndingHintGerman::
-	flow_load_screen Screen_73_6676
+	flow_load_screen Screen_EndingHintGerman
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3436,7 +3436,7 @@ Flow_EndingHintGerman::
 	flow_jump Flow_TheEnd
 
 Flow_EndingHintItalian::
-	flow_load_screen Screen_73_667c
+	flow_load_screen Screen_EndingHintItalian
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3444,7 +3444,7 @@ Flow_EndingHintItalian::
 	flow_jump Flow_TheEnd
 
 Flow_EndingHintSpanish::
-	flow_load_screen Screen_72_5e06
+	flow_load_screen Screen_EndingHintSpanish
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3454,7 +3454,7 @@ Flow_TheEnd::
 	flow_fade $01
 	flow_wait 360
 	flow_fade $00
-	flow_load_screen Screen_4f_5700
+	flow_load_screen Screen_TheEnd
 	db FLOW_SCREEN_PALETTES
 	db FLOW_SCREEN_MAP
 	db FLOW_SCREEN_TILES_0
@@ -3462,6 +3462,6 @@ Flow_TheEnd::
 	flow_fade $01
 	db FLOW_WAIT_MUSIC_END
 	flow_fade $00
-	flow_jump Flow_0d_5f87
+	flow_jump Flow_State_Level_Sub
 	ds 7718, $00 ; $61da
 

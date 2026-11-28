@@ -3,487 +3,487 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $f7", ROMX[$4000], BANK[$f7]
 
-FESprites_f7_4000::
+FESprites_SpriteAnim18_0::
 	INCBIN "gfx/frames/f7/4000.2bpp"
 
-FESprites_f7_4040::
+FESprites_SpriteAnim18_2::
 	INCBIN "gfx/frames/f7/4040.2bpp"
 
-FESprites_f7_4080::
+FESprites_SpriteAnim18_1::
 	INCBIN "gfx/frames/f7/4080.2bpp"
 
-FESprites_f7_40c0::
+FESprites_SpriteAnim18_3::
 	INCBIN "gfx/frames/f7/40c0.2bpp"
 
-FESprites_f7_4100::
+FESprites_SpriteAnim19_1::
 	INCBIN "gfx/frames/f7/4100.2bpp"
 
-FESprites_f7_4140::
+FESprites_SpriteAnim19_2::
 	INCBIN "gfx/frames/f7/4140.2bpp"
 
-FESprites_f7_41a0::
+FESprites_SpriteAnim19_3::
 	INCBIN "gfx/frames/f7/41a0.2bpp"
 
-FESprites_f7_4200::
+FESprites_SpriteAnim20_1::
 	INCBIN "gfx/frames/f7/4200.2bpp"
 
-FESprites_f7_4240::
+FESprites_SpriteAnim20_2::
 	INCBIN "gfx/frames/f7/4240.2bpp"
 
-FESprites_f7_42a0::
+FESprites_SpriteAnim20_3::
 	INCBIN "gfx/frames/f7/42a0.2bpp"
 
-FESprites_f7_4300::
+FESprites_SpriteAnim21_0::
 	INCBIN "gfx/frames/f7/4300.2bpp"
 
-FESprites_f7_4320::
+FESprites_SpriteAnim21_1::
 	INCBIN "gfx/frames/f7/4320.2bpp"
 
-FESprites_f7_4360::
+FESprites_SpriteAnim21_2::
 	INCBIN "gfx/frames/f7/4360.2bpp"
 
-FESprites_f7_43e0::
+FESprites_SpriteAnim21_3::
 	INCBIN "gfx/frames/f7/43e0.2bpp"
 
-FESprites_f7_4480::
+FESprites_SpriteAnim22_0::
 	INCBIN "gfx/frames/f7/4480.2bpp"
 
-FESprites_f7_4500::
+FESprites_SpriteAnim22_1::
 	INCBIN "gfx/frames/f7/4500.2bpp"
 
-FESprites_f7_45a0::
+FESprites_SpriteAnim22_2::
 	INCBIN "gfx/frames/f7/45a0.2bpp"
 
-FESprites_f7_4620::
+FESprites_SpriteAnim22_3::
 	INCBIN "gfx/frames/f7/4620.2bpp"
 
-FESprites_f7_46a0::
+FESprites_SpriteAnim22_4::
 	INCBIN "gfx/frames/f7/46a0.2bpp"
 
-FESprites_f7_4720::
+FESprites_SpriteAnim22_5::
 	INCBIN "gfx/frames/f7/4720.2bpp"
 
-FESprites_f7_47a0::
+FESprites_SpriteAnim23_0::
 	INCBIN "gfx/frames/f7/47a0.2bpp"
 
-FESprites_f7_47e0::
+FESprites_SpriteAnim23_1::
 	INCBIN "gfx/frames/f7/47e0.2bpp"
 
-FESprites_f7_4860::
+FESprites_SpriteAnim23_2::
 	INCBIN "gfx/frames/f7/4860.2bpp"
 
-FESprites_f7_48e0::
+FESprites_SpriteAnim23_3::
 	INCBIN "gfx/frames/f7/48e0.2bpp"
 
-FESprites_f7_4960::
+FESprites_SpriteAnim23_4::
 	INCBIN "gfx/frames/f7/4960.2bpp"
 
-FESprites_f7_49c0::
+FESprites_SpriteAnim23_5::
 	INCBIN "gfx/frames/f7/49c0.2bpp"
 
-FESprites_f7_4a40::
+FESprites_SpriteAnim23_6::
 	INCBIN "gfx/frames/f7/4a40.2bpp"
 
-FESprites_f7_4aa0::
+FESprites_SpriteAnim23_7::
 	INCBIN "gfx/frames/f7/4aa0.2bpp"
 
-FESprites_f7_4b20::
+FESprites_SpriteAnim23_8::
 	INCBIN "gfx/frames/f7/4b20.2bpp"
 
-FESprites_f7_4ba0::
+FESprites_SpriteAnim23_9::
 	INCBIN "gfx/frames/f7/4ba0.2bpp"
 
-FESprites_f7_4be0::
+FESprites_SpriteAnim24_0::
 	INCBIN "gfx/frames/f7/4be0.2bpp"
 
-FESprites_f7_4c60::
+FESprites_SpriteAnim24_1::
 	INCBIN "gfx/frames/f7/4c60.2bpp"
 
-FESprites_f7_4ce0::
+FESprites_SpriteAnim24_2::
 	INCBIN "gfx/frames/f7/4ce0.2bpp"
 
-FESprites_f7_4d60::
+FESprites_SpriteAnim24_3::
 	INCBIN "gfx/frames/f7/4d60.2bpp"
 
-FESprites_f7_4de0::
+FESprites_SpriteAnim24_4::
 	INCBIN "gfx/frames/f7/4de0.2bpp"
 
-FESprites_f7_4e60::
+FESprites_SpriteAnim24_5::
 	INCBIN "gfx/frames/f7/4e60.2bpp"
 
-FESprites_f7_4ee0::
+FESprites_SpriteAnim24_6::
 	INCBIN "gfx/frames/f7/4ee0.2bpp"
 
-FESprites_f7_4f60::
+FESprites_SpriteAnim24_7::
 	INCBIN "gfx/frames/f7/4f60.2bpp"
 
-FESprites_f7_4fe0::
+FESprites_SpriteAnim24_8::
 	INCBIN "gfx/frames/f7/4fe0.2bpp"
 
-FESprites_f7_5080::
+FESprites_SpriteAnim25_0::
 	INCBIN "gfx/frames/f7/5080.2bpp"
 
-FESprites_f7_5180::
+FESprites_SpriteAnim25_1::
 	INCBIN "gfx/frames/f7/5180.2bpp"
 
-FESprites_f7_5280::
+FESprites_SpriteAnim25_2::
 	INCBIN "gfx/frames/f7/5280.2bpp"
 
-FESprites_f7_5380::
+FESprites_SpriteAnim25_3::
 	INCBIN "gfx/frames/f7/5380.2bpp"
 
-FESprites_f7_5480::
+FESprites_SpriteAnim25_4::
 	INCBIN "gfx/frames/f7/5480.2bpp"
 
-FESprites_f7_5580::
+FESprites_SpriteAnim25_5::
 	INCBIN "gfx/frames/f7/5580.2bpp"
 
-FESprites_f7_5680::
+FESprites_SpriteAnim25_6::
 	INCBIN "gfx/frames/f7/5680.2bpp"
 
-FESprites_f7_5760::
+FESprites_SpriteAnim25_7::
 	INCBIN "gfx/frames/f7/5760.2bpp"
 
-FESprites_f7_5860::
+FESprites_SpriteAnim26_0::
 	INCBIN "gfx/frames/f7/5860.2bpp"
 
-FESprites_f7_58a0::
+FESprites_SpriteAnim26_1::
 	INCBIN "gfx/frames/f7/58a0.2bpp"
 
-FESprites_f7_58e0::
+FESprites_SpriteAnim26_2::
 	INCBIN "gfx/frames/f7/58e0.2bpp"
 
-FESprites_f7_5920::
+FESprites_SpriteAnim26_3::
 	INCBIN "gfx/frames/f7/5920.2bpp"
 
-FESprites_f7_5960::
+FESprites_SpriteAnim26_4::
 	INCBIN "gfx/frames/f7/5960.2bpp"
 
-FESprites_f7_59a0::
+FESprites_SpriteAnim26_5::
 	INCBIN "gfx/frames/f7/59a0.2bpp"
 
-FESprites_f7_59e0::
+FESprites_SpriteAnim26_6::
 	INCBIN "gfx/frames/f7/59e0.2bpp"
 
-FESprites_f7_5a20::
+FESprites_SpriteAnim26_7::
 	INCBIN "gfx/frames/f7/5a20.2bpp"
 
-FESprites_f7_5a60::
+FESprites_SpriteAnim27_0::
 	INCBIN "gfx/frames/f7/5a60.2bpp"
 
-FESprites_f7_5ae0::
+FESprites_SpriteAnim27_1::
 	INCBIN "gfx/frames/f7/5ae0.2bpp"
 
-FESprites_f7_5b60::
+FESprites_SpriteAnim27_2::
 	INCBIN "gfx/frames/f7/5b60.2bpp"
 
-FESprites_f7_5be0::
+FESprites_SpriteAnim27_3::
 	INCBIN "gfx/frames/f7/5be0.2bpp"
 
-FESprites_f7_5c60::
+FESprites_SpriteAnim27_4::
 	INCBIN "gfx/frames/f7/5c60.2bpp"
 
-FESprites_f7_5cc0::
+FESprites_SpriteAnim27_5::
 	INCBIN "gfx/frames/f7/5cc0.2bpp"
 
-FESprites_f7_5d00::
+FESprites_SpriteAnim27_6::
 	INCBIN "gfx/frames/f7/5d00.2bpp"
 
-FESprites_f7_5d40::
+FESprites_SpriteAnim28_0::
 	INCBIN "gfx/frames/f7/5d40.2bpp"
 
-FESprites_f7_5da0::
+FESprites_SpriteAnim28_1::
 	INCBIN "gfx/frames/f7/5da0.2bpp"
 
-FESprites_f7_5e00::
+FESprites_SpriteAnim28_2::
 	INCBIN "gfx/frames/f7/5e00.2bpp"
 
-FESprites_f7_5e60::
+FESprites_SpriteAnim28_3::
 	INCBIN "gfx/frames/f7/5e60.2bpp"
 
-FESprites_f7_5ec0::
+FESprites_SpriteAnim28_4::
 	INCBIN "gfx/frames/f7/5ec0.2bpp"
 
-FESprites_f7_5f00::
+FESprites_SpriteAnim28_5::
 	INCBIN "gfx/frames/f7/5f00.2bpp"
 
-FESprites_f7_5f40::
+FESprites_SpriteAnim28_6::
 	INCBIN "gfx/frames/f7/5f40.2bpp"
 
-FESprites_f7_5f60::
+FESprites_SpriteAnim29_0::
 	INCBIN "gfx/frames/f7/5f60.2bpp"
 
-FESprites_f7_5fe0::
+FESprites_SpriteAnim29_1::
 	INCBIN "gfx/frames/f7/5fe0.2bpp"
 
-FESprites_f7_6060::
+FESprites_SpriteAnim29_2::
 	INCBIN "gfx/frames/f7/6060.2bpp"
 
-FESprites_f7_60e0::
+FESprites_SpriteAnim29_3::
 	INCBIN "gfx/frames/f7/60e0.2bpp"
 
-FESprites_f7_6160::
+FESprites_SpriteAnim29_4::
 	INCBIN "gfx/frames/f7/6160.2bpp"
 
-FESprites_f7_61c0::
+FESprites_SpriteAnim29_5::
 	INCBIN "gfx/frames/f7/61c0.2bpp"
 
-FESprites_f7_6200::
+FESprites_SpriteAnim29_6::
 	INCBIN "gfx/frames/f7/6200.2bpp"
 
-FESprites_f7_6220::
+FESprites_SpriteAnim30_0::
 	INCBIN "gfx/frames/f7/6220.2bpp"
 
-FESprites_f7_6300::
+FESprites_SpriteAnim30_1::
 	INCBIN "gfx/frames/f7/6300.2bpp"
 
-FESprites_f7_63a0::
+FESprites_SpriteAnim30_2::
 	INCBIN "gfx/frames/f7/63a0.2bpp"
 
-FESprites_f7_6440::
+FESprites_SpriteAnim30_3::
 	INCBIN "gfx/frames/f7/6440.2bpp"
 
-FESprites_f7_6520::
+FESprites_SpriteAnim31_1::
 	INCBIN "gfx/frames/f7/6520.2bpp"
 
-FESprites_f7_6600::
+FESprites_SpriteAnim31_2::
 	INCBIN "gfx/frames/f7/6600.2bpp"
 
-FESprites_f7_66e0::
+FESprites_SpriteAnim31_3::
 	INCBIN "gfx/frames/f7/66e0.2bpp"
 
-FESprites_f7_67c0::
+FESprites_SpriteAnim32::
 	INCBIN "gfx/frames/f7/67c0.2bpp"
 
-FESprites_f7_6800::
+FESprites_SpriteAnim33_00::
 	INCBIN "gfx/frames/f7/6800.2bpp"
 
-FESprites_f7_6820::
+FESprites_SpriteAnim33_01::
 	INCBIN "gfx/frames/f7/6820.2bpp"
 
-FESprites_f7_6840::
+FESprites_SpriteAnim33_02::
 	INCBIN "gfx/frames/f7/6840.2bpp"
 
-FESprites_f7_6860::
+FESprites_SpriteAnim33_03::
 	INCBIN "gfx/frames/f7/6860.2bpp"
 
-FESprites_f7_6880::
+FESprites_SpriteAnim33_04::
 	INCBIN "gfx/frames/f7/6880.2bpp"
 
-FESprites_f7_68a0::
+FESprites_SpriteAnim33_05::
 	INCBIN "gfx/frames/f7/68a0.2bpp"
 
-FESprites_f7_68c0::
+FESprites_SpriteAnim33_06::
 	INCBIN "gfx/frames/f7/68c0.2bpp"
 
-FESprites_f7_68e0::
+FESprites_SpriteAnim33_07::
 	INCBIN "gfx/frames/f7/68e0.2bpp"
 
-FESprites_f7_6900::
+FESprites_SpriteAnim33_08::
 	INCBIN "gfx/frames/f7/6900.2bpp"
 
-FESprites_f7_6920::
+FESprites_SpriteAnim33_09::
 	INCBIN "gfx/frames/f7/6920.2bpp"
 
-FESprites_f7_6940::
+FESprites_SpriteAnim33_10::
 	INCBIN "gfx/frames/f7/6940.2bpp"
 
-FESprites_f7_6960::
+FESprites_SpriteAnim33_11::
 	INCBIN "gfx/frames/f7/6960.2bpp"
 
-FESprites_f7_6980::
+FESprites_SpriteAnim33_12::
 	INCBIN "gfx/frames/f7/6980.2bpp"
 
-FESprites_f7_69a0::
+FESprites_SpriteAnim33_13::
 	INCBIN "gfx/frames/f7/69a0.2bpp"
 
-FESprites_f7_69c0::
+FESprites_SpriteAnim33_14::
 	INCBIN "gfx/frames/f7/69c0.2bpp"
 
-FESprites_f7_69e0::
+FESprites_SpriteAnim33_15::
 	INCBIN "gfx/frames/f7/69e0.2bpp"
 
-FESprites_f7_6a00::
+FESprites_SpriteAnim33_16::
 	INCBIN "gfx/frames/f7/6a00.2bpp"
 
-FESprites_f7_6a20::
+FESprites_SpriteAnim33_17::
 	INCBIN "gfx/frames/f7/6a20.2bpp"
 
-FESprites_f7_6a40::
+FESprites_SpriteAnim33_18::
 	INCBIN "gfx/frames/f7/6a40.2bpp"
 
-FESprites_f7_6a60::
+FESprites_SpriteAnim33_19::
 	INCBIN "gfx/frames/f7/6a60.2bpp"
 
-FESprites_f7_6a80::
+FESprites_SpriteAnim33_20::
 	INCBIN "gfx/frames/f7/6a80.2bpp"
 
-FESprites_f7_6aa0::
+FESprites_SpriteAnim33_21::
 	INCBIN "gfx/frames/f7/6aa0.2bpp"
 
-FESprites_f7_6ac0::
+FESprites_SpriteAnim33_22::
 	INCBIN "gfx/frames/f7/6ac0.2bpp"
 
-FESprites_f7_6ae0::
+FESprites_SpriteAnim33_23::
 	INCBIN "gfx/frames/f7/6ae0.2bpp"
 
-FESprites_f7_6b00::
+FESprites_SpriteAnim33_24::
 	INCBIN "gfx/frames/f7/6b00.2bpp"
 
-FESprites_f7_6b20::
+FESprites_SpriteAnim33_25::
 	INCBIN "gfx/frames/f7/6b20.2bpp"
 
-FESprites_f7_6b40::
+FESprites_SpriteAnim33_26::
 	INCBIN "gfx/frames/f7/6b40.2bpp"
 
-FESprites_f7_6b60::
+FESprites_SpriteAnim33_27::
 	INCBIN "gfx/frames/f7/6b60.2bpp"
 
-FESprites_f7_6b80::
+FESprites_SpriteAnim33_28::
 	INCBIN "gfx/frames/f7/6b80.2bpp"
 
-FESprites_f7_6ba0::
+FESprites_SpriteAnim33_29::
 	INCBIN "gfx/frames/f7/6ba0.2bpp"
 
-FESprites_f7_6bc0::
+FESprites_SpriteAnim33_30::
 	INCBIN "gfx/frames/f7/6bc0.2bpp"
 
-FESprites_f7_6be0::
+FESprites_SpriteAnim33_31::
 	INCBIN "gfx/frames/f7/6be0.2bpp"
 
-FESprites_f7_6c00::
+FESprites_SpriteAnim33_32::
 	INCBIN "gfx/frames/f7/6c00.2bpp"
 
-FESprites_f7_6c20::
+FESprites_SpriteAnim33_33::
 	INCBIN "gfx/frames/f7/6c20.2bpp"
 
-FESprites_f7_6c40::
+FESprites_SpriteAnim33_34::
 	INCBIN "gfx/frames/f7/6c40.2bpp"
 
-FESprites_f7_6c60::
+FESprites_SpriteAnim33_35::
 	INCBIN "gfx/frames/f7/6c60.2bpp"
 
-FESprites_f7_6c80::
+FESprites_SpriteAnim33_36::
 	INCBIN "gfx/frames/f7/6c80.2bpp"
 
-FESprites_f7_6ca0::
+FESprites_SpriteAnim33_37::
 	INCBIN "gfx/frames/f7/6ca0.2bpp"
 
-FESprites_f7_6cc0::
+FESprites_SpriteAnim33_38::
 	INCBIN "gfx/frames/f7/6cc0.2bpp"
 
-FESprites_f7_6ce0::
+FESprites_SpriteAnim33_39::
 	INCBIN "gfx/frames/f7/6ce0.2bpp"
 
-FESprites_f7_6d00::
+FESprites_SpriteAnim34_0::
 	INCBIN "gfx/frames/f7/6d00.2bpp"
 
-FESprites_f7_6d40::
+FESprites_SpriteAnim34_1::
 	INCBIN "gfx/frames/f7/6d40.2bpp"
 
-FESprites_f7_6d80::
+FESprites_SpriteAnim34_2::
 	INCBIN "gfx/frames/f7/6d80.2bpp"
 
-FESprites_f7_6dc0::
+FESprites_SpriteAnim34_3::
 	INCBIN "gfx/frames/f7/6dc0.2bpp"
 
-FESprites_f7_6e00::
+FESprites_SpriteAnim34_4::
 	INCBIN "gfx/frames/f7/6e00.2bpp"
 
-FESprites_f7_6e40::
+FESprites_SpriteAnim34_5::
 	INCBIN "gfx/frames/f7/6e40.2bpp"
 
-FESprites_f7_6e80::
+FESprites_SpriteAnim35_0::
 	INCBIN "gfx/frames/f7/6e80.2bpp"
 
-FESprites_f7_6ec0::
+FESprites_SpriteAnim35_1::
 	INCBIN "gfx/frames/f7/6ec0.2bpp"
 
-FESprites_f7_6f00::
+FESprites_SpriteAnim35_2::
 	INCBIN "gfx/frames/f7/6f00.2bpp"
 
-FESprites_f7_6f40::
+FESprites_SpriteAnim35_3::
 	INCBIN "gfx/frames/f7/6f40.2bpp"
 
-FESprites_f7_6f80::
+FESprites_SpriteAnim35_4::
 	INCBIN "gfx/frames/f7/6f80.2bpp"
 
-FESprites_f7_6fc0::
+FESprites_SpriteAnim35_5::
 	INCBIN "gfx/frames/f7/6fc0.2bpp"
 
-FESprites_f7_7000::
+FESprites_SpriteAnim36_0::
 	INCBIN "gfx/frames/f7/7000.2bpp"
 
-FESprites_f7_7040::
+FESprites_SpriteAnim36_1::
 	INCBIN "gfx/frames/f7/7040.2bpp"
 
-FESprites_f7_7080::
+FESprites_SpriteAnim36_2::
 	INCBIN "gfx/frames/f7/7080.2bpp"
 
-FESprites_f7_70e0::
+FESprites_SpriteAnim36_3::
 	INCBIN "gfx/frames/f7/70e0.2bpp"
 
-FESprites_f7_7140::
+FESprites_SpriteAnim36_4::
 	INCBIN "gfx/frames/f7/7140.2bpp"
 
-FESprites_f7_71c0::
+FESprites_SpriteAnim36_5::
 	INCBIN "gfx/frames/f7/71c0.2bpp"
 
-FESprites_f7_7240::
+FESprites_SpriteAnim36_6::
 	INCBIN "gfx/frames/f7/7240.2bpp"
 
-FESprites_f7_72c0::
+FESprites_SpriteAnim36_7::
 	INCBIN "gfx/frames/f7/72c0.2bpp"
 
-FESprites_f7_7340::
+FESprites_SpriteAnim38_0::
 	INCBIN "gfx/frames/f7/7340.2bpp"
 
-FESprites_f7_7420::
+FESprites_SpriteAnim38_1::
 	INCBIN "gfx/frames/f7/7420.2bpp"
 
-FESprites_f7_7500::
+FESprites_SpriteAnim38_2::
 	INCBIN "gfx/frames/f7/7500.2bpp"
 
-FESprites_f7_75e0::
+FESprites_SpriteAnim38_3::
 	INCBIN "gfx/frames/f7/75e0.2bpp"
 
-FESprites_f7_76c0::
+FESprites_SpriteAnim38_4::
 	INCBIN "gfx/frames/f7/76c0.2bpp"
 
-FESprites_f7_77a0::
+FESprites_SpriteAnim38_5::
 	INCBIN "gfx/frames/f7/77a0.2bpp"
 
-FESprites_f7_7880::
+FESprites_SpriteAnim37_1::
 	INCBIN "gfx/frames/f7/7880.2bpp"
 
-FESprites_f7_7940::
+FESprites_SpriteAnim37_2::
 	INCBIN "gfx/frames/f7/7940.2bpp"
 
-FESprites_f7_7a60::
+FESprites_SpriteAnim40_0::
 	INCBIN "gfx/frames/f7/7a60.2bpp"
 
-FESprites_f7_7b00::
+FESprites_SpriteAnim40_1::
 	INCBIN "gfx/frames/f7/7b00.2bpp"
 
-FESprites_f7_7ba0::
+FESprites_SpriteAnim40_2::
 	INCBIN "gfx/frames/f7/7ba0.2bpp"
 
-FESprites_f7_7c40::
+FESprites_SpriteAnim40_3::
 	INCBIN "gfx/frames/f7/7c40.2bpp"
 
-FESprites_f7_7ce0::
+FESprites_SpriteAnim40_4::
 	INCBIN "gfx/frames/f7/7ce0.2bpp"
 
-FESprites_f7_7d80::
+FESprites_SpriteAnim40_5::
 	INCBIN "gfx/frames/f7/7d80.2bpp"
 
-FESprites_f7_7e20::
+FESprites_SpriteAnim40_6::
 	INCBIN "gfx/frames/f7/7e20.2bpp"
 
-FESprites_f7_7ec0::
+FESprites_SpriteAnim40_7::
 	INCBIN "gfx/frames/f7/7ec0.2bpp"
 
-BGTiles_f7_7f60::
+BGTiles_TilesAfterTheFront::
 	INCBIN "gfx/bgtiles/f7/7f60.2bpp"
 	ds 96, $00 ; $7fa0
 

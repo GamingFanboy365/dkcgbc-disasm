@@ -3,67 +3,67 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e0", ROMX[$4000], BANK[$e0]
 
-LevelMap_e0_4000::
+LevelMap_MillstoneMayhem_1::
 	INCBIN "data/maps/e0_4000_terrain.lz"
 
-LevelMap_e0_4238::
+LevelMap_MillstoneMayhem_2::
 	INCBIN "data/maps/e0_4238_blocks.lz"
 
-LevelMap_e0_48ff::
+LevelMap_MillstoneMayhem_3::
 	INCBIN "data/maps/e0_48ff_attrs.lz"
 
-LevelMap_e0_4b5b::
+LevelMap_TempleTempest2::
 	INCBIN "data/maps/e0_4b5b_terrain.lz"
 
-LevelMap_e0_4d68::
+LevelMap_TempleTempest0::
 	INCBIN "data/maps/e0_4d68_blocks.lz"
 
-LevelMap_e0_53ab::
+LevelMap_TempleTempest1::
 	INCBIN "data/maps/e0_53ab_attrs.lz"
 
-LevelMap_e0_5651::
+LevelMap_TempleTempest5::
 	INCBIN "data/maps/e0_5651_terrain.lz"
 
-LevelMap_e0_5726::
+LevelMap_TempleTempest3::
 	INCBIN "data/maps/e0_5726_blocks.lz"
 
-LevelMap_e0_58db::
+LevelMap_TempleTempest4::
 	INCBIN "data/maps/e0_58db_attrs.lz"
 
-LevelMap_e0_5a06::
+LevelMap_MillstoneMayhem_Area1_1::
 	INCBIN "data/maps/e0_5a06_terrain.lz"
 
-LevelMap_e0_5a49::
+LevelMap_MillstoneMayhem_Area1_2::
 	INCBIN "data/maps/e0_5a49_blocks.lz"
 
-LevelMap_e0_5ac8::
+LevelMap_MillstoneMayhem_Area1_3::
 	INCBIN "data/maps/e0_5ac8_attrs.lz"
 
-LevelMap_e0_5b25::
+LevelMap_TreeTopTown_1::
 	INCBIN "data/maps/e0_5b25_terrain.lz"
 
-LevelMap_e0_5c50::
+LevelMap_TreeTopTown_2::
 	INCBIN "data/maps/e0_5c50_blocks.lz"
 
-LevelMap_e0_60d8::
+LevelMap_TreeTopTown_3::
 	INCBIN "data/maps/e0_60d8_attrs.lz"
 
-LevelMap_e0_62ca::
+LevelMap_RopeBridgeRumble_1::
 	INCBIN "data/maps/e0_62ca_terrain.lz"
 
-LevelMap_e0_6405::
+LevelMap_RopeBridgeRumble_2::
 	INCBIN "data/maps/e0_6405_blocks.lz"
 
-LevelMap_e0_6c5e::
+LevelMap_RopeBridgeRumble_3::
 	INCBIN "data/maps/e0_6c5e_attrs.lz"
 
-LevelMap_e0_7078::
+LevelMap_RopeBridgeRumble_Area1_1::
 	INCBIN "data/maps/e0_7078_terrain.lz"
 
-LevelMap_e0_70e7::
+LevelMap_RopeBridgeRumble_Area1_2::
 	INCBIN "data/maps/e0_70e7_blocks.lz"
 
-LevelMap_e0_71c2::
+LevelMap_RopeBridgeRumble_Area1_3::
 	INCBIN "data/maps/e0_71c2_attrs.lz"
 	ds 3522, $00 ; $723e
 

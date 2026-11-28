@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $0e", ROMX[$4000], BANK[$0e]
 
-ObjInit_0e_4000::
+ObjInit_SpellBonus_8::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -12,11 +12,11 @@ ObjInit_0e_4000::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $06
 	obj_byte OBJ_VAR_34, $2a
-	obj_word OBJ_VAR_35, SpellWord_08_4e6f
-	obj_word OBJ_VAR_3B, ObjInit_08_507a
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_8
+	obj_word OBJ_VAR_3B, ObjInit_SpellBonus_4
 	obj_end
 
-ObjInit_0e_4019::
+ObjInit_SpellBonus_9::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -25,10 +25,10 @@ ObjInit_0e_4019::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, SpellWord_08_4ea2
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_9
 	obj_end
 
-ObjInit_0e_402f::
+ObjInit_SpellBonus_10::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -37,10 +37,10 @@ ObjInit_0e_402f::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, SpellWord_08_4eca
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_10
 	obj_end
 
-ObjInit_0e_4045::
+ObjInit_SpellBonus_11::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -49,21 +49,21 @@ ObjInit_0e_4045::
 	obj_word OBJ_VAR_31, $0180
 	obj_byte OBJ_VAR_33, $07
 	obj_byte OBJ_VAR_34, $24
-	obj_word OBJ_VAR_35, SpellWord_08_4f54
-	obj_word OBJ_VAR_3B, ObjInit_08_50ac
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_11
+	obj_word OBJ_VAR_3B, ObjInit_SpellBonus_6
 	obj_end
 
-ObjInit_0e_405e::
+ObjInit_MatchBonus_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_1
 	obj_end
 
-ObjInit_0e_406f::
+ObjInit_MatchBonus_2::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
@@ -72,20 +72,20 @@ ObjInit_0e_406f::
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0a
-	obj_word OBJ_VAR_33, MatchPattern_08_4f8f
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_2
 	obj_end
 
-ObjInit_0e_4084::
+ObjInit_MatchBonus_3::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, MatchPattern_08_5007
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_3
 	obj_end
 
-ObjInit_0e_4095::
+ObjInit_SpellBonus_12::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -94,60 +94,60 @@ ObjInit_0e_4095::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $08
 	obj_byte OBJ_VAR_34, $20
-	obj_word OBJ_VAR_35, SpellWord_08_4ee2
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_12
 	obj_end
 
-ObjInit_0e_40ab::
+ObjInit_MatchBonus_4::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, MatchPattern_08_4fb3
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_4
 	obj_end
 
-ObjInit_0e_40bc::
+ObjInit_MatchBonus_5::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $38
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_1
 	obj_end
 
-ObjInit_0e_40cd::
+ObjInit_MatchBonus_6::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, MatchPattern_08_4fcb
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_6
 	obj_end
 
-ObjInit_0e_40de::
+ObjInit_MatchBonus_7::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, MatchPattern_08_4fef
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_7
 	obj_end
 
-ObjInit_0e_40ef::
+ObjInit_MatchBonus_8::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_1
 	obj_end
 
-ObjInit_0e_4100::
+ObjInit_SpellBonus_13::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -156,104 +156,104 @@ ObjInit_0e_4100::
 	obj_word OBJ_VAR_31, $0100
 	obj_byte OBJ_VAR_33, $05
 	obj_byte OBJ_VAR_34, $33
-	obj_word OBJ_VAR_35, SpellWord_08_4f31
-	obj_word OBJ_VAR_3B, ObjInit_08_502f
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_13
+	obj_word OBJ_VAR_3B, ObjInit_SpellBonus_1
 	obj_end
 
-ObjInit_0e_4119::
+ObjInit_MatchBonus_9::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $0c
-	obj_word OBJ_VAR_33, MatchPattern_08_4fb3
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_4
 	obj_end
 
-ObjInit_0e_412a::
+ObjInit_MatchBonus_10::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $03
 	obj_byte OBJ_VAR_31, $30
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, MatchPattern_08_4fa3
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_1
 	obj_end
 
-ObjInit_0e_413b::
+ObjInit_ShuffleBonus_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
-ObjInit_0e_4145::
+ObjInit_ShuffleBonus_2::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
-ObjInit_0e_414f::
+ObjInit_ShuffleBonus_3::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0c
 	obj_end
 
-ObjInit_0e_4159::
+ObjInit_ShuffleBonus_4::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $06
 	obj_end
 
-ObjInit_0e_4163::
+ObjInit_MatchBonus_11::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MatchBonus)
 	obj_word OBJ_HANDLER, MatchBonus
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $28
 	obj_byte OBJ_VAR_32, $08
-	obj_word OBJ_VAR_33, MatchPattern_08_501f
+	obj_word OBJ_VAR_33, MatchPattern_MatchBonus_11
 	obj_end
 
-ObjInit_0e_4174::
+ObjInit_ShuffleBonus_5::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
-ObjInit_0e_417e::
+ObjInit_ShuffleBonus_6::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0d
 	obj_end
 
-ObjInit_0e_4188::
+ObjInit_ShuffleBonus_7::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $05
 	obj_end
 
-ObjInit_0e_4192::
+ObjInit_ShuffleBonus_8::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0a
 	obj_end
 
-ObjInit_0e_419c::
+ObjInit_ShuffleBonus_9::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(ShuffleBonus)
 	obj_word OBJ_HANDLER, ShuffleBonus
 	obj_byte OBJ_VAR_2E, $0f
 	obj_end
 
-ObjInit_0e_41a6::
+ObjInit_StompBonus_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(StompBonus)
 	obj_word OBJ_HANDLER, StompBonus
@@ -261,7 +261,7 @@ ObjInit_0e_41a6::
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_41b2::
+ObjInit_SpellBonus_14::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(SpellBonus)
 	obj_word OBJ_HANDLER, SpellBonus
@@ -270,10 +270,10 @@ ObjInit_0e_41b2::
 	obj_word OBJ_VAR_31, $0200
 	obj_byte OBJ_VAR_33, $0a
 	obj_byte OBJ_VAR_34, $19
-	obj_word OBJ_VAR_35, SpellWord_08_4f40
+	obj_word OBJ_VAR_35, SpellWord_SpellBonus_14
 	obj_end
 
-ObjInit_0e_41c8::
+ObjInit_StompBonus_2::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(StompBonus)
 	obj_word OBJ_HANDLER, StompBonus
@@ -281,7 +281,7 @@ ObjInit_0e_41c8::
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_41d4::
+ObjInit_StompBonus_3::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(StompBonus)
 	obj_word OBJ_HANDLER, StompBonus
@@ -289,7 +289,7 @@ ObjInit_0e_41d4::
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
-ObjInit_0e_41e0::
+ObjInit_StompBonus_4::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(StompBonus)
 	obj_word OBJ_HANDLER, StompBonus
@@ -297,7 +297,7 @@ ObjInit_0e_41e0::
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
-ObjInit_0e_41ec::
+ObjInit_StompBonus_5::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(StompBonus)
 	obj_word OBJ_HANDLER, StompBonus
@@ -306,7 +306,7 @@ ObjInit_0e_41ec::
 	obj_byte OBJ_VAR_34, $01
 	obj_end
 
-ObjInit_0e_41fa::
+ObjInit_Rope_1::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Rope)
 	obj_word OBJ_HANDLER, Rope
@@ -314,7 +314,7 @@ ObjInit_0e_41fa::
 	obj_byte OBJ_PALETTE, $00
 	obj_end
 
-ObjInit_0e_4207::
+ObjInit_BarrelCannon_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(BarrelCannon)
 	obj_word OBJ_HANDLER, BarrelCannon
@@ -327,7 +327,7 @@ ObjInit_0e_4207::
 	obj_byte OBJ_VAR_32, $0a
 	obj_end
 
-ObjInit_0e_4220::
+ObjInit_Entrance_2::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Entrance)
 	obj_word OBJ_HANDLER, Entrance
@@ -335,25 +335,25 @@ ObjInit_0e_4220::
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $45
-	obj_word OBJ_FRAME, Frame_20_40a2
+	obj_word OBJ_FRAME, Frame_BarrelCannon_SetFrame_1
 	obj_end
 
-ObjInit_0e_4234::
+ObjInit_KongLetter_Common::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_423b::
-	obj_include ObjInit_0e_4234
+ObjInit_KongLetter_11::
+	obj_include ObjInit_KongLetter_Common
 	obj_word OBJ_TOUCH_HANDLER, KongLetter_Touch
 	obj_byte OBJ_BANK, BANK(KongLetter)
 	obj_word OBJ_HANDLER, KongLetter
 	obj_byte OBJ_COLLISION, $00
 	obj_end
 
-ObjInit_0e_4249::
-	obj_include ObjInit_0e_4234
+ObjInit_AnimalToken_9::
+	obj_include ObjInit_KongLetter_Common
 	obj_word OBJ_TOUCH_HANDLER, AnimalToken_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -361,34 +361,34 @@ ObjInit_0e_4249::
 	obj_byte OBJ_COLLISION, $02
 	obj_end
 
-ObjInit_0e_4259::
+ObjInit_ExtraLifeBalloon_5::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TOUCH_HANDLER, ExtraLifeBalloon_Touch
 	obj_byte OBJ_BANK, BANK(ExtraLifeBalloon)
 	obj_word OBJ_HANDLER, ExtraLifeBalloon
-	obj_word OBJ_ANIM, Anim_04_4e8f
+	obj_word OBJ_ANIM, Anim_ExtraLifeBalloon_1
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_426d::
-	obj_include ObjInit_0e_4259
+ObjInit_ExtraLifeBalloon_6::
+	obj_include ObjInit_ExtraLifeBalloon_5
 	obj_word OBJ_YACCEL, $0002
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_end
 
-ObjInit_0e_4277::
-	obj_include ObjInit_0e_4259
+ObjInit_ExtraLifeBalloon_7::
+	obj_include ObjInit_ExtraLifeBalloon_5
 	obj_end
 
-ObjInit_0e_427b::
+ObjInit_Obj_Idle_1::
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_byte OBJ_FLAGS, $11
 	obj_end
 
-ObjInit_0e_4283::
+ObjInit_StopGoBarrel_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(StopGoBarrel)
 	obj_word OBJ_HANDLER, StopGoBarrel
@@ -399,7 +399,7 @@ ObjInit_0e_4283::
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_4296::
+ObjInit_OnOffBarrel_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(OnOffBarrel)
 	obj_word OBJ_HANDLER, OnOffBarrel
@@ -410,7 +410,7 @@ ObjInit_0e_4296::
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_42a9::
+ObjInit_Gnawty_Red_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Gnawty_Red)
 	obj_word OBJ_HANDLER, Gnawty_Red
@@ -418,24 +418,24 @@ ObjInit_0e_42a9::
 	obj_byte OBJ_VAR_2C, $01
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $42
-	obj_word OBJ_ANIM, Anim_04_498f
+	obj_word OBJ_ANIM, Anim_Gnawty_1
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_42c8::
-	obj_include ObjInit_0e_42a9
+ObjInit_Gnawty_Red_2::
+	obj_include ObjInit_Gnawty_Red_1
 	obj_byte OBJ_PALETTE, $08
 	obj_end
 
-ObjInit_0e_42ce::
-	obj_include ObjInit_0e_42a9
+ObjInit_Gnawty_Red_3::
+	obj_include ObjInit_Gnawty_Red_1
 	obj_byte OBJ_PALETTE, $0b
 	obj_end
 
-ObjInit_0e_42d4::
+ObjInit_Kritter_Walk_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Kritter_Walk)
 	obj_word OBJ_HANDLER, Kritter_Walk
@@ -443,29 +443,29 @@ ObjInit_0e_42d4::
 	obj_byte OBJ_VAR_2C, $02
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_ANIM, Anim_04_4947
+	obj_word OBJ_ANIM, Anim_RunKritterScript_1
 	obj_word OBJ_YACCEL, $0025
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_42f3::
-	obj_include ObjInit_0e_42d4
+ObjInit_Kritter_Walk_2::
+	obj_include ObjInit_Kritter_Walk_1
 	obj_byte OBJ_PALETTE, $08
 	obj_end
 
-ObjInit_0e_42f9::
-	obj_include ObjInit_0e_42d4
+ObjInit_Kritter_Walk_3::
+	obj_include ObjInit_Kritter_Walk_1
 	obj_byte OBJ_PALETTE, $0b
 	obj_end
 
-ObjInit_0e_42ff::
-	obj_include ObjInit_0e_42d4
+ObjInit_Kritter_Walk_4::
+	obj_include ObjInit_Kritter_Walk_1
 	obj_byte OBJ_PALETTE, $0c
 	obj_end
 
-ObjInit_0e_4305::
+ObjInit_SwingingRope_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(SwingingRope)
 	obj_word OBJ_HANDLER, SwingingRope
@@ -476,7 +476,7 @@ ObjInit_0e_4305::
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_4318::
+ObjInit_Kritter_Jump_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Kritter_Jump)
 	obj_word OBJ_HANDLER, Kritter_Jump
@@ -484,13 +484,13 @@ ObjInit_0e_4318::
 	obj_byte OBJ_VAR_2C, $02
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_ANIM, Anim_04_495f
+	obj_word OBJ_ANIM, Anim_Kritter_JumpStart_1
 	obj_word OBJ_YACCEL, $0025
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_4334::
+ObjInit_Gnawty_Red_4::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Gnawty_Red)
 	obj_word OBJ_HANDLER, Gnawty_Red
@@ -499,14 +499,14 @@ ObjInit_0e_4334::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $43
 	obj_byte OBJ_PALETTE, $09
-	obj_word OBJ_ANIM, Anim_04_49c9
+	obj_word OBJ_ANIM, Anim_Krusha_1
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_4355::
+ObjInit_Klump_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Klump)
 	obj_word OBJ_HANDLER, Klump
@@ -515,14 +515,14 @@ ObjInit_0e_4355::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $47
 	obj_byte OBJ_PALETTE, $09
-	obj_word OBJ_ANIM, Anim_04_4bab
+	obj_word OBJ_ANIM, Anim_Klump2_1
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_4376::
+ObjInit_Gnawty_Red_5::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Gnawty_Red)
 	obj_word OBJ_HANDLER, Gnawty_Red
@@ -531,98 +531,98 @@ ObjInit_0e_4376::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
 	obj_byte OBJ_PALETTE, $0f
-	obj_word OBJ_ANIM, Anim_04_4acf
+	obj_word OBJ_ANIM, Anim_Gnawty_3
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0040
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_4397::
+ObjInit_Zinger_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TOUCH_HANDLER, Zinger_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $35
 	obj_byte OBJ_PALETTE, $0a
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_ANIM, Anim_04_4a33
+	obj_word OBJ_ANIM, Anim_Zinger_1
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_43aa::
-	obj_include ObjInit_0e_4397
+ObjInit_Zinger_Move_1::
+	obj_include ObjInit_Zinger_1
 	obj_byte OBJ_BANK, BANK(Zinger_Move)
 	obj_word OBJ_HANDLER, Zinger_Move
 	obj_end
 
-ObjInit_0e_43b3::
-	obj_include ObjInit_0e_4397
+ObjInit_Zinger_Patrol_1::
+	obj_include ObjInit_Zinger_1
 	obj_word OBJ_YACCEL, $0060
 	obj_word OBJ_XACCEL, $0060
 	obj_byte OBJ_BANK, BANK(Zinger_Patrol)
 	obj_word OBJ_HANDLER, Zinger_Patrol
 	obj_end
 
-ObjInit_0e_43c2::
-	obj_include ObjInit_0e_4397
+ObjInit_Zinger_Move2_1::
+	obj_include ObjInit_Zinger_1
 	obj_byte OBJ_BANK, BANK(Zinger_Move2)
 	obj_word OBJ_HANDLER, Zinger_Move2
 	obj_end
 
-ObjInit_0e_43cb::
+ObjInit_Touch_Hurt_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $4c
 	obj_byte OBJ_PALETTE, $03
-	obj_word OBJ_ANIM, Anim_04_4edb
+	obj_word OBJ_ANIM, Anim_Touch_Hurt_3
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_43dc::
-	obj_include ObjInit_0e_43cb
+ObjInit_Zinger_Patrol_2::
+	obj_include ObjInit_Touch_Hurt_1
 	obj_word OBJ_YACCEL, $0060
 	obj_word OBJ_XACCEL, $0060
 	obj_byte OBJ_BANK, BANK(Zinger_Patrol)
 	obj_word OBJ_HANDLER, Zinger_Patrol
 	obj_end
 
-ObjInit_0e_43eb::
-	obj_include ObjInit_0e_43cb
+ObjInit_Zinger_Move_2::
+	obj_include ObjInit_Touch_Hurt_1
 	obj_byte OBJ_BANK, BANK(Zinger_Move)
 	obj_word OBJ_HANDLER, Zinger_Move
 	obj_end
 
-ObjInit_0e_43f4::
-	obj_include ObjInit_0e_43cb
+ObjInit_Zinger_Move2_2::
+	obj_include ObjInit_Touch_Hurt_1
 	obj_byte OBJ_BANK, BANK(Zinger_Move2)
 	obj_word OBJ_HANDLER, Zinger_Move2
 	obj_end
 
-ObjInit_0e_43fd::
+ObjInit_Bitesize_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TOUCH_HANDLER, Bitesize_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $36
 	obj_byte OBJ_PALETTE, $13
-	obj_word OBJ_ANIM, Anim_04_4cf7
+	obj_word OBJ_ANIM, Anim_Bitesize_1
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_XACCEL, $0020
 	obj_end
 
-ObjInit_0e_4411::
-	obj_include ObjInit_0e_43fd
+ObjInit_Bitesize_2::
+	obj_include ObjInit_Bitesize_1
 	obj_byte OBJ_BANK, BANK(Bitesize)
 	obj_word OBJ_HANDLER, Bitesize
 	obj_end
 
-ObjInit_0e_441a::
-	obj_include ObjInit_0e_43fd
+ObjInit_Bitesize_Wave_1::
+	obj_include ObjInit_Bitesize_1
 	obj_byte OBJ_BANK, BANK(Bitesize_Wave)
 	obj_word OBJ_HANDLER, Bitesize_Wave
 	obj_end
 
-ObjInit_0e_4423::
+ObjInit_Chomps_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Chomps)
 	obj_word OBJ_HANDLER, Chomps
@@ -630,13 +630,13 @@ ObjInit_0e_4423::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $3b
 	obj_byte OBJ_PALETTE, $15
-	obj_word OBJ_ANIM, Anim_04_4d31
+	obj_word OBJ_ANIM, Anim_Chomps_1
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_YACCEL, $0020
 	obj_word OBJ_XACCEL, $0020
 	obj_end
 
-ObjInit_0e_443f::
+ObjInit_ChompsJr_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(ChompsJr)
 	obj_word OBJ_HANDLER, ChompsJr
@@ -644,39 +644,39 @@ ObjInit_0e_443f::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $44
 	obj_byte OBJ_PALETTE, $14
-	obj_word OBJ_ANIM, Anim_04_4d6d
+	obj_word OBJ_ANIM, Anim_ChompsJr_1
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_YACCEL, $0020
 	obj_word OBJ_XACCEL, $0020
 	obj_end
 
-ObjInit_0e_445b::
+ObjInit_Touch_Enemy::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $08
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $38
 	obj_byte OBJ_PALETTE, $07
-	obj_word OBJ_ANIM, Anim_04_4c01
+	obj_word OBJ_ANIM, Anim_Touch_Enemy_1
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_4470::
-	obj_include ObjInit_0e_445b
+ObjInit_Necky_Fly_1::
+	obj_include ObjInit_Touch_Enemy
 	obj_byte OBJ_BANK, BANK(Necky_Fly)
 	obj_word OBJ_HANDLER, Necky_Fly
 	obj_end
 
-ObjInit_0e_4479::
-	obj_include ObjInit_0e_445b
+ObjInit_Necky_FlyPatrol_1::
+	obj_include ObjInit_Touch_Enemy
 	obj_byte OBJ_BANK, BANK(Necky_FlyPatrol)
 	obj_word OBJ_HANDLER, Necky_FlyPatrol
 	obj_word OBJ_XACCEL, $0073
 	obj_word OBJ_YACCEL, $0073
 	obj_end
 
-ObjInit_0e_4488::
+ObjInit_Klaptrap_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Klaptrap)
 	obj_word OBJ_HANDLER, Klaptrap
@@ -684,25 +684,25 @@ ObjInit_0e_4488::
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $39
-	obj_word OBJ_ANIM, Anim_04_4c51
+	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Walk_1
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_44a7::
-	obj_include ObjInit_0e_4488
+ObjInit_Klaptrap_2::
+	obj_include ObjInit_Klaptrap_1
 	obj_byte OBJ_PALETTE, $0b
 	obj_end
 
-ObjInit_0e_44ad::
-	obj_include ObjInit_0e_4488
+ObjInit_Klaptrap_3::
+	obj_include ObjInit_Klaptrap_1
 	obj_byte OBJ_VAR_32, $01
 	obj_byte OBJ_PALETTE, $0c
 	obj_end
 
-ObjInit_0e_44b5::
+ObjInit_Rockkroc_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Rockkroc)
 	obj_word OBJ_HANDLER, Rockkroc
@@ -711,14 +711,14 @@ ObjInit_0e_44b5::
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $39
 	obj_byte OBJ_PALETTE, $11
-	obj_word OBJ_ANIM, Anim_04_4b09
+	obj_word OBJ_ANIM, Anim_Rockkroc_1
 	obj_word OBJ_YACCEL, $0080
 	obj_word OBJ_XACCEL, $0060
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_44d6::
+ObjInit_Elevator_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Elevator)
 	obj_word OBJ_HANDLER, Elevator
@@ -727,25 +727,25 @@ ObjInit_0e_44d6::
 	obj_word OBJ_YACCEL, $0080
 	obj_end
 
-ObjInit_0e_44e6::
-	obj_include ObjInit_0e_44d6
+ObjInit_Elevator_2::
+	obj_include ObjInit_Elevator_1
 	obj_byte OBJ_PALETTE, $11
-	obj_word OBJ_FRAME, Frame_20_563e
+	obj_word OBJ_FRAME, Frame_Elevator_3
 	obj_end
 
-ObjInit_0e_44ef::
-	obj_include ObjInit_0e_44d6
+ObjInit_Elevator_3::
+	obj_include ObjInit_Elevator_1
 	obj_byte OBJ_PALETTE, $03
-	obj_word OBJ_FRAME, Frame_20_4522
+	obj_word OBJ_FRAME, Frame_Elevator_1
 	obj_end
 
-ObjInit_0e_44f8::
-	obj_include ObjInit_0e_44d6
+ObjInit_Elevator_4::
+	obj_include ObjInit_Elevator_1
 	obj_byte OBJ_PALETTE, $11
-	obj_word OBJ_FRAME, Frame_20_5614
+	obj_word OBJ_FRAME, Frame_Elevator_2
 	obj_end
 
-ObjInit_0e_4501::
+ObjInit_ArrowPlatform_Wait_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(ArrowPlatform_Wait)
 	obj_word OBJ_HANDLER, ArrowPlatform_Wait
@@ -756,38 +756,38 @@ ObjInit_0e_4501::
 	obj_byte OBJ_PALETTE, $03
 	obj_end
 
-ObjInit_0e_4514::
+ObjInit_Squidge_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Squidge)
 	obj_word OBJ_HANDLER, Squidge
 	obj_word OBJ_TOUCH_HANDLER, Squidge_Touch
-	obj_word OBJ_ANIM, Anim_04_4ca7
+	obj_word OBJ_ANIM, Anim_Squidge_1
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $3a
 	obj_byte OBJ_PALETTE, $17
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_452a::
+ObjInit_MiniNecky_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(MiniNecky)
 	obj_word OBJ_HANDLER, MiniNecky
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $09
-	obj_word OBJ_ANIM, Anim_04_4c1b
+	obj_word OBJ_ANIM, Anim_MiniNecky_1
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $34
 	obj_byte OBJ_PALETTE, $07
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_4542::
+ObjInit_MankyKong_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(MankyKong)
 	obj_word OBJ_HANDLER, MankyKong
 	obj_word OBJ_TOUCH_HANDLER, MankyKong_Touch
 	obj_byte OBJ_VAR_2C, $0a
-	obj_word OBJ_ANIM, Anim_04_4b57
+	obj_word OBJ_ANIM, Anim_MankyKong_1
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $4d
 	obj_byte OBJ_PALETTE, $01
@@ -795,7 +795,7 @@ ObjInit_0e_4542::
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0e_455c::
+ObjInit_Necky_ThrowNuts_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Necky_ThrowNuts)
 	obj_word OBJ_HANDLER, Necky_ThrowNuts
@@ -804,40 +804,40 @@ ObjInit_0e_455c::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $37
 	obj_byte OBJ_PALETTE, $07
-	obj_word OBJ_ANIM, Anim_04_4a0d
+	obj_word OBJ_ANIM, Anim_RunNeckyScript_1
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_4574::
+ObjInit_Clambo_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Clambo)
 	obj_word OBJ_HANDLER, Clambo
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $41
-	obj_word OBJ_ANIM, Anim_04_4cc7
+	obj_word OBJ_ANIM, Anim_RunClamboScript_1
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_458a::
+ObjInit_Croctopus_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Croctopus)
 	obj_word OBJ_HANDLER, Croctopus
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
-	obj_word OBJ_ANIM, Anim_04_4dd5
+	obj_word OBJ_ANIM, Anim_Croctopus_SetMoveAnim_1
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $48
 	obj_byte OBJ_PALETTE, $16
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0e_45a0::
+ObjInit_Tire_Top_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Patrol)
 	obj_word OBJ_HANDLER, Obj_Patrol
 	obj_word OBJ_TOUCH_HANDLER, Tire_Top_Touch
-	obj_word OBJ_ANIM, Anim_04_4f83
+	obj_word OBJ_ANIM, Anim_Tire_1
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
@@ -846,7 +846,7 @@ ObjInit_0e_45a0::
 	obj_word OBJ_YACCEL, $0080
 	obj_end
 
-ObjInit_0e_45bc::
+ObjInit_SpawnMineCart::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_ANIM_PARAM, $04
@@ -857,7 +857,7 @@ ObjInit_0e_45bc::
 	obj_byte OBJ_VAR_2F, $ff
 	obj_end
 
-ObjInit_0e_45cf::
+ObjInit_AnimalCrate_1::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(AnimalCrate)
 	obj_word OBJ_HANDLER, AnimalCrate
@@ -868,7 +868,7 @@ ObjInit_0e_45cf::
 	obj_byte OBJ_COLLISION, $08
 	obj_end
 
-ObjInit_0e_45e2::
+ObjInit_Entrance_3::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Entrance)
 	obj_word OBJ_HANDLER, Entrance
@@ -877,31 +877,31 @@ ObjInit_0e_45e2::
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_end
 
-ObjInit_0e_45f1::
+ObjInit_Touch_Hurt_2::
 	obj_byte OBJ_FLAGS, $13
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_ANIM_PARAM, $4a
-	obj_word OBJ_ANIM, Anim_04_4ecd
+	obj_word OBJ_ANIM, Anim_Touch_Hurt_1
 	obj_byte OBJ_PALETTE, $1e
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_4602::
-	obj_include ObjInit_0e_45f1
+ObjInit_Millstone_1::
+	obj_include ObjInit_Touch_Hurt_2
 	obj_byte OBJ_BANK, BANK(Millstone)
 	obj_word OBJ_HANDLER, Millstone
 	obj_byte OBJ_XACCEL, $30
 	obj_byte OBJ_YACCEL, $30
 	obj_end
 
-ObjInit_0e_460f::
-	obj_include ObjInit_0e_45f1
+ObjInit_Millstone_Scripted_1::
+	obj_include ObjInit_Touch_Hurt_2
 	obj_byte OBJ_BANK, BANK(Millstone_Scripted)
 	obj_word OBJ_HANDLER, Millstone_Scripted
 	obj_end
 
-ObjInit_0e_4618::
+ObjInit_BlackDrum_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(BlackDrum)
 	obj_word OBJ_HANDLER, BlackDrum
@@ -910,7 +910,7 @@ ObjInit_0e_4618::
 	obj_byte OBJ_ANIM_PARAM, $0b
 	obj_end
 
-ObjInit_0e_4627::
+ObjInit_BlackDrum_2::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(BlackDrum)
 	obj_word OBJ_HANDLER, BlackDrum
@@ -919,38 +919,38 @@ ObjInit_0e_4627::
 	obj_byte OBJ_ANIM_PARAM, $0b
 	obj_end
 
-ObjInit_0e_4636::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_3::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_FRAME, Frame_20_5926
+	obj_word OBJ_FRAME, Frame_BlackDrum
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $03
 	obj_end
 
-ObjInit_0e_4643::
+ObjInit_BananaBunch_5::
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_word OBJ_TOUCH_HANDLER, BananaBunch_Touch
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, Anim_04_4e0b
+	obj_word OBJ_ANIM, Anim_StompBonus_Bananas_1
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_VAR_2E, $0a
 	obj_end
 
-ObjInit_0e_4657::
-	obj_include ObjInit_0e_4643
+ObjInit_StickerBananaBunch_1::
+	obj_include ObjInit_BananaBunch_5
 	obj_byte OBJ_BANK, BANK(StickerBananaBunch)
 	obj_word OBJ_HANDLER, StickerBananaBunch
 	obj_end
 
-ObjInit_0e_4660::
+ObjInit_DKBarrel2::
 	obj_byte OBJ_BANK, BANK(DKBarrel2)
 	obj_word OBJ_HANDLER, DKBarrel2
 	obj_word OBJ_TOUCH_HANDLER, DKBarrel_Touch
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_PALETTE, $02
-	obj_word OBJ_ANIM, Anim_04_505f
+	obj_word OBJ_ANIM, Anim_SpawnCollectedBanana_13
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $07
@@ -958,13 +958,13 @@ ObjInit_0e_4660::
 	obj_byte OBJ_VAR_2C, $0c
 	obj_end
 
-ObjInit_0e_467a::
+ObjInit_BarrelSupply::
 	obj_byte OBJ_BANK, BANK(BarrelSupply)
 	obj_word OBJ_HANDLER, BarrelSupply
 	obj_byte OBJ_FLAGS, $01
 	obj_end
 
-ObjInit_0e_4682::
+ObjInit_FuelBarrel_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -975,18 +975,18 @@ ObjInit_0e_4682::
 	obj_byte OBJ_ANIM_PARAM, $10
 	obj_end
 
-ObjInit_0e_4695::
+ObjInit_Obj_AnimateAndDespawn_2::
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, Anim_04_4fcd
+	obj_word OBJ_ANIM, Anim_TireHalf_Touch_2
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $31
 	obj_end
 
-ObjInit_0e_46a8::
+ObjInit_BreakableWall_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(BreakableWall)
 	obj_word OBJ_HANDLER, BreakableWall
@@ -995,13 +995,13 @@ ObjInit_0e_46a8::
 	obj_byte OBJ_ANIM_PARAM, $12
 	obj_end
 
-ObjInit_0e_46b7::
+ObjInit_OpenedWall_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(OpenedWall)
 	obj_word OBJ_HANDLER, OpenedWall
 	obj_end
 
-ObjInit_0e_46bf::
+ObjInit_HiddenKongLetter_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -1010,7 +1010,7 @@ ObjInit_0e_46bf::
 	obj_byte OBJ_ANIM_PARAM, $11
 	obj_end
 
-ObjInit_0e_46ce::
+ObjInit_HiddenKongLetter_2::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -1020,17 +1020,17 @@ ObjInit_0e_46ce::
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
-ObjInit_0e_46df::
+ObjInit_StickerPad_1::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(StickerPad)
 	obj_word OBJ_HANDLER, StickerPad
 	obj_word OBJ_TOUCH_HANDLER, StickerPad_Touch
 	obj_byte OBJ_COLLISION, $00
 	obj_byte OBJ_ANIM_PARAM, $11
-	obj_word OBJ_ANIM, Anim_04_553d
+	obj_word OBJ_ANIM, Anim_Sticker_Appear_1
 	obj_end
 
-ObjInit_0e_46f1::
+ObjInit_VeryGnawty::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(VeryGnawty)
 	obj_word OBJ_HANDLER, VeryGnawty
@@ -1038,7 +1038,7 @@ ObjInit_0e_46f1::
 	obj_byte OBJ_OAM_ATTR, $30
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $4f
-	obj_word OBJ_ANIM, Anim_04_5217
+	obj_word OBJ_ANIM, Anim_VeryGnawty_Hop_2
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
@@ -1046,7 +1046,7 @@ ObjInit_0e_46f1::
 	obj_end
 
 VeryGnawty_Init::
-	obj_include ObjInit_0e_46f1
+	obj_include ObjInit_VeryGnawty
 	obj_byte OBJ_PALETTE, $20
 	obj_byte OBJ_VAR_2E, $00
 	obj_byte OBJ_VAR_36, $2b
@@ -1054,7 +1054,7 @@ VeryGnawty_Init::
 	obj_end
 
 ReallyGnawty_Init::
-	obj_include ObjInit_0e_46f1
+	obj_include ObjInit_VeryGnawty
 	obj_byte OBJ_PALETTE, $24
 	obj_byte OBJ_VAR_2E, $05
 	obj_byte OBJ_VAR_36, $2e
@@ -1070,14 +1070,14 @@ QueenB_Init::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $50
 	obj_byte OBJ_PALETTE, $2c
-	obj_word OBJ_ANIM, Anim_04_5285
+	obj_word OBJ_ANIM, Anim_QueenB_Init_1
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_VAR_32, $01
 	obj_byte OBJ_VAR_36, $2d
 	obj_byte OBJ_VAR_37, $02
 	obj_end
 
-ObjInit_0e_4745::
+ObjInit_MasterNecky::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(MasterNecky)
 	obj_word OBJ_HANDLER, MasterNecky
@@ -1085,13 +1085,13 @@ ObjInit_0e_4745::
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $4e
-	obj_word OBJ_ANIM, Anim_04_52d5
+	obj_word OBJ_ANIM, Anim_MasterNecky_1
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_VAR_35, $01
 	obj_end
 
 MasterNecky_Init::
-	obj_include ObjInit_0e_4745
+	obj_include ObjInit_MasterNecky
 	obj_byte OBJ_PALETTE, $22
 	obj_byte OBJ_VAR_36, $2c
 	obj_byte OBJ_VAR_37, $01
@@ -1099,7 +1099,7 @@ MasterNecky_Init::
 	obj_end
 
 MasterNeckySnr_Init::
-	obj_include ObjInit_0e_4745
+	obj_include ObjInit_MasterNecky
 	obj_byte OBJ_PALETTE, $28
 	obj_byte OBJ_VAR_36, $3c
 	obj_byte OBJ_VAR_37, $05
@@ -1115,7 +1115,7 @@ DumbDrum_Init::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $51
 	obj_byte OBJ_PALETTE, $26
-	obj_word OBJ_ANIM, Anim_04_54a9
+	obj_word OBJ_ANIM, Anim_DumbDrum_Init_1
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
@@ -1133,7 +1133,7 @@ KingKRool_Init::
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $52
 	obj_byte OBJ_PALETTE, $2a
-	obj_word OBJ_ANIM, Anim_04_5407
+	obj_word OBJ_ANIM, Anim_KingKRool_Init_1
 	obj_byte OBJ_LAYER, $02
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
@@ -1143,35 +1143,35 @@ KingKRool_Init::
 	obj_byte OBJ_VAR_37, $06
 	obj_end
 
-ObjInit_0e_47bf::
+ObjInit_BlackDrum_4::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TOUCH_HANDLER, BlackDrum_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $0b
-	obj_word OBJ_ANIM, Anim_04_4efd
+	obj_word OBJ_ANIM, Anim_OilDrum_Wait_1
 	obj_byte OBJ_PALETTE, $1b
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_47d0::
+ObjInit_BlackDrum_5::
 	obj_byte OBJ_FLAGS, $11
 	obj_word OBJ_TOUCH_HANDLER, BlackDrum_Touch
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_byte OBJ_ANIM_PARAM, $0b
 	obj_byte OBJ_COLLISION, $04
-	obj_word OBJ_ANIM, Anim_04_4efd
+	obj_word OBJ_ANIM, Anim_OilDrum_Wait_1
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $1b
 	obj_byte OBJ_VAR_2E, $84
 	obj_end
 
-ObjInit_0e_47e8::
+ObjInit_TrackPlatform_Wait_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(TrackPlatform_Wait)
 	obj_word OBJ_HANDLER, TrackPlatform_Wait
 	obj_word OBJ_TOUCH_HANDLER, Platform_Touch
-	obj_word OBJ_ANIM, Anim_04_4ee9
+	obj_word OBJ_ANIM, Anim_TrackPlatform_Wait_1
 	obj_byte OBJ_COLLISION, $10
 	obj_byte OBJ_ANIM_PARAM, $06
 	obj_byte OBJ_PALETTE, $03
@@ -1179,13 +1179,13 @@ ObjInit_0e_47e8::
 	obj_byte OBJ_VAR_32, $02
 	obj_end
 
-ObjInit_0e_4800::
+ObjInit_FuelPlatform_Wait_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(FuelPlatform_Wait)
 	obj_word OBJ_HANDLER, FuelPlatform_Wait
 	obj_word OBJ_TOUCH_HANDLER, Platform_Touch
-	obj_word OBJ_FRAME, Frame_20_561a
-	obj_word OBJ_ANIM, Anim_04_4ef5
+	obj_word OBJ_FRAME, Frame_FuelPlatform_Travel_1
+	obj_word OBJ_ANIM, Anim_FuelPlatform_Wait_1
 	obj_byte OBJ_COLLISION, $10
 	obj_byte OBJ_ANIM_PARAM, $06
 	obj_byte OBJ_PALETTE, $1f
@@ -1194,7 +1194,7 @@ ObjInit_0e_4800::
 	obj_byte OBJ_VAR_32, $02
 	obj_end
 
-ObjInit_0e_481e::
+ObjInit_BigAnimalToken_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -1204,19 +1204,19 @@ ObjInit_0e_481e::
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_482f::
+ObjInit_DKBarrel_1::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(DKBarrel)
 	obj_word OBJ_HANDLER, DKBarrel
 	obj_byte OBJ_VAR_2C, $0c
 	obj_byte OBJ_PALETTE, $02
-	obj_word OBJ_ANIM, Anim_04_505f
+	obj_word OBJ_ANIM, Anim_SpawnCollectedBanana_13
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_byte OBJ_VAR_2E, $00
 	obj_end
 
-ObjInit_0e_4844::
+ObjInit_Barrel_8::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -1227,86 +1227,86 @@ ObjInit_0e_4844::
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_end
 
-ObjInit_0e_4857::
+ObjInit_WinLine::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(WinLine)
 	obj_word OBJ_HANDLER, WinLine
 	obj_end
 
-ObjInit_0e_485f::
+ObjInit_LoseLine::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(LoseLine)
 	obj_word OBJ_HANDLER, LoseLine
 	obj_end
 
-ObjInit_0e_4867::
+ObjInit_SetBrightness_1::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(SetBrightness)
 	obj_word OBJ_HANDLER, SetBrightness
 	obj_end
 
-ObjInit_0e_486f::
+ObjInit_LoopElevator_1::
 	obj_byte OBJ_BANK, BANK(LoopElevator)
 	obj_word OBJ_HANDLER, LoopElevator
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_PALETTE, $03
-	obj_word OBJ_FRAME, Frame_20_5920
+	obj_word OBJ_FRAME, Frame_LoopElevator
 	obj_end
 
-ObjInit_0e_487e::
-	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, Frame_20_4bbe
+ObjInit_KongLetter_12::
+	obj_include ObjInit_KongLetter_11
+	obj_word OBJ_FRAME, Frame_Letter_K
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_0e_4887::
-	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, Frame_20_4bd6
+ObjInit_KongLetter_13::
+	obj_include ObjInit_KongLetter_11
+	obj_word OBJ_FRAME, Frame_Letter_O
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_0e_4890::
-	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, Frame_20_4bd0
+ObjInit_KongLetter_14::
+	obj_include ObjInit_KongLetter_11
+	obj_word OBJ_FRAME, Frame_Letter_N
 	obj_byte OBJ_VAR_2E, $04
 	obj_end
 
-ObjInit_0e_4899::
-	obj_include ObjInit_0e_423b
-	obj_word OBJ_FRAME, Frame_20_4ba6
+ObjInit_KongLetter_15::
+	obj_include ObjInit_KongLetter_11
+	obj_word OBJ_FRAME, Frame_Letter_G
 	obj_byte OBJ_VAR_2E, $08
 	obj_end
 
-ObjInit_0e_48a2::
-	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, Frame_20_4c5a
-	obj_word OBJ_ANIM, Anim_04_5117
+ObjInit_AnimalCrate_2::
+	obj_include ObjInit_AnimalCrate_1
+	obj_word OBJ_FRAME, Frame_AnimalCrate_5
+	obj_word OBJ_ANIM, Anim_AnimalCrate_1
 	obj_word OBJ_VAR_2E, $0000
 	obj_end
 
-ObjInit_0e_48af::
-	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, Frame_20_4a68
-	obj_word OBJ_ANIM, Anim_04_512d
+ObjInit_AnimalCrate_3::
+	obj_include ObjInit_AnimalCrate_1
+	obj_word OBJ_FRAME, Frame_AnimalCrate_3
+	obj_word OBJ_ANIM, Anim_AnimalCrate_3
 	obj_word OBJ_VAR_2E, $0001
 	obj_end
 
-ObjInit_0e_48bc::
-	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, Frame_20_4c72
-	obj_word OBJ_ANIM, Anim_04_5159
+ObjInit_AnimalCrate_4::
+	obj_include ObjInit_AnimalCrate_1
+	obj_word OBJ_FRAME, Frame_AnimalCrate_9
+	obj_word OBJ_ANIM, Anim_AnimalCrate_7
 	obj_word OBJ_VAR_2E, $0002
 	obj_end
 
-ObjInit_0e_48c9::
-	obj_include ObjInit_0e_45cf
-	obj_word OBJ_FRAME, Frame_20_458e
-	obj_word OBJ_ANIM, Anim_04_5143
+ObjInit_AnimalCrate_5::
+	obj_include ObjInit_AnimalCrate_1
+	obj_word OBJ_FRAME, Frame_AnimalCrate_1
+	obj_word OBJ_ANIM, Anim_AnimalCrate_5
 	obj_word OBJ_VAR_2E, $0003
 	obj_end
 
-ObjInit_0e_48d6::
+ObjInit_SquawksCrate::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(SquawksCrate)
 	obj_word OBJ_HANDLER, SquawksCrate
@@ -1315,1059 +1315,1059 @@ ObjInit_0e_48d6::
 	obj_byte OBJ_PALETTE, $00
 	obj_byte OBJ_ANIM_PARAM, $0a
 	obj_byte OBJ_COLLISION, $00
-	obj_word OBJ_FRAME, Frame_20_4ace
-	obj_word OBJ_ANIM, Anim_04_516f
+	obj_word OBJ_FRAME, Frame_SquawksCrate_1
+	obj_word OBJ_ANIM, Anim_SquawksCrate_1
 	obj_end
 
-ObjInit_0e_48ef::
-	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, Frame_20_4d4a
-	obj_word OBJ_ANIM, Anim_04_5509
+ObjInit_AnimalToken_10::
+	obj_include ObjInit_AnimalToken_9
+	obj_word OBJ_FRAME, Frame_AnimalToken_6
+	obj_word OBJ_ANIM, Anim_AnimalToken_7
 	obj_byte OBJ_VAR_2F, $00
 	obj_byte OBJ_VAR_30, $04
 	obj_end
 
-ObjInit_0e_48fd::
-	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, Frame_20_4d44
-	obj_word OBJ_ANIM, Anim_04_54ed
+ObjInit_AnimalToken_11::
+	obj_include ObjInit_AnimalToken_9
+	obj_word OBJ_FRAME, Frame_AnimalToken_5
+	obj_word OBJ_ANIM, Anim_AnimalToken_3
 	obj_byte OBJ_VAR_2E, $08
 	obj_byte OBJ_VAR_2F, $01
 	obj_byte OBJ_VAR_30, $08
 	obj_end
 
-ObjInit_0e_490d::
-	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, Frame_20_4d3e
-	obj_word OBJ_ANIM, Anim_04_54df
+ObjInit_AnimalToken_12::
+	obj_include ObjInit_AnimalToken_9
+	obj_word OBJ_FRAME, Frame_AnimalToken_4
+	obj_word OBJ_ANIM, Anim_AnimalToken_1
 	obj_byte OBJ_VAR_2F, $02
 	obj_byte OBJ_VAR_30, $10
 	obj_end
 
-ObjInit_0e_491b::
-	obj_include ObjInit_0e_4249
-	obj_word OBJ_FRAME, Frame_20_4d50
-	obj_word OBJ_ANIM, Anim_04_54fb
+ObjInit_AnimalToken_13::
+	obj_include ObjInit_AnimalToken_9
+	obj_word OBJ_FRAME, Frame_AnimalToken_7
+	obj_word OBJ_ANIM, Anim_AnimalToken_5
 	obj_byte OBJ_VAR_2F, $03
 	obj_byte OBJ_VAR_30, $20
 	obj_end
 
-ObjInit_0e_4929::
-	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, Frame_20_4180
+ObjInit_BigAnimalToken_2::
+	obj_include ObjInit_BigAnimalToken_1
+	obj_word OBJ_FRAME, Frame_BigAnimalToken_3
 	obj_end
 
-ObjInit_0e_4930::
-	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, Frame_20_417a
+ObjInit_BigAnimalToken_3::
+	obj_include ObjInit_BigAnimalToken_1
+	obj_word OBJ_FRAME, Frame_BigAnimalToken_2
 	obj_end
 
-ObjInit_0e_4937::
-	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, Frame_20_4174
+ObjInit_BigAnimalToken_4::
+	obj_include ObjInit_BigAnimalToken_1
+	obj_word OBJ_FRAME, Frame_BigAnimalToken_1
 	obj_end
 
-ObjInit_0e_493e::
-	obj_include ObjInit_0e_481e
-	obj_word OBJ_FRAME, Frame_20_4186
+ObjInit_BigAnimalToken_5::
+	obj_include ObjInit_BigAnimalToken_1
+	obj_word OBJ_FRAME, Frame_BigAnimalToken_4
 	obj_end
 
-ObjInit_0e_4945::
+ObjInit_Kritter_Walk_5::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0017
 	obj_word OBJ_VAR_30, $0097
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4955::
+ObjInit_Kritter_Walk_6::
 	obj_word OBJ_TARGET_XVEL, $0112
 	obj_word OBJ_VAR_2E, $0007
 	obj_word OBJ_VAR_30, $007e
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4965::
+ObjInit_Kritter_Walk_7::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0017
 	obj_word OBJ_VAR_30, $0097
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_7480
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_7_Sub
 	obj_end
 
-ObjInit_0e_4975::
+ObjInit_Kritter_Walk_8::
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $0007
 	obj_word OBJ_VAR_30, $007e
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4985::
+ObjInit_Kritter_Walk_9::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0024
 	obj_word OBJ_VAR_30, $00ff
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4995::
+ObjInit_Kritter_Walk_10::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $000e
 	obj_word OBJ_VAR_30, $0008
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_49a5::
-	obj_include ObjInit_0e_4318
+ObjInit_Kritter_Jump_2::
+	obj_include ObjInit_Kritter_Jump_1
 	obj_word OBJ_VAR_2E, $fc80
 	obj_word OBJ_XVEL, $fe79
 	obj_byte OBJ_PALETTE, $01
 	obj_end
 
-ObjInit_0e_49b1::
+ObjInit_Kritter_Walk_11::
 	obj_word OBJ_TARGET_XVEL, $ff6c
 	obj_word OBJ_VAR_2E, $000d
 	obj_word OBJ_VAR_30, $00c6
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_74a4
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_11_Sub
 	obj_end
 
-ObjInit_0e_49c1::
-	obj_include ObjInit_0e_4318
+ObjInit_Kritter_Jump_3::
+	obj_include ObjInit_Kritter_Jump_1
 	obj_word OBJ_XVEL, $fe70
 	obj_word OBJ_VAR_2E, $fba0
 	obj_byte OBJ_PALETTE, $0e
 	obj_end
 
-ObjInit_0e_49cd::
-	obj_include ObjInit_0e_4318
+ObjInit_Kritter_Jump_4::
+	obj_include ObjInit_Kritter_Jump_1
 	obj_word OBJ_XVEL, $0190
 	obj_word OBJ_VAR_2E, $fba0
 	obj_byte OBJ_PALETTE, $0e
 	obj_end
 
-ObjInit_0e_49d9::
-	obj_include ObjInit_0e_4318
+ObjInit_Kritter_Jump_5::
+	obj_include ObjInit_Kritter_Jump_1
 	obj_word OBJ_XVEL, $fe00
 	obj_word OBJ_VAR_2E, $fb00
 	obj_byte OBJ_PALETTE, $0e
 	obj_end
 
-ObjInit_0e_49e5::
-	obj_include ObjInit_0e_4318
+ObjInit_Kritter_Jump_6::
+	obj_include ObjInit_Kritter_Jump_1
 	obj_word OBJ_XVEL, $feb0
 	obj_word OBJ_VAR_2E, $fcb0
 	obj_byte OBJ_PALETTE, $01
 	obj_end
 
-ObjInit_0e_49f1::
+ObjInit_Kritter_Walk_12::
 	obj_word OBJ_TARGET_XVEL, $fef0
 	obj_word OBJ_VAR_2E, $006b
 	obj_word OBJ_VAR_30, $00ab
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4a01::
+ObjInit_Kritter_Walk_13::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $002c
 	obj_word OBJ_VAR_30, $00eb
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4a11::
+ObjInit_Kritter_Walk_14::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $002c
 	obj_word OBJ_VAR_30, $00eb
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_7480
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_7_Sub
 	obj_end
 
-ObjInit_0e_4a21::
+ObjInit_Kritter_Walk_15::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0018
 	obj_word OBJ_VAR_30, $00eb
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4a31::
+ObjInit_Kritter_Walk_16::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $002d
 	obj_word OBJ_VAR_30, $0031
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4a41::
+ObjInit_Kritter_Walk_17::
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $002d
 	obj_word OBJ_VAR_30, $0031
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4a51::
+ObjInit_Kritter_Walk_18::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0007
 	obj_word OBJ_VAR_30, $007a
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_74a4
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_11_Sub
 	obj_end
 
-ObjInit_0e_4a61::
+ObjInit_Kritter_Walk_19::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0007
 	obj_word OBJ_VAR_30, $00af
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_74a4
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_11_Sub
 	obj_end
 
-ObjInit_0e_4a71::
+ObjInit_Kritter_Walk_20::
 	obj_word OBJ_TARGET_XVEL, $fef0
 	obj_word OBJ_VAR_2E, $002b
 	obj_word OBJ_VAR_30, $0024
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_7480
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_7_Sub
 	obj_end
 
-ObjInit_0e_4a81::
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+ObjInit_Kritter_Walk_21::
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4a88::
+ObjInit_Kritter_Walk_22::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0005
 	obj_word OBJ_VAR_30, $00ba
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_7480
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_7_Sub
 	obj_end
 
-ObjInit_0e_4a98::
+ObjInit_Kritter_Walk_23::
 	obj_word OBJ_TARGET_XVEL, $ff6b
 	obj_word OBJ_VAR_2E, $0005
 	obj_word OBJ_VAR_30, $00e3
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_7480
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_7_Sub
 	obj_end
 
-ObjInit_0e_4aa8::
+ObjInit_Kritter_Walk_24::
 	obj_word OBJ_TARGET_XVEL, $0095
 	obj_word OBJ_VAR_2E, $00e3
 	obj_word OBJ_VAR_30, $0005
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_7480
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_7_Sub
 	obj_end
 
-ObjInit_0e_4ab8::
+ObjInit_Kritter_Walk_25::
 	obj_word OBJ_TARGET_XVEL, $feb0
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4ac8::
+ObjInit_Kritter_Walk_26::
 	obj_word OBJ_TARGET_XVEL, $feb0
 	obj_word OBJ_VAR_2E, $0028
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4ad8::
+ObjInit_Kritter_Walk_27::
 	obj_word OBJ_TARGET_XVEL, $feb0
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0046
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4ae8::
+ObjInit_Kritter_Walk_28::
 	obj_word OBJ_TARGET_XVEL, $fed0
 	obj_word OBJ_VAR_2E, $0019
 	obj_word OBJ_VAR_30, $0019
-	obj_include ObjInit_0e_42f9
-	obj_word OBJ_VAR_32, ObjScript_0a_747a
+	obj_include ObjInit_Kritter_Walk_3
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_12_Sub
 	obj_end
 
-ObjInit_0e_4af8::
+ObjInit_Kritter_Walk_29::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0017
 	obj_word OBJ_VAR_30, $00a9
-	obj_include ObjInit_0e_42ff
-	obj_word OBJ_VAR_32, ObjScript_0a_74a4
+	obj_include ObjInit_Kritter_Walk_4
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_11_Sub
 	obj_end
 
-ObjInit_0e_4b08::
-	obj_include ObjInit_0e_42ff
-	obj_word OBJ_VAR_32, ObjScript_0a_7486
+ObjInit_Kritter_Walk_30::
+	obj_include ObjInit_Kritter_Walk_4
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_30_Sub
 	obj_end
 
-ObjInit_0e_4b0f::
-	obj_include ObjInit_0e_42ff
-	obj_word OBJ_VAR_32, ObjScript_0a_7486
+ObjInit_Kritter_Walk_31::
+	obj_include ObjInit_Kritter_Walk_4
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_30_Sub
 	obj_end
 
-ObjInit_0e_4b16::
-	obj_include ObjInit_0e_42ff
-	obj_word OBJ_VAR_32, ObjScript_0a_7486
+ObjInit_Kritter_Walk_32::
+	obj_include ObjInit_Kritter_Walk_4
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_30_Sub
 	obj_end
 
-ObjInit_0e_4b1d::
+ObjInit_Kritter_Walk_33::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $000b
 	obj_word OBJ_VAR_30, $000c
-	obj_include ObjInit_0e_42ff
-	obj_word OBJ_VAR_32, ObjScript_0a_7486
+	obj_include ObjInit_Kritter_Walk_4
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_30_Sub
 	obj_end
 
-ObjInit_0e_4b2d::
+ObjInit_Kritter_Walk_34::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0017
 	obj_word OBJ_VAR_30, $0097
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4b3d::
+ObjInit_Kritter_Walk_35::
 	obj_word OBJ_TARGET_XVEL, $fef0
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4b4d::
+ObjInit_Kritter_Walk_36::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $0076
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4b5d::
+ObjInit_Kritter_Walk_37::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $0047
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4b6d::
+ObjInit_Kritter_Walk_38::
 	obj_word OBJ_TARGET_XVEL, $fef0
 	obj_word OBJ_VAR_2E, $0012
 	obj_word OBJ_VAR_30, $0017
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4b7d::
+ObjInit_Kritter_Walk_39::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0047
 	obj_word OBJ_VAR_30, $004a
-	obj_include ObjInit_0e_42f3
-	obj_word OBJ_VAR_32, ObjScript_0a_7475
+	obj_include ObjInit_Kritter_Walk_2
+	obj_word OBJ_VAR_32, ObjScript_Kritter_Walk_5_Sub
 	obj_end
 
-ObjInit_0e_4b8d::
+ObjInit_Gnawty_Red_6::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $006f
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4b9a::
+ObjInit_Gnawty_Red_7::
 	obj_word OBJ_VAR_2E, $0001
 	obj_word OBJ_VAR_30, $0001
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4ba4::
-	obj_include ObjInit_0e_4334
+ObjInit_Gnawty_Red_8::
+	obj_include ObjInit_Gnawty_Red_4
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0e_4baa::
+ObjInit_Gnawty_Red_9::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $0083
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4bb7::
+ObjInit_Gnawty_Red_10::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $0026
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4bc4::
+ObjInit_Gnawty_Red_11::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $0148
 	obj_word OBJ_VAR_30, $0009
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4bd1::
+ObjInit_Gnawty_Red_12::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $0083
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4bde::
+ObjInit_Gnawty_Red_13::
 	obj_word OBJ_TARGET_XVEL, $fedb
 	obj_word OBJ_VAR_2E, $000f
 	obj_word OBJ_VAR_30, $0011
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4beb::
+ObjInit_Gnawty_Red_14::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $00b3
 	obj_word OBJ_VAR_30, $0036
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4bf8::
+ObjInit_Gnawty_Red_15::
 	obj_word OBJ_TARGET_XVEL, $ff90
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $00d6
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4c05::
+ObjInit_Gnawty_Red_16::
 	obj_word OBJ_TARGET_XVEL, $fef9
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $00d6
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4c12::
+ObjInit_Gnawty_Red_17::
 	obj_word OBJ_TARGET_XVEL, $0107
 	obj_word OBJ_VAR_2E, $001f
 	obj_word OBJ_VAR_30, $007a
-	obj_include ObjInit_0e_4334
+	obj_include ObjInit_Gnawty_Red_4
 	obj_end
 
-ObjInit_0e_4c1f::
+ObjInit_Klump_2::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $001b
 	obj_word OBJ_VAR_30, $005d
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4c2c::
+ObjInit_Klump_3::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $001b
 	obj_word OBJ_VAR_30, $005d
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_byte OBJ_PALETTE, $19
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
-ObjInit_0e_4c3d::
+ObjInit_Klump_4::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0025
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_byte OBJ_PALETTE, $19
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
-ObjInit_0e_4c4e::
-	obj_include ObjInit_0e_4355
+ObjInit_Klump_5::
+	obj_include ObjInit_Klump_1
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_byte OBJ_PALETTE, $19
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
-ObjInit_0e_4c58::
+ObjInit_Klump_6::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0016
 	obj_word OBJ_VAR_30, $0037
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_byte OBJ_PALETTE, $19
 	obj_byte OBJ_VAR_33, $01
 	obj_end
 
-ObjInit_0e_4c69::
+ObjInit_Klump_7::
 	obj_word OBJ_TARGET_XVEL, $0070
 	obj_word OBJ_VAR_2E, $000e
 	obj_word OBJ_VAR_30, $000d
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4c76::
+ObjInit_Klump_8::
 	obj_word OBJ_TARGET_XVEL, $0090
 	obj_word OBJ_VAR_2E, $005d
 	obj_word OBJ_VAR_30, $001b
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4c83::
+ObjInit_Klump_9::
 	obj_word OBJ_TARGET_XVEL, $0070
 	obj_word OBJ_VAR_2E, $000e
 	obj_word OBJ_VAR_30, $00a9
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4c90::
+ObjInit_Klump_10::
 	obj_word OBJ_TARGET_XVEL, $0070
 	obj_word OBJ_VAR_2E, $000e
 	obj_word OBJ_VAR_30, $00dc
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4c9d::
+ObjInit_Klump_11::
 	obj_word OBJ_TARGET_XVEL, $0070
 	obj_word OBJ_VAR_2E, $000d
 	obj_word OBJ_VAR_30, $004c
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4caa::
+ObjInit_Klump_12::
 	obj_word OBJ_TARGET_XVEL, $ff90
 	obj_word OBJ_VAR_2E, $0044
 	obj_word OBJ_VAR_30, $008e
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4cb7::
+ObjInit_Klump_13::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $000e
 	obj_word OBJ_VAR_30, $00a9
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4cc4::
+ObjInit_Klump_14::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $002c
 	obj_word OBJ_VAR_30, $0070
-	obj_include ObjInit_0e_4355
+	obj_include ObjInit_Klump_1
 	obj_end
 
-ObjInit_0e_4cd1::
+ObjInit_Klaptrap_4::
 	obj_word OBJ_TARGET_XVEL, $00c0
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4cde::
+ObjInit_Klaptrap_5::
 	obj_word OBJ_TARGET_XVEL, $0130
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $007b
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4ceb::
+ObjInit_Klaptrap_6::
 	obj_word OBJ_TARGET_XVEL, $0138
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $007b
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4cf8::
+ObjInit_Klaptrap_7::
 	obj_word OBJ_TARGET_XVEL, $fecb
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $007b
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d05::
+ObjInit_Klaptrap_8::
 	obj_word OBJ_TARGET_XVEL, $ff40
 	obj_word OBJ_VAR_2E, $0011
 	obj_word OBJ_VAR_30, $000e
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d12::
+ObjInit_Klaptrap_9::
 	obj_word OBJ_TARGET_XVEL, $fec8
 	obj_word OBJ_VAR_2E, $0011
 	obj_word OBJ_VAR_30, $000e
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d1f::
+ObjInit_Klaptrap_10::
 	obj_word OBJ_TARGET_XVEL, $00c0
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $00ff
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d2c::
+ObjInit_Klaptrap_11::
 	obj_word OBJ_TARGET_XVEL, $00c0
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d39::
+ObjInit_Klaptrap_12::
 	obj_word OBJ_TARGET_XVEL, $00c0
 	obj_word OBJ_VAR_2E, $0008
 	obj_word OBJ_VAR_30, $0029
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d46::
+ObjInit_Klaptrap_13::
 	obj_word OBJ_TARGET_XVEL, $0138
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $0049
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d53::
+ObjInit_Klaptrap_14::
 	obj_word OBJ_TARGET_XVEL, $0138
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $002f
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d60::
+ObjInit_Klaptrap_15::
 	obj_word OBJ_TARGET_XVEL, $fec8
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $0017
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d6d::
+ObjInit_Klaptrap_16::
 	obj_word OBJ_TARGET_XVEL, $0145
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d7a::
+ObjInit_Klaptrap_17::
 	obj_word OBJ_TARGET_XVEL, $0145
 	obj_word OBJ_VAR_2E, $00c8
 	obj_word OBJ_VAR_30, $0005
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d87::
+ObjInit_Klaptrap_18::
 	obj_word OBJ_TARGET_XVEL, $fec8
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $000d
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4d94::
+ObjInit_Klaptrap_19::
 	obj_word OBJ_TARGET_XVEL, $ff40
 	obj_word OBJ_VAR_2E, $0006
 	obj_word OBJ_VAR_30, $0004
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4da1::
+ObjInit_Klaptrap_20::
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $0010
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_44a7
+	obj_include ObjInit_Klaptrap_2
 	obj_end
 
-ObjInit_0e_4dae::
-	obj_include ObjInit_0e_44ad
+ObjInit_Klaptrap_21::
+	obj_include ObjInit_Klaptrap_3
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0e_4db4::
+ObjInit_Klaptrap_22::
 	obj_word OBJ_TARGET_XVEL, $ff40
 	obj_word OBJ_VAR_2E, $000f
 	obj_word OBJ_VAR_30, $009d
-	obj_include ObjInit_0e_44ad
+	obj_include ObjInit_Klaptrap_3
 	obj_end
 
-ObjInit_0e_4dc1::
+ObjInit_Klaptrap_23::
 	obj_word OBJ_TARGET_XVEL, $00c0
 	obj_word OBJ_VAR_2E, $003f
 	obj_word OBJ_VAR_30, $000d
-	obj_include ObjInit_0e_44ad
+	obj_include ObjInit_Klaptrap_3
 	obj_end
 
-ObjInit_0e_4dce::
+ObjInit_Klaptrap_24::
 	obj_word OBJ_TARGET_XVEL, $ff40
 	obj_word OBJ_VAR_2E, $000f
 	obj_word OBJ_VAR_30, $003f
-	obj_include ObjInit_0e_44ad
+	obj_include ObjInit_Klaptrap_3
 	obj_end
 
-ObjInit_0e_4ddb::
+ObjInit_Rockkroc_2::
 	obj_word OBJ_TARGET_XVEL, $fdd0
 	obj_word OBJ_VAR_2E, $001a
 	obj_word OBJ_VAR_30, $0018
-	obj_include ObjInit_0e_44b5
+	obj_include ObjInit_Rockkroc_1
 	obj_end
 
-ObjInit_0e_4de8::
-	obj_include ObjInit_0e_44b5
+ObjInit_Rockkroc_3::
+	obj_include ObjInit_Rockkroc_1
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0e_4dee::
+ObjInit_Rockkroc_4::
 	obj_word OBJ_TARGET_XVEL, $0230
 	obj_word OBJ_VAR_2E, $0085
 	obj_word OBJ_VAR_30, $0017
-	obj_include ObjInit_0e_44b5
+	obj_include ObjInit_Rockkroc_1
 	obj_end
 
-ObjInit_0e_4dfb::
+ObjInit_Rockkroc_5::
 	obj_word OBJ_TARGET_XVEL, $fdd0
 	obj_word OBJ_VAR_2E, $0017
 	obj_word OBJ_VAR_30, $0085
-	obj_include ObjInit_0e_44b5
+	obj_include ObjInit_Rockkroc_1
 	obj_end
 
-ObjInit_0e_4e08::
+ObjInit_Rockkroc_6::
 	obj_word OBJ_TARGET_XVEL, $fdd0
 	obj_word OBJ_VAR_2E, $000f
 	obj_word OBJ_VAR_30, $000d
-	obj_include ObjInit_0e_44b5
+	obj_include ObjInit_Rockkroc_1
 	obj_end
 
-ObjInit_0e_4e15::
+ObjInit_Rockkroc_7::
 	obj_word OBJ_TARGET_XVEL, $fdd0
 	obj_word OBJ_VAR_2E, $0005
 	obj_word OBJ_VAR_30, $0070
-	obj_include ObjInit_0e_44b5
+	obj_include ObjInit_Rockkroc_1
 	obj_end
 
-ObjInit_0e_4e22::
+ObjInit_Rockkroc_8::
 	obj_word OBJ_TARGET_XVEL, $fdd0
 	obj_word OBJ_VAR_2E, $0005
 	obj_word OBJ_VAR_30, $0059
-	obj_include ObjInit_0e_44b5
+	obj_include ObjInit_Rockkroc_1
 	obj_end
 
-ObjInit_0e_4e2f::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_2::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $ff70
 	obj_end
 
-ObjInit_0e_4e36::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_3::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $fef0
 	obj_end
 
-ObjInit_0e_4e3d::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_4::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $fe70
 	obj_end
 
-ObjInit_0e_4e44::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_5::
+	obj_include ObjInit_Necky_Fly_1
 	obj_end
 
-ObjInit_0e_4e48::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_6::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $ffb8
 	obj_end
 
-ObjInit_0e_4e4f::
+ObjInit_Necky_FlyPatrol_2::
 	obj_word OBJ_TARGET_YVEL, $0120
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4e5c::
+ObjInit_Necky_FlyPatrol_3::
 	obj_word OBJ_TARGET_YVEL, $0120
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4e69::
+ObjInit_Necky_FlyPatrol_4::
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4e76::
+ObjInit_Necky_FlyPatrol_5::
 	obj_word OBJ_TARGET_XVEL, $0150
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4e83::
+ObjInit_Necky_FlyPatrol_6::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4e90::
+ObjInit_Necky_FlyPatrol_7::
 	obj_word OBJ_TARGET_XVEL, $0095
 	obj_word OBJ_VAR_2E, $001d
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4e9d::
+ObjInit_Necky_FlyPatrol_8::
 	obj_word OBJ_TARGET_YVEL, $fee0
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4eaa::
+ObjInit_Necky_FlyPatrol_9::
 	obj_word OBJ_TARGET_YVEL, $fee0
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $0037
-	obj_include ObjInit_0e_4479
+	obj_include ObjInit_Necky_FlyPatrol_1
 	obj_end
 
-ObjInit_0e_4eb7::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_7::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $ff00
 	obj_end
 
-ObjInit_0e_4ebe::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_8::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $feab
 	obj_end
 
-ObjInit_0e_4ec5::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_9::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $febb
 	obj_end
 
-ObjInit_0e_4ecc::
-	obj_include ObjInit_0e_4470
+ObjInit_Necky_Fly_10::
+	obj_include ObjInit_Necky_Fly_1
 	obj_word OBJ_XVEL, $ff90
 	obj_end
 
-ObjInit_0e_4ed3::
+ObjInit_Zinger_Move_3::
 	obj_word OBJ_TARGET_XVEL, $2000
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $14
-	obj_include ObjInit_0e_4470
+	obj_include ObjInit_Necky_Fly_1
 	obj_byte OBJ_BANK, BANK(Zinger_Move)
 	obj_word OBJ_HANDLER, Zinger_Move
 	obj_end
 
-ObjInit_0e_4ee4::
+ObjInit_Zinger_Move_4::
 	obj_word OBJ_TARGET_XVEL, $2000
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $14
-	obj_include ObjInit_0e_4470
+	obj_include ObjInit_Necky_Fly_1
 	obj_byte OBJ_BANK, BANK(Zinger_Move)
 	obj_word OBJ_HANDLER, Zinger_Move
 	obj_end
 
-ObjInit_0e_4ef5::
-	obj_include ObjInit_0e_452a
-	obj_word OBJ_VAR_2E, ObjScript_0a_7358
+ObjInit_MiniNecky_2::
+	obj_include ObjInit_MiniNecky_1
+	obj_word OBJ_VAR_2E, ObjScript_MiniNecky_2_Sub
 	obj_end
 
-ObjInit_0e_4efc::
-	obj_include ObjInit_0e_452a
-	obj_word OBJ_VAR_2E, ObjScript_0a_7364
+ObjInit_MiniNecky_3::
+	obj_include ObjInit_MiniNecky_1
+	obj_word OBJ_VAR_2E, ObjScript_MiniNecky_3_Sub
 	obj_end
 
-ObjInit_0e_4f03::
-	obj_include ObjInit_0e_452a
-	obj_word OBJ_VAR_2E, ObjScript_0a_736d
+ObjInit_MiniNecky_4::
+	obj_include ObjInit_MiniNecky_1
+	obj_word OBJ_VAR_2E, ObjScript_MiniNecky_4_Sub
 	obj_end
 
-ObjInit_0e_4f0a::
-	obj_include ObjInit_0e_452a
-	obj_word OBJ_VAR_2E, ObjScript_0a_735e
+ObjInit_MiniNecky_5::
+	obj_include ObjInit_MiniNecky_1
+	obj_word OBJ_VAR_2E, ObjScript_MiniNecky_5_Sub
 	obj_end
 
-ObjInit_0e_4f11::
-	obj_include ObjInit_0e_455c
-	obj_word OBJ_VAR_2E, ObjScript_0a_7379
+ObjInit_Necky_ThrowNuts_2::
+	obj_include ObjInit_Necky_ThrowNuts_1
+	obj_word OBJ_VAR_2E, ObjScript_Necky_ThrowNuts_2_Sub
 	obj_end
 
-ObjInit_0e_4f18::
-	obj_include ObjInit_0e_455c
-	obj_word OBJ_VAR_2E, ObjScript_0a_738e
+ObjInit_Necky_ThrowNuts_3::
+	obj_include ObjInit_Necky_ThrowNuts_1
+	obj_word OBJ_VAR_2E, ObjScript_Necky_ThrowNuts_3_Sub
 	obj_end
 
-ObjInit_0e_4f1f::
-	obj_include ObjInit_0e_455c
-	obj_word OBJ_VAR_2E, ObjScript_0a_7399
+ObjInit_Necky_ThrowNuts_4::
+	obj_include ObjInit_Necky_ThrowNuts_1
+	obj_word OBJ_VAR_2E, ObjScript_Necky_ThrowNuts_4_Sub
 	obj_end
 
-ObjInit_0e_4f26::
+ObjInit_MiniNecky_6::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $0004
 	obj_word OBJ_VAR_30, $0021
-	obj_include ObjInit_0e_452a
-	obj_word OBJ_VAR_2E, ObjScript_0a_7364
+	obj_include ObjInit_MiniNecky_1
+	obj_word OBJ_VAR_2E, ObjScript_MiniNecky_3_Sub
 	obj_end
 
-ObjInit_0e_4f36::
-	obj_include ObjInit_0e_4397
+ObjInit_Zinger_2::
+	obj_include ObjInit_Zinger_1
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_end
 
-ObjInit_0e_4f3f::
+ObjInit_Zinger_Patrol_3::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $0004
 	obj_word OBJ_VAR_30, $0002
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_4f4c::
+ObjInit_Zinger_Move_5::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $fdb0
 	obj_byte OBJ_XACCEL, $0e
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4f58::
+ObjInit_Zinger_Move_6::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $fd00
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4f64::
+ObjInit_Zinger_Move_7::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4f70::
+ObjInit_Zinger_Move_8::
 	obj_word OBJ_TARGET_XVEL, $8c00
 	obj_word OBJ_TARGET_YVEL, $fe80
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4f7c::
+ObjInit_Zinger_Move_9::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_TARGET_YVEL, $fe80
 	obj_byte OBJ_XACCEL, $17
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4f88::
+ObjInit_Zinger_Move_10::
 	obj_word OBJ_TARGET_XVEL, $4700
 	obj_word OBJ_TARGET_YVEL, $0180
 	obj_byte OBJ_XACCEL, $15
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4f94::
+ObjInit_Zinger_Move_11::
 	obj_word OBJ_TARGET_XVEL, $7800
 	obj_word OBJ_TARGET_YVEL, $fe80
 	obj_byte OBJ_XACCEL, $17
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4fa0::
+ObjInit_Zinger_Move_12::
 	obj_word OBJ_TARGET_XVEL, $7400
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4fac::
+ObjInit_Zinger_Move_13::
 	obj_word OBJ_TARGET_XVEL, $0b00
 	obj_word OBJ_TARGET_YVEL, $fe70
 	obj_byte OBJ_XACCEL, $13
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4fb8::
+ObjInit_Zinger_Move_14::
 	obj_word OBJ_TARGET_XVEL, $7400
 	obj_word OBJ_TARGET_YVEL, $0200
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4fc4::
+ObjInit_Zinger_Move_15::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $fddb
 	obj_byte OBJ_XACCEL, $0d
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4fd0::
+ObjInit_Zinger_Move_16::
 	obj_word OBJ_TARGET_XVEL, $8f00
 	obj_word OBJ_TARGET_YVEL, $0245
 	obj_byte OBJ_XACCEL, $0c
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4fdc::
+ObjInit_Zinger_Move_17::
 	obj_word OBJ_TARGET_XVEL, $4b00
 	obj_word OBJ_TARGET_YVEL, $0180
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4fe8::
+ObjInit_Zinger_Move_18::
 	obj_word OBJ_TARGET_XVEL, $8c00
 	obj_word OBJ_TARGET_YVEL, $0180
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_4ff4::
+ObjInit_Zinger_Move_19::
 	obj_word OBJ_TARGET_XVEL, $3e00
 	obj_word OBJ_TARGET_YVEL, $0180
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_5000::
+ObjInit_Zinger_Patrol_4::
 	obj_word OBJ_TARGET_XVEL, $0112
 	obj_word OBJ_VAR_2E, $0021
 	obj_word OBJ_VAR_30, $0011
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_500d::
+ObjInit_Zinger_Move_20::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $0400
 	obj_byte OBJ_XACCEL, $14
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_5019::
+ObjInit_Zinger_Move_21::
 	obj_word OBJ_TARGET_XVEL, $2000
 	obj_word OBJ_TARGET_YVEL, $fc00
 	obj_byte OBJ_XACCEL, $14
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_5025::
+ObjInit_Zinger_Patrol_5::
 	obj_word OBJ_TARGET_YVEL, $0120
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $002e
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5032::
+ObjInit_Zinger_Patrol_6::
 	obj_word OBJ_TARGET_YVEL, $0115
 	obj_word OBJ_VAR_2E, $002e
 	obj_word OBJ_VAR_30, $0031
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_503f::
+ObjInit_Zinger_Patrol_7::
 	obj_word OBJ_TARGET_YVEL, $0155
 	obj_word OBJ_VAR_2E, $0032
 	obj_word OBJ_VAR_30, $0033
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_504c::
-	obj_include ObjInit_0e_43c2
+ObjInit_Zinger_Move2_3::
+	obj_include ObjInit_Zinger_Move2_1
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $feb0
 	obj_byte OBJ_XACCEL, $1e
@@ -2375,8 +2375,8 @@ ObjInit_0e_504c::
 	obj_byte OBJ_VAR_2F, $80
 	obj_end
 
-ObjInit_0e_505c::
-	obj_include ObjInit_0e_43c2
+ObjInit_Zinger_Move2_4::
+	obj_include ObjInit_Zinger_Move2_1
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $0175
 	obj_byte OBJ_XACCEL, $1e
@@ -2384,331 +2384,331 @@ ObjInit_0e_505c::
 	obj_byte OBJ_VAR_2F, $00
 	obj_end
 
-ObjInit_0e_506c::
+ObjInit_Zinger_Move_22::
 	obj_word OBJ_TARGET_XVEL, $6a00
 	obj_word OBJ_TARGET_YVEL, $fea0
 	obj_byte OBJ_XACCEL, $11
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_5078::
+ObjInit_Zinger_Move_23::
 	obj_word OBJ_TARGET_XVEL, $7400
 	obj_word OBJ_TARGET_YVEL, $fde0
 	obj_byte OBJ_XACCEL, $11
-	obj_include ObjInit_0e_43aa
+	obj_include ObjInit_Zinger_Move_1
 	obj_end
 
-ObjInit_0e_5084::
+ObjInit_Zinger_Patrol_8::
 	obj_word OBJ_TARGET_XVEL, $fdb0
 	obj_word OBJ_VAR_2E, $003e
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5091::
+ObjInit_Zinger_Patrol_9::
 	obj_word OBJ_TARGET_XVEL, $fe00
 	obj_word OBJ_VAR_2E, $0032
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_509e::
+ObjInit_Zinger_Patrol_10::
 	obj_word OBJ_TARGET_YVEL, $fe70
 	obj_word OBJ_VAR_2E, $0032
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_50ab::
+ObjInit_Zinger_Patrol_11::
 	obj_word OBJ_TARGET_YVEL, $fe70
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_50b8::
+ObjInit_Zinger_Patrol_12::
 	obj_word OBJ_TARGET_YVEL, $fee0
 	obj_word OBJ_VAR_2E, $0002
 	obj_word OBJ_VAR_30, $003f
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_50c5::
+ObjInit_Zinger_Patrol_13::
 	obj_word OBJ_TARGET_YVEL, $0199
 	obj_word OBJ_VAR_2E, $0045
 	obj_word OBJ_VAR_30, $003f
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_50d2::
+ObjInit_Zinger_Patrol_14::
 	obj_word OBJ_TARGET_YVEL, $fe67
 	obj_word OBJ_VAR_2E, $0045
 	obj_word OBJ_VAR_30, $003f
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_50df::
+ObjInit_Zinger_Patrol_15::
 	obj_word OBJ_TARGET_YVEL, $0110
 	obj_word OBJ_VAR_2E, $003f
 	obj_word OBJ_VAR_30, $0002
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_50ec::
+ObjInit_Zinger_Patrol_16::
 	obj_word OBJ_TARGET_XVEL, $0120
 	obj_word OBJ_VAR_2E, $0003
 	obj_word OBJ_VAR_30, $0005
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_50f9::
+ObjInit_Zinger_Move2_5::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fe80
 	obj_byte OBJ_XACCEL, $20
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_VAR_2F, $c0
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5109::
+ObjInit_Zinger_Move2_6::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fef0
 	obj_byte OBJ_XACCEL, $28
 	obj_byte OBJ_VAR_2E, $50
 	obj_byte OBJ_VAR_2F, $b0
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5119::
+ObjInit_Zinger_Move2_7::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fe80
 	obj_byte OBJ_XACCEL, $28
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_VAR_2F, $c0
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5129::
+ObjInit_Zinger_Move2_8::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fea0
 	obj_byte OBJ_XACCEL, $28
 	obj_byte OBJ_VAR_2E, $c0
 	obj_byte OBJ_VAR_2F, $40
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5139::
+ObjInit_Zinger_Move2_9::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fef0
 	obj_byte OBJ_XACCEL, $19
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_VAR_2F, $c0
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5149::
+ObjInit_Zinger_Move2_10::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_byte OBJ_XACCEL, $19
 	obj_byte OBJ_VAR_2E, $60
 	obj_byte OBJ_VAR_2F, $a0
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5159::
+ObjInit_Zinger_Move2_11::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fe9d
 	obj_byte OBJ_XACCEL, $19
 	obj_byte OBJ_VAR_2E, $60
 	obj_byte OBJ_VAR_2F, $a0
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5169::
+ObjInit_Zinger_Move2_12::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fe80
 	obj_byte OBJ_XACCEL, $14
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_VAR_2F, $c0
-	obj_include ObjInit_0e_43c2
+	obj_include ObjInit_Zinger_Move2_1
 	obj_end
 
-ObjInit_0e_5179::
+ObjInit_Zinger_Patrol_17::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $0013
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5186::
+ObjInit_Zinger_Patrol_18::
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_word OBJ_VAR_2E, $0013
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5193::
+ObjInit_Zinger_Patrol_19::
 	obj_word OBJ_TARGET_YVEL, $0125
 	obj_word OBJ_VAR_2E, $0023
 	obj_word OBJ_VAR_30, $0022
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51a0::
+ObjInit_Zinger_Patrol_20::
 	obj_word OBJ_TARGET_YVEL, $0125
 	obj_word OBJ_VAR_2E, $0012
 	obj_word OBJ_VAR_30, $0033
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51ad::
+ObjInit_Zinger_Patrol_21::
 	obj_word OBJ_TARGET_XVEL, $0140
 	obj_word OBJ_VAR_2E, $002a
 	obj_word OBJ_VAR_30, $002c
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51ba::
+ObjInit_Zinger_Patrol_22::
 	obj_word OBJ_TARGET_XVEL, $0105
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $0026
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51c7::
+ObjInit_Zinger_Patrol_23::
 	obj_word OBJ_TARGET_XVEL, $0105
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $0026
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51d4::
+ObjInit_Zinger_Patrol_24::
 	obj_word OBJ_TARGET_XVEL, $0105
 	obj_word OBJ_VAR_2E, $0024
 	obj_word OBJ_VAR_30, $0027
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51e1::
+ObjInit_Zinger_Patrol_25::
 	obj_word OBJ_TARGET_XVEL, $fefb
 	obj_word OBJ_VAR_2E, $0024
 	obj_word OBJ_VAR_30, $0024
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51ee::
+ObjInit_Zinger_Patrol_26::
 	obj_word OBJ_TARGET_XVEL, $0088
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_51fb::
+ObjInit_Zinger_Patrol_27::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $002a
 	obj_word OBJ_VAR_30, $002c
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5208::
+ObjInit_Zinger_Patrol_28::
 	obj_word OBJ_TARGET_XVEL, $fe90
 	obj_word OBJ_VAR_2E, $002a
 	obj_word OBJ_VAR_30, $002c
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5215::
+ObjInit_Zinger_Patrol_29::
 	obj_word OBJ_TARGET_XVEL, $fea0
 	obj_word OBJ_VAR_2E, $006b
 	obj_word OBJ_VAR_30, $006b
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5222::
+ObjInit_Zinger_Patrol_30::
 	obj_word OBJ_TARGET_XVEL, $fdf0
 	obj_word OBJ_VAR_2E, $006b
 	obj_word OBJ_VAR_30, $006b
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_522f::
+ObjInit_Zinger_Patrol_31::
 	obj_word OBJ_TARGET_XVEL, $0160
 	obj_word OBJ_VAR_2E, $006b
 	obj_word OBJ_VAR_30, $006b
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_523c::
+ObjInit_Zinger_Patrol_32::
 	obj_word OBJ_TARGET_YVEL, $0190
 	obj_word OBJ_VAR_2E, $0031
 	obj_word OBJ_VAR_30, $002b
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5249::
+ObjInit_Zinger_Patrol_33::
 	obj_word OBJ_TARGET_XVEL, $fecb
 	obj_word OBJ_VAR_2E, $0042
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5256::
+ObjInit_Zinger_Patrol_34::
 	obj_word OBJ_TARGET_XVEL, $0144
 	obj_word OBJ_VAR_2E, $004c
 	obj_word OBJ_VAR_30, $0036
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5263::
+ObjInit_Zinger_Patrol_35::
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_word OBJ_VAR_2E, $0056
 	obj_word OBJ_VAR_30, $001a
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5270::
+ObjInit_Zinger_Patrol_36::
 	obj_word OBJ_TARGET_YVEL, $0120
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $0037
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_527d::
+ObjInit_Zinger_Patrol_37::
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_word OBJ_VAR_2E, $0028
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_528a::
+ObjInit_Zinger_Patrol_38::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $002a
 	obj_word OBJ_VAR_30, $002c
-	obj_include ObjInit_0e_43b3
+	obj_include ObjInit_Zinger_Patrol_1
 	obj_end
 
-ObjInit_0e_5297::
-	obj_include ObjInit_0e_4542
-	obj_word OBJ_VAR_2E, ObjScript_0a_74b4
+ObjInit_MankyKong_2::
+	obj_include ObjInit_MankyKong_1
+	obj_word OBJ_VAR_2E, ObjScript_MankyKong_2_Sub
 	obj_end
 
-ObjInit_0e_529e::
-	obj_include ObjInit_0e_4542
-	obj_word OBJ_VAR_2E, ObjScript_0a_74c6
+ObjInit_MankyKong_3::
+	obj_include ObjInit_MankyKong_1
+	obj_word OBJ_VAR_2E, ObjScript_MankyKong_3_Sub
 	obj_end
 
-ObjInit_0e_52a5::
-	obj_include ObjInit_0e_4542
-	obj_word OBJ_VAR_2E, ObjScript_0a_74d8
+ObjInit_MankyKong_4::
+	obj_include ObjInit_MankyKong_1
+	obj_word OBJ_VAR_2E, ObjScript_MankyKong_4_Sub
 	obj_end
 
-ObjInit_0e_52ac::
+ObjInit_Army_3::
 	obj_byte OBJ_BANK, BANK(Army)
 	obj_word OBJ_HANDLER, Army
 	obj_word OBJ_TOUCH_HANDLER, Army_Touch
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, Anim_04_4a8f
+	obj_word OBJ_ANIM, Anim_Army_4
 	obj_word OBJ_PALETTE, $0000
 	obj_byte OBJ_LAYER, $01
 	obj_byte OBJ_OAM_ATTR, $20
@@ -2719,524 +2719,524 @@ ObjInit_0e_52ac::
 	obj_byte OBJ_VAR_2F, $c8
 	obj_end
 
-ObjInit_0e_52d0::
+ObjInit_Gnawty_Red_18::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $002e
-	obj_include ObjInit_0e_4376
+	obj_include ObjInit_Gnawty_Red_5
 	obj_end
 
-ObjInit_0e_52dd::
+ObjInit_Gnawty_Red_19::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $000b
 	obj_word OBJ_VAR_30, $0070
-	obj_include ObjInit_0e_4376
+	obj_include ObjInit_Gnawty_Red_5
 	obj_end
 
-ObjInit_0e_52ea::
+ObjInit_Gnawty_Red_20::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0018
 	obj_word OBJ_VAR_30, $003c
-	obj_include ObjInit_0e_4376
+	obj_include ObjInit_Gnawty_Red_5
 	obj_end
 
-ObjInit_0e_52f7::
+ObjInit_Gnawty_Red_21::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $000d
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_4376
+	obj_include ObjInit_Gnawty_Red_5
 	obj_end
 
-ObjInit_0e_5304::
+ObjInit_Gnawty_Red_22::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0014
 	obj_word OBJ_VAR_30, $0013
-	obj_include ObjInit_0e_4376
+	obj_include ObjInit_Gnawty_Red_5
 	obj_end
 
-ObjInit_0e_5311::
+ObjInit_Gnawty_Red_23::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $0039
 	obj_word OBJ_VAR_30, $007a
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_531e::
+ObjInit_Gnawty_Red_24::
 	obj_word OBJ_TARGET_XVEL, $ff6b
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $0093
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_532b::
+ObjInit_Gnawty_Red_25::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $0089
 	obj_word OBJ_VAR_30, $001a
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_5338::
+ObjInit_Gnawty_Red_26::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0039
 	obj_word OBJ_VAR_30, $007a
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_5345::
+ObjInit_Gnawty_Red_27::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0006
 	obj_word OBJ_VAR_30, $0099
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_5352::
+ObjInit_Gnawty_Red_28::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $002d
 	obj_word OBJ_VAR_30, $00cf
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_535f::
+ObjInit_Gnawty_Red_29::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $0037
 	obj_word OBJ_VAR_30, $00c5
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_536c::
+ObjInit_Gnawty_Red_30::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $002d
 	obj_word OBJ_VAR_30, $00cf
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_5379::
+ObjInit_Gnawty_Red_31::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $0041
 	obj_word OBJ_VAR_30, $0078
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_5386::
-	obj_include ObjInit_0e_42c8
+ObjInit_Gnawty_Red_32::
+	obj_include ObjInit_Gnawty_Red_2
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0e_538c::
+ObjInit_Gnawty_Red_33::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $0022
 	obj_word OBJ_VAR_30, $0024
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_5399::
+ObjInit_Gnawty_Red_34::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $000e
 	obj_word OBJ_VAR_30, $000f
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_53a6::
+ObjInit_Gnawty_Red_35::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $000e
 	obj_word OBJ_VAR_30, $000f
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_53b3::
+ObjInit_Gnawty_Red_36::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $0037
 	obj_word OBJ_VAR_30, $0037
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_53c0::
+ObjInit_Gnawty_Red_37::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $0064
 	obj_word OBJ_VAR_30, $00c8
-	obj_include ObjInit_0e_42c8
+	obj_include ObjInit_Gnawty_Red_2
 	obj_end
 
-ObjInit_0e_53cd::
+ObjInit_Chomps_2::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $003d
 	obj_word OBJ_VAR_30, $0036
-	obj_include ObjInit_0e_4423
+	obj_include ObjInit_Chomps_1
 	obj_end
 
-ObjInit_0e_53da::
+ObjInit_Chomps_3::
 	obj_word OBJ_TARGET_XVEL, $ff6b
 	obj_word OBJ_VAR_2E, $000f
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_4423
+	obj_include ObjInit_Chomps_1
 	obj_end
 
-ObjInit_0e_53e7::
+ObjInit_Chomps_4::
 	obj_word OBJ_TARGET_XVEL, $ff6b
 	obj_word OBJ_VAR_2E, $0032
 	obj_word OBJ_VAR_30, $000f
-	obj_include ObjInit_0e_4423
+	obj_include ObjInit_Chomps_1
 	obj_end
 
-ObjInit_0e_53f4::
+ObjInit_ChompsJr_2::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $0041
 	obj_word OBJ_VAR_30, $0012
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_5401::
+ObjInit_ChompsJr_3::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0014
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_540e::
+ObjInit_ChompsJr_4::
 	obj_word OBJ_TARGET_XVEL, $0090
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0014
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_541b::
+ObjInit_ChompsJr_5::
 	obj_word OBJ_TARGET_XVEL, $0090
 	obj_word OBJ_VAR_2E, $00ca
 	obj_word OBJ_VAR_30, $0014
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_5428::
+ObjInit_Bitesize_3::
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_word OBJ_VAR_2E, $002c
 	obj_word OBJ_VAR_30, $0034
-	obj_include ObjInit_0e_4411
+	obj_include ObjInit_Bitesize_2
 	obj_end
 
-ObjInit_0e_5435::
+ObjInit_Bitesize_4::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $002c
 	obj_word OBJ_VAR_30, $0034
-	obj_include ObjInit_0e_4411
+	obj_include ObjInit_Bitesize_2
 	obj_end
 
-ObjInit_0e_5442::
-	obj_include ObjInit_0e_441a
+ObjInit_Bitesize_Wave_2::
+	obj_include ObjInit_Bitesize_Wave_1
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_end
 
-ObjInit_0e_5449::
-	obj_include ObjInit_0e_441a
+ObjInit_Bitesize_Wave_3::
+	obj_include ObjInit_Bitesize_Wave_1
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_end
 
-ObjInit_0e_5450::
+ObjInit_ChompsJr_6::
 	obj_word OBJ_TARGET_XVEL, $0105
 	obj_word OBJ_VAR_2E, $006a
 	obj_word OBJ_VAR_30, $0061
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_545d::
+ObjInit_ChompsJr_7::
 	obj_word OBJ_TARGET_XVEL, $fefb
 	obj_word OBJ_VAR_2E, $0081
 	obj_word OBJ_VAR_30, $0036
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_546a::
+ObjInit_ChompsJr_8::
 	obj_word OBJ_TARGET_XVEL, $fefb
 	obj_word OBJ_VAR_2E, $006a
 	obj_word OBJ_VAR_30, $0061
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_5477::
+ObjInit_ChompsJr_9::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $004d
 	obj_word OBJ_VAR_30, $0033
-	obj_include ObjInit_0e_443f
+	obj_include ObjInit_ChompsJr_1
 	obj_end
 
-ObjInit_0e_5484::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_2::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_VAR_2E, ObjScript_0a_73a4
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_2_Sub
 	obj_end
 
-ObjInit_0e_548d::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_3::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_VAR_2E, ObjScript_0a_73b9
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_3_Sub
 	obj_end
 
-ObjInit_0e_5496::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_4::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $00
-	obj_word OBJ_VAR_2E, ObjScript_0a_73c9
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_4_Sub
 	obj_end
 
-ObjInit_0e_549f::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_5::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_VAR_2E, ObjScript_0a_73de
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_5_Sub
 	obj_end
 
-ObjInit_0e_54a8::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_6::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_VAR_2E, ObjScript_0a_73f3
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_6_Sub
 	obj_end
 
-ObjInit_0e_54b1::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_7::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_VAR_2E, ObjScript_0a_742d
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_7_Sub
 	obj_end
 
-ObjInit_0e_54ba::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_8::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_VAR_2E, ObjScript_0a_7451
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_8_Sub
 	obj_end
 
-ObjInit_0e_54c3::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_9::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $00
-	obj_word OBJ_VAR_2E, ObjScript_0a_740d
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_9_Sub
 	obj_end
 
-ObjInit_0e_54cc::
-	obj_include ObjInit_0e_4574
+ObjInit_Clambo_10::
+	obj_include ObjInit_Clambo_1
 	obj_byte OBJ_OAM_ATTR, $20
-	obj_word OBJ_VAR_2E, ObjScript_0a_741d
+	obj_word OBJ_VAR_2E, ObjScript_Clambo_10_Sub
 	obj_end
 
-ObjInit_0e_54d5::
-	obj_include ObjInit_0e_4514
+ObjInit_Squidge_2::
+	obj_include ObjInit_Squidge_1
 	obj_word OBJ_YVEL, $ff80
 	obj_word OBJ_XACCEL, $0002
 	obj_word OBJ_VAR_2E, $0040
 	obj_end
 
-ObjInit_0e_54e2::
-	obj_include ObjInit_0e_4514
+ObjInit_Squidge_3::
+	obj_include ObjInit_Squidge_1
 	obj_word OBJ_YVEL, $0040
 	obj_word OBJ_XACCEL, $0002
 	obj_word OBJ_VAR_2E, $0040
 	obj_end
 
-ObjInit_0e_54ef::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_2::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $2c
 	obj_byte OBJ_VAR_31, $36
 	obj_byte OBJ_VAR_32, $0d
 	obj_byte OBJ_VAR_33, $16
-	obj_word OBJ_VAR_2E, ObjScript_0a_74ea
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_2_Sub
 	obj_word OBJ_XACCEL, $0100
 	obj_word OBJ_YACCEL, $0100
 	obj_end
 
-ObjInit_0e_5504::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_3::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $22
 	obj_byte OBJ_VAR_31, $2f
 	obj_byte OBJ_VAR_32, $18
 	obj_byte OBJ_VAR_33, $1e
-	obj_word OBJ_VAR_2E, ObjScript_0a_7501
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_3_Sub
 	obj_word OBJ_XACCEL, $0100
 	obj_word OBJ_YACCEL, $0100
 	obj_end
 
-ObjInit_0e_5519::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_4::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $0e
 	obj_byte OBJ_VAR_31, $17
 	obj_byte OBJ_VAR_32, $13
 	obj_byte OBJ_VAR_33, $1d
-	obj_word OBJ_VAR_2E, ObjScript_0a_751b
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_4_Sub
 	obj_word OBJ_XACCEL, $0100
 	obj_word OBJ_YACCEL, $0100
 	obj_end
 
-ObjInit_0e_552e::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_5::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $29
 	obj_byte OBJ_VAR_31, $39
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $0b
-	obj_word OBJ_VAR_2E, ObjScript_0a_7532
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_5_Sub
 	obj_word OBJ_XACCEL, $0100
 	obj_word OBJ_YACCEL, $0100
 	obj_end
 
-ObjInit_0e_5543::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_6::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $12
 	obj_byte OBJ_VAR_31, $14
 	obj_byte OBJ_VAR_32, $4d
 	obj_byte OBJ_VAR_33, $51
-	obj_word OBJ_VAR_2E, ObjScript_0a_758f
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_6_Sub
 	obj_word OBJ_XACCEL, $0140
 	obj_word OBJ_YACCEL, $0140
 	obj_end
 
-ObjInit_0e_5558::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_7::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $20
 	obj_byte OBJ_VAR_31, $24
 	obj_byte OBJ_VAR_32, $4e
 	obj_byte OBJ_VAR_33, $51
-	obj_word OBJ_VAR_2E, ObjScript_0a_75a0
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_7_Sub
 	obj_word OBJ_XACCEL, $0140
 	obj_word OBJ_YACCEL, $01a6
 	obj_end
 
-ObjInit_0e_556d::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_8::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $28
 	obj_byte OBJ_VAR_31, $2c
 	obj_byte OBJ_VAR_32, $44
 	obj_byte OBJ_VAR_33, $52
-	obj_word OBJ_VAR_2E, ObjScript_0a_75b5
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_8_Sub
 	obj_word OBJ_XACCEL, $0140
 	obj_word OBJ_YACCEL, $01fa
 	obj_end
 
-ObjInit_0e_5582::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_9::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $18
 	obj_byte OBJ_VAR_31, $1a
 	obj_byte OBJ_VAR_32, $45
 	obj_byte OBJ_VAR_33, $48
-	obj_word OBJ_VAR_2E, ObjScript_0a_75c6
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_9_Sub
 	obj_word OBJ_XACCEL, $0140
 	obj_word OBJ_YACCEL, $01a6
 	obj_end
 
-ObjInit_0e_5597::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_10::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $04
 	obj_byte OBJ_VAR_31, $08
 	obj_byte OBJ_VAR_32, $44
 	obj_byte OBJ_VAR_33, $48
-	obj_word OBJ_VAR_2E, ObjScript_0a_75e7
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_10_Sub
 	obj_word OBJ_XACCEL, $0190
 	obj_word OBJ_YACCEL, $016c
 	obj_end
 
-ObjInit_0e_55ac::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_11::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $0f
 	obj_byte OBJ_VAR_31, $11
 	obj_byte OBJ_VAR_32, $2a
 	obj_byte OBJ_VAR_33, $2e
-	obj_word OBJ_VAR_2E, ObjScript_0a_7618
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_11_Sub
 	obj_word OBJ_XACCEL, $0150
 	obj_word OBJ_YACCEL, $0140
 	obj_end
 
-ObjInit_0e_55c1::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_12::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $1b
 	obj_byte OBJ_VAR_31, $1e
 	obj_byte OBJ_VAR_32, $29
 	obj_byte OBJ_VAR_33, $2c
-	obj_word OBJ_VAR_2E, ObjScript_0a_7629
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_12_Sub
 	obj_word OBJ_XACCEL, $0140
 	obj_word OBJ_YACCEL, $0140
 	obj_end
 
-ObjInit_0e_55d6::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_13::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $21
 	obj_byte OBJ_VAR_31, $23
 	obj_byte OBJ_VAR_32, $2a
 	obj_byte OBJ_VAR_33, $2d
-	obj_word OBJ_VAR_2E, ObjScript_0a_7632
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_13_Sub
 	obj_word OBJ_XACCEL, $0160
 	obj_word OBJ_YACCEL, $01a6
 	obj_end
 
-ObjInit_0e_55eb::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_14::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $17
 	obj_byte OBJ_VAR_31, $19
 	obj_byte OBJ_VAR_32, $19
 	obj_byte OBJ_VAR_33, $1c
-	obj_word OBJ_VAR_2E, ObjScript_0a_764a
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_14_Sub
 	obj_word OBJ_XACCEL, $0140
 	obj_word OBJ_YACCEL, $01a6
 	obj_end
 
-ObjInit_0e_5600::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_15::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $07
 	obj_byte OBJ_VAR_31, $0a
 	obj_byte OBJ_VAR_32, $21
 	obj_byte OBJ_VAR_33, $22
-	obj_word OBJ_VAR_2E, ObjScript_0a_766e
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_15_Sub
 	obj_word OBJ_XACCEL, $0160
 	obj_word OBJ_YACCEL, $016c
 	obj_end
 
-ObjInit_0e_5615::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_16::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $0f
 	obj_byte OBJ_VAR_31, $10
 	obj_byte OBJ_VAR_32, $13
 	obj_byte OBJ_VAR_33, $15
-	obj_word OBJ_VAR_2E, ObjScript_0a_7683
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_16_Sub
 	obj_word OBJ_XACCEL, $0160
 	obj_word OBJ_YACCEL, $0180
 	obj_end
 
-ObjInit_0e_562a::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_17::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $17
 	obj_byte OBJ_VAR_31, $1a
 	obj_byte OBJ_VAR_32, $0b
 	obj_byte OBJ_VAR_33, $0d
-	obj_word OBJ_VAR_2E, ObjScript_0a_76a4
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_17_Sub
 	obj_word OBJ_XACCEL, $0160
 	obj_word OBJ_YACCEL, $01a6
 	obj_end
 
-ObjInit_0e_563f::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_18::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $25
 	obj_byte OBJ_VAR_31, $26
 	obj_byte OBJ_VAR_32, $0e
 	obj_byte OBJ_VAR_33, $15
-	obj_word OBJ_VAR_2E, ObjScript_0a_76c5
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_18_Sub
 	obj_word OBJ_XACCEL, $0160
 	obj_word OBJ_YACCEL, $01a6
 	obj_end
 
-ObjInit_0e_5654::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_19::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $1f
 	obj_byte OBJ_VAR_31, $2b
 	obj_byte OBJ_VAR_32, $01
 	obj_byte OBJ_VAR_33, $07
-	obj_word OBJ_VAR_2E, ObjScript_0a_7559
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_19_Sub
 	obj_word OBJ_XACCEL, $0100
 	obj_word OBJ_YACCEL, $0100
 	obj_end
 
-ObjInit_0e_5669::
-	obj_include ObjInit_0e_458a
+ObjInit_Croctopus_20::
+	obj_include ObjInit_Croctopus_1
 	obj_byte OBJ_VAR_30, $1f
 	obj_byte OBJ_VAR_31, $2b
 	obj_byte OBJ_VAR_32, $01
 	obj_byte OBJ_VAR_33, $07
-	obj_word OBJ_VAR_2E, ObjScript_0a_7574
+	obj_word OBJ_VAR_2E, ObjScript_Croctopus_20_Sub
 	obj_word OBJ_XACCEL, $0100
 	obj_word OBJ_YACCEL, $0100
 	obj_end
 
-ObjInit_0e_567e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_2::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3246,8 +3246,8 @@ ObjInit_0e_567e::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5692::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_3::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3257,8 +3257,8 @@ ObjInit_0e_5692::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_56a6::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_4::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3268,8 +3268,8 @@ ObjInit_0e_56a6::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_56ba::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_5::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3279,8 +3279,8 @@ ObjInit_0e_56ba::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_56ce::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_6::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $05
@@ -3290,8 +3290,8 @@ ObjInit_0e_56ce::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_56e2::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_7::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $46
 	obj_byte OBJ_VAR_33, $01
@@ -3301,8 +3301,8 @@ ObjInit_0e_56e2::
 	obj_word OBJ_VAR_3A, $4850
 	obj_end
 
-ObjInit_0e_56f6::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_8::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $26
 	obj_byte OBJ_VAR_33, $01
@@ -3312,8 +3312,8 @@ ObjInit_0e_56f6::
 	obj_word OBJ_VAR_3A, $4850
 	obj_end
 
-ObjInit_0e_570a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_9::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $4a
 	obj_byte OBJ_VAR_33, $01
@@ -3323,8 +3323,8 @@ ObjInit_0e_570a::
 	obj_word OBJ_VAR_3A, $4850
 	obj_end
 
-ObjInit_0e_571e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_10::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $01
@@ -3334,8 +3334,8 @@ ObjInit_0e_571e::
 	obj_word OBJ_VAR_3A, $4850
 	obj_end
 
-ObjInit_0e_5732::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_11::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $01
@@ -3345,8 +3345,8 @@ ObjInit_0e_5732::
 	obj_word OBJ_VAR_3A, $4850
 	obj_end
 
-ObjInit_0e_5746::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_12::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $01
@@ -3356,8 +3356,8 @@ ObjInit_0e_5746::
 	obj_word OBJ_VAR_3A, $4850
 	obj_end
 
-ObjInit_0e_575a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_13::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $05
@@ -3367,8 +3367,8 @@ ObjInit_0e_575a::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_576e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_14::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $02
@@ -3378,8 +3378,8 @@ ObjInit_0e_576e::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5782::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_15::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $02
@@ -3389,8 +3389,8 @@ ObjInit_0e_5782::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5796::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_16::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $02
@@ -3400,8 +3400,8 @@ ObjInit_0e_5796::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_57aa::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_17::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $02
@@ -3411,8 +3411,8 @@ ObjInit_0e_57aa::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_57be::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_18::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $02
@@ -3422,8 +3422,8 @@ ObjInit_0e_57be::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_57d2::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_19::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $02
@@ -3433,8 +3433,8 @@ ObjInit_0e_57d2::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_57e6::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_20::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $6a
 	obj_byte OBJ_VAR_33, $02
@@ -3444,8 +3444,8 @@ ObjInit_0e_57e6::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_57fa::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_21::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $40
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $02
@@ -3455,8 +3455,8 @@ ObjInit_0e_57fa::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_580e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_22::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0a
 	obj_byte OBJ_VAR_32, $03
 	obj_byte OBJ_VAR_33, $07
@@ -3466,8 +3466,8 @@ ObjInit_0e_580e::
 	obj_word OBJ_VAR_3A, $5f0f
 	obj_end
 
-ObjInit_0e_5822::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_23::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0a
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -3477,8 +3477,8 @@ ObjInit_0e_5822::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5836::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_24::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0a
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3488,8 +3488,8 @@ ObjInit_0e_5836::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_584a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_25::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0a
 	obj_byte OBJ_VAR_32, $c0
 	obj_byte OBJ_VAR_33, $07
@@ -3499,8 +3499,8 @@ ObjInit_0e_584a::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_585e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_26::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0a
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3510,8 +3510,8 @@ ObjInit_0e_585e::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5872::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_27::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -3521,8 +3521,8 @@ ObjInit_0e_5872::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5886::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_28::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $83
 	obj_byte OBJ_VAR_33, $07
@@ -3532,8 +3532,8 @@ ObjInit_0e_5886::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_589a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_29::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $e4
 	obj_byte OBJ_VAR_33, $07
@@ -3543,8 +3543,8 @@ ObjInit_0e_589a::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_58ae::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_30::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -3554,8 +3554,8 @@ ObjInit_0e_58ae::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_58c2::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_31::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -3565,8 +3565,8 @@ ObjInit_0e_58c2::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_58d6::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_32::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $0e
 	obj_byte OBJ_VAR_33, $07
@@ -3576,8 +3576,8 @@ ObjInit_0e_58d6::
 	obj_word OBJ_VAR_3A, $7381
 	obj_end
 
-ObjInit_0e_58ea::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_33::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -3587,11 +3587,11 @@ ObjInit_0e_58ea::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_58fe::
+ObjInit_BarrelCannon_34::
 	obj_word OBJ_TARGET_XVEL, $0170
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0046
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $07
@@ -3601,11 +3601,11 @@ ObjInit_0e_58fe::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_591b::
+ObjInit_BarrelCannon_35::
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $0078
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3615,11 +3615,11 @@ ObjInit_0e_591b::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5938::
+ObjInit_BarrelCannon_36::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $0078
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3629,11 +3629,11 @@ ObjInit_0e_5938::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5955::
+ObjInit_BarrelCannon_37::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $0078
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $07
@@ -3643,11 +3643,11 @@ ObjInit_0e_5955::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5972::
+ObjInit_BarrelCannon_38::
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_word OBJ_VAR_2E, $0078
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3657,11 +3657,11 @@ ObjInit_0e_5972::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_598f::
+ObjInit_BarrelCannon_39::
 	obj_word OBJ_TARGET_YVEL, $fef0
 	obj_word OBJ_VAR_2E, $0000
 	obj_word OBJ_VAR_30, $0064
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3671,11 +3671,11 @@ ObjInit_0e_598f::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_59ac::
+ObjInit_BarrelCannon_40::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $005a
 	obj_word OBJ_VAR_30, $0026
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $c8
 	obj_byte OBJ_VAR_33, $07
@@ -3685,12 +3685,12 @@ ObjInit_0e_59ac::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_59c9::
+ObjInit_BarrelCannon_41::
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $003f
 	obj_word OBJ_VAR_30, $000c
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $06
 	obj_byte OBJ_VAR_33, $07
@@ -3700,8 +3700,8 @@ ObjInit_0e_59c9::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_59e9::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_42::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $e4
 	obj_byte OBJ_VAR_33, $07
@@ -3711,8 +3711,8 @@ ObjInit_0e_59e9::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_59fd::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_43::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $a4
 	obj_byte OBJ_VAR_33, $07
@@ -3722,8 +3722,8 @@ ObjInit_0e_59fd::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5a11::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_44::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3733,11 +3733,11 @@ ObjInit_0e_5a11::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5a25::
+ObjInit_BarrelCannon_45::
 	obj_word OBJ_TARGET_YVEL, $0150
 	obj_word OBJ_VAR_2E, $0076
 	obj_word OBJ_VAR_30, $0018
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3747,11 +3747,11 @@ ObjInit_0e_5a25::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5a42::
+ObjInit_BarrelCannon_46::
 	obj_word OBJ_TARGET_YVEL, $0110
 	obj_word OBJ_VAR_2E, $0099
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3761,11 +3761,11 @@ ObjInit_0e_5a42::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5a5f::
+ObjInit_BarrelCannon_47::
 	obj_word OBJ_TARGET_YVEL, $fe80
 	obj_word OBJ_VAR_2E, $000c
 	obj_word OBJ_VAR_30, $0055
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -3775,11 +3775,11 @@ ObjInit_0e_5a5f::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5a7c::
+ObjInit_BarrelCannon_48::
 	obj_word OBJ_TARGET_XVEL, $0250
 	obj_word OBJ_VAR_2E, $0082
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -3789,11 +3789,11 @@ ObjInit_0e_5a7c::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5a99::
+ObjInit_BarrelCannon_49::
 	obj_word OBJ_TARGET_XVEL, $0250
 	obj_word OBJ_VAR_2E, $0082
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $07
@@ -3803,11 +3803,11 @@ ObjInit_0e_5a99::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5ab6::
+ObjInit_BarrelCannon_50::
 	obj_word OBJ_TARGET_XVEL, $0250
 	obj_word OBJ_VAR_2E, $0082
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $08
 	obj_byte OBJ_VAR_33, $07
@@ -3817,11 +3817,11 @@ ObjInit_0e_5ab6::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5ad3::
+ObjInit_BarrelCannon_51::
 	obj_word OBJ_TARGET_XVEL, $0250
 	obj_word OBJ_VAR_2E, $0082
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $80
 	obj_byte OBJ_VAR_33, $07
@@ -3831,12 +3831,12 @@ ObjInit_0e_5ad3::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5af0::
+ObjInit_BarrelCannon_52::
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $0014
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c6
 	obj_byte OBJ_VAR_33, $08
@@ -3846,12 +3846,12 @@ ObjInit_0e_5af0::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_5b10::
+ObjInit_BarrelCannon_53::
 	obj_word OBJ_TARGET_YVEL, $0200
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $0014
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $08
@@ -3861,12 +3861,12 @@ ObjInit_0e_5b10::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5b30::
+ObjInit_BarrelCannon_54::
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $0014
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $a6
 	obj_byte OBJ_VAR_33, $08
@@ -3876,11 +3876,11 @@ ObjInit_0e_5b30::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_5b50::
+ObjInit_BarrelCannon_55::
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $002d
 	obj_word OBJ_VAR_30, $002d
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $08
@@ -3890,8 +3890,8 @@ ObjInit_0e_5b50::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5b6d::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_56::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $e4
 	obj_byte OBJ_VAR_33, $05
@@ -3901,11 +3901,11 @@ ObjInit_0e_5b6d::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5b81::
+ObjInit_BarrelCannon_57::
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_word OBJ_VAR_2E, $0018
 	obj_word OBJ_VAR_30, $0079
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $08
@@ -3915,11 +3915,11 @@ ObjInit_0e_5b81::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5b9e::
+ObjInit_BarrelCannon_58::
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_word OBJ_VAR_2E, $004b
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $08
@@ -3929,11 +3929,11 @@ ObjInit_0e_5b9e::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5bbb::
+ObjInit_BarrelCannon_59::
 	obj_word OBJ_TARGET_YVEL, $fde0
 	obj_word OBJ_VAR_2E, $0000
 	obj_word OBJ_VAR_30, $0070
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $08
@@ -3943,11 +3943,11 @@ ObjInit_0e_5bbb::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5bd8::
+ObjInit_BarrelCannon_60::
 	obj_word OBJ_TARGET_YVEL, $0220
 	obj_word OBJ_VAR_2E, $0070
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $08
@@ -3957,11 +3957,11 @@ ObjInit_0e_5bd8::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5bf5::
+ObjInit_BarrelCannon_61::
 	obj_word OBJ_TARGET_YVEL, $0160
 	obj_word OBJ_VAR_2E, $003e
 	obj_word OBJ_VAR_30, $003e
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $08
@@ -3971,11 +3971,11 @@ ObjInit_0e_5bf5::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5c12::
+ObjInit_BarrelCannon_62::
 	obj_word OBJ_TARGET_YVEL, $0165
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3985,11 +3985,11 @@ ObjInit_0e_5c12::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5c2f::
+ObjInit_BarrelCannon_63::
 	obj_word OBJ_TARGET_YVEL, $fe87
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $0026
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -3999,11 +3999,11 @@ ObjInit_0e_5c2f::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5c4c::
+ObjInit_BarrelCannon_64::
 	obj_word OBJ_TARGET_YVEL, $0193
 	obj_word OBJ_VAR_2E, $002e
 	obj_word OBJ_VAR_30, $002e
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -4013,11 +4013,11 @@ ObjInit_0e_5c4c::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5c69::
+ObjInit_BarrelCannon_65::
 	obj_word OBJ_TARGET_YVEL, $fdf9
 	obj_word OBJ_VAR_2E, $0036
 	obj_word OBJ_VAR_30, $0036
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -4027,11 +4027,11 @@ ObjInit_0e_5c69::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5c86::
+ObjInit_BarrelCannon_66::
 	obj_word OBJ_TARGET_YVEL, $0221
 	obj_word OBJ_VAR_2E, $003e
 	obj_word OBJ_VAR_30, $003e
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -4041,11 +4041,11 @@ ObjInit_0e_5c86::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5ca3::
+ObjInit_BarrelCannon_67::
 	obj_word OBJ_TARGET_YVEL, $0236
 	obj_word OBJ_VAR_2E, $003e
 	obj_word OBJ_VAR_30, $003e
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -4055,11 +4055,11 @@ ObjInit_0e_5ca3::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5cc0::
+ObjInit_BarrelCannon_68::
 	obj_word OBJ_TARGET_YVEL, $fdca
 	obj_word OBJ_VAR_2E, $003e
 	obj_word OBJ_VAR_30, $003e
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -4069,11 +4069,11 @@ ObjInit_0e_5cc0::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5cdd::
+ObjInit_BarrelCannon_69::
 	obj_word OBJ_TARGET_YVEL, $0200
 	obj_word OBJ_VAR_2E, $0078
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $08
@@ -4083,11 +4083,11 @@ ObjInit_0e_5cdd::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5cfa::
+ObjInit_BarrelCannon_70::
 	obj_word OBJ_TARGET_YVEL, $0200
 	obj_word OBJ_VAR_2E, $004b
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $08
@@ -4097,8 +4097,8 @@ ObjInit_0e_5cfa::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5d17::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_71::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $03
@@ -4108,8 +4108,8 @@ ObjInit_0e_5d17::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5d2b::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_72::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $cc
 	obj_byte OBJ_VAR_33, $03
@@ -4119,8 +4119,8 @@ ObjInit_0e_5d2b::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5d3f::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_73::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $03
@@ -4130,8 +4130,8 @@ ObjInit_0e_5d3f::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5d53::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_74::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $cc
 	obj_byte OBJ_VAR_33, $02
@@ -4141,8 +4141,8 @@ ObjInit_0e_5d53::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5d67::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_75::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $cc
 	obj_byte OBJ_VAR_33, $02
@@ -4152,8 +4152,8 @@ ObjInit_0e_5d67::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5d7b::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_76::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $ee
 	obj_byte OBJ_VAR_33, $02
@@ -4163,8 +4163,8 @@ ObjInit_0e_5d7b::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5d8f::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_77::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $cc
 	obj_byte OBJ_VAR_33, $02
@@ -4174,8 +4174,8 @@ ObjInit_0e_5d8f::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_5da3::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_78::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $aa
 	obj_byte OBJ_VAR_33, $02
@@ -4185,8 +4185,8 @@ ObjInit_0e_5da3::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5db7::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_79::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $aa
 	obj_byte OBJ_VAR_33, $02
@@ -4196,8 +4196,8 @@ ObjInit_0e_5db7::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_5dcb::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_80::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $aa
 	obj_byte OBJ_VAR_33, $02
@@ -4207,8 +4207,8 @@ ObjInit_0e_5dcb::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5ddf::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_81::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $ee
 	obj_byte OBJ_VAR_33, $02
@@ -4218,8 +4218,8 @@ ObjInit_0e_5ddf::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5df3::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_82::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $cc
 	obj_byte OBJ_VAR_33, $02
@@ -4229,8 +4229,8 @@ ObjInit_0e_5df3::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5e07::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_83::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $02
@@ -4240,8 +4240,8 @@ ObjInit_0e_5e07::
 	obj_byte OBJ_VAR_37, $32
 	obj_end
 
-ObjInit_0e_5e1b::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_84::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $20
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $02
@@ -4251,11 +4251,11 @@ ObjInit_0e_5e1b::
 	obj_byte OBJ_VAR_37, $32
 	obj_end
 
-ObjInit_0e_5e2f::
+ObjInit_BarrelCannon_85::
 	obj_word OBJ_TARGET_YVEL, $fea0
 	obj_word OBJ_VAR_2E, $0035
 	obj_word OBJ_VAR_30, $0037
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $22
 	obj_byte OBJ_VAR_32, $cc
 	obj_byte OBJ_VAR_33, $02
@@ -4265,11 +4265,11 @@ ObjInit_0e_5e2f::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5e4c::
+ObjInit_BarrelCannon_86::
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $0032
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $23
 	obj_byte OBJ_VAR_32, $cc
 	obj_byte OBJ_VAR_33, $02
@@ -4279,8 +4279,8 @@ ObjInit_0e_5e4c::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5e69::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_87::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $07
@@ -4290,8 +4290,8 @@ ObjInit_0e_5e69::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5e7d::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_88::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $4c
 	obj_byte OBJ_VAR_33, $07
@@ -4301,8 +4301,8 @@ ObjInit_0e_5e7d::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5e91::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_89::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $82
 	obj_byte OBJ_VAR_33, $07
@@ -4312,8 +4312,8 @@ ObjInit_0e_5e91::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5ea5::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_90::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $ae
 	obj_byte OBJ_VAR_33, $07
@@ -4323,8 +4323,8 @@ ObjInit_0e_5ea5::
 	obj_word OBJ_VAR_3A, $7381
 	obj_end
 
-ObjInit_0e_5eb9::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_91::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $64
 	obj_byte OBJ_VAR_33, $07
@@ -4334,8 +4334,8 @@ ObjInit_0e_5eb9::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5ecd::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_92::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $82
 	obj_byte OBJ_VAR_33, $07
@@ -4345,8 +4345,8 @@ ObjInit_0e_5ecd::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_5ee1::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_93::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $48
 	obj_byte OBJ_VAR_33, $07
@@ -4356,8 +4356,8 @@ ObjInit_0e_5ee1::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5ef5::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_94::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $0a
 	obj_byte OBJ_VAR_33, $07
@@ -4367,8 +4367,8 @@ ObjInit_0e_5ef5::
 	obj_word OBJ_VAR_3A, $1c81
 	obj_end
 
-ObjInit_0e_5f09::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_95::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $24
 	obj_byte OBJ_VAR_33, $07
@@ -4378,8 +4378,8 @@ ObjInit_0e_5f09::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5f1d::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_96::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $48
 	obj_byte OBJ_VAR_33, $07
@@ -4389,8 +4389,8 @@ ObjInit_0e_5f1d::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5f31::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_97::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $07
@@ -4400,8 +4400,8 @@ ObjInit_0e_5f31::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5f45::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_98::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4411,8 +4411,8 @@ ObjInit_0e_5f45::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5f59::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_99::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4422,8 +4422,8 @@ ObjInit_0e_5f59::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5f6d::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_100::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4433,8 +4433,8 @@ ObjInit_0e_5f6d::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5f81::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_101::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $88
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4444,8 +4444,8 @@ ObjInit_0e_5f81::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5f95::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_102::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4455,8 +4455,8 @@ ObjInit_0e_5f95::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5fa9::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_103::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4466,8 +4466,8 @@ ObjInit_0e_5fa9::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_5fbd::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_104::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $07
@@ -4477,8 +4477,8 @@ ObjInit_0e_5fbd::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_5fd1::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_105::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -4488,8 +4488,8 @@ ObjInit_0e_5fd1::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_5fe5::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_106::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $0c
 	obj_byte OBJ_VAR_33, $07
@@ -4499,8 +4499,8 @@ ObjInit_0e_5fe5::
 	obj_word OBJ_VAR_3A, $4895
 	obj_end
 
-ObjInit_0e_5ff9::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_107::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $07
@@ -4510,8 +4510,8 @@ ObjInit_0e_5ff9::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_600d::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_108::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $0e
 	obj_byte OBJ_VAR_33, $07
@@ -4521,8 +4521,8 @@ ObjInit_0e_600d::
 	obj_word OBJ_VAR_3A, $7381
 	obj_end
 
-ObjInit_0e_6021::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_109::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4532,8 +4532,8 @@ ObjInit_0e_6021::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_6035::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_110::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $0c
 	obj_byte OBJ_VAR_33, $07
@@ -4543,8 +4543,8 @@ ObjInit_0e_6035::
 	obj_word OBJ_VAR_3A, $4895
 	obj_end
 
-ObjInit_0e_6049::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_111::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4554,8 +4554,8 @@ ObjInit_0e_6049::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_605d::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_112::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $82
 	obj_byte OBJ_VAR_33, $07
@@ -4565,8 +4565,8 @@ ObjInit_0e_605d::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_6071::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_113::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $82
 	obj_byte OBJ_VAR_33, $07
@@ -4576,8 +4576,8 @@ ObjInit_0e_6071::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_6085::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_114::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -4587,8 +4587,8 @@ ObjInit_0e_6085::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6099::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_115::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $07
@@ -4598,8 +4598,8 @@ ObjInit_0e_6099::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_60ad::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_116::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $88
 	obj_byte OBJ_VAR_33, $07
@@ -4609,11 +4609,11 @@ ObjInit_0e_60ad::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_60c1::
+ObjInit_BarrelCannon_117::
 	obj_word OBJ_TARGET_YVEL, $ff70
 	obj_word OBJ_VAR_2E, $0000
 	obj_word OBJ_VAR_30, $0064
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $c0
 	obj_byte OBJ_VAR_33, $07
@@ -4623,8 +4623,8 @@ ObjInit_0e_60c1::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_60de::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_118::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -4634,8 +4634,8 @@ ObjInit_0e_60de::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_60f2::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_119::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -4645,8 +4645,8 @@ ObjInit_0e_60f2::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6106::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_120::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -4656,8 +4656,8 @@ ObjInit_0e_6106::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_611a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_121::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -4667,8 +4667,8 @@ ObjInit_0e_611a::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_612e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_122::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -4678,8 +4678,8 @@ ObjInit_0e_612e::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6142::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_123::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $a4
 	obj_byte OBJ_VAR_33, $07
@@ -4689,8 +4689,8 @@ ObjInit_0e_6142::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6156::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_124::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $c2
 	obj_byte OBJ_VAR_33, $07
@@ -4700,8 +4700,8 @@ ObjInit_0e_6156::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_616a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_125::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $a8
 	obj_byte OBJ_VAR_33, $07
@@ -4711,8 +4711,8 @@ ObjInit_0e_616a::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_617e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_126::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $82
 	obj_byte OBJ_VAR_33, $07
@@ -4722,8 +4722,8 @@ ObjInit_0e_617e::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6192::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_127::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $a6
 	obj_byte OBJ_VAR_33, $07
@@ -4733,8 +4733,8 @@ ObjInit_0e_6192::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_61a6::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_128::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $07
@@ -4744,8 +4744,8 @@ ObjInit_0e_61a6::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_61ba::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_129::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $c2
 	obj_byte OBJ_VAR_33, $07
@@ -4755,8 +4755,8 @@ ObjInit_0e_61ba::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_61ce::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_130::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $85
 	obj_byte OBJ_VAR_33, $07
@@ -4766,8 +4766,8 @@ ObjInit_0e_61ce::
 	obj_word OBJ_VAR_3A, $300f
 	obj_end
 
-ObjInit_0e_61e2::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_131::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $c7
 	obj_byte OBJ_VAR_33, $07
@@ -4777,8 +4777,8 @@ ObjInit_0e_61e2::
 	obj_word OBJ_VAR_3A, $0e35
 	obj_end
 
-ObjInit_0e_61f6::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_132::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $a6
 	obj_byte OBJ_VAR_33, $07
@@ -4788,8 +4788,8 @@ ObjInit_0e_61f6::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_620a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_133::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $07
@@ -4799,8 +4799,8 @@ ObjInit_0e_620a::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_621e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_134::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $a3
 	obj_byte OBJ_VAR_33, $07
@@ -4810,8 +4810,8 @@ ObjInit_0e_621e::
 	obj_word OBJ_VAR_3A, $5f0f
 	obj_end
 
-ObjInit_0e_6232::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_135::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $c6
 	obj_byte OBJ_VAR_33, $07
@@ -4821,8 +4821,8 @@ ObjInit_0e_6232::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_6246::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_136::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -4832,8 +4832,8 @@ ObjInit_0e_6246::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_625a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_137::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -4843,11 +4843,11 @@ ObjInit_0e_625a::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_626e::
+ObjInit_BarrelCannon_138::
 	obj_word OBJ_TARGET_XVEL, $fef0
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0046
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0b
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -4857,11 +4857,11 @@ ObjInit_0e_626e::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_628b::
+ObjInit_BarrelCannon_139::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $0064
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $03
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -4871,11 +4871,11 @@ ObjInit_0e_628b::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_62a8::
+ObjInit_BarrelCannon_140::
 	obj_word OBJ_TARGET_YVEL, $0170
 	obj_word OBJ_VAR_2E, $0019
 	obj_word OBJ_VAR_30, $002a
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0b
 	obj_byte OBJ_VAR_32, $c0
 	obj_byte OBJ_VAR_33, $08
@@ -4885,11 +4885,11 @@ ObjInit_0e_62a8::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_62c5::
+ObjInit_BarrelCannon_141::
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0046
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0b
 	obj_byte OBJ_VAR_32, $c0
 	obj_byte OBJ_VAR_33, $08
@@ -4899,11 +4899,11 @@ ObjInit_0e_62c5::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_62e2::
+ObjInit_BarrelCannon_142::
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0046
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0b
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $08
@@ -4913,8 +4913,8 @@ ObjInit_0e_62e2::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_62ff::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_143::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4924,8 +4924,8 @@ ObjInit_0e_62ff::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_6313::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_144::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -4935,8 +4935,8 @@ ObjInit_0e_6313::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_6327::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_145::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $ee
 	obj_byte OBJ_VAR_33, $07
@@ -4946,11 +4946,11 @@ ObjInit_0e_6327::
 	obj_word OBJ_VAR_3A, $7381
 	obj_end
 
-ObjInit_0e_633b::
+ObjInit_BarrelCannon_146::
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_word OBJ_VAR_2E, $0050
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $c0
 	obj_byte OBJ_VAR_33, $07
@@ -4960,8 +4960,8 @@ ObjInit_0e_633b::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_6358::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_147::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $00
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -4971,8 +4971,8 @@ ObjInit_0e_6358::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_636c::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_148::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -4982,11 +4982,11 @@ ObjInit_0e_636c::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6380::
+ObjInit_BarrelCannon_149::
 	obj_word OBJ_TARGET_XVEL, $0160
 	obj_word OBJ_VAR_2E, $0064
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $0b
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -4996,8 +4996,8 @@ ObjInit_0e_6380::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_639d::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_150::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $8c
 	obj_byte OBJ_VAR_33, $07
@@ -5007,8 +5007,8 @@ ObjInit_0e_639d::
 	obj_word OBJ_VAR_3A, $4895
 	obj_end
 
-ObjInit_0e_63b1::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_151::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c8
 	obj_byte OBJ_VAR_33, $07
@@ -5018,8 +5018,8 @@ ObjInit_0e_63b1::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_63c5::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_152::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -5029,8 +5029,8 @@ ObjInit_0e_63c5::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_63d9::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_153::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $07
@@ -5040,8 +5040,8 @@ ObjInit_0e_63d9::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_63ed::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_154::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c6
 	obj_byte OBJ_VAR_33, $07
@@ -5051,11 +5051,11 @@ ObjInit_0e_63ed::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_6401::
+ObjInit_BarrelCannon_155::
 	obj_word OBJ_TARGET_XVEL, $0130
 	obj_word OBJ_VAR_2E, $0050
 	obj_word OBJ_VAR_30, $000b
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $c8
 	obj_byte OBJ_VAR_33, $07
@@ -5065,11 +5065,11 @@ ObjInit_0e_6401::
 	obj_word OBJ_VAR_3A, $0a50
 	obj_end
 
-ObjInit_0e_641e::
+ObjInit_BarrelCannon_156::
 	obj_word OBJ_TARGET_XVEL, $0160
 	obj_word OBJ_VAR_2E, $0032
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $02
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -5079,11 +5079,11 @@ ObjInit_0e_641e::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_643b::
+ObjInit_BarrelCannon_157::
 	obj_word OBJ_TARGET_XVEL, $0130
 	obj_word OBJ_VAR_2E, $0034
 	obj_word OBJ_VAR_30, $0034
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $43
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $02
@@ -5093,11 +5093,11 @@ ObjInit_0e_643b::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_6458::
+ObjInit_BarrelCannon_158::
 	obj_word OBJ_TARGET_XVEL, $0130
 	obj_word OBJ_VAR_2E, $0030
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $43
 	obj_byte OBJ_VAR_32, $e2
 	obj_byte OBJ_VAR_33, $02
@@ -5107,8 +5107,8 @@ ObjInit_0e_6458::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_6475::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_159::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $86
 	obj_byte OBJ_VAR_33, $07
@@ -5118,8 +5118,8 @@ ObjInit_0e_6475::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_6489::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_160::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c2
 	obj_byte OBJ_VAR_33, $07
@@ -5129,11 +5129,11 @@ ObjInit_0e_6489::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_649d::
+ObjInit_BarrelCannon_161::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $0050
 	obj_word OBJ_VAR_30, $0050
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -5143,8 +5143,8 @@ ObjInit_0e_649d::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_64ba::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_162::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c3
 	obj_byte OBJ_VAR_33, $07
@@ -5154,8 +5154,8 @@ ObjInit_0e_64ba::
 	obj_word OBJ_VAR_3A, $5f0f
 	obj_end
 
-ObjInit_0e_64ce::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_163::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c3
 	obj_byte OBJ_VAR_33, $07
@@ -5165,8 +5165,8 @@ ObjInit_0e_64ce::
 	obj_word OBJ_VAR_3A, $5f0f
 	obj_end
 
-ObjInit_0e_64e2::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_164::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $a4
 	obj_byte OBJ_VAR_33, $07
@@ -5176,8 +5176,8 @@ ObjInit_0e_64e2::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_64f6::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_165::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c2
 	obj_byte OBJ_VAR_33, $04
@@ -5187,8 +5187,8 @@ ObjInit_0e_64f6::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_650a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_166::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $04
@@ -5198,8 +5198,8 @@ ObjInit_0e_650a::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_651e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_167::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $04
@@ -5209,8 +5209,8 @@ ObjInit_0e_651e::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_6532::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_168::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $04
@@ -5220,8 +5220,8 @@ ObjInit_0e_6532::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6546::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_169::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $44
 	obj_byte OBJ_VAR_33, $07
@@ -5231,8 +5231,8 @@ ObjInit_0e_6546::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_655a::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_170::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -5242,8 +5242,8 @@ ObjInit_0e_655a::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_656e::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_171::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -5253,8 +5253,8 @@ ObjInit_0e_656e::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6582::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_172::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $c4
 	obj_byte OBJ_VAR_33, $07
@@ -5264,8 +5264,8 @@ ObjInit_0e_6582::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_6596::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_173::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $84
 	obj_byte OBJ_VAR_33, $07
@@ -5275,8 +5275,8 @@ ObjInit_0e_6596::
 	obj_word OBJ_VAR_3A, $1c1e
 	obj_end
 
-ObjInit_0e_65aa::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_174::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -5286,11 +5286,11 @@ ObjInit_0e_65aa::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_65be::
+ObjInit_BarrelCannon_175::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $0046
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_4207
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $09
 	obj_byte OBJ_VAR_32, $04
 	obj_byte OBJ_VAR_33, $07
@@ -5300,8 +5300,8 @@ ObjInit_0e_65be::
 	obj_word OBJ_VAR_3A, $470a
 	obj_end
 
-ObjInit_0e_65db::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_176::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $03
 	obj_byte OBJ_VAR_33, $07
@@ -5311,8 +5311,8 @@ ObjInit_0e_65db::
 	obj_word OBJ_VAR_3A, $5f0f
 	obj_end
 
-ObjInit_0e_65ef::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_177::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $02
 	obj_byte OBJ_VAR_33, $07
@@ -5322,8 +5322,8 @@ ObjInit_0e_65ef::
 	obj_word OBJ_VAR_3A, $731e
 	obj_end
 
-ObjInit_0e_6603::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_178::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $00
 	obj_byte OBJ_VAR_33, $07
@@ -5333,8 +5333,8 @@ ObjInit_0e_6603::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_6617::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_179::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $83
 	obj_byte OBJ_VAR_33, $07
@@ -5344,8 +5344,8 @@ ObjInit_0e_6617::
 	obj_word OBJ_VAR_3A, $5f0f
 	obj_end
 
-ObjInit_0e_662b::
-	obj_include ObjInit_0e_4207
+ObjInit_BarrelCannon_180::
+	obj_include ObjInit_BarrelCannon_1
 	obj_byte OBJ_VAR_3C, $08
 	obj_byte OBJ_VAR_32, $e0
 	obj_byte OBJ_VAR_33, $07
@@ -5355,209 +5355,209 @@ ObjInit_0e_662b::
 	obj_word OBJ_VAR_3A, $8650
 	obj_end
 
-ObjInit_0e_663f::
+ObjInit_StarBarrel::
 	obj_byte OBJ_BANK, BANK(StarBarrel)
 	obj_word OBJ_HANDLER, StarBarrel
 	obj_word OBJ_TOUCH_HANDLER, DKBarrel_Touch
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_ANIM, Anim_04_4df5
+	obj_word OBJ_ANIM, Anim_Player_EnterInBarrel_1
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $02
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_byte OBJ_VAR_2E, $04
 	obj_end
 
-ObjInit_0e_6657::
-	obj_include ObjInit_0e_482f
+ObjInit_Barrel_9::
+	obj_include ObjInit_DKBarrel_1
 	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
-ObjInit_0e_6662::
-	obj_include ObjInit_0e_482f
+ObjInit_DKBarrel_2::
+	obj_include ObjInit_DKBarrel_1
 	obj_word OBJ_TOUCH_HANDLER, DKBarrel_Touch
 	obj_byte OBJ_COLLISION, $02
 	obj_end
 
-ObjInit_0e_666b::
-	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, Frame_20_5986
+ObjInit_FuelBarrel_2::
+	obj_include ObjInit_FuelBarrel_1
+	obj_word OBJ_FRAME, Frame_FuelBarrel_1
 	obj_word OBJ_VAR_2E, $0500
 	obj_end
 
-ObjInit_0e_6675::
-	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, Frame_20_598c
+ObjInit_FuelBarrel_3::
+	obj_include ObjInit_FuelBarrel_1
+	obj_word OBJ_FRAME, Frame_FuelBarrel_2
 	obj_word OBJ_VAR_2E, $0400
 	obj_end
 
-ObjInit_0e_667f::
-	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, Frame_20_5998
+ObjInit_FuelBarrel_4::
+	obj_include ObjInit_FuelBarrel_1
+	obj_word OBJ_FRAME, Frame_FuelBarrel_3
 	obj_word OBJ_VAR_2E, $0200
 	obj_end
 
-ObjInit_0e_6689::
-	obj_include ObjInit_0e_4682
-	obj_word OBJ_FRAME, Frame_20_599e
+ObjInit_FuelBarrel_5::
+	obj_include ObjInit_FuelBarrel_1
+	obj_word OBJ_FRAME, Frame_FuelBarrel_4
 	obj_word OBJ_VAR_2E, $0100
 	obj_end
 
-ObjInit_0e_6693::
-	obj_include ObjInit_0e_4844
+ObjInit_Barrel_10::
+	obj_include ObjInit_Barrel_8
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, Frame_20_4ee8
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_29
 	obj_byte OBJ_VAR_2E, $03
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
-ObjInit_0e_66a0::
-	obj_include ObjInit_0e_4844
-	obj_word OBJ_FRAME, Frame_20_4b4c
+ObjInit_Barrel_11::
+	obj_include ObjInit_Barrel_8
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_28
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_0e_66ab::
-	obj_include ObjInit_0e_4844
-	obj_word OBJ_FRAME, Frame_20_48c4
+ObjInit_Barrel_12::
+	obj_include ObjInit_Barrel_8
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_17
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_0e_66b6::
-	obj_include ObjInit_0e_426d
+ObjInit_ExtraLifeBalloon_8::
+	obj_include ObjInit_ExtraLifeBalloon_6
 	obj_byte OBJ_PALETTE, $04
 	obj_byte OBJ_VAR_2E, $01
 	obj_byte OBJ_VAR_2F, $50
 	obj_end
 
-ObjInit_0e_66c0::
-	obj_include ObjInit_0e_426d
+ObjInit_ExtraLifeBalloon_9::
+	obj_include ObjInit_ExtraLifeBalloon_6
 	obj_byte OBJ_PALETTE, $04
 	obj_byte OBJ_VAR_2E, $01
 	obj_byte OBJ_VAR_2F, $5a
 	obj_end
 
-ObjInit_0e_66ca::
-	obj_include ObjInit_0e_426d
+ObjInit_ExtraLifeBalloon_10::
+	obj_include ObjInit_ExtraLifeBalloon_6
 	obj_byte OBJ_PALETTE, $06
 	obj_byte OBJ_VAR_2E, $02
 	obj_byte OBJ_VAR_2F, $46
 	obj_end
 
-ObjInit_0e_66d4::
-	obj_include ObjInit_0e_426d
+ObjInit_ExtraLifeBalloon_11::
+	obj_include ObjInit_ExtraLifeBalloon_6
 	obj_byte OBJ_PALETTE, $05
 	obj_byte OBJ_VAR_2E, $03
 	obj_byte OBJ_VAR_2F, $6e
 	obj_end
 
-ObjInit_0e_66de::
-	obj_include ObjInit_0e_4277
+ObjInit_ExtraLifeBalloon_12::
+	obj_include ObjInit_ExtraLifeBalloon_7
 	obj_byte OBJ_PALETTE, $04
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_0e_66e6::
-	obj_include ObjInit_0e_4277
+ObjInit_ExtraLifeBalloon_13::
+	obj_include ObjInit_ExtraLifeBalloon_7
 	obj_byte OBJ_PALETTE, $04
 	obj_byte OBJ_VAR_2E, $01
 	obj_byte OBJ_VAR_35, $0d
 	obj_end
 
-ObjInit_0e_66f0::
-	obj_include ObjInit_0e_4277
+ObjInit_ExtraLifeBalloon_14::
+	obj_include ObjInit_ExtraLifeBalloon_7
 	obj_byte OBJ_PALETTE, $06
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_0e_66f8::
-	obj_include ObjInit_0e_4277
+ObjInit_ExtraLifeBalloon_15::
+	obj_include ObjInit_ExtraLifeBalloon_7
 	obj_byte OBJ_PALETTE, $05
 	obj_byte OBJ_VAR_2E, $03
 	obj_end
 
-ObjInit_0e_6700::
-	obj_include ObjInit_0e_4643
+ObjInit_BananaBunch_6::
+	obj_include ObjInit_BananaBunch_5
 	obj_byte OBJ_PALETTE, $00
 	obj_end
 
-ObjInit_0e_6706::
-	obj_include ObjInit_0e_4657
+ObjInit_StickerBananaBunch_2::
+	obj_include ObjInit_StickerBananaBunch_1
 	obj_byte OBJ_VAR_2F, $01
 	obj_end
 
-ObjInit_0e_670c::
-	obj_include ObjInit_0e_4657
+ObjInit_StickerBananaBunch_3::
+	obj_include ObjInit_StickerBananaBunch_1
 	obj_byte OBJ_VAR_2F, $02
 	obj_end
 
-ObjInit_0e_6712::
-	obj_include ObjInit_0e_4657
+ObjInit_StickerBananaBunch_4::
+	obj_include ObjInit_StickerBananaBunch_1
 	obj_byte OBJ_VAR_2F, $03
 	obj_end
 
-ObjInit_0e_6718::
-	obj_include ObjInit_0e_46df
+ObjInit_StickerPad_2::
+	obj_include ObjInit_StickerPad_1
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_0e_671e::
-	obj_include ObjInit_0e_46df
+ObjInit_StickerPad_3::
+	obj_include ObjInit_StickerPad_1
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_0e_6724::
-	obj_include ObjInit_0e_46df
+ObjInit_StickerPad_4::
+	obj_include ObjInit_StickerPad_1
 	obj_byte OBJ_VAR_2E, $03
 	obj_end
 
-ObjInit_0e_672a::
-	obj_include ObjInit_0e_427b
+ObjInit_Obj_Idle_2::
+	obj_include ObjInit_Obj_Idle_1
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, Frame_20_44ec
+	obj_word OBJ_FRAME, Frame_Obj_Idle_2
 	obj_end
 
-ObjInit_0e_6733::
-	obj_include ObjInit_0e_427b
+ObjInit_Obj_Idle_3::
+	obj_include ObjInit_Obj_Idle_1
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, Frame_20_404e
+	obj_word OBJ_FRAME, Frame_Obj_Idle_1
 	obj_end
 
-ObjInit_0e_673c::
-	obj_include ObjInit_0e_427b
+ObjInit_Obj_Idle_4::
+	obj_include ObjInit_Obj_Idle_1
 	obj_byte OBJ_PALETTE, $01
-	obj_word OBJ_FRAME, Frame_20_5968
+	obj_word OBJ_FRAME, Frame_Obj_Idle_3
 	obj_byte OBJ_LAYER, $02
 	obj_end
 
-ObjInit_0e_6747::
-	obj_include ObjInit_0e_4695
+ObjInit_TireHalf::
+	obj_include ObjInit_Obj_AnimateAndDespawn_2
 	obj_word OBJ_TOUCH_HANDLER, TireHalf_Touch
 	obj_byte OBJ_OAM_ATTR, $00
 	obj_end
 
-ObjInit_0e_6750::
-	obj_include ObjInit_0e_4695
+ObjInit_Tire_PushDown::
+	obj_include ObjInit_Obj_AnimateAndDespawn_2
 	obj_word OBJ_TOUCH_HANDLER, Tire_PushDown_Touch
 	obj_byte OBJ_OAM_ATTR, $40
 	obj_end
 
-ObjInit_0e_6759::
-	obj_include ObjInit_0e_4695
+ObjInit_Tire_SmallBounce::
+	obj_include ObjInit_Obj_AnimateAndDespawn_2
 	obj_word OBJ_TOUCH_HANDLER, Tire_SmallBounce_Touch
 	obj_byte OBJ_OAM_ATTR, $00
 	obj_end
 
-ObjInit_0e_6762::
+ObjInit_Tire_2::
 	obj_byte OBJ_BANK, BANK(Tire)
 	obj_word OBJ_HANDLER, Tire
 	obj_word OBJ_TOUCH_HANDLER, Tire_Touch
 	obj_byte OBJ_FLAGS, $11
-	obj_word OBJ_ANIM, Anim_04_4f83
+	obj_word OBJ_ANIM, Anim_Tire_1
 	obj_byte OBJ_PALETTE, $03
 	obj_byte OBJ_LAYER, $01
 	obj_byte OBJ_COLLISION, $08
@@ -5567,165 +5567,165 @@ ObjInit_0e_6762::
 	obj_word OBJ_XACCEL, $0008
 	obj_end
 
-ObjInit_0e_6781::
+ObjInit_Tire_Top_2::
 	obj_word OBJ_TARGET_XVEL, $ff70
 	obj_word OBJ_VAR_2E, $0017
 	obj_word OBJ_VAR_30, $0097
-	obj_include ObjInit_0e_45a0
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_678e::
-	obj_include ObjInit_0e_45a0
+ObjInit_Tire_Top_3::
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_6792::
+ObjInit_Tire_Top_4::
 	obj_word OBJ_TARGET_XVEL, $ff6b
 	obj_word OBJ_VAR_2E, $002a
 	obj_word OBJ_VAR_30, $0035
-	obj_include ObjInit_0e_45a0
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_679f::
+ObjInit_Tire_Top_5::
 	obj_word OBJ_TARGET_XVEL, $fefb
 	obj_word OBJ_VAR_2E, $0063
 	obj_word OBJ_VAR_30, $0041
-	obj_include ObjInit_0e_45a0
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_67ac::
+ObjInit_Tire_Top_6::
 	obj_word OBJ_TARGET_XVEL, $fefb
 	obj_word OBJ_VAR_2E, $006f
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_45a0
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_67b9::
+ObjInit_Tire_Top_7::
 	obj_word OBJ_TARGET_XVEL, $ff69
 	obj_word OBJ_VAR_2E, $0050
 	obj_word OBJ_VAR_30, $003e
-	obj_include ObjInit_0e_45a0
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_67c6::
+ObjInit_Tire_Top_8::
 	obj_word OBJ_TARGET_XVEL, $fefb
 	obj_word OBJ_VAR_2E, $0035
 	obj_word OBJ_VAR_30, $0065
-	obj_include ObjInit_0e_45a0
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_67d3::
+ObjInit_Tire_Top_9::
 	obj_word OBJ_TARGET_XVEL, $ff69
 	obj_word OBJ_VAR_2E, $005a
 	obj_word OBJ_VAR_30, $005a
-	obj_include ObjInit_0e_45a0
+	obj_include ObjInit_Tire_Top_1
 	obj_end
 
-ObjInit_0e_67e0::
-	obj_include ObjInit_0e_4305
+ObjInit_SwingingRope_2::
+	obj_include ObjInit_SwingingRope_1
 	obj_word OBJ_XVEL, $0080
 	obj_byte OBJ_VAR_31, $00
 	obj_end
 
-ObjInit_0e_67e9::
-	obj_include ObjInit_0e_4305
+ObjInit_SwingingRope_3::
+	obj_include ObjInit_SwingingRope_1
 	obj_word OBJ_XVEL, $0080
 	obj_byte OBJ_VAR_31, $01
 	obj_byte OBJ_VAR_2F, $0f
 	obj_end
 
-ObjInit_0e_67f4::
-	obj_include ObjInit_0e_4305
+ObjInit_SwingingRope_4::
+	obj_include ObjInit_SwingingRope_1
 	obj_word OBJ_XVEL, $0080
 	obj_byte OBJ_VAR_31, $01
 	obj_byte OBJ_VAR_2F, $19
 	obj_end
 
-ObjInit_0e_67ff::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_2::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $0032
 	obj_end
 
-ObjInit_0e_6806::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_3::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $0064
 	obj_end
 
-ObjInit_0e_680d::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_4::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $0096
 	obj_end
 
-ObjInit_0e_6814::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_5::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $012c
 	obj_end
 
-ObjInit_0e_681b::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_6::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $00af
 	obj_end
 
-ObjInit_0e_6822::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_7::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $0190
 	obj_end
 
-ObjInit_0e_6829::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_8::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $004b
 	obj_end
 
-ObjInit_0e_6830::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_9::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $00c8
 	obj_end
 
-ObjInit_0e_6837::
-	obj_include ObjInit_0e_4283
+ObjInit_StopGoBarrel_10::
+	obj_include ObjInit_StopGoBarrel_1
 	obj_word OBJ_VAR_2E, $00fa
 	obj_end
 
-ObjInit_0e_683e::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_2::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $0078
 	obj_end
 
-ObjInit_0e_6845::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_3::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $00b4
 	obj_end
 
-ObjInit_0e_684c::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_4::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $00a0
 	obj_end
 
-ObjInit_0e_6853::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_5::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $0118
 	obj_end
 
-ObjInit_0e_685a::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_6::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $0154
 	obj_end
 
-ObjInit_0e_6861::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_7::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $01d6
 	obj_end
 
-ObjInit_0e_6868::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_8::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $0276
 	obj_end
 
-ObjInit_0e_686f::
-	obj_include ObjInit_0e_4296
+ObjInit_OnOffBarrel_9::
+	obj_include ObjInit_OnOffBarrel_1
 	obj_word OBJ_VAR_2E, $00f0
 	obj_end
 
-ObjInit_0e_6876::
+ObjInit_LevelExit_1::
 	obj_word OBJ_TOUCH_HANDLER, LevelExit_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -5734,7 +5734,7 @@ ObjInit_0e_6876::
 	obj_byte OBJ_ANIM_PARAM, $0e
 	obj_end
 
-ObjInit_0e_6885::
+ObjInit_ReturnExit::
 	obj_word OBJ_TOUCH_HANDLER, ReturnExit_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -5744,7 +5744,7 @@ ObjInit_0e_6885::
 	obj_byte OBJ_VAR_2E, $10
 	obj_end
 
-ObjInit_0e_6896::
+ObjInit_LevelExit_2::
 	obj_word OBJ_TOUCH_HANDLER, LevelExit_Touch
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -5753,40 +5753,40 @@ ObjInit_0e_6896::
 	obj_byte OBJ_ANIM_PARAM, $12
 	obj_end
 
-ObjInit_0e_68a5::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_2::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_JungleHijinxs_3
-	obj_word OBJ_VAR_32, MapPatch_04_6d5f
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_2
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_68b6::
-	obj_include ObjInit_0e_46b7
-	obj_word OBJ_VAR_32, MapPatch_04_6d69
+ObjInit_OpenedWall_2::
+	obj_include ObjInit_OpenedWall_1
+	obj_word OBJ_VAR_32, MapPatch_OpenedWall_2
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_68bf::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_3::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area4_0
 	obj_word OBJ_VAR_30, LevelEntrance_JungleHijinxs_4
-	obj_word OBJ_VAR_32, MapPatch_04_6d73
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_3
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_68d0::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_4::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_JungleHijinxs_2
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
 	obj_end
 
-ObjInit_0e_68de::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_BananaHoard::
+	obj_include ObjInit_Entrance_3
 	obj_byte OBJ_BANK, BANK(Entrance_BananaHoard)
 	obj_word OBJ_HANDLER, Entrance_BananaHoard
 	obj_word OBJ_VAR_2E, LevelEntrance_JungleHijinxs_Area2_0
@@ -5794,90 +5794,90 @@ ObjInit_0e_68de::
 	obj_byte OBJ_VAR_34, $20
 	obj_end
 
-ObjInit_0e_68ef::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_5::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_RopeyRampage_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_RopeyRampage_2
-	obj_word OBJ_VAR_32, MapPatch_04_6dbd
+	obj_word OBJ_VAR_32, MapPatch_Entrance_5
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $02
 	obj_end
 
-ObjInit_0e_6900::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_6::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_RopeyRampage_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_RopeyRampage_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_690c::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_7::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_BarrelCannonCanyon_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_BarrelCannonCanyon_2
-	obj_word OBJ_VAR_32, MapPatch_04_6df2
+	obj_word OBJ_VAR_32, MapPatch_Entrance_7
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $02
 	obj_end
 
-ObjInit_0e_691d::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_4::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_BarrelCannonCanyon_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_BarrelCannonCanyon_3
-	obj_word OBJ_VAR_32, MapPatch_04_6e0c
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_692e::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_5::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_ReptileRumble_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_ReptileRumble_2
-	obj_word OBJ_VAR_32, MapPatch_04_6e27
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_5
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_693f::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_8::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_ReptileRumble_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_ReptileRumble_3
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_694b::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_6::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_ReptileRumble_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_ReptileRumble_4
-	obj_word OBJ_VAR_32, MapPatch_04_6e31
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_6
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
 
-ObjInit_0e_695c::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_9::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_NeckyNutmare_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_NeckyNutmare_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6968::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_10::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_BouncyBonanza_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_BouncyBonanza_4
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6974::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_7::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_BouncyBonanza_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_BouncyBonanza_2
-	obj_word OBJ_VAR_32, MapPatch_04_6e3b
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_7
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6985::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_11::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_BouncyBonanza_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_BouncyBonanza_3
 	obj_byte OBJ_VAR_34, $10
@@ -5885,263 +5885,263 @@ ObjInit_0e_6985::
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6995::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_12::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_WinkysWalkway_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_WinkysWalkway_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_69a1::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_13::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_StopAndGoStation_3
 	obj_byte OBJ_VAR_34, $20
 	obj_end
 
-ObjInit_0e_69aa::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_14::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_StopAndGoStation_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_StopAndGoStation_2
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_69b6::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_8::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_StopAndGoStation_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_StopAndGoStation_2
-	obj_word OBJ_VAR_32, MapPatch_04_6ee4
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_8
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_69c7::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_15::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_MillstoneMayhem_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_MillstoneMayhem_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_69d3::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_16::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_MillstoneMayhem_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_MillstoneMayhem_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_69df::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_9::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_MillstoneMayhem_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_MillstoneMayhem_4
-	obj_word OBJ_VAR_32, MapPatch_04_6fdf
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_9
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_69f0::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_3::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, MapPatch_04_6fef
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_3
 	obj_end
 
-ObjInit_0e_69f9::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_4::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, MapPatch_04_6ff6
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_4
 	obj_end
 
-ObjInit_0e_6a02::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_17::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_TreeTopTown_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_TreeTopTown_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6a0e::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_18::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_TreeTopTown_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_TreeTopTown_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6a1a::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_5::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $00
-	obj_word OBJ_VAR_30, MapPatch_04_6e9d
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_5
 	obj_end
 
-ObjInit_0e_6a23::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_19::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_VultureCulture_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_VultureCulture_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6a2f::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_10::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_VultureCulture_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_VultureCulture_4
-	obj_word OBJ_VAR_32, MapPatch_04_6eb2
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_10
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6a40::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_6::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, MapPatch_04_6ea4
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_6
 	obj_end
 
-ObjInit_0e_6a49::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_7::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, MapPatch_04_6eab
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_7
 	obj_end
 
-ObjInit_0e_6a52::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_11::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_VultureCulture_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_VultureCulture_3
-	obj_word OBJ_VAR_32, MapPatch_04_6ebc
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_11
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
 	obj_end
 
-ObjInit_0e_6a63::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_20::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_ForestFrenzy_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_ForestFrenzy_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6a6f::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_8::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, MapPatch_04_6ecc
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_8
 	obj_end
 
-ObjInit_0e_6a78::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_9::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, MapPatch_04_6edd
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_9
 	obj_end
 
-ObjInit_0e_6a81::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_12::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_ForestFrenzy_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_ForestFrenzy_3
-	obj_word OBJ_VAR_32, MapPatch_04_6ed3
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_12
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6a92::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_21::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6a9e::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_13::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area5_0
 	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_3
-	obj_word OBJ_VAR_32, MapPatch_04_6d9f
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_13
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6aaf::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_10::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $0b
-	obj_word OBJ_VAR_30, MapPatch_04_6d87
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_10
 	obj_end
 
-ObjInit_0e_6ab8::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_11::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, MapPatch_04_6d8e
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_11
 	obj_end
 
-ObjInit_0e_6ac1::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_14::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area4_0
 	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_4
-	obj_word OBJ_VAR_32, MapPatch_04_6d95
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_14
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
 
-ObjInit_0e_6ad2::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_15::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_5
-	obj_word OBJ_VAR_32, MapPatch_04_6db3
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_15
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $09
 	obj_end
 
-ObjInit_0e_6ae3::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_16::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_OrangUtanGang_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_OrangUtanGang_6
-	obj_word OBJ_VAR_32, MapPatch_04_6da9
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_16
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $0b
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6af6::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_17::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_TempleTempest_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_TempleTempest_2
-	obj_word OBJ_VAR_32, MapPatch_04_7014
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_17
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6b09::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_22::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_TempleTempest_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_TempleTempest_3
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_6b15::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_12::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_30, MapPatch_04_700d
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_12
 	obj_end
 
-ObjInit_0e_6b1e::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_18::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_TorchlightTrouble_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_TorchlightTrouble_2
-	obj_word OBJ_VAR_32, MapPatch_04_6e45
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_18
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6b2f::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_19::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_TorchlightTrouble_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_TorchlightTrouble_3
-	obj_word OBJ_VAR_32, MapPatch_04_6e4f
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_19
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_6b40::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_20::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_ManicMincers_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_ManicMincers_2
-	obj_word OBJ_VAR_32, MapPatch_04_6e59
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_20
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6b51::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_23::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_ManicMincers_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_ManicMincers_3
 	obj_byte OBJ_VAR_34, $10
@@ -6149,211 +6149,211 @@ ObjInit_0e_6b51::
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6b61::
-	obj_include ObjInit_0e_46a8
-	obj_word OBJ_VAR_2E, LevelEntrance_04_5edc
+ObjInit_BreakableWall_21::
+	obj_include ObjInit_BreakableWall_1
+	obj_word OBJ_VAR_2E, LevelEntrance_BreakableWall_21
 	obj_word OBJ_VAR_30, LevelEntrance_ManicMincers_4
-	obj_word OBJ_VAR_32, MapPatch_04_6e63
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_21
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $07
 	obj_end
 
-ObjInit_0e_6b72::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_22::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_2
-	obj_word OBJ_VAR_32, MapPatch_04_6e6d
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_22
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6b83::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_24::
+	obj_include ObjInit_Entrance_2
 	obj_byte OBJ_PALETTE, $39
 	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_5
 	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_5
 	obj_end
 
-ObjInit_0e_6b8f::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_13::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $0b
-	obj_word OBJ_VAR_30, MapPatch_04_6e7b
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_13
 	obj_end
 
-ObjInit_0e_6b98::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_25::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_3
 	obj_byte OBJ_VAR_35, $07
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6ba6::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_23::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_SlipslideRide_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_SlipslideRide_4
-	obj_word OBJ_VAR_32, MapPatch_04_6e74
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_23
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $08
 	obj_end
 
-ObjInit_0e_6bb7::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_26::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_RopeBridgeRumble_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_RopeBridgeRumble_2
 	obj_byte OBJ_VAR_35, $04
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6bc5::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_27::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_RopeBridgeRumble_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_RopeBridgeRumble_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6bd1::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_14::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $07
-	obj_word OBJ_VAR_30, MapPatch_04_6cb4
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_14
 	obj_end
 
-ObjInit_0e_6bda::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_28::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6be6::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_24::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area4_0
 	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_3
-	obj_word OBJ_VAR_32, MapPatch_04_6cc5
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_24
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6bf7::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_15::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $07
-	obj_word OBJ_VAR_30, MapPatch_04_6cd2
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_15
 	obj_end
 
-ObjInit_0e_6c00::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_25::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_4
-	obj_word OBJ_VAR_32, MapPatch_04_6cf4
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_25
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
 
-ObjInit_0e_6c11::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_16::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $03
-	obj_word OBJ_VAR_30, MapPatch_04_6d0b
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_16
 	obj_end
 
-ObjInit_0e_6c1a::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_17::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, MapPatch_04_6cdc
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_17
 	obj_end
 
-ObjInit_0e_6c23::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_18::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, MapPatch_04_6ce3
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_18
 	obj_end
 
-ObjInit_0e_6c2c::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_19::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, MapPatch_04_6cea
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_19
 	obj_end
 
-ObjInit_0e_6c35::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_20::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, MapPatch_04_6d01
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_20
 	obj_end
 
-ObjInit_0e_6c3e::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_21::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $01
-	obj_word OBJ_VAR_30, MapPatch_04_6e82
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_21
 	obj_end
 
-ObjInit_0e_6c47::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_29::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_BlackoutBasement_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_BlackoutBasement_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6c53::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_22::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $05
-	obj_word OBJ_VAR_30, MapPatch_04_6e89
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_22
 	obj_end
 
-ObjInit_0e_6c5c::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_26::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_BlackoutBasement_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_BlackoutBasement_3
-	obj_word OBJ_VAR_32, MapPatch_04_6e90
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_26
 	obj_byte OBJ_VAR_34, $20
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6c6d::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_23::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $05
-	obj_word OBJ_VAR_30, MapPatch_04_6d58
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_23
 	obj_end
 
-ObjInit_0e_6c76::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_24::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $08
-	obj_word OBJ_VAR_30, MapPatch_04_6d7d
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_24
 	obj_end
 
-ObjInit_0e_6c7f::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_25::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $09
-	obj_word OBJ_VAR_30, MapPatch_04_6ddd
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_25
 	obj_end
 
-ObjInit_0e_6c88::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_26::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $0a
-	obj_word OBJ_VAR_30, MapPatch_04_6de4
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_26
 	obj_end
 
-ObjInit_0e_6c91::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_27::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, MapPatch_04_6deb
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_27
 	obj_end
 
-ObjInit_0e_6c9a::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_28::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_30, MapPatch_04_6e20
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_28
 	obj_end
 
-ObjInit_0e_6ca3::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_27::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_MistyMine_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_MistyMine_2
-	obj_word OBJ_VAR_32, MapPatch_04_6fce
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_27
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6cb4::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_30::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_MistyMine_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_MistyMine_4
 	obj_byte OBJ_VAR_34, $10
@@ -6361,1147 +6361,1147 @@ ObjInit_0e_6cb4::
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6cc4::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_31::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_LoopyLights_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_LoopyLights_2
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_6cd0::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_28::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_LoopyLights_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_LoopyLights_3
-	obj_word OBJ_VAR_32, MapPatch_04_6fd8
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_28
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $07
 	obj_end
 
-ObjInit_0e_6ce1::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_32::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_TrickTrackTrek_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_TrickTrackTrek_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6ced::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_33::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_TrickTrackTrek_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_TrickTrackTrek_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6cf9::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_34::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_TrickTrackTrek_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_TrickTrackTrek_4
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_6d05::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_35::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_PlatformPerils_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_PlatformPerils_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6d11::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_36::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_PlatformPerils_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_PlatformPerils_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6d1d::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_37::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_TankedUpTrouble_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_TankedUpTrouble_2
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_6d29::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_38::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_SnowBarrelBlast_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_SnowBarrelBlast_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6d35::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_39::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_SnowBarrelBlast_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_SnowBarrelBlast_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6d41::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_40::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_SnowBarrelBlast_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_SnowBarrelBlast_4
 	obj_byte OBJ_VAR_35, $06
 	obj_byte OBJ_VAR_36, $01
 	obj_end
 
-ObjInit_0e_6d4f::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_41::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_IceAgeAlley_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_IceAgeAlley_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6d5b::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_42::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_IceAgeAlley_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_IceAgeAlley_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6d67::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_43::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_MineCartMadness_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_MineCartMadness_2
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6d73::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_44::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_MineCartMadness_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_MineCartMadness_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6d7f::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_45::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_MineCartMadness_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_MineCartMadness_4
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_6d8b::
-	obj_include ObjInit_0e_45e2
-	obj_word OBJ_VAR_2E, LevelEntrance_04_5edc
+ObjInit_Entrance_46::
+	obj_include ObjInit_Entrance_3
+	obj_word OBJ_VAR_2E, LevelEntrance_BreakableWall_21
 	obj_word OBJ_VAR_30, LevelEntrance_ElevatorAntics_2
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $04
 	obj_end
 
-ObjInit_0e_6d99::
-	obj_include ObjInit_0e_4220
+ObjInit_Entrance_47::
+	obj_include ObjInit_Entrance_2
 	obj_word OBJ_VAR_2E, LevelEntrance_ElevatorAntics_Area2_0
 	obj_word OBJ_VAR_30, LevelEntrance_ElevatorAntics_3
 	obj_byte OBJ_VAR_35, $05
 	obj_end
 
-ObjInit_0e_6da5::
-	obj_include ObjInit_0e_45e2
+ObjInit_Entrance_48::
+	obj_include ObjInit_Entrance_3
 	obj_word OBJ_VAR_2E, LevelEntrance_ElevatorAntics_Area1_0
 	obj_word OBJ_VAR_30, LevelEntrance_ElevatorAntics_4
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $06
 	obj_end
 
-ObjInit_0e_6db3::
-	obj_include ObjInit_0e_46a8
+ObjInit_BreakableWall_29::
+	obj_include ObjInit_BreakableWall_1
 	obj_word OBJ_VAR_2E, LevelEntrance_OilDrumAlley_Area3_0
 	obj_word OBJ_VAR_30, LevelEntrance_OilDrumAlley_3
-	obj_word OBJ_VAR_32, MapPatch_04_7024
+	obj_word OBJ_VAR_32, MapPatch_BreakableWall_29
 	obj_byte OBJ_VAR_34, $10
 	obj_byte OBJ_VAR_35, $09
 	obj_end
 
-ObjInit_0e_6dc4::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_29::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $03
-	obj_word OBJ_VAR_30, MapPatch_04_7031
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_29
 	obj_end
 
-ObjInit_0e_6dcd::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_30::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, MapPatch_04_7046
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_30
 	obj_end
 
-ObjInit_0e_6dd6::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_31::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, MapPatch_04_704d
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_31
 	obj_end
 
-ObjInit_0e_6ddf::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_32::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $06
-	obj_word OBJ_VAR_30, MapPatch_04_7054
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_32
 	obj_end
 
-ObjInit_0e_6de8::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_33::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, MapPatch_04_7046
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_30
 	obj_end
 
-ObjInit_0e_6df1::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_34::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $0c
-	obj_word OBJ_VAR_30, MapPatch_04_704d
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_31
 	obj_end
 
-ObjInit_0e_6dfa::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_35::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, MapPatch_04_7054
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_32
 	obj_end
 
-ObjInit_0e_6e03::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_36::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, MapPatch_04_7038
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_36
 	obj_end
 
-ObjInit_0e_6e0c::
-	obj_include ObjInit_0e_46bf
+ObjInit_HiddenKongLetter_37::
+	obj_include ObjInit_HiddenKongLetter_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_30, MapPatch_04_703f
+	obj_word OBJ_VAR_30, MapPatch_HiddenKongLetter_37
 	obj_end
 
-ObjInit_0e_6e15::
-	obj_include ObjInit_0e_46ce
+ObjInit_HiddenKongLetter_38::
+	obj_include ObjInit_HiddenKongLetter_2
 	obj_byte OBJ_VAR_2E, $04
 	obj_end
 
-ObjInit_0e_6e1b::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_2::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0060
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_6e2a::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_3::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $0096
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6e39::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_4::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $007a
 	obj_word OBJ_VAR_36, $0060
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6e48::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_5::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0048
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6e57::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_6::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0076
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6e66::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_7::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0040
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6e75::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_8::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00ff
 	obj_word OBJ_VAR_36, $0045
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6e84::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_9::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $0096
 	obj_word OBJ_VAR_36, $0036
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6e93::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_10::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00ff
 	obj_word OBJ_VAR_36, $0029
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6ea2::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_11::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00a4
 	obj_word OBJ_VAR_36, $0029
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6eb1::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_12::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00a5
 	obj_word OBJ_VAR_36, $0040
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_6ec0::
+ObjInit_Rope_13::
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $00ca
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0060
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6ed8::
+ObjInit_Rope_14::
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $00ca
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00aa
 	obj_word OBJ_VAR_36, $0050
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6ef0::
+ObjInit_Rope_15::
 	obj_word OBJ_TARGET_XVEL, $0127
 	obj_word OBJ_VAR_2E, $00ca
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0060
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6f08::
+ObjInit_Rope_16::
 	obj_word OBJ_TARGET_XVEL, $0030
 	obj_word OBJ_VAR_2E, $0005
 	obj_word OBJ_VAR_30, $0005
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $0094
 	obj_word OBJ_VAR_36, $0020
-	obj_byte OBJ_VAR_39, $03
+	obj_byte OBJ_ANIM_WORD + 1, $03
 	obj_end
 
-ObjInit_0e_6f20::
+ObjInit_Rope_17::
 	obj_word OBJ_TARGET_XVEL, $0199
 	obj_word OBJ_VAR_2E, $00a0
 	obj_word OBJ_VAR_30, $0004
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00a3
 	obj_word OBJ_VAR_36, $0020
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6f38::
+ObjInit_Rope_18::
 	obj_word OBJ_TARGET_XVEL, $0199
 	obj_word OBJ_VAR_2E, $008c
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0020
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6f50::
+ObjInit_Rope_19::
 	obj_word OBJ_TARGET_XVEL, $0199
 	obj_word OBJ_VAR_2E, $008c
 	obj_word OBJ_VAR_30, $000c
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $0096
 	obj_word OBJ_VAR_36, $0020
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6f68::
+ObjInit_Rope_20::
 	obj_word OBJ_TARGET_XVEL, $0199
 	obj_word OBJ_VAR_2E, $012f
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00ff
 	obj_word OBJ_VAR_36, $0064
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6f80::
+ObjInit_Rope_21::
 	obj_word OBJ_TARGET_XVEL, $0199
 	obj_word OBJ_VAR_2E, $00b1
 	obj_word OBJ_VAR_30, $0006
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $0082
 	obj_word OBJ_VAR_36, $0034
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_6f98::
+ObjInit_Rope_22::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $0000
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00aa
 	obj_word OBJ_VAR_36, $0023
-	obj_byte OBJ_VAR_39, $05
+	obj_byte OBJ_ANIM_WORD + 1, $05
 	obj_end
 
-ObjInit_0e_6fb0::
+ObjInit_Rope_23::
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_word OBJ_VAR_2E, $0000
 	obj_word OBJ_VAR_30, $0000
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $011d
 	obj_word OBJ_VAR_36, $0015
-	obj_byte OBJ_VAR_39, $03
+	obj_byte OBJ_ANIM_WORD + 1, $03
 	obj_end
 
-ObjInit_0e_6fc8::
+ObjInit_Rope_24::
 	obj_word OBJ_TARGET_XVEL, $0220
 	obj_word OBJ_VAR_2E, $00eb
 	obj_word OBJ_VAR_30, $0001
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00fa
 	obj_word OBJ_VAR_36, $0015
-	obj_byte OBJ_VAR_39, $03
+	obj_byte OBJ_ANIM_WORD + 1, $03
 	obj_end
 
-ObjInit_0e_6fe0::
+ObjInit_Rope_25::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0086
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0040
-	obj_byte OBJ_VAR_39, $03
+	obj_byte OBJ_ANIM_WORD + 1, $03
 	obj_end
 
-ObjInit_0e_6ff8::
+ObjInit_Rope_26::
 	obj_word OBJ_TARGET_XVEL, $0113
 	obj_word OBJ_VAR_2E, $00b6
 	obj_word OBJ_VAR_30, $000b
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00ad
 	obj_word OBJ_VAR_36, $0028
-	obj_byte OBJ_VAR_39, $0d
+	obj_byte OBJ_ANIM_WORD + 1, $0d
 	obj_end
 
-ObjInit_0e_7010::
+ObjInit_Rope_27::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $001c
 	obj_word OBJ_VAR_30, $0081
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $0055
 	obj_word OBJ_VAR_36, $0040
-	obj_byte OBJ_VAR_39, $05
+	obj_byte OBJ_ANIM_WORD + 1, $05
 	obj_end
 
-ObjInit_0e_7028::
+ObjInit_Rope_28::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0024
 	obj_word OBJ_VAR_30, $0061
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0040
-	obj_byte OBJ_VAR_39, $03
+	obj_byte OBJ_ANIM_WORD + 1, $03
 	obj_end
 
-ObjInit_0e_7040::
+ObjInit_Rope_29::
 	obj_word OBJ_TARGET_XVEL, $0110
 	obj_word OBJ_VAR_2E, $03b0
 	obj_word OBJ_VAR_30, $000d
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0066
-	obj_byte OBJ_VAR_39, $05
+	obj_byte OBJ_ANIM_WORD + 1, $05
 	obj_end
 
-ObjInit_0e_7058::
+ObjInit_Rope_30::
 	obj_word OBJ_TARGET_XVEL, $00e7
 	obj_word OBJ_VAR_2E, $07f9
 	obj_word OBJ_VAR_30, $000d
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0040
-	obj_byte OBJ_VAR_39, $05
+	obj_byte OBJ_ANIM_WORD + 1, $05
 	obj_end
 
-ObjInit_0e_7070::
+ObjInit_Rope_31::
 	obj_word OBJ_TARGET_XVEL, $0195
 	obj_word OBJ_VAR_2E, $03b7
 	obj_word OBJ_VAR_30, $0002
-	obj_include ObjInit_0e_41fa
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00aa
 	obj_word OBJ_VAR_36, $0023
-	obj_byte OBJ_VAR_39, $05
+	obj_byte OBJ_ANIM_WORD + 1, $05
 	obj_end
 
-ObjInit_0e_7088::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_32::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $007d
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_7097::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_33::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0000
 	obj_word OBJ_VAR_34, $00b4
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $01
+	obj_byte OBJ_ANIM_WORD + 1, $01
 	obj_end
 
-ObjInit_0e_70a6::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_34::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe7b
 	obj_word OBJ_VAR_34, $0113
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_70b5::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_35::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe7b
 	obj_word OBJ_VAR_34, $00fa
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_70c4::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_36::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe7b
 	obj_word OBJ_VAR_34, $00a5
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_70d3::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_37::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe70
 	obj_word OBJ_VAR_34, $0179
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_70e2::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_38::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fea5
 	obj_word OBJ_VAR_34, $024f
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_70f1::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_39::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $0100
 	obj_word OBJ_VAR_34, $0149
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_7100::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_40::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $ff00
 	obj_word OBJ_VAR_34, $014a
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_710f::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_41::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe7b
 	obj_word OBJ_VAR_34, $00ac
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_711e::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_42::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $00ac
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_712d::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_43::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fea5
 	obj_word OBJ_VAR_34, $0263
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_713c::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_44::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe70
 	obj_word OBJ_VAR_34, $01b6
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_714b::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_45::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe7b
 	obj_word OBJ_VAR_34, $00e7
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_715a::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_46::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe48
 	obj_word OBJ_VAR_34, $00c5
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_7169::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_47::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe48
 	obj_word OBJ_VAR_34, $00ad
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_7178::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_48::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe48
 	obj_word OBJ_VAR_34, $0173
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_7187::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_49::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe48
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_7196::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_50::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe6e
 	obj_word OBJ_VAR_34, $018f
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_71a5::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_51::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe6e
 	obj_word OBJ_VAR_34, $0190
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_71b4::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_52::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $fe7b
 	obj_word OBJ_VAR_34, $00de
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_71c3::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_53::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $005d
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_71d2::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_54::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $00c8
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_71e1::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_55::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $00ac
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_71f0::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_56::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $00ac
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_71ff::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_57::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $006c
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_720e::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_58::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $0085
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_721d::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_59::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $0099
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_722c::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_60::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $0190
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_723b::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_61::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $01cc
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_724a::
-	obj_include ObjInit_0e_41fa
+ObjInit_Rope_62::
+	obj_include ObjInit_Rope_1
 	obj_word OBJ_VAR_32, $01c2
 	obj_word OBJ_VAR_34, $01cc
 	obj_word OBJ_VAR_36, $0014
-	obj_byte OBJ_VAR_39, $00
+	obj_byte OBJ_ANIM_WORD + 1, $00
 	obj_end
 
-ObjInit_0e_7259::
+ObjInit_Elevator_5::
 	obj_word OBJ_TARGET_YVEL, $0110
 	obj_word OBJ_VAR_2E, $0028
 	obj_word OBJ_VAR_30, $0056
-	obj_include ObjInit_0e_44e6
+	obj_include ObjInit_Elevator_2
 	obj_end
 
-ObjInit_0e_7266::
+ObjInit_Elevator_6::
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $0041
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_44e6
+	obj_include ObjInit_Elevator_2
 	obj_end
 
-ObjInit_0e_7273::
+ObjInit_Elevator_7::
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $0041
-	obj_include ObjInit_0e_44e6
+	obj_include ObjInit_Elevator_2
 	obj_end
 
-ObjInit_0e_7280::
+ObjInit_Elevator_8::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0038
 	obj_word OBJ_VAR_30, $0035
-	obj_include ObjInit_0e_44d6
+	obj_include ObjInit_Elevator_1
 	obj_byte OBJ_PALETTE, $1e
-	obj_word OBJ_FRAME, Frame_20_5656
+	obj_word OBJ_FRAME, Frame_Elevator_4
 	obj_end
 
-ObjInit_0e_7292::
-	obj_include ObjInit_0e_44d6
+ObjInit_Elevator_9::
+	obj_include ObjInit_Elevator_1
 	obj_byte OBJ_PALETTE, $1e
-	obj_word OBJ_FRAME, Frame_20_5656
+	obj_word OBJ_FRAME, Frame_Elevator_4
 	obj_end
 
-ObjInit_0e_729b::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_2::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $0105
 	obj_word OBJ_VAR_2E, $0064
 	obj_end
 
-ObjInit_0e_72a5::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_3::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $fefb
 	obj_word OBJ_VAR_2E, $0064
 	obj_end
 
-ObjInit_0e_72af::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_4::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $0115
 	obj_word OBJ_VAR_2E, $00b4
 	obj_end
 
-ObjInit_0e_72b9::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_5::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $fe80
 	obj_word OBJ_VAR_2E, $008c
 	obj_end
 
-ObjInit_0e_72c3::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_6::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $fef0
 	obj_word OBJ_VAR_2E, $008c
 	obj_end
 
-ObjInit_0e_72cd::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_7::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $0110
 	obj_word OBJ_VAR_2E, $008c
 	obj_end
 
-ObjInit_0e_72d7::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_8::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $feeb
 	obj_word OBJ_VAR_2E, $00b4
 	obj_end
 
-ObjInit_0e_72e1::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_9::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $0115
 	obj_word OBJ_VAR_2E, $00e9
 	obj_end
 
-ObjInit_0e_72eb::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_10::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $feeb
 	obj_word OBJ_VAR_2E, $00e9
 	obj_end
 
-ObjInit_0e_72f5::
-	obj_include ObjInit_0e_486f
+ObjInit_LoopElevator_11::
+	obj_include ObjInit_LoopElevator_1
 	obj_word OBJ_YVEL, $0175
 	obj_word OBJ_VAR_2E, $0050
 	obj_end
 
-ObjInit_0e_72ff::
+ObjInit_Elevator_10::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0054
 	obj_word OBJ_VAR_30, $0052
-	obj_include ObjInit_0e_44ef
+	obj_include ObjInit_Elevator_3
 	obj_end
 
-ObjInit_0e_730c::
+ObjInit_Elevator_11::
 	obj_word OBJ_TARGET_YVEL, $fee0
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $0041
-	obj_include ObjInit_0e_44ef
+	obj_include ObjInit_Elevator_3
 	obj_end
 
-ObjInit_0e_7319::
+ObjInit_Elevator_12::
 	obj_word OBJ_TARGET_YVEL, $fee0
 	obj_word OBJ_VAR_2E, $005f
 	obj_word OBJ_VAR_30, $001e
-	obj_include ObjInit_0e_44ef
+	obj_include ObjInit_Elevator_3
 	obj_end
 
-ObjInit_0e_7326::
+ObjInit_Elevator_13::
 	obj_word OBJ_TARGET_YVEL, $0120
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $0041
-	obj_include ObjInit_0e_44ef
+	obj_include ObjInit_Elevator_3
 	obj_end
 
-ObjInit_0e_7333::
+ObjInit_Elevator_14::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0028
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_44ef
+	obj_include ObjInit_Elevator_3
 	obj_end
 
-ObjInit_0e_7340::
+ObjInit_Elevator_15::
 	obj_word OBJ_TARGET_XVEL, $0120
 	obj_word OBJ_VAR_2E, $0028
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_44ef
+	obj_include ObjInit_Elevator_3
 	obj_end
 
-ObjInit_0e_734d::
-	obj_include ObjInit_0e_44f8
+ObjInit_Elevator_16::
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_7351::
+ObjInit_Elevator_17::
 	obj_word OBJ_TARGET_YVEL, $0120
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $006e
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_735e::
+ObjInit_Elevator_18::
 	obj_word OBJ_TARGET_YVEL, $fedb
 	obj_word OBJ_VAR_2E, $0005
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_736b::
+ObjInit_Elevator_19::
 	obj_word OBJ_TARGET_YVEL, $0125
 	obj_word OBJ_VAR_2E, $0007
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_7378::
+ObjInit_Elevator_20::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $0028
 	obj_word OBJ_VAR_30, $0034
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_7385::
+ObjInit_Elevator_21::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $000b
 	obj_word OBJ_VAR_30, $0035
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_7392::
+ObjInit_Elevator_22::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $000a
 	obj_word OBJ_VAR_30, $003c
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_739f::
+ObjInit_Elevator_23::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0022
 	obj_word OBJ_VAR_30, $0034
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_73ac::
+ObjInit_Elevator_24::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0022
 	obj_word OBJ_VAR_30, $004b
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_73b9::
+ObjInit_Elevator_25::
 	obj_word OBJ_TARGET_XVEL, $fef0
 	obj_word OBJ_VAR_2E, $0034
 	obj_word OBJ_VAR_30, $0058
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_73c6::
+ObjInit_Elevator_26::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0018
 	obj_word OBJ_VAR_30, $0055
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_73d3::
+ObjInit_Elevator_27::
 	obj_word OBJ_TARGET_XVEL, $fed0
 	obj_word OBJ_VAR_2E, $0057
 	obj_word OBJ_VAR_30, $004c
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_73e0::
+ObjInit_Elevator_28::
 	obj_word OBJ_TARGET_XVEL, $fece
 	obj_word OBJ_VAR_2E, $007f
 	obj_word OBJ_VAR_30, $005a
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_73ed::
+ObjInit_Elevator_29::
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_word OBJ_VAR_2E, $0037
 	obj_word OBJ_VAR_30, $004c
-	obj_include ObjInit_0e_44f8
+	obj_include ObjInit_Elevator_4
 	obj_end
 
-ObjInit_0e_73fa::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_FRAME, Frame_20_5614
+ObjInit_ArrowPlatform_Wait_2::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_FRAME, Frame_Elevator_2
 	obj_word OBJ_VAR_2E, $0001
 	obj_byte OBJ_PALETTE, $11
 	obj_end
 
-ObjInit_0e_7406::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_3::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $fec0
-	obj_word OBJ_FRAME, Frame_20_540a
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_2E, $005a
 	obj_end
 
-ObjInit_0e_7413::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_VAR_38, $fec0
-	obj_word OBJ_FRAME, Frame_20_5410
+ObjInit_ArrowPlatform_Wait_4::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_ANIM_WORD, $fec0
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_2
 	obj_word OBJ_VAR_2E, $0014
 	obj_end
 
-ObjInit_0e_7420::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_VAR_38, $fec0
-	obj_word OBJ_FRAME, Frame_20_5410
+ObjInit_ArrowPlatform_Wait_5::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_ANIM_WORD, $fec0
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_2
 	obj_word OBJ_VAR_2E, $0050
 	obj_end
 
-ObjInit_0e_742d::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_VAR_38, $ff00
-	obj_word OBJ_FRAME, Frame_20_5410
+ObjInit_ArrowPlatform_Wait_6::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_ANIM_WORD, $ff00
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_2
 	obj_word OBJ_VAR_2E, $0082
 	obj_end
 
-ObjInit_0e_743a::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_7::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0180
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $0078
 	obj_end
 
-ObjInit_0e_7447::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_8::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0180
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $007d
 	obj_end
 
-ObjInit_0e_7454::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_9::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $0078
 	obj_end
 
-ObjInit_0e_7461::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_10::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $0060
 	obj_end
 
-ObjInit_0e_746e::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_11::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $0050
 	obj_end
 
-ObjInit_0e_747b::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_12::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $0050
 	obj_end
 
-ObjInit_0e_7488::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_13::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0140
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $00f0
 	obj_end
 
-ObjInit_0e_7495::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_14::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0100
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $00be
 	obj_end
 
-ObjInit_0e_74a2::
-	obj_include ObjInit_0e_4501
+ObjInit_ArrowPlatform_Wait_15::
+	obj_include ObjInit_ArrowPlatform_Wait_1
 	obj_word OBJ_VAR_36, $0100
-	obj_word OBJ_FRAME, Frame_20_5416
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_3
 	obj_word OBJ_VAR_2E, $00fa
 	obj_end
 
-ObjInit_0e_74af::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_FRAME, Frame_20_541c
+ObjInit_ArrowPlatform_Wait_16::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_4
 	obj_word OBJ_VAR_2E, $0016
 	obj_end
 
-ObjInit_0e_74b9::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_VAR_38, $0140
-	obj_word OBJ_FRAME, Frame_20_541c
+ObjInit_ArrowPlatform_Wait_17::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_ANIM_WORD, $0140
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_4
 	obj_word OBJ_VAR_2E, $0016
 	obj_end
 
-ObjInit_0e_74c6::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_VAR_38, $0100
-	obj_word OBJ_FRAME, Frame_20_541c
+ObjInit_ArrowPlatform_Wait_18::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_ANIM_WORD, $0100
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_4
 	obj_word OBJ_VAR_2E, $0016
 	obj_end
 
-ObjInit_0e_74d3::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_VAR_38, $0120
-	obj_word OBJ_FRAME, Frame_20_541c
+ObjInit_ArrowPlatform_Wait_19::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_ANIM_WORD, $0120
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_4
 	obj_word OBJ_VAR_2E, $000f
 	obj_end
 
-ObjInit_0e_74e0::
-	obj_include ObjInit_0e_4501
-	obj_word OBJ_FRAME, Frame_20_541c
+ObjInit_ArrowPlatform_Wait_20::
+	obj_include ObjInit_ArrowPlatform_Wait_1
+	obj_word OBJ_FRAME, Frame_ArrowPlatform_Wait_4
 	obj_word OBJ_VAR_2E, $0001
 	obj_end
 
-ObjInit_0e_74ea::
+ObjInit_MineCart_1::
 	obj_byte OBJ_BANK, BANK(MineCart)
 	obj_word OBJ_HANDLER, MineCart
 	obj_word OBJ_TOUCH_HANDLER, MineCart_Touch
-	obj_include ObjInit_0e_45bc
+	obj_include ObjInit_SpawnMineCart
 	obj_byte OBJ_VAR_2E, $00
 	obj_end
 
-ObjInit_0e_74f8::
+ObjInit_MineCart_2::
 	obj_byte OBJ_BANK, BANK(MineCart)
 	obj_word OBJ_HANDLER, MineCart
 	obj_word OBJ_TOUCH_HANDLER, MineCart_Touch
-	obj_include ObjInit_0e_45bc
+	obj_include ObjInit_SpawnMineCart
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_0e_7506::
+ObjInit_MineCartKrash_Parked_2::
 	obj_byte OBJ_BANK, BANK(MineCartKrash_Parked)
 	obj_word OBJ_HANDLER, MineCartKrash_Parked
 	obj_word OBJ_TOUCH_HANDLER, MineCartKrash_Parked_Touch
-	obj_include ObjInit_0e_45bc
+	obj_include ObjInit_SpawnMineCart
 	obj_byte OBJ_VAR_2E, $01
 	obj_end
 
-ObjInit_0e_7514::
-	obj_include ObjInit_0e_45bc
+ObjInit_MineCartKrash_2::
+	obj_include ObjInit_SpawnMineCart
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(MineCartKrash)
 	obj_word OBJ_HANDLER, MineCartKrash
@@ -7510,7 +7510,7 @@ ObjInit_0e_7514::
 	obj_byte OBJ_VAR_2E, $02
 	obj_end
 
-ObjInit_0e_7526::
+ObjInit_MineCartKrash_3::
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_word OBJ_TOUCH_HANDLER, MineCartKrash_Touch
@@ -7519,652 +7519,652 @@ ObjInit_0e_7526::
 	obj_byte OBJ_ANIM_PARAM, $4b
 	obj_end
 
-ObjInit_0e_7535::
+ObjInit_Millstone_2::
 	obj_word OBJ_TARGET_YVEL, $0110
 	obj_word OBJ_VAR_2E, $001e
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_4602
+	obj_include ObjInit_Millstone_1
 	obj_end
 
-ObjInit_0e_7542::
+ObjInit_Millstone_3::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0031
 	obj_word OBJ_VAR_30, $001b
-	obj_include ObjInit_0e_4602
+	obj_include ObjInit_Millstone_1
 	obj_end
 
-ObjInit_0e_754f::
+ObjInit_Millstone_4::
 	obj_word OBJ_TARGET_YVEL, $0120
 	obj_word OBJ_VAR_2E, $003c
 	obj_word OBJ_VAR_30, $000a
-	obj_include ObjInit_0e_4602
+	obj_include ObjInit_Millstone_1
 	obj_end
 
-ObjInit_0e_755c::
+ObjInit_Millstone_5::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $0036
 	obj_word OBJ_VAR_30, $003f
-	obj_include ObjInit_0e_4602
+	obj_include ObjInit_Millstone_1
 	obj_end
 
-ObjInit_0e_7569::
-	obj_include ObjInit_0e_460f
-	obj_word OBJ_VAR_2E, ObjScript_0a_76e9
+ObjInit_Millstone_Scripted_2::
+	obj_include ObjInit_Millstone_Scripted_1
+	obj_word OBJ_VAR_2E, ObjScript_Millstone_Scripted_2_Sub
 	obj_end
 
-ObjInit_0e_7570::
-	obj_include ObjInit_0e_460f
-	obj_word OBJ_VAR_2E, ObjScript_0a_76f8
+ObjInit_Millstone_Scripted_3::
+	obj_include ObjInit_Millstone_Scripted_1
+	obj_word OBJ_VAR_2E, ObjScript_Millstone_Scripted_3_Sub
 	obj_end
 
-ObjInit_0e_7577::
-	obj_include ObjInit_0e_460f
-	obj_word OBJ_VAR_2E, ObjScript_0a_7718
+ObjInit_Millstone_Scripted_4::
+	obj_include ObjInit_Millstone_Scripted_1
+	obj_word OBJ_VAR_2E, ObjScript_Millstone_Scripted_4_Sub
 	obj_end
 
-ObjInit_0e_757e::
-	obj_include ObjInit_0e_460f
-	obj_word OBJ_VAR_2E, ObjScript_0a_7742
+ObjInit_Millstone_Scripted_5::
+	obj_include ObjInit_Millstone_Scripted_1
+	obj_word OBJ_VAR_2E, ObjScript_Millstone_Scripted_5_Sub
 	obj_end
 
-ObjInit_0e_7585::
-	obj_include ObjInit_0e_460f
-	obj_word OBJ_VAR_2E, ObjScript_0a_7751
+ObjInit_Millstone_Scripted_6::
+	obj_include ObjInit_Millstone_Scripted_1
+	obj_word OBJ_VAR_2E, ObjScript_Millstone_Scripted_6_Sub
 	obj_end
 
-ObjInit_0e_758c::
-	obj_include ObjInit_0e_460f
-	obj_word OBJ_VAR_2E, ObjScript_0a_7779
+ObjInit_Millstone_Scripted_7::
+	obj_include ObjInit_Millstone_Scripted_1
+	obj_word OBJ_VAR_2E, ObjScript_Millstone_Scripted_7_Sub
 	obj_end
 
-ObjInit_0e_7593::
-	obj_include ObjInit_0e_4618
-	obj_word OBJ_VAR_31, ObjScript_0a_779a
+ObjInit_BlackDrum_6::
+	obj_include ObjInit_BlackDrum_1
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_6_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_759c::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_7::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f0e
-	obj_word OBJ_VAR_31, ObjScript_0a_779a
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_7
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_6_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75aa::
-	obj_include ObjInit_0e_4618
-	obj_word OBJ_VAR_31, ObjScript_0a_77a2
+ObjInit_BlackDrum_8::
+	obj_include ObjInit_BlackDrum_1
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_8_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75b3::
-	obj_include ObjInit_0e_4636
-	obj_word OBJ_VAR_31, ObjScript_0a_779a
+ObjInit_BlackDrum_9::
+	obj_include ObjInit_BlackDrum_3
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_6_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75bc::
-	obj_include ObjInit_0e_4636
+ObjInit_BlackDrum_10::
+	obj_include ObjInit_BlackDrum_3
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_31, ObjScript_0a_779a
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_6_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75c7::
-	obj_include ObjInit_0e_4618
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+ObjInit_BlackDrum_11::
+	obj_include ObjInit_BlackDrum_1
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75d0::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_12::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f84
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_12
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75de::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_13::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f7a
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_13
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75ec::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_14::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6efe
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_14
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_75fa::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_15::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f1e
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_15
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_7608::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_16::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f2e
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_16
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_7616::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_17::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f38
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_17
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_7624::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_18::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f5c
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_18
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_7632::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_19::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f70
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_19
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_7640::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_20::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f52
-	obj_word OBJ_VAR_31, ObjScript_0a_77b2
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_20
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_20_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_764e::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_21::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f66
-	obj_word OBJ_VAR_31, ObjScript_0a_77b2
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_21
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_20_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_765c::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_22::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6eee
-	obj_word OBJ_VAR_31, ObjScript_0a_77ba
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_22
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_22_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_766a::
-	obj_include ObjInit_0e_4618
+ObjInit_BlackDrum_23::
+	obj_include ObjInit_BlackDrum_1
 	obj_byte OBJ_VAR_2E, $04
-	obj_word OBJ_VAR_2F, MapPatch_04_6f42
-	obj_word OBJ_VAR_31, ObjScript_0a_77ba
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_23
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_22_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_7678::
-	obj_include ObjInit_0e_4618
-	obj_word OBJ_VAR_31, ObjScript_0a_77c7
+ObjInit_BlackDrum_24::
+	obj_include ObjInit_BlackDrum_1
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_24_Sub
 	obj_byte OBJ_VAR_33, $03
 	obj_end
 
-ObjInit_0e_7681::
-	obj_include ObjInit_0e_4618
-	obj_word OBJ_VAR_31, ObjScript_0a_77cf
+ObjInit_BlackDrum_25::
+	obj_include ObjInit_BlackDrum_1
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_25_Sub
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_768a::
-	obj_include ObjInit_0e_4636
+ObjInit_BlackDrum_26::
+	obj_include ObjInit_BlackDrum_3
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_31, ObjScript_0a_77ba
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_22_Sub
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_7695::
-	obj_include ObjInit_0e_4636
-	obj_word OBJ_VAR_31, ObjScript_0a_77aa
+ObjInit_BlackDrum_27::
+	obj_include ObjInit_BlackDrum_3
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_11_Sub
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_769e::
-	obj_include ObjInit_0e_4636
+ObjInit_BlackDrum_28::
+	obj_include ObjInit_BlackDrum_3
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_31, ObjScript_0a_77c7
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_24_Sub
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_76a9::
-	obj_include ObjInit_0e_4636
+ObjInit_BlackDrum_29::
+	obj_include ObjInit_BlackDrum_3
 	obj_byte OBJ_VAR_2E, $03
-	obj_word OBJ_VAR_31, ObjScript_0a_77c7
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_24_Sub
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_76b4::
-	obj_include ObjInit_0e_4636
-	obj_word OBJ_VAR_31, ObjScript_0a_77cf
+ObjInit_BlackDrum_30::
+	obj_include ObjInit_BlackDrum_3
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_25_Sub
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_76bd::
-	obj_include ObjInit_0e_4636
+ObjInit_BlackDrum_31::
+	obj_include ObjInit_BlackDrum_3
 	obj_byte OBJ_VAR_2E, $02
-	obj_word OBJ_VAR_31, ObjScript_0a_77cf
+	obj_word OBJ_VAR_31, ObjScript_BlackDrum_25_Sub
 	obj_byte OBJ_VAR_33, $02
 	obj_end
 
-ObjInit_0e_76c8::
-	obj_include ObjInit_0e_43cb
+ObjInit_Touch_Hurt_3::
+	obj_include ObjInit_Touch_Hurt_1
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_end
 
-ObjInit_0e_76d1::
+ObjInit_Zinger_Patrol_39::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $0009
 	obj_word OBJ_VAR_30, $0014
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_76de::
+ObjInit_Zinger_Patrol_40::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $007b
 	obj_word OBJ_VAR_30, $009c
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_76eb::
+ObjInit_Zinger_Patrol_41::
 	obj_word OBJ_TARGET_XVEL, $0160
 	obj_word OBJ_VAR_2E, $0068
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_76f8::
+ObjInit_Zinger_Patrol_42::
 	obj_word OBJ_TARGET_YVEL, $0180
 	obj_word OBJ_VAR_2E, $0030
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7705::
+ObjInit_Zinger_Patrol_43::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $0012
 	obj_word OBJ_VAR_30, $0028
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7712::
+ObjInit_Zinger_Patrol_44::
 	obj_word OBJ_TARGET_YVEL, $0095
 	obj_word OBJ_VAR_2E, $0003
 	obj_word OBJ_VAR_30, $0023
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_771f::
+ObjInit_Zinger_Patrol_45::
 	obj_word OBJ_TARGET_YVEL, $0085
 	obj_word OBJ_VAR_2E, $0003
 	obj_word OBJ_VAR_30, $0034
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_772c::
+ObjInit_Zinger_Patrol_46::
 	obj_word OBJ_TARGET_YVEL, $0105
 	obj_word OBJ_VAR_2E, $0021
 	obj_word OBJ_VAR_30, $0021
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7739::
+ObjInit_Zinger_Patrol_47::
 	obj_word OBJ_TARGET_YVEL, $0090
 	obj_word OBJ_VAR_2E, $0016
 	obj_word OBJ_VAR_30, $0016
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7746::
+ObjInit_Zinger_Move_24::
 	obj_word OBJ_TARGET_XVEL, $6300
 	obj_word OBJ_TARGET_YVEL, $fdbb
 	obj_byte OBJ_XACCEL, $14
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_7752::
+ObjInit_Zinger_Patrol_48::
 	obj_word OBJ_TARGET_XVEL, $fdfe
 	obj_word OBJ_VAR_2E, $0059
 	obj_word OBJ_VAR_30, $001c
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_775f::
+ObjInit_Zinger_Move_25::
 	obj_word OBJ_TARGET_XVEL, $dc00
 	obj_word OBJ_TARGET_YVEL, $0170
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_776b::
+ObjInit_Zinger_Move_26::
 	obj_word OBJ_TARGET_XVEL, $5800
 	obj_word OBJ_TARGET_YVEL, $0170
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_7777::
+ObjInit_Zinger_Move_27::
 	obj_word OBJ_TARGET_XVEL, $c200
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_7783::
+ObjInit_Zinger_Move_28::
 	obj_word OBJ_TARGET_XVEL, $1700
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_778f::
+ObjInit_Zinger_Move_29::
 	obj_word OBJ_TARGET_XVEL, $6300
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $16
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_779b::
+ObjInit_Zinger_Move_30::
 	obj_word OBJ_TARGET_XVEL, $f800
 	obj_word OBJ_TARGET_YVEL, $fe78
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_77a7::
+ObjInit_Zinger_Move_31::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $fe78
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_77b3::
+ObjInit_Zinger_Move2_13::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $fdc0
 	obj_byte OBJ_XACCEL, $23
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_VAR_2F, $c0
-	obj_include ObjInit_0e_43f4
+	obj_include ObjInit_Zinger_Move2_2
 	obj_end
 
-ObjInit_0e_77c3::
+ObjInit_Zinger_Patrol_49::
 	obj_word OBJ_TARGET_YVEL, $fee0
 	obj_word OBJ_VAR_2E, $000b
 	obj_word OBJ_VAR_30, $0107
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_77d0::
+ObjInit_Zinger_Patrol_50::
 	obj_word OBJ_TARGET_YVEL, $0100
 	obj_word OBJ_VAR_2E, $0052
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_77dd::
+ObjInit_Zinger_Patrol_51::
 	obj_word OBJ_TARGET_XVEL, $0170
 	obj_word OBJ_VAR_2E, $0008
 	obj_word OBJ_VAR_30, $00ab
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_77ea::
+ObjInit_Zinger_Patrol_52::
 	obj_word OBJ_TARGET_XVEL, $fee0
 	obj_word OBJ_VAR_2E, $00ac
 	obj_word OBJ_VAR_30, $0048
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_77f7::
+ObjInit_Zinger_Patrol_53::
 	obj_word OBJ_TARGET_YVEL, $feb0
 	obj_word OBJ_VAR_2E, $0026
 	obj_word OBJ_VAR_30, $0055
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7804::
+ObjInit_Zinger_Patrol_54::
 	obj_word OBJ_TARGET_XVEL, $fe80
 	obj_word OBJ_VAR_2E, $001d
 	obj_word OBJ_VAR_30, $00c3
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7811::
+ObjInit_Zinger_Patrol_55::
 	obj_word OBJ_TARGET_XVEL, $fe00
 	obj_word OBJ_VAR_2E, $00ab
 	obj_word OBJ_VAR_30, $0008
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_781e::
+ObjInit_Zinger_Patrol_56::
 	obj_word OBJ_TARGET_XVEL, $fe00
 	obj_word OBJ_VAR_2E, $0071
 	obj_word OBJ_VAR_30, $0037
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_782b::
+ObjInit_Zinger_Patrol_57::
 	obj_word OBJ_TARGET_YVEL, $0210
 	obj_word OBJ_VAR_2E, $0030
 	obj_word OBJ_VAR_30, $0032
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7838::
+ObjInit_Zinger_Patrol_58::
 	obj_word OBJ_TARGET_YVEL, $0210
 	obj_word OBJ_VAR_2E, $0020
 	obj_word OBJ_VAR_30, $0024
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7845::
+ObjInit_Zinger_Patrol_59::
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $0083
 	obj_word OBJ_VAR_30, $0030
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_7852::
+ObjInit_Zinger_Patrol_60::
 	obj_word OBJ_TARGET_XVEL, $0200
 	obj_word OBJ_VAR_2E, $0058
 	obj_word OBJ_VAR_30, $005b
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_785f::
+ObjInit_Zinger_Patrol_61::
 	obj_word OBJ_TARGET_YVEL, $fee0
 	obj_word OBJ_VAR_2E, $009c
 	obj_word OBJ_VAR_30, $000b
-	obj_include ObjInit_0e_43dc
+	obj_include ObjInit_Zinger_Patrol_2
 	obj_end
 
-ObjInit_0e_786c::
+ObjInit_Zinger_Move_32::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $fd00
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_7878::
+ObjInit_Zinger_Move_33::
 	obj_word OBJ_TARGET_XVEL, $8000
 	obj_word OBJ_TARGET_YVEL, $fe00
 	obj_byte OBJ_XACCEL, $10
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_7884::
+ObjInit_Zinger_Move_34::
 	obj_word OBJ_TARGET_XVEL, $bb00
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_byte OBJ_XACCEL, $20
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_7890::
+ObjInit_Zinger_Move_35::
 	obj_word OBJ_TARGET_XVEL, $1800
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_byte OBJ_XACCEL, $20
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_789c::
+ObjInit_Zinger_Move_36::
 	obj_word OBJ_TARGET_XVEL, $6800
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_byte OBJ_XACCEL, $20
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_78a8::
+ObjInit_Zinger_Move_37::
 	obj_word OBJ_TARGET_XVEL, $6800
 	obj_word OBJ_TARGET_YVEL, $fec0
 	obj_byte OBJ_XACCEL, $20
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_78b4::
+ObjInit_Zinger_Move_38::
 	obj_word OBJ_TARGET_XVEL, $6800
 	obj_word OBJ_TARGET_YVEL, $0140
 	obj_byte OBJ_XACCEL, $20
-	obj_include ObjInit_0e_43eb
+	obj_include ObjInit_Zinger_Move_2
 	obj_end
 
-ObjInit_0e_78c0::
+ObjInit_Zinger_Move2_14::
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_TARGET_YVEL, $ff00
 	obj_byte OBJ_XACCEL, $1e
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_VAR_2F, $c0
-	obj_include ObjInit_0e_43f4
+	obj_include ObjInit_Zinger_Move2_2
 	obj_end
 
-ObjInit_0e_78d0::
-	obj_include ObjInit_0e_47bf
+ObjInit_BlackDrum_32::
+	obj_include ObjInit_BlackDrum_4
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
 	obj_byte OBJ_VAR_2E, $80
 	obj_end
 
-ObjInit_0e_78db::
-	obj_include ObjInit_0e_47bf
+ObjInit_OilDrum_1::
+	obj_include ObjInit_BlackDrum_4
 	obj_byte OBJ_BANK, BANK(OilDrum)
 	obj_word OBJ_HANDLER, OilDrum
-	obj_word OBJ_VAR_31, ObjScript_0a_7877
+	obj_word OBJ_VAR_31, ObjScript_OilDrum_1_Sub
 	obj_end
 
-ObjInit_0e_78e7::
-	obj_include ObjInit_0e_47bf
+ObjInit_OilDrum_2::
+	obj_include ObjInit_BlackDrum_4
 	obj_byte OBJ_BANK, BANK(OilDrum)
 	obj_word OBJ_HANDLER, OilDrum
-	obj_word OBJ_VAR_31, ObjScript_0a_7883
+	obj_word OBJ_VAR_31, ObjScript_OilDrum_2_Sub
 	obj_end
 
-ObjInit_0e_78f3::
-	obj_include ObjInit_0e_47bf
+ObjInit_OilDrum_3::
+	obj_include ObjInit_BlackDrum_4
 	obj_byte OBJ_BANK, BANK(OilDrum)
 	obj_word OBJ_HANDLER, OilDrum
 	obj_byte OBJ_VAR_2E, $01
-	obj_word OBJ_VAR_31, ObjScript_0a_7877
+	obj_word OBJ_VAR_31, ObjScript_OilDrum_1_Sub
 	obj_end
 
-ObjInit_0e_7901::
-	obj_include ObjInit_0e_47bf
+ObjInit_BlackDrum_33::
+	obj_include ObjInit_BlackDrum_4
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_byte OBJ_VAR_2E, $00
 	obj_end
 
-ObjInit_0e_790e::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6cbb
+ObjInit_BlackDrum_34::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_34
 	obj_byte OBJ_ANIM_PARAM, $0c
 	obj_end
 
-ObjInit_0e_7917::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6d12
+ObjInit_BlackDrum_35::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_35
 	obj_end
 
-ObjInit_0e_791e::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6d1c
+ObjInit_BlackDrum_36::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_36
 	obj_end
 
-ObjInit_0e_7925::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6d26
+ObjInit_BlackDrum_37::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_37
 	obj_end
 
-ObjInit_0e_792c::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6d30
+ObjInit_BlackDrum_38::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_38
 	obj_end
 
-ObjInit_0e_7933::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6d3a
+ObjInit_BlackDrum_39::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_39
 	obj_end
 
-ObjInit_0e_793a::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6d44
+ObjInit_BlackDrum_40::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_40
 	obj_end
 
-ObjInit_0e_7941::
-	obj_include ObjInit_0e_47d0
-	obj_word OBJ_VAR_2F, MapPatch_04_6d4e
+ObjInit_BlackDrum_41::
+	obj_include ObjInit_BlackDrum_5
+	obj_word OBJ_VAR_2F, MapPatch_BlackDrum_41
 	obj_end
 
-ObjInit_0e_7948::
-	obj_include ObjInit_0e_47bf
+ObjInit_OilDrum_4::
+	obj_include ObjInit_BlackDrum_4
 	obj_byte OBJ_BANK, BANK(OilDrum)
 	obj_word OBJ_HANDLER, OilDrum
-	obj_word OBJ_VAR_31, ObjScript_0a_7893
+	obj_word OBJ_VAR_31, ObjScript_OilDrum_4_Sub
 	obj_end
 
-ObjInit_0e_7954::
-	obj_include ObjInit_0e_47e8
-	obj_word OBJ_VAR_2E, ObjScript_0a_78a3
+ObjInit_TrackPlatform_Wait_2::
+	obj_include ObjInit_TrackPlatform_Wait_1
+	obj_word OBJ_VAR_2E, ObjScript_TrackPlatform_Wait_2_Sub
 	obj_end
 
-ObjInit_0e_795b::
-	obj_include ObjInit_0e_47e8
-	obj_word OBJ_VAR_2E, ObjScript_0a_7937
+ObjInit_TrackPlatform_Wait_3::
+	obj_include ObjInit_TrackPlatform_Wait_1
+	obj_word OBJ_VAR_2E, ObjScript_TrackPlatform_Wait_3_Sub
 	obj_end
 
-ObjInit_0e_7962::
-	obj_include ObjInit_0e_47e8
-	obj_word OBJ_VAR_2E, ObjScript_0a_79f5
+ObjInit_TrackPlatform_Wait_4::
+	obj_include ObjInit_TrackPlatform_Wait_1
+	obj_word OBJ_VAR_2E, ObjScript_TrackPlatform_Wait_4_Sub
 	obj_end
 
-ObjInit_0e_7969::
-	obj_include ObjInit_0e_4800
-	obj_word OBJ_VAR_2E, ObjScript_0a_7a11
+ObjInit_FuelPlatform_Wait_2::
+	obj_include ObjInit_FuelPlatform_Wait_1
+	obj_word OBJ_VAR_2E, ObjScript_FuelPlatform_Wait_2_Sub
 	obj_end
 
-ObjInit_0e_7970::
-	obj_include ObjInit_0e_4800
-	obj_word OBJ_VAR_2E, ObjScript_0a_7a64
+ObjInit_FuelPlatform_Wait_3::
+	obj_include ObjInit_FuelPlatform_Wait_1
+	obj_word OBJ_VAR_2E, ObjScript_FuelPlatform_Wait_3_Sub
 	obj_end
 
-ObjInit_0e_7977::
+ObjInit_BonusCoin_4::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_AnimateAndDespawn)
 	obj_word OBJ_HANDLER, Obj_AnimateAndDespawn
@@ -8173,10 +8173,10 @@ ObjInit_0e_7977::
 	obj_byte OBJ_COLLISION, $08
 	obj_byte OBJ_ANIM_PARAM, $07
 	obj_byte OBJ_PALETTE, $00
-	obj_word OBJ_ANIM, Anim_04_570b
+	obj_word OBJ_ANIM, Anim_HUD_Items_Hidden_3
 	obj_end
 
-ObjInit_0e_798d::
+ObjInit_MiniAnimalToken_2::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(MiniAnimalToken)
 	obj_word OBJ_HANDLER, MiniAnimalToken
@@ -8185,7 +8185,7 @@ ObjInit_0e_798d::
 	obj_byte OBJ_COLLISION, $02
 	obj_end
 
-ObjInit_0e_799c::
+ObjInit_BlackDrum_42::
 	obj_byte OBJ_FLAGS, $03
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
@@ -8194,61 +8194,61 @@ ObjInit_0e_799c::
 	obj_byte OBJ_COLLISION, $08
 	obj_end
 
-ObjInit_0e_79ab::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_2::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $80
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79b3::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_3::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $7f
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79bb::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_4::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $70
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79c3::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_5::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $60
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79cb::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_6::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $50
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79d3::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_7::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $40
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79db::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_8::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $30
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79e3::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_9::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $20
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79eb::
-	obj_include ObjInit_0e_4867
+ObjInit_SetBrightness_10::
+	obj_include ObjInit_SetBrightness_1
 	obj_byte OBJ_VAR_2E, $10
 	obj_byte OBJ_VAR_2F, $07
 	obj_end
 
-ObjInit_0e_79f3::
+ObjInit_Empty::
 	obj_end
 	ds 1548, $00 ; $79f4
 

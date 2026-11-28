@@ -195,37 +195,37 @@ ObjPalette_3E::
 ObjPalette_3F::
 	rgb  0,  0,  0,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-ObjPalPreload_80_4200::
+ObjPalPreload_VeryGnawtysLair::
 	obj_pal_preload 0, 1, 2, 46, 47, 32, 33
 
-ObjPalPreload_80_4208::
+ObjPalPreload_NeckysNuts::
 	obj_pal_preload 0, 1, 2, 46, 47, 34, 35
 
-ObjPalPreload_80_4210::
+ObjPalPreload_BumbleBRumble::
 	obj_pal_preload 0, 1, 2, 46, 47, 44, 45
 
-ObjPalPreload_80_4218::
+ObjPalPreload_ReallyGnawtyRampage::
 	obj_pal_preload 0, 1, 2, 46, 47, 36, 37
 
-ObjPalPreload_80_4220::
+ObjPalPreload_BossDumbDrum::
 	obj_pal_preload 0, 1, 2, 46, 47, 38, 39
 
-ObjPalPreload_80_4228::
+ObjPalPreload_NeckysRevenge::
 	obj_pal_preload 0, 1, 2, 46, 47, 40, 41
 
-ObjPalPreload_80_4230::
+ObjPalPreload_GangPlankGalleon::
 	obj_pal_preload 0, 1, 2, 46, 47, 42, 43
 
-ObjPalPreload_80_4238::
+ObjPalPreload_LevelTable::
 	obj_pal_preload 0, 1, 2
 
-ObjPalPreload_80_423c::
+ObjPalPreload_State_EnterShop_1::
 	obj_pal_preload 0, 1, 2, 52, 53, 54, 63, 58
 
-ObjPalPreload_80_4245::
+ObjPalPreload_State_EnterShop_2::
 	obj_pal_preload 0, 2, 48, 1, 55, 56, 1, 58
 
-ObjPalPreload_80_424e::
+ObjPalPreload_State_EnterShop_3::
 	obj_pal_preload 0, 1, 2, 49, 50, 51, 63, 58
 
 BGPaletteSet_00::

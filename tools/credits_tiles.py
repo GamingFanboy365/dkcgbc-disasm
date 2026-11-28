@@ -69,7 +69,12 @@ def ending_screens():
     """Screen records the ending loads, in order (from the generated source)."""
     src = open(os.path.join(ROOT, "src", "bank_0d.asm")).read()
     part = src[src.index("Flow_Ending::"):src.index("Flow_EndingHoard::")]
-    return [(int(b, 16), int(a, 16)) for b, a in re.findall(r"flow_load_screen Screen_(\w\w)_(\w{4})", part)]
+    syms = {}
+    for ln in open(os.path.join(ROOT, "dkc.sym")):
+        m = re.match(r"([0-9a-f]{2}):([0-9a-f]{4}) (\S+)", ln)
+        if m:
+            syms[m.group(3)] = (int(m.group(1), 16), int(m.group(2), 16))
+    return [syms[n] for n in re.findall(r"flow_load_screen (\w+)", part)]
 
 
 def main():

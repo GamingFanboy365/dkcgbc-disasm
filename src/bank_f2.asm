@@ -2846,7 +2846,7 @@ LetterPieces::
 LetterPiecesEnd::
 	db $00, $00, $00, $00
 
-BGTiles_f2_5760::
+BGTiles_LetterPiecesEnd::
 	INCBIN "gfx/bgtiles/f2/5760.2bpp"
 
 FE_IR_Init::

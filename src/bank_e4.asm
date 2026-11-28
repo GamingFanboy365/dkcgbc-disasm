@@ -3,49 +3,49 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e4", ROMX[$4000], BANK[$e4]
 
-LevelMap_e4_4000::
+LevelMap_CroctopusChase2::
 	INCBIN "data/maps/e4_4000_terrain.lz"
 
-LevelMap_e4_4478::
+LevelMap_CroctopusChase0::
 	INCBIN "data/maps/e4_4478_blocks.lz"
 
-LevelMap_e4_4b5f::
+LevelMap_CroctopusChase1::
 	INCBIN "data/maps/e4_4b5f_attrs.lz"
 
-LevelMap_e4_4dd0::
+LevelMap_CroctopusChase5::
 	INCBIN "data/maps/e4_4dd0_terrain.lz"
 
-LevelMap_e4_4f98::
+LevelMap_CroctopusChase3::
 	INCBIN "data/maps/e4_4f98_blocks.lz"
 
-LevelMap_e4_5261::
+LevelMap_CroctopusChase4::
 	INCBIN "data/maps/e4_5261_attrs.lz"
 
-LevelMap_e4_534c::
+LevelMap_PoisonPond2::
 	INCBIN "data/maps/e4_534c_terrain.lz"
 
-LevelMap_e4_56e9::
+LevelMap_PoisonPond0::
 	INCBIN "data/maps/e4_56e9_blocks.lz"
 
-LevelMap_e4_6005::
+LevelMap_PoisonPond1::
 	INCBIN "data/maps/e4_6005_attrs.lz"
 
-LevelMap_e4_6382::
+LevelMap_PoisonPond5::
 	INCBIN "data/maps/e4_6382_terrain.lz"
 
-LevelMap_e4_6458::
+LevelMap_PoisonPond3::
 	INCBIN "data/maps/e4_6458_blocks.lz"
 
-LevelMap_e4_66fe::
+LevelMap_PoisonPond4::
 	INCBIN "data/maps/e4_66fe_attrs.lz"
 
-LevelMap_e4_67d1::
+LevelMap_EnguardeBonus_1::
 	INCBIN "data/maps/e4_67d1_terrain.lz"
 
-LevelMap_e4_693a::
+LevelMap_EnguardeBonus_2::
 	INCBIN "data/maps/e4_693a_blocks.lz"
 
-LevelMap_e4_6caf::
+LevelMap_EnguardeBonus_3::
 	INCBIN "data/maps/e4_6caf_attrs.lz"
 	ds 4734, $00 ; $6d82
 

@@ -78,7 +78,7 @@ MACRO anim_param
 	db \1, $84
 ENDM
 
-; anim_var38 value: set the word OBJ_VAR_38
+; anim_var38 value: set the word OBJ_ANIM_WORD (OBJ_VAR_38 in older notes)
 MACRO anim_var38
 	db $00, $85
 	dw \1

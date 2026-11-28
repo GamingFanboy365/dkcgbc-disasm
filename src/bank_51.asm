@@ -1113,32 +1113,32 @@ FishingSineTable::
 	dw $fff4, $fff6, $fff7, $fff9, $fffa, $fffc, $fffd, $ffff
 	dw $0000, $0000, $0000, $0000, $0000, $0000, $0000
 
-Padding_51_4cff::
+Padding_FishingSineTable::
 	db $00 ; padding
 
-BGTiles_51_4d00::
+BGTiles_FishingSineTable_1::
 	INCBIN "gfx/bgtiles/51/4d00.2bpp"
 	INCBIN "gfx/bgtiles/51/4d00_end.2bpp"
 
-BGTiles_51_54e0::
+BGTiles_FishingSineTable_2::
 	INCBIN "gfx/bgtiles/51/54e0.2bpp"
 
-BGTiles_51_5ce0::
+BGTiles_FishingSineTable_3::
 	INCBIN "gfx/bgtiles/51/5ce0.2bpp"
 	INCBIN "gfx/bgtiles/51/5ce0_end.2bpp"
 
-BGTiles_51_6460::
+BGTiles_FishingSineTable_4::
 	INCBIN "gfx/bgtiles/51/6460.2bpp"
 
-BGTiles_51_6480::
+BGTiles_FishingSineTable_5::
 	INCBIN "gfx/bgtiles/51/6480.2bpp"
 	INCBIN "gfx/bgtiles/51/6480_end.2bpp"
 
-BGTiles_51_67e0::
+BGTiles_FishingSineTable_6::
 	INCBIN "gfx/bgtiles/51/67e0.2bpp"
 	INCBIN "gfx/bgtiles/51/67e0_end.2bpp"
 
-FishingScreen_51_6a90::
+FishingScreen_FishingSineTable_1::
 	db $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $07, $0f, $0f, $0f, $0f, $07, $07, $0f, $0f, $0f, $0f, $0f ; attributes
 	db $07, $07, $07, $07, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $07, $06, $06, $06, $06
 	db $07, $07, $07, $07, $07, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08, $07, $06, $06, $06, $06
@@ -1176,7 +1176,7 @@ FishingScreen_51_6a90::
 	db $bb, $bc, $80, $bd, $be, $bf, $c0, $c1, $c2, $c3, $c4, $c5, $c5, $c6, $c7, $c8, $c9, $ca, $90, $c5
 	db $cc, $cd, $ce, $cf, $d0, $d1, $d2, $d3, $d4, $d5, $d6, $d7, $d8, $d9, $da, $db, $dc, $dd, $de, $df
 
-FishingScreen_51_6d60::
+FishingScreen_FishingSineTable_2::
 	db $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $07, $07, $07, $07, $07, $07, $07, $0f, $0f, $0f, $0f, $0f ; attributes
 	db $07, $07, $07, $07, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $0f, $07, $06, $06, $06, $06
 	db $07, $07, $07, $07, $07, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08, $07, $06, $06, $06, $06
@@ -1214,7 +1214,7 @@ FishingScreen_51_6d60::
 	db $bb, $bc, $80, $bd, $be, $bf, $c0, $c1, $c2, $c3, $c4, $c5, $c5, $c6, $c7, $c8, $c9, $ca, $90, $c5
 	db $cc, $cd, $ce, $cf, $d0, $d1, $d2, $d3, $d4, $d5, $d6, $d7, $d8, $d9, $da, $db, $dc, $dd, $de, $df
 
-FishingBox_51_7030::
+FishingBox_FishingSineTable::
 	db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03 ; attributes
 	db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
 	db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
@@ -1224,7 +1224,7 @@ FishingBox_51_7030::
 	db $ed, $ee, $ef, $f0, $f1, $f2, $f3, $f4, $f5, $f5, $f6, $f7
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-FishingBGPalettes_51_7090::
+FishingBGPalettes_FishingSineTable::
 	rgb  0,  0,  0,  28, 20, 12,  31, 31,  0,   1, 18,  0
 	rgb  0,  0,  0,   0,  3,  6,   0,  6, 10,   1,  9, 16
 	rgb  0,  3,  6,   0,  0,  0,  15,  9,  8,  21, 14, 13
@@ -1234,7 +1234,7 @@ FishingBGPalettes_51_7090::
 	rgb  0,  0,  0,   5,  5,  5,  13, 14, 13,  28, 20, 12
 	rgb  0,  0,  0,  24,  0,  0,  31, 31, 31,  28, 20, 12
 
-FishingOBJPalettes_51_70d0::
+FishingOBJPalettes_FishingSineTable::
 	rgb  0,  0,  0,  19, 12,  0,  31, 31,  0,  31,  9,  9
 	rgb  0,  0,  0,   0,  5,  0,   0, 14,  0,  31, 24,  0
 	rgb  0,  0,  0,  13,  0,  0,  31,  0,  0,  31,  9,  9

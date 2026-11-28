@@ -4,1097 +4,1097 @@ INCLUDE "include/common.inc"
 SECTION "Bank $14", ROMX[$4000], BANK[$14]
 
 TextGroups_14::
-	dw TextGroup_14_4020, TextGroup_14_40a8, TextGroup_14_405e, TextGroup_14_40be
-	dw TextGroup_14_40f4, TextGroup_14_413e, TextGroup_14_417c, TextGroup_14_417e
-	dw TextGroup_14_418c, TextGroup_14_418e, TextGroup_14_4198, TextGroup_14_419c
-	dw TextGroup_14_41a0, TextGroup_14_41ba, TextGroup_14_41ca, TextGroup_14_41ce
+	dw TextGroup_Spanish_00, TextGroup_Spanish_02, TextGroup_Spanish_01, TextGroup_Spanish_03
+	dw TextGroup_Spanish_04, TextGroup_Spanish_05, TextGroup_Spanish_06, TextGroup_Spanish_07
+	dw TextGroup_Spanish_08, TextGroup_Spanish_09, TextGroup_Spanish_10, TextGroup_Spanish_11
+	dw TextGroup_Spanish_12, TextGroup_Spanish_13, TextGroup_Spanish_14, TextGroup_Spanish_15
 
-TextGroup_14_4020::
-	dw Text_14_4244
-	dw Text_14_4272
-	dw Text_14_42a9
-	dw Text_14_42d8
-	dw Text_14_4313
-	dw Text_14_434d
-	dw Text_14_4383
-	dw Text_14_43b1
-	dw Text_14_43db
-	dw Text_14_440c
-	dw Text_14_4444
-	dw Text_14_4477
-	dw Text_14_44a5
-	dw Text_14_44cd
-	dw Text_14_44ec
-	dw Text_14_4522
-	dw Text_14_4540
-	dw Text_14_457c
-	dw Text_14_45aa
-	dw Text_14_45e7
-	dw Text_14_461b
-	dw Text_14_4653
-	dw Text_14_467f
-	dw Text_14_46b3
-	dw Text_14_46e3
-	dw Text_14_471b
-	dw Text_14_4750
-	dw Text_14_4787
-	dw Text_14_47bb
-	dw Text_14_47dd
-	dw Text_14_4816
+TextGroup_Spanish_00::
+	dw Text_WellWellDidntExpect_Spanish
+	dw Text_YoureDoingPrettyGood_Spanish
+	dw Text_SoYouFoundMe_Spanish
+	dw Text_WhoToldYouI_Spanish
+	dw Text_WellWellLookWhat_Spanish
+	dw Text_HaventSeenYouAround_Spanish
+	dw Text_WhatDoYouWant_Spanish
+	dw Text_AhhAtLastSomeone_Spanish
+	dw Text_YoureLuckyYouCaught_Spanish
+	dw Text_HaveYaBroughtBack_Spanish
+	dw Text_LastTimeISaw_Spanish
+	dw Text_ComeOverHereAnd_Spanish
+	dw Text_WellLookyWhatWe_Spanish
+	dw Text_ArentYouASight_Spanish
+	dw Text_AWholeMobOf_Spanish
+	dw Text_ThisHereIsRhino_Spanish
+	dw Text_HeyBoyCanYou_Spanish
+	dw Text_HeyBoyDidYou_Spanish
+	dw Text_YouBigApeI_Spanish
+	dw Text_ItsHardToFind_Spanish
+	dw Text_SureComeOnOver_Spanish
+	dw Text_AhhItSortaTakes_Spanish
+	dw Text_ItsBeenRealBusy_Spanish
+	dw Text_SureLooksLikeIm_Spanish
+	dw Text_SureBeatsAVisit_Spanish
+	dw Text_FancyRunningIntoYou_Spanish
+	dw Text_IHaventGotEven_Spanish
+	dw Text_IJustGaveMy_Spanish
+	dw Text_WhatInTarnationDo_Spanish
+	dw Text_IAintGotNothin_Spanish
+	dw Text_BetchaWontGetMuch_Spanish
 
-TextGroup_14_405e::
-	dw Text_14_484b
-	dw Text_14_487f
-	dw Text_14_48b6
-	dw Text_14_48e7
-	dw Text_14_4920
-	dw Text_14_4959
-	dw Text_14_498f
-	dw Text_14_49c2
-	dw Text_14_49fa
-	dw Text_14_4a30
-	dw Text_14_4a5d
-	dw Text_14_4a77
-	dw Text_14_4aad
-	dw Text_14_4ae9
-	dw Text_14_4b23
-	dw Text_14_4b5d
-	dw Text_14_4b94
-	dw Text_14_4bb8
-	dw Text_14_4be9
-	dw Text_14_4c24
-	dw Text_14_4c60
-	dw Text_14_4c87
-	dw Text_14_4cbb
-	dw Text_14_4cf6
-	dw Text_14_4d2b
-	dw Text_14_4d64
-	dw Text_14_4d97
-	dw Text_14_4dc9
-	dw Text_14_4df8
-	dw Text_14_4e32
-	dw Text_14_4e6d
-	dw Text_14_4ea0
-	dw Text_14_4ed7
-	dw Text_14_4f0d
-	dw Text_14_4f45
-	dw Text_14_4f80
-	dw Text_14_4fb4
+TextGroup_Spanish_01::
+	dw Text_TheKidsOfToday_Spanish
+	dw Text_TheVideoGamesIn_Spanish
+	dw Text_AllThisFunCant_Spanish
+	dw Text_BetThisSectionWasted_Spanish
+	dw Text_TheyCantKeepThis_Spanish
+	dw Text_WeWereLuckyIf_Spanish
+	dw Text_WeUsedToHave_Spanish
+	dw Text_ThemBarrelsWereA_Spanish
+	dw Text_WeNeverHadAny_Spanish
+	dw Text_WeJustHadTo_Spanish
+	dw Text_IveNeverSeenAnything_Spanish
+	dw Text_EnjoyThisDemoGame_Spanish
+	dw Text_FourShadesOfGray_Spanish
+	dw Text_ICantPlayThis_Spanish
+	dw Text_TheBananasHaveMore_Spanish
+	dw Text_LookAtThisMy_Spanish
+	dw Text_ThatWasWhenWe_Spanish
+	dw Text_UsedAllTheLatest_Spanish
+	dw Text_TheTroubleWithYou_Spanish
+	dw Text_GamesWereALot_Spanish
+	dw Text_WedPlayForHours_Spanish
+	dw Text_YouWouldntLastTwo_Spanish
+	dw Text_ICouldGetThrough_Spanish
+	dw Text_ImTalkingAboutWhen_Spanish
+	dw Text_ThreeLivesAndThree_Spanish
+	dw Text_GamesNeverLookedLike_Spanish
+	dw Text_AndWeWereMuch_Spanish
+	dw Text_BetYouThoughtThis_Spanish
+	dw Text_MyBigToesGot_Spanish
+	dw Text_YknowWhatTheySay_Spanish
+	dw Text_With32MegYoud_Spanish
+	dw Text_BackInMyDay_Spanish
+	dw Text_WhatsEvenWorseYou_Spanish
+	dw Text_YouWouldntKnowA_Spanish
+	dw Text_AJoystickAndOne_Spanish
+	dw Text_IWouldntBeSeen_Spanish
+	dw Text_YouCantBetterThe_Spanish
 
-TextGroup_14_40a8::
-	dw Text_14_4fee
-	dw Text_14_5022
-	dw Text_14_5056
-	dw Text_14_5086
-	dw Text_14_50a7
-	dw Text_14_50b7
-	dw Text_14_50d3
-	dw Text_14_50fa
-	dw Text_14_510e
-	dw Text_14_513b
-	dw Text_14_515f
+TextGroup_Spanish_02::
+	dw Text_SoYerBackAgain_Spanish
+	dw Text_TooQuickIDidnt_Spanish
+	dw Text_ImJustWastingMy_Spanish
+	dw Text_YouHaveToDo_Spanish
+	dw Text_YouOnlyJustLeft_Spanish
+	dw Text_BackAgainEhThat_Spanish
+	dw Text_CameBackToThe_Spanish
+	dw Text_StillGotYouBeat_Spanish
+	dw Text_YupDontMakeGame_Spanish
+	dw Text_DyaExpectMeTo_Spanish
+	dw Text_HowDareYouShow_Spanish
 
-TextGroup_14_40be::
-	dw Text_14_5194
-	dw Text_14_51c6
-	dw Text_14_51fd
-	dw Text_14_5234
-	dw Text_14_5271
-	dw Text_14_52a5
-	dw Text_14_52d3
-	dw Text_14_5309
-	dw Text_14_5345
-	dw Text_14_537d
-	dw Text_14_53af
-	dw Text_14_53e3
-	dw Text_14_541e
-	dw Text_14_5459
-	dw Text_14_5489
-	dw Text_14_54c6
-	dw Text_14_5500
-	dw Text_14_5535
-	dw Text_14_556d
-	dw Text_14_55a6
-	dw Text_14_55e0
-	dw Text_14_5610
-	dw Text_14_5648
-	dw Text_14_567a
-	dw Text_14_56b1
-	dw Text_14_56ea
-	dw Text_14_5720
+TextGroup_Spanish_03::
+	dw Text_InJungleHijinxsStick_Spanish
+	dw Text_FindTheFunJust_Spanish
+	dw Text_ALeapOfFaith_Spanish
+	dw Text_GoBananasInThe_Spanish
+	dw Text_CroctopusCornersCrocksOf_Spanish
+	dw Text_BurnRubberForThe_Spanish
+	dw Text_TheBananasInStop_Spanish
+	dw Text_JumpEarlyToGet_Spanish
+	dw Text_RollingRubberWillPut_Spanish
+	dw Text_OnSnowBarrelBlast_Spanish
+	dw Text_OnCroctopusChaseA_Spanish
+	dw Text_ToGetYourWings_Spanish
+	dw Text_BouncingTheBouncerSlides_Spanish
+	dw Text_TheTntGivesWall_Spanish
+	dw Text_ForElevatorAnticsClimb_Spanish
+	dw Text_TheGnawtyGnowsA_Spanish
+	dw Text_MineCartMadnessIs_Spanish
+	dw Text_OnceInThePoison_Spanish
+	dw Text_BlackoutBasementsSinkingFeeling_Spanish
+	dw Text_LetDiddyHoldOut_Spanish
+	dw Text_TakeEnoughRopeAnd_Spanish
+	dw Text_TheLoopyLightsVultures_Spanish
+	dw Text_PerilousVulturesKnowIts_Spanish
+	dw Text_AllGassedUpAnd_Spanish
+	dw Text_TheOrangUtanGang_Spanish
+	dw Text_ASingleBananaIs_Spanish
+	dw Text_GetDownWithThe_Spanish
 
-TextGroup_14_40f4::
-	dw Text_14_574c
-	dw Text_14_5787
-	dw Text_14_57c3
-	dw Text_14_57f4
-	dw Text_14_582c
-	dw Text_14_5866
-	dw Text_14_589a
-	dw Text_14_58d6
-	dw Text_14_590b
-	dw Text_14_593d
-	dw Text_14_597a
-	dw Text_14_59b3
-	dw Text_14_59ec
-	dw Text_14_5a26
-	dw Text_14_5a4d
-	dw Text_14_5a83
-	dw Text_14_5abd
-	dw Text_14_5aef
-	dw Text_14_5b21
-	dw Text_14_5b55
-	dw Text_14_5b8e
-	dw Text_14_5bc6
-	dw Text_14_5c01
-	dw Text_14_5c3a
-	dw Text_14_5c6c
-	dw Text_14_5ca3
-	dw Text_14_5ca3
-	dw Text_14_5cdb
-	dw Text_14_5d0f
-	dw Text_14_5d48
-	dw Text_14_5d84
-	dw Text_14_5dbb
-	dw Text_14_6f3b
-	dw Text_14_6f3b
-	dw Text_14_6f3b
-	dw Text_14_6f3b
-	dw Text_14_6f3b
+TextGroup_Spanish_04::
+	dw Text_AHandSlapCan_Spanish
+	dw Text_HeCantReallyFly_Spanish
+	dw Text_EnguardeSwordfishWillHelp_Spanish
+	dw Text_CandysChallengesCanWin_Spanish
+	dw Text_RollOffAPlatform_Spanish
+	dw Text_TheySayIfYou_Spanish
+	dw Text_IHearYouCan_Spanish
+	dw Text_ReckonRambiRhinoCould_Spanish
+	dw Text_BounceAKegOff_Spanish
+	dw Text_RollAttackABaddie_Spanish
+	dw Text_BounceOnEightBaddies_Spanish
+	dw Text_TheySayExpressosLegs_Spanish
+	dw Text_BreakOpenAStar_Spanish
+	dw Text_JustFinishALevel_Spanish
+	dw Text_FunkySendsYouWhere_Spanish
+	dw Text_DisguisedHolesOnThe_Spanish
+	dw Text_BananaArrowsWillPoint_Spanish
+	dw Text_IfYouFindBananas_Spanish
+	dw Text_SmashOpenAnyDk_Spanish
+	dw Text_GrabThemExtraLife_Spanish
+	dw Text_KlapTrapTeethStop_Spanish
+	dw Text_YouCantJumpOn_Spanish
+	dw Text_KlumpsHatProtectsAgainst_Spanish
+	dw Text_KrushaIsToughOnly_Spanish
+	dw Text_FloatingBarrelsWillBreak_Spanish
+	dw Text_FollowSteelKegsAnd_Spanish
+	dw Text_FollowSteelKegsAnd_Spanish
+	dw Text_RunAndJumpOn_Spanish
+	dw Text_JumpOnFixedTires_Spanish
+	dw Text_PushFreeTiresTo_Spanish
+	dw Text_RollOverSlippaOr_Spanish
+	dw Text_GnawtyBeaverCanBe_Spanish
+	dw Text_INeverLikedThose_Spanish
+	dw Text_INeverLikedThose_Spanish
+	dw Text_INeverLikedThose_Spanish
+	dw Text_INeverLikedThose_Spanish
+	dw Text_INeverLikedThose_Spanish
 
-TextGroup_14_413e::
-	dw Text_14_5de4
-	dw Text_14_5e01
-	dw Text_14_5e20
-	dw Text_14_5e4a
-	dw Text_14_5e7a
-	dw Text_14_5e99
-	dw Text_14_5ed2
-	dw Text_14_5ef6
-	dw Text_14_5f2b
-	dw Text_14_5f51
-	dw Text_14_5f75
-	dw Text_14_5fa2
-	dw Text_14_5fd6
-	dw Text_14_6004
-	dw Text_14_6027
-	dw Text_14_6040
-	dw Text_14_606f
-	dw Text_14_608d
-	dw Text_14_60ac
-	dw Text_14_60e1
-	dw Text_14_6100
-	dw Text_14_6126
-	dw Text_14_6154
-	dw Text_14_6181
-	dw Text_14_61b9
-	dw Text_14_6213
-	dw Text_14_6250
-	dw Text_14_62a7
-	dw Text_14_62df
-	dw Text_14_6316
-	dw Text_14_6339
+TextGroup_Spanish_05::
+	dw Text_ThatsAllSheWrote_Spanish
+	dw Text_TheresNothingMoreI_Spanish
+	dw Text_YouKnowAllThat_Spanish
+	dw Text_ComeBackAndSee_Spanish
+	dw Text_DontKnowAnyMore_Spanish
+	dw Text_ThatsAllThereIs_Spanish
+	dw Text_SoLongSuckersTry_Spanish
+	dw Text_ThatsAllTheGood_Spanish
+	dw Text_ImGettingTiredI_Spanish
+	dw Text_YouPracticallyKnowMore_Spanish
+	dw Text_DontHaveAnythingElse_Spanish
+	dw Text_ICouldJustRock_Spanish
+	dw Text_GottaGoNowIll_Spanish
+	dw Text_WellThatsAboutThe_Spanish
+	dw Text_IsThatTheTime_Spanish
+	dw Text_ICouldTellYou_Spanish
+	dw Text_YallComeBackSoon_Spanish
+	dw Text_IfYouGetStuck_Spanish
+	dw Text_CantSayIExpect_Spanish
+	dw Text_ItsBeenNiceTalking_Spanish
+	dw Text_EhSonnySpeakUp_Spanish
+	dw Text_IveSeenEnoughThat_Spanish
+	dw Text_ThisColorScreensMaking_Spanish
+	dw Text_AllThisGamePlay_Spanish
+	dw Text_RememberTheOriginalDonkey_Spanish
+	dw Text_TooManyBaddiesHere_Spanish
+	dw Text_IdAskYaIn_Spanish
+	dw Text_OffYouGoSee_Spanish
+	dw Text_ShutTheGateOn_Spanish
+	dw Text_SeeYaLaterAlligator_Spanish
+	dw Text_AfterAWhileCrocodile_Spanish
 
-TextGroup_14_417c::
-	dw Text_14_635d
+TextGroup_Spanish_06::
+	dw Text_HiImCandyKong_Spanish
 
-TextGroup_14_417e::
-	dw Text_14_63c5
-	dw Text_14_63f4
-	dw Text_14_6422
-	dw Text_14_6451
-	dw Text_14_6482
-	dw Text_14_64bc
-	dw Text_14_64ec
+TextGroup_Spanish_07::
+	dw Text_HelloGuysDoYou_Spanish
+	dw Text_CanIHelpYou_Spanish
+	dw Text_HowWouldYouLike_Spanish
+	dw Text_YooHooHoneyKong_Spanish
+	dw Text_IfYouFancyA_Spanish
+	dw Text_YouGuysAreReally_Spanish
+	dw Text_SeeYaLaterBoys_Spanish
 
-TextGroup_14_418c::
-	dw Text_14_6519
+TextGroup_Spanish_08::
+	dw Text_WhoaDudesImFunky_Spanish
 
-TextGroup_14_418e::
-	dw Text_14_65a1
-	dw Text_14_65d4
-	dw Text_14_65ff
-	dw Text_14_6634
-	dw Text_14_6665
+TextGroup_Spanish_09::
+	dw Text_YeahKongsLikeJump_Spanish
+	dw Text_NeedSomeLivesGet_Spanish
+	dw Text_YoGorillasSeekThe_Spanish
+	dw Text_LookinGoodKongsBelt_Spanish
+	dw Text_HeyDudesTellCandy_Spanish
 
-TextGroup_14_4198::
-	dw Text_14_66a4
-	dw Text_14_66d3
+TextGroup_Spanish_10::
+	dw Text_FancyAFlightDk_Spanish
+	dw Text_DudeskiYourBudHas_Spanish
 
-TextGroup_14_419c::
-	dw Text_14_6703
-	dw Text_14_6737
+TextGroup_Spanish_11::
+	dw Text_YoDiddyLostThe_Spanish
+	dw Text_WheresYourPalTry_Spanish
 
-TextGroup_14_41a0::
-	dw Text_14_676a
-	dw Text_14_6838
-	dw Text_14_6838
-	dw Text_14_6838
-	dw Text_14_6838
-	dw Text_14_6838
-	dw Text_14_6838
-	dw Text_14_6838
-	dw Text_14_68a2
-	dw Text_14_6917
-	dw Text_14_6917
-	dw Text_14_6917
-	dw Text_14_6917
+TextGroup_Spanish_12::
+	dw Text_WellDoneMyBoy_Spanish
+	dw Text_IfIWasPlaying_Spanish
+	dw Text_IfIWasPlaying_Spanish
+	dw Text_IfIWasPlaying_Spanish
+	dw Text_IfIWasPlaying_Spanish
+	dw Text_IfIWasPlaying_Spanish
+	dw Text_IfIWasPlaying_Spanish
+	dw Text_IfIWasPlaying_Spanish
+	dw Text_WhatAPlayerDk_Spanish
+	dw Text_DkMyBoyWhere_Spanish
+	dw Text_DkMyBoyWhere_Spanish
+	dw Text_DkMyBoyWhere_Spanish
+	dw Text_DkMyBoyWhere_Spanish
 
-TextGroup_14_41ba::
-	dw Text_14_6917
-	dw Text_14_693f
-	dw Text_14_6971
-	dw Text_14_69a3
-	dw Text_14_69d7
-	dw Text_14_6a04
-	dw Text_14_6a2a
-	dw Text_14_6a5f
+TextGroup_Spanish_13::
+	dw Text_DkMyBoyWhere_Spanish
+	dw Text_DkYouYoungWhippersnapper_Spanish
+	dw Text_DonkeyBoyItSeems_Spanish
+	dw Text_YouNeverVisitYour_Spanish
+	dw Text_HeyCanYouSpare_Spanish
+	dw Text_AndWhatHaveYou_Spanish
+	dw Text_WellYouveAmazedYour_Spanish
+	dw Text_AtLastYouveCome_Spanish
 
-TextGroup_14_41ca::
-	dw Text_14_6a99
-	dw Text_14_6ac0
+TextGroup_Spanish_14::
+	dw Text_DiddyMyBoyWheres_Spanish
+	dw Text_DiddyMyYoungPup_Spanish
 
-TextGroup_14_41ce::
-	dw Text_14_6af5
-	dw Text_14_6afc
-	dw Text_14_6b0c
-	dw Text_14_6b1e
-	dw Text_14_6b33
-	dw Text_14_6b46
-	dw Text_14_6b57
-	dw Text_14_6b6a
-	dw Text_14_6b80
-	dw Text_14_6b97
-	dw Text_14_6ba9
-	dw Text_14_6bbf
-	dw Text_14_6bd3
-	dw Text_14_6be5
-	dw Text_14_6bf9
-	dw Text_14_6c0d
-	dw Text_14_6c1f
-	dw Text_14_6c35
-	dw Text_14_6c47
-	dw Text_14_6c5f
-	dw Text_14_6c75
-	dw Text_14_6c85
-	dw Text_14_6c9a
-	dw Text_14_6cad
-	dw Text_14_6cc3
-	dw Text_14_6cd7
-	dw Text_14_6ce6
-	dw Text_14_6cf9
-	dw Text_14_6d0a
-	dw Text_14_6d1d
-	dw Text_14_6d30
-	dw Text_14_6d46
-	dw Text_14_6d5a
-	dw Text_14_6d6a
-	dw Text_14_6d7b
-	dw Text_14_6d89
-	dw Text_14_6d95
-	dw Text_14_6da2
-	dw Text_14_6db2
-	dw Text_14_6dc7
-	dw Text_14_6ddb
-	dw Text_14_6dee
-	dw Text_14_6dff
-	dw Text_14_6e15
-	dw Text_14_6e29
-	dw Text_14_6e3a
-	dw Text_14_6e4d
-	dw Text_14_6e64
-	dw Text_14_6e75
-	dw Text_14_6e89
-	dw Text_14_6eaa
-	dw Text_14_6ebb
-	dw Text_14_6ece
-	dw Text_14_6ee3
-	dw Text_14_6eef
-	dw Text_14_6eff
-	dw Text_14_6e98
-	dw Text_14_6f23
-	dw Text_14_6f0f
+TextGroup_Spanish_15::
+	dw Text_Error_Spanish
+	dw Text_RopeyRampage_Spanish
+	dw Text_OrangUtanGang_Spanish
+	dw Text_BarrelCannonCanyon_Spanish
+	dw Text_ReptileRumble_Spanish
+	dw Text_BouncyBonanza_Spanish
+	dw Text_ManicMincers_Spanish
+	dw Text_ElevatorAntics_Spanish
+	dw Text_PlatformPerils_Spanish
+	dw Text_TrickTrackTrek_Spanish
+	dw Text_TankedUpTrouble_Spanish
+	dw Text_MineCartMadness_Spanish
+	dw Text_WinkysWalkway_Spanish
+	dw Text_MistyMine_Spanish
+	dw Text_StopGoStation_Spanish
+	dw Text_LoopyLights_Spanish
+	dw Text_MineCartCarnage_Spanish
+	dw Text_PoisonPond_Spanish
+	dw Text_CroctopusChase_Spanish
+	dw Text_CoralCapers_Spanish
+	dw Text_ClamCity_Spanish
+	dw Text_MillstoneMayhem_Spanish
+	dw Text_TempleTempest_Spanish
+	dw Text_SnowBarrelBlast_Spanish
+	dw Text_IceAgeAlley_Spanish
+	dw Text_TreeTopTown_Spanish
+	dw Text_RopeBridgeRumble_Spanish
+	dw Text_VultureCulture_Spanish
+	dw Text_ForestFrenzy_Spanish
+	dw Text_SlipslideRide_Spanish
+	dw Text_TorchlightTrouble_Spanish
+	dw Text_OilDrumAlley_Spanish
+	dw Text_BlackoutBasement_Spanish
+	dw Text_JungleHijinxs_Spanish
+	dw Text_KongoJungle_Spanish
+	dw Text_MonkeyMines_Spanish
+	dw Text_VineValley_Spanish
+	dw Text_GorillaGlacier_Spanish
+	dw Text_KremkrocIndustries_Spanish
+	dw Text_ChimpCaverns_Spanish
+	dw Text_VeryGnawtysLair_Spanish
+	dw Text_NeckysNuts_Spanish
+	dw Text_BumbleBRumble_Spanish
+	dw Text_ReallyGnawtyRampage_Spanish
+	dw Text_BossDumbDrum_Spanish
+	dw Text_NeckysRevenge_Spanish
+	dw Text_GangPlankGalleon_Spanish
+	dw Text_CrankysCabin_Spanish
+	dw Text_FunkysFlights_Spanish
+	dw Text_CandysChallenge_Spanish
+	dw Text_KremlingKrackdown_Spanish
+	dw Text_KremlingsAndKongs_Spanish
+	dw Text_BarrelOKremlings_Spanish
+	dw Text_Wanted_Spanish
+	dw Text_BuddiesBeware_Spanish
+	dw Text_CrosshairCranky_Spanish
+	dw Text_NeckyNutmare_Spanish
+	dw Text_ReturnToIslandMap_Spanish
+	dw Text_GalleonGunner_Spanish
 
-Text_14_4244::
+Text_WellWellDidntExpect_Spanish::
 	db $ad, "Bien, bien!", $0d
 	db $ad, "No esperaba verte", $0d
 	db "por aqu", $a1, " hoy!", $00
 
-Text_14_4272::
+Text_YoureDoingPrettyGood_Spanish::
 	db "Lo haces bastante", $0d
 	db "bien para estar tan", $0d
 	db "lejos de casa...", $00
 
-Text_14_42a9::
+Text_SoYouFoundMe_Spanish::
 	db $ad, "As", $a1, " que me", $0d
 	db "encontraste, Kong!", $0d
 	db $a8, $ad, "Qu", $82, " quieres!?", $00
 
-Text_14_42d8::
+Text_WhoToldYouI_Spanish::
 	db $a8, "Qui", $82, "n te ha contado", $0d
 	db "que estaba aqu", $a1, "? ", $a8, "Ha", $0d
 	db "sido Funky Kong?", $00
 
-Text_14_4313::
+Text_WellWellLookWhat_Spanish::
 	db $ad, "Bien, bien! ", $ad, "Mira", $0d
 	db "lo que nos ha tra", $a1, "do", $0d
 	db "ese sarnoso gato!", $00
 
-Text_14_434d::
+Text_HaventSeenYouAround_Spanish::
 	db $ad, "No te hab", $a1, "a visto", $0d
 	db "por estos lares", $0d
 	db "desde hace tiempo!", $00
 
-Text_14_4383::
+Text_WhatDoYouWant_Spanish::
 	db $a8, $ad, "Y ahora qu", $82, ", eh!?", $0d
 	db $ad, "Soy un mono muy", $0d
 	db "ocupado!", $00
 
-Text_14_43b1::
+Text_AhhAtLastSomeone_Spanish::
 	db $ad, "Ahh! ", $ad, "Al fin!", $0d
 	db $ad, "Alguien con quien", $0d
 	db "hablar!", $00
 
-Text_14_43db::
+Text_YoureLuckyYouCaught_Spanish::
 	db "Has tenido suerte de", $0d
 	db "pillarme, porque", $0d
 	db "ya me iba.", $00
 
-Text_14_440c::
+Text_HaveYaBroughtBack_Spanish::
 	db $a8, "Trajiste de vuelta", $0d
 	db "el racimo de bananas", $0d
 	db "que te prest", $82, "?", $00
 
-Text_14_4444::
+Text_LastTimeISaw_Spanish::
 	db $ad, "La ", $a3, "ltima vez que", $0d
 	db "te vi, todav", $a1, "a", $0d
 	db "mojabas pa", $a4, "ales!", $00
 
-Text_14_4477::
+Text_ComeOverHereAnd_Spanish::
 	db $ad, "Ac", $82, "rcate a m", $a1, " y", $0d
 	db "d", $82, "jame mirar tu", $0d
 	db "peluda jeta!", $00
 
-Text_14_44a5::
+Text_WellLookyWhatWe_Spanish::
 	db $ad, "Bien, mira lo que", $0d
 	db "tenemos aqu", $a1, ": Kongs!", $00
 
-Text_14_44cd::
+Text_ArentYouASight_Spanish::
 	db $ad, "Dichosos los", $0d
 	db "ojos que te ven!", $00
 
-Text_14_44ec::
+Text_AWholeMobOf_Spanish::
 	db $ad, "Todo un tropel de", $0d
 	db "feos Kremlings", $0d
 	db "apareci", $a2, " de pronto!", $00
 
-Text_14_4522::
+Text_ThisHereIsRhino_Spanish::
 	db $90, "ste es el pa", $a1, "s", $0d
 	db "rino, ", $a8, "sabes?", $00
 
-Text_14_4540::
+Text_HeyBoyCanYou_Spanish::
 	db $ad, "Hey, colega! ", $ad, "Ni te", $0d
 	db "imaginas la choza", $0d
 	db "donde me encerraron!", $00
 
-Text_14_457c::
+Text_HeyBoyDidYou_Spanish::
 	db $ad, "Hey, colega!", $0d
 	db $a8, "Buscaste el papel", $0d
 	db "que te ped", $a1, "?", $00
 
-Text_14_45aa::
+Text_YouBigApeI_Spanish::
 	db $ad, "T", $a3, ", gran mono! ", $ad, "Tus", $0d
 	db "pasos se oyen desde", $0d
 	db "hace muchas leguas!", $00
 
-Text_14_45e7::
+Text_ItsHardToFind_Spanish::
 	db $ad, "Es imposible tener", $0d
 	db "paz y quietud", $0d
 	db "contigo por aqu", $a1, "!", $00
 
-Text_14_461b::
+Text_SureComeOnOver_Spanish::
 	db $ad, "Entra, entra aqu", $a1, "!", $0d
 	db "Me destroza hablar", $0d
 	db "conmigo mismo...", $00
 
-Text_14_4653::
+Text_AhhItSortaTakes_Spanish::
 	db $ad, "Ahh! ", $ad, "Qu", $82, " alegr", $a1, "a", $0d
 	db "verte por aqu", $a1, $0d
 	db "otra vez!", $00
 
-Text_14_467f::
+Text_ItsBeenRealBusy_Spanish::
 	db $ad, "Est", $a0, " todo muy ", $0d
 	db "dif", $a1, "cil con los", $0d
 	db "Kremlings por aqu", $a1, "!", $00
 
-Text_14_46b3::
+Text_SureLooksLikeIm_Spanish::
 	db "Parece que soy muy", $0d
 	db "popular hoy.", $0d
 	db $ad, "S", $a1, ", se", $a4, "or, s", $a1, "!", $00
 
-Text_14_46e3::
+Text_SureBeatsAVisit_Spanish::
 	db $ad, "Esto es mejor que", $0d
 	db "ver a la Sra. Kong!", $0d
 	db $a8, "Puedo ayudarte?", $00
 
-Text_14_471b::
+Text_FancyRunningIntoYou_Spanish::
 	db $ad, "Me alegra que", $0d
 	db "hayas recorrido el", $0d
 	db "camino hasta aqu", $a1, "!", $00
 
-Text_14_4750::
+Text_IHaventGotEven_Spanish::
 	db "No me queda nada,", $0d
 	db "as", $a1, " que no molestes", $0d
 	db "preguntando m", $a0, "s.", $00
 
-Text_14_4787::
+Text_IJustGaveMy_Spanish::
 	db "Ya le di mi ", $a3, "ltimo", $0d
 	db "barril a tu", $0d
 	db "compinche orangut", $a0, "n.", $00
 
-Text_14_47bb::
+Text_WhatInTarnationDo_Spanish::
 	db $a8, "Qu", $82, " es lo que", $0d
 	db "quer", $82, "is los Kongs?", $00
 
-Text_14_47dd::
+Text_IAintGotNothin_Spanish::
 	db $ad, "No tengo Nada para", $0d
 	db "los gorrones, as", $a1, $0d
 	db "que largo de aqu", $a1, "!", $00
 
-Text_14_4816::
+Text_BetchaWontGetMuch_Spanish::
 	db "Apuesto a que no", $0d
 	db "llegar", $82, "is m", $a0, "s all", $a0, $0d
 	db "de esta choza...", $00
 
-Text_14_484b::
+Text_TheKidsOfToday_Spanish::
 	db $ad, "Los ni", $a4, "os de hoy en", $0d
 	db "d", $a1, "a no respetan", $0d
 	db "a sus mayores!", $00
 
-Text_14_487f::
+Text_TheVideoGamesIn_Spanish::
 	db $ad, "Los videojuegos de", $0d
 	db "mi ", $82, "poca no ten", $a1, "an", $0d
 	db "esta animaci", $a2, "n!", $00
 
-Text_14_48b6::
+Text_AllThisFunCant_Spanish::
 	db $ad, "Toda esta diversi", $a2, "n", $0d
 	db "no puede ser buena", $0d
 	db "para ti!", $00
 
-Text_14_48e7::
+Text_BetThisSectionWasted_Spanish::
 	db $ad, "Apuesto a que esta", $0d
 	db "secci", $a2, "n ha gastado", $0d
 	db "ya media memoria!", $00
 
-Text_14_4920::
+Text_TheyCantKeepThis_Spanish::
 	db $ad, "No podr", $a0, "n mantener", $0d
 	db "este nivel gr", $a0, "fico", $0d
 	db "por mucho tiempo!", $00
 
-Text_14_4959::
+Text_WeWereLuckyIf_Spanish::
 	db $ad, "Ten", $a1, "amos suerte", $0d
 	db "si pod", $a1, "amos usar", $0d
 	db "tres tonos de gris!", $00
 
-Text_14_498f::
+Text_WeUsedToHave_Spanish::
 	db $ad, "Sol", $a1, "amos sobrevivir", $0d
 	db "s", $a2, "lo con dos ciclos", $0d
 	db "de reloj!", $00
 
-Text_14_49c2::
+Text_ThemBarrelsWereA_Spanish::
 	db "Los Barriles eran", $0d
 	db "mucho m", $a0, "s pesados", $0d
 	db "de lo que parec", $a1, "an.", $00
 
-Text_14_49fa::
+Text_WeNeverHadAny_Spanish::
 	db $ad, "Nunca tuvimos", $0d
 	db "posibilidades 3D!", $0d
 	db $ad, "Sal", $a1, "amos sin ellas!", $00
 
-Text_14_4a30::
+Text_WeJustHadTo_Spanish::
 	db $ad, "Ten", $a1, "amos que", $0d
 	db "contentarnos con", $0d
 	db "lo que hab", $a1, "a!", $00
 
-Text_14_4a5d::
+Text_IveNeverSeenAnything_Spanish::
 	db $ad, "Nunca he visto", $0d
 	db "nada as", $a1, "!", $00
 
-Text_14_4a77::
+Text_EnjoyThisDemoGame_Spanish::
 	db "Disfruta de la demo", $0d
 	db "mientras puedas.", $0d
 	db "No durar", $a0, " mucho.", $00
 
-Text_14_4aad::
+Text_FourShadesOfGray_Spanish::
 	db "4 tonos de gris, en", $0d
 	db "bloques de 8x8, es", $0d
 	db "todo lo que hab", $a1, "a...", $00
 
-Text_14_4ae9::
+Text_ICantPlayThis_Spanish::
 	db "No puedo jugar esto.", $0d
 	db $ad, "El color es muy", $0d
 	db "rico para mis ojos!", $00
 
-Text_14_4b23::
+Text_TheBananasHaveMore_Spanish::
 	db $ad, "Los pl", $a0, "tanos tienen", $0d
 	db "m", $a0, "s colores que yo", $0d
 	db "en todo un juego!", $00
 
-Text_14_4b5d::
+Text_LookAtThisMy_Spanish::
 	db $ad, "Mira! ", $ad, "Mi barba se", $0d
 	db "balancea! ", $ad, "Qu", $82, $0d
 	db "derroche de frames!", $00
 
-Text_14_4b94::
+Text_ThatWasWhenWe_Spanish::
 	db $ad, "Entonces s", $a1, " que", $0d
 	db "hab", $a1, "a jugabilidad!", $00
 
-Text_14_4bb8::
+Text_UsedAllTheLatest_Spanish::
 	db "As", $a1, " que usando las", $0d
 	db "mejores herramientas", $0d
 	db "3D, ", $a8, "no?", $00
 
-Text_14_4be9::
+Text_TheTroubleWithYou_Spanish::
 	db $ad, "El problema de los", $0d
 	db "j", $a2, "venes es que sois", $0d
 	db "demasiado blandos!", $00
 
-Text_14_4c24::
+Text_GamesWereALot_Spanish::
 	db $ad, "Los juegos eran m", $a0, "s", $0d
 	db "dif", $a1, "ciles cuando yo", $0d
 	db "era joven y viril!", $00
 
-Text_14_4c60::
+Text_WedPlayForHours_Spanish::
 	db $ad, "Jug", $a0, "bamos horas en", $0d
 	db "la misma pantalla!", $00
 
-Text_14_4c87::
+Text_YouWouldntLastTwo_Spanish::
 	db $ad, "No aguantar", $a1, "as ni", $0d
 	db "dos minutos en un", $0d
 	db "juego cl", $a0, "sico!", $00
 
-Text_14_4cbb::
+Text_ICouldGetThrough_Spanish::
 	db $ad, "Puedo acabarme este", $0d
 	db "juego con una sola", $0d
 	db "vida! ", $ad, "F", $a0, "cilmente!", $00
 
-Text_14_4cf6::
+Text_ImTalkingAboutWhen_Spanish::
 	db $ad, "Estoy hablando de", $0d
 	db "cuando los juegos", $0d
 	db "eran de verdad!", $00
 
-Text_14_4d2b::
+Text_ThreeLivesAndThree_Spanish::
 	db $ad, "Tres vidas y tres", $0d
 	db "continuaciones era", $0d
 	db "todo lo que hab", $a1, "a!", $00
 
-Text_14_4d64::
+Text_GamesNeverLookedLike_Spanish::
 	db "Los juegos no se", $0d
 	db "parec", $a1, "an a esto", $0d
 	db "cuando era joven.", $00
 
-Text_14_4d97::
+Text_AndWeWereMuch_Spanish::
 	db "Y, adem", $a0, "s, ", $82, "ramos", $0d
 	db "mucho mejores en", $0d
 	db "aquellos d", $a1, "as.", $00
 
-Text_14_4dc9::
+Text_BetYouThoughtThis_Spanish::
 	db "Apuesto a que", $0d
 	db "pensabas que era", $0d
 	db "de 64 bit, ", $a8, "no?", $00
 
-Text_14_4df8::
+Text_MyBigToesGot_Spanish::
 	db $ad, "Mi dedo gordo tiene", $0d
 	db "m", $a0, "s jugabilidad que", $0d
 	db "todo este juego!", $00
 
-Text_14_4e32::
+Text_YknowWhatTheySay_Spanish::
 	db "Ya s", $82, " lo que dir", $a0, "n:", $0d
 	db $9c, $ad, "Todo gr", $a0, "ficos pero", $0d
 	db "sin jugabilidad!", $9c, $00
 
-Text_14_4e6d::
+Text_With32MegYoud_Spanish::
 	db $ad, "Con 32 megas ten", $a1, "as", $0d
 	db "m", $a0, "s de 30 juegos en", $0d
 	db "mi ", $82, "poca!", $00
 
-Text_14_4ea0::
+Text_BackInMyDay_Spanish::
 	db "Volviendo a mis", $0d
 	db "d", $a1, "as, entonces s", $a1, $0d
 	db "hab", $a1, "a jugabilidad...", $00
 
-Text_14_4ed7::
+Text_WhatsEvenWorseYou_Spanish::
 	db $ad, "Lo peor es que,", $0d
 	db "cuando acababas,", $0d
 	db "empezabas otra vez!", $00
 
-Text_14_4f0d::
+Text_YouWouldntKnowA_Spanish::
 	db $ad, "No ver", $a1, "as un buen", $0d
 	db "juego ni aunque lo", $0d
 	db "tuvieras delante!", $00
 
-Text_14_4f45::
+Text_AJoystickAndOne_Spanish::
 	db "Un joystick y un", $0d
 	db "bot", $a2, "n es todo lo que", $0d
 	db "necesitaba un juego.", $00
 
-Text_14_4f80::
+Text_IWouldntBeSeen_Spanish::
 	db $ad, "No me ver", $a0, "s perder", $0d
 	db "en un juego tan soso", $0d
 	db "como ", $82, "ste!", $00
 
-Text_14_4fb4::
+Text_YouCantBetterThe_Spanish::
 	db $ad, "No puedes igualar", $0d
 	db "gr", $a0, "ficos y sonido", $0d
 	db "de un Game & Watch$!", $00
 
-Text_14_4fee::
+Text_SoYerBackAgain_Spanish::
 	db $ad, "Otra vez! ", $ad, "Sab", $a1, "a", $0d
 	db "que no podr", $a1, "ais", $0d
 	db "hacer el trabajo!", $00
 
-Text_14_5022::
+Text_TooQuickIDidnt_Spanish::
 	db "Demasiado r", $a0, "pido.", $0d
 	db $ad, "No he tenido tiempo", $0d
 	db "para pensar!", $00
 
-Text_14_5056::
+Text_ImJustWastingMy_Spanish::
 	db $ad, "Estoy malgastando", $0d
 	db "saliva! No quieres", $0d
 	db "escuchar.", $00
 
-Text_14_5086::
+Text_YouHaveToDo_Spanish::
 	db $ad, "Tienes que hacerlo", $0d
 	db "mucho mejor!", $00
 
-Text_14_50a7::
+Text_YouOnlyJustLeft_Spanish::
 	db $ad, "Debes dejarlo!", $00
 
-Text_14_50b7::
+Text_BackAgainEhThat_Spanish::
 	db $a8, "Ya de vuelta?", $0d
 	db $ad, "Qu", $82, " r", $a0, "pido!", $00
 
-Text_14_50d3::
+Text_CameBackToThe_Spanish::
 	db "Quieres m", $a0, "s", $0d
 	db "consejos del", $0d
 	db "maestro, ", $a8, "no?", $00
 
-Text_14_50fa::
+Text_StillGotYouBeat_Spanish::
 	db $a8, "Todav", $a1, "a te", $0d
 	db "pueden?", $00
 
-Text_14_510e::
+Text_YupDontMakeGame_Spanish::
 	db $ad, "Oh! ", $ad, "Ya no hay", $0d
 	db "jugadores como", $0d
 	db "los de antes!", $00
 
-Text_14_513b::
+Text_DyaExpectMeTo_Spanish::
 	db $a8, $ad, "Quieres que te", $0d
 	db "pase yo el nivel!?", $00
 
-Text_14_515f::
+Text_HowDareYouShow_Spanish::
 	db $a8, "C", $a2, "mo te atreves a", $0d
 	db "asomar tu jeta", $0d
 	db "despu", $82, "s de fallar?", $00
 
-Text_14_5194::
+Text_InJungleHijinxsStick_Spanish::
 	db "Hay vidas extra", $0d
 	db "en los ", $a0, "rboles", $0d
 	db "de Jungla Hijinxs.", $00
 
-Text_14_51c6::
+Text_FindTheFunJust_Spanish::
 	db "Busca la diversi", $a2, "n,", $0d
 	db "antes de acabar,", $0d
 	db "en L", $a1, "o de Lianas.", $00
 
-Text_14_51fd::
+Text_ALeapOfFaith_Spanish::
 	db "Winky encontrar", $a0, " un", $0d
 	db "salto de fe en", $0d
 	db "Ca", $a4, $a2, "n Barril Ca", $a4, $a2, "n.", $00
 
-Text_14_5234::
+Text_GoBananasInThe_Spanish::
 	db $ad, "Coge pl", $a0, "tanos en el", $0d
 	db "pozo de serpientes", $0d
 	db "de Estruendo Reptil!", $00
 
-Text_14_5271::
+Text_CroctopusCornersCrocksOf_Spanish::
 	db "En Trav. de Coral,", $0d
 	db "hay pl", $a0, "tanos tras", $0d
 	db "los Croctopus.", $00
 
-Text_14_52a5::
+Text_BurnRubberForThe_Spanish::
 	db "Corre a por el", $0d
 	db "rino de oro en", $0d
 	db "Rebote Bonanza.", $00
 
-Text_14_52d3::
+Text_TheBananasInStop_Spanish::
 	db $ad, "Los pl", $a0, "tanos de", $0d
 	db "Barriles Sem", $a0, "foro", $0d
 	db "indican el camino!", $00
 
-Text_14_5309::
+Text_JumpEarlyToGet_Spanish::
 	db "Salta pronto para", $0d
 	db "coger una vida extra", $0d
 	db "en Estr. en la Mina.", $00
 
-Text_14_5345::
+Text_RollingRubberWillPut_Spanish::
 	db $ad, "Las ruedas te", $0d
 	db "pondr", $a0, "n en camino en", $0d
 	db "Peligro de Piedras!", $00
 
-Text_14_537d::
+Text_OnSnowBarrelBlast_Spanish::
 	db "No siempre es", $0d
 	db "malo caerse en", $0d
 	db "Barriles Explosivos.", $00
 
-Text_14_53af::
+Text_OnCroctopusChaseA_Spanish::
 	db "Hay caminos buenos", $0d
 	db "y malos en Croctopus", $0d
 	db "te sigue...", $00
 
-Text_14_53e3::
+Text_ToGetYourWings_Spanish::
 	db "Para coger tus alas,", $0d
 	db "sigue a la bandada", $0d
 	db "en Call. de Hielo.", $00
 
-Text_14_541e::
+Text_BouncingTheBouncerSlides_Spanish::
 	db $ad, "Para llegar a buen", $0d
 	db "puerto, rebota en", $0d
 	db "el Paseo Deslizante!", $00
 
-Text_14_5459::
+Text_TheTntGivesWall_Spanish::
 	db "En Dilema de", $0d
 	db "Antorchas, usa la", $0d
 	db "TNT y los muros.", $00
 
-Text_14_5489::
+Text_ForElevatorAnticsClimb_Spanish::
 	db $ad, "Escala m", $a0, "s alto que", $0d
 	db "un avispero en los", $0d
 	db "Ascensores Alocados!", $00
 
-Text_14_54c6::
+Text_TheGnawtyGnowsA_Spanish::
 	db $ad, "Los gemelos Gnawty", $0d
 	db "conocen un secreto", $0d
 	db "para V. con Truco!", $00
 
-Text_14_5500::
+Text_MineCartMadnessIs_Spanish::
 	db "Los bonus est", $a0, "n a", $0d
 	db "tres rebotes en", $0d
 	db "Locura en la Mina.", $00
 
-Text_14_5535::
+Text_OnceInThePoison_Spanish::
 	db "Hay un camino que", $0d
 	db "no es correcto en", $0d
 	db "la Charca Venenosa.", $00
 
-Text_14_556d::
+Text_BlackoutBasementsSinkingFeeling_Spanish::
 	db $ad, "Por m", $a0, "s que caigas,", $0d
 	db "el S", $a2, "tano Oscuro", $0d
 	db "acaba en el cielo!", $00
 
-Text_14_55a6::
+Text_LetDiddyHoldOut_Spanish::
 	db "Deja que Diddy coja", $0d
 	db "el barril de TNT", $0d
 	db "en Picadora Man", $a1, "aca.", $00
 
-Text_14_55e0::
+Text_TakeEnoughRopeAnd_Spanish::
 	db "Salta de cuerda en", $0d
 	db "cuerda en", $0d
 	db "Niebla en la Mina.", $00
 
-Text_14_5610::
+Text_TheLoopyLightsVultures_Spanish::
 	db "El barril del buitre", $0d
 	db "de Luces Turulatas", $0d
 	db "te sorprender", $a0, ".", $00
 
-Text_14_5648::
+Text_PerilousVulturesKnowIts_Spanish::
 	db "Nada mejor que", $0d
 	db "derribar a los", $0d
 	db "buitres peligrosos.", $00
 
-Text_14_567a::
+Text_AllGassedUpAnd_Spanish::
 	db $a8, "D", $a2, "nde vas en", $0d
 	db "Problema de Tanques?", $0d
 	db $ad, "Busca la sorpresa!", $00
 
-Text_14_56b1::
+Text_TheOrangUtanGang_Spanish::
 	db "La Banda Orangut", $a0, "n", $0d
 	db "no reir", $a0, " m", $a0, "s tras", $0d
 	db "empotrar un barril.", $00
 
-Text_14_56ea::
+Text_ASingleBananaIs_Spanish::
 	db "Un ", $a3, "nico pl", $a0, "tano es", $0d
 	db "lo que necesitas en", $0d
 	db "Pueblo ", $b5, "rbol.", $00
 
-Text_14_5720::
+Text_GetDownWithThe_Spanish::
 	db $ad, "Baja con tus", $0d
 	db "pl", $a0, "tanos al", $0d
 	db "Templo Tempestad!", $00
 
-Text_14_574c::
+Text_AHandSlapCan_Spanish::
 	db $ad, "Un Manotazo puede", $0d
 	db "revelar secretos en", $0d
 	db "puntos sospechosos!", $00
 
-Text_14_5787::
+Text_HeCantReallyFly_Spanish::
 	db "Expresso el avestruz", $0d
 	db "no puede volar, pero", $0d
 	db "puede revolotear.", $00
 
-Text_14_57c3::
+Text_EnguardeSwordfishWillHelp_Spanish::
 	db $ad, "El pez espada", $0d
 	db "Enguarde te llevar", $a0, $0d
 	db "a tu destino!", $00
 
-Text_14_57f4::
+Text_CandysChallengesCanWin_Spanish::
 	db $ad, "En los Retos de", $0d
 	db "Candy puedes ganar", $0d
 	db "objetos para bonus!", $00
 
-Text_14_582c::
+Text_RollOffAPlatform_Spanish::
 	db "Al rodar por una", $0d
 	db "plataforma, pulsa A", $0d
 	db "para un s", $a3, "per salto.", $00
 
-Text_14_5866::
+Text_TheySayIfYou_Spanish::
 	db $ad, "Dicen que si pulsas", $0d
 	db "el Bot", $a2, "n B, corres", $0d
 	db "m", $a0, "s r", $a0, "pido!", $00
 
-Text_14_589a::
+Text_IHearYouCan_Spanish::
 	db $ad, "Creo que saltas m", $a0, "s", $0d
 	db "lejos si mantienes", $0d
 	db "pulsado el Bot", $a2, "n B!", $00
 
-Text_14_58d6::
+Text_ReckonRambiRhinoCould_Spanish::
 	db "El rino Rambi puede", $0d
 	db "romper cualquier", $0d
 	db "entrada oculta.", $00
 
-Text_14_590b::
+Text_BounceAKegOff_Spanish::
 	db $ad, "Haz rebotar un", $0d
 	db "barril en un muro", $0d
 	db "y salta encima!", $00
 
-Text_14_593d::
+Text_RollAttackABaddie_Spanish::
 	db "Rueda para atacar a", $0d
 	db "un malo", $3b, " si aceleras", $0d
 	db "dar", $a0, "s al siguiente.", $00
 
-Text_14_597a::
+Text_BounceOnEightBaddies_Spanish::
 	db "Rebota sobre 8 malos", $0d
 	db "seguidos para tener", $0d
 	db "una vida extra.", $00
 
-Text_14_59b3::
+Text_TheySayExpressosLegs_Spanish::
 	db "Dicen que las patas", $0d
 	db "de Expresso no temen", $0d
 	db "a los enemigos.", $00
 
-Text_14_59ec::
+Text_BreakOpenAStar_Spanish::
 	db "Rompe un Barril", $0d
 	db "Estrella para marcar", $0d
 	db "el punto de retorno.", $00
 
-Text_14_5a26::
+Text_JustFinishALevel_Spanish::
 	db $ad, "Acaba un nivel para", $0d
 	db "guardar tu juego!", $00
 
-Text_14_5a4d::
+Text_FunkySendsYouWhere_Spanish::
 	db $ad, "Funky te enviar", $a0, $0d
 	db "a lugares en los", $0d
 	db "que ya has estado!", $00
 
-Text_14_5a83::
+Text_DisguisedHolesOnThe_Spanish::
 	db $ad, "Para abrir agujeros", $0d
 	db "en el suelo salta", $0d
 	db "desde lo m", $a0, "s alto!", $00
 
-Text_14_5abd::
+Text_BananaArrowsWillPoint_Spanish::
 	db $ad, "Las flechas de", $0d
 	db "pl", $a0, "tanos se", $a4, "alan", $0d
 	db "el mejor camino!", $00
 
-Text_14_5aef::
+Text_IfYouFindBananas_Spanish::
 	db $ad, "Si ves pl", $a0, "tanos,", $0d
 	db "puede que haya", $0d
 	db "Kremlings cerca!", $00
 
-Text_14_5b21::
+Text_SmashOpenAnyDk_Spanish::
 	db $ad, "Rompe los barriles", $0d
 	db "DK: tu compa", $a4, "ero", $0d
 	db "estar", $a0, " dentro!", $00
 
-Text_14_5b55::
+Text_GrabThemExtraLife_Spanish::
 	db $ad, "Coge r", $a0, "pido los", $0d
 	db "globos de vida extra", $0d
 	db "o se ir", $a0, "n volando!", $00
 
-Text_14_5b8e::
+Text_KlapTrapTeethStop_Spanish::
 	db "No puedes rodar con", $0d
 	db "dientes de Klaptrap.", $0d
 	db $ad, "Salta encima!", $00
 
-Text_14_5bc6::
+Text_YouCantJumpOn_Spanish::
 	db $ad, "No puedes saltar en", $0d
 	db "la espalda de un", $0d
 	db "Zinger: usa a Winky!", $00
 
-Text_14_5c01::
+Text_KlumpsHatProtectsAgainst_Spanish::
 	db "El gorro de Klump", $0d
 	db "le protege de tus", $0d
 	db "saltos. Debes rodar.", $00
 
-Text_14_5c3a::
+Text_KrushaIsToughOnly_Spanish::
 	db "Krusha es duro.", $0d
 	db $ad, "S", $a2, "lo los barriles", $0d
 	db "lo derribar", $a0, "n!", $00
 
-Text_14_5c6c::
+Text_FloatingBarrelsWillBreak_Spanish::
 	db "Con s", $a2, "lo tocarlos,", $0d
 	db "se romper", $a0, "n los", $0d
 	db "barriles flotantes.", $00
 
-Text_14_5ca3::
+Text_FollowSteelKegsAnd_Spanish::
 	db "Sigue los barriles", $0d
 	db "de acero: derribar", $a0, "n", $0d
 	db "a los enemigos.", $00
 
-Text_14_5cdb::
+Text_RunAndJumpOn_Spanish::
 	db "Corre y salta sobre", $0d
 	db "los malos para", $0d
 	db "llegar m", $a0, "s alto.", $00
 
-Text_14_5d0f::
+Text_JumpOnFixedTires_Spanish::
 	db "Salta sobre ruedas", $0d
 	db "para evitar trampas", $0d
 	db "y alcanzar bonus.", $00
 
-Text_14_5d48::
+Text_PushFreeTiresTo_Spanish::
 	db "Empuja ruedas hasta", $0d
 	db "donde te sean ", $a3, "tiles", $0d
 	db "para hallar bonus.", $00
 
-Text_14_5d84::
+Text_RollOverSlippaOr_Spanish::
 	db "Rueda sobre Slippa", $0d
 	db "o apl", $a0, "stalo con un", $0d
 	db "ataque en salto.", $00
 
-Text_14_5dbb::
+Text_GnawtyBeaverCanBe_Spanish::
 	db "Rueda o salta sobre", $0d
 	db "los castores Gnawty.", $00
 
-Text_14_5de4::
+Text_ThatsAllSheWrote_Spanish::
 	db $ad, "Eso es todo lo", $0d
 	db "que te dir", $82, "!", $00
 
-Text_14_5e01::
+Text_TheresNothingMoreI_Spanish::
 	db "No hay m", $a0, "s que", $0d
 	db "pueda contarte.", $00
 
-Text_14_5e20::
+Text_YouKnowAllThat_Spanish::
 	db "Ya sabes todo lo que", $0d
 	db "necesitas por ahora.", $00
 
-Text_14_5e4a::
+Text_ComeBackAndSee_Spanish::
 	db "Vuelve a verme", $0d
 	db "dentro de un rato.", $0d
 	db $ad, "Aqu", $a1, " estar", $82, "!", $00
 
-Text_14_5e7a::
+Text_DontKnowAnyMore_Spanish::
 	db "No s", $82, " nada m", $a0, "s por", $0d
 	db "el momento.", $00
 
-Text_14_5e99::
+Text_ThatsAllThereIs_Spanish::
 	db "Eso es todo lo que", $0d
 	db "hay. Muy f", $a0, "cil para", $0d
 	db "m", $a1, ", por supuesto.", $00
 
-Text_14_5ed2::
+Text_SoLongSuckersTry_Spanish::
 	db $ad, "Hasta luego!", $0d
 	db $ad, "Intentad no", $0d
 	db "da", $a4, "aros!", $00
 
-Text_14_5ef6::
+Text_ThatsAllTheGood_Spanish::
 	db "Esto es todo lo que", $0d
 	db "os puede contar el", $0d
 	db "viejo Cranky.", $00
 
-Text_14_5f2b::
+Text_ImGettingTiredI_Spanish::
 	db "Estoy cansado. ", $ad, "Me", $0d
 	db "echar", $82, " una siesta!", $00
 
-Text_14_5f51::
+Text_YouPracticallyKnowMore_Spanish::
 	db "Ya sabes m", $a0, "s", $0d
 	db "que yo.", $0d
 	db "Bueno, casi...", $00
 
-Text_14_5f75::
+Text_DontHaveAnythingElse_Spanish::
 	db "No te puedo contar", $0d
 	db "nada ahora.", $0d
 	db "Quiz", $a0, "s luego.", $00
 
-Text_14_5fa2::
+Text_ICouldJustRock_Spanish::
 	db $ad, "Podr", $a1, "a descansar", $0d
 	db "todo el d", $a1, "a si me", $0d
 	db "dejaras en paz!", $00
 
-Text_14_5fd6::
+Text_GottaGoNowIll_Spanish::
 	db "Hora de irse. ", $ad, "Si", $0d
 	db "ten", $82, "is suerte os", $0d
 	db "veo luego!", $00
 
-Text_14_6004::
+Text_WellThatsAboutThe_Spanish::
 	db $ad, "Bien, es todo lo", $0d
 	db "que puedo decir!", $00
 
-Text_14_6027::
+Text_IsThatTheTime_Spanish::
 	db $a8, "Qu", $82, " hora es?", $0d
 	db "Debo irme.", $00
 
-Text_14_6040::
+Text_ICouldTellYou_Spanish::
 	db $ad, "Podr", $a1, "a contarte", $0d
 	db "viejas historias", $0d
 	db "todo el d", $a1, "a!", $00
 
-Text_14_606f::
+Text_YallComeBackSoon_Spanish::
 	db $a8, "No hab", $82, "is vuelto", $0d
 	db "muy pronto?", $00
 
-Text_14_608d::
+Text_IfYouGetStuck_Spanish::
 	db "Si os atasc", $a0, "is,", $0d
 	db "venid a verme.", $00
 
-Text_14_60ac::
+Text_CantSayIExpect_Spanish::
 	db "No espero veros otra", $0d
 	db "vez, pero quiz", $a0, $0d
 	db "teng", $a0, "is suerte.", $00
 
-Text_14_60e1::
+Text_ItsBeenNiceTalking_Spanish::
 	db "Es bonito hablar", $0d
 	db "con vosotros.", $00
 
-Text_14_6100::
+Text_EhSonnySpeakUp_Spanish::
 	db $a8, "Eh? Habla m", $a0, "s alto.", $0d
 	db "No te oigo bien.", $00
 
-Text_14_6126::
+Text_IveSeenEnoughThat_Spanish::
 	db $ad, "Ya he visto", $0d
 	db "demasiado! ", $ad, "Qu", $a1, "tate", $0d
 	db "esa corbata!", $00
 
-Text_14_6154::
+Text_ThisColorScreensMaking_Spanish::
 	db $ad, "Me marea el color", $0d
 	db "de la pantalla!", $0d
 	db $ad, "Ap", $a0, "gala!", $00
 
-Text_14_6181::
+Text_AllThisGamePlay_Spanish::
 	db "Demasiado juego para", $0d
 	db "m", $a1, ". Me voy a echar", $0d
 	db "una siestecita.", $00
 
-Text_14_61b9::
+Text_RememberTheOriginalDonkey_Spanish::
 	db $a8, "Te acuerdas del", $0d
 	db "Donkey Kong%", $0d
 	db "original?", $0d
@@ -1103,12 +1103,12 @@ Text_14_61b9::
 	db "jugar con ", $82, "l...", $0d
 	db $ad, "Luego te veo!", $00
 
-Text_14_6213::
+Text_TooManyBaddiesHere_Spanish::
 	db "Aqu", $a1, " hay demasiados", $0d
 	db "malos para m", $a1, ". ", $ad, "Creo", $0d
 	db "que voy a tumbarme!", $00
 
-Text_14_6250::
+Text_IdAskYaIn_Spanish::
 	db $ad, "Dije que entrara,", $0d
 	db "pero no hab", $a1, "a", $0d
 	db $0d
@@ -1117,25 +1117,25 @@ Text_14_6250::
 	db "para meterla dentro", $0d
 	db "de la choza!", $00
 
-Text_14_62a7::
+Text_OffYouGoSee_Spanish::
 	db $ad, $ad, "Vete!! A ver si", $0d
 	db "eres capaz de acabar", $0d
 	db "el juego sin m", $a1, ".", $00
 
-Text_14_62df::
+Text_ShutTheGateOn_Spanish::
 	db "Cierra la puerta al", $0d
 	db "salir. ", $ad, "No creciste", $0d
 	db "en una granja!", $00
 
-Text_14_6316::
+Text_SeeYaLaterAlligator_Spanish::
 	db $ad, "Hasta luego,", $0d
 	db "cocodrilo! ", $ad, "Ja! ", $ad, "Ja!", $00
 
-Text_14_6339::
+Text_AfterAWhileCrocodile_Spanish::
 	db $ad, "Despu", $82, "s te veo,", $0d
 	db "Timoteo! ", $ad, "Jo! ", $ad, "Jo!", $00
 
-Text_14_635d::
+Text_HiImCandyKong_Spanish::
 	db $ad, "Hola! Soy Candy", $0d
 	db "Kong. ", $90, "sta es mi", $0d
 	db "Choza Reto.", $0d
@@ -1144,42 +1144,42 @@ Text_14_635d::
 	db "salta dentro de mi", $0d
 	db "Barril Giratorio.", $00
 
-Text_14_63c5::
+Text_HelloGuysDoYou_Spanish::
 	db "Hola, chicos.", $0d
 	db $a8, "Quer", $82, "is ganar", $0d
 	db "objetos de bonus?", $00
 
-Text_14_63f4::
+Text_CanIHelpYou_Spanish::
 	db $a8, "Puedo ayudaros", $0d
 	db "a encontrar objetos", $0d
 	db "de bonus?", $00
 
-Text_14_6422::
+Text_HowWouldYouLike_Spanish::
 	db $a8, "Quieres saltar a", $0d
 	db "mi peque", $a4, "o Barril", $0d
 	db "Giratorio?", $00
 
-Text_14_6451::
+Text_YooHooHoneyKong_Spanish::
 	db $ad, "Yuju, dulce Kong!", $0d
 	db $ad, "Es la hora de", $0d
 	db "probar suerte!", $00
 
-Text_14_6482::
+Text_IfYouFancyA_Spanish::
 	db "Si te encantan los", $0d
 	db "retos, ", $a8, "por qu", $82, " no", $0d
 	db "te subes al barril?", $00
 
-Text_14_64bc::
+Text_YouGuysAreReally_Spanish::
 	db $ad, "Sois realmente", $0d
 	db "buenos! ", $ad, "Deb", $82, "is", $0d
 	db "probar mi reto!", $00
 
-Text_14_64ec::
+Text_SeeYaLaterBoys_Spanish::
 	db $ad, "Hasta luego! ", $ad, "Ya", $0d
 	db "hab", $82, "is superado", $0d
 	db "este reto!", $00
 
-Text_14_6519::
+Text_WhoaDudesImFunky_Spanish::
 	db $ad, "Guau, Amigos!", $0d
 	db $ad, "Soy Funky Kong!", $0d
 	db $0d
@@ -1192,52 +1192,52 @@ Text_14_6519::
 	db "donde hay", $a0, "is estado", $0d
 	db "antes...", $00
 
-Text_14_65a1::
+Text_YeahKongsLikeJump_Spanish::
 	db $ad, "S", $a1, ", Kongs!", $0d
 	db $ad, "Si quer", $82, "is saltar", $0d
 	db "dentro, os llevar", $82, "!", $00
 
-Text_14_65d4::
+Text_NeedSomeLivesGet_Spanish::
 	db $a8, "Necesit", $a0, "is vidas?", $0d
 	db "Id a la", $0d
 	db "Jungla Hijinxs.", $00
 
-Text_14_65ff::
+Text_YoGorillasSeekThe_Spanish::
 	db $ad, "Hola, Gorilas!", $0d
 	db $ad, "Buscad a Cranky,", $0d
 	db "el gur", $a3, " del juego!", $00
 
-Text_14_6634::
+Text_LookinGoodKongsBelt_Spanish::
 	db $ad, "Muy bien, Kongs!", $0d
 	db $ad, "Abrochaos, que", $0d
 	db "despegamos ya!", $00
 
-Text_14_6665::
+Text_HeyDudesTellCandy_Spanish::
 	db "Hey, chicos, decidle", $0d
 	db "a Candy que puede ir", $0d
 	db "en mi ola siempre...", $00
 
-Text_14_66a4::
+Text_FancyAFlightDk_Spanish::
 	db $a8, "Un vuelecito, DK?", $0d
 	db "Lo pillaste.", $0d
 	db $ad, "Salta dentro!", $00
 
-Text_14_66d3::
+Text_DudeskiYourBudHas_Spanish::
 	db $ad, "Donkey, amigo,", $0d
 	db "te llevar", $82, " al nivel", $0d
 	db "que desees!", $00
 
-Text_14_6703::
+Text_YoDiddyLostThe_Spanish::
 	db $ad, "Hey, Diddy! ", $a8, "Te has", $0d
 	db "perdido? ", $ad, "Salta,", $0d
 	db "que te llevo!", $00
 
-Text_14_6737::
+Text_WheresYourPalTry_Spanish::
 	db $a8, "D", $a2, "nde est", $a0, " tu", $0d
 	db "amigo? ", $ad, "Vamos a", $0d
 	db "mirar en la jungla!", $00
 
-Text_14_676a::
+Text_WellDoneMyBoy_Spanish::
 	db $ad, "Bien hecho, chico!", $0d
 	db $ad, "Qui", $82, "n iba a pensar", $0d
 	db "que un mequetrefe", $0d
@@ -1254,7 +1254,7 @@ Text_14_676a::
 	db $ad, "Creo que ver", $a0, "s", $0d
 	db "all", $a1, " una sorpresa!", $00
 
-Text_14_6838::
+Text_IfIWasPlaying_Spanish::
 	db $ad, "Si yo hubiera", $0d
 	db "jugado, habr", $a1, "a", $0d
 	db "encontrado todo!", $0d
@@ -1263,7 +1263,7 @@ Text_14_6838::
 	db "bonus que todav", $a1, "a", $0d
 	db "no has encontrado!", $00
 
-Text_14_68a2::
+Text_WhatAPlayerDk_Spanish::
 	db $ad, "Qu", $82, " gran jugador,", $0d
 	db "DK! ", $ad, "Derrotaste", $0d
 	db "a los Kremlings y", $0d
@@ -1272,349 +1272,349 @@ Text_14_68a2::
 	db $ad, "Eres casi tan bueno", $0d
 	db "como sol", $a1, "a serlo yo!", $00
 
-Text_14_6917::
+Text_DkMyBoyWhere_Spanish::
 	db $ad, "DK, chico! ", $a8, "D", $a2, "nde", $0d
 	db "est", $a0, " tu amigo Diddy?", $00
 
-Text_14_693f::
+Text_DkYouYoungWhippersnapper_Spanish::
 	db $ad, "DK, joven", $0d
 	db "mequetrefe! ", $ad, "Hace", $0d
 	db "mucho que no te veo!", $00
 
-Text_14_6971::
+Text_DonkeyBoyItSeems_Spanish::
 	db $ad, "Donkey, colega!", $0d
 	db $ad, "Hace muchos a", $a4, "os", $0d
 	db "que no te veo!", $00
 
-Text_14_69a3::
+Text_YouNeverVisitYour_Spanish::
 	db $ad, "Nunca visitas a tu", $0d
 	db "pobre, fr", $a0, "gil y", $0d
 	db "viejo Abuelito!", $00
 
-Text_14_69d7::
+Text_HeyCanYouSpare_Spanish::
 	db $ad, "Hey! ", $a8, "Puedes", $0d
 	db "traerme un racimo", $0d
 	db "de pl", $a0, "tanos?", $00
 
-Text_14_6a04::
+Text_AndWhatHaveYou_Spanish::
 	db $a8, "Qu", $82, " has tra", $a1, "do", $0d
 	db "para tu viejo", $0d
 	db "Abuelo?", $00
 
-Text_14_6a2a::
+Text_WellYouveAmazedYour_Spanish::
 	db $ad, "Bien, has asombrado", $0d
 	db "a tu Abuelo llegando", $0d
 	db "tan lejos!", $00
 
-Text_14_6a5f::
+Text_AtLastYouveCome_Spanish::
 	db $ad, "Al fin! ", $ad, "Has venido", $0d
 	db "para recibir consejo", $0d
 	db "de tu Abuelito!", $00
 
-Text_14_6a99::
+Text_DiddyMyBoyWheres_Spanish::
 	db $ad, "Diddy, chiquillo!", $0d
 	db $a8, "D", $a2, "nde est", $a0, " Donkey?", $00
 
-Text_14_6ac0::
+Text_DiddyMyYoungPup_Spanish::
 	db $ad, "Diddy, jovenzuelo!", $0d
 	db "No puedo creer", $0d
 	db "c", $a2, "mo has crecido.", $00
 
-Text_14_6af5::
+Text_Error_Spanish::
 	db "ERROR", $0d
 	db $00
 
-Text_14_6afc::
+Text_RopeyRampage_Spanish::
 	db "L", $a1, "o de", $0d
 	db "Lianas", $0c, $0d
 	db $00
 
-Text_14_6b0c::
+Text_OrangUtanGang_Spanish::
 	db "Banda", $0d
 	db "Orangut", $a0, "n", $0c, $0d
 	db $00
 
-Text_14_6b1e::
+Text_BarrelCannonCanyon_Spanish::
 	db "Ca", $a4, $a2, "n", $0d
 	db "Barril", $0d
 	db "Ca", $a4, $a2, "n", $0c, $0d
 	db $00
 
-Text_14_6b33::
+Text_ReptileRumble_Spanish::
 	db "Estruendo", $0d
 	db "Reptil", $0c, $0d
 	db $00
 
-Text_14_6b46::
+Text_BouncyBonanza_Spanish::
 	db "Rebote", $0d
 	db "Bonanza", $0c, $0d
 	db $00
 
-Text_14_6b57::
+Text_ManicMincers_Spanish::
 	db "Picadora", $0d
 	db "Man", $a1, "aca", $0c, $0d
 	db $00
 
-Text_14_6b6a::
+Text_ElevatorAntics_Spanish::
 	db "Ascensores", $0d
 	db "Alocados", $0c, $0d
 	db $00
 
-Text_14_6b80::
+Text_PlatformPerils_Spanish::
 	db "Plataforma", $0d
 	db "Peligrosa", $0c, $0d
 	db $00
 
-Text_14_6b97::
+Text_TrickTrackTrek_Spanish::
 	db "Viaje con", $0d
 	db "Truco", $0c, $0d
 	db $00
 
-Text_14_6ba9::
+Text_TankedUpTrouble_Spanish::
 	db "Problema", $0d
 	db "de Tanques", $0c, $0d
 	db $00
 
-Text_14_6bbf::
+Text_MineCartMadness_Spanish::
 	db "Locura en", $0d
 	db "la Mina", $0c, $0d
 	db $00
 
-Text_14_6bd3::
+Text_WinkysWalkway_Spanish::
 	db "Camino de", $0d
 	db "Winky", $0c, $0d
 	db $00
 
-Text_14_6be5::
+Text_MistyMine_Spanish::
 	db "Niebla en", $0d
 	db "la Mina", $0c, $0d
 	db $00
 
-Text_14_6bf9::
+Text_StopGoStation_Spanish::
 	db "Barriles", $0d
 	db "Sem", $a0, "foro", $0c, $0d
 	db $00
 
-Text_14_6c0d::
+Text_LoopyLights_Spanish::
 	db "Luces", $0d
 	db "Turulatas", $0c, $0d
 	db $00
 
-Text_14_6c1f::
+Text_MineCartCarnage_Spanish::
 	db "Estragos", $0d
 	db "en la Mina", $0c, $0d
 	db $00
 
-Text_14_6c35::
+Text_PoisonPond_Spanish::
 	db "Charca", $0d
 	db "Venenosa", $0c, $0d
 	db $00
 
-Text_14_6c47::
+Text_CroctopusChase_Spanish::
 	db "Croctopus", $0d
 	db "te sigue...", $0c, $0d
 	db $00
 
-Text_14_6c5f::
+Text_CoralCapers_Spanish::
 	db "Travesuras", $0d
 	db "de Coral", $0c, $0d
 	db $00
 
-Text_14_6c75::
+Text_ClamCity_Spanish::
 	db "Ciudad", $0d
 	db "Almeja", $0c, $0d
 	db $00
 
-Text_14_6c85::
+Text_MillstoneMayhem_Spanish::
 	db "Peligro de", $0d
 	db "Piedras", $0c, $0d
 	db $00
 
-Text_14_6c9a::
+Text_TempleTempest_Spanish::
 	db "Templo", $0d
 	db "Tempestad", $0c, $0d
 	db $00
 
-Text_14_6cad::
+Text_SnowBarrelBlast_Spanish::
 	db "Barriles", $0d
 	db "Explosivos", $0c, $0d
 	db $00
 
-Text_14_6cc3::
+Text_IceAgeAlley_Spanish::
 	db "Callej", $a2, "n", $0d
 	db "de Hielo", $0c, $0d
 	db $00
 
-Text_14_6cd7::
+Text_TreeTopTown_Spanish::
 	db "Pueblo", $0d
 	db $b5, "rbol", $0c, $0d
 	db $00
 
-Text_14_6ce6::
+Text_RopeBridgeRumble_Spanish::
 	db "Puente", $0d
 	db "de Cuerda", $0c, $0d
 	db $00
 
-Text_14_6cf9::
+Text_VultureCulture_Spanish::
 	db "Cultura", $0d
 	db "Buitre", $0c, $0d
 	db $00
 
-Text_14_6d0a::
+Text_ForestFrenzy_Spanish::
 	db "Bosque", $0d
 	db "Fren", $82, "tico", $0c, $0d
 	db $00
 
-Text_14_6d1d::
+Text_SlipslideRide_Spanish::
 	db "Paseo", $0d
 	db "Deslizante", $0c, $0d
 	db $00
 
-Text_14_6d30::
+Text_TorchlightTrouble_Spanish::
 	db "Dilema de", $0d
 	db "Antorchas", $0c, $0d
 	db $00
 
-Text_14_6d46::
+Text_OilDrumAlley_Spanish::
 	db "Pasadizo", $0d
 	db "Aceitoso", $0c, $0d
 	db $00
 
-Text_14_6d5a::
+Text_BlackoutBasement_Spanish::
 	db "S", $a2, "tano", $0d
 	db "Oscuro", $0c, $0d
 	db $00
 
-Text_14_6d6a::
+Text_JungleHijinxs_Spanish::
 	db "Jungla", $0d
 	db "Hijinxs", $0c, $0d
 	db $00
 
-Text_14_6d7b::
+Text_KongoJungle_Spanish::
 	db "Jungla", $0d
 	db "Kongo", $0d
 	db $00
 
-Text_14_6d89::
+Text_MonkeyMines_Spanish::
 	db "Minas", $0d
 	db "Mono", $0d
 	db $00
 
-Text_14_6d95::
+Text_VineValley_Spanish::
 	db "Valle", $0d
 	db "Liana", $0d
 	db $00
 
-Text_14_6da2::
+Text_GorillaGlacier_Spanish::
 	db "Glaciar", $0d
 	db "Gorila", $0d
 	db $00
 
-Text_14_6db2::
+Text_KremkrocIndustries_Spanish::
 	db "Industrias", $0d
 	db "Kremkroc", $0d
 	db $00
 
-Text_14_6dc7::
+Text_ChimpCaverns_Spanish::
 	db "Cavernas", $0d
 	db "Chimpanc", $82, $0d
 	db $00
 
-Text_14_6ddb::
+Text_VeryGnawtysLair_Spanish::
 	db "Guarida de", $0d
 	db "Gnawty", $0d
 	db $00
 
-Text_14_6dee::
+Text_NeckysNuts_Spanish::
 	db "Locura de", $0d
 	db "Necky", $0d
 	db $00
 
-Text_14_6dff::
+Text_BumbleBRumble_Spanish::
 	db "Estruendo", $0d
 	db "de BumbleB", $0d
 	db $00
 
-Text_14_6e15::
+Text_ReallyGnawtyRampage_Spanish::
 	db "Destrozo", $0d
 	db "de Gnawty", $0d
 	db $00
 
-Text_14_6e29::
+Text_BossDumbDrum_Spanish::
 	db "Jefe", $0d
 	db "Golpe Loco", $0d
 	db $00
 
-Text_14_6e3a::
+Text_NeckysRevenge_Spanish::
 	db "Venganza", $0d
 	db "de Necky", $0d
 	db $00
 
-Text_14_6e4d::
+Text_GangPlankGalleon_Spanish::
 	db "Gale", $a2, "n del", $0d
 	db "Gang-Plank", $0d
 	db $00
 
-Text_14_6e64::
+Text_CrankysCabin_Spanish::
 	db "Choza de", $0d
 	db "Cranky", $0d
 	db $00
 
-Text_14_6e75::
+Text_FunkysFlights_Spanish::
 	db "Aerol", $a1, "nea", $0d
 	db "de Funky", $0d
 	db $00
 
-Text_14_6e89::
+Text_CandysChallenge_Spanish::
 	db "Reto de", $0d
 	db "Candy", $0d
 	db $00
 
-Text_14_6e98::
+Text_NeckyNutmare_Spanish::
 	db "Locura", $0d
 	db "de Necky", $0c, $0d
 	db $00
 
-Text_14_6eaa::
+Text_KremlingKrackdown_Spanish::
 	db "Ataque", $0d
 	db "Kremling", $0d
 	db $00
 
-Text_14_6ebb::
+Text_KremlingsAndKongs_Spanish::
 	db "Kremlings", $0d
 	db "y Kongs", $0d
 	db $00
 
-Text_14_6ece::
+Text_BarrelOKremlings_Spanish::
 	db "Barril de", $0d
 	db "Kremlings", $0d
 	db $00
 
-Text_14_6ee3::
+Text_Wanted_Spanish::
 	db "Perseguido", $0d
 	db $00
 
-Text_14_6eef::
+Text_BuddiesBeware_Spanish::
 	db "Aviso de", $0d
 	db "Buddy", $0d
 	db $00
 
-Text_14_6eff::
+Text_CrosshairCranky_Spanish::
 	db "Mirilla", $0d
 	db "Cranky", $0d
 	db $00
 
-Text_14_6f0f::
+Text_GalleonGunner_Spanish::
 	db "Ca", $a4, "onero", $0d
 	db "de Gale", $a2, "n", $0d
 	db $00
 
-Text_14_6f23::
+Text_ReturnToIslandMap_Spanish::
 	db "Vuelta al", $0d
 	db "mapa de isla", $0d
 	db $00
 
-Text_14_6f3b::
+Text_INeverLikedThose_Spanish::
 	db $ad, "No me gustan estos", $0d
 	db "packs de pegatinas,", $0d
 	db $0d

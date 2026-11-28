@@ -3,78 +3,78 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $3a", ROMX[$4000], BANK[$3a]
 
-FrameTiles_3a_4000::
+FrameTiles_Squawks_1::
 	INCBIN "gfx/frames/3a/4000.2bpp"
 
-FrameTiles_3a_4080::
+FrameTiles_Squawks_2::
 	INCBIN "gfx/frames/3a/4080.2bpp"
 
-FrameTiles_3a_40e0::
+FrameTiles_Squawks_3::
 	INCBIN "gfx/frames/3a/40e0.2bpp"
 
-FrameTiles_3a_4140::
+FrameTiles_Squawks_4::
 	INCBIN "gfx/frames/3a/4140.2bpp"
 
-FrameTiles_3a_41a0::
+FrameTiles_Squawks_5::
 	INCBIN "gfx/frames/3a/41a0.2bpp"
 
-FrameTiles_3a_4200::
+FrameTiles_Squawks_6::
 	INCBIN "gfx/frames/3a/4200.2bpp"
 
-FrameTiles_3a_4280::
+FrameTiles_Squawks_7::
 	INCBIN "gfx/frames/3a/4280.2bpp"
 
-FrameTiles_3a_4300::
+FrameTiles_Squawks_8::
 	INCBIN "gfx/frames/3a/4300.2bpp"
 
-FrameTiles_3a_4380::
+FrameTiles_Squawks_9::
 	INCBIN "gfx/frames/3a/4380.2bpp"
 
-FrameSprites_3a_43e0::
+FrameSprites_Squawks_1::
 	db -10, -13
 	db 1, 16
 	db 7, -16
 	db 8, 0
 
-FrameSprites_3a_43e8::
+FrameSprites_Squawks_2::
 	db -10, -10
 	db 8, -1
 	db 6, -1
 
-FrameSprites_3a_43ee::
+FrameSprites_Squawks_3::
 	db -9, -9
 	db 8, -3
 	db 8, 1
 
-FrameSprites_3a_43f4::
+FrameSprites_Squawks_4::
 	db -9, -9
 	db 8, -3
 	db 8, 1
 
-FrameSprites_3a_43fa::
+FrameSprites_Squawks_5::
 	db -9, -10
 	db 8, -3
 	db 8, 2
 
-FrameSprites_3a_4400::
+FrameSprites_Squawks_6::
 	db -10, -16
 	db 2, 16
 	db 6, -16
 	db 7, -1
 
-FrameSprites_3a_4408::
+FrameSprites_Squawks_7::
 	db -10, -16
 	db 2, 16
 	db 6, -15
 	db 6, -1
 
-FrameSprites_3a_4410::
+FrameSprites_Squawks_8::
 	db -7, -17
 	db 0, 16
 	db 8, -16
 	db 0, 16
 
-FrameSprites_3a_4418::
+FrameSprites_Squawks_9::
 	db -6, -17
 	db 8, 0
 	db -5, 16

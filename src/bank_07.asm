@@ -136,7 +136,7 @@ Title_Init::
 	ld c, $13
 	call FarHDMACopy
 	ld b, $07
-	ld de, BGTiles_07_6000
+	ld de, BGTiles_Title_Init
 	ld hl, $01c0
 	ld c, $0b
 	call FarHDMACopy
@@ -159,19 +159,19 @@ Title_Init::
 
 
 TitleTables::
-	dw TitleMap_07_462e, TitleMap_07_556e, TitleMap_07_4dce, TitleMap_07_4dce ; maps
-	dw TitlePalettes_07_442e, TitlePalettes_07_536e, TitlePalettes_07_4bce, TitlePalettes_07_4bce ; palettes
-	db BANK(BGTiles_42_5300)
-	dw BGTiles_42_5300
-	db BANK(BGTiles_45_4000)
-	dw BGTiles_45_4000
-	db BANK(BGTiles_45_5f50)
-	dw BGTiles_45_5f50
-	db BANK(BGTiles_45_5f50)
-	dw BGTiles_45_5f50
-	dw TitlePaletteSwaps_07_413b, TitlePaletteSwaps_07_415d, TitlePaletteSwaps_07_4179, TitlePaletteSwaps_07_4179 ; palette swaps
+	dw TitleMap_TitleTables_1, TitleMap_TitleTables_3, TitleMap_TitleTables_2, TitleMap_TitleTables_2 ; maps
+	dw TitlePalettes_TitleTables_1, TitlePalettes_TitleTables_3, TitlePalettes_TitleTables_2, TitlePalettes_TitleTables_2 ; palettes
+	db BANK(BGTiles_TitleTables_1)
+	dw BGTiles_TitleTables_1
+	db BANK(BGTiles_TitleTables_2)
+	dw BGTiles_TitleTables_2
+	db BANK(BGTiles_TitleTables_3)
+	dw BGTiles_TitleTables_3
+	db BANK(BGTiles_TitleTables_3)
+	dw BGTiles_TitleTables_3
+	dw TitlePaletteSwaps_TitleTables_1, TitlePaletteSwaps_TitleTables_2, TitlePaletteSwaps_TitleTables_3, TitlePaletteSwaps_TitleTables_3 ; palette swaps
 
-TitlePaletteSwaps_07_413b::
+TitlePaletteSwaps_TitleTables_1::
 	db 48, $90, $80 | 0 ; at line 48, palette 18 -> slot 0
 	db 94, $40, $80 | 0 ; at line 94, palette 8 -> slot 0
 	db 100, $48, $80 | 8 ; at line 100, palette 9 -> slot 1
@@ -185,7 +185,7 @@ TitlePaletteSwaps_07_413b::
 	db 170, $88, $80 | 40 ; at line 170, palette 17 -> slot 5
 	db $ff
 
-TitlePaletteSwaps_07_415d::
+TitlePaletteSwaps_TitleTables_2::
 	db 48, $80, $80 | 0 ; at line 48, palette 16 -> slot 0
 	db 100, $40, $80 | 0 ; at line 100, palette 8 -> slot 0
 	db 101, $48, $80 | 8 ; at line 101, palette 9 -> slot 1
@@ -197,7 +197,7 @@ TitlePaletteSwaps_07_415d::
 	db 107, $78, $80 | 56 ; at line 107, palette 15 -> slot 7
 	db $ff
 
-TitlePaletteSwaps_07_4179::
+TitlePaletteSwaps_TitleTables_3::
 	db 48, $80, $80 | 0 ; at line 48, palette 16 -> slot 0
 	db 100, $40, $80 | 0 ; at line 100, palette 8 -> slot 0
 	db 101, $48, $80 | 8 ; at line 101, palette 9 -> slot 1
@@ -353,12 +353,12 @@ Title_UpdatePalettes::
 
 
 TitleSpriteFrames::
-	dw TitleSpriteFrame_07_429a, TitleSpriteFrame_07_429a, TitleSpriteFrame_07_429a, TitleSpriteFrame_07_42c2
-	dw TitleSpriteFrame_07_42ea, TitleSpriteFrame_07_4312, TitleSpriteFrame_07_433a, TitleSpriteFrame_07_4362
-	dw TitleSpriteFrame_07_438a, TitleSpriteFrame_07_438a, TitleSpriteFrame_07_438a, TitleSpriteFrame_07_42c2
-	dw TitleSpriteFrame_07_42ea, TitleSpriteFrame_07_4312, TitleSpriteFrame_07_433a, TitleSpriteFrame_07_4362
+	dw TitleSpriteFrame_SpriteFrames0, TitleSpriteFrame_SpriteFrames0, TitleSpriteFrame_SpriteFrames0, TitleSpriteFrame_SpriteFrames1
+	dw TitleSpriteFrame_SpriteFrames2, TitleSpriteFrame_SpriteFrames3, TitleSpriteFrame_SpriteFrames4, TitleSpriteFrame_SpriteFrames5
+	dw TitleSpriteFrame_SpriteFrames6, TitleSpriteFrame_SpriteFrames6, TitleSpriteFrame_SpriteFrames6, TitleSpriteFrame_SpriteFrames1
+	dw TitleSpriteFrame_SpriteFrames2, TitleSpriteFrame_SpriteFrames3, TitleSpriteFrame_SpriteFrames4, TitleSpriteFrame_SpriteFrames5
 
-TitleSpriteFrame_07_429a::
+TitleSpriteFrame_SpriteFrames0::
 	db 80, 32, 8, 0 ; y, x, tile, attributes
 	db 80, 40, 10, 0
 	db 80, 56, 16, 0
@@ -370,7 +370,7 @@ TitleSpriteFrame_07_429a::
 	db 80, 128, 20, 0
 	db 80, 136, 22, 0
 
-TitleSpriteFrame_07_42c2::
+TitleSpriteFrame_SpriteFrames1::
 	db 80, 32, 28, 1 ; y, x, tile, attributes
 	db 80, 40, 30, 1
 	db 80, 56, 28, 0
@@ -382,7 +382,7 @@ TitleSpriteFrame_07_42c2::
 	db 80, 128, 28, 0
 	db 80, 136, 30, 0
 
-TitleSpriteFrame_07_42ea::
+TitleSpriteFrame_SpriteFrames2::
 	db 80, 32, 32, 0 ; y, x, tile, attributes
 	db 80, 40, 34, 0
 	db 80, 56, 32, 1
@@ -394,7 +394,7 @@ TitleSpriteFrame_07_42ea::
 	db 80, 128, 32, 0
 	db 80, 136, 34, 0
 
-TitleSpriteFrame_07_4312::
+TitleSpriteFrame_SpriteFrames3::
 	db 80, 32, 36, 0 ; y, x, tile, attributes
 	db 80, 40, 38, 0
 	db 80, 56, 36, 0
@@ -406,7 +406,7 @@ TitleSpriteFrame_07_4312::
 	db 80, 128, 36, 0
 	db 80, 136, 38, 0
 
-TitleSpriteFrame_07_433a::
+TitleSpriteFrame_SpriteFrames4::
 	db 80, 32, 34, 32 ; y, x, tile, attributes
 	db 80, 40, 32, 32
 	db 80, 56, 34, 32
@@ -418,7 +418,7 @@ TitleSpriteFrame_07_433a::
 	db 80, 128, 34, 32
 	db 80, 136, 32, 32
 
-TitleSpriteFrame_07_4362::
+TitleSpriteFrame_SpriteFrames5::
 	db 80, 32, 30, 32 ; y, x, tile, attributes
 	db 80, 40, 28, 32
 	db 80, 56, 30, 32
@@ -430,7 +430,7 @@ TitleSpriteFrame_07_4362::
 	db 80, 128, 30, 33
 	db 80, 136, 28, 33
 
-TitleSpriteFrame_07_438a::
+TitleSpriteFrame_SpriteFrames6::
 	db 80, 32, 20, 0 ; y, x, tile, attributes
 	db 80, 40, 22, 0
 	db 80, 56, 24, 0
@@ -502,7 +502,7 @@ TitleObjPalettes::
 	rgb  0,  0, 31,  12,  9,  0,  27, 21,  0,  31, 31, 13
 	rgb  0,  0, 31,   0,  0,  0,   8,  9,  9,  17, 18, 18
 
-TitlePalettes_07_442e::
+TitlePalettes_TitleTables_1::
 	rgb  0,  0,  0,  31,  0,  0,  31, 31,  0,   2,  2, 13
 	rgb 12, 12, 24,  31, 31, 31,  31, 31,  0,   2,  2, 13
 	rgb  0,  0,  0,  15, 24, 14,  31, 31,  0,   2,  2, 13
@@ -536,7 +536,7 @@ TitlePalettes_07_442e::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-TitlePalettesExtra_07_452e::
+TitlePalettesExtra_TitleObjPalettes_1::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
@@ -570,7 +570,7 @@ TitlePalettesExtra_07_452e::
 	rgb  4,  4, 23,   4,  4, 24,   5,  5, 25,   5,  5, 26
 	rgb 28, 10, 28,  29, 11, 29,  30, 12, 30,  31, 13, 31
 
-TitleMap_07_462e::
+TitleMap_TitleTables_1::
 	db $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01 ; tiles
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; attributes
 	db $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01 ; tiles
@@ -644,7 +644,7 @@ TitleMap_07_462e::
 	db $36, $37, $38, $39, $46, $47, $48, $49, $56, $57, $58, $59, $aa, $ab, $ac, $ad, $ba, $bb, $bc, $bd ; tiles
 	db $05, $05, $02, $02, $02, $02, $06, $02, $06, $02, $02, $02, $06, $06, $04, $04, $04, $04, $06, $06 ; attributes
 
-TitlePalettes_07_4bce::
+TitlePalettes_TitleTables_2::
 	rgb  0,  0,  0,  31,  0,  0,  31, 31,  0,   0,  6,  1
 	rgb 12, 12, 24,  31, 31, 31,  31, 31,  0,   0,  6,  1
 	rgb  0,  0,  0,   0,  6,  1,  31, 31,  0,  15, 26, 14
@@ -678,7 +678,7 @@ TitlePalettes_07_4bce::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 
-TitlePalettesExtra_07_4cce::
+TitlePalettesExtra_TitleObjPalettes_2::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
@@ -712,7 +712,7 @@ TitlePalettesExtra_07_4cce::
 	rgb  0,  6,  1,   3, 11,  0,  16,  6,  0,  31, 31, 31
 	rgb  0,  6,  1,   8,  2,  0,  20,  6,  2,  30, 15, 11
 
-TitleMap_07_4dce::
+TitleMap_TitleTables_2::
 	db $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01 ; tiles
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; attributes
 	db $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01 ; tiles
@@ -786,7 +786,7 @@ TitleMap_07_4dce::
 	db $ae, $ae, $ae, $af, $bb, $bc, $bd, $bc, $c7, $c8, $c9, $ca, $d2, $d3, $d4, $d5, $e2, $e3, $e4, $e5 ; tiles
 	db $0c, $0c, $0c, $0c, $0c, $0c, $0c, $0c, $0c, $0c, $0c, $0c, $09, $09, $09, $0c, $0c, $0c, $0c, $09 ; attributes
 
-TitlePalettes_07_536e::
+TitlePalettes_TitleTables_3::
 	rgb  0,  0,  0,  31,  0,  0,  31, 31,  0,   0,  0,  0
 	rgb 12, 12, 24,  31, 31, 31,  31, 31,  0,   0,  0,  0
 	rgb  0,  0,  0,  15, 26, 14,  31, 31,  0,   0,  0,  0
@@ -820,7 +820,7 @@ TitlePalettes_07_536e::
 	rgb  0,  0,  0,  10, 10,  7,  20, 20, 17,  31, 31, 29
 	rgb  0,  0,  0,  18, 18, 19,  20,  6,  2,  30, 15, 11
 
-TitlePalettesExtra_07_546e::
+TitlePalettesExtra_TitleObjPalettes_3::
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
 	rgb 31, 31, 31,  31, 31, 31,  31, 31, 31,  31, 31, 31
@@ -854,7 +854,7 @@ TitlePalettesExtra_07_546e::
 	rgb 12, 13, 22,  14, 15, 24,  15, 16, 25,  17, 18, 26
 	rgb 28, 20, 19,  29, 22, 21,  30, 23, 23,  31, 25, 25
 
-TitleMap_07_556e::
+TitleMap_TitleTables_3::
 	db $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01, $01 ; tiles
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; attributes
 	db $02, $03, $04, $05, $0e, $0f, $10, $11, $1a, $1b, $1c, $1d, $26, $27, $28, $29, $32, $33, $34, $35 ; tiles
@@ -930,7 +930,7 @@ TitleMap_07_556e::
 	ds 1266, $00 ; $5b0e
 
 
-BGTiles_07_6000::
+BGTiles_Title_Init::
 	INCBIN "gfx/bgtiles/07/6000.2bpp"
 	ds 8000, $00 ; $60c0
 

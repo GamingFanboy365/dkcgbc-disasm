@@ -139,16 +139,23 @@ def naming():
            + ramnames.CRANKY_HRAM + ramnames.FISHING + ramnames.FISHING_HRAM + ramnames.HISCORE)
     ram_tentative = sum("tentative" in d for *_, d in ram)
     fields = sum(sz for _, sz, _ in hints.OBJ_FIELD_TABLE.values())
+    field_tentative = sum("tentative" in d for _, _, d in hints.OBJ_FIELD_TABLE.values())
+    tentative = tentative_routines + ram_tentative + field_tentative
+    all_names = code + len(ram) + len(hints.OBJ_FIELD_TABLE)
     return [
-        ("Routines with a name", code_named, code, "%d marked tentative" % tentative_routines),
-        ("RAM variables the code reaches by address, named", 1, 1,
-         "%d names, %d marked tentative" % (len(ram), ram_tentative)),
-        ("Object fields with a name (bytes of the $40-byte slot)", fields, 0x40,
-         "the rest are OBJ_VAR_xx, whose use depends on the object type"),
-        ("Local labels with a descriptive name", local_named, local,
-         "all others have structural names (.loop, .skip, .done...)"),
+        ("Routines with a name", code_named, code, ""),
+        ("RAM variables the code reaches by address, named", 1, 1, "%d names" % len(ram)),
         ("Data labels with a descriptive name", data_named, data,
-         "the others are named by kind and address (Frame_20_..., ObjInit_0e_...)"),
+         "%d still named by kind and address" % (data - data_named) if data > data_named
+         else "11,500 of them named by tools/autodatanames.py from what uses them"),
+        ("Local labels with a name", local, local,
+         "%d by hand, the others structural (.loop, .skip, .done...)" % local_named),
+        ("Object fields with a fixed meaning, named (bytes of the $40-byte slot)", fields,
+         0x40 - len(hints.TYPE_SPECIFIC_FIELDS),
+         "%d more bytes are OBJ_VAR_xx, whose use depends on the object type" % len(hints.TYPE_SPECIFIC_FIELDS)),
+        ("Names not marked tentative", all_names - tentative, all_names,
+         "%d tentative: %d routines, %d RAM variables, %d object fields"
+         % (tentative, tentative_routines, ram_tentative, field_tentative)),
     ]
 
 
@@ -157,12 +164,14 @@ def print_naming():
     print("| Names | Done | Share | Note |")
     print("|---|---|---|---|")
     for what, done, total, note in rows:
-        share = 100 * done / total
+        share = int(100 * done / total)        # rounded down: 100% only when complete
         amount = "all" if done == total and total == 1 else "%d of %d" % (done, total)
-        print("| %s | %s | %.0f%% | %s |" % (what, amount, share, note))
+        print("| %s | %s | %d%% | %s |" % (what, amount, share, note))
+    import math
     step3 = sum(100 * d / t for _, d, t, _ in rows) / len(rows)
-    print("\nStep 3 (names), average of the rows: %.0f%%" % step3)
-    print("Overall, average of steps 1-3 (steps 1 and 2 at 100%%): %.0f%%" % ((200 + step3) / 3))
+    floor1 = lambda x: math.floor(x * 10) / 10  # noqa: E731
+    print("\nStep 3 (names), average of the rows: %.1f%%" % floor1(step3))
+    print("Overall, average of steps 1-3 (steps 1 and 2 at 100%%): %.1f%%" % floor1((200 + step3) / 3))
 
 
 if __name__ == "__main__":

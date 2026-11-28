@@ -3,109 +3,109 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $36", ROMX[$4000], BANK[$36]
 
-FrameTiles_36_4000::
+FrameTiles_VeryGnawty_Recoil_1::
 	INCBIN "gfx/frames/36/4000.2bpp"
 
-FrameTiles_36_4160::
+FrameTiles_VeryGnawty_Recoil_2::
 	INCBIN "gfx/frames/36/4160.2bpp"
 
-FrameTiles_36_42c0::
+FrameTiles_VeryGnawty_Recoil_3::
 	INCBIN "gfx/frames/36/42c0.2bpp"
 
-FrameTiles_36_4400::
+FrameTiles_VeryGnawty_Recoil_4::
 	INCBIN "gfx/frames/36/4400.2bpp"
 
-FrameTiles_36_4540::
+FrameTiles_VeryGnawty_Recoil_5::
 	INCBIN "gfx/frames/36/4540.2bpp"
 
-FrameTiles_36_4660::
+FrameTiles_VeryGnawty_Recoil_6::
 	INCBIN "gfx/frames/36/4660.2bpp"
 
-FrameTiles_36_4780::
+FrameTiles_VeryGnawty_Recoil_7::
 	INCBIN "gfx/frames/36/4780.2bpp"
 
-FrameTiles_36_48a0::
+FrameTiles_BossDefeated_1::
 	INCBIN "gfx/frames/36/48a0.2bpp"
 
-FrameTiles_36_4a00::
+FrameTiles_BossDefeated_2::
 	INCBIN "gfx/frames/36/4a00.2bpp"
 
-FrameTiles_36_4b80::
+FrameTiles_BossDefeated_3::
 	INCBIN "gfx/frames/36/4b80.2bpp"
 
-FrameTiles_36_4d20::
+FrameTiles_BossDefeated_4::
 	INCBIN "gfx/frames/36/4d20.2bpp"
 
-FrameTiles_36_4e80::
+FrameTiles_BossDefeated_5::
 	INCBIN "gfx/frames/36/4e80.2bpp"
 
-FrameTiles_36_5020::
+FrameTiles_BossDefeated_6::
 	INCBIN "gfx/frames/36/5020.2bpp"
 
-FrameTiles_36_51c0::
+FrameTiles_BossDefeated_7::
 	INCBIN "gfx/frames/36/51c0.2bpp"
 
-FrameTiles_36_5380::
+FrameTiles_BossDefeated_8::
 	INCBIN "gfx/frames/36/5380.2bpp"
 
-FrameTiles_36_5540::
+FrameTiles_BossDefeated_9::
 	INCBIN "gfx/frames/36/5540.2bpp"
 
-FrameTiles_36_56c0::
+FrameTiles_BossDefeated_10::
 	INCBIN "gfx/frames/36/56c0.2bpp"
 
-FrameTiles_36_5800::
+FrameTiles_BossDefeated_11::
 	INCBIN "gfx/frames/36/5800.2bpp"
 
-FrameTiles_36_5940::
+FrameTiles_BossDefeated_12::
 	INCBIN "gfx/frames/36/5940.2bpp"
 
-FrameTiles_36_5a80::
+FrameTiles_BossDefeated_13::
 	INCBIN "gfx/frames/36/5a80.2bpp"
 
-FrameTiles_36_5bc0::
+FrameTiles_VeryGnawty_Hop_1::
 	INCBIN "gfx/frames/36/5bc0.2bpp"
 
-FrameTiles_36_5d20::
+FrameTiles_VeryGnawty_Hop_2::
 	INCBIN "gfx/frames/36/5d20.2bpp"
 
-FrameTiles_36_5ea0::
+FrameTiles_VeryGnawty_Hop_3::
 	INCBIN "gfx/frames/36/5ea0.2bpp"
 
-FrameTiles_36_6000::
+FrameTiles_VeryGnawty_Hop_4::
 	INCBIN "gfx/frames/36/6000.2bpp"
 
-FrameTiles_36_6180::
+FrameTiles_VeryGnawty_Hop_5::
 	INCBIN "gfx/frames/36/6180.2bpp"
 
-FrameTiles_36_6340::
+FrameTiles_VeryGnawty_Hop_6::
 	INCBIN "gfx/frames/36/6340.2bpp"
 
-FrameTiles_36_64e0::
+FrameTiles_QueenB_Init_1::
 	INCBIN "gfx/frames/36/64e0.2bpp"
 
-FrameTiles_36_6680::
+FrameTiles_QueenB_Init_2::
 	INCBIN "gfx/frames/36/6680.2bpp"
 
-FrameTiles_36_6820::
+FrameTiles_QueenB_Init_3::
 	INCBIN "gfx/frames/36/6820.2bpp"
 
-FrameTiles_36_6a00::
+FrameTiles_QueenB_Init_4::
 	INCBIN "gfx/frames/36/6a00.2bpp"
 
-FrameTiles_36_6bc0::
+FrameTiles_QueenB_Init_5::
 	INCBIN "gfx/frames/36/6bc0.2bpp"
 
-FrameTiles_36_6d60::
+FrameTiles_QueenB_Init_6::
 	INCBIN "gfx/frames/36/6d60.2bpp"
 
-FrameTiles_36_6f00::
+FrameTiles_QueenB_Init_7::
 	INCBIN "gfx/frames/36/6f00.2bpp"
 
-FrameTiles_36_70e0::
+FrameTiles_QueenB_Init_8::
 	INCBIN "gfx/frames/36/70e0.2bpp"
 
-FrameSprites_36_7280::
+FrameSprites_VeryGnawty_Recoil_1::
 	db -20, -16, $00 ; dx, dy, attribute add
 	db 8, -10, $00
 	db 0, 16, $00
@@ -118,7 +118,7 @@ FrameSprites_36_7280::
 	db 8, -24, $01
 	db 0, 18, $00
 
-FrameSprites_36_72a1::
+FrameSprites_VeryGnawty_Recoil_2::
 	db -20, -5, $00 ; dx, dy, attribute add
 	db 8, -20, $00
 	db 0, 16, $00
@@ -131,7 +131,7 @@ FrameSprites_36_72a1::
 	db 0, 16, $00
 	db -5, 9, $00
 
-FrameSprites_36_72c2::
+FrameSprites_VeryGnawty_Recoil_3::
 	db -20, -6, $00 ; dx, dy, attribute add
 	db 8, -19, $00
 	db 0, 16, $00
@@ -143,7 +143,7 @@ FrameSprites_36_72c2::
 	db 8, -16, $01
 	db 0, 17, $00
 
-FrameSprites_36_72e0::
+FrameSprites_VeryGnawty_Recoil_4::
 	db -19, -6, $00 ; dx, dy, attribute add
 	db 8, -18, $00
 	db 0, 16, $00
@@ -155,7 +155,7 @@ FrameSprites_36_72e0::
 	db 7, -16, $01
 	db 1, 30, $00
 
-FrameSprites_36_72fe::
+FrameSprites_VeryGnawty_Recoil_5::
 	db -18, -9, $00 ; dx, dy, attribute add
 	db 8, -15, $00
 	db 0, 16, $00
@@ -166,7 +166,7 @@ FrameSprites_36_72fe::
 	db 0, 16, $00
 	db 8, -14, $01
 
-FrameSprites_36_7319::
+FrameSprites_VeryGnawty_Recoil_6::
 	db -18, -9, $00 ; dx, dy, attribute add
 	db 8, -15, $00
 	db 0, 16, $00
@@ -177,7 +177,7 @@ FrameSprites_36_7319::
 	db 0, 16, $00
 	db 8, -14, $01
 
-FrameSprites_36_7334::
+FrameSprites_VeryGnawty_Recoil_7::
 	db -18, -9, $00 ; dx, dy, attribute add
 	db 8, -15, $00
 	db 0, 16, $00
@@ -188,7 +188,7 @@ FrameSprites_36_7334::
 	db 0, 16, $00
 	db 8, -14, $01
 
-FrameSprites_36_734f::
+FrameSprites_BossDefeated_1::
 	db -21, -16, $00 ; dx, dy, attribute add
 	db 8, -11, $00
 	db 0, 16, $00
@@ -201,7 +201,7 @@ FrameSprites_36_734f::
 	db -8, 23, $00
 	db 8, -2, $00
 
-FrameSprites_36_7370::
+FrameSprites_BossDefeated_2::
 	db -14, -8, $00 ; dx, dy, attribute add
 	db 8, -18, $00
 	db -8, 2, $00
@@ -215,7 +215,7 @@ FrameSprites_36_7370::
 	db -32, 10, $00
 	db 32, 6, $00
 
-FrameSprites_36_7394::
+FrameSprites_BossDefeated_3::
 	db -23, -11, $00 ; dx, dy, attribute add
 	db 8, 4, $00
 	db 0, -16, $00
@@ -230,7 +230,7 @@ FrameSprites_36_7394::
 	db 8, 0, $00
 	db 8, -5, $00
 
-FrameSprites_36_73bb::
+FrameSprites_BossDefeated_4::
 	db -22, -14, $00 ; dx, dy, attribute add
 	db 8, -10, $00
 	db 0, 16, $00
@@ -243,7 +243,7 @@ FrameSprites_36_73bb::
 	db 8, -9, $01
 	db 0, 19, $00
 
-FrameSprites_36_73dc::
+FrameSprites_BossDefeated_5::
 	db -22, -16, $00 ; dx, dy, attribute add
 	db 8, -7, $00
 	db 3, 16, $00
@@ -258,7 +258,7 @@ FrameSprites_36_73dc::
 	db -20, 2, $00
 	db 8, 0, $00
 
-FrameSprites_36_7403::
+FrameSprites_BossDefeated_6::
 	db -17, -36, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -273,7 +273,7 @@ FrameSprites_36_7403::
 	db -1, 16, $00
 	db 8, -1, $01
 
-FrameSprites_36_742a::
+FrameSprites_BossDefeated_7::
 	db -22, -11, $00 ; dx, dy, attribute add
 	db 8, -31, $00
 	db 2, 16, $00
@@ -289,7 +289,7 @@ FrameSprites_36_742a::
 	db 0, 16, $00
 	db -38, -25, $00
 
-FrameSprites_36_7454::
+FrameSprites_BossDefeated_8::
 	db -20, -11, $00 ; dx, dy, attribute add
 	db 11, -16, $00
 	db -3, 16, $00
@@ -305,7 +305,7 @@ FrameSprites_36_7454::
 	db -8, 7, $00
 	db -37, -8, $00
 
-FrameSprites_36_747e::
+FrameSprites_BossDefeated_9::
 	db -20, -35, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -319,7 +319,7 @@ FrameSprites_36_747e::
 	db 8, -15, $01
 	db 8, 10, $01
 
-FrameSprites_36_74a2::
+FrameSprites_BossDefeated_10::
 	db -25, -11, $00 ; dx, dy, attribute add
 	db 15, -15, $00
 	db 1, 16, $00
@@ -331,7 +331,7 @@ FrameSprites_36_74a2::
 	db 1, 15, $01
 	db -9, -15, $00
 
-FrameSprites_36_74c0::
+FrameSprites_BossDefeated_11::
 	db -24, -9, $00 ; dx, dy, attribute add
 	db 13, -14, $00
 	db -5, 10, $00
@@ -343,7 +343,7 @@ FrameSprites_36_74c0::
 	db -5, 16, $00
 	db 8, -5, $01
 
-FrameSprites_36_74de::
+FrameSprites_BossDefeated_12::
 	db -24, -6, $00 ; dx, dy, attribute add
 	db 8, -11, $00
 	db 0, 16, $00
@@ -355,7 +355,7 @@ FrameSprites_36_74de::
 	db 0, 16, $00
 	db 8, -10, $01
 
-FrameSprites_36_74fc::
+FrameSprites_BossDefeated_13::
 	db -24, -6, $00 ; dx, dy, attribute add
 	db 8, -11, $00
 	db 0, 16, $00
@@ -367,7 +367,7 @@ FrameSprites_36_74fc::
 	db 0, 16, $00
 	db 8, -14, $01
 
-FrameSprites_36_751a::
+FrameSprites_VeryGnawty_Hop_1::
 	db -21, -4, $00 ; dx, dy, attribute add
 	db 8, -21, $00
 	db 0, 16, $00
@@ -380,7 +380,7 @@ FrameSprites_36_751a::
 	db 8, -24, $01
 	db 0, 21, $00
 
-FrameSprites_36_753b::
+FrameSprites_VeryGnawty_Hop_2::
 	db -13, -9, $00 ; dx, dy, attribute add
 	db 0, -16, $00
 	db -9, 21, $00
@@ -394,7 +394,7 @@ FrameSprites_36_753b::
 	db -8, 24, $00
 	db 8, -4, $00
 
-FrameSprites_36_755f::
+FrameSprites_VeryGnawty_Hop_3::
 	db -21, -17, $00 ; dx, dy, attribute add
 	db 8, -7, $00
 	db 0, 16, $00
@@ -407,7 +407,7 @@ FrameSprites_36_755f::
 	db 8, -8, $00
 	db -40, 10, $00
 
-FrameSprites_36_7580::
+FrameSprites_VeryGnawty_Hop_4::
 	db -20, -23, $00 ; dx, dy, attribute add
 	db 8, -5, $00
 	db -2, 16, $00
@@ -421,7 +421,7 @@ FrameSprites_36_7580::
 	db -8, 24, $00
 	db -24, 5, $00
 
-FrameSprites_36_75a4::
+FrameSprites_VeryGnawty_Hop_5::
 	db -23, -7, $00 ; dx, dy, attribute add
 	db 13, -28, $00
 	db -5, 16, $00
@@ -437,7 +437,7 @@ FrameSprites_36_75a4::
 	db -24, -8, $00
 	db 27, 24, $00
 
-FrameSprites_36_75ce::
+FrameSprites_VeryGnawty_Hop_6::
 	db -19, -31, $00 ; dx, dy, attribute add
 	db -3, 16, $00
 	db 11, -23, $00
@@ -452,7 +452,7 @@ FrameSprites_36_75ce::
 	db 11, -35, $01
 	db -8, 11, $00
 
-FrameSprites_36_75f5::
+FrameSprites_QueenB_Init_1::
 	db -18, -26, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -19, $00
@@ -467,7 +467,7 @@ FrameSprites_36_75f5::
 	db 0, 16, $00
 	db 8, -29, $00
 
-FrameSprites_36_761c::
+FrameSprites_QueenB_Init_2::
 	db -19, -26, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -25, $00
@@ -482,7 +482,7 @@ FrameSprites_36_761c::
 	db 0, 16, $01
 	db 8, -19, $01
 
-FrameSprites_36_7643::
+FrameSprites_QueenB_Init_3::
 	db -19, -26, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -20, $00
@@ -499,7 +499,7 @@ FrameSprites_36_7643::
 	db 0, 16, $01
 	db 8, -30, $00
 
-FrameSprites_36_7670::
+FrameSprites_QueenB_Init_4::
 	db -21, -27, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -18, $00
@@ -515,7 +515,7 @@ FrameSprites_36_7670::
 	db 0, 16, $01
 	db 8, -7, $01
 
-FrameSprites_36_769a::
+FrameSprites_QueenB_Init_5::
 	db -21, -27, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -20, $00
@@ -530,7 +530,7 @@ FrameSprites_36_769a::
 	db 1, 16, $00
 	db 7, -17, $01
 
-FrameSprites_36_76c1::
+FrameSprites_QueenB_Init_6::
 	db -21, -27, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -18, $00
@@ -545,7 +545,7 @@ FrameSprites_36_76c1::
 	db 0, 16, $01
 	db 8, -7, $01
 
-FrameSprites_36_76e8::
+FrameSprites_QueenB_Init_7::
 	db -19, -26, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -20, $00
@@ -562,7 +562,7 @@ FrameSprites_36_76e8::
 	db 0, 16, $01
 	db 8, -18, $00
 
-FrameSprites_36_7715::
+FrameSprites_QueenB_Init_8::
 	db -19, -26, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -25, $00

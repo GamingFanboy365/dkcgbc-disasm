@@ -3,160 +3,160 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $32", ROMX[$4000], BANK[$32]
 
-FrameTiles_32_4000::
+FrameTiles_MankyKong::
 	INCBIN "gfx/frames/32/4000.2bpp"
 
-FrameTiles_32_4100::
+FrameTiles_Mincer_9::
 	INCBIN "gfx/frames/32/4100.2bpp"
 
-FrameTiles_32_41c0::
+FrameTiles_Mincer_10::
 	INCBIN "gfx/frames/32/41c0.2bpp"
 
-FrameTiles_32_42a0::
+FrameTiles_Mincer_11::
 	INCBIN "gfx/frames/32/42a0.2bpp"
 
-FrameTiles_32_4380::
+FrameTiles_Mincer_12::
 	INCBIN "gfx/frames/32/4380.2bpp"
 
-FrameTiles_32_4460::
+FrameTiles_Mincer_13::
 	INCBIN "gfx/frames/32/4460.2bpp"
 
-FrameTiles_32_4560::
+FrameTiles_Mincer_14::
 	INCBIN "gfx/frames/32/4560.2bpp"
 
-FrameTiles_32_4680::
+FrameTiles_Mincer_15::
 	INCBIN "gfx/frames/32/4680.2bpp"
 
-FrameTiles_32_47a0::
+FrameTiles_Mincer_16::
 	INCBIN "gfx/frames/32/47a0.2bpp"
 
-FrameTiles_32_48a0::
+FrameTiles_Mincer_17::
 	INCBIN "gfx/frames/32/48a0.2bpp"
 
-FrameTiles_32_4960::
+FrameTiles_Mincer_18::
 	INCBIN "gfx/frames/32/4960.2bpp"
 
-FrameTiles_32_4a40::
+FrameTiles_Mincer_19::
 	INCBIN "gfx/frames/32/4a40.2bpp"
 
-FrameTiles_32_4b20::
+FrameTiles_Rockkroc_CurledUp_1::
 	INCBIN "gfx/frames/32/4b20.2bpp"
 
-FrameTiles_32_4c60::
+FrameTiles_Rockkroc_CurledUp_2::
 	INCBIN "gfx/frames/32/4c60.2bpp"
 
-FrameTiles_32_4d40::
+FrameTiles_Rockkroc_CurledUp_3::
 	INCBIN "gfx/frames/32/4d40.2bpp"
 
-FrameTiles_32_4e00::
+FrameTiles_Rockkroc_CurledUp_4::
 	INCBIN "gfx/frames/32/4e00.2bpp"
 
-FrameTiles_32_4ea0::
+FrameTiles_Rockkroc_CurledUp_5::
 	INCBIN "gfx/frames/32/4ea0.2bpp"
 
-FrameTiles_32_4f00::
+FrameTiles_Obj_TurnAround_14::
 	INCBIN "gfx/frames/32/4f00.2bpp"
 
-FrameTiles_32_5000::
+FrameTiles_Obj_TurnAround_15::
 	INCBIN "gfx/frames/32/5000.2bpp"
 
-FrameTiles_32_5100::
+FrameTiles_Rockkroc_1::
 	INCBIN "gfx/frames/32/5100.2bpp"
 
-FrameTiles_32_51e0::
+FrameTiles_Rockkroc_2::
 	INCBIN "gfx/frames/32/51e0.2bpp"
 
-FrameTiles_32_52e0::
+FrameTiles_Rockkroc_3::
 	INCBIN "gfx/frames/32/52e0.2bpp"
 
-FrameTiles_32_53e0::
+FrameTiles_Rockkroc_4::
 	INCBIN "gfx/frames/32/53e0.2bpp"
 
-FrameTiles_32_54e0::
+FrameTiles_Rockkroc_5::
 	INCBIN "gfx/frames/32/54e0.2bpp"
 
-FrameTiles_32_55e0::
+FrameTiles_Rockkroc_6::
 	INCBIN "gfx/frames/32/55e0.2bpp"
 
-FrameTiles_32_56c0::
+FrameTiles_Rockkroc_7::
 	INCBIN "gfx/frames/32/56c0.2bpp"
 
-FrameTiles_32_57a0::
+FrameTiles_Rockkroc_8::
 	INCBIN "gfx/frames/32/57a0.2bpp"
 
-FrameTiles_32_5880::
+FrameTiles_KingKRool_Hop_1::
 	INCBIN "gfx/frames/32/5880.2bpp"
 
-FrameTiles_32_5a60::
+FrameTiles_KingKRool_Hop_2::
 	INCBIN "gfx/frames/32/5a60.2bpp"
 
-FrameTiles_32_5c60::
+FrameTiles_KingKRool_Hop_3::
 	INCBIN "gfx/frames/32/5c60.2bpp"
 
-FrameTiles_32_5e60::
+FrameTiles_KingKRool_Hop_4::
 	INCBIN "gfx/frames/32/5e60.2bpp"
 
-FrameTiles_32_6040::
+FrameTiles_KingKRool_Hop_5::
 	INCBIN "gfx/frames/32/6040.2bpp"
 
-FrameTiles_32_6240::
+FrameTiles_KingKRool_Hop_6::
 	INCBIN "gfx/frames/32/6240.2bpp"
 
-FrameTiles_32_6480::
+FrameTiles_KingKRool_Hop_7::
 	INCBIN "gfx/frames/32/6480.2bpp"
 
-FrameTiles_32_66c0::
+FrameTiles_Elevator_2::
 	INCBIN "gfx/frames/32/66c0.2bpp"
 
-FrameTiles_32_67c0::
+FrameTiles_FuelPlatform_Travel_1::
 	INCBIN "gfx/frames/32/67c0.2bpp"
 
-FrameTiles_32_6880::
+FrameTiles_FuelPlatform_Travel_2::
 	INCBIN "gfx/frames/32/6880.2bpp"
 
-FrameTiles_32_6940::
+FrameTiles_FuelPlatform_Travel_3::
 	INCBIN "gfx/frames/32/6940.2bpp"
 
-FrameTiles_32_6a00::
+FrameTiles_FuelPlatform_Travel_4::
 	INCBIN "gfx/frames/32/6a00.2bpp"
 
-FrameTiles_32_6ac0::
+FrameTiles_FuelPlatform_Travel_5::
 	INCBIN "gfx/frames/32/6ac0.2bpp"
 
-FrameTiles_32_6b80::
+FrameTiles_FuelPlatform_Wait::
 	INCBIN "gfx/frames/32/6b80.2bpp"
 
-FrameTiles_32_6c40::
+FrameTiles_Elevator_3::
 	INCBIN "gfx/frames/32/6c40.2bpp"
 
-FrameTiles_32_6d40::
+FrameTiles_TrackPlatform_Wait_1::
 	INCBIN "gfx/frames/32/6d40.2bpp"
 
-FrameTiles_32_6e00::
+FrameTiles_TrackPlatform_Wait_2::
 	INCBIN "gfx/frames/32/6e00.2bpp"
 
-FrameTiles_32_6ec0::
+FrameTiles_TrackPlatform_Wait_3::
 	INCBIN "gfx/frames/32/6ec0.2bpp"
 
-FrameTiles_32_6f80::
+FrameTiles_Elevator_1::
 	INCBIN "gfx/frames/32/6f80.2bpp"
 
-FrameTiles_32_7080::
+FrameTiles_Elevator_4::
 	INCBIN "gfx/frames/32/7080.2bpp"
 
-FrameTiles_32_7100::
+FrameTiles_Nut_1::
 	INCBIN "gfx/frames/32/7100.2bpp"
 
-FrameTiles_32_7120::
+FrameTiles_Nut_2::
 	INCBIN "gfx/frames/32/7120.2bpp"
 
-FrameTiles_32_7160::
+FrameTiles_Nut_3::
 	INCBIN "gfx/frames/32/7160.2bpp"
 
-FrameTiles_32_7180::
+FrameTiles_Nut_4::
 	INCBIN "gfx/frames/32/7180.2bpp"
 
-FrameSprites_32_71c0::
+FrameSprites_MankyKong::
 	db -8, -27
 	db 0, 16
 	db 8, -21
@@ -166,7 +166,7 @@ FrameSprites_32_71c0::
 	db 0, 16
 	db 0, 16
 
-FrameSprites_32_71d0::
+FrameSprites_Mincer_9::
 	db -10, -25
 	db 0, 16
 	db 8, -18
@@ -174,7 +174,7 @@ FrameSprites_32_71d0::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_32_71dc::
+FrameSprites_Mincer_10::
 	db -14, -22
 	db 0, 16
 	db 8, -16
@@ -183,7 +183,7 @@ FrameSprites_32_71dc::
 	db 0, 16
 	db 8, 3
 
-FrameSprites_32_71ea::
+FrameSprites_Mincer_11::
 	db -14, -22
 	db 0, 16
 	db 8, -15
@@ -192,7 +192,7 @@ FrameSprites_32_71ea::
 	db 0, 16
 	db 8, 3
 
-FrameSprites_32_71f8::
+FrameSprites_Mincer_12::
 	db -14, -22
 	db 0, 16
 	db 8, -16
@@ -201,7 +201,7 @@ FrameSprites_32_71f8::
 	db 0, 16
 	db 8, 3
 
-FrameSprites_32_7206::
+FrameSprites_Mincer_13::
 	db -21, -8
 	db 8, -17
 	db 0, 16
@@ -211,7 +211,7 @@ FrameSprites_32_7206::
 	db 0, 16
 	db 8, -1
 
-FrameSprites_32_7216::
+FrameSprites_Mincer_14::
 	db -25, -6
 	db 8, -22
 	db 0, 16
@@ -222,7 +222,7 @@ FrameSprites_32_7216::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_32_7228::
+FrameSprites_Mincer_15::
 	db -28, -16
 	db 8, -5
 	db 8, -6
@@ -233,7 +233,7 @@ FrameSprites_32_7228::
 	db 8, -30
 	db 0, 16
 
-FrameSprites_32_723a::
+FrameSprites_Mincer_16::
 	db -15, -29
 	db 0, 21
 	db 8, -23
@@ -243,7 +243,7 @@ FrameSprites_32_723a::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_32_724a::
+FrameSprites_Mincer_17::
 	db -12, -31
 	db 0, 16
 	db 8, -18
@@ -251,7 +251,7 @@ FrameSprites_32_724a::
 	db 0, 16
 	db 8, -31
 
-FrameSprites_32_7256::
+FrameSprites_Mincer_18::
 	db -11, -27
 	db 0, 16
 	db 8, -21
@@ -260,7 +260,7 @@ FrameSprites_32_7256::
 	db 8, -32
 	db 0, 16
 
-FrameSprites_32_7264::
+FrameSprites_Mincer_19::
 	db -3, -29
 	db 0, 16
 	db 8, -20
@@ -269,7 +269,7 @@ FrameSprites_32_7264::
 	db 8, -28
 	db 0, 22
 
-FrameSprites_32_7272::
+FrameSprites_Rockkroc_CurledUp_1::
 	db -13, -28
 	db 0, 16
 	db 8, -21
@@ -281,7 +281,7 @@ FrameSprites_32_7272::
 	db 8, -23
 	db 8, 3
 
-FrameSprites_32_7286::
+FrameSprites_Rockkroc_CurledUp_2::
 	db -9, -27
 	db 0, 16
 	db 8, -16
@@ -290,7 +290,7 @@ FrameSprites_32_7286::
 	db 0, 22
 	db 8, -15
 
-FrameSprites_32_7294::
+FrameSprites_Rockkroc_CurledUp_3::
 	db -8, -22
 	db 0, 16
 	db 8, -17
@@ -298,19 +298,19 @@ FrameSprites_32_7294::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_32_72a0::
+FrameSprites_Rockkroc_CurledUp_4::
 	db -8, -17
 	db 0, 16
 	db 8, -17
 	db 0, 16
 	db 8, -13
 
-FrameSprites_32_72aa::
+FrameSprites_Rockkroc_CurledUp_5::
 	db -9, -14
 	db 8, -1
 	db 8, 2
 
-FrameSprites_32_72b0::
+FrameSprites_Obj_TurnAround_14::
 	db -13, -27
 	db 0, 16
 	db 8, -20
@@ -320,7 +320,7 @@ FrameSprites_32_72b0::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_32_72c0::
+FrameSprites_Obj_TurnAround_15::
 	db -11, -29
 	db 0, 16
 	db 8, -20
@@ -330,7 +330,7 @@ FrameSprites_32_72c0::
 	db 0, 16
 	db 8, -2
 
-FrameSprites_32_72d0::
+FrameSprites_Rockkroc_1::
 	db -11, -22
 	db 0, 16
 	db 8, -21
@@ -339,7 +339,7 @@ FrameSprites_32_72d0::
 	db 0, 16
 	db 8, -14
 
-FrameSprites_32_72de::
+FrameSprites_Rockkroc_2::
 	db -12, -14
 	db 0, 16
 	db 8, -28
@@ -349,7 +349,7 @@ FrameSprites_32_72de::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_32_72ee::
+FrameSprites_Rockkroc_3::
 	db -12, -14
 	db 0, 16
 	db 8, -28
@@ -359,7 +359,7 @@ FrameSprites_32_72ee::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_32_72fe::
+FrameSprites_Rockkroc_4::
 	db -12, -15
 	db 0, 16
 	db 8, -28
@@ -369,7 +369,7 @@ FrameSprites_32_72fe::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_32_730e::
+FrameSprites_Rockkroc_5::
 	db -11, -23
 	db 0, 16
 	db 8, -21
@@ -379,7 +379,7 @@ FrameSprites_32_730e::
 	db 8, -13
 	db 0, 16
 
-FrameSprites_32_731e::
+FrameSprites_Rockkroc_6::
 	db -12, -13
 	db 8, -13
 	db 0, 16
@@ -388,7 +388,7 @@ FrameSprites_32_731e::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_32_732c::
+FrameSprites_Rockkroc_7::
 	db -11, -22
 	db 0, 16
 	db 8, -21
@@ -397,7 +397,7 @@ FrameSprites_32_732c::
 	db 0, 16
 	db 8, -11
 
-FrameSprites_32_733a::
+FrameSprites_Rockkroc_8::
 	db -11, -23
 	db 0, 16
 	db 8, -21
@@ -406,7 +406,7 @@ FrameSprites_32_733a::
 	db 0, 16
 	db 8, -11
 
-FrameSprites_32_7348::
+FrameSprites_KingKRool_Hop_1::
 	db -19, -33, $01 ; dx, dy, attribute add
 	db 4, 13, $01
 	db 2, -32, $01
@@ -423,7 +423,7 @@ FrameSprites_32_7348::
 	db 0, -16, $00
 	db -34, 30, $01
 
-FrameSprites_32_7375::
+FrameSprites_KingKRool_Hop_2::
 	db -23, -25, $01 ; dx, dy, attribute add
 	db 7, 11, $01
 	db 4, -32, $01
@@ -441,7 +441,7 @@ FrameSprites_32_7375::
 	db 4, 16, $00
 	db 4, -7, $00
 
-FrameSprites_32_73a5::
+FrameSprites_KingKRool_Hop_3::
 	db -19, -33, $00 ; dx, dy, attribute add
 	db 1, 16, $01
 	db 7, -21, $00
@@ -459,7 +459,7 @@ FrameSprites_32_73a5::
 	db -24, 10, $01
 	db 32, -21, $00
 
-FrameSprites_32_73d5::
+FrameSprites_KingKRool_Hop_4::
 	db -17, -36, $00 ; dx, dy, attribute add
 	db 0, 16, $01
 	db 8, -27, $01
@@ -476,7 +476,7 @@ FrameSprites_32_73d5::
 	db 8, -7, $00
 	db -40, 17, $01
 
-FrameSprites_32_7402::
+FrameSprites_KingKRool_Hop_5::
 	db -12, -38, $00 ; dx, dy, attribute add
 	db -8, 16, $01
 	db 0, -16, $00
@@ -494,7 +494,7 @@ FrameSprites_32_7402::
 	db 0, 16, $00
 	db 8, -16, $00
 
-FrameSprites_32_7432::
+FrameSprites_KingKRool_Hop_6::
 	db -18, -45, $00 ; dx, dy, attribute add
 	db 30, 14, $00
 	db -22, -10, $00
@@ -514,7 +514,7 @@ FrameSprites_32_7432::
 	db -9, 27, $00
 	db -11, 16, $00
 
-FrameSprites_32_7468::
+FrameSprites_KingKRool_Hop_7::
 	db -23, -32, $01 ; dx, dy, attribute add
 	db 4, 16, $01
 	db 20, -45, $00
@@ -534,7 +534,7 @@ FrameSprites_32_7468::
 	db 8, -32, $00
 	db 0, 16, $00
 
-FrameSprites_32_749e::
+FrameSprites_Elevator_2::
 	db -14, -3
 	db 0, 16
 	db 8, -17
@@ -544,7 +544,7 @@ FrameSprites_32_749e::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_32_74ae::
+FrameSprites_FuelPlatform_Travel_1::
 	db -24, -5
 	db 8, 0
 	db 8, 0
@@ -552,7 +552,7 @@ FrameSprites_32_74ae::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_74ba::
+FrameSprites_FuelPlatform_Travel_2::
 	db -24, -5
 	db 8, 0
 	db 8, 0
@@ -560,7 +560,7 @@ FrameSprites_32_74ba::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_74c6::
+FrameSprites_FuelPlatform_Travel_3::
 	db -24, -5
 	db 8, 0
 	db 8, 0
@@ -568,7 +568,7 @@ FrameSprites_32_74c6::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_74d2::
+FrameSprites_FuelPlatform_Travel_4::
 	db -24, -5
 	db 8, 0
 	db 8, 0
@@ -576,7 +576,7 @@ FrameSprites_32_74d2::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_74de::
+FrameSprites_FuelPlatform_Travel_5::
 	db -24, -5
 	db 8, 0
 	db 8, 0
@@ -584,7 +584,7 @@ FrameSprites_32_74de::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_74ea::
+FrameSprites_FuelPlatform_Wait::
 	db -24, -5
 	db 8, 0
 	db 8, 0
@@ -592,7 +592,7 @@ FrameSprites_32_74ea::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_74f6::
+FrameSprites_Elevator_3::
 	db -15, -5
 	db 0, 16
 	db 8, -16
@@ -602,7 +602,7 @@ FrameSprites_32_74f6::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_32_7506::
+FrameSprites_TrackPlatform_Wait_1::
 	db -23, -3
 	db 8, 0
 	db 8, 0
@@ -610,7 +610,7 @@ FrameSprites_32_7506::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_7512::
+FrameSprites_TrackPlatform_Wait_2::
 	db -23, -3
 	db 8, 0
 	db 8, 0
@@ -618,7 +618,7 @@ FrameSprites_32_7512::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_751e::
+FrameSprites_TrackPlatform_Wait_3::
 	db -23, -3
 	db 8, 0
 	db 8, 0
@@ -626,7 +626,7 @@ FrameSprites_32_751e::
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_752a::
+FrameSprites_Elevator_1::
 	db -16, -8
 	db 0, 16
 	db 8, -16
@@ -636,23 +636,23 @@ FrameSprites_32_752a::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_32_753a::
+FrameSprites_Elevator_4::
 	db -15, -5
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-FrameSprites_32_7542::
+FrameSprites_Nut_1::
 	db -4, -7
 
-FrameSprites_32_7544::
+FrameSprites_Nut_2::
 	db -3, -4
 	db 8, 0
 
-FrameSprites_32_7548::
+FrameSprites_Nut_3::
 	db -4, -3
 
-FrameSprites_32_754a::
+FrameSprites_Nut_4::
 	db -7, -4
 	db 8, 0
 	ds 2738, $00 ; $754e

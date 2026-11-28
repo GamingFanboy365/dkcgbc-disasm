@@ -117,6 +117,8 @@ class Emitter:
         descs, ents, self.level_names, _ = levelnames.tables(self.rom)
         overrides.update({off(4, a): n for a, n in descs.items()})
         overrides.update({off(4, a): n for a, n in ents.items()})
+        import datanames
+        overrides.update({off(b, a): n for (b, a), n in datanames.NAMES.items()})
         overrides.update({off(b, a): n for (b, a), n in name_table.NAMES.items()})
         overrides.update({off(b, a): n for (b, a), n in hints.NAMES.items()})
         ends = {o + i.length: o for o, i in t.insns.items()}  # end offset -> instruction
@@ -533,7 +535,8 @@ class Emitter:
             lay = [self.qref(h["map_bank"], p) or hexw(p) for p in h["layers"]]
             res = [(o, "db BANK(LevelBlocks_%02x), BANK(LevelTerrain_%02x), %s ; block bank, terrain bank, flags"
                     % (h["blocks"], h["terrain"], hexb(h["flags"]))),
-                   (None, "dw %s ; ($c45c)" % hexw(h["c45c"])),
+                   (None, "dw %s ; camera regions (wCameraRegion)" % (
+                       self.qref(hints.CAMERA_BANK, h["c45c"]) or hexw(h["c45c"]))),
                    (None, "db BANK(%s)" % ts), (None, "dw %s ; tileset" % ts),
                    (None, "db BANK(%s)" % lay[0]),
                    (None, "dw %s ; block numbers, block attributes, terrain" % ", ".join(lay[:3]))]
@@ -681,9 +684,10 @@ class Emitter:
             return [(o, "db %s" % hexb(r[0])),
                     (None, "dw %s ; BG palettes" % (self.qref(pb, w(1)) or hexw(w(1)))),
                     (None, "dw %s ; OBJ palettes to preload" % (self.qref(pb, w(3)) or hexw(w(3)))),
-                    (None, "dw %s, %s ; map header (LoadMap), level objects? (LoadLevelObjects)"
-                     % (self.qref(bank, w(5)) or hexw(w(5)), hexw(w(7)))),
-                    (None, "db %s ; bank of the second pointer" % hexb(r[9])),
+                    (None, "dw %s, %s ; map header (LoadMap), level objects (LoadLevelObjects)"
+                     % (self.qref(bank, w(5)) or hexw(w(5)), self.qref(r[9], w(7)) or hexw(w(7)))),
+                    (None, "db %s ; bank of the level objects" % (
+                        "BANK(%s)" % self.qref(r[9], w(7)) if self.qref(r[9], w(7)) else hexb(r[9]))),
                     (None, "db %s, %s" % (hexb(r[10]), hexb(r[11])))]
         if kind == "anim":
             res = []

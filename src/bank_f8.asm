@@ -3,160 +3,160 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $f8", ROMX[$4000], BANK[$f8]
 
-FESprites_f8_4000::
+FESprites_SpriteAnim39_1::
 	INCBIN "gfx/frames/f8/4000.2bpp"
 
-FESprites_f8_40e0::
+FESprites_SpriteAnim39_2::
 	INCBIN "gfx/frames/f8/40e0.2bpp"
 
-FESprites_f8_4180::
+FESprites_SpriteAnim41_0::
 	INCBIN "gfx/frames/f8/4180.2bpp"
 
-FESprites_f8_41c0::
+FESprites_SpriteAnim41_1::
 	INCBIN "gfx/frames/f8/41c0.2bpp"
 
-FESprites_f8_4240::
+FESprites_SpriteAnim41_2::
 	INCBIN "gfx/frames/f8/4240.2bpp"
 
-FESprites_f8_42e0::
+FESprites_SpriteAnim41_3::
 	INCBIN "gfx/frames/f8/42e0.2bpp"
 
-FESprites_f8_43a0::
+FESprites_SpriteAnim41_4::
 	INCBIN "gfx/frames/f8/43a0.2bpp"
 
-FESprites_f8_4440::
+FESprites_SpriteAnim41_5::
 	INCBIN "gfx/frames/f8/4440.2bpp"
 
-FESprites_f8_44e0::
+FESprites_SpriteAnim41_6::
 	INCBIN "gfx/frames/f8/44e0.2bpp"
 
-FESprites_f8_4580::
+FESprites_SpriteAnim41_7::
 	INCBIN "gfx/frames/f8/4580.2bpp"
 
-FESprites_f8_4620::
+FESprites_SpriteAnim41_8::
 	INCBIN "gfx/frames/f8/4620.2bpp"
 
-FESprites_f8_4680::
+FESprites_SpriteAnim42_0::
 	INCBIN "gfx/frames/f8/4680.2bpp"
 
-FESprites_f8_47a0::
+FESprites_SpriteAnim42_1::
 	INCBIN "gfx/frames/f8/47a0.2bpp"
 
-FESprites_f8_48c0::
+FESprites_SpriteAnim42_2::
 	INCBIN "gfx/frames/f8/48c0.2bpp"
 
-FESprites_f8_49c0::
+FESprites_SpriteAnim42_3::
 	INCBIN "gfx/frames/f8/49c0.2bpp"
 
-FESprites_f8_4ac0::
+FESprites_SpriteAnim42_4::
 	INCBIN "gfx/frames/f8/4ac0.2bpp"
 
-FESprites_f8_4bc0::
+FESprites_SpriteAnim42_5::
 	INCBIN "gfx/frames/f8/4bc0.2bpp"
 
-FESprites_f8_4cc0::
+FESprites_SpriteAnim42_6::
 	INCBIN "gfx/frames/f8/4cc0.2bpp"
 
-FESprites_f8_4d80::
+FESprites_SpriteAnim43_1::
 	INCBIN "gfx/frames/f8/4d80.2bpp"
 
-FESprites_f8_4e80::
+FESprites_SpriteAnim43_2::
 	INCBIN "gfx/frames/f8/4e80.2bpp"
 
-FESprites_f8_4f80::
+FESprites_SpriteAnim43_3::
 	INCBIN "gfx/frames/f8/4f80.2bpp"
 
-FESprites_f8_5060::
+FESprites_SpriteAnim44_0::
 	INCBIN "gfx/frames/f8/5060.2bpp"
 
-FESprites_f8_5160::
+FESprites_SpriteAnim44_1::
 	INCBIN "gfx/frames/f8/5160.2bpp"
 
-FESprites_f8_5260::
+FESprites_SpriteAnim44_2::
 	INCBIN "gfx/frames/f8/5260.2bpp"
 
-FESprites_f8_5360::
+FESprites_SpriteAnim44_3::
 	INCBIN "gfx/frames/f8/5360.2bpp"
 
-FESprites_f8_5480::
+FESprites_SpriteAnim44_4::
 	INCBIN "gfx/frames/f8/5480.2bpp"
 
-FESprites_f8_55a0::
+FESprites_SpriteAnim44_5::
 	INCBIN "gfx/frames/f8/55a0.2bpp"
 
-FESprites_f8_56a0::
+FESprites_SpriteAnim44_6::
 	INCBIN "gfx/frames/f8/56a0.2bpp"
 
-FESprites_f8_57c0::
+FESprites_SpriteAnim45_00::
 	INCBIN "gfx/frames/f8/57c0.2bpp"
 
-FESprites_f8_5800::
+FESprites_SpriteAnim45_01::
 	INCBIN "gfx/frames/f8/5800.2bpp"
 
-FESprites_f8_5840::
+FESprites_SpriteAnim45_02::
 	INCBIN "gfx/frames/f8/5840.2bpp"
 
-FESprites_f8_5880::
+FESprites_SpriteAnim45_03::
 	INCBIN "gfx/frames/f8/5880.2bpp"
 
-FESprites_f8_58a0::
+FESprites_SpriteAnim45_04::
 	INCBIN "gfx/frames/f8/58a0.2bpp"
 
-FESprites_f8_58e0::
+FESprites_SpriteAnim45_05::
 	INCBIN "gfx/frames/f8/58e0.2bpp"
 
-FESprites_f8_5920::
+FESprites_SpriteAnim45_06::
 	INCBIN "gfx/frames/f8/5920.2bpp"
 
-FESprites_f8_5960::
+FESprites_SpriteAnim45_07::
 	INCBIN "gfx/frames/f8/5960.2bpp"
 
-FESprites_f8_59a0::
+FESprites_SpriteAnim45_08::
 	INCBIN "gfx/frames/f8/59a0.2bpp"
 
-FESprites_f8_59e0::
+FESprites_SpriteAnim45_09::
 	INCBIN "gfx/frames/f8/59e0.2bpp"
 
-FESprites_f8_5a00::
+FESprites_SpriteAnim45_10::
 	INCBIN "gfx/frames/f8/5a00.2bpp"
 
-FESprites_f8_5a40::
+FESprites_SpriteAnim45_11::
 	INCBIN "gfx/frames/f8/5a40.2bpp"
 
-FESprites_f8_5a80::
+FESprites_SpriteAnim46_00::
 	INCBIN "gfx/frames/f8/5a80.2bpp"
 
-FESprites_f8_5ac0::
+FESprites_SpriteAnim46_01::
 	INCBIN "gfx/frames/f8/5ac0.2bpp"
 
-FESprites_f8_5b00::
+FESprites_SpriteAnim46_02::
 	INCBIN "gfx/frames/f8/5b00.2bpp"
 
-FESprites_f8_5b40::
+FESprites_SpriteAnim46_03::
 	INCBIN "gfx/frames/f8/5b40.2bpp"
 
-FESprites_f8_5b60::
+FESprites_SpriteAnim46_04::
 	INCBIN "gfx/frames/f8/5b60.2bpp"
 
-FESprites_f8_5ba0::
+FESprites_SpriteAnim46_05::
 	INCBIN "gfx/frames/f8/5ba0.2bpp"
 
-FESprites_f8_5be0::
+FESprites_SpriteAnim46_06::
 	INCBIN "gfx/frames/f8/5be0.2bpp"
 
-FESprites_f8_5c20::
+FESprites_SpriteAnim46_07::
 	INCBIN "gfx/frames/f8/5c20.2bpp"
 
-FESprites_f8_5c60::
+FESprites_SpriteAnim46_08::
 	INCBIN "gfx/frames/f8/5c60.2bpp"
 
-FESprites_f8_5ca0::
+FESprites_SpriteAnim46_09::
 	INCBIN "gfx/frames/f8/5ca0.2bpp"
 
-FESprites_f8_5cc0::
+FESprites_SpriteAnim46_10::
 	INCBIN "gfx/frames/f8/5cc0.2bpp"
 
-FESprites_f8_5d00::
+FESprites_SpriteAnim46_11::
 	INCBIN "gfx/frames/f8/5d00.2bpp"
 	ds 8896, $00 ; $5d40
 

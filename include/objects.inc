@@ -15,7 +15,7 @@ DEF wObjects EQU $c800
 DEF wPlayer  EQU wObjects
 DEF OBJ_SIZE EQU $40
 
-DEF OBJ_FLAGS         EQU $00 ; bit 2: counted in a spawn group (see OBJ_VAR_2D); bit 5: flicker
+DEF OBJ_FLAGS         EQU $00 ; bit 2: counted in a spawn group (see OBJ_SPAWN_GROUP); bit 5: flicker
 DEF OBJ_BANK          EQU $01 ; ROM bank of OBJ_HANDLER
 DEF OBJ_HANDLER       EQU $02 ; (word) code run every frame by RunObjects
 DEF OBJ_TOUCH_HANDLER EQU $04 ; (word) routine in bank 9 jumped to when the player touches the object
@@ -47,7 +47,7 @@ DEF OBJ_COLLISION     EQU $29 ; collision/interaction flags, cleared on delete (
 DEF OBJ_PALETTE       EQU $2a ; object palette slot, allocated by InitObject
 DEF OBJ_LAYER         EQU $2b ; sprite layer used when drawing (DrawObject)
 DEF OBJ_VAR_2C        EQU $2c
-DEF OBJ_VAR_2D        EQU $2d
+DEF OBJ_SPAWN_GROUP   EQU $2d ; group the object counts in (OBJ_FLAGS bit 2): DeleteObject decrements its counter at $af00 + group
 DEF OBJ_VAR_2E        EQU $2e
 DEF OBJ_VAR_2F        EQU $2f
 DEF OBJ_VAR_30        EQU $30
@@ -58,8 +58,7 @@ DEF OBJ_VAR_34        EQU $34
 DEF OBJ_VAR_35        EQU $35
 DEF OBJ_VAR_36        EQU $36
 DEF OBJ_VAR_37        EQU $37
-DEF OBJ_VAR_38        EQU $38
-DEF OBJ_VAR_39        EQU $39
+DEF OBJ_ANIM_WORD     EQU $38 ; (word) word the animation command anim_var38 sets; what it holds depends on the handler (a direction, an offset pair...)
 DEF OBJ_VAR_3A        EQU $3a
 DEF OBJ_VAR_3B        EQU $3b
 DEF OBJ_VAR_3C        EQU $3c

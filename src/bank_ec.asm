@@ -3,184 +3,184 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $ec", ROMX[$4000], BANK[$ec]
 
-LevelMap_ec_4000::
+LevelMap_WinkysWalkway_Area1_1::
 	INCBIN "data/maps/ec_4000_terrain.lz"
 
-LevelMap_ec_404e::
+LevelMap_WinkysWalkway_Area1_2::
 	INCBIN "data/maps/ec_404e_blocks.lz"
 
-LevelMap_ec_40bb::
+LevelMap_WinkysWalkway_Area1_3::
 	INCBIN "data/maps/ec_40bb_attrs.lz"
 
-LevelMap_ec_411c::
+LevelMap_TrickTrackTrek_Area3_1::
 	INCBIN "data/maps/ec_411c_terrain.lz"
 
-LevelMap_ec_4180::
+LevelMap_TrickTrackTrek_Area3_2::
 	INCBIN "data/maps/ec_4180_blocks.lz"
 
-LevelMap_ec_41ed::
+LevelMap_TrickTrackTrek_Area3_3::
 	INCBIN "data/maps/ec_41ed_attrs.lz"
 
-LevelMap_ec_424e::
+LevelMap_MistyMine_Area2_1::
 	INCBIN "data/maps/ec_424e_terrain.lz"
 
-LevelMap_ec_4297::
+LevelMap_MistyMine_Area2_2::
 	INCBIN "data/maps/ec_4297_blocks.lz"
 
-LevelMap_ec_4304::
+LevelMap_MistyMine_Area2_3::
 	INCBIN "data/maps/ec_4304_attrs.lz"
 
-LevelMap_ec_4359::
+LevelMap_LoopyLights_Area1_1::
 	INCBIN "data/maps/ec_4359_terrain.lz"
 
-LevelMap_ec_43ba::
+LevelMap_LoopyLights_Area1_2::
 	INCBIN "data/maps/ec_43ba_blocks.lz"
 
-LevelMap_ec_449f::
+LevelMap_LoopyLights_Area1_3::
 	INCBIN "data/maps/ec_449f_attrs.lz"
 
-LevelMap_ec_454b::
+LevelMap_StopAndGoStation_Area1_1::
 	INCBIN "data/maps/ec_454b_terrain.lz"
 
-LevelMap_ec_45a4::
+LevelMap_StopAndGoStation_Area1_2::
 	INCBIN "data/maps/ec_45a4_blocks.lz"
 
-LevelMap_ec_464b::
+LevelMap_StopAndGoStation_Area1_3::
 	INCBIN "data/maps/ec_464b_attrs.lz"
 
-LevelMap_ec_46e3::
+LevelMap_StopAndGoStation_Area2_1::
 	INCBIN "data/maps/ec_46e3_terrain.lz"
 
-LevelMap_ec_4726::
+LevelMap_StopAndGoStation_Area2_2::
 	INCBIN "data/maps/ec_4726_blocks.lz"
 
-LevelMap_ec_47a5::
+LevelMap_StopAndGoStation_Area2_3::
 	INCBIN "data/maps/ec_47a5_attrs.lz"
 
-LevelMap_ec_4824::
+LevelMap_LoopyLights_Area2_1::
 	INCBIN "data/maps/ec_4824_terrain.lz"
 
-LevelMap_ec_48a4::
+LevelMap_LoopyLights_Area2_2::
 	INCBIN "data/maps/ec_48a4_blocks.lz"
 
-LevelMap_ec_4a01::
+LevelMap_LoopyLights_Area2_3::
 	INCBIN "data/maps/ec_4a01_attrs.lz"
 
-LevelMap_ec_4aec::
+LevelMap_RopeyRampage_Area2_1::
 	INCBIN "data/maps/ec_4aec_terrain.lz"
 
-LevelMap_ec_4b33::
+LevelMap_RopeyRampage_Area2_2::
 	INCBIN "data/maps/ec_4b33_blocks.lz"
 
-LevelMap_ec_4b8f::
+LevelMap_RopeyRampage_Area2_3::
 	INCBIN "data/maps/ec_4b8f_attrs.lz"
 
-LevelMap_ec_4bd9::
+LevelMap_JungleHijinxs_Area4_1::
 	INCBIN "data/maps/ec_4bd9_terrain.lz"
 
-LevelMap_ec_4c32::
+LevelMap_JungleHijinxs_Area4_2::
 	INCBIN "data/maps/ec_4c32_blocks.lz"
 
-LevelMap_ec_4c9d::
+LevelMap_JungleHijinxs_Area4_3::
 	INCBIN "data/maps/ec_4c9d_attrs.lz"
 
-LevelMap_ec_4ce7::
+LevelMap_BlackoutBasement_Area2_1::
 	INCBIN "data/maps/ec_4ce7_terrain.lz"
 
-LevelMap_ec_4d40::
+LevelMap_BlackoutBasement_Area2_2::
 	INCBIN "data/maps/ec_4d40_blocks.lz"
 
-LevelMap_ec_4dab::
+LevelMap_BlackoutBasement_Area2_3::
 	INCBIN "data/maps/ec_4dab_attrs.lz"
 
-LevelMap_ec_4dee::
+LevelMap_OilDrumAlley_Area4_1::
 	INCBIN "data/maps/ec_4dee_terrain.lz"
 
-LevelMap_ec_4e48::
+LevelMap_OilDrumAlley_Area4_2::
 	INCBIN "data/maps/ec_4e48_blocks.lz"
 
-LevelMap_ec_4eb8::
+LevelMap_OilDrumAlley_Area4_3::
 	INCBIN "data/maps/ec_4eb8_attrs.lz"
 
-LevelMap_ec_4f03::
+LevelMap_OrangUtanGang_Area3_1::
 	INCBIN "data/maps/ec_4f03_terrain.lz"
 
-LevelMap_ec_4f62::
+LevelMap_OrangUtanGang_Area3_2::
 	INCBIN "data/maps/ec_4f62_blocks.lz"
 
-LevelMap_ec_4fd5::
+LevelMap_OrangUtanGang_Area3_3::
 	INCBIN "data/maps/ec_4fd5_attrs.lz"
 
-LevelMap_ec_5024::
+LevelMap_OrangUtanGang_Area4_1::
 	INCBIN "data/maps/ec_5024_terrain.lz"
 
-LevelMap_ec_5083::
+LevelMap_OrangUtanGang_Area4_2::
 	INCBIN "data/maps/ec_5083_blocks.lz"
 
-LevelMap_ec_50f6::
+LevelMap_OrangUtanGang_Area4_3::
 	INCBIN "data/maps/ec_50f6_attrs.lz"
 
-LevelMap_ec_5145::
+LevelMap_OrangUtanGang_Area5_1::
 	INCBIN "data/maps/ec_5145_terrain.lz"
 
-LevelMap_ec_51a4::
+LevelMap_OrangUtanGang_Area5_2::
 	INCBIN "data/maps/ec_51a4_blocks.lz"
 
-LevelMap_ec_5217::
+LevelMap_OrangUtanGang_Area5_3::
 	INCBIN "data/maps/ec_5217_attrs.lz"
 
-LevelMap_ec_5266::
+LevelMap_TreeTopTown_Area2_1::
 	INCBIN "data/maps/ec_5266_terrain.lz"
 
-LevelMap_ec_52b2::
+LevelMap_TreeTopTown_Area2_2::
 	INCBIN "data/maps/ec_52b2_blocks.lz"
 
-LevelMap_ec_5317::
+LevelMap_TreeTopTown_Area2_3::
 	INCBIN "data/maps/ec_5317_attrs.lz"
 
-LevelMap_ec_5364::
+LevelMap_RopeBridgeRumble_Area2_1::
 	INCBIN "data/maps/ec_5364_terrain.lz"
 
-LevelMap_ec_53b0::
+LevelMap_RopeBridgeRumble_Area2_2::
 	INCBIN "data/maps/ec_53b0_blocks.lz"
 
-LevelMap_ec_5415::
+LevelMap_RopeBridgeRumble_Area2_3::
 	INCBIN "data/maps/ec_5415_attrs.lz"
 
-LevelMap_ec_5462::
+LevelMap_OrangUtanGang_Area2_1::
 	INCBIN "data/maps/ec_5462_terrain.lz"
 
-LevelMap_ec_54c8::
+LevelMap_OrangUtanGang_Area2_2::
 	INCBIN "data/maps/ec_54c8_blocks.lz"
 
-LevelMap_ec_5589::
+LevelMap_OrangUtanGang_Area2_3::
 	INCBIN "data/maps/ec_5589_attrs.lz"
 
-LevelMap_ec_5608::
+LevelMap_LevelTable_13::
 	INCBIN "data/maps/ec_5608_terrain.lz"
 
-LevelMap_ec_564f::
+LevelMap_LevelTable_14::
 	INCBIN "data/maps/ec_564f_blocks.lz"
 
-LevelMap_ec_56b0::
+LevelMap_LevelTable_15::
 	INCBIN "data/maps/ec_56b0_attrs.lz"
 
-LevelMap_ec_56f3::
+LevelMap_Shop_Leave4_1::
 	INCBIN "data/maps/ec_56f3_terrain.lz"
 
-LevelMap_ec_579b::
+LevelMap_Shop_Leave4_2::
 	INCBIN "data/maps/ec_579b_blocks.lz"
 
-LevelMap_ec_5897::
+LevelMap_Shop_Leave4_3::
 	INCBIN "data/maps/ec_5897_attrs.lz"
 
-LevelMap_ec_594e::
+LevelMap_Shop_Leave5_1::
 	INCBIN "data/maps/ec_594e_terrain.lz"
 
-LevelMap_ec_598e::
+LevelMap_Shop_Leave5_2::
 	INCBIN "data/maps/ec_598e_blocks.lz"
 
-LevelMap_ec_5a94::
+LevelMap_Shop_Leave5_3::
 	INCBIN "data/maps/ec_5a94_attrs.lz"
 	ds 9482, $00 ; $5af6
 

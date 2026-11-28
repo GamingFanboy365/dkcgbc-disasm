@@ -3,27 +3,27 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $ff", ROMX[$4000], BANK[$ff]
 
-FEText_ff_4000::
+FEText_LowBatteryPrinterWill::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db " Low battery", $3b, $86
 	db " printer will", $86
 	db " not function.", $86
 	db $87
 
-FEText_ff_4030::
+FEText_PrinterNotConnectedOr::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db " Printer not", $86
 	db " connected or", $86
 	db " not powered.", $86
 	db $87
 
-FEText_ff_405e::
+FEText_PaperIsJammedCannot::
 	db $08, $02, $04, $12 ; header: position and box, tentative
 	db " Paper is jammed", $3b, $86
 	db " cannot print.", $86
 	db $87
 
-FEText_ff_4084::
+FEText_CurrentEnvironmentTooHot::
 	db $06, $02, $06, $12 ; header: position and box, tentative
 	db " Current", $86
 	db " environment too", $86
@@ -31,138 +31,138 @@ FEText_ff_4084::
 	db " cannot print.", $86
 	db $87
 
-FEText_ff_40c0::
+FEText_Printing::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db " Printing...", $86
 	db $87
 
-FEText_ff_40d2::
+FEText_WowYouHaveUnlocked::
 	db $07, $00, $00, $00 ; header: position and box, tentative
 	db "    Wow! You have", $86
 	db "   unlocked a new", $86
 	db "   print feature.", $87
 
-FEText_ff_410c::
+FEText_NoConnectionPleaseTry::
 	db $08, $02, $05, $12 ; header: position and box, tentative
 	db " No connection", $3b, $86
 	db "   please try", $86
 	db "     again.", $87
 
-FEText_ff_413a::
+FEText_PressTheAButton::
 	db $00, $00, $00, $00 ; header: position and box, tentative
 	db "Press the A Button", $86
 	db "to connect.", $87
 
-FEText_ff_415d::
+FEText_PictureReceived::
 	db $08, $02, $04, $12 ; header: position and box, tentative
 	db "     Picture", $86
 	db "    received.", $87
 
-FEText_ff_417c::
+FEText_Transmitting::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db " Transmitting...", $87
 
-FEText_ff_4191::
+FEText_Player1::
 	db $03, $06, $00, $00 ; header: position and box, tentative
 	db "  PLAYER 1", $87
 
-FEText_ff_41a0::
+FEText_Player2::
 	db $0a, $03, $00, $00 ; header: position and box, tentative
 	db "  PLAYER 2", $87
 
-FEText_ff_41af::
+FEText_PressStartToConnect_1::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "Press START", $86
 	db "to connect.", $87
 
-FEText_ff_41cb::
+FEText_PressStartToConnect_2::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "Press START", $86
 	db "to connect.", $87
 
-FEText_ff_41e7::
+FEText_AwaitingRemoteLink::
 	db $0a, $04, $00, $00 ; header: position and box, tentative
 	db " Awaiting", $86
 	db "  remote", $86
 	db "   link.", $87
 
-FEText_ff_4207::
+FEText_Player1Wins::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Player 1", $86
 	db "    Wins", $87
 
-FEText_ff_421f::
+FEText_Player1Loses::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Player 1", $86
 	db "    Loses", $87
 
-FEText_ff_4238::
+FEText_Player1Draws::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Player 1", $86
 	db "    Draws", $87
 
-FEText_ff_4251::
+FEText_Player2Wins::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Player 2", $86
 	db "    Wins", $87
 
-FEText_ff_4269::
+FEText_Player2Loses::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Player 2", $86
 	db "    Loses", $87
 
-FEText_ff_4282::
+FEText_Player2Draws::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Player 2", $86
 	db "    Draws", $87
 
-FEText_ff_429b::
+FEText_PlayerDraws::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "   Player", $86
 	db "   Draws", $87
 
-FEText_ff_42b2::
+FEText_CpuDraws::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "    CPU", $86
 	db "   Draws", $87
 
-FEText_ff_42c7::
+FEText_PlayerWins::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "   Player", $86
 	db "    Wins", $87
 
-FEText_ff_42de::
+FEText_CpuWins::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "    CPU", $86
 	db "   Wins", $87
 
-FEText_ff_42f2::
+FEText_PlayerLoses::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "   Player", $86
 	db "   Loses", $87
 
-FEText_ff_4309::
+FEText_CpuLoses::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "    CPU", $86
 	db "   Loses", $87
 
-FEText_ff_431e::
+FEText_YouWin::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "       You Win", $87
 
-FEText_ff_4331::
+FEText_YouLose::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "      You Lose", $87
 
-FEText_ff_4344::
+FEText_YouDraw::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "      You Draw", $87
 
-FEText_ff_4357::
+FEText_GameOver_1::
 	db $07, $00, $00, $00 ; header: position and box, tentative
 	db "      Game Over", $87
 
-FEText_ff_436b::
+FEText_KremlingKrackdownStopThe::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Kremling Krackdown", $86
 	db $86
@@ -170,7 +170,7 @@ FEText_ff_436b::
 	db "  from stealing any", $86
 	db "   banana bunches.", $87
 
-FEText_ff_43bf::
+FEText_KremlingsAndKongsStop::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Kremlings and Kongs", $86
 	db $86
@@ -178,7 +178,7 @@ FEText_ff_43bf::
 	db " but don't hit your", $86
 	db "    chimpy chums.", $87
 
-FEText_ff_4413::
+FEText_BarrelOkremlingsHitThe::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Barrel O'Kremlings", $86
 	db $86
@@ -186,7 +186,7 @@ FEText_ff_4413::
 	db "  but miss too many", $86
 	db "   and you're out.", $87
 
-FEText_ff_4467::
+FEText_WantedHitTheWanted::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "       Wanted", $86
 	db $86
@@ -194,7 +194,7 @@ FEText_ff_4467::
 	db "  Kremling.  Misses", $86
 	db "   will cost you.", $87
 
-FEText_ff_44b2::
+FEText_BuddiesBewarePlugThe::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "   Buddies Beware", $86
 	db $86
@@ -202,7 +202,7 @@ FEText_ff_44b2::
 	db "  with coconuts to", $86
 	db "  help the buddies.", $87
 
-FEText_ff_4502::
+FEText_CrosshairCrankyMoveYour::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "  Crosshair Cranky", $86
 	db $86
@@ -213,7 +213,7 @@ FEText_ff_4502::
 	db "     with the A", $86
 	db "       Button.", $87
 
-FEText_ff_457f::
+FEText_FunkysFishingUseThe::
 	db $02, $00, $00, $00 ; header: position and box, tentative
 	db "   Funky's Fishing", $86
 	db $86
@@ -229,7 +229,7 @@ FEText_ff_457f::
 	db "   attack with the", $86
 	db "      B Button.", $87
 
-FEWords_ff_4669::
+FEWords_WinnerLoserPausedcontinuequitQui::
 	db "  Winner!", $86
 	db "   Loser.", $86
 	db "PAUSEDCONTINUEQUIT?QUITY"
@@ -278,164 +278,164 @@ FEWords_ff_4669::
 	db "Kasse Kremling", $86
 	db "Kremlings et Kongs", $86
 
-FEText_ff_48e0::
+FEText_PileUsEPrinter::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db "   Pile us", $e9, "e,", $86
 	db "     Printer", $86
 	db "  indisponible", $86
 	db $87
 
-FEText_ff_490f::
+FEText_PrinterNestPasConnect::
 	db $07, $02, $04, $12 ; header: position and box, tentative
 	db "  Printer n'est", $86
 	db "  pas connect", $e9, $86
 	db $87
 
-FEText_ff_4933::
+FEText_PapierBloqu::
 	db $07, $02, $03, $12 ; header: position and box, tentative
 	db "  Papier bloqu", $e9, $86
 	db $87
 
-FEText_ff_4948::
+FEText_TropFroidChaudPour::
 	db $07, $02, $04, $12 ; header: position and box, tentative
 	db "Trop froid/chaud", $86
 	db " pour imprimer.", $86
 	db $87
 
-FEText_ff_496e::
+FEText_Impression::
 	db $07, $02, $03, $12 ; header: position and box, tentative
 	db "  Impression...", $86
 	db $87
 
-FEText_ff_4983::
+FEText_VousObtenezUneNouvelle::
 	db $07, $00, $00, $00 ; header: position and box, tentative
 	db "  Vous obtenez une", $86
 	db "  nouvelle fonction", $86
 	db "    d'impression.", $87
 
-FEText_ff_49c0::
+FEText_PasDeConnexion::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "PAS DE CONNEXION", $87
 
-FEText_ff_49d5::
+FEText_PresserLeBoutonA::
 	db $00, $00, $00, $00 ; header: position and box, tentative
 	db "PRESSER LE BOUTON", $86
 	db "   A POUR VOUS", $86
 	db "    CONNECTER", $87
 
-FEText_ff_4a08::
+FEText_ImageReUe::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "   Image re", $e7, "ue", $87
 
-FEText_ff_4a1b::
+FEText_Transmission::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "  Transmission", $87
 
-FEText_ff_4a2e::
+FEText_Joueur1::
 	db $03, $06, $00, $00 ; header: position and box, tentative
 	db "   JOUEUR 1", $87
 
-FEText_ff_4a3e::
+FEText_Joueur2::
 	db $0a, $03, $00, $00 ; header: position and box, tentative
 	db "   JOUEUR 2", $87
 
-FEText_ff_4a4e::
+FEText_StartPourConnecter_1::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " START pour", $86
 	db " connecter.", $87
 
-FEText_ff_4a6a::
+FEText_StartPourConnecter_2::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " START pour", $86
 	db " connecter.", $87
 
-FEText_ff_4a86::
+FEText_AttenteLienExt::
 	db $0a, $04, $00, $00 ; header: position and box, tentative
 	db " Attente", $86
 	db "  lien", $86
 	db "   ext.", $87
 
-FEText_ff_4aa2::
+FEText_Joueur1Gagne::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Joueur 1", $86
 	db "   gagne", $87
 
-FEText_ff_4aba::
+FEText_Joueur1Perd::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Joueur 1", $86
 	db "    perd", $87
 
-FEText_ff_4ad2::
+FEText_Joueur1Galit::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Joueur 1", $86
 	db "  ", $e9, "galit", $e9, $87
 
-FEText_ff_4aeb::
+FEText_Joueur2Gagne::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Joueur 2", $86
 	db "   gagne", $87
 
-FEText_ff_4b03::
+FEText_Joueur2Perd::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Joueur 2", $86
 	db "    perd", $87
 
-FEText_ff_4b1b::
+FEText_Joueur2Galit::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Joueur 2", $86
 	db "  ", $e9, "galit", $e9, $87
 
-FEText_ff_4b34::
+FEText_JoueurGalit::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Joueur", $86
 	db " ", $e9, "galit", $e9, $87
 
-FEText_ff_4b4a::
+FEText_OrdiGalit::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "   Ordi", $86
 	db " ", $e9, "galit", $e9, $87
 
-FEText_ff_4b5f::
+FEText_JoueurGagne::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Joueur", $86
 	db "  gagne", $87
 
-FEText_ff_4b74::
+FEText_OrdiGagne::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "   Ordi", $86
 	db "  gagne", $87
 
-FEText_ff_4b88::
+FEText_JoueurPerd::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Joueur", $86
 	db "   perd", $87
 
-FEText_ff_4b9d::
+FEText_OrdiPerd::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "   Ordi", $86
 	db "   perd", $87
 
-FEText_ff_4bb1::
+FEText_VousAvezGagn::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "   Vous avez gagn", $e9, $87
 
-FEText_ff_4bc8::
+FEText_VousAvezPerdu::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "   Vous avez perdu", $87
 
-FEText_ff_4bdf::
+FEText_Egalit::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "       Egalit", $e9, $87
 
-FEText_ff_4bf2::
+FEText_GameOver_2::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "      Game over", $87
 
-FEWords_ff_4c06::
+FEWords_GagnPerdu::
 	db "Gagn", $e9, "!", $86
 	db "Perdu!", $86
 
-FEText_ff_4c14::
+FEText_KasseKremlingEmpChez::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "   Kasse Kremling", $86
 	db $86
@@ -443,7 +443,7 @@ FEText_ff_4c14::
 	db " Kremlings de voler", $86
 	db "    les bananes.", $87
 
-FEText_ff_4c61::
+FEText_BarrilsKremlingsVisezLes::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Barrils & Kremlings", $86
 	db $86
@@ -451,7 +451,7 @@ FEText_ff_4c61::
 	db " mais trop de rat", $e9, "s", $86
 	db "   et vous perdez.", $87
 
-FEText_ff_4cb8::
+FEText_KremlingsKongsArrTez::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "  Kremlings & Kongs", $86
 	db $86
@@ -459,7 +459,7 @@ FEText_ff_4cb8::
 	db "   Kremlings, mais", $86
 	db "  gaffe ", $e0, " vos potes.", $87
 
-FEText_ff_4d0b::
+FEText_RecherchTouchezLeKremling::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "     Recherch", $e9, $86
 	db $86
@@ -467,7 +467,7 @@ FEText_ff_4d0b::
 	db "  recherch", $e9, ". Evitez", $86
 	db "     les ", $e9, "checs.", $87
 
-FEText_ff_4d59::
+FEText_GaffeTesPotesMettez::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "  Gaffe ", $e0, " tes Potes", $86
 	db $86
@@ -475,7 +475,7 @@ FEText_ff_4d59::
 	db " coco dans les trous", $86
 	db "pour aider vos amis.", $87
 
-FEText_ff_4db0::
+FEText_CibleDeCrankyBougez::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "   Cible de Cranky", $86
 	db $86
@@ -485,7 +485,7 @@ FEText_ff_4db0::
 	db "  coco en pressant", $86
 	db "    le Bouton A.", $87
 
-FEText_ff_4e25::
+FEText_FunkyPCheUtilisez::
 	db $02, $00, $00, $00 ; header: position and box, tentative
 	db "     Funky P", $ea, "che", $86
 	db $86
@@ -499,7 +499,7 @@ FEText_ff_4e25::
 	db " combos ou attaquez", $86
 	db "  avec le Bouton B.", $87
 
-FEWords_ff_4ef3::
+FEWords_MeilleurScorepausecontiNuequitte::
 	db "Meilleur scorePAUSECONTI"
 	db "NUEQUITTER ?QUITTEROUINO"
 	db "N Merci d'avoir jou", $e9, $86
@@ -554,25 +554,25 @@ FEWords_ff_4ef3::
 	db "Kremling-Kong-Stop", $86
 	db "Kremlings & Kongs", $86
 
-FEText_ff_51d4::
+FEText_BatterienZuSchwach::
 	db $07, $02, $04, $12 ; header: position and box, tentative
 	db " Batterien", $86
 	db " zu schwach!", $86
 	db $87
 
-FEText_ff_51f1::
+FEText_PrinterNichtAngeschlossenEingesc::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db " Printer nicht", $86
 	db " angeschlossen/", $86
 	db " eingeschaltet!", $86
 	db $87
 
-FEText_ff_5225::
+FEText_Papierstau::
 	db $07, $02, $03, $12 ; header: position and box, tentative
 	db " Papierstau!", $86
 	db $87
 
-FEText_ff_5237::
+FEText_UmgebungsTemperaturZuWarm::
 	db $07, $02, $06, $12 ; header: position and box, tentative
 	db "  Umgebungs-", $86
 	db "  temperatur", $86
@@ -580,141 +580,141 @@ FEText_ff_5237::
 	db " zum Drucken.", $86
 	db $87
 
-FEText_ff_5272::
+FEText_DruckLUft::
 	db $07, $02, $03, $12 ; header: position and box, tentative
 	db " Druck l", $e4, "uft...", $86
 	db $87
 
-FEText_ff_5287::
+FEText_CoolDuHastNun::
 	db $07, $00, $00, $00 ; header: position and box, tentative
 	db "    Cool! Du hast", $86
 	db "  nun eine weitere", $86
 	db "    Druck-Option!", $87
 
-FEText_ff_52c2::
+FEText_KeineVerbindung::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "KEINE VERBINDUNG", $87
 
-FEText_ff_52d7::
+FEText_DrCkeDenA::
 	db $08, $02, $04, $12 ; header: position and box, tentative
 	db " DR", $dc, "CKE DEN A-KNOPF", $86
 	db "   ZUM VERBINDEN!", $87
 
-FEText_ff_5301::
+FEText_BildBertragen::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "BILD ", $dc, "BERTRAGEN!", $87
 
-FEText_ff_5316::
+FEText_Bertragung::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db " ", $dc, "BERTRAGUNG...", $87
 
-FEText_ff_532a::
+FEText_Spieler1::
 	db $03, $06, $00, $00 ; header: position and box, tentative
 	db " SPIELER 1", $87
 
-FEText_ff_5339::
+FEText_Spieler2::
 	db $0a, $03, $00, $00 ; header: position and box, tentative
 	db " SPIELER 2", $87
 
-FEText_ff_5348::
+FEText_DrCkeStartZur_1::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Dr", $fc, "cke", $86
 	db " START zur", $86
 	db "Verbindung!", $87
 
-FEText_ff_536c::
+FEText_DrCkeStartZur_2::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Dr", $fc, "cke", $86
 	db " START zur", $86
 	db "Verbindung!", $87
 
-FEText_ff_5390::
+FEText_WarteAufAufbauDer::
 	db $0a, $03, $00, $00 ; header: position and box, tentative
 	db " Warte auf", $86
 	db " Aufbau der", $86
 	db "Verbindung!", $87
 
-FEText_ff_53b7::
+FEText_Spieler1Gewinnt::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Spieler 1", $86
 	db "  gewinnt!", $87
 
-FEText_ff_53d1::
+FEText_Spieler1Verliert::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Spieler 1", $86
 	db " verliert!", $87
 
-FEText_ff_53eb::
+FEText_Spieler1ErzieltGleichstand::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Spieler 1", $86
 	db "  erzielt", $86
 	db "Gleichstand!", $87
 
-FEText_ff_5411::
+FEText_Spieler2Gewinnt::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Spieler 2", $86
 	db " gewinnt!", $87
 
-FEText_ff_542a::
+FEText_Spieler2Verliert::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Spieler 2", $86
 	db " verliert!", $87
 
-FEText_ff_5444::
+FEText_Spieler2ErzieltGleichstand::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Spieler 2", $86
 	db "  erzielt", $86
 	db "Gleichstand!", $87
 
-FEText_ff_546a::
+FEText_SpielerErzieltGleichstand::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Spieler", $86
 	db "  erzielt", $86
 	db "Gleichstand!", $87
 
-FEText_ff_548f::
+FEText_ComputerErzieltGleichstand::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Computer", $86
 	db "  erzielt", $86
 	db "Gleichstand!", $87
 
-FEText_ff_54b4::
+FEText_SpielerGewinnt::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Spieler", $86
 	db "  gewinnt!", $87
 
-FEText_ff_54cd::
+FEText_ComputerGewinnt::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Computer", $86
 	db " gewinnt!", $87
 
-FEText_ff_54e5::
+FEText_SpielerVerliert::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "  Spieler", $86
 	db " verliert!", $87
 
-FEText_ff_54fe::
+FEText_ComputerVerliert::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Computer", $86
 	db " verliert!", $87
 
-FEText_ff_5517::
+FEText_Gewonnen::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "      Gewonnen!", $87
 
-FEText_ff_552b::
+FEText_Verloren::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "      Verloren!", $87
 
-FEText_ff_553f::
+FEText_Gleichstand::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db " ", $09, "Gleichstand!", $87
 
-FEText_ff_5552::
+FEText_GameOver_3::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "     Game Over!", $87
 
-FEText_ff_5566::
+FEText_KremlingKontrolleMachDen::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Kremling-Kontrolle", $86
 	db $86
@@ -722,7 +722,7 @@ FEText_ff_5566::
 	db " einen Strich durch", $86
 	db "   ihre Rechnung!", $87
 
-FEText_ff_55b9::
+FEText_KremlingsKongsStoppDie::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "  Kremlings & Kongs", $86
 	db $86
@@ -730,7 +730,7 @@ FEText_ff_55b9::
 	db "  lings, aber achte", $86
 	db " auf deine Freunde!", $87
 
-FEText_ff_560d::
+FEText_KremlingKontainerTriffGenug::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Kremling-Kontainer", $86
 	db $86
@@ -738,7 +738,7 @@ FEText_ff_560d::
 	db "  lings, sonst bist", $86
 	db "     du drau", $df, "en!", $87
 
-FEText_ff_565f::
+FEText_GesuchtErwischeDenGe::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "      GESUCHT!", $86
 	db $86
@@ -746,7 +746,7 @@ FEText_ff_565f::
 	db "  suchten Kremling", $86
 	db "  ohne Fehlschuss!", $87
 
-FEText_ff_56ac::
+FEText_GefHrteInGefahr::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Gef", $e4, "hrte in Gefahr", $86
 	db $86
@@ -754,7 +754,7 @@ FEText_ff_56ac::
 	db "  den, indem du die", $86
 	db "   L", $f6, "cher stopfst!", $87
 
-FEText_ff_5700::
+FEText_CrankyCrashNimmDein::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "    Cranky-Crash", $86
 	db $86
@@ -765,7 +765,7 @@ FEText_ff_5700::
 	db "   feuerst du die", $86
 	db "    Kokosn", $fc, "sse ab.", $87
 
-FEText_ff_5786::
+FEText_FunkyFischerSetzeDas::
 	db $02, $00, $00, $00 ; header: position and box, tentative
 	db "    Funky Fischer", $86
 	db $86
@@ -781,7 +781,7 @@ FEText_ff_5786::
 	db "   f", $fc, "hrst du eine", $86
 	db " Kombi-Attacke aus!", $87
 
-FEWords_ff_586e::
+FEWords_HighscorepauseweiterabbrEchenAbb::
 	db "HighscorePAUSEWEITERABBR"
 	db "ECHEN?ABBRECHENJANEIN Wo"
 	db "w! Du bist der", $86
@@ -836,168 +836,168 @@ FEWords_ff_586e::
 	db "Ataque Kremling", $86
 	db "Kremlings y Kongs", $86
 
-FEText_ff_5b29::
+FEText_PilasBajasLaImpresora::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db "  Pilas bajas.", $86
 	db "La impresora no", $86
 	db "   funcionar", $e1, ".", $86
 	db $87
 
-FEText_ff_5b5c::
+FEText_ImpresoraNoConectadaO::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db "  Impresora no", $86
 	db "conectada o sin", $86
 	db "    energ", $ed, "a.", $86
 	db $87
 
-FEText_ff_5b8d::
+FEText_PapelAtascadoEnLa::
 	db $07, $02, $04, $12 ; header: position and box, tentative
 	db " Papel atascado ", $86
 	db "en la impresora.", $86
 	db $87
 
-FEText_ff_5bb4::
+FEText_LaTemperaturaEsMuy::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db "La temperatura es", $86
 	db "muy caliente/fr", $ed, "a", $86
 	db " para imprimir.", $86
 	db $87
 
-FEText_ff_5bed::
+FEText_Imprimiendo::
 	db $07, $02, $03, $12 ; header: position and box, tentative
 	db " Imprimiendo...", $86
 	db $87
 
-FEText_ff_5c02::
+FEText_GuauHasAbiertoUna::
 	db $07, $00, $00, $00 ; header: position and box, tentative
 	db $a1, "Guau! Has abierto", $86
 	db " una nueva opci", $f3, "n", $86
 	db "   de impresi", $f3, "n.", $87
 
-FEText_ff_5c3c::
+FEText_SinConexiN::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "  SIN CONEXI", $d3, "N", $87
 
-FEText_ff_5c4f::
+FEText_PulsaElBotN::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "PULSA EL BOT", $d3, "N A", $86
 	db "  PARA CONECTAR", $87
 
-FEText_ff_5c74::
+FEText_FotoRecibida::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "  Foto recibida", $87
 
-FEText_ff_5c88::
+FEText_Transmitiendo::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "  Transmitiendo", $87
 
-FEText_ff_5c9c::
+FEText_Jugador1::
 	db $03, $06, $00, $00 ; header: position and box, tentative
 	db " JUGADOR 1", $87
 
-FEText_ff_5cab::
+FEText_Jugador2::
 	db $0a, $03, $00, $00 ; header: position and box, tentative
 	db " JUGADOR 2", $87
 
-FEText_ff_5cba::
+FEText_PulsaStartParaConectar_1::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "Pulsa START", $86
 	db "   para", $86
 	db " conectar.", $87
 
-FEText_ff_5cdd::
+FEText_PulsaStartParaConectar_2::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "Pulsa START", $86
 	db "   para", $86
 	db " conectar.", $87
 
-FEText_ff_5d00::
+FEText_EsperandoConexiNRemota::
 	db $0a, $04, $00, $00 ; header: position and box, tentative
 	db " Esperando", $86
 	db "  conexi", $f3, "n", $86
 	db "   remota", $87
 
-FEText_ff_5d24::
+FEText_Jugador1Gana::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Jugador 1", $86
 	db "   Gana", $87
 
-FEText_ff_5d3b::
+FEText_Jugador1Pierde::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Jugador 1", $86
 	db "  Pierde", $87
 
-FEText_ff_5d53::
+FEText_Jugador1Empata::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Jugador 1", $86
 	db "   Empata", $87
 
-FEText_ff_5d6c::
+FEText_Jugador2Gana::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Jugador 2", $86
 	db "   Gana", $87
 
-FEText_ff_5d83::
+FEText_Jugador2Pierde::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Jugador 2", $86
 	db "  Pierde", $87
 
-FEText_ff_5d9b::
+FEText_Jugador2Empata::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db " Jugador 2", $86
 	db "  Empata", $87
 
-FEText_ff_5db3::
+FEText_JugadorEmpata::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Jugador", $86
 	db "  Empata", $87
 
-FEText_ff_5dc9::
+FEText_CpuEmpata::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "   CPU", $86
 	db " Empata", $87
 
-FEText_ff_5ddc::
+FEText_JugadorGana::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Jugador", $86
 	db "   Gana", $87
 
-FEText_ff_5df1::
+FEText_CpuGana::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "   CPU", $86
 	db "   Gana", $87
 
-FEText_ff_5e04::
+FEText_JugadorPierde::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Jugador", $86
 	db " Pierde", $87
 
-FEText_ff_5e19::
+FEText_CpuPierde::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "   CPU", $86
 	db "  Pierde", $87
 
-FEText_ff_5e2d::
+FEText_TGanas::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "      T", $fa, " ganas", $87
 
-FEText_ff_5e40::
+FEText_TPierdes::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "     T", $fa, " pierdes", $87
 
-FEText_ff_5e54::
+FEText_Empate::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "       Empate", $87
 
-FEText_ff_5e66::
+FEText_Fin::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "         Fin", $87
 
-FEWords_ff_5e77::
+FEWords_GanadorPerdedor::
 	db " ", $a1, "Ganador!", $86
 	db " Perdedor.", $86
 
-FEText_ff_5e8d::
+FEText_AtaqueKremlingImpideQue::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "   Ataque Kremling", $86
 	db $86
@@ -1005,7 +1005,7 @@ FEText_ff_5e8d::
 	db "   Kremlings roben", $86
 	db "    los pl", $e1, "tanos.", $87
 
-FEText_ff_5edc::
+FEText_KremlingsYKongsDet::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "  Kremlings y Kongs", $86
 	db $86
@@ -1013,7 +1013,7 @@ FEText_ff_5edc::
 	db " Kremlings, pero no", $86
 	db "   des a tus monos.", $87
 
-FEText_ff_5f2e::
+FEText_BarrilKremlingsDaA::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "  Barril Kremlings", $86
 	db $86
@@ -1021,7 +1021,7 @@ FEText_ff_5f2e::
 	db "    Kremlings sin", $86
 	db "  fallar o perder", $e1, "s.", $87
 
-FEText_ff_5f7c::
+FEText_PerseguidoDaAlKremling::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "     Perseguido", $86
 	db $86
@@ -1029,7 +1029,7 @@ FEText_ff_5f7c::
 	db "     buscado. Si", $86
 	db "  fallas lo pagar", $e1, "s.", $87
 
-FEText_ff_5fc9::
+FEText_AvisoDeBuddyTapa::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "   Aviso de Buddy", $86
 	db $86
@@ -1037,7 +1037,7 @@ FEText_ff_5fc9::
 	db "  con cocos y ayuda", $86
 	db "    a tus amigos.", $87
 
-FEText_ff_601a::
+FEText_MirillaCrankyMueveEl::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "   Mirilla Cranky", $86
 	db $86
@@ -1047,7 +1047,7 @@ FEText_ff_601a::
 	db "   Dispara un coco", $86
 	db "   con el Bot", $f3, "n A.", $86 ; no $87 here: the text runs on into the next record
 
-FEText_ff_608d::
+FEText_PescaDeFunkyUsa::
 	db $02, $00, $00, $00 ; header: position and box, tentative
 	db "   Pesca de Funky", $86
 	db $86
@@ -1062,7 +1062,7 @@ FEText_ff_608d::
 	db "    combo con el", $86
 	db "      Bot", $f3, "n B.", $87
 
-FEWords_ff_615b::
+FEWords_RecordspausacontinuarSaLirSalirs::
 	db "RecordsPAUSACONTINUAR", $bf, "SA"
 	db "LIR?SALIRS", $cd, "NO Gracias po"
 	db "r jugar", $86
@@ -1116,167 +1116,167 @@ FEWords_ff_615b::
 	db " KremlingKremling e Scim"
 	db "mieLa Pesca di Funky"
 
-FEText_ff_641c::
+FEText_PilaScaricaStampanteFuori::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db "  Pila scarica-", $86
 	db " Stampante fuori", $86
 	db "       uso", $86
 	db $87
 
-FEText_ff_644d::
+FEText_StampanteNonConnessaO::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db "  Stampante non", $86
 	db "   connessa o", $86
 	db "     spenta", $86
 	db $87
 
-FEText_ff_647c::
+FEText_CartaInceppata::
 	db $07, $02, $03, $12 ; header: position and box, tentative
 	db " Carta inceppata", $86
 	db $87
 
-FEText_ff_6492::
+FEText_TemperaturaAmbienteTroppoAlta::
 	db $07, $02, $05, $12 ; header: position and box, tentative
 	db "   Temperatura", $86
 	db " ambiente troppo", $86
 	db "   alta/bassa", $86
 	db $87
 
-FEText_ff_64c5::
+FEText_InStampa::
 	db $07, $02, $03, $12 ; header: position and box, tentative
 	db "  In stampa...", $86
 	db $87
 
-FEText_ff_64d9::
+FEText_EhiHaiApertoUna::
 	db $07, $00, $00, $00 ; header: position and box, tentative
 	db "   Ehi! Hai aperto", $86
 	db " una nuova modalit", $e0, $86
 	db "    di stampa!", $87
 
-FEText_ff_6513::
+FEText_NessunaConnessione::
 	db $08, $02, $04, $12 ; header: position and box, tentative
 	db "     NESSUNA", $86
 	db "   CONNESSIONE", $87
 
-FEText_ff_6533::
+FEText_PremiAPerCollegarti::
 	db $00, $00, $00, $00 ; header: position and box, tentative
 	db "   PREMI A PER", $86
 	db "   COLLEGARTI", $87
 
-FEText_ff_6554::
+FEText_ImmagineRicevuta::
 	db $08, $02, $04, $12 ; header: position and box, tentative
 	db "     Immagine", $86
 	db "    ricevuta", $87
 
-FEText_ff_6573::
+FEText_Trasmissione::
 	db $08, $02, $03, $12 ; header: position and box, tentative
 	db "  Trasmissione", $87
 
-FEText_ff_6586::
+FEText_Giocatore1::
 	db $03, $06, $00, $00 ; header: position and box, tentative
 	db "GIOCATORE 1", $87
 
-FEText_ff_6596::
+FEText_Giocatore2::
 	db $0a, $03, $00, $00 ; header: position and box, tentative
 	db "GIOCATORE 2", $87
 
-FEText_ff_65a6::
+FEText_PremiStartECollegati_1::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "Premi START", $86
 	db "e collegati", $87
 
-FEText_ff_65c2::
+FEText_PremiStartECollegati_2::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "Premi START", $86
 	db "e collegati", $87
 
-FEText_ff_65de::
+FEText_InAttesaDiCollega::
 	db $0a, $03, $00, $00 ; header: position and box, tentative
 	db " In attesa", $86
 	db "di collega-", $86
 	db "   mento.", $87
 
-FEText_ff_6603::
+FEText_Giocatore1Vince::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "Giocatore 1", $86
 	db "   vince", $87
 
-FEText_ff_661c::
+FEText_Giocatore1Perde::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "Giocatore 1", $86
 	db "   perde", $87
 
-FEText_ff_6635::
+FEText_Giocatore1Pareggia::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db "Giocatore 1", $86
 	db "  pareggia", $87
 
-FEText_ff_6650::
+FEText_Giocatore2Vince::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "Giocatore 2", $86
 	db "   vince", $87
 
-FEText_ff_6669::
+FEText_Giocatore2Perde::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "Giocatore 2", $86
 	db "  perde", $87
 
-FEText_ff_6681::
+FEText_Giocatore2Pareggia::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "Giocatore 2", $86
 	db "  pareggia", $87
 
-FEText_ff_669c::
+FEText_GiocatorePareggia::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Giocatore", $86
 	db " pareggia", $87
 
-FEText_ff_66b5::
+FEText_ComputerPareggia::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Computer", $86
 	db "  pareggia", $87
 
-FEText_ff_66cf::
+FEText_GiocatoreVince::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Giocatore", $86
 	db "   vince", $87
 
-FEText_ff_66e7::
+FEText_ComputerVince::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Computer", $86
 	db "   vince", $87
 
-FEText_ff_66ff::
+FEText_GiocatorePerde::
 	db $04, $06, $00, $00 ; header: position and box, tentative
 	db " Giocatore", $86
 	db "   perde", $87
 
-FEText_ff_6717::
+FEText_ComputerPerde::
 	db $0b, $03, $00, $00 ; header: position and box, tentative
 	db "  Computer", $86
 	db "   perde", $87
 
-FEText_ff_672f::
+FEText_HaiVinto::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "     Hai vinto!", $87
 
-FEText_ff_6743::
+FEText_HaiPerso::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "     Hai perso.", $87
 
-FEText_ff_6757::
+FEText_Pari::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "        Pari", $87
 
-FEText_ff_6768::
+FEText_FineGioco::
 	db $08, $00, $00, $00 ; header: position and box, tentative
 	db "     Fine gioco", $87
 
-FEWords_ff_677c::
+FEWords_HaiVintoHaiPerso::
 	db "Hai vinto!", $86
 	db "Hai perso.", $86
 
-FEText_ff_6792::
+FEText_FracassoKremlingBloccaI::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "  Fracasso Kremling", $86
 	db $86
@@ -1284,7 +1284,7 @@ FEText_ff_6792::
 	db "    che mirano ai", $86
 	db "  caschi di banane.", $87
 
-FEText_ff_67e5::
+FEText_KremlingEScimmieBlocca::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Kremling e Scimmie", $86
 	db $86
@@ -1292,7 +1292,7 @@ FEText_ff_67e5::
 	db "  ma non colpire le", $86
 	db "    altre scimmie.", $87
 
-FEText_ff_6839::
+FEText_BariliDiKremlingMira::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db " Barili di Kremling", $86
 	db $86
@@ -1300,7 +1300,7 @@ FEText_ff_6839::
 	db " E guai a te se ne", $86
 	db "       manchi!", $87
 
-FEText_ff_6887::
+FEText_RicercatoPestaIlKremling::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "      Ricercato", $86
 	db $86
@@ -1308,7 +1308,7 @@ FEText_ff_6887::
 	db "  ricercato. Guai a", $86
 	db "  te, se lo manchi!", $87
 
-FEText_ff_68d8::
+FEText_AiutaGliAmiciPer::
 	db $06, $00, $00, $00 ; header: position and box, tentative
 	db "   Aiuta gli amici", $86
 	db $86
@@ -1316,7 +1316,7 @@ FEText_ff_68d8::
 	db " chiudi i buchi con", $86
 	db "  le noci di cocco!", $87
 
-FEText_ff_692c::
+FEText_MirinoDiCrankyMuovi::
 	db $05, $00, $00, $00 ; header: position and box, tentative
 	db "  Mirino di Cranky", $86
 	db $86
@@ -1327,7 +1327,7 @@ FEText_ff_692c::
 	db "    di cocco con", $86
 	db "   il pulsante A.", $87
 
-FEText_ff_69b2::
+FEText_LaPescaDiFunky::
 	db $02, $00, $00, $00 ; header: position and box, tentative
 	db "  La Pesca di Funky", $86
 	db $86
@@ -1343,7 +1343,7 @@ FEText_ff_69b2::
 	db "   bomba premi il", $86
 	db "     pulsante B.", $87
 
-FEWords_ff_6a99::
+FEWords_RecordpausacontinuaesciEscisNogr::
 	db "RecordPAUSACONTINUAESCI?"
 	db "ESCIS", $cc, "NOGrazie per aver", $86
 	db "giocato a Donkey", $86
@@ -1354,7 +1354,7 @@ FEWords_ff_6a99::
 	ds 23, $00 ; $6b19
 
 
-BGTiles_ff_6b30::
+BGTiles_FrontEndFonts::
 	INCBIN "gfx/bgtiles/ff/6b30.2bpp"
 	INCBIN "gfx/bgtiles/ff/6b30_end.2bpp"
 	ds 1328, $00 ; $7ad0

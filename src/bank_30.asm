@@ -3,115 +3,115 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $30", ROMX[$4000], BANK[$30]
 
-FrameTiles_30_4000::
+FrameTiles_Shop_KongCelebrate_10::
 	INCBIN "gfx/frames/30/4000.2bpp"
 
-FrameTiles_30_41a0::
+FrameTiles_Shop_KongCelebrate_11::
 	INCBIN "gfx/frames/30/41a0.2bpp"
 
-FrameTiles_30_4340::
+FrameTiles_Shop_KongCelebrate_12::
 	INCBIN "gfx/frames/30/4340.2bpp"
 
-FrameTiles_30_44e0::
+FrameTiles_Shop_KongCelebrate_13::
 	INCBIN "gfx/frames/30/44e0.2bpp"
 
-FrameTiles_30_46a0::
+FrameTiles_Shop_KongCelebrate_14::
 	INCBIN "gfx/frames/30/46a0.2bpp"
 
-FrameTiles_30_4860::
+FrameTiles_Shop_KongCelebrate_15::
 	INCBIN "gfx/frames/30/4860.2bpp"
 
-FrameTiles_30_4a20::
+FrameTiles_Shop_KongCelebrate_16::
 	INCBIN "gfx/frames/30/4a20.2bpp"
 
-FrameTiles_30_4be0::
+FrameTiles_Shop_KongCelebrate_17::
 	INCBIN "gfx/frames/30/4be0.2bpp"
 
-FrameTiles_30_4d80::
+FrameTiles_Shop_KongCelebrate_18::
 	INCBIN "gfx/frames/30/4d80.2bpp"
 
-FrameTiles_30_4f20::
+FrameTiles_Cannonball::
 	INCBIN "gfx/frames/30/4f20.2bpp"
 
-FrameTiles_30_4fe0::
+FrameTiles_Shop_SpawnOnce_1::
 	INCBIN "gfx/frames/30/4fe0.2bpp"
 
-FrameTiles_30_5140::
+FrameTiles_Shop_SpawnOnce_2::
 	INCBIN "gfx/frames/30/5140.2bpp"
 
-FrameTiles_30_52a0::
+FrameTiles_Shop_SpawnOnce_3::
 	INCBIN "gfx/frames/30/52a0.2bpp"
 
-FrameTiles_30_5400::
+FrameTiles_Shop_SpawnOnce_4::
 	INCBIN "gfx/frames/30/5400.2bpp"
 
-FrameTiles_30_5540::
+FrameTiles_Shop_SpawnOnce_5::
 	INCBIN "gfx/frames/30/5540.2bpp"
 
-FrameTiles_30_5660::
+FrameTiles_Shop_SpawnOnce_6::
 	INCBIN "gfx/frames/30/5660.2bpp"
 
-FrameTiles_30_57a0::
+FrameTiles_Shop_SpawnOnce_7::
 	INCBIN "gfx/frames/30/57a0.2bpp"
 
-FrameTiles_30_58a0::
+FrameTiles_Shop_SpawnOnce_8::
 	INCBIN "gfx/frames/30/58a0.2bpp"
 
-FrameTiles_30_59a0::
+FrameTiles_Shop_SpawnOnce_9::
 	INCBIN "gfx/frames/30/59a0.2bpp"
 
-FrameTiles_30_5aa0::
+FrameTiles_ArrowPlatform_Wait_1::
 	INCBIN "gfx/frames/30/5aa0.2bpp"
 
-FrameTiles_30_5b40::
+FrameTiles_ArrowPlatform_Wait_2::
 	INCBIN "gfx/frames/30/5b40.2bpp"
 
-FrameTiles_30_5be0::
+FrameTiles_ArrowPlatform_Wait_3::
 	INCBIN "gfx/frames/30/5be0.2bpp"
 
-FrameTiles_30_5c80::
+FrameTiles_ArrowPlatform_Wait_4::
 	INCBIN "gfx/frames/30/5c80.2bpp"
 
-FrameTiles_30_5d20::
+FrameTiles_PlayerRambi_1::
 	INCBIN "gfx/frames/30/5d20.2bpp"
 
-FrameTiles_30_5e60::
+FrameTiles_PlayerRambi_2::
 	INCBIN "gfx/frames/30/5e60.2bpp"
 
-FrameTiles_30_5f80::
+FrameTiles_PlayerRambi_3::
 	INCBIN "gfx/frames/30/5f80.2bpp"
 
-FrameTiles_30_60c0::
+FrameTiles_PlayerRambi_4::
 	INCBIN "gfx/frames/30/60c0.2bpp"
 
-FrameTiles_30_6220::
+FrameTiles_PlayerRambi_5::
 	INCBIN "gfx/frames/30/6220.2bpp"
 
-FrameTiles_30_6360::
+FrameTiles_PlayerRambi_6::
 	INCBIN "gfx/frames/30/6360.2bpp"
 
-FrameTiles_30_64a0::
+FrameTiles_Unused_71::
 	INCBIN "gfx/frames/30/64a0.2bpp"
 
-FrameTiles_30_65a0::
+FrameTiles_PlayerRambi_InAir_1::
 	INCBIN "gfx/frames/30/65a0.2bpp"
 
-FrameTiles_30_66c0::
+FrameTiles_PlayerRambi_7::
 	INCBIN "gfx/frames/30/66c0.2bpp"
 
-FrameTiles_30_67e0::
+FrameTiles_PlayerRambi_InAir_2::
 	INCBIN "gfx/frames/30/67e0.2bpp"
 
-FrameTiles_30_6920::
+FrameTiles_PlayerRambi_InAir_3::
 	INCBIN "gfx/frames/30/6920.2bpp"
 
-FrameTiles_30_6a60::
+FrameTiles_PlayerRambi_InAir_4::
 	INCBIN "gfx/frames/30/6a60.2bpp"
 
-FrameTiles_30_6bc0::
+FrameTiles_PlayerRambi_InAir_5::
 	INCBIN "gfx/frames/30/6bc0.2bpp"
 
-FrameSprites_30_6d00::
+FrameSprites_Shop_KongCelebrate_10::
 	db -9, -30, $01 ; dx, dy, attribute add
 	db 2, 14, $01
 	db 6, -16, $00
@@ -126,7 +126,7 @@ FrameSprites_30_6d00::
 	db 8, 4, $02
 	db 0, 16, $02
 
-FrameSprites_30_6d27::
+FrameSprites_Shop_KongCelebrate_11::
 	db -9, -32, $01 ; dx, dy, attribute add
 	db 3, 13, $01
 	db 0, 16, $01
@@ -141,7 +141,7 @@ FrameSprites_30_6d27::
 	db 8, 8, $02
 	db 8, 13, $02
 
-FrameSprites_30_6d4e::
+FrameSprites_Shop_KongCelebrate_12::
 	db -8, -31, $01 ; dx, dy, attribute add
 	db -6, 16, $01
 	db 8, 11, $01
@@ -156,7 +156,7 @@ FrameSprites_30_6d4e::
 	db 8, 4, $02
 	db 8, 2, $02
 
-FrameSprites_30_6d75::
+FrameSprites_Shop_KongCelebrate_13::
 	db -7, -37, $01 ; dx, dy, attribute add
 	db 1, 16, $01
 	db -8, -10, $01
@@ -172,7 +172,7 @@ FrameSprites_30_6d75::
 	db 8, -1, $02
 	db 8, -4, $02
 
-FrameSprites_30_6d9f::
+FrameSprites_Shop_KongCelebrate_14::
 	db -7, -36, $01 ; dx, dy, attribute add
 	db -7, 5, $01
 	db 8, 27, $01
@@ -188,7 +188,7 @@ FrameSprites_30_6d9f::
 	db 8, -4, $02
 	db 8, -5, $02
 
-FrameSprites_30_6dc9::
+FrameSprites_Shop_KongCelebrate_15::
 	db -4, -31, $01 ; dx, dy, attribute add
 	db -8, 0, $01
 	db 0, 16, $01
@@ -204,7 +204,7 @@ FrameSprites_30_6dc9::
 	db 8, 1, $02
 	db 8, -4, $02
 
-FrameSprites_30_6df3::
+FrameSprites_Shop_KongCelebrate_16::
 	db -4, -31, $01 ; dx, dy, attribute add
 	db -8, 16, $01
 	db 8, 16, $01
@@ -220,7 +220,7 @@ FrameSprites_30_6df3::
 	db 8, 6, $02
 	db 8, -3, $02
 
-FrameSprites_30_6e1d::
+FrameSprites_Shop_KongCelebrate_17::
 	db -4, -31, $01 ; dx, dy, attribute add
 	db 0, 16, $01
 	db -8, 0, $01
@@ -235,7 +235,7 @@ FrameSprites_30_6e1d::
 	db 8, 9, $02
 	db 8, -1, $02
 
-FrameSprites_30_6e44::
+FrameSprites_Shop_KongCelebrate_18::
 	db -4, -31, $01 ; dx, dy, attribute add
 	db -8, 0, $01
 	db 0, 16, $01
@@ -250,7 +250,7 @@ FrameSprites_30_6e44::
 	db 8, 12, $02
 	db 8, 0, $02
 
-FrameSprites_30_6e6b::
+FrameSprites_Cannonball::
 	db -11, -10
 	db 0, 16
 	db 8, -17
@@ -258,7 +258,7 @@ FrameSprites_30_6e6b::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_30_6e77::
+FrameSprites_Shop_SpawnOnce_1::
 	db -13, -39, $00 ; dx, dy, attribute add
 	db 8, -16, $00
 	db 0, 16, $00
@@ -271,7 +271,7 @@ FrameSprites_30_6e77::
 	db -3, -46, $01
 	db 8, 1, $01
 
-FrameSprites_30_6e98::
+FrameSprites_Shop_SpawnOnce_2::
 	db -13, -39, $00 ; dx, dy, attribute add
 	db 8, -16, $00
 	db 0, 16, $00
@@ -284,7 +284,7 @@ FrameSprites_30_6e98::
 	db -11, -46, $01
 	db 8, 1, $01
 
-FrameSprites_30_6eb9::
+FrameSprites_Shop_SpawnOnce_3::
 	db -10, -43, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -297,7 +297,7 @@ FrameSprites_30_6eb9::
 	db -13, -22, $01
 	db 8, 2, $01
 
-FrameSprites_30_6eda::
+FrameSprites_Shop_SpawnOnce_4::
 	db -7, -43, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -309,7 +309,7 @@ FrameSprites_30_6eda::
 	db -10, -6, $01
 	db 8, -2, $01
 
-FrameSprites_30_6ef8::
+FrameSprites_Shop_SpawnOnce_5::
 	db -6, -39, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -320,7 +320,7 @@ FrameSprites_30_6ef8::
 	db -9, -6, $01
 	db 8, -1, $01
 
-FrameSprites_30_6f13::
+FrameSprites_Shop_SpawnOnce_6::
 	db -6, -34, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 0, 16, $00
@@ -332,7 +332,7 @@ FrameSprites_30_6f13::
 	db -7, -21, $01
 	db 8, -6, $01
 
-FrameSprites_30_6f31::
+FrameSprites_Shop_SpawnOnce_7::
 	db -6, -29, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -23, $00
@@ -342,7 +342,7 @@ FrameSprites_30_6f31::
 	db -6, -5, $01
 	db 8, -5, $01
 
-FrameSprites_30_6f49::
+FrameSprites_Shop_SpawnOnce_8::
 	db -6, -27, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -22, $00
@@ -352,7 +352,7 @@ FrameSprites_30_6f49::
 	db -6, -6, $01
 	db 8, -5, $01
 
-FrameSprites_30_6f61::
+FrameSprites_Shop_SpawnOnce_9::
 	db -6, -27, $00 ; dx, dy, attribute add
 	db 0, 16, $00
 	db 8, -23, $00
@@ -362,35 +362,35 @@ FrameSprites_30_6f61::
 	db -6, -6, $01
 	db 8, -5, $01
 
-FrameSprites_30_6f79::
+FrameSprites_ArrowPlatform_Wait_1::
 	db -19, -4
 	db 8, -1
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-FrameSprites_30_6f83::
+FrameSprites_ArrowPlatform_Wait_2::
 	db -19, -4
 	db 8, -1
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-FrameSprites_30_6f8d::
+FrameSprites_ArrowPlatform_Wait_3::
 	db -19, -4
 	db 8, -1
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-FrameSprites_30_6f97::
+FrameSprites_ArrowPlatform_Wait_4::
 	db -19, -4
 	db 8, -1
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-FrameSprites_30_6fa1::
+FrameSprites_PlayerRambi_1::
 	db -18, -19
 	db 0, 16
 	db 8, -20
@@ -402,7 +402,7 @@ FrameSprites_30_6fa1::
 	db 8, -17
 	db 0, 16
 
-FrameSprites_30_6fb5::
+FrameSprites_PlayerRambi_2::
 	db -19, -18
 	db 8, -4
 	db 0, 16
@@ -413,7 +413,7 @@ FrameSprites_30_6fb5::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_30_6fc7::
+FrameSprites_PlayerRambi_3::
 	db -17, -20
 	db 0, 16
 	db 8, -18
@@ -425,7 +425,7 @@ FrameSprites_30_6fc7::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_30_6fdb::
+FrameSprites_PlayerRambi_4::
 	db -17, -23
 	db 0, 16
 	db 8, -16
@@ -438,7 +438,7 @@ FrameSprites_30_6fdb::
 	db 0, 16
 	db 8, -17
 
-FrameSprites_30_6ff1::
+FrameSprites_PlayerRambi_5::
 	db -18, -22
 	db 0, 16
 	db 8, -17
@@ -450,7 +450,7 @@ FrameSprites_30_6ff1::
 	db 8, -9
 	db 8, -4
 
-FrameSprites_30_7005::
+FrameSprites_PlayerRambi_6::
 	db -18, -19
 	db 0, 16
 	db 8, -19
@@ -462,7 +462,7 @@ FrameSprites_30_7005::
 	db 8, -16
 	db 0, 16
 
-FrameSprites_30_7019::
+FrameSprites_Unused_71::
 	db -16, -23
 	db 8, 2
 	db 0, 16
@@ -472,7 +472,7 @@ FrameSprites_30_7019::
 	db 8, -25
 	db 0, 16
 
-FrameSprites_30_7029::
+FrameSprites_PlayerRambi_InAir_1::
 	db -12, -21
 	db 0, 16
 	db 8, -19
@@ -483,7 +483,7 @@ FrameSprites_30_7029::
 	db 0, 16
 	db 8, -10
 
-FrameSprites_30_703b::
+FrameSprites_PlayerRambi_7::
 	db -18, -18
 	db 8, -1
 	db 0, 16
@@ -494,7 +494,7 @@ FrameSprites_30_703b::
 	db 8, -15
 	db 0, 16
 
-FrameSprites_30_704d::
+FrameSprites_PlayerRambi_InAir_2::
 	db -15, -20
 	db 0, 16
 	db 8, -19
@@ -506,7 +506,7 @@ FrameSprites_30_704d::
 	db 8, -18
 	db 0, 16
 
-FrameSprites_30_7061::
+FrameSprites_PlayerRambi_InAir_3::
 	db -15, -21
 	db 0, 16
 	db 8, -20
@@ -518,7 +518,7 @@ FrameSprites_30_7061::
 	db 8, -14
 	db 0, 16
 
-FrameSprites_30_7075::
+FrameSprites_PlayerRambi_InAir_4::
 	db -17, -20
 	db 0, 16
 	db 8, -19
@@ -531,7 +531,7 @@ FrameSprites_30_7075::
 	db 8, -30
 	db 0, 16
 
-FrameSprites_30_708b::
+FrameSprites_PlayerRambi_InAir_5::
 	db -18, -18
 	db 0, 16
 	db 8, -18

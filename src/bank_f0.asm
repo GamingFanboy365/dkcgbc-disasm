@@ -1393,7 +1393,7 @@ FE_WaitSeconds::
 	ret
 
 
-Padding_f0_4701::
+Padding_FE_WaitSeconds::
 	ds 6, $00 ; padding
 
 FE_InitLineStep::
@@ -2918,151 +2918,151 @@ PictureWidths::
 	db $14, $14, $14, $14, $14
 
 PictureTable::
-	picture PictureMap_58_4000, PicturePalettes_5b_7200, BGTiles_5b_7800 ; 0
-	picture PictureMap_58_4870, PicturePalettes_5b_72c0, BGTiles_5c_6700 ; 1
-	picture PictureMap_58_42d0, PicturePalettes_5b_7240, BGTiles_5c_4aa0 ; 2
-	picture PictureMap_58_4e10, PicturePalettes_5b_7340, BGTiles_5d_43c0 ; 3
-	picture PictureMap_58_4b40, PicturePalettes_5b_7300, BGTiles_5c_74a0 ; 4
-	picture PictureMap_58_45a0, PicturePalettes_5b_7280, BGTiles_5c_5880 ; 5
-	picture PictureMap_58_50e0, PicturePalettes_5b_7380, BGTiles_5d_5220 ; 6
-	picture PictureMap_58_52e0, PicturePalettes_5b_7380, BGTiles_5d_5220 ; 7
-	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5d_6800 ; 8
-	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5d_7e80 ; 9
-	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5e_5500 ; 10
-	picture PictureMap_58_54e0, PicturePalettes_5b_73c0, BGTiles_5e_6b80 ; 11
-	picture PictureMap_58_5648, PicturePalettes_5b_73c0, BGTiles_5e_7540 ; 12
-	picture PictureMap_58_57b0, PicturePalettes_5b_73c0, BGTiles_5e_7d30 ; 13
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_5f_46e0 ; 14
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_5f_5d60 ; 15
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_5f_73e0 ; 16
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_60_4a60 ; 17
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_60_60e0 ; 18
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_60_7760 ; 19
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 20
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 21
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 22
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 23
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 24
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 25
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 26
-	picture PictureMap_58_5918, PicturePalettes_5b_73c0, BGTiles_61_4de0 ; 27
-	picture PictureMap_58_5a80, PicturePalettes_5b_73c0, BGTiles_61_5450 ; 28
-	picture PictureMap_58_5be8, PicturePalettes_5b_73c0, BGTiles_61_5e20 ; 29
-	picture PictureMap_58_5d50, PicturePalettes_5b_73c0, BGTiles_61_6740 ; 30
-	picture PictureMap_58_5eb8, PicturePalettes_5b_73c0, BGTiles_61_72c0 ; 31
-	picture PictureMap_58_6020, PicturePalettes_5b_73c0, BGTiles_61_72c0 ; 32
-	picture PictureMap_58_6188, PicturePalettes_5b_73c0, BGTiles_61_7f40 ; 33
-	picture PictureMap_58_62f0, PicturePalettes_5b_73c0, BGTiles_62_4640 ; 34
-	picture PictureMap_58_6458, PicturePalettes_5b_73c0, BGTiles_62_4fa0 ; 35
-	picture PictureMap_58_65c0, PicturePalettes_5b_73c0, BGTiles_62_4fa0 ; 36
-	picture PictureMap_58_6728, PicturePalettes_5b_73c0, BGTiles_62_5ae0 ; 37
-	picture PictureMap_58_6890, PicturePalettes_5b_73c0, BGTiles_62_5ae0 ; 38
-	picture PictureMap_58_69f8, PicturePalettes_5b_73c0, BGTiles_62_5ae0 ; 39
-	picture PictureMap_58_6b60, PicturePalettes_5b_73c0, BGTiles_62_6a40 ; 40
-	picture PictureMap_58_6cc8, PicturePalettes_5b_73c0, BGTiles_62_6a40 ; 41
-	picture PictureMap_59_4000, PicturePalettes_5b_73c0, BGTiles_62_7710 ; 42
-	picture PictureMap_59_4168, PicturePalettes_5b_73c0, BGTiles_62_7710 ; 43
-	picture PictureMap_59_42d0, PicturePalettes_5b_73c0, BGTiles_63_43b0 ; 44
-	picture PictureMap_59_4438, PicturePalettes_5b_73c0, BGTiles_63_4d50 ; 45
-	picture PictureMap_59_45a0, PicturePalettes_5b_73c0, BGTiles_63_4d50 ; 46
-	picture PictureMap_59_4708, PicturePalettes_5b_73c0, BGTiles_63_5a50 ; 47
-	picture PictureMap_59_4870, PicturePalettes_5b_73c0, BGTiles_63_5a50 ; 48
-	picture PictureMap_59_49d8, PicturePalettes_5b_73c0, BGTiles_63_6760 ; 49
-	picture PictureMap_59_4b40, PicturePalettes_5b_73c0, BGTiles_63_6760 ; 50
-	picture PictureMap_59_4ca8, PicturePalettes_5b_73c0, BGTiles_63_7650 ; 51
-	picture PictureMap_59_4e10, PicturePalettes_5b_73c0, BGTiles_63_7650 ; 52
-	picture PictureMap_59_4f78, PicturePalettes_5b_73c0, BGTiles_64_4530 ; 53
-	picture PictureMap_59_50e0, PicturePalettes_5b_73c0, BGTiles_64_4530 ; 54
-	picture PictureMap_59_5248, PicturePalettes_5b_73c0, BGTiles_64_5400 ; 55
-	picture PictureMap_59_53b0, PicturePalettes_5b_73c0, BGTiles_64_5400 ; 56
-	picture PictureMap_59_5518, PicturePalettes_5b_7400, BGTiles_64_6190 ; 57
-	picture PictureMap_59_57e8, PicturePalettes_5b_7410, BGTiles_64_6cf0 ; 58
-	picture PictureMap_59_5962, PicturePalettes_5b_7410, BGTiles_64_7740 ; 59
-	picture PictureMap_59_5ab8, PicturePalettes_5b_7410, BGTiles_65_42a0 ; 60
-	picture PictureMap_59_5c98, PicturePalettes_5b_7410, BGTiles_65_52a0 ; 61
-	picture PictureMap_59_5e28, PicturePalettes_5b_7410, BGTiles_65_5d60 ; 62
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_63b0 ; 63
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_6db0 ; 64
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 65
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 66
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 67
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_65_77b0 ; 68
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_41b0 ; 69
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_4bb0 ; 70
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_51f0 ; 71
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 72
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 73
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 74
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 75
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 76
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 77
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 78
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 79
-	picture PictureMap_59_5eeb, PicturePalettes_5b_7410, BGTiles_66_5e70 ; 80
-	picture PictureMap_59_6053, PicturePalettes_5b_7410, BGTiles_66_65c0 ; 81
-	picture PictureMap_59_61bb, PicturePalettes_5b_7410, BGTiles_66_7190 ; 82
-	picture PictureMap_59_6323, PicturePalettes_5b_7410, BGTiles_66_7b10 ; 83
-	picture PictureMap_59_648b, PicturePalettes_5b_7410, BGTiles_67_4800 ; 84
-	picture PictureMap_59_65f3, PicturePalettes_5b_7410, BGTiles_67_5120 ; 85
-	picture PictureMap_59_675b, PicturePalettes_5b_7410, BGTiles_67_5c40 ; 86
-	picture PictureMap_59_68c3, PicturePalettes_5b_7410, BGTiles_67_6640 ; 87
-	picture PictureMap_59_6a2b, PicturePalettes_5b_7410, BGTiles_67_7440 ; 88
-	picture PictureMap_59_6b93, PicturePalettes_5b_7410, BGTiles_67_7ba0 ; 89
-	picture PictureMap_5a_4000, PicturePalettes_5b_7410, BGTiles_68_47c0 ; 90
-	picture PictureMap_5a_4168, PicturePalettes_5b_7410, BGTiles_68_5070 ; 91
-	picture PictureMap_5a_42d0, PicturePalettes_5b_7410, BGTiles_68_5cc0 ; 92
-	picture PictureMap_5a_4438, PicturePalettes_5b_7410, BGTiles_68_6410 ; 93
-	picture PictureMap_5a_45a0, PicturePalettes_5b_7410, BGTiles_68_6ea0 ; 94
-	picture PictureMap_5a_4708, PicturePalettes_5b_7410, BGTiles_68_7730 ; 95
-	picture PictureMap_5a_4870, PicturePalettes_5b_7410, BGTiles_69_4170 ; 96
-	picture PictureMap_5a_4b40, PicturePalettes_5b_7450, BGTiles_69_4810 ; 97
-	picture PictureMap_5a_4e10, PicturePalettes_5b_7490, BGTiles_69_5730 ; 98
-	picture PictureMap_5a_4f78, PicturePalettes_5b_7490, BGTiles_69_5730 ; 99
-	picture PictureMap_5a_50e0, PicturePalettes_5b_7490, BGTiles_69_6290 ; 100
-	picture PictureMap_5a_5248, PicturePalettes_5b_7490, BGTiles_69_6290 ; 101
-	picture PictureMap_5a_53b0, PicturePalettes_5b_7490, BGTiles_69_7110 ; 102
-	picture PictureMap_5a_5518, PicturePalettes_5b_7490, BGTiles_69_7110 ; 103
-	picture PictureMap_5a_5680, PicturePalettes_5b_7490, BGTiles_69_7db0 ; 104
-	picture PictureMap_5a_57e8, PicturePalettes_5b_7490, BGTiles_69_7db0 ; 105
-	picture PictureMap_5a_5950, PicturePalettes_5b_7490, BGTiles_6a_4c40 ; 106
-	picture PictureMap_5a_5ab8, PicturePalettes_5b_7490, BGTiles_6a_4c40 ; 107
-	picture PictureMap_5a_5c20, PicturePalettes_5b_7490, BGTiles_6a_5a00 ; 108
-	picture PictureMap_5a_5d88, PicturePalettes_5b_7490, BGTiles_6a_60b0 ; 109
-	picture PictureMap_5a_5ef0, PicturePalettes_5b_7490, BGTiles_6a_6750 ; 110
-	picture PictureMap_5a_6058, PicturePalettes_5b_7490, BGTiles_6a_6e00 ; 111
-	picture PictureMap_5a_61c0, PicturePalettes_5b_7490, BGTiles_6a_7ce0 ; 112
-	picture PictureMap_5a_6328, PicturePalettes_5b_7490, BGTiles_6b_45c0 ; 113
-	picture PictureMap_5a_6490, PicturePalettes_5b_7490, BGTiles_6b_4d40 ; 114
-	picture PictureMap_5a_65f8, PicturePalettes_5b_7490, BGTiles_6b_54d0 ; 115
-	picture PictureMap_5a_6760, PicturePalettes_5b_7490, BGTiles_6b_5780 ; 116
-	picture PictureMap_5b_4000, PicturePalettes_5b_7490, BGTiles_6b_5a30 ; 117
-	picture PictureMap_5b_4168, PicturePalettes_5b_74d0, BGTiles_6b_63c0 ; 118
-	picture PictureMap_5b_4438, PicturePalettes_5b_7510, BGTiles_6b_69c0 ; 119
-	picture PictureMap_5b_4938, PicturePalettes_5b_7550, BGTiles_6b_6ff0 ; 120
-	picture PictureMap_5b_4c08, PicturePalettes_5b_7578, BGTiles_6b_6ff0 ; 121
-	picture PictureMap_5b_4d70, PicturePalettes_5b_75b8, BGTiles_6b_7850 ; 122
-	picture PictureMap_5b_4ed8, PicturePalettes_5b_75b8, BGTiles_6c_4030 ; 123
-	picture PictureMap_5b_4ed8, PicturePalettes_5b_75b8, BGTiles_6c_4030 ; 124
-	picture PictureMap_5b_5040, PicturePalettes_5b_75b8, BGTiles_6c_4980 ; 125
-	picture PictureMap_5b_5040, PicturePalettes_5b_75b8, BGTiles_6c_4980 ; 126
-	picture PictureMap_5b_51a8, PicturePalettes_5b_75b8, BGTiles_6c_5170 ; 127
-	picture PictureMap_5b_51a8, PicturePalettes_5b_75b8, BGTiles_6c_5170 ; 128
-	picture PictureMap_5b_5310, PicturePalettes_5b_75b8, BGTiles_6c_59c0 ; 129
-	picture PictureMap_5b_5310, PicturePalettes_5b_75b8, BGTiles_6c_59c0 ; 130
-	picture PictureMap_5b_5478, PicturePalettes_5b_75b8, BGTiles_6c_6200 ; 131
-	picture PictureMap_5b_5478, PicturePalettes_5b_75b8, BGTiles_6c_6200 ; 132
-	picture PictureMap_5b_5748, PicturePalettes_5b_75f8, BGTiles_6c_7200 ; 133
-	picture PictureMap_5b_58b0, PicturePalettes_5b_75f8, BGTiles_6c_7a70 ; 134
-	picture PictureMap_5b_5a18, PicturePalettes_5b_75f8, BGTiles_6d_42d0 ; 135
-	picture PictureMap_5b_5b80, PicturePalettes_5b_75f8, BGTiles_6d_49e0 ; 136
-	picture PictureMap_5b_5ce8, PicturePalettes_5b_75f8, BGTiles_6d_50f0 ; 137
-	picture PictureMap_5b_5e50, PicturePalettes_5b_7638, BGTiles_6d_5800 ; 138
-	picture PictureMap_5b_6120, PicturePalettes_5b_7678, BGTiles_6d_6820 ; 139
-	picture PictureMap_5b_63f0, PicturePalettes_5b_76b8, BGTiles_6d_7b90 ; 140
-	picture PictureMap_5b_66c0, PicturePalettes_5b_76f8, BGTiles_6e_4f40 ; 141
-	picture PictureMap_5b_6990, PicturePalettes_5b_7738, BGTiles_6e_5e10 ; 142
-	picture PictureMap_5b_6c60, PicturePalettes_5b_7778, BGTiles_6e_6ed0 ; 143
-	picture PictureMap_5b_6f30, PicturePalettes_5b_77b8, BGTiles_6e_7e80 ; 144
+	picture PictureMap_000, PicturePalettes_00, BGTiles_Picture000 ; 0
+	picture PictureMap_001, PicturePalettes_01, BGTiles_Picture001 ; 1
+	picture PictureMap_002, PicturePalettes_02, BGTiles_Picture002 ; 2
+	picture PictureMap_003, PicturePalettes_03, BGTiles_Picture003 ; 3
+	picture PictureMap_004, PicturePalettes_04, BGTiles_Picture004 ; 4
+	picture PictureMap_005, PicturePalettes_05, BGTiles_Picture005 ; 5
+	picture PictureMap_006, PicturePalettes_06, BGTiles_Picture006 ; 6
+	picture PictureMap_007, PicturePalettes_06, BGTiles_Picture006 ; 7
+	picture PictureMap_008, PicturePalettes_07, BGTiles_Picture007 ; 8
+	picture PictureMap_008, PicturePalettes_07, BGTiles_Picture008 ; 9
+	picture PictureMap_008, PicturePalettes_07, BGTiles_Picture009 ; 10
+	picture PictureMap_008, PicturePalettes_07, BGTiles_Picture010 ; 11
+	picture PictureMap_009, PicturePalettes_07, BGTiles_Picture011 ; 12
+	picture PictureMap_010, PicturePalettes_07, BGTiles_Picture012 ; 13
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture013 ; 14
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture014 ; 15
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture015 ; 16
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture016 ; 17
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture017 ; 18
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture018 ; 19
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 20
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 21
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 22
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 23
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 24
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 25
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 26
+	picture PictureMap_011, PicturePalettes_07, BGTiles_Picture019 ; 27
+	picture PictureMap_012, PicturePalettes_07, BGTiles_Picture020 ; 28
+	picture PictureMap_013, PicturePalettes_07, BGTiles_Picture021 ; 29
+	picture PictureMap_014, PicturePalettes_07, BGTiles_Picture022 ; 30
+	picture PictureMap_015, PicturePalettes_07, BGTiles_Picture023 ; 31
+	picture PictureMap_016, PicturePalettes_07, BGTiles_Picture023 ; 32
+	picture PictureMap_017, PicturePalettes_07, BGTiles_Picture024 ; 33
+	picture PictureMap_018, PicturePalettes_07, BGTiles_Picture025 ; 34
+	picture PictureMap_019, PicturePalettes_07, BGTiles_Picture026 ; 35
+	picture PictureMap_020, PicturePalettes_07, BGTiles_Picture026 ; 36
+	picture PictureMap_021, PicturePalettes_07, BGTiles_Picture027 ; 37
+	picture PictureMap_022, PicturePalettes_07, BGTiles_Picture027 ; 38
+	picture PictureMap_023, PicturePalettes_07, BGTiles_Picture027 ; 39
+	picture PictureMap_024, PicturePalettes_07, BGTiles_Picture028 ; 40
+	picture PictureMap_025, PicturePalettes_07, BGTiles_Picture028 ; 41
+	picture PictureMap_026, PicturePalettes_07, BGTiles_Picture029 ; 42
+	picture PictureMap_027, PicturePalettes_07, BGTiles_Picture029 ; 43
+	picture PictureMap_028, PicturePalettes_07, BGTiles_Picture030 ; 44
+	picture PictureMap_029, PicturePalettes_07, BGTiles_Picture031 ; 45
+	picture PictureMap_030, PicturePalettes_07, BGTiles_Picture031 ; 46
+	picture PictureMap_031, PicturePalettes_07, BGTiles_Picture032 ; 47
+	picture PictureMap_032, PicturePalettes_07, BGTiles_Picture032 ; 48
+	picture PictureMap_033, PicturePalettes_07, BGTiles_Picture033 ; 49
+	picture PictureMap_034, PicturePalettes_07, BGTiles_Picture033 ; 50
+	picture PictureMap_035, PicturePalettes_07, BGTiles_Picture034 ; 51
+	picture PictureMap_036, PicturePalettes_07, BGTiles_Picture034 ; 52
+	picture PictureMap_037, PicturePalettes_07, BGTiles_Picture035 ; 53
+	picture PictureMap_038, PicturePalettes_07, BGTiles_Picture035 ; 54
+	picture PictureMap_039, PicturePalettes_07, BGTiles_Picture036 ; 55
+	picture PictureMap_040, PicturePalettes_07, BGTiles_Picture036 ; 56
+	picture PictureMap_041, PicturePalettes_08, BGTiles_Picture037 ; 57
+	picture PictureMap_042, PicturePalettes_09, BGTiles_Picture038 ; 58
+	picture PictureMap_043, PicturePalettes_09, BGTiles_Picture039 ; 59
+	picture PictureMap_044, PicturePalettes_09, BGTiles_Picture040 ; 60
+	picture PictureMap_045, PicturePalettes_09, BGTiles_Picture041 ; 61
+	picture PictureMap_046, PicturePalettes_09, BGTiles_Picture042 ; 62
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture043 ; 63
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture044 ; 64
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture045 ; 65
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture045 ; 66
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture045 ; 67
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture045 ; 68
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture046 ; 69
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture047 ; 70
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture048 ; 71
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 72
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 73
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 74
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 75
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 76
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 77
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 78
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 79
+	picture PictureMap_047, PicturePalettes_09, BGTiles_Picture049 ; 80
+	picture PictureMap_048, PicturePalettes_09, BGTiles_Picture050 ; 81
+	picture PictureMap_049, PicturePalettes_09, BGTiles_Picture051 ; 82
+	picture PictureMap_050, PicturePalettes_09, BGTiles_Picture052 ; 83
+	picture PictureMap_051, PicturePalettes_09, BGTiles_Picture053 ; 84
+	picture PictureMap_052, PicturePalettes_09, BGTiles_Picture054 ; 85
+	picture PictureMap_053, PicturePalettes_09, BGTiles_Picture055 ; 86
+	picture PictureMap_054, PicturePalettes_09, BGTiles_Picture056 ; 87
+	picture PictureMap_055, PicturePalettes_09, BGTiles_Picture057 ; 88
+	picture PictureMap_056, PicturePalettes_09, BGTiles_Picture058 ; 89
+	picture PictureMap_057, PicturePalettes_09, BGTiles_Picture059 ; 90
+	picture PictureMap_058, PicturePalettes_09, BGTiles_Picture060 ; 91
+	picture PictureMap_059, PicturePalettes_09, BGTiles_Picture061 ; 92
+	picture PictureMap_060, PicturePalettes_09, BGTiles_Picture062 ; 93
+	picture PictureMap_061, PicturePalettes_09, BGTiles_Picture063 ; 94
+	picture PictureMap_062, PicturePalettes_09, BGTiles_Picture064 ; 95
+	picture PictureMap_063, PicturePalettes_09, BGTiles_Picture065 ; 96
+	picture PictureMap_064, PicturePalettes_10, BGTiles_Picture066 ; 97
+	picture PictureMap_065, PicturePalettes_11, BGTiles_Picture067 ; 98
+	picture PictureMap_066, PicturePalettes_11, BGTiles_Picture067 ; 99
+	picture PictureMap_067, PicturePalettes_11, BGTiles_Picture068 ; 100
+	picture PictureMap_068, PicturePalettes_11, BGTiles_Picture068 ; 101
+	picture PictureMap_069, PicturePalettes_11, BGTiles_Picture069 ; 102
+	picture PictureMap_070, PicturePalettes_11, BGTiles_Picture069 ; 103
+	picture PictureMap_071, PicturePalettes_11, BGTiles_Picture070 ; 104
+	picture PictureMap_072, PicturePalettes_11, BGTiles_Picture070 ; 105
+	picture PictureMap_073, PicturePalettes_11, BGTiles_Picture071 ; 106
+	picture PictureMap_074, PicturePalettes_11, BGTiles_Picture071 ; 107
+	picture PictureMap_075, PicturePalettes_11, BGTiles_Picture072 ; 108
+	picture PictureMap_076, PicturePalettes_11, BGTiles_Picture073 ; 109
+	picture PictureMap_077, PicturePalettes_11, BGTiles_Picture074 ; 110
+	picture PictureMap_078, PicturePalettes_11, BGTiles_Picture075 ; 111
+	picture PictureMap_079, PicturePalettes_11, BGTiles_Picture076 ; 112
+	picture PictureMap_080, PicturePalettes_11, BGTiles_Picture077 ; 113
+	picture PictureMap_081, PicturePalettes_11, BGTiles_Picture078 ; 114
+	picture PictureMap_082, PicturePalettes_11, BGTiles_Picture079 ; 115
+	picture PictureMap_083, PicturePalettes_11, BGTiles_Picture080 ; 116
+	picture PictureMap_084, PicturePalettes_11, BGTiles_Picture081 ; 117
+	picture PictureMap_085, PicturePalettes_12, BGTiles_Picture082 ; 118
+	picture PictureMap_086, PicturePalettes_13, BGTiles_Picture083 ; 119
+	picture PictureMap_087, PicturePalettes_14, BGTiles_Picture084 ; 120
+	picture PictureMap_088, PicturePalettes_15, BGTiles_Picture084 ; 121
+	picture PictureMap_089, PicturePalettes_16, BGTiles_Picture085 ; 122
+	picture PictureMap_090, PicturePalettes_16, BGTiles_Picture086 ; 123
+	picture PictureMap_090, PicturePalettes_16, BGTiles_Picture086 ; 124
+	picture PictureMap_091, PicturePalettes_16, BGTiles_Picture087 ; 125
+	picture PictureMap_091, PicturePalettes_16, BGTiles_Picture087 ; 126
+	picture PictureMap_092, PicturePalettes_16, BGTiles_Picture088 ; 127
+	picture PictureMap_092, PicturePalettes_16, BGTiles_Picture088 ; 128
+	picture PictureMap_093, PicturePalettes_16, BGTiles_Picture089 ; 129
+	picture PictureMap_093, PicturePalettes_16, BGTiles_Picture089 ; 130
+	picture PictureMap_094, PicturePalettes_16, BGTiles_Picture090 ; 131
+	picture PictureMap_094, PicturePalettes_16, BGTiles_Picture090 ; 132
+	picture PictureMap_095, PicturePalettes_17, BGTiles_Picture091 ; 133
+	picture PictureMap_096, PicturePalettes_17, BGTiles_Picture092 ; 134
+	picture PictureMap_097, PicturePalettes_17, BGTiles_Picture093 ; 135
+	picture PictureMap_098, PicturePalettes_17, BGTiles_Picture094 ; 136
+	picture PictureMap_099, PicturePalettes_17, BGTiles_Picture095 ; 137
+	picture PictureMap_100, PicturePalettes_18, BGTiles_Picture096 ; 138
+	picture PictureMap_101, PicturePalettes_19, BGTiles_Picture097 ; 139
+	picture PictureMap_102, PicturePalettes_20, BGTiles_Picture098 ; 140
+	picture PictureMap_103, PicturePalettes_21, BGTiles_Picture099 ; 141
+	picture PictureMap_104, PicturePalettes_22, BGTiles_Picture100 ; 142
+	picture PictureMap_105, PicturePalettes_23, BGTiles_Picture101 ; 143
+	picture PictureMap_106, PicturePalettes_24, BGTiles_Picture102 ; 144
 	db $5b
 	dw $7200
 	db $5b
@@ -3185,90 +3185,90 @@ SpriteAnimTable::
 	dw SpriteAnim46
 
 SpriteAnim01::
-	db 2, BANK(FESprites_f6_4220), HIGH(FESprites_f6_4220), LOW(FESprites_f6_4220), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f6_4260), HIGH(FESprites_f6_4260), LOW(FESprites_f6_4260), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 1
-	db 2, BANK(FESprites_f6_42a0), HIGH(FESprites_f6_42a0), LOW(FESprites_f6_42a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 2
-	db 2, BANK(FESprites_f6_42e0), HIGH(FESprites_f6_42e0), LOW(FESprites_f6_42e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 3
-	db 2, BANK(FESprites_f6_4320), HIGH(FESprites_f6_4320), LOW(FESprites_f6_4320), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 4
-	db 2, BANK(FESprites_f6_4360), HIGH(FESprites_f6_4360), LOW(FESprites_f6_4360), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 5
-	db 2, BANK(FESprites_f6_43a0), HIGH(FESprites_f6_43a0), LOW(FESprites_f6_43a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 6
-	db 2, BANK(FESprites_f6_43e0), HIGH(FESprites_f6_43e0), LOW(FESprites_f6_43e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 7
-	db 2, BANK(FESprites_f6_4420), HIGH(FESprites_f6_4420), LOW(FESprites_f6_4420), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 8
-	db 2, BANK(FESprites_f6_4460), HIGH(FESprites_f6_4460), LOW(FESprites_f6_4460), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 9
-	db 2, BANK(FESprites_f6_44a0), HIGH(FESprites_f6_44a0), LOW(FESprites_f6_44a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 10
-	db 2, BANK(FESprites_f6_44e0), HIGH(FESprites_f6_44e0), LOW(FESprites_f6_44e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 11
-	db 2, BANK(FESprites_f6_4520), HIGH(FESprites_f6_4520), LOW(FESprites_f6_4520), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 12
-	db 2, BANK(FESprites_f6_4560), HIGH(FESprites_f6_4560), LOW(FESprites_f6_4560), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 13
-	db 2, BANK(FESprites_f6_45a0), HIGH(FESprites_f6_45a0), LOW(FESprites_f6_45a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 14
-	db 2, BANK(FESprites_f6_45e0), HIGH(FESprites_f6_45e0), LOW(FESprites_f6_45e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 15
-	db 2, BANK(FESprites_f6_4620), HIGH(FESprites_f6_4620), LOW(FESprites_f6_4620), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 16
-	db 2, BANK(FESprites_f6_4660), HIGH(FESprites_f6_4660), LOW(FESprites_f6_4660), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 17
-	db 2, BANK(FESprites_f6_46a0), HIGH(FESprites_f6_46a0), LOW(FESprites_f6_46a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 18
-	db 2, BANK(FESprites_f6_46e0), HIGH(FESprites_f6_46e0), LOW(FESprites_f6_46e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 19
-	db 2, BANK(FESprites_f6_4720), HIGH(FESprites_f6_4720), LOW(FESprites_f6_4720), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 20
-	db 2, BANK(FESprites_f6_4760), HIGH(FESprites_f6_4760), LOW(FESprites_f6_4760), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 21
-	db 2, BANK(FESprites_f6_47a0), HIGH(FESprites_f6_47a0), LOW(FESprites_f6_47a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 22
-	db 2, BANK(FESprites_f6_47e0), HIGH(FESprites_f6_47e0), LOW(FESprites_f6_47e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 23
-	db 2, BANK(FESprites_f6_4820), HIGH(FESprites_f6_4820), LOW(FESprites_f6_4820), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 24
-	db 2, BANK(FESprites_f6_4860), HIGH(FESprites_f6_4860), LOW(FESprites_f6_4860), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 25
-	db 2, BANK(FESprites_f6_48a0), HIGH(FESprites_f6_48a0), LOW(FESprites_f6_48a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 26
-	db 2, BANK(FESprites_f6_48e0), HIGH(FESprites_f6_48e0), LOW(FESprites_f6_48e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 27
-	db 2, BANK(FESprites_f6_4920), HIGH(FESprites_f6_4920), LOW(FESprites_f6_4920), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 28
-	db 2, BANK(FESprites_f6_4960), HIGH(FESprites_f6_4960), LOW(FESprites_f6_4960), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 29
-	db 2, BANK(FESprites_f6_49a0), HIGH(FESprites_f6_49a0), LOW(FESprites_f6_49a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 30
-	db 2, BANK(FESprites_f6_49e0), HIGH(FESprites_f6_49e0), LOW(FESprites_f6_49e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 31
-	db 2, BANK(FESprites_f6_4a20), HIGH(FESprites_f6_4a20), LOW(FESprites_f6_4a20), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 32
-	db 2, BANK(FESprites_f6_4a60), HIGH(FESprites_f6_4a60), LOW(FESprites_f6_4a60), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 33
-	db 2, BANK(FESprites_f6_4aa0), HIGH(FESprites_f6_4aa0), LOW(FESprites_f6_4aa0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 34
-	db 2, BANK(FESprites_f6_4ae0), HIGH(FESprites_f6_4ae0), LOW(FESprites_f6_4ae0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 35
-	db 2, BANK(FESprites_f6_4b20), HIGH(FESprites_f6_4b20), LOW(FESprites_f6_4b20), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 36
-	db 2, BANK(FESprites_f6_4b60), HIGH(FESprites_f6_4b60), LOW(FESprites_f6_4b60), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 37
-	db 2, BANK(FESprites_f6_4ba0), HIGH(FESprites_f6_4ba0), LOW(FESprites_f6_4ba0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 38
-	db 2, BANK(FESprites_f6_4be0), HIGH(FESprites_f6_4be0), LOW(FESprites_f6_4be0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 39
-	db 2, BANK(FESprites_f6_4c20), HIGH(FESprites_f6_4c20), LOW(FESprites_f6_4c20), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 40
-	db 2, BANK(FESprites_f6_4c60), HIGH(FESprites_f6_4c60), LOW(FESprites_f6_4c60), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 41
-	db 2, BANK(FESprites_f6_4ca0), HIGH(FESprites_f6_4ca0), LOW(FESprites_f6_4ca0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 42
-	db 2, BANK(FESprites_f6_4ce0), HIGH(FESprites_f6_4ce0), LOW(FESprites_f6_4ce0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 43
-	db 2, BANK(FESprites_f6_4d20), HIGH(FESprites_f6_4d20), LOW(FESprites_f6_4d20), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 44
-	db 2, BANK(FESprites_f6_4d60), HIGH(FESprites_f6_4d60), LOW(FESprites_f6_4d60), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 45
-	db 2, BANK(FESprites_f6_4da0), HIGH(FESprites_f6_4da0), LOW(FESprites_f6_4da0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 46
-	db 2, BANK(FESprites_f6_4de0), HIGH(FESprites_f6_4de0), LOW(FESprites_f6_4de0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 47
-	db 2, BANK(FESprites_f6_4e20), HIGH(FESprites_f6_4e20), LOW(FESprites_f6_4e20), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 48
-	db 2, BANK(FESprites_f6_4e60), HIGH(FESprites_f6_4e60), LOW(FESprites_f6_4e60), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 49
-	db 2, BANK(FESprites_f6_4ea0), HIGH(FESprites_f6_4ea0), LOW(FESprites_f6_4ea0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 50
-	db 2, BANK(FESprites_f6_4ee0), HIGH(FESprites_f6_4ee0), LOW(FESprites_f6_4ee0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 51
-	db 2, BANK(FESprites_f6_4f20), HIGH(FESprites_f6_4f20), LOW(FESprites_f6_4f20), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 52
-	db 2, BANK(FESprites_f6_4f60), HIGH(FESprites_f6_4f60), LOW(FESprites_f6_4f60), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 53
-	db 2, BANK(FESprites_f6_4fa0), HIGH(FESprites_f6_4fa0), LOW(FESprites_f6_4fa0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 54
-	db 2, BANK(FESprites_f6_4fe0), HIGH(FESprites_f6_4fe0), LOW(FESprites_f6_4fe0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 55
-	db 2, BANK(FESprites_f6_5020), HIGH(FESprites_f6_5020), LOW(FESprites_f6_5020), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 56
-	db 2, BANK(FESprites_f6_5060), HIGH(FESprites_f6_5060), LOW(FESprites_f6_5060), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 57
-	db 2, BANK(FESprites_f6_50a0), HIGH(FESprites_f6_50a0), LOW(FESprites_f6_50a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 58
-	db 2, BANK(FESprites_f6_50e0), HIGH(FESprites_f6_50e0), LOW(FESprites_f6_50e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 59
-	db 2, BANK(FESprites_f6_5120), HIGH(FESprites_f6_5120), LOW(FESprites_f6_5120), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 60
-	db 2, BANK(FESprites_f6_5160), HIGH(FESprites_f6_5160), LOW(FESprites_f6_5160), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 61
-	db 2, BANK(FESprites_f6_51a0), HIGH(FESprites_f6_51a0), LOW(FESprites_f6_51a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 62
-	db 2, BANK(FESprites_f6_51e0), HIGH(FESprites_f6_51e0), LOW(FESprites_f6_51e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 63
-	db 2, BANK(FESprites_f6_5220), HIGH(FESprites_f6_5220), LOW(FESprites_f6_5220), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 64
-	db 2, BANK(FESprites_f6_5260), HIGH(FESprites_f6_5260), LOW(FESprites_f6_5260), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 65
-	db 2, BANK(FESprites_f6_52a0), HIGH(FESprites_f6_52a0), LOW(FESprites_f6_52a0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 66
-	db 2, BANK(FESprites_f6_52e0), HIGH(FESprites_f6_52e0), LOW(FESprites_f6_52e0), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 67
-	db 2, BANK(FESprites_f6_5320), HIGH(FESprites_f6_5320), LOW(FESprites_f6_5320), HIGH(SpriteLayout_f0_5c7e), LOW(SpriteLayout_f0_5c7e) ; variant 68
+	db 2, BANK(FESprites_SpriteAnim01_00), HIGH(FESprites_SpriteAnim01_00), LOW(FESprites_SpriteAnim01_00), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim01_01), HIGH(FESprites_SpriteAnim01_01), LOW(FESprites_SpriteAnim01_01), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 1
+	db 2, BANK(FESprites_SpriteAnim01_02), HIGH(FESprites_SpriteAnim01_02), LOW(FESprites_SpriteAnim01_02), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 2
+	db 2, BANK(FESprites_SpriteAnim01_03), HIGH(FESprites_SpriteAnim01_03), LOW(FESprites_SpriteAnim01_03), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim01_04), HIGH(FESprites_SpriteAnim01_04), LOW(FESprites_SpriteAnim01_04), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim01_05), HIGH(FESprites_SpriteAnim01_05), LOW(FESprites_SpriteAnim01_05), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim01_06), HIGH(FESprites_SpriteAnim01_06), LOW(FESprites_SpriteAnim01_06), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 6
+	db 2, BANK(FESprites_SpriteAnim01_07), HIGH(FESprites_SpriteAnim01_07), LOW(FESprites_SpriteAnim01_07), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 7
+	db 2, BANK(FESprites_SpriteAnim01_08), HIGH(FESprites_SpriteAnim01_08), LOW(FESprites_SpriteAnim01_08), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 8
+	db 2, BANK(FESprites_SpriteAnim01_09), HIGH(FESprites_SpriteAnim01_09), LOW(FESprites_SpriteAnim01_09), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 9
+	db 2, BANK(FESprites_SpriteAnim01_10), HIGH(FESprites_SpriteAnim01_10), LOW(FESprites_SpriteAnim01_10), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 10
+	db 2, BANK(FESprites_SpriteAnim01_11), HIGH(FESprites_SpriteAnim01_11), LOW(FESprites_SpriteAnim01_11), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 11
+	db 2, BANK(FESprites_SpriteAnim01_12), HIGH(FESprites_SpriteAnim01_12), LOW(FESprites_SpriteAnim01_12), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 12
+	db 2, BANK(FESprites_SpriteAnim01_13), HIGH(FESprites_SpriteAnim01_13), LOW(FESprites_SpriteAnim01_13), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 13
+	db 2, BANK(FESprites_SpriteAnim01_14), HIGH(FESprites_SpriteAnim01_14), LOW(FESprites_SpriteAnim01_14), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 14
+	db 2, BANK(FESprites_SpriteAnim01_15), HIGH(FESprites_SpriteAnim01_15), LOW(FESprites_SpriteAnim01_15), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 15
+	db 2, BANK(FESprites_SpriteAnim01_16), HIGH(FESprites_SpriteAnim01_16), LOW(FESprites_SpriteAnim01_16), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 16
+	db 2, BANK(FESprites_SpriteAnim01_17), HIGH(FESprites_SpriteAnim01_17), LOW(FESprites_SpriteAnim01_17), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 17
+	db 2, BANK(FESprites_SpriteAnim01_18), HIGH(FESprites_SpriteAnim01_18), LOW(FESprites_SpriteAnim01_18), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 18
+	db 2, BANK(FESprites_SpriteAnim01_19), HIGH(FESprites_SpriteAnim01_19), LOW(FESprites_SpriteAnim01_19), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 19
+	db 2, BANK(FESprites_SpriteAnim01_20), HIGH(FESprites_SpriteAnim01_20), LOW(FESprites_SpriteAnim01_20), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 20
+	db 2, BANK(FESprites_SpriteAnim01_21), HIGH(FESprites_SpriteAnim01_21), LOW(FESprites_SpriteAnim01_21), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 21
+	db 2, BANK(FESprites_SpriteAnim01_22), HIGH(FESprites_SpriteAnim01_22), LOW(FESprites_SpriteAnim01_22), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 22
+	db 2, BANK(FESprites_SpriteAnim01_23), HIGH(FESprites_SpriteAnim01_23), LOW(FESprites_SpriteAnim01_23), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 23
+	db 2, BANK(FESprites_SpriteAnim01_24), HIGH(FESprites_SpriteAnim01_24), LOW(FESprites_SpriteAnim01_24), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 24
+	db 2, BANK(FESprites_SpriteAnim01_25), HIGH(FESprites_SpriteAnim01_25), LOW(FESprites_SpriteAnim01_25), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 25
+	db 2, BANK(FESprites_SpriteAnim01_26), HIGH(FESprites_SpriteAnim01_26), LOW(FESprites_SpriteAnim01_26), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 26
+	db 2, BANK(FESprites_SpriteAnim01_27), HIGH(FESprites_SpriteAnim01_27), LOW(FESprites_SpriteAnim01_27), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 27
+	db 2, BANK(FESprites_SpriteAnim01_28), HIGH(FESprites_SpriteAnim01_28), LOW(FESprites_SpriteAnim01_28), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 28
+	db 2, BANK(FESprites_SpriteAnim01_29), HIGH(FESprites_SpriteAnim01_29), LOW(FESprites_SpriteAnim01_29), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 29
+	db 2, BANK(FESprites_SpriteAnim01_30), HIGH(FESprites_SpriteAnim01_30), LOW(FESprites_SpriteAnim01_30), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 30
+	db 2, BANK(FESprites_SpriteAnim01_31), HIGH(FESprites_SpriteAnim01_31), LOW(FESprites_SpriteAnim01_31), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 31
+	db 2, BANK(FESprites_SpriteAnim01_32), HIGH(FESprites_SpriteAnim01_32), LOW(FESprites_SpriteAnim01_32), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 32
+	db 2, BANK(FESprites_SpriteAnim01_33), HIGH(FESprites_SpriteAnim01_33), LOW(FESprites_SpriteAnim01_33), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 33
+	db 2, BANK(FESprites_SpriteAnim01_34), HIGH(FESprites_SpriteAnim01_34), LOW(FESprites_SpriteAnim01_34), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 34
+	db 2, BANK(FESprites_SpriteAnim01_35), HIGH(FESprites_SpriteAnim01_35), LOW(FESprites_SpriteAnim01_35), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 35
+	db 2, BANK(FESprites_SpriteAnim01_36), HIGH(FESprites_SpriteAnim01_36), LOW(FESprites_SpriteAnim01_36), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 36
+	db 2, BANK(FESprites_SpriteAnim01_37), HIGH(FESprites_SpriteAnim01_37), LOW(FESprites_SpriteAnim01_37), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 37
+	db 2, BANK(FESprites_SpriteAnim01_38), HIGH(FESprites_SpriteAnim01_38), LOW(FESprites_SpriteAnim01_38), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 38
+	db 2, BANK(FESprites_SpriteAnim01_39), HIGH(FESprites_SpriteAnim01_39), LOW(FESprites_SpriteAnim01_39), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 39
+	db 2, BANK(FESprites_SpriteAnim01_40), HIGH(FESprites_SpriteAnim01_40), LOW(FESprites_SpriteAnim01_40), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 40
+	db 2, BANK(FESprites_SpriteAnim01_41), HIGH(FESprites_SpriteAnim01_41), LOW(FESprites_SpriteAnim01_41), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 41
+	db 2, BANK(FESprites_SpriteAnim01_42), HIGH(FESprites_SpriteAnim01_42), LOW(FESprites_SpriteAnim01_42), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 42
+	db 2, BANK(FESprites_SpriteAnim01_43), HIGH(FESprites_SpriteAnim01_43), LOW(FESprites_SpriteAnim01_43), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 43
+	db 2, BANK(FESprites_SpriteAnim01_44), HIGH(FESprites_SpriteAnim01_44), LOW(FESprites_SpriteAnim01_44), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 44
+	db 2, BANK(FESprites_SpriteAnim01_45), HIGH(FESprites_SpriteAnim01_45), LOW(FESprites_SpriteAnim01_45), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 45
+	db 2, BANK(FESprites_SpriteAnim01_46), HIGH(FESprites_SpriteAnim01_46), LOW(FESprites_SpriteAnim01_46), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 46
+	db 2, BANK(FESprites_SpriteAnim01_47), HIGH(FESprites_SpriteAnim01_47), LOW(FESprites_SpriteAnim01_47), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 47
+	db 2, BANK(FESprites_SpriteAnim01_48), HIGH(FESprites_SpriteAnim01_48), LOW(FESprites_SpriteAnim01_48), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 48
+	db 2, BANK(FESprites_SpriteAnim01_49), HIGH(FESprites_SpriteAnim01_49), LOW(FESprites_SpriteAnim01_49), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 49
+	db 2, BANK(FESprites_SpriteAnim01_50), HIGH(FESprites_SpriteAnim01_50), LOW(FESprites_SpriteAnim01_50), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 50
+	db 2, BANK(FESprites_SpriteAnim01_51), HIGH(FESprites_SpriteAnim01_51), LOW(FESprites_SpriteAnim01_51), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 51
+	db 2, BANK(FESprites_SpriteAnim01_52), HIGH(FESprites_SpriteAnim01_52), LOW(FESprites_SpriteAnim01_52), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 52
+	db 2, BANK(FESprites_SpriteAnim01_53), HIGH(FESprites_SpriteAnim01_53), LOW(FESprites_SpriteAnim01_53), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 53
+	db 2, BANK(FESprites_SpriteAnim01_54), HIGH(FESprites_SpriteAnim01_54), LOW(FESprites_SpriteAnim01_54), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 54
+	db 2, BANK(FESprites_SpriteAnim01_55), HIGH(FESprites_SpriteAnim01_55), LOW(FESprites_SpriteAnim01_55), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 55
+	db 2, BANK(FESprites_SpriteAnim01_56), HIGH(FESprites_SpriteAnim01_56), LOW(FESprites_SpriteAnim01_56), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 56
+	db 2, BANK(FESprites_SpriteAnim01_57), HIGH(FESprites_SpriteAnim01_57), LOW(FESprites_SpriteAnim01_57), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 57
+	db 2, BANK(FESprites_SpriteAnim01_58), HIGH(FESprites_SpriteAnim01_58), LOW(FESprites_SpriteAnim01_58), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 58
+	db 2, BANK(FESprites_SpriteAnim01_59), HIGH(FESprites_SpriteAnim01_59), LOW(FESprites_SpriteAnim01_59), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 59
+	db 2, BANK(FESprites_SpriteAnim01_60), HIGH(FESprites_SpriteAnim01_60), LOW(FESprites_SpriteAnim01_60), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 60
+	db 2, BANK(FESprites_SpriteAnim01_61), HIGH(FESprites_SpriteAnim01_61), LOW(FESprites_SpriteAnim01_61), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 61
+	db 2, BANK(FESprites_SpriteAnim01_62), HIGH(FESprites_SpriteAnim01_62), LOW(FESprites_SpriteAnim01_62), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 62
+	db 2, BANK(FESprites_SpriteAnim01_63), HIGH(FESprites_SpriteAnim01_63), LOW(FESprites_SpriteAnim01_63), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 63
+	db 2, BANK(FESprites_SpriteAnim01_64), HIGH(FESprites_SpriteAnim01_64), LOW(FESprites_SpriteAnim01_64), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 64
+	db 2, BANK(FESprites_SpriteAnim01_65), HIGH(FESprites_SpriteAnim01_65), LOW(FESprites_SpriteAnim01_65), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 65
+	db 2, BANK(FESprites_SpriteAnim01_66), HIGH(FESprites_SpriteAnim01_66), LOW(FESprites_SpriteAnim01_66), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 66
+	db 2, BANK(FESprites_SpriteAnim01_67), HIGH(FESprites_SpriteAnim01_67), LOW(FESprites_SpriteAnim01_67), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 67
+	db 2, BANK(FESprites_SpriteAnim01_68), HIGH(FESprites_SpriteAnim01_68), LOW(FESprites_SpriteAnim01_68), HIGH(SpriteLayout_SpriteAnim01), LOW(SpriteLayout_SpriteAnim01) ; variant 68
 
-SpriteLayout_f0_5c7e::
+SpriteLayout_SpriteAnim01::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayoutUnused_f0_5c82::
+SpriteLayoutUnused_SpriteAnim01::
 	db $08, $00
 	db $f0, $10
 	db $08, $00
 	db $08, $00
 
 SpriteAnim00::
-	db 17, BANK(FESprites_f6_4000), HIGH(FESprites_f6_4000), LOW(FESprites_f6_4000), HIGH(SpriteLayout_f0_5c92), LOW(SpriteLayout_f0_5c92), HIGH(SpriteAttrs_f0_5cb4), LOW(SpriteAttrs_f0_5cb4) ; sprites, tiles, layout, attributes; variant 0
+	db 17, BANK(FESprites_SpriteAnim00), HIGH(FESprites_SpriteAnim00), LOW(FESprites_SpriteAnim00), HIGH(SpriteLayout_SpriteAnim00), LOW(SpriteLayout_SpriteAnim00), HIGH(SpriteAttrs_SpriteAnim00), LOW(SpriteAttrs_SpriteAnim00) ; sprites, tiles, layout, attributes; variant 0
 
-SpriteLayout_f0_5c92::
+SpriteLayout_SpriteAnim00::
 	db 203, 253 ; x, y
 	db 184, 154
 	db 184, 170
@@ -3287,25 +3287,25 @@ SpriteLayout_f0_5c92::
 	db 194, 240
 	db 192, 5
 
-SpriteAttrs_f0_5cb4::
+SpriteAttrs_SpriteAnim00::
 	db $07, $02, $02, $02, $02, $02, $02, $02, $02, $02, $01, $02, $00, $01, $03, $01
 	db $00
 
 SpriteAnim02_FunkyBomberTitle::
-	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout; variant 0 (English)
-	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; variant 1 (German)
-	db 10, BANK(FunkyBomberTitle_French), HIGH(FunkyBomberTitle_French), LOW(FunkyBomberTitle_French), HIGH(SpriteLayout_f0_5d15), LOW(SpriteLayout_f0_5d15) ; variant 2 (French)
-	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; variant 3 (Italian)
-	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; variant 4 (Spanish)
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; sprites, tiles, layout; variant 0 (English)
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; variant 1 (German)
+	db 10, BANK(FunkyBomberTitle_French), HIGH(FunkyBomberTitle_French), LOW(FunkyBomberTitle_French), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_2), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_2) ; variant 2 (French)
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; variant 3 (Italian)
+	db 10, BANK(FunkyBomberTitle), HIGH(FunkyBomberTitle), LOW(FunkyBomberTitle), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; variant 4 (Spanish)
 
 SpriteAnim03_CandyKlashTitle::
-	db 10, BANK(CandyKlashTitle), HIGH(CandyKlashTitle), LOW(CandyKlashTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; sprites, tiles, layout; variant 0 (English)
-	db 10, BANK(CandyKlashTitle_German), HIGH(CandyKlashTitle_German), LOW(CandyKlashTitle_German), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; variant 1 (German)
-	db 10, BANK(CandyKlashTitle_French), HIGH(CandyKlashTitle_French), LOW(CandyKlashTitle_French), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; variant 2 (French)
-	db 15, BANK(CandyKlashTitle_Italian), HIGH(CandyKlashTitle_Italian), LOW(CandyKlashTitle_Italian), HIGH(SpriteLayout_f0_5d29), LOW(SpriteLayout_f0_5d29) ; variant 3 (Italian)
-	db 10, BANK(CandyKlashTitle), HIGH(CandyKlashTitle), LOW(CandyKlashTitle), HIGH(SpriteLayout_f0_5d01), LOW(SpriteLayout_f0_5d01) ; variant 4 (Spanish)
+	db 10, BANK(CandyKlashTitle), HIGH(CandyKlashTitle), LOW(CandyKlashTitle), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; sprites, tiles, layout; variant 0 (English)
+	db 10, BANK(CandyKlashTitle_German), HIGH(CandyKlashTitle_German), LOW(CandyKlashTitle_German), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; variant 1 (German)
+	db 10, BANK(CandyKlashTitle_French), HIGH(CandyKlashTitle_French), LOW(CandyKlashTitle_French), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; variant 2 (French)
+	db 15, BANK(CandyKlashTitle_Italian), HIGH(CandyKlashTitle_Italian), LOW(CandyKlashTitle_Italian), HIGH(SpriteLayout_SpriteAnim03_CandyKlashTitle), LOW(SpriteLayout_SpriteAnim03_CandyKlashTitle) ; variant 3 (Italian)
+	db 10, BANK(CandyKlashTitle), HIGH(CandyKlashTitle), LOW(CandyKlashTitle), HIGH(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1), LOW(SpriteLayout_SpriteAnim02_FunkyBomberTitle_1) ; variant 4 (Spanish)
 
-SpriteLayout_f0_5d01::
+SpriteLayout_SpriteAnim02_FunkyBomberTitle_1::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
@@ -3317,7 +3317,7 @@ SpriteLayout_f0_5d01::
 	db 8, 0
 	db 8, 0
 
-SpriteLayout_f0_5d15::
+SpriteLayout_SpriteAnim02_FunkyBomberTitle_2::
 	db -3, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
@@ -3329,7 +3329,7 @@ SpriteLayout_f0_5d15::
 	db 8, 0
 	db 8, 0
 
-SpriteLayout_f0_5d29::
+SpriteLayout_SpriteAnim03_CandyKlashTitle::
 	db 4, -4 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
@@ -3347,30 +3347,30 @@ SpriteLayout_f0_5d29::
 	db 8, 0
 
 SpriteAnim04::
-	db 1, BANK(FESprites_f6_5360), HIGH(FESprites_f6_5360), LOW(FESprites_f6_5360), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; sprites, tiles, layout; variant 0
+	db 1, BANK(FESprites_SpriteAnim04), HIGH(FESprites_SpriteAnim04), LOW(FESprites_SpriteAnim04), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; sprites, tiles, layout; variant 0
 
 SpriteAnim05::
-	db 1, BANK(FESprites_f6_5380), HIGH(FESprites_f6_5380), LOW(FESprites_f6_5380), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; sprites, tiles, layout; variant 0
-	db 1, BANK(FESprites_f6_53a0), HIGH(FESprites_f6_53a0), LOW(FESprites_f6_53a0), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 1
-	db 1, BANK(FESprites_f6_53c0), HIGH(FESprites_f6_53c0), LOW(FESprites_f6_53c0), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 2
-	db 1, BANK(FESprites_f6_53e0), HIGH(FESprites_f6_53e0), LOW(FESprites_f6_53e0), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 3
-	db 1, BANK(FESprites_f6_5400), HIGH(FESprites_f6_5400), LOW(FESprites_f6_5400), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 4
-	db 1, BANK(FESprites_f6_5420), HIGH(FESprites_f6_5420), LOW(FESprites_f6_5420), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 5
-	db 1, BANK(FESprites_f6_5440), HIGH(FESprites_f6_5440), LOW(FESprites_f6_5440), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 6
-	db 1, BANK(FESprites_f6_5460), HIGH(FESprites_f6_5460), LOW(FESprites_f6_5460), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 7
-	db 1, BANK(FESprites_f6_5480), HIGH(FESprites_f6_5480), LOW(FESprites_f6_5480), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 8
-	db 1, BANK(FESprites_f6_54a0), HIGH(FESprites_f6_54a0), LOW(FESprites_f6_54a0), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; variant 9
+	db 1, BANK(FESprites_SpriteAnim05_0), HIGH(FESprites_SpriteAnim05_0), LOW(FESprites_SpriteAnim05_0), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; sprites, tiles, layout; variant 0
+	db 1, BANK(FESprites_SpriteAnim05_1), HIGH(FESprites_SpriteAnim05_1), LOW(FESprites_SpriteAnim05_1), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 1
+	db 1, BANK(FESprites_SpriteAnim05_2), HIGH(FESprites_SpriteAnim05_2), LOW(FESprites_SpriteAnim05_2), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 2
+	db 1, BANK(FESprites_SpriteAnim05_3), HIGH(FESprites_SpriteAnim05_3), LOW(FESprites_SpriteAnim05_3), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 3
+	db 1, BANK(FESprites_SpriteAnim05_4), HIGH(FESprites_SpriteAnim05_4), LOW(FESprites_SpriteAnim05_4), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 4
+	db 1, BANK(FESprites_SpriteAnim05_5), HIGH(FESprites_SpriteAnim05_5), LOW(FESprites_SpriteAnim05_5), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 5
+	db 1, BANK(FESprites_SpriteAnim05_6), HIGH(FESprites_SpriteAnim05_6), LOW(FESprites_SpriteAnim05_6), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 6
+	db 1, BANK(FESprites_SpriteAnim05_7), HIGH(FESprites_SpriteAnim05_7), LOW(FESprites_SpriteAnim05_7), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 7
+	db 1, BANK(FESprites_SpriteAnim05_8), HIGH(FESprites_SpriteAnim05_8), LOW(FESprites_SpriteAnim05_8), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 8
+	db 1, BANK(FESprites_SpriteAnim05_9), HIGH(FESprites_SpriteAnim05_9), LOW(FESprites_SpriteAnim05_9), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; variant 9
 
 SpriteAnim06::
-	db 1, BANK(FESprites_f6_54c0), HIGH(FESprites_f6_54c0), LOW(FESprites_f6_54c0), HIGH(SpriteLayout_f0_5d8f), LOW(SpriteLayout_f0_5d8f) ; sprites, tiles, layout; variant 0
+	db 1, BANK(FESprites_SpriteAnim06), HIGH(FESprites_SpriteAnim06), LOW(FESprites_SpriteAnim06), HIGH(SpriteLayout_SpriteAnim05), LOW(SpriteLayout_SpriteAnim05) ; sprites, tiles, layout; variant 0
 
-SpriteLayout_f0_5d8f::
+SpriteLayout_SpriteAnim05::
 	db 0, 0 ; dx, dy from the previous sprite
 
 SpriteAnim07_ComingSoon::
-	db 40, BANK(ComingSoonQ3), HIGH(ComingSoonQ3), LOW(ComingSoonQ3), HIGH(SpriteLayout_f0_5d97), LOW(SpriteLayout_f0_5d97) ; sprites, tiles, layout; variant 0
+	db 40, BANK(ComingSoonQ3), HIGH(ComingSoonQ3), LOW(ComingSoonQ3), HIGH(SpriteLayout_SpriteAnim07_ComingSoon), LOW(SpriteLayout_SpriteAnim07_ComingSoon) ; sprites, tiles, layout; variant 0
 
-SpriteLayout_f0_5d97::
+SpriteLayout_SpriteAnim07_ComingSoon::
 	db 0, 24 ; x, y
 	db 8, 24
 	db 16, 24
@@ -3413,12 +3413,12 @@ SpriteLayout_f0_5d97::
 	db 56, 112
 
 SpriteAnim08::
-	db 8, BANK(FESprites_f6_6200), HIGH(FESprites_f6_6200), LOW(FESprites_f6_6200), HIGH(SpriteLayout_f0_5dff), LOW(SpriteLayout_f0_5dff) ; sprites, tiles, layout; variant 0
-	db 8, BANK(FESprites_f6_6300), HIGH(FESprites_f6_6300), LOW(FESprites_f6_6300), HIGH(SpriteLayout_f0_5dff), LOW(SpriteLayout_f0_5dff) ; variant 1
-	db 8, BANK(FESprites_f6_6400), HIGH(FESprites_f6_6400), LOW(FESprites_f6_6400), HIGH(SpriteLayout_f0_5dff), LOW(SpriteLayout_f0_5dff) ; variant 2
-	db 8, BANK(FESprites_f6_6500), HIGH(FESprites_f6_6500), LOW(FESprites_f6_6500), HIGH(SpriteLayout_f0_5dff), LOW(SpriteLayout_f0_5dff) ; variant 3
+	db 8, BANK(FESprites_SpriteAnim08_0), HIGH(FESprites_SpriteAnim08_0), LOW(FESprites_SpriteAnim08_0), HIGH(SpriteLayout_SpriteAnim08), LOW(SpriteLayout_SpriteAnim08) ; sprites, tiles, layout; variant 0
+	db 8, BANK(FESprites_SpriteAnim08_1), HIGH(FESprites_SpriteAnim08_1), LOW(FESprites_SpriteAnim08_1), HIGH(SpriteLayout_SpriteAnim08), LOW(SpriteLayout_SpriteAnim08) ; variant 1
+	db 8, BANK(FESprites_SpriteAnim08_2), HIGH(FESprites_SpriteAnim08_2), LOW(FESprites_SpriteAnim08_2), HIGH(SpriteLayout_SpriteAnim08), LOW(SpriteLayout_SpriteAnim08) ; variant 2
+	db 8, BANK(FESprites_SpriteAnim08_3), HIGH(FESprites_SpriteAnim08_3), LOW(FESprites_SpriteAnim08_3), HIGH(SpriteLayout_SpriteAnim08), LOW(SpriteLayout_SpriteAnim08) ; variant 3
 
-SpriteLayout_f0_5dff::
+SpriteLayout_SpriteAnim08::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
@@ -3429,9 +3429,9 @@ SpriteLayout_f0_5dff::
 	db 8, 0
 
 SpriteAnim09::
-	db 6, BANK(FESprites_f6_6600), HIGH(FESprites_f6_6600), LOW(FESprites_f6_6600), HIGH(SpriteLayout_f0_5e15), LOW(SpriteLayout_f0_5e15) ; sprites, tiles, layout; variant 0
+	db 6, BANK(FESprites_SpriteAnim09), HIGH(FESprites_SpriteAnim09), LOW(FESprites_SpriteAnim09), HIGH(SpriteLayout_SpriteAnim09), LOW(SpriteLayout_SpriteAnim09) ; sprites, tiles, layout; variant 0
 
-SpriteLayout_f0_5e15::
+SpriteLayout_SpriteAnim09::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
@@ -3440,13 +3440,13 @@ SpriteLayout_f0_5e15::
 	db 8, 0
 
 SpriteAnim10::
-	db 8, BANK(FESprites_f6_66c0), HIGH(FESprites_f6_66c0), LOW(FESprites_f6_66c0), HIGH(SpriteLayout_f0_5e3f), LOW(SpriteLayout_f0_5e3f) ; sprites, tiles, layout; variant 0
-	db 8, BANK(FESprites_f6_68c0), HIGH(FESprites_f6_68c0), LOW(FESprites_f6_68c0), HIGH(SpriteLayout_f0_5e3f), LOW(SpriteLayout_f0_5e3f) ; variant 1
-	db 8, BANK(FESprites_f6_67c0), HIGH(FESprites_f6_67c0), LOW(FESprites_f6_67c0), HIGH(SpriteLayout_f0_5e3f), LOW(SpriteLayout_f0_5e3f) ; variant 2
-	db 8, BANK(FESprites_f6_6ac0), HIGH(FESprites_f6_6ac0), LOW(FESprites_f6_6ac0), HIGH(SpriteLayout_f0_5e3f), LOW(SpriteLayout_f0_5e3f) ; variant 3
-	db 8, BANK(FESprites_f6_69c0), HIGH(FESprites_f6_69c0), LOW(FESprites_f6_69c0), HIGH(SpriteLayout_f0_5e3f), LOW(SpriteLayout_f0_5e3f) ; variant 4
+	db 8, BANK(FESprites_SpriteAnim10_0), HIGH(FESprites_SpriteAnim10_0), LOW(FESprites_SpriteAnim10_0), HIGH(SpriteLayout_SpriteAnim10), LOW(SpriteLayout_SpriteAnim10) ; sprites, tiles, layout; variant 0
+	db 8, BANK(FESprites_SpriteAnim10_1), HIGH(FESprites_SpriteAnim10_1), LOW(FESprites_SpriteAnim10_1), HIGH(SpriteLayout_SpriteAnim10), LOW(SpriteLayout_SpriteAnim10) ; variant 1
+	db 8, BANK(FESprites_SpriteAnim10_2), HIGH(FESprites_SpriteAnim10_2), LOW(FESprites_SpriteAnim10_2), HIGH(SpriteLayout_SpriteAnim10), LOW(SpriteLayout_SpriteAnim10) ; variant 2
+	db 8, BANK(FESprites_SpriteAnim10_3), HIGH(FESprites_SpriteAnim10_3), LOW(FESprites_SpriteAnim10_3), HIGH(SpriteLayout_SpriteAnim10), LOW(SpriteLayout_SpriteAnim10) ; variant 3
+	db 8, BANK(FESprites_SpriteAnim10_4), HIGH(FESprites_SpriteAnim10_4), LOW(FESprites_SpriteAnim10_4), HIGH(SpriteLayout_SpriteAnim10), LOW(SpriteLayout_SpriteAnim10) ; variant 4
 
-SpriteLayout_f0_5e3f::
+SpriteLayout_SpriteAnim10::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
@@ -3457,9 +3457,9 @@ SpriteLayout_f0_5e3f::
 	db 8, 0
 
 SpriteAnim11::
-	db 8, BANK(FESprites_f6_6bc0), HIGH(FESprites_f6_6bc0), LOW(FESprites_f6_6bc0), HIGH(SpriteLayout_f0_5e57), LOW(SpriteLayout_f0_5e57), HIGH(SpriteAttrs_f0_5e67), LOW(SpriteAttrs_f0_5e67) ; sprites, tiles, layout, attributes; variant 0
+	db 8, BANK(FESprites_SpriteAnim11), HIGH(FESprites_SpriteAnim11), LOW(FESprites_SpriteAnim11), HIGH(SpriteLayout_SpriteAnim11), LOW(SpriteLayout_SpriteAnim11), HIGH(SpriteAttrs_SpriteAnim11), LOW(SpriteAttrs_SpriteAnim11) ; sprites, tiles, layout, attributes; variant 0
 
-SpriteLayout_f0_5e57::
+SpriteLayout_SpriteAnim11::
 	db -4, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
@@ -3469,42 +3469,42 @@ SpriteLayout_f0_5e57::
 	db -13, -8
 	db 8, 0
 
-SpriteAttrs_f0_5e67::
+SpriteAttrs_SpriteAnim11::
 	db $00, $00, $00, $00, $00, $00, $01, $01
 
 SpriteAnim12::
-	db 2, BANK(FESprites_f6_6cc0), HIGH(FESprites_f6_6cc0), LOW(FESprites_f6_6cc0), HIGH(SpriteLayout_f0_5e75), LOW(SpriteLayout_f0_5e75) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim12), HIGH(FESprites_SpriteAnim12), LOW(FESprites_SpriteAnim12), HIGH(SpriteLayout_SpriteAnim12), LOW(SpriteLayout_SpriteAnim12) ; sprites, tiles, layout; variant 0
 
-SpriteLayout_f0_5e75::
+SpriteLayout_SpriteAnim12::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim13::
-	db 4, BANK(FESprites_f6_6d00), HIGH(FESprites_f6_6d00), LOW(FESprites_f6_6d00), HIGH(SpriteLayout_f0_5e99), LOW(SpriteLayout_f0_5e99), HIGH(SpriteAttrs_f0_5ea1), LOW(SpriteAttrs_f0_5ea1) ; sprites, tiles, layout, attributes; variant 0
-	db 4, BANK(FESprites_f6_6d80), HIGH(FESprites_f6_6d80), LOW(FESprites_f6_6d80), HIGH(SpriteLayout_f0_5e99), LOW(SpriteLayout_f0_5e99), HIGH(SpriteAttrs_f0_5ea1), LOW(SpriteAttrs_f0_5ea1) ; variant 1
-	db 4, BANK(FESprites_f6_6e00), HIGH(FESprites_f6_6e00), LOW(FESprites_f6_6e00), HIGH(SpriteLayout_f0_5e99), LOW(SpriteLayout_f0_5e99), HIGH(SpriteAttrs_f0_5ea1), LOW(SpriteAttrs_f0_5ea1) ; variant 2
-	db 4, BANK(FESprites_f6_6e80), HIGH(FESprites_f6_6e80), LOW(FESprites_f6_6e80), HIGH(SpriteLayout_f0_5e99), LOW(SpriteLayout_f0_5e99), HIGH(SpriteAttrs_f0_5ea1), LOW(SpriteAttrs_f0_5ea1) ; variant 3
+	db 4, BANK(FESprites_SpriteAnim13_0), HIGH(FESprites_SpriteAnim13_0), LOW(FESprites_SpriteAnim13_0), HIGH(SpriteLayout_SpriteAnim13), LOW(SpriteLayout_SpriteAnim13), HIGH(SpriteAttrs_SpriteAnim13), LOW(SpriteAttrs_SpriteAnim13) ; sprites, tiles, layout, attributes; variant 0
+	db 4, BANK(FESprites_SpriteAnim13_1), HIGH(FESprites_SpriteAnim13_1), LOW(FESprites_SpriteAnim13_1), HIGH(SpriteLayout_SpriteAnim13), LOW(SpriteLayout_SpriteAnim13), HIGH(SpriteAttrs_SpriteAnim13), LOW(SpriteAttrs_SpriteAnim13) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim13_2), HIGH(FESprites_SpriteAnim13_2), LOW(FESprites_SpriteAnim13_2), HIGH(SpriteLayout_SpriteAnim13), LOW(SpriteLayout_SpriteAnim13), HIGH(SpriteAttrs_SpriteAnim13), LOW(SpriteAttrs_SpriteAnim13) ; variant 2
+	db 4, BANK(FESprites_SpriteAnim13_3), HIGH(FESprites_SpriteAnim13_3), LOW(FESprites_SpriteAnim13_3), HIGH(SpriteLayout_SpriteAnim13), LOW(SpriteLayout_SpriteAnim13), HIGH(SpriteAttrs_SpriteAnim13), LOW(SpriteAttrs_SpriteAnim13) ; variant 3
 
-SpriteLayout_f0_5e99::
+SpriteLayout_SpriteAnim13::
 	db 0, 12 ; dx, dy from the previous sprite
 	db 8, 0
 	db -8, 0
 	db 8, 0
 
-SpriteAttrs_f0_5ea1::
+SpriteAttrs_SpriteAnim13::
 	db $00, $00, $01, $01
 
 SpriteAnim14::
-	db 10, BANK(FESprites_f6_6f00), HIGH(FESprites_f6_6f00), LOW(FESprites_f6_6f00), HIGH(SpriteLayout_f0_5ed5), LOW(SpriteLayout_f0_5ed5) ; sprites, tiles, layout; variant 0
-	db 6, BANK(FESprites_f6_7040), HIGH(FESprites_f6_7040), LOW(FESprites_f6_7040), HIGH(SpriteLayout_f0_5ee9), LOW(SpriteLayout_f0_5ee9) ; variant 1
-	db 4, BANK(FESprites_f6_7100), HIGH(FESprites_f6_7100), LOW(FESprites_f6_7100), HIGH(SpriteLayout_f0_5ef5), LOW(SpriteLayout_f0_5ef5) ; variant 2
-	db 2, BANK(FESprites_f6_7180), HIGH(FESprites_f6_7180), LOW(FESprites_f6_7180), HIGH(SpriteLayout_f0_5efd), LOW(SpriteLayout_f0_5efd) ; variant 3
-	db 10, BANK(FESprites_f6_7340), HIGH(FESprites_f6_7340), LOW(FESprites_f6_7340), HIGH(SpriteLayout_f0_5f01), LOW(SpriteLayout_f0_5f01) ; variant 4
-	db 6, BANK(FESprites_f6_7280), HIGH(FESprites_f6_7280), LOW(FESprites_f6_7280), HIGH(SpriteLayout_f0_5f15), LOW(SpriteLayout_f0_5f15) ; variant 5
-	db 4, BANK(FESprites_f6_7200), HIGH(FESprites_f6_7200), LOW(FESprites_f6_7200), HIGH(SpriteLayout_f0_5f21), LOW(SpriteLayout_f0_5f21) ; variant 6
-	db 2, BANK(FESprites_f6_71c0), HIGH(FESprites_f6_71c0), LOW(FESprites_f6_71c0), HIGH(SpriteLayout_f0_5f29), LOW(SpriteLayout_f0_5f29) ; variant 7
+	db 10, BANK(FESprites_SpriteAnim14_0), HIGH(FESprites_SpriteAnim14_0), LOW(FESprites_SpriteAnim14_0), HIGH(SpriteLayout_Anim14_0), LOW(SpriteLayout_Anim14_0) ; sprites, tiles, layout; variant 0
+	db 6, BANK(FESprites_SpriteAnim14_1), HIGH(FESprites_SpriteAnim14_1), LOW(FESprites_SpriteAnim14_1), HIGH(SpriteLayout_Anim14_1), LOW(SpriteLayout_Anim14_1) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim14_2), HIGH(FESprites_SpriteAnim14_2), LOW(FESprites_SpriteAnim14_2), HIGH(SpriteLayout_Anim14_2), LOW(SpriteLayout_Anim14_2) ; variant 2
+	db 2, BANK(FESprites_SpriteAnim14_3), HIGH(FESprites_SpriteAnim14_3), LOW(FESprites_SpriteAnim14_3), HIGH(SpriteLayout_Anim14_3), LOW(SpriteLayout_Anim14_3) ; variant 3
+	db 10, BANK(FESprites_SpriteAnim14_4), HIGH(FESprites_SpriteAnim14_4), LOW(FESprites_SpriteAnim14_4), HIGH(SpriteLayout_Anim14_4), LOW(SpriteLayout_Anim14_4) ; variant 4
+	db 6, BANK(FESprites_SpriteAnim14_5), HIGH(FESprites_SpriteAnim14_5), LOW(FESprites_SpriteAnim14_5), HIGH(SpriteLayout_Anim14_5), LOW(SpriteLayout_Anim14_5) ; variant 5
+	db 4, BANK(FESprites_SpriteAnim14_6), HIGH(FESprites_SpriteAnim14_6), LOW(FESprites_SpriteAnim14_6), HIGH(SpriteLayout_Anim14_6), LOW(SpriteLayout_Anim14_6) ; variant 6
+	db 2, BANK(FESprites_SpriteAnim14_7), HIGH(FESprites_SpriteAnim14_7), LOW(FESprites_SpriteAnim14_7), HIGH(SpriteLayout_Anim14_7), LOW(SpriteLayout_Anim14_7) ; variant 7
 
-SpriteLayout_f0_5ed5::
+SpriteLayout_Anim14_0::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db -8, 16
@@ -3516,7 +3516,7 @@ SpriteLayout_f0_5ed5::
 	db -8, 16
 	db 8, 0
 
-SpriteLayout_f0_5ee9::
+SpriteLayout_Anim14_1::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db -8, 16
@@ -3524,53 +3524,53 @@ SpriteLayout_f0_5ee9::
 	db -8, 16
 	db 8, 0
 
-SpriteLayout_f0_5ef5::
+SpriteLayout_Anim14_2::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db -8, 16
 	db 8, 0
 
-SpriteLayout_f0_5efd::
+SpriteLayout_Anim14_3::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_5f01::
-	db 0, 0 ; dx, dy from the previous sprite
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-	db 8, 0
-
-SpriteLayout_f0_5f15::
+SpriteLayout_Anim14_4::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
 	db 8, 0
 	db 8, 0
 	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
 
-SpriteLayout_f0_5f21::
+SpriteLayout_Anim14_5::
+	db 0, 0 ; dx, dy from the previous sprite
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+	db 8, 0
+
+SpriteLayout_Anim14_6::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-SpriteLayout_f0_5f29::
+SpriteLayout_Anim14_7::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim15::
-	db 9, BANK(FESprites_f6_7480), HIGH(FESprites_f6_7480), LOW(FESprites_f6_7480), HIGH(SpriteLayout_f0_5f45), LOW(SpriteLayout_f0_5f45) ; sprites, tiles, layout; variant 0
-	db 9, BANK(FESprites_f6_75a0), HIGH(FESprites_f6_75a0), LOW(FESprites_f6_75a0), HIGH(SpriteLayout_f0_5f57), LOW(SpriteLayout_f0_5f57) ; variant 1
-	db 9, BANK(FESprites_f6_76c0), HIGH(FESprites_f6_76c0), LOW(FESprites_f6_76c0), HIGH(SpriteLayout_f0_5f69), LOW(SpriteLayout_f0_5f69) ; variant 2
-	db 9, BANK(FESprites_f6_75a0), HIGH(FESprites_f6_75a0), LOW(FESprites_f6_75a0), HIGH(SpriteLayout_f0_5f57), LOW(SpriteLayout_f0_5f57) ; variant 3
+	db 9, BANK(FESprites_SpriteAnim15_1), HIGH(FESprites_SpriteAnim15_1), LOW(FESprites_SpriteAnim15_1), HIGH(SpriteLayout_SpriteAnim15_1), LOW(SpriteLayout_SpriteAnim15_1) ; sprites, tiles, layout; variant 0
+	db 9, BANK(FESprites_SpriteAnim15_2), HIGH(FESprites_SpriteAnim15_2), LOW(FESprites_SpriteAnim15_2), HIGH(SpriteLayout_SpriteAnim15_2), LOW(SpriteLayout_SpriteAnim15_2) ; variant 1
+	db 9, BANK(FESprites_SpriteAnim15_3), HIGH(FESprites_SpriteAnim15_3), LOW(FESprites_SpriteAnim15_3), HIGH(SpriteLayout_SpriteAnim15_3), LOW(SpriteLayout_SpriteAnim15_3) ; variant 2
+	db 9, BANK(FESprites_SpriteAnim15_2), HIGH(FESprites_SpriteAnim15_2), LOW(FESprites_SpriteAnim15_2), HIGH(SpriteLayout_SpriteAnim15_2), LOW(SpriteLayout_SpriteAnim15_2) ; variant 3
 
-SpriteLayout_f0_5f45::
+SpriteLayout_SpriteAnim15_1::
 	db -16, -33 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -3581,7 +3581,7 @@ SpriteLayout_f0_5f45::
 	db 10, -30
 	db 0, 16
 
-SpriteLayout_f0_5f57::
+SpriteLayout_SpriteAnim15_2::
 	db -15, -33 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -3592,7 +3592,7 @@ SpriteLayout_f0_5f57::
 	db 11, -30
 	db 0, 16
 
-SpriteLayout_f0_5f69::
+SpriteLayout_SpriteAnim15_3::
 	db -14, -33 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -3604,12 +3604,12 @@ SpriteLayout_f0_5f69::
 	db 0, 16
 
 SpriteAnim16::
-	db 13, BANK(FESprites_f6_77e0), HIGH(FESprites_f6_77e0), LOW(FESprites_f6_77e0), HIGH(SpriteLayout_f0_5f93), LOW(SpriteLayout_f0_5f93) ; sprites, tiles, layout; variant 0
-	db 13, BANK(FESprites_f6_7980), HIGH(FESprites_f6_7980), LOW(FESprites_f6_7980), HIGH(SpriteLayout_f0_5fad), LOW(SpriteLayout_f0_5fad) ; variant 1
-	db 10, BANK(FESprites_f6_7b20), HIGH(FESprites_f6_7b20), LOW(FESprites_f6_7b20), HIGH(SpriteLayout_f0_5fc7), LOW(SpriteLayout_f0_5fc7) ; variant 2
-	db 11, BANK(FESprites_f6_7c60), HIGH(FESprites_f6_7c60), LOW(FESprites_f6_7c60), HIGH(SpriteLayout_f0_5fdb), LOW(SpriteLayout_f0_5fdb) ; variant 3
+	db 13, BANK(FESprites_SpriteAnim16_0), HIGH(FESprites_SpriteAnim16_0), LOW(FESprites_SpriteAnim16_0), HIGH(SpriteLayout_Anim16_0), LOW(SpriteLayout_Anim16_0) ; sprites, tiles, layout; variant 0
+	db 13, BANK(FESprites_SpriteAnim16_1), HIGH(FESprites_SpriteAnim16_1), LOW(FESprites_SpriteAnim16_1), HIGH(SpriteLayout_Anim16_1), LOW(SpriteLayout_Anim16_1) ; variant 1
+	db 10, BANK(FESprites_SpriteAnim16_2), HIGH(FESprites_SpriteAnim16_2), LOW(FESprites_SpriteAnim16_2), HIGH(SpriteLayout_Anim16_2), LOW(SpriteLayout_Anim16_2) ; variant 2
+	db 11, BANK(FESprites_SpriteAnim16_3), HIGH(FESprites_SpriteAnim16_3), LOW(FESprites_SpriteAnim16_3), HIGH(SpriteLayout_Anim16_3), LOW(SpriteLayout_Anim16_3) ; variant 3
 
-SpriteLayout_f0_5f93::
+SpriteLayout_Anim16_0::
 	db -14, -80 ; dx, dy from the previous sprite
 	db 3, 16
 	db -1, 20
@@ -3624,7 +3624,7 @@ SpriteLayout_f0_5f93::
 	db -2, 19
 	db 8, -54
 
-SpriteLayout_f0_5fad::
+SpriteLayout_Anim16_1::
 	db -13, -80 ; dx, dy from the previous sprite
 	db 3, 16
 	db -2, 16
@@ -3639,7 +3639,7 @@ SpriteLayout_f0_5fad::
 	db -3, 18
 	db 10, -50
 
-SpriteLayout_f0_5fc7::
+SpriteLayout_Anim16_2::
 	db -14, -76 ; dx, dy from the previous sprite
 	db 3, 16
 	db 5, -17
@@ -3651,7 +3651,7 @@ SpriteLayout_f0_5fc7::
 	db -4, 18
 	db 9, -32
 
-SpriteLayout_f0_5fdb::
+SpriteLayout_Anim16_3::
 	db -14, -80 ; dx, dy from the previous sprite
 	db 0, 22
 	db 8, -22
@@ -3665,130 +3665,130 @@ SpriteLayout_f0_5fdb::
 	db 0, 22
 
 SpriteAnim17::
-	db 2, BANK(FESprites_f6_7dc0), HIGH(FESprites_f6_7dc0), LOW(FESprites_f6_7dc0), HIGH(SpriteLayout_f0_601b), LOW(SpriteLayout_f0_601b) ; sprites, tiles, layout; variant 0
-	db 3, BANK(FESprites_f6_7e00), HIGH(FESprites_f6_7e00), LOW(FESprites_f6_7e00), HIGH(SpriteLayout_f0_601f), LOW(SpriteLayout_f0_601f) ; variant 1
-	db 3, BANK(FESprites_f6_7e60), HIGH(FESprites_f6_7e60), LOW(FESprites_f6_7e60), HIGH(SpriteLayout_f0_6025), LOW(SpriteLayout_f0_6025) ; variant 2
-	db 3, BANK(FESprites_f6_7ec0), HIGH(FESprites_f6_7ec0), LOW(FESprites_f6_7ec0), HIGH(SpriteLayout_f0_602b), LOW(SpriteLayout_f0_602b) ; variant 3
-	db 2, BANK(FESprites_f6_7f20), HIGH(FESprites_f6_7f20), LOW(FESprites_f6_7f20), HIGH(SpriteLayout_f0_6031), LOW(SpriteLayout_f0_6031) ; variant 4
-	db 2, BANK(FESprites_f6_7f60), HIGH(FESprites_f6_7f60), LOW(FESprites_f6_7f60), HIGH(SpriteLayout_f0_6035), LOW(SpriteLayout_f0_6035) ; variant 5
-	db 2, BANK(FESprites_f6_7fa0), HIGH(FESprites_f6_7fa0), LOW(FESprites_f6_7fa0), HIGH(SpriteLayout_f0_6039), LOW(SpriteLayout_f0_6039) ; variant 6
+	db 2, BANK(FESprites_SpriteAnim17_0), HIGH(FESprites_SpriteAnim17_0), LOW(FESprites_SpriteAnim17_0), HIGH(SpriteLayout_Anim17_0), LOW(SpriteLayout_Anim17_0) ; sprites, tiles, layout; variant 0
+	db 3, BANK(FESprites_SpriteAnim17_1), HIGH(FESprites_SpriteAnim17_1), LOW(FESprites_SpriteAnim17_1), HIGH(SpriteLayout_Anim17_1), LOW(SpriteLayout_Anim17_1) ; variant 1
+	db 3, BANK(FESprites_SpriteAnim17_2), HIGH(FESprites_SpriteAnim17_2), LOW(FESprites_SpriteAnim17_2), HIGH(SpriteLayout_Anim17_2), LOW(SpriteLayout_Anim17_2) ; variant 2
+	db 3, BANK(FESprites_SpriteAnim17_3), HIGH(FESprites_SpriteAnim17_3), LOW(FESprites_SpriteAnim17_3), HIGH(SpriteLayout_Anim17_3), LOW(SpriteLayout_Anim17_3) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim17_4), HIGH(FESprites_SpriteAnim17_4), LOW(FESprites_SpriteAnim17_4), HIGH(SpriteLayout_Anim17_4), LOW(SpriteLayout_Anim17_4) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim17_5), HIGH(FESprites_SpriteAnim17_5), LOW(FESprites_SpriteAnim17_5), HIGH(SpriteLayout_Anim17_5), LOW(SpriteLayout_Anim17_5) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim17_6), HIGH(FESprites_SpriteAnim17_6), LOW(FESprites_SpriteAnim17_6), HIGH(SpriteLayout_Anim17_6), LOW(SpriteLayout_Anim17_6) ; variant 6
 
-SpriteLayout_f0_601b::
+SpriteLayout_Anim17_0::
 	db -7, -9 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_601f::
+SpriteLayout_Anim17_1::
 	db -6, -15 ; dx, dy from the previous sprite
 	db 8, 1
 	db -6, 15
 
-SpriteLayout_f0_6025::
+SpriteLayout_Anim17_2::
 	db -7, -15 ; dx, dy from the previous sprite
 	db 4, 16
 	db 4, -16
 
-SpriteLayout_f0_602b::
+SpriteLayout_Anim17_3::
 	db -6, -14 ; dx, dy from the previous sprite
 	db 3, 16
 	db 5, -16
 
-SpriteLayout_f0_6031::
+SpriteLayout_Anim17_4::
 	db -7, -9 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_6035::
+SpriteLayout_Anim17_5::
 	db -7, -6 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_6039::
+SpriteLayout_Anim17_6::
 	db -6, -3 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim18::
-	db 2, BANK(FESprites_f7_4000), HIGH(FESprites_f7_4000), LOW(FESprites_f7_4000), HIGH(SpriteLayout_f0_6067), LOW(SpriteLayout_f0_6067) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f7_4080), HIGH(FESprites_f7_4080), LOW(FESprites_f7_4080), HIGH(SpriteLayout_f0_606f), LOW(SpriteLayout_f0_606f) ; variant 1
-	db 2, BANK(FESprites_f7_4040), HIGH(FESprites_f7_4040), LOW(FESprites_f7_4040), HIGH(SpriteLayout_f0_606b), LOW(SpriteLayout_f0_606b) ; variant 2
-	db 2, BANK(FESprites_f7_4080), HIGH(FESprites_f7_4080), LOW(FESprites_f7_4080), HIGH(SpriteLayout_f0_606f), LOW(SpriteLayout_f0_606f) ; variant 3
-	db 2, BANK(FESprites_f7_4000), HIGH(FESprites_f7_4000), LOW(FESprites_f7_4000), HIGH(SpriteLayout_f0_6067), LOW(SpriteLayout_f0_6067) ; variant 4
-	db 2, BANK(FESprites_f7_40c0), HIGH(FESprites_f7_40c0), LOW(FESprites_f7_40c0), HIGH(SpriteLayout_f0_6073), LOW(SpriteLayout_f0_6073) ; variant 5
-	db 2, BANK(FESprites_f7_4000), HIGH(FESprites_f7_4000), LOW(FESprites_f7_4000), HIGH(SpriteLayout_f0_6067), LOW(SpriteLayout_f0_6067) ; variant 6
+	db 2, BANK(FESprites_SpriteAnim18_0), HIGH(FESprites_SpriteAnim18_0), LOW(FESprites_SpriteAnim18_0), HIGH(SpriteLayout_Anim18_0), LOW(SpriteLayout_Anim18_0) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim18_1), HIGH(FESprites_SpriteAnim18_1), LOW(FESprites_SpriteAnim18_1), HIGH(SpriteLayout_Anim18_1), LOW(SpriteLayout_Anim18_1) ; variant 1
+	db 2, BANK(FESprites_SpriteAnim18_2), HIGH(FESprites_SpriteAnim18_2), LOW(FESprites_SpriteAnim18_2), HIGH(SpriteLayout_Anim18_2), LOW(SpriteLayout_Anim18_2) ; variant 2
+	db 2, BANK(FESprites_SpriteAnim18_1), HIGH(FESprites_SpriteAnim18_1), LOW(FESprites_SpriteAnim18_1), HIGH(SpriteLayout_Anim18_1), LOW(SpriteLayout_Anim18_1) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim18_0), HIGH(FESprites_SpriteAnim18_0), LOW(FESprites_SpriteAnim18_0), HIGH(SpriteLayout_Anim18_0), LOW(SpriteLayout_Anim18_0) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim18_3), HIGH(FESprites_SpriteAnim18_3), LOW(FESprites_SpriteAnim18_3), HIGH(SpriteLayout_Anim18_3), LOW(SpriteLayout_Anim18_3) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim18_0), HIGH(FESprites_SpriteAnim18_0), LOW(FESprites_SpriteAnim18_0), HIGH(SpriteLayout_Anim18_0), LOW(SpriteLayout_Anim18_0) ; variant 6
 
-SpriteLayout_f0_6067::
+SpriteLayout_Anim18_0::
 	db -8, -9 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_606b::
+SpriteLayout_Anim18_2::
 	db -8, -5 ; dx, dy from the previous sprite
 	db 8, -2
 
-SpriteLayout_f0_606f::
+SpriteLayout_Anim18_1::
 	db -8, -7 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_6073::
+SpriteLayout_Anim18_3::
 	db -8, -12 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim19::
-	db 2, BANK(FESprites_f7_4100), HIGH(FESprites_f7_4100), LOW(FESprites_f7_4100), HIGH(SpriteLayout_f0_608f), LOW(SpriteLayout_f0_608f) ; sprites, tiles, layout; variant 0
-	db 3, BANK(FESprites_f7_4140), HIGH(FESprites_f7_4140), LOW(FESprites_f7_4140), HIGH(SpriteLayout_f0_6093), LOW(SpriteLayout_f0_6093) ; variant 1
-	db 3, BANK(FESprites_f7_41a0), HIGH(FESprites_f7_41a0), LOW(FESprites_f7_41a0), HIGH(SpriteLayout_f0_6099), LOW(SpriteLayout_f0_6099) ; variant 2
-	db 3, BANK(FESprites_f7_4140), HIGH(FESprites_f7_4140), LOW(FESprites_f7_4140), HIGH(SpriteLayout_f0_6093), LOW(SpriteLayout_f0_6093) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim19_1), HIGH(FESprites_SpriteAnim19_1), LOW(FESprites_SpriteAnim19_1), HIGH(SpriteLayout_SpriteAnim19_1), LOW(SpriteLayout_SpriteAnim19_1) ; sprites, tiles, layout; variant 0
+	db 3, BANK(FESprites_SpriteAnim19_2), HIGH(FESprites_SpriteAnim19_2), LOW(FESprites_SpriteAnim19_2), HIGH(SpriteLayout_SpriteAnim19_2), LOW(SpriteLayout_SpriteAnim19_2) ; variant 1
+	db 3, BANK(FESprites_SpriteAnim19_3), HIGH(FESprites_SpriteAnim19_3), LOW(FESprites_SpriteAnim19_3), HIGH(SpriteLayout_SpriteAnim19_3), LOW(SpriteLayout_SpriteAnim19_3) ; variant 2
+	db 3, BANK(FESprites_SpriteAnim19_2), HIGH(FESprites_SpriteAnim19_2), LOW(FESprites_SpriteAnim19_2), HIGH(SpriteLayout_SpriteAnim19_2), LOW(SpriteLayout_SpriteAnim19_2) ; variant 3
 
-SpriteLayout_f0_608f::
+SpriteLayout_SpriteAnim19_1::
 	db -7, -7 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6093::
+SpriteLayout_SpriteAnim19_2::
 	db -8, 1 ; dx, dy from the previous sprite
 	db 5, -19
 	db 6, 19
 
-SpriteLayout_f0_6099::
+SpriteLayout_SpriteAnim19_3::
 	db -9, 2 ; dx, dy from the previous sprite
 	db 6, -21
 	db 7, 21
 
 SpriteAnim20::
-	db 2, BANK(FESprites_f7_4200), HIGH(FESprites_f7_4200), LOW(FESprites_f7_4200), HIGH(SpriteLayout_f0_60b7), LOW(SpriteLayout_f0_60b7) ; sprites, tiles, layout; variant 0
-	db 3, BANK(FESprites_f7_4240), HIGH(FESprites_f7_4240), LOW(FESprites_f7_4240), HIGH(SpriteLayout_f0_60bb), LOW(SpriteLayout_f0_60bb) ; variant 1
-	db 3, BANK(FESprites_f7_42a0), HIGH(FESprites_f7_42a0), LOW(FESprites_f7_42a0), HIGH(SpriteLayout_f0_60c1), LOW(SpriteLayout_f0_60c1) ; variant 2
-	db 3, BANK(FESprites_f7_4240), HIGH(FESprites_f7_4240), LOW(FESprites_f7_4240), HIGH(SpriteLayout_f0_60bb), LOW(SpriteLayout_f0_60bb) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim20_1), HIGH(FESprites_SpriteAnim20_1), LOW(FESprites_SpriteAnim20_1), HIGH(SpriteLayout_SpriteAnim20_1), LOW(SpriteLayout_SpriteAnim20_1) ; sprites, tiles, layout; variant 0
+	db 3, BANK(FESprites_SpriteAnim20_2), HIGH(FESprites_SpriteAnim20_2), LOW(FESprites_SpriteAnim20_2), HIGH(SpriteLayout_SpriteAnim20_2), LOW(SpriteLayout_SpriteAnim20_2) ; variant 1
+	db 3, BANK(FESprites_SpriteAnim20_3), HIGH(FESprites_SpriteAnim20_3), LOW(FESprites_SpriteAnim20_3), HIGH(SpriteLayout_SpriteAnim20_3), LOW(SpriteLayout_SpriteAnim20_3) ; variant 2
+	db 3, BANK(FESprites_SpriteAnim20_2), HIGH(FESprites_SpriteAnim20_2), LOW(FESprites_SpriteAnim20_2), HIGH(SpriteLayout_SpriteAnim20_2), LOW(SpriteLayout_SpriteAnim20_2) ; variant 3
 
-SpriteLayout_f0_60b7::
+SpriteLayout_SpriteAnim20_1::
 	db -7, -6 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_60bb::
+SpriteLayout_SpriteAnim20_2::
 	db -8, -16 ; dx, dy from the previous sprite
 	db 11, 0
 	db -7, 19
 
-SpriteLayout_f0_60c1::
+SpriteLayout_SpriteAnim20_3::
 	db -9, -17 ; dx, dy from the previous sprite
 	db 13, 0
 	db -8, 21
 
 SpriteAnim21::
-	db 1, BANK(FESprites_f7_4300), HIGH(FESprites_f7_4300), LOW(FESprites_f7_4300), HIGH(SpriteLayout_f0_60df), LOW(SpriteLayout_f0_60df) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f7_4320), HIGH(FESprites_f7_4320), LOW(FESprites_f7_4320), HIGH(SpriteLayout_f0_60e1), LOW(SpriteLayout_f0_60e1) ; variant 1
-	db 4, BANK(FESprites_f7_4360), HIGH(FESprites_f7_4360), LOW(FESprites_f7_4360), HIGH(SpriteLayout_f0_60e5), LOW(SpriteLayout_f0_60e5) ; variant 2
-	db 5, BANK(FESprites_f7_43e0), HIGH(FESprites_f7_43e0), LOW(FESprites_f7_43e0), HIGH(SpriteLayout_f0_60ed), LOW(SpriteLayout_f0_60ed) ; variant 3
+	db 1, BANK(FESprites_SpriteAnim21_0), HIGH(FESprites_SpriteAnim21_0), LOW(FESprites_SpriteAnim21_0), HIGH(SpriteLayout_Anim21_0), LOW(SpriteLayout_Anim21_0) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim21_1), HIGH(FESprites_SpriteAnim21_1), LOW(FESprites_SpriteAnim21_1), HIGH(SpriteLayout_Anim21_1), LOW(SpriteLayout_Anim21_1) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim21_2), HIGH(FESprites_SpriteAnim21_2), LOW(FESprites_SpriteAnim21_2), HIGH(SpriteLayout_Anim21_2), LOW(SpriteLayout_Anim21_2) ; variant 2
+	db 5, BANK(FESprites_SpriteAnim21_3), HIGH(FESprites_SpriteAnim21_3), LOW(FESprites_SpriteAnim21_3), HIGH(SpriteLayout_Anim21_3), LOW(SpriteLayout_Anim21_3) ; variant 3
 
-SpriteLayout_f0_60df::
+SpriteLayout_Anim21_0::
 	db -3, -7 ; dx, dy from the previous sprite
 
-SpriteLayout_f0_60e1::
+SpriteLayout_Anim21_1::
 	db -7, -7 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_60e5::
+SpriteLayout_Anim21_2::
 	db -12, -6 ; dx, dy from the previous sprite
 	db 8, -9
 	db 0, 16
 	db 8, -8
 
-SpriteLayout_f0_60ed::
+SpriteLayout_Anim21_3::
 	db -11, -14 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -16
@@ -3796,176 +3796,176 @@ SpriteLayout_f0_60ed::
 	db 8, -9
 
 SpriteAnim22::
-	db 4, BANK(FESprites_f7_4480), HIGH(FESprites_f7_4480), LOW(FESprites_f7_4480), HIGH(SpriteLayout_f0_611b), LOW(SpriteLayout_f0_611b) ; sprites, tiles, layout; variant 0
-	db 5, BANK(FESprites_f7_4500), HIGH(FESprites_f7_4500), LOW(FESprites_f7_4500), HIGH(SpriteLayout_f0_6123), LOW(SpriteLayout_f0_6123) ; variant 1
-	db 4, BANK(FESprites_f7_45a0), HIGH(FESprites_f7_45a0), LOW(FESprites_f7_45a0), HIGH(SpriteLayout_f0_612d), LOW(SpriteLayout_f0_612d) ; variant 2
-	db 4, BANK(FESprites_f7_4620), HIGH(FESprites_f7_4620), LOW(FESprites_f7_4620), HIGH(SpriteLayout_f0_6135), LOW(SpriteLayout_f0_6135) ; variant 3
-	db 4, BANK(FESprites_f7_46a0), HIGH(FESprites_f7_46a0), LOW(FESprites_f7_46a0), HIGH(SpriteLayout_f0_613d), LOW(SpriteLayout_f0_613d) ; variant 4
-	db 4, BANK(FESprites_f7_4720), HIGH(FESprites_f7_4720), LOW(FESprites_f7_4720), HIGH(SpriteLayout_f0_6145), LOW(SpriteLayout_f0_6145) ; variant 5
+	db 4, BANK(FESprites_SpriteAnim22_0), HIGH(FESprites_SpriteAnim22_0), LOW(FESprites_SpriteAnim22_0), HIGH(SpriteLayout_Anim22_0), LOW(SpriteLayout_Anim22_0) ; sprites, tiles, layout; variant 0
+	db 5, BANK(FESprites_SpriteAnim22_1), HIGH(FESprites_SpriteAnim22_1), LOW(FESprites_SpriteAnim22_1), HIGH(SpriteLayout_Anim22_1), LOW(SpriteLayout_Anim22_1) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim22_2), HIGH(FESprites_SpriteAnim22_2), LOW(FESprites_SpriteAnim22_2), HIGH(SpriteLayout_Anim22_2), LOW(SpriteLayout_Anim22_2) ; variant 2
+	db 4, BANK(FESprites_SpriteAnim22_3), HIGH(FESprites_SpriteAnim22_3), LOW(FESprites_SpriteAnim22_3), HIGH(SpriteLayout_Anim22_3), LOW(SpriteLayout_Anim22_3) ; variant 3
+	db 4, BANK(FESprites_SpriteAnim22_4), HIGH(FESprites_SpriteAnim22_4), LOW(FESprites_SpriteAnim22_4), HIGH(SpriteLayout_Anim22_4), LOW(SpriteLayout_Anim22_4) ; variant 4
+	db 4, BANK(FESprites_SpriteAnim22_5), HIGH(FESprites_SpriteAnim22_5), LOW(FESprites_SpriteAnim22_5), HIGH(SpriteLayout_Anim22_5), LOW(SpriteLayout_Anim22_5) ; variant 5
 
-SpriteLayout_f0_611b::
+SpriteLayout_Anim22_0::
 	db -10, -14 ; dx, dy from the previous sprite
 	db 8, -1
 	db 8, -2
 	db 8, -1
 
-SpriteLayout_f0_6123::
+SpriteLayout_Anim22_1::
 	db -10, -13 ; dx, dy from the previous sprite
 	db 8, -4
 	db 0, 2
 	db 8, -2
 	db 8, -1
 
-SpriteLayout_f0_612d::
+SpriteLayout_Anim22_2::
 	db -9, -13 ; dx, dy from the previous sprite
 	db 8, -2
 	db 8, 0
 	db 8, 0
 
-SpriteLayout_f0_6135::
+SpriteLayout_Anim22_3::
 	db -9, -14 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-SpriteLayout_f0_613d::
+SpriteLayout_Anim22_4::
 	db -10, -14 ; dx, dy from the previous sprite
 	db 8, 0
 	db 8, 0
 	db 8, 0
 
-SpriteLayout_f0_6145::
+SpriteLayout_Anim22_5::
 	db -10, -13 ; dx, dy from the previous sprite
 	db 8, -2
 	db 8, -1
 	db 8, -1
 
 SpriteAnim23::
-	db 2, BANK(FESprites_f7_47a0), HIGH(FESprites_f7_47a0), LOW(FESprites_f7_47a0), HIGH(SpriteLayout_f0_6189), LOW(SpriteLayout_f0_6189) ; sprites, tiles, layout; variant 0
-	db 4, BANK(FESprites_f7_47e0), HIGH(FESprites_f7_47e0), LOW(FESprites_f7_47e0), HIGH(SpriteLayout_f0_618d), LOW(SpriteLayout_f0_618d) ; variant 1
-	db 4, BANK(FESprites_f7_4860), HIGH(FESprites_f7_4860), LOW(FESprites_f7_4860), HIGH(SpriteLayout_f0_6195), LOW(SpriteLayout_f0_6195) ; variant 2
-	db 4, BANK(FESprites_f7_48e0), HIGH(FESprites_f7_48e0), LOW(FESprites_f7_48e0), HIGH(SpriteLayout_f0_619d), LOW(SpriteLayout_f0_619d) ; variant 3
-	db 3, BANK(FESprites_f7_4960), HIGH(FESprites_f7_4960), LOW(FESprites_f7_4960), HIGH(SpriteLayout_f0_61a5), LOW(SpriteLayout_f0_61a5) ; variant 4
-	db 4, BANK(FESprites_f7_49c0), HIGH(FESprites_f7_49c0), LOW(FESprites_f7_49c0), HIGH(SpriteLayout_f0_61ab), LOW(SpriteLayout_f0_61ab) ; variant 5
-	db 3, BANK(FESprites_f7_4a40), HIGH(FESprites_f7_4a40), LOW(FESprites_f7_4a40), HIGH(SpriteLayout_f0_61b3), LOW(SpriteLayout_f0_61b3) ; variant 6
-	db 4, BANK(FESprites_f7_4aa0), HIGH(FESprites_f7_4aa0), LOW(FESprites_f7_4aa0), HIGH(SpriteLayout_f0_61b9), LOW(SpriteLayout_f0_61b9) ; variant 7
-	db 4, BANK(FESprites_f7_4b20), HIGH(FESprites_f7_4b20), LOW(FESprites_f7_4b20), HIGH(SpriteLayout_f0_61c1), LOW(SpriteLayout_f0_61c1) ; variant 8
-	db 2, BANK(FESprites_f7_4ba0), HIGH(FESprites_f7_4ba0), LOW(FESprites_f7_4ba0), HIGH(SpriteLayout_f0_61c9), LOW(SpriteLayout_f0_61c9) ; variant 9
+	db 2, BANK(FESprites_SpriteAnim23_0), HIGH(FESprites_SpriteAnim23_0), LOW(FESprites_SpriteAnim23_0), HIGH(SpriteLayout_Anim23_0), LOW(SpriteLayout_Anim23_0) ; sprites, tiles, layout; variant 0
+	db 4, BANK(FESprites_SpriteAnim23_1), HIGH(FESprites_SpriteAnim23_1), LOW(FESprites_SpriteAnim23_1), HIGH(SpriteLayout_Anim23_1), LOW(SpriteLayout_Anim23_1) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim23_2), HIGH(FESprites_SpriteAnim23_2), LOW(FESprites_SpriteAnim23_2), HIGH(SpriteLayout_Anim23_2), LOW(SpriteLayout_Anim23_2) ; variant 2
+	db 4, BANK(FESprites_SpriteAnim23_3), HIGH(FESprites_SpriteAnim23_3), LOW(FESprites_SpriteAnim23_3), HIGH(SpriteLayout_Anim23_3), LOW(SpriteLayout_Anim23_3) ; variant 3
+	db 3, BANK(FESprites_SpriteAnim23_4), HIGH(FESprites_SpriteAnim23_4), LOW(FESprites_SpriteAnim23_4), HIGH(SpriteLayout_Anim23_4), LOW(SpriteLayout_Anim23_4) ; variant 4
+	db 4, BANK(FESprites_SpriteAnim23_5), HIGH(FESprites_SpriteAnim23_5), LOW(FESprites_SpriteAnim23_5), HIGH(SpriteLayout_Anim23_5), LOW(SpriteLayout_Anim23_5) ; variant 5
+	db 3, BANK(FESprites_SpriteAnim23_6), HIGH(FESprites_SpriteAnim23_6), LOW(FESprites_SpriteAnim23_6), HIGH(SpriteLayout_Anim23_6), LOW(SpriteLayout_Anim23_6) ; variant 6
+	db 4, BANK(FESprites_SpriteAnim23_7), HIGH(FESprites_SpriteAnim23_7), LOW(FESprites_SpriteAnim23_7), HIGH(SpriteLayout_Anim23_7), LOW(SpriteLayout_Anim23_7) ; variant 7
+	db 4, BANK(FESprites_SpriteAnim23_8), HIGH(FESprites_SpriteAnim23_8), LOW(FESprites_SpriteAnim23_8), HIGH(SpriteLayout_Anim23_8), LOW(SpriteLayout_Anim23_8) ; variant 8
+	db 2, BANK(FESprites_SpriteAnim23_9), HIGH(FESprites_SpriteAnim23_9), LOW(FESprites_SpriteAnim23_9), HIGH(SpriteLayout_Anim23_9), LOW(SpriteLayout_Anim23_9) ; variant 9
 
-SpriteLayout_f0_6189::
+SpriteLayout_Anim23_0::
 	db -7, -11 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_618d::
+SpriteLayout_Anim23_1::
 	db -7, -16 ; dx, dy from the previous sprite
 	db 0, 2
 	db 8, -4
 	db 0, 1
 
-SpriteLayout_f0_6195::
+SpriteLayout_Anim23_2::
 	db -10, -15 ; dx, dy from the previous sprite
 	db 5, -2
 	db -2, -3
 	db 8, -4
 
-SpriteLayout_f0_619d::
+SpriteLayout_Anim23_3::
 	db -13, -16 ; dx, dy from the previous sprite
 	db 6, -6
 	db 2, 4
 	db 6, -8
 
-SpriteLayout_f0_61a5::
+SpriteLayout_Anim23_4::
 	db -15, -17 ; dx, dy from the previous sprite
 	db 8, -10
 	db 8, -3
 
-SpriteLayout_f0_61ab::
+SpriteLayout_Anim23_5::
 	db -16, -21 ; dx, dy from the previous sprite
 	db -3, 0
 	db 11, -4
 	db 8, -4
 
-SpriteLayout_f0_61b3::
+SpriteLayout_Anim23_6::
 	db -13, -15 ; dx, dy from the previous sprite
 	db 8, -7
 	db 7, -2
 
-SpriteLayout_f0_61b9::
+SpriteLayout_Anim23_7::
 	db -10, -14 ; dx, dy from the previous sprite
 	db 8, -6
 	db -4, 3
 	db 9, -2
 
-SpriteLayout_f0_61c1::
+SpriteLayout_Anim23_8::
 	db -7, -14 ; dx, dy from the previous sprite
 	db 0, 2
 	db 8, -5
 	db 1, 1
 
-SpriteLayout_f0_61c9::
+SpriteLayout_Anim23_9::
 	db -5, -13 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim24::
-	db 4, BANK(FESprites_f7_4be0), HIGH(FESprites_f7_4be0), LOW(FESprites_f7_4be0), HIGH(SpriteLayout_f0_6203), LOW(SpriteLayout_f0_6203) ; sprites, tiles, layout; variant 0
-	db 4, BANK(FESprites_f7_4c60), HIGH(FESprites_f7_4c60), LOW(FESprites_f7_4c60), HIGH(SpriteLayout_f0_620b), LOW(SpriteLayout_f0_620b) ; variant 1
-	db 4, BANK(FESprites_f7_4ce0), HIGH(FESprites_f7_4ce0), LOW(FESprites_f7_4ce0), HIGH(SpriteLayout_f0_6213), LOW(SpriteLayout_f0_6213) ; variant 2
-	db 4, BANK(FESprites_f7_4d60), HIGH(FESprites_f7_4d60), LOW(FESprites_f7_4d60), HIGH(SpriteLayout_f0_621b), LOW(SpriteLayout_f0_621b) ; variant 3
-	db 4, BANK(FESprites_f7_4de0), HIGH(FESprites_f7_4de0), LOW(FESprites_f7_4de0), HIGH(SpriteLayout_f0_6223), LOW(SpriteLayout_f0_6223) ; variant 4
-	db 4, BANK(FESprites_f7_4e60), HIGH(FESprites_f7_4e60), LOW(FESprites_f7_4e60), HIGH(SpriteLayout_f0_622b), LOW(SpriteLayout_f0_622b) ; variant 5
-	db 4, BANK(FESprites_f7_4ee0), HIGH(FESprites_f7_4ee0), LOW(FESprites_f7_4ee0), HIGH(SpriteLayout_f0_6233), LOW(SpriteLayout_f0_6233) ; variant 6
-	db 4, BANK(FESprites_f7_4f60), HIGH(FESprites_f7_4f60), LOW(FESprites_f7_4f60), HIGH(SpriteLayout_f0_623b), LOW(SpriteLayout_f0_623b) ; variant 7
-	db 5, BANK(FESprites_f7_4fe0), HIGH(FESprites_f7_4fe0), LOW(FESprites_f7_4fe0), HIGH(SpriteLayout_f0_6243), LOW(SpriteLayout_f0_6243) ; variant 8
+	db 4, BANK(FESprites_SpriteAnim24_0), HIGH(FESprites_SpriteAnim24_0), LOW(FESprites_SpriteAnim24_0), HIGH(SpriteLayout_Anim24_0), LOW(SpriteLayout_Anim24_0) ; sprites, tiles, layout; variant 0
+	db 4, BANK(FESprites_SpriteAnim24_1), HIGH(FESprites_SpriteAnim24_1), LOW(FESprites_SpriteAnim24_1), HIGH(SpriteLayout_Anim24_1), LOW(SpriteLayout_Anim24_1) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim24_2), HIGH(FESprites_SpriteAnim24_2), LOW(FESprites_SpriteAnim24_2), HIGH(SpriteLayout_Anim24_2), LOW(SpriteLayout_Anim24_2) ; variant 2
+	db 4, BANK(FESprites_SpriteAnim24_3), HIGH(FESprites_SpriteAnim24_3), LOW(FESprites_SpriteAnim24_3), HIGH(SpriteLayout_Anim24_3), LOW(SpriteLayout_Anim24_3) ; variant 3
+	db 4, BANK(FESprites_SpriteAnim24_4), HIGH(FESprites_SpriteAnim24_4), LOW(FESprites_SpriteAnim24_4), HIGH(SpriteLayout_Anim24_4), LOW(SpriteLayout_Anim24_4) ; variant 4
+	db 4, BANK(FESprites_SpriteAnim24_5), HIGH(FESprites_SpriteAnim24_5), LOW(FESprites_SpriteAnim24_5), HIGH(SpriteLayout_Anim24_5), LOW(SpriteLayout_Anim24_5) ; variant 5
+	db 4, BANK(FESprites_SpriteAnim24_6), HIGH(FESprites_SpriteAnim24_6), LOW(FESprites_SpriteAnim24_6), HIGH(SpriteLayout_Anim24_6), LOW(SpriteLayout_Anim24_6) ; variant 6
+	db 4, BANK(FESprites_SpriteAnim24_7), HIGH(FESprites_SpriteAnim24_7), LOW(FESprites_SpriteAnim24_7), HIGH(SpriteLayout_Anim24_7), LOW(SpriteLayout_Anim24_7) ; variant 7
+	db 5, BANK(FESprites_SpriteAnim24_8), HIGH(FESprites_SpriteAnim24_8), LOW(FESprites_SpriteAnim24_8), HIGH(SpriteLayout_Anim24_8), LOW(SpriteLayout_Anim24_8) ; variant 8
 
-SpriteLayout_f0_6203::
+SpriteLayout_Anim24_0::
 	db -8, -16 ; dx, dy from the previous sprite
 	db 8, -1
 	db 2, 1
 	db 4, -10
 
-SpriteLayout_f0_620b::
+SpriteLayout_Anim24_1::
 	db -7, -16 ; dx, dy from the previous sprite
 	db 8, 0
 	db 2, 2
 	db 3, -12
 
-SpriteLayout_f0_6213::
+SpriteLayout_Anim24_2::
 	db -7, -16 ; dx, dy from the previous sprite
 	db 8, 0
 	db 0, 4
 	db 3, -14
 
-SpriteLayout_f0_621b::
+SpriteLayout_Anim24_3::
 	db -7, -16 ; dx, dy from the previous sprite
 	db 6, 3
 	db 2, -3
 	db 3, -10
 
-SpriteLayout_f0_6223::
+SpriteLayout_Anim24_4::
 	db -8, -16 ; dx, dy from the previous sprite
 	db 3, 1
 	db 6, -2
 	db 2, -9
 
-SpriteLayout_f0_622b::
+SpriteLayout_Anim24_5::
 	db -8, -15 ; dx, dy from the previous sprite
 	db 8, -1
 	db 2, 2
 	db 2, -12
 
-SpriteLayout_f0_6233::
+SpriteLayout_Anim24_6::
 	db -7, -15 ; dx, dy from the previous sprite
 	db 8, -1
 	db 0, 4
 	db 4, -14
 
-SpriteLayout_f0_623b::
+SpriteLayout_Anim24_7::
 	db -7, -16 ; dx, dy from the previous sprite
 	db 8, 0
 	db -3, 6
 	db 7, -16
 
-SpriteLayout_f0_6243::
+SpriteLayout_Anim24_8::
 	db -8, -16 ; dx, dy from the previous sprite
 	db 3, 2
 	db 5, -2
@@ -3973,16 +3973,16 @@ SpriteLayout_f0_6243::
 	db 5, -6
 
 SpriteAnim25::
-	db 8, BANK(FESprites_f7_5080), HIGH(FESprites_f7_5080), LOW(FESprites_f7_5080), HIGH(SpriteLayout_f0_627d), LOW(SpriteLayout_f0_627d) ; sprites, tiles, layout; variant 0
-	db 8, BANK(FESprites_f7_5180), HIGH(FESprites_f7_5180), LOW(FESprites_f7_5180), HIGH(SpriteLayout_f0_628d), LOW(SpriteLayout_f0_628d) ; variant 1
-	db 8, BANK(FESprites_f7_5280), HIGH(FESprites_f7_5280), LOW(FESprites_f7_5280), HIGH(SpriteLayout_f0_629d), LOW(SpriteLayout_f0_629d) ; variant 2
-	db 8, BANK(FESprites_f7_5380), HIGH(FESprites_f7_5380), LOW(FESprites_f7_5380), HIGH(SpriteLayout_f0_62ad), LOW(SpriteLayout_f0_62ad) ; variant 3
-	db 8, BANK(FESprites_f7_5480), HIGH(FESprites_f7_5480), LOW(FESprites_f7_5480), HIGH(SpriteLayout_f0_62bd), LOW(SpriteLayout_f0_62bd) ; variant 4
-	db 8, BANK(FESprites_f7_5580), HIGH(FESprites_f7_5580), LOW(FESprites_f7_5580), HIGH(SpriteLayout_f0_62cd), LOW(SpriteLayout_f0_62cd) ; variant 5
-	db 7, BANK(FESprites_f7_5680), HIGH(FESprites_f7_5680), LOW(FESprites_f7_5680), HIGH(SpriteLayout_f0_62dd), LOW(SpriteLayout_f0_62dd) ; variant 6
-	db 8, BANK(FESprites_f7_5760), HIGH(FESprites_f7_5760), LOW(FESprites_f7_5760), HIGH(SpriteLayout_f0_62eb), LOW(SpriteLayout_f0_62eb) ; variant 7
+	db 8, BANK(FESprites_SpriteAnim25_0), HIGH(FESprites_SpriteAnim25_0), LOW(FESprites_SpriteAnim25_0), HIGH(SpriteLayout_Anim25_0), LOW(SpriteLayout_Anim25_0) ; sprites, tiles, layout; variant 0
+	db 8, BANK(FESprites_SpriteAnim25_1), HIGH(FESprites_SpriteAnim25_1), LOW(FESprites_SpriteAnim25_1), HIGH(SpriteLayout_Anim25_1), LOW(SpriteLayout_Anim25_1) ; variant 1
+	db 8, BANK(FESprites_SpriteAnim25_2), HIGH(FESprites_SpriteAnim25_2), LOW(FESprites_SpriteAnim25_2), HIGH(SpriteLayout_Anim25_2), LOW(SpriteLayout_Anim25_2) ; variant 2
+	db 8, BANK(FESprites_SpriteAnim25_3), HIGH(FESprites_SpriteAnim25_3), LOW(FESprites_SpriteAnim25_3), HIGH(SpriteLayout_Anim25_3), LOW(SpriteLayout_Anim25_3) ; variant 3
+	db 8, BANK(FESprites_SpriteAnim25_4), HIGH(FESprites_SpriteAnim25_4), LOW(FESprites_SpriteAnim25_4), HIGH(SpriteLayout_Anim25_4), LOW(SpriteLayout_Anim25_4) ; variant 4
+	db 8, BANK(FESprites_SpriteAnim25_5), HIGH(FESprites_SpriteAnim25_5), LOW(FESprites_SpriteAnim25_5), HIGH(SpriteLayout_Anim25_5), LOW(SpriteLayout_Anim25_5) ; variant 5
+	db 7, BANK(FESprites_SpriteAnim25_6), HIGH(FESprites_SpriteAnim25_6), LOW(FESprites_SpriteAnim25_6), HIGH(SpriteLayout_Anim25_6), LOW(SpriteLayout_Anim25_6) ; variant 6
+	db 8, BANK(FESprites_SpriteAnim25_7), HIGH(FESprites_SpriteAnim25_7), LOW(FESprites_SpriteAnim25_7), HIGH(SpriteLayout_Anim25_7), LOW(SpriteLayout_Anim25_7) ; variant 7
 
-SpriteLayout_f0_627d::
+SpriteLayout_Anim25_0::
 	db -16, -17 ; dx, dy from the previous sprite
 	db 4, -4
 	db 4, 4
@@ -3992,7 +3992,7 @@ SpriteLayout_f0_627d::
 	db 4, 1
 	db -27, 8
 
-SpriteLayout_f0_628d::
+SpriteLayout_Anim25_1::
 	db -19, -17 ; dx, dy from the previous sprite
 	db 8, -4
 	db 0, 5
@@ -4002,7 +4002,7 @@ SpriteLayout_f0_628d::
 	db 0, 10
 	db 3, -8
 
-SpriteLayout_f0_629d::
+SpriteLayout_Anim25_2::
 	db -15, -17 ; dx, dy from the previous sprite
 	db 4, -3
 	db 4, 8
@@ -4012,7 +4012,7 @@ SpriteLayout_f0_629d::
 	db 2, 3
 	db -26, 5
 
-SpriteLayout_f0_62ad::
+SpriteLayout_Anim25_3::
 	db -19, -17 ; dx, dy from the previous sprite
 	db 8, -4
 	db 0, 8
@@ -4022,7 +4022,7 @@ SpriteLayout_f0_62ad::
 	db 0, 7
 	db 2, -5
 
-SpriteLayout_f0_62bd::
+SpriteLayout_Anim25_4::
 	db -19, -14 ; dx, dy from the previous sprite
 	db 8, -8
 	db 0, 9
@@ -4032,7 +4032,7 @@ SpriteLayout_f0_62bd::
 	db 0, 7
 	db 2, -6
 
-SpriteLayout_f0_62cd::
+SpriteLayout_Anim25_5::
 	db -19, -17 ; dx, dy from the previous sprite
 	db 8, -4
 	db 0, 7
@@ -4042,7 +4042,7 @@ SpriteLayout_f0_62cd::
 	db 0, 8
 	db 2, -8
 
-SpriteLayout_f0_62dd::
+SpriteLayout_Anim25_6::
 	db -18, -16 ; dx, dy from the previous sprite
 	db 8, -5
 	db 0, 7
@@ -4051,7 +4051,7 @@ SpriteLayout_f0_62dd::
 	db 8, -10
 	db 0, 10
 
-SpriteLayout_f0_62eb::
+SpriteLayout_Anim25_7::
 	db -19, -17 ; dx, dy from the previous sprite
 	db 8, -4
 	db 0, 6
@@ -4062,185 +4062,185 @@ SpriteLayout_f0_62eb::
 	db 2, -10
 
 SpriteAnim26::
-	db 2, BANK(FESprites_f7_5860), HIGH(FESprites_f7_5860), LOW(FESprites_f7_5860), HIGH(SpriteLayout_f0_632b), LOW(SpriteLayout_f0_632b) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f7_58a0), HIGH(FESprites_f7_58a0), LOW(FESprites_f7_58a0), HIGH(SpriteLayout_f0_632f), LOW(SpriteLayout_f0_632f) ; variant 1
-	db 2, BANK(FESprites_f7_58e0), HIGH(FESprites_f7_58e0), LOW(FESprites_f7_58e0), HIGH(SpriteLayout_f0_6333), LOW(SpriteLayout_f0_6333) ; variant 2
-	db 2, BANK(FESprites_f7_5920), HIGH(FESprites_f7_5920), LOW(FESprites_f7_5920), HIGH(SpriteLayout_f0_6337), LOW(SpriteLayout_f0_6337) ; variant 3
-	db 2, BANK(FESprites_f7_5960), HIGH(FESprites_f7_5960), LOW(FESprites_f7_5960), HIGH(SpriteLayout_f0_633b), LOW(SpriteLayout_f0_633b) ; variant 4
-	db 2, BANK(FESprites_f7_59a0), HIGH(FESprites_f7_59a0), LOW(FESprites_f7_59a0), HIGH(SpriteLayout_f0_633f), LOW(SpriteLayout_f0_633f) ; variant 5
-	db 2, BANK(FESprites_f7_59e0), HIGH(FESprites_f7_59e0), LOW(FESprites_f7_59e0), HIGH(SpriteLayout_f0_6343), LOW(SpriteLayout_f0_6343) ; variant 6
-	db 2, BANK(FESprites_f7_5a20), HIGH(FESprites_f7_5a20), LOW(FESprites_f7_5a20), HIGH(SpriteLayout_f0_6347), LOW(SpriteLayout_f0_6347) ; variant 7
+	db 2, BANK(FESprites_SpriteAnim26_0), HIGH(FESprites_SpriteAnim26_0), LOW(FESprites_SpriteAnim26_0), HIGH(SpriteLayout_Anim26_0), LOW(SpriteLayout_Anim26_0) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim26_1), HIGH(FESprites_SpriteAnim26_1), LOW(FESprites_SpriteAnim26_1), HIGH(SpriteLayout_Anim26_1), LOW(SpriteLayout_Anim26_1) ; variant 1
+	db 2, BANK(FESprites_SpriteAnim26_2), HIGH(FESprites_SpriteAnim26_2), LOW(FESprites_SpriteAnim26_2), HIGH(SpriteLayout_Anim26_2), LOW(SpriteLayout_Anim26_2) ; variant 2
+	db 2, BANK(FESprites_SpriteAnim26_3), HIGH(FESprites_SpriteAnim26_3), LOW(FESprites_SpriteAnim26_3), HIGH(SpriteLayout_Anim26_3), LOW(SpriteLayout_Anim26_3) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim26_4), HIGH(FESprites_SpriteAnim26_4), LOW(FESprites_SpriteAnim26_4), HIGH(SpriteLayout_Anim26_4), LOW(SpriteLayout_Anim26_4) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim26_5), HIGH(FESprites_SpriteAnim26_5), LOW(FESprites_SpriteAnim26_5), HIGH(SpriteLayout_Anim26_5), LOW(SpriteLayout_Anim26_5) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim26_6), HIGH(FESprites_SpriteAnim26_6), LOW(FESprites_SpriteAnim26_6), HIGH(SpriteLayout_Anim26_6), LOW(SpriteLayout_Anim26_6) ; variant 6
+	db 2, BANK(FESprites_SpriteAnim26_7), HIGH(FESprites_SpriteAnim26_7), LOW(FESprites_SpriteAnim26_7), HIGH(SpriteLayout_Anim26_7), LOW(SpriteLayout_Anim26_7) ; variant 7
 
-SpriteLayout_f0_632b::
+SpriteLayout_Anim26_0::
 	db -6, -8 ; dx, dy from the previous sprite
 	db 8, 1
 
-SpriteLayout_f0_632f::
+SpriteLayout_Anim26_1::
 	db -7, -6 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_6333::
+SpriteLayout_Anim26_2::
 	db -7, -5 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6337::
+SpriteLayout_Anim26_3::
 	db -7, -6 ; dx, dy from the previous sprite
 	db 8, 1
 
-SpriteLayout_f0_633b::
+SpriteLayout_Anim26_4::
 	db -6, -6 ; dx, dy from the previous sprite
 	db 8, 1
 
-SpriteLayout_f0_633f::
+SpriteLayout_Anim26_5::
 	db -7, -6 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6343::
+SpriteLayout_Anim26_6::
 	db -9, -5 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6347::
+SpriteLayout_Anim26_7::
 	db -7, -6 ; dx, dy from the previous sprite
 	db 8, 1
 
 SpriteAnim27::
-	db 4, BANK(FESprites_f7_5a60), HIGH(FESprites_f7_5a60), LOW(FESprites_f7_5a60), HIGH(SpriteLayout_f0_6375), LOW(SpriteLayout_f0_6375) ; sprites, tiles, layout; variant 0
-	db 4, BANK(FESprites_f7_5ae0), HIGH(FESprites_f7_5ae0), LOW(FESprites_f7_5ae0), HIGH(SpriteLayout_f0_637d), LOW(SpriteLayout_f0_637d) ; variant 1
-	db 4, BANK(FESprites_f7_5b60), HIGH(FESprites_f7_5b60), LOW(FESprites_f7_5b60), HIGH(SpriteLayout_f0_6385), LOW(SpriteLayout_f0_6385) ; variant 2
-	db 4, BANK(FESprites_f7_5be0), HIGH(FESprites_f7_5be0), LOW(FESprites_f7_5be0), HIGH(SpriteLayout_f0_638d), LOW(SpriteLayout_f0_638d) ; variant 3
-	db 3, BANK(FESprites_f7_5c60), HIGH(FESprites_f7_5c60), LOW(FESprites_f7_5c60), HIGH(SpriteLayout_f0_6395), LOW(SpriteLayout_f0_6395) ; variant 4
-	db 2, BANK(FESprites_f7_5cc0), HIGH(FESprites_f7_5cc0), LOW(FESprites_f7_5cc0), HIGH(SpriteLayout_f0_639b), LOW(SpriteLayout_f0_639b) ; variant 5
-	db 2, BANK(FESprites_f7_5d00), HIGH(FESprites_f7_5d00), LOW(FESprites_f7_5d00), HIGH(SpriteLayout_f0_639f), LOW(SpriteLayout_f0_639f) ; variant 6
+	db 4, BANK(FESprites_SpriteAnim27_0), HIGH(FESprites_SpriteAnim27_0), LOW(FESprites_SpriteAnim27_0), HIGH(SpriteLayout_Anim27_0), LOW(SpriteLayout_Anim27_0) ; sprites, tiles, layout; variant 0
+	db 4, BANK(FESprites_SpriteAnim27_1), HIGH(FESprites_SpriteAnim27_1), LOW(FESprites_SpriteAnim27_1), HIGH(SpriteLayout_Anim27_1), LOW(SpriteLayout_Anim27_1) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim27_2), HIGH(FESprites_SpriteAnim27_2), LOW(FESprites_SpriteAnim27_2), HIGH(SpriteLayout_Anim27_2), LOW(SpriteLayout_Anim27_2) ; variant 2
+	db 4, BANK(FESprites_SpriteAnim27_3), HIGH(FESprites_SpriteAnim27_3), LOW(FESprites_SpriteAnim27_3), HIGH(SpriteLayout_Anim27_3), LOW(SpriteLayout_Anim27_3) ; variant 3
+	db 3, BANK(FESprites_SpriteAnim27_4), HIGH(FESprites_SpriteAnim27_4), LOW(FESprites_SpriteAnim27_4), HIGH(SpriteLayout_Anim27_4), LOW(SpriteLayout_Anim27_4) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim27_5), HIGH(FESprites_SpriteAnim27_5), LOW(FESprites_SpriteAnim27_5), HIGH(SpriteLayout_Anim27_5), LOW(SpriteLayout_Anim27_5) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim27_6), HIGH(FESprites_SpriteAnim27_6), LOW(FESprites_SpriteAnim27_6), HIGH(SpriteLayout_Anim27_6), LOW(SpriteLayout_Anim27_6) ; variant 6
 
-SpriteLayout_f0_6375::
+SpriteLayout_Anim27_0::
 	db -10, -30 ; dx, dy from the previous sprite
 	db 8, -9
 	db 0, 16
 	db 8, -11
 
-SpriteLayout_f0_637d::
+SpriteLayout_Anim27_1::
 	db -10, -27 ; dx, dy from the previous sprite
 	db 8, -9
 	db 0, 16
 	db 8, -11
 
-SpriteLayout_f0_6385::
+SpriteLayout_Anim27_2::
 	db -10, -24 ; dx, dy from the previous sprite
 	db 8, -9
 	db 0, 16
 	db 8, -11
 
-SpriteLayout_f0_638d::
+SpriteLayout_Anim27_3::
 	db -10, -19 ; dx, dy from the previous sprite
 	db 8, -9
 	db 0, 16
 	db 8, -11
 
-SpriteLayout_f0_6395::
+SpriteLayout_Anim27_4::
 	db -7, -14 ; dx, dy from the previous sprite
 	db 7, -5
 	db 1, 7
 
-SpriteLayout_f0_639b::
+SpriteLayout_Anim27_5::
 	db -6, -9 ; dx, dy from the previous sprite
 	db 8, -2
 
-SpriteLayout_f0_639f::
+SpriteLayout_Anim27_6::
 	db -5, -4 ; dx, dy from the previous sprite
 	db 8, 1
 
 SpriteAnim28::
-	db 3, BANK(FESprites_f7_5d40), HIGH(FESprites_f7_5d40), LOW(FESprites_f7_5d40), HIGH(SpriteLayout_f0_63cd), LOW(SpriteLayout_f0_63cd) ; sprites, tiles, layout; variant 0
-	db 3, BANK(FESprites_f7_5da0), HIGH(FESprites_f7_5da0), LOW(FESprites_f7_5da0), HIGH(SpriteLayout_f0_63d3), LOW(SpriteLayout_f0_63d3) ; variant 1
-	db 3, BANK(FESprites_f7_5e00), HIGH(FESprites_f7_5e00), LOW(FESprites_f7_5e00), HIGH(SpriteLayout_f0_63d9), LOW(SpriteLayout_f0_63d9) ; variant 2
-	db 3, BANK(FESprites_f7_5e60), HIGH(FESprites_f7_5e60), LOW(FESprites_f7_5e60), HIGH(SpriteLayout_f0_63df), LOW(SpriteLayout_f0_63df) ; variant 3
-	db 2, BANK(FESprites_f7_5ec0), HIGH(FESprites_f7_5ec0), LOW(FESprites_f7_5ec0), HIGH(SpriteLayout_f0_63e5), LOW(SpriteLayout_f0_63e5) ; variant 4
-	db 2, BANK(FESprites_f7_5f00), HIGH(FESprites_f7_5f00), LOW(FESprites_f7_5f00), HIGH(SpriteLayout_f0_63e9), LOW(SpriteLayout_f0_63e9) ; variant 5
-	db 1, BANK(FESprites_f7_5f40), HIGH(FESprites_f7_5f40), LOW(FESprites_f7_5f40), HIGH(SpriteLayout_f0_63ed), LOW(SpriteLayout_f0_63ed) ; variant 6
+	db 3, BANK(FESprites_SpriteAnim28_0), HIGH(FESprites_SpriteAnim28_0), LOW(FESprites_SpriteAnim28_0), HIGH(SpriteLayout_Anim28_0), LOW(SpriteLayout_Anim28_0) ; sprites, tiles, layout; variant 0
+	db 3, BANK(FESprites_SpriteAnim28_1), HIGH(FESprites_SpriteAnim28_1), LOW(FESprites_SpriteAnim28_1), HIGH(SpriteLayout_Anim28_1), LOW(SpriteLayout_Anim28_1) ; variant 1
+	db 3, BANK(FESprites_SpriteAnim28_2), HIGH(FESprites_SpriteAnim28_2), LOW(FESprites_SpriteAnim28_2), HIGH(SpriteLayout_Anim28_2), LOW(SpriteLayout_Anim28_2) ; variant 2
+	db 3, BANK(FESprites_SpriteAnim28_3), HIGH(FESprites_SpriteAnim28_3), LOW(FESprites_SpriteAnim28_3), HIGH(SpriteLayout_Anim28_3), LOW(SpriteLayout_Anim28_3) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim28_4), HIGH(FESprites_SpriteAnim28_4), LOW(FESprites_SpriteAnim28_4), HIGH(SpriteLayout_Anim28_4), LOW(SpriteLayout_Anim28_4) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim28_5), HIGH(FESprites_SpriteAnim28_5), LOW(FESprites_SpriteAnim28_5), HIGH(SpriteLayout_Anim28_5), LOW(SpriteLayout_Anim28_5) ; variant 5
+	db 1, BANK(FESprites_SpriteAnim28_6), HIGH(FESprites_SpriteAnim28_6), LOW(FESprites_SpriteAnim28_6), HIGH(SpriteLayout_Anim28_6), LOW(SpriteLayout_Anim28_6) ; variant 6
 
-SpriteLayout_f0_63cd::
+SpriteLayout_Anim28_0::
 	db -9, -32 ; dx, dy from the previous sprite
 	db 8, -1
 	db 6, 11
 
-SpriteLayout_f0_63d3::
+SpriteLayout_Anim28_1::
 	db -9, -30 ; dx, dy from the previous sprite
 	db 8, -1
 	db 6, 11
 
-SpriteLayout_f0_63d9::
+SpriteLayout_Anim28_2::
 	db -9, -27 ; dx, dy from the previous sprite
 	db 8, -1
 	db 6, 11
 
-SpriteLayout_f0_63df::
+SpriteLayout_Anim28_3::
 	db -9, -24 ; dx, dy from the previous sprite
 	db 8, -1
 	db 6, 11
 
-SpriteLayout_f0_63e5::
+SpriteLayout_Anim28_4::
 	db -7, -18 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_63e9::
+SpriteLayout_Anim28_5::
 	db -6, -11 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_63ed::
+SpriteLayout_Anim28_6::
 	db -4, -4 ; dx, dy from the previous sprite
 
 SpriteAnim29::
-	db 4, BANK(FESprites_f7_5f60), HIGH(FESprites_f7_5f60), LOW(FESprites_f7_5f60), HIGH(SpriteLayout_f0_6419), LOW(SpriteLayout_f0_6419) ; sprites, tiles, layout; variant 0
-	db 4, BANK(FESprites_f7_5fe0), HIGH(FESprites_f7_5fe0), LOW(FESprites_f7_5fe0), HIGH(SpriteLayout_f0_6421), LOW(SpriteLayout_f0_6421) ; variant 1
-	db 4, BANK(FESprites_f7_6060), HIGH(FESprites_f7_6060), LOW(FESprites_f7_6060), HIGH(SpriteLayout_f0_6429), LOW(SpriteLayout_f0_6429) ; variant 2
-	db 4, BANK(FESprites_f7_60e0), HIGH(FESprites_f7_60e0), LOW(FESprites_f7_60e0), HIGH(SpriteLayout_f0_6431), LOW(SpriteLayout_f0_6431) ; variant 3
-	db 3, BANK(FESprites_f7_6160), HIGH(FESprites_f7_6160), LOW(FESprites_f7_6160), HIGH(SpriteLayout_f0_6439), LOW(SpriteLayout_f0_6439) ; variant 4
-	db 2, BANK(FESprites_f7_61c0), HIGH(FESprites_f7_61c0), LOW(FESprites_f7_61c0), HIGH(SpriteLayout_f0_643f), LOW(SpriteLayout_f0_643f) ; variant 5
-	db 1, BANK(FESprites_f7_6200), HIGH(FESprites_f7_6200), LOW(FESprites_f7_6200), HIGH(SpriteLayout_f0_6443), LOW(SpriteLayout_f0_6443) ; variant 6
+	db 4, BANK(FESprites_SpriteAnim29_0), HIGH(FESprites_SpriteAnim29_0), LOW(FESprites_SpriteAnim29_0), HIGH(SpriteLayout_Anim29_0), LOW(SpriteLayout_Anim29_0) ; sprites, tiles, layout; variant 0
+	db 4, BANK(FESprites_SpriteAnim29_1), HIGH(FESprites_SpriteAnim29_1), LOW(FESprites_SpriteAnim29_1), HIGH(SpriteLayout_Anim29_1), LOW(SpriteLayout_Anim29_1) ; variant 1
+	db 4, BANK(FESprites_SpriteAnim29_2), HIGH(FESprites_SpriteAnim29_2), LOW(FESprites_SpriteAnim29_2), HIGH(SpriteLayout_Anim29_2), LOW(SpriteLayout_Anim29_2) ; variant 2
+	db 4, BANK(FESprites_SpriteAnim29_3), HIGH(FESprites_SpriteAnim29_3), LOW(FESprites_SpriteAnim29_3), HIGH(SpriteLayout_Anim29_3), LOW(SpriteLayout_Anim29_3) ; variant 3
+	db 3, BANK(FESprites_SpriteAnim29_4), HIGH(FESprites_SpriteAnim29_4), LOW(FESprites_SpriteAnim29_4), HIGH(SpriteLayout_Anim29_4), LOW(SpriteLayout_Anim29_4) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim29_5), HIGH(FESprites_SpriteAnim29_5), LOW(FESprites_SpriteAnim29_5), HIGH(SpriteLayout_Anim29_5), LOW(SpriteLayout_Anim29_5) ; variant 5
+	db 1, BANK(FESprites_SpriteAnim29_6), HIGH(FESprites_SpriteAnim29_6), LOW(FESprites_SpriteAnim29_6), HIGH(SpriteLayout_Anim29_6), LOW(SpriteLayout_Anim29_6) ; variant 6
 
-SpriteLayout_f0_6419::
+SpriteLayout_Anim29_0::
 	db -6, -38 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
 	db 0, 16
 
-SpriteLayout_f0_6421::
+SpriteLayout_Anim29_1::
 	db -6, -35 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
 	db 0, 16
 
-SpriteLayout_f0_6429::
+SpriteLayout_Anim29_2::
 	db -6, -32 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
 	db 0, 16
 
-SpriteLayout_f0_6431::
+SpriteLayout_Anim29_3::
 	db -6, -28 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
 	db 0, 16
 
-SpriteLayout_f0_6439::
+SpriteLayout_Anim29_4::
 	db -6, -19 ; dx, dy from the previous sprite
 	db 8, -1
 	db -5, 16
 
-SpriteLayout_f0_643f::
+SpriteLayout_Anim29_5::
 	db -5, -12 ; dx, dy from the previous sprite
 	db 8, 1
 
-SpriteLayout_f0_6443::
+SpriteLayout_Anim29_6::
 	db -4, -5 ; dx, dy from the previous sprite
 
 SpriteAnim30::
-	db 7, BANK(FESprites_f7_6220), HIGH(FESprites_f7_6220), LOW(FESprites_f7_6220), HIGH(SpriteLayout_f0_645d), LOW(SpriteLayout_f0_645d) ; sprites, tiles, layout; variant 0
-	db 5, BANK(FESprites_f7_6300), HIGH(FESprites_f7_6300), LOW(FESprites_f7_6300), HIGH(SpriteLayout_f0_646b), LOW(SpriteLayout_f0_646b) ; variant 1
-	db 5, BANK(FESprites_f7_63a0), HIGH(FESprites_f7_63a0), LOW(FESprites_f7_63a0), HIGH(SpriteLayout_f0_6475), LOW(SpriteLayout_f0_6475) ; variant 2
-	db 7, BANK(FESprites_f7_6440), HIGH(FESprites_f7_6440), LOW(FESprites_f7_6440), HIGH(SpriteLayout_f0_647f), LOW(SpriteLayout_f0_647f) ; variant 3
+	db 7, BANK(FESprites_SpriteAnim30_0), HIGH(FESprites_SpriteAnim30_0), LOW(FESprites_SpriteAnim30_0), HIGH(SpriteLayout_Anim30_0), LOW(SpriteLayout_Anim30_0) ; sprites, tiles, layout; variant 0
+	db 5, BANK(FESprites_SpriteAnim30_1), HIGH(FESprites_SpriteAnim30_1), LOW(FESprites_SpriteAnim30_1), HIGH(SpriteLayout_Anim30_1), LOW(SpriteLayout_Anim30_1) ; variant 1
+	db 5, BANK(FESprites_SpriteAnim30_2), HIGH(FESprites_SpriteAnim30_2), LOW(FESprites_SpriteAnim30_2), HIGH(SpriteLayout_Anim30_2), LOW(SpriteLayout_Anim30_2) ; variant 2
+	db 7, BANK(FESprites_SpriteAnim30_3), HIGH(FESprites_SpriteAnim30_3), LOW(FESprites_SpriteAnim30_3), HIGH(SpriteLayout_Anim30_3), LOW(SpriteLayout_Anim30_3) ; variant 3
 
-SpriteLayout_f0_645d::
+SpriteLayout_Anim30_0::
 	db -13, -15 ; dx, dy from the previous sprite
 	db 8, -11
 	db -1, 16
@@ -4249,21 +4249,21 @@ SpriteLayout_f0_645d::
 	db 9, -15
 	db -1, 15
 
-SpriteLayout_f0_646b::
+SpriteLayout_Anim30_1::
 	db -11, -16 ; dx, dy from the previous sprite
 	db 7, -9
 	db 1, 15
 	db 7, -16
 	db 8, 0
 
-SpriteLayout_f0_6475::
+SpriteLayout_Anim30_2::
 	db -11, -19 ; dx, dy from the previous sprite
 	db 8, -9
 	db 0, 16
 	db 8, -16
 	db 8, 0
 
-SpriteLayout_f0_647f::
+SpriteLayout_Anim30_3::
 	db -10, -27 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -22
@@ -4273,12 +4273,12 @@ SpriteLayout_f0_647f::
 	db 0, 20
 
 SpriteAnim31::
-	db 7, BANK(FESprites_f7_6520), HIGH(FESprites_f7_6520), LOW(FESprites_f7_6520), HIGH(SpriteLayout_f0_64a5), LOW(SpriteLayout_f0_64a5) ; sprites, tiles, layout; variant 0
-	db 7, BANK(FESprites_f7_6600), HIGH(FESprites_f7_6600), LOW(FESprites_f7_6600), HIGH(SpriteLayout_f0_64b3), LOW(SpriteLayout_f0_64b3) ; variant 1
-	db 7, BANK(FESprites_f7_66e0), HIGH(FESprites_f7_66e0), LOW(FESprites_f7_66e0), HIGH(SpriteLayout_f0_64c1), LOW(SpriteLayout_f0_64c1) ; variant 2
-	db 7, BANK(FESprites_f7_6600), HIGH(FESprites_f7_6600), LOW(FESprites_f7_6600), HIGH(SpriteLayout_f0_64b3), LOW(SpriteLayout_f0_64b3) ; variant 3
+	db 7, BANK(FESprites_SpriteAnim31_1), HIGH(FESprites_SpriteAnim31_1), LOW(FESprites_SpriteAnim31_1), HIGH(SpriteLayout_SpriteAnim31_1), LOW(SpriteLayout_SpriteAnim31_1) ; sprites, tiles, layout; variant 0
+	db 7, BANK(FESprites_SpriteAnim31_2), HIGH(FESprites_SpriteAnim31_2), LOW(FESprites_SpriteAnim31_2), HIGH(SpriteLayout_SpriteAnim31_2), LOW(SpriteLayout_SpriteAnim31_2) ; variant 1
+	db 7, BANK(FESprites_SpriteAnim31_3), HIGH(FESprites_SpriteAnim31_3), LOW(FESprites_SpriteAnim31_3), HIGH(SpriteLayout_SpriteAnim31_3), LOW(SpriteLayout_SpriteAnim31_3) ; variant 2
+	db 7, BANK(FESprites_SpriteAnim31_2), HIGH(FESprites_SpriteAnim31_2), LOW(FESprites_SpriteAnim31_2), HIGH(SpriteLayout_SpriteAnim31_2), LOW(SpriteLayout_SpriteAnim31_2) ; variant 3
 
-SpriteLayout_f0_64a5::
+SpriteLayout_SpriteAnim31_1::
 	db -13, -15 ; dx, dy from the previous sprite
 	db 8, -11
 	db -1, 16
@@ -4287,7 +4287,7 @@ SpriteLayout_f0_64a5::
 	db 9, -15
 	db -1, 15
 
-SpriteLayout_f0_64b3::
+SpriteLayout_SpriteAnim31_2::
 	db -13, -15 ; dx, dy from the previous sprite
 	db 8, -11
 	db -1, 16
@@ -4296,7 +4296,7 @@ SpriteLayout_f0_64b3::
 	db 9, -15
 	db -1, 15
 
-SpriteLayout_f0_64c1::
+SpriteLayout_SpriteAnim31_3::
 	db -13, -15 ; dx, dy from the previous sprite
 	db 8, -11
 	db -1, 16
@@ -4306,182 +4306,182 @@ SpriteLayout_f0_64c1::
 	db -1, 15
 
 SpriteAnim32::
-	db 2, BANK(FESprites_f7_67c0), HIGH(FESprites_f7_67c0), LOW(FESprites_f7_67c0), HIGH(SpriteLayout_f0_64d5), LOW(SpriteLayout_f0_64d5) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim32), HIGH(FESprites_SpriteAnim32), LOW(FESprites_SpriteAnim32), HIGH(SpriteLayout_SpriteAnim32), LOW(SpriteLayout_SpriteAnim32) ; sprites, tiles, layout; variant 0
 
-SpriteLayout_f0_64d5::
+SpriteLayout_SpriteAnim32::
 	db -7, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim33::
-	db 1, BANK(FESprites_f7_6800), HIGH(FESprites_f7_6800), LOW(FESprites_f7_6800), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; sprites, tiles, layout; variant 0
-	db 1, BANK(FESprites_f7_6820), HIGH(FESprites_f7_6820), LOW(FESprites_f7_6820), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 1
-	db 1, BANK(FESprites_f7_6840), HIGH(FESprites_f7_6840), LOW(FESprites_f7_6840), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 2
-	db 1, BANK(FESprites_f7_6860), HIGH(FESprites_f7_6860), LOW(FESprites_f7_6860), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 3
-	db 1, BANK(FESprites_f7_6880), HIGH(FESprites_f7_6880), LOW(FESprites_f7_6880), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 4
-	db 1, BANK(FESprites_f7_68a0), HIGH(FESprites_f7_68a0), LOW(FESprites_f7_68a0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 5
-	db 1, BANK(FESprites_f7_68c0), HIGH(FESprites_f7_68c0), LOW(FESprites_f7_68c0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 6
-	db 1, BANK(FESprites_f7_68e0), HIGH(FESprites_f7_68e0), LOW(FESprites_f7_68e0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 7
-	db 1, BANK(FESprites_f7_6900), HIGH(FESprites_f7_6900), LOW(FESprites_f7_6900), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 8
-	db 1, BANK(FESprites_f7_6920), HIGH(FESprites_f7_6920), LOW(FESprites_f7_6920), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 9
-	db 1, BANK(FESprites_f7_6940), HIGH(FESprites_f7_6940), LOW(FESprites_f7_6940), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 10
-	db 1, BANK(FESprites_f7_6960), HIGH(FESprites_f7_6960), LOW(FESprites_f7_6960), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 11
-	db 1, BANK(FESprites_f7_6980), HIGH(FESprites_f7_6980), LOW(FESprites_f7_6980), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 12
-	db 1, BANK(FESprites_f7_69a0), HIGH(FESprites_f7_69a0), LOW(FESprites_f7_69a0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 13
-	db 1, BANK(FESprites_f7_69c0), HIGH(FESprites_f7_69c0), LOW(FESprites_f7_69c0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 14
-	db 1, BANK(FESprites_f7_69e0), HIGH(FESprites_f7_69e0), LOW(FESprites_f7_69e0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 15
-	db 1, BANK(FESprites_f7_6a00), HIGH(FESprites_f7_6a00), LOW(FESprites_f7_6a00), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 16
-	db 1, BANK(FESprites_f7_6a20), HIGH(FESprites_f7_6a20), LOW(FESprites_f7_6a20), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 17
-	db 1, BANK(FESprites_f7_6a40), HIGH(FESprites_f7_6a40), LOW(FESprites_f7_6a40), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 18
-	db 1, BANK(FESprites_f7_6a60), HIGH(FESprites_f7_6a60), LOW(FESprites_f7_6a60), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 19
-	db 1, BANK(FESprites_f7_6a80), HIGH(FESprites_f7_6a80), LOW(FESprites_f7_6a80), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 20
-	db 1, BANK(FESprites_f7_6aa0), HIGH(FESprites_f7_6aa0), LOW(FESprites_f7_6aa0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 21
-	db 1, BANK(FESprites_f7_6ac0), HIGH(FESprites_f7_6ac0), LOW(FESprites_f7_6ac0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 22
-	db 1, BANK(FESprites_f7_6ae0), HIGH(FESprites_f7_6ae0), LOW(FESprites_f7_6ae0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 23
-	db 1, BANK(FESprites_f7_6b00), HIGH(FESprites_f7_6b00), LOW(FESprites_f7_6b00), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 24
-	db 1, BANK(FESprites_f7_6b20), HIGH(FESprites_f7_6b20), LOW(FESprites_f7_6b20), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 25
-	db 1, BANK(FESprites_f7_6b40), HIGH(FESprites_f7_6b40), LOW(FESprites_f7_6b40), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 26
-	db 1, BANK(FESprites_f7_6b60), HIGH(FESprites_f7_6b60), LOW(FESprites_f7_6b60), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 27
-	db 1, BANK(FESprites_f7_6b80), HIGH(FESprites_f7_6b80), LOW(FESprites_f7_6b80), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 28
-	db 1, BANK(FESprites_f7_6ba0), HIGH(FESprites_f7_6ba0), LOW(FESprites_f7_6ba0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 29
-	db 1, BANK(FESprites_f7_6bc0), HIGH(FESprites_f7_6bc0), LOW(FESprites_f7_6bc0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 30
-	db 1, BANK(FESprites_f7_6be0), HIGH(FESprites_f7_6be0), LOW(FESprites_f7_6be0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 31
-	db 1, BANK(FESprites_f7_6c00), HIGH(FESprites_f7_6c00), LOW(FESprites_f7_6c00), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 32
-	db 1, BANK(FESprites_f7_6c20), HIGH(FESprites_f7_6c20), LOW(FESprites_f7_6c20), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 33
-	db 1, BANK(FESprites_f7_6c40), HIGH(FESprites_f7_6c40), LOW(FESprites_f7_6c40), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 34
-	db 1, BANK(FESprites_f7_6c60), HIGH(FESprites_f7_6c60), LOW(FESprites_f7_6c60), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 35
-	db 1, BANK(FESprites_f7_6c80), HIGH(FESprites_f7_6c80), LOW(FESprites_f7_6c80), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 36
-	db 1, BANK(FESprites_f7_6ca0), HIGH(FESprites_f7_6ca0), LOW(FESprites_f7_6ca0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 37
-	db 1, BANK(FESprites_f7_6cc0), HIGH(FESprites_f7_6cc0), LOW(FESprites_f7_6cc0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 38
-	db 1, BANK(FESprites_f7_6ce0), HIGH(FESprites_f7_6ce0), LOW(FESprites_f7_6ce0), HIGH(SpriteLayout_f0_65c9), LOW(SpriteLayout_f0_65c9) ; variant 39
+	db 1, BANK(FESprites_SpriteAnim33_00), HIGH(FESprites_SpriteAnim33_00), LOW(FESprites_SpriteAnim33_00), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; sprites, tiles, layout; variant 0
+	db 1, BANK(FESprites_SpriteAnim33_01), HIGH(FESprites_SpriteAnim33_01), LOW(FESprites_SpriteAnim33_01), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 1
+	db 1, BANK(FESprites_SpriteAnim33_02), HIGH(FESprites_SpriteAnim33_02), LOW(FESprites_SpriteAnim33_02), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 2
+	db 1, BANK(FESprites_SpriteAnim33_03), HIGH(FESprites_SpriteAnim33_03), LOW(FESprites_SpriteAnim33_03), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 3
+	db 1, BANK(FESprites_SpriteAnim33_04), HIGH(FESprites_SpriteAnim33_04), LOW(FESprites_SpriteAnim33_04), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 4
+	db 1, BANK(FESprites_SpriteAnim33_05), HIGH(FESprites_SpriteAnim33_05), LOW(FESprites_SpriteAnim33_05), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 5
+	db 1, BANK(FESprites_SpriteAnim33_06), HIGH(FESprites_SpriteAnim33_06), LOW(FESprites_SpriteAnim33_06), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 6
+	db 1, BANK(FESprites_SpriteAnim33_07), HIGH(FESprites_SpriteAnim33_07), LOW(FESprites_SpriteAnim33_07), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 7
+	db 1, BANK(FESprites_SpriteAnim33_08), HIGH(FESprites_SpriteAnim33_08), LOW(FESprites_SpriteAnim33_08), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 8
+	db 1, BANK(FESprites_SpriteAnim33_09), HIGH(FESprites_SpriteAnim33_09), LOW(FESprites_SpriteAnim33_09), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 9
+	db 1, BANK(FESprites_SpriteAnim33_10), HIGH(FESprites_SpriteAnim33_10), LOW(FESprites_SpriteAnim33_10), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 10
+	db 1, BANK(FESprites_SpriteAnim33_11), HIGH(FESprites_SpriteAnim33_11), LOW(FESprites_SpriteAnim33_11), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 11
+	db 1, BANK(FESprites_SpriteAnim33_12), HIGH(FESprites_SpriteAnim33_12), LOW(FESprites_SpriteAnim33_12), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 12
+	db 1, BANK(FESprites_SpriteAnim33_13), HIGH(FESprites_SpriteAnim33_13), LOW(FESprites_SpriteAnim33_13), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 13
+	db 1, BANK(FESprites_SpriteAnim33_14), HIGH(FESprites_SpriteAnim33_14), LOW(FESprites_SpriteAnim33_14), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 14
+	db 1, BANK(FESprites_SpriteAnim33_15), HIGH(FESprites_SpriteAnim33_15), LOW(FESprites_SpriteAnim33_15), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 15
+	db 1, BANK(FESprites_SpriteAnim33_16), HIGH(FESprites_SpriteAnim33_16), LOW(FESprites_SpriteAnim33_16), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 16
+	db 1, BANK(FESprites_SpriteAnim33_17), HIGH(FESprites_SpriteAnim33_17), LOW(FESprites_SpriteAnim33_17), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 17
+	db 1, BANK(FESprites_SpriteAnim33_18), HIGH(FESprites_SpriteAnim33_18), LOW(FESprites_SpriteAnim33_18), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 18
+	db 1, BANK(FESprites_SpriteAnim33_19), HIGH(FESprites_SpriteAnim33_19), LOW(FESprites_SpriteAnim33_19), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 19
+	db 1, BANK(FESprites_SpriteAnim33_20), HIGH(FESprites_SpriteAnim33_20), LOW(FESprites_SpriteAnim33_20), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 20
+	db 1, BANK(FESprites_SpriteAnim33_21), HIGH(FESprites_SpriteAnim33_21), LOW(FESprites_SpriteAnim33_21), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 21
+	db 1, BANK(FESprites_SpriteAnim33_22), HIGH(FESprites_SpriteAnim33_22), LOW(FESprites_SpriteAnim33_22), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 22
+	db 1, BANK(FESprites_SpriteAnim33_23), HIGH(FESprites_SpriteAnim33_23), LOW(FESprites_SpriteAnim33_23), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 23
+	db 1, BANK(FESprites_SpriteAnim33_24), HIGH(FESprites_SpriteAnim33_24), LOW(FESprites_SpriteAnim33_24), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 24
+	db 1, BANK(FESprites_SpriteAnim33_25), HIGH(FESprites_SpriteAnim33_25), LOW(FESprites_SpriteAnim33_25), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 25
+	db 1, BANK(FESprites_SpriteAnim33_26), HIGH(FESprites_SpriteAnim33_26), LOW(FESprites_SpriteAnim33_26), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 26
+	db 1, BANK(FESprites_SpriteAnim33_27), HIGH(FESprites_SpriteAnim33_27), LOW(FESprites_SpriteAnim33_27), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 27
+	db 1, BANK(FESprites_SpriteAnim33_28), HIGH(FESprites_SpriteAnim33_28), LOW(FESprites_SpriteAnim33_28), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 28
+	db 1, BANK(FESprites_SpriteAnim33_29), HIGH(FESprites_SpriteAnim33_29), LOW(FESprites_SpriteAnim33_29), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 29
+	db 1, BANK(FESprites_SpriteAnim33_30), HIGH(FESprites_SpriteAnim33_30), LOW(FESprites_SpriteAnim33_30), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 30
+	db 1, BANK(FESprites_SpriteAnim33_31), HIGH(FESprites_SpriteAnim33_31), LOW(FESprites_SpriteAnim33_31), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 31
+	db 1, BANK(FESprites_SpriteAnim33_32), HIGH(FESprites_SpriteAnim33_32), LOW(FESprites_SpriteAnim33_32), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 32
+	db 1, BANK(FESprites_SpriteAnim33_33), HIGH(FESprites_SpriteAnim33_33), LOW(FESprites_SpriteAnim33_33), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 33
+	db 1, BANK(FESprites_SpriteAnim33_34), HIGH(FESprites_SpriteAnim33_34), LOW(FESprites_SpriteAnim33_34), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 34
+	db 1, BANK(FESprites_SpriteAnim33_35), HIGH(FESprites_SpriteAnim33_35), LOW(FESprites_SpriteAnim33_35), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 35
+	db 1, BANK(FESprites_SpriteAnim33_36), HIGH(FESprites_SpriteAnim33_36), LOW(FESprites_SpriteAnim33_36), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 36
+	db 1, BANK(FESprites_SpriteAnim33_37), HIGH(FESprites_SpriteAnim33_37), LOW(FESprites_SpriteAnim33_37), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 37
+	db 1, BANK(FESprites_SpriteAnim33_38), HIGH(FESprites_SpriteAnim33_38), LOW(FESprites_SpriteAnim33_38), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 38
+	db 1, BANK(FESprites_SpriteAnim33_39), HIGH(FESprites_SpriteAnim33_39), LOW(FESprites_SpriteAnim33_39), HIGH(SpriteLayout_SpriteAnim33), LOW(SpriteLayout_SpriteAnim33) ; variant 39
 
-SpriteLayout_f0_65c9::
+SpriteLayout_SpriteAnim33::
 	db 0, 0 ; dx, dy from the previous sprite
 
 SpriteAnim34::
-	db 2, BANK(FESprites_f7_6d00), HIGH(FESprites_f7_6d00), LOW(FESprites_f7_6d00), HIGH(SpriteLayout_f0_65ef), LOW(SpriteLayout_f0_65ef) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f7_6d40), HIGH(FESprites_f7_6d40), LOW(FESprites_f7_6d40), HIGH(SpriteLayout_f0_65f3), LOW(SpriteLayout_f0_65f3) ; variant 1
-	db 2, BANK(FESprites_f7_6d80), HIGH(FESprites_f7_6d80), LOW(FESprites_f7_6d80), HIGH(SpriteLayout_f0_65f7), LOW(SpriteLayout_f0_65f7) ; variant 2
-	db 2, BANK(FESprites_f7_6dc0), HIGH(FESprites_f7_6dc0), LOW(FESprites_f7_6dc0), HIGH(SpriteLayout_f0_65fb), LOW(SpriteLayout_f0_65fb) ; variant 3
-	db 2, BANK(FESprites_f7_6e00), HIGH(FESprites_f7_6e00), LOW(FESprites_f7_6e00), HIGH(SpriteLayout_f0_65ff), LOW(SpriteLayout_f0_65ff) ; variant 4
-	db 2, BANK(FESprites_f7_6e40), HIGH(FESprites_f7_6e40), LOW(FESprites_f7_6e40), HIGH(SpriteLayout_f0_6603), LOW(SpriteLayout_f0_6603) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim34_0), HIGH(FESprites_SpriteAnim34_0), LOW(FESprites_SpriteAnim34_0), HIGH(SpriteLayout_Anim34_0), LOW(SpriteLayout_Anim34_0) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim34_1), HIGH(FESprites_SpriteAnim34_1), LOW(FESprites_SpriteAnim34_1), HIGH(SpriteLayout_Anim34_1), LOW(SpriteLayout_Anim34_1) ; variant 1
+	db 2, BANK(FESprites_SpriteAnim34_2), HIGH(FESprites_SpriteAnim34_2), LOW(FESprites_SpriteAnim34_2), HIGH(SpriteLayout_Anim34_2), LOW(SpriteLayout_Anim34_2) ; variant 2
+	db 2, BANK(FESprites_SpriteAnim34_3), HIGH(FESprites_SpriteAnim34_3), LOW(FESprites_SpriteAnim34_3), HIGH(SpriteLayout_Anim34_3), LOW(SpriteLayout_Anim34_3) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim34_4), HIGH(FESprites_SpriteAnim34_4), LOW(FESprites_SpriteAnim34_4), HIGH(SpriteLayout_Anim34_4), LOW(SpriteLayout_Anim34_4) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim34_5), HIGH(FESprites_SpriteAnim34_5), LOW(FESprites_SpriteAnim34_5), HIGH(SpriteLayout_Anim34_5), LOW(SpriteLayout_Anim34_5) ; variant 5
 
-SpriteLayout_f0_65ef::
+SpriteLayout_Anim34_0::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_65f3::
+SpriteLayout_Anim34_1::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_65f7::
+SpriteLayout_Anim34_2::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_65fb::
+SpriteLayout_Anim34_3::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_65ff::
+SpriteLayout_Anim34_4::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6603::
+SpriteLayout_Anim34_5::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim35::
-	db 2, BANK(FESprites_f7_6e80), HIGH(FESprites_f7_6e80), LOW(FESprites_f7_6e80), HIGH(SpriteLayout_f0_662b), LOW(SpriteLayout_f0_662b) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f7_6ec0), HIGH(FESprites_f7_6ec0), LOW(FESprites_f7_6ec0), HIGH(SpriteLayout_f0_662f), LOW(SpriteLayout_f0_662f) ; variant 1
-	db 2, BANK(FESprites_f7_6f00), HIGH(FESprites_f7_6f00), LOW(FESprites_f7_6f00), HIGH(SpriteLayout_f0_6633), LOW(SpriteLayout_f0_6633) ; variant 2
-	db 2, BANK(FESprites_f7_6f40), HIGH(FESprites_f7_6f40), LOW(FESprites_f7_6f40), HIGH(SpriteLayout_f0_6637), LOW(SpriteLayout_f0_6637) ; variant 3
-	db 2, BANK(FESprites_f7_6f80), HIGH(FESprites_f7_6f80), LOW(FESprites_f7_6f80), HIGH(SpriteLayout_f0_663b), LOW(SpriteLayout_f0_663b) ; variant 4
-	db 2, BANK(FESprites_f7_6fc0), HIGH(FESprites_f7_6fc0), LOW(FESprites_f7_6fc0), HIGH(SpriteLayout_f0_663f), LOW(SpriteLayout_f0_663f) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim35_0), HIGH(FESprites_SpriteAnim35_0), LOW(FESprites_SpriteAnim35_0), HIGH(SpriteLayout_Anim35_0), LOW(SpriteLayout_Anim35_0) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim35_1), HIGH(FESprites_SpriteAnim35_1), LOW(FESprites_SpriteAnim35_1), HIGH(SpriteLayout_Anim35_1), LOW(SpriteLayout_Anim35_1) ; variant 1
+	db 2, BANK(FESprites_SpriteAnim35_2), HIGH(FESprites_SpriteAnim35_2), LOW(FESprites_SpriteAnim35_2), HIGH(SpriteLayout_Anim35_2), LOW(SpriteLayout_Anim35_2) ; variant 2
+	db 2, BANK(FESprites_SpriteAnim35_3), HIGH(FESprites_SpriteAnim35_3), LOW(FESprites_SpriteAnim35_3), HIGH(SpriteLayout_Anim35_3), LOW(SpriteLayout_Anim35_3) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim35_4), HIGH(FESprites_SpriteAnim35_4), LOW(FESprites_SpriteAnim35_4), HIGH(SpriteLayout_Anim35_4), LOW(SpriteLayout_Anim35_4) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim35_5), HIGH(FESprites_SpriteAnim35_5), LOW(FESprites_SpriteAnim35_5), HIGH(SpriteLayout_Anim35_5), LOW(SpriteLayout_Anim35_5) ; variant 5
 
-SpriteLayout_f0_662b::
+SpriteLayout_Anim35_0::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_662f::
+SpriteLayout_Anim35_1::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6633::
+SpriteLayout_Anim35_2::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6637::
+SpriteLayout_Anim35_3::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_663b::
+SpriteLayout_Anim35_4::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_663f::
+SpriteLayout_Anim35_5::
 	db 0, 0 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim36::
-	db 2, BANK(FESprites_f7_7000), HIGH(FESprites_f7_7000), LOW(FESprites_f7_7000), HIGH(SpriteLayout_f0_6673), LOW(SpriteLayout_f0_6673) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f7_7040), HIGH(FESprites_f7_7040), LOW(FESprites_f7_7040), HIGH(SpriteLayout_f0_6677), LOW(SpriteLayout_f0_6677) ; variant 1
-	db 3, BANK(FESprites_f7_7080), HIGH(FESprites_f7_7080), LOW(FESprites_f7_7080), HIGH(SpriteLayout_f0_667b), LOW(SpriteLayout_f0_667b) ; variant 2
-	db 3, BANK(FESprites_f7_70e0), HIGH(FESprites_f7_70e0), LOW(FESprites_f7_70e0), HIGH(SpriteLayout_f0_6681), LOW(SpriteLayout_f0_6681) ; variant 3
-	db 4, BANK(FESprites_f7_7140), HIGH(FESprites_f7_7140), LOW(FESprites_f7_7140), HIGH(SpriteLayout_f0_6687), LOW(SpriteLayout_f0_6687) ; variant 4
-	db 4, BANK(FESprites_f7_71c0), HIGH(FESprites_f7_71c0), LOW(FESprites_f7_71c0), HIGH(SpriteLayout_f0_668f), LOW(SpriteLayout_f0_668f) ; variant 5
-	db 4, BANK(FESprites_f7_7240), HIGH(FESprites_f7_7240), LOW(FESprites_f7_7240), HIGH(SpriteLayout_f0_6697), LOW(SpriteLayout_f0_6697) ; variant 6
-	db 4, BANK(FESprites_f7_72c0), HIGH(FESprites_f7_72c0), LOW(FESprites_f7_72c0), HIGH(SpriteLayout_f0_669f), LOW(SpriteLayout_f0_669f) ; variant 7
+	db 2, BANK(FESprites_SpriteAnim36_0), HIGH(FESprites_SpriteAnim36_0), LOW(FESprites_SpriteAnim36_0), HIGH(SpriteLayout_Anim36_0), LOW(SpriteLayout_Anim36_0) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim36_1), HIGH(FESprites_SpriteAnim36_1), LOW(FESprites_SpriteAnim36_1), HIGH(SpriteLayout_Anim36_1), LOW(SpriteLayout_Anim36_1) ; variant 1
+	db 3, BANK(FESprites_SpriteAnim36_2), HIGH(FESprites_SpriteAnim36_2), LOW(FESprites_SpriteAnim36_2), HIGH(SpriteLayout_Anim36_2), LOW(SpriteLayout_Anim36_2) ; variant 2
+	db 3, BANK(FESprites_SpriteAnim36_3), HIGH(FESprites_SpriteAnim36_3), LOW(FESprites_SpriteAnim36_3), HIGH(SpriteLayout_Anim36_3), LOW(SpriteLayout_Anim36_3) ; variant 3
+	db 4, BANK(FESprites_SpriteAnim36_4), HIGH(FESprites_SpriteAnim36_4), LOW(FESprites_SpriteAnim36_4), HIGH(SpriteLayout_Anim36_4), LOW(SpriteLayout_Anim36_4) ; variant 4
+	db 4, BANK(FESprites_SpriteAnim36_5), HIGH(FESprites_SpriteAnim36_5), LOW(FESprites_SpriteAnim36_5), HIGH(SpriteLayout_Anim36_5), LOW(SpriteLayout_Anim36_5) ; variant 5
+	db 4, BANK(FESprites_SpriteAnim36_6), HIGH(FESprites_SpriteAnim36_6), LOW(FESprites_SpriteAnim36_6), HIGH(SpriteLayout_Anim36_6), LOW(SpriteLayout_Anim36_6) ; variant 6
+	db 4, BANK(FESprites_SpriteAnim36_7), HIGH(FESprites_SpriteAnim36_7), LOW(FESprites_SpriteAnim36_7), HIGH(SpriteLayout_Anim36_7), LOW(SpriteLayout_Anim36_7) ; variant 7
 
-SpriteLayout_f0_6673::
+SpriteLayout_Anim36_0::
 	db -2, -3 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_6677::
+SpriteLayout_Anim36_1::
 	db -6, -6 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_667b::
+SpriteLayout_Anim36_2::
 	db -8, -9 ; dx, dy from the previous sprite
 	db 8, -1
 	db 8, 3
 
-SpriteLayout_f0_6681::
+SpriteLayout_Anim36_3::
 	db -8, -12 ; dx, dy from the previous sprite
 	db 8, -1
 	db 8, 3
 
-SpriteLayout_f0_6687::
+SpriteLayout_Anim36_4::
 	db -8, -14 ; dx, dy from the previous sprite
 	db 8, -1
 	db -3, 16
 	db 11, -13
 
-SpriteLayout_f0_668f::
+SpriteLayout_Anim36_5::
 	db -8, -16 ; dx, dy from the previous sprite
 	db 8, -1
 	db -2, 16
 	db 8, -3
 
-SpriteLayout_f0_6697::
+SpriteLayout_Anim36_6::
 	db -8, -16 ; dx, dy from the previous sprite
 	db 8, -1
 	db -2, 16
 	db 8, -13
 
-SpriteLayout_f0_669f::
+SpriteLayout_Anim36_7::
 	db -8, -16 ; dx, dy from the previous sprite
 	db 8, -1
 	db -3, 16
 	db 8, -13
 
 SpriteAnim38::
-	db 7, BANK(FESprites_f7_7340), HIGH(FESprites_f7_7340), LOW(FESprites_f7_7340), HIGH(SpriteLayout_f0_66cb), LOW(SpriteLayout_f0_66cb) ; sprites, tiles, layout; variant 0
-	db 7, BANK(FESprites_f7_7420), HIGH(FESprites_f7_7420), LOW(FESprites_f7_7420), HIGH(SpriteLayout_f0_66d9), LOW(SpriteLayout_f0_66d9) ; variant 1
-	db 7, BANK(FESprites_f7_7500), HIGH(FESprites_f7_7500), LOW(FESprites_f7_7500), HIGH(SpriteLayout_f0_66e7), LOW(SpriteLayout_f0_66e7) ; variant 2
-	db 7, BANK(FESprites_f7_75e0), HIGH(FESprites_f7_75e0), LOW(FESprites_f7_75e0), HIGH(SpriteLayout_f0_66f5), LOW(SpriteLayout_f0_66f5) ; variant 3
-	db 7, BANK(FESprites_f7_76c0), HIGH(FESprites_f7_76c0), LOW(FESprites_f7_76c0), HIGH(SpriteLayout_f0_6703), LOW(SpriteLayout_f0_6703) ; variant 4
-	db 7, BANK(FESprites_f7_77a0), HIGH(FESprites_f7_77a0), LOW(FESprites_f7_77a0), HIGH(SpriteLayout_f0_6711), LOW(SpriteLayout_f0_6711) ; variant 5
+	db 7, BANK(FESprites_SpriteAnim38_0), HIGH(FESprites_SpriteAnim38_0), LOW(FESprites_SpriteAnim38_0), HIGH(SpriteLayout_Anim38_0), LOW(SpriteLayout_Anim38_0) ; sprites, tiles, layout; variant 0
+	db 7, BANK(FESprites_SpriteAnim38_1), HIGH(FESprites_SpriteAnim38_1), LOW(FESprites_SpriteAnim38_1), HIGH(SpriteLayout_Anim38_1), LOW(SpriteLayout_Anim38_1) ; variant 1
+	db 7, BANK(FESprites_SpriteAnim38_2), HIGH(FESprites_SpriteAnim38_2), LOW(FESprites_SpriteAnim38_2), HIGH(SpriteLayout_Anim38_2), LOW(SpriteLayout_Anim38_2) ; variant 2
+	db 7, BANK(FESprites_SpriteAnim38_3), HIGH(FESprites_SpriteAnim38_3), LOW(FESprites_SpriteAnim38_3), HIGH(SpriteLayout_Anim38_3), LOW(SpriteLayout_Anim38_3) ; variant 3
+	db 7, BANK(FESprites_SpriteAnim38_4), HIGH(FESprites_SpriteAnim38_4), LOW(FESprites_SpriteAnim38_4), HIGH(SpriteLayout_Anim38_4), LOW(SpriteLayout_Anim38_4) ; variant 4
+	db 7, BANK(FESprites_SpriteAnim38_5), HIGH(FESprites_SpriteAnim38_5), LOW(FESprites_SpriteAnim38_5), HIGH(SpriteLayout_Anim38_5), LOW(SpriteLayout_Anim38_5) ; variant 5
 
-SpriteLayout_f0_66cb::
+SpriteLayout_Anim38_0::
 	db -11, -21 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -4490,7 +4490,7 @@ SpriteLayout_f0_66cb::
 	db 0, 16
 	db 8, -15
 
-SpriteLayout_f0_66d9::
+SpriteLayout_Anim38_1::
 	db -11, -21 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -4499,7 +4499,7 @@ SpriteLayout_f0_66d9::
 	db 0, 16
 	db 8, -12
 
-SpriteLayout_f0_66e7::
+SpriteLayout_Anim38_2::
 	db -11, -21 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -4508,7 +4508,7 @@ SpriteLayout_f0_66e7::
 	db 0, 16
 	db 8, -12
 
-SpriteLayout_f0_66f5::
+SpriteLayout_Anim38_3::
 	db -11, -21 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -4517,7 +4517,7 @@ SpriteLayout_f0_66f5::
 	db 0, 16
 	db 8, -13
 
-SpriteLayout_f0_6703::
+SpriteLayout_Anim38_4::
 	db -11, -21 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -4526,7 +4526,7 @@ SpriteLayout_f0_6703::
 	db 0, 16
 	db 8, -13
 
-SpriteLayout_f0_6711::
+SpriteLayout_Anim38_5::
 	db -11, -21 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -18
@@ -4536,10 +4536,10 @@ SpriteLayout_f0_6711::
 	db 8, -13
 
 SpriteAnim37::
-	db 6, BANK(FESprites_f7_7880), HIGH(FESprites_f7_7880), LOW(FESprites_f7_7880), HIGH(SpriteLayout_f0_672b), LOW(SpriteLayout_f0_672b) ; sprites, tiles, layout; variant 0
-	db 9, BANK(FESprites_f7_7940), HIGH(FESprites_f7_7940), LOW(FESprites_f7_7940), HIGH(SpriteLayout_f0_6737), LOW(SpriteLayout_f0_6737) ; variant 1
+	db 6, BANK(FESprites_SpriteAnim37_1), HIGH(FESprites_SpriteAnim37_1), LOW(FESprites_SpriteAnim37_1), HIGH(SpriteLayout_SpriteAnim37_1), LOW(SpriteLayout_SpriteAnim37_1) ; sprites, tiles, layout; variant 0
+	db 9, BANK(FESprites_SpriteAnim37_2), HIGH(FESprites_SpriteAnim37_2), LOW(FESprites_SpriteAnim37_2), HIGH(SpriteLayout_SpriteAnim37_2), LOW(SpriteLayout_SpriteAnim37_2) ; variant 1
 
-SpriteLayout_f0_672b::
+SpriteLayout_SpriteAnim37_1::
 	db -6, -27 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -17
@@ -4547,7 +4547,7 @@ SpriteLayout_f0_672b::
 	db 8, -17
 	db 8, 8
 
-SpriteLayout_f0_6737::
+SpriteLayout_SpriteAnim37_2::
 	db -5, -40 ; dx, dy from the previous sprite
 	db 0, 16
 	db 0, 16
@@ -4559,65 +4559,65 @@ SpriteLayout_f0_6737::
 	db 8, -14
 
 SpriteAnim40::
-	db 5, BANK(FESprites_f7_7a60), HIGH(FESprites_f7_7a60), LOW(FESprites_f7_7a60), HIGH(SpriteLayout_f0_6779), LOW(SpriteLayout_f0_6779) ; sprites, tiles, layout; variant 0
-	db 5, BANK(FESprites_f7_7b00), HIGH(FESprites_f7_7b00), LOW(FESprites_f7_7b00), HIGH(SpriteLayout_f0_6783), LOW(SpriteLayout_f0_6783) ; variant 1
-	db 5, BANK(FESprites_f7_7ba0), HIGH(FESprites_f7_7ba0), LOW(FESprites_f7_7ba0), HIGH(SpriteLayout_f0_678d), LOW(SpriteLayout_f0_678d) ; variant 2
-	db 5, BANK(FESprites_f7_7c40), HIGH(FESprites_f7_7c40), LOW(FESprites_f7_7c40), HIGH(SpriteLayout_f0_6797), LOW(SpriteLayout_f0_6797) ; variant 3
-	db 5, BANK(FESprites_f7_7ce0), HIGH(FESprites_f7_7ce0), LOW(FESprites_f7_7ce0), HIGH(SpriteLayout_f0_67a1), LOW(SpriteLayout_f0_67a1) ; variant 4
-	db 5, BANK(FESprites_f7_7d80), HIGH(FESprites_f7_7d80), LOW(FESprites_f7_7d80), HIGH(SpriteLayout_f0_67ab), LOW(SpriteLayout_f0_67ab) ; variant 5
-	db 5, BANK(FESprites_f7_7e20), HIGH(FESprites_f7_7e20), LOW(FESprites_f7_7e20), HIGH(SpriteLayout_f0_67b5), LOW(SpriteLayout_f0_67b5) ; variant 6
-	db 5, BANK(FESprites_f7_7ec0), HIGH(FESprites_f7_7ec0), LOW(FESprites_f7_7ec0), HIGH(SpriteLayout_f0_67bf), LOW(SpriteLayout_f0_67bf) ; variant 7
+	db 5, BANK(FESprites_SpriteAnim40_0), HIGH(FESprites_SpriteAnim40_0), LOW(FESprites_SpriteAnim40_0), HIGH(SpriteLayout_Anim40_0), LOW(SpriteLayout_Anim40_0) ; sprites, tiles, layout; variant 0
+	db 5, BANK(FESprites_SpriteAnim40_1), HIGH(FESprites_SpriteAnim40_1), LOW(FESprites_SpriteAnim40_1), HIGH(SpriteLayout_Anim40_1), LOW(SpriteLayout_Anim40_1) ; variant 1
+	db 5, BANK(FESprites_SpriteAnim40_2), HIGH(FESprites_SpriteAnim40_2), LOW(FESprites_SpriteAnim40_2), HIGH(SpriteLayout_Anim40_2), LOW(SpriteLayout_Anim40_2) ; variant 2
+	db 5, BANK(FESprites_SpriteAnim40_3), HIGH(FESprites_SpriteAnim40_3), LOW(FESprites_SpriteAnim40_3), HIGH(SpriteLayout_Anim40_3), LOW(SpriteLayout_Anim40_3) ; variant 3
+	db 5, BANK(FESprites_SpriteAnim40_4), HIGH(FESprites_SpriteAnim40_4), LOW(FESprites_SpriteAnim40_4), HIGH(SpriteLayout_Anim40_4), LOW(SpriteLayout_Anim40_4) ; variant 4
+	db 5, BANK(FESprites_SpriteAnim40_5), HIGH(FESprites_SpriteAnim40_5), LOW(FESprites_SpriteAnim40_5), HIGH(SpriteLayout_Anim40_5), LOW(SpriteLayout_Anim40_5) ; variant 5
+	db 5, BANK(FESprites_SpriteAnim40_6), HIGH(FESprites_SpriteAnim40_6), LOW(FESprites_SpriteAnim40_6), HIGH(SpriteLayout_Anim40_6), LOW(SpriteLayout_Anim40_6) ; variant 6
+	db 5, BANK(FESprites_SpriteAnim40_7), HIGH(FESprites_SpriteAnim40_7), LOW(FESprites_SpriteAnim40_7), HIGH(SpriteLayout_Anim40_7), LOW(SpriteLayout_Anim40_7) ; variant 7
 
-SpriteLayout_f0_6779::
+SpriteLayout_Anim40_0::
 	db -10, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -4, 15
 	db 12, -14
 	db -4, 15
 
-SpriteLayout_f0_6783::
+SpriteLayout_Anim40_1::
 	db -10, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -4, 15
 	db 12, -14
 	db -4, 15
 
-SpriteLayout_f0_678d::
+SpriteLayout_Anim40_2::
 	db -10, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -4, 15
 	db 12, -14
 	db -4, 15
 
-SpriteLayout_f0_6797::
+SpriteLayout_Anim40_3::
 	db -10, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -4, 15
 	db 12, -14
 	db -4, 15
 
-SpriteLayout_f0_67a1::
+SpriteLayout_Anim40_4::
 	db -10, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -5, 15
 	db 13, -14
 	db -5, 15
 
-SpriteLayout_f0_67ab::
+SpriteLayout_Anim40_5::
 	db -11, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -3, 15
 	db 11, -15
 	db -3, 16
 
-SpriteLayout_f0_67b5::
+SpriteLayout_Anim40_6::
 	db -12, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -2, 15
 	db 10, -15
 	db -2, 16
 
-SpriteLayout_f0_67bf::
+SpriteLayout_Anim40_7::
 	db -11, -24 ; dx, dy from the previous sprite
 	db 8, 1
 	db -3, 15
@@ -4625,10 +4625,10 @@ SpriteLayout_f0_67bf::
 	db -3, 16
 
 SpriteAnim39::
-	db 7, BANK(FESprites_f8_4000), HIGH(FESprites_f8_4000), LOW(FESprites_f8_4000), HIGH(SpriteLayout_f0_67d5), LOW(SpriteLayout_f0_67d5) ; sprites, tiles, layout; variant 0
-	db 5, BANK(FESprites_f8_40e0), HIGH(FESprites_f8_40e0), LOW(FESprites_f8_40e0), HIGH(SpriteLayout_f0_67e3), LOW(SpriteLayout_f0_67e3) ; variant 1
+	db 7, BANK(FESprites_SpriteAnim39_1), HIGH(FESprites_SpriteAnim39_1), LOW(FESprites_SpriteAnim39_1), HIGH(SpriteLayout_SpriteAnim39_1), LOW(SpriteLayout_SpriteAnim39_1) ; sprites, tiles, layout; variant 0
+	db 5, BANK(FESprites_SpriteAnim39_2), HIGH(FESprites_SpriteAnim39_2), LOW(FESprites_SpriteAnim39_2), HIGH(SpriteLayout_SpriteAnim39_2), LOW(SpriteLayout_SpriteAnim39_2) ; variant 1
 
-SpriteLayout_f0_67d5::
+SpriteLayout_SpriteAnim39_1::
 	db -15, -3 ; dx, dy from the previous sprite
 	db 8, -23
 	db -4, 16
@@ -4637,7 +4637,7 @@ SpriteLayout_f0_67d5::
 	db 4, -10
 	db -12, 10
 
-SpriteLayout_f0_67e3::
+SpriteLayout_SpriteAnim39_2::
 	db -12, -17 ; dx, dy from the previous sprite
 	db 8, -5
 	db 0, 16
@@ -4645,34 +4645,34 @@ SpriteLayout_f0_67e3::
 	db 0, 16
 
 SpriteAnim41::
-	db 2, BANK(FESprites_f8_4180), HIGH(FESprites_f8_4180), LOW(FESprites_f8_4180), HIGH(SpriteLayout_f0_6823), LOW(SpriteLayout_f0_6823) ; sprites, tiles, layout; variant 0
-	db 4, BANK(FESprites_f8_41c0), HIGH(FESprites_f8_41c0), LOW(FESprites_f8_41c0), HIGH(SpriteLayout_f0_6827), LOW(SpriteLayout_f0_6827) ; variant 1
-	db 5, BANK(FESprites_f8_4240), HIGH(FESprites_f8_4240), LOW(FESprites_f8_4240), HIGH(SpriteLayout_f0_682f), LOW(SpriteLayout_f0_682f) ; variant 2
-	db 6, BANK(FESprites_f8_42e0), HIGH(FESprites_f8_42e0), LOW(FESprites_f8_42e0), HIGH(SpriteLayout_f0_6839), LOW(SpriteLayout_f0_6839) ; variant 3
-	db 5, BANK(FESprites_f8_43a0), HIGH(FESprites_f8_43a0), LOW(FESprites_f8_43a0), HIGH(SpriteLayout_f0_6845), LOW(SpriteLayout_f0_6845) ; variant 4
-	db 5, BANK(FESprites_f8_4440), HIGH(FESprites_f8_4440), LOW(FESprites_f8_4440), HIGH(SpriteLayout_f0_684f), LOW(SpriteLayout_f0_684f) ; variant 5
-	db 5, BANK(FESprites_f8_44e0), HIGH(FESprites_f8_44e0), LOW(FESprites_f8_44e0), HIGH(SpriteLayout_f0_6859), LOW(SpriteLayout_f0_6859) ; variant 6
-	db 5, BANK(FESprites_f8_4580), HIGH(FESprites_f8_4580), LOW(FESprites_f8_4580), HIGH(SpriteLayout_f0_6863), LOW(SpriteLayout_f0_6863) ; variant 7
-	db 3, BANK(FESprites_f8_4620), HIGH(FESprites_f8_4620), LOW(FESprites_f8_4620), HIGH(SpriteLayout_f0_686d), LOW(SpriteLayout_f0_686d) ; variant 8
+	db 2, BANK(FESprites_SpriteAnim41_0), HIGH(FESprites_SpriteAnim41_0), LOW(FESprites_SpriteAnim41_0), HIGH(SpriteLayout_Anim41_0), LOW(SpriteLayout_Anim41_0) ; sprites, tiles, layout; variant 0
+	db 4, BANK(FESprites_SpriteAnim41_1), HIGH(FESprites_SpriteAnim41_1), LOW(FESprites_SpriteAnim41_1), HIGH(SpriteLayout_Anim41_1), LOW(SpriteLayout_Anim41_1) ; variant 1
+	db 5, BANK(FESprites_SpriteAnim41_2), HIGH(FESprites_SpriteAnim41_2), LOW(FESprites_SpriteAnim41_2), HIGH(SpriteLayout_Anim41_2), LOW(SpriteLayout_Anim41_2) ; variant 2
+	db 6, BANK(FESprites_SpriteAnim41_3), HIGH(FESprites_SpriteAnim41_3), LOW(FESprites_SpriteAnim41_3), HIGH(SpriteLayout_Anim41_3), LOW(SpriteLayout_Anim41_3) ; variant 3
+	db 5, BANK(FESprites_SpriteAnim41_4), HIGH(FESprites_SpriteAnim41_4), LOW(FESprites_SpriteAnim41_4), HIGH(SpriteLayout_Anim41_4), LOW(SpriteLayout_Anim41_4) ; variant 4
+	db 5, BANK(FESprites_SpriteAnim41_5), HIGH(FESprites_SpriteAnim41_5), LOW(FESprites_SpriteAnim41_5), HIGH(SpriteLayout_Anim41_5), LOW(SpriteLayout_Anim41_5) ; variant 5
+	db 5, BANK(FESprites_SpriteAnim41_6), HIGH(FESprites_SpriteAnim41_6), LOW(FESprites_SpriteAnim41_6), HIGH(SpriteLayout_Anim41_6), LOW(SpriteLayout_Anim41_6) ; variant 6
+	db 5, BANK(FESprites_SpriteAnim41_7), HIGH(FESprites_SpriteAnim41_7), LOW(FESprites_SpriteAnim41_7), HIGH(SpriteLayout_Anim41_7), LOW(SpriteLayout_Anim41_7) ; variant 7
+	db 3, BANK(FESprites_SpriteAnim41_8), HIGH(FESprites_SpriteAnim41_8), LOW(FESprites_SpriteAnim41_8), HIGH(SpriteLayout_Anim41_8), LOW(SpriteLayout_Anim41_8) ; variant 8
 
-SpriteLayout_f0_6823::
+SpriteLayout_Anim41_0::
 	db -7, -7 ; dx, dy from the previous sprite
 	db 8, -1
 
-SpriteLayout_f0_6827::
+SpriteLayout_Anim41_1::
 	db -9, -8 ; dx, dy from the previous sprite
 	db 8, -2
 	db -2, 5
 	db 6, -3
 
-SpriteLayout_f0_682f::
+SpriteLayout_Anim41_2::
 	db -11, -11 ; dx, dy from the previous sprite
 	db 2, 7
 	db 6, -7
 	db 2, 7
 	db 5, -6
 
-SpriteLayout_f0_6839::
+SpriteLayout_Anim41_3::
 	db -11, -11 ; dx, dy from the previous sprite
 	db 4, 5
 	db 4, -5
@@ -4680,49 +4680,49 @@ SpriteLayout_f0_6839::
 	db 8, -7
 	db -4, 5
 
-SpriteLayout_f0_6845::
+SpriteLayout_Anim41_4::
 	db -11, -11 ; dx, dy from the previous sprite
 	db 4, 6
 	db 4, -7
 	db 4, 8
 	db 3, -4
 
-SpriteLayout_f0_684f::
+SpriteLayout_Anim41_5::
 	db -10, -12 ; dx, dy from the previous sprite
 	db 0, 6
 	db 8, -6
 	db 0, 5
 	db 5, -2
 
-SpriteLayout_f0_6859::
+SpriteLayout_Anim41_6::
 	db -10, -10 ; dx, dy from the previous sprite
 	db 4, 6
 	db 0, -8
 	db 8, 8
 	db 0, -8
 
-SpriteLayout_f0_6863::
+SpriteLayout_Anim41_7::
 	db -4, -12 ; dx, dy from the previous sprite
 	db -8, 3
 	db 11, 5
 	db 5, -9
 	db -13, 7
 
-SpriteLayout_f0_686d::
+SpriteLayout_Anim41_8::
 	db -8, -10 ; dx, dy from the previous sprite
 	db 0, 3
 	db 11, -2
 
 SpriteAnim42::
-	db 9, BANK(FESprites_f8_4680), HIGH(FESprites_f8_4680), LOW(FESprites_f8_4680), HIGH(SpriteLayout_f0_689d), LOW(SpriteLayout_f0_689d) ; sprites, tiles, layout; variant 0
-	db 9, BANK(FESprites_f8_47a0), HIGH(FESprites_f8_47a0), LOW(FESprites_f8_47a0), HIGH(SpriteLayout_f0_68af), LOW(SpriteLayout_f0_68af) ; variant 1
-	db 8, BANK(FESprites_f8_48c0), HIGH(FESprites_f8_48c0), LOW(FESprites_f8_48c0), HIGH(SpriteLayout_f0_68c1), LOW(SpriteLayout_f0_68c1) ; variant 2
-	db 8, BANK(FESprites_f8_49c0), HIGH(FESprites_f8_49c0), LOW(FESprites_f8_49c0), HIGH(SpriteLayout_f0_68d1), LOW(SpriteLayout_f0_68d1) ; variant 3
-	db 8, BANK(FESprites_f8_4ac0), HIGH(FESprites_f8_4ac0), LOW(FESprites_f8_4ac0), HIGH(SpriteLayout_f0_68e1), LOW(SpriteLayout_f0_68e1) ; variant 4
-	db 8, BANK(FESprites_f8_4bc0), HIGH(FESprites_f8_4bc0), LOW(FESprites_f8_4bc0), HIGH(SpriteLayout_f0_68f1), LOW(SpriteLayout_f0_68f1) ; variant 5
-	db 6, BANK(FESprites_f8_4cc0), HIGH(FESprites_f8_4cc0), LOW(FESprites_f8_4cc0), HIGH(SpriteLayout_f0_6901), LOW(SpriteLayout_f0_6901) ; variant 6
+	db 9, BANK(FESprites_SpriteAnim42_0), HIGH(FESprites_SpriteAnim42_0), LOW(FESprites_SpriteAnim42_0), HIGH(SpriteLayout_Anim42_0), LOW(SpriteLayout_Anim42_0) ; sprites, tiles, layout; variant 0
+	db 9, BANK(FESprites_SpriteAnim42_1), HIGH(FESprites_SpriteAnim42_1), LOW(FESprites_SpriteAnim42_1), HIGH(SpriteLayout_Anim42_1), LOW(SpriteLayout_Anim42_1) ; variant 1
+	db 8, BANK(FESprites_SpriteAnim42_2), HIGH(FESprites_SpriteAnim42_2), LOW(FESprites_SpriteAnim42_2), HIGH(SpriteLayout_Anim42_2), LOW(SpriteLayout_Anim42_2) ; variant 2
+	db 8, BANK(FESprites_SpriteAnim42_3), HIGH(FESprites_SpriteAnim42_3), LOW(FESprites_SpriteAnim42_3), HIGH(SpriteLayout_Anim42_3), LOW(SpriteLayout_Anim42_3) ; variant 3
+	db 8, BANK(FESprites_SpriteAnim42_4), HIGH(FESprites_SpriteAnim42_4), LOW(FESprites_SpriteAnim42_4), HIGH(SpriteLayout_Anim42_4), LOW(SpriteLayout_Anim42_4) ; variant 4
+	db 8, BANK(FESprites_SpriteAnim42_5), HIGH(FESprites_SpriteAnim42_5), LOW(FESprites_SpriteAnim42_5), HIGH(SpriteLayout_Anim42_5), LOW(SpriteLayout_Anim42_5) ; variant 5
+	db 6, BANK(FESprites_SpriteAnim42_6), HIGH(FESprites_SpriteAnim42_6), LOW(FESprites_SpriteAnim42_6), HIGH(SpriteLayout_Anim42_6), LOW(SpriteLayout_Anim42_6) ; variant 6
 
-SpriteLayout_f0_689d::
+SpriteLayout_Anim42_0::
 	db -17, -18 ; dx, dy from the previous sprite
 	db 8, 3
 	db 4, -19
@@ -4733,7 +4733,7 @@ SpriteLayout_f0_689d::
 	db -8, 3
 	db 10, 1
 
-SpriteLayout_f0_68af::
+SpriteLayout_Anim42_1::
 	db -17, -16 ; dx, dy from the previous sprite
 	db 8, 0
 	db 4, -18
@@ -4744,7 +4744,7 @@ SpriteLayout_f0_68af::
 	db -22, -13
 	db 17, 14
 
-SpriteLayout_f0_68c1::
+SpriteLayout_Anim42_2::
 	db -16, -17 ; dx, dy from the previous sprite
 	db 10, -16
 	db -5, 4
@@ -4754,7 +4754,7 @@ SpriteLayout_f0_68c1::
 	db -5, 11
 	db 3, 4
 
-SpriteLayout_f0_68d1::
+SpriteLayout_Anim42_3::
 	db -16, -17 ; dx, dy from the previous sprite
 	db 19, -11
 	db -15, 4
@@ -4764,7 +4764,7 @@ SpriteLayout_f0_68d1::
 	db -10, 14
 	db 7, -1
 
-SpriteLayout_f0_68e1::
+SpriteLayout_Anim42_4::
 	db -17, -17 ; dx, dy from the previous sprite
 	db 7, -8
 	db 1, 16
@@ -4774,7 +4774,7 @@ SpriteLayout_f0_68e1::
 	db -1, 14
 	db 4, -3
 
-SpriteLayout_f0_68f1::
+SpriteLayout_Anim42_5::
 	db -15, -17 ; dx, dy from the previous sprite
 	db 8, 9
 	db 2, -24
@@ -4784,7 +4784,7 @@ SpriteLayout_f0_68f1::
 	db 6, 1
 	db 2, -13
 
-SpriteLayout_f0_6901::
+SpriteLayout_Anim42_6::
 	db -14, -18 ; dx, dy from the previous sprite
 	db 8, -14
 	db 0, 16
@@ -4793,11 +4793,11 @@ SpriteLayout_f0_6901::
 	db 0, 7
 
 SpriteAnim43::
-	db 8, BANK(FESprites_f8_4d80), HIGH(FESprites_f8_4d80), LOW(FESprites_f8_4d80), HIGH(SpriteLayout_f0_691f), LOW(SpriteLayout_f0_691f) ; sprites, tiles, layout; variant 0
-	db 8, BANK(FESprites_f8_4e80), HIGH(FESprites_f8_4e80), LOW(FESprites_f8_4e80), HIGH(SpriteLayout_f0_692f), LOW(SpriteLayout_f0_692f) ; variant 1
-	db 7, BANK(FESprites_f8_4f80), HIGH(FESprites_f8_4f80), LOW(FESprites_f8_4f80), HIGH(SpriteLayout_f0_693f), LOW(SpriteLayout_f0_693f) ; variant 2
+	db 8, BANK(FESprites_SpriteAnim43_1), HIGH(FESprites_SpriteAnim43_1), LOW(FESprites_SpriteAnim43_1), HIGH(SpriteLayout_SpriteAnim43_1), LOW(SpriteLayout_SpriteAnim43_1) ; sprites, tiles, layout; variant 0
+	db 8, BANK(FESprites_SpriteAnim43_2), HIGH(FESprites_SpriteAnim43_2), LOW(FESprites_SpriteAnim43_2), HIGH(SpriteLayout_SpriteAnim43_2), LOW(SpriteLayout_SpriteAnim43_2) ; variant 1
+	db 7, BANK(FESprites_SpriteAnim43_3), HIGH(FESprites_SpriteAnim43_3), LOW(FESprites_SpriteAnim43_3), HIGH(SpriteLayout_SpriteAnim43_3), LOW(SpriteLayout_SpriteAnim43_3) ; variant 2
 
-SpriteLayout_f0_691f::
+SpriteLayout_SpriteAnim43_1::
 	db -12, -19 ; dx, dy from the previous sprite
 	db 0, 2
 	db 5, -18
@@ -4807,7 +4807,7 @@ SpriteLayout_f0_691f::
 	db 3, 16
 	db 4, -6
 
-SpriteLayout_f0_692f::
+SpriteLayout_SpriteAnim43_2::
 	db -12, -21 ; dx, dy from the previous sprite
 	db 0, 4
 	db 5, -17
@@ -4817,7 +4817,7 @@ SpriteLayout_f0_692f::
 	db 8, -6
 	db -13, 6
 
-SpriteLayout_f0_693f::
+SpriteLayout_SpriteAnim43_3::
 	db -12, -17 ; dx, dy from the previous sprite
 	db 8, 2
 	db -3, -18
@@ -4827,15 +4827,15 @@ SpriteLayout_f0_693f::
 	db 5, -6
 
 SpriteAnim44::
-	db 8, BANK(FESprites_f8_5060), HIGH(FESprites_f8_5060), LOW(FESprites_f8_5060), HIGH(SpriteLayout_f0_6977), LOW(SpriteLayout_f0_6977) ; sprites, tiles, layout; variant 0
-	db 8, BANK(FESprites_f8_5160), HIGH(FESprites_f8_5160), LOW(FESprites_f8_5160), HIGH(SpriteLayout_f0_6987), LOW(SpriteLayout_f0_6987) ; variant 1
-	db 8, BANK(FESprites_f8_5260), HIGH(FESprites_f8_5260), LOW(FESprites_f8_5260), HIGH(SpriteLayout_f0_6997), LOW(SpriteLayout_f0_6997) ; variant 2
-	db 9, BANK(FESprites_f8_5360), HIGH(FESprites_f8_5360), LOW(FESprites_f8_5360), HIGH(SpriteLayout_f0_69a7), LOW(SpriteLayout_f0_69a7) ; variant 3
-	db 9, BANK(FESprites_f8_5480), HIGH(FESprites_f8_5480), LOW(FESprites_f8_5480), HIGH(SpriteLayout_f0_69b9), LOW(SpriteLayout_f0_69b9) ; variant 4
-	db 8, BANK(FESprites_f8_55a0), HIGH(FESprites_f8_55a0), LOW(FESprites_f8_55a0), HIGH(SpriteLayout_f0_69cb), LOW(SpriteLayout_f0_69cb) ; variant 5
-	db 9, BANK(FESprites_f8_56a0), HIGH(FESprites_f8_56a0), LOW(FESprites_f8_56a0), HIGH(SpriteLayout_f0_69db), LOW(SpriteLayout_f0_69db) ; variant 6
+	db 8, BANK(FESprites_SpriteAnim44_0), HIGH(FESprites_SpriteAnim44_0), LOW(FESprites_SpriteAnim44_0), HIGH(SpriteLayout_Anim44_0), LOW(SpriteLayout_Anim44_0) ; sprites, tiles, layout; variant 0
+	db 8, BANK(FESprites_SpriteAnim44_1), HIGH(FESprites_SpriteAnim44_1), LOW(FESprites_SpriteAnim44_1), HIGH(SpriteLayout_Anim44_1), LOW(SpriteLayout_Anim44_1) ; variant 1
+	db 8, BANK(FESprites_SpriteAnim44_2), HIGH(FESprites_SpriteAnim44_2), LOW(FESprites_SpriteAnim44_2), HIGH(SpriteLayout_Anim44_2), LOW(SpriteLayout_Anim44_2) ; variant 2
+	db 9, BANK(FESprites_SpriteAnim44_3), HIGH(FESprites_SpriteAnim44_3), LOW(FESprites_SpriteAnim44_3), HIGH(SpriteLayout_Anim44_3), LOW(SpriteLayout_Anim44_3) ; variant 3
+	db 9, BANK(FESprites_SpriteAnim44_4), HIGH(FESprites_SpriteAnim44_4), LOW(FESprites_SpriteAnim44_4), HIGH(SpriteLayout_Anim44_4), LOW(SpriteLayout_Anim44_4) ; variant 4
+	db 8, BANK(FESprites_SpriteAnim44_5), HIGH(FESprites_SpriteAnim44_5), LOW(FESprites_SpriteAnim44_5), HIGH(SpriteLayout_Anim44_5), LOW(SpriteLayout_Anim44_5) ; variant 5
+	db 9, BANK(FESprites_SpriteAnim44_6), HIGH(FESprites_SpriteAnim44_6), LOW(FESprites_SpriteAnim44_6), HIGH(SpriteLayout_Anim44_6), LOW(SpriteLayout_Anim44_6) ; variant 6
 
-SpriteLayout_f0_6977::
+SpriteLayout_Anim44_0::
 	db -14, -14 ; dx, dy from the previous sprite
 	db 2, -16
 	db 6, -7
@@ -4845,7 +4845,7 @@ SpriteLayout_f0_6977::
 	db 12, -1
 	db -6, 6
 
-SpriteLayout_f0_6987::
+SpriteLayout_Anim44_1::
 	db -13, -24 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -28
@@ -4855,7 +4855,7 @@ SpriteLayout_f0_6987::
 	db 11, -6
 	db -3, 2
 
-SpriteLayout_f0_6997::
+SpriteLayout_Anim44_2::
 	db -13, -26 ; dx, dy from the previous sprite
 	db 0, 16
 	db 8, -24
@@ -4865,7 +4865,7 @@ SpriteLayout_f0_6997::
 	db 11, -3
 	db -3, 2
 
-SpriteLayout_f0_69a7::
+SpriteLayout_Anim44_3::
 	db -11, -27 ; dx, dy from the previous sprite
 	db -2, 16
 	db 10, -23
@@ -4876,7 +4876,7 @@ SpriteLayout_f0_69a7::
 	db -8, 6
 	db -6, -3
 
-SpriteLayout_f0_69b9::
+SpriteLayout_Anim44_4::
 	db -10, -28 ; dx, dy from the previous sprite
 	db -3, 16
 	db 11, -2
@@ -4887,7 +4887,7 @@ SpriteLayout_f0_69b9::
 	db 0, 9
 	db 4, -8
 
-SpriteLayout_f0_69cb::
+SpriteLayout_Anim44_5::
 	db -14, -15 ; dx, dy from the previous sprite
 	db 8, -19
 	db -5, 16
@@ -4897,7 +4897,7 @@ SpriteLayout_f0_69cb::
 	db -8, 6
 	db -6, 7
 
-SpriteLayout_f0_69db::
+SpriteLayout_Anim44_6::
 	db -15, -15 ; dx, dy from the previous sprite
 	db 6, -10
 	db 2, 16
@@ -4909,122 +4909,122 @@ SpriteLayout_f0_69db::
 	db 4, -9
 
 SpriteAnim45::
-	db 2, BANK(FESprites_f8_57c0), HIGH(FESprites_f8_57c0), LOW(FESprites_f8_57c0), HIGH(SpriteLayout_f0_6a35), LOW(SpriteLayout_f0_6a35) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f8_5800), HIGH(FESprites_f8_5800), LOW(FESprites_f8_5800), HIGH(SpriteLayout_f0_6a39), LOW(SpriteLayout_f0_6a39) ; variant 1
-	db 2, BANK(FESprites_f8_5840), HIGH(FESprites_f8_5840), LOW(FESprites_f8_5840), HIGH(SpriteLayout_f0_6a3d), LOW(SpriteLayout_f0_6a3d) ; variant 2
-	db 1, BANK(FESprites_f8_5880), HIGH(FESprites_f8_5880), LOW(FESprites_f8_5880), HIGH(SpriteLayout_f0_6a41), LOW(SpriteLayout_f0_6a41) ; variant 3
-	db 2, BANK(FESprites_f8_58a0), HIGH(FESprites_f8_58a0), LOW(FESprites_f8_58a0), HIGH(SpriteLayout_f0_6a43), LOW(SpriteLayout_f0_6a43) ; variant 4
-	db 2, BANK(FESprites_f8_58e0), HIGH(FESprites_f8_58e0), LOW(FESprites_f8_58e0), HIGH(SpriteLayout_f0_6a47), LOW(SpriteLayout_f0_6a47) ; variant 5
-	db 2, BANK(FESprites_f8_5920), HIGH(FESprites_f8_5920), LOW(FESprites_f8_5920), HIGH(SpriteLayout_f0_6a4b), LOW(SpriteLayout_f0_6a4b) ; variant 6
-	db 2, BANK(FESprites_f8_5960), HIGH(FESprites_f8_5960), LOW(FESprites_f8_5960), HIGH(SpriteLayout_f0_6a4f), LOW(SpriteLayout_f0_6a4f) ; variant 7
-	db 2, BANK(FESprites_f8_59a0), HIGH(FESprites_f8_59a0), LOW(FESprites_f8_59a0), HIGH(SpriteLayout_f0_6a53), LOW(SpriteLayout_f0_6a53) ; variant 8
-	db 1, BANK(FESprites_f8_59e0), HIGH(FESprites_f8_59e0), LOW(FESprites_f8_59e0), HIGH(SpriteLayout_f0_6a57), LOW(SpriteLayout_f0_6a57) ; variant 9
-	db 2, BANK(FESprites_f8_5a00), HIGH(FESprites_f8_5a00), LOW(FESprites_f8_5a00), HIGH(SpriteLayout_f0_6a59), LOW(SpriteLayout_f0_6a59) ; variant 10
-	db 2, BANK(FESprites_f8_5a40), HIGH(FESprites_f8_5a40), LOW(FESprites_f8_5a40), HIGH(SpriteLayout_f0_6a5d), LOW(SpriteLayout_f0_6a5d) ; variant 11
+	db 2, BANK(FESprites_SpriteAnim45_00), HIGH(FESprites_SpriteAnim45_00), LOW(FESprites_SpriteAnim45_00), HIGH(SpriteLayout_Anim45_00), LOW(SpriteLayout_Anim45_00) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim45_01), HIGH(FESprites_SpriteAnim45_01), LOW(FESprites_SpriteAnim45_01), HIGH(SpriteLayout_Anim45_01), LOW(SpriteLayout_Anim45_01) ; variant 1
+	db 2, BANK(FESprites_SpriteAnim45_02), HIGH(FESprites_SpriteAnim45_02), LOW(FESprites_SpriteAnim45_02), HIGH(SpriteLayout_Anim45_02), LOW(SpriteLayout_Anim45_02) ; variant 2
+	db 1, BANK(FESprites_SpriteAnim45_03), HIGH(FESprites_SpriteAnim45_03), LOW(FESprites_SpriteAnim45_03), HIGH(SpriteLayout_Anim45_03), LOW(SpriteLayout_Anim45_03) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim45_04), HIGH(FESprites_SpriteAnim45_04), LOW(FESprites_SpriteAnim45_04), HIGH(SpriteLayout_Anim45_04), LOW(SpriteLayout_Anim45_04) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim45_05), HIGH(FESprites_SpriteAnim45_05), LOW(FESprites_SpriteAnim45_05), HIGH(SpriteLayout_Anim45_05), LOW(SpriteLayout_Anim45_05) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim45_06), HIGH(FESprites_SpriteAnim45_06), LOW(FESprites_SpriteAnim45_06), HIGH(SpriteLayout_Anim45_06), LOW(SpriteLayout_Anim45_06) ; variant 6
+	db 2, BANK(FESprites_SpriteAnim45_07), HIGH(FESprites_SpriteAnim45_07), LOW(FESprites_SpriteAnim45_07), HIGH(SpriteLayout_Anim45_07), LOW(SpriteLayout_Anim45_07) ; variant 7
+	db 2, BANK(FESprites_SpriteAnim45_08), HIGH(FESprites_SpriteAnim45_08), LOW(FESprites_SpriteAnim45_08), HIGH(SpriteLayout_Anim45_08), LOW(SpriteLayout_Anim45_08) ; variant 8
+	db 1, BANK(FESprites_SpriteAnim45_09), HIGH(FESprites_SpriteAnim45_09), LOW(FESprites_SpriteAnim45_09), HIGH(SpriteLayout_Anim45_09), LOW(SpriteLayout_Anim45_09) ; variant 9
+	db 2, BANK(FESprites_SpriteAnim45_10), HIGH(FESprites_SpriteAnim45_10), LOW(FESprites_SpriteAnim45_10), HIGH(SpriteLayout_Anim45_10), LOW(SpriteLayout_Anim45_10) ; variant 10
+	db 2, BANK(FESprites_SpriteAnim45_11), HIGH(FESprites_SpriteAnim45_11), LOW(FESprites_SpriteAnim45_11), HIGH(SpriteLayout_Anim45_11), LOW(SpriteLayout_Anim45_11) ; variant 11
 
-SpriteLayout_f0_6a35::
+SpriteLayout_Anim45_00::
 	db -7, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6a39::
+SpriteLayout_Anim45_01::
 	db -5, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6a3d::
+SpriteLayout_Anim45_02::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6a41::
+SpriteLayout_Anim45_03::
 	db 0, -8 ; dx, dy from the previous sprite
 
-SpriteLayout_f0_6a43::
+SpriteLayout_Anim45_04::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6a47::
+SpriteLayout_Anim45_05::
 	db -6, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6a4b::
+SpriteLayout_Anim45_06::
 	db -7, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6a4f::
+SpriteLayout_Anim45_07::
 	db -5, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6a53::
+SpriteLayout_Anim45_08::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6a57::
+SpriteLayout_Anim45_09::
 	db 0, -8 ; dx, dy from the previous sprite
 
-SpriteLayout_f0_6a59::
+SpriteLayout_Anim45_10::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6a5d::
+SpriteLayout_Anim45_11::
 	db -6, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
 SpriteAnim46::
-	db 2, BANK(FESprites_f8_5a80), HIGH(FESprites_f8_5a80), LOW(FESprites_f8_5a80), HIGH(SpriteLayout_f0_6aa9), LOW(SpriteLayout_f0_6aa9) ; sprites, tiles, layout; variant 0
-	db 2, BANK(FESprites_f8_5ac0), HIGH(FESprites_f8_5ac0), LOW(FESprites_f8_5ac0), HIGH(SpriteLayout_f0_6aad), LOW(SpriteLayout_f0_6aad) ; variant 1
-	db 2, BANK(FESprites_f8_5b00), HIGH(FESprites_f8_5b00), LOW(FESprites_f8_5b00), HIGH(SpriteLayout_f0_6ab1), LOW(SpriteLayout_f0_6ab1) ; variant 2
-	db 1, BANK(FESprites_f8_5b40), HIGH(FESprites_f8_5b40), LOW(FESprites_f8_5b40), HIGH(SpriteLayout_f0_6ab5), LOW(SpriteLayout_f0_6ab5) ; variant 3
-	db 2, BANK(FESprites_f8_5b60), HIGH(FESprites_f8_5b60), LOW(FESprites_f8_5b60), HIGH(SpriteLayout_f0_6ab7), LOW(SpriteLayout_f0_6ab7) ; variant 4
-	db 2, BANK(FESprites_f8_5ba0), HIGH(FESprites_f8_5ba0), LOW(FESprites_f8_5ba0), HIGH(SpriteLayout_f0_6abb), LOW(SpriteLayout_f0_6abb) ; variant 5
-	db 2, BANK(FESprites_f8_5be0), HIGH(FESprites_f8_5be0), LOW(FESprites_f8_5be0), HIGH(SpriteLayout_f0_6abf), LOW(SpriteLayout_f0_6abf) ; variant 6
-	db 2, BANK(FESprites_f8_5c20), HIGH(FESprites_f8_5c20), LOW(FESprites_f8_5c20), HIGH(SpriteLayout_f0_6ac3), LOW(SpriteLayout_f0_6ac3) ; variant 7
-	db 2, BANK(FESprites_f8_5c60), HIGH(FESprites_f8_5c60), LOW(FESprites_f8_5c60), HIGH(SpriteLayout_f0_6ac7), LOW(SpriteLayout_f0_6ac7) ; variant 8
-	db 1, BANK(FESprites_f8_5ca0), HIGH(FESprites_f8_5ca0), LOW(FESprites_f8_5ca0), HIGH(SpriteLayout_f0_6acb), LOW(SpriteLayout_f0_6acb) ; variant 9
-	db 2, BANK(FESprites_f8_5cc0), HIGH(FESprites_f8_5cc0), LOW(FESprites_f8_5cc0), HIGH(SpriteLayout_f0_6acd), LOW(SpriteLayout_f0_6acd) ; variant 10
-	db 2, BANK(FESprites_f8_5d00), HIGH(FESprites_f8_5d00), LOW(FESprites_f8_5d00), HIGH(SpriteLayout_f0_6ad1), LOW(SpriteLayout_f0_6ad1) ; variant 11
+	db 2, BANK(FESprites_SpriteAnim46_00), HIGH(FESprites_SpriteAnim46_00), LOW(FESprites_SpriteAnim46_00), HIGH(SpriteLayout_Anim46_00), LOW(SpriteLayout_Anim46_00) ; sprites, tiles, layout; variant 0
+	db 2, BANK(FESprites_SpriteAnim46_01), HIGH(FESprites_SpriteAnim46_01), LOW(FESprites_SpriteAnim46_01), HIGH(SpriteLayout_Anim46_01), LOW(SpriteLayout_Anim46_01) ; variant 1
+	db 2, BANK(FESprites_SpriteAnim46_02), HIGH(FESprites_SpriteAnim46_02), LOW(FESprites_SpriteAnim46_02), HIGH(SpriteLayout_Anim46_02), LOW(SpriteLayout_Anim46_02) ; variant 2
+	db 1, BANK(FESprites_SpriteAnim46_03), HIGH(FESprites_SpriteAnim46_03), LOW(FESprites_SpriteAnim46_03), HIGH(SpriteLayout_Anim46_03), LOW(SpriteLayout_Anim46_03) ; variant 3
+	db 2, BANK(FESprites_SpriteAnim46_04), HIGH(FESprites_SpriteAnim46_04), LOW(FESprites_SpriteAnim46_04), HIGH(SpriteLayout_Anim46_04), LOW(SpriteLayout_Anim46_04) ; variant 4
+	db 2, BANK(FESprites_SpriteAnim46_05), HIGH(FESprites_SpriteAnim46_05), LOW(FESprites_SpriteAnim46_05), HIGH(SpriteLayout_Anim46_05), LOW(SpriteLayout_Anim46_05) ; variant 5
+	db 2, BANK(FESprites_SpriteAnim46_06), HIGH(FESprites_SpriteAnim46_06), LOW(FESprites_SpriteAnim46_06), HIGH(SpriteLayout_Anim46_06), LOW(SpriteLayout_Anim46_06) ; variant 6
+	db 2, BANK(FESprites_SpriteAnim46_07), HIGH(FESprites_SpriteAnim46_07), LOW(FESprites_SpriteAnim46_07), HIGH(SpriteLayout_Anim46_07), LOW(SpriteLayout_Anim46_07) ; variant 7
+	db 2, BANK(FESprites_SpriteAnim46_08), HIGH(FESprites_SpriteAnim46_08), LOW(FESprites_SpriteAnim46_08), HIGH(SpriteLayout_Anim46_08), LOW(SpriteLayout_Anim46_08) ; variant 8
+	db 1, BANK(FESprites_SpriteAnim46_09), HIGH(FESprites_SpriteAnim46_09), LOW(FESprites_SpriteAnim46_09), HIGH(SpriteLayout_Anim46_09), LOW(SpriteLayout_Anim46_09) ; variant 9
+	db 2, BANK(FESprites_SpriteAnim46_10), HIGH(FESprites_SpriteAnim46_10), LOW(FESprites_SpriteAnim46_10), HIGH(SpriteLayout_Anim46_10), LOW(SpriteLayout_Anim46_10) ; variant 10
+	db 2, BANK(FESprites_SpriteAnim46_11), HIGH(FESprites_SpriteAnim46_11), LOW(FESprites_SpriteAnim46_11), HIGH(SpriteLayout_Anim46_11), LOW(SpriteLayout_Anim46_11) ; variant 11
 
-SpriteLayout_f0_6aa9::
+SpriteLayout_Anim46_00::
 	db -7, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6aad::
+SpriteLayout_Anim46_01::
 	db -5, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6ab1::
+SpriteLayout_Anim46_02::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6ab5::
+SpriteLayout_Anim46_03::
 	db 0, -8 ; dx, dy from the previous sprite
 
-SpriteLayout_f0_6ab7::
+SpriteLayout_Anim46_04::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6abb::
+SpriteLayout_Anim46_05::
 	db -6, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6abf::
+SpriteLayout_Anim46_06::
 	db -7, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6ac3::
+SpriteLayout_Anim46_07::
 	db -5, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
-SpriteLayout_f0_6ac7::
+SpriteLayout_Anim46_08::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6acb::
+SpriteLayout_Anim46_09::
 	db 0, -8 ; dx, dy from the previous sprite
 
-SpriteLayout_f0_6acd::
+SpriteLayout_Anim46_10::
 	db -4, -8 ; dx, dy from the previous sprite
 	db 8, 3
 
-SpriteLayout_f0_6ad1::
+SpriteLayout_Anim46_11::
 	db -6, -8 ; dx, dy from the previous sprite
 	db 8, 0
 
@@ -5480,50 +5480,50 @@ FrontEndText_English_0::
 	db 122, 4 ; label 43
 
 FrontEndText_English_1::
-	db BANK(FEText_ff_4000), HIGH(FEText_ff_4000), LOW(FEText_ff_4000) ; entry 0
-	db BANK(FEText_ff_4030), HIGH(FEText_ff_4030), LOW(FEText_ff_4030) ; entry 1
-	db BANK(FEText_ff_405e), HIGH(FEText_ff_405e), LOW(FEText_ff_405e) ; entry 2
-	db BANK(FEText_ff_4084), HIGH(FEText_ff_4084), LOW(FEText_ff_4084) ; entry 3
-	db BANK(FEText_ff_40c0), HIGH(FEText_ff_40c0), LOW(FEText_ff_40c0) ; entry 4
-	db BANK(FEText_ff_40d2), HIGH(FEText_ff_40d2), LOW(FEText_ff_40d2) ; entry 5
+	db BANK(FEText_LowBatteryPrinterWill), HIGH(FEText_LowBatteryPrinterWill), LOW(FEText_LowBatteryPrinterWill) ; entry 0
+	db BANK(FEText_PrinterNotConnectedOr), HIGH(FEText_PrinterNotConnectedOr), LOW(FEText_PrinterNotConnectedOr) ; entry 1
+	db BANK(FEText_PaperIsJammedCannot), HIGH(FEText_PaperIsJammedCannot), LOW(FEText_PaperIsJammedCannot) ; entry 2
+	db BANK(FEText_CurrentEnvironmentTooHot), HIGH(FEText_CurrentEnvironmentTooHot), LOW(FEText_CurrentEnvironmentTooHot) ; entry 3
+	db BANK(FEText_Printing), HIGH(FEText_Printing), LOW(FEText_Printing) ; entry 4
+	db BANK(FEText_WowYouHaveUnlocked), HIGH(FEText_WowYouHaveUnlocked), LOW(FEText_WowYouHaveUnlocked) ; entry 5
 
 FrontEndText_English_2::
-	db BANK(FEText_ff_410c), HIGH(FEText_ff_410c), LOW(FEText_ff_410c) ; entry 0
-	db BANK(FEText_ff_413a), HIGH(FEText_ff_413a), LOW(FEText_ff_413a) ; entry 1
-	db BANK(FEText_ff_415d), HIGH(FEText_ff_415d), LOW(FEText_ff_415d) ; entry 2
-	db BANK(FEText_ff_417c), HIGH(FEText_ff_417c), LOW(FEText_ff_417c) ; entry 3
+	db BANK(FEText_NoConnectionPleaseTry), HIGH(FEText_NoConnectionPleaseTry), LOW(FEText_NoConnectionPleaseTry) ; entry 0
+	db BANK(FEText_PressTheAButton), HIGH(FEText_PressTheAButton), LOW(FEText_PressTheAButton) ; entry 1
+	db BANK(FEText_PictureReceived), HIGH(FEText_PictureReceived), LOW(FEText_PictureReceived) ; entry 2
+	db BANK(FEText_Transmitting), HIGH(FEText_Transmitting), LOW(FEText_Transmitting) ; entry 3
 
 FrontEndText_English_3::
-	db BANK(FEText_ff_4191), HIGH(FEText_ff_4191), LOW(FEText_ff_4191) ; entry 0
-	db BANK(FEText_ff_41a0), HIGH(FEText_ff_41a0), LOW(FEText_ff_41a0) ; entry 1
-	db BANK(FEText_ff_41af), HIGH(FEText_ff_41af), LOW(FEText_ff_41af) ; entry 2
-	db BANK(FEText_ff_41cb), HIGH(FEText_ff_41cb), LOW(FEText_ff_41cb) ; entry 3
-	db BANK(FEText_ff_41e7), HIGH(FEText_ff_41e7), LOW(FEText_ff_41e7) ; entry 4
-	db BANK(FEText_ff_4207), HIGH(FEText_ff_4207), LOW(FEText_ff_4207) ; entry 5
-	db BANK(FEText_ff_421f), HIGH(FEText_ff_421f), LOW(FEText_ff_421f) ; entry 6
-	db BANK(FEText_ff_4238), HIGH(FEText_ff_4238), LOW(FEText_ff_4238) ; entry 7
-	db BANK(FEText_ff_4251), HIGH(FEText_ff_4251), LOW(FEText_ff_4251) ; entry 8
-	db BANK(FEText_ff_4269), HIGH(FEText_ff_4269), LOW(FEText_ff_4269) ; entry 9
-	db BANK(FEText_ff_4282), HIGH(FEText_ff_4282), LOW(FEText_ff_4282) ; entry 10
-	db BANK(FEText_ff_429b), HIGH(FEText_ff_429b), LOW(FEText_ff_429b) ; entry 11
-	db BANK(FEText_ff_42b2), HIGH(FEText_ff_42b2), LOW(FEText_ff_42b2) ; entry 12
-	db BANK(FEText_ff_42c7), HIGH(FEText_ff_42c7), LOW(FEText_ff_42c7) ; entry 13
-	db BANK(FEText_ff_42de), HIGH(FEText_ff_42de), LOW(FEText_ff_42de) ; entry 14
-	db BANK(FEText_ff_42f2), HIGH(FEText_ff_42f2), LOW(FEText_ff_42f2) ; entry 15
-	db BANK(FEText_ff_4309), HIGH(FEText_ff_4309), LOW(FEText_ff_4309) ; entry 16
-	db BANK(FEText_ff_431e), HIGH(FEText_ff_431e), LOW(FEText_ff_431e) ; entry 17
-	db BANK(FEText_ff_4331), HIGH(FEText_ff_4331), LOW(FEText_ff_4331) ; entry 18
-	db BANK(FEText_ff_4344), HIGH(FEText_ff_4344), LOW(FEText_ff_4344) ; entry 19
-	db BANK(FEText_ff_4357), HIGH(FEText_ff_4357), LOW(FEText_ff_4357) ; entry 20
+	db BANK(FEText_Player1), HIGH(FEText_Player1), LOW(FEText_Player1) ; entry 0
+	db BANK(FEText_Player2), HIGH(FEText_Player2), LOW(FEText_Player2) ; entry 1
+	db BANK(FEText_PressStartToConnect_1), HIGH(FEText_PressStartToConnect_1), LOW(FEText_PressStartToConnect_1) ; entry 2
+	db BANK(FEText_PressStartToConnect_2), HIGH(FEText_PressStartToConnect_2), LOW(FEText_PressStartToConnect_2) ; entry 3
+	db BANK(FEText_AwaitingRemoteLink), HIGH(FEText_AwaitingRemoteLink), LOW(FEText_AwaitingRemoteLink) ; entry 4
+	db BANK(FEText_Player1Wins), HIGH(FEText_Player1Wins), LOW(FEText_Player1Wins) ; entry 5
+	db BANK(FEText_Player1Loses), HIGH(FEText_Player1Loses), LOW(FEText_Player1Loses) ; entry 6
+	db BANK(FEText_Player1Draws), HIGH(FEText_Player1Draws), LOW(FEText_Player1Draws) ; entry 7
+	db BANK(FEText_Player2Wins), HIGH(FEText_Player2Wins), LOW(FEText_Player2Wins) ; entry 8
+	db BANK(FEText_Player2Loses), HIGH(FEText_Player2Loses), LOW(FEText_Player2Loses) ; entry 9
+	db BANK(FEText_Player2Draws), HIGH(FEText_Player2Draws), LOW(FEText_Player2Draws) ; entry 10
+	db BANK(FEText_PlayerDraws), HIGH(FEText_PlayerDraws), LOW(FEText_PlayerDraws) ; entry 11
+	db BANK(FEText_CpuDraws), HIGH(FEText_CpuDraws), LOW(FEText_CpuDraws) ; entry 12
+	db BANK(FEText_PlayerWins), HIGH(FEText_PlayerWins), LOW(FEText_PlayerWins) ; entry 13
+	db BANK(FEText_CpuWins), HIGH(FEText_CpuWins), LOW(FEText_CpuWins) ; entry 14
+	db BANK(FEText_PlayerLoses), HIGH(FEText_PlayerLoses), LOW(FEText_PlayerLoses) ; entry 15
+	db BANK(FEText_CpuLoses), HIGH(FEText_CpuLoses), LOW(FEText_CpuLoses) ; entry 16
+	db BANK(FEText_YouWin), HIGH(FEText_YouWin), LOW(FEText_YouWin) ; entry 17
+	db BANK(FEText_YouLose), HIGH(FEText_YouLose), LOW(FEText_YouLose) ; entry 18
+	db BANK(FEText_YouDraw), HIGH(FEText_YouDraw), LOW(FEText_YouDraw) ; entry 19
+	db BANK(FEText_GameOver_1), HIGH(FEText_GameOver_1), LOW(FEText_GameOver_1) ; entry 20
 
 FrontEndText_English_5::
-	db BANK(FEText_ff_43bf), HIGH(FEText_ff_43bf), LOW(FEText_ff_43bf) ; entry 0
-	db BANK(FEText_ff_4413), HIGH(FEText_ff_4413), LOW(FEText_ff_4413) ; entry 1
-	db BANK(FEText_ff_436b), HIGH(FEText_ff_436b), LOW(FEText_ff_436b) ; entry 2
-	db BANK(FEText_ff_44b2), HIGH(FEText_ff_44b2), LOW(FEText_ff_44b2) ; entry 3
-	db BANK(FEText_ff_4467), HIGH(FEText_ff_4467), LOW(FEText_ff_4467) ; entry 4
-	db BANK(FEText_ff_4502), HIGH(FEText_ff_4502), LOW(FEText_ff_4502) ; entry 5
-	db BANK(FEText_ff_457f), HIGH(FEText_ff_457f), LOW(FEText_ff_457f) ; entry 6
+	db BANK(FEText_KremlingsAndKongsStop), HIGH(FEText_KremlingsAndKongsStop), LOW(FEText_KremlingsAndKongsStop) ; entry 0
+	db BANK(FEText_BarrelOkremlingsHitThe), HIGH(FEText_BarrelOkremlingsHitThe), LOW(FEText_BarrelOkremlingsHitThe) ; entry 1
+	db BANK(FEText_KremlingKrackdownStopThe), HIGH(FEText_KremlingKrackdownStopThe), LOW(FEText_KremlingKrackdownStopThe) ; entry 2
+	db BANK(FEText_BuddiesBewarePlugThe), HIGH(FEText_BuddiesBewarePlugThe), LOW(FEText_BuddiesBewarePlugThe) ; entry 3
+	db BANK(FEText_WantedHitTheWanted), HIGH(FEText_WantedHitTheWanted), LOW(FEText_WantedHitTheWanted) ; entry 4
+	db BANK(FEText_CrosshairCrankyMoveYour), HIGH(FEText_CrosshairCrankyMoveYour), LOW(FEText_CrosshairCrankyMoveYour) ; entry 5
+	db BANK(FEText_FunkysFishingUseThe), HIGH(FEText_FunkysFishingUseThe), LOW(FEText_FunkysFishingUseThe) ; entry 6
 
 FrontEndText_French::
 	dw FrontEndText_French_0, FrontEndText_French_1, FrontEndText_French_2, FrontEndText_French_3, FrontEndText_French_5, FrontEndText_French_5
@@ -5575,50 +5575,50 @@ FrontEndText_French_0::
 	db 124, 5 ; label 43
 
 FrontEndText_French_1::
-	db BANK(FEText_ff_48e0), HIGH(FEText_ff_48e0), LOW(FEText_ff_48e0) ; entry 0
-	db BANK(FEText_ff_490f), HIGH(FEText_ff_490f), LOW(FEText_ff_490f) ; entry 1
-	db BANK(FEText_ff_4933), HIGH(FEText_ff_4933), LOW(FEText_ff_4933) ; entry 2
-	db BANK(FEText_ff_4948), HIGH(FEText_ff_4948), LOW(FEText_ff_4948) ; entry 3
-	db BANK(FEText_ff_496e), HIGH(FEText_ff_496e), LOW(FEText_ff_496e) ; entry 4
-	db BANK(FEText_ff_4983), HIGH(FEText_ff_4983), LOW(FEText_ff_4983) ; entry 5
+	db BANK(FEText_PileUsEPrinter), HIGH(FEText_PileUsEPrinter), LOW(FEText_PileUsEPrinter) ; entry 0
+	db BANK(FEText_PrinterNestPasConnect), HIGH(FEText_PrinterNestPasConnect), LOW(FEText_PrinterNestPasConnect) ; entry 1
+	db BANK(FEText_PapierBloqu), HIGH(FEText_PapierBloqu), LOW(FEText_PapierBloqu) ; entry 2
+	db BANK(FEText_TropFroidChaudPour), HIGH(FEText_TropFroidChaudPour), LOW(FEText_TropFroidChaudPour) ; entry 3
+	db BANK(FEText_Impression), HIGH(FEText_Impression), LOW(FEText_Impression) ; entry 4
+	db BANK(FEText_VousObtenezUneNouvelle), HIGH(FEText_VousObtenezUneNouvelle), LOW(FEText_VousObtenezUneNouvelle) ; entry 5
 
 FrontEndText_French_2::
-	db BANK(FEText_ff_49c0), HIGH(FEText_ff_49c0), LOW(FEText_ff_49c0) ; entry 0
-	db BANK(FEText_ff_49d5), HIGH(FEText_ff_49d5), LOW(FEText_ff_49d5) ; entry 1
-	db BANK(FEText_ff_4a08), HIGH(FEText_ff_4a08), LOW(FEText_ff_4a08) ; entry 2
-	db BANK(FEText_ff_4a1b), HIGH(FEText_ff_4a1b), LOW(FEText_ff_4a1b) ; entry 3
+	db BANK(FEText_PasDeConnexion), HIGH(FEText_PasDeConnexion), LOW(FEText_PasDeConnexion) ; entry 0
+	db BANK(FEText_PresserLeBoutonA), HIGH(FEText_PresserLeBoutonA), LOW(FEText_PresserLeBoutonA) ; entry 1
+	db BANK(FEText_ImageReUe), HIGH(FEText_ImageReUe), LOW(FEText_ImageReUe) ; entry 2
+	db BANK(FEText_Transmission), HIGH(FEText_Transmission), LOW(FEText_Transmission) ; entry 3
 
 FrontEndText_French_3::
-	db BANK(FEText_ff_4a2e), HIGH(FEText_ff_4a2e), LOW(FEText_ff_4a2e) ; entry 0
-	db BANK(FEText_ff_4a3e), HIGH(FEText_ff_4a3e), LOW(FEText_ff_4a3e) ; entry 1
-	db BANK(FEText_ff_4a4e), HIGH(FEText_ff_4a4e), LOW(FEText_ff_4a4e) ; entry 2
-	db BANK(FEText_ff_4a6a), HIGH(FEText_ff_4a6a), LOW(FEText_ff_4a6a) ; entry 3
-	db BANK(FEText_ff_4a86), HIGH(FEText_ff_4a86), LOW(FEText_ff_4a86) ; entry 4
-	db BANK(FEText_ff_4aa2), HIGH(FEText_ff_4aa2), LOW(FEText_ff_4aa2) ; entry 5
-	db BANK(FEText_ff_4aba), HIGH(FEText_ff_4aba), LOW(FEText_ff_4aba) ; entry 6
-	db BANK(FEText_ff_4ad2), HIGH(FEText_ff_4ad2), LOW(FEText_ff_4ad2) ; entry 7
-	db BANK(FEText_ff_4aeb), HIGH(FEText_ff_4aeb), LOW(FEText_ff_4aeb) ; entry 8
-	db BANK(FEText_ff_4b03), HIGH(FEText_ff_4b03), LOW(FEText_ff_4b03) ; entry 9
-	db BANK(FEText_ff_4b1b), HIGH(FEText_ff_4b1b), LOW(FEText_ff_4b1b) ; entry 10
-	db BANK(FEText_ff_4b34), HIGH(FEText_ff_4b34), LOW(FEText_ff_4b34) ; entry 11
-	db BANK(FEText_ff_4b4a), HIGH(FEText_ff_4b4a), LOW(FEText_ff_4b4a) ; entry 12
-	db BANK(FEText_ff_4b5f), HIGH(FEText_ff_4b5f), LOW(FEText_ff_4b5f) ; entry 13
-	db BANK(FEText_ff_4b74), HIGH(FEText_ff_4b74), LOW(FEText_ff_4b74) ; entry 14
-	db BANK(FEText_ff_4b88), HIGH(FEText_ff_4b88), LOW(FEText_ff_4b88) ; entry 15
-	db BANK(FEText_ff_4b9d), HIGH(FEText_ff_4b9d), LOW(FEText_ff_4b9d) ; entry 16
-	db BANK(FEText_ff_4bb1), HIGH(FEText_ff_4bb1), LOW(FEText_ff_4bb1) ; entry 17
-	db BANK(FEText_ff_4bc8), HIGH(FEText_ff_4bc8), LOW(FEText_ff_4bc8) ; entry 18
-	db BANK(FEText_ff_4bdf), HIGH(FEText_ff_4bdf), LOW(FEText_ff_4bdf) ; entry 19
-	db BANK(FEText_ff_4bf2), HIGH(FEText_ff_4bf2), LOW(FEText_ff_4bf2) ; entry 20
+	db BANK(FEText_Joueur1), HIGH(FEText_Joueur1), LOW(FEText_Joueur1) ; entry 0
+	db BANK(FEText_Joueur2), HIGH(FEText_Joueur2), LOW(FEText_Joueur2) ; entry 1
+	db BANK(FEText_StartPourConnecter_1), HIGH(FEText_StartPourConnecter_1), LOW(FEText_StartPourConnecter_1) ; entry 2
+	db BANK(FEText_StartPourConnecter_2), HIGH(FEText_StartPourConnecter_2), LOW(FEText_StartPourConnecter_2) ; entry 3
+	db BANK(FEText_AttenteLienExt), HIGH(FEText_AttenteLienExt), LOW(FEText_AttenteLienExt) ; entry 4
+	db BANK(FEText_Joueur1Gagne), HIGH(FEText_Joueur1Gagne), LOW(FEText_Joueur1Gagne) ; entry 5
+	db BANK(FEText_Joueur1Perd), HIGH(FEText_Joueur1Perd), LOW(FEText_Joueur1Perd) ; entry 6
+	db BANK(FEText_Joueur1Galit), HIGH(FEText_Joueur1Galit), LOW(FEText_Joueur1Galit) ; entry 7
+	db BANK(FEText_Joueur2Gagne), HIGH(FEText_Joueur2Gagne), LOW(FEText_Joueur2Gagne) ; entry 8
+	db BANK(FEText_Joueur2Perd), HIGH(FEText_Joueur2Perd), LOW(FEText_Joueur2Perd) ; entry 9
+	db BANK(FEText_Joueur2Galit), HIGH(FEText_Joueur2Galit), LOW(FEText_Joueur2Galit) ; entry 10
+	db BANK(FEText_JoueurGalit), HIGH(FEText_JoueurGalit), LOW(FEText_JoueurGalit) ; entry 11
+	db BANK(FEText_OrdiGalit), HIGH(FEText_OrdiGalit), LOW(FEText_OrdiGalit) ; entry 12
+	db BANK(FEText_JoueurGagne), HIGH(FEText_JoueurGagne), LOW(FEText_JoueurGagne) ; entry 13
+	db BANK(FEText_OrdiGagne), HIGH(FEText_OrdiGagne), LOW(FEText_OrdiGagne) ; entry 14
+	db BANK(FEText_JoueurPerd), HIGH(FEText_JoueurPerd), LOW(FEText_JoueurPerd) ; entry 15
+	db BANK(FEText_OrdiPerd), HIGH(FEText_OrdiPerd), LOW(FEText_OrdiPerd) ; entry 16
+	db BANK(FEText_VousAvezGagn), HIGH(FEText_VousAvezGagn), LOW(FEText_VousAvezGagn) ; entry 17
+	db BANK(FEText_VousAvezPerdu), HIGH(FEText_VousAvezPerdu), LOW(FEText_VousAvezPerdu) ; entry 18
+	db BANK(FEText_Egalit), HIGH(FEText_Egalit), LOW(FEText_Egalit) ; entry 19
+	db BANK(FEText_GameOver_2), HIGH(FEText_GameOver_2), LOW(FEText_GameOver_2) ; entry 20
 
 FrontEndText_French_5::
-	db BANK(FEText_ff_4cb8), HIGH(FEText_ff_4cb8), LOW(FEText_ff_4cb8) ; entry 0
-	db BANK(FEText_ff_4c61), HIGH(FEText_ff_4c61), LOW(FEText_ff_4c61) ; entry 1
-	db BANK(FEText_ff_4c14), HIGH(FEText_ff_4c14), LOW(FEText_ff_4c14) ; entry 2
-	db BANK(FEText_ff_4d59), HIGH(FEText_ff_4d59), LOW(FEText_ff_4d59) ; entry 3
-	db BANK(FEText_ff_4d0b), HIGH(FEText_ff_4d0b), LOW(FEText_ff_4d0b) ; entry 4
-	db BANK(FEText_ff_4db0), HIGH(FEText_ff_4db0), LOW(FEText_ff_4db0) ; entry 5
-	db BANK(FEText_ff_4e25), HIGH(FEText_ff_4e25), LOW(FEText_ff_4e25) ; entry 6
+	db BANK(FEText_KremlingsKongsArrTez), HIGH(FEText_KremlingsKongsArrTez), LOW(FEText_KremlingsKongsArrTez) ; entry 0
+	db BANK(FEText_BarrilsKremlingsVisezLes), HIGH(FEText_BarrilsKremlingsVisezLes), LOW(FEText_BarrilsKremlingsVisezLes) ; entry 1
+	db BANK(FEText_KasseKremlingEmpChez), HIGH(FEText_KasseKremlingEmpChez), LOW(FEText_KasseKremlingEmpChez) ; entry 2
+	db BANK(FEText_GaffeTesPotesMettez), HIGH(FEText_GaffeTesPotesMettez), LOW(FEText_GaffeTesPotesMettez) ; entry 3
+	db BANK(FEText_RecherchTouchezLeKremling), HIGH(FEText_RecherchTouchezLeKremling), LOW(FEText_RecherchTouchezLeKremling) ; entry 4
+	db BANK(FEText_CibleDeCrankyBougez), HIGH(FEText_CibleDeCrankyBougez), LOW(FEText_CibleDeCrankyBougez) ; entry 5
+	db BANK(FEText_FunkyPCheUtilisez), HIGH(FEText_FunkyPCheUtilisez), LOW(FEText_FunkyPCheUtilisez) ; entry 6
 
 FrontEndText_German::
 	dw FrontEndText_German_0, FrontEndText_German_1, FrontEndText_German_2, FrontEndText_German_3, FrontEndText_German_5, FrontEndText_German_5
@@ -5670,50 +5670,50 @@ FrontEndText_German_0::
 	db 126, 4 ; label 43
 
 FrontEndText_German_1::
-	db BANK(FEText_ff_51d4), HIGH(FEText_ff_51d4), LOW(FEText_ff_51d4) ; entry 0
-	db BANK(FEText_ff_51f1), HIGH(FEText_ff_51f1), LOW(FEText_ff_51f1) ; entry 1
-	db BANK(FEText_ff_5225), HIGH(FEText_ff_5225), LOW(FEText_ff_5225) ; entry 2
-	db BANK(FEText_ff_5237), HIGH(FEText_ff_5237), LOW(FEText_ff_5237) ; entry 3
-	db BANK(FEText_ff_5272), HIGH(FEText_ff_5272), LOW(FEText_ff_5272) ; entry 4
-	db BANK(FEText_ff_5287), HIGH(FEText_ff_5287), LOW(FEText_ff_5287) ; entry 5
+	db BANK(FEText_BatterienZuSchwach), HIGH(FEText_BatterienZuSchwach), LOW(FEText_BatterienZuSchwach) ; entry 0
+	db BANK(FEText_PrinterNichtAngeschlossenEingesc), HIGH(FEText_PrinterNichtAngeschlossenEingesc), LOW(FEText_PrinterNichtAngeschlossenEingesc) ; entry 1
+	db BANK(FEText_Papierstau), HIGH(FEText_Papierstau), LOW(FEText_Papierstau) ; entry 2
+	db BANK(FEText_UmgebungsTemperaturZuWarm), HIGH(FEText_UmgebungsTemperaturZuWarm), LOW(FEText_UmgebungsTemperaturZuWarm) ; entry 3
+	db BANK(FEText_DruckLUft), HIGH(FEText_DruckLUft), LOW(FEText_DruckLUft) ; entry 4
+	db BANK(FEText_CoolDuHastNun), HIGH(FEText_CoolDuHastNun), LOW(FEText_CoolDuHastNun) ; entry 5
 
 FrontEndText_German_2::
-	db BANK(FEText_ff_52c2), HIGH(FEText_ff_52c2), LOW(FEText_ff_52c2) ; entry 0
-	db BANK(FEText_ff_52d7), HIGH(FEText_ff_52d7), LOW(FEText_ff_52d7) ; entry 1
-	db BANK(FEText_ff_5301), HIGH(FEText_ff_5301), LOW(FEText_ff_5301) ; entry 2
-	db BANK(FEText_ff_5316), HIGH(FEText_ff_5316), LOW(FEText_ff_5316) ; entry 3
+	db BANK(FEText_KeineVerbindung), HIGH(FEText_KeineVerbindung), LOW(FEText_KeineVerbindung) ; entry 0
+	db BANK(FEText_DrCkeDenA), HIGH(FEText_DrCkeDenA), LOW(FEText_DrCkeDenA) ; entry 1
+	db BANK(FEText_BildBertragen), HIGH(FEText_BildBertragen), LOW(FEText_BildBertragen) ; entry 2
+	db BANK(FEText_Bertragung), HIGH(FEText_Bertragung), LOW(FEText_Bertragung) ; entry 3
 
 FrontEndText_German_3::
-	db BANK(FEText_ff_532a), HIGH(FEText_ff_532a), LOW(FEText_ff_532a) ; entry 0
-	db BANK(FEText_ff_5339), HIGH(FEText_ff_5339), LOW(FEText_ff_5339) ; entry 1
-	db BANK(FEText_ff_5348), HIGH(FEText_ff_5348), LOW(FEText_ff_5348) ; entry 2
-	db BANK(FEText_ff_536c), HIGH(FEText_ff_536c), LOW(FEText_ff_536c) ; entry 3
-	db BANK(FEText_ff_5390), HIGH(FEText_ff_5390), LOW(FEText_ff_5390) ; entry 4
-	db BANK(FEText_ff_53b7), HIGH(FEText_ff_53b7), LOW(FEText_ff_53b7) ; entry 5
-	db BANK(FEText_ff_53d1), HIGH(FEText_ff_53d1), LOW(FEText_ff_53d1) ; entry 6
-	db BANK(FEText_ff_53eb), HIGH(FEText_ff_53eb), LOW(FEText_ff_53eb) ; entry 7
-	db BANK(FEText_ff_5411), HIGH(FEText_ff_5411), LOW(FEText_ff_5411) ; entry 8
-	db BANK(FEText_ff_542a), HIGH(FEText_ff_542a), LOW(FEText_ff_542a) ; entry 9
-	db BANK(FEText_ff_5444), HIGH(FEText_ff_5444), LOW(FEText_ff_5444) ; entry 10
-	db BANK(FEText_ff_546a), HIGH(FEText_ff_546a), LOW(FEText_ff_546a) ; entry 11
-	db BANK(FEText_ff_548f), HIGH(FEText_ff_548f), LOW(FEText_ff_548f) ; entry 12
-	db BANK(FEText_ff_54b4), HIGH(FEText_ff_54b4), LOW(FEText_ff_54b4) ; entry 13
-	db BANK(FEText_ff_54cd), HIGH(FEText_ff_54cd), LOW(FEText_ff_54cd) ; entry 14
-	db BANK(FEText_ff_54e5), HIGH(FEText_ff_54e5), LOW(FEText_ff_54e5) ; entry 15
-	db BANK(FEText_ff_54fe), HIGH(FEText_ff_54fe), LOW(FEText_ff_54fe) ; entry 16
-	db BANK(FEText_ff_5517), HIGH(FEText_ff_5517), LOW(FEText_ff_5517) ; entry 17
-	db BANK(FEText_ff_552b), HIGH(FEText_ff_552b), LOW(FEText_ff_552b) ; entry 18
-	db BANK(FEText_ff_553f), HIGH(FEText_ff_553f), LOW(FEText_ff_553f) ; entry 19
-	db BANK(FEText_ff_5552), HIGH(FEText_ff_5552), LOW(FEText_ff_5552) ; entry 20
+	db BANK(FEText_Spieler1), HIGH(FEText_Spieler1), LOW(FEText_Spieler1) ; entry 0
+	db BANK(FEText_Spieler2), HIGH(FEText_Spieler2), LOW(FEText_Spieler2) ; entry 1
+	db BANK(FEText_DrCkeStartZur_1), HIGH(FEText_DrCkeStartZur_1), LOW(FEText_DrCkeStartZur_1) ; entry 2
+	db BANK(FEText_DrCkeStartZur_2), HIGH(FEText_DrCkeStartZur_2), LOW(FEText_DrCkeStartZur_2) ; entry 3
+	db BANK(FEText_WarteAufAufbauDer), HIGH(FEText_WarteAufAufbauDer), LOW(FEText_WarteAufAufbauDer) ; entry 4
+	db BANK(FEText_Spieler1Gewinnt), HIGH(FEText_Spieler1Gewinnt), LOW(FEText_Spieler1Gewinnt) ; entry 5
+	db BANK(FEText_Spieler1Verliert), HIGH(FEText_Spieler1Verliert), LOW(FEText_Spieler1Verliert) ; entry 6
+	db BANK(FEText_Spieler1ErzieltGleichstand), HIGH(FEText_Spieler1ErzieltGleichstand), LOW(FEText_Spieler1ErzieltGleichstand) ; entry 7
+	db BANK(FEText_Spieler2Gewinnt), HIGH(FEText_Spieler2Gewinnt), LOW(FEText_Spieler2Gewinnt) ; entry 8
+	db BANK(FEText_Spieler2Verliert), HIGH(FEText_Spieler2Verliert), LOW(FEText_Spieler2Verliert) ; entry 9
+	db BANK(FEText_Spieler2ErzieltGleichstand), HIGH(FEText_Spieler2ErzieltGleichstand), LOW(FEText_Spieler2ErzieltGleichstand) ; entry 10
+	db BANK(FEText_SpielerErzieltGleichstand), HIGH(FEText_SpielerErzieltGleichstand), LOW(FEText_SpielerErzieltGleichstand) ; entry 11
+	db BANK(FEText_ComputerErzieltGleichstand), HIGH(FEText_ComputerErzieltGleichstand), LOW(FEText_ComputerErzieltGleichstand) ; entry 12
+	db BANK(FEText_SpielerGewinnt), HIGH(FEText_SpielerGewinnt), LOW(FEText_SpielerGewinnt) ; entry 13
+	db BANK(FEText_ComputerGewinnt), HIGH(FEText_ComputerGewinnt), LOW(FEText_ComputerGewinnt) ; entry 14
+	db BANK(FEText_SpielerVerliert), HIGH(FEText_SpielerVerliert), LOW(FEText_SpielerVerliert) ; entry 15
+	db BANK(FEText_ComputerVerliert), HIGH(FEText_ComputerVerliert), LOW(FEText_ComputerVerliert) ; entry 16
+	db BANK(FEText_Gewonnen), HIGH(FEText_Gewonnen), LOW(FEText_Gewonnen) ; entry 17
+	db BANK(FEText_Verloren), HIGH(FEText_Verloren), LOW(FEText_Verloren) ; entry 18
+	db BANK(FEText_Gleichstand), HIGH(FEText_Gleichstand), LOW(FEText_Gleichstand) ; entry 19
+	db BANK(FEText_GameOver_3), HIGH(FEText_GameOver_3), LOW(FEText_GameOver_3) ; entry 20
 
 FrontEndText_German_5::
-	db BANK(FEText_ff_55b9), HIGH(FEText_ff_55b9), LOW(FEText_ff_55b9) ; entry 0
-	db BANK(FEText_ff_560d), HIGH(FEText_ff_560d), LOW(FEText_ff_560d) ; entry 1
-	db BANK(FEText_ff_5566), HIGH(FEText_ff_5566), LOW(FEText_ff_5566) ; entry 2
-	db BANK(FEText_ff_56ac), HIGH(FEText_ff_56ac), LOW(FEText_ff_56ac) ; entry 3
-	db BANK(FEText_ff_565f), HIGH(FEText_ff_565f), LOW(FEText_ff_565f) ; entry 4
-	db BANK(FEText_ff_5700), HIGH(FEText_ff_5700), LOW(FEText_ff_5700) ; entry 5
-	db BANK(FEText_ff_5786), HIGH(FEText_ff_5786), LOW(FEText_ff_5786) ; entry 6
+	db BANK(FEText_KremlingsKongsStoppDie), HIGH(FEText_KremlingsKongsStoppDie), LOW(FEText_KremlingsKongsStoppDie) ; entry 0
+	db BANK(FEText_KremlingKontainerTriffGenug), HIGH(FEText_KremlingKontainerTriffGenug), LOW(FEText_KremlingKontainerTriffGenug) ; entry 1
+	db BANK(FEText_KremlingKontrolleMachDen), HIGH(FEText_KremlingKontrolleMachDen), LOW(FEText_KremlingKontrolleMachDen) ; entry 2
+	db BANK(FEText_GefHrteInGefahr), HIGH(FEText_GefHrteInGefahr), LOW(FEText_GefHrteInGefahr) ; entry 3
+	db BANK(FEText_GesuchtErwischeDenGe), HIGH(FEText_GesuchtErwischeDenGe), LOW(FEText_GesuchtErwischeDenGe) ; entry 4
+	db BANK(FEText_CrankyCrashNimmDein), HIGH(FEText_CrankyCrashNimmDein), LOW(FEText_CrankyCrashNimmDein) ; entry 5
+	db BANK(FEText_FunkyFischerSetzeDas), HIGH(FEText_FunkyFischerSetzeDas), LOW(FEText_FunkyFischerSetzeDas) ; entry 6
 
 FrontEndText_Spanish::
 	dw FrontEndText_Spanish_0, FrontEndText_Spanish_1, FrontEndText_Spanish_2, FrontEndText_Spanish_3, FrontEndText_Spanish_5, FrontEndText_Spanish_5
@@ -5765,50 +5765,50 @@ FrontEndText_Spanish_0::
 	db 130, 4 ; label 43
 
 FrontEndText_Spanish_1::
-	db BANK(FEText_ff_5b29), HIGH(FEText_ff_5b29), LOW(FEText_ff_5b29) ; entry 0
-	db BANK(FEText_ff_5b5c), HIGH(FEText_ff_5b5c), LOW(FEText_ff_5b5c) ; entry 1
-	db BANK(FEText_ff_5b8d), HIGH(FEText_ff_5b8d), LOW(FEText_ff_5b8d) ; entry 2
-	db BANK(FEText_ff_5bb4), HIGH(FEText_ff_5bb4), LOW(FEText_ff_5bb4) ; entry 3
-	db BANK(FEText_ff_5bed), HIGH(FEText_ff_5bed), LOW(FEText_ff_5bed) ; entry 4
-	db BANK(FEText_ff_5c02), HIGH(FEText_ff_5c02), LOW(FEText_ff_5c02) ; entry 5
+	db BANK(FEText_PilasBajasLaImpresora), HIGH(FEText_PilasBajasLaImpresora), LOW(FEText_PilasBajasLaImpresora) ; entry 0
+	db BANK(FEText_ImpresoraNoConectadaO), HIGH(FEText_ImpresoraNoConectadaO), LOW(FEText_ImpresoraNoConectadaO) ; entry 1
+	db BANK(FEText_PapelAtascadoEnLa), HIGH(FEText_PapelAtascadoEnLa), LOW(FEText_PapelAtascadoEnLa) ; entry 2
+	db BANK(FEText_LaTemperaturaEsMuy), HIGH(FEText_LaTemperaturaEsMuy), LOW(FEText_LaTemperaturaEsMuy) ; entry 3
+	db BANK(FEText_Imprimiendo), HIGH(FEText_Imprimiendo), LOW(FEText_Imprimiendo) ; entry 4
+	db BANK(FEText_GuauHasAbiertoUna), HIGH(FEText_GuauHasAbiertoUna), LOW(FEText_GuauHasAbiertoUna) ; entry 5
 
 FrontEndText_Spanish_2::
-	db BANK(FEText_ff_5c3c), HIGH(FEText_ff_5c3c), LOW(FEText_ff_5c3c) ; entry 0
-	db BANK(FEText_ff_5c4f), HIGH(FEText_ff_5c4f), LOW(FEText_ff_5c4f) ; entry 1
-	db BANK(FEText_ff_5c74), HIGH(FEText_ff_5c74), LOW(FEText_ff_5c74) ; entry 2
-	db BANK(FEText_ff_5c88), HIGH(FEText_ff_5c88), LOW(FEText_ff_5c88) ; entry 3
+	db BANK(FEText_SinConexiN), HIGH(FEText_SinConexiN), LOW(FEText_SinConexiN) ; entry 0
+	db BANK(FEText_PulsaElBotN), HIGH(FEText_PulsaElBotN), LOW(FEText_PulsaElBotN) ; entry 1
+	db BANK(FEText_FotoRecibida), HIGH(FEText_FotoRecibida), LOW(FEText_FotoRecibida) ; entry 2
+	db BANK(FEText_Transmitiendo), HIGH(FEText_Transmitiendo), LOW(FEText_Transmitiendo) ; entry 3
 
 FrontEndText_Spanish_3::
-	db BANK(FEText_ff_5c9c), HIGH(FEText_ff_5c9c), LOW(FEText_ff_5c9c) ; entry 0
-	db BANK(FEText_ff_5cab), HIGH(FEText_ff_5cab), LOW(FEText_ff_5cab) ; entry 1
-	db BANK(FEText_ff_5cba), HIGH(FEText_ff_5cba), LOW(FEText_ff_5cba) ; entry 2
-	db BANK(FEText_ff_5cdd), HIGH(FEText_ff_5cdd), LOW(FEText_ff_5cdd) ; entry 3
-	db BANK(FEText_ff_5d00), HIGH(FEText_ff_5d00), LOW(FEText_ff_5d00) ; entry 4
-	db BANK(FEText_ff_5d24), HIGH(FEText_ff_5d24), LOW(FEText_ff_5d24) ; entry 5
-	db BANK(FEText_ff_5d3b), HIGH(FEText_ff_5d3b), LOW(FEText_ff_5d3b) ; entry 6
-	db BANK(FEText_ff_5d53), HIGH(FEText_ff_5d53), LOW(FEText_ff_5d53) ; entry 7
-	db BANK(FEText_ff_5d6c), HIGH(FEText_ff_5d6c), LOW(FEText_ff_5d6c) ; entry 8
-	db BANK(FEText_ff_5d83), HIGH(FEText_ff_5d83), LOW(FEText_ff_5d83) ; entry 9
-	db BANK(FEText_ff_5d9b), HIGH(FEText_ff_5d9b), LOW(FEText_ff_5d9b) ; entry 10
-	db BANK(FEText_ff_5db3), HIGH(FEText_ff_5db3), LOW(FEText_ff_5db3) ; entry 11
-	db BANK(FEText_ff_5dc9), HIGH(FEText_ff_5dc9), LOW(FEText_ff_5dc9) ; entry 12
-	db BANK(FEText_ff_5ddc), HIGH(FEText_ff_5ddc), LOW(FEText_ff_5ddc) ; entry 13
-	db BANK(FEText_ff_5df1), HIGH(FEText_ff_5df1), LOW(FEText_ff_5df1) ; entry 14
-	db BANK(FEText_ff_5e04), HIGH(FEText_ff_5e04), LOW(FEText_ff_5e04) ; entry 15
-	db BANK(FEText_ff_5e19), HIGH(FEText_ff_5e19), LOW(FEText_ff_5e19) ; entry 16
-	db BANK(FEText_ff_5e2d), HIGH(FEText_ff_5e2d), LOW(FEText_ff_5e2d) ; entry 17
-	db BANK(FEText_ff_5e40), HIGH(FEText_ff_5e40), LOW(FEText_ff_5e40) ; entry 18
-	db BANK(FEText_ff_5e54), HIGH(FEText_ff_5e54), LOW(FEText_ff_5e54) ; entry 19
-	db BANK(FEText_ff_5e66), HIGH(FEText_ff_5e66), LOW(FEText_ff_5e66) ; entry 20
+	db BANK(FEText_Jugador1), HIGH(FEText_Jugador1), LOW(FEText_Jugador1) ; entry 0
+	db BANK(FEText_Jugador2), HIGH(FEText_Jugador2), LOW(FEText_Jugador2) ; entry 1
+	db BANK(FEText_PulsaStartParaConectar_1), HIGH(FEText_PulsaStartParaConectar_1), LOW(FEText_PulsaStartParaConectar_1) ; entry 2
+	db BANK(FEText_PulsaStartParaConectar_2), HIGH(FEText_PulsaStartParaConectar_2), LOW(FEText_PulsaStartParaConectar_2) ; entry 3
+	db BANK(FEText_EsperandoConexiNRemota), HIGH(FEText_EsperandoConexiNRemota), LOW(FEText_EsperandoConexiNRemota) ; entry 4
+	db BANK(FEText_Jugador1Gana), HIGH(FEText_Jugador1Gana), LOW(FEText_Jugador1Gana) ; entry 5
+	db BANK(FEText_Jugador1Pierde), HIGH(FEText_Jugador1Pierde), LOW(FEText_Jugador1Pierde) ; entry 6
+	db BANK(FEText_Jugador1Empata), HIGH(FEText_Jugador1Empata), LOW(FEText_Jugador1Empata) ; entry 7
+	db BANK(FEText_Jugador2Gana), HIGH(FEText_Jugador2Gana), LOW(FEText_Jugador2Gana) ; entry 8
+	db BANK(FEText_Jugador2Pierde), HIGH(FEText_Jugador2Pierde), LOW(FEText_Jugador2Pierde) ; entry 9
+	db BANK(FEText_Jugador2Empata), HIGH(FEText_Jugador2Empata), LOW(FEText_Jugador2Empata) ; entry 10
+	db BANK(FEText_JugadorEmpata), HIGH(FEText_JugadorEmpata), LOW(FEText_JugadorEmpata) ; entry 11
+	db BANK(FEText_CpuEmpata), HIGH(FEText_CpuEmpata), LOW(FEText_CpuEmpata) ; entry 12
+	db BANK(FEText_JugadorGana), HIGH(FEText_JugadorGana), LOW(FEText_JugadorGana) ; entry 13
+	db BANK(FEText_CpuGana), HIGH(FEText_CpuGana), LOW(FEText_CpuGana) ; entry 14
+	db BANK(FEText_JugadorPierde), HIGH(FEText_JugadorPierde), LOW(FEText_JugadorPierde) ; entry 15
+	db BANK(FEText_CpuPierde), HIGH(FEText_CpuPierde), LOW(FEText_CpuPierde) ; entry 16
+	db BANK(FEText_TGanas), HIGH(FEText_TGanas), LOW(FEText_TGanas) ; entry 17
+	db BANK(FEText_TPierdes), HIGH(FEText_TPierdes), LOW(FEText_TPierdes) ; entry 18
+	db BANK(FEText_Empate), HIGH(FEText_Empate), LOW(FEText_Empate) ; entry 19
+	db BANK(FEText_Fin), HIGH(FEText_Fin), LOW(FEText_Fin) ; entry 20
 
 FrontEndText_Spanish_5::
-	db BANK(FEText_ff_5edc), HIGH(FEText_ff_5edc), LOW(FEText_ff_5edc) ; entry 0
-	db BANK(FEText_ff_5f2e), HIGH(FEText_ff_5f2e), LOW(FEText_ff_5f2e) ; entry 1
-	db BANK(FEText_ff_5e8d), HIGH(FEText_ff_5e8d), LOW(FEText_ff_5e8d) ; entry 2
-	db BANK(FEText_ff_5fc9), HIGH(FEText_ff_5fc9), LOW(FEText_ff_5fc9) ; entry 3
-	db BANK(FEText_ff_5f7c), HIGH(FEText_ff_5f7c), LOW(FEText_ff_5f7c) ; entry 4
-	db BANK(FEText_ff_601a), HIGH(FEText_ff_601a), LOW(FEText_ff_601a) ; entry 5
-	db BANK(FEText_ff_608d), HIGH(FEText_ff_608d), LOW(FEText_ff_608d) ; entry 6
+	db BANK(FEText_KremlingsYKongsDet), HIGH(FEText_KremlingsYKongsDet), LOW(FEText_KremlingsYKongsDet) ; entry 0
+	db BANK(FEText_BarrilKremlingsDaA), HIGH(FEText_BarrilKremlingsDaA), LOW(FEText_BarrilKremlingsDaA) ; entry 1
+	db BANK(FEText_AtaqueKremlingImpideQue), HIGH(FEText_AtaqueKremlingImpideQue), LOW(FEText_AtaqueKremlingImpideQue) ; entry 2
+	db BANK(FEText_AvisoDeBuddyTapa), HIGH(FEText_AvisoDeBuddyTapa), LOW(FEText_AvisoDeBuddyTapa) ; entry 3
+	db BANK(FEText_PerseguidoDaAlKremling), HIGH(FEText_PerseguidoDaAlKremling), LOW(FEText_PerseguidoDaAlKremling) ; entry 4
+	db BANK(FEText_MirillaCrankyMueveEl), HIGH(FEText_MirillaCrankyMueveEl), LOW(FEText_MirillaCrankyMueveEl) ; entry 5
+	db BANK(FEText_PescaDeFunkyUsa), HIGH(FEText_PescaDeFunkyUsa), LOW(FEText_PescaDeFunkyUsa) ; entry 6
 
 FrontEndText_Italian::
 	dw FrontEndText_Italian_0, FrontEndText_Italian_1, FrontEndText_Italian_2, FrontEndText_Italian_3, FrontEndText_Italian_5, FrontEndText_Italian_5
@@ -5860,49 +5860,49 @@ FrontEndText_Italian_0::
 	db 128, 4 ; label 43
 
 FrontEndText_Italian_1::
-	db BANK(FEText_ff_641c), HIGH(FEText_ff_641c), LOW(FEText_ff_641c) ; entry 0
-	db BANK(FEText_ff_644d), HIGH(FEText_ff_644d), LOW(FEText_ff_644d) ; entry 1
-	db BANK(FEText_ff_647c), HIGH(FEText_ff_647c), LOW(FEText_ff_647c) ; entry 2
-	db BANK(FEText_ff_6492), HIGH(FEText_ff_6492), LOW(FEText_ff_6492) ; entry 3
-	db BANK(FEText_ff_64c5), HIGH(FEText_ff_64c5), LOW(FEText_ff_64c5) ; entry 4
-	db BANK(FEText_ff_64d9), HIGH(FEText_ff_64d9), LOW(FEText_ff_64d9) ; entry 5
+	db BANK(FEText_PilaScaricaStampanteFuori), HIGH(FEText_PilaScaricaStampanteFuori), LOW(FEText_PilaScaricaStampanteFuori) ; entry 0
+	db BANK(FEText_StampanteNonConnessaO), HIGH(FEText_StampanteNonConnessaO), LOW(FEText_StampanteNonConnessaO) ; entry 1
+	db BANK(FEText_CartaInceppata), HIGH(FEText_CartaInceppata), LOW(FEText_CartaInceppata) ; entry 2
+	db BANK(FEText_TemperaturaAmbienteTroppoAlta), HIGH(FEText_TemperaturaAmbienteTroppoAlta), LOW(FEText_TemperaturaAmbienteTroppoAlta) ; entry 3
+	db BANK(FEText_InStampa), HIGH(FEText_InStampa), LOW(FEText_InStampa) ; entry 4
+	db BANK(FEText_EhiHaiApertoUna), HIGH(FEText_EhiHaiApertoUna), LOW(FEText_EhiHaiApertoUna) ; entry 5
 
 FrontEndText_Italian_2::
-	db BANK(FEText_ff_6513), HIGH(FEText_ff_6513), LOW(FEText_ff_6513) ; entry 0
-	db BANK(FEText_ff_6533), HIGH(FEText_ff_6533), LOW(FEText_ff_6533) ; entry 1
-	db BANK(FEText_ff_6554), HIGH(FEText_ff_6554), LOW(FEText_ff_6554) ; entry 2
-	db BANK(FEText_ff_6573), HIGH(FEText_ff_6573), LOW(FEText_ff_6573) ; entry 3
+	db BANK(FEText_NessunaConnessione), HIGH(FEText_NessunaConnessione), LOW(FEText_NessunaConnessione) ; entry 0
+	db BANK(FEText_PremiAPerCollegarti), HIGH(FEText_PremiAPerCollegarti), LOW(FEText_PremiAPerCollegarti) ; entry 1
+	db BANK(FEText_ImmagineRicevuta), HIGH(FEText_ImmagineRicevuta), LOW(FEText_ImmagineRicevuta) ; entry 2
+	db BANK(FEText_Trasmissione), HIGH(FEText_Trasmissione), LOW(FEText_Trasmissione) ; entry 3
 
 FrontEndText_Italian_3::
-	db BANK(FEText_ff_6586), HIGH(FEText_ff_6586), LOW(FEText_ff_6586) ; entry 0
-	db BANK(FEText_ff_6596), HIGH(FEText_ff_6596), LOW(FEText_ff_6596) ; entry 1
-	db BANK(FEText_ff_65a6), HIGH(FEText_ff_65a6), LOW(FEText_ff_65a6) ; entry 2
-	db BANK(FEText_ff_65c2), HIGH(FEText_ff_65c2), LOW(FEText_ff_65c2) ; entry 3
-	db BANK(FEText_ff_65de), HIGH(FEText_ff_65de), LOW(FEText_ff_65de) ; entry 4
-	db BANK(FEText_ff_6603), HIGH(FEText_ff_6603), LOW(FEText_ff_6603) ; entry 5
-	db BANK(FEText_ff_661c), HIGH(FEText_ff_661c), LOW(FEText_ff_661c) ; entry 6
-	db BANK(FEText_ff_6635), HIGH(FEText_ff_6635), LOW(FEText_ff_6635) ; entry 7
-	db BANK(FEText_ff_6650), HIGH(FEText_ff_6650), LOW(FEText_ff_6650) ; entry 8
-	db BANK(FEText_ff_6669), HIGH(FEText_ff_6669), LOW(FEText_ff_6669) ; entry 9
-	db BANK(FEText_ff_6681), HIGH(FEText_ff_6681), LOW(FEText_ff_6681) ; entry 10
-	db BANK(FEText_ff_669c), HIGH(FEText_ff_669c), LOW(FEText_ff_669c) ; entry 11
-	db BANK(FEText_ff_66b5), HIGH(FEText_ff_66b5), LOW(FEText_ff_66b5) ; entry 12
-	db BANK(FEText_ff_66cf), HIGH(FEText_ff_66cf), LOW(FEText_ff_66cf) ; entry 13
-	db BANK(FEText_ff_66e7), HIGH(FEText_ff_66e7), LOW(FEText_ff_66e7) ; entry 14
-	db BANK(FEText_ff_66ff), HIGH(FEText_ff_66ff), LOW(FEText_ff_66ff) ; entry 15
-	db BANK(FEText_ff_6717), HIGH(FEText_ff_6717), LOW(FEText_ff_6717) ; entry 16
-	db BANK(FEText_ff_672f), HIGH(FEText_ff_672f), LOW(FEText_ff_672f) ; entry 17
-	db BANK(FEText_ff_6743), HIGH(FEText_ff_6743), LOW(FEText_ff_6743) ; entry 18
-	db BANK(FEText_ff_6757), HIGH(FEText_ff_6757), LOW(FEText_ff_6757) ; entry 19
-	db BANK(FEText_ff_6768), HIGH(FEText_ff_6768), LOW(FEText_ff_6768) ; entry 20
+	db BANK(FEText_Giocatore1), HIGH(FEText_Giocatore1), LOW(FEText_Giocatore1) ; entry 0
+	db BANK(FEText_Giocatore2), HIGH(FEText_Giocatore2), LOW(FEText_Giocatore2) ; entry 1
+	db BANK(FEText_PremiStartECollegati_1), HIGH(FEText_PremiStartECollegati_1), LOW(FEText_PremiStartECollegati_1) ; entry 2
+	db BANK(FEText_PremiStartECollegati_2), HIGH(FEText_PremiStartECollegati_2), LOW(FEText_PremiStartECollegati_2) ; entry 3
+	db BANK(FEText_InAttesaDiCollega), HIGH(FEText_InAttesaDiCollega), LOW(FEText_InAttesaDiCollega) ; entry 4
+	db BANK(FEText_Giocatore1Vince), HIGH(FEText_Giocatore1Vince), LOW(FEText_Giocatore1Vince) ; entry 5
+	db BANK(FEText_Giocatore1Perde), HIGH(FEText_Giocatore1Perde), LOW(FEText_Giocatore1Perde) ; entry 6
+	db BANK(FEText_Giocatore1Pareggia), HIGH(FEText_Giocatore1Pareggia), LOW(FEText_Giocatore1Pareggia) ; entry 7
+	db BANK(FEText_Giocatore2Vince), HIGH(FEText_Giocatore2Vince), LOW(FEText_Giocatore2Vince) ; entry 8
+	db BANK(FEText_Giocatore2Perde), HIGH(FEText_Giocatore2Perde), LOW(FEText_Giocatore2Perde) ; entry 9
+	db BANK(FEText_Giocatore2Pareggia), HIGH(FEText_Giocatore2Pareggia), LOW(FEText_Giocatore2Pareggia) ; entry 10
+	db BANK(FEText_GiocatorePareggia), HIGH(FEText_GiocatorePareggia), LOW(FEText_GiocatorePareggia) ; entry 11
+	db BANK(FEText_ComputerPareggia), HIGH(FEText_ComputerPareggia), LOW(FEText_ComputerPareggia) ; entry 12
+	db BANK(FEText_GiocatoreVince), HIGH(FEText_GiocatoreVince), LOW(FEText_GiocatoreVince) ; entry 13
+	db BANK(FEText_ComputerVince), HIGH(FEText_ComputerVince), LOW(FEText_ComputerVince) ; entry 14
+	db BANK(FEText_GiocatorePerde), HIGH(FEText_GiocatorePerde), LOW(FEText_GiocatorePerde) ; entry 15
+	db BANK(FEText_ComputerPerde), HIGH(FEText_ComputerPerde), LOW(FEText_ComputerPerde) ; entry 16
+	db BANK(FEText_HaiVinto), HIGH(FEText_HaiVinto), LOW(FEText_HaiVinto) ; entry 17
+	db BANK(FEText_HaiPerso), HIGH(FEText_HaiPerso), LOW(FEText_HaiPerso) ; entry 18
+	db BANK(FEText_Pari), HIGH(FEText_Pari), LOW(FEText_Pari) ; entry 19
+	db BANK(FEText_FineGioco), HIGH(FEText_FineGioco), LOW(FEText_FineGioco) ; entry 20
 
 FrontEndText_Italian_5::
-	db BANK(FEText_ff_67e5), HIGH(FEText_ff_67e5), LOW(FEText_ff_67e5) ; entry 0
-	db BANK(FEText_ff_6839), HIGH(FEText_ff_6839), LOW(FEText_ff_6839) ; entry 1
-	db BANK(FEText_ff_6792), HIGH(FEText_ff_6792), LOW(FEText_ff_6792) ; entry 2
-	db BANK(FEText_ff_68d8), HIGH(FEText_ff_68d8), LOW(FEText_ff_68d8) ; entry 3
-	db BANK(FEText_ff_6887), HIGH(FEText_ff_6887), LOW(FEText_ff_6887) ; entry 4
-	db BANK(FEText_ff_692c), HIGH(FEText_ff_692c), LOW(FEText_ff_692c) ; entry 5
-	db BANK(FEText_ff_69b2), HIGH(FEText_ff_69b2), LOW(FEText_ff_69b2) ; entry 6
+	db BANK(FEText_KremlingEScimmieBlocca), HIGH(FEText_KremlingEScimmieBlocca), LOW(FEText_KremlingEScimmieBlocca) ; entry 0
+	db BANK(FEText_BariliDiKremlingMira), HIGH(FEText_BariliDiKremlingMira), LOW(FEText_BariliDiKremlingMira) ; entry 1
+	db BANK(FEText_FracassoKremlingBloccaI), HIGH(FEText_FracassoKremlingBloccaI), LOW(FEText_FracassoKremlingBloccaI) ; entry 2
+	db BANK(FEText_AiutaGliAmiciPer), HIGH(FEText_AiutaGliAmiciPer), LOW(FEText_AiutaGliAmiciPer) ; entry 3
+	db BANK(FEText_RicercatoPestaIlKremling), HIGH(FEText_RicercatoPestaIlKremling), LOW(FEText_RicercatoPestaIlKremling) ; entry 4
+	db BANK(FEText_MirinoDiCrankyMuovi), HIGH(FEText_MirinoDiCrankyMuovi), LOW(FEText_MirinoDiCrankyMuovi) ; entry 5
+	db BANK(FEText_LaPescaDiFunky), HIGH(FEText_LaPescaDiFunky), LOW(FEText_LaPescaDiFunky) ; entry 6
 	ds 3239, $00 ; $7359
 

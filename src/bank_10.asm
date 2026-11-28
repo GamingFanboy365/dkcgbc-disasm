@@ -4,1096 +4,1096 @@ INCLUDE "include/common.inc"
 SECTION "Bank $10", ROMX[$4000], BANK[$10]
 
 TextGroups_10::
-	dw TextGroup_10_4020, TextGroup_10_40a8, TextGroup_10_405e, TextGroup_10_40be
-	dw TextGroup_10_40f4, TextGroup_10_413e, TextGroup_10_417c, TextGroup_10_417e
-	dw TextGroup_10_418c, TextGroup_10_418e, TextGroup_10_4198, TextGroup_10_419c
-	dw TextGroup_10_41a0, TextGroup_10_41ba, TextGroup_10_41ca, TextGroup_10_41ce
+	dw TextGroup_English_00, TextGroup_English_02, TextGroup_English_01, TextGroup_English_03
+	dw TextGroup_English_04, TextGroup_English_05, TextGroup_English_06, TextGroup_English_07
+	dw TextGroup_English_08, TextGroup_English_09, TextGroup_English_10, TextGroup_English_11
+	dw TextGroup_English_12, TextGroup_English_13, TextGroup_English_14, TextGroup_English_15
 
-TextGroup_10_4020::
-	dw Text_10_4244
-	dw Text_10_427c
-	dw Text_10_42b2
-	dw Text_10_42ea
-	dw Text_10_4324
-	dw Text_10_4354
-	dw Text_10_4389
-	dw Text_10_43bf
-	dw Text_10_43e1
-	dw Text_10_4418
-	dw Text_10_4451
-	dw Text_10_4486
-	dw Text_10_44bf
-	dw Text_10_44e5
-	dw Text_10_4508
-	dw Text_10_453c
-	dw Text_10_4561
-	dw Text_10_4598
-	dw Text_10_45cc
-	dw Text_10_4609
-	dw Text_10_4640
-	dw Text_10_4678
-	dw Text_10_46ac
-	dw Text_10_46e4
-	dw Text_10_4717
-	dw Text_10_4752
-	dw Text_10_4789
-	dw Text_10_47c4
-	dw Text_10_47f8
-	dw Text_10_481d
-	dw Text_10_485a
+TextGroup_English_00::
+	dw Text_WellWellDidntExpect
+	dw Text_YoureDoingPrettyGood
+	dw Text_SoYouFoundMe
+	dw Text_WhoToldYouI
+	dw Text_WellWellLookWhat
+	dw Text_HaventSeenYouAround
+	dw Text_WhatDoYouWant
+	dw Text_AhhAtLastSomeone
+	dw Text_YoureLuckyYouCaught
+	dw Text_HaveYaBroughtBack
+	dw Text_LastTimeISaw
+	dw Text_ComeOverHereAnd
+	dw Text_WellLookyWhatWe
+	dw Text_ArentYouASight
+	dw Text_AWholeMobOf
+	dw Text_ThisHereIsRhino
+	dw Text_HeyBoyCanYou
+	dw Text_HeyBoyDidYou
+	dw Text_YouBigApeI
+	dw Text_ItsHardToFind
+	dw Text_SureComeOnOver
+	dw Text_AhhItSortaTakes
+	dw Text_ItsBeenRealBusy
+	dw Text_SureLooksLikeIm
+	dw Text_SureBeatsAVisit
+	dw Text_FancyRunningIntoYou
+	dw Text_IHaventGotEven
+	dw Text_IJustGaveMy
+	dw Text_WhatInTarnationDo
+	dw Text_IAintGotNothin
+	dw Text_BetchaWontGetMuch
 
-TextGroup_10_405e::
-	dw Text_10_488b
-	dw Text_10_48c6
-	dw Text_10_48ff
-	dw Text_10_4923
-	dw Text_10_4954
-	dw Text_10_498f
-	dw Text_10_49bd
-	dw Text_10_49f6
-	dw Text_10_4a28
-	dw Text_10_4a5b
-	dw Text_10_4a8c
-	dw Text_10_4aae
-	dw Text_10_4ae6
-	dw Text_10_4b22
-	dw Text_10_4b5c
-	dw Text_10_4b95
-	dw Text_10_4bcc
-	dw Text_10_4bf1
-	dw Text_10_4c2f
-	dw Text_10_4c66
-	dw Text_10_4c9e
-	dw Text_10_4cc6
-	dw Text_10_4cfc
-	dw Text_10_4d34
-	dw Text_10_4d6c
-	dw Text_10_4da0
-	dw Text_10_4dd8
-	dw Text_10_4e0c
-	dw Text_10_4e37
-	dw Text_10_4e6d
-	dw Text_10_4ea4
-	dw Text_10_4edd
-	dw Text_10_4f16
-	dw Text_10_4f52
-	dw Text_10_4f8c
-	dw Text_10_4fc6
-	dw Text_10_5002
+TextGroup_English_01::
+	dw Text_TheKidsOfToday
+	dw Text_TheVideoGamesIn
+	dw Text_AllThisFunCant
+	dw Text_BetThisSectionWasted
+	dw Text_TheyCantKeepThis
+	dw Text_WeWereLuckyIf
+	dw Text_WeUsedToHave
+	dw Text_ThemBarrelsWereA
+	dw Text_WeNeverHadAny
+	dw Text_WeJustHadTo
+	dw Text_IveNeverSeenAnything
+	dw Text_EnjoyThisDemoGame
+	dw Text_FourShadesOfGray
+	dw Text_ICantPlayThis
+	dw Text_TheBananasHaveMore
+	dw Text_LookAtThisMy
+	dw Text_ThatWasWhenWe
+	dw Text_UsedAllTheLatest
+	dw Text_TheTroubleWithYou
+	dw Text_GamesWereALot
+	dw Text_WedPlayForHours
+	dw Text_YouWouldntLastTwo
+	dw Text_ICouldGetThrough
+	dw Text_ImTalkingAboutWhen
+	dw Text_ThreeLivesAndThree
+	dw Text_GamesNeverLookedLike
+	dw Text_AndWeWereMuch
+	dw Text_BetYouThoughtThis
+	dw Text_MyBigToesGot
+	dw Text_YknowWhatTheySay
+	dw Text_With32MegYoud
+	dw Text_BackInMyDay
+	dw Text_WhatsEvenWorseYou
+	dw Text_YouWouldntKnowA
+	dw Text_AJoystickAndOne
+	dw Text_IWouldntBeSeen
+	dw Text_YouCantBetterThe
 
-TextGroup_10_40a8::
-	dw Text_10_503f
-	dw Text_10_5078
-	dw Text_10_50b4
-	dw Text_10_50e7
-	dw Text_10_510d
-	dw Text_10_5121
-	dw Text_10_5142
-	dw Text_10_5171
-	dw Text_10_518b
-	dw Text_10_51bc
-	dw Text_10_51e4
+TextGroup_English_02::
+	dw Text_SoYerBackAgain
+	dw Text_TooQuickIDidnt
+	dw Text_ImJustWastingMy
+	dw Text_YouHaveToDo
+	dw Text_YouOnlyJustLeft
+	dw Text_BackAgainEhThat
+	dw Text_CameBackToThe
+	dw Text_StillGotYouBeat
+	dw Text_YupDontMakeGame
+	dw Text_DyaExpectMeTo
+	dw Text_HowDareYouShow
 
-TextGroup_10_40be::
-	dw Text_10_521f
-	dw Text_10_525a
-	dw Text_10_5290
-	dw Text_10_52c9
-	dw Text_10_52f8
-	dw Text_10_532d
-	dw Text_10_5361
-	dw Text_10_5396
-	dw Text_10_53cc
-	dw Text_10_5406
-	dw Text_10_5433
-	dw Text_10_5471
-	dw Text_10_54a7
-	dw Text_10_54e4
-	dw Text_10_551e
-	dw Text_10_5556
-	dw Text_10_558c
-	dw Text_10_55c7
-	dw Text_10_5600
-	dw Text_10_5633
-	dw Text_10_5667
-	dw Text_10_56a0
-	dw Text_10_56d6
-	dw Text_10_570e
-	dw Text_10_5747
-	dw Text_10_5784
-	dw Text_10_57bf
+TextGroup_English_03::
+	dw Text_InJungleHijinxsStick
+	dw Text_FindTheFunJust
+	dw Text_ALeapOfFaith
+	dw Text_GoBananasInThe
+	dw Text_CroctopusCornersCrocksOf
+	dw Text_BurnRubberForThe
+	dw Text_TheBananasInStop
+	dw Text_JumpEarlyToGet
+	dw Text_RollingRubberWillPut
+	dw Text_OnSnowBarrelBlast
+	dw Text_OnCroctopusChaseA
+	dw Text_ToGetYourWings
+	dw Text_BouncingTheBouncerSlides
+	dw Text_TheTntGivesWall
+	dw Text_ForElevatorAnticsClimb
+	dw Text_TheGnawtyGnowsA
+	dw Text_MineCartMadnessIs
+	dw Text_OnceInThePoison
+	dw Text_BlackoutBasementsSinkingFeeling
+	dw Text_LetDiddyHoldOut
+	dw Text_TakeEnoughRopeAnd
+	dw Text_TheLoopyLightsVultures
+	dw Text_PerilousVulturesKnowIts
+	dw Text_AllGassedUpAnd
+	dw Text_TheOrangUtanGang
+	dw Text_ASingleBananaIs
+	dw Text_GetDownWithThe
 
-TextGroup_10_40f4::
-	dw Text_10_57f6
-	dw Text_10_582d
-	dw Text_10_586a
-	dw Text_10_58a3
-	dw Text_10_58d9
-	dw Text_10_5913
-	dw Text_10_594d
-	dw Text_10_5988
-	dw Text_10_59c1
-	dw Text_10_59f6
-	dw Text_10_5a35
-	dw Text_10_5a6c
-	dw Text_10_5aa7
-	dw Text_10_5ad4
-	dw Text_10_5afb
-	dw Text_10_5b31
-	dw Text_10_5b6e
-	dw Text_10_5b95
-	dw Text_10_5bd1
-	dw Text_10_5c08
-	dw Text_10_5c44
-	dw Text_10_5c80
-	dw Text_10_5cbb
-	dw Text_10_5cf8
-	dw Text_10_5d2a
-	dw Text_10_5d61
-	dw Text_10_5d61
-	dw Text_10_5d9e
-	dw Text_10_5dd2
-	dw Text_10_5e0d
-	dw Text_10_5e4a
-	dw Text_10_5e83
-	dw Text_10_7097
-	dw Text_10_7097
-	dw Text_10_7097
-	dw Text_10_7097
-	dw Text_10_7097
+TextGroup_English_04::
+	dw Text_AHandSlapCan
+	dw Text_HeCantReallyFly
+	dw Text_EnguardeSwordfishWillHelp
+	dw Text_CandysChallengesCanWin
+	dw Text_RollOffAPlatform
+	dw Text_TheySayIfYou
+	dw Text_IHearYouCan
+	dw Text_ReckonRambiRhinoCould
+	dw Text_BounceAKegOff
+	dw Text_RollAttackABaddie
+	dw Text_BounceOnEightBaddies
+	dw Text_TheySayExpressosLegs
+	dw Text_BreakOpenAStar
+	dw Text_JustFinishALevel
+	dw Text_FunkySendsYouWhere
+	dw Text_DisguisedHolesOnThe
+	dw Text_BananaArrowsWillPoint
+	dw Text_IfYouFindBananas
+	dw Text_SmashOpenAnyDk
+	dw Text_GrabThemExtraLife
+	dw Text_KlapTrapTeethStop
+	dw Text_YouCantJumpOn
+	dw Text_KlumpsHatProtectsAgainst
+	dw Text_KrushaIsToughOnly
+	dw Text_FloatingBarrelsWillBreak
+	dw Text_FollowSteelKegsAnd
+	dw Text_FollowSteelKegsAnd
+	dw Text_RunAndJumpOn
+	dw Text_JumpOnFixedTires
+	dw Text_PushFreeTiresTo
+	dw Text_RollOverSlippaOr
+	dw Text_GnawtyBeaverCanBe
+	dw Text_INeverLikedThose
+	dw Text_INeverLikedThose
+	dw Text_INeverLikedThose
+	dw Text_INeverLikedThose
+	dw Text_INeverLikedThose
 
-TextGroup_10_413e::
-	dw Text_10_5ead
-	dw Text_10_5ec3
-	dw Text_10_5eec
-	dw Text_10_5f13
-	dw Text_10_5f46
-	dw Text_10_5f6e
-	dw Text_10_5fa7
-	dw Text_10_5fd5
-	dw Text_10_600e
-	dw Text_10_6036
-	dw Text_10_606f
-	dw Text_10_60a7
-	dw Text_10_60db
-	dw Text_10_6114
-	dw Text_10_6137
-	dw Text_10_6156
-	dw Text_10_618e
-	dw Text_10_61b2
-	dw Text_10_61d9
-	dw Text_10_6217
-	dw Text_10_623b
-	dw Text_10_6262
-	dw Text_10_6292
-	dw Text_10_62ca
-	dw Text_10_6306
-	dw Text_10_6356
-	dw Text_10_6390
-	dw Text_10_63db
-	dw Text_10_6415
-	dw Text_10_6451
-	dw Text_10_6472
+TextGroup_English_05::
+	dw Text_ThatsAllSheWrote
+	dw Text_TheresNothingMoreI
+	dw Text_YouKnowAllThat
+	dw Text_ComeBackAndSee
+	dw Text_DontKnowAnyMore
+	dw Text_ThatsAllThereIs
+	dw Text_SoLongSuckersTry
+	dw Text_ThatsAllTheGood
+	dw Text_ImGettingTiredI
+	dw Text_YouPracticallyKnowMore
+	dw Text_DontHaveAnythingElse
+	dw Text_ICouldJustRock
+	dw Text_GottaGoNowIll
+	dw Text_WellThatsAboutThe
+	dw Text_IsThatTheTime
+	dw Text_ICouldTellYou
+	dw Text_YallComeBackSoon
+	dw Text_IfYouGetStuck
+	dw Text_CantSayIExpect
+	dw Text_ItsBeenNiceTalking
+	dw Text_EhSonnySpeakUp
+	dw Text_IveSeenEnoughThat
+	dw Text_ThisColorScreensMaking
+	dw Text_AllThisGamePlay
+	dw Text_RememberTheOriginalDonkey
+	dw Text_TooManyBaddiesHere
+	dw Text_IdAskYaIn
+	dw Text_OffYouGoSee
+	dw Text_ShutTheGateOn
+	dw Text_SeeYaLaterAlligator
+	dw Text_AfterAWhileCrocodile
 
-TextGroup_10_417c::
-	dw Text_10_6494
+TextGroup_English_06::
+	dw Text_HiImCandyKong
 
-TextGroup_10_417e::
-	dw Text_10_64f7
-	dw Text_10_6529
-	dw Text_10_6552
-	dw Text_10_658c
-	dw Text_10_65c4
-	dw Text_10_65f9
-	dw Text_10_6634
+TextGroup_English_07::
+	dw Text_HelloGuysDoYou
+	dw Text_CanIHelpYou
+	dw Text_HowWouldYouLike
+	dw Text_YooHooHoneyKong
+	dw Text_IfYouFancyA
+	dw Text_YouGuysAreReally
+	dw Text_SeeYaLaterBoys
 
-TextGroup_10_418c::
-	dw Text_10_666e
+TextGroup_English_08::
+	dw Text_WhoaDudesImFunky
 
-TextGroup_10_418e::
-	dw Text_10_6712
-	dw Text_10_674a
-	dw Text_10_677a
-	dw Text_10_67b5
-	dw Text_10_67f2
+TextGroup_English_09::
+	dw Text_YeahKongsLikeJump
+	dw Text_NeedSomeLivesGet
+	dw Text_YoGorillasSeekThe
+	dw Text_LookinGoodKongsBelt
+	dw Text_HeyDudesTellCandy
 
-TextGroup_10_4198::
-	dw Text_10_6827
-	dw Text_10_6864
+TextGroup_English_10::
+	dw Text_FancyAFlightDk
+	dw Text_DudeskiYourBudHas
 
-TextGroup_10_419c::
-	dw Text_10_6899
-	dw Text_10_68d4
+TextGroup_English_11::
+	dw Text_YoDiddyLostThe
+	dw Text_WheresYourPalTry
 
-TextGroup_10_41a0::
-	dw Text_10_690c
-	dw Text_10_69da
-	dw Text_10_69da
-	dw Text_10_69da
-	dw Text_10_69da
-	dw Text_10_69da
-	dw Text_10_69da
-	dw Text_10_69da
-	dw Text_10_6a3a
-	dw Text_10_6aaa
-	dw Text_10_6aaa
-	dw Text_10_6aaa
-	dw Text_10_6aaa
+TextGroup_English_12::
+	dw Text_WellDoneMyBoy
+	dw Text_IfIWasPlaying
+	dw Text_IfIWasPlaying
+	dw Text_IfIWasPlaying
+	dw Text_IfIWasPlaying
+	dw Text_IfIWasPlaying
+	dw Text_IfIWasPlaying
+	dw Text_IfIWasPlaying
+	dw Text_WhatAPlayerDk
+	dw Text_DkMyBoyWhere
+	dw Text_DkMyBoyWhere
+	dw Text_DkMyBoyWhere
+	dw Text_DkMyBoyWhere
 
-TextGroup_10_41ba::
-	dw Text_10_6aaa
-	dw Text_10_6acf
-	dw Text_10_6b00
-	dw Text_10_6b36
-	dw Text_10_6b65
-	dw Text_10_6b9b
-	dw Text_10_6bcb
-	dw Text_10_6c05
+TextGroup_English_13::
+	dw Text_DkMyBoyWhere
+	dw Text_DkYouYoungWhippersnapper
+	dw Text_DonkeyBoyItSeems
+	dw Text_YouNeverVisitYour
+	dw Text_HeyCanYouSpare
+	dw Text_AndWhatHaveYou
+	dw Text_WellYouveAmazedYour
+	dw Text_AtLastYouveCome
 
-TextGroup_10_41ca::
-	dw Text_10_6c42
-	dw Text_10_6c60
+TextGroup_English_14::
+	dw Text_DiddyMyBoyWheres
+	dw Text_DiddyMyYoungPup
 
-TextGroup_10_41ce::
-	dw Text_10_6c9c
-	dw Text_10_6ca3
-	dw Text_10_6cb3
-	dw Text_10_6cc5
-	dw Text_10_6cdc
-	dw Text_10_6ced
-	dw Text_10_6cfe
-	dw Text_10_6d0e
-	dw Text_10_6d20
-	dw Text_10_6d32
-	dw Text_10_6d45
-	dw Text_10_6d59
-	dw Text_10_6d6d
-	dw Text_10_6d7f
-	dw Text_10_6d8b
-	dw Text_10_6d9f
-	dw Text_10_6dae
-	dw Text_10_6dc2
-	dw Text_10_6dd0
-	dw Text_10_6de2
-	dw Text_10_6df1
-	dw Text_10_6dfd
-	dw Text_10_6e10
-	dw Text_10_6e21
-	dw Text_10_6e35
-	dw Text_10_6e45
-	dw Text_10_6e55
-	dw Text_10_6e6a
-	dw Text_10_6e7c
-	dw Text_10_6e8c
-	dw Text_10_6e9d
-	dw Text_10_6eb2
-	dw Text_10_6ec3
-	dw Text_10_6ed7
-	dw Text_10_6ee8
-	dw Text_10_6ef6
-	dw Text_10_6f04
-	dw Text_10_6f11
-	dw Text_10_6f22
-	dw Text_10_6f37
-	dw Text_10_6f46
-	dw Text_10_6f5a
-	dw Text_10_6f68
-	dw Text_10_6f79
-	dw Text_10_6f90
-	dw Text_10_6fa0
-	dw Text_10_6fb1
-	dw Text_10_6fc5
-	dw Text_10_6fd5
-	dw Text_10_6fe6
-	dw Text_10_7009
-	dw Text_10_701d
-	dw Text_10_7032
-	dw Text_10_7047
-	dw Text_10_704f
-	dw Text_10_705f
-	dw Text_10_6ff9
-	dw Text_10_7081
-	dw Text_10_7071
+TextGroup_English_15::
+	dw Text_Error
+	dw Text_RopeyRampage
+	dw Text_OrangUtanGang
+	dw Text_BarrelCannonCanyon
+	dw Text_ReptileRumble
+	dw Text_BouncyBonanza
+	dw Text_ManicMincers
+	dw Text_ElevatorAntics
+	dw Text_PlatformPerils
+	dw Text_TrickTrackTrek
+	dw Text_TankedUpTrouble
+	dw Text_MineCartMadness
+	dw Text_WinkysWalkway
+	dw Text_MistyMine
+	dw Text_StopGoStation
+	dw Text_LoopyLights
+	dw Text_MineCartCarnage
+	dw Text_PoisonPond
+	dw Text_CroctopusChase
+	dw Text_CoralCapers
+	dw Text_ClamCity
+	dw Text_MillstoneMayhem
+	dw Text_TempleTempest
+	dw Text_SnowBarrelBlast
+	dw Text_IceAgeAlley
+	dw Text_TreeTopTown
+	dw Text_RopeBridgeRumble
+	dw Text_VultureCulture
+	dw Text_ForestFrenzy
+	dw Text_SlipslideRide
+	dw Text_TorchlightTrouble
+	dw Text_OilDrumAlley
+	dw Text_BlackoutBasement
+	dw Text_JungleHijinxs
+	dw Text_KongoJungle
+	dw Text_MonkeyMines
+	dw Text_VineValley
+	dw Text_GorillaGlacier
+	dw Text_KremkrocIndustries
+	dw Text_ChimpCaverns
+	dw Text_VeryGnawtysLair
+	dw Text_NeckysNuts
+	dw Text_BumbleBRumble
+	dw Text_ReallyGnawtyRampage
+	dw Text_BossDumbDrum
+	dw Text_NeckysRevenge
+	dw Text_GangPlankGalleon
+	dw Text_CrankysCabin
+	dw Text_FunkysFlights
+	dw Text_CandysChallenge
+	dw Text_KremlingKrackdown
+	dw Text_KremlingsAndKongs
+	dw Text_BarrelOKremlings
+	dw Text_Wanted
+	dw Text_BuddiesBeware
+	dw Text_CrosshairCranky
+	dw Text_NeckyNutmare
+	dw Text_ReturnToIslandMap
+	dw Text_GalleonGunner
 
-Text_10_4244::
+Text_WellWellDidntExpect::
 	db "Well, well! Didn't", $0d
 	db "expect to see YOU", $0d
 	db "around here today!", $00
 
-Text_10_427c::
+Text_YoureDoingPrettyGood::
 	db "You're doing pretty", $0d
 	db "good to get this", $0d
 	db "far from home...", $00
 
-Text_10_42b2::
+Text_SoYouFoundMe::
 	db "So you found me,", $0d
 	db "did ya, Kong! Well,", $0d
 	db "what do you want?!", $00
 
-Text_10_42ea::
+Text_WhoToldYouI::
 	db "Who told you I was", $0d
 	db "here?! Was it that", $0d
 	db "raucous Funky Kong?", $00
 
-Text_10_4324::
+Text_WellWellLookWhat::
 	db "Well, well! Look", $0d
 	db "what the mangy cat", $0d
 	db "dragged in!", $00
 
-Text_10_4354::
+Text_HaventSeenYouAround::
 	db "Haven't seen you", $0d
 	db "around these parts", $0d
 	db "for a long time!", $00
 
-Text_10_4389::
+Text_WhatDoYouWant::
 	db "What do you want", $0d
 	db "now, eh? I'm an ape", $0d
 	db "in demand, I am!", $00
 
-Text_10_43bf::
+Text_AhhAtLastSomeone::
 	db "Ahh! At last!", $0d
 	db "Someone to chat to!", $00
 
-Text_10_43e1::
+Text_YoureLuckyYouCaught::
 	db "You're lucky you", $0d
 	db "caught me in. I was", $0d
 	db "just heading out.", $00
 
-Text_10_4418::
+Text_HaveYaBroughtBack::
 	db "Have ya brought back", $0d
 	db "the bunch of bananas", $0d
 	db "I loaned you?!", $00
 
-Text_10_4451::
+Text_LastTimeISaw::
 	db "Last time I saw you,", $0d
 	db "you were wearing", $0d
 	db "soggy diapers!", $00
 
-Text_10_4486::
+Text_ComeOverHereAnd::
 	db "Come over here and", $0d
 	db "let me have a look", $0d
 	db "at your hairy mug!", $00
 
-Text_10_44bf::
+Text_WellLookyWhatWe::
 	db "Well, looky what we", $0d
 	db "have here! Kongs!", $00
 
-Text_10_44e5::
+Text_ArentYouASight::
 	db "Aren't you a sight", $0d
 	db "for sore eyes?!", $00
 
-Text_10_4508::
+Text_AWholeMobOf::
 	db "A whole mob of ugly", $0d
 	db "Kremlings just", $0d
 	db "charged through!", $00
 
-Text_10_453c::
+Text_ThisHereIsRhino::
 	db "This here is rhino", $0d
 	db "country, ya know!", $00
 
-Text_10_4561::
+Text_HeyBoyCanYou::
 	db "Hey, boy! Can you", $0d
 	db "believe the shack", $0d
 	db "they stuck me in?!", $00
 
-Text_10_4598::
+Text_HeyBoyDidYou::
 	db "Hey, boy! Did you", $0d
 	db "fetch me that paper", $0d
 	db "I asked for?!", $00
 
-Text_10_45cc::
+Text_YouBigApeI::
 	db "You big ape! I could", $0d
 	db "hear your big feet", $0d
 	db "pounding miles away!", $00
 
-Text_10_4609::
+Text_ItsHardToFind::
 	db "It's hard to find", $0d
 	db "any peace and quiet", $0d
 	db "with you around!", $00
 
-Text_10_4640::
+Text_SureComeOnOver::
 	db "Sure, come on over!", $0d
 	db "Beats me talking to", $0d
 	db "myself again...", $00
 
-Text_10_4678::
+Text_AhhItSortaTakes::
 	db "Ahh! It sorta takes", $0d
 	db "me back, seeing you", $0d
 	db "here again!", $00
 
-Text_10_46ac::
+Text_ItsBeenRealBusy::
 	db "It's been real busy", $0d
 	db "around here with all", $0d
 	db "the Kremlings!", $00
 
-Text_10_46e4::
+Text_SureLooksLikeIm::
 	db "Sure looks like I'm", $0d
 	db "Mr. Popular today.", $0d
 	db "Yes, Siree!", $00
 
-Text_10_4717::
+Text_SureBeatsAVisit::
 	db "Sure beats a visit", $0d
 	db "from old Mrs. Kong!", $0d
 	db "How can I help you?", $00
 
-Text_10_4752::
+Text_FancyRunningIntoYou::
 	db "Fancy running into", $0d
 	db "you two Kongs all", $0d
 	db "the way out here!", $00
 
-Text_10_4789::
+Text_IHaventGotEven::
 	db "I haven't got even", $0d
 	db "one thing left, so", $0d
 	db "don't bother asking.", $00
 
-Text_10_47c4::
+Text_IJustGaveMy::
 	db "I just gave my last", $0d
 	db "barrel to your", $0d
 	db "orang-utan chum.", $00
 
-Text_10_47f8::
+Text_WhatInTarnationDo::
 	db "What in tarnation", $0d
 	db "do you Kongs want?", $00
 
-Text_10_481d::
+Text_IAintGotNothin::
 	db "I ain't got Nothin'", $0d
 	db "for freeloaders, so", $0d
 	db "just Scram, will ya!", $00
 
-Text_10_485a::
+Text_BetchaWontGetMuch::
 	db "Betcha won't get", $0d
 	db "much farther than", $0d
 	db "this shack...", $00
 
-Text_10_488b::
+Text_TheKidsOfToday::
 	db "The kids of today!", $0d
 	db "They don't respect", $0d
 	db "any of their elders!", $00
 
-Text_10_48c6::
+Text_TheVideoGamesIn::
 	db "The video games in", $0d
 	db "my day never had", $0d
 	db "animation like this!", $00
 
-Text_10_48ff::
+Text_AllThisFunCant::
 	db "All this fun can't", $0d
 	db "be good for you!", $00
 
-Text_10_4923::
+Text_BetThisSectionWasted::
 	db "Bet this section", $0d
 	db "wasted half the", $0d
 	db "memory already!", $00
 
-Text_10_4954::
+Text_TheyCantKeepThis::
 	db "They can't keep this", $0d
 	db "level of graphics", $0d
 	db "up for much longer!", $00
 
-Text_10_498f::
+Text_WeWereLuckyIf::
 	db "We were lucky if", $0d
 	db "we got three shades", $0d
 	db "of gray!", $00
 
-Text_10_49bd::
+Text_WeUsedToHave::
 	db "We used to have to", $0d
 	db "survive with a two-", $0d
 	db "frame walk cycle!", $00
 
-Text_10_49f6::
+Text_ThemBarrelsWereA::
 	db "Them barrels were", $0d
 	db "a lot heavier than", $0d
 	db "they looked.", $00
 
-Text_10_4a28::
+Text_WeNeverHadAny::
 	db "We never had any", $0d
 	db "fancy 3-D stuff!", $0d
 	db "We went without!", $00
 
-Text_10_4a5b::
+Text_WeJustHadTo::
 	db "We just had to be", $0d
 	db "happy with what", $0d
 	db "little we had!", $00
 
-Text_10_4a8c::
+Text_IveNeverSeenAnything::
 	db "I've never seen", $0d
 	db "anything like it!", $00
 
-Text_10_4aae::
+Text_EnjoyThisDemoGame::
 	db "Enjoy this demo game", $0d
 	db "while you can. It", $0d
 	db "won't last long.", $00
 
-Text_10_4ae6::
+Text_FourShadesOfGray::
 	db "Four shades of gray,", $0d
 	db "in an 8x8 block, is", $0d
 	db "all that we had...", $00
 
-Text_10_4b22::
+Text_ICantPlayThis::
 	db "I can't play this--", $0d
 	db "the color's too rich", $0d
 	db "for my old eyes!", $00
 
-Text_10_4b5c::
+Text_TheBananasHaveMore::
 	db "The bananas have", $0d
 	db "more colors than I", $0d
 	db "had in a whole game!", $00
 
-Text_10_4b95::
+Text_LookAtThisMy::
 	db "Look at this! My", $0d
 	db "beard swings! Waste", $0d
 	db "of frames, I say!", $00
 
-Text_10_4bcc::
+Text_ThatWasWhenWe::
 	db "That was when we", $0d
 	db "had real game play!", $00
 
-Text_10_4bf1::
+Text_UsedAllTheLatest::
 	db "Used all the latest", $0d
 	db "state-of-the-art 3-D", $0d
 	db "workthingys, did ya?", $00
 
-Text_10_4c2f::
+Text_TheTroubleWithYou::
 	db "The trouble with", $0d
 	db "you kids is that", $0d
 	db "you're all too soft!", $00
 
-Text_10_4c66::
+Text_GamesWereALot::
 	db "Games were a lot", $0d
 	db "harder when I was", $0d
 	db "a young, virile ape!", $00
 
-Text_10_4c9e::
+Text_WedPlayForHours::
 	db "We'd play for hours", $0d
 	db "on a single screen!", $00
 
-Text_10_4cc6::
+Text_YouWouldntLastTwo::
 	db "You wouldn't last", $0d
 	db "two minutes in a", $0d
 	db "real classic game!", $00
 
-Text_10_4cfc::
+Text_ICouldGetThrough::
 	db "I could get through", $0d
 	db "this game with only", $0d
 	db "one life, easy!", $00
 
-Text_10_4d34::
+Text_ImTalkingAboutWhen::
 	db "I'm talking about", $0d
 	db "when games really,", $0d
 	db "really were games!", $00
 
-Text_10_4d6c::
+Text_ThreeLivesAndThree::
 	db "Three lives and", $0d
 	db "three continues is", $0d
 	db "all we had then!", $00
 
-Text_10_4da0::
+Text_GamesNeverLookedLike::
 	db "Games never looked", $0d
 	db "like this when I", $0d
 	db "was a swinging lad.", $00
 
-Text_10_4dd8::
+Text_AndWeWereMuch::
 	db "And we were much", $0d
 	db "better off in those", $0d
 	db "days, as well.", $00
 
-Text_10_4e0c::
+Text_BetYouThoughtThis::
 	db "Bet you thought", $0d
 	db "this was 64-bit,", $0d
 	db "eh, boy?!", $00
 
-Text_10_4e37::
+Text_MyBigToesGot::
 	db "My big toe's got", $0d
 	db "more game play than", $0d
 	db "this whole game!", $00
 
-Text_10_4e6d::
+Text_YknowWhatTheySay::
 	db "Y'know what they", $0d
 	db "say, ", $9c, "All graphics", $0d
 	db "and no game play!", $9c, $00
 
-Text_10_4ea4::
+Text_With32MegYoud::
 	db "With 32 meg, you'd", $0d
 	db "get more than 30 hot", $0d
 	db "games in my day!", $00
 
-Text_10_4edd::
+Text_BackInMyDay::
 	db "Back in my day, we", $0d
 	db "used to have really", $0d
 	db "good game play...", $00
 
-Text_10_4f16::
+Text_WhatsEvenWorseYou::
 	db "What's even worse,", $0d
 	db "you get to the end,", $0d
 	db "and you start again!", $00
 
-Text_10_4f52::
+Text_YouWouldntKnowA::
 	db "You wouldn't know", $0d
 	db "a good game if you", $0d
 	db "were standing in it!", $00
 
-Text_10_4f8c::
+Text_AJoystickAndOne::
 	db "A joystick and one", $0d
 	db "button was enough to", $0d
 	db "have a good game!", $00
 
-Text_10_4fc6::
+Text_IWouldntBeSeen::
 	db "I wouldn't be seen", $0d
 	db "dead in a fancy-free", $0d
 	db "game like this one!", $00
 
-Text_10_5002::
+Text_YouCantBetterThe::
 	db "You can't better the", $0d
 	db "graphics and sounds", $0d
 	db "of a Game & Watch$!", $00
 
-Text_10_503f::
+Text_SoYerBackAgain::
 	db "So yer back again!", $0d
 	db "I knew you punks", $0d
 	db "couldn't do the job!", $00
 
-Text_10_5078::
+Text_TooQuickIDidnt::
 	db "Too quick. I didn't", $0d
 	db "have time to think", $0d
 	db "up more silly lines!", $00
 
-Text_10_50b4::
+Text_ImJustWastingMy::
 	db "I'm just wasting my", $0d
 	db "breath! You just", $0d
 	db "won't listen.", $00
 
-Text_10_50e7::
+Text_YouHaveToDo::
 	db "You have to do much", $0d
 	db "better than that!", $00
 
-Text_10_510d::
+Text_YouOnlyJustLeft::
 	db "You only just left!", $00
 
-Text_10_5121::
+Text_BackAgainEhThat::
 	db "Back again, eh?!", $0d
 	db "That was quick!", $00
 
-Text_10_5142::
+Text_CameBackToThe::
 	db "Came back to the", $0d
 	db "master for more", $0d
 	db "advice, huh?!", $00
 
-Text_10_5171::
+Text_StillGotYouBeat::
 	db "Still got you", $0d
 	db "beat, huh?!", $00
 
-Text_10_518b::
+Text_YupDontMakeGame::
 	db "Yup!! Don't make", $0d
 	db "game players like", $0d
 	db "they used to!", $00
 
-Text_10_51bc::
+Text_DyaExpectMeTo::
 	db "D'ya expect me to do", $0d
 	db "the level for ya?!", $00
 
-Text_10_51e4::
+Text_HowDareYouShow::
 	db "How dare you show", $0d
 	db "your face here after", $0d
 	db "that sorry attempt!", $00
 
-Text_10_521f::
+Text_InJungleHijinxsStick::
 	db "In Jungle Hijinxs,", $0d
 	db "stick to tree tops", $0d
 	db "to earn extra lives.", $00
 
-Text_10_525a::
+Text_FindTheFunJust::
 	db "Find the fun, just", $0d
 	db "before yer done,", $0d
 	db "in Ropey Rampage.", $00
 
-Text_10_5290::
+Text_ALeapOfFaith::
 	db "A leap of faith will", $0d
 	db "find Winky in Barrel", $0d
 	db "Cannon Canyon.", $00
 
-Text_10_52c9::
+Text_GoBananasInThe::
 	db "Go bananas in the", $0d
 	db "snake pit in", $0d
 	db "Reptile Rumble!", $00
 
-Text_10_52f8::
+Text_CroctopusCornersCrocksOf::
 	db "Croctopus corners", $0d
 	db "crocks of bananas", $0d
 	db "in Coral Capers.", $00
 
-Text_10_532d::
+Text_BurnRubberForThe::
 	db "Burn rubber for", $0d
 	db "the golden rhino", $0d
 	db "in Bouncy Bonanza.", $00
 
-Text_10_5361::
+Text_TheBananasInStop::
 	db "The bananas in", $0d
 	db "Stop & Go Station", $0d
 	db "will put you right!", $00
 
-Text_10_5396::
+Text_JumpEarlyToGet::
 	db "Jump early to get", $0d
 	db "an extra life in", $0d
 	db "Mine Cart Carnage.", $00
 
-Text_10_53cc::
+Text_RollingRubberWillPut::
 	db "Rolling rubber will", $0d
 	db "put you on route in", $0d
 	db "Millstone Mayhem!", $00
 
-Text_10_5406::
+Text_OnSnowBarrelBlast::
 	db "On Snow Barrel", $0d
 	db "Blast, down isn't", $0d
 	db "always out.", $00
 
-Text_10_5433::
+Text_OnCroctopusChaseA::
 	db "On Croctopus Chase,", $0d
 	db "a right way past the", $0d
 	db "barrels isn't wrong.", $00
 
-Text_10_5471::
+Text_ToGetYourWings::
 	db "To get your wings,", $0d
 	db "follow the flock", $0d
 	db "in Ice Age Alley.", $00
 
-Text_10_54a7::
+Text_BouncingTheBouncerSlides::
 	db "Bouncing the bouncer", $0d
 	db "slides ya to success", $0d
 	db "on Slipslide Ride!", $00
 
-Text_10_54e4::
+Text_TheTntGivesWall::
 	db "The TNT gives wall-", $0d
 	db "to-wall blasts in", $0d
 	db "Torchlight Trouble.", $00
 
-Text_10_551e::
+Text_ForElevatorAnticsClimb::
 	db "For Elevator Antics,", $0d
 	db "climb higher than", $0d
 	db "a hornet's nest!", $00
 
-Text_10_5556::
+Text_TheGnawtyGnowsA::
 	db "The Gnawty gnows ", $0d
 	db "a secret Trick, for", $0d
 	db "Track Trekkers!", $00
 
-Text_10_558c::
+Text_MineCartMadnessIs::
 	db "Mine Cart Madness is", $0d
 	db "just three bounces", $0d
 	db "away from bonuses.", $00
 
-Text_10_55c7::
+Text_OnceInThePoison::
 	db "Once in the Poison", $0d
 	db "Pond, the way to a", $0d
 	db "point isn't right.", $00
 
-Text_10_5600::
+Text_BlackoutBasementsSinkingFeeling::
 	db "Blackout Basement's", $0d
 	db "sinking feeling", $0d
 	db "ends sky high!", $00
 
-Text_10_5633::
+Text_LetDiddyHoldOut::
 	db "Let Diddy hold out", $0d
 	db "the TNT Barrel in", $0d
 	db "Manic Mincers.", $00
 
-Text_10_5667::
+Text_TakeEnoughRopeAnd::
 	db "Take enough rope and", $0d
 	db "you'll be amazed", $0d
 	db "in the Misty Mine.", $00
 
-Text_10_56a0::
+Text_TheLoopyLightsVultures::
 	db "The Loopy Lights", $0d
 	db "vulture's barrel", $0d
 	db "will blow you away.", $00
 
-Text_10_56d6::
+Text_PerilousVulturesKnowIts::
 	db "Perilous vultures", $0d
 	db "know it's better", $0d
 	db "being down-to-earth.", $00
 
-Text_10_570e::
+Text_AllGassedUpAnd::
 	db "All gassed up and", $0d
 	db "nowhere to go? It's", $0d
 	db "Tanked Up Trouble!", $00
 
-Text_10_5747::
+Text_TheOrangUtanGang::
 	db "The Orang-utan Gang", $0d
 	db "find the last laugh", $0d
 	db "by tailing a barrel.", $00
 
-Text_10_5784::
+Text_ASingleBananaIs::
 	db "A single banana is", $0d
 	db "all you need for a", $0d
 	db "Tree Top Town bonus.", $00
 
-Text_10_57bf::
+Text_GetDownWithThe::
 	db "Get down with the", $0d
 	db "bananas and party", $0d
 	db "in Temple Tempest!", $00
 
-Text_10_57f6::
+Text_AHandSlapCan::
 	db "A Hand Slap can", $0d
 	db "reveal secrets under", $0d
 	db "suspicious spots!", $00
 
-Text_10_582d::
+Text_HeCantReallyFly::
 	db "He can't really fly,", $0d
 	db "but Expresso ostrich", $0d
 	db "can flutter about.", $00
 
-Text_10_586a::
+Text_EnguardeSwordfishWillHelp::
 	db "Enguarde swordfish", $0d
 	db "will help you get", $0d
 	db "right to the point!", $00
 
-Text_10_58a3::
+Text_CandysChallengesCanWin::
 	db "Candy's Challenges", $0d
 	db "can win you items", $0d
 	db "for bonus games!", $00
 
-Text_10_58d9::
+Text_RollOffAPlatform::
 	db "Roll off a platform", $0d
 	db "and press jump for", $0d
 	db "a super long jump.", $00
 
-Text_10_5913::
+Text_TheySayIfYou::
 	db "They say if you hold", $0d
 	db "down the B Button,", $0d
 	db "you can run fast!", $00
 
-Text_10_594d::
+Text_IHearYouCan::
 	db "I hear you can jump", $0d
 	db "farther if you hold", $0d
 	db "down the B Button!", $00
 
-Text_10_5988::
+Text_ReckonRambiRhinoCould::
 	db "Reckon Rambi rhino", $0d
 	db "could break open", $0d
 	db "any hidden entrance.", $00
 
-Text_10_59c1::
+Text_BounceAKegOff::
 	db "Bounce a keg off a", $0d
 	db "wall, then jump on", $0d
 	db "it for a ride!", $00
 
-Text_10_59f6::
+Text_RollAttackABaddie::
 	db "Roll attack a baddie", $0d
 	db "and ya speed up when", $0d
 	db "ya hit the next one.", $00
 
-Text_10_5a35::
+Text_BounceOnEightBaddies::
 	db "Bounce on eight", $0d
 	db "baddies in a row to", $0d
 	db "get an extra life.", $00
 
-Text_10_5a6c::
+Text_TheySayExpressosLegs::
 	db "They say Expresso's", $0d
 	db "legs are too thin", $0d
 	db "for baddies to fear.", $00
 
-Text_10_5aa7::
+Text_BreakOpenAStar::
 	db "Break open a Star", $0d
 	db "Barrel to mark a", $0d
 	db "midpoint.", $00
 
-Text_10_5ad4::
+Text_JustFinishALevel::
 	db "Just finish a level", $0d
 	db "to save your game!", $00
 
-Text_10_5afb::
+Text_FunkySendsYouWhere::
 	db "Funky sends you", $0d
 	db "where you've already", $0d
 	db "been in a flash!", $00
 
-Text_10_5b31::
+Text_DisguisedHolesOnThe::
 	db "Disguised holes on", $0d
 	db "the ground should be", $0d
 	db "jumped on from high!", $00
 
-Text_10_5b6e::
+Text_BananaArrowsWillPoint::
 	db "Banana arrows will", $0d
 	db "point the best way!", $00
 
-Text_10_5b95::
+Text_IfYouFindBananas::
 	db "If you find bananas,", $0d
 	db "some Kremlings have", $0d
 	db "been there before!", $00
 
-Text_10_5bd1::
+Text_SmashOpenAnyDk::
 	db "Smash open any DK", $0d
 	db "Barrels--your buddy", $0d
 	db "might be inside!", $00
 
-Text_10_5c08::
+Text_GrabThemExtraLife::
 	db "Grab them extra life", $0d
 	db "balloons quick, or", $0d
 	db "they'll float away!", $00
 
-Text_10_5c44::
+Text_KlapTrapTeethStop::
 	db "Klap Trap teeth stop", $0d
 	db "your roll attacks", $0d
 	db "so just jump on him!", $00
 
-Text_10_5c80::
+Text_YouCantJumpOn::
 	db "You can't jump on a", $0d
 	db "spiky Zinger's back", $3b, $0d
 	db "Winky will do it!", $00
 
-Text_10_5cbb::
+Text_KlumpsHatProtectsAgainst::
 	db "Klump's hat protects", $0d
 	db "against jump attack.", $0d
 	db "You must roll him.", $00
 
-Text_10_5cf8::
+Text_KrushaIsToughOnly::
 	db "Krusha is tough.", $0d
 	db "Only barrels will", $0d
 	db "knock him out!", $00
 
-Text_10_5d2a::
+Text_FloatingBarrelsWillBreak::
 	db "Floating barrels", $0d
 	db "will break as soon", $0d
 	db "as you touch them.", $00
 
-Text_10_5d61::
+Text_FollowSteelKegsAnd::
 	db "Follow steel kegs,", $0d
 	db "and they'll mow down", $0d
 	db "baddies in your way!", $00
 
-Text_10_5d9e::
+Text_RunAndJumpOn::
 	db "Run and jump on", $0d
 	db "baddies to get extra", $0d
 	db "springy leaps.", $00
 
-Text_10_5dd2::
+Text_JumpOnFixedTires::
 	db "Jump on fixed tires", $0d
 	db "to hurdle obstacles", $0d
 	db "and reach bonuses.", $00
 
-Text_10_5e0d::
+Text_PushFreeTiresTo::
 	db "Push free tires to", $0d
 	db "where they will help", $0d
 	db "find a hidden bonus.", $00
 
-Text_10_5e4a::
+Text_RollOverSlippaOr::
 	db "Roll over Slippa,", $0d
 	db "or just squash him", $0d
 	db "with a jump attack.", $00
 
-Text_10_5e83::
+Text_GnawtyBeaverCanBe::
 	db "Gnawty beaver can be", $0d
 	db "rolled or jumped on.", $00
 
-Text_10_5ead::
+Text_ThatsAllSheWrote::
 	db "That's all", $0d
 	db "she wrote!", $00
 
-Text_10_5ec3::
+Text_TheresNothingMoreI::
 	db "There's nothing more", $0d
 	db "I can tell you now.", $00
 
-Text_10_5eec::
+Text_YouKnowAllThat::
 	db "You know all that", $0d
 	db "you need to for now.", $00
 
-Text_10_5f13::
+Text_ComeBackAndSee::
 	db "Come back and see me", $0d
 	db "sometime later.", $0d
 	db "I'll be here!", $00
 
-Text_10_5f46::
+Text_DontKnowAnyMore::
 	db "Don't know any more", $0d
 	db "than that just now.", $00
 
-Text_10_5f6e::
+Text_ThatsAllThereIs::
 	db "That's all there is", $0d
 	db "to it. Piece of", $0d
 	db "cake, if you ask me.", $00
 
-Text_10_5fa7::
+Text_SoLongSuckersTry::
 	db "So long, suckers!", $0d
 	db "Try not to hurt", $0d
 	db "yourselves!", $00
 
-Text_10_5fd5::
+Text_ThatsAllTheGood::
 	db "That's all the good", $0d
 	db "advice old Cranky", $0d
 	db "here can give you.", $00
 
-Text_10_600e::
+Text_ImGettingTiredI::
 	db "I'm getting tired.", $0d
 	db "I gotta take my nap!", $00
 
-Text_10_6036::
+Text_YouPracticallyKnowMore::
 	db "You practically know", $0d
 	db "more than I do now.", $0d
 	db "Well, almost...", $00
 
-Text_10_606f::
+Text_DontHaveAnythingElse::
 	db "Don't have anything", $0d
 	db "else to say right", $0d
 	db "now. Maybe later.", $00
 
-Text_10_60a7::
+Text_ICouldJustRock::
 	db "I could just rock", $0d
 	db "all day, if you'd", $0d
 	db "leave me alone!", $00
 
-Text_10_60db::
+Text_GottaGoNowIll::
 	db "Gotta go now. I'll", $0d
 	db "see you guys later--", $0d
 	db "if you're lucky!", $00
 
-Text_10_6114::
+Text_WellThatsAboutThe::
 	db "Well, that's about", $0d
 	db "the size of it!", $00
 
-Text_10_6137::
+Text_IsThatTheTime::
 	db "Is that the time?", $0d
 	db "I gotta fly.", $00
 
-Text_10_6156::
+Text_ICouldTellYou::
 	db "I could tell you", $0d
 	db "yarns about the old", $0d
 	db "days all day long!", $00
 
-Text_10_618e::
+Text_YallComeBackSoon::
 	db "Y'all come back", $0d
 	db "soon now, ya hear?!", $00
 
-Text_10_61b2::
+Text_IfYouGetStuck::
 	db "If you get stuck,", $0d
 	db "come back to see me.", $00
 
-Text_10_61d9::
+Text_CantSayIExpect::
 	db "Can't say I expect ", $0d
 	db "to see you again but", $0d
 	db "you might get lucky.", $00
 
-Text_10_6217::
+Text_ItsBeenNiceTalking::
 	db "It's been nice", $0d
 	db "talking to you guys.", $00
 
-Text_10_623b::
+Text_EhSonnySpeakUp::
 	db "Eh, sonny? Speak up.", $0d
 	db "I can't hear you.", $00
 
-Text_10_6262::
+Text_IveSeenEnoughThat::
 	db "I've seen enough!", $0d
 	db "That tie--please", $0d
 	db "turn it off!", $00
 
-Text_10_6292::
+Text_ThisColorScreensMaking::
 	db "This color screen's", $0d
 	db "making me dizzy!", $0d
 	db "Just turn it down!", $00
 
-Text_10_62ca::
+Text_AllThisGamePlay::
 	db "All this game play", $0d
 	db "is too much for me.", $00
 
-UnusedText_10_62f1::
+UnusedText_TextGroups_10::
 	db "I'm going for a nap.", $00
 
-Text_10_6306::
+Text_RememberTheOriginalDonkey::
 	db "Remember the", $0d
 	db "original Donkey", $0d
 	db "Kong%? Think I'll go", $0d
@@ -1102,12 +1102,12 @@ Text_10_6306::
 	db "See you later!", $0d
 	db $00
 
-Text_10_6356::
+Text_TooManyBaddiesHere::
 	db "Too many baddies", $0d
 	db "here for my liking.", $0d
 	db "I'm off to lie down!", $00
 
-Text_10_6390::
+Text_IdAskYaIn::
 	db "I'd ask ya in, but", $0d
 	db "there ain't enough", $0d
 	db $0d
@@ -1116,25 +1116,25 @@ Text_10_6390::
 	db "inside the cabin!", $0d
 	db $00
 
-Text_10_63db::
+Text_OffYouGoSee::
 	db "Off you go!! See if", $0d
 	db "ya can't finish this", $0d
 	db "game without me.", $00
 
-Text_10_6415::
+Text_ShutTheGateOn::
 	db "Shut the gate on yer", $0d
 	db "way out. I didn't", $0d
 	db "raise you in a barn!", $00
 
-Text_10_6451::
+Text_SeeYaLaterAlligator::
 	db "See ya later,", $0d
 	db "alligator! Ha! Ha!", $00
 
-Text_10_6472::
+Text_AfterAWhileCrocodile::
 	db "After a while,", $0d
 	db "crocodile! Ho! Ho!", $00
 
-Text_10_6494::
+Text_HiImCandyKong::
 	db "Hi! I'm Candy Kong.", $0d
 	db "This is my ", $0d
 	db "Challenge Shack.", $0d
@@ -1143,42 +1143,42 @@ Text_10_6494::
 	db "jump into my nice", $0d
 	db "Spin Barrel.", $00
 
-Text_10_64f7::
+Text_HelloGuysDoYou::
 	db "Hello, guys, do you", $0d
 	db "want to earn any", $0d
 	db "bonus games?", $00
 
-Text_10_6529::
+Text_CanIHelpYou::
 	db "Can I help you", $0d
 	db "monkey boys find", $0d
 	db "bonuses?", $00
 
-Text_10_6552::
+Text_HowWouldYouLike::
 	db "How would you like", $0d
 	db "a quick ride in my", $0d
 	db "little Spin Barrel?", $00
 
-Text_10_658c::
+Text_YooHooHoneyKong::
 	db "Yoo-hoo, Honey Kong!", $0d
 	db "It's a good time to", $0d
 	db "try your luck!", $00
 
-Text_10_65c4::
+Text_IfYouFancyA::
 	db "If you fancy a", $0d
 	db "challenge, why not", $0d
 	db "hop in for a spin!", $00
 
-Text_10_65f9::
+Text_YouGuysAreReally::
 	db "You guys are really", $0d
 	db "good! I bet you're", $0d
 	db "up to my challenge!", $00
 
-Text_10_6634::
+Text_SeeYaLaterBoys::
 	db "See ya later, boys.", $0d
 	db "You've beaten this", $0d
 	db "challenge already!", $00
 
-Text_10_666e::
+Text_WhoaDudesImFunky::
 	db "Whoa, Dudes!", $0d
 	db "I'm Funky Kong!", $0d
 	db $0d
@@ -1195,52 +1195,52 @@ Text_10_666e::
 	db $0d
 	db $00
 
-Text_10_6712::
+Text_YeahKongsLikeJump::
 	db "Yeah, Kongs! Like", $0d
 	db "jump in and like,", $0d
 	db "um, jet outta here!", $00
 
-Text_10_674a::
+Text_NeedSomeLivesGet::
 	db "Need some lives?", $0d
 	db "Get on down to", $0d
 	db "Jungle Hijinxs.", $00
 
-Text_10_677a::
+Text_YoGorillasSeekThe::
 	db "Yo, Gorillas! Seek", $0d
 	db "the Cranky one, the", $0d
 	db "guru of game stuff!", $00
 
-Text_10_67b5::
+Text_LookinGoodKongsBelt::
 	db "Lookin' good, Kongs!", $0d
 	db "Belt up. Blast off.", $0d
 	db "You're outta sight!", $00
 
-Text_10_67f2::
+Text_HeyDudesTellCandy::
 	db "Hey, dudes, tell", $0d
 	db "Candy she can ride", $0d
 	db "my wave anytime!", $00
 
-Text_10_6827::
+Text_FancyAFlightDk::
 	db "Fancy a flight, DK?", $0d
 	db "You know the score.", $0d
 	db "Hop in and grab air!", $00
 
-Text_10_6864::
+Text_DudeskiYourBudHas::
 	db "Dudeski, your bud", $0d
 	db "has gotta be on a", $0d
 	db "level somewhere!", $00
 
-Text_10_6899::
+Text_YoDiddyLostThe::
 	db "Yo, Diddy! Lost the", $0d
 	db "big guy again? Hop", $0d
 	db "in and have a look!", $00
 
-Text_10_68d4::
+Text_WheresYourPalTry::
 	db "Where's your pal?", $0d
 	db "Try checking the", $0d
 	db "jungle for your bud!", $00
 
-Text_10_690c::
+Text_WellDoneMyBoy::
 	db "Well done, my boy!", $0d
 	db "Who'd have thought a", $0d
 	db "whippersnapper like", $0d
@@ -1257,7 +1257,7 @@ Text_10_690c::
 	db "in for a surprise!", $0d
 	db $00
 
-Text_10_69da::
+Text_IfIWasPlaying::
 	db "If I was playing,", $0d
 	db "I'd have found", $0d
 	db "everything!", $0d
@@ -1266,7 +1266,7 @@ Text_10_69da::
 	db "bonus rooms you", $0d
 	db "haven't found!", $00
 
-Text_10_6a3a::
+Text_WhatAPlayerDk::
 	db "What a player, DK,", $0d
 	db "my lad! You beat the", $0d
 	db "Kremlings and found", $0d
@@ -1275,348 +1275,348 @@ Text_10_6a3a::
 	db "nearly as good as I", $0d
 	db "used to be!", $00
 
-Text_10_6aaa::
+Text_DkMyBoyWhere::
 	db "DK, my boy! Where is", $0d
 	db "your pal Diddy?", $00
 
-Text_10_6acf::
+Text_DkYouYoungWhippersnapper::
 	db "DK, you young", $0d
 	db "whippersnapper!", $0d
 	db "Long time, no see!", $00
 
-Text_10_6b00::
+Text_DonkeyBoyItSeems::
 	db "Donkey boy! It seems", $0d
 	db "like years since", $0d
 	db "I last saw you!", $00
 
-Text_10_6b36::
+Text_YouNeverVisitYour::
 	db "You never visit your", $0d
 	db "poor, frail, old", $0d
 	db "Grandpa!", $00
 
-Text_10_6b65::
+Text_HeyCanYouSpare::
 	db "Hey! Can you spare", $0d
 	db "your old pappy a", $0d
 	db "bunch of bananas?", $00
 
-Text_10_6b9b::
+Text_AndWhatHaveYou::
 	db "And what have you", $0d
 	db "brought for your", $0d
 	db "old Grandpa?", $00
 
-Text_10_6bcb::
+Text_WellYouveAmazedYour::
 	db "Well, you've amazed", $0d
 	db "your old Grandpa", $0d
 	db "by getting this far!", $00
 
-Text_10_6c05::
+Text_AtLastYouveCome::
 	db "At last, you've come", $0d
 	db "for some game play", $0d
 	db "advice from Grandpa!", $00
 
-Text_10_6c42::
+Text_DiddyMyBoyWheres::
 	db "Diddy, my boy!", $0d
 	db "Where's Donks?", $00
 
-Text_10_6c60::
+Text_DiddyMyYoungPup::
 	db "Diddy, my young pup!", $0d
 	db "Boy, I can't believe", $0d
 	db "how you've grown.", $00
 
-Text_10_6c9c::
+Text_Error::
 	db "ERROR", $0d
 	db $00
 
-Text_10_6ca3::
+Text_RopeyRampage::
 	db "Ropey", $0d
 	db "Rampage", $0c, $0d
 	db $00
 
-Text_10_6cb3::
+Text_OrangUtanGang::
 	db "Orang-utan", $0d
 	db "Gang", $0c, $0d
 	db $00
 
-Text_10_6cc5::
+Text_BarrelCannonCanyon::
 	db "Barrel", $0d
 	db "Cannon", $0d
 	db "Canyon", $0c, $0d
 	db $00
 
-Text_10_6cdc::
+Text_ReptileRumble::
 	db "Reptile", $0d
 	db "Rumble", $0c, $0d
 	db $00
 
-Text_10_6ced::
+Text_BouncyBonanza::
 	db "Bouncy", $0d
 	db "Bonanza", $0c, $0d
 	db $00
 
-Text_10_6cfe::
+Text_ManicMincers::
 	db "Manic", $0d
 	db "Mincers", $0c, $0d
 	db $00
 
-Text_10_6d0e::
+Text_ElevatorAntics::
 	db "Elevator", $0d
 	db "Antics", $0c, $0d
 	db $00
 
-Text_10_6d20::
+Text_PlatformPerils::
 	db "Platform", $0d
 	db "Perils", $0c, $0d
 	db $00
 
-Text_10_6d32::
+Text_TrickTrackTrek::
 	db "Trick Track", $0d
 	db "Trek", $0c, $0d
 	db $00
 
-Text_10_6d45::
+Text_TankedUpTrouble::
 	db "Tanked Up", $0d
 	db "Trouble", $0c, $0d
 	db $00
 
-Text_10_6d59::
+Text_MineCartMadness::
 	db "Mine Cart", $0d
 	db "Madness", $0c, $0d
 	db $00
 
-Text_10_6d6d::
+Text_WinkysWalkway::
 	db "Winky's", $0d
 	db "Walkway", $0c, $0d
 	db $00
 
-Text_10_6d7f::
+Text_MistyMine::
 	db "Misty Mine", $0d
 	db $00
 
-Text_10_6d8b::
+Text_StopGoStation::
 	db "Stop & Go", $0d
 	db "Station", $0c, $0d
 	db $00
 
-Text_10_6d9f::
+Text_LoopyLights::
 	db "Loopy", $0d
 	db "Lights", $0c, $0d
 	db $00
 
-Text_10_6dae::
+Text_MineCartCarnage::
 	db "Mine Cart", $0d
 	db "Carnage", $0c, $0d
 	db $00
 
-Text_10_6dc2::
+Text_PoisonPond::
 	db "Poison Pond", $0c, $0d
 	db $00
 
-Text_10_6dd0::
+Text_CroctopusChase::
 	db "Croctopus", $0d
 	db "Chase", $0c, $0d
 	db $00
 
-Text_10_6de2::
+Text_CoralCapers::
 	db "Coral", $0d
 	db "Capers", $0c, $0d
 	db $00
 
-Text_10_6df1::
+Text_ClamCity::
 	db "Clam City", $0c, $0d
 	db $00
 
-Text_10_6dfd::
+Text_MillstoneMayhem::
 	db "Millstone", $0d
 	db "Mayhem", $0c, $0d
 	db $00
 
-Text_10_6e10::
+Text_TempleTempest::
 	db "Temple", $0d
 	db "Tempest", $0c, $0d
 	db $00
 
-Text_10_6e21::
+Text_SnowBarrelBlast::
 	db "Snow Barrel", $0d
 	db "Blast", $0c, $0d
 	db $00
 
-Text_10_6e35::
+Text_IceAgeAlley::
 	db "Ice Age", $0d
 	db "Alley", $0c, $0d
 	db $00
 
-Text_10_6e45::
+Text_TreeTopTown::
 	db "Tree Top", $0d
 	db "Town", $0c, $0d
 	db $00
 
-Text_10_6e55::
+Text_RopeBridgeRumble::
 	db "Rope Bridge", $0d
 	db "Rumble", $0c, $0d
 	db $00
 
-Text_10_6e6a::
+Text_VultureCulture::
 	db "Vulture", $0d
 	db "Culture", $0c, $0d
 	db $00
 
-Text_10_6e7c::
+Text_ForestFrenzy::
 	db "Forest", $0d
 	db "Frenzy", $0c, $0d
 	db $00
 
-Text_10_6e8c::
+Text_SlipslideRide::
 	db "Slipslide", $0d
 	db "Ride", $0c, $0d
 	db $00
 
-Text_10_6e9d::
+Text_TorchlightTrouble::
 	db "Torchlight", $0d
 	db "Trouble", $0c, $0d
 	db $00
 
-Text_10_6eb2::
+Text_OilDrumAlley::
 	db "Oil Drum", $0d
 	db "Alley", $0c, $0d
 	db $00
 
-Text_10_6ec3::
+Text_BlackoutBasement::
 	db "Blackout", $0d
 	db "Basement", $0c, $0d
 	db $00
 
-Text_10_6ed7::
+Text_JungleHijinxs::
 	db "Jungle", $0d
 	db "Hijinxs", $0c, $0d
 	db $00
 
-Text_10_6ee8::
+Text_KongoJungle::
 	db "Kongo", $0d
 	db "Jungle", $0d
 	db $00
 
-Text_10_6ef6::
+Text_MonkeyMines::
 	db "Monkey", $0d
 	db "Mines", $0d
 	db $00
 
-Text_10_6f04::
+Text_VineValley::
 	db "Vine Valley", $0d
 	db $00
 
-Text_10_6f11::
+Text_GorillaGlacier::
 	db "Gorilla", $0d
 	db "Glacier", $0d
 	db $00
 
-Text_10_6f22::
+Text_KremkrocIndustries::
 	db "Kremkroc", $0d
 	db "Industries", $0d
 	db $00
 
-Text_10_6f37::
+Text_ChimpCaverns::
 	db "Chimp", $0d
 	db "Caverns", $0d
 	db $00
 
-Text_10_6f46::
+Text_VeryGnawtysLair::
 	db "Very", $0d
 	db "Gnawty's", $0d
 	db "Lair", $0d
 	db $00
 
-Text_10_6f5a::
+Text_NeckysNuts::
 	db "Necky's", $0d
 	db "Nuts", $0d
 	db $00
 
-Text_10_6f68::
+Text_BumbleBRumble::
 	db "Bumble B", $0d
 	db "Rumble", $0d
 	db $00
 
-Text_10_6f79::
+Text_ReallyGnawtyRampage::
 	db "Really", $0d
 	db "Gnawty", $0d
 	db "Rampage", $0d
 	db $00
 
-Text_10_6f90::
+Text_BossDumbDrum::
 	db "Boss", $0d
 	db "Dumb Drum", $0d
 	db $00
 
-Text_10_6fa0::
+Text_NeckysRevenge::
 	db "Necky's", $0d
 	db "Revenge", $0d
 	db $00
 
-Text_10_6fb1::
+Text_GangPlankGalleon::
 	db "Gang-Plank", $0d
 	db "Galleon", $0d
 	db $00
 
-Text_10_6fc5::
+Text_CrankysCabin::
 	db "Cranky's", $0d
 	db "Cabin", $0d
 	db $00
 
-Text_10_6fd5::
+Text_FunkysFlights::
 	db "Funky's", $0d
 	db "Flights", $0d
 	db $00
 
-Text_10_6fe6::
+Text_CandysChallenge::
 	db "Candy's", $0d
 	db "Challenge", $0d
 	db $00
 
-Text_10_6ff9::
+Text_NeckyNutmare::
 	db "Necky", $0d
 	db "Nutmare", $0c, $0d
 	db $00
 
-Text_10_7009::
+Text_KremlingKrackdown::
 	db "Kremling", $0d
 	db "Krackdown", $0d
 	db $00
 
-Text_10_701d::
+Text_KremlingsAndKongs::
 	db "Kremlings", $0d
 	db "and", $0d
 	db "Kongs", $0d
 	db $00
 
-Text_10_7032::
+Text_BarrelOKremlings::
 	db "Barrel O'", $0d
 	db "Kremlings", $0d
 	db $00
 
-Text_10_7047::
+Text_Wanted::
 	db "Wanted", $0d
 	db $00
 
-Text_10_704f::
+Text_BuddiesBeware::
 	db "Buddies", $0d
 	db "Beware", $0d
 	db $00
 
-Text_10_705f::
+Text_CrosshairCranky::
 	db "Crosshair", $0d
 	db "Cranky", $0d
 	db $00
 
-Text_10_7071::
+Text_GalleonGunner::
 	db "Galleon", $0d
 	db "Gunner", $0d
 	db $00
 
-Text_10_7081::
+Text_ReturnToIslandMap::
 	db "Return to", $0d
 	db "island map", $0d
 	db $00
 
-Text_10_7097::
+Text_INeverLikedThose::
 	db "I never liked those", $0d
 	db "sticker packs. They", $0d
 	db $0d

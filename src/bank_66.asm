@@ -3,33 +3,33 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $66", ROMX[$4000], BANK[$66]
 
-BGTiles_66_4000::
+BGTiles_Picture045_Cont::
 	INCBIN "gfx/bgtiles/66/4000.2bpp"
 	INCBIN "gfx/bgtiles/66/4000_end.2bpp"
 
-BGTiles_66_41b0::
+BGTiles_Picture046::
 	INCBIN "gfx/bgtiles/66/41b0.2bpp"
 
-BGTiles_66_4bb0::
+BGTiles_Picture047::
 	INCBIN "gfx/bgtiles/66/4bb0.2bpp"
 	INCBIN "gfx/bgtiles/66/4bb0_end.2bpp"
 
-BGTiles_66_51f0::
+BGTiles_Picture048::
 	INCBIN "gfx/bgtiles/66/51f0.2bpp"
 	INCBIN "gfx/bgtiles/66/51f0_end.2bpp"
 
-BGTiles_66_5e70::
+BGTiles_Picture049::
 	INCBIN "gfx/bgtiles/66/5e70.2bpp"
 	INCBIN "gfx/bgtiles/66/5e70_end.2bpp"
 
-BGTiles_66_65c0::
+BGTiles_Picture050::
 	INCBIN "gfx/bgtiles/66/65c0.2bpp"
 	INCBIN "gfx/bgtiles/66/65c0_end.2bpp"
 
-BGTiles_66_7190::
+BGTiles_Picture051::
 	INCBIN "gfx/bgtiles/66/7190.2bpp"
 	INCBIN "gfx/bgtiles/66/7190_end.2bpp"
 
-BGTiles_66_7b10::
+BGTiles_Picture052::
 	INCBIN "gfx/bgtiles/66/7b10.2bpp"
 	INCBIN "gfx/bgtiles/66/7b10_end.2bpp"

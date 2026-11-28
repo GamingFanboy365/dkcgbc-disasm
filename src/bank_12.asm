@@ -4,1095 +4,1095 @@ INCLUDE "include/common.inc"
 SECTION "Bank $12", ROMX[$4000], BANK[$12]
 
 TextGroups_12::
-	dw TextGroup_12_4020, TextGroup_12_40a8, TextGroup_12_405e, TextGroup_12_40be
-	dw TextGroup_12_40f4, TextGroup_12_413e, TextGroup_12_417c, TextGroup_12_417e
-	dw TextGroup_12_418c, TextGroup_12_418e, TextGroup_12_4198, TextGroup_12_419c
-	dw TextGroup_12_41a0, TextGroup_12_41ba, TextGroup_12_41ca, TextGroup_12_41ce
+	dw TextGroup_French_00, TextGroup_French_02, TextGroup_French_01, TextGroup_French_03
+	dw TextGroup_French_04, TextGroup_French_05, TextGroup_French_06, TextGroup_French_07
+	dw TextGroup_French_08, TextGroup_French_09, TextGroup_French_10, TextGroup_French_11
+	dw TextGroup_French_12, TextGroup_French_13, TextGroup_French_14, TextGroup_French_15
 
-TextGroup_12_4020::
-	dw Text_12_4244
-	dw Text_12_4276
-	dw Text_12_42ac
-	dw Text_12_42d9
-	dw Text_12_4307
-	dw Text_12_432f
-	dw Text_12_4357
-	dw Text_12_4386
-	dw Text_12_43a4
-	dw Text_12_43db
-	dw Text_12_440e
-	dw Text_12_4438
-	dw Text_12_445e
-	dw Text_12_447b
-	dw Text_12_4491
-	dw Text_12_44c3
-	dw Text_12_44e6
-	dw Text_12_4513
-	dw Text_12_4535
-	dw Text_12_4567
-	dw Text_12_4599
-	dw Text_12_45c9
-	dw Text_12_45f5
-	dw Text_12_4621
-	dw Text_12_4649
-	dw Text_12_4677
-	dw Text_12_469d
-	dw Text_12_46c9
-	dw Text_12_46fa
-	dw Text_12_471b
-	dw Text_12_4740
+TextGroup_French_00::
+	dw Text_WellWellDidntExpect_French
+	dw Text_YoureDoingPrettyGood_French
+	dw Text_SoYouFoundMe_French
+	dw Text_WhoToldYouI_French
+	dw Text_WellWellLookWhat_French
+	dw Text_HaventSeenYouAround_French
+	dw Text_WhatDoYouWant_French
+	dw Text_AhhAtLastSomeone_French
+	dw Text_YoureLuckyYouCaught_French
+	dw Text_HaveYaBroughtBack_French
+	dw Text_LastTimeISaw_French
+	dw Text_ComeOverHereAnd_French
+	dw Text_WellLookyWhatWe_French
+	dw Text_ArentYouASight_French
+	dw Text_AWholeMobOf_French
+	dw Text_ThisHereIsRhino_French
+	dw Text_HeyBoyCanYou_French
+	dw Text_HeyBoyDidYou_French
+	dw Text_YouBigApeI_French
+	dw Text_ItsHardToFind_French
+	dw Text_SureComeOnOver_French
+	dw Text_AhhItSortaTakes_French
+	dw Text_ItsBeenRealBusy_French
+	dw Text_SureLooksLikeIm_French
+	dw Text_SureBeatsAVisit_French
+	dw Text_FancyRunningIntoYou_French
+	dw Text_IHaventGotEven_French
+	dw Text_IJustGaveMy_French
+	dw Text_WhatInTarnationDo_French
+	dw Text_IAintGotNothin_French
+	dw Text_BetchaWontGetMuch_French
 
-TextGroup_12_405e::
-	dw Text_12_476b
-	dw Text_12_479c
-	dw Text_12_47d0
-	dw Text_12_47f0
-	dw Text_12_481f
-	dw Text_12_4847
-	dw Text_12_4876
-	dw Text_12_489e
-	dw Text_12_48cb
-	dw Text_12_48f6
-	dw Text_12_4916
-	dw Text_12_4931
-	dw Text_12_495a
-	dw Text_12_498c
-	dw Text_12_49be
-	dw Text_12_49f1
-	dw Text_12_4a20
-	dw Text_12_4a3c
-	dw Text_12_4a69
-	dw Text_12_4a9d
-	dw Text_12_4acc
-	dw Text_12_4ae9
-	dw Text_12_4b1c
-	dw Text_12_4b44
-	dw Text_12_4b70
-	dw Text_12_4b99
-	dw Text_12_4bc8
-	dw Text_12_4bee
-	dw Text_12_4c20
-	dw Text_12_4c59
-	dw Text_12_4c8b
-	dw Text_12_4cbe
-	dw Text_12_4cec
-	dw Text_12_4d1a
-	dw Text_12_4d4a
-	dw Text_12_4d76
-	dw Text_12_4da6
+TextGroup_French_01::
+	dw Text_TheKidsOfToday_French
+	dw Text_TheVideoGamesIn_French
+	dw Text_AllThisFunCant_French
+	dw Text_BetThisSectionWasted_French
+	dw Text_TheyCantKeepThis_French
+	dw Text_WeWereLuckyIf_French
+	dw Text_WeUsedToHave_French
+	dw Text_ThemBarrelsWereA_French
+	dw Text_WeNeverHadAny_French
+	dw Text_WeJustHadTo_French
+	dw Text_IveNeverSeenAnything_French
+	dw Text_EnjoyThisDemoGame_French
+	dw Text_FourShadesOfGray_French
+	dw Text_ICantPlayThis_French
+	dw Text_TheBananasHaveMore_French
+	dw Text_LookAtThisMy_French
+	dw Text_ThatWasWhenWe_French
+	dw Text_UsedAllTheLatest_French
+	dw Text_TheTroubleWithYou_French
+	dw Text_GamesWereALot_French
+	dw Text_WedPlayForHours_French
+	dw Text_YouWouldntLastTwo_French
+	dw Text_ICouldGetThrough_French
+	dw Text_ImTalkingAboutWhen_French
+	dw Text_ThreeLivesAndThree_French
+	dw Text_GamesNeverLookedLike_French
+	dw Text_AndWeWereMuch_French
+	dw Text_BetYouThoughtThis_French
+	dw Text_MyBigToesGot_French
+	dw Text_YknowWhatTheySay_French
+	dw Text_With32MegYoud_French
+	dw Text_BackInMyDay_French
+	dw Text_WhatsEvenWorseYou_French
+	dw Text_YouWouldntKnowA_French
+	dw Text_AJoystickAndOne_French
+	dw Text_IWouldntBeSeen_French
+	dw Text_YouCantBetterThe_French
 
-TextGroup_12_40a8::
-	dw Text_12_4dd0
-	dw Text_12_4e04
-	dw Text_12_4e38
-	dw Text_12_4e64
-	dw Text_12_4e80
-	dw Text_12_4e94
-	dw Text_12_4ead
-	dw Text_12_4edd
-	dw Text_12_4ef2
-	dw Text_12_4f1a
-	dw Text_12_4f4c
+TextGroup_French_02::
+	dw Text_SoYerBackAgain_French
+	dw Text_TooQuickIDidnt_French
+	dw Text_ImJustWastingMy_French
+	dw Text_YouHaveToDo_French
+	dw Text_YouOnlyJustLeft_French
+	dw Text_BackAgainEhThat_French
+	dw Text_CameBackToThe_French
+	dw Text_StillGotYouBeat_French
+	dw Text_YupDontMakeGame_French
+	dw Text_DyaExpectMeTo_French
+	dw Text_HowDareYouShow_French
 
-TextGroup_12_40be::
-	dw Text_12_4f75
-	dw Text_12_4fae
-	dw Text_12_4fdc
-	dw Text_12_500e
-	dw Text_12_5045
-	dw Text_12_5074
-	dw Text_12_50aa
-	dw Text_12_50e2
-	dw Text_12_5115
-	dw Text_12_5149
-	dw Text_12_5181
-	dw Text_12_51bb
-	dw Text_12_51f2
-	dw Text_12_5228
-	dw Text_12_5253
-	dw Text_12_5284
-	dw Text_12_52b5
-	dw Text_12_52e1
-	dw Text_12_531b
-	dw Text_12_534b
-	dw Text_12_537c
-	dw Text_12_53ae
-	dw Text_12_53e7
-	dw Text_12_540f
-	dw Text_12_543e
-	dw Text_12_5472
-	dw Text_12_54a3
+TextGroup_French_03::
+	dw Text_InJungleHijinxsStick_French
+	dw Text_FindTheFunJust_French
+	dw Text_ALeapOfFaith_French
+	dw Text_GoBananasInThe_French
+	dw Text_CroctopusCornersCrocksOf_French
+	dw Text_BurnRubberForThe_French
+	dw Text_TheBananasInStop_French
+	dw Text_JumpEarlyToGet_French
+	dw Text_RollingRubberWillPut_French
+	dw Text_OnSnowBarrelBlast_French
+	dw Text_OnCroctopusChaseA_French
+	dw Text_ToGetYourWings_French
+	dw Text_BouncingTheBouncerSlides_French
+	dw Text_TheTntGivesWall_French
+	dw Text_ForElevatorAnticsClimb_French
+	dw Text_TheGnawtyGnowsA_French
+	dw Text_MineCartMadnessIs_French
+	dw Text_OnceInThePoison_French
+	dw Text_BlackoutBasementsSinkingFeeling_French
+	dw Text_LetDiddyHoldOut_French
+	dw Text_TakeEnoughRopeAnd_French
+	dw Text_TheLoopyLightsVultures_French
+	dw Text_PerilousVulturesKnowIts_French
+	dw Text_AllGassedUpAnd_French
+	dw Text_TheOrangUtanGang_French
+	dw Text_ASingleBananaIs_French
+	dw Text_GetDownWithThe_French
 
-TextGroup_12_40f4::
-	dw Text_12_54d3
-	dw Text_12_54f7
-	dw Text_12_5527
-	dw Text_12_5552
-	dw Text_12_5586
-	dw Text_12_55c2
-	dw Text_12_55f4
-	dw Text_12_5629
-	dw Text_12_565c
-	dw Text_12_5691
-	dw Text_12_56c4
-	dw Text_12_56f9
-	dw Text_12_5729
-	dw Text_12_5759
-	dw Text_12_577d
-	dw Text_12_57ad
-	dw Text_12_57d6
-	dw Text_12_57f3
-	dw Text_12_5825
-	dw Text_12_5856
-	dw Text_12_5887
-	dw Text_12_58bb
-	dw Text_12_58f1
-	dw Text_12_5922
-	dw Text_12_5954
-	dw Text_12_5989
-	dw Text_12_5989
-	dw Text_12_59c3
-	dw Text_12_59f9
-	dw Text_12_5a36
-	dw Text_12_5a68
-	dw Text_12_5a99
-	dw Text_12_69f0
-	dw Text_12_69f0
-	dw Text_12_69f0
-	dw Text_12_69f0
-	dw Text_12_69f0
+TextGroup_French_04::
+	dw Text_AHandSlapCan_French
+	dw Text_HeCantReallyFly_French
+	dw Text_EnguardeSwordfishWillHelp_French
+	dw Text_CandysChallengesCanWin_French
+	dw Text_RollOffAPlatform_French
+	dw Text_TheySayIfYou_French
+	dw Text_IHearYouCan_French
+	dw Text_ReckonRambiRhinoCould_French
+	dw Text_BounceAKegOff_French
+	dw Text_RollAttackABaddie_French
+	dw Text_BounceOnEightBaddies_French
+	dw Text_TheySayExpressosLegs_French
+	dw Text_BreakOpenAStar_French
+	dw Text_JustFinishALevel_French
+	dw Text_FunkySendsYouWhere_French
+	dw Text_DisguisedHolesOnThe_French
+	dw Text_BananaArrowsWillPoint_French
+	dw Text_IfYouFindBananas_French
+	dw Text_SmashOpenAnyDk_French
+	dw Text_GrabThemExtraLife_French
+	dw Text_KlapTrapTeethStop_French
+	dw Text_YouCantJumpOn_French
+	dw Text_KlumpsHatProtectsAgainst_French
+	dw Text_KrushaIsToughOnly_French
+	dw Text_FloatingBarrelsWillBreak_French
+	dw Text_FollowSteelKegsAnd_French
+	dw Text_FollowSteelKegsAnd_French
+	dw Text_RunAndJumpOn_French
+	dw Text_JumpOnFixedTires_French
+	dw Text_PushFreeTiresTo_French
+	dw Text_RollOverSlippaOr_French
+	dw Text_GnawtyBeaverCanBe_French
+	dw Text_INeverLikedThose_French
+	dw Text_INeverLikedThose_French
+	dw Text_INeverLikedThose_French
+	dw Text_INeverLikedThose_French
+	dw Text_INeverLikedThose_French
 
-TextGroup_12_413e::
-	dw Text_12_5ab4
-	dw Text_12_5ad7
-	dw Text_12_5ae9
-	dw Text_12_5b07
-	dw Text_12_5b2d
-	dw Text_12_5b46
-	dw Text_12_5b65
-	dw Text_12_5b8b
-	dw Text_12_5bb0
-	dw Text_12_5bd6
-	dw Text_12_5c0d
-	dw Text_12_5c3c
-	dw Text_12_5c66
-	dw Text_12_5c91
-	dw Text_12_5caa
-	dw Text_12_5cc5
-	dw Text_12_5cf8
-	dw Text_12_5d0f
-	dw Text_12_5d31
-	dw Text_12_5d60
-	dw Text_12_5d78
-	dw Text_12_5d99
-	dw Text_12_5dbe
-	dw Text_12_5de6
-	dw Text_12_5e10
-	dw Text_12_5e65
-	dw Text_12_5e8f
-	dw Text_12_5ecd
-	dw Text_12_5efe
-	dw Text_12_5f32
-	dw Text_12_5f47
+TextGroup_French_05::
+	dw Text_ThatsAllSheWrote_French
+	dw Text_TheresNothingMoreI_French
+	dw Text_YouKnowAllThat_French
+	dw Text_ComeBackAndSee_French
+	dw Text_DontKnowAnyMore_French
+	dw Text_ThatsAllThereIs_French
+	dw Text_SoLongSuckersTry_French
+	dw Text_ThatsAllTheGood_French
+	dw Text_ImGettingTiredI_French
+	dw Text_YouPracticallyKnowMore_French
+	dw Text_DontHaveAnythingElse_French
+	dw Text_ICouldJustRock_French
+	dw Text_GottaGoNowIll_French
+	dw Text_WellThatsAboutThe_French
+	dw Text_IsThatTheTime_French
+	dw Text_ICouldTellYou_French
+	dw Text_YallComeBackSoon_French
+	dw Text_IfYouGetStuck_French
+	dw Text_CantSayIExpect_French
+	dw Text_ItsBeenNiceTalking_French
+	dw Text_EhSonnySpeakUp_French
+	dw Text_IveSeenEnoughThat_French
+	dw Text_ThisColorScreensMaking_French
+	dw Text_AllThisGamePlay_French
+	dw Text_RememberTheOriginalDonkey_French
+	dw Text_TooManyBaddiesHere_French
+	dw Text_IdAskYaIn_French
+	dw Text_OffYouGoSee_French
+	dw Text_ShutTheGateOn_French
+	dw Text_SeeYaLaterAlligator_French
+	dw Text_AfterAWhileCrocodile_French
 
-TextGroup_12_417c::
-	dw Text_12_5f5a
+TextGroup_French_06::
+	dw Text_HiImCandyKong_French
 
-TextGroup_12_417e::
-	dw Text_12_5fad
-	dw Text_12_5fe8
-	dw Text_12_601f
-	dw Text_12_6055
-	dw Text_12_6075
-	dw Text_12_60a3
-	dw Text_12_60d1
+TextGroup_French_07::
+	dw Text_HelloGuysDoYou_French
+	dw Text_CanIHelpYou_French
+	dw Text_HowWouldYouLike_French
+	dw Text_YooHooHoneyKong_French
+	dw Text_IfYouFancyA_French
+	dw Text_YouGuysAreReally_French
+	dw Text_SeeYaLaterBoys_French
 
-TextGroup_12_418c::
-	dw Text_12_6106
+TextGroup_French_08::
+	dw Text_WhoaDudesImFunky_French
 
-TextGroup_12_418e::
-	dw Text_12_619f
-	dw Text_12_61d0
-	dw Text_12_61ff
-	dw Text_12_6230
-	dw Text_12_625e
+TextGroup_French_09::
+	dw Text_YeahKongsLikeJump_French
+	dw Text_NeedSomeLivesGet_French
+	dw Text_YoGorillasSeekThe_French
+	dw Text_LookinGoodKongsBelt_French
+	dw Text_HeyDudesTellCandy_French
 
-TextGroup_12_4198::
-	dw Text_12_628e
-	dw Text_12_62c3
+TextGroup_French_10::
+	dw Text_FancyAFlightDk_French
+	dw Text_DudeskiYourBudHas_French
 
-TextGroup_12_419c::
-	dw Text_12_62e6
-	dw Text_12_6321
+TextGroup_French_11::
+	dw Text_YoDiddyLostThe_French
+	dw Text_WheresYourPalTry_French
 
-TextGroup_12_41a0::
-	dw Text_12_634a
-	dw Text_12_63f6
-	dw Text_12_63f6
-	dw Text_12_63f6
-	dw Text_12_63f6
-	dw Text_12_63f6
-	dw Text_12_63f6
-	dw Text_12_63f6
-	dw Text_12_6449
-	dw Text_12_64ac
-	dw Text_12_64ac
-	dw Text_12_64ac
-	dw Text_12_64ac
+TextGroup_French_12::
+	dw Text_WellDoneMyBoy_French
+	dw Text_IfIWasPlaying_French
+	dw Text_IfIWasPlaying_French
+	dw Text_IfIWasPlaying_French
+	dw Text_IfIWasPlaying_French
+	dw Text_IfIWasPlaying_French
+	dw Text_IfIWasPlaying_French
+	dw Text_IfIWasPlaying_French
+	dw Text_WhatAPlayerDk_French
+	dw Text_DkMyBoyWhere_French
+	dw Text_DkMyBoyWhere_French
+	dw Text_DkMyBoyWhere_French
+	dw Text_DkMyBoyWhere_French
 
-TextGroup_12_41ba::
-	dw Text_12_64ac
-	dw Text_12_64c9
-	dw Text_12_64f5
-	dw Text_12_651e
-	dw Text_12_6547
-	dw Text_12_6570
-	dw Text_12_6596
-	dw Text_12_65be
+TextGroup_French_13::
+	dw Text_DkMyBoyWhere_French
+	dw Text_DkYouYoungWhippersnapper_French
+	dw Text_DonkeyBoyItSeems_French
+	dw Text_YouNeverVisitYour_French
+	dw Text_HeyCanYouSpare_French
+	dw Text_AndWhatHaveYou_French
+	dw Text_WellYouveAmazedYour_French
+	dw Text_AtLastYouveCome_French
 
-TextGroup_12_41ca::
-	dw Text_12_65f3
-	dw Text_12_6605
+TextGroup_French_14::
+	dw Text_DiddyMyBoyWheres_French
+	dw Text_DiddyMyYoungPup_French
 
-TextGroup_12_41ce::
-	dw Text_12_6634
-	dw Text_12_663c
-	dw Text_12_664d
-	dw Text_12_665b
-	dw Text_12_666c
-	dw Text_12_667d
-	dw Text_12_668c
-	dw Text_12_66a1
-	dw Text_12_66b5
-	dw Text_12_66c8
-	dw Text_12_66d9
-	dw Text_12_66e9
-	dw Text_12_66f7
-	dw Text_12_670a
-	dw Text_12_6717
-	dw Text_12_6726
-	dw Text_12_6739
-	dw Text_12_674a
-	dw Text_12_6759
-	dw Text_12_6769
-	dw Text_12_6778
-	dw Text_12_6784
-	dw Text_12_6795
-	dw Text_12_67a6
-	dw Text_12_67b6
-	dw Text_12_67c6
-	dw Text_12_67d5
-	dw Text_12_67e3
-	dw Text_12_67f5
-	dw Text_12_6803
-	dw Text_12_6814
-	dw Text_12_6823
-	dw Text_12_6834
-	dw Text_12_6841
-	dw Text_12_6851
-	dw Text_12_685f
-	dw Text_12_686f
-	dw Text_12_687b
-	dw Text_12_688c
-	dw Text_12_689f
-	dw Text_12_68b1
-	dw Text_12_68c1
-	dw Text_12_68cd
-	dw Text_12_68de
-	dw Text_12_68f3
-	dw Text_12_6901
-	dw Text_12_6911
-	dw Text_12_6921
-	dw Text_12_6931
-	dw Text_12_6940
-	dw Text_12_6960
-	dw Text_12_6970
-	dw Text_12_6984
-	dw Text_12_699a
-	dw Text_12_69a5
-	dw Text_12_69b8
-	dw Text_12_6951
-	dw Text_12_69d9
-	dw Text_12_69c9
+TextGroup_French_15::
+	dw Text_Error_French
+	dw Text_RopeyRampage_French
+	dw Text_OrangUtanGang_French
+	dw Text_BarrelCannonCanyon_French
+	dw Text_ReptileRumble_French
+	dw Text_BouncyBonanza_French
+	dw Text_ManicMincers_French
+	dw Text_ElevatorAntics_French
+	dw Text_PlatformPerils_French
+	dw Text_TrickTrackTrek_French
+	dw Text_TankedUpTrouble_French
+	dw Text_MineCartMadness_French
+	dw Text_WinkysWalkway_French
+	dw Text_MistyMine_French
+	dw Text_StopGoStation_French
+	dw Text_LoopyLights_French
+	dw Text_MineCartCarnage_French
+	dw Text_PoisonPond_French
+	dw Text_CroctopusChase_French
+	dw Text_CoralCapers_French
+	dw Text_ClamCity_French
+	dw Text_MillstoneMayhem_French
+	dw Text_TempleTempest_French
+	dw Text_SnowBarrelBlast_French
+	dw Text_IceAgeAlley_French
+	dw Text_TreeTopTown_French
+	dw Text_RopeBridgeRumble_French
+	dw Text_VultureCulture_French
+	dw Text_ForestFrenzy_French
+	dw Text_SlipslideRide_French
+	dw Text_TorchlightTrouble_French
+	dw Text_OilDrumAlley_French
+	dw Text_BlackoutBasement_French
+	dw Text_JungleHijinxs_French
+	dw Text_KongoJungle_French
+	dw Text_MonkeyMines_French
+	dw Text_VineValley_French
+	dw Text_GorillaGlacier_French
+	dw Text_KremkrocIndustries_French
+	dw Text_ChimpCaverns_French
+	dw Text_VeryGnawtysLair_French
+	dw Text_NeckysNuts_French
+	dw Text_BumbleBRumble_French
+	dw Text_ReallyGnawtyRampage_French
+	dw Text_BossDumbDrum_French
+	dw Text_NeckysRevenge_French
+	dw Text_GangPlankGalleon_French
+	dw Text_CrankysCabin_French
+	dw Text_FunkysFlights_French
+	dw Text_CandysChallenge_French
+	dw Text_KremlingKrackdown_French
+	dw Text_KremlingsAndKongs_French
+	dw Text_BarrelOKremlings_French
+	dw Text_Wanted_French
+	dw Text_BuddiesBeware_French
+	dw Text_CrosshairCranky_French
+	dw Text_NeckyNutmare_French
+	dw Text_ReturnToIslandMap_French
+	dw Text_GalleonGunner_French
 
-Text_12_4244::
+Text_WellWellDidntExpect_French::
 	db "Et bien...", $0d
 	db "Pour une surprise,", $0d
 	db "c'est une surprise!", $00
 
-Text_12_4276::
+Text_YoureDoingPrettyGood_French::
 	db "Tu as du talent!", $0d
 	db "Etre aussi loin de", $0d
 	db "chez toi est dur!", $00
 
-Text_12_42ac::
+Text_SoYouFoundMe_French::
 	db "Enfin me voici,", $0d
 	db "Kong! Alors...", $0d
 	db "Que veux-tu?!", $00
 
-Text_12_42d9::
+Text_WhoToldYouI_French::
 	db "Qui t'a r", $82, "v", $82, "l", $82, " ma", $0d
 	db "cachette?", $0d
 	db "C'est Funky Kong?", $00
 
-Text_12_4307::
+Text_WellWellLookWhat_French::
 	db "Tiens, tiens!", $0d
 	db "Te voil", $85, ", toi!", $0d
 	db "C'est fou!", $00
 
-Text_12_432f::
+Text_HaventSeenYouAround_French::
 	db "Ca fait un bail!", $0d
 	db "Tu en as mis", $0d
 	db "du temps!", $00
 
-Text_12_4357::
+Text_WhatDoYouWant_French::
 	db "Qu'est-ce que tu", $0d
 	db "veux? Je suis", $0d
 	db "tr", $8a, "s populaire!", $00
 
-Text_12_4386::
+Text_AhhAtLastSomeone_French::
 	db "Enfin quelqu'un", $0d
 	db $85, " qui parler!", $00
 
-Text_12_43a4::
+Text_YoureLuckyYouCaught_French::
 	db "Tu as de la chance", $0d
 	db "de me trouver ici!", $0d
 	db "J'allais sortir.", $00
 
-Text_12_43db::
+Text_HaveYaBroughtBack_French::
 	db "Tu rapportes mes", $0d
 	db "bananes, j'esp", $8a, "re.", $0d
 	db "N'est-ce pas?!", $00
 
-Text_12_440e::
+Text_LastTimeISaw_French::
 	db "La derni", $8a, "re fois,", $0d
 	db "tu portais des", $0d
 	db "couches!", $00
 
-Text_12_4438::
+Text_ComeOverHereAnd_French::
 	db "Viens donc me", $0d
 	db "faire un gentil", $0d
 	db "poutou!", $00
 
-Text_12_445e::
+Text_WellLookyWhatWe_French::
 	db "Ben, tiens!", $0d
 	db "Voil", $85, " des Kongs!", $00
 
-Text_12_447b::
+Text_ArentYouASight_French::
 	db "C'est-y pas", $0d
 	db "mignon...", $00
 
-Text_12_4491::
+Text_AWholeMobOf_French::
 	db "Tout plein de sales", $0d
 	db "Kremlings viennent", $0d
 	db "de passer!", $00
 
-Text_12_44c3::
+Text_ThisHereIsRhino_French::
 	db "C'est le pays des", $0d
 	db "rhinos, tu sais!", $00
 
-Text_12_44e6::
+Text_HeyBoyCanYou_French::
 	db "Petit! Tu as vu", $0d
 	db "dans quoi on me", $0d
 	db "fait vivre?!", $00
 
-Text_12_4513::
+Text_HeyBoyDidYou_French::
 	db "Petit! Tu me", $0d
 	db "ram", $8a, "nes mes", $0d
 	db "courses?", $00
 
-Text_12_4535::
+Text_YouBigApeI_French::
 	db "Macaque! Tu fais", $0d
 	db "trop de bruit!", $0d
 	db "Je porte plainte!", $00
 
-Text_12_4567::
+Text_ItsHardToFind_French::
 	db "Tu vas arr", $88, "ter de", $0d
 	db "faire du bruit?", $0d
 	db "Je veux dormir!", $00
 
-Text_12_4599::
+Text_SureComeOnOver_French::
 	db "Entre donc!", $0d
 	db "J'en ai assez de", $0d
 	db "parler ", $85, " moi-m", $88, "me.", $00
 
-Text_12_45c9::
+Text_AhhItSortaTakes_French::
 	db "Ahh! C'est un", $0d
 	db "plaisir de te", $0d
 	db "voir ", $85, " nouveau!", $00
 
-Text_12_45f5::
+Text_ItsBeenRealBusy_French::
 	db "Tous ces Kremlings", $0d
 	db "sont ", $82, "nervants,", $0d
 	db "tu sais!", $00
 
-Text_12_4621::
+Text_SureLooksLikeIm_French::
 	db "Je suis super", $0d
 	db "populaire.", $0d
 	db "Oui, monsieur!", $00
 
-Text_12_4649::
+Text_SureBeatsAVisit_French::
 	db "En voil", $85, " une belle", $0d
 	db "surprise!", $0d
 	db "Je peux t'aider?", $00
 
-Text_12_4677::
+Text_FancyRunningIntoYou_French::
 	db "Sortez si vous", $0d
 	db "n'avez rien ", $85, $0d
 	db "me dire!", $00
 
-Text_12_469d::
+Text_IHaventGotEven_French::
 	db "Je n'ai plus rien.", $0d
 	db "Alors ne te", $0d
 	db "fatigue pas.", $00
 
-Text_12_46c9::
+Text_IJustGaveMy_French::
 	db "J'ai donn", $82, " mon", $0d
 	db "dernier tonneau", $0d
 	db $85, " l'orang-outang.", $00
 
-Text_12_46fa::
+Text_WhatInTarnationDo_French::
 	db "Qu'est-ce que vous", $0d
 	db "voulez, vous?", $00
 
-Text_12_471b::
+Text_IAintGotNothin_French::
 	db "Je n'ai rien de", $0d
 	db "gratuit ici.", $0d
 	db "Dehors!", $00
 
-Text_12_4740::
+Text_BetchaWontGetMuch_French::
 	db "Vous allez perdre.", $0d
 	db "C'est s", $96, "r.", $0d
 	db "C'est s", $96, "r...", $00
 
-Text_12_476b::
+Text_TheKidsOfToday_French::
 	db "Tss... Les jeunes", $0d
 	db "ne respectent pas", $0d
 	db "les anciens!", $00
 
-Text_12_479c::
+Text_TheVideoGamesIn_French::
 	db "Les jeux vid", $82, "o de", $0d
 	db "mon temps n'", $82, "taient", $0d
 	db "pas comme ", $87, "a!", $00
 
-Text_12_47d0::
+Text_AllThisFunCant_French::
 	db "Tous ces jeux...", $0d
 	db "C'est pas bon!", $00
 
-Text_12_47f0::
+Text_BetThisSectionWasted_French::
 	db "Ce d", $82, "cor doit", $0d
 	db "prendre la moiti", $82, $0d
 	db "de la m", $82, "moire!", $00
 
-Text_12_481f::
+Text_TheyCantKeepThis_French::
 	db "De si beaux", $0d
 	db "graphismes...", $0d
 	db "C'est dingue!", $00
 
-Text_12_4847::
+Text_WeWereLuckyIf_French::
 	db "Les jeux en gris,", $0d
 	db "c'est bien fini!", $0d
 	db "Oh que oui!", $00
 
-Text_12_4876::
+Text_WeUsedToHave_French::
 	db "On vivait dans la", $0d
 	db "grisaille,", $0d
 	db "autrefois!", $00
 
-Text_12_489e::
+Text_ThemBarrelsWereA_French::
 	db "Les tonneaux", $0d
 	db $82, "taient tr", $8a, "s", $0d
 	db "lourds, crois-moi!", $00
 
-Text_12_48cb::
+Text_WeNeverHadAny_French::
 	db "La 3D moi je", $0d
 	db "connaissais pas!", $0d
 	db "C'", $82, "tait dur!", $00
 
-Text_12_48f6::
+Text_WeJustHadTo_French::
 	db "Il fallait se", $0d
 	db "contenter de", $0d
 	db "peu!", $00
 
-Text_12_4916::
+Text_IveNeverSeenAnything_French::
 	db "Je n'ai rien vu", $0d
 	db "de pareil!", $00
 
-Text_12_4931::
+Text_EnjoyThisDemoGame_French::
 	db "Appr", $82, "cie cette", $0d
 	db "d", $82, "mo. Elle ne", $0d
 	db "durera pas.", $00
 
-Text_12_495a::
+Text_FourShadesOfGray_French::
 	db "4 teintes de gris,", $0d
 	db "un carr", $82, ", et", $0d
 	db "c'", $82, "tait un jeu...", $00
 
-Text_12_498c::
+Text_ICantPlayThis_French::
 	db "C'est injouable!", $0d
 	db "Les belles couleurs", $0d
 	db "m'aveuglent!", $00
 
-Text_12_49be::
+Text_TheBananasHaveMore_French::
 	db "Les bananes ont", $0d
 	db "plus de couleurs", $0d
 	db "qu'un jeu entier!", $00
 
-Text_12_49f1::
+Text_LookAtThisMy_French::
 	db "Regarde! Ma", $0d
 	db "barbe bouge! C'est", $0d
 	db "n'importe quoi!", $00
 
-Text_12_4a20::
+Text_ThatWasWhenWe_French::
 	db "A l'", $82, "poque on", $0d
 	db "savait faire!", $00
 
-Text_12_4a3c::
+Text_UsedAllTheLatest_French::
 	db "Alors comme ", $87, "a on", $0d
 	db "aime la 3D?", $0d
 	db "Ca vous amuse?", $00
 
-Text_12_4a69::
+Text_TheTroubleWithYou_French::
 	db "Les petits d'au-", $0d
 	db "jourd'hui ne sont", $0d
 	db "jamais contents!", $00
 
-Text_12_4a9d::
+Text_GamesWereALot_French::
 	db "Les jeux d'antan", $0d
 	db $82, "taient bien", $0d
 	db "plus difficiles!", $00
 
-Text_12_4acc::
+Text_WedPlayForHours_French::
 	db "On jouait sur", $0d
 	db "un seul ", $82, "cran!", $00
 
-Text_12_4ae9::
+Text_YouWouldntLastTwo_French::
 	db "Vous seriez perdus", $0d
 	db "sur un bon vieux", $0d
 	db "jeu classique!", $00
 
-Text_12_4b1c::
+Text_ICouldGetThrough_French::
 	db "Je peux finir ce", $0d
 	db "jeu avec une vie,", $0d
 	db "moi!", $00
 
-Text_12_4b44::
+Text_ImTalkingAboutWhen_French::
 	db "Les jeux d'avant,", $0d
 	db $87, "a c'", $82, "tait de", $0d
 	db "l'aventure!", $00
 
-Text_12_4b70::
+Text_ThreeLivesAndThree_French::
 	db "Trois vies,", $0d
 	db "trois parties", $0d
 	db "et c'est tout!", $00
 
-Text_12_4b99::
+Text_GamesNeverLookedLike_French::
 	db "De mon temps, les", $0d
 	db "jeux n'", $82, "taient pas", $0d
 	db "comme ", $87, "a.", $00
 
-Text_12_4bc8::
+Text_AndWeWereMuch_French::
 	db "Moi non plus je", $0d
 	db "n'", $82, "tais pas", $0d
 	db "comme ", $87, "a.", $00
 
-Text_12_4bee::
+Text_BetYouThoughtThis_French::
 	db "Tu crois que c'est", $0d
 	db "une 64-bit, non?", $0d
 	db "Petit joueur!", $00
 
-Text_12_4c20::
+Text_MyBigToesGot_French::
 	db "Mes pieds sont plus", $0d
 	db "beaux que ce jeu!", $0d
 	db "Tu peux me croire!", $00
 
-Text_12_4c59::
+Text_YknowWhatTheySay_French::
 	db "Je vois l'genre:", $0d
 	db "des graphismes et", $0d
 	db "aucun int", $82, "r", $88, "t!", $00
 
-Text_12_4c8b::
+Text_With32MegYoud_French::
 	db "32 m", $82, "gas de fichus!", $0d
 	db "On aurait pu en", $0d
 	db "faire 30 jeux!", $00
 
-Text_12_4cbe::
+Text_BackInMyDay_French::
 	db "De mon temps,", $0d
 	db "on savait faire", $0d
 	db "de bons jeux...", $00
 
-Text_12_4cec::
+Text_WhatsEvenWorseYou_French::
 	db "Le pire, si tu", $0d
 	db "termines, il faut", $0d
 	db "recommencer!", $00
 
-Text_12_4d1a::
+Text_YouWouldntKnowA_French::
 	db "Les jeunes, ", $87, "a sait", $0d
 	db "pas reconna", $8c, "tre un", $0d
 	db "bon jeu!", $00
 
-Text_12_4d4a::
+Text_AJoystickAndOne_French::
 	db "Un joystick et 1", $0d
 	db "bouton et hop!", $0d
 	db "Un bon jeu!", $00
 
-Text_12_4d76::
+Text_IWouldntBeSeen_French::
 	db "Appara", $8c, "tre dans un", $0d
 	db "jeu aussi nul est", $0d
 	db "une honte!", $00
 
-Text_12_4da6::
+Text_YouCantBetterThe_French::
 	db "Rien ne peut", $0d
 	db $82, "galer un bon", $0d
 	db "Game & Watch$!", $00
 
-Text_12_4dd0::
+Text_SoYerBackAgain_French::
 	db "D", $82, "j", $85, " de retour!", $0d
 	db "Vous les petits", $0d
 	db $88, "tes vraiment nuls!", $00
 
-Text_12_4e04::
+Text_TooQuickIDidnt_French::
 	db "Heu... Trop rapide!", $0d
 	db "Je... Je ne", $0d
 	db "sais pas quoi dire!", $00
 
-Text_12_4e38::
+Text_ImJustWastingMy_French::
 	db "Dis donc...", $0d
 	db "Tu m'", $82, "coutes quand", $0d
 	db "je te parle?", $00
 
-Text_12_4e64::
+Text_YouHaveToDo_French::
 	db "Il faut faire", $0d
 	db "mieux que ", $87, "a!", $00
 
-Text_12_4e80::
+Text_YouOnlyJustLeft_French::
 	db "Tu viens de sortir!", $00
 
-Text_12_4e94::
+Text_BackAgainEhThat_French::
 	db "Encore?!", $0d
 	db "C'", $82, "tait rapide!", $00
 
-Text_12_4ead::
+Text_CameBackToThe_French::
 	db "On revient voir le", $0d
 	db "ma", $8c, "tre, hein?", $0d
 	db "C'est bien ", $87, "a!", $00
 
-Text_12_4edd::
+Text_StillGotYouBeat_French::
 	db "Je suis le", $0d
 	db "meilleur!", $00
 
-Text_12_4ef2::
+Text_YupDontMakeGame_French::
 	db "Les joueurs de", $0d
 	db "maintenant sont", $0d
 	db "mauvais!", $00
 
-Text_12_4f1a::
+Text_DyaExpectMeTo_French::
 	db "Tu veux que je ter-", $0d
 	db "mine le jeu pour", $0d
 	db "toi ou quoi?", $00
 
-Text_12_4f4c::
+Text_HowDareYouShow_French::
 	db "Tu oses revenir", $0d
 	db "ici? Apr", $8a, "s un", $0d
 	db "tel ", $82, "chec?", $00
 
-Text_12_4f75::
+Text_InJungleHijinxsStick_French::
 	db "Dans Jungle Poisse,", $0d
 	db "le sommet des arbres", $0d
 	db "donne des vies.", $00
 
-Text_12_4fae::
+Text_FindTheFunJust_French::
 	db "Un truc cool,", $0d
 	db "avant la fin de", $0d
 	db "Kordes Karnage.", $00
 
-Text_12_4fdc::
+Text_ALeapOfFaith_French::
 	db "Le saut de la foi", $0d
 	db "pour Winky dans", $0d
 	db "Canyons Canons.", $00
 
-Text_12_500e::
+Text_GoBananasInThe_French::
 	db "Des bananes dans", $0d
 	db "le trou ", $85, " serpents", $0d
 	db "de Ravage Reptile!", $00
 
-Text_12_5045::
+Text_CroctopusCornersCrocksOf_French::
 	db "Croctopus garde", $0d
 	db "des bananes", $0d
 	db "dans Corail Cass", $82, ".", $00
 
-Text_12_5074::
+Text_BurnRubberForThe_French::
 	db "Br", $96, "ler la gomme", $0d
 	db "pour un rhino d'or", $0d
 	db "dans Butin Barouf.", $00
 
-Text_12_50aa::
+Text_TheBananasInStop_French::
 	db "Les bananes dans", $0d
 	db "Station Stop vous", $0d
 	db "indiquent un chemin.", $00
 
-Text_12_50e2::
+Text_JumpEarlyToGet_French::
 	db "Sauter en avance", $0d
 	db "pour une vie dans", $0d
 	db "Carnage Minier.", $00
 
-Text_12_5115::
+Text_RollingRubberWillPut_French::
 	db "Rouler la gomme", $0d
 	db "pour un chemin dans", $0d
 	db "Pierre Myst", $8a, "re!", $00
 
-Text_12_5149::
+Text_OnSnowBarrelBlast_French::
 	db "Dans Tonneau Neige,", $0d
 	db "en bas ne m", $8a, "ne pas", $0d
 	db "toujours dehors.", $00
 
-Text_12_5181::
+Text_OnCroctopusChaseA_French::
 	db "Dans Croctopus Fou,", $0d
 	db "un passage secret", $0d
 	db "apr", $8a, "s les tonneaux.", $00
 
-Text_12_51bb::
+Text_ToGetYourWings_French::
 	db "Pour des ailes,", $0d
 	db "suivre les oiseaux", $0d
 	db "dans All", $82, "e Polaire.", $00
 
-Text_12_51f2::
+Text_BouncingTheBouncerSlides_French::
 	db "Pousser le pousseur", $0d
 	db "pour gagner sur", $0d
 	db "l'All", $82, "e Huileuse!", $00
 
-Text_12_5228::
+Text_TheTntGivesWall_French::
 	db "La TNT aime les", $0d
 	db "murs dans le", $0d
 	db "Spot Troubl", $82, ".", $00
 
-Text_12_5253::
+Text_ForElevatorAnticsClimb_French::
 	db "L'Ascenseur Antique", $0d
 	db "grimpe plus haut", $0d
 	db "que le nid!", $00
 
-Text_12_5284::
+Text_TheGnawtyGnowsA_French::
 	db "Les Gnawty ont un", $0d
 	db "secret dans le", $0d
 	db "Trajet Toc-Toc!", $00
 
-Text_12_52b5::
+Text_MineCartMadnessIs_French::
 	db "Dans Mine Malade", $0d
 	db "3 sauts et c'est", $0d
 	db "le bonus.", $00
 
-Text_12_52e1::
+Text_OnceInThePoison_French::
 	db "Au Point Poison, le", $0d
 	db "plus court chemin", $0d
 	db "n'est pas ", $85, " droite.", $00
 
-Text_12_531b::
+Text_BlackoutBasementsSinkingFeeling_French::
 	db "Dans la Cave Noire", $0d
 	db "il y a des bas et", $0d
 	db "des hauts!", $00
 
-Text_12_534b::
+Text_LetDiddyHoldOut_French::
 	db "Diddy doit tenir", $0d
 	db "le TNT dans", $0d
 	db "Pinceurs Maniaques.", $00
 
-Text_12_537c::
+Text_TakeEnoughRopeAnd_French::
 	db "Assez de corde et", $0d
 	db "c'est gagn", $82, " dans", $0d
 	db "la Mine Brume.", $00
 
-Text_12_53ae::
+Text_TheLoopyLightsVultures_French::
 	db "Dans Lumi", $8a, "re Louf", $0d
 	db "le tonneau du vau-", $0d
 	db "tour est dangereux.", $00
 
-Text_12_53e7::
+Text_PerilousVulturesKnowIts_French::
 	db "Les vautours sont", $0d
 	db "plut", $93, "t terre ", $85, $0d
 	db "terre.", $00
 
-Text_12_540f::
+Text_AllGassedUpAnd_French::
 	db "Du carburant ", $85, $0d
 	db "revendre dans le", $0d
 	db "Trouble Toqu", $82, "!", $00
 
-Text_12_543e::
+Text_TheOrangUtanGang_French::
 	db "Le Gang Outang aura", $0d
 	db "le dernier mot", $0d
 	db "avec un tonneau.", $00
 
-Text_12_5472::
+Text_ASingleBananaIs_French::
 	db "Une banane seule", $0d
 	db "pour le bonus dans", $0d
 	db "Arbre-Ville.", $00
 
-Text_12_54a3::
+Text_GetDownWithThe_French::
 	db "En bas pour les", $0d
 	db "bananes dans le", $0d
 	db "Temple Temp", $88, "te!", $00
 
-Text_12_54d3::
+Text_AHandSlapCan_French::
 	db "Une baffe peut", $0d
 	db "trouver des", $0d
 	db "secrets.", $00
 
-Text_12_54f7::
+Text_HeCantReallyFly_French::
 	db "L'autruche ne peut", $0d
 	db "voler mais elle", $0d
 	db "peut planer.", $00
 
-Text_12_5527::
+Text_EnguardeSwordfishWillHelp_French::
 	db "Enguarde l'espadon", $0d
 	db "peut percer un", $0d
 	db "myst", $8a, "re!", $00
 
-Text_12_5552::
+Text_CandysChallengesCanWin_French::
 	db "Les challenges", $0d
 	db "de Candy donnent", $0d
 	db "des objets ", $85, " bonus!", $00
 
-Text_12_5586::
+Text_RollOffAPlatform_French::
 	db "Roule dans le vide,", $0d
 	db "appuie sur A et tu", $0d
 	db "feras un grand saut.", $00
 
-Text_12_55c2::
+Text_TheySayIfYou_French::
 	db "On raconte que", $0d
 	db "maintenir B fait", $0d
 	db "courir plus vite!", $00
 
-Text_12_55f4::
+Text_IHearYouCan_French::
 	db "On dit que tu peux", $0d
 	db "sauter plus loin", $0d
 	db "en maintenant B!", $00
 
-Text_12_5629::
+Text_ReckonRambiRhinoCould_French::
 	db "Rambi peut briser", $0d
 	db "l'entr", $82, "e de tout", $0d
 	db "passage secret.", $00
 
-Text_12_565c::
+Text_BounceAKegOff_French::
 	db "Fais rebondir un", $0d
 	db "tonneau sur un mur", $0d
 	db "et saute dessus!", $00
 
-Text_12_5691::
+Text_RollAttackABaddie_French::
 	db "Frappe un m", $82, "chant", $0d
 	db "en roulant et tu", $0d
 	db "iras plus vite.", $00
 
-Text_12_56c4::
+Text_BounceOnEightBaddies_French::
 	db "Roule sur 8 vilains", $0d
 	db $85, " la suite pour", $0d
 	db "une vie en plus.", $00
 
-Text_12_56f9::
+Text_TheySayExpressosLegs_French::
 	db "Les pattes d'", $0d
 	db "Expresso ne font", $0d
 	db "peur ", $85, " personne.", $00
 
-Text_12_5729::
+Text_BreakOpenAStar_French::
 	db "Un tonneau ", $82, "toil", $82, $0d
 	db "bris", $82, " pour sauver", $0d
 	db "une moiti", $82, ".", $00
 
-Text_12_5759::
+Text_JustFinishALevel_French::
 	db "Finis un niveau", $0d
 	db "pour sauver le jeu!", $00
 
-Text_12_577d::
+Text_FunkySendsYouWhere_French::
 	db "Funky t'envoie o", $97, $0d
 	db "tu es d", $82, "j", $85, " all", $82, $0d
 	db "en un ", $82, "clair!", $00
 
-Text_12_57ad::
+Text_DisguisedHolesOnThe_French::
 	db "Les trous cach", $82, "s", $0d
 	db "s'", $82, "vitent de tr", $8a, "s", $0d
 	db "haut!", $00
 
-Text_12_57d6::
+Text_BananaArrowsWillPoint_French::
 	db "Suis les fl", $8a, "ches", $0d
 	db "en bananes!", $00
 
-Text_12_57f3::
+Text_IfYouFindBananas_French::
 	db "Les bananes indi-", $0d
 	db "quent le passage", $0d
 	db "des Kremlings!", $00
 
-Text_12_5825::
+Text_SmashOpenAnyDk_French::
 	db "Un baril DK peut", $0d
 	db "contenir un copain!", $0d
 	db "D", $82, "truis-le!", $00
 
-Text_12_5856::
+Text_GrabThemExtraLife_French::
 	db "Les ballons de vie", $0d
 	db "s'envolent vite!", $0d
 	db "Attrape-les!", $00
 
-Text_12_5887::
+Text_KlapTrapTeethStop_French::
 	db "Klaptrap arr", $88, "te les", $0d
 	db "attaques roul", $82, "es.", $0d
 	db "Saute dessus!", $00
 
-Text_12_58bb::
+Text_YouCantJumpOn_French::
 	db "Impossible de sau-", $0d
 	db "ter sur une Zinger!", $0d
 	db "Winky le fera!", $00
 
-Text_12_58f1::
+Text_KlumpsHatProtectsAgainst_French::
 	db "Klump ne sent pas", $0d
 	db "les attaques sau-", $0d
 	db "t", $82, "es. Roule!", $00
 
-Text_12_5922::
+Text_KrushaIsToughOnly_French::
 	db "Krusha est fort.", $0d
 	db "Mais il n'aime pas", $0d
 	db "les tonneaux!", $00
 
-Text_12_5954::
+Text_FloatingBarrelsWillBreak_French::
 	db "Les tonneaux flot-", $0d
 	db "tants se brisent", $0d
 	db "en les touchant.", $00
 
-Text_12_5989::
+Text_FollowSteelKegsAnd_French::
 	db "Suis les tonneaux", $0d
 	db "d'acier et ils cas-", $0d
 	db "seront les vilains!", $00
 
-Text_12_59c3::
+Text_RunAndJumpOn_French::
 	db "Cours et saute sur", $0d
 	db "les vilains pour", $0d
 	db "sauter plus haut.", $00
 
-Text_12_59f9::
+Text_JumpOnFixedTires_French::
 	db "Saute sur les pneus,", $0d
 	db $82, "vite les obstacles,", $0d
 	db "obtiens des bonus.", $00
 
-Text_12_5a36::
+Text_PushFreeTiresTo_French::
 	db "Pousse certains", $0d
 	db "pneus et sers-t'en", $0d
 	db "pour un bonus.", $00
 
-Text_12_5a68::
+Text_RollOverSlippaOr_French::
 	db "Roule sur Slippa", $0d
 	db "ou ", $82, "crase-le en", $0d
 	db "sautant dessus.", $00
 
-Text_12_5a99::
+Text_GnawtyBeaverCanBe_French::
 	db "Saute ou roule", $0d
 	db "sur Gnawty.", $00
 
-Text_12_5ab4::
+Text_ThatsAllSheWrote_French::
 	db "C'est tout ce qu'il", $0d
 	db "y a de marqu", $82, "!", $00
 
-Text_12_5ad7::
+Text_TheresNothingMoreI_French::
 	db "Plus rien ", $85, $0d
 	db "dire.", $00
 
-Text_12_5ae9::
+Text_YouKnowAllThat_French::
 	db "Plus d'informations", $0d
 	db "pour toi.", $00
 
-Text_12_5b07::
+Text_ComeBackAndSee_French::
 	db "Reviens me voir", $0d
 	db "plus tard.", $0d
 	db "Au revoir!", $00
 
-Text_12_5b2d::
+Text_DontKnowAnyMore_French::
 	db "Je ne sais rien", $0d
 	db "de plus.", $00
 
-Text_12_5b46::
+Text_ThatsAllThereIs_French::
 	db "C'est tout.", $0d
 	db "Voil", $85, ".", $0d
 	db "C'est tout.", $00
 
-Text_12_5b65::
+Text_SoLongSuckersTry_French::
 	db "A plus!", $0d
 	db "Et puis bonne", $0d
 	db "chance surtout!", $00
 
-Text_12_5b8b::
+Text_ThatsAllTheGood_French::
 	db "C'est tout.", $0d
 	db "Cranky ne dit", $0d
 	db "plus rien.", $00
 
-Text_12_5bb0::
+Text_ImGettingTiredI_French::
 	db "J'ai sommeil.Je vais", $0d
 	db "faire ma sieste!", $00
 
-Text_12_5bd6::
+Text_YouPracticallyKnowMore_French::
 	db "Tu en sais plus que", $0d
 	db "moi, maintenant.", $0d
 	db "Enfin, presque...", $00
 
-Text_12_5c0d::
+Text_DontHaveAnythingElse_French::
 	db "J'ai plus rien ", $85, $0d
 	db "dire. A plus tard.", $0d
 	db "Au revoir.", $00
 
-Text_12_5c3c::
+Text_ICouldJustRock_French::
 	db "Tu vas me laisser", $0d
 	db "tranquille,", $0d
 	db "maintenant?", $00
 
-Text_12_5c66::
+Text_GottaGoNowIll_French::
 	db "Je m'en vais.", $0d
 	db "A la prochaine", $0d
 	db "les poussins!", $00
 
-Text_12_5c91::
+Text_WellThatsAboutThe_French::
 	db "Bah voil", $85, "...", $0d
 	db "C'est tout!", $00
 
-Text_12_5caa::
+Text_IsThatTheTime_French::
 	db "Tu as l'heure?", $0d
 	db "Je me tire.", $00
 
-Text_12_5cc5::
+Text_ICouldTellYou_French::
 	db "Je pourrais te ra-", $0d
 	db "conter ma vie toute", $0d
 	db "la journ", $82, "e!", $00
 
-Text_12_5cf8::
+Text_YallComeBackSoon_French::
 	db "A la prochaine.", $0d
 	db "Tchao!", $00
 
-Text_12_5d0f::
+Text_IfYouGetStuck_French::
 	db "Si tu es coinc", $82, ",", $0d
 	db "reviens me voir.", $00
 
-Text_12_5d31::
+Text_CantSayIExpect_French::
 	db "A mon avis...", $0d
 	db "On va se revoir.", $0d
 	db "C'est m", $88, "me s", $96, "r.", $00
 
-Text_12_5d60::
+Text_ItsBeenNiceTalking_French::
 	db "Merci de", $0d
 	db "m'avoir parl", $82, ".", $00
 
-Text_12_5d78::
+Text_EhSonnySpeakUp_French::
 	db "Parle plus fort.", $0d
 	db "J'entends rien.", $00
 
-Text_12_5d99::
+Text_IveSeenEnoughThat_French::
 	db "Ca suffit!", $0d
 	db "Eteins-moi cette", $0d
 	db "cravate!", $00
 
-Text_12_5dbe::
+Text_ThisColorScreensMaking_French::
 	db "Ces couleurs me", $0d
 	db "rendent malade!", $0d
 	db "Eteins!", $00
 
-Text_12_5de6::
+Text_AllThisGamePlay_French::
 	db "Ce jeu est trop", $0d
 	db "fort. Je vais me", $0d
 	db "coucher.", $00
 
-Text_12_5e10::
+Text_RememberTheOriginalDonkey_French::
 	db "Tu te souviens du", $0d
 	db "premier Donkey", $0d
 	db "Kong%? Je vais en", $0d
@@ -1101,12 +1101,12 @@ Text_12_5e10::
 	db "partie. Salut!", $0d
 	db $00
 
-Text_12_5e65::
+Text_TooManyBaddiesHere_French::
 	db "Trop de m", $82, "chants", $0d
 	db "ici. Je vais me", $0d
 	db "coucher!", $00
 
-Text_12_5e8f::
+Text_IdAskYaIn_French::
 	db "Je t'inviterais", $0d
 	db "bien, mais il n'y a", $0d
 	db $0d
@@ -1115,25 +1115,25 @@ Text_12_5e8f::
 	db "m", $82, "moire!", $0d
 	db $00
 
-Text_12_5ecd::
+Text_OffYouGoSee_French::
 	db "Dehors!! Termine", $0d
 	db "donc ce jeu sans", $0d
 	db "moi pour voir.", $00
 
-Text_12_5efe::
+Text_ShutTheGateOn_French::
 	db "Ferme la porte en", $0d
 	db "partant.O", $97, " as-tu ", $82, "t", $82, $0d
 	db $82, "lev", $82, ", hein?", $00
 
-Text_12_5f32::
+Text_SeeYaLaterAlligator_French::
 	db "A plus tard!", $0d
 	db "Ha! Ha!", $00
 
-Text_12_5f47::
+Text_AfterAWhileCrocodile_French::
 	db "A bient", $93, "t!", $0d
 	db "Ho! Ho!", $00
 
-Text_12_5f5a::
+Text_HiImCandyKong_French::
 	db "Je suis Candy Kong.", $0d
 	db "Voici un point de", $0d
 	db "Challenge.", $0d
@@ -1142,42 +1142,42 @@ Text_12_5f5a::
 	db "dans ce joli", $0d
 	db "tonneau.", $00
 
-Text_12_5fad::
+Text_HelloGuysDoYou_French::
 	db "Bonjour les petits!", $0d
 	db "Vous voulez gagner", $0d
 	db "des objets ", $85, " bonus?", $00
 
-Text_12_5fe8::
+Text_CanIHelpYou_French::
 	db "Alors les singes...", $0d
 	db "On veut gagner des", $0d
 	db "objets ", $85, " bonus?", $00
 
-Text_12_601f::
+Text_HowWouldYouLike_French::
 	db "Ca vous tente de", $0d
 	db "sauter dans le ton-", $0d
 	db "neau qui tourne?", $00
 
-Text_12_6055::
+Text_YooHooHoneyKong_French::
 	db "Coucou! C'est", $0d
 	db "l'heure de", $0d
 	db "jouer!", $00
 
-Text_12_6075::
+Text_IfYouFancyA_French::
 	db "Tu en fais des", $0d
 	db "efforts! Tu veux", $0d
 	db "un Challenge?", $00
 
-Text_12_60a3::
+Text_YouGuysAreReally_French::
 	db "Vous ", $88, "tes si forts!", $0d
 	db "Tentez donc un", $0d
 	db "Challenge!", $00
 
-Text_12_60d1::
+Text_SeeYaLaterBoys_French::
 	db "A plus les gars.", $0d
 	db "Vous avez d", $82, "j", $85, $0d
 	db "r", $82, "ussi ce challenge!", $00
 
-Text_12_6106::
+Text_WhoaDudesImFunky_French::
 	db "Les copains!", $0d
 	db "J'suis Funky Kong!", $0d
 	db $0d
@@ -1194,52 +1194,52 @@ Text_12_6106::
 	db $0d
 	db $00
 
-Text_12_619f::
+Text_YeahKongsLikeJump_French::
 	db "Les Kongs! Ca vous", $0d
 	db "dit de sauter et", $0d
 	db "de...planer?", $00
 
-Text_12_61d0::
+Text_NeedSomeLivesGet_French::
 	db "Tu veux des vies?", $0d
 	db "En route vers", $0d
 	db "Jungle Poisse.", $00
 
-Text_12_61ff::
+Text_YoGorillasSeekThe_French::
 	db "Les gorilles!", $0d
 	db "Cranky c'est le", $0d
 	db "roi des jeux, non?", $00
 
-Text_12_6230::
+Text_LookinGoodKongsBelt_French::
 	db "Ca roule ma poule!", $0d
 	db "En voiture et c'est", $0d
 	db "parti!", $00
 
-Text_12_625e::
+Text_HeyDudesTellCandy_French::
 	db "Dites ", $85, " Candy que", $0d
 	db "c'est gratuit pour", $0d
 	db "elle, ici!", $00
 
-Text_12_628e::
+Text_FancyAFlightDk_French::
 	db "Un p'tit vol, DK?", $0d
 	db "Tu connais le truc:", $0d
 	db "saute et vole!", $00
 
-Text_12_62c3::
+Text_DudeskiYourBudHas_French::
 	db "Visite donc un", $0d
 	db "niveau...", $0d
 	db "Mon poto!", $00
 
-Text_12_62e6::
+Text_YoDiddyLostThe_French::
 	db "Yo, Diddy! Tu as", $0d
 	db "perdu ton grand pote?", $0d
 	db "Va vite le trouver!", $00
 
-Text_12_6321::
+Text_WheresYourPalTry_French::
 	db "O", $97, " est ton pote?", $0d
 	db "Va donc dans la", $0d
 	db "jungle!", $00
 
-Text_12_634a::
+Text_WellDoneMyBoy_French::
 	db "Bien jou", $82, "!", $0d
 	db "Qui l'e", $96, "t cru?", $0d
 	db "Tu as r", $82, "ussi ", $85, $0d
@@ -1256,7 +1256,7 @@ Text_12_634a::
 	db "belle surprise!", $0d
 	db $00
 
-Text_12_63f6::
+Text_IfIWasPlaying_French::
 	db "Moi j'aurais tout", $0d
 	db "trouv", $82, "...", $0d
 	db "H", $82, " oui!", $0d
@@ -1265,7 +1265,7 @@ Text_12_63f6::
 	db "quelque part...", $0d
 	db "C'est s", $96, "r!", $00
 
-Text_12_6449::
+Text_WhatAPlayerDk_French::
 	db "DK, quel talent!", $0d
 	db "Tu as battu les gros", $0d
 	db "Kremlings et tout", $0d
@@ -1274,347 +1274,347 @@ Text_12_6449::
 	db "presque aussi fort", $0d
 	db "que moi!", $00
 
-Text_12_64ac::
+Text_DkMyBoyWhere_French::
 	db "DK, mon petit!", $0d
 	db "O", $97, " est Diddy?", $00
 
-Text_12_64c9::
+Text_DkYouYoungWhippersnapper_French::
 	db "DK, mon copain!", $0d
 	db "Ca faisait une", $0d
 	db "sacr", $82, "e paye!", $00
 
-Text_12_64f5::
+Text_DonkeyBoyItSeems_French::
 	db "Donkey! Ca fait", $0d
 	db "des ann", $82, "es!!!", $0d
 	db "Quel choc!", $00
 
-Text_12_651e::
+Text_YouNeverVisitYour_French::
 	db "Tu ne viens jamais", $0d
 	db "voir ton gentil", $0d
 	db "p", $82, "p", $82, "!", $00
 
-Text_12_6547::
+Text_HeyCanYouSpare_French::
 	db "Tu donnes des", $0d
 	db "bananes ", $85, " ton", $0d
 	db "gentil p", $82, "p", $82, "?", $00
 
-Text_12_6570::
+Text_AndWhatHaveYou_French::
 	db "Tu as un cadeau", $0d
 	db "pour ton gentil", $0d
 	db "p", $82, "p", $82, "?", $00
 
-Text_12_6596::
+Text_WellYouveAmazedYour_French::
 	db "Tu as ", $82, "tonn", $82, " ton", $0d
 	db "vieux p", $82, "p", $82, "!", $0d
 	db "Bien jou", $82, "!", $00
 
-Text_12_65be::
+Text_AtLastYouveCome_French::
 	db "Tu viens enfin", $0d
 	db "chercher conseil", $0d
 	db "chez ton vieux p", $82, "p", $82, "!", $00
 
-Text_12_65f3::
+Text_DiddyMyBoyWheres_French::
 	db "Diddy!", $0d
 	db "O", $97, " est DK?", $00
 
-Text_12_6605::
+Text_DiddyMyYoungPup_French::
 	db "Diddy, mon ch", $82, "ri!", $0d
 	db "Tu as tant grandi!", $0d
 	db "Fouiii...", $00
 
-Text_12_6634::
+Text_Error_French::
 	db "ERREUR", $0d
 	db $00
 
-Text_12_663c::
+Text_RopeyRampage_French::
 	db "Kordes", $0d
 	db "Karnage", $0c, $0d
 	db $00
 
-Text_12_664d::
+Text_OrangUtanGang_French::
 	db "Gang", $0d
 	db "Outang", $0c, $0d
 	db $00
 
-Text_12_665b::
+Text_BarrelCannonCanyon_French::
 	db "Canyons", $0d
 	db "Canons", $0c, $0d
 	db $00
 
-Text_12_666c::
+Text_ReptileRumble_French::
 	db "Ravage", $0d
 	db "Reptile", $0c, $0d
 	db $00
 
-Text_12_667d::
+Text_BouncyBonanza_French::
 	db "Butin", $0d
 	db "Barouf", $0c, $0d
 	db $00
 
-Text_12_668c::
+Text_ManicMincers_French::
 	db "Pinceurs", $0d
 	db "Maniaques", $0c, $0d
 	db $00
 
-Text_12_66a1::
+Text_ElevatorAntics_French::
 	db "Ascenseur", $0d
 	db "Antique", $0c, $0d
 	db $00
 
-Text_12_66b5::
+Text_PlatformPerils_French::
 	db "PlateForme", $0d
 	db "P", $82, "ril", $0c, $0d
 	db $00
 
-Text_12_66c8::
+Text_TrickTrackTrek_French::
 	db "Trajet", $0d
 	db "Toc-Toc", $0c, $0d
 	db $00
 
-Text_12_66d9::
+Text_TankedUpTrouble_French::
 	db "Trouble", $0d
 	db "Toqu", $82, $0c, $0d
 	db $00
 
-Text_12_66e9::
+Text_MineCartMadness_French::
 	db "Mine", $0d
 	db "Malade", $0c, $0d
 	db $00
 
-Text_12_66f7::
+Text_WinkysWalkway_French::
 	db "Passage de", $0d
 	db "Winky", $0c, $0d
 	db $00
 
-Text_12_670a::
+Text_MistyMine_French::
 	db "Mine Brume", $0c, $0d
 	db $00
 
-Text_12_6717::
+Text_StopGoStation_French::
 	db "Station", $0d
 	db "Stop", $0c, $0d
 	db $00
 
-Text_12_6726::
+Text_LoopyLights_French::
 	db "Lumi", $8a, "re", $0d
 	db "Loufoque", $0c, $0d
 	db $00
 
-Text_12_6739::
+Text_MineCartCarnage_French::
 	db "Carnage", $0d
 	db "Minier", $0c, $0d
 	db $00
 
-Text_12_674a::
+Text_PoisonPond_French::
 	db "Point", $0d
 	db "Poison", $0c, $0d
 	db $00
 
-Text_12_6759::
+Text_CroctopusChase_French::
 	db "Croctopus", $0d
 	db "Fou", $0c, $0d
 	db $00
 
-Text_12_6769::
+Text_CoralCapers_French::
 	db "Corail", $0d
 	db "Cass", $82, $0c, $0d
 	db $00
 
-Text_12_6778::
+Text_ClamCity_French::
 	db "Cit", $82, " Clap", $0c, $0d
 	db $00
 
-Text_12_6784::
+Text_MillstoneMayhem_French::
 	db "Pierre", $0d
 	db "Myst", $8a, "re", $0c, $0d
 	db $00
 
-Text_12_6795::
+Text_TempleTempest_French::
 	db "Temple", $0d
 	db "Temp", $88, "te", $0c, $0d
 	db $00
 
-Text_12_67a6::
+Text_SnowBarrelBlast_French::
 	db "Tonneau", $0d
 	db "Neige", $0c, $0d
 	db $00
 
-Text_12_67b6::
+Text_IceAgeAlley_French::
 	db "All", $82, "e", $0d
 	db "Polaire", $0c, $0d
 	db $00
 
-Text_12_67c6::
+Text_TreeTopTown_French::
 	db "Arbre-", $0d
 	db "Ville", $0c, $0d
 	db $00
 
-Text_12_67d5::
+Text_RopeBridgeRumble_French::
 	db "Pont", $0d
 	db "Fracas", $0c, $0d
 	db $00
 
-Text_12_67e3::
+Text_VultureCulture_French::
 	db "Culture", $0d
 	db "Vautour", $0c, $0d
 	db $00
 
-Text_12_67f5::
+Text_ForestFrenzy_French::
 	db "For", $88, "t", $0d
 	db "Folle", $0c, $0d
 	db $00
 
-Text_12_6803::
+Text_SlipslideRide_French::
 	db "Course", $0d
 	db "Gliss", $82, "e", $0c, $0d
 	db $00
 
-Text_12_6814::
+Text_TorchlightTrouble_French::
 	db "Spot", $0d
 	db "Troubl", $82, $0c, $0d
 	db $00
 
-Text_12_6823::
+Text_OilDrumAlley_French::
 	db "All", $82, "e", $0d
 	db "Huileuse", $0c, $0d
 	db $00
 
-Text_12_6834::
+Text_BlackoutBasement_French::
 	db "Cave", $0d
 	db "Noire", $0c, $0d
 	db $00
 
-Text_12_6841::
+Text_JungleHijinxs_French::
 	db "Jungle", $0d
 	db "Poisse", $0c, $0d
 	db $00
 
-Text_12_6851::
+Text_KongoJungle_French::
 	db "Jungle", $0d
 	db "Kongo", $0d
 	db $00
 
-Text_12_685f::
+Text_MonkeyMines_French::
 	db "Mines", $0d
 	db "Macaques", $0d
 	db $00
 
-Text_12_686f::
+Text_VineValley_French::
 	db "Val. Vigne", $0d
 	db $00
 
-Text_12_687b::
+Text_GorillaGlacier_French::
 	db "Glacier", $0d
 	db "Gorille", $0d
 	db $00
 
-Text_12_688c::
+Text_KremkrocIndustries_French::
 	db "Kremkroc", $0d
 	db "s.a.r.l.", $0d
 	db $00
 
-Text_12_689f::
+Text_ChimpCaverns_French::
 	db "Cavernes", $0d
 	db "Sing", $82, "es", $0d
 	db $00
 
-Text_12_68b1::
+Text_VeryGnawtysLair_French::
 	db "Repaire", $0d
 	db "Gnawty", $0d
 	db $00
 
-Text_12_68c1::
+Text_NeckysNuts_French::
 	db "Noix", $0d
 	db "Necky", $0d
 	db $00
 
-Text_12_68cd::
+Text_BumbleBRumble_French::
 	db "Barouf", $0d
 	db "Bumble B", $0d
 	db $00
 
-Text_12_68de::
+Text_ReallyGnawtyRampage_French::
 	db "Repaire", $0d
 	db "Gros", $0d
 	db "Gnawty", $0d
 	db $00
 
-Text_12_68f3::
+Text_BossDumbDrum_French::
 	db "Boss", $0d
 	db "Tambour", $0d
 	db $00
 
-Text_12_6901::
+Text_NeckysRevenge_French::
 	db "Revanche", $0d
 	db "Necky", $0d
 	db $00
 
-Text_12_6911::
+Text_GangPlankGalleon_French::
 	db "Galion", $0d
 	db "Planqu", $82, $0d
 	db $00
 
-Text_12_6921::
+Text_CrankysCabin_French::
 	db "Case de", $0d
 	db "Cranky", $0d
 	db $00
 
-Text_12_6931::
+Text_FunkysFlights_French::
 	db "Vols de", $0d
 	db "Funky", $0d
 	db $00
 
-Text_12_6940::
+Text_CandysChallenge_French::
 	db "Chall. de", $0d
 	db "Candy", $0d
 	db $00
 
-Text_12_6951::
+Text_NeckyNutmare_French::
 	db "Niveau", $0d
 	db "Necky", $0c, $0d
 	db $00
 
-Text_12_6960::
+Text_KremlingKrackdown_French::
 	db "Kasse", $0d
 	db "Kremling", $0d
 	db $00
 
-Text_12_6970::
+Text_KremlingsAndKongs_French::
 	db "Kremlings", $0d
 	db "et Kongs", $0d
 	db $00
 
-Text_12_6984::
+Text_BarrelOKremlings_French::
 	db "Tonneau", $0d
 	db "de", $0d
 	db "Kremlings", $0d
 	db $00
 
-Text_12_699a::
+Text_Wanted_French::
 	db "Recherch", $82, $0d
 	db $00
 
-Text_12_69a5::
+Text_BuddiesBeware_French::
 	db "Gaffe ", $85, " tes", $0d
 	db "Potes", $0d
 	db $00
 
-Text_12_69b8::
+Text_CrosshairCranky_French::
 	db "Cible de", $0d
 	db "Cranky", $0d
 	db $00
 
-Text_12_69c9::
+Text_GalleonGunner_French::
 	db "Galion", $0d
 	db "Flingu", $82, $0d
 	db $00
 
-Text_12_69d9::
+Text_ReturnToIslandMap_French::
 	db "retour vers", $0d
 	db "carte ", $8c, "le", $0d
 	db $00
 
-Text_12_69f0::
+Text_INeverLikedThose_French::
 	db "J'aime pas", $0d
 	db "les stickers,", $0d
 	db $0d

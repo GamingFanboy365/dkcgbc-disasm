@@ -4,1102 +4,1102 @@ INCLUDE "include/common.inc"
 SECTION "Bank $13", ROMX[$4000], BANK[$13]
 
 TextGroups_13::
-	dw TextGroup_13_4020, TextGroup_13_40a8, TextGroup_13_405e, TextGroup_13_40be
-	dw TextGroup_13_40f4, TextGroup_13_413e, TextGroup_13_417c, TextGroup_13_417e
-	dw TextGroup_13_418c, TextGroup_13_418e, TextGroup_13_4198, TextGroup_13_419c
-	dw TextGroup_13_41a0, TextGroup_13_41ba, TextGroup_13_41ca, TextGroup_13_41ce
+	dw TextGroup_Italian_00, TextGroup_Italian_02, TextGroup_Italian_01, TextGroup_Italian_03
+	dw TextGroup_Italian_04, TextGroup_Italian_05, TextGroup_Italian_06, TextGroup_Italian_07
+	dw TextGroup_Italian_08, TextGroup_Italian_09, TextGroup_Italian_10, TextGroup_Italian_11
+	dw TextGroup_Italian_12, TextGroup_Italian_13, TextGroup_Italian_14, TextGroup_Italian_15
 
-TextGroup_13_4020::
-	dw Text_13_4244
-	dw Text_13_427f
-	dw Text_13_42ba
-	dw Text_13_42ef
-	dw Text_13_4329
-	dw Text_13_4363
-	dw Text_13_4397
-	dw Text_13_43d1
-	dw Text_13_43fe
-	dw Text_13_4433
-	dw Text_13_446f
-	dw Text_13_44a8
-	dw Text_13_44de
-	dw Text_13_4501
-	dw Text_13_4529
-	dw Text_13_4561
-	dw Text_13_458f
-	dw Text_13_45c8
-	dw Text_13_4600
-	dw Text_13_463f
-	dw Text_13_466d
-	dw Text_13_46a3
-	dw Text_13_46dd
-	dw Text_13_4714
-	dw Text_13_474f
-	dw Text_13_478d
-	dw Text_13_47c7
-	dw Text_13_47fb
-	dw Text_13_4834
-	dw Text_13_485c
-	dw Text_13_4897
+TextGroup_Italian_00::
+	dw Text_WellWellDidntExpect_Italian
+	dw Text_YoureDoingPrettyGood_Italian
+	dw Text_SoYouFoundMe_Italian
+	dw Text_WhoToldYouI_Italian
+	dw Text_WellWellLookWhat_Italian
+	dw Text_HaventSeenYouAround_Italian
+	dw Text_WhatDoYouWant_Italian
+	dw Text_AhhAtLastSomeone_Italian
+	dw Text_YoureLuckyYouCaught_Italian
+	dw Text_HaveYaBroughtBack_Italian
+	dw Text_LastTimeISaw_Italian
+	dw Text_ComeOverHereAnd_Italian
+	dw Text_WellLookyWhatWe_Italian
+	dw Text_ArentYouASight_Italian
+	dw Text_AWholeMobOf_Italian
+	dw Text_ThisHereIsRhino_Italian
+	dw Text_HeyBoyCanYou_Italian
+	dw Text_HeyBoyDidYou_Italian
+	dw Text_YouBigApeI_Italian
+	dw Text_ItsHardToFind_Italian
+	dw Text_SureComeOnOver_Italian
+	dw Text_AhhItSortaTakes_Italian
+	dw Text_ItsBeenRealBusy_Italian
+	dw Text_SureLooksLikeIm_Italian
+	dw Text_SureBeatsAVisit_Italian
+	dw Text_FancyRunningIntoYou_Italian
+	dw Text_IHaventGotEven_Italian
+	dw Text_IJustGaveMy_Italian
+	dw Text_WhatInTarnationDo_Italian
+	dw Text_IAintGotNothin_Italian
+	dw Text_BetchaWontGetMuch_Italian
 
-TextGroup_13_405e::
-	dw Text_13_48d2
-	dw Text_13_490f
-	dw Text_13_4945
-	dw Text_13_4975
-	dw Text_13_49b2
-	dw Text_13_49e9
-	dw Text_13_4a1f
-	dw Text_13_4a55
-	dw Text_13_4a8f
-	dw Text_13_4ac6
-	dw Text_13_4af3
-	dw Text_13_4b10
-	dw Text_13_4b40
-	dw Text_13_4b7b
-	dw Text_13_4bb6
-	dw Text_13_4bee
-	dw Text_13_4c2b
-	dw Text_13_4c66
-	dw Text_13_4c9f
-	dw Text_13_4cdd
-	dw Text_13_4d16
-	dw Text_13_4d4d
-	dw Text_13_4d85
-	dw Text_13_4dbd
-	dw Text_13_4df0
-	dw Text_13_4e26
-	dw Text_13_4e61
-	dw Text_13_4e8d
-	dw Text_13_4ec6
-	dw Text_13_4f02
-	dw Text_13_4f34
-	dw Text_13_4f6f
-	dw Text_13_4fa9
-	dw Text_13_4fe2
-	dw Text_13_501e
-	dw Text_13_5054
-	dw Text_13_508c
+TextGroup_Italian_01::
+	dw Text_TheKidsOfToday_Italian
+	dw Text_TheVideoGamesIn_Italian
+	dw Text_AllThisFunCant_Italian
+	dw Text_BetThisSectionWasted_Italian
+	dw Text_TheyCantKeepThis_Italian
+	dw Text_WeWereLuckyIf_Italian
+	dw Text_WeUsedToHave_Italian
+	dw Text_ThemBarrelsWereA_Italian
+	dw Text_WeNeverHadAny_Italian
+	dw Text_WeJustHadTo_Italian
+	dw Text_IveNeverSeenAnything_Italian
+	dw Text_EnjoyThisDemoGame_Italian
+	dw Text_FourShadesOfGray_Italian
+	dw Text_ICantPlayThis_Italian
+	dw Text_TheBananasHaveMore_Italian
+	dw Text_LookAtThisMy_Italian
+	dw Text_ThatWasWhenWe_Italian
+	dw Text_UsedAllTheLatest_Italian
+	dw Text_TheTroubleWithYou_Italian
+	dw Text_GamesWereALot_Italian
+	dw Text_WedPlayForHours_Italian
+	dw Text_YouWouldntLastTwo_Italian
+	dw Text_ICouldGetThrough_Italian
+	dw Text_ImTalkingAboutWhen_Italian
+	dw Text_ThreeLivesAndThree_Italian
+	dw Text_GamesNeverLookedLike_Italian
+	dw Text_AndWeWereMuch_Italian
+	dw Text_BetYouThoughtThis_Italian
+	dw Text_MyBigToesGot_Italian
+	dw Text_YknowWhatTheySay_Italian
+	dw Text_With32MegYoud_Italian
+	dw Text_BackInMyDay_Italian
+	dw Text_WhatsEvenWorseYou_Italian
+	dw Text_YouWouldntKnowA_Italian
+	dw Text_AJoystickAndOne_Italian
+	dw Text_IWouldntBeSeen_Italian
+	dw Text_YouCantBetterThe_Italian
 
-TextGroup_13_40a8::
-	dw Text_13_50c0
-	dw Text_13_50ff
-	dw Text_13_513b
-	dw Text_13_5172
-	dw Text_13_5199
-	dw Text_13_51bd
-	dw Text_13_51f2
-	dw Text_13_5226
-	dw Text_13_524b
-	dw Text_13_527b
-	dw Text_13_52b2
+TextGroup_Italian_02::
+	dw Text_SoYerBackAgain_Italian
+	dw Text_TooQuickIDidnt_Italian
+	dw Text_ImJustWastingMy_Italian
+	dw Text_YouHaveToDo_Italian
+	dw Text_YouOnlyJustLeft_Italian
+	dw Text_BackAgainEhThat_Italian
+	dw Text_CameBackToThe_Italian
+	dw Text_StillGotYouBeat_Italian
+	dw Text_YupDontMakeGame_Italian
+	dw Text_DyaExpectMeTo_Italian
+	dw Text_HowDareYouShow_Italian
 
-TextGroup_13_40be::
-	dw Text_13_52ec
-	dw Text_13_5325
-	dw Text_13_5363
-	dw Text_13_539e
-	dw Text_13_53d5
-	dw Text_13_5410
-	dw Text_13_544b
-	dw Text_13_5481
-	dw Text_13_54bd
-	dw Text_13_54f8
-	dw Text_13_5528
-	dw Text_13_5562
-	dw Text_13_559f
-	dw Text_13_55d5
-	dw Text_13_5614
-	dw Text_13_564b
-	dw Text_13_568a
-	dw Text_13_56be
-	dw Text_13_56f7
-	dw Text_13_5734
-	dw Text_13_5772
-	dw Text_13_57ad
-	dw Text_13_57e6
-	dw Text_13_5820
-	dw Text_13_5857
-	dw Text_13_588c
-	dw Text_13_58c6
+TextGroup_Italian_03::
+	dw Text_InJungleHijinxsStick_Italian
+	dw Text_FindTheFunJust_Italian
+	dw Text_ALeapOfFaith_Italian
+	dw Text_GoBananasInThe_Italian
+	dw Text_CroctopusCornersCrocksOf_Italian
+	dw Text_BurnRubberForThe_Italian
+	dw Text_TheBananasInStop_Italian
+	dw Text_JumpEarlyToGet_Italian
+	dw Text_RollingRubberWillPut_Italian
+	dw Text_OnSnowBarrelBlast_Italian
+	dw Text_OnCroctopusChaseA_Italian
+	dw Text_ToGetYourWings_Italian
+	dw Text_BouncingTheBouncerSlides_Italian
+	dw Text_TheTntGivesWall_Italian
+	dw Text_ForElevatorAnticsClimb_Italian
+	dw Text_TheGnawtyGnowsA_Italian
+	dw Text_MineCartMadnessIs_Italian
+	dw Text_OnceInThePoison_Italian
+	dw Text_BlackoutBasementsSinkingFeeling_Italian
+	dw Text_LetDiddyHoldOut_Italian
+	dw Text_TakeEnoughRopeAnd_Italian
+	dw Text_TheLoopyLightsVultures_Italian
+	dw Text_PerilousVulturesKnowIts_Italian
+	dw Text_AllGassedUpAnd_Italian
+	dw Text_TheOrangUtanGang_Italian
+	dw Text_ASingleBananaIs_Italian
+	dw Text_GetDownWithThe_Italian
 
-TextGroup_13_40f4::
-	dw Text_13_58fb
-	dw Text_13_5934
-	dw Text_13_596d
-	dw Text_13_59a7
-	dw Text_13_59e0
-	dw Text_13_5a16
-	dw Text_13_5a50
-	dw Text_13_5a8b
-	dw Text_13_5ac5
-	dw Text_13_5b00
-	dw Text_13_5b38
-	dw Text_13_5b6e
-	dw Text_13_5bab
-	dw Text_13_5bd6
-	dw Text_13_5bff
-	dw Text_13_5c32
-	dw Text_13_5c6b
-	dw Text_13_5c96
-	dw Text_13_5cd0
-	dw Text_13_5d03
-	dw Text_13_5d3a
-	dw Text_13_5d77
-	dw Text_13_5daf
-	dw Text_13_5de8
-	dw Text_13_5e1f
-	dw Text_13_5e54
-	dw Text_13_5e54
-	dw Text_13_5e8f
-	dw Text_13_5ec2
-	dw Text_13_5efc
-	dw Text_13_5f36
-	dw Text_13_5f67
-	dw Text_13_7108
-	dw Text_13_7108
-	dw Text_13_7108
-	dw Text_13_7108
-	dw Text_13_7108
+TextGroup_Italian_04::
+	dw Text_AHandSlapCan_Italian
+	dw Text_HeCantReallyFly_Italian
+	dw Text_EnguardeSwordfishWillHelp_Italian
+	dw Text_CandysChallengesCanWin_Italian
+	dw Text_RollOffAPlatform_Italian
+	dw Text_TheySayIfYou_Italian
+	dw Text_IHearYouCan_Italian
+	dw Text_ReckonRambiRhinoCould_Italian
+	dw Text_BounceAKegOff_Italian
+	dw Text_RollAttackABaddie_Italian
+	dw Text_BounceOnEightBaddies_Italian
+	dw Text_TheySayExpressosLegs_Italian
+	dw Text_BreakOpenAStar_Italian
+	dw Text_JustFinishALevel_Italian
+	dw Text_FunkySendsYouWhere_Italian
+	dw Text_DisguisedHolesOnThe_Italian
+	dw Text_BananaArrowsWillPoint_Italian
+	dw Text_IfYouFindBananas_Italian
+	dw Text_SmashOpenAnyDk_Italian
+	dw Text_GrabThemExtraLife_Italian
+	dw Text_KlapTrapTeethStop_Italian
+	dw Text_YouCantJumpOn_Italian
+	dw Text_KlumpsHatProtectsAgainst_Italian
+	dw Text_KrushaIsToughOnly_Italian
+	dw Text_FloatingBarrelsWillBreak_Italian
+	dw Text_FollowSteelKegsAnd_Italian
+	dw Text_FollowSteelKegsAnd_Italian
+	dw Text_RunAndJumpOn_Italian
+	dw Text_JumpOnFixedTires_Italian
+	dw Text_PushFreeTiresTo_Italian
+	dw Text_RollOverSlippaOr_Italian
+	dw Text_GnawtyBeaverCanBe_Italian
+	dw Text_INeverLikedThose_Italian
+	dw Text_INeverLikedThose_Italian
+	dw Text_INeverLikedThose_Italian
+	dw Text_INeverLikedThose_Italian
+	dw Text_INeverLikedThose_Italian
 
-TextGroup_13_413e::
-	dw Text_13_5f96
-	dw Text_13_5fb3
-	dw Text_13_5fd9
-	dw Text_13_6001
-	dw Text_13_6023
-	dw Text_13_6046
-	dw Text_13_607b
-	dw Text_13_60b0
-	dw Text_13_60ee
-	dw Text_13_6115
-	dw Text_13_6139
-	dw Text_13_6164
-	dw Text_13_619f
-	dw Text_13_61cd
-	dw Text_13_61ed
-	dw Text_13_620d
-	dw Text_13_6246
-	dw Text_13_626a
-	dw Text_13_6287
-	dw Text_13_62c0
-	dw Text_13_62de
-	dw Text_13_6306
-	dw Text_13_633c
-	dw Text_13_6376
-	dw Text_13_63b0
-	dw Text_13_63fd
-	dw Text_13_6438
-	dw Text_13_6473
-	dw Text_13_64ad
-	dw Text_13_64e4
-	dw Text_13_6502
+TextGroup_Italian_05::
+	dw Text_ThatsAllSheWrote_Italian
+	dw Text_TheresNothingMoreI_Italian
+	dw Text_YouKnowAllThat_Italian
+	dw Text_ComeBackAndSee_Italian
+	dw Text_DontKnowAnyMore_Italian
+	dw Text_ThatsAllThereIs_Italian
+	dw Text_SoLongSuckersTry_Italian
+	dw Text_ThatsAllTheGood_Italian
+	dw Text_ImGettingTiredI_Italian
+	dw Text_YouPracticallyKnowMore_Italian
+	dw Text_DontHaveAnythingElse_Italian
+	dw Text_ICouldJustRock_Italian
+	dw Text_GottaGoNowIll_Italian
+	dw Text_WellThatsAboutThe_Italian
+	dw Text_IsThatTheTime_Italian
+	dw Text_ICouldTellYou_Italian
+	dw Text_YallComeBackSoon_Italian
+	dw Text_IfYouGetStuck_Italian
+	dw Text_CantSayIExpect_Italian
+	dw Text_ItsBeenNiceTalking_Italian
+	dw Text_EhSonnySpeakUp_Italian
+	dw Text_IveSeenEnoughThat_Italian
+	dw Text_ThisColorScreensMaking_Italian
+	dw Text_AllThisGamePlay_Italian
+	dw Text_RememberTheOriginalDonkey_Italian
+	dw Text_TooManyBaddiesHere_Italian
+	dw Text_IdAskYaIn_Italian
+	dw Text_OffYouGoSee_Italian
+	dw Text_ShutTheGateOn_Italian
+	dw Text_SeeYaLaterAlligator_Italian
+	dw Text_AfterAWhileCrocodile_Italian
 
-TextGroup_13_417c::
-	dw Text_13_6515
+TextGroup_Italian_06::
+	dw Text_HiImCandyKong_Italian
 
-TextGroup_13_417e::
-	dw Text_13_657e
-	dw Text_13_65b6
-	dw Text_13_65e4
-	dw Text_13_661d
-	dw Text_13_6653
-	dw Text_13_6686
-	dw Text_13_66bf
+TextGroup_Italian_07::
+	dw Text_HelloGuysDoYou_Italian
+	dw Text_CanIHelpYou_Italian
+	dw Text_HowWouldYouLike_Italian
+	dw Text_YooHooHoneyKong_Italian
+	dw Text_IfYouFancyA_Italian
+	dw Text_YouGuysAreReally_Italian
+	dw Text_SeeYaLaterBoys_Italian
 
-TextGroup_13_418c::
-	dw Text_13_66f1
+TextGroup_Italian_08::
+	dw Text_WhoaDudesImFunky_Italian
 
-TextGroup_13_418e::
-	dw Text_13_678e
-	dw Text_13_67c4
-	dw Text_13_67fa
-	dw Text_13_6833
-	dw Text_13_6871
+TextGroup_Italian_09::
+	dw Text_YeahKongsLikeJump_Italian
+	dw Text_NeedSomeLivesGet_Italian
+	dw Text_YoGorillasSeekThe_Italian
+	dw Text_LookinGoodKongsBelt_Italian
+	dw Text_HeyDudesTellCandy_Italian
 
-TextGroup_13_4198::
-	dw Text_13_68a7
-	dw Text_13_68e3
+TextGroup_Italian_10::
+	dw Text_FancyAFlightDk_Italian
+	dw Text_DudeskiYourBudHas_Italian
 
-TextGroup_13_419c::
-	dw Text_13_691e
-	dw Text_13_694f
+TextGroup_Italian_11::
+	dw Text_YoDiddyLostThe_Italian
+	dw Text_WheresYourPalTry_Italian
 
-TextGroup_13_41a0::
-	dw Text_13_6982
-	dw Text_13_6a45
-	dw Text_13_6a45
-	dw Text_13_6a45
-	dw Text_13_6a45
-	dw Text_13_6a45
-	dw Text_13_6a45
-	dw Text_13_6a45
-	dw Text_13_6aa6
-	dw Text_13_6b0c
-	dw Text_13_6b0c
-	dw Text_13_6b0c
-	dw Text_13_6b0c
+TextGroup_Italian_12::
+	dw Text_WellDoneMyBoy_Italian
+	dw Text_IfIWasPlaying_Italian
+	dw Text_IfIWasPlaying_Italian
+	dw Text_IfIWasPlaying_Italian
+	dw Text_IfIWasPlaying_Italian
+	dw Text_IfIWasPlaying_Italian
+	dw Text_IfIWasPlaying_Italian
+	dw Text_IfIWasPlaying_Italian
+	dw Text_WhatAPlayerDk_Italian
+	dw Text_DkMyBoyWhere_Italian
+	dw Text_DkMyBoyWhere_Italian
+	dw Text_DkMyBoyWhere_Italian
+	dw Text_DkMyBoyWhere_Italian
 
-TextGroup_13_41ba::
-	dw Text_13_6b0c
-	dw Text_13_6b31
-	dw Text_13_6b65
-	dw Text_13_6b95
-	dw Text_13_6bc9
-	dw Text_13_6bfd
-	dw Text_13_6c34
-	dw Text_13_6c6f
+TextGroup_Italian_13::
+	dw Text_DkMyBoyWhere_Italian
+	dw Text_DkYouYoungWhippersnapper_Italian
+	dw Text_DonkeyBoyItSeems_Italian
+	dw Text_YouNeverVisitYour_Italian
+	dw Text_HeyCanYouSpare_Italian
+	dw Text_AndWhatHaveYou_Italian
+	dw Text_WellYouveAmazedYour_Italian
+	dw Text_AtLastYouveCome_Italian
 
-TextGroup_13_41ca::
-	dw Text_13_6ca6
-	dw Text_13_6cc1
+TextGroup_Italian_14::
+	dw Text_DiddyMyBoyWheres_Italian
+	dw Text_DiddyMyYoungPup_Italian
 
-TextGroup_13_41ce::
-	dw Text_13_6cfa
-	dw Text_13_6d02
-	dw Text_13_6d11
-	dw Text_13_6d26
-	dw Text_13_6d3a
-	dw Text_13_6d4d
-	dw Text_13_6d5b
-	dw Text_13_6d6a
-	dw Text_13_6d7d
-	dw Text_13_6d8d
-	dw Text_13_6da3
-	dw Text_13_6db1
-	dw Text_13_6dc2
-	dw Text_13_6dd3
-	dw Text_13_6de5
-	dw Text_13_6dfa
-	dw Text_13_6e07
-	dw Text_13_6e17
-	dw Text_13_6e29
-	dw Text_13_6e3f
-	dw Text_13_6e54
-	dw Text_13_6e66
-	dw Text_13_6e7a
-	dw Text_13_6e8c
-	dw Text_13_6e9c
-	dw Text_13_6eab
-	dw Text_13_6ebe
-	dw Text_13_6ecf
-	dw Text_13_6ee2
-	dw Text_13_6ef5
-	dw Text_13_6f05
-	dw Text_13_6f19
-	dw Text_13_6f2e
-	dw Text_13_6f40
-	dw Text_13_6f52
-	dw Text_13_6f65
-	dw Text_13_6f77
-	dw Text_13_6f86
-	dw Text_13_6f9c
-	dw Text_13_6fab
-	dw Text_13_6fbc
-	dw Text_13_6fce
-	dw Text_13_6fdd
-	dw Text_13_6feb
-	dw Text_13_6ffc
-	dw Text_13_700d
-	dw Text_13_7020
-	dw Text_13_7031
-	dw Text_13_7044
-	dw Text_13_7054
-	dw Text_13_7079
-	dw Text_13_708c
-	dw Text_13_70a0
-	dw Text_13_70b4
-	dw Text_13_70bf
-	dw Text_13_70d0
-	dw Text_13_7067
-	dw Text_13_70f6
-	dw Text_13_70e2
+TextGroup_Italian_15::
+	dw Text_Error_Italian
+	dw Text_RopeyRampage_Italian
+	dw Text_OrangUtanGang_Italian
+	dw Text_BarrelCannonCanyon_Italian
+	dw Text_ReptileRumble_Italian
+	dw Text_BouncyBonanza_Italian
+	dw Text_ManicMincers_Italian
+	dw Text_ElevatorAntics_Italian
+	dw Text_PlatformPerils_Italian
+	dw Text_TrickTrackTrek_Italian
+	dw Text_TankedUpTrouble_Italian
+	dw Text_MineCartMadness_Italian
+	dw Text_WinkysWalkway_Italian
+	dw Text_MistyMine_Italian
+	dw Text_StopGoStation_Italian
+	dw Text_LoopyLights_Italian
+	dw Text_MineCartCarnage_Italian
+	dw Text_PoisonPond_Italian
+	dw Text_CroctopusChase_Italian
+	dw Text_CoralCapers_Italian
+	dw Text_ClamCity_Italian
+	dw Text_MillstoneMayhem_Italian
+	dw Text_TempleTempest_Italian
+	dw Text_SnowBarrelBlast_Italian
+	dw Text_IceAgeAlley_Italian
+	dw Text_TreeTopTown_Italian
+	dw Text_RopeBridgeRumble_Italian
+	dw Text_VultureCulture_Italian
+	dw Text_ForestFrenzy_Italian
+	dw Text_SlipslideRide_Italian
+	dw Text_TorchlightTrouble_Italian
+	dw Text_OilDrumAlley_Italian
+	dw Text_BlackoutBasement_Italian
+	dw Text_JungleHijinxs_Italian
+	dw Text_KongoJungle_Italian
+	dw Text_MonkeyMines_Italian
+	dw Text_VineValley_Italian
+	dw Text_GorillaGlacier_Italian
+	dw Text_KremkrocIndustries_Italian
+	dw Text_ChimpCaverns_Italian
+	dw Text_VeryGnawtysLair_Italian
+	dw Text_NeckysNuts_Italian
+	dw Text_BumbleBRumble_Italian
+	dw Text_ReallyGnawtyRampage_Italian
+	dw Text_BossDumbDrum_Italian
+	dw Text_NeckysRevenge_Italian
+	dw Text_GangPlankGalleon_Italian
+	dw Text_CrankysCabin_Italian
+	dw Text_FunkysFlights_Italian
+	dw Text_CandysChallenge_Italian
+	dw Text_KremlingKrackdown_Italian
+	dw Text_KremlingsAndKongs_Italian
+	dw Text_BarrelOKremlings_Italian
+	dw Text_Wanted_Italian
+	dw Text_BuddiesBeware_Italian
+	dw Text_CrosshairCranky_Italian
+	dw Text_NeckyNutmare_Italian
+	dw Text_ReturnToIslandMap_Italian
+	dw Text_GalleonGunner_Italian
 
-Text_13_4244::
+Text_WellWellDidntExpect_Italian::
 	db "Bene, bene! Non mi", $0d
 	db "aspettavo proprio di", $0d
 	db "trovarti qui oggi!", $00
 
-Text_13_427f::
+Text_YoureDoingPrettyGood_Italian::
 	db "Te la cavi davvero", $0d
 	db "bene per essere cos", $8d, $0d
 	db "lontano da casa...", $00
 
-Text_13_42ba::
+Text_SoYouFoundMe_Italian::
 	db "E cos", $8d, " mi hai", $0d
 	db "scovato, scimmione!", $0d
 	db "Dimmi, cosa vuoi?!", $00
 
-Text_13_42ef::
+Text_WhoToldYouI_Italian::
 	db "Chi ti ha detto che", $0d
 	db "ero qui?! Quella", $0d
 	db "spia di Funky Kong?!", $00
 
-Text_13_4329::
+Text_WellWellLookWhat_Italian::
 	db "Ehi! Guarda un po'", $0d
 	db "cosa ha fatto quel", $0d
 	db "gatto spelacchiato!", $00
 
-Text_13_4363::
+Text_HaventSeenYouAround_Italian::
 	db "Era un bel pezzo", $0d
 	db "che non ti vedevo", $0d
 	db "da queste parti!", $00
 
-Text_13_4397::
+Text_WhatDoYouWant_Italian::
 	db "Che vuoi ora, eh?", $0d
 	db "Ora sono una scimmia", $0d
 	db "rispettabile, ok?!", $00
 
-Text_13_43d1::
+Text_AhhAtLastSomeone_Italian::
 	db "Oh, finalmente!", $0d
 	db "Qualcuno con cui", $0d
 	db "brontolare!", $00
 
-Text_13_43fe::
+Text_YoureLuckyYouCaught_Italian::
 	db "Mi hai beccato per", $0d
 	db "un pelo, stavo", $0d
 	db "giusto per uscire!", $00
 
-Text_13_4433::
+Text_HaveYaBroughtBack_Italian::
 	db "Mi hai riportato il", $0d
 	db "casco di banane che", $0d
 	db "ti avevo prestato?!", $00
 
-Text_13_446f::
+Text_LastTimeISaw_Italian::
 	db "Ricordo che l'altra", $0d
 	db "volta facevi ancora", $0d
 	db "la pip", $8d, " a letto!", $00
 
-Text_13_44a8::
+Text_ComeOverHereAnd_Italian::
 	db "Vieni un po' qua e", $0d
 	db "fammi vedere quel", $0d
 	db "tuo muso peloso!", $00
 
-Text_13_44de::
+Text_WellLookyWhatWe_Italian::
 	db "Bene, guarda chi", $0d
 	db "c'", $8a, " qua: scimmie!", $00
 
-Text_13_4501::
+Text_ArentYouASight_Italian::
 	db "Ehi, sei brutto come", $0d
 	db "il mal di pancia?!", $00
 
-Text_13_4529::
+Text_AWholeMobOf_Italian::
 	db "Un intero esercito", $0d
 	db "di Kremling ", $8a, " appena", $0d
 	db "passato di qua!", $00
 
-Text_13_4561::
+Text_ThisHereIsRhino_Italian::
 	db "Questo ", $8a, " il paese", $0d
 	db "dei rinoceronti,", $0d
 	db "ci siamo?!", $00
 
-Text_13_458f::
+Text_HeyBoyCanYou_Italian::
 	db "Ehi! Lo sai in che", $0d
 	db "razza di catapecchia", $0d
 	db "mi hanno messo?!", $00
 
-Text_13_45c8::
+Text_HeyBoyDidYou_Italian::
 	db "Ehi, tu! Mi hai", $0d
 	db "portato quella cosa", $0d
 	db "che ti ho chiesto?!", $00
 
-Text_13_4600::
+Text_YouBigApeI_Italian::
 	db "Grasso scimmione! Si", $0d
 	db "sentono i tuoi passi", $0d
 	db "a chilometri da qui!", $00
 
-Text_13_463f::
+Text_ItsHardToFind_Italian::
 	db $d4, " dura trovare", $0d
 	db "un po' di pace", $0d
 	db "con te in giro!", $00
 
-Text_13_466d::
+Text_SureComeOnOver_Italian::
 	db "Vieni, vieni! Ne", $0d
 	db "ho abbastanza di", $0d
 	db "parlare al vento...", $00
 
-Text_13_46a3::
+Text_AhhItSortaTakes_Italian::
 	db "Ah! Rivederti qua mi", $0d
 	db "fa venire in mente", $0d
 	db "un sacco di cose!", $00
 
-Text_13_46dd::
+Text_ItsBeenRealBusy_Italian::
 	db "C'", $8a, " stato un bel da", $0d
 	db "fare qui, con tutti", $0d
 	db "quei Kremling!", $00
 
-Text_13_4714::
+Text_SureLooksLikeIm_Italian::
 	db "Mi sembra proprio di", $0d
 	db "essere il Sig. Fama", $0d
 	db "oggi. Sissignore!", $00
 
-Text_13_474f::
+Text_SureBeatsAVisit_Italian::
 	db "Meglio di una visita", $0d
 	db "della signora Kong!", $0d
 	db "Come posso aiutarti?", $00
 
-Text_13_478d::
+Text_FancyRunningIntoYou_Italian::
 	db "Bello imbattersi in", $0d
 	db "due brutti ceffi", $0d
 	db "come voi per strada!", $00
 
-Text_13_47c7::
+Text_IHaventGotEven_Italian::
 	db "Non mi ", $8a, " rimasto un", $0d
 	db "bel niente! Inutile", $0d
 	db "che chiedi.", $00
 
-Text_13_47fb::
+Text_IJustGaveMy_Italian::
 	db "Ho gi", $85, " dato l'ultimo", $0d
 	db "barile al ciccione", $0d
 	db "del tuo compare.", $00
 
-Text_13_4834::
+Text_WhatInTarnationDo_Italian::
 	db "Cosa diavolo volete,", $0d
 	db "brutte scimmiacce?", $00
 
-Text_13_485c::
+Text_IAintGotNothin_Italian::
 	db "Non ho niente per", $0d
 	db "degli scrocconi come", $0d
 	db "voi, quindi ARIA!!!", $00
 
-Text_13_4897::
+Text_BetchaWontGetMuch_Italian::
 	db "Scommetto che non", $0d
 	db "farai un passo oltre", $0d
 	db "questa catapecchia!", $00
 
-Text_13_48d2::
+Text_TheKidsOfToday_Italian::
 	db "I giovani d'oggi!!!", $0d
 	db "Senza rispetto per i", $0d
 	db "loro poveri vecchi!", $00
 
-Text_13_490f::
+Text_TheVideoGamesIn_Italian::
 	db "Animazioni come", $0d
 	db "queste ai miei tempi", $0d
 	db "ce le sognavamo!", $00
 
-Text_13_4945::
+Text_AllThisFunCant_Italian::
 	db "Tutto questo", $0d
 	db "divertimento non", $0d
 	db "ti fa certo bene!", $00
 
-Text_13_4975::
+Text_BetThisSectionWasted_Italian::
 	db "Scommetto che questa", $0d
 	db "parte spreca gi", $85, " la", $0d
 	db "met", $85, " della memoria!", $00
 
-Text_13_49b2::
+Text_TheyCantKeepThis_Italian::
 	db "Stavolta la grafica", $0d
 	db "gli ", $8a, " venuta bene,", $0d
 	db "ma per sbaglio!", $00
 
-Text_13_49e9::
+Text_WeWereLuckyIf_Italian::
 	db "Eravamo fortunati", $0d
 	db "se avevamo tre", $0d
 	db "sfumature di grigio!", $00
 
-Text_13_4a1f::
+Text_WeUsedToHave_Italian::
 	db "Bisognava accon-", $0d
 	db "tentarsi di quei", $0d
 	db "giochi preistorici!", $00
 
-Text_13_4a55::
+Text_ThemBarrelsWereA_Italian::
 	db "E quei barili erano", $0d
 	db "ben pi", $97, " pesanti di", $0d
 	db "quel che sembrava.", $00
 
-Text_13_4a8f::
+Text_WeNeverHadAny_Italian::
 	db "Si viveva lo stesso,", $0d
 	db "senza tanta roba", $0d
 	db "tridimensionale!", $00
 
-Text_13_4ac6::
+Text_WeJustHadTo_Italian::
 	db "Dovevamo", $0d
 	db "accontentarci del", $0d
 	db "poco che avevamo!", $00
 
-Text_13_4af3::
+Text_IveNeverSeenAnything_Italian::
 	db "Mai visto niente", $0d
 	db "del genere!", $00
 
-Text_13_4b10::
+Text_EnjoyThisDemoGame_Italian::
 	db "Goditi 'sto demo", $0d
 	db "finch", $82, " puoi! Non", $0d
 	db "durer", $85, " molto.", $00
 
-Text_13_4b40::
+Text_FourShadesOfGray_Italian::
 	db "4 grigi diversi in", $0d
 	db "due dimensioni era", $0d
 	db "tutto ci", $95, " che c'era.", $00
 
-Text_13_4b7b::
+Text_ICantPlayThis_Italian::
 	db "Impossibile giocare:", $0d
 	db "colori troppo forti", $0d
 	db "per i miei occhi!", $00
 
-Text_13_4bb6::
+Text_TheBananasHaveMore_Italian::
 	db "Le banane hanno pi", $97, $0d
 	db "colori di un intero", $0d
 	db "gioco dei miei!", $00
 
-Text_13_4bee::
+Text_LookAtThisMy_Italian::
 	db "Guarda che roba! La", $0d
 	db "mia barba si muove!", $0d
 	db "Che spreco, dico io!", $00
 
-Text_13_4c2b::
+Text_ThatWasWhenWe_Italian::
 	db "Quelli s", $8d, " che erano", $0d
 	db "giochi divertenti,", $0d
 	db "altro che questi...", $00
 
-Text_13_4c66::
+Text_UsedAllTheLatest_Italian::
 	db "Hai usato tutte le", $0d
 	db "ultime diavolerie", $0d
 	db "moderne a 3D, vero?", $00
 
-Text_13_4c9f::
+Text_TheTroubleWithYou_Italian::
 	db "Il vostro problema ", $8a, $0d
 	db "che non avete spina", $0d
 	db "dorsale, figli miei!", $00
 
-Text_13_4cdd::
+Text_GamesWereALot_Italian::
 	db "I giochi erano ben", $0d
 	db "pi", $97, " duri quando ero", $0d
 	db "giovane e virile!", $00
 
-Text_13_4d16::
+Text_WedPlayForHours_Italian::
 	db "Giocavamo per ore", $0d
 	db "e ore su un solo", $0d
 	db "schermo, che forza!", $00
 
-Text_13_4d4d::
+Text_YouWouldntLastTwo_Italian::
 	db "Non andresti oltre", $0d
 	db "il minuto, in un", $0d
 	db "gioco come dico io!", $00
 
-Text_13_4d85::
+Text_ICouldGetThrough_Italian::
 	db "Potrei finire 'sto", $0d
 	db "gioco con una sola", $0d
 	db "vita, elementare!", $00
 
-Text_13_4dbd::
+Text_ImTalkingAboutWhen_Italian::
 	db "Sto parlando di", $0d
 	db "quando i giochi", $0d
 	db "erano VERI giochi!", $00
 
-Text_13_4df0::
+Text_ThreeLivesAndThree_Italian::
 	db "3 vite e 3 continua", $0d
 	db "era tutto ci", $95, " che", $0d
 	db "avevamo allora!", $00
 
-Text_13_4e26::
+Text_GamesNeverLookedLike_Italian::
 	db "I giochi erano ben", $0d
 	db "diversi quando ero", $0d
 	db "una giovane scimmia.", $00
 
-Text_13_4e61::
+Text_AndWeWereMuch_Italian::
 	db "Stavamo molto", $0d
 	db "meglio ai miei", $0d
 	db "tempi, sicuro!", $00
 
-Text_13_4e8d::
+Text_BetYouThoughtThis_Italian::
 	db "Scommetto che ti", $0d
 	db "aspettavi un 64-bit,", $0d
 	db "non ", $8a, " forse vero?!", $00
 
-Text_13_4ec6::
+Text_MyBigToesGot_Italian::
 	db "Ho giocato pi", $97, " io di", $0d
 	db "voi con tutta 'sta", $0d
 	db "roba megagalattica!", $00
 
-Text_13_4f02::
+Text_YknowWhatTheySay_Italian::
 	db "Sai come si dice...", $0d
 	db "tutta grafica e", $0d
 	db "niente gioco!", $00
 
-Text_13_4f34::
+Text_With32MegYoud_Italian::
 	db "Noi ci mettevamo pi", $97, $0d
 	db "di 30 giochi su un", $0d
 	db "affare del genere!", $00
 
-Text_13_4f6f::
+Text_BackInMyDay_Italian::
 	db "Eh gi", $85, ", quello s", $8d, $0d
 	db "che era gioco, non", $0d
 	db "questa spazzatura...", $00
 
-Text_13_4fa9::
+Text_WhatsEvenWorseYou_Italian::
 	db "E il peggio ", $8a, " che", $0d
 	db "se arrivi alla fine", $0d
 	db "devi ricominciare!", $00
 
-Text_13_4fe2::
+Text_YouWouldntKnowA_Italian::
 	db "Non riconosceresti", $0d
 	db "un bel gioco neanche", $0d
 	db "se ci fossi dentro!", $00
 
-Text_13_501e::
+Text_AJoystickAndOne_Italian::
 	db "Bastava un joystick", $0d
 	db "e un pulsante per", $0d
 	db "divertirsi ore!", $00
 
-Text_13_5054::
+Text_IWouldntBeSeen_Italian::
 	db "Neanche morto vorrei", $0d
 	db "apparire su uno", $0d
 	db "schifo del genere!", $00
 
-Text_13_508c::
+Text_YouCantBetterThe_Italian::
 	db "Grafica e suono di", $0d
 	db "Game & Watch$ sono", $0d
 	db "insuperabili!", $00
 
-Text_13_50c0::
+Text_SoYerBackAgain_Italian::
 	db "Ah, eccoti di nuovo!", $0d
 	db "Lo sapevo che non ce", $0d
 	db "l'avresti mai fatta!", $00
 
-Text_13_50ff::
+Text_TooQuickIDidnt_Italian::
 	db "Ehi! Dammi almeno il", $0d
 	db "tempo di inventarmi", $0d
 	db "qualcosa di nuovo!", $00
 
-Text_13_513b::
+Text_ImJustWastingMy_Italian::
 	db "Fiato sprecato! Ma", $0d
 	db "mi stai a sentire", $0d
 	db "una buona volta?!", $00
 
-Text_13_5172::
+Text_YouHaveToDo_Italian::
 	db "Oh! Ne hai ancora di", $0d
 	db "strada da fare...", $00
 
-Text_13_5199::
+Text_YouOnlyJustLeft_Italian::
 	db "Sei solo all'inizio!", $0d
 	db "Lo sai, vero?!", $00
 
-Text_13_51bd::
+Text_BackAgainEhThat_Italian::
 	db "Di nuovo qui, eh?!", $0d
 	db "Stavolta s", $8d, " che", $0d
 	db "hai fatto presto!", $00
 
-Text_13_51f2::
+Text_CameBackToThe_Italian::
 	db "Torni dall'esperto", $0d
 	db "per un consiglio,", $0d
 	db "o mi sbaglio?!", $00
 
-Text_13_5226::
+Text_StillGotYouBeat_Italian::
 	db "Ehi, battuto ancora!", $0d
 	db "Che bomba, eh?!", $00
 
-Text_13_524b::
+Text_YupDontMakeGame_Italian::
 	db "Ehi! Giocatori come", $0d
 	db "noi non esistono", $0d
 	db "pi", $97, " ormai!", $00
 
-Text_13_527b::
+Text_DyaExpectMeTo_Italian::
 	db "Devo completartelo", $0d
 	db "io il livello?!", $0d
 	db "Avanti, pappamolla!", $00
 
-Text_13_52b2::
+Text_HowDareYouShow_Italian::
 	db "Come osi mostrarti", $0d
 	db "ancora in giro dopo", $0d
 	db "quella figuraccia!", $00
 
-Text_13_52ec::
+Text_InJungleHijinxsStick_Italian::
 	db "In Giungla Gincana", $0d
 	db "sali sugli alberi", $0d
 	db "per una vita extra!", $00
 
-Text_13_5325::
+Text_FindTheFunJust_Italian::
 	db "Se non ti abbatterai", $0d
 	db "tra le Liane Lanose", $0d
 	db "molto ti divertirai.", $00
 
-Text_13_5363::
+Text_ALeapOfFaith_Italian::
 	db "Hop, hop! Salta con", $0d
 	db "Winky attraverso il", $0d
 	db "Canyon di Cannoni!", $00
 
-Text_13_539e::
+Text_GoBananasInThe_Italian::
 	db "Impazzirai nella", $0d
 	db "fossa dei serpenti,", $0d
 	db "Rombo di Rettili!", $00
 
-Text_13_53d5::
+Text_CroctopusCornersCrocksOf_Italian::
 	db "Tra i coralli trovi", $0d
 	db "covi di polidrilli", $0d
 	db "e caschi di banane!", $00
 
-Text_13_5410::
+Text_BurnRubberForThe_Italian::
 	db "In Salti d'Oro usa", $0d
 	db "i copertoni e prendi", $0d
 	db "il prezioso Rambi!", $00
 
-Text_13_544b::
+Text_TheBananasInStop_Italian::
 	db "Le banane saranno", $0d
 	db "la tua guida ad", $0d
 	db "Attiva il Semaforo!", $00
 
-Text_13_5481::
+Text_JumpEarlyToGet_Italian::
 	db "Salta per tempo se", $0d
 	db "vuoi una vita extra", $0d
 	db "sulle Rotaie Veloci!", $00
 
-Text_13_54bd::
+Text_RollingRubberWillPut_Italian::
 	db "Sfrutta i copertoni", $0d
 	db "per farti strada in", $0d
 	db "Frantoio Frantuma!", $00
 
-Text_13_54f8::
+Text_OnSnowBarrelBlast_Italian::
 	db "Sali e scendi", $0d
 	db "senza sosta per", $0d
 	db "le Cime Innevate!", $00
 
-Text_13_5528::
+Text_OnCroctopusChaseA_Italian::
 	db "Trova la via giusta", $0d
 	db "nel labirinto di", $0d
 	db "Caccia i Polidrilli!", $00
 
-Text_13_5562::
+Text_ToGetYourWings_Italian::
 	db "Per prendere il volo", $0d
 	db "vai con lo struzzo", $0d
 	db "per la Via Glaciale!", $00
 
-Text_13_559f::
+Text_BouncingTheBouncerSlides_Italian::
 	db "Per aver successo", $0d
 	db "batti i nemici", $0d
 	db "nella Foresta Fosca!", $00
 
-Text_13_55d5::
+Text_TheTntGivesWall_Italian::
 	db "In Trottola di Torce", $0d
 	db "lancia contro i muri", $0d
 	db "i barili di tritolo!", $00
 
-Text_13_5614::
+Text_ForElevatorAnticsClimb_Italian::
 	db "In Ascensore Fatale", $0d
 	db "arrampicati oltre", $0d
 	db "i nidi di vespa!", $00
 
-Text_13_564b::
+Text_TheGnawtyGnowsA_Italian::
 	db "Attento alle insidie", $0d
 	db "di Gnawty-castoro in", $0d
 	db "Trekking di Trucchi!", $00
 
-Text_13_568a::
+Text_MineCartMadnessIs_Italian::
 	db "Le Rotaie Rapide", $0d
 	db "sono giusto a tre", $0d
 	db "salti dai bonus!", $00
 
-Text_13_56be::
+Text_OnceInThePoison_Italian::
 	db "Cerca la via giusta", $0d
 	db "nel labirinto della", $0d
 	db "Palude Velenosa!", $00
 
-Text_13_56f7::
+Text_BlackoutBasementsSinkingFeeling_Italian::
 	db "L'atmosfera tetra in", $0d
 	db "Cantina Cattiva ha", $0d
 	db "fine a cielo aperto!", $00
 
-Text_13_5734::
+Text_LetDiddyHoldOut_Italian::
 	db "In Tritatutto lascia", $0d
 	db "che Diddy controlli", $0d
 	db "i barili di tritolo!", $00
 
-Text_13_5772::
+Text_TakeEnoughRopeAnd_Italian::
 	db "Portati una bella", $0d
 	db "fune e immergiti tra", $0d
 	db "le Nubi in Miniera!", $00
 
-Text_13_57ad::
+Text_TheLoopyLightsVultures_Italian::
 	db "In Luci Truci gli", $0d
 	db "avvoltoi cercheranno", $0d
 	db "di spazzarti via.", $00
 
-Text_13_57e6::
+Text_PerilousVulturesKnowIts_Italian::
 	db "Gli avvoltoi sanno", $0d
 	db "che ", $8a, " meglio tenere", $0d
 	db "i piedi per terra.", $00
 
-Text_13_5820::
+Text_AllGassedUpAnd_Italian::
 	db "Tutti pronti per...", $0d
 	db "Non-si-sa-dove?", $0d
 	db "Sei a Fa il Pieno!", $00
 
-Text_13_5857::
+Text_TheOrangUtanGang_Italian::
 	db "La Banda di", $0d
 	db "Orangutan si diverte", $0d
 	db "a seguire i barili.", $00
 
-Text_13_588c::
+Text_ASingleBananaIs_Italian::
 	db "Ti serve una sola", $0d
 	db "banana per un bonus", $0d
 	db "a Citt", $85, " di Sequoie.", $00
 
-Text_13_58c6::
+Text_GetDownWithThe_Italian::
 	db "Inghiotti le banane", $0d
 	db "e fai festa nel", $0d
 	db "Tempio Tremendo!", $00
 
-Text_13_58fb::
+Text_AHandSlapCan_Italian::
 	db "Una bella sberla ben", $0d
 	db "piazzata pu", $95, " svelare", $0d
 	db "utili segreti!", $00
 
-Text_13_5934::
+Text_HeCantReallyFly_Italian::
 	db "Non sa volare, ma", $0d
 	db "Expresso, lo struzzo", $0d
 	db "corre e svolazza!", $00
 
-Text_13_596d::
+Text_EnguardeSwordfishWillHelp_Italian::
 	db "Enguarde-pescespada", $0d
 	db "ti aiuter", $85, " ad andare", $0d
 	db "dritto al punto!", $00
 
-Text_13_59a7::
+Text_CandysChallengesCanWin_Italian::
 	db "Le sfide di Candy ti", $0d
 	db "possono portare a", $0d
 	db "dei giochi bonus!", $00
 
-Text_13_59e0::
+Text_RollOffAPlatform_Italian::
 	db "Rotola gi", $97, " veloce", $0d
 	db "e premi A per un", $0d
 	db "salto lunghissimo!", $00
 
-Text_13_5a16::
+Text_TheySayIfYou_Italian::
 	db "Ho sentito dire che", $0d
 	db "se tieni premuto B", $0d
 	db "corri velocissimo!", $00
 
-Text_13_5a50::
+Text_IHearYouCan_Italian::
 	db "Lo sapevi che puoi", $0d
 	db "saltare pi", $97, " lontano", $0d
 	db "se tieni premuto B?", $00
 
-Text_13_5a8b::
+Text_ReckonRambiRhinoCould_Italian::
 	db "Rambi-rinoceronte", $0d
 	db "pu", $95, " aprire qualsiasi", $0d
 	db "passaggio segreto.", $00
 
-Text_13_5ac5::
+Text_BounceAKegOff_Italian::
 	db "Scaglia un barile al", $0d
 	db "muro e poi saltaci", $0d
 	db "sopra per un giro!", $00
 
-Text_13_5b00::
+Text_RollAttackABaddie_Italian::
 	db "Rotola contro un", $0d
 	db "nemico e al prossimo", $0d
 	db "sarai pi", $97, " veloce.", $00
 
-Text_13_5b38::
+Text_BounceOnEightBaddies_Italian::
 	db "Colpisci 8 nemici", $0d
 	db "in fila e riceverai", $0d
 	db "una vita extra!", $00
 
-Text_13_5b6e::
+Text_TheySayExpressosLegs_Italian::
 	db "Expresso ha le zampe", $0d
 	db "troppo sottili per", $0d
 	db "far paura ai nemici.", $00
 
-Text_13_5bab::
+Text_BreakOpenAStar_Italian::
 	db "Colpisci un Barile", $0d
 	db "Stella per fare", $0d
 	db "centro!", $00
 
-Text_13_5bd6::
+Text_JustFinishALevel_Italian::
 	db "Per salvare il gioco", $0d
 	db "finisci il livello!", $00
 
-Text_13_5bff::
+Text_FunkySendsYouWhere_Italian::
 	db "Funky ti spedisce", $0d
 	db "dove sei gi", $85, " stato", $0d
 	db "in un baleno!", $00
 
-Text_13_5c32::
+Text_DisguisedHolesOnThe_Italian::
 	db "Devi lanciarti dall'", $0d
 	db "alto sulle buche", $0d
 	db "coperte per terra!", $00
 
-Text_13_5c6b::
+Text_BananaArrowsWillPoint_Italian::
 	db "Le frecce-banana", $0d
 	db "indicano la via", $0d
 	db "migliore!", $00
 
-Text_13_5c96::
+Text_IfYouFindBananas_Italian::
 	db "Quando trovi delle", $0d
 	db "banane, sono passati", $0d
 	db "di l", $8d, " i Kremling!", $00
 
-Text_13_5cd0::
+Text_SmashOpenAnyDk_Italian::
 	db "Spacca tutti i", $0d
 	db "Barili-DK: forse", $0d
 	db "il tuo amico ", $8a, " l", $8d, "!", $00
 
-Text_13_5d03::
+Text_GrabThemExtraLife_Italian::
 	db "Acchiappa veloce i", $0d
 	db "palloni-vita-extra", $0d
 	db "o voleranno via!", $00
 
-Text_13_5d3a::
+Text_KlapTrapTeethStop_Italian::
 	db "KlapTrap blocca l'", $0d
 	db "attacco-rullo: prova", $0d
 	db "a saltargli addosso!", $00
 
-Text_13_5d77::
+Text_YouCantJumpOn_Italian::
 	db "Attento! Solo Winky", $0d
 	db "pu", $95, " saltare sugli", $0d
 	db "aculei di Zinger!", $00
 
-Text_13_5daf::
+Text_KlumpsHatProtectsAgainst_Italian::
 	db "L'elmetto protegge", $0d
 	db "Klump dai salti.", $0d
 	db "Usa l'attacco-rullo!", $00
 
-Text_13_5de8::
+Text_KrushaIsToughOnly_Italian::
 	db "Krusha ", $8a, " un osso", $0d
 	db "duro. Forse lo metti", $0d
 	db "KO con i barili!", $00
 
-Text_13_5e1f::
+Text_FloatingBarrelsWillBreak_Italian::
 	db "I barili galleg-", $0d
 	db "gianti si rompono", $0d
 	db "appena li tocchi.", $00
 
-Text_13_5e54::
+Text_FollowSteelKegsAnd_Italian::
 	db "I barili d'acciaio", $0d
 	db "fanno fuori i nemici", $0d
 	db "sul loro percorso!", $00
 
-Text_13_5e8f::
+Text_RunAndJumpOn_Italian::
 	db "Corri e salta sui", $0d
 	db "nemici per arrivare", $0d
 	db "pi", $97, " lontano!", $00
 
-Text_13_5ec2::
+Text_JumpOnFixedTires_Italian::
 	db "Salta sui copertoni,", $0d
 	db "evita gli ostacoli", $0d
 	db "e prendi i bonus!", $00
 
-Text_13_5efc::
+Text_PushFreeTiresTo_Italian::
 	db "Spingi i copertoni", $0d
 	db "mobili dove pensi di", $0d
 	db "trovare un bonus!", $00
 
-Text_13_5f36::
+Text_RollOverSlippaOr_Italian::
 	db "Rotola su Slippa", $0d
 	db "o schiaccialo con", $0d
 	db "un bel salto!", $00
 
-Text_13_5f67::
+Text_GnawtyBeaverCanBe_Italian::
 	db "Salta o rotola su", $0d
 	db "Gnawty, il castoro", $0d
 	db "roditore!", $00
 
-Text_13_5f96::
+Text_ThatsAllSheWrote_Italian::
 	db $d4, " tutto quel", $0d
 	db "che ha scritto!", $00
 
-Text_13_5fb3::
+Text_TheresNothingMoreI_Italian::
 	db "Questo ", $8a, " tutto ci", $95, $0d
 	db "che avevo da dire!", $00
 
-Text_13_5fd9::
+Text_YouKnowAllThat_Italian::
 	db "Per ora ", $8a, " tutto quel", $0d
 	db "che c'", $8a, " da sapere!", $00
 
-Text_13_6001::
+Text_ComeBackAndSee_Italian::
 	db "Ci vediamo dopo!", $0d
 	db "Sono sempre qua.", $00
 
-Text_13_6023::
+Text_DontKnowAnyMore_Italian::
 	db "Non so nient'altro", $0d
 	db "per il momento.", $00
 
-Text_13_6046::
+Text_ThatsAllThereIs_Italian::
 	db "Ecco, tutto qua!", $0d
 	db "Un gioco da ragazzi,", $0d
 	db "per conto mio.", $00
 
-Text_13_607b::
+Text_SoLongSuckersTry_Italian::
 	db "Forza, pappamolla!", $0d
 	db "Speriamo di non", $0d
 	db "avere dei feriti!", $00
 
-Text_13_60b0::
+Text_ThatsAllTheGood_Italian::
 	db "Questi erano un paio", $0d
 	db "di suggerimenti dal", $0d
 	db "buon vecchio Cranky.", $00
 
-Text_13_60ee::
+Text_ImGettingTiredI_Italian::
 	db "Ahu, che stanchezza!", $0d
 	db "Far", $95, " un pisolino!", $00
 
-Text_13_6115::
+Text_YouPracticallyKnowMore_Italian::
 	db "Ora ho parlato anche", $0d
 	db "troppo! Forza!", $00
 
-Text_13_6139::
+Text_DontHaveAnythingElse_Italian::
 	db "Non ho altro da", $0d
 	db "dire per ora.", $0d
 	db "A pi", $97, " tardi!", $00
 
-Text_13_6164::
+Text_ICouldJustRock_Italian::
 	db "Starei proprio tran-", $0d
 	db "quillo, se non fosse", $0d
 	db "per certa gente!", $00
 
-Text_13_619f::
+Text_GottaGoNowIll_Italian::
 	db "Devi andare ora.", $0d
 	db "Ci vediamo dopo...", $0d
 	db "...forse!", $00
 
-Text_13_61cd::
+Text_WellThatsAboutThe_Italian::
 	db "Bene, ecco come", $0d
 	db "stanno le cose!", $00
 
-Text_13_61ed::
+Text_IsThatTheTime_Italian::
 	db $d4, " davvero tardi!", $0d
 	db "Devo scappare.", $00
 
-Text_13_620d::
+Text_ICouldTellYou_Italian::
 	db "Potrei parlare dei", $0d
 	db "bei vecchi tempi", $0d
 	db "per giorni e giorni!", $00
 
-Text_13_6246::
+Text_YallComeBackSoon_Italian::
 	db "Ritornate tutti pi", $97, $0d
 	db "tardi, capito?!", $00
 
-Text_13_626a::
+Text_IfYouGetStuck_Italian::
 	db "Se sei nei guai", $0d
 	db "ti aiuto io!", $00
 
-Text_13_6287::
+Text_CantSayIExpect_Italian::
 	db "Non penso che ci", $0d
 	db "rivedremo, ma forse", $0d
 	db "se avrai fortuna...", $00
 
-Text_13_62c0::
+Text_ItsBeenNiceTalking_Italian::
 	db $d4, " stato bello", $0d
 	db "parlare con te!", $00
 
-Text_13_62de::
+Text_EhSonnySpeakUp_Italian::
 	db "Ehi, tu? Parla pi", $97, $0d
 	db "forte! Non ti sento!", $00
 
-Text_13_6306::
+Text_IveSeenEnoughThat_Italian::
 	db "Ho visto abbastanza!", $0d
 	db "Basta! Spegnete", $0d
 	db "quel cravattone!", $00
 
-Text_13_633c::
+Text_ThisColorScreensMaking_Italian::
 	db "Tutti questi colori", $0d
 	db "fan girar la testa!", $0d
 	db "Non ne posso pi", $97, "!", $00
 
-Text_13_6376::
+Text_AllThisGamePlay_Italian::
 	db "Tutti questi giochi", $0d
 	db "sono troppo per me!", $0d
 	db "Far", $95, " un pisolino.", $00
 
-Text_13_63b0::
+Text_RememberTheOriginalDonkey_Italian::
 	db "Sai il vecchio", $0d
 	db "Donkey Kong%,", $0d
 	db "l'originale?!", $0d
@@ -1108,35 +1108,35 @@ Text_13_63b0::
 	db "un po'. A dopo!", $0d
 	db $00
 
-Text_13_63fd::
+Text_TooManyBaddiesHere_Italian::
 	db "Troppi brutti ceffi", $0d
 	db "per i miei gusti!", $0d
 	db "Vado in pausa! Ciao!", $00
 
-Text_13_6438::
+Text_IdAskYaIn_Italian::
 	db "Ti farei entrare, ma", $0d
 	db "la capanna non ha", $0d
 	db "abbastanza memoria!", $00
 
-Text_13_6473::
+Text_OffYouGoSee_Italian::
 	db "Dai! Vedi un po' se", $0d
 	db "riesci a finire il", $0d
 	db "gioco senza di me.", $00
 
-Text_13_64ad::
+Text_ShutTheGateOn_Italian::
 	db "E chiudi la porta", $0d
 	db "quando esci... o sei", $0d
 	db "nato in barca?!", $00
 
-Text_13_64e4::
+Text_SeeYaLaterAlligator_Italian::
 	db "Ehi, ciao! Ci", $0d
 	db "si vede presto!", $00
 
-Text_13_6502::
+Text_AfterAWhileCrocodile_Italian::
 	db "Ciao!", $0d
 	db "Stammi bene!", $00
 
-Text_13_6515::
+Text_HiImCandyKong_Italian::
 	db "Ciao! Sono Candy", $0d
 	db "Kong. Sei alla", $0d
 	db "Capanna Sfide.", $0d
@@ -1145,42 +1145,42 @@ Text_13_6515::
 	db "salta dentro il mio", $0d
 	db "Barile Rotante.", $00
 
-Text_13_657e::
+Text_HelloGuysDoYou_Italian::
 	db "Ehi ragazzi, volete", $0d
 	db "qualche strumento", $0d
 	db "dei giochi bonus?", $00
 
-Text_13_65b6::
+Text_CanIHelpYou_Italian::
 	db "Ehil", $85, ", gente!", $0d
 	db "Volete qualche", $0d
 	db "strumento bonus?", $00
 
-Text_13_65e4::
+Text_HowWouldYouLike_Italian::
 	db "Che ne direste di", $0d
 	db "un bel giretto nel", $0d
 	db "mio Barile Rotante?", $00
 
-Text_13_661d::
+Text_YooHooHoneyKong_Italian::
 	db "Ehil", $85, "! Mi sembra", $0d
 	db "ora di tentare la", $0d
 	db "sorte, o sbaglio?!", $00
 
-Text_13_6653::
+Text_IfYouFancyA_Italian::
 	db "Per una sfida", $0d
 	db "salta dentro e fatti", $0d
 	db "un bel giretto!", $00
 
-Text_13_6686::
+Text_YouGuysAreReally_Italian::
 	db "Ehi, per", $95, "! Ne avete", $0d
 	db "fatta di strada!", $0d
 	db $d4, " ora di una sfida!", $00
 
-Text_13_66bf::
+Text_SeeYaLaterBoys_Italian::
 	db "Torna pi", $97, " tardi!", $0d
 	db "Questa sfida l'hai", $0d
 	db "gi", $85, " superata!", $00
 
-Text_13_66f1::
+Text_WhoaDudesImFunky_Italian::
 	db "Ciao, gente!", $0d
 	db "Sono Funky Kong!", $0d
 	db $0d
@@ -1197,52 +1197,52 @@ Text_13_66f1::
 	db $0d
 	db $00
 
-Text_13_678e::
+Text_YeahKongsLikeJump_Italian::
 	db "Ehi, ciao! Perch", $82, $0d
 	db "non saltate su per", $0d
 	db "un bel giretto?!", $00
 
-Text_13_67c4::
+Text_NeedSomeLivesGet_Italian::
 	db "Vi serve qualche", $0d
 	db "vita? Vi porto alla", $0d
 	db "Giungla Gincana.", $00
 
-Text_13_67fa::
+Text_YoGorillasSeekThe_Italian::
 	db "Ciao ragazzi! Andate", $0d
 	db "da Cranky, il guru", $0d
 	db "dei videogiochi!", $00
 
-Text_13_6833::
+Text_LookinGoodKongsBelt_Italian::
 	db "Ehi, vi trovo bene!", $0d
 	db "Forza, allacciate le", $0d
 	db "cinture, si parte!!!", $00
 
-Text_13_6871::
+Text_HeyDudesTellCandy_Italian::
 	db "Dite a Candy che", $0d
 	db "pu", $95, " sempre venire", $0d
 	db "da me per un giro!", $00
 
-Text_13_68a7::
+Text_FancyAFlightDk_Italian::
 	db "Un giretto, DK? Sai", $0d
 	db "come funziona: salta", $0d
 	db "su e prendi quota!", $00
 
-Text_13_68e3::
+Text_DudeskiYourBudHas_Italian::
 	db "Ciao, il tuo amico", $0d
 	db "dev'essere in giro", $0d
 	db "per qualche livello!", $00
 
-Text_13_691e::
+Text_YoDiddyLostThe_Italian::
 	db "Ehi, Diddy!", $0d
 	db "Dov'", $8a, " DK? Salta su", $0d
 	db "e d", $85, " un'occhiata!", $00
 
-Text_13_694f::
+Text_WheresYourPalTry_Italian::
 	db "Hai perso il tuo", $0d
 	db "amico? Guarda se", $0d
 	db $8a, " nella giungla!", $00
 
-Text_13_6982::
+Text_WellDoneMyBoy_Italian::
 	db "Ben fatto, ragazzo!", $0d
 	db "E chi avrebbe detto", $0d
 	db "che un moccioso come", $0d
@@ -1259,7 +1259,7 @@ Text_13_6982::
 	db $0d
 	db $00
 
-Text_13_6a45::
+Text_IfIWasPlaying_Italian::
 	db "Se avessi giocato io", $0d
 	db "avrei trovato tutto!", $0d
 	db $0d
@@ -1268,7 +1268,7 @@ Text_13_6a45::
 	db "qualche bonus", $0d
 	db "ancora da scoprire!", $00
 
-Text_13_6aa6::
+Text_WhatAPlayerDk_Italian::
 	db "Che mito, DK! Hai", $0d
 	db "battuto i Kremling", $0d
 	db "e hai trovato tutto!", $0d
@@ -1277,348 +1277,348 @@ Text_13_6aa6::
 	db "me! QUASI, per", $95, ", eh!", $0d
 	db $00
 
-Text_13_6b0c::
+Text_DkMyBoyWhere_Italian::
 	db "Ciao, DK! Dimmi un", $0d
 	db "po': dov'", $8a, " Diddy?", $00
 
-Text_13_6b31::
+Text_DkYouYoungWhippersnapper_Italian::
 	db "Toh, chi si rivede!", $0d
 	db "Ehi, moccioso!", $0d
 	db "Che mi racconti?", $00
 
-Text_13_6b65::
+Text_DonkeyBoyItSeems_Italian::
 	db "Ehi, Donkey!", $0d
 	db "Era un'eternit", $85, $0d
 	db "che non ti vedevo!", $00
 
-Text_13_6b95::
+Text_YouNeverVisitYour_Italian::
 	db "Perch", $82, " non vieni", $0d
 	db "dal tuo povero", $0d
 	db "vecchio nonno, eh?!", $00
 
-Text_13_6bc9::
+Text_HeyCanYouSpare_Italian::
 	db "Ehi! Conserva un", $0d
 	db "po' di banane anche", $0d
 	db "per tuo nonno?", $00
 
-Text_13_6bfd::
+Text_AndWhatHaveYou_Italian::
 	db "Ciao, DK! Vediamo", $0d
 	db "cosa mi hai portato", $0d
 	db "stavolta? Mhm...", $00
 
-Text_13_6c34::
+Text_WellYouveAmazedYour_Italian::
 	db "Per", $95, "! Sono stupito", $0d
 	db "di vederti qua! Ne", $0d
 	db "hai fatta di strada!", $00
 
-Text_13_6c6f::
+Text_AtLastYouveCome_Italian::
 	db "Finalmente, sei", $0d
 	db "venuto a sentire i", $0d
 	db "miei consigli, eh?!", $00
 
-Text_13_6ca6::
+Text_DiddyMyBoyWheres_Italian::
 	db "Ciao, Diddy!", $0d
 	db "Dov'", $8a, " Donkey?", $00
 
-Text_13_6cc1::
+Text_DiddyMyYoungPup_Italian::
 	db "Diddy, cucciolo!", $0d
 	db "Perbacco, come sei", $0d
 	db "cresciuto in fretta!", $00
 
-Text_13_6cfa::
+Text_Error_Italian::
 	db "ERRORE", $0d
 	db $00
 
-Text_13_6d02::
+Text_RopeyRampage_Italian::
 	db "Liane", $0d
 	db "Lanose", $0c, $0d
 	db $00
 
-Text_13_6d11::
+Text_OrangUtanGang_Italian::
 	db "Banda di", $0d
 	db "Orangutan", $0c, $0d
 	db $00
 
-Text_13_6d26::
+Text_BarrelCannonCanyon_Italian::
 	db "Canyon di", $0d
 	db "Cannoni", $0c, $0d
 	db $00
 
-Text_13_6d3a::
+Text_ReptileRumble_Italian::
 	db "Rombo di", $0d
 	db "Rettili", $0c, $0d
 	db $00
 
-Text_13_6d4d::
+Text_BouncyBonanza_Italian::
 	db "Salti", $0d
 	db "d'Oro", $0c, $0d
 	db $00
 
-Text_13_6d5b::
+Text_ManicMincers_Italian::
 	db "Trita-", $0d
 	db "tutto", $0c, $0d
 	db $00
 
-Text_13_6d6a::
+Text_ElevatorAntics_Italian::
 	db "Ascensore", $0d
 	db "Fatale", $0c, $0d
 	db $00
 
-Text_13_6d7d::
+Text_PlatformPerils_Italian::
 	db "Pena di", $0d
 	db "Piani", $0c, $0d
 	db $00
 
-Text_13_6d8d::
+Text_TrickTrackTrek_Italian::
 	db "Trekking", $0d
 	db "di Trucchi", $0c, $0d
 	db $00
 
-Text_13_6da3::
+Text_TankedUpTrouble_Italian::
 	db "Fa il", $0d
 	db "Pieno", $0c, $0d
 	db $00
 
-Text_13_6db1::
+Text_MineCartMadness_Italian::
 	db "Carrelli", $0d
 	db "Pazzi", $0c, $0d
 	db $00
 
-Text_13_6dc2::
+Text_WinkysWalkway_Italian::
 	db "Ponte di", $0d
 	db "Winky", $0c, $0d
 	db $00
 
-Text_13_6dd3::
+Text_MistyMine_Italian::
 	db "Nubi in", $0d
 	db "Miniera", $0c, $0d
 	db $00
 
-Text_13_6de5::
+Text_StopGoStation_Italian::
 	db "Attiva il", $0d
 	db "Semaforo", $0c, $0d
 	db $00
 
-Text_13_6dfa::
+Text_LoopyLights_Italian::
 	db "Luci", $0d
 	db "Truci", $0c, $0d
 	db $00
 
-Text_13_6e07::
+Text_MineCartCarnage_Italian::
 	db "Rotaie", $0d
 	db "Rapide", $0c, $0d
 	db $00
 
-Text_13_6e17::
+Text_PoisonPond_Italian::
 	db "Palude", $0d
 	db "Velenosa", $0c, $0d
 	db $00
 
-Text_13_6e29::
+Text_CroctopusChase_Italian::
 	db "Caccia i", $0d
 	db "Polidrilli", $0c, $0d
 	db $00
 
-Text_13_6e3f::
+Text_CoralCapers_Italian::
 	db "Barriera", $0d
 	db "Corallina", $0c, $0d
 	db $00
 
-Text_13_6e54::
+Text_ClamCity_Italian::
 	db "Squali", $0d
 	db "Affamati", $0c, $0d
 	db $00
 
-Text_13_6e66::
+Text_MillstoneMayhem_Italian::
 	db "Frantoio", $0d
 	db "Frantuma", $0c, $0d
 	db $00
 
-Text_13_6e7a::
+Text_TempleTempest_Italian::
 	db "Tempio", $0d
 	db "Tremendo", $0c, $0d
 	db $00
 
-Text_13_6e8c::
+Text_SnowBarrelBlast_Italian::
 	db "Cime", $0d
 	db "Innevate", $0c, $0d
 	db $00
 
-Text_13_6e9c::
+Text_IceAgeAlley_Italian::
 	db "Via", $0d
 	db "Glaciale", $0c, $0d
 	db $00
 
-Text_13_6eab::
+Text_TreeTopTown_Italian::
 	db "Citt", $85, " di", $0d
 	db "Sequoie", $0c, $0d
 	db $00
 
-Text_13_6ebe::
+Text_RopeBridgeRumble_Italian::
 	db "Ponti di", $0d
 	db "Corda", $0c, $0d
 	db $00
 
-Text_13_6ecf::
+Text_VultureCulture_Italian::
 	db "Volo di", $0d
 	db "Avvoltoi", $0c, $0d
 	db $00
 
-Text_13_6ee2::
+Text_ForestFrenzy_Italian::
 	db "Bosco da", $0d
 	db "Brividi", $0c, $0d
 	db $00
 
-Text_13_6ef5::
+Text_SlipslideRide_Italian::
 	db "Foresta", $0d
 	db "Fosca", $0c, $0d
 	db $00
 
-Text_13_6f05::
+Text_TorchlightTrouble_Italian::
 	db "Trottola", $0d
 	db "di Torce", $0c, $0d
 	db $00
 
-Text_13_6f19::
+Text_OilDrumAlley_Italian::
 	db "Via dell'", $0d
 	db "Oro Nero", $0c, $0d
 	db $00
 
-Text_13_6f2e::
+Text_BlackoutBasement_Italian::
 	db "Cantina", $0d
 	db "Cattiva", $0c, $0d
 	db $00
 
-Text_13_6f40::
+Text_JungleHijinxs_Italian::
 	db "Giungla", $0d
 	db "Gincana", $0c, $0d
 	db $00
 
-Text_13_6f52::
+Text_KongoJungle_Italian::
 	db "Giungla", $0d
 	db "nel Kongo", $0d
 	db $00
 
-Text_13_6f65::
+Text_MonkeyMines_Italian::
 	db "Mondo di", $0d
 	db "Miniere", $0d
 	db $00
 
-Text_13_6f77::
+Text_VineValley_Italian::
 	db "Verde", $0d
 	db "Vallata", $0d
 	db $00
 
-Text_13_6f86::
+Text_GorillaGlacier_Italian::
 	db "Gorilla al", $0d
 	db "Polo Nord", $0d
 	db $00
 
-Text_13_6f9c::
+Text_KremkrocIndustries_Italian::
 	db "Kremcocco", $0d
 	db "SpA", $0d
 	db $00
 
-Text_13_6fab::
+Text_ChimpCaverns_Italian::
 	db "Gole di", $0d
 	db "Gorilla", $0d
 	db $00
 
-Text_13_6fbc::
+Text_VeryGnawtysLair_Italian::
 	db "Tana di", $0d
 	db "Roditori", $0d
 	db $00
 
-Text_13_6fce::
+Text_NeckysNuts_Italian::
 	db "Noci di", $0d
 	db "Necky", $0d
 	db $00
 
-Text_13_6fdd::
+Text_BumbleBRumble_Italian::
 	db "Rozzo", $0d
 	db "Ronzio", $0d
 	db $00
 
-Text_13_6feb::
+Text_ReallyGnawtyRampage_Italian::
 	db "Caos di", $0d
 	db "Castori", $0d
 	db $00
 
-Text_13_6ffc::
+Text_BossDumbDrum_Italian::
 	db "Bosco", $0d
 	db "Esplosivo", $0d
 	db $00
 
-Text_13_700d::
+Text_NeckysRevenge_Italian::
 	db "Vendetta", $0d
 	db "di Necky", $0d
 	db $00
 
-Text_13_7020::
+Text_GangPlankGalleon_Italian::
 	db "Galeone", $0d
 	db "Birbone", $0d
 	db $00
 
-Text_13_7031::
+Text_CrankysCabin_Italian::
 	db "Capanna", $0d
 	db "di Cranky", $0d
 	db $00
 
-Text_13_7044::
+Text_FunkysFlights_Italian::
 	db "Vola con", $0d
 	db "Funky", $0d
 	db $00
 
-Text_13_7054::
+Text_CandysChallenge_Italian::
 	db "Le Sfide", $0d
 	db "di Candy", $0d
 	db $00
 
-Text_13_7067::
+Text_NeckyNutmare_Italian::
 	db "Le noci di", $0d
 	db "Necky", $0d
 	db $00
 
-Text_13_7079::
+Text_KremlingKrackdown_Italian::
 	db "Fracasso", $0d
 	db "Kremling", $0d
 	db $00
 
-Text_13_708c::
+Text_KremlingsAndKongs_Italian::
 	db "Kremling", $0d
 	db "e Scimmie", $0d
 	db $00
 
-Text_13_70a0::
+Text_BarrelOKremlings_Italian::
 	db "Barile di", $0d
 	db "Kremling", $0d
 	db $00
 
-Text_13_70b4::
+Text_Wanted_Italian::
 	db "Ricercato", $0d
 	db $00
 
-Text_13_70bf::
+Text_BuddiesBeware_Italian::
 	db "Aiuta", $0d
 	db "gli amici", $0d
 	db $00
 
-Text_13_70d0::
+Text_CrosshairCranky_Italian::
 	db "Mirino di", $0d
 	db "Cranky", $0d
 	db $00
 
-Text_13_70e2::
+Text_GalleonGunner_Italian::
 	db "Cannoniere", $0d
 	db "Galeone", $0d
 	db $00
 
-Text_13_70f6::
+Text_ReturnToIslandMap_Italian::
 	db "Mappa", $0d
 	db "dell'isola", $0d
 	db $00
 
-Text_13_7108::
+Text_INeverLikedThose_Italian::
 	db "Quegli adesivi", $0d
 	db "mi piacciono meno", $0d
 	db $0d

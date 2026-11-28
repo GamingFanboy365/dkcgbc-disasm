@@ -3,4249 +3,4249 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $20", ROMX[$4000], BANK[$20]
 
-Frame_20_4000::
+Frame_Bonus_ShowPrize_1::
 	frame_none
 
-Frame_20_4006::
-	frame FrameTiles_21_4000, FrameSprites_21_7180, 8
+Frame_Army_1::
+	frame FrameTiles_Army_1, FrameSprites_Army_1, 8
 
-Frame_20_400c::
-	frame FrameTiles_21_4080, FrameSprites_21_7188, 8
+Frame_Army_2::
+	frame FrameTiles_Army_2, FrameSprites_Army_2, 8
 
-Frame_20_4012::
-	frame FrameTiles_21_4100, FrameSprites_21_7190, 8
+Frame_Army_3::
+	frame FrameTiles_Army_3, FrameSprites_Army_3, 8
 
-Frame_20_4018::
-	frame FrameTiles_21_4180, FrameSprites_21_7198, 12
+Frame_Army_Touch_1::
+	frame FrameTiles_Army_Touch_1, FrameSprites_Army_Touch_1, 12
 
-Frame_20_401e::
-	frame FrameTiles_21_4240, FrameSprites_21_71a4, 10
+Frame_Army_Touch_2::
+	frame FrameTiles_Army_Touch_2, FrameSprites_Army_Touch_2, 10
 
-Frame_20_4024::
-	frame FrameTiles_21_42e0, FrameSprites_21_71ae, 8
+Frame_Army_Touch_3::
+	frame FrameTiles_Army_Touch_3, FrameSprites_Army_Touch_3, 8
 
-Frame_20_402a::
-	frame FrameTiles_21_4360, FrameSprites_21_71b6, 8
+Frame_Army_Touch_4::
+	frame FrameTiles_Army_Touch_4, FrameSprites_Army_Touch_4, 8
 
-Frame_20_4030::
-	frame FrameTiles_21_43e0, FrameSprites_21_71be, 8
+Frame_Army_Touch_5::
+	frame FrameTiles_Army_Touch_5, FrameSprites_Army_Touch_5, 8
 
-Frame_20_4036::
-	frame FrameTiles_21_4460, FrameSprites_21_71c6, 10
+Frame_Army_4::
+	frame FrameTiles_Army_4, FrameSprites_Army_4, 10
 
-Frame_20_403c::
-	frame FrameTiles_21_4500, FrameSprites_21_71d0, 10
+Frame_Army_5::
+	frame FrameTiles_Army_5, FrameSprites_Army_5, 10
 
-Frame_20_4042::
-	frame FrameTiles_21_45a0, FrameSprites_21_71da, 10
+Frame_Army_6::
+	frame FrameTiles_Army_6, FrameSprites_Army_6, 10
 
-Frame_20_4048::
-	frame FrameTiles_21_4640, FrameSprites_21_71e4, 10
+Frame_Army_7::
+	frame FrameTiles_Army_7, FrameSprites_Army_7, 10
 
-Frame_20_404e::
-	frame FrameTiles_21_46e0, FrameSprites_21_71ee, 8
+Frame_Obj_Idle_1::
+	frame FrameTiles_Obj_Idle_1, FrameSprites_Obj_Idle_1, 8
 
-Frame_20_4054::
-	frame FrameTiles_21_4760, FrameSprites_21_71f6, 12
+Frame_Army_Idle_1::
+	frame FrameTiles_Army_Idle_1, FrameSprites_Army_Idle_1, 12
 
-Frame_20_405a::
-	frame FrameTiles_21_4820, FrameSprites_21_7202, 12
+Frame_Army_Idle_2::
+	frame FrameTiles_Army_Idle_2, FrameSprites_Army_Idle_2, 12
 
-Frame_20_4060::
-	frame FrameTiles_21_48e0, FrameSprites_21_720e, 12
+Frame_Army_Idle_3::
+	frame FrameTiles_Army_Idle_3, FrameSprites_Army_Idle_3, 12
 
-Frame_20_4066::
-	frame FrameTiles_21_49a0, FrameSprites_21_721a, 10
+Frame_Army_Idle_4::
+	frame FrameTiles_Army_Idle_4, FrameSprites_Army_Idle_4, 10
 
-Frame_20_406c::
-	frame FrameTiles_21_4a40, FrameSprites_21_7224, 10
+Frame_Army_Idle_5::
+	frame FrameTiles_Army_Idle_5, FrameSprites_Army_Idle_5, 10
 
-Frame_20_4072::
-	frame FrameTiles_21_4ae0, FrameSprites_21_722e, 10
+Frame_ExtraLifeBalloon_1::
+	frame FrameTiles_ExtraLifeBalloon_1, FrameSprites_ExtraLifeBalloon_1, 10
 
-Frame_20_4078::
-	frame FrameTiles_21_4b80, FrameSprites_21_7238, 10
+Frame_ExtraLifeBalloon_2::
+	frame FrameTiles_ExtraLifeBalloon_2, FrameSprites_ExtraLifeBalloon_2, 10
 
-Frame_20_407e::
-	frame FrameTiles_21_4c20, FrameSprites_21_7242, 10
+Frame_ExtraLifeBalloon_3::
+	frame FrameTiles_ExtraLifeBalloon_3, FrameSprites_ExtraLifeBalloon_3, 10
 
-Frame_20_4084::
-	frame FrameTiles_21_4cc0, FrameSprites_21_724c, 10
+Frame_ExtraLifeBalloon_4::
+	frame FrameTiles_ExtraLifeBalloon_4, FrameSprites_ExtraLifeBalloon_4, 10
 
-Frame_20_408a::
-	frame FrameTiles_21_4d60, FrameSprites_21_7256, 10
+Frame_ExtraLifeBalloon_5::
+	frame FrameTiles_ExtraLifeBalloon_5, FrameSprites_ExtraLifeBalloon_5, 10
 
-Frame_20_4090::
-	frame FrameTiles_21_4e00, FrameSprites_21_7260, 10
+Frame_ExtraLifeBalloon_6::
+	frame FrameTiles_ExtraLifeBalloon_6, FrameSprites_ExtraLifeBalloon_6, 10
 
-Frame_20_4096::
-	frame FrameTiles_21_4ea0, FrameSprites_21_726a, 10
+Frame_ExtraLifeBalloon_7::
+	frame FrameTiles_ExtraLifeBalloon_7, FrameSprites_ExtraLifeBalloon_7, 10
 
-Frame_20_409c::
-	frame FrameTiles_21_4f40, FrameSprites_21_7274, 10
+Frame_ExtraLifeBalloon_8::
+	frame FrameTiles_ExtraLifeBalloon_8, FrameSprites_ExtraLifeBalloon_8, 10
 
-Frame_20_40a2::
-	frame FrameTiles_21_4fe0, FrameSprites_21_727e, 14
+Frame_BarrelCannon_SetFrame_1::
+	frame FrameTiles_BarrelCannon_SetFrame_1, FrameSprites_BarrelCannon_SetFrame_1, 14
 
-Frame_20_40a8::
-	frame FrameTiles_21_50c0, FrameSprites_21_728c, 14
+Frame_BarrelCannon_SetFrame_2::
+	frame FrameTiles_BarrelCannon_SetFrame_2, FrameSprites_BarrelCannon_SetFrame_2, 14
 
-Frame_20_40ae::
-	frame FrameTiles_21_51a0, FrameSprites_21_729a, 16
+Frame_BarrelCannon_SetFrame_3::
+	frame FrameTiles_BarrelCannon_SetFrame_3, FrameSprites_BarrelCannon_SetFrame_3, 16
 
-Frame_20_40b4::
-	frame FrameTiles_21_52a0, FrameSprites_21_72aa, 16
+Frame_BarrelCannon_SetFrame_4::
+	frame FrameTiles_BarrelCannon_SetFrame_4, FrameSprites_BarrelCannon_SetFrame_4, 16
 
-Frame_20_40ba::
-	frame FrameTiles_21_53a0, FrameSprites_21_72ba, 16
+Frame_BarrelCannon_SetFrame_5::
+	frame FrameTiles_BarrelCannon_SetFrame_5, FrameSprites_BarrelCannon_SetFrame_5, 16
 
-Frame_20_40c0::
-	frame FrameTiles_21_54a0, FrameSprites_21_72ca, 16
+Frame_BarrelCannon_SetFrame_6::
+	frame FrameTiles_BarrelCannon_SetFrame_6, FrameSprites_BarrelCannon_SetFrame_6, 16
 
-Frame_20_40c6::
-	frame FrameTiles_21_55a0, FrameSprites_21_72da, 16
+Frame_BarrelCannon_SetFrame_7::
+	frame FrameTiles_BarrelCannon_SetFrame_7, FrameSprites_BarrelCannon_SetFrame_7, 16
 
-Frame_20_40cc::
-	frame FrameTiles_21_56a0, FrameSprites_21_72ea, 16
+Frame_BarrelCannon_SetFrame_8::
+	frame FrameTiles_BarrelCannon_SetFrame_8, FrameSprites_BarrelCannon_SetFrame_8, 16
 
-Frame_20_40d2::
-	frame FrameTiles_21_57a0, FrameSprites_21_72fa, 14
+Frame_BarrelCannon_SetFrame_9::
+	frame FrameTiles_BarrelCannon_SetFrame_9, FrameSprites_BarrelCannon_SetFrame_9, 14
 
-Frame_20_40d8::
-	frame FrameTiles_21_5880, FrameSprites_21_7308, 16
+Frame_BarrelCannon_SetFrame_10::
+	frame FrameTiles_BarrelCannon_SetFrame_10, FrameSprites_BarrelCannon_SetFrame_10, 16
 
-Frame_20_40de::
-	frame FrameTiles_21_5980, FrameSprites_21_7318, 16
+Frame_BarrelCannon_SetFrame_11::
+	frame FrameTiles_BarrelCannon_SetFrame_11, FrameSprites_BarrelCannon_SetFrame_11, 16
 
-Frame_20_40e4::
-	frame FrameTiles_21_5a80, FrameSprites_21_7328, 16
+Frame_BarrelCannon_SetFrame_12::
+	frame FrameTiles_BarrelCannon_SetFrame_12, FrameSprites_BarrelCannon_SetFrame_12, 16
 
-Frame_20_40ea::
-	frame FrameTiles_21_5b80, FrameSprites_21_7338, 16
+Frame_BarrelCannon_SetFrame_13::
+	frame FrameTiles_BarrelCannon_SetFrame_13, FrameSprites_BarrelCannon_SetFrame_13, 16
 
-Frame_20_40f0::
-	frame FrameTiles_21_5c80, FrameSprites_21_7348, 16
+Frame_BarrelCannon_SetFrame_14::
+	frame FrameTiles_BarrelCannon_SetFrame_14, FrameSprites_BarrelCannon_SetFrame_14, 16
 
-Frame_20_40f6::
-	frame FrameTiles_21_5d80, FrameSprites_21_7358, 16
+Frame_BarrelCannon_SetFrame_15::
+	frame FrameTiles_BarrelCannon_SetFrame_15, FrameSprites_BarrelCannon_SetFrame_15, 16
 
-Frame_20_40fc::
-	frame FrameTiles_21_5e80, FrameSprites_21_7368, 16
+Frame_BarrelCannon_SetFrame_16::
+	frame FrameTiles_BarrelCannon_SetFrame_16, FrameSprites_BarrelCannon_SetFrame_16, 16
 
-Frame_20_4102::
-	frame FrameTiles_21_5f80, FrameSprites_21_7378, 8
+Frame_Enemy_HandleContact_1::
+	frame FrameTiles_Enemy_HandleContact_1, FrameSprites_Enemy_HandleContact_1, 8
 
-Frame_20_4108::
-	frame FrameTiles_21_6000, FrameSprites_21_7380, 6
+Frame_Enemy_HandleContact_2::
+	frame FrameTiles_Enemy_HandleContact_2, FrameSprites_Enemy_HandleContact_2, 6
 
-Frame_20_410e::
-	frame FrameTiles_21_6060, FrameSprites_21_7386, 8
+Frame_Enemy_HandleContact_3::
+	frame FrameTiles_Enemy_HandleContact_3, FrameSprites_Enemy_HandleContact_3, 8
 
-Frame_20_4114::
-	frame FrameTiles_21_60e0, FrameSprites_21_738e, 8
+Frame_Enemy_HandleContact_4::
+	frame FrameTiles_Enemy_HandleContact_4, FrameSprites_Enemy_HandleContact_4, 8
 
-Frame_20_411a::
-	frame FrameTiles_21_6160, FrameSprites_21_7396, 12
+Frame_Enemy_HandleContact_5::
+	frame FrameTiles_Enemy_HandleContact_5, FrameSprites_Enemy_HandleContact_5, 12
 
-Frame_20_4120::
-	frame FrameTiles_21_6220, FrameSprites_21_73a2, 10
+Frame_Obj_TurnAround_1::
+	frame FrameTiles_Obj_TurnAround_1, FrameSprites_Obj_TurnAround_1, 10
 
-Frame_20_4126::
-	frame FrameTiles_21_62c0, FrameSprites_21_73ac, 10
+Frame_Obj_TurnAround_2::
+	frame FrameTiles_Obj_TurnAround_2, FrameSprites_Obj_TurnAround_2, 10
 
-Frame_20_412c::
-	frame FrameTiles_21_6360, FrameSprites_21_73b6, 12
+Frame_Gnawty_1::
+	frame FrameTiles_Gnawty_1, FrameSprites_Gnawty_1, 12
 
-Frame_20_4132::
-	frame FrameTiles_21_6420, FrameSprites_21_73c2, 12
+Frame_Gnawty_2::
+	frame FrameTiles_Gnawty_2, FrameSprites_Gnawty_2, 12
 
-Frame_20_4138::
-	frame FrameTiles_21_64e0, FrameSprites_21_73ce, 12
+Frame_Gnawty_3::
+	frame FrameTiles_Gnawty_3, FrameSprites_Gnawty_3, 12
 
-Frame_20_413e::
-	frame FrameTiles_21_65a0, FrameSprites_21_73da, 12
+Frame_Gnawty_4::
+	frame FrameTiles_Gnawty_4, FrameSprites_Gnawty_4, 12
 
-Frame_20_4144::
-	frame FrameTiles_21_6660, FrameSprites_21_73e6, 12
+Frame_Gnawty_5::
+	frame FrameTiles_Gnawty_5, FrameSprites_Gnawty_5, 12
 
-Frame_20_414a::
-	frame FrameTiles_21_6720, FrameSprites_21_73f2, 12
+Frame_Gnawty_6::
+	frame FrameTiles_Gnawty_6, FrameSprites_Gnawty_6, 12
 
-Frame_20_4150::
-	frame FrameTiles_21_67e0, FrameSprites_21_73fe, 12
+Frame_Gnawty_7::
+	frame FrameTiles_Gnawty_7, FrameSprites_Gnawty_7, 12
 
-Frame_20_4156::
-	frame FrameTiles_21_68a0, FrameSprites_21_740a, 12
+Frame_Gnawty_8::
+	frame FrameTiles_Gnawty_8, FrameSprites_Gnawty_8, 12
 
-Frame_20_415c::
-	frame FrameTiles_21_6960, FrameSprites_21_7416, 12
+Frame_SpawnCollectedBanana_1::
+	frame FrameTiles_SpawnCollectedBanana_1, FrameSprites_SpawnCollectedBanana_1, 12
 
-Frame_20_4162::
-	frame FrameTiles_21_6a20, FrameSprites_21_7422, 12
+Frame_SpawnCollectedBanana_2::
+	frame FrameTiles_SpawnCollectedBanana_2, FrameSprites_SpawnCollectedBanana_2, 12
 
-Frame_20_4168::
-	frame FrameTiles_21_6ae0, FrameSprites_21_742e, 12
+Frame_SpawnCollectedBanana_3::
+	frame FrameTiles_SpawnCollectedBanana_3, FrameSprites_SpawnCollectedBanana_3, 12
 
-Frame_20_416e::
-	frame FrameTiles_21_6ba0, FrameSprites_21_743a, 12
+Frame_SpawnCollectedBanana_4::
+	frame FrameTiles_SpawnCollectedBanana_4, FrameSprites_SpawnCollectedBanana_4, 12
 
-Frame_20_4174::
-	frame FrameTiles_21_6c60, FrameSprites_21_7446, 24
+Frame_BigAnimalToken_1::
+	frame FrameTiles_BigAnimalToken_1, FrameSprites_BigAnimalToken_1, 24
 
-Frame_20_417a::
-	frame FrameTiles_21_6de0, FrameSprites_21_745e, 18
+Frame_BigAnimalToken_2::
+	frame FrameTiles_BigAnimalToken_2, FrameSprites_BigAnimalToken_2, 18
 
-Frame_20_4180::
-	frame FrameTiles_21_6f00, FrameSprites_21_7470, 20
+Frame_BigAnimalToken_3::
+	frame FrameTiles_BigAnimalToken_3, FrameSprites_BigAnimalToken_3, 20
 
-Frame_20_4186::
-	frame FrameTiles_21_7040, FrameSprites_21_7484, 20
+Frame_BigAnimalToken_4::
+	frame FrameTiles_BigAnimalToken_4, FrameSprites_BigAnimalToken_4, 20
 
-Frame_20_418c::
-	frame FrameTiles_22_4000, FrameSprites_22_7760, 14
+Frame_BarrelCannon_SetFrame_17::
+	frame FrameTiles_BarrelCannon_SetFrame_17, FrameSprites_BarrelCannon_SetFrame_17, 14
 
-Frame_20_4192::
-	frame FrameTiles_22_40e0, FrameSprites_22_776e, 14
+Frame_BarrelCannon_SetFrame_18::
+	frame FrameTiles_BarrelCannon_SetFrame_18, FrameSprites_BarrelCannon_SetFrame_18, 14
 
-Frame_20_4198::
-	frame FrameTiles_22_41c0, FrameSprites_22_777c, 16
+Frame_BarrelCannon_SetFrame_19::
+	frame FrameTiles_BarrelCannon_SetFrame_19, FrameSprites_BarrelCannon_SetFrame_19, 16
 
-Frame_20_419e::
-	frame FrameTiles_22_42c0, FrameSprites_22_778c, 16
+Frame_BarrelCannon_SetFrame_20::
+	frame FrameTiles_BarrelCannon_SetFrame_20, FrameSprites_BarrelCannon_SetFrame_20, 16
 
-Frame_20_41a4::
-	frame FrameTiles_22_43c0, FrameSprites_22_779c, 16
+Frame_BarrelCannon_SetFrame_21::
+	frame FrameTiles_BarrelCannon_SetFrame_21, FrameSprites_BarrelCannon_SetFrame_21, 16
 
-Frame_20_41aa::
-	frame FrameTiles_22_44c0, FrameSprites_22_77ac, 16
+Frame_BarrelCannon_SetFrame_22::
+	frame FrameTiles_BarrelCannon_SetFrame_22, FrameSprites_BarrelCannon_SetFrame_22, 16
 
-Frame_20_41b0::
-	frame FrameTiles_22_45c0, FrameSprites_22_77bc, 16
+Frame_BarrelCannon_SetFrame_23::
+	frame FrameTiles_BarrelCannon_SetFrame_23, FrameSprites_BarrelCannon_SetFrame_23, 16
 
-Frame_20_41b6::
-	frame FrameTiles_22_46c0, FrameSprites_22_77cc, 16
+Frame_BarrelCannon_SetFrame_24::
+	frame FrameTiles_BarrelCannon_SetFrame_24, FrameSprites_BarrelCannon_SetFrame_24, 16
 
-Frame_20_41bc::
-	frame FrameTiles_22_47c0, FrameSprites_22_77dc, 14
+Frame_BarrelCannon_SetFrame_25::
+	frame FrameTiles_BarrelCannon_SetFrame_25, FrameSprites_BarrelCannon_SetFrame_25, 14
 
-Frame_20_41c2::
-	frame FrameTiles_22_48a0, FrameSprites_22_77ea, 16
+Frame_BarrelCannon_SetFrame_26::
+	frame FrameTiles_BarrelCannon_SetFrame_26, FrameSprites_BarrelCannon_SetFrame_26, 16
 
-Frame_20_41c8::
-	frame FrameTiles_22_49a0, FrameSprites_22_77fa, 16
+Frame_BarrelCannon_SetFrame_27::
+	frame FrameTiles_BarrelCannon_SetFrame_27, FrameSprites_BarrelCannon_SetFrame_27, 16
 
-Frame_20_41ce::
-	frame FrameTiles_22_4aa0, FrameSprites_22_780a, 16
+Frame_BarrelCannon_SetFrame_28::
+	frame FrameTiles_BarrelCannon_SetFrame_28, FrameSprites_BarrelCannon_SetFrame_28, 16
 
-Frame_20_41d4::
-	frame FrameTiles_22_4ba0, FrameSprites_22_781a, 16
+Frame_BarrelCannon_SetFrame_29::
+	frame FrameTiles_BarrelCannon_SetFrame_29, FrameSprites_BarrelCannon_SetFrame_29, 16
 
-Frame_20_41da::
-	frame FrameTiles_22_4ca0, FrameSprites_22_782a, 16
+Frame_BarrelCannon_SetFrame_30::
+	frame FrameTiles_BarrelCannon_SetFrame_30, FrameSprites_BarrelCannon_SetFrame_30, 16
 
-Frame_20_41e0::
-	frame FrameTiles_22_4da0, FrameSprites_22_783a, 16
+Frame_BarrelCannon_SetFrame_31::
+	frame FrameTiles_BarrelCannon_SetFrame_31, FrameSprites_BarrelCannon_SetFrame_31, 16
 
-Frame_20_41e6::
-	frame FrameTiles_22_4ea0, FrameSprites_22_784a, 16
+Frame_BarrelCannon_SetFrame_32::
+	frame FrameTiles_BarrelCannon_SetFrame_32, FrameSprites_BarrelCannon_SetFrame_32, 16
 
-Frame_20_41ec::
-	frame FrameTiles_22_4fa0, FrameSprites_22_785a, 4
+Frame_MasterNecky_Nut_1::
+	frame FrameTiles_MasterNecky_Nut_1, FrameSprites_MasterNecky_Nut_1, 4
 
-Frame_20_41f2::
-	frame FrameTiles_22_4fe0, FrameSprites_22_785e, 4
+Frame_MasterNecky_Nut_2::
+	frame FrameTiles_MasterNecky_Nut_2, FrameSprites_MasterNecky_Nut_2, 4
 
-Frame_20_41f8::
-	frame FrameTiles_22_5020, FrameSprites_22_7862, 4
+Frame_MasterNecky_Nut_3::
+	frame FrameTiles_MasterNecky_Nut_3, FrameSprites_MasterNecky_Nut_3, 4
 
-Frame_20_41fe::
-	frame FrameTiles_22_5060, FrameSprites_22_7866, 4
+Frame_MasterNecky_Nut_4::
+	frame FrameTiles_MasterNecky_Nut_4, FrameSprites_MasterNecky_Nut_4, 4
 
-Frame_20_4204::
-	frame FrameTiles_22_50a0, FrameSprites_22_786a, 4
+Frame_BarrelBreak_Effect_1::
+	frame FrameTiles_BarrelBreak_Effect_1, FrameSprites_BarrelBreak_Effect_1, 4
 
-Frame_20_420a::
-	frame FrameTiles_22_50e0, FrameSprites_22_786e, 10
+Frame_BarrelBreak_Effect_2::
+	frame FrameTiles_BarrelBreak_Effect_2, FrameSprites_BarrelBreak_Effect_2, 10
 
-Frame_20_4210::
-	frame FrameTiles_22_5180, FrameSprites_22_7878, 12
+Frame_BarrelBreak_Effect_3::
+	frame FrameTiles_BarrelBreak_Effect_3, FrameSprites_BarrelBreak_Effect_3, 12
 
-Frame_20_4216::
-	frame FrameTiles_22_5240, FrameSprites_22_7884, 12
+Frame_BarrelBreak_Effect_4::
+	frame FrameTiles_BarrelBreak_Effect_4, FrameSprites_BarrelBreak_Effect_4, 12
 
-Frame_20_421c::
-	frame FrameTiles_22_5300, FrameSprites_22_7890, 12
+Frame_BarrelBreak_Effect_5::
+	frame FrameTiles_BarrelBreak_Effect_5, FrameSprites_BarrelBreak_Effect_5, 12
 
-Frame_20_4222::
-	frame FrameTiles_22_53c0, FrameSprites_22_789c, 12
+Frame_BarrelBreak_Effect_6::
+	frame FrameTiles_BarrelBreak_Effect_6, FrameSprites_BarrelBreak_Effect_6, 12
 
-Frame_20_4228::
-	frame FrameTiles_22_5480, FrameSprites_22_78a8, 6
+Frame_BarrelBreak_Effect_7::
+	frame FrameTiles_BarrelBreak_Effect_7, FrameSprites_BarrelBreak_Effect_7, 6
 
-Frame_20_422e::
-	frame FrameTiles_22_54e0, FrameSprites_22_78ae, 4
+Frame_BarrelBreak_Effect_8::
+	frame FrameTiles_BarrelBreak_Effect_8, FrameSprites_BarrelBreak_Effect_8, 4
 
-Frame_20_4234::
-	frame FrameTiles_22_5520, FrameSprites_22_78b2, 12
+Frame_Mincer_1::
+	frame FrameTiles_Mincer_1, FrameSprites_Mincer_1, 12
 
-Frame_20_423a::
-	frame FrameTiles_22_55e0, FrameSprites_22_78be, 12
+Frame_Mincer_2::
+	frame FrameTiles_Mincer_2, FrameSprites_Mincer_2, 12
 
-Frame_20_4240::
-	frame FrameTiles_22_56a0, FrameSprites_22_78ca, 12
+Frame_Mincer_3::
+	frame FrameTiles_Mincer_3, FrameSprites_Mincer_3, 12
 
-Frame_20_4246::
-	frame FrameTiles_22_5760, FrameSprites_22_78d6, 12
+Frame_Mincer_4::
+	frame FrameTiles_Mincer_4, FrameSprites_Mincer_4, 12
 
-Frame_20_424c::
-	frame FrameTiles_22_5820, FrameSprites_22_78e2, 12
+Frame_Mincer_5::
+	frame FrameTiles_Mincer_5, FrameSprites_Mincer_5, 12
 
-Frame_20_4252::
-	frame FrameTiles_22_58e0, FrameSprites_22_78ee, 12
+Frame_Mincer_6::
+	frame FrameTiles_Mincer_6, FrameSprites_Mincer_6, 12
 
-Frame_20_4258::
-	frame FrameTiles_22_59a0, FrameSprites_22_78fa, 12
+Frame_Mincer_7::
+	frame FrameTiles_Mincer_7, FrameSprites_Mincer_7, 12
 
-Frame_20_425e::
-	frame FrameTiles_22_5a60, FrameSprites_22_7906, 12
+Frame_Mincer_8::
+	frame FrameTiles_Mincer_8, FrameSprites_Mincer_8, 12
 
-Frame_20_4264::
-	frame FrameTiles_22_5b20, FrameSprites_22_7912, 12
+Frame_Unused_1::
+	frame FrameTiles_Unused_1, FrameSprites_Unused_1, 12
 
-Frame_20_426a::
-	frame FrameTiles_22_5be0, FrameSprites_22_791e, 4
+Frame_StompBonus_Bananas_1::
+	frame FrameTiles_StompBonus_Bananas_1, FrameSprites_StompBonus_Bananas_1, 4
 
-Frame_20_4270::
-	frame FrameTiles_22_5c20, FrameSprites_22_7922, 4
+Frame_StompBonus_Bananas_2::
+	frame FrameTiles_StompBonus_Bananas_2, FrameSprites_StompBonus_Bananas_2, 4
 
-Frame_20_4276::
-	frame FrameTiles_22_5c60, FrameSprites_22_7926, 4
+Frame_StompBonus_Bananas_3::
+	frame FrameTiles_StompBonus_Bananas_3, FrameSprites_StompBonus_Bananas_3, 4
 
-Frame_20_427c::
-	frame FrameTiles_22_5ca0, FrameSprites_22_792a, 4
+Frame_StompBonus_Bananas_4::
+	frame FrameTiles_StompBonus_Bananas_4, FrameSprites_StompBonus_Bananas_4, 4
 
-Frame_20_4282::
-	frame FrameTiles_22_5ce0, FrameSprites_22_792e, 4
+Frame_StompBonus_Bananas_5::
+	frame FrameTiles_StompBonus_Bananas_5, FrameSprites_StompBonus_Bananas_5, 4
 
-Frame_20_4288::
-	frame FrameTiles_22_5d20, FrameSprites_22_7932, 4
+Frame_StompBonus_Bananas_6::
+	frame FrameTiles_StompBonus_Bananas_6, FrameSprites_StompBonus_Bananas_6, 4
 
-Frame_20_428e::
-	frame FrameTiles_22_5d60, FrameSprites_22_7936, 12
+Frame_RunClamboScript_1::
+	frame FrameTiles_RunClamboScript_1, FrameSprites_RunClamboScript_1, 12
 
-Frame_20_4294::
-	frame FrameTiles_22_5e20, FrameSprites_22_7942, 14
+Frame_RunClamboScript_2::
+	frame FrameTiles_RunClamboScript_2, FrameSprites_RunClamboScript_2, 14
 
-Frame_20_429a::
-	frame FrameTiles_22_5f00, FrameSprites_22_7950, 16
+Frame_RunClamboScript_3::
+	frame FrameTiles_RunClamboScript_3, FrameSprites_RunClamboScript_3, 16
 
-Frame_20_42a0::
-	frame FrameTiles_22_6000, FrameSprites_22_7960, 16
+Frame_RunClamboScript_4::
+	frame FrameTiles_RunClamboScript_4, FrameSprites_RunClamboScript_4, 16
 
-Frame_20_42a6::
-	frame FrameTiles_22_6100, FrameSprites_22_7970, 18
+Frame_RunClamboScript_5::
+	frame FrameTiles_RunClamboScript_5, FrameSprites_RunClamboScript_5, 18
 
-Frame_20_42ac::
-	frame FrameTiles_22_6220, FrameSprites_22_7982, 20
+Frame_RunClamboScript_6::
+	frame FrameTiles_RunClamboScript_6, FrameSprites_RunClamboScript_6, 20
 
-Frame_20_42b2::
-	frame FrameTiles_22_6360, FrameSprites_22_7996, 12
+Frame_SpawnCollectedBanana_5::
+	frame FrameTiles_SpawnCollectedBanana_5, FrameSprites_SpawnCollectedBanana_5, 12
 
-Frame_20_42b8::
-	frame FrameTiles_22_6420, FrameSprites_22_79a2, 12
+Frame_SpawnCollectedBanana_6::
+	frame FrameTiles_SpawnCollectedBanana_6, FrameSprites_SpawnCollectedBanana_6, 12
 
-Frame_20_42be::
-	frame FrameTiles_22_64e0, FrameSprites_22_79ae, 12
+Frame_SpawnCollectedBanana_7::
+	frame FrameTiles_SpawnCollectedBanana_7, FrameSprites_SpawnCollectedBanana_7, 12
 
-Frame_20_42c4::
-	frame FrameTiles_22_65a0, FrameSprites_22_79ba, 12
+Frame_SpawnCollectedBanana_8::
+	frame FrameTiles_SpawnCollectedBanana_8, FrameSprites_SpawnCollectedBanana_8, 12
 
-Frame_20_42ca::
-	frame FrameTiles_22_6660, FrameSprites_22_79c6, 12
+Frame_SpawnCollectedBanana_9::
+	frame FrameTiles_SpawnCollectedBanana_9, FrameSprites_SpawnCollectedBanana_9, 12
 
-Frame_20_42d0::
-	frame FrameTiles_22_6720, FrameSprites_22_79d2, 12
+Frame_SpawnCollectedBanana_10::
+	frame FrameTiles_SpawnCollectedBanana_10, FrameSprites_SpawnCollectedBanana_10, 12
 
-Frame_20_42d6::
-	frame FrameTiles_22_67e0, FrameSprites_22_79de, 12
+Frame_SpawnCollectedBanana_11::
+	frame FrameTiles_SpawnCollectedBanana_11, FrameSprites_SpawnCollectedBanana_11, 12
 
-Frame_20_42dc::
-	frame FrameTiles_22_68a0, FrameSprites_22_79ea, 12
+Frame_SpawnCollectedBanana_12::
+	frame FrameTiles_SpawnCollectedBanana_12, FrameSprites_SpawnCollectedBanana_12, 12
 
-Frame_20_42e2::
-	frame FrameTiles_22_6960, FrameSprites_22_79f6, 12
+Frame_SpawnCollectedBanana_13::
+	frame FrameTiles_SpawnCollectedBanana_13, FrameSprites_SpawnCollectedBanana_13, 12
 
-Frame_20_42e8::
-	frame FrameTiles_22_6a20, FrameSprites_22_7a02, 12
+Frame_SpawnCollectedBanana_14::
+	frame FrameTiles_SpawnCollectedBanana_14, FrameSprites_SpawnCollectedBanana_14, 12
 
-Frame_20_42ee::
-	frame FrameTiles_22_6ae0, FrameSprites_22_7a0e, 12
+Frame_SpawnCollectedBanana_15::
+	frame FrameTiles_SpawnCollectedBanana_15, FrameSprites_SpawnCollectedBanana_15, 12
 
-Frame_20_42f4::
-	frame FrameTiles_22_6ba0, FrameSprites_22_7a1a, 12
+Frame_SpawnCollectedBanana_16::
+	frame FrameTiles_SpawnCollectedBanana_16, FrameSprites_SpawnCollectedBanana_16, 12
 
-Frame_20_42fa::
-	frame FrameTiles_22_6c60, FrameSprites_22_7a26, 12
+Frame_SetPlayerAnimation_1::
+	frame FrameTiles_SetPlayerAnimation_1, FrameSprites_SetPlayerAnimation_1, 12
 
-Frame_20_4300::
-	frame FrameTiles_22_6d20, FrameSprites_22_7a32, 12
+Frame_SetPlayerAnimation_2::
+	frame FrameTiles_SetPlayerAnimation_2, FrameSprites_SetPlayerAnimation_2, 12
 
-Frame_20_4306::
-	frame FrameTiles_22_6de0, FrameSprites_22_7a3e, 14
+Frame_SetPlayerAnimation_3::
+	frame FrameTiles_SetPlayerAnimation_3, FrameSprites_SetPlayerAnimation_3, 14
 
-Frame_20_430c::
-	frame FrameTiles_22_6ec0, FrameSprites_22_7a4c, 12
+Frame_SetPlayerAnimation_4::
+	frame FrameTiles_SetPlayerAnimation_4, FrameSprites_SetPlayerAnimation_4, 12
 
-Frame_20_4312::
-	frame FrameTiles_22_6f80, FrameSprites_22_7a58, 12
+Frame_SetPlayerAnimation_5::
+	frame FrameTiles_SetPlayerAnimation_5, FrameSprites_SetPlayerAnimation_5, 12
 
-Frame_20_4318::
-	frame FrameTiles_22_7040, FrameSprites_22_7a64, 20
+Frame_SetPlayerAnimation_6::
+	frame FrameTiles_SetPlayerAnimation_6, FrameSprites_SetPlayerAnimation_6, 20
 
-Frame_20_431e::
-	frame FrameTiles_22_7180, FrameSprites_22_7a78, 12
+Frame_SetPlayerAnimation_7::
+	frame FrameTiles_SetPlayerAnimation_7, FrameSprites_SetPlayerAnimation_7, 12
 
-Frame_20_4324::
-	frame FrameTiles_22_7240, FrameSprites_22_7a84, 16
+Frame_SetPlayerAnimation_8::
+	frame FrameTiles_SetPlayerAnimation_8, FrameSprites_SetPlayerAnimation_8, 16
 
-Frame_20_432a::
-	frame FrameTiles_22_7340, FrameSprites_22_7a94, 18
+Frame_SetPlayerAnimation_9::
+	frame FrameTiles_SetPlayerAnimation_9, FrameSprites_SetPlayerAnimation_9, 18
 
-Frame_20_4330::
-	frame FrameTiles_22_7460, FrameSprites_22_7aa6, 16
+Frame_SetPlayerAnimation_10::
+	frame FrameTiles_SetPlayerAnimation_10, FrameSprites_SetPlayerAnimation_10, 16
 
-Frame_20_4336::
-	frame FrameTiles_22_7560, FrameSprites_22_7ab6, 16
+Frame_SetPlayerAnimation_11::
+	frame FrameTiles_SetPlayerAnimation_11, FrameSprites_SetPlayerAnimation_11, 16
 
-Frame_20_433c::
-	frame FrameTiles_22_7660, FrameSprites_22_7ac6, 16
+Frame_SetPlayerAnimation_12::
+	frame FrameTiles_SetPlayerAnimation_12, FrameSprites_SetPlayerAnimation_12, 16
 
-Frame_20_4342::
-	frame FrameTiles_33_5d20, FrameSprites_33_72b2, 20
+Frame_SetPlayerAnimation_13::
+	frame FrameTiles_SetPlayerAnimation_13, FrameSprites_SetPlayerAnimation_13, 20
 
-Frame_20_4348::
-	frame FrameTiles_33_5e60, FrameSprites_33_72c6, 18
+Frame_SetPlayerAnimation_14::
+	frame FrameTiles_SetPlayerAnimation_14, FrameSprites_SetPlayerAnimation_14, 18
 
-Frame_20_434e::
-	frame FrameTiles_33_5f80, FrameSprites_33_72d8, 16
+Frame_SetPlayerAnimation_15::
+	frame FrameTiles_SetPlayerAnimation_15, FrameSprites_SetPlayerAnimation_15, 16
 
-Frame_20_4354::
-	frame FrameTiles_33_6080, FrameSprites_33_72e8, 16
+Frame_SetPlayerAnimation_16::
+	frame FrameTiles_SetPlayerAnimation_16, FrameSprites_SetPlayerAnimation_16, 16
 
-Frame_20_435a::
-	frame FrameTiles_33_6180, FrameSprites_33_72f8, 14
+Frame_SetPlayerAnimation_17::
+	frame FrameTiles_SetPlayerAnimation_17, FrameSprites_SetPlayerAnimation_17, 14
 
-Frame_20_4360::
-	frame FrameTiles_33_6260, FrameSprites_33_7306, 20
+Frame_SetPlayerAnimation_18::
+	frame FrameTiles_SetPlayerAnimation_18, FrameSprites_SetPlayerAnimation_18, 20
 
-Frame_20_4366::
-	frame FrameTiles_33_63a0, FrameSprites_33_731a, 14
+Frame_SetPlayerAnimation_19::
+	frame FrameTiles_SetPlayerAnimation_19, FrameSprites_SetPlayerAnimation_19, 14
 
-Frame_20_436c::
-	frame FrameTiles_33_6480, FrameSprites_33_7328, 12
+Frame_SetPlayerAnimation_20::
+	frame FrameTiles_SetPlayerAnimation_20, FrameSprites_SetPlayerAnimation_20, 12
 
-Frame_20_4372::
-	frame FrameTiles_33_6540, FrameSprites_33_7334, 16
+Frame_SetPlayerAnimation_21::
+	frame FrameTiles_SetPlayerAnimation_21, FrameSprites_SetPlayerAnimation_21, 16
 
-Frame_20_4378::
-	frame FrameTiles_33_6640, FrameSprites_33_7344, 14
+Frame_SetPlayerAnimation_22::
+	frame FrameTiles_SetPlayerAnimation_22, FrameSprites_SetPlayerAnimation_22, 14
 
-Frame_20_437e::
-	frame FrameTiles_33_6720, FrameSprites_33_7352, 14
+Frame_SetPlayerAnimation_23::
+	frame FrameTiles_SetPlayerAnimation_23, FrameSprites_SetPlayerAnimation_23, 14
 
-Frame_20_4384::
-	frame FrameTiles_23_4000, FrameSprites_23_6da0, 18
+Frame_SetPlayerAnimation_24::
+	frame FrameTiles_SetPlayerAnimation_24, FrameSprites_SetPlayerAnimation_24, 18
 
-Frame_20_438a::
-	frame FrameTiles_23_4120, FrameSprites_23_6db2, 14
+Frame_SetPlayerAnimation_25::
+	frame FrameTiles_SetPlayerAnimation_25, FrameSprites_SetPlayerAnimation_25, 14
 
-Frame_20_4390::
-	frame FrameTiles_23_4200, FrameSprites_23_6dc0, 18
+Frame_SetPlayerAnimation_26::
+	frame FrameTiles_SetPlayerAnimation_26, FrameSprites_SetPlayerAnimation_26, 18
 
-Frame_20_4396::
-	frame FrameTiles_23_4320, FrameSprites_23_6dd2, 12
+Frame_SetPlayerAnimation_27::
+	frame FrameTiles_SetPlayerAnimation_27, FrameSprites_SetPlayerAnimation_27, 12
 
-Frame_20_439c::
-	frame FrameTiles_23_43e0, FrameSprites_23_6dde, 12
+Frame_SetPlayerAnimation_28::
+	frame FrameTiles_SetPlayerAnimation_28, FrameSprites_SetPlayerAnimation_28, 12
 
-Frame_20_43a2::
-	frame FrameTiles_23_44a0, FrameSprites_23_6dea, 14
+Frame_SetPlayerAnimation_29::
+	frame FrameTiles_SetPlayerAnimation_29, FrameSprites_SetPlayerAnimation_29, 14
 
-Frame_20_43a8::
-	frame FrameTiles_23_4580, FrameSprites_23_6df8, 16
+Frame_SetPlayerAnimation_30::
+	frame FrameTiles_SetPlayerAnimation_30, FrameSprites_SetPlayerAnimation_30, 16
 
-Frame_20_43ae::
-	frame FrameTiles_23_4680, FrameSprites_23_6e08, 16
+Frame_SetPlayerAnimation_31::
+	frame FrameTiles_SetPlayerAnimation_31, FrameSprites_SetPlayerAnimation_31, 16
 
-Frame_20_43b4::
-	frame FrameTiles_23_4780, FrameSprites_23_6e18, 18
+Frame_SetPlayerAnimation_32::
+	frame FrameTiles_SetPlayerAnimation_32, FrameSprites_SetPlayerAnimation_32, 18
 
-Frame_20_43ba::
-	frame FrameTiles_33_6800, FrameSprites_33_7360, 14
+Frame_SetPlayerAnimation_33::
+	frame FrameTiles_SetPlayerAnimation_33, FrameSprites_SetPlayerAnimation_33, 14
 
-Frame_20_43c0::
-	frame FrameTiles_33_68e0, FrameSprites_33_736e, 14
+Frame_SetPlayerAnimation_34::
+	frame FrameTiles_SetPlayerAnimation_34, FrameSprites_SetPlayerAnimation_34, 14
 
-Frame_20_43c6::
-	frame FrameTiles_33_69c0, FrameSprites_33_737c, 14
+Frame_SetPlayerAnimation_35::
+	frame FrameTiles_SetPlayerAnimation_35, FrameSprites_SetPlayerAnimation_35, 14
 
-Frame_20_43cc::
-	frame FrameTiles_33_6aa0, FrameSprites_33_738a, 14
+Frame_SetPlayerAnimation_36::
+	frame FrameTiles_SetPlayerAnimation_36, FrameSprites_SetPlayerAnimation_36, 14
 
-Frame_20_43d2::
-	frame FrameTiles_33_6b80, FrameSprites_33_7398, 14
+Frame_SetPlayerAnimation_37::
+	frame FrameTiles_SetPlayerAnimation_37, FrameSprites_SetPlayerAnimation_37, 14
 
-Frame_20_43d8::
-	frame FrameTiles_33_6c60, FrameSprites_33_73a6, 14
+Frame_SetPlayerAnimation_38::
+	frame FrameTiles_SetPlayerAnimation_38, FrameSprites_SetPlayerAnimation_38, 14
 
-Frame_20_43de::
-	frame FrameTiles_33_6d40, FrameSprites_33_73b4, 14
+Frame_SetPlayerAnimation_39::
+	frame FrameTiles_SetPlayerAnimation_39, FrameSprites_SetPlayerAnimation_39, 14
 
-Frame_20_43e4::
-	frame FrameTiles_33_6e20, FrameSprites_33_73c2, 14
+Frame_SetPlayerAnimation_40::
+	frame FrameTiles_SetPlayerAnimation_40, FrameSprites_SetPlayerAnimation_40, 14
 
-Frame_20_43ea::
-	frame FrameTiles_33_6f00, FrameSprites_33_73d0, 14
+Frame_SetPlayerAnimation_41::
+	frame FrameTiles_SetPlayerAnimation_41, FrameSprites_SetPlayerAnimation_41, 14
 
-Frame_20_43f0::
-	frame FrameTiles_33_6fe0, FrameSprites_33_73de, 16
+Frame_SetPlayerAnimation_42::
+	frame FrameTiles_SetPlayerAnimation_42, FrameSprites_SetPlayerAnimation_42, 16
 
-Frame_20_43f6::
-	frame FrameTiles_23_48a0, FrameSprites_23_6e2a, 14
+Frame_SetPlayerAnimation_43::
+	frame FrameTiles_SetPlayerAnimation_43, FrameSprites_SetPlayerAnimation_43, 14
 
-Frame_20_43fc::
-	frame FrameTiles_23_4980, FrameSprites_23_6e38, 16
+Frame_SetPlayerAnimation_44::
+	frame FrameTiles_SetPlayerAnimation_44, FrameSprites_SetPlayerAnimation_44, 16
 
-Frame_20_4402::
-	frame FrameTiles_23_4a80, FrameSprites_23_6e48, 14
+Frame_SetPlayerAnimation_45::
+	frame FrameTiles_SetPlayerAnimation_45, FrameSprites_SetPlayerAnimation_45, 14
 
-Frame_20_4408::
-	frame FrameTiles_23_4b60, FrameSprites_23_6e56, 20
+Frame_SetPlayerAnimation_46::
+	frame FrameTiles_SetPlayerAnimation_46, FrameSprites_SetPlayerAnimation_46, 20
 
-Frame_20_440e::
-	frame FrameTiles_23_4ca0, FrameSprites_23_6e6a, 18
+Frame_SetPlayerAnimation_47::
+	frame FrameTiles_SetPlayerAnimation_47, FrameSprites_SetPlayerAnimation_47, 18
 
-Frame_20_4414::
-	frame FrameTiles_23_4dc0, FrameSprites_23_6e7c, 16
+Frame_SetPlayerAnimation_48::
+	frame FrameTiles_SetPlayerAnimation_48, FrameSprites_SetPlayerAnimation_48, 16
 
-Frame_20_441a::
-	frame FrameTiles_23_4ec0, FrameSprites_23_6e8c, 16
+Frame_SetPlayerAnimation_49::
+	frame FrameTiles_SetPlayerAnimation_49, FrameSprites_SetPlayerAnimation_49, 16
 
-Frame_20_4420::
-	frame FrameTiles_23_4fc0, FrameSprites_23_6e9c, 14
+Frame_SetPlayerAnimation_50::
+	frame FrameTiles_SetPlayerAnimation_50, FrameSprites_SetPlayerAnimation_50, 14
 
-Frame_20_4426::
-	frame FrameTiles_23_50a0, FrameSprites_23_6eaa, 16
+Frame_SetPlayerAnimation_51::
+	frame FrameTiles_SetPlayerAnimation_51, FrameSprites_SetPlayerAnimation_51, 16
 
-Frame_20_442c::
-	frame FrameTiles_23_51a0, FrameSprites_23_6eba, 16
+Frame_SetPlayerAnimation_52::
+	frame FrameTiles_SetPlayerAnimation_52, FrameSprites_SetPlayerAnimation_52, 16
 
-Frame_20_4432::
-	frame FrameTiles_23_52a0, FrameSprites_23_6eca, 14
+Frame_SetPlayerAnimation_53::
+	frame FrameTiles_SetPlayerAnimation_53, FrameSprites_SetPlayerAnimation_53, 14
 
-Frame_20_4438::
-	frame FrameTiles_23_5380, FrameSprites_23_6ed8, 16
+Frame_SetPlayerAnimation_54::
+	frame FrameTiles_SetPlayerAnimation_54, FrameSprites_SetPlayerAnimation_54, 16
 
-Frame_20_443e::
-	frame FrameTiles_23_5480, FrameSprites_23_6ee8, 18
+Frame_SetPlayerAnimation_55::
+	frame FrameTiles_SetPlayerAnimation_55, FrameSprites_SetPlayerAnimation_55, 18
 
-Frame_20_4444::
-	frame FrameTiles_23_55a0, FrameSprites_23_6efa, 14
+Frame_SetPlayerAnimation_56::
+	frame FrameTiles_SetPlayerAnimation_56, FrameSprites_SetPlayerAnimation_56, 14
 
-Frame_20_444a::
-	frame FrameTiles_23_5680, FrameSprites_23_6f08, 18
+Frame_SetPlayerAnimation_57::
+	frame FrameTiles_SetPlayerAnimation_57, FrameSprites_SetPlayerAnimation_57, 18
 
-Frame_20_4450::
-	frame FrameTiles_23_57a0, FrameSprites_23_6f1a, 16
+Frame_SetPlayerAnimation_58::
+	frame FrameTiles_SetPlayerAnimation_58, FrameSprites_SetPlayerAnimation_58, 16
 
-Frame_20_4456::
-	frame FrameTiles_23_58a0, FrameSprites_23_6f2a, 18
+Frame_SetPlayerAnimation_59::
+	frame FrameTiles_SetPlayerAnimation_59, FrameSprites_SetPlayerAnimation_59, 18
 
-Frame_20_445c::
-	frame FrameTiles_23_59c0, FrameSprites_23_6f3c, 20
+Frame_SetPlayerAnimation_60::
+	frame FrameTiles_SetPlayerAnimation_60, FrameSprites_SetPlayerAnimation_60, 20
 
-Frame_20_4462::
-	frame FrameTiles_23_5b00, FrameSprites_23_6f50, 18
+Frame_SetPlayerAnimation_61::
+	frame FrameTiles_SetPlayerAnimation_61, FrameSprites_SetPlayerAnimation_61, 18
 
-Frame_20_4468::
-	frame FrameTiles_23_5c20, FrameSprites_23_6f62, 16
+Frame_SetPlayerAnimation_62::
+	frame FrameTiles_SetPlayerAnimation_62, FrameSprites_SetPlayerAnimation_62, 16
 
-Frame_20_446e::
-	frame FrameTiles_23_5d20, FrameSprites_23_6f72, 16
+Frame_SetPlayerAnimation_63::
+	frame FrameTiles_SetPlayerAnimation_63, FrameSprites_SetPlayerAnimation_63, 16
 
-Frame_20_4474::
-	frame FrameTiles_23_5e20, FrameSprites_23_6f82, 12
+Frame_SetPlayerAnimation_64::
+	frame FrameTiles_SetPlayerAnimation_64, FrameSprites_SetPlayerAnimation_64, 12
 
-Frame_20_447a::
-	frame FrameTiles_23_5ee0, FrameSprites_23_6f8e, 14
+Frame_SetPlayerAnimation_65::
+	frame FrameTiles_SetPlayerAnimation_65, FrameSprites_SetPlayerAnimation_65, 14
 
-Frame_20_4480::
-	frame FrameTiles_23_5fc0, FrameSprites_23_6f9c, 12
+Frame_SetPlayerAnimation_66::
+	frame FrameTiles_SetPlayerAnimation_66, FrameSprites_SetPlayerAnimation_66, 12
 
-Frame_20_4486::
-	frame FrameTiles_23_6080, FrameSprites_23_6fa8, 16
+Frame_SetPlayerAnimation_67::
+	frame FrameTiles_SetPlayerAnimation_67, FrameSprites_SetPlayerAnimation_67, 16
 
-Frame_20_448c::
-	frame FrameTiles_23_6180, FrameSprites_23_6fb8, 18
+Frame_SetPlayerAnimation_68::
+	frame FrameTiles_SetPlayerAnimation_68, FrameSprites_SetPlayerAnimation_68, 18
 
-Frame_20_4492::
-	frame FrameTiles_23_62a0, FrameSprites_23_6fca, 14
+Frame_SetPlayerAnimation_69::
+	frame FrameTiles_SetPlayerAnimation_69, FrameSprites_SetPlayerAnimation_69, 14
 
-Frame_20_4498::
-	frame FrameTiles_23_6380, FrameSprites_23_6fd8, 16
+Frame_SetPlayerAnimation_70::
+	frame FrameTiles_SetPlayerAnimation_70, FrameSprites_SetPlayerAnimation_70, 16
 
-Frame_20_449e::
-	frame FrameTiles_23_6480, FrameSprites_23_6fe8, 14
+Frame_SetPlayerAnimation_71::
+	frame FrameTiles_SetPlayerAnimation_71, FrameSprites_SetPlayerAnimation_71, 14
 
-Frame_20_44a4::
-	frame FrameTiles_23_6560, FrameSprites_23_6ff6, 14
+Frame_SetPlayerAnimation_72::
+	frame FrameTiles_SetPlayerAnimation_72, FrameSprites_SetPlayerAnimation_72, 14
 
-Frame_20_44aa::
-	frame FrameTiles_23_6640, FrameSprites_23_7004, 16
+Frame_SetPlayerAnimation_73::
+	frame FrameTiles_SetPlayerAnimation_73, FrameSprites_SetPlayerAnimation_73, 16
 
-Frame_20_44b0::
-	frame FrameTiles_23_6740, FrameSprites_23_7014, 16
+Frame_SetPlayerAnimation_74::
+	frame FrameTiles_SetPlayerAnimation_74, FrameSprites_SetPlayerAnimation_74, 16
 
-Frame_20_44b6::
-	frame FrameTiles_23_6840, FrameSprites_23_7024, 14
+Frame_SetPlayerAnimation_75::
+	frame FrameTiles_SetPlayerAnimation_75, FrameSprites_SetPlayerAnimation_75, 14
 
-Frame_20_44bc::
-	frame FrameTiles_23_6920, FrameSprites_23_7032, 4
+Frame_AnimalToken_1::
+	frame FrameTiles_AnimalToken_1, FrameSprites_AnimalToken_1, 4
 
-Frame_20_44c2::
-	frame FrameTiles_23_6960, FrameSprites_23_7036, 4
+Frame_Unused_2::
+	frame FrameTiles_Unused_2, FrameSprites_Unused_2, 4
 
-Frame_20_44c8::
-	frame FrameTiles_23_69a0, FrameSprites_23_703a, 4
+Frame_Unused_3::
+	frame FrameTiles_Unused_3, FrameSprites_Unused_3, 4
 
-Frame_20_44ce::
-	frame FrameTiles_23_69e0, FrameSprites_23_703e, 4
+Frame_Unused_4::
+	frame FrameTiles_Unused_4, FrameSprites_Unused_4, 4
 
-Frame_20_44d4::
-	frame FrameTiles_23_6a20, FrameSprites_23_7042, 4
+Frame_Unused_5::
+	frame FrameTiles_Unused_5, FrameSprites_Unused_5, 4
 
-Frame_20_44da::
-	frame FrameTiles_23_6a60, FrameSprites_23_7046, 4
+Frame_Unused_6::
+	frame FrameTiles_Unused_6, FrameSprites_Unused_6, 4
 
-Frame_20_44e0::
-	frame FrameTiles_23_6aa0, FrameSprites_23_704a, 4
+Frame_Unused_7::
+	frame FrameTiles_Unused_7, FrameSprites_Unused_7, 4
 
-Frame_20_44e6::
-	frame FrameTiles_23_6ae0, FrameSprites_23_704e, 4
+Frame_Unused_8::
+	frame FrameTiles_Unused_8, FrameSprites_Unused_8, 4
 
-Frame_20_44ec::
-	frame FrameTiles_23_6b20, FrameSprites_23_7052, 8
+Frame_Obj_Idle_2::
+	frame FrameTiles_Obj_Idle_2, FrameSprites_Obj_Idle_2, 8
 
-Frame_20_44f2::
-	frame FrameTiles_23_6ba0, FrameSprites_23_705a, 4
+Frame_AnimalToken_2::
+	frame FrameTiles_AnimalToken_2, FrameSprites_AnimalToken_2, 4
 
-Frame_20_44f8::
-	frame FrameTiles_23_6be0, FrameSprites_23_705e, 4
+Frame_Unused_9::
+	frame FrameTiles_Unused_9, FrameSprites_Unused_9, 4
 
-Frame_20_44fe::
-	frame FrameTiles_23_6c20, FrameSprites_23_7062, 4
+Frame_Unused_10::
+	frame FrameTiles_Unused_10, FrameSprites_Unused_10, 4
 
-Frame_20_4504::
-	frame FrameTiles_23_6c60, FrameSprites_23_7066, 4
+Frame_Unused_11::
+	frame FrameTiles_Unused_11, FrameSprites_Unused_11, 4
 
-Frame_20_450a::
-	frame FrameTiles_23_6ca0, FrameSprites_23_706a, 4
+Frame_Unused_12::
+	frame FrameTiles_Unused_12, FrameSprites_Unused_12, 4
 
-Frame_20_4510::
-	frame FrameTiles_23_6ce0, FrameSprites_23_706e, 4
+Frame_Unused_13::
+	frame FrameTiles_Unused_13, FrameSprites_Unused_13, 4
 
-Frame_20_4516::
-	frame FrameTiles_23_6d20, FrameSprites_23_7072, 4
+Frame_Unused_14::
+	frame FrameTiles_Unused_14, FrameSprites_Unused_14, 4
 
-Frame_20_451c::
-	frame FrameTiles_23_6d60, FrameSprites_23_7076, 4
+Frame_Unused_15::
+	frame FrameTiles_Unused_15, FrameSprites_Unused_15, 4
 
-Frame_20_4522::
-	frame FrameTiles_32_6f80, FrameSprites_32_752a, 16
+Frame_Elevator_1::
+	frame FrameTiles_Elevator_1, FrameSprites_Elevator_1, 16
 
-Frame_20_4528::
-	frame FrameTiles_24_4000, FrameSprites_24_7460, 26
+Frame_Gnawty_Touch_1::
+	frame FrameTiles_Gnawty_Touch_1, FrameSprites_Gnawty_Touch_1, 26
 
-Frame_20_452e::
-	frame FrameTiles_24_41a0, FrameSprites_24_747a, 24
+Frame_Gnawty_Touch_2::
+	frame FrameTiles_Gnawty_Touch_2, FrameSprites_Gnawty_Touch_2, 24
 
-Frame_20_4534::
-	frame FrameTiles_24_4320, FrameSprites_24_7492, 26
+Frame_Gnawty_Touch_3::
+	frame FrameTiles_Gnawty_Touch_3, FrameSprites_Gnawty_Touch_3, 26
 
-Frame_20_453a::
-	frame FrameTiles_24_44c0, FrameSprites_24_74ac, 26
+Frame_Gnawty_Touch_4::
+	frame FrameTiles_Gnawty_Touch_4, FrameSprites_Gnawty_Touch_4, 26
 
-Frame_20_4540::
-	frame FrameTiles_24_4660, FrameSprites_24_74c6, 18
+Frame_Gnawty_Touch_5::
+	frame FrameTiles_Gnawty_Touch_5, FrameSprites_Gnawty_Touch_5, 18
 
-Frame_20_4546::
-	frame FrameTiles_24_4780, FrameSprites_24_74d8, 26
+Frame_Gnawty_Touch_6::
+	frame FrameTiles_Gnawty_Touch_6, FrameSprites_Gnawty_Touch_6, 26
 
-Frame_20_454c::
-	frame FrameTiles_24_4920, FrameSprites_24_74f2, 24
+Frame_Gnawty_Touch_7::
+	frame FrameTiles_Gnawty_Touch_7, FrameSprites_Gnawty_Touch_7, 24
 
-Frame_20_4552::
-	frame FrameTiles_24_4aa0, FrameSprites_24_750a, 24
+Frame_Obj_TurnAround_3::
+	frame FrameTiles_Obj_TurnAround_3, FrameSprites_Obj_TurnAround_3, 24
 
-Frame_20_4558::
-	frame FrameTiles_24_4c20, FrameSprites_24_7522, 26
+Frame_Krusha_1::
+	frame FrameTiles_Krusha_1, FrameSprites_Krusha_1, 26
 
-Frame_20_455e::
-	frame FrameTiles_24_4dc0, FrameSprites_24_753c, 20
+Frame_Krusha_2::
+	frame FrameTiles_Krusha_2, FrameSprites_Krusha_2, 20
 
-Frame_20_4564::
-	frame FrameTiles_24_4f00, FrameSprites_24_7550, 22
+Frame_Krusha_3::
+	frame FrameTiles_Krusha_3, FrameSprites_Krusha_3, 22
 
-Frame_20_456a::
-	frame FrameTiles_24_5060, FrameSprites_24_7566, 22
+Frame_Krusha_4::
+	frame FrameTiles_Krusha_4, FrameSprites_Krusha_4, 22
 
-Frame_20_4570::
-	frame FrameTiles_24_51c0, FrameSprites_24_757c, 28
+Frame_Krusha_5::
+	frame FrameTiles_Krusha_5, FrameSprites_Krusha_5, 28
 
-Frame_20_4576::
-	frame FrameTiles_24_5380, FrameSprites_24_7598, 24
+Frame_Krusha_6::
+	frame FrameTiles_Krusha_6, FrameSprites_Krusha_6, 24
 
-Frame_20_457c::
-	frame FrameTiles_24_5500, FrameSprites_24_75b0, 22
+Frame_Krusha_7::
+	frame FrameTiles_Krusha_7, FrameSprites_Krusha_7, 22
 
-Frame_20_4582::
-	frame FrameTiles_24_5660, FrameSprites_24_75c6, 22
+Frame_Krusha_8::
+	frame FrameTiles_Krusha_8, FrameSprites_Krusha_8, 22
 
-Frame_20_4588::
-	frame FrameTiles_24_57c0, FrameSprites_24_75dc, 22
+Frame_Krusha_9::
+	frame FrameTiles_Krusha_9, FrameSprites_Krusha_9, 22
 
-Frame_20_458e::
-	frame FrameTiles_24_5920, FrameSprites_24_75f2, 12
+Frame_AnimalCrate_1::
+	frame FrameTiles_AnimalCrate_1, FrameSprites_AnimalCrate_1, 12
 
-Frame_20_4594::
-	frame FrameTiles_24_59e0, FrameSprites_24_75fe, 12
+Frame_AnimalCrate_2::
+	frame FrameTiles_AnimalCrate_2, FrameSprites_AnimalCrate_2, 12
 
-Frame_20_459a::
-	frame FrameTiles_24_5aa0, FrameSprites_24_760a, 2
+Frame_Bonus_ShowPrize_2::
+	frame FrameTiles_Bonus_ShowPrize_2, FrameSprites_Bonus_ShowPrize_2, 2
 
-Frame_20_45a0::
-	frame FrameTiles_24_5ac0, FrameSprites_24_760c, 4
+Frame_Bonus_ShowPrize_3::
+	frame FrameTiles_Bonus_ShowPrize_3, FrameSprites_Bonus_ShowPrize_3, 4
 
-Frame_20_45a6::
-	frame FrameTiles_24_5b00, FrameSprites_24_7610, 8
+Frame_Bonus_ShowPrize_4::
+	frame FrameTiles_Bonus_ShowPrize_4, FrameSprites_Bonus_ShowPrize_4, 8
 
-Frame_20_45ac::
-	frame FrameTiles_24_5b80, FrameSprites_24_7618, 10
+Frame_Bonus_ShowPrize_5::
+	frame FrameTiles_Bonus_ShowPrize_5, FrameSprites_Bonus_ShowPrize_5, 10
 
-Frame_20_45b2::
-	frame FrameTiles_24_5c20, FrameSprites_24_7622, 6
+Frame_TireHalf_Touch_1::
+	frame FrameTiles_TireHalf_Touch_1, FrameSprites_TireHalf_Touch_1, 6
 
-Frame_20_45b8::
-	frame FrameTiles_24_5c80, FrameSprites_24_7628, 6
+Frame_TireHalf_Touch_2::
+	frame FrameTiles_TireHalf_Touch_2, FrameSprites_TireHalf_Touch_2, 6
 
-Frame_20_45be::
-	frame FrameTiles_24_5ce0, FrameSprites_24_762e, 6
+Frame_TireHalf_Touch_3::
+	frame FrameTiles_TireHalf_Touch_3, FrameSprites_TireHalf_Touch_3, 6
 
-Frame_20_45c4::
-	frame FrameTiles_24_5d40, FrameSprites_24_7634, 12
+Frame_TireHalf_Touch_4::
+	frame FrameTiles_TireHalf_Touch_4, FrameSprites_TireHalf_Touch_4, 12
 
-Frame_20_45ca::
-	frame FrameTiles_24_5e00, FrameSprites_24_7640, 12
+Frame_TireHalf_Touch_5::
+	frame FrameTiles_TireHalf_Touch_5, FrameSprites_TireHalf_Touch_5, 12
 
-Frame_20_45d0::
-	frame FrameTiles_24_5ec0, FrameSprites_24_764c, 12
+Frame_TireHalf_Touch_6::
+	frame FrameTiles_TireHalf_Touch_6, FrameSprites_TireHalf_Touch_6, 12
 
-Frame_20_45d6::
-	frame FrameTiles_24_5f80, FrameSprites_24_7658, 12
+Frame_TireHalf_Touch_7::
+	frame FrameTiles_TireHalf_Touch_7, FrameSprites_TireHalf_Touch_7, 12
 
-Frame_20_45dc::
-	frame FrameTiles_24_6040, FrameSprites_24_7664, 8
+Frame_SetPlayerAnimation_76::
+	frame FrameTiles_SetPlayerAnimation_76, FrameSprites_SetPlayerAnimation_76, 8
 
-Frame_20_45e2::
-	frame FrameTiles_24_60c0, FrameSprites_24_766c, 8
+Frame_SetPlayerAnimation_77::
+	frame FrameTiles_SetPlayerAnimation_77, FrameSprites_SetPlayerAnimation_77, 8
 
-Frame_20_45e8::
-	frame FrameTiles_24_6140, FrameSprites_24_7674, 8
+Frame_SetPlayerAnimation_78::
+	frame FrameTiles_SetPlayerAnimation_78, FrameSprites_SetPlayerAnimation_78, 8
 
-Frame_20_45ee::
-	frame FrameTiles_24_61c0, FrameSprites_24_767c, 10
+Frame_SetPlayerAnimation_79::
+	frame FrameTiles_SetPlayerAnimation_79, FrameSprites_SetPlayerAnimation_79, 10
 
-Frame_20_45f4::
-	frame FrameTiles_24_6260, FrameSprites_24_7686, 10
+Frame_SetPlayerAnimation_80::
+	frame FrameTiles_SetPlayerAnimation_80, FrameSprites_SetPlayerAnimation_80, 10
 
-Frame_20_45fa::
-	frame FrameTiles_24_6300, FrameSprites_24_7690, 12
+Frame_SetPlayerAnimation_81::
+	frame FrameTiles_SetPlayerAnimation_81, FrameSprites_SetPlayerAnimation_81, 12
 
-Frame_20_4600::
-	frame FrameTiles_24_63c0, FrameSprites_24_769c, 12
+Frame_SetPlayerAnimation_82::
+	frame FrameTiles_SetPlayerAnimation_82, FrameSprites_SetPlayerAnimation_82, 12
 
-Frame_20_4606::
-	frame FrameTiles_24_6480, FrameSprites_24_76a8, 12
+Frame_SetPlayerAnimation_83::
+	frame FrameTiles_SetPlayerAnimation_83, FrameSprites_SetPlayerAnimation_83, 12
 
-Frame_20_460c::
-	frame FrameTiles_24_6540, FrameSprites_24_76b4, 14
+Frame_SetPlayerAnimation_84::
+	frame FrameTiles_SetPlayerAnimation_84, FrameSprites_SetPlayerAnimation_84, 14
 
-Frame_20_4612::
-	frame FrameTiles_24_6620, FrameSprites_24_76c2, 14
+Frame_SetPlayerAnimation_85::
+	frame FrameTiles_SetPlayerAnimation_85, FrameSprites_SetPlayerAnimation_85, 14
 
-Frame_20_4618::
-	frame FrameTiles_24_6700, FrameSprites_24_76d0, 16
+Frame_SetPlayerAnimation_86::
+	frame FrameTiles_SetPlayerAnimation_86, FrameSprites_SetPlayerAnimation_86, 16
 
-Frame_20_461e::
-	frame FrameTiles_24_6800, FrameSprites_24_76e0, 12
+Frame_SetPlayerAnimation_87::
+	frame FrameTiles_SetPlayerAnimation_87, FrameSprites_SetPlayerAnimation_87, 12
 
-Frame_20_4624::
-	frame FrameTiles_24_68c0, FrameSprites_24_76ec, 12
+Frame_SetPlayerAnimation_88::
+	frame FrameTiles_SetPlayerAnimation_88, FrameSprites_SetPlayerAnimation_88, 12
 
-Frame_20_462a::
-	frame FrameTiles_24_6980, FrameSprites_24_76f8, 10
+Frame_SetPlayerAnimation_89::
+	frame FrameTiles_SetPlayerAnimation_89, FrameSprites_SetPlayerAnimation_89, 10
 
-Frame_20_4630::
-	frame FrameTiles_24_6a20, FrameSprites_24_7702, 12
+Frame_SetPlayerAnimation_90::
+	frame FrameTiles_SetPlayerAnimation_90, FrameSprites_SetPlayerAnimation_90, 12
 
-Frame_20_4636::
-	frame FrameTiles_24_6ae0, FrameSprites_24_770e, 12
+Frame_SetPlayerAnimation_91::
+	frame FrameTiles_SetPlayerAnimation_91, FrameSprites_SetPlayerAnimation_91, 12
 
-Frame_20_463c::
-	frame FrameTiles_24_6ba0, FrameSprites_24_771a, 10
+Frame_SetPlayerAnimation_92::
+	frame FrameTiles_SetPlayerAnimation_92, FrameSprites_SetPlayerAnimation_92, 10
 
-Frame_20_4642::
-	frame FrameTiles_24_6c40, FrameSprites_24_7724, 14
+Frame_SetPlayerAnimation_93::
+	frame FrameTiles_SetPlayerAnimation_93, FrameSprites_SetPlayerAnimation_93, 14
 
-Frame_20_4648::
-	frame FrameTiles_24_6d20, FrameSprites_24_7732, 8
+Frame_SetPlayerAnimation_94::
+	frame FrameTiles_SetPlayerAnimation_94, FrameSprites_SetPlayerAnimation_94, 8
 
-Frame_20_464e::
-	frame FrameTiles_24_6da0, FrameSprites_24_773a, 8
+Frame_SetPlayerAnimation_95::
+	frame FrameTiles_SetPlayerAnimation_95, FrameSprites_SetPlayerAnimation_95, 8
 
-Frame_20_4654::
-	frame FrameTiles_24_6e20, FrameSprites_24_7742, 14
+Frame_SetPlayerAnimation_96::
+	frame FrameTiles_SetPlayerAnimation_96, FrameSprites_SetPlayerAnimation_96, 14
 
-Frame_20_465a::
-	frame FrameTiles_24_6f00, FrameSprites_24_7750, 14
+Frame_SetPlayerAnimation_97::
+	frame FrameTiles_SetPlayerAnimation_97, FrameSprites_SetPlayerAnimation_97, 14
 
-Frame_20_4660::
-	frame FrameTiles_24_6fe0, FrameSprites_24_775e, 14
+Frame_SetPlayerAnimation_98::
+	frame FrameTiles_SetPlayerAnimation_98, FrameSprites_SetPlayerAnimation_98, 14
 
-Frame_20_4666::
-	frame FrameTiles_24_70c0, FrameSprites_24_776c, 10
+Frame_SetPlayerAnimation_99::
+	frame FrameTiles_SetPlayerAnimation_99, FrameSprites_SetPlayerAnimation_99, 10
 
-Frame_20_466c::
-	frame FrameTiles_24_7160, FrameSprites_24_7776, 12
+Frame_SetPlayerAnimation_100::
+	frame FrameTiles_SetPlayerAnimation_100, FrameSprites_SetPlayerAnimation_100, 12
 
-Frame_20_4672::
-	frame FrameTiles_24_7220, FrameSprites_24_7782, 12
+Frame_SetPlayerAnimation_101::
+	frame FrameTiles_SetPlayerAnimation_101, FrameSprites_SetPlayerAnimation_101, 12
 
-Frame_20_4678::
-	frame FrameTiles_24_72e0, FrameSprites_24_778e, 12
+Frame_SetPlayerAnimation_102::
+	frame FrameTiles_SetPlayerAnimation_102, FrameSprites_SetPlayerAnimation_102, 12
 
-Frame_20_467e::
-	frame FrameTiles_24_73a0, FrameSprites_24_779a, 12
+Frame_SetPlayerAnimation_103::
+	frame FrameTiles_SetPlayerAnimation_103, FrameSprites_SetPlayerAnimation_103, 12
 
-Frame_20_4684::
-	frame FrameTiles_25_4000, FrameSprites_25_7320, 10
+Frame_SetPlayerAnimation_104::
+	frame FrameTiles_SetPlayerAnimation_104, FrameSprites_SetPlayerAnimation_104, 10
 
-Frame_20_468a::
-	frame FrameTiles_25_40a0, FrameSprites_25_732a, 12
+Frame_SetPlayerAnimation_105::
+	frame FrameTiles_SetPlayerAnimation_105, FrameSprites_SetPlayerAnimation_105, 12
 
-Frame_20_4690::
-	frame FrameTiles_25_4160, FrameSprites_25_7336, 12
+Frame_SetPlayerAnimation_106::
+	frame FrameTiles_SetPlayerAnimation_106, FrameSprites_SetPlayerAnimation_106, 12
 
-Frame_20_4696::
-	frame FrameTiles_25_4220, FrameSprites_25_7342, 10
+Frame_SetPlayerAnimation_107::
+	frame FrameTiles_SetPlayerAnimation_107, FrameSprites_SetPlayerAnimation_107, 10
 
-Frame_20_469c::
-	frame FrameTiles_25_42c0, FrameSprites_25_734c, 10
+Frame_SetPlayerAnimation_108::
+	frame FrameTiles_SetPlayerAnimation_108, FrameSprites_SetPlayerAnimation_108, 10
 
-Frame_20_46a2::
-	frame FrameTiles_25_4360, FrameSprites_25_7356, 10
+Frame_SetPlayerAnimation_109::
+	frame FrameTiles_SetPlayerAnimation_109, FrameSprites_SetPlayerAnimation_109, 10
 
-Frame_20_46a8::
-	frame FrameTiles_25_4400, FrameSprites_25_7360, 12
+Frame_SetPlayerAnimation_110::
+	frame FrameTiles_SetPlayerAnimation_110, FrameSprites_SetPlayerAnimation_110, 12
 
-Frame_20_46ae::
-	frame FrameTiles_25_44c0, FrameSprites_25_736c, 12
+Frame_SetPlayerAnimation_111::
+	frame FrameTiles_SetPlayerAnimation_111, FrameSprites_SetPlayerAnimation_111, 12
 
-Frame_20_46b4::
-	frame FrameTiles_25_4580, FrameSprites_25_7378, 12
+Frame_SetPlayerAnimation_112::
+	frame FrameTiles_SetPlayerAnimation_112, FrameSprites_SetPlayerAnimation_112, 12
 
-Frame_20_46ba::
-	frame FrameTiles_25_4640, FrameSprites_25_7384, 12
+Frame_SetPlayerAnimation_113::
+	frame FrameTiles_SetPlayerAnimation_113, FrameSprites_SetPlayerAnimation_113, 12
 
-Frame_20_46c0::
-	frame FrameTiles_25_4700, FrameSprites_25_7390, 14
+Frame_SetPlayerAnimation_114::
+	frame FrameTiles_SetPlayerAnimation_114, FrameSprites_SetPlayerAnimation_114, 14
 
-Frame_20_46c6::
-	frame FrameTiles_25_47e0, FrameSprites_25_739e, 18
+Frame_SetPlayerAnimation_115::
+	frame FrameTiles_SetPlayerAnimation_115, FrameSprites_SetPlayerAnimation_115, 18
 
-Frame_20_46cc::
-	frame FrameTiles_25_4900, FrameSprites_25_73b0, 12
+Frame_SetPlayerAnimation_116::
+	frame FrameTiles_SetPlayerAnimation_116, FrameSprites_SetPlayerAnimation_116, 12
 
-Frame_20_46d2::
-	frame FrameTiles_25_49c0, FrameSprites_25_73bc, 12
+Frame_SwingingRope_SetFrame_1::
+	frame FrameTiles_SwingingRope_SetFrame_1, FrameSprites_SwingingRope_SetFrame_1, 12
 
-Frame_20_46d8::
-	frame FrameTiles_25_4a80, FrameSprites_25_73c8, 12
+Frame_SwingingRope_SetFrame_2::
+	frame FrameTiles_SwingingRope_SetFrame_2, FrameSprites_SwingingRope_SetFrame_2, 12
 
-Frame_20_46de::
-	frame FrameTiles_25_4b40, FrameSprites_25_73d4, 14
+Frame_SwingingRope_SetFrame_3::
+	frame FrameTiles_SwingingRope_SetFrame_3, FrameSprites_SwingingRope_SetFrame_3, 14
 
-Frame_20_46e4::
-	frame FrameTiles_25_4c20, FrameSprites_25_73e2, 14
+Frame_SwingingRope_SetFrame_4::
+	frame FrameTiles_SwingingRope_SetFrame_4, FrameSprites_SwingingRope_SetFrame_4, 14
 
-Frame_20_46ea::
-	frame FrameTiles_25_4d00, FrameSprites_25_73f0, 14
+Frame_SwingingRope_SetFrame_5::
+	frame FrameTiles_SwingingRope_SetFrame_5, FrameSprites_SwingingRope_SetFrame_5, 14
 
-Frame_20_46f0::
-	frame FrameTiles_25_4de0, FrameSprites_25_73fe, 12
+Frame_SwingingRope_SetFrame_6::
+	frame FrameTiles_SwingingRope_SetFrame_6, FrameSprites_SwingingRope_SetFrame_6, 12
 
-Frame_20_46f6::
-	frame FrameTiles_25_4ea0, FrameSprites_25_740a, 16
+Frame_SwingingRope_SetFrame_7::
+	frame FrameTiles_SwingingRope_SetFrame_7, FrameSprites_SwingingRope_SetFrame_7, 16
 
-Frame_20_46fc::
-	frame FrameTiles_25_4fa0, FrameSprites_25_741a, 16
+Frame_SwingingRope_SetFrame_8::
+	frame FrameTiles_SwingingRope_SetFrame_8, FrameSprites_SwingingRope_SetFrame_8, 16
 
-Frame_20_4702::
-	frame FrameTiles_25_50a0, FrameSprites_25_742a, 16
+Frame_SwingingRope_SetFrame_9::
+	frame FrameTiles_SwingingRope_SetFrame_9, FrameSprites_SwingingRope_SetFrame_9, 16
 
-Frame_20_4708::
-	frame FrameTiles_25_51a0, FrameSprites_25_743a, 16
+Frame_SwingingRope_SetFrame_10::
+	frame FrameTiles_SwingingRope_SetFrame_10, FrameSprites_SwingingRope_SetFrame_10, 16
 
-Frame_20_470e::
-	frame FrameTiles_25_52a0, FrameSprites_25_744a, 16
+Frame_SwingingRope_SetFrame_11::
+	frame FrameTiles_SwingingRope_SetFrame_11, FrameSprites_SwingingRope_SetFrame_11, 16
 
-Frame_20_4714::
-	frame FrameTiles_25_53a0, FrameSprites_25_745a, 16
+Frame_SwingingRope_SetFrame_12::
+	frame FrameTiles_SwingingRope_SetFrame_12, FrameSprites_SwingingRope_SetFrame_12, 16
 
-Frame_20_471a::
-	frame FrameTiles_25_54a0, FrameSprites_25_746a, 16
+Frame_SwingingRope_SetFrame_13::
+	frame FrameTiles_SwingingRope_SetFrame_13, FrameSprites_SwingingRope_SetFrame_13, 16
 
-Frame_20_4720::
-	frame FrameTiles_25_55a0, FrameSprites_25_747a, 16
+Frame_SwingingRope_SetFrame_14::
+	frame FrameTiles_SwingingRope_SetFrame_14, FrameSprites_SwingingRope_SetFrame_14, 16
 
-Frame_20_4726::
-	frame FrameTiles_25_56a0, FrameSprites_25_748a, 16
+Frame_SwingingRope_SetFrame_15::
+	frame FrameTiles_SwingingRope_SetFrame_15, FrameSprites_SwingingRope_SetFrame_15, 16
 
-Frame_20_472c::
-	frame FrameTiles_25_57a0, FrameSprites_25_749a, 16
+Frame_SwingingRope_SetFrame_16::
+	frame FrameTiles_SwingingRope_SetFrame_16, FrameSprites_SwingingRope_SetFrame_16, 16
 
-Frame_20_4732::
-	frame FrameTiles_25_58a0, FrameSprites_25_74aa, 16
+Frame_SwingingRope_SetFrame_17::
+	frame FrameTiles_SwingingRope_SetFrame_17, FrameSprites_SwingingRope_SetFrame_17, 16
 
-Frame_20_4738::
-	frame FrameTiles_25_59a0, FrameSprites_25_74ba, 14
+Frame_SetPlayerAnimation_117::
+	frame FrameTiles_SetPlayerAnimation_117, FrameSprites_SetPlayerAnimation_117, 14
 
-Frame_20_473e::
-	frame FrameTiles_25_5a80, FrameSprites_25_74c8, 14
+Frame_SetPlayerAnimation_118::
+	frame FrameTiles_SetPlayerAnimation_118, FrameSprites_SetPlayerAnimation_118, 14
 
-Frame_20_4744::
-	frame FrameTiles_25_5b60, FrameSprites_25_74d6, 12
+Frame_SetPlayerAnimation_119::
+	frame FrameTiles_SetPlayerAnimation_119, FrameSprites_SetPlayerAnimation_119, 12
 
-Frame_20_474a::
-	frame FrameTiles_25_5c20, FrameSprites_25_74e2, 12
+Frame_SetPlayerAnimation_120::
+	frame FrameTiles_SetPlayerAnimation_120, FrameSprites_SetPlayerAnimation_120, 12
 
-Frame_20_4750::
-	frame FrameTiles_25_5ce0, FrameSprites_25_74ee, 12
+Frame_SetPlayerAnimation_121::
+	frame FrameTiles_SetPlayerAnimation_121, FrameSprites_SetPlayerAnimation_121, 12
 
-Frame_20_4756::
-	frame FrameTiles_25_5da0, FrameSprites_25_74fa, 12
+Frame_SetPlayerAnimation_122::
+	frame FrameTiles_SetPlayerAnimation_122, FrameSprites_SetPlayerAnimation_122, 12
 
-Frame_20_475c::
-	frame FrameTiles_25_5e60, FrameSprites_25_7506, 12
+Frame_SetPlayerAnimation_123::
+	frame FrameTiles_SetPlayerAnimation_123, FrameSprites_SetPlayerAnimation_123, 12
 
-Frame_20_4762::
-	frame FrameTiles_25_5f20, FrameSprites_25_7512, 8
+Frame_SetPlayerAnimation_124::
+	frame FrameTiles_SetPlayerAnimation_124, FrameSprites_SetPlayerAnimation_124, 8
 
-Frame_20_4768::
-	frame FrameTiles_25_5fa0, FrameSprites_25_751a, 10
+Frame_SetPlayerAnimation_125::
+	frame FrameTiles_SetPlayerAnimation_125, FrameSprites_SetPlayerAnimation_125, 10
 
-Frame_20_476e::
-	frame FrameTiles_25_6040, FrameSprites_25_7524, 10
+Frame_SetPlayerAnimation_126::
+	frame FrameTiles_SetPlayerAnimation_126, FrameSprites_SetPlayerAnimation_126, 10
 
-Frame_20_4774::
-	frame FrameTiles_25_60e0, FrameSprites_25_752e, 12
+Frame_SetPlayerAnimation_127::
+	frame FrameTiles_SetPlayerAnimation_127, FrameSprites_SetPlayerAnimation_127, 12
 
-Frame_20_477a::
-	frame FrameTiles_25_61a0, FrameSprites_25_753a, 12
+Frame_SetPlayerAnimation_128::
+	frame FrameTiles_SetPlayerAnimation_128, FrameSprites_SetPlayerAnimation_128, 12
 
-Frame_20_4780::
-	frame FrameTiles_25_6260, FrameSprites_25_7546, 12
+Frame_SetPlayerAnimation_129::
+	frame FrameTiles_SetPlayerAnimation_129, FrameSprites_SetPlayerAnimation_129, 12
 
-Frame_20_4786::
-	frame FrameTiles_25_6320, FrameSprites_25_7552, 12
+Frame_SetPlayerAnimation_130::
+	frame FrameTiles_SetPlayerAnimation_130, FrameSprites_SetPlayerAnimation_130, 12
 
-Frame_20_478c::
-	frame FrameTiles_25_63e0, FrameSprites_25_755e, 14
+Frame_SetPlayerAnimation_131::
+	frame FrameTiles_SetPlayerAnimation_131, FrameSprites_SetPlayerAnimation_131, 14
 
-Frame_20_4792::
-	frame FrameTiles_25_64c0, FrameSprites_25_756c, 10
+Frame_SetPlayerAnimation_132::
+	frame FrameTiles_SetPlayerAnimation_132, FrameSprites_SetPlayerAnimation_132, 10
 
-Frame_20_4798::
-	frame FrameTiles_25_6560, FrameSprites_25_7576, 12
+Frame_SetPlayerAnimation_133::
+	frame FrameTiles_SetPlayerAnimation_133, FrameSprites_SetPlayerAnimation_133, 12
 
-Frame_20_479e::
-	frame FrameTiles_25_6620, FrameSprites_25_7582, 16
+Frame_SetPlayerAnimation_134::
+	frame FrameTiles_SetPlayerAnimation_134, FrameSprites_SetPlayerAnimation_134, 16
 
-Frame_20_47a4::
-	frame FrameTiles_25_6720, FrameSprites_25_7592, 14
+Frame_SetPlayerAnimation_135::
+	frame FrameTiles_SetPlayerAnimation_135, FrameSprites_SetPlayerAnimation_135, 14
 
-Frame_20_47aa::
-	frame FrameTiles_25_6800, FrameSprites_25_75a0, 16
+Frame_SetPlayerAnimation_136::
+	frame FrameTiles_SetPlayerAnimation_136, FrameSprites_SetPlayerAnimation_136, 16
 
-Frame_20_47b0::
-	frame FrameTiles_25_6900, FrameSprites_25_75b0, 14
+Frame_SetPlayerAnimation_137::
+	frame FrameTiles_SetPlayerAnimation_137, FrameSprites_SetPlayerAnimation_137, 14
 
-Frame_20_47b6::
-	frame FrameTiles_25_69e0, FrameSprites_25_75be, 14
+Frame_SetPlayerAnimation_138::
+	frame FrameTiles_SetPlayerAnimation_138, FrameSprites_SetPlayerAnimation_138, 14
 
-Frame_20_47bc::
-	frame FrameTiles_25_6ac0, FrameSprites_25_75cc, 18
+Frame_SetPlayerAnimation_139::
+	frame FrameTiles_SetPlayerAnimation_139, FrameSprites_SetPlayerAnimation_139, 18
 
-Frame_20_47c2::
-	frame FrameTiles_25_6be0, FrameSprites_25_75de, 14
+Frame_SetPlayerAnimation_140::
+	frame FrameTiles_SetPlayerAnimation_140, FrameSprites_SetPlayerAnimation_140, 14
 
-Frame_20_47c8::
-	frame FrameTiles_25_6cc0, FrameSprites_25_75ec, 16
+Frame_SetPlayerAnimation_141::
+	frame FrameTiles_SetPlayerAnimation_141, FrameSprites_SetPlayerAnimation_141, 16
 
-Frame_20_47ce::
-	frame FrameTiles_25_6dc0, FrameSprites_25_75fc, 14
+Frame_SetPlayerAnimation_142::
+	frame FrameTiles_SetPlayerAnimation_142, FrameSprites_SetPlayerAnimation_142, 14
 
-Frame_20_47d4::
-	frame FrameTiles_25_6ea0, FrameSprites_25_760a, 12
+Frame_SetPlayerAnimation_143::
+	frame FrameTiles_SetPlayerAnimation_143, FrameSprites_SetPlayerAnimation_143, 12
 
-Frame_20_47da::
-	frame FrameTiles_25_6f60, FrameSprites_25_7616, 12
+Frame_SetPlayerAnimation_144::
+	frame FrameTiles_SetPlayerAnimation_144, FrameSprites_SetPlayerAnimation_144, 12
 
-Frame_20_47e0::
-	frame FrameTiles_25_7020, FrameSprites_25_7622, 16
+Frame_SetPlayerAnimation_145::
+	frame FrameTiles_SetPlayerAnimation_145, FrameSprites_SetPlayerAnimation_145, 16
 
-Frame_20_47e6::
-	frame FrameTiles_25_7120, FrameSprites_25_7632, 12
+Frame_SetPlayerAnimation_146::
+	frame FrameTiles_SetPlayerAnimation_146, FrameSprites_SetPlayerAnimation_146, 12
 
-Frame_20_47ec::
-	frame FrameTiles_25_71e0, FrameSprites_25_763e, 10
+Frame_SetPlayerAnimation_147::
+	frame FrameTiles_SetPlayerAnimation_147, FrameSprites_SetPlayerAnimation_147, 10
 
-Frame_20_47f2::
-	frame FrameTiles_25_7280, FrameSprites_25_7648, 10
+Frame_SetPlayerAnimation_148::
+	frame FrameTiles_SetPlayerAnimation_148, FrameSprites_SetPlayerAnimation_148, 10
 
-Frame_20_47f8::
-	frame FrameTiles_26_4000, FrameSprites_26_74e0, 12
+Frame_SetPlayerAnimation_149::
+	frame FrameTiles_SetPlayerAnimation_149, FrameSprites_SetPlayerAnimation_149, 12
 
-Frame_20_47fe::
-	frame FrameTiles_26_40c0, FrameSprites_26_74ec, 14
+Frame_SetPlayerAnimation_150::
+	frame FrameTiles_SetPlayerAnimation_150, FrameSprites_SetPlayerAnimation_150, 14
 
-Frame_20_4804::
-	frame FrameTiles_26_41a0, FrameSprites_26_74fa, 14
+Frame_SetPlayerAnimation_151::
+	frame FrameTiles_SetPlayerAnimation_151, FrameSprites_SetPlayerAnimation_151, 14
 
-Frame_20_480a::
-	frame FrameTiles_26_4280, FrameSprites_26_7508, 12
+Frame_SetPlayerAnimation_152::
+	frame FrameTiles_SetPlayerAnimation_152, FrameSprites_SetPlayerAnimation_152, 12
 
-Frame_20_4810::
-	frame FrameTiles_26_4340, FrameSprites_26_7514, 12
+Frame_SetPlayerAnimation_153::
+	frame FrameTiles_SetPlayerAnimation_153, FrameSprites_SetPlayerAnimation_153, 12
 
-Frame_20_4816::
-	frame FrameTiles_26_4400, FrameSprites_26_7520, 14
+Frame_SetPlayerAnimation_154::
+	frame FrameTiles_SetPlayerAnimation_154, FrameSprites_SetPlayerAnimation_154, 14
 
-Frame_20_481c::
-	frame FrameTiles_26_44e0, FrameSprites_26_752e, 12
+Frame_SetPlayerAnimation_155::
+	frame FrameTiles_SetPlayerAnimation_155, FrameSprites_SetPlayerAnimation_155, 12
 
-Frame_20_4822::
-	frame FrameTiles_26_45a0, FrameSprites_26_753a, 12
+Frame_SetPlayerAnimation_156::
+	frame FrameTiles_SetPlayerAnimation_156, FrameSprites_SetPlayerAnimation_156, 12
 
-Frame_20_4828::
-	frame FrameTiles_26_4660, FrameSprites_26_7546, 14
+Frame_SetPlayerAnimation_157::
+	frame FrameTiles_SetPlayerAnimation_157, FrameSprites_SetPlayerAnimation_157, 14
 
-Frame_20_482e::
-	frame FrameTiles_26_4740, FrameSprites_26_7554, 14
+Frame_SetPlayerAnimation_158::
+	frame FrameTiles_SetPlayerAnimation_158, FrameSprites_SetPlayerAnimation_158, 14
 
-Frame_20_4834::
-	frame FrameTiles_26_4820, FrameSprites_26_7562, 14
+Frame_SetPlayerAnimation_159::
+	frame FrameTiles_SetPlayerAnimation_159, FrameSprites_SetPlayerAnimation_159, 14
 
-Frame_20_483a::
-	frame FrameTiles_26_4900, FrameSprites_26_7570, 14
+Frame_SetPlayerAnimation_160::
+	frame FrameTiles_SetPlayerAnimation_160, FrameSprites_SetPlayerAnimation_160, 14
 
-Frame_20_4840::
-	frame FrameTiles_26_49e0, FrameSprites_26_757e, 14
+Frame_SetPlayerAnimation_161::
+	frame FrameTiles_SetPlayerAnimation_161, FrameSprites_SetPlayerAnimation_161, 14
 
-Frame_20_4846::
-	frame FrameTiles_26_4ac0, FrameSprites_26_758c, 10
+Frame_SetPlayerAnimation_162::
+	frame FrameTiles_SetPlayerAnimation_162, FrameSprites_SetPlayerAnimation_162, 10
 
-Frame_20_484c::
-	frame FrameTiles_26_4b60, FrameSprites_26_7596, 14
+Frame_SetPlayerAnimation_163::
+	frame FrameTiles_SetPlayerAnimation_163, FrameSprites_SetPlayerAnimation_163, 14
 
-Frame_20_4852::
-	frame FrameTiles_26_4c40, FrameSprites_26_75a4, 14
+Frame_SetPlayerAnimation_164::
+	frame FrameTiles_SetPlayerAnimation_164, FrameSprites_SetPlayerAnimation_164, 14
 
-Frame_20_4858::
-	frame FrameTiles_26_4d20, FrameSprites_26_75b2, 14
+Frame_SetPlayerAnimation_165::
+	frame FrameTiles_SetPlayerAnimation_165, FrameSprites_SetPlayerAnimation_165, 14
 
-Frame_20_485e::
-	frame FrameTiles_26_4e00, FrameSprites_26_75c0, 14
+Frame_SetPlayerAnimation_166::
+	frame FrameTiles_SetPlayerAnimation_166, FrameSprites_SetPlayerAnimation_166, 14
 
-Frame_20_4864::
-	frame FrameTiles_26_4ee0, FrameSprites_26_75ce, 14
+Frame_SetPlayerAnimation_167::
+	frame FrameTiles_SetPlayerAnimation_167, FrameSprites_SetPlayerAnimation_167, 14
 
-Frame_20_486a::
-	frame FrameTiles_26_4fc0, FrameSprites_26_75dc, 12
+Frame_SetPlayerAnimation_168::
+	frame FrameTiles_SetPlayerAnimation_168, FrameSprites_SetPlayerAnimation_168, 12
 
-Frame_20_4870::
-	frame FrameTiles_26_5080, FrameSprites_26_75e8, 14
+Frame_SetPlayerAnimation_169::
+	frame FrameTiles_SetPlayerAnimation_169, FrameSprites_SetPlayerAnimation_169, 14
 
-Frame_20_4876::
-	frame FrameTiles_26_5160, FrameSprites_26_75f6, 16
+Frame_SetPlayerAnimation_170::
+	frame FrameTiles_SetPlayerAnimation_170, FrameSprites_SetPlayerAnimation_170, 16
 
-Frame_20_487c::
-	frame FrameTiles_26_5260, FrameSprites_26_7606, 16
+Frame_SetPlayerAnimation_171::
+	frame FrameTiles_SetPlayerAnimation_171, FrameSprites_SetPlayerAnimation_171, 16
 
-Frame_20_4882::
-	frame FrameTiles_26_5360, FrameSprites_26_7616, 14
+Frame_SetPlayerAnimation_172::
+	frame FrameTiles_SetPlayerAnimation_172, FrameSprites_SetPlayerAnimation_172, 14
 
-Frame_20_4888::
-	frame FrameTiles_26_5440, FrameSprites_26_7624, 18
+Frame_SetPlayerAnimation_173::
+	frame FrameTiles_SetPlayerAnimation_173, FrameSprites_SetPlayerAnimation_173, 18
 
-Frame_20_488e::
-	frame FrameTiles_26_5560, FrameSprites_26_7636, 14
+Frame_SetPlayerAnimation_174::
+	frame FrameTiles_SetPlayerAnimation_174, FrameSprites_SetPlayerAnimation_174, 14
 
-Frame_20_4894::
-	frame FrameTiles_26_5640, FrameSprites_26_7644, 14
+Frame_SetPlayerAnimation_175::
+	frame FrameTiles_SetPlayerAnimation_175, FrameSprites_SetPlayerAnimation_175, 14
 
-Frame_20_489a::
-	frame FrameTiles_26_5720, FrameSprites_26_7652, 12
+Frame_SetPlayerAnimation_176::
+	frame FrameTiles_SetPlayerAnimation_176, FrameSprites_SetPlayerAnimation_176, 12
 
-Frame_20_48a0::
-	frame FrameTiles_26_57e0, FrameSprites_26_765e, 12
+Frame_SetPlayerAnimation_177::
+	frame FrameTiles_SetPlayerAnimation_177, FrameSprites_SetPlayerAnimation_177, 12
 
-Frame_20_48a6::
-	frame FrameTiles_26_58a0, FrameSprites_26_766a, 14
+Frame_SetPlayerAnimation_178::
+	frame FrameTiles_SetPlayerAnimation_178, FrameSprites_SetPlayerAnimation_178, 14
 
-Frame_20_48ac::
-	frame FrameTiles_26_5980, FrameSprites_26_7678, 14
+Frame_SetPlayerAnimation_179::
+	frame FrameTiles_SetPlayerAnimation_179, FrameSprites_SetPlayerAnimation_179, 14
 
-Frame_20_48b2::
-	frame FrameTiles_26_5a60, FrameSprites_26_7686, 14
+Frame_SetPlayerAnimation_180::
+	frame FrameTiles_SetPlayerAnimation_180, FrameSprites_SetPlayerAnimation_180, 14
 
-Frame_20_48b8::
-	frame FrameTiles_26_5b40, FrameSprites_26_7694, 14
+Frame_SetPlayerAnimation_181::
+	frame FrameTiles_SetPlayerAnimation_181, FrameSprites_SetPlayerAnimation_181, 14
 
-Frame_20_48be::
-	frame FrameTiles_26_5c20, FrameSprites_26_76a2, 14
+Frame_SetPlayerAnimation_182::
+	frame FrameTiles_SetPlayerAnimation_182, FrameSprites_SetPlayerAnimation_182, 14
 
-Frame_20_48c4::
-	frame FrameTiles_26_5d00, FrameSprites_26_76b0, 12
+Frame_SpawnCollectedBanana_17::
+	frame FrameTiles_SpawnCollectedBanana_17, FrameSprites_SpawnCollectedBanana_17, 12
 
-Frame_20_48ca::
-	frame FrameTiles_26_5dc0, FrameSprites_26_76bc, 12
+Frame_SpawnCollectedBanana_18::
+	frame FrameTiles_SpawnCollectedBanana_18, FrameSprites_SpawnCollectedBanana_18, 12
 
-Frame_20_48d0::
-	frame FrameTiles_26_5e80, FrameSprites_26_76c8, 12
+Frame_SpawnCollectedBanana_19::
+	frame FrameTiles_SpawnCollectedBanana_19, FrameSprites_SpawnCollectedBanana_19, 12
 
-Frame_20_48d6::
-	frame FrameTiles_26_5f40, FrameSprites_26_76d4, 12
+Frame_SpawnCollectedBanana_20::
+	frame FrameTiles_SpawnCollectedBanana_20, FrameSprites_SpawnCollectedBanana_20, 12
 
-Frame_20_48dc::
-	frame FrameTiles_26_6000, FrameSprites_26_76e0, 12
+Frame_SpawnCollectedBanana_21::
+	frame FrameTiles_SpawnCollectedBanana_21, FrameSprites_SpawnCollectedBanana_21, 12
 
-Frame_20_48e2::
-	frame FrameTiles_26_60c0, FrameSprites_26_76ec, 12
+Frame_SpawnCollectedBanana_22::
+	frame FrameTiles_SpawnCollectedBanana_22, FrameSprites_SpawnCollectedBanana_22, 12
 
-Frame_20_48e8::
-	frame FrameTiles_26_6180, FrameSprites_26_76f8, 12
+Frame_SpawnCollectedBanana_23::
+	frame FrameTiles_SpawnCollectedBanana_23, FrameSprites_SpawnCollectedBanana_23, 12
 
-Frame_20_48ee::
-	frame FrameTiles_26_6240, FrameSprites_26_7704, 12
+Frame_SpawnCollectedBanana_24::
+	frame FrameTiles_SpawnCollectedBanana_24, FrameSprites_SpawnCollectedBanana_24, 12
 
-Frame_20_48f4::
-	frame FrameTiles_26_6300, FrameSprites_26_7710, 12
+Frame_SpawnCollectedBanana_25::
+	frame FrameTiles_SpawnCollectedBanana_25, FrameSprites_SpawnCollectedBanana_25, 12
 
-Frame_20_48fa::
-	frame FrameTiles_26_63c0, FrameSprites_26_771c, 12
+Frame_SpawnCollectedBanana_26::
+	frame FrameTiles_SpawnCollectedBanana_26, FrameSprites_SpawnCollectedBanana_26, 12
 
-Frame_20_4900::
-	frame FrameTiles_26_6480, FrameSprites_26_7728, 12
+Frame_SpawnCollectedBanana_27::
+	frame FrameTiles_SpawnCollectedBanana_27, FrameSprites_SpawnCollectedBanana_27, 12
 
-Frame_20_4906::
-	frame FrameTiles_26_6540, FrameSprites_26_7734, 16
+Frame_SwingingRope_SetFrame_18::
+	frame FrameTiles_SwingingRope_SetFrame_18, FrameSprites_SwingingRope_SetFrame_18, 16
 
-Frame_20_490c::
-	frame FrameTiles_26_6640, FrameSprites_26_7744, 16
+Frame_SwingingRope_SetFrame_19::
+	frame FrameTiles_SwingingRope_SetFrame_19, FrameSprites_SwingingRope_SetFrame_19, 16
 
-Frame_20_4912::
-	frame FrameTiles_26_6740, FrameSprites_26_7754, 16
+Frame_SwingingRope_SetFrame_20::
+	frame FrameTiles_SwingingRope_SetFrame_20, FrameSprites_SwingingRope_SetFrame_20, 16
 
-Frame_20_4918::
-	frame FrameTiles_26_6840, FrameSprites_26_7764, 16
+Frame_SwingingRope_SetFrame_21::
+	frame FrameTiles_SwingingRope_SetFrame_21, FrameSprites_SwingingRope_SetFrame_21, 16
 
-Frame_20_491e::
-	frame FrameTiles_26_6940, FrameSprites_26_7774, 18
+Frame_SwingingRope_SetFrame_22::
+	frame FrameTiles_SwingingRope_SetFrame_22, FrameSprites_SwingingRope_SetFrame_22, 18
 
-Frame_20_4924::
-	frame FrameTiles_26_6a60, FrameSprites_26_7786, 14
+Frame_SwingingRope_SetFrame_23::
+	frame FrameTiles_SwingingRope_SetFrame_23, FrameSprites_SwingingRope_SetFrame_23, 14
 
-Frame_20_492a::
-	frame FrameTiles_26_6b40, FrameSprites_26_7794, 14
+Frame_SwingingRope_SetFrame_24::
+	frame FrameTiles_SwingingRope_SetFrame_24, FrameSprites_SwingingRope_SetFrame_24, 14
 
-Frame_20_4930::
-	frame FrameTiles_26_6c20, FrameSprites_26_77a2, 14
+Frame_SwingingRope_SetFrame_25::
+	frame FrameTiles_SwingingRope_SetFrame_25, FrameSprites_SwingingRope_SetFrame_25, 14
 
-Frame_20_4936::
-	frame FrameTiles_26_6d00, FrameSprites_26_77b0, 14
+Frame_SwingingRope_SetFrame_26::
+	frame FrameTiles_SwingingRope_SetFrame_26, FrameSprites_SwingingRope_SetFrame_26, 14
 
-Frame_20_493c::
-	frame FrameTiles_26_6de0, FrameSprites_26_77be, 14
+Frame_SwingingRope_SetFrame_27::
+	frame FrameTiles_SwingingRope_SetFrame_27, FrameSprites_SwingingRope_SetFrame_27, 14
 
-Frame_20_4942::
-	frame FrameTiles_26_6ec0, FrameSprites_26_77cc, 14
+Frame_SwingingRope_SetFrame_28::
+	frame FrameTiles_SwingingRope_SetFrame_28, FrameSprites_SwingingRope_SetFrame_28, 14
 
-Frame_20_4948::
-	frame FrameTiles_26_6fa0, FrameSprites_26_77da, 14
+Frame_SwingingRope_SetFrame_29::
+	frame FrameTiles_SwingingRope_SetFrame_29, FrameSprites_SwingingRope_SetFrame_29, 14
 
-Frame_20_494e::
-	frame FrameTiles_26_7080, FrameSprites_26_77e8, 14
+Frame_SwingingRope_SetFrame_30::
+	frame FrameTiles_SwingingRope_SetFrame_30, FrameSprites_SwingingRope_SetFrame_30, 14
 
-Frame_20_4954::
-	frame FrameTiles_26_7160, FrameSprites_26_77f6, 14
+Frame_SwingingRope_SetFrame_31::
+	frame FrameTiles_SwingingRope_SetFrame_31, FrameSprites_SwingingRope_SetFrame_31, 14
 
-Frame_20_495a::
-	frame FrameTiles_26_7240, FrameSprites_26_7804, 14
+Frame_SwingingRope_SetFrame_32::
+	frame FrameTiles_SwingingRope_SetFrame_32, FrameSprites_SwingingRope_SetFrame_32, 14
 
-Frame_20_4960::
-	frame FrameTiles_26_7320, FrameSprites_26_7812, 14
+Frame_SwingingRope_SetFrame_33::
+	frame FrameTiles_SwingingRope_SetFrame_33, FrameSprites_SwingingRope_SetFrame_33, 14
 
-Frame_20_4966::
-	frame FrameTiles_26_7400, FrameSprites_26_7820, 14
+Frame_SwingingRope_SetFrame_34::
+	frame FrameTiles_SwingingRope_SetFrame_34, FrameSprites_SwingingRope_SetFrame_34, 14
 
-Frame_20_496c::
-	frame FrameTiles_27_4000, FrameSprites_27_7b00, 18
+Frame_Enemy_HandleContact_6::
+	frame FrameTiles_Enemy_HandleContact_6, FrameSprites_Enemy_HandleContact_6, 18
 
-Frame_20_4972::
-	frame FrameTiles_27_4120, FrameSprites_27_7b12, 16
+Frame_Enemy_HandleContact_7::
+	frame FrameTiles_Enemy_HandleContact_7, FrameSprites_Enemy_HandleContact_7, 16
 
-Frame_20_4978::
-	frame FrameTiles_27_4220, FrameSprites_27_7b22, 18
+Frame_Enemy_HandleContact_8::
+	frame FrameTiles_Enemy_HandleContact_8, FrameSprites_Enemy_HandleContact_8, 18
 
-Frame_20_497e::
-	frame FrameTiles_27_4340, FrameSprites_27_7b34, 22
+Frame_Enemy_HandleContact_9::
+	frame FrameTiles_Enemy_HandleContact_9, FrameSprites_Enemy_HandleContact_9, 22
 
-Frame_20_4984::
-	frame FrameTiles_27_44a0, FrameSprites_27_7b4a, 14
+Frame_Obj_TurnAround_4::
+	frame FrameTiles_Obj_TurnAround_4, FrameSprites_Obj_TurnAround_4, 14
 
-Frame_20_498a::
-	frame FrameTiles_27_4580, FrameSprites_27_7b58, 14
+Frame_Obj_TurnAround_5::
+	frame FrameTiles_Obj_TurnAround_5, FrameSprites_Obj_TurnAround_5, 14
 
-Frame_20_4990::
-	frame FrameTiles_27_4660, FrameSprites_27_7b66, 12
+Frame_RunKritterScript_1::
+	frame FrameTiles_RunKritterScript_1, FrameSprites_RunKritterScript_1, 12
 
-Frame_20_4996::
-	frame FrameTiles_27_4720, FrameSprites_27_7b72, 14
+Frame_RunKritterScript_2::
+	frame FrameTiles_RunKritterScript_2, FrameSprites_RunKritterScript_2, 14
 
-Frame_20_499c::
-	frame FrameTiles_27_4800, FrameSprites_27_7b80, 12
+Frame_RunKritterScript_3::
+	frame FrameTiles_RunKritterScript_3, FrameSprites_RunKritterScript_3, 12
 
-Frame_20_49a2::
-	frame FrameTiles_27_48c0, FrameSprites_27_7b8c, 18
+Frame_RunKritterScript_4::
+	frame FrameTiles_RunKritterScript_4, FrameSprites_RunKritterScript_4, 18
 
-Frame_20_49a8::
-	frame FrameTiles_27_49e0, FrameSprites_27_7b9e, 16
+Frame_RunKritterScript_5::
+	frame FrameTiles_RunKritterScript_5, FrameSprites_RunKritterScript_5, 16
 
-Frame_20_49ae::
-	frame FrameTiles_27_4ae0, FrameSprites_27_7bae, 14
+Frame_RunKritterScript_6::
+	frame FrameTiles_RunKritterScript_6, FrameSprites_RunKritterScript_6, 14
 
-Frame_20_49b4::
-	frame FrameTiles_27_4bc0, FrameSprites_27_7bbc, 16
+Frame_RunKritterScript_7::
+	frame FrameTiles_RunKritterScript_7, FrameSprites_RunKritterScript_7, 16
 
-Frame_20_49ba::
-	frame FrameTiles_27_4cc0, FrameSprites_27_7bcc, 14
+Frame_RunKritterScript_8::
+	frame FrameTiles_RunKritterScript_8, FrameSprites_RunKritterScript_8, 14
 
-Frame_20_49c0::
-	frame FrameTiles_27_4da0, FrameSprites_27_7bda, 8
+Frame_ChompsJr_Touch_1::
+	frame FrameTiles_ChompsJr_Touch_1, FrameSprites_ChompsJr_Touch_1, 8
 
-Frame_20_49c6::
-	frame FrameTiles_27_4e20, FrameSprites_27_7be2, 8
+Frame_ChompsJr_Touch_2::
+	frame FrameTiles_ChompsJr_Touch_2, FrameSprites_ChompsJr_Touch_2, 8
 
-Frame_20_49cc::
-	frame FrameTiles_27_4ea0, FrameSprites_27_7bea, 8
+Frame_ChompsJr_Touch_3::
+	frame FrameTiles_ChompsJr_Touch_3, FrameSprites_ChompsJr_Touch_3, 8
 
-Frame_20_49d2::
-	frame FrameTiles_27_4f20, FrameSprites_27_7bf2, 12
+Frame_ChompsJr_Touch_4::
+	frame FrameTiles_ChompsJr_Touch_4, FrameSprites_ChompsJr_Touch_4, 12
 
-Frame_20_49d8::
-	frame FrameTiles_27_4fe0, FrameSprites_27_7bfe, 10
+Frame_ChompsJr_Touch_5::
+	frame FrameTiles_ChompsJr_Touch_5, FrameSprites_ChompsJr_Touch_5, 10
 
-Frame_20_49de::
-	frame FrameTiles_27_5080, FrameSprites_27_7c08, 10
+Frame_ChompsJr_1::
+	frame FrameTiles_ChompsJr_1, FrameSprites_ChompsJr_1, 10
 
-Frame_20_49e4::
-	frame FrameTiles_27_5120, FrameSprites_27_7c12, 10
+Frame_ChompsJr_2::
+	frame FrameTiles_ChompsJr_2, FrameSprites_ChompsJr_2, 10
 
-Frame_20_49ea::
-	frame FrameTiles_27_51c0, FrameSprites_27_7c1c, 12
+Frame_ChompsJr_3::
+	frame FrameTiles_ChompsJr_3, FrameSprites_ChompsJr_3, 12
 
-Frame_20_49f0::
-	frame FrameTiles_27_5280, FrameSprites_27_7c28, 8
+Frame_ChompsJr_4::
+	frame FrameTiles_ChompsJr_4, FrameSprites_ChompsJr_4, 8
 
-Frame_20_49f6::
-	frame FrameTiles_27_5300, FrameSprites_27_7c30, 10
+Frame_ChompsJr_5::
+	frame FrameTiles_ChompsJr_5, FrameSprites_ChompsJr_5, 10
 
-Frame_20_49fc::
-	frame FrameTiles_27_53a0, FrameSprites_27_7c3a, 10
+Frame_ChompsJr_6::
+	frame FrameTiles_ChompsJr_6, FrameSprites_ChompsJr_6, 10
 
-Frame_20_4a02::
-	frame FrameTiles_27_5440, FrameSprites_27_7c44, 10
+Frame_ChompsJr_7::
+	frame FrameTiles_ChompsJr_7, FrameSprites_ChompsJr_7, 10
 
-Frame_20_4a08::
-	frame FrameTiles_27_54e0, FrameSprites_27_7c4e, 10
+Frame_ChompsJr_8::
+	frame FrameTiles_ChompsJr_8, FrameSprites_ChompsJr_8, 10
 
-Frame_20_4a0e::
-	frame FrameTiles_27_5580, FrameSprites_27_7c58, 8
+Frame_ChompsJr_Swim_1::
+	frame FrameTiles_ChompsJr_Swim_1, FrameSprites_ChompsJr_Swim_1, 8
 
-Frame_20_4a14::
-	frame FrameTiles_27_5600, FrameSprites_27_7c60, 8
+Frame_ChompsJr_Swim_2::
+	frame FrameTiles_ChompsJr_Swim_2, FrameSprites_ChompsJr_Swim_2, 8
 
-Frame_20_4a1a::
-	frame FrameTiles_27_5680, FrameSprites_27_7c68, 8
+Frame_ChompsJr_Swim_3::
+	frame FrameTiles_ChompsJr_Swim_3, FrameSprites_ChompsJr_Swim_3, 8
 
-Frame_20_4a20::
-	frame FrameTiles_27_5700, FrameSprites_27_7c70, 10
+Frame_ChompsJr_Swim_4::
+	frame FrameTiles_ChompsJr_Swim_4, FrameSprites_ChompsJr_Swim_4, 10
 
-Frame_20_4a26::
-	frame FrameTiles_27_57a0, FrameSprites_27_7c7a, 8
+Frame_ChompsJr_Swim_5::
+	frame FrameTiles_ChompsJr_Swim_5, FrameSprites_ChompsJr_Swim_5, 8
 
-Frame_20_4a2c::
-	frame FrameTiles_27_5820, FrameSprites_27_7c82, 8
+Frame_ChompsJr_Swim_6::
+	frame FrameTiles_ChompsJr_Swim_6, FrameSprites_ChompsJr_Swim_6, 8
 
-Frame_20_4a32::
-	frame FrameTiles_27_58a0, FrameSprites_27_7c8a, 8
+Frame_ChompsJr_Swim_7::
+	frame FrameTiles_ChompsJr_Swim_7, FrameSprites_ChompsJr_Swim_7, 8
 
-Frame_20_4a38::
-	frame FrameTiles_27_5920, FrameSprites_27_7c92, 8
+Frame_ChompsJr_Swim_8::
+	frame FrameTiles_ChompsJr_Swim_8, FrameSprites_ChompsJr_Swim_8, 8
 
-Frame_20_4a3e::
-	frame FrameTiles_27_59a0, FrameSprites_27_7c9a, 14
+Frame_Unused_16::
+	frame FrameTiles_Unused_16, FrameSprites_Unused_16, 14
 
-Frame_20_4a44::
-	frame FrameTiles_27_5a80, FrameSprites_27_7ca8, 14
+Frame_Unused_17::
+	frame FrameTiles_Unused_17, FrameSprites_Unused_17, 14
 
-Frame_20_4a4a::
-	frame FrameTiles_27_5b60, FrameSprites_27_7cb6, 10
+Frame_Unused_18::
+	frame FrameTiles_Unused_18, FrameSprites_Unused_18, 10
 
-Frame_20_4a50::
-	frame FrameTiles_27_5c00, FrameSprites_27_7cc0, 14
+Frame_Unused_19::
+	frame FrameTiles_Unused_19, FrameSprites_Unused_19, 14
 
-Frame_20_4a56::
-	frame FrameTiles_27_5ce0, FrameSprites_27_7cce, 12
+Frame_Unused_20::
+	frame FrameTiles_Unused_20, FrameSprites_Unused_20, 12
 
-Frame_20_4a5c::
-	frame FrameTiles_27_5da0, FrameSprites_27_7cda, 14
+Frame_Unused_21::
+	frame FrameTiles_Unused_21, FrameSprites_Unused_21, 14
 
-Frame_20_4a62::
-	frame FrameTiles_27_5e80, FrameSprites_27_7ce8, 16
+Frame_Unused_22::
+	frame FrameTiles_Unused_22, FrameSprites_Unused_22, 16
 
-Frame_20_4a68::
-	frame FrameTiles_27_5f80, FrameSprites_27_7cf8, 12
+Frame_AnimalCrate_3::
+	frame FrameTiles_AnimalCrate_3, FrameSprites_AnimalCrate_3, 12
 
-Frame_20_4a6e::
-	frame FrameTiles_27_6040, FrameSprites_27_7d04, 12
+Frame_AnimalCrate_4::
+	frame FrameTiles_AnimalCrate_4, FrameSprites_AnimalCrate_4, 12
 
-Frame_20_4a74::
-	frame FrameTiles_27_6100, FrameSprites_27_7d10, 26
+Frame_Croctopus_SetSpinAnim_1::
+	frame FrameTiles_Croctopus_SetSpinAnim_1, FrameSprites_Croctopus_SetSpinAnim_1, 26
 
-Frame_20_4a7a::
-	frame FrameTiles_27_62a0, FrameSprites_27_7d2a, 26
+Frame_Croctopus_SetSpinAnim_2::
+	frame FrameTiles_Croctopus_SetSpinAnim_2, FrameSprites_Croctopus_SetSpinAnim_2, 26
 
-Frame_20_4a80::
-	frame FrameTiles_27_6440, FrameSprites_27_7d44, 26
+Frame_Croctopus_SetSpinAnim_3::
+	frame FrameTiles_Croctopus_SetSpinAnim_3, FrameSprites_Croctopus_SetSpinAnim_3, 26
 
-Frame_20_4a86::
-	frame FrameTiles_27_65e0, FrameSprites_27_7d5e, 26
+Frame_Croctopus_SetSpinAnim_4::
+	frame FrameTiles_Croctopus_SetSpinAnim_4, FrameSprites_Croctopus_SetSpinAnim_4, 26
 
-Frame_20_4a8c::
-	frame FrameTiles_27_6780, FrameSprites_27_7d78, 24
+Frame_Croctopus_SetSpinAnim_5::
+	frame FrameTiles_Croctopus_SetSpinAnim_5, FrameSprites_Croctopus_SetSpinAnim_5, 24
 
-Frame_20_4a92::
-	frame FrameTiles_27_6900, FrameSprites_27_7d90, 22
+Frame_Croctopus_SetSpinAnim_6::
+	frame FrameTiles_Croctopus_SetSpinAnim_6, FrameSprites_Croctopus_SetSpinAnim_6, 22
 
-Frame_20_4a98::
-	frame FrameTiles_27_6a60, FrameSprites_27_7da6, 24
+Frame_Croctopus_SetSpinAnim_7::
+	frame FrameTiles_Croctopus_SetSpinAnim_7, FrameSprites_Croctopus_SetSpinAnim_7, 24
 
-Frame_20_4a9e::
-	frame FrameTiles_27_6be0, FrameSprites_27_7dbe, 10
+Frame_Croctopus_SetMoveAnim_1::
+	frame FrameTiles_Croctopus_SetMoveAnim_1, FrameSprites_Croctopus_SetMoveAnim_1, 10
 
-Frame_20_4aa4::
-	frame FrameTiles_27_6c80, FrameSprites_27_7dc8, 16
+Frame_Croctopus_SetMoveAnim_2::
+	frame FrameTiles_Croctopus_SetMoveAnim_2, FrameSprites_Croctopus_SetMoveAnim_2, 16
 
-Frame_20_4aaa::
-	frame FrameTiles_27_6d80, FrameSprites_27_7dd8, 14
+Frame_Croctopus_SetMoveAnim_3::
+	frame FrameTiles_Croctopus_SetMoveAnim_3, FrameSprites_Croctopus_SetMoveAnim_3, 14
 
-Frame_20_4ab0::
-	frame FrameTiles_27_6e60, FrameSprites_27_7de6, 16
+Frame_Croctopus_SetMoveAnim_4::
+	frame FrameTiles_Croctopus_SetMoveAnim_4, FrameSprites_Croctopus_SetMoveAnim_4, 16
 
-Frame_20_4ab6::
-	frame FrameTiles_27_6f60, FrameSprites_27_7df6, 12
+Frame_Croctopus_SetMoveAnim_5::
+	frame FrameTiles_Croctopus_SetMoveAnim_5, FrameSprites_Croctopus_SetMoveAnim_5, 12
 
-Frame_20_4abc::
-	frame FrameTiles_27_7020, FrameSprites_27_7e02, 14
+Frame_Croctopus_SetMoveAnim_6::
+	frame FrameTiles_Croctopus_SetMoveAnim_6, FrameSprites_Croctopus_SetMoveAnim_6, 14
 
-Frame_20_4ac2::
-	frame FrameTiles_27_7100, FrameSprites_27_7e10, 14
+Frame_Croctopus_SetMoveAnim_7::
+	frame FrameTiles_Croctopus_SetMoveAnim_7, FrameSprites_Croctopus_SetMoveAnim_7, 14
 
-Frame_20_4ac8::
-	frame FrameTiles_27_71e0, FrameSprites_27_7e1e, 14
+Frame_Croctopus_SetMoveAnim_8::
+	frame FrameTiles_Croctopus_SetMoveAnim_8, FrameSprites_Croctopus_SetMoveAnim_8, 14
 
-Frame_20_4ace::
-	frame FrameTiles_27_72c0, FrameSprites_27_7e2c, 12
+Frame_SquawksCrate_1::
+	frame FrameTiles_SquawksCrate_1, FrameSprites_SquawksCrate_1, 12
 
-Frame_20_4ad4::
-	frame FrameTiles_27_7380, FrameSprites_27_7e38, 12
+Frame_SquawksCrate_2::
+	frame FrameTiles_SquawksCrate_2, FrameSprites_SquawksCrate_2, 12
 
-Frame_20_4ada::
-	frame FrameTiles_27_7440, FrameSprites_27_7e44, 2
+Frame_ClamboPearl::
+	frame FrameTiles_ClamboPearl, FrameSprites_ClamboPearl, 2
 
-Frame_20_4ae0::
-	frame FrameTiles_27_7460, FrameSprites_27_7e46, 6
+Frame_Bitesize_Touch_1::
+	frame FrameTiles_Bitesize_Touch_1, FrameSprites_Bitesize_Touch_1, 6
 
-Frame_20_4ae6::
-	frame FrameTiles_27_74c0, FrameSprites_27_7e4c, 6
+Frame_Bitesize_Touch_2::
+	frame FrameTiles_Bitesize_Touch_2, FrameSprites_Bitesize_Touch_2, 6
 
-Frame_20_4aec::
-	frame FrameTiles_27_7520, FrameSprites_27_7e52, 6
+Frame_Bitesize_Touch_3::
+	frame FrameTiles_Bitesize_Touch_3, FrameSprites_Bitesize_Touch_3, 6
 
-Frame_20_4af2::
-	frame FrameTiles_27_7580, FrameSprites_27_7e58, 6
+Frame_Bitesize_Touch_4::
+	frame FrameTiles_Bitesize_Touch_4, FrameSprites_Bitesize_Touch_4, 6
 
-Frame_20_4af8::
-	frame FrameTiles_27_75e0, FrameSprites_27_7e5e, 4
+Frame_Bitesize_Touch_5::
+	frame FrameTiles_Bitesize_Touch_5, FrameSprites_Bitesize_Touch_5, 4
 
-Frame_20_4afe::
-	frame FrameTiles_27_7620, FrameSprites_27_7e62, 6
+Frame_Bitesize_1::
+	frame FrameTiles_Bitesize_1, FrameSprites_Bitesize_1, 6
 
-Frame_20_4b04::
-	frame FrameTiles_27_7680, FrameSprites_27_7e68, 6
+Frame_Bitesize_2::
+	frame FrameTiles_Bitesize_2, FrameSprites_Bitesize_2, 6
 
-Frame_20_4b0a::
-	frame FrameTiles_27_76e0, FrameSprites_27_7e6e, 4
+Frame_Bitesize_3::
+	frame FrameTiles_Bitesize_3, FrameSprites_Bitesize_3, 4
 
-Frame_20_4b10::
-	frame FrameTiles_27_7720, FrameSprites_27_7e72, 4
+Frame_Bitesize_4::
+	frame FrameTiles_Bitesize_4, FrameSprites_Bitesize_4, 4
 
-Frame_20_4b16::
-	frame FrameTiles_27_7760, FrameSprites_27_7e76, 6
+Frame_Bitesize_5::
+	frame FrameTiles_Bitesize_5, FrameSprites_Bitesize_5, 6
 
-Frame_20_4b1c::
-	frame FrameTiles_27_77c0, FrameSprites_27_7e7c, 6
+Frame_Bitesize_6::
+	frame FrameTiles_Bitesize_6, FrameSprites_Bitesize_6, 6
 
-Frame_20_4b22::
-	frame FrameTiles_27_7820, FrameSprites_27_7e82, 6
+Frame_Bitesize_7::
+	frame FrameTiles_Bitesize_7, FrameSprites_Bitesize_7, 6
 
-Frame_20_4b28::
-	frame FrameTiles_27_7880, FrameSprites_27_7e88, 6
+Frame_Bitesize_Swim_1::
+	frame FrameTiles_Bitesize_Swim_1, FrameSprites_Bitesize_Swim_1, 6
 
-Frame_20_4b2e::
-	frame FrameTiles_27_78e0, FrameSprites_27_7e8e, 4
+Frame_Bitesize_Swim_2::
+	frame FrameTiles_Bitesize_Swim_2, FrameSprites_Bitesize_Swim_2, 4
 
-Frame_20_4b34::
-	frame FrameTiles_27_7920, FrameSprites_27_7e92, 4
+Frame_Bitesize_Swim_3::
+	frame FrameTiles_Bitesize_Swim_3, FrameSprites_Bitesize_Swim_3, 4
 
-Frame_20_4b3a::
-	frame FrameTiles_27_7960, FrameSprites_27_7e96, 4
+Frame_Bitesize_Swim_4::
+	frame FrameTiles_Bitesize_Swim_4, FrameSprites_Bitesize_Swim_4, 4
 
-Frame_20_4b40::
-	frame FrameTiles_27_79a0, FrameSprites_27_7e9a, 4
+Frame_Bitesize_Swim_5::
+	frame FrameTiles_Bitesize_Swim_5, FrameSprites_Bitesize_Swim_5, 4
 
-Frame_20_4b46::
-	frame FrameTiles_27_79e0, FrameSprites_27_7e9e, 6
+Frame_Bitesize_Swim_6::
+	frame FrameTiles_Bitesize_Swim_6, FrameSprites_Bitesize_Swim_6, 6
 
-Frame_20_4b4c::
-	frame FrameTiles_27_7a40, FrameSprites_27_7ea4, 12
+Frame_SpawnCollectedBanana_28::
+	frame FrameTiles_SpawnCollectedBanana_28, FrameSprites_SpawnCollectedBanana_28, 12
 
-Frame_20_4b52::
-	frame FrameTiles_28_4000, FrameSprites_28_79e0, 4
+Frame_AnimalToken_3::
+	frame FrameTiles_AnimalToken_3, FrameSprites_AnimalToken_3, 4
 
-Frame_20_4b58::
-	frame FrameTiles_28_4040, FrameSprites_28_79e4, 4
+Frame_Unused_23::
+	frame FrameTiles_Unused_23, FrameSprites_Unused_23, 4
 
-Frame_20_4b5e::
-	frame FrameTiles_28_4080, FrameSprites_28_79e8, 4
+Frame_Unused_24::
+	frame FrameTiles_Unused_24, FrameSprites_Unused_24, 4
 
-Frame_20_4b64::
-	frame FrameTiles_28_40c0, FrameSprites_28_79ec, 4
+Frame_Unused_25::
+	frame FrameTiles_Unused_25, FrameSprites_Unused_25, 4
 
-Frame_20_4b6a::
-	frame FrameTiles_28_4100, FrameSprites_28_79f0, 4
+Frame_Unused_26::
+	frame FrameTiles_Unused_26, FrameSprites_Unused_26, 4
 
-Frame_20_4b70::
-	frame FrameTiles_28_4140, FrameSprites_28_79f4, 4
+Frame_Unused_27::
+	frame FrameTiles_Unused_27, FrameSprites_Unused_27, 4
 
-Frame_20_4b76::
-	frame FrameTiles_28_4180, FrameSprites_28_79f8, 4
+Frame_Unused_28::
+	frame FrameTiles_Unused_28, FrameSprites_Unused_28, 4
 
-Frame_20_4b7c::
-	frame FrameTiles_28_41c0, FrameSprites_28_79fc, 4
+Frame_Unused_29::
+	frame FrameTiles_Unused_29, FrameSprites_Unused_29, 4
 
-Frame_20_4b82::
-	frame FrameTiles_28_4200, FrameSprites_28_7a00, 4
+Frame_Letter_A::
+	frame FrameTiles_Letter_A, FrameSprites_Letter_A, 4
 
-Frame_20_4b88::
-	frame FrameTiles_28_4240, FrameSprites_28_7a04, 4
+Frame_Letter_B::
+	frame FrameTiles_Letter_B, FrameSprites_Letter_B, 4
 
-Frame_20_4b8e::
-	frame FrameTiles_28_4280, FrameSprites_28_7a08, 4
+Frame_Letter_C::
+	frame FrameTiles_Letter_C, FrameSprites_Letter_C, 4
 
-Frame_20_4b94::
-	frame FrameTiles_28_42c0, FrameSprites_28_7a0c, 4
+Frame_Letter_D::
+	frame FrameTiles_Letter_D, FrameSprites_Letter_D, 4
 
-Frame_20_4b9a::
-	frame FrameTiles_28_4300, FrameSprites_28_7a10, 4
+Frame_Letter_E::
+	frame FrameTiles_Letter_E, FrameSprites_Letter_E, 4
 
-Frame_20_4ba0::
-	frame FrameTiles_28_4340, FrameSprites_28_7a14, 4
+Frame_Letter_F::
+	frame FrameTiles_Letter_F, FrameSprites_Letter_F, 4
 
-Frame_20_4ba6::
-	frame FrameTiles_28_4380, FrameSprites_28_7a18, 4
+Frame_Letter_G::
+	frame FrameTiles_Letter_G, FrameSprites_Letter_G, 4
 
-Frame_20_4bac::
-	frame FrameTiles_28_43c0, FrameSprites_28_7a1c, 4
+Frame_Unused_30::
+	frame FrameTiles_Unused_30, FrameSprites_Unused_30, 4
 
-Frame_20_4bb2::
-	frame FrameTiles_28_4400, FrameSprites_28_7a20, 4
+Frame_Letter_I::
+	frame FrameTiles_Letter_I, FrameSprites_Letter_I, 4
 
-Frame_20_4bb8::
-	frame FrameTiles_28_4440, FrameSprites_28_7a24, 4
+Frame_Unused_31::
+	frame FrameTiles_Unused_31, FrameSprites_Unused_31, 4
 
-Frame_20_4bbe::
-	frame FrameTiles_28_4480, FrameSprites_28_7a28, 4
+Frame_Letter_K::
+	frame FrameTiles_Letter_K, FrameSprites_Letter_K, 4
 
-Frame_20_4bc4::
-	frame FrameTiles_28_44c0, FrameSprites_28_7a2c, 4
+Frame_Unused_32::
+	frame FrameTiles_Unused_32, FrameSprites_Unused_32, 4
 
-Frame_20_4bca::
-	frame FrameTiles_28_4500, FrameSprites_28_7a30, 4
+Frame_Letter_M::
+	frame FrameTiles_Letter_M, FrameSprites_Letter_M, 4
 
-Frame_20_4bd0::
-	frame FrameTiles_28_4540, FrameSprites_28_7a34, 4
+Frame_Letter_N::
+	frame FrameTiles_Letter_N, FrameSprites_Letter_N, 4
 
-Frame_20_4bd6::
-	frame FrameTiles_28_4580, FrameSprites_28_7a38, 4
+Frame_Letter_O::
+	frame FrameTiles_Letter_O, FrameSprites_Letter_O, 4
 
-Frame_20_4bdc::
-	frame FrameTiles_28_45c0, FrameSprites_28_7a3c, 4
+Frame_Letter_P::
+	frame FrameTiles_Letter_P, FrameSprites_Letter_P, 4
 
-Frame_20_4be2::
-	frame FrameTiles_28_4600, FrameSprites_28_7a40, 4
+Frame_Unused_33::
+	frame FrameTiles_Unused_33, FrameSprites_Unused_33, 4
 
-Frame_20_4be8::
-	frame FrameTiles_28_4640, FrameSprites_28_7a44, 4
+Frame_Letter_R::
+	frame FrameTiles_Letter_R, FrameSprites_Letter_R, 4
 
-Frame_20_4bee::
-	frame FrameTiles_28_4680, FrameSprites_28_7a48, 4
+Frame_Letter_S::
+	frame FrameTiles_Letter_S, FrameSprites_Letter_S, 4
 
-Frame_20_4bf4::
-	frame FrameTiles_28_46c0, FrameSprites_28_7a4c, 4
+Frame_Letter_T::
+	frame FrameTiles_Letter_T, FrameSprites_Letter_T, 4
 
-Frame_20_4bfa::
-	frame FrameTiles_28_4700, FrameSprites_28_7a50, 4
+Frame_Letter_U::
+	frame FrameTiles_Letter_U, FrameSprites_Letter_U, 4
 
-Frame_20_4c00::
-	frame FrameTiles_28_4740, FrameSprites_28_7a54, 4
+Frame_Unused_34::
+	frame FrameTiles_Unused_34, FrameSprites_Unused_34, 4
 
-Frame_20_4c06::
-	frame FrameTiles_28_4780, FrameSprites_28_7a58, 4
+Frame_Letter_W::
+	frame FrameTiles_Letter_W, FrameSprites_Letter_W, 4
 
-Frame_20_4c0c::
-	frame FrameTiles_28_47c0, FrameSprites_28_7a5c, 4
+Frame_Letter_X::
+	frame FrameTiles_Letter_X, FrameSprites_Letter_X, 4
 
-Frame_20_4c12::
-	frame FrameTiles_28_4800, FrameSprites_28_7a60, 4
+Frame_Letter_Y::
+	frame FrameTiles_Letter_Y, FrameSprites_Letter_Y, 4
 
-Frame_20_4c18::
-	frame FrameTiles_28_4840, FrameSprites_28_7a64, 4
+Frame_Unused_35::
+	frame FrameTiles_Unused_35, FrameSprites_Unused_35, 4
 
-Frame_20_4c1e::
-	frame FrameTiles_28_4880, FrameSprites_28_7a68, 12
+Frame_Unused_36::
+	frame FrameTiles_Unused_36, FrameSprites_Unused_36, 12
 
-Frame_20_4c24::
-	frame FrameTiles_28_4940, FrameSprites_28_7a74, 12
+Frame_Unused_37::
+	frame FrameTiles_Unused_37, FrameSprites_Unused_37, 12
 
-Frame_20_4c2a::
-	frame FrameTiles_28_4a00, FrameSprites_28_7a80, 14
+Frame_Unused_38::
+	frame FrameTiles_Unused_38, FrameSprites_Unused_38, 14
 
-Frame_20_4c30::
-	frame FrameTiles_28_4ae0, FrameSprites_28_7a8e, 12
+Frame_Unused_39::
+	frame FrameTiles_Unused_39, FrameSprites_Unused_39, 12
 
-Frame_20_4c36::
-	frame FrameTiles_28_4ba0, FrameSprites_28_7a9a, 14
+Frame_Unused_40::
+	frame FrameTiles_Unused_40, FrameSprites_Unused_40, 14
 
-Frame_20_4c3c::
-	frame FrameTiles_28_4c80, FrameSprites_28_7aa8, 14
+Frame_Unused_41::
+	frame FrameTiles_Unused_41, FrameSprites_Unused_41, 14
 
-Frame_20_4c42::
-	frame FrameTiles_28_4d60, FrameSprites_28_7ab6, 14
+Frame_Unused_42::
+	frame FrameTiles_Unused_42, FrameSprites_Unused_42, 14
 
-Frame_20_4c48::
-	frame FrameTiles_28_4e40, FrameSprites_28_7ac4, 12
+Frame_Unused_43::
+	frame FrameTiles_Unused_43, FrameSprites_Unused_43, 12
 
-Frame_20_4c4e::
-	frame FrameTiles_28_4f00, FrameSprites_28_7ad0, 14
+Frame_Unused_44::
+	frame FrameTiles_Unused_44, FrameSprites_Unused_44, 14
 
-Frame_20_4c54::
-	frame FrameTiles_28_4fe0, FrameSprites_28_7ade, 14
+Frame_Unused_45::
+	frame FrameTiles_Unused_45, FrameSprites_Unused_45, 14
 
-Frame_20_4c5a::
-	frame FrameTiles_28_50c0, FrameSprites_28_7aec, 12
+Frame_AnimalCrate_5::
+	frame FrameTiles_AnimalCrate_5, FrameSprites_AnimalCrate_5, 12
 
-Frame_20_4c60::
-	frame FrameTiles_28_5180, FrameSprites_28_7af8, 12
+Frame_AnimalCrate_6::
+	frame FrameTiles_AnimalCrate_6, FrameSprites_AnimalCrate_6, 12
 
-Frame_20_4c66::
-	frame FrameTiles_28_5240, FrameSprites_28_7b04, 12
+Frame_AnimalCrate_7::
+	frame FrameTiles_AnimalCrate_7, FrameSprites_AnimalCrate_7, 12
 
-Frame_20_4c6c::
-	frame FrameTiles_28_5300, FrameSprites_28_7b10, 6
+Frame_AnimalCrate_8::
+	frame FrameTiles_AnimalCrate_8, FrameSprites_AnimalCrate_8, 6
 
-Frame_20_4c72::
-	frame FrameTiles_28_5360, FrameSprites_28_7b16, 12
+Frame_AnimalCrate_9::
+	frame FrameTiles_AnimalCrate_9, FrameSprites_AnimalCrate_9, 12
 
-Frame_20_4c78::
-	frame FrameTiles_28_5420, FrameSprites_28_7b22, 12
+Frame_AnimalCrate_10::
+	frame FrameTiles_AnimalCrate_10, FrameSprites_AnimalCrate_10, 12
 
-Frame_20_4c7e::
-	frame FrameTiles_28_54e0, FrameSprites_28_7b2e, 8
+Frame_Unused_46::
+	frame FrameTiles_Unused_46, FrameSprites_Unused_46, 8
 
-Frame_20_4c84::
-	frame FrameTiles_28_5560, FrameSprites_28_7b36, 20
+Frame_Unused_47::
+	frame FrameTiles_Unused_47, FrameSprites_Unused_47, 20
 
-Frame_20_4c8a::
-	frame FrameTiles_28_56a0, FrameSprites_28_7b4a, 20
+Frame_Unused_48::
+	frame FrameTiles_Unused_48, FrameSprites_Unused_48, 20
 
-Frame_20_4c90::
-	frame FrameTiles_28_57e0, FrameSprites_28_7b5e, 12
+Frame_Unused_49::
+	frame FrameTiles_Unused_49, FrameSprites_Unused_49, 12
 
-Frame_20_4c96::
-	frame FrameTiles_28_58a0, FrameSprites_28_7b6a, 22
+Frame_Unused_50::
+	frame FrameTiles_Unused_50, FrameSprites_Unused_50, 22
 
-Frame_20_4c9c::
-	frame FrameTiles_28_5a00, FrameSprites_28_7b80, 28
+Frame_Unused_51::
+	frame FrameTiles_Unused_51, FrameSprites_Unused_51, 28
 
-Frame_20_4ca2::
-	frame FrameTiles_28_5bc0, FrameSprites_28_7b9c, 2
+Frame_Unused_52::
+	frame FrameTiles_Unused_52, FrameSprites_Unused_52, 2
 
-Frame_20_4ca8::
-	frame FrameTiles_28_5be0, FrameSprites_28_7b9e, 12
+Frame_Chomps_Touch_1::
+	frame FrameTiles_Chomps_Touch_1, FrameSprites_Chomps_Touch_1, 12
 
-Frame_20_4cae::
-	frame FrameTiles_28_5ca0, FrameSprites_28_7baa, 14
+Frame_Chomps_Touch_2::
+	frame FrameTiles_Chomps_Touch_2, FrameSprites_Chomps_Touch_2, 14
 
-Frame_20_4cb4::
-	frame FrameTiles_28_5d80, FrameSprites_28_7bb8, 14
+Frame_Chomps_Touch_3::
+	frame FrameTiles_Chomps_Touch_3, FrameSprites_Chomps_Touch_3, 14
 
-Frame_20_4cba::
-	frame FrameTiles_28_5e60, FrameSprites_28_7bc6, 18
+Frame_Chomps_Touch_4::
+	frame FrameTiles_Chomps_Touch_4, FrameSprites_Chomps_Touch_4, 18
 
-Frame_20_4cc0::
-	frame FrameTiles_28_5f80, FrameSprites_28_7bd8, 16
+Frame_Chomps_Touch_5::
+	frame FrameTiles_Chomps_Touch_5, FrameSprites_Chomps_Touch_5, 16
 
-Frame_20_4cc6::
-	frame FrameTiles_28_6080, FrameSprites_28_7be8, 16
+Frame_Chomps_Touch_6::
+	frame FrameTiles_Chomps_Touch_6, FrameSprites_Chomps_Touch_6, 16
 
-Frame_20_4ccc::
-	frame FrameTiles_28_6180, FrameSprites_28_7bf8, 16
+Frame_Chomps_1::
+	frame FrameTiles_Chomps_1, FrameSprites_Chomps_1, 16
 
-Frame_20_4cd2::
-	frame FrameTiles_28_6280, FrameSprites_28_7c08, 16
+Frame_Chomps_2::
+	frame FrameTiles_Chomps_2, FrameSprites_Chomps_2, 16
 
-Frame_20_4cd8::
-	frame FrameTiles_28_6380, FrameSprites_28_7c18, 14
+Frame_Chomps_3::
+	frame FrameTiles_Chomps_3, FrameSprites_Chomps_3, 14
 
-Frame_20_4cde::
-	frame FrameTiles_28_6460, FrameSprites_28_7c26, 12
+Frame_Chomps_4::
+	frame FrameTiles_Chomps_4, FrameSprites_Chomps_4, 12
 
-Frame_20_4ce4::
-	frame FrameTiles_28_6520, FrameSprites_28_7c32, 12
+Frame_Chomps_5::
+	frame FrameTiles_Chomps_5, FrameSprites_Chomps_5, 12
 
-Frame_20_4cea::
-	frame FrameTiles_28_65e0, FrameSprites_28_7c3e, 16
+Frame_Chomps_6::
+	frame FrameTiles_Chomps_6, FrameSprites_Chomps_6, 16
 
-Frame_20_4cf0::
-	frame FrameTiles_28_66e0, FrameSprites_28_7c4e, 16
+Frame_Chomps_7::
+	frame FrameTiles_Chomps_7, FrameSprites_Chomps_7, 16
 
-Frame_20_4cf6::
-	frame FrameTiles_28_67e0, FrameSprites_28_7c5e, 16
+Frame_Chomps_8::
+	frame FrameTiles_Chomps_8, FrameSprites_Chomps_8, 16
 
-Frame_20_4cfc::
-	frame FrameTiles_28_68e0, FrameSprites_28_7c6e, 12
+Frame_Chomps_Swim_1::
+	frame FrameTiles_Chomps_Swim_1, FrameSprites_Chomps_Swim_1, 12
 
-Frame_20_4d02::
-	frame FrameTiles_28_69a0, FrameSprites_28_7c7a, 12
+Frame_Chomps_Swim_2::
+	frame FrameTiles_Chomps_Swim_2, FrameSprites_Chomps_Swim_2, 12
 
-Frame_20_4d08::
-	frame FrameTiles_28_6a60, FrameSprites_28_7c86, 12
+Frame_Chomps_Swim_3::
+	frame FrameTiles_Chomps_Swim_3, FrameSprites_Chomps_Swim_3, 12
 
-Frame_20_4d0e::
-	frame FrameTiles_28_6b20, FrameSprites_28_7c92, 10
+Frame_Chomps_Swim_4::
+	frame FrameTiles_Chomps_Swim_4, FrameSprites_Chomps_Swim_4, 10
 
-Frame_20_4d14::
-	frame FrameTiles_28_6bc0, FrameSprites_28_7c9c, 12
+Frame_Chomps_Swim_5::
+	frame FrameTiles_Chomps_Swim_5, FrameSprites_Chomps_Swim_5, 12
 
-Frame_20_4d1a::
-	frame FrameTiles_28_6c80, FrameSprites_28_7ca8, 8
+Frame_Gnawty_9::
+	frame FrameTiles_Gnawty_9, FrameSprites_Gnawty_9, 8
 
-Frame_20_4d20::
-	frame FrameTiles_28_6d00, FrameSprites_28_7cb0, 8
+Frame_Gnawty_10::
+	frame FrameTiles_Gnawty_10, FrameSprites_Gnawty_10, 8
 
-Frame_20_4d26::
-	frame FrameTiles_28_6d80, FrameSprites_28_7cb8, 8
+Frame_Gnawty_11::
+	frame FrameTiles_Gnawty_11, FrameSprites_Gnawty_11, 8
 
-Frame_20_4d2c::
-	frame FrameTiles_28_6e00, FrameSprites_28_7cc0, 8
+Frame_Gnawty_12::
+	frame FrameTiles_Gnawty_12, FrameSprites_Gnawty_12, 8
 
-Frame_20_4d32::
-	frame FrameTiles_28_6e80, FrameSprites_28_7cc8, 8
+Frame_Gnawty_13::
+	frame FrameTiles_Gnawty_13, FrameSprites_Gnawty_13, 8
 
-Frame_20_4d38::
-	frame FrameTiles_28_6f00, FrameSprites_28_7cd0, 8
+Frame_Gnawty_14::
+	frame FrameTiles_Gnawty_14, FrameSprites_Gnawty_14, 8
 
-Frame_20_4d3e::
-	frame FrameTiles_28_6f80, FrameSprites_28_7cd8, 10
+Frame_AnimalToken_4::
+	frame FrameTiles_AnimalToken_4, FrameSprites_AnimalToken_4, 10
 
-Frame_20_4d44::
-	frame FrameTiles_28_7020, FrameSprites_28_7ce2, 8
+Frame_AnimalToken_5::
+	frame FrameTiles_AnimalToken_5, FrameSprites_AnimalToken_5, 8
 
-Frame_20_4d4a::
-	frame FrameTiles_28_70a0, FrameSprites_28_7cea, 8
+Frame_AnimalToken_6::
+	frame FrameTiles_AnimalToken_6, FrameSprites_AnimalToken_6, 8
 
-Frame_20_4d50::
-	frame FrameTiles_28_7120, FrameSprites_28_7cf2, 8
+Frame_AnimalToken_7::
+	frame FrameTiles_AnimalToken_7, FrameSprites_AnimalToken_7, 8
 
-Frame_20_4d56::
-	frame FrameTiles_28_71a0, FrameSprites_28_7cfa, 16
+Frame_PlayerEnguarde_1::
+	frame FrameTiles_PlayerEnguarde_1, FrameSprites_PlayerEnguarde_1, 16
 
-Frame_20_4d5c::
-	frame FrameTiles_28_72a0, FrameSprites_28_7d0a, 16
+Frame_PlayerEnguarde_2::
+	frame FrameTiles_PlayerEnguarde_2, FrameSprites_PlayerEnguarde_2, 16
 
-Frame_20_4d62::
-	frame FrameTiles_28_73a0, FrameSprites_28_7d1a, 16
+Frame_PlayerEnguarde_3::
+	frame FrameTiles_PlayerEnguarde_3, FrameSprites_PlayerEnguarde_3, 16
 
-Frame_20_4d68::
-	frame FrameTiles_28_74a0, FrameSprites_28_7d2a, 14
+Frame_PlayerEnguarde_4::
+	frame FrameTiles_PlayerEnguarde_4, FrameSprites_PlayerEnguarde_4, 14
 
-Frame_20_4d6e::
-	frame FrameTiles_28_7580, FrameSprites_28_7d38, 16
+Frame_PlayerEnguarde_5::
+	frame FrameTiles_PlayerEnguarde_5, FrameSprites_PlayerEnguarde_5, 16
 
-Frame_20_4d74::
-	frame FrameTiles_28_7680, FrameSprites_28_7d48, 18
+Frame_PlayerEnguarde_6::
+	frame FrameTiles_PlayerEnguarde_6, FrameSprites_PlayerEnguarde_6, 18
 
-Frame_20_4d7a::
-	frame FrameTiles_28_77a0, FrameSprites_28_7d5a, 18
+Frame_PlayerEnguarde_7::
+	frame FrameTiles_PlayerEnguarde_7, FrameSprites_PlayerEnguarde_7, 18
 
-Frame_20_4d80::
-	frame FrameTiles_28_78c0, FrameSprites_28_7d6c, 18
+Frame_PlayerEnguarde_8::
+	frame FrameTiles_PlayerEnguarde_8, FrameSprites_PlayerEnguarde_8, 18
 
-Frame_20_4d86::
-	frame FrameTiles_2a_5280, FrameSprites_2a_5668, 8
+Frame_Enemy_HandleContact_10::
+	frame FrameTiles_Enemy_HandleContact_10, FrameSprites_Enemy_HandleContact_10, 8
 
-Frame_20_4d8c::
-	frame FrameTiles_2a_5300, FrameSprites_2a_5670, 6
+Frame_Enemy_HandleContact_11::
+	frame FrameTiles_Enemy_HandleContact_11, FrameSprites_Enemy_HandleContact_11, 6
 
-Frame_20_4d92::
-	frame FrameTiles_2a_5360, FrameSprites_2a_5676, 6
+Frame_Enemy_HandleContact_12::
+	frame FrameTiles_Enemy_HandleContact_12, FrameSprites_Enemy_HandleContact_12, 6
 
-Frame_20_4d98::
-	frame FrameTiles_2a_53c0, FrameSprites_2a_567c, 8
+Frame_Enemy_HandleContact_13::
+	frame FrameTiles_Enemy_HandleContact_13, FrameSprites_Enemy_HandleContact_13, 8
 
-Frame_20_4d9e::
-	frame FrameTiles_2a_5440, FrameSprites_2a_5684, 8
+Frame_Enemy_HandleContact_14::
+	frame FrameTiles_Enemy_HandleContact_14, FrameSprites_Enemy_HandleContact_14, 8
 
-Frame_20_4da4::
-	frame FrameTiles_2a_54c0, FrameSprites_2a_568c, 8
+Frame_Enemy_HandleContact_15::
+	frame FrameTiles_Enemy_HandleContact_15, FrameSprites_Enemy_HandleContact_15, 8
 
-Frame_20_4daa::
-	frame FrameTiles_29_4000, FrameSprites_29_79c0, 12
+Frame_Player_EnterInBarrel_1::
+	frame FrameTiles_Player_EnterInBarrel_1, FrameSprites_Player_EnterInBarrel_1, 12
 
-Frame_20_4db0::
-	frame FrameTiles_29_40c0, FrameSprites_29_79cc, 12
+Frame_Player_EnterInBarrel_2::
+	frame FrameTiles_Player_EnterInBarrel_2, FrameSprites_Player_EnterInBarrel_2, 12
 
-Frame_20_4db6::
-	frame FrameTiles_29_4180, FrameSprites_29_79d8, 12
+Frame_Player_EnterInBarrel_3::
+	frame FrameTiles_Player_EnterInBarrel_3, FrameSprites_Player_EnterInBarrel_3, 12
 
-Frame_20_4dbc::
-	frame FrameTiles_29_4240, FrameSprites_29_79e4, 12
+Frame_Player_EnterInBarrel_4::
+	frame FrameTiles_Player_EnterInBarrel_4, FrameSprites_Player_EnterInBarrel_4, 12
 
-Frame_20_4dc2::
-	frame FrameTiles_29_4300, FrameSprites_29_79f0, 12
+Frame_Player_EnterInBarrel_5::
+	frame FrameTiles_Player_EnterInBarrel_5, FrameSprites_Player_EnterInBarrel_5, 12
 
-Frame_20_4dc8::
-	frame FrameTiles_29_43c0, FrameSprites_29_79fc, 12
+Frame_Player_EnterInBarrel_6::
+	frame FrameTiles_Player_EnterInBarrel_6, FrameSprites_Player_EnterInBarrel_6, 12
 
-Frame_20_4dce::
-	frame FrameTiles_29_4480, FrameSprites_29_7a08, 12
+Frame_Player_EnterInBarrel_7::
+	frame FrameTiles_Player_EnterInBarrel_7, FrameSprites_Player_EnterInBarrel_7, 12
 
-Frame_20_4dd4::
-	frame FrameTiles_29_4540, FrameSprites_29_7a14, 12
+Frame_Player_EnterInBarrel_8::
+	frame FrameTiles_Player_EnterInBarrel_8, FrameSprites_Player_EnterInBarrel_8, 12
 
-Frame_20_4dda::
-	frame FrameTiles_29_4600, FrameSprites_29_7a20, 6
+Frame_StopGoBarrel_1::
+	frame FrameTiles_StopGoBarrel_1, FrameSprites_StopGoBarrel_1, 6
 
-Frame_20_4de0::
-	frame FrameTiles_29_4660, FrameSprites_29_7a26, 6
+Frame_StopGoBarrel_2::
+	frame FrameTiles_StopGoBarrel_2, FrameSprites_StopGoBarrel_2, 6
 
-Frame_20_4de6::
-	frame FrameTiles_29_46c0, FrameSprites_29_7a2c, 6
+Frame_OnOffBarrel_1::
+	frame FrameTiles_OnOffBarrel_1, FrameSprites_OnOffBarrel_1, 6
 
-Frame_20_4dec::
-	frame FrameTiles_29_4720, FrameSprites_29_7a32, 6
+Frame_OnOffBarrel_2::
+	frame FrameTiles_OnOffBarrel_2, FrameSprites_OnOffBarrel_2, 6
 
-Frame_20_4df2::
-	frame FrameTiles_29_4780, FrameSprites_29_7a38, 8
+Frame_Obj_TurnAround_6::
+	frame FrameTiles_Obj_TurnAround_6, FrameSprites_Obj_TurnAround_6, 8
 
-Frame_20_4df8::
-	frame FrameTiles_29_4800, FrameSprites_29_7a40, 6
+Frame_Obj_TurnAround_7::
+	frame FrameTiles_Obj_TurnAround_7, FrameSprites_Obj_TurnAround_7, 6
 
-Frame_20_4dfe::
-	frame FrameTiles_29_4860, FrameSprites_29_7a46, 4
+Frame_Obj_TurnAround_8::
+	frame FrameTiles_Obj_TurnAround_8, FrameSprites_Obj_TurnAround_8, 4
 
-Frame_20_4e04::
-	frame FrameTiles_29_48a0, FrameSprites_29_7a4a, 4
+Frame_Obj_TurnAround_9::
+	frame FrameTiles_Obj_TurnAround_9, FrameSprites_Obj_TurnAround_9, 4
 
-Frame_20_4e0a::
-	frame FrameTiles_29_48e0, FrameSprites_29_7a4e, 8
+Frame_Obj_TurnAround_10::
+	frame FrameTiles_Obj_TurnAround_10, FrameSprites_Obj_TurnAround_10, 8
 
-Frame_20_4e10::
-	frame FrameTiles_29_4960, FrameSprites_29_7a56, 14
+Frame_Unused_53::
+	frame FrameTiles_Unused_53, FrameSprites_Unused_53, 14
 
-Frame_20_4e16::
-	frame FrameTiles_29_4a40, FrameSprites_29_7a64, 18
+Frame_PlayerEnguarde_Stab_1::
+	frame FrameTiles_PlayerEnguarde_Stab_1, FrameSprites_PlayerEnguarde_Stab_1, 18
 
-Frame_20_4e1c::
-	frame FrameTiles_29_4b60, FrameSprites_29_7a76, 18
+Frame_PlayerEnguarde_Stab_2::
+	frame FrameTiles_PlayerEnguarde_Stab_2, FrameSprites_PlayerEnguarde_Stab_2, 18
 
-Frame_20_4e22::
-	frame FrameTiles_29_4c80, FrameSprites_29_7a88, 16
+Frame_PlayerEnguarde_Stab_3::
+	frame FrameTiles_PlayerEnguarde_Stab_3, FrameSprites_PlayerEnguarde_Stab_3, 16
 
-Frame_20_4e28::
-	frame FrameTiles_29_4d80, FrameSprites_29_7a98, 10
+Frame_PlayerEnguarde_Stab_4::
+	frame FrameTiles_PlayerEnguarde_Stab_4, FrameSprites_PlayerEnguarde_Stab_4, 10
 
-Frame_20_4e2e::
-	frame FrameTiles_29_4e20, FrameSprites_29_7aa2, 16
+Frame_PlayerEnguarde_Stab_5::
+	frame FrameTiles_PlayerEnguarde_Stab_5, FrameSprites_PlayerEnguarde_Stab_5, 16
 
-Frame_20_4e34::
-	frame FrameTiles_29_4f20, FrameSprites_29_7ab2, 16
+Frame_PlayerEnguarde_Stab_6::
+	frame FrameTiles_PlayerEnguarde_Stab_6, FrameSprites_PlayerEnguarde_Stab_6, 16
 
-Frame_20_4e3a::
-	frame FrameTiles_29_5020, FrameSprites_29_7ac2, 18
+Frame_PlayerEnguarde_Stab_7::
+	frame FrameTiles_PlayerEnguarde_Stab_7, FrameSprites_PlayerEnguarde_Stab_7, 18
 
-Frame_20_4e40::
-	frame FrameTiles_29_5140, FrameSprites_29_7ad4, 16
+Frame_PlayerEnguarde_Stab_8::
+	frame FrameTiles_PlayerEnguarde_Stab_8, FrameSprites_PlayerEnguarde_Stab_8, 16
 
-Frame_20_4e46::
-	frame FrameTiles_29_5240, FrameSprites_29_7ae4, 18
+Frame_PlayerEnguarde_Stab_9::
+	frame FrameTiles_PlayerEnguarde_Stab_9, FrameSprites_PlayerEnguarde_Stab_9, 18
 
-Frame_20_4e4c::
-	frame FrameTiles_29_5360, FrameSprites_29_7af6, 14
+Frame_SwingingRope_SetFrame_35::
+	frame FrameTiles_SwingingRope_SetFrame_35, FrameSprites_SwingingRope_SetFrame_35, 14
 
-Frame_20_4e52::
-	frame FrameTiles_29_5440, FrameSprites_29_7b04, 14
+Frame_SwingingRope_SetFrame_36::
+	frame FrameTiles_SwingingRope_SetFrame_36, FrameSprites_SwingingRope_SetFrame_36, 14
 
-Frame_20_4e58::
-	frame FrameTiles_29_5520, FrameSprites_29_7b12, 16
+Frame_SwingingRope_SetFrame_37::
+	frame FrameTiles_SwingingRope_SetFrame_37, FrameSprites_SwingingRope_SetFrame_37, 16
 
-Frame_20_4e5e::
-	frame FrameTiles_29_5620, FrameSprites_29_7b22, 14
+Frame_SwingingRope_SetFrame_38::
+	frame FrameTiles_SwingingRope_SetFrame_38, FrameSprites_SwingingRope_SetFrame_38, 14
 
-Frame_20_4e64::
-	frame FrameTiles_29_5700, FrameSprites_29_7b30, 14
+Frame_SwingingRope_SetFrame_39::
+	frame FrameTiles_SwingingRope_SetFrame_39, FrameSprites_SwingingRope_SetFrame_39, 14
 
-Frame_20_4e6a::
-	frame FrameTiles_29_57e0, FrameSprites_29_7b3e, 16
+Frame_SwingingRope_SetFrame_40::
+	frame FrameTiles_SwingingRope_SetFrame_40, FrameSprites_SwingingRope_SetFrame_40, 16
 
-Frame_20_4e70::
-	frame FrameTiles_29_58e0, FrameSprites_29_7b4e, 16
+Frame_SwingingRope_SetFrame_41::
+	frame FrameTiles_SwingingRope_SetFrame_41, FrameSprites_SwingingRope_SetFrame_41, 16
 
-Frame_20_4e76::
-	frame FrameTiles_29_59e0, FrameSprites_29_7b5e, 16
+Frame_SwingingRope_SetFrame_42::
+	frame FrameTiles_SwingingRope_SetFrame_42, FrameSprites_SwingingRope_SetFrame_42, 16
 
-Frame_20_4e7c::
-	frame FrameTiles_29_5ae0, FrameSprites_29_7b6e, 16
+Frame_SwingingRope_SetFrame_43::
+	frame FrameTiles_SwingingRope_SetFrame_43, FrameSprites_SwingingRope_SetFrame_43, 16
 
-Frame_20_4e82::
-	frame FrameTiles_29_5be0, FrameSprites_29_7b7e, 16
+Frame_SwingingRope_SetFrame_44::
+	frame FrameTiles_SwingingRope_SetFrame_44, FrameSprites_SwingingRope_SetFrame_44, 16
 
-Frame_20_4e88::
-	frame FrameTiles_29_5ce0, FrameSprites_29_7b8e, 18
+Frame_SwingingRope_SetFrame_45::
+	frame FrameTiles_SwingingRope_SetFrame_45, FrameSprites_SwingingRope_SetFrame_45, 18
 
-Frame_20_4e8e::
-	frame FrameTiles_29_5e00, FrameSprites_29_7ba0, 18
+Frame_SwingingRope_SetFrame_46::
+	frame FrameTiles_SwingingRope_SetFrame_46, FrameSprites_SwingingRope_SetFrame_46, 18
 
-Frame_20_4e94::
-	frame FrameTiles_29_5f20, FrameSprites_29_7bb2, 18
+Frame_SwingingRope_SetFrame_47::
+	frame FrameTiles_SwingingRope_SetFrame_47, FrameSprites_SwingingRope_SetFrame_47, 18
 
-Frame_20_4e9a::
-	frame FrameTiles_29_6040, FrameSprites_29_7bc4, 18
+Frame_SwingingRope_SetFrame_48::
+	frame FrameTiles_SwingingRope_SetFrame_48, FrameSprites_SwingingRope_SetFrame_48, 18
 
-Frame_20_4ea0::
-	frame FrameTiles_29_6160, FrameSprites_29_7bd6, 18
+Frame_SwingingRope_SetFrame_49::
+	frame FrameTiles_SwingingRope_SetFrame_49, FrameSprites_SwingingRope_SetFrame_49, 18
 
-Frame_20_4ea6::
-	frame FrameTiles_29_6280, FrameSprites_29_7be8, 18
+Frame_SwingingRope_SetFrame_50::
+	frame FrameTiles_SwingingRope_SetFrame_50, FrameSprites_SwingingRope_SetFrame_50, 18
 
-Frame_20_4eac::
-	frame FrameTiles_29_63a0, FrameSprites_29_7bfa, 16
+Frame_PlayerEnguarde_9::
+	frame FrameTiles_PlayerEnguarde_9, FrameSprites_PlayerEnguarde_9, 16
 
-Frame_20_4eb2::
-	frame FrameTiles_29_64a0, FrameSprites_29_7c0a, 12
+Frame_PlayerEnguarde_10::
+	frame FrameTiles_PlayerEnguarde_10, FrameSprites_PlayerEnguarde_10, 12
 
-Frame_20_4eb8::
-	frame FrameTiles_29_6560, FrameSprites_29_7c16, 10
+Frame_PlayerEnguarde_11::
+	frame FrameTiles_PlayerEnguarde_11, FrameSprites_PlayerEnguarde_11, 10
 
-Frame_20_4ebe::
-	frame FrameTiles_29_6600, FrameSprites_29_7c20, 12
+Frame_PlayerEnguarde_12::
+	frame FrameTiles_PlayerEnguarde_12, FrameSprites_PlayerEnguarde_12, 12
 
-Frame_20_4ec4::
-	frame FrameTiles_29_66c0, FrameSprites_29_7c2c, 6
+Frame_Tire_Top_Touch_1::
+	frame FrameTiles_Tire_Top_Touch_1, FrameSprites_Tire_Top_Touch_1, 6
 
-Frame_20_4eca::
-	frame FrameTiles_29_6720, FrameSprites_29_7c32, 8
+Frame_Tire_Top_Touch_2::
+	frame FrameTiles_Tire_Top_Touch_2, FrameSprites_Tire_Top_Touch_2, 8
 
-Frame_20_4ed0::
-	frame FrameTiles_29_67a0, FrameSprites_29_7c3a, 10
+Frame_Tire_Top_Touch_3::
+	frame FrameTiles_Tire_Top_Touch_3, FrameSprites_Tire_Top_Touch_3, 10
 
-Frame_20_4ed6::
-	frame FrameTiles_29_6840, FrameSprites_29_7c44, 12
+Frame_Tire_Top_Touch_4::
+	frame FrameTiles_Tire_Top_Touch_4, FrameSprites_Tire_Top_Touch_4, 12
 
-Frame_20_4edc::
-	frame FrameTiles_29_6900, FrameSprites_29_7c50, 12
+Frame_Tire_Top_Touch_5::
+	frame FrameTiles_Tire_Top_Touch_5, FrameSprites_Tire_Top_Touch_5, 12
 
-Frame_20_4ee2::
-	frame FrameTiles_29_69c0, FrameSprites_29_7c5c, 12
+Frame_Tire_Top_Touch_6::
+	frame FrameTiles_Tire_Top_Touch_6, FrameSprites_Tire_Top_Touch_6, 12
 
-Frame_20_4ee8::
-	frame FrameTiles_29_6a80, FrameSprites_29_7c68, 12
+Frame_SpawnCollectedBanana_29::
+	frame FrameTiles_SpawnCollectedBanana_29, FrameSprites_SpawnCollectedBanana_29, 12
 
-Frame_20_4eee::
-	frame FrameTiles_29_6b40, FrameSprites_29_7c74, 12
+Frame_SpawnCollectedBanana_30::
+	frame FrameTiles_SpawnCollectedBanana_30, FrameSprites_SpawnCollectedBanana_30, 12
 
-Frame_20_4ef4::
-	frame FrameTiles_29_6c00, FrameSprites_29_7c80, 12
+Frame_SpawnCollectedBanana_31::
+	frame FrameTiles_SpawnCollectedBanana_31, FrameSprites_SpawnCollectedBanana_31, 12
 
-Frame_20_4efa::
-	frame FrameTiles_29_6cc0, FrameSprites_29_7c8c, 12
+Frame_SpawnCollectedBanana_32::
+	frame FrameTiles_SpawnCollectedBanana_32, FrameSprites_SpawnCollectedBanana_32, 12
 
-Frame_20_4f00::
-	frame FrameTiles_29_6d80, FrameSprites_29_7c98, 12
+Frame_SpawnCollectedBanana_33::
+	frame FrameTiles_SpawnCollectedBanana_33, FrameSprites_SpawnCollectedBanana_33, 12
 
-Frame_20_4f06::
-	frame FrameTiles_29_6e40, FrameSprites_29_7ca4, 10
+Frame_DKBarrel_Touch_1::
+	frame FrameTiles_DKBarrel_Touch_1, FrameSprites_DKBarrel_Touch_1, 10
 
-Frame_20_4f0c::
-	frame FrameTiles_29_6ee0, FrameSprites_29_7cae, 10
+Frame_DKBarrel_Touch_2::
+	frame FrameTiles_DKBarrel_Touch_2, FrameSprites_DKBarrel_Touch_2, 10
 
-Frame_20_4f12::
-	frame FrameTiles_29_6f80, FrameSprites_29_7cb8, 12
+Frame_DKBarrel_Touch_3::
+	frame FrameTiles_DKBarrel_Touch_3, FrameSprites_DKBarrel_Touch_3, 12
 
-Frame_20_4f18::
-	frame FrameTiles_29_7040, FrameSprites_29_7cc4, 12
+Frame_DKBarrel_Touch_4::
+	frame FrameTiles_DKBarrel_Touch_4, FrameSprites_DKBarrel_Touch_4, 12
 
-Frame_20_4f1e::
-	frame FrameTiles_29_7100, FrameSprites_29_7cd0, 12
+Frame_DKBarrel_Touch_5::
+	frame FrameTiles_DKBarrel_Touch_5, FrameSprites_DKBarrel_Touch_5, 12
 
-Frame_20_4f24::
-	frame FrameTiles_29_71c0, FrameSprites_29_7cdc, 8
+Frame_DKBarrel_Touch_6::
+	frame FrameTiles_DKBarrel_Touch_6, FrameSprites_DKBarrel_Touch_6, 8
 
-Frame_20_4f2a::
-	frame FrameTiles_29_7240, FrameSprites_29_7ce4, 12
+Frame_Tire_1::
+	frame FrameTiles_Tire_1, FrameSprites_Tire_1, 12
 
-Frame_20_4f30::
-	frame FrameTiles_29_7300, FrameSprites_29_7cf0, 12
+Frame_Tire_2::
+	frame FrameTiles_Tire_2, FrameSprites_Tire_2, 12
 
-Frame_20_4f36::
-	frame FrameTiles_29_73c0, FrameSprites_29_7cfc, 12
+Frame_Tire_3::
+	frame FrameTiles_Tire_3, FrameSprites_Tire_3, 12
 
-Frame_20_4f3c::
-	frame FrameTiles_29_7480, FrameSprites_29_7d08, 12
+Frame_Tire_4::
+	frame FrameTiles_Tire_4, FrameSprites_Tire_4, 12
 
-Frame_20_4f42::
-	frame FrameTiles_29_7540, FrameSprites_29_7d14, 16
+Frame_Enemy_HandleContact_16::
+	frame FrameTiles_Enemy_HandleContact_16, FrameSprites_Enemy_HandleContact_16, 16
 
-Frame_20_4f48::
-	frame FrameTiles_29_7640, FrameSprites_29_7d24, 14
+Frame_RunNeckyScript_1::
+	frame FrameTiles_RunNeckyScript_1, FrameSprites_RunNeckyScript_1, 14
 
-Frame_20_4f4e::
-	frame FrameTiles_29_7720, FrameSprites_29_7d32, 14
+Frame_RunNeckyScript_2::
+	frame FrameTiles_RunNeckyScript_2, FrameSprites_RunNeckyScript_2, 14
 
-Frame_20_4f54::
-	frame FrameTiles_29_7800, FrameSprites_29_7d40, 12
+Frame_RunNeckyScript_3::
+	frame FrameTiles_RunNeckyScript_3, FrameSprites_RunNeckyScript_3, 12
 
-Frame_20_4f5a::
-	frame FrameTiles_29_78c0, FrameSprites_29_7d4c, 16
+Frame_RunNeckyScript_4::
+	frame FrameTiles_RunNeckyScript_4, FrameSprites_RunNeckyScript_4, 16
 
-Frame_20_4f60::
-	frame FrameTiles_2a_4000, FrameSprites_2a_5540, 14
+Frame_Zinger_1::
+	frame FrameTiles_Zinger_1, FrameSprites_Zinger_1, 14
 
-Frame_20_4f66::
-	frame FrameTiles_2a_40e0, FrameSprites_2a_554e, 16
+Frame_Zinger_2::
+	frame FrameTiles_Zinger_2, FrameSprites_Zinger_2, 16
 
-Frame_20_4f6c::
-	frame FrameTiles_2a_41e0, FrameSprites_2a_555e, 14
+Frame_Zinger_3::
+	frame FrameTiles_Zinger_3, FrameSprites_Zinger_3, 14
 
-Frame_20_4f72::
-	frame FrameTiles_2a_42c0, FrameSprites_2a_556c, 16
+Frame_Zinger_4::
+	frame FrameTiles_Zinger_4, FrameSprites_Zinger_4, 16
 
-Frame_20_4f78::
-	frame FrameTiles_2a_43c0, FrameSprites_2a_557c, 14
+Frame_Zinger_5::
+	frame FrameTiles_Zinger_5, FrameSprites_Zinger_5, 14
 
-Frame_20_4f7e::
-	frame FrameTiles_2a_44a0, FrameSprites_2a_558a, 16
+Frame_Zinger_6::
+	frame FrameTiles_Zinger_6, FrameSprites_Zinger_6, 16
 
-Frame_20_4f84::
-	frame FrameTiles_2a_45a0, FrameSprites_2a_559a, 4
+Frame_AnimalToken_8::
+	frame FrameTiles_AnimalToken_8, FrameSprites_AnimalToken_8, 4
 
-Frame_20_4f8a::
-	frame FrameTiles_2a_45e0, FrameSprites_2a_559e, 4
+Frame_Unused_54::
+	frame FrameTiles_Unused_54, FrameSprites_Unused_54, 4
 
-Frame_20_4f90::
-	frame FrameTiles_2a_4620, FrameSprites_2a_55a2, 4
+Frame_Unused_55::
+	frame FrameTiles_Unused_55, FrameSprites_Unused_55, 4
 
-Frame_20_4f96::
-	frame FrameTiles_2a_4660, FrameSprites_2a_55a6, 4
+Frame_Unused_56::
+	frame FrameTiles_Unused_56, FrameSprites_Unused_56, 4
 
-Frame_20_4f9c::
-	frame FrameTiles_2a_46a0, FrameSprites_2a_55aa, 4
+Frame_Unused_57::
+	frame FrameTiles_Unused_57, FrameSprites_Unused_57, 4
 
-Frame_20_4fa2::
-	frame FrameTiles_2a_46e0, FrameSprites_2a_55ae, 4
+Frame_Unused_58::
+	frame FrameTiles_Unused_58, FrameSprites_Unused_58, 4
 
-Frame_20_4fa8::
-	frame FrameTiles_2a_4720, FrameSprites_2a_55b2, 4
+Frame_Unused_59::
+	frame FrameTiles_Unused_59, FrameSprites_Unused_59, 4
 
-Frame_20_4fae::
-	frame FrameTiles_2a_4760, FrameSprites_2a_55b6, 4
+Frame_Unused_60::
+	frame FrameTiles_Unused_60, FrameSprites_Unused_60, 4
 
-Frame_20_4fb4::
-	frame FrameTiles_2a_47a0, FrameSprites_2a_55ba, 4
+Frame_SpawnBarrelDebris_1::
+	frame FrameTiles_SpawnBarrelDebris_1, FrameSprites_SpawnBarrelDebris_1, 4
 
-Frame_20_4fba::
-	frame FrameTiles_2a_47e0, FrameSprites_2a_55be, 2
+Frame_SpawnBarrelDebris_2::
+	frame FrameTiles_SpawnBarrelDebris_2, FrameSprites_SpawnBarrelDebris_2, 2
 
-Frame_20_4fc0::
-	frame FrameTiles_2a_4800, FrameSprites_2a_55c0, 2
+Frame_SpawnBarrelDebris_3::
+	frame FrameTiles_SpawnBarrelDebris_3, FrameSprites_SpawnBarrelDebris_3, 2
 
-Frame_20_4fc6::
-	frame FrameTiles_2a_4820, FrameSprites_2a_55c2, 2
+Frame_SpawnBarrelDebris_4::
+	frame FrameTiles_SpawnBarrelDebris_4, FrameSprites_SpawnBarrelDebris_4, 2
 
-Frame_20_4fcc::
-	frame FrameTiles_2a_4840, FrameSprites_2a_55c4, 4
+Frame_SpawnBarrelDebris_5::
+	frame FrameTiles_SpawnBarrelDebris_5, FrameSprites_SpawnBarrelDebris_5, 4
 
-Frame_20_4fd2::
-	frame FrameTiles_2a_4880, FrameSprites_2a_55c8, 2
+Frame_SpawnBarrelDebris_6::
+	frame FrameTiles_SpawnBarrelDebris_6, FrameSprites_SpawnBarrelDebris_6, 2
 
-Frame_20_4fd8::
-	frame FrameTiles_2a_48a0, FrameSprites_2a_55ca, 2
+Frame_SpawnBarrelDebris_7::
+	frame FrameTiles_SpawnBarrelDebris_7, FrameSprites_SpawnBarrelDebris_7, 2
 
-Frame_20_4fde::
-	frame FrameTiles_2a_48c0, FrameSprites_2a_55cc, 2
+Frame_SpawnBarrelDebris_8::
+	frame FrameTiles_SpawnBarrelDebris_8, FrameSprites_SpawnBarrelDebris_8, 2
 
-Frame_20_4fe4::
-	frame FrameTiles_2a_48e0, FrameSprites_2a_55ce, 2
+Frame_SpawnBarrelDebris_9::
+	frame FrameTiles_SpawnBarrelDebris_9, FrameSprites_SpawnBarrelDebris_9, 2
 
-Frame_20_4fea::
-	frame FrameTiles_2a_4900, FrameSprites_2a_55d0, 2
+Frame_SpawnBarrelDebris_10::
+	frame FrameTiles_SpawnBarrelDebris_10, FrameSprites_SpawnBarrelDebris_10, 2
 
-Frame_20_4ff0::
-	frame FrameTiles_2a_4920, FrameSprites_2a_55d2, 2
+Frame_SpawnBarrelDebris_11::
+	frame FrameTiles_SpawnBarrelDebris_11, FrameSprites_SpawnBarrelDebris_11, 2
 
-Frame_20_4ff6::
-	frame FrameTiles_2a_4940, FrameSprites_2a_55d4, 2
+Frame_SpawnBarrelDebris_12::
+	frame FrameTiles_SpawnBarrelDebris_12, FrameSprites_SpawnBarrelDebris_12, 2
 
-Frame_20_4ffc::
-	frame FrameTiles_2a_4960, FrameSprites_2a_55d6, 2
+Frame_SpawnBarrelDebris_13::
+	frame FrameTiles_SpawnBarrelDebris_13, FrameSprites_SpawnBarrelDebris_13, 2
 
-Frame_20_5002::
-	frame FrameTiles_2a_4980, FrameSprites_2a_55d8, 2
+Frame_SpawnBarrelDebris_14::
+	frame FrameTiles_SpawnBarrelDebris_14, FrameSprites_SpawnBarrelDebris_14, 2
 
-Frame_20_5008::
-	frame FrameTiles_2a_49a0, FrameSprites_2a_55da, 2
+Frame_SpawnBarrelDebris_15::
+	frame FrameTiles_SpawnBarrelDebris_15, FrameSprites_SpawnBarrelDebris_15, 2
 
-Frame_20_500e::
-	frame FrameTiles_2a_49c0, FrameSprites_2a_55dc, 2
+Frame_SpawnBarrelDebris_16::
+	frame FrameTiles_SpawnBarrelDebris_16, FrameSprites_SpawnBarrelDebris_16, 2
 
-Frame_20_5014::
-	frame FrameTiles_2a_49e0, FrameSprites_2a_55de, 14
+Frame_Zinger_Touch_1::
+	frame FrameTiles_Zinger_Touch_1, FrameSprites_Zinger_Touch_1, 14
 
-Frame_20_501a::
-	frame FrameTiles_2a_4ac0, FrameSprites_2a_55ec, 14
+Frame_Zinger_Touch_2::
+	frame FrameTiles_Zinger_Touch_2, FrameSprites_Zinger_Touch_2, 14
 
-Frame_20_5020::
-	frame FrameTiles_2a_4ba0, FrameSprites_2a_55fa, 16
+Frame_Zinger_Touch_3::
+	frame FrameTiles_Zinger_Touch_3, FrameSprites_Zinger_Touch_3, 16
 
-Frame_20_5026::
-	frame FrameTiles_2a_4ca0, FrameSprites_2a_560a, 16
+Frame_Zinger_Touch_4::
+	frame FrameTiles_Zinger_Touch_4, FrameSprites_Zinger_Touch_4, 16
 
-Frame_20_502c::
-	frame FrameTiles_2a_4da0, FrameSprites_2a_561a, 14
+Frame_Zinger_Touch_5::
+	frame FrameTiles_Zinger_Touch_5, FrameSprites_Zinger_Touch_5, 14
 
-Frame_20_5032::
-	frame FrameTiles_2a_4e80, FrameSprites_2a_5628, 8
+Frame_Unused_61::
+	frame FrameTiles_Unused_61, FrameSprites_Unused_61, 8
 
-Frame_20_5038::
-	frame FrameTiles_2a_4f00, FrameSprites_2a_5630, 8
+Frame_Unused_62::
+	frame FrameTiles_Unused_62, FrameSprites_Unused_62, 8
 
-Frame_20_503e::
-	frame FrameTiles_2a_4f80, FrameSprites_2a_5638, 8
+Frame_Unused_63::
+	frame FrameTiles_Unused_63, FrameSprites_Unused_63, 8
 
-Frame_20_5044::
-	frame FrameTiles_2a_5000, FrameSprites_2a_5640, 8
+Frame_Unused_64::
+	frame FrameTiles_Unused_64, FrameSprites_Unused_64, 8
 
-Frame_20_504a::
-	frame FrameTiles_2a_5080, FrameSprites_2a_5648, 8
+Frame_Unused_65::
+	frame FrameTiles_Unused_65, FrameSprites_Unused_65, 8
 
-Frame_20_5050::
-	frame FrameTiles_2a_5100, FrameSprites_2a_5650, 8
+Frame_Unused_66::
+	frame FrameTiles_Unused_66, FrameSprites_Unused_66, 8
 
-Frame_20_5056::
-	frame FrameTiles_2a_5180, FrameSprites_2a_5658, 8
+Frame_Unused_67::
+	frame FrameTiles_Unused_67, FrameSprites_Unused_67, 8
 
-Frame_20_505c::
-	frame FrameTiles_2a_5200, FrameSprites_2a_5660, 8
+Frame_Unused_68::
+	frame FrameTiles_Unused_68, FrameSprites_Unused_68, 8
 
-Frame_20_5062::
-	frame FrameTiles_2d_57e0, FrameSprites_2d_6d1d, 20
+Frame_Touch_Enemy_1::
+	frame FrameTiles_Touch_Enemy_1, FrameSprites_Touch_Enemy_1, 20
 
-Frame_20_5068::
-	frame FrameTiles_2d_5920, FrameSprites_2d_6d31, 18
+Frame_Touch_Enemy_2::
+	frame FrameTiles_Touch_Enemy_2, FrameSprites_Touch_Enemy_2, 18
 
-Frame_20_506e::
-	frame FrameTiles_2d_5a40, FrameSprites_2d_6d43, 14
+Frame_Touch_Enemy_3::
+	frame FrameTiles_Touch_Enemy_3, FrameSprites_Touch_Enemy_3, 14
 
-Frame_20_5074::
-	frame FrameTiles_2d_5b20, FrameSprites_2d_6d51, 8
+Frame_Touch_Enemy_4::
+	frame FrameTiles_Touch_Enemy_4, FrameSprites_Touch_Enemy_4, 8
 
-Frame_20_507a::
-	frame FrameTiles_2d_5ba0, FrameSprites_2d_6d59, 16
+Frame_Touch_Enemy_5::
+	frame FrameTiles_Touch_Enemy_5, FrameSprites_Touch_Enemy_5, 16
 
-Frame_20_5080::
-	frame FrameTiles_2d_5ca0, FrameSprites_2d_6d69, 20
+Frame_Touch_Enemy_6::
+	frame FrameTiles_Touch_Enemy_6, FrameSprites_Touch_Enemy_6, 20
 
-Frame_20_5086::
-	frame FrameTiles_2d_5de0, FrameSprites_2d_6d7d, 18
+Frame_Touch_Enemy_7::
+	frame FrameTiles_Touch_Enemy_7, FrameSprites_Touch_Enemy_7, 18
 
-Frame_20_508c::
-	frame FrameTiles_2d_5f00, FrameSprites_2d_6d8f, 14
+Frame_Touch_Enemy_8::
+	frame FrameTiles_Touch_Enemy_8, FrameSprites_Touch_Enemy_8, 14
 
-Frame_20_5092::
-	frame FrameTiles_2d_5fe0, FrameSprites_2d_6d9d, 16
+Frame_Touch_Enemy_9::
+	frame FrameTiles_Touch_Enemy_9, FrameSprites_Touch_Enemy_9, 16
 
-Frame_20_5098::
-	frame FrameTiles_2d_60e0, FrameSprites_2d_6dad, 16
+Frame_Touch_Enemy_10::
+	frame FrameTiles_Touch_Enemy_10, FrameSprites_Touch_Enemy_10, 16
 
-Frame_20_509e::
-	frame FrameTiles_2d_61e0, FrameSprites_2d_6dbd, 10
+Frame_MiniNecky_1::
+	frame FrameTiles_MiniNecky_1, FrameSprites_MiniNecky_1, 10
 
-Frame_20_50a4::
-	frame FrameTiles_2d_6280, FrameSprites_2d_6dc7, 12
+Frame_MiniNecky_2::
+	frame FrameTiles_MiniNecky_2, FrameSprites_MiniNecky_2, 12
 
-Frame_20_50aa::
-	frame FrameTiles_2d_6340, FrameSprites_2d_6dd3, 8
+Frame_MiniNecky_3::
+	frame FrameTiles_MiniNecky_3, FrameSprites_MiniNecky_3, 8
 
-Frame_20_50b0::
-	frame FrameTiles_2d_63c0, FrameSprites_2d_6ddb, 8
+Frame_MiniNecky_4::
+	frame FrameTiles_MiniNecky_4, FrameSprites_MiniNecky_4, 8
 
-Frame_20_50b6::
-	frame FrameTiles_2d_6440, FrameSprites_2d_6de3, 10
+Frame_MiniNecky_5::
+	frame FrameTiles_MiniNecky_5, FrameSprites_MiniNecky_5, 10
 
-Frame_20_50bc::
-	frame FrameTiles_2d_64e0, FrameSprites_2d_6ded, 10
+Frame_MiniNecky_6::
+	frame FrameTiles_MiniNecky_6, FrameSprites_MiniNecky_6, 10
 
-Frame_20_50c2::
-	frame FrameTiles_2d_6580, FrameSprites_2d_6df7, 10
+Frame_MiniNecky_RunScript_1::
+	frame FrameTiles_MiniNecky_RunScript_1, FrameSprites_MiniNecky_RunScript_1, 10
 
-Frame_20_50c8::
-	frame FrameTiles_2d_6620, FrameSprites_2d_6e01, 10
+Frame_MiniNecky_RunScript_2::
+	frame FrameTiles_MiniNecky_RunScript_2, FrameSprites_MiniNecky_RunScript_2, 10
 
-Frame_20_50ce::
-	frame FrameTiles_2d_66c0, FrameSprites_2d_6e0b, 10
+Frame_MiniNecky_RunScript_3::
+	frame FrameTiles_MiniNecky_RunScript_3, FrameSprites_MiniNecky_RunScript_3, 10
 
-Frame_20_50d4::
-	frame FrameTiles_2d_6760, FrameSprites_2d_6e15, 12
+Frame_MiniNecky_RunScript_4::
+	frame FrameTiles_MiniNecky_RunScript_4, FrameSprites_MiniNecky_RunScript_4, 12
 
-Frame_20_50da::
-	frame FrameTiles_2d_6820, FrameSprites_2d_6e21, 8
+Frame_MiniNecky_RunScript_5::
+	frame FrameTiles_MiniNecky_RunScript_5, FrameSprites_MiniNecky_RunScript_5, 8
 
-Frame_20_50e0::
-	frame FrameTiles_2d_68a0, FrameSprites_2d_6e29, 8
+Frame_MiniNecky_RunScript_6::
+	frame FrameTiles_MiniNecky_RunScript_6, FrameSprites_MiniNecky_RunScript_6, 8
 
-Frame_20_50e6::
-	frame FrameTiles_2d_6920, FrameSprites_2d_6e31, 8
+Frame_MiniNecky_RunScript_7::
+	frame FrameTiles_MiniNecky_RunScript_7, FrameSprites_MiniNecky_RunScript_7, 8
 
-Frame_20_50ec::
-	frame FrameTiles_2d_69a0, FrameSprites_2d_6e39, 8
+Frame_MiniNecky_RunScript_8::
+	frame FrameTiles_MiniNecky_RunScript_8, FrameSprites_MiniNecky_RunScript_8, 8
 
-Frame_20_50f2::
-	frame FrameTiles_2d_6a20, FrameSprites_2d_6e41, 12
+Frame_Enemy_HandleContact_17::
+	frame FrameTiles_Enemy_HandleContact_17, FrameSprites_Enemy_HandleContact_17, 12
 
-Frame_20_50f8::
-	frame FrameTiles_2e_4000, FrameSprites_2e_7920, 8
+Frame_StompBonus_Klaptrap_Walk_1::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_1, FrameSprites_StompBonus_Klaptrap_Walk_1, 8
 
-Frame_20_50fe::
-	frame FrameTiles_2e_4080, FrameSprites_2e_7928, 8
+Frame_StompBonus_Klaptrap_Walk_2::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_2, FrameSprites_StompBonus_Klaptrap_Walk_2, 8
 
-Frame_20_5104::
-	frame FrameTiles_2e_4100, FrameSprites_2e_7930, 8
+Frame_StompBonus_Klaptrap_Walk_3::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_3, FrameSprites_StompBonus_Klaptrap_Walk_3, 8
 
-Frame_20_510a::
-	frame FrameTiles_2e_4180, FrameSprites_2e_7938, 8
+Frame_StompBonus_Klaptrap_Walk_4::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_4, FrameSprites_StompBonus_Klaptrap_Walk_4, 8
 
-Frame_20_5110::
-	frame FrameTiles_2e_4200, FrameSprites_2e_7940, 12
+Frame_StompBonus_Klaptrap_Walk_5::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_5, FrameSprites_StompBonus_Klaptrap_Walk_5, 12
 
-Frame_20_5116::
-	frame FrameTiles_2e_42c0, FrameSprites_2e_794c, 10
+Frame_StompBonus_Klaptrap_Walk_6::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_6, FrameSprites_StompBonus_Klaptrap_Walk_6, 10
 
-Frame_20_511c::
-	frame FrameTiles_2e_4360, FrameSprites_2e_7956, 10
+Frame_StompBonus_Klaptrap_Walk_7::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_7, FrameSprites_StompBonus_Klaptrap_Walk_7, 10
 
-Frame_20_5122::
-	frame FrameTiles_2e_4400, FrameSprites_2e_7960, 8
+Frame_StompBonus_Klaptrap_Walk_8::
+	frame FrameTiles_StompBonus_Klaptrap_Walk_8, FrameSprites_StompBonus_Klaptrap_Walk_8, 8
 
-Frame_20_5128::
-	frame FrameTiles_2e_4480, FrameSprites_2e_7968, 6
+Frame_Obj_TurnAround_11::
+	frame FrameTiles_Obj_TurnAround_11, FrameSprites_Obj_TurnAround_11, 6
 
-Frame_20_512e::
-	frame FrameTiles_2e_44e0, FrameSprites_2e_796e, 8
+Frame_Klaptrap_Touch_1::
+	frame FrameTiles_Klaptrap_Touch_1, FrameSprites_Klaptrap_Touch_1, 8
 
-Frame_20_5134::
-	frame FrameTiles_2e_4560, FrameSprites_2e_7976, 8
+Frame_Klaptrap_Touch_2::
+	frame FrameTiles_Klaptrap_Touch_2, FrameSprites_Klaptrap_Touch_2, 8
 
-Frame_20_513a::
-	frame FrameTiles_2e_45e0, FrameSprites_2e_797e, 18
+Frame_PlayerExpresso_1::
+	frame FrameTiles_PlayerExpresso_1, FrameSprites_PlayerExpresso_1, 18
 
-Frame_20_5140::
-	frame FrameTiles_2e_4700, FrameSprites_2e_7990, 16
+Frame_PlayerExpresso_2::
+	frame FrameTiles_PlayerExpresso_2, FrameSprites_PlayerExpresso_2, 16
 
-Frame_20_5146::
-	frame FrameTiles_2e_4800, FrameSprites_2e_79a0, 16
+Frame_PlayerExpresso_3::
+	frame FrameTiles_PlayerExpresso_3, FrameSprites_PlayerExpresso_3, 16
 
-Frame_20_514c::
-	frame FrameTiles_2e_4900, FrameSprites_2e_79b0, 16
+Frame_PlayerExpresso_4::
+	frame FrameTiles_PlayerExpresso_4, FrameSprites_PlayerExpresso_4, 16
 
-Frame_20_5152::
-	frame FrameTiles_2e_4a00, FrameSprites_2e_79c0, 16
+Frame_PlayerExpresso_5::
+	frame FrameTiles_PlayerExpresso_5, FrameSprites_PlayerExpresso_5, 16
 
-Frame_20_5158::
-	frame FrameTiles_2e_4b00, FrameSprites_2e_79d0, 18
+Frame_PlayerExpresso_6::
+	frame FrameTiles_PlayerExpresso_6, FrameSprites_PlayerExpresso_6, 18
 
-Frame_20_515e::
-	frame FrameTiles_2e_4c20, FrameSprites_2e_79e2, 16
+Frame_PlayerExpresso_7::
+	frame FrameTiles_PlayerExpresso_7, FrameSprites_PlayerExpresso_7, 16
 
-Frame_20_5164::
-	frame FrameTiles_2e_4d20, FrameSprites_2e_79f2, 16
+Frame_PlayerExpresso_8::
+	frame FrameTiles_PlayerExpresso_8, FrameSprites_PlayerExpresso_8, 16
 
-Frame_20_516a::
-	frame FrameTiles_2e_4e20, FrameSprites_2e_7a02, 16
+Frame_PlayerExpresso_9::
+	frame FrameTiles_PlayerExpresso_9, FrameSprites_PlayerExpresso_9, 16
 
-Frame_20_5170::
-	frame FrameTiles_2e_4f20, FrameSprites_2e_7a12, 18
+Frame_PlayerExpresso_10::
+	frame FrameTiles_PlayerExpresso_10, FrameSprites_PlayerExpresso_10, 18
 
-Frame_20_5176::
-	frame FrameTiles_2e_5040, FrameSprites_2e_7a24, 20
+Frame_PlayerExpresso_11::
+	frame FrameTiles_PlayerExpresso_11, FrameSprites_PlayerExpresso_11, 20
 
-Frame_20_517c::
-	frame FrameTiles_2e_5180, FrameSprites_2e_7a38, 20
+Frame_PlayerExpresso_12::
+	frame FrameTiles_PlayerExpresso_12, FrameSprites_PlayerExpresso_12, 20
 
-Frame_20_5182::
-	frame FrameTiles_2e_52c0, FrameSprites_2e_7a4c, 16
+Frame_PlayerExpresso_13::
+	frame FrameTiles_PlayerExpresso_13, FrameSprites_PlayerExpresso_13, 16
 
-Frame_20_5188::
-	frame FrameTiles_2e_53c0, FrameSprites_2e_7a5c, 16
+Frame_PlayerExpresso_14::
+	frame FrameTiles_PlayerExpresso_14, FrameSprites_PlayerExpresso_14, 16
 
-Frame_20_518e::
-	frame FrameTiles_2e_54c0, FrameSprites_2e_7a6c, 20
+Frame_PlayerExpresso_15::
+	frame FrameTiles_PlayerExpresso_15, FrameSprites_PlayerExpresso_15, 20
 
-Frame_20_5194::
-	frame FrameTiles_2e_5600, FrameSprites_2e_7a80, 20
+Frame_PlayerExpresso_16::
+	frame FrameTiles_PlayerExpresso_16, FrameSprites_PlayerExpresso_16, 20
 
-Frame_20_519a::
-	frame FrameTiles_2e_5740, FrameSprites_2e_7a94, 18
+Frame_PlayerExpresso_17::
+	frame FrameTiles_PlayerExpresso_17, FrameSprites_PlayerExpresso_17, 18
 
-Frame_20_51a0::
-	frame FrameTiles_2e_5860, FrameSprites_2e_7aa6, 16
+Frame_PlayerExpresso_18::
+	frame FrameTiles_PlayerExpresso_18, FrameSprites_PlayerExpresso_18, 16
 
-Frame_20_51a6::
-	frame FrameTiles_2e_5960, FrameSprites_2e_7ab6, 20
+Frame_PlayerExpresso_19::
+	frame FrameTiles_PlayerExpresso_19, FrameSprites_PlayerExpresso_19, 20
 
-Frame_20_51ac::
-	frame FrameTiles_2e_5aa0, FrameSprites_2e_7aca, 18
+Frame_PlayerExpresso_InAir_1::
+	frame FrameTiles_PlayerExpresso_InAir_1, FrameSprites_PlayerExpresso_InAir_1, 18
 
-Frame_20_51b2::
-	frame FrameTiles_2e_5bc0, FrameSprites_2e_7adc, 18
+Frame_PlayerExpresso_InAir_2::
+	frame FrameTiles_PlayerExpresso_InAir_2, FrameSprites_PlayerExpresso_InAir_2, 18
 
-Frame_20_51b8::
-	frame FrameTiles_2e_5ce0, FrameSprites_2e_7aee, 16
+Frame_PlayerExpresso_InAir_3::
+	frame FrameTiles_PlayerExpresso_InAir_3, FrameSprites_PlayerExpresso_InAir_3, 16
 
-Frame_20_51be::
-	frame FrameTiles_2e_5de0, FrameSprites_2e_7afe, 18
+Frame_PlayerExpresso_InAir_4::
+	frame FrameTiles_PlayerExpresso_InAir_4, FrameSprites_PlayerExpresso_InAir_4, 18
 
-Frame_20_51c4::
-	frame FrameTiles_2e_5f00, FrameSprites_2e_7b10, 20
+Frame_PlayerExpresso_InAir_5::
+	frame FrameTiles_PlayerExpresso_InAir_5, FrameSprites_PlayerExpresso_InAir_5, 20
 
-Frame_20_51ca::
-	frame FrameTiles_2e_6040, FrameSprites_2e_7b24, 22
+Frame_PlayerExpresso_InAir_6::
+	frame FrameTiles_PlayerExpresso_InAir_6, FrameSprites_PlayerExpresso_InAir_6, 22
 
-Frame_20_51d0::
-	frame FrameTiles_2e_61a0, FrameSprites_2e_7b3a, 20
+Frame_PlayerExpresso_InAir_7::
+	frame FrameTiles_PlayerExpresso_InAir_7, FrameSprites_PlayerExpresso_InAir_7, 20
 
-Frame_20_51d6::
-	frame FrameTiles_2e_62e0, FrameSprites_2e_7b4e, 18
+Frame_Unused_69::
+	frame FrameTiles_Unused_69, FrameSprites_Unused_69, 18
 
-Frame_20_51dc::
-	frame FrameTiles_2e_6400, FrameSprites_2e_7b60, 20
+Frame_PlayerExpresso_Flap_1::
+	frame FrameTiles_PlayerExpresso_Flap_1, FrameSprites_PlayerExpresso_Flap_1, 20
 
-Frame_20_51e2::
-	frame FrameTiles_2e_6540, FrameSprites_2e_7b74, 18
+Frame_PlayerExpresso_Flap_2::
+	frame FrameTiles_PlayerExpresso_Flap_2, FrameSprites_PlayerExpresso_Flap_2, 18
 
-Frame_20_51e8::
-	frame FrameTiles_2e_6660, FrameSprites_2e_7b86, 18
+Frame_PlayerExpresso_Flap_3::
+	frame FrameTiles_PlayerExpresso_Flap_3, FrameSprites_PlayerExpresso_Flap_3, 18
 
-Frame_20_51ee::
-	frame FrameTiles_2e_6780, FrameSprites_2e_7b98, 18
+Frame_PlayerExpresso_Flap_4::
+	frame FrameTiles_PlayerExpresso_Flap_4, FrameSprites_PlayerExpresso_Flap_4, 18
 
-Frame_20_51f4::
-	frame FrameTiles_2e_68a0, FrameSprites_2e_7baa, 18
+Frame_PlayerExpresso_Flap_5::
+	frame FrameTiles_PlayerExpresso_Flap_5, FrameSprites_PlayerExpresso_Flap_5, 18
 
-Frame_20_51fa::
-	frame FrameTiles_2e_69c0, FrameSprites_2e_7bbc, 18
+Frame_Klump2_1::
+	frame FrameTiles_Klump2_1, FrameSprites_Klump2_1, 18
 
-Frame_20_5200::
-	frame FrameTiles_2e_6ae0, FrameSprites_2e_7bce, 18
+Frame_Klump2_2::
+	frame FrameTiles_Klump2_2, FrameSprites_Klump2_2, 18
 
-Frame_20_5206::
-	frame FrameTiles_2e_6c00, FrameSprites_2e_7be0, 20
+Frame_Klump2_3::
+	frame FrameTiles_Klump2_3, FrameSprites_Klump2_3, 20
 
-Frame_20_520c::
-	frame FrameTiles_2e_6d40, FrameSprites_2e_7bf4, 18
+Frame_Klump2_4::
+	frame FrameTiles_Klump2_4, FrameSprites_Klump2_4, 18
 
-Frame_20_5212::
-	frame FrameTiles_2e_6e60, FrameSprites_2e_7c06, 18
+Frame_Klump2_5::
+	frame FrameTiles_Klump2_5, FrameSprites_Klump2_5, 18
 
-Frame_20_5218::
-	frame FrameTiles_2e_6f80, FrameSprites_2e_7c18, 20
+Frame_Klump2_6::
+	frame FrameTiles_Klump2_6, FrameSprites_Klump2_6, 20
 
-Frame_20_521e::
-	frame FrameTiles_2e_70c0, FrameSprites_2e_7c2c, 20
+Frame_Klump2_7::
+	frame FrameTiles_Klump2_7, FrameSprites_Klump2_7, 20
 
-Frame_20_5224::
-	frame FrameTiles_2e_7200, FrameSprites_2e_7c40, 24
+Frame_Klump2_8::
+	frame FrameTiles_Klump2_8, FrameSprites_Klump2_8, 24
 
-Frame_20_522a::
-	frame FrameTiles_2e_7380, FrameSprites_2e_7c58, 22
+Frame_Klump2_9::
+	frame FrameTiles_Klump2_9, FrameSprites_Klump2_9, 22
 
-Frame_20_5230::
-	frame FrameTiles_2e_74e0, FrameSprites_2e_7c6e, 22
+Frame_Klump2_10::
+	frame FrameTiles_Klump2_10, FrameSprites_Klump2_10, 22
 
-Frame_20_5236::
-	frame FrameTiles_2e_7640, FrameSprites_2e_7c84, 22
+Frame_Obj_TurnAround_12::
+	frame FrameTiles_Obj_TurnAround_12, FrameSprites_Obj_TurnAround_12, 22
 
-Frame_20_523c::
-	frame FrameTiles_2e_77a0, FrameSprites_2e_7c9a, 24
+Frame_Obj_TurnAround_13::
+	frame FrameTiles_Obj_TurnAround_13, FrameSprites_Obj_TurnAround_13, 24
 
-Frame_20_5242::
-	frame FrameTiles_2f_6bc0, FrameSprites_2f_77ac, 24
+Frame_Klump_Touch_1::
+	frame FrameTiles_Klump_Touch_1, FrameSprites_Klump_Touch_1, 24
 
-Frame_20_5248::
-	frame FrameTiles_2f_6d40, FrameSprites_2f_77c4, 22
+Frame_Klump_Touch_2::
+	frame FrameTiles_Klump_Touch_2, FrameSprites_Klump_Touch_2, 22
 
-Frame_20_524e::
-	frame FrameTiles_2f_6ea0, FrameSprites_2f_77da, 18
+Frame_Klump_Touch_3::
+	frame FrameTiles_Klump_Touch_3, FrameSprites_Klump_Touch_3, 18
 
-Frame_20_5254::
-	frame FrameTiles_2f_6fc0, FrameSprites_2f_77ec, 20
+Frame_Klump_Touch_4::
+	frame FrameTiles_Klump_Touch_4, FrameSprites_Klump_Touch_4, 20
 
-Frame_20_525a::
-	frame FrameTiles_2f_7100, FrameSprites_2f_7800, 24
+Frame_Klump_Touch_5::
+	frame FrameTiles_Klump_Touch_5, FrameSprites_Klump_Touch_5, 24
 
-Frame_20_5260::
-	frame FrameTiles_2f_7280, FrameSprites_2f_7818, 26
+Frame_Klump_Touch_6::
+	frame FrameTiles_Klump_Touch_6, FrameSprites_Klump_Touch_6, 26
 
-Frame_20_5266::
-	frame FrameTiles_2f_7420, FrameSprites_2f_7832, 2
+Frame_Shop_KongReactTimer_1::
+	frame FrameTiles_Shop_KongReactTimer_1, FrameSprites_Shop_KongReactTimer_1, 2
 
-Frame_20_526c::
-	frame FrameTiles_2f_7440, FrameSprites_2f_7834, 2
+Frame_Shop_KongReactTimer_2::
+	frame FrameTiles_Shop_KongReactTimer_2, FrameSprites_Shop_KongReactTimer_2, 2
 
-Frame_20_5272::
-	frame FrameTiles_2f_7460, FrameSprites_2f_7836, 2
+Frame_Shop_KongReactTimer_3::
+	frame FrameTiles_Shop_KongReactTimer_3, FrameSprites_Shop_KongReactTimer_3, 2
 
-Frame_20_5278::
-	frame FrameTiles_2f_4000, FrameSprites_2f_7480, 18
+Frame_Unused_70::
+	frame FrameTiles_Unused_70, FrameSprites_Unused_70, 18
 
-Frame_20_527e::
-	frame FrameTiles_2f_4120, FrameSprites_2f_7492, 14
+Frame_PlayerWinky_InAir_1::
+	frame FrameTiles_PlayerWinky_InAir_1, FrameSprites_PlayerWinky_InAir_1, 14
 
-Frame_20_5284::
-	frame FrameTiles_2f_4200, FrameSprites_2f_74a0, 14
+Frame_PlayerWinky_InAir_2::
+	frame FrameTiles_PlayerWinky_InAir_2, FrameSprites_PlayerWinky_InAir_2, 14
 
-Frame_20_528a::
-	frame FrameTiles_2f_42e0, FrameSprites_2f_74ae, 22
+Frame_PlayerWinky_InAir_3::
+	frame FrameTiles_PlayerWinky_InAir_3, FrameSprites_PlayerWinky_InAir_3, 22
 
-Frame_20_5290::
-	frame FrameTiles_2f_4440, FrameSprites_2f_74c4, 20
+Frame_PlayerWinky_InAir_4::
+	frame FrameTiles_PlayerWinky_InAir_4, FrameSprites_PlayerWinky_InAir_4, 20
 
-Frame_20_5296::
-	frame FrameTiles_2f_4580, FrameSprites_2f_74d8, 20
+Frame_PlayerWinky_InAir_5::
+	frame FrameTiles_PlayerWinky_InAir_5, FrameSprites_PlayerWinky_InAir_5, 20
 
-Frame_20_529c::
-	frame FrameTiles_2f_46c0, FrameSprites_2f_74ec, 22
+Frame_PlayerWinky_InAir_6::
+	frame FrameTiles_PlayerWinky_InAir_6, FrameSprites_PlayerWinky_InAir_6, 22
 
-Frame_20_52a2::
-	frame FrameTiles_2f_4820, FrameSprites_2f_7502, 18
+Frame_PlayerWinky_InAir_7::
+	frame FrameTiles_PlayerWinky_InAir_7, FrameSprites_PlayerWinky_InAir_7, 18
 
-Frame_20_52a8::
-	frame FrameTiles_2f_4940, FrameSprites_2f_7514, 20
+Frame_PlayerWinky_InAir_8::
+	frame FrameTiles_PlayerWinky_InAir_8, FrameSprites_PlayerWinky_InAir_8, 20
 
-Frame_20_52ae::
-	frame FrameTiles_2f_4a80, FrameSprites_2f_7528, 16
+Frame_PlayerWinky_InAir_9::
+	frame FrameTiles_PlayerWinky_InAir_9, FrameSprites_PlayerWinky_InAir_9, 16
 
-Frame_20_52b4::
-	frame FrameTiles_2f_4b80, FrameSprites_2f_7538, 12
+Frame_PlayerWinky_InAir_10::
+	frame FrameTiles_PlayerWinky_InAir_10, FrameSprites_PlayerWinky_InAir_10, 12
 
-Frame_20_52ba::
-	frame FrameTiles_2f_4c40, FrameSprites_2f_7544, 14
+Frame_PlayerWinky_1::
+	frame FrameTiles_PlayerWinky_1, FrameSprites_PlayerWinky_1, 14
 
-Frame_20_52c0::
-	frame FrameTiles_2f_4d20, FrameSprites_2f_7552, 14
+Frame_PlayerWinky_2::
+	frame FrameTiles_PlayerWinky_2, FrameSprites_PlayerWinky_2, 14
 
-Frame_20_52c6::
-	frame FrameTiles_2f_4e00, FrameSprites_2f_7560, 14
+Frame_PlayerWinky_3::
+	frame FrameTiles_PlayerWinky_3, FrameSprites_PlayerWinky_3, 14
 
-Frame_20_52cc::
-	frame FrameTiles_2f_4ee0, FrameSprites_2f_756e, 14
+Frame_PlayerWinky_4::
+	frame FrameTiles_PlayerWinky_4, FrameSprites_PlayerWinky_4, 14
 
-Frame_20_52d2::
-	frame FrameTiles_2f_4fc0, FrameSprites_2f_757c, 14
+Frame_PlayerWinky_5::
+	frame FrameTiles_PlayerWinky_5, FrameSprites_PlayerWinky_5, 14
 
-Frame_20_52d8::
-	frame FrameTiles_2f_50a0, FrameSprites_2f_758a, 14
+Frame_PlayerWinky_6::
+	frame FrameTiles_PlayerWinky_6, FrameSprites_PlayerWinky_6, 14
 
-Frame_20_52de::
-	frame FrameTiles_2f_5180, FrameSprites_2f_7598, 12
+Frame_PlayerWinky_7::
+	frame FrameTiles_PlayerWinky_7, FrameSprites_PlayerWinky_7, 12
 
-Frame_20_52e4::
-	frame FrameTiles_2f_5240, FrameSprites_2f_75a4, 12
+Frame_PlayerWinky_8::
+	frame FrameTiles_PlayerWinky_8, FrameSprites_PlayerWinky_8, 12
 
-Frame_20_52ea::
-	frame FrameTiles_2f_5300, FrameSprites_2f_75b0, 12
+Frame_PlayerWinky_9::
+	frame FrameTiles_PlayerWinky_9, FrameSprites_PlayerWinky_9, 12
 
-Frame_20_52f0::
-	frame FrameTiles_2f_53c0, FrameSprites_2f_75bc, 14
+Frame_PlayerWinky_10::
+	frame FrameTiles_PlayerWinky_10, FrameSprites_PlayerWinky_10, 14
 
-Frame_20_52f6::
-	frame FrameTiles_2f_54a0, FrameSprites_2f_75ca, 14
+Frame_PlayerWinky_11::
+	frame FrameTiles_PlayerWinky_11, FrameSprites_PlayerWinky_11, 14
 
-Frame_20_52fc::
-	frame FrameTiles_2f_5580, FrameSprites_2f_75d8, 12
+Frame_PlayerWinky_12::
+	frame FrameTiles_PlayerWinky_12, FrameSprites_PlayerWinky_12, 12
 
-Frame_20_5302::
-	frame FrameTiles_2f_5640, FrameSprites_2f_75e4, 20
+Frame_Klump2_11::
+	frame FrameTiles_Klump2_11, FrameSprites_Klump2_11, 20
 
-Frame_20_5308::
-	frame FrameTiles_2f_5780, FrameSprites_2f_75f8, 20
+Frame_Klump2_12::
+	frame FrameTiles_Klump2_12, FrameSprites_Klump2_12, 20
 
-Frame_20_530e::
-	frame FrameTiles_2f_58c0, FrameSprites_2f_760c, 20
+Frame_Klump2_13::
+	frame FrameTiles_Klump2_13, FrameSprites_Klump2_13, 20
 
-Frame_20_5314::
-	frame FrameTiles_2f_5a00, FrameSprites_2f_7620, 18
+Frame_Klump2_14::
+	frame FrameTiles_Klump2_14, FrameSprites_Klump2_14, 18
 
-Frame_20_531a::
-	frame FrameTiles_2f_5b20, FrameSprites_2f_7632, 18
+Frame_Klump2_15::
+	frame FrameTiles_Klump2_15, FrameSprites_Klump2_15, 18
 
-Frame_20_5320::
-	frame FrameTiles_2f_5c40, FrameSprites_2f_7644, 4
+Frame_Crownerang_1::
+	frame FrameTiles_Crownerang_1, FrameSprites_Crownerang_1, 4
 
-Frame_20_5326::
-	frame FrameTiles_2f_5c80, FrameSprites_2f_7648, 4
+Frame_Crownerang_2::
+	frame FrameTiles_Crownerang_2, FrameSprites_Crownerang_2, 4
 
-Frame_20_532c::
-	frame FrameTiles_2f_5cc0, FrameSprites_2f_764c, 4
+Frame_Crownerang_3::
+	frame FrameTiles_Crownerang_3, FrameSprites_Crownerang_3, 4
 
-Frame_20_5332::
-	frame FrameTiles_2f_5d00, FrameSprites_2f_7650, 4
+Frame_Crownerang_4::
+	frame FrameTiles_Crownerang_4, FrameSprites_Crownerang_4, 4
 
-Frame_20_5338::
-	frame FrameTiles_2f_5d40, FrameSprites_2f_7654, 4
+Frame_Crownerang_5::
+	frame FrameTiles_Crownerang_5, FrameSprites_Crownerang_5, 4
 
-Frame_20_533e::
-	frame FrameTiles_2f_5d80, FrameSprites_2f_7658, 4
+Frame_Crownerang_6::
+	frame FrameTiles_Crownerang_6, FrameSprites_Crownerang_6, 4
 
-Frame_20_5344::
-	frame FrameTiles_2f_5dc0, FrameSprites_2f_765c, 26
+Frame_Shop_KongCelebrate_1::
+	frame FrameTiles_Shop_KongCelebrate_1, FrameSprites_Shop_KongCelebrate_1, 26
 
-Frame_20_534a::
-	frame FrameTiles_2f_5f60, FrameSprites_2f_7683, 26
+Frame_Shop_KongCelebrate_2::
+	frame FrameTiles_Shop_KongCelebrate_2, FrameSprites_Shop_KongCelebrate_2, 26
 
-Frame_20_5350::
-	frame FrameTiles_2f_6100, FrameSprites_2f_76aa, 26
+Frame_Shop_KongCelebrate_3::
+	frame FrameTiles_Shop_KongCelebrate_3, FrameSprites_Shop_KongCelebrate_3, 26
 
-Frame_20_5356::
-	frame FrameTiles_2f_62a0, FrameSprites_2f_76d1, 24
+Frame_Shop_KongCelebrate_4::
+	frame FrameTiles_Shop_KongCelebrate_4, FrameSprites_Shop_KongCelebrate_4, 24
 
-Frame_20_535c::
-	frame FrameTiles_2f_6420, FrameSprites_2f_76f5, 24
+Frame_Shop_KongCelebrate_5::
+	frame FrameTiles_Shop_KongCelebrate_5, FrameSprites_Shop_KongCelebrate_5, 24
 
-Frame_20_5362::
-	frame FrameTiles_2f_65a0, FrameSprites_2f_7719, 24
+Frame_Shop_KongCelebrate_6::
+	frame FrameTiles_Shop_KongCelebrate_6, FrameSprites_Shop_KongCelebrate_6, 24
 
-Frame_20_5368::
-	frame FrameTiles_2f_6720, FrameSprites_2f_773d, 24
+Frame_Shop_KongCelebrate_7::
+	frame FrameTiles_Shop_KongCelebrate_7, FrameSprites_Shop_KongCelebrate_7, 24
 
-Frame_20_536e::
-	frame FrameTiles_2f_68a0, FrameSprites_2f_7761, 26
+Frame_Shop_KongCelebrate_8::
+	frame FrameTiles_Shop_KongCelebrate_8, FrameSprites_Shop_KongCelebrate_8, 26
 
-Frame_20_5374::
-	frame FrameTiles_2f_6a40, FrameSprites_2f_7788, 24
+Frame_Shop_KongCelebrate_9::
+	frame FrameTiles_Shop_KongCelebrate_9, FrameSprites_Shop_KongCelebrate_9, 24
 
-Frame_20_537a::
-	frame FrameTiles_30_4000, FrameSprites_30_6d00, 26
+Frame_Shop_KongCelebrate_10::
+	frame FrameTiles_Shop_KongCelebrate_10, FrameSprites_Shop_KongCelebrate_10, 26
 
-Frame_20_5380::
-	frame FrameTiles_30_41a0, FrameSprites_30_6d27, 26
+Frame_Shop_KongCelebrate_11::
+	frame FrameTiles_Shop_KongCelebrate_11, FrameSprites_Shop_KongCelebrate_11, 26
 
-Frame_20_5386::
-	frame FrameTiles_30_4340, FrameSprites_30_6d4e, 26
+Frame_Shop_KongCelebrate_12::
+	frame FrameTiles_Shop_KongCelebrate_12, FrameSprites_Shop_KongCelebrate_12, 26
 
-Frame_20_538c::
-	frame FrameTiles_30_44e0, FrameSprites_30_6d75, 28
+Frame_Shop_KongCelebrate_13::
+	frame FrameTiles_Shop_KongCelebrate_13, FrameSprites_Shop_KongCelebrate_13, 28
 
-Frame_20_5392::
-	frame FrameTiles_30_46a0, FrameSprites_30_6d9f, 28
+Frame_Shop_KongCelebrate_14::
+	frame FrameTiles_Shop_KongCelebrate_14, FrameSprites_Shop_KongCelebrate_14, 28
 
-Frame_20_5398::
-	frame FrameTiles_30_4860, FrameSprites_30_6dc9, 28
+Frame_Shop_KongCelebrate_15::
+	frame FrameTiles_Shop_KongCelebrate_15, FrameSprites_Shop_KongCelebrate_15, 28
 
-Frame_20_539e::
-	frame FrameTiles_30_4a20, FrameSprites_30_6df3, 28
+Frame_Shop_KongCelebrate_16::
+	frame FrameTiles_Shop_KongCelebrate_16, FrameSprites_Shop_KongCelebrate_16, 28
 
-Frame_20_53a4::
-	frame FrameTiles_30_4be0, FrameSprites_30_6e1d, 26
+Frame_Shop_KongCelebrate_17::
+	frame FrameTiles_Shop_KongCelebrate_17, FrameSprites_Shop_KongCelebrate_17, 26
 
-Frame_20_53aa::
-	frame FrameTiles_30_4d80, FrameSprites_30_6e44, 26
+Frame_Shop_KongCelebrate_18::
+	frame FrameTiles_Shop_KongCelebrate_18, FrameSprites_Shop_KongCelebrate_18, 26
 
-Frame_20_53b0::
-	frame FrameTiles_30_4f20, FrameSprites_30_6e6b, 12
+Frame_Cannonball::
+	frame FrameTiles_Cannonball, FrameSprites_Cannonball, 12
 
-Frame_20_53b6::
-	frame FrameTiles_30_4fe0, FrameSprites_30_6e77, 22
+Frame_Shop_SpawnOnce_1::
+	frame FrameTiles_Shop_SpawnOnce_1, FrameSprites_Shop_SpawnOnce_1, 22
 
-Frame_20_53bc::
-	frame FrameTiles_30_5140, FrameSprites_30_6e98, 22
+Frame_Shop_SpawnOnce_2::
+	frame FrameTiles_Shop_SpawnOnce_2, FrameSprites_Shop_SpawnOnce_2, 22
 
-Frame_20_53c2::
-	frame FrameTiles_30_52a0, FrameSprites_30_6eb9, 22
+Frame_Shop_SpawnOnce_3::
+	frame FrameTiles_Shop_SpawnOnce_3, FrameSprites_Shop_SpawnOnce_3, 22
 
-Frame_20_53c8::
-	frame FrameTiles_30_5400, FrameSprites_30_6eda, 20
+Frame_Shop_SpawnOnce_4::
+	frame FrameTiles_Shop_SpawnOnce_4, FrameSprites_Shop_SpawnOnce_4, 20
 
-Frame_20_53ce::
-	frame FrameTiles_30_5540, FrameSprites_30_6ef8, 18
+Frame_Shop_SpawnOnce_5::
+	frame FrameTiles_Shop_SpawnOnce_5, FrameSprites_Shop_SpawnOnce_5, 18
 
-Frame_20_53d4::
-	frame FrameTiles_30_5660, FrameSprites_30_6f13, 20
+Frame_Shop_SpawnOnce_6::
+	frame FrameTiles_Shop_SpawnOnce_6, FrameSprites_Shop_SpawnOnce_6, 20
 
-Frame_20_53da::
-	frame FrameTiles_30_57a0, FrameSprites_30_6f31, 16
+Frame_Shop_SpawnOnce_7::
+	frame FrameTiles_Shop_SpawnOnce_7, FrameSprites_Shop_SpawnOnce_7, 16
 
-Frame_20_53e0::
-	frame FrameTiles_30_58a0, FrameSprites_30_6f49, 16
+Frame_Shop_SpawnOnce_8::
+	frame FrameTiles_Shop_SpawnOnce_8, FrameSprites_Shop_SpawnOnce_8, 16
 
-Frame_20_53e6::
-	frame FrameTiles_30_59a0, FrameSprites_30_6f61, 16
+Frame_Shop_SpawnOnce_9::
+	frame FrameTiles_Shop_SpawnOnce_9, FrameSprites_Shop_SpawnOnce_9, 16
 
-Frame_20_53ec::
-	frame FrameTiles_38_45c0, FrameSprites_38_738a, 26
+Frame_Shop_SpawnOnce_10::
+	frame FrameTiles_Shop_SpawnOnce_10, FrameSprites_Shop_SpawnOnce_10, 26
 
-Frame_20_53f2::
-	frame FrameTiles_38_4760, FrameSprites_38_73b1, 22
+Frame_Shop_SpawnOnce_11::
+	frame FrameTiles_Shop_SpawnOnce_11, FrameSprites_Shop_SpawnOnce_11, 22
 
-Frame_20_53f8::
-	frame FrameTiles_38_48c0, FrameSprites_38_73d2, 20
+Frame_Shop_SpawnOnce_12::
+	frame FrameTiles_Shop_SpawnOnce_12, FrameSprites_Shop_SpawnOnce_12, 20
 
-Frame_20_53fe::
-	frame FrameTiles_38_4a00, FrameSprites_38_73f0, 22
+Frame_Shop_SpawnOnce_13::
+	frame FrameTiles_Shop_SpawnOnce_13, FrameSprites_Shop_SpawnOnce_13, 22
 
-Frame_20_5404::
-	frame FrameTiles_38_4b60, FrameSprites_38_7411, 22
+Frame_Shop_SpawnOnce_14::
+	frame FrameTiles_Shop_SpawnOnce_14, FrameSprites_Shop_SpawnOnce_14, 22
 
-Frame_20_540a::
-	frame FrameTiles_30_5aa0, FrameSprites_30_6f79, 10
+Frame_ArrowPlatform_Wait_1::
+	frame FrameTiles_ArrowPlatform_Wait_1, FrameSprites_ArrowPlatform_Wait_1, 10
 
-Frame_20_5410::
-	frame FrameTiles_30_5b40, FrameSprites_30_6f83, 10
+Frame_ArrowPlatform_Wait_2::
+	frame FrameTiles_ArrowPlatform_Wait_2, FrameSprites_ArrowPlatform_Wait_2, 10
 
-Frame_20_5416::
-	frame FrameTiles_30_5be0, FrameSprites_30_6f8d, 10
+Frame_ArrowPlatform_Wait_3::
+	frame FrameTiles_ArrowPlatform_Wait_3, FrameSprites_ArrowPlatform_Wait_3, 10
 
-Frame_20_541c::
-	frame FrameTiles_30_5c80, FrameSprites_30_6f97, 10
+Frame_ArrowPlatform_Wait_4::
+	frame FrameTiles_ArrowPlatform_Wait_4, FrameSprites_ArrowPlatform_Wait_4, 10
 
-Frame_20_5422::
-	frame FrameTiles_30_5d20, FrameSprites_30_6fa1, 20
+Frame_PlayerRambi_1::
+	frame FrameTiles_PlayerRambi_1, FrameSprites_PlayerRambi_1, 20
 
-Frame_20_5428::
-	frame FrameTiles_30_5e60, FrameSprites_30_6fb5, 18
+Frame_PlayerRambi_2::
+	frame FrameTiles_PlayerRambi_2, FrameSprites_PlayerRambi_2, 18
 
-Frame_20_542e::
-	frame FrameTiles_30_5f80, FrameSprites_30_6fc7, 20
+Frame_PlayerRambi_3::
+	frame FrameTiles_PlayerRambi_3, FrameSprites_PlayerRambi_3, 20
 
-Frame_20_5434::
-	frame FrameTiles_30_60c0, FrameSprites_30_6fdb, 22
+Frame_PlayerRambi_4::
+	frame FrameTiles_PlayerRambi_4, FrameSprites_PlayerRambi_4, 22
 
-Frame_20_543a::
-	frame FrameTiles_30_6220, FrameSprites_30_6ff1, 20
+Frame_PlayerRambi_5::
+	frame FrameTiles_PlayerRambi_5, FrameSprites_PlayerRambi_5, 20
 
-Frame_20_5440::
-	frame FrameTiles_30_6360, FrameSprites_30_7005, 20
+Frame_PlayerRambi_6::
+	frame FrameTiles_PlayerRambi_6, FrameSprites_PlayerRambi_6, 20
 
-Frame_20_5446::
-	frame FrameTiles_30_64a0, FrameSprites_30_7019, 16
+Frame_Unused_71::
+	frame FrameTiles_Unused_71, FrameSprites_Unused_71, 16
 
-Frame_20_544c::
-	frame FrameTiles_30_65a0, FrameSprites_30_7029, 18
+Frame_PlayerRambi_InAir_1::
+	frame FrameTiles_PlayerRambi_InAir_1, FrameSprites_PlayerRambi_InAir_1, 18
 
-Frame_20_5452::
-	frame FrameTiles_30_66c0, FrameSprites_30_703b, 18
+Frame_PlayerRambi_7::
+	frame FrameTiles_PlayerRambi_7, FrameSprites_PlayerRambi_7, 18
 
-Frame_20_5458::
-	frame FrameTiles_30_67e0, FrameSprites_30_704d, 20
+Frame_PlayerRambi_InAir_2::
+	frame FrameTiles_PlayerRambi_InAir_2, FrameSprites_PlayerRambi_InAir_2, 20
 
-Frame_20_545e::
-	frame FrameTiles_30_6920, FrameSprites_30_7061, 20
+Frame_PlayerRambi_InAir_3::
+	frame FrameTiles_PlayerRambi_InAir_3, FrameSprites_PlayerRambi_InAir_3, 20
 
-Frame_20_5464::
-	frame FrameTiles_30_6a60, FrameSprites_30_7075, 22
+Frame_PlayerRambi_InAir_4::
+	frame FrameTiles_PlayerRambi_InAir_4, FrameSprites_PlayerRambi_InAir_4, 22
 
-Frame_20_546a::
-	frame FrameTiles_30_6bc0, FrameSprites_30_708b, 20
+Frame_PlayerRambi_InAir_5::
+	frame FrameTiles_PlayerRambi_InAir_5, FrameSprites_PlayerRambi_InAir_5, 20
 
-Frame_20_5470::
-	frame FrameTiles_31_4000, FrameSprites_31_6ae0, 18
+Frame_PlayerRambi_8::
+	frame FrameTiles_PlayerRambi_8, FrameSprites_PlayerRambi_8, 18
 
-Frame_20_5476::
-	frame FrameTiles_31_4120, FrameSprites_31_6af2, 16
+Frame_Unused_72::
+	frame FrameTiles_Unused_72, FrameSprites_Unused_72, 16
 
-Frame_20_547c::
-	frame FrameTiles_31_4220, FrameSprites_31_6b02, 16
+Frame_Unused_73::
+	frame FrameTiles_Unused_73, FrameSprites_Unused_73, 16
 
-Frame_20_5482::
-	frame FrameTiles_31_4320, FrameSprites_31_6b12, 16
+Frame_PlayerRambi_9::
+	frame FrameTiles_PlayerRambi_9, FrameSprites_PlayerRambi_9, 16
 
-Frame_20_5488::
-	frame FrameTiles_31_4420, FrameSprites_31_6b22, 16
+Frame_PlayerRambi_10::
+	frame FrameTiles_PlayerRambi_10, FrameSprites_PlayerRambi_10, 16
 
-Frame_20_548e::
-	frame FrameTiles_31_4520, FrameSprites_31_6b32, 16
+Frame_PlayerRambi_11::
+	frame FrameTiles_PlayerRambi_11, FrameSprites_PlayerRambi_11, 16
 
-Frame_20_5494::
-	frame FrameTiles_31_4620, FrameSprites_31_6b42, 16
+Frame_PlayerRambi_12::
+	frame FrameTiles_PlayerRambi_12, FrameSprites_PlayerRambi_12, 16
 
-Frame_20_549a::
-	frame FrameTiles_31_4720, FrameSprites_31_6b52, 16
+Frame_PlayerRambi_13::
+	frame FrameTiles_PlayerRambi_13, FrameSprites_PlayerRambi_13, 16
 
-Frame_20_54a0::
-	frame FrameTiles_31_4820, FrameSprites_31_6b62, 18
+Frame_PlayerRambi_Bounce_1::
+	frame FrameTiles_PlayerRambi_Bounce_1, FrameSprites_PlayerRambi_Bounce_1, 18
 
-Frame_20_54a6::
-	frame FrameTiles_31_4940, FrameSprites_31_6b74, 20
+Frame_PlayerRambi_Bounce_2::
+	frame FrameTiles_PlayerRambi_Bounce_2, FrameSprites_PlayerRambi_Bounce_2, 20
 
-Frame_20_54ac::
-	frame FrameTiles_31_4a80, FrameSprites_31_6b88, 20
+Frame_PlayerRambi_Bounce_3::
+	frame FrameTiles_PlayerRambi_Bounce_3, FrameSprites_PlayerRambi_Bounce_3, 20
 
-Frame_20_54b2::
-	frame FrameTiles_31_4bc0, FrameSprites_31_6b9c, 20
+Frame_PlayerRambi_Bounce_4::
+	frame FrameTiles_PlayerRambi_Bounce_4, FrameSprites_PlayerRambi_Bounce_4, 20
 
-Frame_20_54b8::
-	frame FrameTiles_31_4d00, FrameSprites_31_6bb0, 20
+Frame_PlayerRambi_Bounce_5::
+	frame FrameTiles_PlayerRambi_Bounce_5, FrameSprites_PlayerRambi_Bounce_5, 20
 
-Frame_20_54be::
-	frame FrameTiles_31_4e40, FrameSprites_31_6bc4, 16
+Frame_Kritter_JumpStart_1::
+	frame FrameTiles_Kritter_JumpStart_1, FrameSprites_Kritter_JumpStart_1, 16
 
-Frame_20_54c4::
-	frame FrameTiles_31_4f40, FrameSprites_31_6bd4, 14
+Frame_Kritter_JumpStart_2::
+	frame FrameTiles_Kritter_JumpStart_2, FrameSprites_Kritter_JumpStart_2, 14
 
-Frame_20_54ca::
-	frame FrameTiles_31_5020, FrameSprites_31_6be2, 12
+Frame_Kritter_JumpStart_3::
+	frame FrameTiles_Kritter_JumpStart_3, FrameSprites_Kritter_JumpStart_3, 12
 
-Frame_20_54d0::
-	frame FrameTiles_31_50e0, FrameSprites_31_6bee, 16
+Frame_Kritter_JumpStart_4::
+	frame FrameTiles_Kritter_JumpStart_4, FrameSprites_Kritter_JumpStart_4, 16
 
-Frame_20_54d6::
-	frame FrameTiles_31_51e0, FrameSprites_31_6bfe, 14
+Frame_Unused_74::
+	frame FrameTiles_Unused_74, FrameSprites_Unused_74, 14
 
-Frame_20_54dc::
-	frame FrameTiles_31_52c0, FrameSprites_31_6c0c, 14
+Frame_SetPlayerAnimation_183::
+	frame FrameTiles_SetPlayerAnimation_183, FrameSprites_SetPlayerAnimation_183, 14
 
-Frame_20_54e2::
-	frame FrameTiles_31_53a0, FrameSprites_31_6c1a, 14
+Frame_SetPlayerAnimation_184::
+	frame FrameTiles_SetPlayerAnimation_184, FrameSprites_SetPlayerAnimation_184, 14
 
-Frame_20_54e8::
-	frame FrameTiles_31_5480, FrameSprites_31_6c28, 16
+Frame_SetPlayerAnimation_185::
+	frame FrameTiles_SetPlayerAnimation_185, FrameSprites_SetPlayerAnimation_185, 16
 
-Frame_20_54ee::
-	frame FrameTiles_31_5580, FrameSprites_31_6c38, 16
+Frame_SetPlayerAnimation_186::
+	frame FrameTiles_SetPlayerAnimation_186, FrameSprites_SetPlayerAnimation_186, 16
 
-Frame_20_54f4::
-	frame FrameTiles_31_5680, FrameSprites_31_6c48, 16
+Frame_SetPlayerAnimation_187::
+	frame FrameTiles_SetPlayerAnimation_187, FrameSprites_SetPlayerAnimation_187, 16
 
-Frame_20_54fa::
-	frame FrameTiles_31_5780, FrameSprites_31_6c58, 16
+Frame_SetPlayerAnimation_188::
+	frame FrameTiles_SetPlayerAnimation_188, FrameSprites_SetPlayerAnimation_188, 16
 
-Frame_20_5500::
-	frame FrameTiles_31_5880, FrameSprites_31_6c68, 12
+Frame_SetPlayerAnimation_189::
+	frame FrameTiles_SetPlayerAnimation_189, FrameSprites_SetPlayerAnimation_189, 12
 
-Frame_20_5506::
-	frame FrameTiles_31_5940, FrameSprites_31_6c74, 16
+Frame_SetPlayerAnimation_190::
+	frame FrameTiles_SetPlayerAnimation_190, FrameSprites_SetPlayerAnimation_190, 16
 
-Frame_20_550c::
-	frame FrameTiles_31_5a40, FrameSprites_31_6c84, 12
+Frame_SetPlayerAnimation_191::
+	frame FrameTiles_SetPlayerAnimation_191, FrameSprites_SetPlayerAnimation_191, 12
 
-Frame_20_5512::
-	frame FrameTiles_31_5b00, FrameSprites_31_6c90, 14
+Frame_SetPlayerAnimation_192::
+	frame FrameTiles_SetPlayerAnimation_192, FrameSprites_SetPlayerAnimation_192, 14
 
-Frame_20_5518::
-	frame FrameTiles_31_5be0, FrameSprites_31_6c9e, 12
+Frame_SetPlayerAnimation_193::
+	frame FrameTiles_SetPlayerAnimation_193, FrameSprites_SetPlayerAnimation_193, 12
 
-Frame_20_551e::
-	frame FrameTiles_31_6080, FrameSprites_31_6ce8, 6
+Frame_Squidge_1::
+	frame FrameTiles_Squidge_1, FrameSprites_Squidge_1, 6
 
-Frame_20_5524::
-	frame FrameTiles_31_60e0, FrameSprites_31_6cee, 10
+Frame_Squidge_2::
+	frame FrameTiles_Squidge_2, FrameSprites_Squidge_2, 10
 
-Frame_20_552a::
-	frame FrameTiles_31_6180, FrameSprites_31_6cf8, 8
+Frame_Squidge_3::
+	frame FrameTiles_Squidge_3, FrameSprites_Squidge_3, 8
 
-Frame_20_5530::
-	frame FrameTiles_31_6200, FrameSprites_31_6d00, 6
+Frame_Squidge_4::
+	frame FrameTiles_Squidge_4, FrameSprites_Squidge_4, 6
 
-Frame_20_5536::
-	frame FrameTiles_31_6260, FrameSprites_31_6d06, 10
+Frame_Squidge_5::
+	frame FrameTiles_Squidge_5, FrameSprites_Squidge_5, 10
 
-Frame_20_553c::
-	frame FrameTiles_31_6300, FrameSprites_31_6d10, 10
+Frame_Squidge_6::
+	frame FrameTiles_Squidge_6, FrameSprites_Squidge_6, 10
 
-Frame_20_5542::
-	frame FrameTiles_31_63a0, FrameSprites_31_6d1a, 8
+Frame_Squidge_7::
+	frame FrameTiles_Squidge_7, FrameSprites_Squidge_7, 8
 
-Frame_20_5548::
-	frame FrameTiles_31_6420, FrameSprites_31_6d22, 10
+Frame_Squidge_8::
+	frame FrameTiles_Squidge_8, FrameSprites_Squidge_8, 10
 
-Frame_20_554e::
-	frame FrameTiles_31_64c0, FrameSprites_31_6d2c, 8
+Frame_Squidge_9::
+	frame FrameTiles_Squidge_9, FrameSprites_Squidge_9, 8
 
-Frame_20_5554::
-	frame FrameTiles_31_6540, FrameSprites_31_6d34, 18
+Frame_Enemy_HandleContact_18::
+	frame FrameTiles_Enemy_HandleContact_18, FrameSprites_Enemy_HandleContact_18, 18
 
-Frame_20_555a::
-	frame FrameTiles_31_6660, FrameSprites_31_6d46, 18
+Frame_Enemy_HandleContact_19::
+	frame FrameTiles_Enemy_HandleContact_19, FrameSprites_Enemy_HandleContact_19, 18
 
-Frame_20_5560::
-	frame FrameTiles_31_6780, FrameSprites_31_6d58, 16
+Frame_Enemy_HandleContact_20::
+	frame FrameTiles_Enemy_HandleContact_20, FrameSprites_Enemy_HandleContact_20, 16
 
-Frame_20_5566::
-	frame FrameTiles_31_6880, FrameSprites_31_6d68, 20
+Frame_Enemy_HandleContact_21::
+	frame FrameTiles_Enemy_HandleContact_21, FrameSprites_Enemy_HandleContact_21, 20
 
-Frame_20_556c::
-	frame FrameTiles_31_69c0, FrameSprites_31_6d7c, 18
+Frame_Enemy_HandleContact_22::
+	frame FrameTiles_Enemy_HandleContact_22, FrameSprites_Enemy_HandleContact_22, 18
 
-Frame_20_5572::
-	frame FrameTiles_32_4000, FrameSprites_32_71c0, 16
+Frame_MankyKong::
+	frame FrameTiles_MankyKong, FrameSprites_MankyKong, 16
 
-Frame_20_5578::
-	frame FrameTiles_32_4100, FrameSprites_32_71d0, 12
+Frame_Mincer_9::
+	frame FrameTiles_Mincer_9, FrameSprites_Mincer_9, 12
 
-Frame_20_557e::
-	frame FrameTiles_32_41c0, FrameSprites_32_71dc, 14
+Frame_Mincer_10::
+	frame FrameTiles_Mincer_10, FrameSprites_Mincer_10, 14
 
-Frame_20_5584::
-	frame FrameTiles_32_42a0, FrameSprites_32_71ea, 14
+Frame_Mincer_11::
+	frame FrameTiles_Mincer_11, FrameSprites_Mincer_11, 14
 
-Frame_20_558a::
-	frame FrameTiles_32_4380, FrameSprites_32_71f8, 14
+Frame_Mincer_12::
+	frame FrameTiles_Mincer_12, FrameSprites_Mincer_12, 14
 
-Frame_20_5590::
-	frame FrameTiles_32_4460, FrameSprites_32_7206, 16
+Frame_Mincer_13::
+	frame FrameTiles_Mincer_13, FrameSprites_Mincer_13, 16
 
-Frame_20_5596::
-	frame FrameTiles_32_4560, FrameSprites_32_7216, 18
+Frame_Mincer_14::
+	frame FrameTiles_Mincer_14, FrameSprites_Mincer_14, 18
 
-Frame_20_559c::
-	frame FrameTiles_32_4680, FrameSprites_32_7228, 18
+Frame_Mincer_15::
+	frame FrameTiles_Mincer_15, FrameSprites_Mincer_15, 18
 
-Frame_20_55a2::
-	frame FrameTiles_32_47a0, FrameSprites_32_723a, 16
+Frame_Mincer_16::
+	frame FrameTiles_Mincer_16, FrameSprites_Mincer_16, 16
 
-Frame_20_55a8::
-	frame FrameTiles_32_48a0, FrameSprites_32_724a, 12
+Frame_Mincer_17::
+	frame FrameTiles_Mincer_17, FrameSprites_Mincer_17, 12
 
-Frame_20_55ae::
-	frame FrameTiles_32_4960, FrameSprites_32_7256, 14
+Frame_Mincer_18::
+	frame FrameTiles_Mincer_18, FrameSprites_Mincer_18, 14
 
-Frame_20_55b4::
-	frame FrameTiles_32_4a40, FrameSprites_32_7264, 14
+Frame_Mincer_19::
+	frame FrameTiles_Mincer_19, FrameSprites_Mincer_19, 14
 
-Frame_20_55ba::
-	frame FrameTiles_32_4b20, FrameSprites_32_7272, 20
+Frame_Rockkroc_CurledUp_1::
+	frame FrameTiles_Rockkroc_CurledUp_1, FrameSprites_Rockkroc_CurledUp_1, 20
 
-Frame_20_55c0::
-	frame FrameTiles_32_4c60, FrameSprites_32_7286, 14
+Frame_Rockkroc_CurledUp_2::
+	frame FrameTiles_Rockkroc_CurledUp_2, FrameSprites_Rockkroc_CurledUp_2, 14
 
-Frame_20_55c6::
-	frame FrameTiles_32_4d40, FrameSprites_32_7294, 12
+Frame_Rockkroc_CurledUp_3::
+	frame FrameTiles_Rockkroc_CurledUp_3, FrameSprites_Rockkroc_CurledUp_3, 12
 
-Frame_20_55cc::
-	frame FrameTiles_32_4e00, FrameSprites_32_72a0, 10
+Frame_Rockkroc_CurledUp_4::
+	frame FrameTiles_Rockkroc_CurledUp_4, FrameSprites_Rockkroc_CurledUp_4, 10
 
-Frame_20_55d2::
-	frame FrameTiles_32_4ea0, FrameSprites_32_72aa, 6
+Frame_Rockkroc_CurledUp_5::
+	frame FrameTiles_Rockkroc_CurledUp_5, FrameSprites_Rockkroc_CurledUp_5, 6
 
-Frame_20_55d8::
-	frame FrameTiles_32_4f00, FrameSprites_32_72b0, 16
+Frame_Obj_TurnAround_14::
+	frame FrameTiles_Obj_TurnAround_14, FrameSprites_Obj_TurnAround_14, 16
 
-Frame_20_55de::
-	frame FrameTiles_32_5000, FrameSprites_32_72c0, 16
+Frame_Obj_TurnAround_15::
+	frame FrameTiles_Obj_TurnAround_15, FrameSprites_Obj_TurnAround_15, 16
 
-Frame_20_55e4::
-	frame FrameTiles_32_5100, FrameSprites_32_72d0, 14
+Frame_Rockkroc_1::
+	frame FrameTiles_Rockkroc_1, FrameSprites_Rockkroc_1, 14
 
-Frame_20_55ea::
-	frame FrameTiles_32_51e0, FrameSprites_32_72de, 16
+Frame_Rockkroc_2::
+	frame FrameTiles_Rockkroc_2, FrameSprites_Rockkroc_2, 16
 
-Frame_20_55f0::
-	frame FrameTiles_32_52e0, FrameSprites_32_72ee, 16
+Frame_Rockkroc_3::
+	frame FrameTiles_Rockkroc_3, FrameSprites_Rockkroc_3, 16
 
-Frame_20_55f6::
-	frame FrameTiles_32_53e0, FrameSprites_32_72fe, 16
+Frame_Rockkroc_4::
+	frame FrameTiles_Rockkroc_4, FrameSprites_Rockkroc_4, 16
 
-Frame_20_55fc::
-	frame FrameTiles_32_54e0, FrameSprites_32_730e, 16
+Frame_Rockkroc_5::
+	frame FrameTiles_Rockkroc_5, FrameSprites_Rockkroc_5, 16
 
-Frame_20_5602::
-	frame FrameTiles_32_55e0, FrameSprites_32_731e, 14
+Frame_Rockkroc_6::
+	frame FrameTiles_Rockkroc_6, FrameSprites_Rockkroc_6, 14
 
-Frame_20_5608::
-	frame FrameTiles_32_56c0, FrameSprites_32_732c, 14
+Frame_Rockkroc_7::
+	frame FrameTiles_Rockkroc_7, FrameSprites_Rockkroc_7, 14
 
-Frame_20_560e::
-	frame FrameTiles_32_57a0, FrameSprites_32_733a, 14
+Frame_Rockkroc_8::
+	frame FrameTiles_Rockkroc_8, FrameSprites_Rockkroc_8, 14
 
-Frame_20_5614::
-	frame FrameTiles_32_66c0, FrameSprites_32_749e, 16
+Frame_Elevator_2::
+	frame FrameTiles_Elevator_2, FrameSprites_Elevator_2, 16
 
-Frame_20_561a::
-	frame FrameTiles_32_67c0, FrameSprites_32_74ae, 12
+Frame_FuelPlatform_Travel_1::
+	frame FrameTiles_FuelPlatform_Travel_1, FrameSprites_FuelPlatform_Travel_1, 12
 
-Frame_20_5620::
-	frame FrameTiles_32_6880, FrameSprites_32_74ba, 12
+Frame_FuelPlatform_Travel_2::
+	frame FrameTiles_FuelPlatform_Travel_2, FrameSprites_FuelPlatform_Travel_2, 12
 
-Frame_20_5626::
-	frame FrameTiles_32_6940, FrameSprites_32_74c6, 12
+Frame_FuelPlatform_Travel_3::
+	frame FrameTiles_FuelPlatform_Travel_3, FrameSprites_FuelPlatform_Travel_3, 12
 
-Frame_20_562c::
-	frame FrameTiles_32_6a00, FrameSprites_32_74d2, 12
+Frame_FuelPlatform_Travel_4::
+	frame FrameTiles_FuelPlatform_Travel_4, FrameSprites_FuelPlatform_Travel_4, 12
 
-Frame_20_5632::
-	frame FrameTiles_32_6ac0, FrameSprites_32_74de, 12
+Frame_FuelPlatform_Travel_5::
+	frame FrameTiles_FuelPlatform_Travel_5, FrameSprites_FuelPlatform_Travel_5, 12
 
-Frame_20_5638::
-	frame FrameTiles_32_6b80, FrameSprites_32_74ea, 12
+Frame_FuelPlatform_Wait::
+	frame FrameTiles_FuelPlatform_Wait, FrameSprites_FuelPlatform_Wait, 12
 
-Frame_20_563e::
-	frame FrameTiles_32_6c40, FrameSprites_32_74f6, 16
+Frame_Elevator_3::
+	frame FrameTiles_Elevator_3, FrameSprites_Elevator_3, 16
 
-Frame_20_5644::
-	frame FrameTiles_32_6d40, FrameSprites_32_7506, 12
+Frame_TrackPlatform_Wait_1::
+	frame FrameTiles_TrackPlatform_Wait_1, FrameSprites_TrackPlatform_Wait_1, 12
 
-Frame_20_564a::
-	frame FrameTiles_32_6e00, FrameSprites_32_7512, 12
+Frame_TrackPlatform_Wait_2::
+	frame FrameTiles_TrackPlatform_Wait_2, FrameSprites_TrackPlatform_Wait_2, 12
 
-Frame_20_5650::
-	frame FrameTiles_32_6ec0, FrameSprites_32_751e, 12
+Frame_TrackPlatform_Wait_3::
+	frame FrameTiles_TrackPlatform_Wait_3, FrameSprites_TrackPlatform_Wait_3, 12
 
-Frame_20_5656::
-	frame FrameTiles_32_7080, FrameSprites_32_753a, 8
+Frame_Elevator_4::
+	frame FrameTiles_Elevator_4, FrameSprites_Elevator_4, 8
 
-Frame_20_565c::
-	frame FrameTiles_32_7100, FrameSprites_32_7542, 2
+Frame_Nut_1::
+	frame FrameTiles_Nut_1, FrameSprites_Nut_1, 2
 
-Frame_20_5662::
-	frame FrameTiles_32_7120, FrameSprites_32_7544, 4
+Frame_Nut_2::
+	frame FrameTiles_Nut_2, FrameSprites_Nut_2, 4
 
-Frame_20_5668::
-	frame FrameTiles_32_7160, FrameSprites_32_7548, 2
+Frame_Nut_3::
+	frame FrameTiles_Nut_3, FrameSprites_Nut_3, 2
 
-Frame_20_566e::
-	frame FrameTiles_32_7180, FrameSprites_32_754a, 4
+Frame_Nut_4::
+	frame FrameTiles_Nut_4, FrameSprites_Nut_4, 4
 
-Frame_20_5674::
-	frame FrameTiles_33_4000, FrameSprites_33_70e0, 20
+Frame_Unused_75::
+	frame FrameTiles_Unused_75, FrameSprites_Unused_75, 20
 
-Frame_20_567a::
-	frame FrameTiles_33_4140, FrameSprites_33_70f4, 18
+Frame_Unused_76::
+	frame FrameTiles_Unused_76, FrameSprites_Unused_76, 18
 
-Frame_20_5680::
-	frame FrameTiles_33_4260, FrameSprites_33_7106, 18
+Frame_Unused_77::
+	frame FrameTiles_Unused_77, FrameSprites_Unused_77, 18
 
-Frame_20_5686::
-	frame FrameTiles_33_4380, FrameSprites_33_7118, 18
+Frame_Unused_78::
+	frame FrameTiles_Unused_78, FrameSprites_Unused_78, 18
 
-Frame_20_568c::
-	frame FrameTiles_33_44a0, FrameSprites_33_712a, 16
+Frame_MineCart_SetSlopeAnim_1::
+	frame FrameTiles_MineCart_SetSlopeAnim_1, FrameSprites_MineCart_SetSlopeAnim_1, 16
 
-Frame_20_5692::
-	frame FrameTiles_33_45a0, FrameSprites_33_713a, 16
+Frame_MineCart_SetSlopeAnim_2::
+	frame FrameTiles_MineCart_SetSlopeAnim_2, FrameSprites_MineCart_SetSlopeAnim_2, 16
 
-Frame_20_5698::
-	frame FrameTiles_33_46a0, FrameSprites_33_714a, 16
+Frame_MineCart_SetSlopeAnim_3::
+	frame FrameTiles_MineCart_SetSlopeAnim_3, FrameSprites_MineCart_SetSlopeAnim_3, 16
 
-Frame_20_569e::
-	frame FrameTiles_33_47a0, FrameSprites_33_715a, 20
+Frame_MineCart_SetSlopeAnim_4::
+	frame FrameTiles_MineCart_SetSlopeAnim_4, FrameSprites_MineCart_SetSlopeAnim_4, 20
 
-Frame_20_56a4::
-	frame FrameTiles_33_48e0, FrameSprites_33_716e, 20
+Frame_MineCart_SetSlopeAnim_5::
+	frame FrameTiles_MineCart_SetSlopeAnim_5, FrameSprites_MineCart_SetSlopeAnim_5, 20
 
-Frame_20_56aa::
-	frame FrameTiles_33_4a20, FrameSprites_33_7182, 20
+Frame_MineCart_SetSlopeAnim_6::
+	frame FrameTiles_MineCart_SetSlopeAnim_6, FrameSprites_MineCart_SetSlopeAnim_6, 20
 
-Frame_20_56b0::
-	frame FrameTiles_33_4b60, FrameSprites_33_7196, 20
+Frame_Unused_79::
+	frame FrameTiles_Unused_79, FrameSprites_Unused_79, 20
 
-Frame_20_56b6::
-	frame FrameTiles_33_4ca0, FrameSprites_33_71aa, 16
+Frame_MineCart_SetSlopeAnim_7::
+	frame FrameTiles_MineCart_SetSlopeAnim_7, FrameSprites_MineCart_SetSlopeAnim_7, 16
 
-Frame_20_56bc::
-	frame FrameTiles_33_4da0, FrameSprites_33_71ba, 16
+Frame_MineCart_SetSlopeAnim_8::
+	frame FrameTiles_MineCart_SetSlopeAnim_8, FrameSprites_MineCart_SetSlopeAnim_8, 16
 
-Frame_20_56c2::
-	frame FrameTiles_33_4ea0, FrameSprites_33_71ca, 16
+Frame_MineCart_SetSlopeAnim_9::
+	frame FrameTiles_MineCart_SetSlopeAnim_9, FrameSprites_MineCart_SetSlopeAnim_9, 16
 
-Frame_20_56c8::
-	frame FrameTiles_33_4fa0, FrameSprites_33_71da, 18
+Frame_MineCart_SetSlopeAnim_10::
+	frame FrameTiles_MineCart_SetSlopeAnim_10, FrameSprites_MineCart_SetSlopeAnim_10, 18
 
-Frame_20_56ce::
-	frame FrameTiles_33_50c0, FrameSprites_33_71ec, 18
+Frame_MineCart_SetSlopeAnim_11::
+	frame FrameTiles_MineCart_SetSlopeAnim_11, FrameSprites_MineCart_SetSlopeAnim_11, 18
 
-Frame_20_56d4::
-	frame FrameTiles_33_51e0, FrameSprites_33_71fe, 18
+Frame_MineCart_SetSlopeAnim_12::
+	frame FrameTiles_MineCart_SetSlopeAnim_12, FrameSprites_MineCart_SetSlopeAnim_12, 18
 
-Frame_20_56da::
-	frame FrameTiles_33_5300, FrameSprites_33_7210, 16
+Frame_MineCart_SetSlopeAnim_13::
+	frame FrameTiles_MineCart_SetSlopeAnim_13, FrameSprites_MineCart_SetSlopeAnim_13, 16
 
-Frame_20_56e0::
-	frame FrameTiles_33_5400, FrameSprites_33_7220, 16
+Frame_MineCart_SetSlopeAnim_14::
+	frame FrameTiles_MineCart_SetSlopeAnim_14, FrameSprites_MineCart_SetSlopeAnim_14, 16
 
-Frame_20_56e6::
-	frame FrameTiles_33_5500, FrameSprites_33_7230, 16
+Frame_MineCart_SetSlopeAnim_15::
+	frame FrameTiles_MineCart_SetSlopeAnim_15, FrameSprites_MineCart_SetSlopeAnim_15, 16
 
-Frame_20_56ec::
-	frame FrameTiles_33_5600, FrameSprites_33_7240, 6
+Frame_Player_SetMineCartFrame_1::
+	frame FrameTiles_Player_SetMineCartFrame_1, FrameSprites_Player_SetMineCartFrame_1, 6
 
-Frame_20_56f2::
-	frame FrameTiles_33_5660, FrameSprites_33_7246, 6
+Frame_Player_SetMineCartFrame_2::
+	frame FrameTiles_Player_SetMineCartFrame_2, FrameSprites_Player_SetMineCartFrame_2, 6
 
-Frame_20_56f8::
-	frame FrameTiles_33_56c0, FrameSprites_33_724c, 10
+Frame_Player_SetMineCartFrame_3::
+	frame FrameTiles_Player_SetMineCartFrame_3, FrameSprites_Player_SetMineCartFrame_3, 10
 
-Frame_20_56fe::
-	frame FrameTiles_33_5760, FrameSprites_33_7256, 8
+Frame_Player_SetMineCartFrame_4::
+	frame FrameTiles_Player_SetMineCartFrame_4, FrameSprites_Player_SetMineCartFrame_4, 8
 
-Frame_20_5704::
-	frame FrameTiles_33_57e0, FrameSprites_33_725e, 8
+Frame_Player_SetMineCartFrame_5::
+	frame FrameTiles_Player_SetMineCartFrame_5, FrameSprites_Player_SetMineCartFrame_5, 8
 
-Frame_20_570a::
-	frame FrameTiles_33_5860, FrameSprites_33_7266, 8
+Frame_Player_SetMineCartFrame_6::
+	frame FrameTiles_Player_SetMineCartFrame_6, FrameSprites_Player_SetMineCartFrame_6, 8
 
-Frame_20_5710::
-	frame FrameTiles_33_58e0, FrameSprites_33_726e, 6
+Frame_Player_SetMineCartFrame_7::
+	frame FrameTiles_Player_SetMineCartFrame_7, FrameSprites_Player_SetMineCartFrame_7, 6
 
-Frame_20_5716::
-	frame FrameTiles_33_5940, FrameSprites_33_7274, 6
+Frame_Player_SetMineCartFrame_8::
+	frame FrameTiles_Player_SetMineCartFrame_8, FrameSprites_Player_SetMineCartFrame_8, 6
 
-Frame_20_571c::
-	frame FrameTiles_33_59a0, FrameSprites_33_727a, 6
+Frame_Player_SetMineCartFrame_9::
+	frame FrameTiles_Player_SetMineCartFrame_9, FrameSprites_Player_SetMineCartFrame_9, 6
 
-Frame_20_5722::
-	frame FrameTiles_33_5a00, FrameSprites_33_7280, 6
+Frame_Player_SetMineCartFrame_10::
+	frame FrameTiles_Player_SetMineCartFrame_10, FrameSprites_Player_SetMineCartFrame_10, 6
 
-Frame_20_5728::
-	frame FrameTiles_33_5a60, FrameSprites_33_7286, 6
+Frame_Player_SetMineCartFrame_11::
+	frame FrameTiles_Player_SetMineCartFrame_11, FrameSprites_Player_SetMineCartFrame_11, 6
 
-Frame_20_572e::
-	frame FrameTiles_33_5ac0, FrameSprites_33_728c, 4
+Frame_Player_SetMineCartFrame_12::
+	frame FrameTiles_Player_SetMineCartFrame_12, FrameSprites_Player_SetMineCartFrame_12, 4
 
-Frame_20_5734::
-	frame FrameTiles_33_5b00, FrameSprites_33_7290, 6
+Frame_Player_SetMineCartFrame_13::
+	frame FrameTiles_Player_SetMineCartFrame_13, FrameSprites_Player_SetMineCartFrame_13, 6
 
-Frame_20_573a::
-	frame FrameTiles_33_5b60, FrameSprites_33_7296, 6
+Frame_Player_SetMineCartFrame_14::
+	frame FrameTiles_Player_SetMineCartFrame_14, FrameSprites_Player_SetMineCartFrame_14, 6
 
-Frame_20_5740::
-	frame FrameTiles_33_5bc0, FrameSprites_33_729c, 6
+Frame_Player_SetMineCartFrame_15::
+	frame FrameTiles_Player_SetMineCartFrame_15, FrameSprites_Player_SetMineCartFrame_15, 6
 
-Frame_20_5746::
-	frame FrameTiles_33_5c20, FrameSprites_33_72a2, 6
+Frame_Player_SetMineCartFrame_16::
+	frame FrameTiles_Player_SetMineCartFrame_16, FrameSprites_Player_SetMineCartFrame_16, 6
 
-Frame_20_574c::
-	frame FrameTiles_33_5c80, FrameSprites_33_72a8, 6
+Frame_Player_SetMineCartFrame_17::
+	frame FrameTiles_Player_SetMineCartFrame_17, FrameSprites_Player_SetMineCartFrame_17, 6
 
-Frame_20_5752::
-	frame FrameTiles_33_5ce0, FrameSprites_33_72ae, 4
+Frame_Player_SetMineCartFrame_18::
+	frame FrameTiles_Player_SetMineCartFrame_18, FrameSprites_Player_SetMineCartFrame_18, 4
 
-Frame_20_5758::
-	frame FrameTiles_34_4000, FrameSprites_34_7a60, 26
+Frame_Touch_Hurt_1::
+	frame FrameTiles_Touch_Hurt_1, FrameSprites_Touch_Hurt_1, 26
 
-Frame_20_575e::
-	frame FrameTiles_34_41a0, FrameSprites_34_7a7a, 26
+Frame_Touch_Hurt_2::
+	frame FrameTiles_Touch_Hurt_2, FrameSprites_Touch_Hurt_2, 26
 
-Frame_20_5764::
-	frame FrameTiles_34_4340, FrameSprites_34_7a94, 26
+Frame_Touch_Hurt_3::
+	frame FrameTiles_Touch_Hurt_3, FrameSprites_Touch_Hurt_3, 26
 
-Frame_20_576a::
-	frame FrameTiles_34_44e0, FrameSprites_34_7aae, 26
+Frame_Touch_Hurt_4::
+	frame FrameTiles_Touch_Hurt_4, FrameSprites_Touch_Hurt_4, 26
 
-Frame_20_5770::
-	frame FrameTiles_34_4680, FrameSprites_34_7ac8, 8
+Frame_MineCartKrash_SetSlopeFrame_1::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_1, FrameSprites_MineCartKrash_SetSlopeFrame_1, 8
 
-Frame_20_5776::
-	frame FrameTiles_34_4700, FrameSprites_34_7ad0, 8
+Frame_MineCartKrash_SetSlopeFrame_2::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_2, FrameSprites_MineCartKrash_SetSlopeFrame_2, 8
 
-Frame_20_577c::
-	frame FrameTiles_34_4780, FrameSprites_34_7ad8, 8
+Frame_MineCartKrash_SetSlopeFrame_3::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_3, FrameSprites_MineCartKrash_SetSlopeFrame_3, 8
 
-Frame_20_5782::
-	frame FrameTiles_34_4800, FrameSprites_34_7ae0, 6
+Frame_MineCartKrash_SetSlopeFrame_4::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_4, FrameSprites_MineCartKrash_SetSlopeFrame_4, 6
 
-Frame_20_5788::
-	frame FrameTiles_34_4860, FrameSprites_34_7ae6, 6
+Frame_MineCartKrash_SetSlopeFrame_5::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_5, FrameSprites_MineCartKrash_SetSlopeFrame_5, 6
 
-Frame_20_578e::
-	frame FrameTiles_34_48c0, FrameSprites_34_7aec, 8
+Frame_MineCartKrash_SetSlopeFrame_6::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_6, FrameSprites_MineCartKrash_SetSlopeFrame_6, 8
 
-Frame_20_5794::
-	frame FrameTiles_34_4940, FrameSprites_34_7af4, 8
+Frame_MineCartKrash_SetSlopeFrame_7::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_7, FrameSprites_MineCartKrash_SetSlopeFrame_7, 8
 
-Frame_20_579a::
-	frame FrameTiles_34_49c0, FrameSprites_34_7afc, 8
+Frame_MineCartKrash_SetSlopeFrame_8::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_8, FrameSprites_MineCartKrash_SetSlopeFrame_8, 8
 
-Frame_20_57a0::
-	frame FrameTiles_34_4a40, FrameSprites_34_7b04, 6
+Frame_MineCartKrash_SetSlopeFrame_9::
+	frame FrameTiles_MineCartKrash_SetSlopeFrame_9, FrameSprites_MineCartKrash_SetSlopeFrame_9, 6
 
-Frame_20_57a6::
-	frame FrameTiles_34_4aa0, FrameSprites_34_7b0a, 8
+Frame_Unused_80::
+	frame FrameTiles_Unused_80, FrameSprites_Unused_80, 8
 
-Frame_20_57ac::
-	frame FrameTiles_34_4b20, FrameSprites_34_7b12, 8
+Frame_Unused_81::
+	frame FrameTiles_Unused_81, FrameSprites_Unused_81, 8
 
-Frame_20_57b2::
-	frame FrameTiles_34_4ba0, FrameSprites_34_7b1a, 8
+Frame_Unused_82::
+	frame FrameTiles_Unused_82, FrameSprites_Unused_82, 8
 
-Frame_20_57b8::
-	frame FrameTiles_34_4c20, FrameSprites_34_7b22, 8
+Frame_Unused_83::
+	frame FrameTiles_Unused_83, FrameSprites_Unused_83, 8
 
-Frame_20_57be::
-	frame FrameTiles_34_4ca0, FrameSprites_34_7b2a, 12
+Frame_SetPlayerAnimation_194::
+	frame FrameTiles_SetPlayerAnimation_194, FrameSprites_SetPlayerAnimation_194, 12
 
-Frame_20_57c4::
-	frame FrameTiles_34_4d60, FrameSprites_34_7b36, 14
+Frame_SetPlayerAnimation_195::
+	frame FrameTiles_SetPlayerAnimation_195, FrameSprites_SetPlayerAnimation_195, 14
 
-Frame_20_57ca::
-	frame FrameTiles_34_4e40, FrameSprites_34_7b44, 14
+Frame_SetPlayerAnimation_196::
+	frame FrameTiles_SetPlayerAnimation_196, FrameSprites_SetPlayerAnimation_196, 14
 
-Frame_20_57d0::
-	frame FrameTiles_34_4f20, FrameSprites_34_7b52, 14
+Frame_SetPlayerAnimation_197::
+	frame FrameTiles_SetPlayerAnimation_197, FrameSprites_SetPlayerAnimation_197, 14
 
-Frame_20_57d6::
-	frame FrameTiles_34_5000, FrameSprites_34_7b60, 12
+Frame_SetPlayerAnimation_198::
+	frame FrameTiles_SetPlayerAnimation_198, FrameSprites_SetPlayerAnimation_198, 12
 
-Frame_20_57dc::
-	frame FrameTiles_34_50c0, FrameSprites_34_7b6c, 12
+Frame_SetPlayerAnimation_199::
+	frame FrameTiles_SetPlayerAnimation_199, FrameSprites_SetPlayerAnimation_199, 12
 
-Frame_20_57e2::
-	frame FrameTiles_34_5180, FrameSprites_34_7b78, 16
+Frame_SetPlayerAnimation_200::
+	frame FrameTiles_SetPlayerAnimation_200, FrameSprites_SetPlayerAnimation_200, 16
 
-Frame_20_57e8::
-	frame FrameTiles_34_5280, FrameSprites_34_7b88, 18
+Frame_SetPlayerAnimation_201::
+	frame FrameTiles_SetPlayerAnimation_201, FrameSprites_SetPlayerAnimation_201, 18
 
-Frame_20_57ee::
-	frame FrameTiles_34_53a0, FrameSprites_34_7b9a, 20
+Frame_SetPlayerAnimation_202::
+	frame FrameTiles_SetPlayerAnimation_202, FrameSprites_SetPlayerAnimation_202, 20
 
-Frame_20_57f4::
-	frame FrameTiles_34_54e0, FrameSprites_34_7bae, 18
+Frame_SetPlayerAnimation_203::
+	frame FrameTiles_SetPlayerAnimation_203, FrameSprites_SetPlayerAnimation_203, 18
 
-Frame_20_57fa::
-	frame FrameTiles_34_5600, FrameSprites_34_7bc0, 20
+Frame_SetPlayerAnimation_204::
+	frame FrameTiles_SetPlayerAnimation_204, FrameSprites_SetPlayerAnimation_204, 20
 
-Frame_20_5800::
-	frame FrameTiles_34_5740, FrameSprites_34_7bd4, 20
+Frame_SetPlayerAnimation_205::
+	frame FrameTiles_SetPlayerAnimation_205, FrameSprites_SetPlayerAnimation_205, 20
 
-Frame_20_5806::
-	frame FrameTiles_34_5880, FrameSprites_34_7be8, 16
+Frame_Touch_Hurt_5::
+	frame FrameTiles_Touch_Hurt_5, FrameSprites_Touch_Hurt_5, 16
 
-Frame_20_580c::
-	frame FrameTiles_34_5980, FrameSprites_34_7bf8, 14
+Frame_Touch_Hurt_6::
+	frame FrameTiles_Touch_Hurt_6, FrameSprites_Touch_Hurt_6, 14
 
-Frame_20_5812::
-	frame FrameTiles_34_5a60, FrameSprites_34_7c06, 16
+Frame_Touch_Hurt_7::
+	frame FrameTiles_Touch_Hurt_7, FrameSprites_Touch_Hurt_7, 16
 
-Frame_20_5818::
-	frame FrameTiles_34_5b60, FrameSprites_34_7c16, 14
+Frame_Touch_Hurt_8::
+	frame FrameTiles_Touch_Hurt_8, FrameSprites_Touch_Hurt_8, 14
 
-Frame_20_581e::
-	frame FrameTiles_34_5c40, FrameSprites_34_7c24, 6
+Frame_Unused_84::
+	frame FrameTiles_Unused_84, FrameSprites_Unused_84, 6
 
-Frame_20_5824::
-	frame FrameTiles_34_5ca0, FrameSprites_34_7c2a, 6
+Frame_OilDrum_Burn_1::
+	frame FrameTiles_OilDrum_Burn_1, FrameSprites_OilDrum_Burn_1, 6
 
-Frame_20_582a::
-	frame FrameTiles_34_5d00, FrameSprites_34_7c30, 6
+Frame_OilDrum_Burn_2::
+	frame FrameTiles_OilDrum_Burn_2, FrameSprites_OilDrum_Burn_2, 6
 
-Frame_20_5830::
-	frame FrameTiles_34_5d60, FrameSprites_34_7c36, 4
+Frame_OilDrum_Burn_3::
+	frame FrameTiles_OilDrum_Burn_3, FrameSprites_OilDrum_Burn_3, 4
 
-Frame_20_5836::
-	frame FrameTiles_34_5da0, FrameSprites_34_7c3a, 4
+Frame_OilDrum_Burn_4::
+	frame FrameTiles_OilDrum_Burn_4, FrameSprites_OilDrum_Burn_4, 4
 
-Frame_20_583c::
-	frame FrameTiles_34_5de0, FrameSprites_34_7c3e, 2
+Frame_OilDrum_Burn_5::
+	frame FrameTiles_OilDrum_Burn_5, FrameSprites_OilDrum_Burn_5, 2
 
-Frame_20_5842::
-	frame FrameTiles_34_5e00, FrameSprites_34_7c40, 2
+Frame_OilDrum_Burn_6::
+	frame FrameTiles_OilDrum_Burn_6, FrameSprites_OilDrum_Burn_6, 2
 
-Frame_20_5848::
-	frame FrameTiles_34_5e20, FrameSprites_34_7c42, 6
+Frame_OilDrum_Wait_1::
+	frame FrameTiles_OilDrum_Wait_1, FrameSprites_OilDrum_Wait_1, 6
 
-Frame_20_584e::
-	frame FrameTiles_34_5e80, FrameSprites_34_7c48, 6
+Frame_OilDrum_Wait_2::
+	frame FrameTiles_OilDrum_Wait_2, FrameSprites_OilDrum_Wait_2, 6
 
-Frame_20_5854::
-	frame FrameTiles_34_5ee0, FrameSprites_34_7c4e, 6
+Frame_OilDrum_Wait_3::
+	frame FrameTiles_OilDrum_Wait_3, FrameSprites_OilDrum_Wait_3, 6
 
-Frame_20_585a::
-	frame FrameTiles_34_5f40, FrameSprites_34_7c54, 6
+Frame_OilDrum_Wait_4::
+	frame FrameTiles_OilDrum_Wait_4, FrameSprites_OilDrum_Wait_4, 6
 
-Frame_20_5860::
-	frame FrameTiles_34_5fa0, FrameSprites_34_7c5a, 6
+Frame_OilDrum_Wait_5::
+	frame FrameTiles_OilDrum_Wait_5, FrameSprites_OilDrum_Wait_5, 6
 
-Frame_20_5866::
-	frame FrameTiles_34_6000, FrameSprites_34_7c60, 6
+Frame_OilDrum_Wait_6::
+	frame FrameTiles_OilDrum_Wait_6, FrameSprites_OilDrum_Wait_6, 6
 
-Frame_20_586c::
-	frame FrameTiles_34_6060, FrameSprites_34_7c66, 6
+Frame_OilDrum_Wait_7::
+	frame FrameTiles_OilDrum_Wait_7, FrameSprites_OilDrum_Wait_7, 6
 
-Frame_20_5872::
-	frame FrameTiles_34_60c0, FrameSprites_34_7c6c, 14
+Frame_SetPlayerAnimation_206::
+	frame FrameTiles_SetPlayerAnimation_206, FrameSprites_SetPlayerAnimation_206, 14
 
-Frame_20_5878::
-	frame FrameTiles_34_61a0, FrameSprites_34_7c7a, 18
+Frame_SetPlayerAnimation_207::
+	frame FrameTiles_SetPlayerAnimation_207, FrameSprites_SetPlayerAnimation_207, 18
 
-Frame_20_587e::
-	frame FrameTiles_34_62c0, FrameSprites_34_7c8c, 16
+Frame_SetPlayerAnimation_208::
+	frame FrameTiles_SetPlayerAnimation_208, FrameSprites_SetPlayerAnimation_208, 16
 
-Frame_20_5884::
-	frame FrameTiles_34_63c0, FrameSprites_34_7c9c, 14
+Frame_SetPlayerAnimation_209::
+	frame FrameTiles_SetPlayerAnimation_209, FrameSprites_SetPlayerAnimation_209, 14
 
-Frame_20_588a::
-	frame FrameTiles_34_64a0, FrameSprites_34_7caa, 14
+Frame_SetPlayerAnimation_210::
+	frame FrameTiles_SetPlayerAnimation_210, FrameSprites_SetPlayerAnimation_210, 14
 
-Frame_20_5890::
-	frame FrameTiles_34_6580, FrameSprites_34_7cb8, 14
+Frame_SetPlayerAnimation_211::
+	frame FrameTiles_SetPlayerAnimation_211, FrameSprites_SetPlayerAnimation_211, 14
 
-Frame_20_5896::
-	frame FrameTiles_34_6660, FrameSprites_34_7cc6, 14
+Frame_SetPlayerAnimation_212::
+	frame FrameTiles_SetPlayerAnimation_212, FrameSprites_SetPlayerAnimation_212, 14
 
-Frame_20_589c::
-	frame FrameTiles_34_6740, FrameSprites_34_7cd4, 16
+Frame_SetPlayerAnimation_213::
+	frame FrameTiles_SetPlayerAnimation_213, FrameSprites_SetPlayerAnimation_213, 16
 
-Frame_20_58a2::
-	frame FrameTiles_34_6840, FrameSprites_34_7ce4, 16
+Frame_SetPlayerAnimation_214::
+	frame FrameTiles_SetPlayerAnimation_214, FrameSprites_SetPlayerAnimation_214, 16
 
-Frame_20_58a8::
-	frame FrameTiles_34_6940, FrameSprites_34_7cf4, 14
+Frame_SetPlayerAnimation_215::
+	frame FrameTiles_SetPlayerAnimation_215, FrameSprites_SetPlayerAnimation_215, 14
 
-Frame_20_58ae::
-	frame FrameTiles_34_6a20, FrameSprites_34_7d02, 16
+Frame_SetPlayerAnimation_216::
+	frame FrameTiles_SetPlayerAnimation_216, FrameSprites_SetPlayerAnimation_216, 16
 
-Frame_20_58b4::
-	frame FrameTiles_34_6b20, FrameSprites_34_7d12, 14
+Frame_SetPlayerAnimation_217::
+	frame FrameTiles_SetPlayerAnimation_217, FrameSprites_SetPlayerAnimation_217, 14
 
-Frame_20_58ba::
-	frame FrameTiles_34_6c00, FrameSprites_34_7d20, 12
+Frame_SetPlayerAnimation_218::
+	frame FrameTiles_SetPlayerAnimation_218, FrameSprites_SetPlayerAnimation_218, 12
 
-Frame_20_58c0::
-	frame FrameTiles_34_6cc0, FrameSprites_34_7d2c, 12
+Frame_SetPlayerAnimation_219::
+	frame FrameTiles_SetPlayerAnimation_219, FrameSprites_SetPlayerAnimation_219, 12
 
-Frame_20_58c6::
-	frame FrameTiles_34_6d80, FrameSprites_34_7d38, 12
+Frame_SetPlayerAnimation_220::
+	frame FrameTiles_SetPlayerAnimation_220, FrameSprites_SetPlayerAnimation_220, 12
 
-Frame_20_58cc::
-	frame FrameTiles_34_6e40, FrameSprites_34_7d44, 12
+Frame_SetPlayerAnimation_221::
+	frame FrameTiles_SetPlayerAnimation_221, FrameSprites_SetPlayerAnimation_221, 12
 
-Frame_20_58d2::
-	frame FrameTiles_34_6f00, FrameSprites_34_7d50, 12
+Frame_SetPlayerAnimation_222::
+	frame FrameTiles_SetPlayerAnimation_222, FrameSprites_SetPlayerAnimation_222, 12
 
-Frame_20_58d8::
-	frame FrameTiles_34_6fc0, FrameSprites_34_7d5c, 12
+Frame_SetPlayerAnimation_223::
+	frame FrameTiles_SetPlayerAnimation_223, FrameSprites_SetPlayerAnimation_223, 12
 
-Frame_20_58de::
-	frame FrameTiles_34_7080, FrameSprites_34_7d68, 14
+Frame_SetPlayerAnimation_224::
+	frame FrameTiles_SetPlayerAnimation_224, FrameSprites_SetPlayerAnimation_224, 14
 
-Frame_20_58e4::
-	frame FrameTiles_34_7160, FrameSprites_34_7d76, 12
+Frame_SetPlayerAnimation_225::
+	frame FrameTiles_SetPlayerAnimation_225, FrameSprites_SetPlayerAnimation_225, 12
 
-Frame_20_58ea::
-	frame FrameTiles_34_7220, FrameSprites_34_7d82, 12
+Frame_SetPlayerAnimation_226::
+	frame FrameTiles_SetPlayerAnimation_226, FrameSprites_SetPlayerAnimation_226, 12
 
-Frame_20_58f0::
-	frame FrameTiles_34_72e0, FrameSprites_34_7d8e, 12
+Frame_SetPlayerAnimation_227::
+	frame FrameTiles_SetPlayerAnimation_227, FrameSprites_SetPlayerAnimation_227, 12
 
-Frame_20_58f6::
-	frame FrameTiles_34_73a0, FrameSprites_34_7d9a, 12
+Frame_SetPlayerAnimation_228::
+	frame FrameTiles_SetPlayerAnimation_228, FrameSprites_SetPlayerAnimation_228, 12
 
-Frame_20_58fc::
-	frame FrameTiles_34_7460, FrameSprites_34_7da6, 10
+Frame_SetPlayerAnimation_229::
+	frame FrameTiles_SetPlayerAnimation_229, FrameSprites_SetPlayerAnimation_229, 10
 
-Frame_20_5902::
-	frame FrameTiles_34_7500, FrameSprites_34_7db0, 10
+Frame_SetPlayerAnimation_230::
+	frame FrameTiles_SetPlayerAnimation_230, FrameSprites_SetPlayerAnimation_230, 10
 
-Frame_20_5908::
-	frame FrameTiles_34_75a0, FrameSprites_34_7dba, 10
+Frame_SetPlayerAnimation_231::
+	frame FrameTiles_SetPlayerAnimation_231, FrameSprites_SetPlayerAnimation_231, 10
 
-Frame_20_590e::
-	frame FrameTiles_34_7640, FrameSprites_34_7dc4, 12
+Frame_SetPlayerAnimation_232::
+	frame FrameTiles_SetPlayerAnimation_232, FrameSprites_SetPlayerAnimation_232, 12
 
-Frame_20_5914::
-	frame FrameTiles_34_7700, FrameSprites_34_7dd0, 12
+Frame_SetPlayerAnimation_233::
+	frame FrameTiles_SetPlayerAnimation_233, FrameSprites_SetPlayerAnimation_233, 12
 
-Frame_20_591a::
-	frame FrameTiles_34_77c0, FrameSprites_34_7ddc, 12
+Frame_SetPlayerAnimation_234::
+	frame FrameTiles_SetPlayerAnimation_234, FrameSprites_SetPlayerAnimation_234, 12
 
-Frame_20_5920::
-	frame FrameTiles_34_7880, FrameSprites_34_7de8, 8
+Frame_LoopElevator::
+	frame FrameTiles_LoopElevator, FrameSprites_LoopElevator, 8
 
-Frame_20_5926::
-	frame FrameTiles_34_7900, FrameSprites_34_7df0, 12
+Frame_BlackDrum::
+	frame FrameTiles_BlackDrum, FrameSprites_BlackDrum, 12
 
-Frame_20_592c::
-	frame FrameTiles_34_79c0, FrameSprites_34_7dfc, 4
+Frame_Unused_85::
+	frame FrameTiles_Unused_85, FrameSprites_Unused_85, 4
 
-Frame_20_5932::
-	frame FrameTiles_34_7a00, FrameSprites_34_7e00, 6
+Frame_Unused_86::
+	frame FrameTiles_Unused_86, FrameSprites_Unused_86, 6
 
-Frame_20_5938::
-	frame FrameTiles_35_4000, FrameSprites_35_6be0, 40
+Frame_DrawPauseScreen_1::
+	frame FrameTiles_DrawPauseScreen_1, FrameSprites_DrawPauseScreen_1, 40
 
-Frame_20_593e::
-	frame FrameTiles_35_4280, FrameSprites_35_6c08, 38
+Frame_DrawPauseScreen_2::
+	frame FrameTiles_DrawPauseScreen_2, FrameSprites_DrawPauseScreen_2, 38
 
-Frame_20_5944::
-	frame FrameTiles_35_44e0, FrameSprites_35_6c2e, 36
+Frame_DrawPauseScreen_3::
+	frame FrameTiles_DrawPauseScreen_3, FrameSprites_DrawPauseScreen_3, 36
 
-Frame_20_594a::
-	frame FrameTiles_35_4720, FrameSprites_35_6c52, 34
+Frame_DrawPauseScreen_4::
+	frame FrameTiles_DrawPauseScreen_4, FrameSprites_DrawPauseScreen_4, 34
 
-Frame_20_5950::
-	frame FrameTiles_35_4940, FrameSprites_35_6c74, 48
+Frame_DrawPauseScreen_5::
+	frame FrameTiles_DrawPauseScreen_5, FrameSprites_DrawPauseScreen_5, 48
 
-Frame_20_5956::
-	frame FrameTiles_35_4c40, FrameSprites_35_6ca4, 34
+Frame_DrawPauseScreen_6::
+	frame FrameTiles_DrawPauseScreen_6, FrameSprites_DrawPauseScreen_6, 34
 
-Frame_20_595c::
-	frame FrameTiles_35_4e60, FrameSprites_35_6cc6, 36
+Frame_DrawPauseScreen_7::
+	frame FrameTiles_DrawPauseScreen_7, FrameSprites_DrawPauseScreen_7, 36
 
-Frame_20_5962::
-	frame FrameTiles_35_50a0, FrameSprites_35_6cea, 38
+Frame_DrawPauseScreen_8::
+	frame FrameTiles_DrawPauseScreen_8, FrameSprites_DrawPauseScreen_8, 38
 
-Frame_20_5968::
-	frame FrameTiles_35_5300, FrameSprites_35_6d10, 24
+Frame_Obj_Idle_3::
+	frame FrameTiles_Obj_Idle_3, FrameSprites_Obj_Idle_3, 24
 
-Frame_20_596e::
-	frame FrameTiles_35_5480, FrameSprites_35_6d28, 2
+Frame_MankyBarrel_1::
+	frame FrameTiles_MankyBarrel_1, FrameSprites_MankyBarrel_1, 2
 
-Frame_20_5974::
-	frame FrameTiles_35_54a0, FrameSprites_35_6d2a, 4
+Frame_MankyBarrel_2::
+	frame FrameTiles_MankyBarrel_2, FrameSprites_MankyBarrel_2, 4
 
-Frame_20_597a::
-	frame FrameTiles_35_54e0, FrameSprites_35_6d2e, 6
+Frame_MankyBarrel_3::
+	frame FrameTiles_MankyBarrel_3, FrameSprites_MankyBarrel_3, 6
 
-Frame_20_5980::
-	frame FrameTiles_35_5540, FrameSprites_35_6d34, 6
+Frame_MankyBarrel_4::
+	frame FrameTiles_MankyBarrel_4, FrameSprites_MankyBarrel_4, 6
 
-Frame_20_5986::
-	frame FrameTiles_35_55a0, FrameSprites_35_6d3a, 12
+Frame_FuelBarrel_1::
+	frame FrameTiles_FuelBarrel_1, FrameSprites_FuelBarrel_1, 12
 
-Frame_20_598c::
-	frame FrameTiles_35_5660, FrameSprites_35_6d46, 12
+Frame_FuelBarrel_2::
+	frame FrameTiles_FuelBarrel_2, FrameSprites_FuelBarrel_2, 12
 
-Frame_20_5992::
-	frame FrameTiles_35_5720, FrameSprites_35_6d52, 12
+Frame_Unused_87::
+	frame FrameTiles_Unused_87, FrameSprites_Unused_87, 12
 
-Frame_20_5998::
-	frame FrameTiles_35_57e0, FrameSprites_35_6d5e, 12
+Frame_FuelBarrel_3::
+	frame FrameTiles_FuelBarrel_3, FrameSprites_FuelBarrel_3, 12
 
-Frame_20_599e::
-	frame FrameTiles_35_58a0, FrameSprites_35_6d6a, 12
+Frame_FuelBarrel_4::
+	frame FrameTiles_FuelBarrel_4, FrameSprites_FuelBarrel_4, 12
 
-Frame_20_59a4::
-	frame FrameTiles_35_5960, FrameSprites_35_6d76, 12
+Frame_SetPlayerAnimation_235::
+	frame FrameTiles_SetPlayerAnimation_235, FrameSprites_SetPlayerAnimation_235, 12
 
-Frame_20_59aa::
-	frame FrameTiles_35_5a20, FrameSprites_35_6d82, 14
+Frame_SetPlayerAnimation_236::
+	frame FrameTiles_SetPlayerAnimation_236, FrameSprites_SetPlayerAnimation_236, 14
 
-Frame_20_59b0::
-	frame FrameTiles_35_5b00, FrameSprites_35_6d90, 14
+Frame_SetPlayerAnimation_237::
+	frame FrameTiles_SetPlayerAnimation_237, FrameSprites_SetPlayerAnimation_237, 14
 
-Frame_20_59b6::
-	frame FrameTiles_35_5be0, FrameSprites_35_6d9e, 16
+Frame_SetPlayerAnimation_238::
+	frame FrameTiles_SetPlayerAnimation_238, FrameSprites_SetPlayerAnimation_238, 16
 
-Frame_20_59bc::
-	frame FrameTiles_35_5ce0, FrameSprites_35_6dae, 16
+Frame_SetPlayerAnimation_239::
+	frame FrameTiles_SetPlayerAnimation_239, FrameSprites_SetPlayerAnimation_239, 16
 
-Frame_20_59c2::
-	frame FrameTiles_35_5de0, FrameSprites_35_6dbe, 12
+Frame_SetPlayerAnimation_240::
+	frame FrameTiles_SetPlayerAnimation_240, FrameSprites_SetPlayerAnimation_240, 12
 
-Frame_20_59c8::
-	frame FrameTiles_35_5ea0, FrameSprites_35_6dca, 14
+Frame_SetPlayerAnimation_241::
+	frame FrameTiles_SetPlayerAnimation_241, FrameSprites_SetPlayerAnimation_241, 14
 
-Frame_20_59ce::
-	frame FrameTiles_35_5f80, FrameSprites_35_6dd8, 18
+Frame_SetPlayerAnimation_242::
+	frame FrameTiles_SetPlayerAnimation_242, FrameSprites_SetPlayerAnimation_242, 18
 
-Frame_20_59d4::
-	frame FrameTiles_35_60a0, FrameSprites_35_6dea, 20
+Frame_SetPlayerAnimation_243::
+	frame FrameTiles_SetPlayerAnimation_243, FrameSprites_SetPlayerAnimation_243, 20
 
-Frame_20_59da::
-	frame FrameTiles_35_61e0, FrameSprites_35_6dfe, 16
+Frame_SetPlayerAnimation_244::
+	frame FrameTiles_SetPlayerAnimation_244, FrameSprites_SetPlayerAnimation_244, 16
 
-Frame_20_59e0::
-	frame FrameTiles_35_62e0, FrameSprites_35_6e0e, 18
+Frame_SetPlayerAnimation_245::
+	frame FrameTiles_SetPlayerAnimation_245, FrameSprites_SetPlayerAnimation_245, 18
 
-Frame_20_59e6::
-	frame FrameTiles_35_6400, FrameSprites_35_6e20, 18
+Frame_SetPlayerAnimation_246::
+	frame FrameTiles_SetPlayerAnimation_246, FrameSprites_SetPlayerAnimation_246, 18
 
-Frame_20_59ec::
-	frame FrameTiles_35_6520, FrameSprites_35_6e32, 18
+Frame_SetPlayerAnimation_247::
+	frame FrameTiles_SetPlayerAnimation_247, FrameSprites_SetPlayerAnimation_247, 18
 
-Frame_20_59f2::
-	frame FrameTiles_35_6640, FrameSprites_35_6e44, 14
+Frame_SetPlayerAnimation_248::
+	frame FrameTiles_SetPlayerAnimation_248, FrameSprites_SetPlayerAnimation_248, 14
 
-Frame_20_59f8::
-	frame FrameTiles_35_6720, FrameSprites_35_6e52, 16
+Frame_SetPlayerAnimation_249::
+	frame FrameTiles_SetPlayerAnimation_249, FrameSprites_SetPlayerAnimation_249, 16
 
-Frame_20_59fe::
-	frame FrameTiles_35_6820, FrameSprites_35_6e62, 16
+Frame_SetPlayerAnimation_250::
+	frame FrameTiles_SetPlayerAnimation_250, FrameSprites_SetPlayerAnimation_250, 16
 
-Frame_20_5a04::
-	frame FrameTiles_35_6920, FrameSprites_35_6e72, 16
+Frame_SetPlayerAnimation_251::
+	frame FrameTiles_SetPlayerAnimation_251, FrameSprites_SetPlayerAnimation_251, 16
 
-Frame_20_5a0a::
-	frame FrameTiles_35_6a20, FrameSprites_35_6e82, 14
+Frame_SetPlayerAnimation_252::
+	frame FrameTiles_SetPlayerAnimation_252, FrameSprites_SetPlayerAnimation_252, 14
 
-Frame_20_5a10::
-	frame FrameTiles_35_6b00, FrameSprites_35_6e90, 14
+Frame_SetPlayerAnimation_253::
+	frame FrameTiles_SetPlayerAnimation_253, FrameSprites_SetPlayerAnimation_253, 14
 
-Frame_20_5a16::
-	frame FrameTiles_36_4000, FrameSprites_36_7280, 22
+Frame_VeryGnawty_Recoil_1::
+	frame FrameTiles_VeryGnawty_Recoil_1, FrameSprites_VeryGnawty_Recoil_1, 22
 
-Frame_20_5a1c::
-	frame FrameTiles_36_4160, FrameSprites_36_72a1, 22
+Frame_VeryGnawty_Recoil_2::
+	frame FrameTiles_VeryGnawty_Recoil_2, FrameSprites_VeryGnawty_Recoil_2, 22
 
-Frame_20_5a22::
-	frame FrameTiles_36_42c0, FrameSprites_36_72c2, 20
+Frame_VeryGnawty_Recoil_3::
+	frame FrameTiles_VeryGnawty_Recoil_3, FrameSprites_VeryGnawty_Recoil_3, 20
 
-Frame_20_5a28::
-	frame FrameTiles_36_4400, FrameSprites_36_72e0, 20
+Frame_VeryGnawty_Recoil_4::
+	frame FrameTiles_VeryGnawty_Recoil_4, FrameSprites_VeryGnawty_Recoil_4, 20
 
-Frame_20_5a2e::
-	frame FrameTiles_36_4540, FrameSprites_36_72fe, 18
+Frame_VeryGnawty_Recoil_5::
+	frame FrameTiles_VeryGnawty_Recoil_5, FrameSprites_VeryGnawty_Recoil_5, 18
 
-Frame_20_5a34::
-	frame FrameTiles_36_4660, FrameSprites_36_7319, 18
+Frame_VeryGnawty_Recoil_6::
+	frame FrameTiles_VeryGnawty_Recoil_6, FrameSprites_VeryGnawty_Recoil_6, 18
 
-Frame_20_5a3a::
-	frame FrameTiles_36_4780, FrameSprites_36_7334, 18
+Frame_VeryGnawty_Recoil_7::
+	frame FrameTiles_VeryGnawty_Recoil_7, FrameSprites_VeryGnawty_Recoil_7, 18
 
-Frame_20_5a40::
-	frame FrameTiles_36_48a0, FrameSprites_36_734f, 22
+Frame_BossDefeated_1::
+	frame FrameTiles_BossDefeated_1, FrameSprites_BossDefeated_1, 22
 
-Frame_20_5a46::
-	frame FrameTiles_36_4a00, FrameSprites_36_7370, 24
+Frame_BossDefeated_2::
+	frame FrameTiles_BossDefeated_2, FrameSprites_BossDefeated_2, 24
 
-Frame_20_5a4c::
-	frame FrameTiles_36_4b80, FrameSprites_36_7394, 26
+Frame_BossDefeated_3::
+	frame FrameTiles_BossDefeated_3, FrameSprites_BossDefeated_3, 26
 
-Frame_20_5a52::
-	frame FrameTiles_36_4d20, FrameSprites_36_73bb, 22
+Frame_BossDefeated_4::
+	frame FrameTiles_BossDefeated_4, FrameSprites_BossDefeated_4, 22
 
-Frame_20_5a58::
-	frame FrameTiles_36_4e80, FrameSprites_36_73dc, 26
+Frame_BossDefeated_5::
+	frame FrameTiles_BossDefeated_5, FrameSprites_BossDefeated_5, 26
 
-Frame_20_5a5e::
-	frame FrameTiles_36_5020, FrameSprites_36_7403, 26
+Frame_BossDefeated_6::
+	frame FrameTiles_BossDefeated_6, FrameSprites_BossDefeated_6, 26
 
-Frame_20_5a64::
-	frame FrameTiles_36_51c0, FrameSprites_36_742a, 28
+Frame_BossDefeated_7::
+	frame FrameTiles_BossDefeated_7, FrameSprites_BossDefeated_7, 28
 
-Frame_20_5a6a::
-	frame FrameTiles_36_5380, FrameSprites_36_7454, 28
+Frame_BossDefeated_8::
+	frame FrameTiles_BossDefeated_8, FrameSprites_BossDefeated_8, 28
 
-Frame_20_5a70::
-	frame FrameTiles_36_5540, FrameSprites_36_747e, 24
+Frame_BossDefeated_9::
+	frame FrameTiles_BossDefeated_9, FrameSprites_BossDefeated_9, 24
 
-Frame_20_5a76::
-	frame FrameTiles_36_56c0, FrameSprites_36_74a2, 20
+Frame_BossDefeated_10::
+	frame FrameTiles_BossDefeated_10, FrameSprites_BossDefeated_10, 20
 
-Frame_20_5a7c::
-	frame FrameTiles_36_5800, FrameSprites_36_74c0, 20
+Frame_BossDefeated_11::
+	frame FrameTiles_BossDefeated_11, FrameSprites_BossDefeated_11, 20
 
-Frame_20_5a82::
-	frame FrameTiles_36_5940, FrameSprites_36_74de, 20
+Frame_BossDefeated_12::
+	frame FrameTiles_BossDefeated_12, FrameSprites_BossDefeated_12, 20
 
-Frame_20_5a88::
-	frame FrameTiles_36_5a80, FrameSprites_36_74fc, 20
+Frame_BossDefeated_13::
+	frame FrameTiles_BossDefeated_13, FrameSprites_BossDefeated_13, 20
 
-Frame_20_5a8e::
-	frame FrameTiles_36_5bc0, FrameSprites_36_751a, 22
+Frame_VeryGnawty_Hop_1::
+	frame FrameTiles_VeryGnawty_Hop_1, FrameSprites_VeryGnawty_Hop_1, 22
 
-Frame_20_5a94::
-	frame FrameTiles_36_5d20, FrameSprites_36_753b, 24
+Frame_VeryGnawty_Hop_2::
+	frame FrameTiles_VeryGnawty_Hop_2, FrameSprites_VeryGnawty_Hop_2, 24
 
-Frame_20_5a9a::
-	frame FrameTiles_36_5ea0, FrameSprites_36_755f, 22
+Frame_VeryGnawty_Hop_3::
+	frame FrameTiles_VeryGnawty_Hop_3, FrameSprites_VeryGnawty_Hop_3, 22
 
-Frame_20_5aa0::
-	frame FrameTiles_36_6000, FrameSprites_36_7580, 24
+Frame_VeryGnawty_Hop_4::
+	frame FrameTiles_VeryGnawty_Hop_4, FrameSprites_VeryGnawty_Hop_4, 24
 
-Frame_20_5aa6::
-	frame FrameTiles_36_6180, FrameSprites_36_75a4, 28
+Frame_VeryGnawty_Hop_5::
+	frame FrameTiles_VeryGnawty_Hop_5, FrameSprites_VeryGnawty_Hop_5, 28
 
-Frame_20_5aac::
-	frame FrameTiles_36_6340, FrameSprites_36_75ce, 26
+Frame_VeryGnawty_Hop_6::
+	frame FrameTiles_VeryGnawty_Hop_6, FrameSprites_VeryGnawty_Hop_6, 26
 
-Frame_20_5ab2::
-	frame FrameTiles_36_64e0, FrameSprites_36_75f5, 26
+Frame_QueenB_Init_1::
+	frame FrameTiles_QueenB_Init_1, FrameSprites_QueenB_Init_1, 26
 
-Frame_20_5ab8::
-	frame FrameTiles_36_6680, FrameSprites_36_761c, 26
+Frame_QueenB_Init_2::
+	frame FrameTiles_QueenB_Init_2, FrameSprites_QueenB_Init_2, 26
 
-Frame_20_5abe::
-	frame FrameTiles_36_6820, FrameSprites_36_7643, 30
+Frame_QueenB_Init_3::
+	frame FrameTiles_QueenB_Init_3, FrameSprites_QueenB_Init_3, 30
 
-Frame_20_5ac4::
-	frame FrameTiles_36_6a00, FrameSprites_36_7670, 28
+Frame_QueenB_Init_4::
+	frame FrameTiles_QueenB_Init_4, FrameSprites_QueenB_Init_4, 28
 
-Frame_20_5aca::
-	frame FrameTiles_36_6bc0, FrameSprites_36_769a, 26
+Frame_QueenB_Init_5::
+	frame FrameTiles_QueenB_Init_5, FrameSprites_QueenB_Init_5, 26
 
-Frame_20_5ad0::
-	frame FrameTiles_36_6d60, FrameSprites_36_76c1, 26
+Frame_QueenB_Init_6::
+	frame FrameTiles_QueenB_Init_6, FrameSprites_QueenB_Init_6, 26
 
-Frame_20_5ad6::
-	frame FrameTiles_36_6f00, FrameSprites_36_76e8, 30
+Frame_QueenB_Init_7::
+	frame FrameTiles_QueenB_Init_7, FrameSprites_QueenB_Init_7, 30
 
-Frame_20_5adc::
-	frame FrameTiles_36_70e0, FrameSprites_36_7715, 26
+Frame_QueenB_Init_8::
+	frame FrameTiles_QueenB_Init_8, FrameSprites_QueenB_Init_8, 26
 
-Frame_20_5ae2::
-	frame FrameTiles_37_4b80, FrameSprites_37_6ad4, 26
+Frame_BossDefeated_14::
+	frame FrameTiles_BossDefeated_14, FrameSprites_BossDefeated_14, 26
 
-Frame_20_5ae8::
-	frame FrameTiles_37_4d20, FrameSprites_37_6afb, 22
+Frame_BossDefeated_15::
+	frame FrameTiles_BossDefeated_15, FrameSprites_BossDefeated_15, 22
 
-Frame_20_5aee::
-	frame FrameTiles_37_4e80, FrameSprites_37_6b1c, 26
+Frame_BossDefeated_16::
+	frame FrameTiles_BossDefeated_16, FrameSprites_BossDefeated_16, 26
 
-Frame_20_5af4::
-	frame FrameTiles_37_5020, FrameSprites_37_6b43, 24
+Frame_BossDefeated_17::
+	frame FrameTiles_BossDefeated_17, FrameSprites_BossDefeated_17, 24
 
-Frame_20_5afa::
-	frame FrameTiles_37_51a0, FrameSprites_37_6b67, 22
+Frame_BossDefeated_18::
+	frame FrameTiles_BossDefeated_18, FrameSprites_BossDefeated_18, 22
 
-Frame_20_5b00::
-	frame FrameTiles_37_5300, FrameSprites_37_6b88, 18
+Frame_BossDefeated_19::
+	frame FrameTiles_BossDefeated_19, FrameSprites_BossDefeated_19, 18
 
-Frame_20_5b06::
-	frame FrameTiles_2b_4000, FrameSprites_2b_6fe0, 28
+Frame_BossDefeated_20::
+	frame FrameTiles_BossDefeated_20, FrameSprites_BossDefeated_20, 28
 
-Frame_20_5b0c::
-	frame FrameTiles_2b_41c0, FrameSprites_2b_700a, 30
+Frame_BossDefeated_21::
+	frame FrameTiles_BossDefeated_21, FrameSprites_BossDefeated_21, 30
 
-Frame_20_5b12::
-	frame FrameTiles_2b_43a0, FrameSprites_2b_7037, 30
+Frame_BossDefeated_22::
+	frame FrameTiles_BossDefeated_22, FrameSprites_BossDefeated_22, 30
 
-Frame_20_5b18::
-	frame FrameTiles_2b_4580, FrameSprites_2b_7064, 30
+Frame_BossDefeated_23::
+	frame FrameTiles_BossDefeated_23, FrameSprites_BossDefeated_23, 30
 
-Frame_20_5b1e::
-	frame FrameTiles_2b_4760, FrameSprites_2b_7091, 40
+Frame_DumbDrum_Init_1::
+	frame FrameTiles_DumbDrum_Init_1, FrameSprites_DumbDrum_Init_1, 40
 
-Frame_20_5b24::
-	frame FrameTiles_2b_49e0, FrameSprites_2b_70cd, 44
+Frame_DumbDrum_Init_2::
+	frame FrameTiles_DumbDrum_Init_2, FrameSprites_DumbDrum_Init_2, 44
 
-Frame_20_5b2a::
-	frame FrameTiles_2b_4ca0, FrameSprites_2b_710f, 20
+Frame_DumbDrum_Descend::
+	frame FrameTiles_DumbDrum_Descend, FrameSprites_DumbDrum_Descend, 20
 
-Frame_20_5b30::
-	frame FrameTiles_2b_4de0, FrameSprites_2b_712d, 46
+Frame_BossDefeated_24::
+	frame FrameTiles_BossDefeated_24, FrameSprites_BossDefeated_24, 46
 
-Frame_20_5b36::
-	frame FrameTiles_2b_50c0, FrameSprites_2b_7172, 30
+Frame_MasterNecky_Defeated_1::
+	frame FrameTiles_MasterNecky_Defeated_1, FrameSprites_MasterNecky_Defeated_1, 30
 
-Frame_20_5b3c::
-	frame FrameTiles_2b_52a0, FrameSprites_2b_719f, 26
+Frame_MasterNecky_Defeated_2::
+	frame FrameTiles_MasterNecky_Defeated_2, FrameSprites_MasterNecky_Defeated_2, 26
 
-Frame_20_5b42::
-	frame FrameTiles_2b_5440, FrameSprites_2b_71c6, 26
+Frame_MasterNecky_Defeated_3::
+	frame FrameTiles_MasterNecky_Defeated_3, FrameSprites_MasterNecky_Defeated_3, 26
 
-Frame_20_5b48::
-	frame FrameTiles_2b_55e0, FrameSprites_2b_71ed, 24
+Frame_MasterNecky_Defeated_4::
+	frame FrameTiles_MasterNecky_Defeated_4, FrameSprites_MasterNecky_Defeated_4, 24
 
-Frame_20_5b4e::
-	frame FrameTiles_2b_5760, FrameSprites_2b_7211, 22
+Frame_MasterNecky_Defeated_5::
+	frame FrameTiles_MasterNecky_Defeated_5, FrameSprites_MasterNecky_Defeated_5, 22
 
-Frame_20_5b54::
-	frame FrameTiles_2b_58c0, FrameSprites_2b_7232, 22
+Frame_MasterNecky_Defeated_6::
+	frame FrameTiles_MasterNecky_Defeated_6, FrameSprites_MasterNecky_Defeated_6, 22
 
-Frame_20_5b5a::
-	frame FrameTiles_2b_5a20, FrameSprites_2b_7253, 28
+Frame_MasterNecky_Defeated_7::
+	frame FrameTiles_MasterNecky_Defeated_7, FrameSprites_MasterNecky_Defeated_7, 28
 
-Frame_20_5b60::
-	frame FrameTiles_2b_5be0, FrameSprites_2b_727d, 30
+Frame_MasterNecky_Defeated_8::
+	frame FrameTiles_MasterNecky_Defeated_8, FrameSprites_MasterNecky_Defeated_8, 30
 
-Frame_20_5b66::
-	frame FrameTiles_2b_5dc0, FrameSprites_2b_72aa, 34
+Frame_MasterNecky_Defeated_9::
+	frame FrameTiles_MasterNecky_Defeated_9, FrameSprites_MasterNecky_Defeated_9, 34
 
-Frame_20_5b6c::
-	frame FrameTiles_2b_5fe0, FrameSprites_2b_72dd, 36
+Frame_MasterNecky_Defeated_10::
+	frame FrameTiles_MasterNecky_Defeated_10, FrameSprites_MasterNecky_Defeated_10, 36
 
-Frame_20_5b72::
-	frame FrameTiles_2b_6220, FrameSprites_2b_7313, 38
+Frame_MasterNecky_Defeated_11::
+	frame FrameTiles_MasterNecky_Defeated_11, FrameSprites_MasterNecky_Defeated_11, 38
 
-Frame_20_5b78::
-	frame FrameTiles_2b_6480, FrameSprites_2b_734c, 38
+Frame_MasterNecky_Defeated_12::
+	frame FrameTiles_MasterNecky_Defeated_12, FrameSprites_MasterNecky_Defeated_12, 38
 
-Frame_20_5b7e::
-	frame FrameTiles_2b_66e0, FrameSprites_2b_7385, 30
+Frame_MasterNecky::
+	frame FrameTiles_MasterNecky, FrameSprites_MasterNecky, 30
 
-Frame_20_5b84::
-	frame FrameTiles_2b_68c0, FrameSprites_2b_73b2, 28
+Frame_MasterNecky_Spit_1::
+	frame FrameTiles_MasterNecky_Spit_1, FrameSprites_MasterNecky_Spit_1, 28
 
-Frame_20_5b8a::
-	frame FrameTiles_2b_6a80, FrameSprites_2b_73dc, 24
+Frame_MasterNecky_Spit_2::
+	frame FrameTiles_MasterNecky_Spit_2, FrameSprites_MasterNecky_Spit_2, 24
 
-Frame_20_5b90::
-	frame FrameTiles_2b_6c00, FrameSprites_2b_7400, 30
+Frame_MasterNecky_Spit_3::
+	frame FrameTiles_MasterNecky_Spit_3, FrameSprites_MasterNecky_Spit_3, 30
 
-Frame_20_5b96::
-	frame FrameTiles_2b_6de0, FrameSprites_2b_742d, 32
+Frame_MasterNecky_Spit_4::
+	frame FrameTiles_MasterNecky_Spit_4, FrameSprites_MasterNecky_Spit_4, 32
 
-Frame_20_5b9c::
-	frame FrameTiles_2c_4000, FrameSprites_2c_6a40, 34
+Frame_KingKRool_RunPause_1::
+	frame FrameTiles_KingKRool_RunPause_1, FrameSprites_KingKRool_RunPause_1, 34
 
-Frame_20_5ba2::
-	frame FrameTiles_2c_4220, FrameSprites_2c_6a73, 34
+Frame_KingKRool_RunPause_2::
+	frame FrameTiles_KingKRool_RunPause_2, FrameSprites_KingKRool_RunPause_2, 34
 
-Frame_20_5ba8::
-	frame FrameTiles_2c_4440, FrameSprites_2c_6aa6, 34
+Frame_KingKRool_RunPause_3::
+	frame FrameTiles_KingKRool_RunPause_3, FrameSprites_KingKRool_RunPause_3, 34
 
-Frame_20_5bae::
-	frame FrameTiles_2c_4660, FrameSprites_2c_6ad9, 30
+Frame_KingKRool_RunPause_4::
+	frame FrameTiles_KingKRool_RunPause_4, FrameSprites_KingKRool_RunPause_4, 30
 
-Frame_20_5bb4::
-	frame FrameTiles_2c_4840, FrameSprites_2c_6b06, 30
+Frame_KingKRool_RunPause_5::
+	frame FrameTiles_KingKRool_RunPause_5, FrameSprites_KingKRool_RunPause_5, 30
 
-Frame_20_5bba::
-	frame FrameTiles_2c_4a20, FrameSprites_2c_6b33, 32
+Frame_KingKRool_RunPause_6::
+	frame FrameTiles_KingKRool_RunPause_6, FrameSprites_KingKRool_RunPause_6, 32
 
-Frame_20_5bc0::
-	frame FrameTiles_2c_4c20, FrameSprites_2c_6b63, 30
+Frame_KingKRool_RunPause_7::
+	frame FrameTiles_KingKRool_RunPause_7, FrameSprites_KingKRool_RunPause_7, 30
 
-Frame_20_5bc6::
-	frame FrameTiles_2c_4e00, FrameSprites_2c_6b90, 30
+Frame_KingKRool_BeginRuns_1::
+	frame FrameTiles_KingKRool_BeginRuns_1, FrameSprites_KingKRool_BeginRuns_1, 30
 
-Frame_20_5bcc::
-	frame FrameTiles_2c_4fe0, FrameSprites_2c_6bbd, 28
+Frame_KingKRool_BeginRuns_2::
+	frame FrameTiles_KingKRool_BeginRuns_2, FrameSprites_KingKRool_BeginRuns_2, 28
 
-Frame_20_5bd2::
-	frame FrameTiles_2c_51a0, FrameSprites_2c_6be7, 28
+Frame_KingKRool_BeginRuns_3::
+	frame FrameTiles_KingKRool_BeginRuns_3, FrameSprites_KingKRool_BeginRuns_3, 28
 
-Frame_20_5bd8::
-	frame FrameTiles_2c_5360, FrameSprites_2c_6c11, 34
+Frame_KingKRool_BeginRuns_4::
+	frame FrameTiles_KingKRool_BeginRuns_4, FrameSprites_KingKRool_BeginRuns_4, 34
 
-Frame_20_5bde::
-	frame FrameTiles_2c_5580, FrameSprites_2c_6c44, 34
+Frame_KingKRool_BeginRuns_5::
+	frame FrameTiles_KingKRool_BeginRuns_5, FrameSprites_KingKRool_BeginRuns_5, 34
 
-Frame_20_5be4::
-	frame FrameTiles_2c_57a0, FrameSprites_2c_6c77, 32
+Frame_KingKRool_BeginRuns_6::
+	frame FrameTiles_KingKRool_BeginRuns_6, FrameSprites_KingKRool_BeginRuns_6, 32
 
-Frame_20_5bea::
-	frame FrameTiles_2c_59a0, FrameSprites_2c_6ca7, 32
+Frame_KingKRool_Wait_1::
+	frame FrameTiles_KingKRool_Wait_1, FrameSprites_KingKRool_Wait_1, 32
 
-Frame_20_5bf0::
-	frame FrameTiles_2c_5ba0, FrameSprites_2c_6cd7, 32
+Frame_KingKRool_Wait_2::
+	frame FrameTiles_KingKRool_Wait_2, FrameSprites_KingKRool_Wait_2, 32
 
-Frame_20_5bf6::
-	frame FrameTiles_2c_5da0, FrameSprites_2c_6d07, 30
+Frame_KingKRool_Wait_3::
+	frame FrameTiles_KingKRool_Wait_3, FrameSprites_KingKRool_Wait_3, 30
 
-Frame_20_5bfc::
-	frame FrameTiles_2c_5f80, FrameSprites_2c_6d34, 34
+Frame_KingKRool_Wait_4::
+	frame FrameTiles_KingKRool_Wait_4, FrameSprites_KingKRool_Wait_4, 34
 
-Frame_20_5c02::
-	frame FrameTiles_2c_61a0, FrameSprites_2c_6d67, 36
+Frame_KingKRool_Wait_5::
+	frame FrameTiles_KingKRool_Wait_5, FrameSprites_KingKRool_Wait_5, 36
 
-Frame_20_5c08::
-	frame FrameTiles_2c_63e0, FrameSprites_2c_6d9d, 34
+Frame_KingKRool_Wait_6::
+	frame FrameTiles_KingKRool_Wait_6, FrameSprites_KingKRool_Wait_6, 34
 
-Frame_20_5c0e::
-	frame FrameTiles_2c_6600, FrameSprites_2c_6dd0, 34
+Frame_KingKRool_Wait_7::
+	frame FrameTiles_KingKRool_Wait_7, FrameSprites_KingKRool_Wait_7, 34
 
-Frame_20_5c14::
-	frame FrameTiles_2c_6820, FrameSprites_2c_6e03, 34
+Frame_KingKRool_Wait_8::
+	frame FrameTiles_KingKRool_Wait_8, FrameSprites_KingKRool_Wait_8, 34
 
-Frame_20_5c1a::
-	frame FrameTiles_32_5880, FrameSprites_32_7348, 30
+Frame_KingKRool_Hop_1::
+	frame FrameTiles_KingKRool_Hop_1, FrameSprites_KingKRool_Hop_1, 30
 
-Frame_20_5c20::
-	frame FrameTiles_32_5a60, FrameSprites_32_7375, 32
+Frame_KingKRool_Hop_2::
+	frame FrameTiles_KingKRool_Hop_2, FrameSprites_KingKRool_Hop_2, 32
 
-Frame_20_5c26::
-	frame FrameTiles_32_5c60, FrameSprites_32_73a5, 32
+Frame_KingKRool_Hop_3::
+	frame FrameTiles_KingKRool_Hop_3, FrameSprites_KingKRool_Hop_3, 32
 
-Frame_20_5c2c::
-	frame FrameTiles_32_5e60, FrameSprites_32_73d5, 30
+Frame_KingKRool_Hop_4::
+	frame FrameTiles_KingKRool_Hop_4, FrameSprites_KingKRool_Hop_4, 30
 
-Frame_20_5c32::
-	frame FrameTiles_32_6040, FrameSprites_32_7402, 32
+Frame_KingKRool_Hop_5::
+	frame FrameTiles_KingKRool_Hop_5, FrameSprites_KingKRool_Hop_5, 32
 
-Frame_20_5c38::
-	frame FrameTiles_32_6240, FrameSprites_32_7432, 36
+Frame_KingKRool_Hop_6::
+	frame FrameTiles_KingKRool_Hop_6, FrameSprites_KingKRool_Hop_6, 36
 
-Frame_20_5c3e::
-	frame FrameTiles_32_6480, FrameSprites_32_7468, 36
+Frame_KingKRool_Hop_7::
+	frame FrameTiles_KingKRool_Hop_7, FrameSprites_KingKRool_Hop_7, 36
 
-Frame_20_5c44::
-	frame FrameTiles_2d_4000, FrameSprites_2d_6ae0, 32
+Frame_KingKRool_Wait_9::
+	frame FrameTiles_KingKRool_Wait_9, FrameSprites_KingKRool_Wait_9, 32
 
-Frame_20_5c4a::
-	frame FrameTiles_2d_4200, FrameSprites_2d_6b10, 32
+Frame_KingKRool_Wait_10::
+	frame FrameTiles_KingKRool_Wait_10, FrameSprites_KingKRool_Wait_10, 32
 
-Frame_20_5c50::
-	frame FrameTiles_2d_4400, FrameSprites_2d_6b40, 32
+Frame_KingKRool_Wait_11::
+	frame FrameTiles_KingKRool_Wait_11, FrameSprites_KingKRool_Wait_11, 32
 
-Frame_20_5c56::
-	frame FrameTiles_2d_4600, FrameSprites_2d_6b70, 30
+Frame_KingKRool_Wait_12::
+	frame FrameTiles_KingKRool_Wait_12, FrameSprites_KingKRool_Wait_12, 30
 
-Frame_20_5c5c::
-	frame FrameTiles_2d_47e0, FrameSprites_2d_6b9d, 38
+Frame_KingKRool_FakeDefeat_1::
+	frame FrameTiles_KingKRool_FakeDefeat_1, FrameSprites_KingKRool_FakeDefeat_1, 38
 
-Frame_20_5c62::
-	frame FrameTiles_2d_4a40, FrameSprites_2d_6bd6, 34
+Frame_KingKRool_FakeDefeat_2::
+	frame FrameTiles_KingKRool_FakeDefeat_2, FrameSprites_KingKRool_FakeDefeat_2, 34
 
-Frame_20_5c68::
-	frame FrameTiles_2d_4c60, FrameSprites_2d_6c09, 32
+Frame_KingKRool_FakeDefeat_3::
+	frame FrameTiles_KingKRool_FakeDefeat_3, FrameSprites_KingKRool_FakeDefeat_3, 32
 
-Frame_20_5c6e::
-	frame FrameTiles_2d_4e60, FrameSprites_2d_6c39, 34
+Frame_KingKRool_FakeDefeat_4::
+	frame FrameTiles_KingKRool_FakeDefeat_4, FrameSprites_KingKRool_FakeDefeat_4, 34
 
-Frame_20_5c74::
-	frame FrameTiles_2d_5080, FrameSprites_2d_6c6c, 32
+Frame_KingKRool_FakeDefeat_5::
+	frame FrameTiles_KingKRool_FakeDefeat_5, FrameSprites_KingKRool_FakeDefeat_5, 32
 
-Frame_20_5c7a::
-	frame FrameTiles_2d_5280, FrameSprites_2d_6c9c, 28
+Frame_KingKRool_FakeDefeat_6::
+	frame FrameTiles_KingKRool_FakeDefeat_6, FrameSprites_KingKRool_FakeDefeat_6, 28
 
-Frame_20_5c80::
-	frame FrameTiles_2d_5440, FrameSprites_2d_6cc6, 30
+Frame_KingKRool_FakeDefeat_7::
+	frame FrameTiles_KingKRool_FakeDefeat_7, FrameSprites_KingKRool_FakeDefeat_7, 30
 
-Frame_20_5c86::
-	frame FrameTiles_2d_5620, FrameSprites_2d_6cf3, 28
+Frame_KingKRool_FakeDefeat_8::
+	frame FrameTiles_KingKRool_FakeDefeat_8, FrameSprites_KingKRool_FakeDefeat_8, 28
 
-Frame_20_5c8c::
-	frame FrameTiles_37_5420, FrameSprites_37_6ba3, 32
+Frame_KingKRool_1::
+	frame FrameTiles_KingKRool_1, FrameSprites_KingKRool_1, 32
 
-Frame_20_5c92::
-	frame FrameTiles_37_5620, FrameSprites_37_6bd3, 32
+Frame_KingKRool_2::
+	frame FrameTiles_KingKRool_2, FrameSprites_KingKRool_2, 32
 
-Frame_20_5c98::
-	frame FrameTiles_37_5820, FrameSprites_37_6c03, 32
+Frame_KingKRool_3::
+	frame FrameTiles_KingKRool_3, FrameSprites_KingKRool_3, 32
 
-Frame_20_5c9e::
-	frame FrameTiles_37_4000, FrameSprites_37_69c0, 26
+Frame_GiantBanana_1::
+	frame FrameTiles_GiantBanana_1, FrameSprites_GiantBanana_1, 26
 
-Frame_20_5ca4::
-	frame FrameTiles_37_41a0, FrameSprites_37_69e7, 22
+Frame_GiantBanana_2::
+	frame FrameTiles_GiantBanana_2, FrameSprites_GiantBanana_2, 22
 
-Frame_20_5caa::
-	frame FrameTiles_37_4300, FrameSprites_37_6a08, 22
+Frame_GiantBanana_3::
+	frame FrameTiles_GiantBanana_3, FrameSprites_GiantBanana_3, 22
 
-Frame_20_5cb0::
-	frame FrameTiles_37_4460, FrameSprites_37_6a29, 24
+Frame_GiantBanana_4::
+	frame FrameTiles_GiantBanana_4, FrameSprites_GiantBanana_4, 24
 
-Frame_20_5cb6::
-	frame FrameTiles_37_45e0, FrameSprites_37_6a4d, 28
+Frame_GiantBanana_5::
+	frame FrameTiles_GiantBanana_5, FrameSprites_GiantBanana_5, 28
 
-Frame_20_5cbc::
-	frame FrameTiles_37_47a0, FrameSprites_37_6a77, 22
+Frame_GiantBanana_6::
+	frame FrameTiles_GiantBanana_6, FrameSprites_GiantBanana_6, 22
 
-Frame_20_5cc2::
-	frame FrameTiles_37_4900, FrameSprites_37_6a98, 20
+Frame_GiantBanana_7::
+	frame FrameTiles_GiantBanana_7, FrameSprites_GiantBanana_7, 20
 
-Frame_20_5cc8::
-	frame FrameTiles_37_4a40, FrameSprites_37_6ab6, 20
+Frame_GiantBanana_8::
+	frame FrameTiles_GiantBanana_8, FrameSprites_GiantBanana_8, 20
 
-Frame_20_5cce::
-	frame FrameTiles_37_68a0, FrameSprites_37_6d37, 18
+Frame_Unused_88::
+	frame FrameTiles_Unused_88, FrameSprites_Unused_88, 18
 
-Frame_20_5cd4::
-	frame FrameTiles_38_4cc0, FrameSprites_38_7432, 24
+Frame_Obj_Animate_1::
+	frame FrameTiles_Obj_Animate_1, FrameSprites_Obj_Animate_1, 24
 
-Frame_20_5cda::
-	frame FrameTiles_38_4e40, FrameSprites_38_7456, 24
+Frame_Obj_Animate_2::
+	frame FrameTiles_Obj_Animate_2, FrameSprites_Obj_Animate_2, 24
 
-Frame_20_5ce0::
-	frame FrameTiles_38_4fc0, FrameSprites_38_747a, 24
+Frame_Obj_Animate_3::
+	frame FrameTiles_Obj_Animate_3, FrameSprites_Obj_Animate_3, 24
 
-Frame_20_5ce6::
-	frame FrameTiles_38_5140, FrameSprites_38_749e, 24
+Frame_Obj_Animate_4::
+	frame FrameTiles_Obj_Animate_4, FrameSprites_Obj_Animate_4, 24
 
-Frame_20_5cec::
-	frame FrameTiles_38_52c0, FrameSprites_38_74c2, 24
+Frame_Obj_Animate_5::
+	frame FrameTiles_Obj_Animate_5, FrameSprites_Obj_Animate_5, 24
 
-Frame_20_5cf2::
-	frame FrameTiles_38_5440, FrameSprites_38_74e6, 24
+Frame_Obj_Animate_6::
+	frame FrameTiles_Obj_Animate_6, FrameSprites_Obj_Animate_6, 24
 
-Frame_20_5cf8::
-	frame FrameTiles_38_55c0, FrameSprites_38_750a, 26
+Frame_Obj_Animate_7::
+	frame FrameTiles_Obj_Animate_7, FrameSprites_Obj_Animate_7, 26
 
-Frame_20_5cfe::
-	frame FrameTiles_38_5760, FrameSprites_38_7531, 26
+Frame_Obj_Animate_8::
+	frame FrameTiles_Obj_Animate_8, FrameSprites_Obj_Animate_8, 26
 
-Frame_20_5d04::
-	frame FrameTiles_38_5900, FrameSprites_38_7558, 24
+Frame_Obj_Animate_9::
+	frame FrameTiles_Obj_Animate_9, FrameSprites_Obj_Animate_9, 24
 
-Frame_20_5d0a::
-	frame FrameTiles_38_5a80, FrameSprites_38_757c, 24
+Frame_Obj_Animate_10::
+	frame FrameTiles_Obj_Animate_10, FrameSprites_Obj_Animate_10, 24
 
-Frame_20_5d10::
-	frame FrameTiles_38_5c00, FrameSprites_38_75a0, 24
+Frame_Obj_Animate_11::
+	frame FrameTiles_Obj_Animate_11, FrameSprites_Obj_Animate_11, 24
 
-Frame_20_5d16::
-	frame FrameTiles_38_5d80, FrameSprites_38_75c4, 26
+Frame_Obj_Animate_12::
+	frame FrameTiles_Obj_Animate_12, FrameSprites_Obj_Animate_12, 26
 
-Frame_20_5d1c::
-	frame FrameTiles_38_5f20, FrameSprites_38_75eb, 26
+Frame_Obj_Animate_13::
+	frame FrameTiles_Obj_Animate_13, FrameSprites_Obj_Animate_13, 26
 
-Frame_20_5d22::
-	frame FrameTiles_38_60c0, FrameSprites_38_7612, 26
+Frame_Obj_Animate_14::
+	frame FrameTiles_Obj_Animate_14, FrameSprites_Obj_Animate_14, 26
 
-Frame_20_5d28::
-	frame FrameTiles_38_4000, FrameSprites_38_7300, 22
+Frame_Obj_Animate_15::
+	frame FrameTiles_Obj_Animate_15, FrameSprites_Obj_Animate_15, 22
 
-Frame_20_5d2e::
-	frame FrameTiles_38_4160, FrameSprites_38_7321, 24
+Frame_Obj_Animate_16::
+	frame FrameTiles_Obj_Animate_16, FrameSprites_Obj_Animate_16, 24
 
-Frame_20_5d34::
-	frame FrameTiles_38_42e0, FrameSprites_38_7345, 24
+Frame_Obj_Animate_17::
+	frame FrameTiles_Obj_Animate_17, FrameSprites_Obj_Animate_17, 24
 
-Frame_20_5d3a::
-	frame FrameTiles_38_4460, FrameSprites_38_7369, 22
+Frame_Obj_Animate_18::
+	frame FrameTiles_Obj_Animate_18, FrameSprites_Obj_Animate_18, 22
 
-Frame_20_5d40::
-	frame FrameTiles_38_6260, FrameSprites_38_7639, 36
+Frame_FunkysPlane_Bob::
+	frame FrameTiles_FunkysPlane_Bob, FrameSprites_FunkysPlane_Bob, 36
 
-Frame_20_5d46::
-	frame FrameTiles_37_5a20, FrameSprites_37_6c33, 14
+Frame_CreditsCaptions_1::
+	frame FrameTiles_CreditsCaptions_1, FrameSprites_CreditsCaptions_1, 14
 
-Frame_20_5d4c::
-	frame FrameTiles_37_5b00, FrameSprites_37_6c43, 12
+Frame_CreditsCaptions_2::
+	frame FrameTiles_CreditsCaptions_2, FrameSprites_CreditsCaptions_2, 12
 
-Frame_20_5d52::
-	frame FrameTiles_37_5bc0, FrameSprites_37_6c51, 18
+Frame_CreditsCaptions_3::
+	frame FrameTiles_CreditsCaptions_3, FrameSprites_CreditsCaptions_3, 18
 
-Frame_20_5d58::
-	frame FrameTiles_37_5ce0, FrameSprites_37_6c65, 16
+Frame_CreditsCaptions_4::
+	frame FrameTiles_CreditsCaptions_4, FrameSprites_CreditsCaptions_4, 16
 
-Frame_20_5d5e::
-	frame FrameTiles_37_5de0, FrameSprites_37_6c77, 14
+Frame_CreditsCaptions_5::
+	frame FrameTiles_CreditsCaptions_5, FrameSprites_CreditsCaptions_5, 14
 
-Frame_20_5d64::
-	frame FrameTiles_37_5ec0, FrameSprites_37_6c87, 18
+Frame_CreditsCaptions_6::
+	frame FrameTiles_CreditsCaptions_6, FrameSprites_CreditsCaptions_6, 18
 
-Frame_20_5d6a::
-	frame FrameTiles_37_5fe0, FrameSprites_37_6c9b, 14
+Frame_CreditsCaptions_7::
+	frame FrameTiles_CreditsCaptions_7, FrameSprites_CreditsCaptions_7, 14
 
-Frame_20_5d70::
-	frame FrameTiles_37_60c0, FrameSprites_37_6cab, 8
+Frame_CreditsCaptions_8::
+	frame FrameTiles_CreditsCaptions_8, FrameSprites_CreditsCaptions_8, 8
 
-Frame_20_5d76::
-	frame FrameTiles_37_6140, FrameSprites_37_6cb3, 20
+Frame_CreditsCaptions_9::
+	frame FrameTiles_CreditsCaptions_9, FrameSprites_CreditsCaptions_9, 20
 
-Frame_20_5d7c::
-	frame FrameTiles_37_6280, FrameSprites_37_6cc9, 16
+Frame_CreditsCaptions_10::
+	frame FrameTiles_CreditsCaptions_10, FrameSprites_CreditsCaptions_10, 16
 
-Frame_20_5d82::
-	frame FrameTiles_37_6380, FrameSprites_37_6cdb, 10
+Frame_CreditsCaptions_11::
+	frame FrameTiles_CreditsCaptions_11, FrameSprites_CreditsCaptions_11, 10
 
-Frame_20_5d88::
-	frame FrameTiles_37_6420, FrameSprites_37_6ce5, 16
+Frame_CreditsCaptions_12::
+	frame FrameTiles_CreditsCaptions_12, FrameSprites_CreditsCaptions_12, 16
 
-Frame_20_5d8e::
-	frame FrameTiles_37_6520, FrameSprites_37_6cf7, 12
+Frame_CreditsCaptions_13::
+	frame FrameTiles_CreditsCaptions_13, FrameSprites_CreditsCaptions_13, 12
 
-Frame_20_5d94::
-	frame FrameTiles_37_65e0, FrameSprites_37_6d05, 14
+Frame_CreditsCaptions_14::
+	frame FrameTiles_CreditsCaptions_14, FrameSprites_CreditsCaptions_14, 14
 
-Frame_20_5d9a::
-	frame FrameTiles_37_66c0, FrameSprites_37_6d15, 10
+Frame_CreditsCaptions_15::
+	frame FrameTiles_CreditsCaptions_15, FrameSprites_CreditsCaptions_15, 10
 
-Frame_20_5da0::
-	frame FrameTiles_37_6760, FrameSprites_37_6d21, 20
+Frame_CreditsCaptions_16::
+	frame FrameTiles_CreditsCaptions_16, FrameSprites_CreditsCaptions_16, 20
 
-Frame_20_5da6::
-	frame FrameTiles_38_64a0, FrameSprites_38_766f, 8
+Frame_AnimalToken_9::
+	frame FrameTiles_AnimalToken_9, FrameSprites_AnimalToken_9, 8
 
-Frame_20_5dac::
-	frame FrameTiles_38_6520, FrameSprites_38_7677, 8
+Frame_AnimalToken_10::
+	frame FrameTiles_AnimalToken_10, FrameSprites_AnimalToken_10, 8
 
-Frame_20_5db2::
-	frame FrameTiles_38_65a0, FrameSprites_38_767f, 10
+Frame_AnimalToken_11::
+	frame FrameTiles_AnimalToken_11, FrameSprites_AnimalToken_11, 10
 
-Frame_20_5db8::
-	frame FrameTiles_38_6640, FrameSprites_38_7689, 8
+Frame_AnimalToken_12::
+	frame FrameTiles_AnimalToken_12, FrameSprites_AnimalToken_12, 8
 
-Frame_20_5dbe::
-	frame FrameTiles_38_66c0, FrameSprites_38_7691, 10
+Frame_AnimalToken_13::
+	frame FrameTiles_AnimalToken_13, FrameSprites_AnimalToken_13, 10
 
-Frame_20_5dc4::
-	frame FrameTiles_38_6760, FrameSprites_38_769b, 8
+Frame_AnimalToken_14::
+	frame FrameTiles_AnimalToken_14, FrameSprites_AnimalToken_14, 8
 
-Frame_20_5dca::
-	frame FrameTiles_38_67e0, FrameSprites_38_76a3, 10
+Frame_AnimalToken_15::
+	frame FrameTiles_AnimalToken_15, FrameSprites_AnimalToken_15, 10
 
-Frame_20_5dd0::
-	frame FrameTiles_38_6880, FrameSprites_38_76ad, 8
+Frame_AnimalToken_16::
+	frame FrameTiles_AnimalToken_16, FrameSprites_AnimalToken_16, 8
 
-Frame_20_5dd6::
-	frame FrameTiles_38_6900, FrameSprites_38_76b5, 14
+Frame_Player_ExitAfterJingle_1::
+	frame FrameTiles_Player_ExitAfterJingle_1, FrameSprites_Player_ExitAfterJingle_1, 14
 
-Frame_20_5ddc::
-	frame FrameTiles_38_69e0, FrameSprites_38_76c3, 12
+Frame_Player_ExitAfterJingle_2::
+	frame FrameTiles_Player_ExitAfterJingle_2, FrameSprites_Player_ExitAfterJingle_2, 12
 
-Frame_20_5de2::
-	frame FrameTiles_38_6aa0, FrameSprites_38_76cf, 12
+Frame_Player_ExitAfterJingle_3::
+	frame FrameTiles_Player_ExitAfterJingle_3, FrameSprites_Player_ExitAfterJingle_3, 12
 
-Frame_20_5de8::
-	frame FrameTiles_38_6b60, FrameSprites_38_76db, 12
+Frame_Player_ExitAfterJingle_4::
+	frame FrameTiles_Player_ExitAfterJingle_4, FrameSprites_Player_ExitAfterJingle_4, 12
 
-Frame_20_5dee::
-	frame FrameTiles_38_6c20, FrameSprites_38_76e7, 12
+Frame_Player_ExitAfterJingle_5::
+	frame FrameTiles_Player_ExitAfterJingle_5, FrameSprites_Player_ExitAfterJingle_5, 12
 
-Frame_20_5df4::
-	frame FrameTiles_38_6ce0, FrameSprites_38_76f3, 12
+Frame_Player_ExitAfterJingle_6::
+	frame FrameTiles_Player_ExitAfterJingle_6, FrameSprites_Player_ExitAfterJingle_6, 12
 
-Frame_20_5dfa::
-	frame FrameTiles_38_6da0, FrameSprites_38_76ff, 12
+Frame_Player_ExitAfterJingle_7::
+	frame FrameTiles_Player_ExitAfterJingle_7, FrameSprites_Player_ExitAfterJingle_7, 12
 
-Frame_20_5e00::
-	frame FrameTiles_38_6e60, FrameSprites_38_770b, 12
+Frame_Player_ExitAfterJingle_8::
+	frame FrameTiles_Player_ExitAfterJingle_8, FrameSprites_Player_ExitAfterJingle_8, 12
 
-Frame_20_5e06::
-	frame FrameTiles_38_6f20, FrameSprites_38_7717, 12
+Frame_Player_ExitAfterJingle_9::
+	frame FrameTiles_Player_ExitAfterJingle_9, FrameSprites_Player_ExitAfterJingle_9, 12
 
-Frame_20_5e0c::
-	frame FrameTiles_38_6fe0, FrameSprites_38_7723, 12
+Frame_Player_ExitAfterJingle_10::
+	frame FrameTiles_Player_ExitAfterJingle_10, FrameSprites_Player_ExitAfterJingle_10, 12
 
-Frame_20_5e12::
-	frame FrameTiles_38_70a0, FrameSprites_38_772f, 12
+Frame_Player_ExitAfterJingle_11::
+	frame FrameTiles_Player_ExitAfterJingle_11, FrameSprites_Player_ExitAfterJingle_11, 12
 
-Frame_20_5e18::
-	frame FrameTiles_38_7160, FrameSprites_38_773b, 12
+Frame_Unused_89::
+	frame FrameTiles_Unused_89, FrameSprites_Unused_89, 12
 
-Frame_20_5e1e::
-	frame FrameTiles_38_7220, FrameSprites_38_7747, 14
+Frame_Unused_90::
+	frame FrameTiles_Unused_90, FrameSprites_Unused_90, 14
 
-Frame_20_5e24::
-	frame FrameTiles_39_4000, FrameSprites_39_7880, 14
+Frame_Player_ExitAfterJingle_12::
+	frame FrameTiles_Player_ExitAfterJingle_12, FrameSprites_Player_ExitAfterJingle_12, 14
 
-Frame_20_5e2a::
-	frame FrameTiles_39_40e0, FrameSprites_39_788e, 14
+Frame_Player_ExitAfterJingle_13::
+	frame FrameTiles_Player_ExitAfterJingle_13, FrameSprites_Player_ExitAfterJingle_13, 14
 
-Frame_20_5e30::
-	frame FrameTiles_39_41c0, FrameSprites_39_789c, 14
+Frame_Player_ExitAfterJingle_14::
+	frame FrameTiles_Player_ExitAfterJingle_14, FrameSprites_Player_ExitAfterJingle_14, 14
 
-Frame_20_5e36::
-	frame FrameTiles_39_42a0, FrameSprites_39_78aa, 12
+Frame_Player_ExitAfterJingle_15::
+	frame FrameTiles_Player_ExitAfterJingle_15, FrameSprites_Player_ExitAfterJingle_15, 12
 
-Frame_20_5e3c::
-	frame FrameTiles_39_4360, FrameSprites_39_78b6, 12
+Frame_Player_ExitAfterJingle_16::
+	frame FrameTiles_Player_ExitAfterJingle_16, FrameSprites_Player_ExitAfterJingle_16, 12
 
-Frame_20_5e42::
-	frame FrameTiles_39_4420, FrameSprites_39_78c2, 12
+Frame_Player_ExitAfterJingle_17::
+	frame FrameTiles_Player_ExitAfterJingle_17, FrameSprites_Player_ExitAfterJingle_17, 12
 
-Frame_20_5e48::
-	frame FrameTiles_39_44e0, FrameSprites_39_78ce, 16
+Frame_Player_ExitAfterJingle_18::
+	frame FrameTiles_Player_ExitAfterJingle_18, FrameSprites_Player_ExitAfterJingle_18, 16
 
-Frame_20_5e4e::
-	frame FrameTiles_39_45e0, FrameSprites_39_78de, 18
+Frame_Player_ExitAfterJingle_19::
+	frame FrameTiles_Player_ExitAfterJingle_19, FrameSprites_Player_ExitAfterJingle_19, 18
 
-Frame_20_5e54::
-	frame FrameTiles_39_4700, FrameSprites_39_78f0, 16
+Frame_Player_ExitAfterJingle_20::
+	frame FrameTiles_Player_ExitAfterJingle_20, FrameSprites_Player_ExitAfterJingle_20, 16
 
-Frame_20_5e5a::
-	frame FrameTiles_39_4800, FrameSprites_39_7900, 12
+Frame_Player_ExitAfterJingle_21::
+	frame FrameTiles_Player_ExitAfterJingle_21, FrameSprites_Player_ExitAfterJingle_21, 12
 
-Frame_20_5e60::
-	frame FrameTiles_39_48c0, FrameSprites_39_790c, 12
+Frame_Player_ExitAfterJingle_22::
+	frame FrameTiles_Player_ExitAfterJingle_22, FrameSprites_Player_ExitAfterJingle_22, 12
 
-Frame_20_5e66::
-	frame FrameTiles_39_4980, FrameSprites_39_7918, 18
+Frame_Player_ExitAfterJingle_23::
+	frame FrameTiles_Player_ExitAfterJingle_23, FrameSprites_Player_ExitAfterJingle_23, 18
 
-Frame_20_5e6c::
-	frame FrameTiles_39_4aa0, FrameSprites_39_792a, 18
+Frame_Player_ExitAfterJingle_24::
+	frame FrameTiles_Player_ExitAfterJingle_24, FrameSprites_Player_ExitAfterJingle_24, 18
 
-Frame_20_5e72::
-	frame FrameTiles_39_4bc0, FrameSprites_39_793c, 18
+Frame_Player_ExitAfterJingle_25::
+	frame FrameTiles_Player_ExitAfterJingle_25, FrameSprites_Player_ExitAfterJingle_25, 18
 
-Frame_20_5e78::
-	frame FrameTiles_39_4ce0, FrameSprites_39_794e, 18
+Frame_Player_ExitAfterJingle_26::
+	frame FrameTiles_Player_ExitAfterJingle_26, FrameSprites_Player_ExitAfterJingle_26, 18
 
-Frame_20_5e7e::
-	frame FrameTiles_39_4e00, FrameSprites_39_7960, 14
+Frame_Player_ExitAfterJingle_27::
+	frame FrameTiles_Player_ExitAfterJingle_27, FrameSprites_Player_ExitAfterJingle_27, 14
 
-Frame_20_5e84::
-	frame FrameTiles_39_4ee0, FrameSprites_39_796e, 14
+Frame_Player_ExitAfterJingle_28::
+	frame FrameTiles_Player_ExitAfterJingle_28, FrameSprites_Player_ExitAfterJingle_28, 14
 
-Frame_20_5e8a::
-	frame FrameTiles_39_4fc0, FrameSprites_39_797c, 14
+Frame_Player_ExitAfterJingle_29::
+	frame FrameTiles_Player_ExitAfterJingle_29, FrameSprites_Player_ExitAfterJingle_29, 14
 
-Frame_20_5e90::
-	frame FrameTiles_39_50a0, FrameSprites_39_798a, 14
+Frame_Player_ExitAfterJingle_30::
+	frame FrameTiles_Player_ExitAfterJingle_30, FrameSprites_Player_ExitAfterJingle_30, 14
 
-Frame_20_5e96::
-	frame FrameTiles_39_5180, FrameSprites_39_7998, 16
+Frame_Player_ExitAfterJingle_31::
+	frame FrameTiles_Player_ExitAfterJingle_31, FrameSprites_Player_ExitAfterJingle_31, 16
 
-Frame_20_5e9c::
-	frame FrameTiles_39_5280, FrameSprites_39_79a8, 14
+Frame_Player_ExitAfterJingle_32::
+	frame FrameTiles_Player_ExitAfterJingle_32, FrameSprites_Player_ExitAfterJingle_32, 14
 
-Frame_20_5ea2::
-	frame FrameTiles_39_5360, FrameSprites_39_79b6, 16
+Frame_Player_ExitAfterJingle_33::
+	frame FrameTiles_Player_ExitAfterJingle_33, FrameSprites_Player_ExitAfterJingle_33, 16
 
-Frame_20_5ea8::
-	frame FrameTiles_39_5460, FrameSprites_39_79c6, 10
+Frame_Unused_91::
+	frame FrameTiles_Unused_91, FrameSprites_Unused_91, 10
 
-Frame_20_5eae::
-	frame FrameTiles_39_5500, FrameSprites_39_79d0, 10
+Frame_Player_ExitAfterJingle_34::
+	frame FrameTiles_Player_ExitAfterJingle_34, FrameSprites_Player_ExitAfterJingle_34, 10
 
-Frame_20_5eb4::
-	frame FrameTiles_39_55a0, FrameSprites_39_79da, 12
+Frame_Player_ExitAfterJingle_35::
+	frame FrameTiles_Player_ExitAfterJingle_35, FrameSprites_Player_ExitAfterJingle_35, 12
 
-Frame_20_5eba::
-	frame FrameTiles_39_5660, FrameSprites_39_79e6, 12
+Frame_Player_ExitAfterJingle_36::
+	frame FrameTiles_Player_ExitAfterJingle_36, FrameSprites_Player_ExitAfterJingle_36, 12
 
-Frame_20_5ec0::
-	frame FrameTiles_39_5720, FrameSprites_39_79f2, 12
+Frame_Player_ExitAfterJingle_37::
+	frame FrameTiles_Player_ExitAfterJingle_37, FrameSprites_Player_ExitAfterJingle_37, 12
 
-Frame_20_5ec6::
-	frame FrameTiles_39_57e0, FrameSprites_39_79fe, 12
+Frame_Unused_92::
+	frame FrameTiles_Unused_92, FrameSprites_Unused_92, 12
 
-Frame_20_5ecc::
-	frame FrameTiles_39_58a0, FrameSprites_39_7a0a, 14
+Frame_Player_ExitAfterJingle_38::
+	frame FrameTiles_Player_ExitAfterJingle_38, FrameSprites_Player_ExitAfterJingle_38, 14
 
-Frame_20_5ed2::
-	frame FrameTiles_39_5980, FrameSprites_39_7a18, 14
+Frame_Player_ExitAfterJingle_39::
+	frame FrameTiles_Player_ExitAfterJingle_39, FrameSprites_Player_ExitAfterJingle_39, 14
 
-Frame_20_5ed8::
-	frame FrameTiles_39_5a60, FrameSprites_39_7a26, 12
+Frame_Player_ExitAfterJingle_40::
+	frame FrameTiles_Player_ExitAfterJingle_40, FrameSprites_Player_ExitAfterJingle_40, 12
 
-Frame_20_5ede::
-	frame FrameTiles_39_5b20, FrameSprites_39_7a32, 10
+Frame_Player_ExitAfterJingle_41::
+	frame FrameTiles_Player_ExitAfterJingle_41, FrameSprites_Player_ExitAfterJingle_41, 10
 
-Frame_20_5ee4::
-	frame FrameTiles_39_5bc0, FrameSprites_39_7a3c, 12
+Frame_Player_ExitAfterJingle_42::
+	frame FrameTiles_Player_ExitAfterJingle_42, FrameSprites_Player_ExitAfterJingle_42, 12
 
-Frame_20_5eea::
-	frame FrameTiles_39_5c80, FrameSprites_39_7a48, 14
+Frame_Player_ExitAfterJingle_43::
+	frame FrameTiles_Player_ExitAfterJingle_43, FrameSprites_Player_ExitAfterJingle_43, 14
 
-Frame_20_5ef0::
-	frame FrameTiles_39_5d60, FrameSprites_39_7a56, 18
+Frame_Player_ExitAfterJingle_44::
+	frame FrameTiles_Player_ExitAfterJingle_44, FrameSprites_Player_ExitAfterJingle_44, 18
 
-Frame_20_5ef6::
-	frame FrameTiles_39_5e80, FrameSprites_39_7a68, 16
+Frame_Player_ExitAfterJingle_45::
+	frame FrameTiles_Player_ExitAfterJingle_45, FrameSprites_Player_ExitAfterJingle_45, 16
 
-Frame_20_5efc::
-	frame FrameTiles_39_5f80, FrameSprites_39_7a78, 18
+Frame_Player_ExitAfterJingle_46::
+	frame FrameTiles_Player_ExitAfterJingle_46, FrameSprites_Player_ExitAfterJingle_46, 18
 
-Frame_20_5f02::
-	frame FrameTiles_39_60a0, FrameSprites_39_7a8a, 10
+Frame_Player_ExitAfterJingle_47::
+	frame FrameTiles_Player_ExitAfterJingle_47, FrameSprites_Player_ExitAfterJingle_47, 10
 
-Frame_20_5f08::
-	frame FrameTiles_39_6140, FrameSprites_39_7a94, 10
+Frame_Player_ExitAfterJingle_48::
+	frame FrameTiles_Player_ExitAfterJingle_48, FrameSprites_Player_ExitAfterJingle_48, 10
 
-Frame_20_5f0e::
-	frame FrameTiles_39_61e0, FrameSprites_39_7a9e, 10
+Frame_Player_ExitAfterJingle_49::
+	frame FrameTiles_Player_ExitAfterJingle_49, FrameSprites_Player_ExitAfterJingle_49, 10
 
-Frame_20_5f14::
-	frame FrameTiles_39_6280, FrameSprites_39_7aa8, 10
+Frame_Player_ExitAfterJingle_50::
+	frame FrameTiles_Player_ExitAfterJingle_50, FrameSprites_Player_ExitAfterJingle_50, 10
 
-Frame_20_5f1a::
-	frame FrameTiles_39_6320, FrameSprites_39_7ab2, 10
+Frame_Player_ExitAfterJingle_51::
+	frame FrameTiles_Player_ExitAfterJingle_51, FrameSprites_Player_ExitAfterJingle_51, 10
 
-Frame_20_5f20::
-	frame FrameTiles_39_63c0, FrameSprites_39_7abc, 14
+Frame_Player_ExitAfterJingle_52::
+	frame FrameTiles_Player_ExitAfterJingle_52, FrameSprites_Player_ExitAfterJingle_52, 14
 
-Frame_20_5f26::
-	frame FrameTiles_39_64a0, FrameSprites_39_7aca, 4
+Frame_Coconut_1::
+	frame FrameTiles_Coconut_1, FrameSprites_Coconut_1, 4
 
-Frame_20_5f2c::
-	frame FrameTiles_39_64e0, FrameSprites_39_7ace, 4
+Frame_Coconut_2::
+	frame FrameTiles_Coconut_2, FrameSprites_Coconut_2, 4
 
-Frame_20_5f32::
-	frame FrameTiles_39_6520, FrameSprites_39_7ad2, 4
+Frame_Coconut_3::
+	frame FrameTiles_Coconut_3, FrameSprites_Coconut_3, 4
 
-Frame_20_5f38::
-	frame FrameTiles_39_6560, FrameSprites_39_7ad6, 4
+Frame_Coconut_4::
+	frame FrameTiles_Coconut_4, FrameSprites_Coconut_4, 4
 
-Frame_20_5f3e::
-	frame FrameTiles_39_65a0, FrameSprites_39_7ada, 4
+Frame_Coconut_5::
+	frame FrameTiles_Coconut_5, FrameSprites_Coconut_5, 4
 
-Frame_20_5f44::
-	frame FrameTiles_39_65e0, FrameSprites_39_7ade, 4
+Frame_Coconut_6::
+	frame FrameTiles_Coconut_6, FrameSprites_Coconut_6, 4
 
-Frame_20_5f4a::
-	frame FrameTiles_39_6620, FrameSprites_39_7ae2, 4
+Frame_Coconut_7::
+	frame FrameTiles_Coconut_7, FrameSprites_Coconut_7, 4
 
-Frame_20_5f50::
-	frame FrameTiles_39_6660, FrameSprites_39_7ae6, 4
+Frame_Coconut_8::
+	frame FrameTiles_Coconut_8, FrameSprites_Coconut_8, 4
 
-Frame_20_5f56::
-	frame FrameTiles_39_66a0, FrameSprites_39_7aea, 4
+Frame_Coconut_9::
+	frame FrameTiles_Coconut_9, FrameSprites_Coconut_9, 4
 
-Frame_20_5f5c::
-	frame FrameTiles_39_66e0, FrameSprites_39_7aee, 4
+Frame_Coconut_10::
+	frame FrameTiles_Coconut_10, FrameSprites_Coconut_10, 4
 
-Frame_20_5f62::
-	frame FrameTiles_39_6720, FrameSprites_39_7af2, 4
+Frame_Coconut_11::
+	frame FrameTiles_Coconut_11, FrameSprites_Coconut_11, 4
 
-Frame_20_5f68::
-	frame FrameTiles_39_6760, FrameSprites_39_7af6, 2
+Frame_CarrierObjectTable::
+	frame FrameTiles_CarrierObjectTable, FrameSprites_CarrierObjectTable, 2
 
-Frame_20_5f6e::
-	frame FrameTiles_39_6780, FrameSprites_39_7af8, 4
+Frame_SpellBonus_BlueBanana::
+	frame FrameTiles_SpellBonus_BlueBanana, FrameSprites_SpellBonus_BlueBanana, 4
 
-Frame_20_5f74::
-	frame FrameTiles_39_67c0, FrameSprites_39_7afc, 6
+Frame_HUD_Items_Hidden_1::
+	frame FrameTiles_HUD_Items_Hidden_1, FrameSprites_HUD_Items_Hidden_1, 6
 
-Frame_20_5f7a::
-	frame FrameTiles_39_6820, FrameSprites_39_7b02, 6
+Frame_HUD_Items_Hidden_2::
+	frame FrameTiles_HUD_Items_Hidden_2, FrameSprites_HUD_Items_Hidden_2, 6
 
-Frame_20_5f80::
-	frame FrameTiles_39_6880, FrameSprites_39_7b08, 6
+Frame_HUD_Items_Hidden_3::
+	frame FrameTiles_HUD_Items_Hidden_3, FrameSprites_HUD_Items_Hidden_3, 6
 
-Frame_20_5f86::
-	frame FrameTiles_39_68e0, FrameSprites_39_7b0e, 6
+Frame_HUD_Items_Hidden_4::
+	frame FrameTiles_HUD_Items_Hidden_4, FrameSprites_HUD_Items_Hidden_4, 6
 
-Frame_20_5f8c::
-	frame FrameTiles_39_6940, FrameSprites_39_7b14, 6
+Frame_HUD_Items_Hidden_5::
+	frame FrameTiles_HUD_Items_Hidden_5, FrameSprites_HUD_Items_Hidden_5, 6
 
-Frame_20_5f92::
-	frame FrameTiles_39_69a0, FrameSprites_39_7b1a, 6
+Frame_HUD_Items_Hidden_6::
+	frame FrameTiles_HUD_Items_Hidden_6, FrameSprites_HUD_Items_Hidden_6, 6
 
-Frame_20_5f98::
-	frame FrameTiles_39_6a00, FrameSprites_39_7b20, 6
+Frame_HUD_Items_Hidden_7::
+	frame FrameTiles_HUD_Items_Hidden_7, FrameSprites_HUD_Items_Hidden_7, 6
 
-Frame_20_5f9e::
-	frame FrameTiles_39_6a60, FrameSprites_39_7b26, 6
+Frame_HUD_Items_Hidden_8::
+	frame FrameTiles_HUD_Items_Hidden_8, FrameSprites_HUD_Items_Hidden_8, 6
 
-Frame_20_5fa4::
-	frame FrameTiles_39_6ac0, FrameSprites_39_7b2c, 6
+Frame_HUD_Items_Hidden_9::
+	frame FrameTiles_HUD_Items_Hidden_9, FrameSprites_HUD_Items_Hidden_9, 6
 
-Frame_20_5faa::
-	frame FrameTiles_39_6b20, FrameSprites_39_7b32, 6
+Frame_HUD_Items_Hidden_10::
+	frame FrameTiles_HUD_Items_Hidden_10, FrameSprites_HUD_Items_Hidden_10, 6
 
-Frame_20_5fb0::
-	frame FrameTiles_39_6b80, FrameSprites_39_7b38, 6
+Frame_HUD_Items_Hidden_11::
+	frame FrameTiles_HUD_Items_Hidden_11, FrameSprites_HUD_Items_Hidden_11, 6
 
-Frame_20_5fb6::
-	frame FrameTiles_39_6be0, FrameSprites_39_7b3e, 6
+Frame_HUD_Items_Hidden_12::
+	frame FrameTiles_HUD_Items_Hidden_12, FrameSprites_HUD_Items_Hidden_12, 6
 
-Frame_20_5fbc::
-	frame FrameTiles_39_6c40, FrameSprites_39_7b44, 6
+Frame_HUD_Items_Hidden_13::
+	frame FrameTiles_HUD_Items_Hidden_13, FrameSprites_HUD_Items_Hidden_13, 6
 
-Frame_20_5fc2::
-	frame FrameTiles_39_6ca0, FrameSprites_39_7b4a, 6
+Frame_HUD_Items_Hidden_14::
+	frame FrameTiles_HUD_Items_Hidden_14, FrameSprites_HUD_Items_Hidden_14, 6
 
-Frame_20_5fc8::
-	frame FrameTiles_39_6d00, FrameSprites_39_7b50, 6
+Frame_HUD_Items_Hidden_15::
+	frame FrameTiles_HUD_Items_Hidden_15, FrameSprites_HUD_Items_Hidden_15, 6
 
-Frame_20_5fce::
-	frame FrameTiles_39_6d60, FrameSprites_39_7b56, 6
+Frame_HUD_Items_Hidden_16::
+	frame FrameTiles_HUD_Items_Hidden_16, FrameSprites_HUD_Items_Hidden_16, 6
 
-Frame_20_5fd4::
-	frame FrameTiles_39_6dc0, FrameSprites_39_7b5c, 4
+Frame_Sticker_Appear_1::
+	frame FrameTiles_Sticker_Appear_1, FrameSprites_Sticker_Appear_1, 4
 
-Frame_20_5fda::
-	frame FrameTiles_39_6e00, FrameSprites_39_7b60, 4
+Frame_Sticker_Appear_2::
+	frame FrameTiles_Sticker_Appear_2, FrameSprites_Sticker_Appear_2, 4
 
-Frame_20_5fe0::
-	frame FrameTiles_39_6e40, FrameSprites_39_7b64, 4
+Frame_Sticker_Appear_3::
+	frame FrameTiles_Sticker_Appear_3, FrameSprites_Sticker_Appear_3, 4
 
-Frame_20_5fe6::
-	frame FrameTiles_39_6e80, FrameSprites_39_7b68, 4
+Frame_Sticker_Appear_4::
+	frame FrameTiles_Sticker_Appear_4, FrameSprites_Sticker_Appear_4, 4
 
-Frame_20_5fec::
-	frame FrameTiles_39_6ec0, FrameSprites_39_7b6c, 2
+Frame_Sticker_Appear_5::
+	frame FrameTiles_Sticker_Appear_5, FrameSprites_Sticker_Appear_5, 2
 
-Frame_20_5ff2::
-	frame FrameTiles_39_6ee0, FrameSprites_39_7b6e, 2
+Frame_Sticker_Appear_6::
+	frame FrameTiles_Sticker_Appear_6, FrameSprites_Sticker_Appear_6, 2
 
-Frame_20_5ff8::
-	frame FrameTiles_39_6f00, FrameSprites_39_7b70, 2
+Frame_Sticker_Appear_7::
+	frame FrameTiles_Sticker_Appear_7, FrameSprites_Sticker_Appear_7, 2
 
-Frame_20_5ffe::
-	frame FrameTiles_39_6f20, FrameSprites_39_7b72, 4
+Frame_Sticker_Appear_8::
+	frame FrameTiles_Sticker_Appear_8, FrameSprites_Sticker_Appear_8, 4
 
-Frame_20_6004::
-	frame FrameTiles_39_6f60, FrameSprites_39_7b76, 4
+Frame_Sticker_Appear_9::
+	frame FrameTiles_Sticker_Appear_9, FrameSprites_Sticker_Appear_9, 4
 
-Frame_20_600a::
-	frame FrameTiles_39_6fa0, FrameSprites_39_7b7a, 4
+Frame_Sticker_Appear_10::
+	frame FrameTiles_Sticker_Appear_10, FrameSprites_Sticker_Appear_10, 4
 
-Frame_20_6010::
-	frame FrameTiles_39_6fe0, FrameSprites_39_7b7e, 4
+Frame_Sticker_Appear_11::
+	frame FrameTiles_Sticker_Appear_11, FrameSprites_Sticker_Appear_11, 4
 
-Frame_20_6016::
-	frame FrameTiles_39_7020, FrameSprites_39_7b82, 4
+Frame_Sticker_Appear_12::
+	frame FrameTiles_Sticker_Appear_12, FrameSprites_Sticker_Appear_12, 4
 
-Frame_20_601c::
-	frame FrameTiles_39_7060, FrameSprites_39_7b86, 4
+Frame_Sticker_Appear_13::
+	frame FrameTiles_Sticker_Appear_13, FrameSprites_Sticker_Appear_13, 4
 
-Frame_20_6022::
-	frame FrameTiles_39_70a0, FrameSprites_39_7b8a, 4
+Frame_Sticker_Appear_14::
+	frame FrameTiles_Sticker_Appear_14, FrameSprites_Sticker_Appear_14, 4
 
-Frame_20_6028::
-	frame FrameTiles_39_70e0, FrameSprites_39_7b8e, 2
+Frame_Sticker_Appear_15::
+	frame FrameTiles_Sticker_Appear_15, FrameSprites_Sticker_Appear_15, 2
 
-Frame_20_602e::
-	frame FrameTiles_39_7100, FrameSprites_39_7b90, 2
+Frame_Sticker_Appear_16::
+	frame FrameTiles_Sticker_Appear_16, FrameSprites_Sticker_Appear_16, 2
 
-Frame_20_6034::
-	frame FrameTiles_39_7120, FrameSprites_39_7b92, 2
+Frame_Sticker_Appear_17::
+	frame FrameTiles_Sticker_Appear_17, FrameSprites_Sticker_Appear_17, 2
 
-Frame_20_603a::
-	frame FrameTiles_39_7140, FrameSprites_39_7b94, 4
+Frame_Sticker_Appear_18::
+	frame FrameTiles_Sticker_Appear_18, FrameSprites_Sticker_Appear_18, 4
 
-Frame_20_6040::
-	frame FrameTiles_39_7180, FrameSprites_39_7b98, 4
+Frame_Sticker_Appear_19::
+	frame FrameTiles_Sticker_Appear_19, FrameSprites_Sticker_Appear_19, 4
 
-Frame_20_6046::
-	frame FrameTiles_39_71c0, FrameSprites_39_7b9c, 4
+Frame_Sticker_Appear_20::
+	frame FrameTiles_Sticker_Appear_20, FrameSprites_Sticker_Appear_20, 4
 
-Frame_20_604c::
-	frame FrameTiles_39_7200, FrameSprites_39_7ba0, 4
+Frame_Obj_Animate_19::
+	frame FrameTiles_Obj_Animate_19, FrameSprites_Obj_Animate_19, 4
 
-Frame_20_6052::
-	frame FrameTiles_39_7240, FrameSprites_39_7ba4, 4
+Frame_Obj_Animate_20::
+	frame FrameTiles_Obj_Animate_20, FrameSprites_Obj_Animate_20, 4
 
-Frame_20_6058::
-	frame FrameTiles_39_7280, FrameSprites_39_7ba8, 4
+Frame_Obj_Animate_21::
+	frame FrameTiles_Obj_Animate_21, FrameSprites_Obj_Animate_21, 4
 
-Frame_20_605e::
-	frame FrameTiles_39_72c0, FrameSprites_39_7bac, 4
+Frame_ShuffleBonus_Spot::
+	frame FrameTiles_ShuffleBonus_Spot, FrameSprites_ShuffleBonus_Spot, 4
 
-Frame_20_6064::
-	frame FrameTiles_39_7300, FrameSprites_39_7bb0, 4
+Frame_HUD_Items_Hidden_17::
+	frame FrameTiles_HUD_Items_Hidden_17, FrameSprites_HUD_Items_Hidden_17, 4
 
-Frame_20_606a::
-	frame FrameTiles_39_7340, FrameSprites_39_7bb4, 4
+Frame_HUD_Items_Hidden_18::
+	frame FrameTiles_HUD_Items_Hidden_18, FrameSprites_HUD_Items_Hidden_18, 4
 
-Frame_20_6070::
-	frame FrameTiles_39_7380, FrameSprites_39_7bb8, 4
+Frame_HUD_Items_Hidden_19::
+	frame FrameTiles_HUD_Items_Hidden_19, FrameSprites_HUD_Items_Hidden_19, 4
 
-Frame_20_6076::
-	frame FrameTiles_39_73c0, FrameSprites_39_7bbc, 2
+Frame_HUD_Items_Hidden_20::
+	frame FrameTiles_HUD_Items_Hidden_20, FrameSprites_HUD_Items_Hidden_20, 2
 
-Frame_20_607c::
-	frame FrameTiles_39_73e0, FrameSprites_39_7bbe, 4
+Frame_HUD_Items_Hidden_21::
+	frame FrameTiles_HUD_Items_Hidden_21, FrameSprites_HUD_Items_Hidden_21, 4
 
-Frame_20_6082::
-	frame FrameTiles_39_7420, FrameSprites_39_7bc2, 4
+Frame_HUD_Items_Hidden_22::
+	frame FrameTiles_HUD_Items_Hidden_22, FrameSprites_HUD_Items_Hidden_22, 4
 
-Frame_20_6088::
-	frame FrameTiles_39_7460, FrameSprites_39_7bc6, 4
+Frame_HUD_Items_Hidden_23::
+	frame FrameTiles_HUD_Items_Hidden_23, FrameSprites_HUD_Items_Hidden_23, 4
 
-Frame_20_608e::
-	frame FrameTiles_39_74a0, FrameSprites_39_7bca, 4
+Frame_HUD_Items_Hidden_24::
+	frame FrameTiles_HUD_Items_Hidden_24, FrameSprites_HUD_Items_Hidden_24, 4
 
-Frame_20_6094::
-	frame FrameTiles_39_74e0, FrameSprites_39_7bce, 4
+Frame_HUD_Items_Hidden_25::
+	frame FrameTiles_HUD_Items_Hidden_25, FrameSprites_HUD_Items_Hidden_25, 4
 
-Frame_20_609a::
-	frame FrameTiles_39_7520, FrameSprites_39_7bd2, 2
+Frame_HUD_Items_Hidden_26::
+	frame FrameTiles_HUD_Items_Hidden_26, FrameSprites_HUD_Items_Hidden_26, 2
 
-Frame_20_60a0::
-	frame FrameTiles_39_7540, FrameSprites_39_7bd4, 4
+Frame_HUD_Items_Hidden_27::
+	frame FrameTiles_HUD_Items_Hidden_27, FrameSprites_HUD_Items_Hidden_27, 4
 
-Frame_20_60a6::
-	frame FrameTiles_39_7580, FrameSprites_39_7bd8, 4
+Frame_HUD_Items_Hidden_28::
+	frame FrameTiles_HUD_Items_Hidden_28, FrameSprites_HUD_Items_Hidden_28, 4
 
-Frame_20_60ac::
-	frame FrameTiles_39_75c0, FrameSprites_39_7bdc, 4
+Frame_Unused_93::
+	frame FrameTiles_Unused_93, FrameSprites_Unused_93, 4
 
-Frame_20_60b2::
-	frame FrameTiles_39_7600, FrameSprites_39_7be0, 4
+Frame_Unused_94::
+	frame FrameTiles_Unused_94, FrameSprites_Unused_94, 4
 
-Frame_20_60b8::
-	frame FrameTiles_39_7640, FrameSprites_39_7be4, 4
+Frame_Unused_95::
+	frame FrameTiles_Unused_95, FrameSprites_Unused_95, 4
 
-Frame_20_60be::
-	frame FrameTiles_39_7680, FrameSprites_39_7be8, 2
+Frame_Unused_96::
+	frame FrameTiles_Unused_96, FrameSprites_Unused_96, 2
 
-Frame_20_60c4::
-	frame FrameTiles_39_76a0, FrameSprites_39_7bea, 4
+Frame_Unused_97::
+	frame FrameTiles_Unused_97, FrameSprites_Unused_97, 4
 
-Frame_20_60ca::
-	frame FrameTiles_39_76e0, FrameSprites_39_7bee, 4
+Frame_Unused_98::
+	frame FrameTiles_Unused_98, FrameSprites_Unused_98, 4
 
-Frame_20_60d0::
-	frame FrameTiles_39_7720, FrameSprites_39_7bf2, 4
+Frame_Unused_99::
+	frame FrameTiles_Unused_99, FrameSprites_Unused_99, 4
 
-Frame_20_60d6::
-	frame FrameTiles_39_7760, FrameSprites_39_7bf6, 4
+Frame_Unused_100::
+	frame FrameTiles_Unused_100, FrameSprites_Unused_100, 4
 
-Frame_20_60dc::
-	frame FrameTiles_39_77a0, FrameSprites_39_7bfa, 4
+Frame_Unused_101::
+	frame FrameTiles_Unused_101, FrameSprites_Unused_101, 4
 
-Frame_20_60e2::
-	frame FrameTiles_39_77e0, FrameSprites_39_7bfe, 2
+Frame_Unused_102::
+	frame FrameTiles_Unused_102, FrameSprites_Unused_102, 2
 
-Frame_20_60e8::
-	frame FrameTiles_39_7800, FrameSprites_39_7c00, 4
+Frame_Unused_103::
+	frame FrameTiles_Unused_103, FrameSprites_Unused_103, 4
 
-Frame_20_60ee::
-	frame FrameTiles_39_7840, FrameSprites_39_7c04, 4
+Frame_Unused_104::
+	frame FrameTiles_Unused_104, FrameSprites_Unused_104, 4
 
-Frame_20_60f4::
-	frame FrameTiles_3a_4000, FrameSprites_3a_43e0, 8
+Frame_Squawks_1::
+	frame FrameTiles_Squawks_1, FrameSprites_Squawks_1, 8
 
-Frame_20_60fa::
-	frame FrameTiles_3a_4080, FrameSprites_3a_43e8, 6
+Frame_Squawks_2::
+	frame FrameTiles_Squawks_2, FrameSprites_Squawks_2, 6
 
-Frame_20_6100::
-	frame FrameTiles_3a_40e0, FrameSprites_3a_43ee, 6
+Frame_Squawks_3::
+	frame FrameTiles_Squawks_3, FrameSprites_Squawks_3, 6
 
-Frame_20_6106::
-	frame FrameTiles_3a_4140, FrameSprites_3a_43f4, 6
+Frame_Squawks_4::
+	frame FrameTiles_Squawks_4, FrameSprites_Squawks_4, 6
 
-Frame_20_610c::
-	frame FrameTiles_3a_41a0, FrameSprites_3a_43fa, 6
+Frame_Squawks_5::
+	frame FrameTiles_Squawks_5, FrameSprites_Squawks_5, 6
 
-Frame_20_6112::
-	frame FrameTiles_3a_4200, FrameSprites_3a_4400, 8
+Frame_Squawks_6::
+	frame FrameTiles_Squawks_6, FrameSprites_Squawks_6, 8
 
-Frame_20_6118::
-	frame FrameTiles_3a_4280, FrameSprites_3a_4408, 8
+Frame_Squawks_7::
+	frame FrameTiles_Squawks_7, FrameSprites_Squawks_7, 8
 
-Frame_20_611e::
-	frame FrameTiles_3a_4300, FrameSprites_3a_4410, 8
+Frame_Squawks_8::
+	frame FrameTiles_Squawks_8, FrameSprites_Squawks_8, 8
 
-Frame_20_6124::
-	frame FrameTiles_3a_4380, FrameSprites_3a_4418, 6
+Frame_Squawks_9::
+	frame FrameTiles_Squawks_9, FrameSprites_Squawks_9, 6
 	ds 7894, $00 ; $612a
 

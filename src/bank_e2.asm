@@ -3,31 +3,31 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $e2", ROMX[$4000], BANK[$e2]
 
-LevelMap_e2_4000::
+LevelMap_JungleHijinxs_1::
 	INCBIN "data/maps/e2_4000_terrain.lz"
 
-LevelMap_e2_421c::
+LevelMap_JungleHijinxs_2::
 	INCBIN "data/maps/e2_421c_blocks.lz"
 
-LevelMap_e2_4587::
+LevelMap_JungleHijinxs_3::
 	INCBIN "data/maps/e2_4587_attrs.lz"
 
-LevelMap_e2_4733::
+LevelMap_OrangUtanGang_1::
 	INCBIN "data/maps/e2_4733_terrain.lz"
 
-LevelMap_e2_4a1d::
+LevelMap_OrangUtanGang_2::
 	INCBIN "data/maps/e2_4a1d_blocks.lz"
 
-LevelMap_e2_5018::
+LevelMap_OrangUtanGang_3::
 	INCBIN "data/maps/e2_5018_attrs.lz"
 
-LevelMap_e2_53a4::
+LevelMap_RopeyRampage_1::
 	INCBIN "data/maps/e2_53a4_terrain.lz"
 
-LevelMap_e2_55be::
+LevelMap_RopeyRampage_2::
 	INCBIN "data/maps/e2_55be_blocks.lz"
 
-LevelMap_e2_5ab3::
+LevelMap_RopeyRampage_3::
 	INCBIN "data/maps/e2_5ab3_attrs.lz"
 	ds 8700, $00 ; $5e04
 

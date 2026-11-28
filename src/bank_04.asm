@@ -6,3539 +6,3539 @@ SECTION "Bank $04", ROMX[$4000], BANK[$04]
 BankNumber_04::
 	db $04 ; bank number
 
-Anim_04_4001::
+Anim_SetPlayerAnimation_1::
 	anim_param $2a
 	anim_speed 120
-	anim_frame Frame_20_4492
+	anim_frame Frame_SetPlayerAnimation_69
 	anim_speed 5
-	anim_frame Frame_20_5872
-	anim_frame Frame_20_5878
-	anim_frame Frame_20_587e
-	anim_frame Frame_20_5884
-	anim_frame Frame_20_588a
-	anim_frame Frame_20_5890
-	anim_frame Frame_20_5896
+	anim_frame Frame_SetPlayerAnimation_206
+	anim_frame Frame_SetPlayerAnimation_207
+	anim_frame Frame_SetPlayerAnimation_208
+	anim_frame Frame_SetPlayerAnimation_209
+	anim_frame Frame_SetPlayerAnimation_210
+	anim_frame Frame_SetPlayerAnimation_211
+	anim_frame Frame_SetPlayerAnimation_212
 	anim_sfx 4, $60
-	anim_frame Frame_20_589c
-	anim_frame Frame_20_58a2
-	anim_frame Frame_20_58a8
-	anim_frame Frame_20_58a2
+	anim_frame Frame_SetPlayerAnimation_213
+	anim_frame Frame_SetPlayerAnimation_214
+	anim_frame Frame_SetPlayerAnimation_215
+	anim_frame Frame_SetPlayerAnimation_214
 	anim_sfx 4, $60
-	anim_frame Frame_20_589c
-	anim_frame Frame_20_58a2
-	anim_frame Frame_20_58a8
-	anim_frame Frame_20_58ae
-	anim_frame Frame_20_58b4
-	anim_frame Frame_20_58ba
-	anim_frame Frame_20_58c0
-	anim_frame Frame_20_58c6
-	anim_frame Frame_20_58cc
-	anim_frame Frame_20_58d2
-	anim_frame Frame_20_58d8
-	anim_frame Frame_20_58de
+	anim_frame Frame_SetPlayerAnimation_213
+	anim_frame Frame_SetPlayerAnimation_214
+	anim_frame Frame_SetPlayerAnimation_215
+	anim_frame Frame_SetPlayerAnimation_216
+	anim_frame Frame_SetPlayerAnimation_217
+	anim_frame Frame_SetPlayerAnimation_218
+	anim_frame Frame_SetPlayerAnimation_219
+	anim_frame Frame_SetPlayerAnimation_220
+	anim_frame Frame_SetPlayerAnimation_221
+	anim_frame Frame_SetPlayerAnimation_222
+	anim_frame Frame_SetPlayerAnimation_223
+	anim_frame Frame_SetPlayerAnimation_224
 	anim_speed 120
-	anim_frame Frame_20_4492
+	anim_frame Frame_SetPlayerAnimation_69
 	anim_speed 5
-	anim_frame Frame_20_5872
-	anim_frame Frame_20_5878
-	anim_frame Frame_20_587e
-	anim_frame Frame_20_5884
-	anim_frame Frame_20_588a
-	anim_frame Frame_20_5890
-	anim_frame Frame_20_5896
+	anim_frame Frame_SetPlayerAnimation_206
+	anim_frame Frame_SetPlayerAnimation_207
+	anim_frame Frame_SetPlayerAnimation_208
+	anim_frame Frame_SetPlayerAnimation_209
+	anim_frame Frame_SetPlayerAnimation_210
+	anim_frame Frame_SetPlayerAnimation_211
+	anim_frame Frame_SetPlayerAnimation_212
 	anim_sfx 4, $60
-	anim_frame Frame_20_589c
-	anim_frame Frame_20_58a2
-	anim_frame Frame_20_58a8
-	anim_frame Frame_20_58a2
+	anim_frame Frame_SetPlayerAnimation_213
+	anim_frame Frame_SetPlayerAnimation_214
+	anim_frame Frame_SetPlayerAnimation_215
+	anim_frame Frame_SetPlayerAnimation_214
 	anim_sfx 4, $60
-	anim_frame Frame_20_589c
-	anim_frame Frame_20_58a2
-	anim_frame Frame_20_58a8
-	anim_frame Frame_20_58ae
-	anim_frame Frame_20_58b4
-	anim_frame Frame_20_58ba
-	anim_frame Frame_20_58c0
-	anim_frame Frame_20_58c6
-	anim_frame Frame_20_58cc
-	anim_frame Frame_20_58d2
-	anim_frame Frame_20_58d8
-	anim_frame Frame_20_58de
+	anim_frame Frame_SetPlayerAnimation_213
+	anim_frame Frame_SetPlayerAnimation_214
+	anim_frame Frame_SetPlayerAnimation_215
+	anim_frame Frame_SetPlayerAnimation_216
+	anim_frame Frame_SetPlayerAnimation_217
+	anim_frame Frame_SetPlayerAnimation_218
+	anim_frame Frame_SetPlayerAnimation_219
+	anim_frame Frame_SetPlayerAnimation_220
+	anim_frame Frame_SetPlayerAnimation_221
+	anim_frame Frame_SetPlayerAnimation_222
+	anim_frame Frame_SetPlayerAnimation_223
+	anim_frame Frame_SetPlayerAnimation_224
 	anim_speed 120
 
-Anim_04_4075::
-	anim_frame Frame_20_4492
-	anim_jump Anim_04_4075
+Anim_SetPlayerAnimation_2::
+	anim_frame Frame_SetPlayerAnimation_69
+	anim_jump Anim_SetPlayerAnimation_2
 
-Anim_04_407b::
+Anim_SetPlayerAnimation_3::
 	anim_param $2a
 	anim_speed 5
 
-Anim_04_407f::
-	anim_frame Frame_20_4492
-	anim_frame Frame_20_4498
-	anim_frame Frame_20_449e
-	anim_frame Frame_20_44a4
+Anim_SetPlayerAnimation_4::
+	anim_frame Frame_SetPlayerAnimation_69
+	anim_frame Frame_SetPlayerAnimation_70
+	anim_frame Frame_SetPlayerAnimation_71
+	anim_frame Frame_SetPlayerAnimation_72
 	anim_clear_flag
-	anim_frame Frame_20_44aa
-	anim_frame Frame_20_44b0
-	anim_frame Frame_20_44b6
-	anim_jump Anim_04_407f
+	anim_frame Frame_SetPlayerAnimation_73
+	anim_frame Frame_SetPlayerAnimation_74
+	anim_frame Frame_SetPlayerAnimation_75
+	anim_jump Anim_SetPlayerAnimation_4
 
-Anim_04_4093::
+Anim_SetPlayerAnimation_5::
 	anim_param $29
 	anim_speed 4
 
-Anim_04_4097::
-	anim_frame Frame_20_4402
-	anim_frame Frame_20_4408
-	anim_frame Frame_20_440e
+Anim_SetPlayerAnimation_6::
+	anim_frame Frame_SetPlayerAnimation_45
+	anim_frame Frame_SetPlayerAnimation_46
+	anim_frame Frame_SetPlayerAnimation_47
 	anim_clear_flag
-	anim_frame Frame_20_4414
-	anim_frame Frame_20_441a
-	anim_frame Frame_20_4420
-	anim_jump Anim_04_4097
+	anim_frame Frame_SetPlayerAnimation_48
+	anim_frame Frame_SetPlayerAnimation_49
+	anim_frame Frame_SetPlayerAnimation_50
+	anim_jump Anim_SetPlayerAnimation_6
 
-Anim_04_40a9::
+Anim_SetPlayerAnimation_7::
 	anim_param $2b
 	anim_speed 4
-	anim_frame Frame_20_43ba
-	anim_frame Frame_20_43c0
-	anim_frame Frame_20_43c6
-	anim_frame Frame_20_43cc
-	anim_frame Frame_20_43d2
-	anim_frame Frame_20_43d8
-	anim_frame Frame_20_43de
-	anim_frame Frame_20_43e4
-	anim_frame Frame_20_43ea
+	anim_frame Frame_SetPlayerAnimation_33
+	anim_frame Frame_SetPlayerAnimation_34
+	anim_frame Frame_SetPlayerAnimation_35
+	anim_frame Frame_SetPlayerAnimation_36
+	anim_frame Frame_SetPlayerAnimation_37
+	anim_frame Frame_SetPlayerAnimation_38
+	anim_frame Frame_SetPlayerAnimation_39
+	anim_frame Frame_SetPlayerAnimation_40
+	anim_frame Frame_SetPlayerAnimation_41
 	anim_clear_flag
-	anim_frame Frame_20_43f0
-	anim_jump Anim_04_407b
+	anim_frame Frame_SetPlayerAnimation_42
+	anim_jump Anim_SetPlayerAnimation_3
 
-Anim_04_40c7::
+Anim_SetPlayerAnimation_8::
 	anim_param $2b
 	anim_speed 4
 
-Anim_04_40cb::
-	anim_frame Frame_20_43ba
-	anim_frame Frame_20_43c0
-	anim_frame Frame_20_43c6
-	anim_frame Frame_20_43cc
-	anim_frame Frame_20_43d2
-	anim_frame Frame_20_43d8
-	anim_frame Frame_20_43de
-	anim_frame Frame_20_43e4
+Anim_SetPlayerAnimation_9::
+	anim_frame Frame_SetPlayerAnimation_33
+	anim_frame Frame_SetPlayerAnimation_34
+	anim_frame Frame_SetPlayerAnimation_35
+	anim_frame Frame_SetPlayerAnimation_36
+	anim_frame Frame_SetPlayerAnimation_37
+	anim_frame Frame_SetPlayerAnimation_38
+	anim_frame Frame_SetPlayerAnimation_39
+	anim_frame Frame_SetPlayerAnimation_40
 	anim_clear_flag
-	anim_jump Anim_04_40cb
+	anim_jump Anim_SetPlayerAnimation_9
 
-Anim_04_40e1::
+Anim_SetPlayerAnimation_10::
 	anim_speed 2
 
-Anim_04_40e3::
-	anim_frame Frame_20_4384
-	anim_jump Anim_04_40e3
+Anim_SetPlayerAnimation_11::
+	anim_frame Frame_SetPlayerAnimation_24
+	anim_jump Anim_SetPlayerAnimation_11
 
-Anim_04_40e9::
+Anim_SetPlayerAnimation_12::
 	anim_param $28
 	anim_speed 2
-	anim_frame Frame_20_438a
+	anim_frame Frame_SetPlayerAnimation_25
 
-Anim_04_40ef::
-	anim_frame Frame_20_4390
-	anim_jump Anim_04_40ef
+Anim_SetPlayerAnimation_13::
+	anim_frame Frame_SetPlayerAnimation_26
+	anim_jump Anim_SetPlayerAnimation_13
 
-Anim_04_40f5::
+Anim_SetPlayerAnimation_14::
 	anim_param $28
 	anim_speed 10
-	anim_frame Frame_20_4390
+	anim_frame Frame_SetPlayerAnimation_26
 	anim_speed 2
 
-Anim_04_40fd::
-	anim_frame Frame_20_438a
-	anim_jump Anim_04_40fd
+Anim_SetPlayerAnimation_15::
+	anim_frame Frame_SetPlayerAnimation_25
+	anim_jump Anim_SetPlayerAnimation_15
 
-Anim_04_4103::
+Anim_SetPlayerAnimation_16::
 	anim_speed 4
-	anim_frame Frame_20_446e
-	anim_frame Frame_20_4474
+	anim_frame Frame_SetPlayerAnimation_63
+	anim_frame Frame_SetPlayerAnimation_64
 	anim_xor_attr $20
-	anim_frame Frame_20_4474
-	anim_frame Frame_20_446e
+	anim_frame Frame_SetPlayerAnimation_64
+	anim_frame Frame_SetPlayerAnimation_63
 	anim_clear_flag
-	anim_jump Anim_04_4001
+	anim_jump Anim_SetPlayerAnimation_1
 
-Anim_04_4115::
+Anim_SetPlayerAnimation_17::
 	anim_speed 4
-	anim_frame Frame_20_4342
-	anim_frame Frame_20_4348
-	anim_frame Frame_20_434e
-	anim_frame Frame_20_4354
-	anim_frame Frame_20_435a
-	anim_frame Frame_20_4360
-	anim_frame Frame_20_4366
-	anim_frame Frame_20_436c
-	anim_frame Frame_20_4372
+	anim_frame Frame_SetPlayerAnimation_13
+	anim_frame Frame_SetPlayerAnimation_14
+	anim_frame Frame_SetPlayerAnimation_15
+	anim_frame Frame_SetPlayerAnimation_16
+	anim_frame Frame_SetPlayerAnimation_17
+	anim_frame Frame_SetPlayerAnimation_18
+	anim_frame Frame_SetPlayerAnimation_19
+	anim_frame Frame_SetPlayerAnimation_20
+	anim_frame Frame_SetPlayerAnimation_21
 	anim_speed 8
 
-Anim_04_412b::
-	anim_frame Frame_20_4378
-	anim_frame Frame_20_437e
-	anim_jump Anim_04_412b
+Anim_SetPlayerAnimation_18::
+	anim_frame Frame_SetPlayerAnimation_22
+	anim_frame Frame_SetPlayerAnimation_23
+	anim_jump Anim_SetPlayerAnimation_18
 
-Anim_04_4133::
+Anim_SetPlayerAnimation_19::
 	anim_param $28
 	anim_speed 4
 
-Anim_04_4137::
-	anim_frame Frame_20_438a
-	anim_jump Anim_04_4137
+Anim_SetPlayerAnimation_20::
+	anim_frame Frame_SetPlayerAnimation_25
+	anim_jump Anim_SetPlayerAnimation_20
 
-Anim_04_413d::
+Anim_SetPlayerAnimation_21::
 	anim_param $21
 	anim_speed 4
 
-Anim_04_4141::
-	anim_frame Frame_20_42fa
-	anim_frame Frame_20_4300
-	anim_frame Frame_20_4306
-	anim_frame Frame_20_430c
-	anim_frame Frame_20_4312
-	anim_jump Anim_04_4141
+Anim_SetPlayerAnimation_22::
+	anim_frame Frame_SetPlayerAnimation_1
+	anim_frame Frame_SetPlayerAnimation_2
+	anim_frame Frame_SetPlayerAnimation_3
+	anim_frame Frame_SetPlayerAnimation_4
+	anim_frame Frame_SetPlayerAnimation_5
+	anim_jump Anim_SetPlayerAnimation_22
 
-Anim_04_414f::
+Anim_SetPlayerAnimation_23::
 	anim_param $23
 	anim_speed 4
 	anim_var38 $0005
-	anim_frame Frame_20_4396
-	anim_frame Frame_20_439c
+	anim_frame Frame_SetPlayerAnimation_27
+	anim_frame Frame_SetPlayerAnimation_28
 	anim_var38 $fe0c
-	anim_frame Frame_20_43a2
+	anim_frame Frame_SetPlayerAnimation_29
 	anim_var38 $f610
-	anim_frame Frame_20_43a2
+	anim_frame Frame_SetPlayerAnimation_29
 	anim_var38 $f212
-	anim_frame Frame_20_43a8
+	anim_frame Frame_SetPlayerAnimation_30
 	anim_var38 $ee14
-	anim_frame Frame_20_43a8
+	anim_frame Frame_SetPlayerAnimation_30
 	anim_var38 $e514
-	anim_frame Frame_20_43ae
+	anim_frame Frame_SetPlayerAnimation_31
 	anim_var38 $e302
 	anim_clear_flag
 
-Anim_04_417f::
-	anim_frame Frame_20_43b4
-	anim_jump Anim_04_417f
+Anim_SetPlayerAnimation_24::
+	anim_frame Frame_SetPlayerAnimation_32
+	anim_jump Anim_SetPlayerAnimation_24
 
-Anim_04_4185::
+Anim_SetPlayerAnimation_25::
 	anim_param $23
 	anim_speed 4
 	anim_var38 $e302
-	anim_frame Frame_20_43b4
+	anim_frame Frame_SetPlayerAnimation_32
 	anim_var38 $e514
-	anim_frame Frame_20_43ae
+	anim_frame Frame_SetPlayerAnimation_31
 	anim_var38 $ee14
-	anim_frame Frame_20_43a8
+	anim_frame Frame_SetPlayerAnimation_30
 	anim_var38 $fe0c
-	anim_frame Frame_20_43a2
+	anim_frame Frame_SetPlayerAnimation_29
 	anim_var38 $000c
-	anim_frame Frame_20_439c
+	anim_frame Frame_SetPlayerAnimation_28
 	anim_clear_flag
 
-Anim_04_41a9::
-	anim_frame Frame_20_4396
-	anim_jump Anim_04_41a9
+Anim_SetPlayerAnimation_26::
+	anim_frame Frame_SetPlayerAnimation_27
+	anim_jump Anim_SetPlayerAnimation_26
 
-Anim_04_41af::
+Anim_SetPlayerAnimation_27::
 	anim_param $20
 	anim_speed 4
 	anim_var38 $e5f9
-	anim_frame Frame_20_4456
+	anim_frame Frame_SetPlayerAnimation_59
 	anim_var38 $e500
-	anim_frame Frame_20_445c
+	anim_frame Frame_SetPlayerAnimation_60
 	anim_clear_flag
-	anim_frame Frame_20_4462
-	anim_frame Frame_20_4468
-	anim_frame Frame_20_446e
+	anim_frame Frame_SetPlayerAnimation_61
+	anim_frame Frame_SetPlayerAnimation_62
+	anim_frame Frame_SetPlayerAnimation_63
 	anim_clear_flag
-	anim_jump Anim_04_4001
+	anim_jump Anim_SetPlayerAnimation_1
 
-Anim_04_41cd::
+Anim_SetPlayerAnimation_28::
 	anim_param $22
 	anim_speed 4
 	anim_var38 $e20c
 
-Anim_04_41d5::
-	anim_frame Frame_20_4318
-	anim_frame Frame_20_431e
-	anim_frame Frame_20_4324
-	anim_frame Frame_20_432a
+Anim_SetPlayerAnimation_29::
+	anim_frame Frame_SetPlayerAnimation_6
+	anim_frame Frame_SetPlayerAnimation_7
+	anim_frame Frame_SetPlayerAnimation_8
+	anim_frame Frame_SetPlayerAnimation_9
 	anim_clear_flag
-	anim_frame Frame_20_4330
-	anim_frame Frame_20_4336
-	anim_frame Frame_20_433c
+	anim_frame Frame_SetPlayerAnimation_10
+	anim_frame Frame_SetPlayerAnimation_11
+	anim_frame Frame_SetPlayerAnimation_12
 	anim_clear_flag
-	anim_jump Anim_04_41d5
+	anim_jump Anim_SetPlayerAnimation_29
 
-Anim_04_41eb::
+Anim_SetPlayerAnimation_30::
 	anim_param $22
 	anim_speed 4
 	anim_var38 $e302
 
-Anim_04_41f3::
-	anim_frame Frame_20_43b4
-	anim_jump Anim_04_41f3
+Anim_SetPlayerAnimation_31::
+	anim_frame Frame_SetPlayerAnimation_32
+	anim_jump Anim_SetPlayerAnimation_31
 
-Anim_04_41f9::
+Anim_SetPlayerAnimation_32::
 	anim_param $22
 	anim_speed 4
 
-Anim_04_41fd::
-	anim_frame Frame_20_4318
-	anim_jump Anim_04_41fd
+Anim_SetPlayerAnimation_33::
+	anim_frame Frame_SetPlayerAnimation_6
+	anim_jump Anim_SetPlayerAnimation_33
 
-Anim_04_4203::
+Anim_SetPlayerAnimation_34::
 	anim_param $24
 	anim_speed 4
 
-Anim_04_4207::
-	anim_frame Frame_20_447a
-	anim_jump Anim_04_4207
+Anim_SetPlayerAnimation_35::
+	anim_frame Frame_SetPlayerAnimation_65
+	anim_jump Anim_SetPlayerAnimation_35
 
-Anim_04_420d::
+Anim_SetPlayerAnimation_36::
 	anim_speed 2
-	anim_frame Frame_20_43f6
-	anim_frame Frame_20_43fc
+	anim_frame Frame_SetPlayerAnimation_43
+	anim_frame Frame_SetPlayerAnimation_44
 	anim_xor_attr $20
-	anim_frame Frame_20_43fc
-	anim_frame Frame_20_43f6
+	anim_frame Frame_SetPlayerAnimation_44
+	anim_frame Frame_SetPlayerAnimation_43
 	anim_clear_flag
-	anim_jump Anim_04_4203
+	anim_jump Anim_SetPlayerAnimation_34
 
-Anim_04_421f::
+Anim_SetPlayerAnimation_37::
 	anim_param $24
 	anim_speed 2
 
-Anim_04_4223::
-	anim_frame Frame_20_447a
-	anim_frame Frame_20_4480
-	anim_frame Frame_20_4486
-	anim_frame Frame_20_448c
-	anim_frame Frame_20_4486
-	anim_frame Frame_20_4480
-	anim_jump Anim_04_4223
+Anim_SetPlayerAnimation_38::
+	anim_frame Frame_SetPlayerAnimation_65
+	anim_frame Frame_SetPlayerAnimation_66
+	anim_frame Frame_SetPlayerAnimation_67
+	anim_frame Frame_SetPlayerAnimation_68
+	anim_frame Frame_SetPlayerAnimation_67
+	anim_frame Frame_SetPlayerAnimation_66
+	anim_jump Anim_SetPlayerAnimation_38
 
-Anim_04_4233::
+Anim_SetPlayerAnimation_39::
 	anim_param $27
 	anim_speed 4
-	anim_frame Frame_20_4888
-	anim_frame Frame_20_488e
-	anim_frame Frame_20_4894
+	anim_frame Frame_SetPlayerAnimation_173
+	anim_frame Frame_SetPlayerAnimation_174
+	anim_frame Frame_SetPlayerAnimation_175
 	anim_clear_flag
-	anim_jump Anim_04_4243
+	anim_jump Anim_SetPlayerAnimation_40
 
-Anim_04_4243::
+Anim_SetPlayerAnimation_40::
 	anim_speed 50
-	anim_frame Frame_20_489a
+	anim_frame Frame_SetPlayerAnimation_176
 	anim_speed 8
-	anim_frame Frame_20_48a0
-	anim_frame Frame_20_48a6
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48be
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48b2
-	anim_frame Frame_20_48ac
-	anim_frame Frame_20_48b2
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48be
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48a6
-	anim_frame Frame_20_48a0
-	anim_jump Anim_04_4243
+	anim_frame Frame_SetPlayerAnimation_177
+	anim_frame Frame_SetPlayerAnimation_178
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_182
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_180
+	anim_frame Frame_SetPlayerAnimation_179
+	anim_frame Frame_SetPlayerAnimation_180
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_182
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_178
+	anim_frame Frame_SetPlayerAnimation_177
+	anim_jump Anim_SetPlayerAnimation_40
 
-Anim_04_4267::
+Anim_SetPlayerAnimation_41::
 	anim_param $27
 	anim_speed 4
-	anim_frame Frame_20_489a
-	anim_frame Frame_20_4894
-	anim_frame Frame_20_488e
-	anim_frame Frame_20_4888
+	anim_frame Frame_SetPlayerAnimation_176
+	anim_frame Frame_SetPlayerAnimation_175
+	anim_frame Frame_SetPlayerAnimation_174
+	anim_frame Frame_SetPlayerAnimation_173
 	anim_clear_flag
-	anim_jump Anim_04_407b
+	anim_jump Anim_SetPlayerAnimation_3
 
-Anim_04_4279::
+Anim_SetPlayerAnimation_42::
 	anim_param $25
 	anim_speed 6
 
-Anim_04_427d::
-	anim_frame Frame_20_4426
-	anim_frame Frame_20_442c
-	anim_frame Frame_20_4432
-	anim_frame Frame_20_4438
-	anim_frame Frame_20_443e
-	anim_frame Frame_20_4444
-	anim_frame Frame_20_444a
-	anim_frame Frame_20_4450
-	anim_jump Anim_04_427d
+Anim_SetPlayerAnimation_43::
+	anim_frame Frame_SetPlayerAnimation_51
+	anim_frame Frame_SetPlayerAnimation_52
+	anim_frame Frame_SetPlayerAnimation_53
+	anim_frame Frame_SetPlayerAnimation_54
+	anim_frame Frame_SetPlayerAnimation_55
+	anim_frame Frame_SetPlayerAnimation_56
+	anim_frame Frame_SetPlayerAnimation_57
+	anim_frame Frame_SetPlayerAnimation_58
+	anim_jump Anim_SetPlayerAnimation_43
 
-Anim_04_4291::
+Anim_SetPlayerAnimation_44::
 	anim_param $25
 	anim_speed 4
-	anim_frame Frame_20_4426
-	anim_frame Frame_20_442c
-	anim_frame Frame_20_4432
-	anim_frame Frame_20_4438
-	anim_frame Frame_20_443e
-	anim_frame Frame_20_4444
-	anim_frame Frame_20_444a
-	anim_frame Frame_20_4450
+	anim_frame Frame_SetPlayerAnimation_51
+	anim_frame Frame_SetPlayerAnimation_52
+	anim_frame Frame_SetPlayerAnimation_53
+	anim_frame Frame_SetPlayerAnimation_54
+	anim_frame Frame_SetPlayerAnimation_55
+	anim_frame Frame_SetPlayerAnimation_56
+	anim_frame Frame_SetPlayerAnimation_57
+	anim_frame Frame_SetPlayerAnimation_58
 	anim_clear_flag
-	anim_jump Anim_04_4279
+	anim_jump Anim_SetPlayerAnimation_42
 
-Anim_04_42ab::
+Anim_SetPlayerAnimation_45::
 	anim_param $27
 	anim_speed 6
 
-Anim_04_42af::
-	anim_frame Frame_20_54dc
-	anim_frame Frame_20_54e2
-	anim_frame Frame_20_54e8
-	anim_frame Frame_20_54ee
-	anim_frame Frame_20_54f4
-	anim_frame Frame_20_54fa
-	anim_frame Frame_20_5500
-	anim_frame Frame_20_5506
-	anim_frame Frame_20_550c
-	anim_frame Frame_20_5512
-	anim_frame Frame_20_5518
+Anim_SetPlayerAnimation_46::
+	anim_frame Frame_SetPlayerAnimation_183
+	anim_frame Frame_SetPlayerAnimation_184
+	anim_frame Frame_SetPlayerAnimation_185
+	anim_frame Frame_SetPlayerAnimation_186
+	anim_frame Frame_SetPlayerAnimation_187
+	anim_frame Frame_SetPlayerAnimation_188
+	anim_frame Frame_SetPlayerAnimation_189
+	anim_frame Frame_SetPlayerAnimation_190
+	anim_frame Frame_SetPlayerAnimation_191
+	anim_frame Frame_SetPlayerAnimation_192
+	anim_frame Frame_SetPlayerAnimation_193
 	anim_clear_flag
-	anim_jump Anim_04_42af
+	anim_jump Anim_SetPlayerAnimation_46
 
-Anim_04_42cb::
+Anim_SetPlayerAnimation_47::
 	anim_param $27
 	anim_speed 6
 
-Anim_04_42cf::
-	anim_frame Frame_20_54dc
-	anim_jump Anim_04_42cf
+Anim_SetPlayerAnimation_48::
+	anim_frame Frame_SetPlayerAnimation_183
+	anim_jump Anim_SetPlayerAnimation_48
 
-Anim_04_42d5::
+Anim_SetPlayerAnimation_49::
 	anim_param $2c
 	anim_speed 3
 
-Anim_04_42d9::
-	anim_frame Frame_20_57e2
-	anim_frame Frame_20_57e8
-	anim_frame Frame_20_57ee
-	anim_frame Frame_20_57f4
-	anim_frame Frame_20_57fa
-	anim_frame Frame_20_5800
-	anim_jump Anim_04_42d9
+Anim_SetPlayerAnimation_50::
+	anim_frame Frame_SetPlayerAnimation_200
+	anim_frame Frame_SetPlayerAnimation_201
+	anim_frame Frame_SetPlayerAnimation_202
+	anim_frame Frame_SetPlayerAnimation_203
+	anim_frame Frame_SetPlayerAnimation_204
+	anim_frame Frame_SetPlayerAnimation_205
+	anim_jump Anim_SetPlayerAnimation_50
 
-Anim_04_42e9::
+Anim_SetPlayerAnimation_51::
 	anim_speed 3
-	anim_frame Frame_20_59a4
-	anim_frame Frame_20_59aa
-	anim_frame Frame_20_59b0
-	anim_frame Frame_20_59b6
-	anim_frame Frame_20_59bc
-	anim_frame Frame_20_59c2
-	anim_frame Frame_20_59c8
-	anim_frame Frame_20_59ce
+	anim_frame Frame_SetPlayerAnimation_235
+	anim_frame Frame_SetPlayerAnimation_236
+	anim_frame Frame_SetPlayerAnimation_237
+	anim_frame Frame_SetPlayerAnimation_238
+	anim_frame Frame_SetPlayerAnimation_239
+	anim_frame Frame_SetPlayerAnimation_240
+	anim_frame Frame_SetPlayerAnimation_241
+	anim_frame Frame_SetPlayerAnimation_242
 	anim_sfx 4, $60
-	anim_frame Frame_20_59d4
-	anim_frame Frame_20_59da
+	anim_frame Frame_SetPlayerAnimation_243
+	anim_frame Frame_SetPlayerAnimation_244
 	anim_clear_flag
-	anim_frame Frame_20_59e0
-	anim_frame Frame_20_59e6
-	anim_frame Frame_20_59ec
-	anim_frame Frame_20_59f2
-	anim_frame Frame_20_59f8
-	anim_frame Frame_20_59fe
-	anim_frame Frame_20_5a04
-	anim_frame Frame_20_5a0a
-	anim_frame Frame_20_5a10
+	anim_frame Frame_SetPlayerAnimation_245
+	anim_frame Frame_SetPlayerAnimation_246
+	anim_frame Frame_SetPlayerAnimation_247
+	anim_frame Frame_SetPlayerAnimation_248
+	anim_frame Frame_SetPlayerAnimation_249
+	anim_frame Frame_SetPlayerAnimation_250
+	anim_frame Frame_SetPlayerAnimation_251
+	anim_frame Frame_SetPlayerAnimation_252
+	anim_frame Frame_SetPlayerAnimation_253
 	anim_clear_flag
-	anim_jump Anim_04_4243
+	anim_jump Anim_SetPlayerAnimation_40
 
-Anim_04_431b::
+Anim_Player_ExitAfterJingle_1::
 	anim_speed 7
-	anim_frame Frame_20_5e24
-	anim_frame Frame_20_5e2a
-	anim_frame Frame_20_5e30
-	anim_frame Frame_20_5e36
-	anim_frame Frame_20_5e3c
-	anim_frame Frame_20_5e36
-	anim_frame Frame_20_5e30
-	anim_frame Frame_20_5e36
-	anim_frame Frame_20_5e3c
-	anim_frame Frame_20_5e36
-	anim_frame Frame_20_5e30
-	anim_frame Frame_20_5e36
-	anim_frame Frame_20_5e3c
-	anim_frame Frame_20_5e42
-	anim_frame Frame_20_5e48
-	anim_frame Frame_20_5e4e
-	anim_frame Frame_20_5e54
-	anim_frame Frame_20_5e5a
-	anim_frame Frame_20_5e54
-	anim_frame Frame_20_5e4e
-	anim_frame Frame_20_5e54
-	anim_frame Frame_20_5e5a
-	anim_frame Frame_20_5e54
-	anim_frame Frame_20_5e4e
-	anim_frame Frame_20_5e54
-	anim_frame Frame_20_5e5a
-	anim_frame Frame_20_5e60
-	anim_frame Frame_20_5e66
+	anim_frame Frame_Player_ExitAfterJingle_12
+	anim_frame Frame_Player_ExitAfterJingle_13
+	anim_frame Frame_Player_ExitAfterJingle_14
+	anim_frame Frame_Player_ExitAfterJingle_15
+	anim_frame Frame_Player_ExitAfterJingle_16
+	anim_frame Frame_Player_ExitAfterJingle_15
+	anim_frame Frame_Player_ExitAfterJingle_14
+	anim_frame Frame_Player_ExitAfterJingle_15
+	anim_frame Frame_Player_ExitAfterJingle_16
+	anim_frame Frame_Player_ExitAfterJingle_15
+	anim_frame Frame_Player_ExitAfterJingle_14
+	anim_frame Frame_Player_ExitAfterJingle_15
+	anim_frame Frame_Player_ExitAfterJingle_16
+	anim_frame Frame_Player_ExitAfterJingle_17
+	anim_frame Frame_Player_ExitAfterJingle_18
+	anim_frame Frame_Player_ExitAfterJingle_19
+	anim_frame Frame_Player_ExitAfterJingle_20
+	anim_frame Frame_Player_ExitAfterJingle_21
+	anim_frame Frame_Player_ExitAfterJingle_20
+	anim_frame Frame_Player_ExitAfterJingle_19
+	anim_frame Frame_Player_ExitAfterJingle_20
+	anim_frame Frame_Player_ExitAfterJingle_21
+	anim_frame Frame_Player_ExitAfterJingle_20
+	anim_frame Frame_Player_ExitAfterJingle_19
+	anim_frame Frame_Player_ExitAfterJingle_20
+	anim_frame Frame_Player_ExitAfterJingle_21
+	anim_frame Frame_Player_ExitAfterJingle_22
+	anim_frame Frame_Player_ExitAfterJingle_23
 
-Anim_04_4355::
-	anim_frame Frame_20_5e6c
-	anim_frame Frame_20_5e72
-	anim_frame Frame_20_5e78
-	anim_frame Frame_20_5e72
-	anim_jump Anim_04_4355
+Anim_Player_ExitAfterJingle_2::
+	anim_frame Frame_Player_ExitAfterJingle_24
+	anim_frame Frame_Player_ExitAfterJingle_25
+	anim_frame Frame_Player_ExitAfterJingle_26
+	anim_frame Frame_Player_ExitAfterJingle_25
+	anim_jump Anim_Player_ExitAfterJingle_2
 
-Anim_04_4361::
+Anim_Player_ExitAfterJingle_3::
 	anim_speed 8
-	anim_frame Frame_20_5dd6
-	anim_frame Frame_20_5ddc
-	anim_frame Frame_20_5de2
-	anim_frame Frame_20_5de8
-	anim_frame Frame_20_5dee
-	anim_frame Frame_20_5df4
-	anim_frame Frame_20_5dfa
-	anim_frame Frame_20_5e00
+	anim_frame Frame_Player_ExitAfterJingle_1
+	anim_frame Frame_Player_ExitAfterJingle_2
+	anim_frame Frame_Player_ExitAfterJingle_3
+	anim_frame Frame_Player_ExitAfterJingle_4
+	anim_frame Frame_Player_ExitAfterJingle_5
+	anim_frame Frame_Player_ExitAfterJingle_6
+	anim_frame Frame_Player_ExitAfterJingle_7
+	anim_frame Frame_Player_ExitAfterJingle_8
 
-Anim_04_4373::
-	anim_frame Frame_20_5e06
-	anim_frame Frame_20_5e0c
-	anim_frame Frame_20_5e12
-	anim_frame Frame_20_5e0c
-	anim_jump Anim_04_4373
+Anim_Player_ExitAfterJingle_4::
+	anim_frame Frame_Player_ExitAfterJingle_9
+	anim_frame Frame_Player_ExitAfterJingle_10
+	anim_frame Frame_Player_ExitAfterJingle_11
+	anim_frame Frame_Player_ExitAfterJingle_10
+	anim_jump Anim_Player_ExitAfterJingle_4
 
-Anim_04_437f::
+Anim_SetPlayerAnimation_52::
 	anim_param $1d
 	anim_speed 120
-	anim_frame Frame_20_4822
+	anim_frame Frame_SetPlayerAnimation_156
 	anim_speed 5
-	anim_frame Frame_20_58e4
-	anim_frame Frame_20_58ea
-	anim_frame Frame_20_58f0
-	anim_frame Frame_20_58f6
-	anim_frame Frame_20_58fc
-	anim_frame Frame_20_5902
-	anim_frame Frame_20_5908
-	anim_frame Frame_20_590e
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
-	anim_frame Frame_20_590e
-	anim_frame Frame_20_5908
-	anim_frame Frame_20_5902
-	anim_frame Frame_20_58fc
-	anim_frame Frame_20_58f6
-	anim_frame Frame_20_58f0
-	anim_frame Frame_20_58ea
-	anim_frame Frame_20_58e4
+	anim_frame Frame_SetPlayerAnimation_225
+	anim_frame Frame_SetPlayerAnimation_226
+	anim_frame Frame_SetPlayerAnimation_227
+	anim_frame Frame_SetPlayerAnimation_228
+	anim_frame Frame_SetPlayerAnimation_229
+	anim_frame Frame_SetPlayerAnimation_230
+	anim_frame Frame_SetPlayerAnimation_231
+	anim_frame Frame_SetPlayerAnimation_232
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
+	anim_frame Frame_SetPlayerAnimation_232
+	anim_frame Frame_SetPlayerAnimation_231
+	anim_frame Frame_SetPlayerAnimation_230
+	anim_frame Frame_SetPlayerAnimation_229
+	anim_frame Frame_SetPlayerAnimation_228
+	anim_frame Frame_SetPlayerAnimation_227
+	anim_frame Frame_SetPlayerAnimation_226
+	anim_frame Frame_SetPlayerAnimation_225
 	anim_speed 120
-	anim_frame Frame_20_481c
+	anim_frame Frame_SetPlayerAnimation_155
 	anim_speed 5
-	anim_frame Frame_20_58e4
-	anim_frame Frame_20_58ea
-	anim_frame Frame_20_58f0
-	anim_frame Frame_20_58f6
-	anim_frame Frame_20_58fc
-	anim_frame Frame_20_5902
-	anim_frame Frame_20_5908
-	anim_frame Frame_20_590e
+	anim_frame Frame_SetPlayerAnimation_225
+	anim_frame Frame_SetPlayerAnimation_226
+	anim_frame Frame_SetPlayerAnimation_227
+	anim_frame Frame_SetPlayerAnimation_228
+	anim_frame Frame_SetPlayerAnimation_229
+	anim_frame Frame_SetPlayerAnimation_230
+	anim_frame Frame_SetPlayerAnimation_231
+	anim_frame Frame_SetPlayerAnimation_232
 	anim_speed 8
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
-	anim_frame Frame_20_5914
-	anim_frame Frame_20_591a
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
+	anim_frame Frame_SetPlayerAnimation_233
+	anim_frame Frame_SetPlayerAnimation_234
 	anim_speed 5
-	anim_frame Frame_20_590e
-	anim_frame Frame_20_5908
-	anim_frame Frame_20_5902
-	anim_frame Frame_20_58fc
-	anim_frame Frame_20_58f6
-	anim_frame Frame_20_58f0
-	anim_frame Frame_20_58ea
-	anim_frame Frame_20_58e4
+	anim_frame Frame_SetPlayerAnimation_232
+	anim_frame Frame_SetPlayerAnimation_231
+	anim_frame Frame_SetPlayerAnimation_230
+	anim_frame Frame_SetPlayerAnimation_229
+	anim_frame Frame_SetPlayerAnimation_228
+	anim_frame Frame_SetPlayerAnimation_227
+	anim_frame Frame_SetPlayerAnimation_226
+	anim_frame Frame_SetPlayerAnimation_225
 	anim_speed 120
 
-Anim_04_43f3::
-	anim_frame Frame_20_481c
-	anim_jump Anim_04_43f3
+Anim_SetPlayerAnimation_53::
+	anim_frame Frame_SetPlayerAnimation_155
+	anim_jump Anim_SetPlayerAnimation_53
 
-Anim_04_43f9::
+Anim_SetPlayerAnimation_54::
 	anim_param $1d
 	anim_speed 5
 
-Anim_04_43fd::
-	anim_frame Frame_20_481c
-	anim_frame Frame_20_4822
-	anim_frame Frame_20_4828
-	anim_frame Frame_20_482e
-	anim_frame Frame_20_4834
+Anim_SetPlayerAnimation_55::
+	anim_frame Frame_SetPlayerAnimation_155
+	anim_frame Frame_SetPlayerAnimation_156
+	anim_frame Frame_SetPlayerAnimation_157
+	anim_frame Frame_SetPlayerAnimation_158
+	anim_frame Frame_SetPlayerAnimation_159
 	anim_clear_flag
-	anim_frame Frame_20_483a
-	anim_frame Frame_20_4840
-	anim_frame Frame_20_4846
-	anim_jump Anim_04_43fd
+	anim_frame Frame_SetPlayerAnimation_160
+	anim_frame Frame_SetPlayerAnimation_161
+	anim_frame Frame_SetPlayerAnimation_162
+	anim_jump Anim_SetPlayerAnimation_55
 
-Anim_04_4413::
+Anim_SetPlayerAnimation_56::
 	anim_param $1c
 	anim_speed 4
 
-Anim_04_4417::
-	anim_frame Frame_20_476e
-	anim_frame Frame_20_4774
-	anim_frame Frame_20_477a
-	anim_frame Frame_20_4780
+Anim_SetPlayerAnimation_57::
+	anim_frame Frame_SetPlayerAnimation_126
+	anim_frame Frame_SetPlayerAnimation_127
+	anim_frame Frame_SetPlayerAnimation_128
+	anim_frame Frame_SetPlayerAnimation_129
 	anim_clear_flag
-	anim_frame Frame_20_4786
-	anim_frame Frame_20_478c
-	anim_frame Frame_20_4792
-	anim_jump Anim_04_4417
+	anim_frame Frame_SetPlayerAnimation_130
+	anim_frame Frame_SetPlayerAnimation_131
+	anim_frame Frame_SetPlayerAnimation_132
+	anim_jump Anim_SetPlayerAnimation_57
 
-Anim_04_442b::
+Anim_SetPlayerAnimation_58::
 	anim_param $1e
 	anim_speed 4
-	anim_frame Frame_20_484c
-	anim_frame Frame_20_4852
-	anim_frame Frame_20_4858
-	anim_frame Frame_20_485e
-	anim_frame Frame_20_4864
-	anim_frame Frame_20_486a
-	anim_frame Frame_20_4870
-	anim_frame Frame_20_4876
-	anim_frame Frame_20_487c
+	anim_frame Frame_SetPlayerAnimation_163
+	anim_frame Frame_SetPlayerAnimation_164
+	anim_frame Frame_SetPlayerAnimation_165
+	anim_frame Frame_SetPlayerAnimation_166
+	anim_frame Frame_SetPlayerAnimation_167
+	anim_frame Frame_SetPlayerAnimation_168
+	anim_frame Frame_SetPlayerAnimation_169
+	anim_frame Frame_SetPlayerAnimation_170
+	anim_frame Frame_SetPlayerAnimation_171
 	anim_clear_flag
-	anim_frame Frame_20_4882
-	anim_jump Anim_04_43f9
+	anim_frame Frame_SetPlayerAnimation_172
+	anim_jump Anim_SetPlayerAnimation_54
 
-Anim_04_4449::
+Anim_SetPlayerAnimation_59::
 	anim_param $1e
 	anim_speed 6
 
-Anim_04_444d::
-	anim_frame Frame_20_485e
-	anim_frame Frame_20_4864
-	anim_frame Frame_20_486a
-	anim_frame Frame_20_4870
-	anim_frame Frame_20_4876
-	anim_frame Frame_20_487c
+Anim_SetPlayerAnimation_60::
+	anim_frame Frame_SetPlayerAnimation_166
+	anim_frame Frame_SetPlayerAnimation_167
+	anim_frame Frame_SetPlayerAnimation_168
+	anim_frame Frame_SetPlayerAnimation_169
+	anim_frame Frame_SetPlayerAnimation_170
+	anim_frame Frame_SetPlayerAnimation_171
 	anim_clear_flag
-	anim_jump Anim_04_444d
+	anim_jump Anim_SetPlayerAnimation_60
 
-Anim_04_445f::
+Anim_SetPlayerAnimation_61::
 	anim_speed 2
 
-Anim_04_4461::
-	anim_frame Frame_20_46c0
-	anim_jump Anim_04_4461
+Anim_SetPlayerAnimation_62::
+	anim_frame Frame_SetPlayerAnimation_114
+	anim_jump Anim_SetPlayerAnimation_62
 
-Anim_04_4467::
+Anim_SetPlayerAnimation_63::
 	anim_param $1b
 	anim_speed 2
-	anim_frame Frame_20_46cc
+	anim_frame Frame_SetPlayerAnimation_116
 
-Anim_04_446d::
-	anim_frame Frame_20_46c6
-	anim_jump Anim_04_446d
+Anim_SetPlayerAnimation_64::
+	anim_frame Frame_SetPlayerAnimation_115
+	anim_jump Anim_SetPlayerAnimation_64
 
-Anim_04_4473::
+Anim_SetPlayerAnimation_65::
 	anim_param $1b
 	anim_speed 10
-	anim_frame Frame_20_46c6
+	anim_frame Frame_SetPlayerAnimation_115
 
-Anim_04_4479::
-	anim_frame Frame_20_46cc
-	anim_jump Anim_04_4479
+Anim_SetPlayerAnimation_66::
+	anim_frame Frame_SetPlayerAnimation_116
+	anim_jump Anim_SetPlayerAnimation_66
 
-Anim_04_447f::
+Anim_SetPlayerAnimation_67::
 	anim_speed 4
-	anim_frame Frame_20_47ec
-	anim_frame Frame_20_47f2
+	anim_frame Frame_SetPlayerAnimation_147
+	anim_frame Frame_SetPlayerAnimation_148
 	anim_xor_attr $20
-	anim_frame Frame_20_47f2
-	anim_frame Frame_20_47ec
+	anim_frame Frame_SetPlayerAnimation_148
+	anim_frame Frame_SetPlayerAnimation_147
 	anim_clear_flag
-	anim_jump Anim_04_437f
+	anim_jump Anim_SetPlayerAnimation_52
 
-Anim_04_4491::
+Anim_SetPlayerAnimation_68::
 	anim_speed 2
-	anim_frame Frame_20_46c0
+	anim_frame Frame_SetPlayerAnimation_114
 	anim_speed 4
-	anim_frame Frame_20_4684
-	anim_frame Frame_20_468a
-	anim_frame Frame_20_4690
+	anim_frame Frame_SetPlayerAnimation_104
+	anim_frame Frame_SetPlayerAnimation_105
+	anim_frame Frame_SetPlayerAnimation_106
 	anim_speed 8
-	anim_frame Frame_20_4696
-	anim_frame Frame_20_469c
-	anim_frame Frame_20_46a2
-	anim_frame Frame_20_46a8
-	anim_frame Frame_20_46ae
+	anim_frame Frame_SetPlayerAnimation_107
+	anim_frame Frame_SetPlayerAnimation_108
+	anim_frame Frame_SetPlayerAnimation_109
+	anim_frame Frame_SetPlayerAnimation_110
+	anim_frame Frame_SetPlayerAnimation_111
 	anim_sfx 2, $56
 
-Anim_04_44ab::
-	anim_frame Frame_20_46b4
-	anim_frame Frame_20_46ba
-	anim_jump Anim_04_44ab
+Anim_SetPlayerAnimation_69::
+	anim_frame Frame_SetPlayerAnimation_112
+	anim_frame Frame_SetPlayerAnimation_113
+	anim_jump Anim_SetPlayerAnimation_69
 
-Anim_04_44b3::
+Anim_SetPlayerAnimation_70::
 	anim_speed 4
 
-Anim_04_44b5::
-	anim_frame Frame_20_46c6
-	anim_jump Anim_04_44b5
+Anim_SetPlayerAnimation_71::
+	anim_frame Frame_SetPlayerAnimation_115
+	anim_jump Anim_SetPlayerAnimation_71
 
-Anim_04_44bb::
+Anim_SetPlayerAnimation_72::
 	anim_param $14
 	anim_speed 4
 
-Anim_04_44bf::
-	anim_frame Frame_20_45dc
-	anim_frame Frame_20_45e2
-	anim_frame Frame_20_45e8
-	anim_frame Frame_20_45ee
-	anim_frame Frame_20_45f4
-	anim_jump Anim_04_44bf
+Anim_SetPlayerAnimation_73::
+	anim_frame Frame_SetPlayerAnimation_76
+	anim_frame Frame_SetPlayerAnimation_77
+	anim_frame Frame_SetPlayerAnimation_78
+	anim_frame Frame_SetPlayerAnimation_79
+	anim_frame Frame_SetPlayerAnimation_80
+	anim_jump Anim_SetPlayerAnimation_73
 
-Anim_04_44cd::
+Anim_SetPlayerAnimation_74::
 	anim_param $16
 	anim_speed 4
 	anim_var38 $0009
-	anim_frame Frame_20_4738
-	anim_frame Frame_20_473e
+	anim_frame Frame_SetPlayerAnimation_117
+	anim_frame Frame_SetPlayerAnimation_118
 	anim_var38 $fe09
-	anim_frame Frame_20_4744
+	anim_frame Frame_SetPlayerAnimation_119
 	anim_var38 $fe09
-	anim_frame Frame_20_474a
+	anim_frame Frame_SetPlayerAnimation_120
 	anim_var38 $f909
-	anim_frame Frame_20_4750
+	anim_frame Frame_SetPlayerAnimation_121
 	anim_var38 $f909
 	anim_clear_flag
 
-Anim_04_44f1::
-	anim_frame Frame_20_4756
-	anim_jump Anim_04_44f1
+Anim_SetPlayerAnimation_75::
+	anim_frame Frame_SetPlayerAnimation_122
+	anim_jump Anim_SetPlayerAnimation_75
 
-Anim_04_44f7::
+Anim_SetPlayerAnimation_76::
 	anim_param $16
 	anim_speed 4
 	anim_var38 $f909
-	anim_frame Frame_20_4756
+	anim_frame Frame_SetPlayerAnimation_122
 	anim_var38 $f909
-	anim_frame Frame_20_4750
+	anim_frame Frame_SetPlayerAnimation_121
 	anim_var38 $fe09
-	anim_frame Frame_20_474a
+	anim_frame Frame_SetPlayerAnimation_120
 	anim_var38 $fe09
-	anim_frame Frame_20_4744
+	anim_frame Frame_SetPlayerAnimation_119
 	anim_var38 $0009
-	anim_frame Frame_20_473e
+	anim_frame Frame_SetPlayerAnimation_118
 	anim_clear_flag
 
-Anim_04_451b::
-	anim_frame Frame_20_4738
-	anim_jump Anim_04_451b
+Anim_SetPlayerAnimation_77::
+	anim_frame Frame_SetPlayerAnimation_117
+	anim_jump Anim_SetPlayerAnimation_77
 
-Anim_04_4521::
+Anim_SetPlayerAnimation_78::
 	anim_param $13
 	anim_speed 4
 	anim_var38 $f707
-	anim_frame Frame_20_47c8
+	anim_frame Frame_SetPlayerAnimation_141
 	anim_var38 $fb06
-	anim_frame Frame_20_47ce
+	anim_frame Frame_SetPlayerAnimation_142
 	anim_var38 $f803
-	anim_frame Frame_20_47d4
+	anim_frame Frame_SetPlayerAnimation_143
 	anim_var38 $fb00
-	anim_frame Frame_20_47da
+	anim_frame Frame_SetPlayerAnimation_144
 	anim_clear_flag
-	anim_frame Frame_20_47e0
-	anim_frame Frame_20_47e6
+	anim_frame Frame_SetPlayerAnimation_145
+	anim_frame Frame_SetPlayerAnimation_146
 	anim_clear_flag
-	anim_jump Anim_04_437f
+	anim_jump Anim_SetPlayerAnimation_52
 
-Anim_04_4549::
+Anim_SetPlayerAnimation_79::
 	anim_param $15
 	anim_speed 4
 	anim_var38 $f909
 
-Anim_04_4551::
-	anim_frame Frame_20_45fa
-	anim_frame Frame_20_4600
-	anim_frame Frame_20_4606
-	anim_frame Frame_20_460c
+Anim_SetPlayerAnimation_80::
+	anim_frame Frame_SetPlayerAnimation_81
+	anim_frame Frame_SetPlayerAnimation_82
+	anim_frame Frame_SetPlayerAnimation_83
+	anim_frame Frame_SetPlayerAnimation_84
 	anim_clear_flag
-	anim_frame Frame_20_4612
-	anim_frame Frame_20_4618
-	anim_frame Frame_20_461e
-	anim_frame Frame_20_4624
-	anim_jump Anim_04_4551
+	anim_frame Frame_SetPlayerAnimation_85
+	anim_frame Frame_SetPlayerAnimation_86
+	anim_frame Frame_SetPlayerAnimation_87
+	anim_frame Frame_SetPlayerAnimation_88
+	anim_jump Anim_SetPlayerAnimation_80
 
-Anim_04_4567::
+Anim_SetPlayerAnimation_81::
 	anim_param $15
 	anim_speed 4
 	anim_var38 $f906
 
-Anim_04_456f::
-	anim_frame Frame_20_4756
-	anim_jump Anim_04_456f
+Anim_SetPlayerAnimation_82::
+	anim_frame Frame_SetPlayerAnimation_122
+	anim_jump Anim_SetPlayerAnimation_82
 
-Anim_04_4575::
+Anim_SetPlayerAnimation_83::
 	anim_param $15
 	anim_speed 4
 
-Anim_04_4579::
-	anim_frame Frame_20_45fa
-	anim_jump Anim_04_4579
+Anim_SetPlayerAnimation_84::
+	anim_frame Frame_SetPlayerAnimation_81
+	anim_jump Anim_SetPlayerAnimation_84
 
-Anim_04_457f::
+Anim_SetPlayerAnimation_85::
 	anim_param $17
 	anim_speed 4
 
-Anim_04_4583::
-	anim_frame Frame_20_475c
-	anim_jump Anim_04_4583
+Anim_SetPlayerAnimation_86::
+	anim_frame Frame_SetPlayerAnimation_123
+	anim_jump Anim_SetPlayerAnimation_86
 
-Anim_04_4589::
+Anim_SetPlayerAnimation_87::
 	anim_speed 4
-	anim_frame Frame_20_475c
-	anim_frame Frame_20_4762
-	anim_frame Frame_20_4768
+	anim_frame Frame_SetPlayerAnimation_123
+	anim_frame Frame_SetPlayerAnimation_124
+	anim_frame Frame_SetPlayerAnimation_125
 	anim_xor_attr $20
-	anim_frame Frame_20_4768
-	anim_frame Frame_20_4762
-	anim_frame Frame_20_475c
+	anim_frame Frame_SetPlayerAnimation_125
+	anim_frame Frame_SetPlayerAnimation_124
+	anim_frame Frame_SetPlayerAnimation_123
 	anim_clear_flag
-	anim_jump Anim_04_457f
+	anim_jump Anim_SetPlayerAnimation_85
 
-Anim_04_459f::
+Anim_SetPlayerAnimation_88::
 	anim_param $17
 	anim_speed 4
 
-Anim_04_45a3::
-	anim_frame Frame_20_480a
-	anim_frame Frame_20_4810
-	anim_frame Frame_20_4816
-	anim_frame Frame_20_47f8
-	anim_frame Frame_20_47fe
-	anim_frame Frame_20_4804
-	anim_jump Anim_04_45a3
+Anim_SetPlayerAnimation_89::
+	anim_frame Frame_SetPlayerAnimation_152
+	anim_frame Frame_SetPlayerAnimation_153
+	anim_frame Frame_SetPlayerAnimation_154
+	anim_frame Frame_SetPlayerAnimation_149
+	anim_frame Frame_SetPlayerAnimation_150
+	anim_frame Frame_SetPlayerAnimation_151
+	anim_jump Anim_SetPlayerAnimation_89
 
-Anim_04_45b3::
+Anim_SetPlayerAnimation_90::
 	anim_param $17
 	anim_speed 4
 
-Anim_04_45b7::
-	anim_frame Frame_20_480a
-	anim_frame Frame_20_4804
-	anim_frame Frame_20_47fe
-	anim_frame Frame_20_47f8
-	anim_frame Frame_20_4816
-	anim_frame Frame_20_4810
-	anim_jump Anim_04_45b7
+Anim_SetPlayerAnimation_91::
+	anim_frame Frame_SetPlayerAnimation_152
+	anim_frame Frame_SetPlayerAnimation_151
+	anim_frame Frame_SetPlayerAnimation_150
+	anim_frame Frame_SetPlayerAnimation_149
+	anim_frame Frame_SetPlayerAnimation_154
+	anim_frame Frame_SetPlayerAnimation_153
+	anim_jump Anim_SetPlayerAnimation_91
 
-Anim_04_45c7::
+Anim_SetPlayerAnimation_92::
 	anim_param $1a
 	anim_speed 4
-	anim_frame Frame_20_4654
-	anim_frame Frame_20_465a
-	anim_frame Frame_20_4660
-	anim_frame Frame_20_4666
+	anim_frame Frame_SetPlayerAnimation_96
+	anim_frame Frame_SetPlayerAnimation_97
+	anim_frame Frame_SetPlayerAnimation_98
+	anim_frame Frame_SetPlayerAnimation_99
 	anim_clear_flag
 
-Anim_04_45d5::
+Anim_SetPlayerAnimation_93::
 	anim_speed 50
-	anim_frame Frame_20_466c
+	anim_frame Frame_SetPlayerAnimation_100
 	anim_speed 8
-	anim_frame Frame_20_4672
-	anim_frame Frame_20_4678
-	anim_frame Frame_20_467e
-	anim_frame Frame_20_4678
-	anim_frame Frame_20_4672
-	anim_jump Anim_04_45d5
+	anim_frame Frame_SetPlayerAnimation_101
+	anim_frame Frame_SetPlayerAnimation_102
+	anim_frame Frame_SetPlayerAnimation_103
+	anim_frame Frame_SetPlayerAnimation_102
+	anim_frame Frame_SetPlayerAnimation_101
+	anim_jump Anim_SetPlayerAnimation_93
 
-Anim_04_45e9::
+Anim_SetPlayerAnimation_94::
 	anim_param $1a
 	anim_speed 4
-	anim_frame Frame_20_4666
-	anim_frame Frame_20_4660
-	anim_frame Frame_20_465a
-	anim_frame Frame_20_4654
+	anim_frame Frame_SetPlayerAnimation_99
+	anim_frame Frame_SetPlayerAnimation_98
+	anim_frame Frame_SetPlayerAnimation_97
+	anim_frame Frame_SetPlayerAnimation_96
 	anim_clear_flag
-	anim_jump Anim_04_437f
+	anim_jump Anim_SetPlayerAnimation_52
 
-Anim_04_45fb::
+Anim_SetPlayerAnimation_95::
 	anim_param $18
 	anim_speed 4
 
-Anim_04_45ff::
-	anim_frame Frame_20_4798
-	anim_frame Frame_20_479e
-	anim_frame Frame_20_47a4
-	anim_frame Frame_20_47aa
-	anim_frame Frame_20_47b0
-	anim_frame Frame_20_47b6
-	anim_frame Frame_20_47bc
-	anim_frame Frame_20_47c2
-	anim_jump Anim_04_45ff
+Anim_SetPlayerAnimation_96::
+	anim_frame Frame_SetPlayerAnimation_133
+	anim_frame Frame_SetPlayerAnimation_134
+	anim_frame Frame_SetPlayerAnimation_135
+	anim_frame Frame_SetPlayerAnimation_136
+	anim_frame Frame_SetPlayerAnimation_137
+	anim_frame Frame_SetPlayerAnimation_138
+	anim_frame Frame_SetPlayerAnimation_139
+	anim_frame Frame_SetPlayerAnimation_140
+	anim_jump Anim_SetPlayerAnimation_96
 
-Anim_04_4613::
+Anim_SetPlayerAnimation_97::
 	anim_param $18
 	anim_speed 2
-	anim_frame Frame_20_4798
-	anim_frame Frame_20_479e
-	anim_frame Frame_20_47a4
-	anim_frame Frame_20_47aa
-	anim_frame Frame_20_47b0
-	anim_frame Frame_20_47b6
-	anim_frame Frame_20_47bc
-	anim_frame Frame_20_47c2
+	anim_frame Frame_SetPlayerAnimation_133
+	anim_frame Frame_SetPlayerAnimation_134
+	anim_frame Frame_SetPlayerAnimation_135
+	anim_frame Frame_SetPlayerAnimation_136
+	anim_frame Frame_SetPlayerAnimation_137
+	anim_frame Frame_SetPlayerAnimation_138
+	anim_frame Frame_SetPlayerAnimation_139
+	anim_frame Frame_SetPlayerAnimation_140
 	anim_clear_flag
-	anim_jump Anim_04_45fb
+	anim_jump Anim_SetPlayerAnimation_95
 
-Anim_04_462d::
+Anim_SetPlayerAnimation_98::
 	anim_param $19
 	anim_speed 6
 
-Anim_04_4631::
-	anim_frame Frame_20_462a
-	anim_frame Frame_20_4630
-	anim_frame Frame_20_4636
-	anim_frame Frame_20_463c
-	anim_frame Frame_20_4642
-	anim_frame Frame_20_4648
-	anim_frame Frame_20_464e
+Anim_SetPlayerAnimation_99::
+	anim_frame Frame_SetPlayerAnimation_89
+	anim_frame Frame_SetPlayerAnimation_90
+	anim_frame Frame_SetPlayerAnimation_91
+	anim_frame Frame_SetPlayerAnimation_92
+	anim_frame Frame_SetPlayerAnimation_93
+	anim_frame Frame_SetPlayerAnimation_94
+	anim_frame Frame_SetPlayerAnimation_95
 	anim_clear_flag
-	anim_jump Anim_04_4631
+	anim_jump Anim_SetPlayerAnimation_99
 
-Anim_04_4645::
+Anim_SetPlayerAnimation_100::
 	anim_param $19
 	anim_speed 6
 
-Anim_04_4649::
-	anim_frame Frame_20_462a
-	anim_jump Anim_04_4649
+Anim_SetPlayerAnimation_101::
+	anim_frame Frame_SetPlayerAnimation_89
+	anim_jump Anim_SetPlayerAnimation_101
 
-Anim_04_464f::
+Anim_SetPlayerAnimation_102::
 	anim_param $1f
 	anim_speed 3
 
-Anim_04_4653::
-	anim_frame Frame_20_57be
-	anim_frame Frame_20_57c4
-	anim_frame Frame_20_57ca
-	anim_frame Frame_20_57d0
-	anim_frame Frame_20_57d6
-	anim_frame Frame_20_57dc
-	anim_jump Anim_04_4653
+Anim_SetPlayerAnimation_103::
+	anim_frame Frame_SetPlayerAnimation_194
+	anim_frame Frame_SetPlayerAnimation_195
+	anim_frame Frame_SetPlayerAnimation_196
+	anim_frame Frame_SetPlayerAnimation_197
+	anim_frame Frame_SetPlayerAnimation_198
+	anim_frame Frame_SetPlayerAnimation_199
+	anim_jump Anim_SetPlayerAnimation_103
 
-Anim_04_4663::
+Anim_Player_ExitAfterJingle_5::
 	anim_speed 7
-	anim_frame Frame_20_5ecc
-	anim_frame Frame_20_5ed2
-	anim_frame Frame_20_5ed8
-	anim_frame Frame_20_5ede
-	anim_frame Frame_20_5ee4
-	anim_frame Frame_20_5eea
-	anim_frame Frame_20_5ef0
-	anim_frame Frame_20_5ef6
+	anim_frame Frame_Player_ExitAfterJingle_38
+	anim_frame Frame_Player_ExitAfterJingle_39
+	anim_frame Frame_Player_ExitAfterJingle_40
+	anim_frame Frame_Player_ExitAfterJingle_41
+	anim_frame Frame_Player_ExitAfterJingle_42
+	anim_frame Frame_Player_ExitAfterJingle_43
+	anim_frame Frame_Player_ExitAfterJingle_44
+	anim_frame Frame_Player_ExitAfterJingle_45
 	anim_call Diddy_ThrowCapHigh
 	anim_var38 $f412
-	anim_frame Frame_20_5efc
+	anim_frame Frame_Player_ExitAfterJingle_46
 	anim_var38 $fa12
-	anim_frame Frame_20_5f02
+	anim_frame Frame_Player_ExitAfterJingle_47
 	anim_var38 $0012
 
-Anim_04_4689::
-	anim_frame Frame_20_5f08
-	anim_frame Frame_20_5f0e
-	anim_frame Frame_20_5f14
-	anim_frame Frame_20_5f1a
-	anim_frame Frame_20_5f20
-	anim_jump Anim_04_4689
+Anim_Player_ExitAfterJingle_6::
+	anim_frame Frame_Player_ExitAfterJingle_48
+	anim_frame Frame_Player_ExitAfterJingle_49
+	anim_frame Frame_Player_ExitAfterJingle_50
+	anim_frame Frame_Player_ExitAfterJingle_51
+	anim_frame Frame_Player_ExitAfterJingle_52
+	anim_jump Anim_Player_ExitAfterJingle_6
 
-Anim_04_4697::
+Anim_Player_ExitAfterJingle_7::
 	anim_speed 7
-	anim_frame Frame_20_5e7e
-	anim_frame Frame_20_5e84
-	anim_frame Frame_20_5e8a
-	anim_frame Frame_20_5e90
-	anim_frame Frame_20_5e96
+	anim_frame Frame_Player_ExitAfterJingle_27
+	anim_frame Frame_Player_ExitAfterJingle_28
+	anim_frame Frame_Player_ExitAfterJingle_29
+	anim_frame Frame_Player_ExitAfterJingle_30
+	anim_frame Frame_Player_ExitAfterJingle_31
 
-Anim_04_46a3::
-	anim_frame Frame_20_5e9c
-	anim_frame Frame_20_5ea2
+Anim_Player_ExitAfterJingle_8::
+	anim_frame Frame_Player_ExitAfterJingle_32
+	anim_frame Frame_Player_ExitAfterJingle_33
 	anim_call Diddy_ThrowCap
 	anim_var38 $d80c
-	anim_frame Frame_20_5eae
+	anim_frame Frame_Player_ExitAfterJingle_34
 	anim_var38 $ce0c
-	anim_frame Frame_20_5eb4
+	anim_frame Frame_Player_ExitAfterJingle_35
 	anim_var38 $c40c
-	anim_frame Frame_20_5eba
+	anim_frame Frame_Player_ExitAfterJingle_36
 	anim_var38 $ce0c
-	anim_frame Frame_20_5ec0
+	anim_frame Frame_Player_ExitAfterJingle_37
 	anim_var38 $d80c
-	anim_frame Frame_20_5eba
+	anim_frame Frame_Player_ExitAfterJingle_36
 	anim_call Diddy_RemoveCap
-	anim_frame Frame_20_5ea2
-	anim_jump Anim_04_46a3
+	anim_frame Frame_Player_ExitAfterJingle_33
+	anim_jump Anim_Player_ExitAfterJingle_8
 
-Anim_04_46d3::
+Anim_Coconut_1::
 	anim_speed 3
 
-Anim_04_46d5::
-	anim_frame Frame_20_5f26
-	anim_frame Frame_20_5f2c
-	anim_frame Frame_20_5f32
-	anim_frame Frame_20_5f38
-	anim_frame Frame_20_5f3e
-	anim_frame Frame_20_5f44
-	anim_frame Frame_20_5f4a
-	anim_frame Frame_20_5f50
-	anim_jump Anim_04_46d5
+Anim_Coconut_2::
+	anim_frame Frame_Coconut_1
+	anim_frame Frame_Coconut_2
+	anim_frame Frame_Coconut_3
+	anim_frame Frame_Coconut_4
+	anim_frame Frame_Coconut_5
+	anim_frame Frame_Coconut_6
+	anim_frame Frame_Coconut_7
+	anim_frame Frame_Coconut_8
+	anim_jump Anim_Coconut_2
 
-Anim_04_46e9::
+Anim_Coconut_3::
 	anim_speed 3
-	anim_frame Frame_20_5f56
-	anim_frame Frame_20_5f5c
+	anim_frame Frame_Coconut_9
+	anim_frame Frame_Coconut_10
 
-Anim_04_46ef::
-	anim_frame Frame_20_5f62
-	anim_jump Anim_04_46ef
+Anim_Coconut_4::
+	anim_frame Frame_Coconut_11
+	anim_jump Anim_Coconut_4
 
-Anim_04_46f5::
+Anim_PlayerEnguarde_1::
 	anim_speed 4
 
-Anim_04_46f7::
-	anim_frame Frame_20_4d56
-	anim_frame Frame_20_4d5c
-	anim_frame Frame_20_4d62
-	anim_frame Frame_20_4d68
-	anim_frame Frame_20_4d6e
-	anim_frame Frame_20_4d74
-	anim_frame Frame_20_4d7a
-	anim_frame Frame_20_4d80
-	anim_jump Anim_04_46f7
+Anim_PlayerEnguarde_2::
+	anim_frame Frame_PlayerEnguarde_1
+	anim_frame Frame_PlayerEnguarde_2
+	anim_frame Frame_PlayerEnguarde_3
+	anim_frame Frame_PlayerEnguarde_4
+	anim_frame Frame_PlayerEnguarde_5
+	anim_frame Frame_PlayerEnguarde_6
+	anim_frame Frame_PlayerEnguarde_7
+	anim_frame Frame_PlayerEnguarde_8
+	anim_jump Anim_PlayerEnguarde_2
 
-Anim_04_470b::
+Anim_PlayerEnguarde_Stab::
 	anim_speed 2
-	anim_frame Frame_20_4e16
-	anim_frame Frame_20_4e1c
-	anim_frame Frame_20_4e22
-	anim_frame Frame_20_4e28
-	anim_frame Frame_20_4e2e
+	anim_frame Frame_PlayerEnguarde_Stab_1
+	anim_frame Frame_PlayerEnguarde_Stab_2
+	anim_frame Frame_PlayerEnguarde_Stab_3
+	anim_frame Frame_PlayerEnguarde_Stab_4
+	anim_frame Frame_PlayerEnguarde_Stab_5
 	anim_sfx 2, $62
-	anim_frame Frame_20_4e34
-	anim_frame Frame_20_4e3a
-	anim_frame Frame_20_4e40
-	anim_frame Frame_20_4e46
+	anim_frame Frame_PlayerEnguarde_Stab_6
+	anim_frame Frame_PlayerEnguarde_Stab_7
+	anim_frame Frame_PlayerEnguarde_Stab_8
+	anim_frame Frame_PlayerEnguarde_Stab_9
 	anim_clear_flag
-	anim_jump Anim_04_46f5
+	anim_jump Anim_PlayerEnguarde_1
 
-Anim_04_4727::
+Anim_PlayerEnguarde_3::
 	anim_speed 1
-	anim_frame Frame_20_4eac
-	anim_frame Frame_20_4eb2
-	anim_frame Frame_20_4eb8
-	anim_frame Frame_20_4ebe
+	anim_frame Frame_PlayerEnguarde_9
+	anim_frame Frame_PlayerEnguarde_10
+	anim_frame Frame_PlayerEnguarde_11
+	anim_frame Frame_PlayerEnguarde_12
 	anim_xor_attr $20
 	anim_clear_flag
-	anim_jump Anim_04_46f5
+	anim_jump Anim_PlayerEnguarde_1
 
-Anim_04_4739::
+Anim_Unused_1::
 	anim_speed 4
 
-Anim_04_473b::
-	anim_frame Frame_20_4e10
-	anim_jump Anim_04_473b
+Anim_Unused_2::
+	anim_frame Frame_Unused_53
+	anim_jump Anim_Unused_2
 
-Anim_04_4741::
+Anim_PlayerRambi_1::
 	anim_speed 30
-	anim_frame Frame_20_5470
-	anim_frame Frame_20_5452
-	anim_frame Frame_20_5470
-	anim_frame Frame_20_5452
-	anim_frame Frame_20_5470
-	anim_frame Frame_20_5452
+	anim_frame Frame_PlayerRambi_8
+	anim_frame Frame_PlayerRambi_7
+	anim_frame Frame_PlayerRambi_8
+	anim_frame Frame_PlayerRambi_7
+	anim_frame Frame_PlayerRambi_8
+	anim_frame Frame_PlayerRambi_7
 	anim_speed 5
-	anim_frame Frame_20_5470
-	anim_frame Frame_20_549a
-	anim_frame Frame_20_5494
+	anim_frame Frame_PlayerRambi_8
+	anim_frame Frame_PlayerRambi_13
+	anim_frame Frame_PlayerRambi_12
 	anim_speed 8
-	anim_frame Frame_20_548e
+	anim_frame Frame_PlayerRambi_11
 	anim_speed 5
-	anim_frame Frame_20_5494
-	anim_frame Frame_20_549a
+	anim_frame Frame_PlayerRambi_12
+	anim_frame Frame_PlayerRambi_13
 	anim_speed 8
-	anim_frame Frame_20_5470
+	anim_frame Frame_PlayerRambi_8
 	anim_speed 5
-	anim_frame Frame_20_549a
-	anim_frame Frame_20_5494
+	anim_frame Frame_PlayerRambi_13
+	anim_frame Frame_PlayerRambi_12
 	anim_speed 8
-	anim_frame Frame_20_548e
-	anim_frame Frame_20_5488
-	anim_frame Frame_20_5482
-	anim_frame Frame_20_5488
-	anim_frame Frame_20_5482
-	anim_frame Frame_20_5488
-	anim_frame Frame_20_5482
-	anim_frame Frame_20_5488
-	anim_frame Frame_20_548e
+	anim_frame Frame_PlayerRambi_11
+	anim_frame Frame_PlayerRambi_10
+	anim_frame Frame_PlayerRambi_9
+	anim_frame Frame_PlayerRambi_10
+	anim_frame Frame_PlayerRambi_9
+	anim_frame Frame_PlayerRambi_10
+	anim_frame Frame_PlayerRambi_9
+	anim_frame Frame_PlayerRambi_10
+	anim_frame Frame_PlayerRambi_11
 	anim_speed 5
-	anim_frame Frame_20_5494
-	anim_frame Frame_20_549a
-	anim_jump Anim_04_4741
+	anim_frame Frame_PlayerRambi_12
+	anim_frame Frame_PlayerRambi_13
+	anim_jump Anim_PlayerRambi_1
 
-Anim_04_4789::
+Anim_PlayerRambi_2::
 	anim_speed 5
 
-Anim_04_478b::
-	anim_frame Frame_20_5422
-	anim_frame Frame_20_5428
-	anim_frame Frame_20_542e
-	anim_frame Frame_20_5434
-	anim_frame Frame_20_543a
-	anim_frame Frame_20_5440
+Anim_PlayerRambi_3::
+	anim_frame Frame_PlayerRambi_1
+	anim_frame Frame_PlayerRambi_2
+	anim_frame Frame_PlayerRambi_3
+	anim_frame Frame_PlayerRambi_4
+	anim_frame Frame_PlayerRambi_5
+	anim_frame Frame_PlayerRambi_6
 	anim_clear_flag
-	anim_jump Anim_04_478b
+	anim_jump Anim_PlayerRambi_3
 
-Anim_04_479d::
+Anim_Unused_3::
 	anim_speed 2
 
-Anim_04_479f::
-	anim_frame Frame_20_5422
-	anim_frame Frame_20_5428
-	anim_frame Frame_20_542e
-	anim_frame Frame_20_5434
-	anim_frame Frame_20_543a
-	anim_frame Frame_20_5440
+Anim_Unused_4::
+	anim_frame Frame_PlayerRambi_1
+	anim_frame Frame_PlayerRambi_2
+	anim_frame Frame_PlayerRambi_3
+	anim_frame Frame_PlayerRambi_4
+	anim_frame Frame_PlayerRambi_5
+	anim_frame Frame_PlayerRambi_6
 	anim_clear_flag
-	anim_jump Anim_04_479f
+	anim_jump Anim_Unused_4
 
-Anim_04_47b1::
+Anim_PlayerRambi_InAir_1::
 	anim_speed 3
-	anim_frame Frame_20_544c
-	anim_frame Frame_20_5452
-	anim_frame Frame_20_5458
-	anim_frame Frame_20_545e
-	anim_frame Frame_20_546a
+	anim_frame Frame_PlayerRambi_InAir_1
+	anim_frame Frame_PlayerRambi_7
+	anim_frame Frame_PlayerRambi_InAir_2
+	anim_frame Frame_PlayerRambi_InAir_3
+	anim_frame Frame_PlayerRambi_InAir_5
 
-Anim_04_47bd::
-	anim_frame Frame_20_5464
-	anim_jump Anim_04_47bd
+Anim_PlayerRambi_InAir_2::
+	anim_frame Frame_PlayerRambi_InAir_4
+	anim_jump Anim_PlayerRambi_InAir_2
 
-Anim_04_47c3::
+Anim_PlayerRambi_Bounce::
 	anim_speed 3
-	anim_frame Frame_20_54a0
-	anim_frame Frame_20_54a6
-	anim_frame Frame_20_54ac
+	anim_frame Frame_PlayerRambi_Bounce_1
+	anim_frame Frame_PlayerRambi_Bounce_2
+	anim_frame Frame_PlayerRambi_Bounce_3
 	anim_sfx 2, $64
-	anim_frame Frame_20_54b2
-	anim_frame Frame_20_54b8
+	anim_frame Frame_PlayerRambi_Bounce_4
+	anim_frame Frame_PlayerRambi_Bounce_5
 	anim_clear_flag
-	anim_jump Anim_04_4789
+	anim_jump Anim_PlayerRambi_2
 
-Anim_04_47d7::
+Anim_Unused_5::
 	anim_speed 5
 
-Anim_04_47d9::
-	anim_frame Frame_20_5446
-	anim_jump Anim_04_47d9
+Anim_Unused_6::
+	anim_frame Frame_Unused_71
+	anim_jump Anim_Unused_6
 
-Anim_04_47df::
+Anim_PlayerExpresso_1::
 	anim_speed 20
-	anim_frame Frame_20_513a
+	anim_frame Frame_PlayerExpresso_1
 	anim_speed 5
-	anim_frame Frame_20_5140
-	anim_frame Frame_20_5146
-	anim_frame Frame_20_514c
-	anim_frame Frame_20_5152
-	anim_frame Frame_20_514c
-	anim_frame Frame_20_5146
-	anim_frame Frame_20_514c
-	anim_frame Frame_20_5152
-	anim_frame Frame_20_514c
+	anim_frame Frame_PlayerExpresso_2
+	anim_frame Frame_PlayerExpresso_3
+	anim_frame Frame_PlayerExpresso_4
+	anim_frame Frame_PlayerExpresso_5
+	anim_frame Frame_PlayerExpresso_4
+	anim_frame Frame_PlayerExpresso_3
+	anim_frame Frame_PlayerExpresso_4
+	anim_frame Frame_PlayerExpresso_5
+	anim_frame Frame_PlayerExpresso_4
 	anim_speed 20
-	anim_frame Frame_20_5158
+	anim_frame Frame_PlayerExpresso_6
 	anim_speed 8
-	anim_frame Frame_20_515e
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_516a
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_515e
+	anim_frame Frame_PlayerExpresso_7
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_9
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_7
 	anim_speed 20
-	anim_frame Frame_20_5158
+	anim_frame Frame_PlayerExpresso_6
 	anim_speed 8
-	anim_frame Frame_20_515e
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_516a
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_515e
+	anim_frame Frame_PlayerExpresso_7
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_9
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_7
 	anim_speed 20
-	anim_frame Frame_20_5158
+	anim_frame Frame_PlayerExpresso_6
 	anim_speed 8
-	anim_frame Frame_20_515e
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_516a
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_515e
+	anim_frame Frame_PlayerExpresso_7
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_9
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_7
 	anim_speed 20
-	anim_frame Frame_20_5158
+	anim_frame Frame_PlayerExpresso_6
 	anim_speed 8
-	anim_frame Frame_20_515e
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_516a
-	anim_frame Frame_20_5164
-	anim_frame Frame_20_515e
-	anim_frame Frame_20_5170
-	anim_jump Anim_04_47df
+	anim_frame Frame_PlayerExpresso_7
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_9
+	anim_frame Frame_PlayerExpresso_8
+	anim_frame Frame_PlayerExpresso_7
+	anim_frame Frame_PlayerExpresso_10
+	anim_jump Anim_PlayerExpresso_1
 
-Anim_04_483d::
+Anim_PlayerExpresso_2::
 	anim_speed 3
 
-Anim_04_483f::
-	anim_frame Frame_20_5176
-	anim_frame Frame_20_517c
-	anim_frame Frame_20_5182
-	anim_frame Frame_20_5188
-	anim_frame Frame_20_518e
-	anim_frame Frame_20_5194
-	anim_frame Frame_20_519a
-	anim_frame Frame_20_51a0
-	anim_frame Frame_20_51a6
+Anim_PlayerExpresso_3::
+	anim_frame Frame_PlayerExpresso_11
+	anim_frame Frame_PlayerExpresso_12
+	anim_frame Frame_PlayerExpresso_13
+	anim_frame Frame_PlayerExpresso_14
+	anim_frame Frame_PlayerExpresso_15
+	anim_frame Frame_PlayerExpresso_16
+	anim_frame Frame_PlayerExpresso_17
+	anim_frame Frame_PlayerExpresso_18
+	anim_frame Frame_PlayerExpresso_19
 	anim_clear_flag
-	anim_jump Anim_04_483f
+	anim_jump Anim_PlayerExpresso_3
 
-Anim_04_4857::
+Anim_PlayerExpresso_InAir_1::
 	anim_speed 3
-	anim_frame Frame_20_51ac
-	anim_frame Frame_20_51b2
-	anim_frame Frame_20_51b8
-	anim_frame Frame_20_51be
-	anim_frame Frame_20_51c4
-	anim_frame Frame_20_51ca
+	anim_frame Frame_PlayerExpresso_InAir_1
+	anim_frame Frame_PlayerExpresso_InAir_2
+	anim_frame Frame_PlayerExpresso_InAir_3
+	anim_frame Frame_PlayerExpresso_InAir_4
+	anim_frame Frame_PlayerExpresso_InAir_5
+	anim_frame Frame_PlayerExpresso_InAir_6
 
-Anim_04_4865::
-	anim_frame Frame_20_51d0
-	anim_jump Anim_04_4865
+Anim_PlayerExpresso_InAir_2::
+	anim_frame Frame_PlayerExpresso_InAir_7
+	anim_jump Anim_PlayerExpresso_InAir_2
 
-Anim_04_486b::
+Anim_PlayerExpresso_Flap_1::
 	anim_speed 3
-	anim_frame Frame_20_51dc
-	anim_frame Frame_20_51e2
+	anim_frame Frame_PlayerExpresso_Flap_1
+	anim_frame Frame_PlayerExpresso_Flap_2
 	anim_clear_flag
 
-Anim_04_4873::
-	anim_frame Frame_20_51e8
-	anim_frame Frame_20_51ee
-	anim_frame Frame_20_51f4
-	anim_frame Frame_20_51ee
+Anim_PlayerExpresso_Flap_2::
+	anim_frame Frame_PlayerExpresso_Flap_3
+	anim_frame Frame_PlayerExpresso_Flap_4
+	anim_frame Frame_PlayerExpresso_Flap_5
+	anim_frame Frame_PlayerExpresso_Flap_4
 	anim_clear_flag
-	anim_jump Anim_04_4873
+	anim_jump Anim_PlayerExpresso_Flap_2
 
-Anim_04_4881::
+Anim_Unused_7::
 	anim_speed 3
 
-Anim_04_4883::
-	anim_frame Frame_20_51d6
-	anim_jump Anim_04_4883
+Anim_Unused_8::
+	anim_frame Frame_Unused_69
+	anim_jump Anim_Unused_8
 
-Anim_04_4889::
+Anim_PlayerWinky_1::
 	anim_speed 8
 
-Anim_04_488b::
-	anim_frame Frame_20_52ba
-	anim_frame Frame_20_52c0
-	anim_frame Frame_20_52c6
-	anim_frame Frame_20_52cc
-	anim_frame Frame_20_52d2
-	anim_frame Frame_20_52d8
-	anim_frame Frame_20_52d2
-	anim_frame Frame_20_52cc
-	anim_frame Frame_20_52c6
-	anim_frame Frame_20_52c0
-	anim_frame Frame_20_52ba
-	anim_frame Frame_20_52c0
-	anim_frame Frame_20_52c6
-	anim_frame Frame_20_52cc
-	anim_frame Frame_20_52d2
-	anim_frame Frame_20_52d8
-	anim_frame Frame_20_52de
-	anim_frame Frame_20_52e4
-	anim_frame Frame_20_52ea
-	anim_frame Frame_20_52f0
-	anim_frame Frame_20_52f6
-	anim_frame Frame_20_52fc
-	anim_frame Frame_20_52ea
-	anim_frame Frame_20_52f0
-	anim_frame Frame_20_52f6
-	anim_frame Frame_20_52fc
-	anim_frame Frame_20_52ea
-	anim_frame Frame_20_52f0
-	anim_frame Frame_20_52f6
-	anim_frame Frame_20_52fc
-	anim_frame Frame_20_52e4
-	anim_frame Frame_20_52de
-	anim_frame Frame_20_52d8
-	anim_jump Anim_04_488b
+Anim_PlayerWinky_2::
+	anim_frame Frame_PlayerWinky_1
+	anim_frame Frame_PlayerWinky_2
+	anim_frame Frame_PlayerWinky_3
+	anim_frame Frame_PlayerWinky_4
+	anim_frame Frame_PlayerWinky_5
+	anim_frame Frame_PlayerWinky_6
+	anim_frame Frame_PlayerWinky_5
+	anim_frame Frame_PlayerWinky_4
+	anim_frame Frame_PlayerWinky_3
+	anim_frame Frame_PlayerWinky_2
+	anim_frame Frame_PlayerWinky_1
+	anim_frame Frame_PlayerWinky_2
+	anim_frame Frame_PlayerWinky_3
+	anim_frame Frame_PlayerWinky_4
+	anim_frame Frame_PlayerWinky_5
+	anim_frame Frame_PlayerWinky_6
+	anim_frame Frame_PlayerWinky_7
+	anim_frame Frame_PlayerWinky_8
+	anim_frame Frame_PlayerWinky_9
+	anim_frame Frame_PlayerWinky_10
+	anim_frame Frame_PlayerWinky_11
+	anim_frame Frame_PlayerWinky_12
+	anim_frame Frame_PlayerWinky_9
+	anim_frame Frame_PlayerWinky_10
+	anim_frame Frame_PlayerWinky_11
+	anim_frame Frame_PlayerWinky_12
+	anim_frame Frame_PlayerWinky_9
+	anim_frame Frame_PlayerWinky_10
+	anim_frame Frame_PlayerWinky_11
+	anim_frame Frame_PlayerWinky_12
+	anim_frame Frame_PlayerWinky_8
+	anim_frame Frame_PlayerWinky_7
+	anim_frame Frame_PlayerWinky_6
+	anim_jump Anim_PlayerWinky_2
 
-Anim_04_48d1::
+Anim_PlayerWinky_InAir_1::
 	anim_speed 1
-	anim_frame Frame_20_527e
-	anim_frame Frame_20_5284
-	anim_frame Frame_20_528a
-	anim_frame Frame_20_5290
-	anim_frame Frame_20_5296
+	anim_frame Frame_PlayerWinky_InAir_1
+	anim_frame Frame_PlayerWinky_InAir_2
+	anim_frame Frame_PlayerWinky_InAir_3
+	anim_frame Frame_PlayerWinky_InAir_4
+	anim_frame Frame_PlayerWinky_InAir_5
 	anim_clear_flag
 	anim_speed 10
 
-Anim_04_48e1::
-	anim_frame Frame_20_529c
-	anim_jump Anim_04_48e1
+Anim_PlayerWinky_InAir_2::
+	anim_frame Frame_PlayerWinky_InAir_6
+	anim_jump Anim_PlayerWinky_InAir_2
 
-Anim_04_48e7::
+Anim_PlayerWinky_InAir_3::
 	anim_speed 10
-	anim_frame Frame_20_529c
+	anim_frame Frame_PlayerWinky_InAir_6
 	anim_speed 1
-	anim_frame Frame_20_52a2
-	anim_frame Frame_20_52a8
-	anim_frame Frame_20_52ae
+	anim_frame Frame_PlayerWinky_InAir_7
+	anim_frame Frame_PlayerWinky_InAir_8
+	anim_frame Frame_PlayerWinky_InAir_9
 	anim_clear_flag
 
-Anim_04_48f5::
-	anim_frame Frame_20_52b4
-	anim_jump Anim_04_48f5
+Anim_PlayerWinky_InAir_4::
+	anim_frame Frame_PlayerWinky_InAir_10
+	anim_jump Anim_PlayerWinky_InAir_4
 
-Anim_04_48fb::
+Anim_PlayerWinky_3::
 	anim_speed 3
 
-Anim_04_48fd::
+Anim_PlayerWinky_4::
 	anim_sfx 2, $8e
-	anim_frame Frame_20_527e
-	anim_frame Frame_20_5284
-	anim_frame Frame_20_528a
-	anim_frame Frame_20_5290
-	anim_frame Frame_20_5296
-	anim_frame Frame_20_529c
-	anim_frame Frame_20_52a2
-	anim_frame Frame_20_52a8
-	anim_frame Frame_20_52ae
+	anim_frame Frame_PlayerWinky_InAir_1
+	anim_frame Frame_PlayerWinky_InAir_2
+	anim_frame Frame_PlayerWinky_InAir_3
+	anim_frame Frame_PlayerWinky_InAir_4
+	anim_frame Frame_PlayerWinky_InAir_5
+	anim_frame Frame_PlayerWinky_InAir_6
+	anim_frame Frame_PlayerWinky_InAir_7
+	anim_frame Frame_PlayerWinky_InAir_8
+	anim_frame Frame_PlayerWinky_InAir_9
 	anim_clear_flag
-	anim_frame Frame_20_52b4
-	anim_jump Anim_04_48fd
+	anim_frame Frame_PlayerWinky_InAir_10
+	anim_jump Anim_PlayerWinky_4
 
-Anim_04_4919::
+Anim_Unused_9::
 	anim_speed 3
 
-Anim_04_491b::
-	anim_frame Frame_20_5278
-	anim_jump Anim_04_491b
+Anim_Unused_10::
+	anim_frame Frame_Unused_70
+	anim_jump Anim_Unused_10
 
-Anim_04_4921::
+Anim_Squawks_1::
 	anim_speed 6
 
-Anim_04_4923::
-	anim_frame Frame_20_60f4
-	anim_frame Frame_20_60fa
-	anim_frame Frame_20_6100
-	anim_frame Frame_20_6106
-	anim_frame Frame_20_610c
-	anim_frame Frame_20_6112
-	anim_frame Frame_20_6118
-	anim_jump Anim_04_4923
+Anim_Squawks_2::
+	anim_frame Frame_Squawks_1
+	anim_frame Frame_Squawks_2
+	anim_frame Frame_Squawks_3
+	anim_frame Frame_Squawks_4
+	anim_frame Frame_Squawks_5
+	anim_frame Frame_Squawks_6
+	anim_frame Frame_Squawks_7
+	anim_jump Anim_Squawks_2
 
-Anim_04_4935::
+Anim_Squawks_3::
 	anim_speed 6
-	anim_frame Frame_20_611e
-	anim_frame Frame_20_6124
+	anim_frame Frame_Squawks_8
+	anim_frame Frame_Squawks_9
 	anim_xor_attr $20
-	anim_frame Frame_20_6124
-	anim_frame Frame_20_611e
+	anim_frame Frame_Squawks_9
+	anim_frame Frame_Squawks_8
 	anim_clear_flag
-	anim_jump Anim_04_4921
+	anim_jump Anim_Squawks_1
 
-Anim_04_4947::
+Anim_RunKritterScript_1::
 	anim_param $3f
 	anim_speed 3
 
-Anim_04_494b::
-	anim_frame Frame_20_4990
-	anim_frame Frame_20_4996
-	anim_frame Frame_20_499c
-	anim_frame Frame_20_49a2
-	anim_frame Frame_20_49a8
-	anim_frame Frame_20_49ae
-	anim_frame Frame_20_49b4
-	anim_frame Frame_20_49ba
-	anim_jump Anim_04_494b
+Anim_RunKritterScript_2::
+	anim_frame Frame_RunKritterScript_1
+	anim_frame Frame_RunKritterScript_2
+	anim_frame Frame_RunKritterScript_3
+	anim_frame Frame_RunKritterScript_4
+	anim_frame Frame_RunKritterScript_5
+	anim_frame Frame_RunKritterScript_6
+	anim_frame Frame_RunKritterScript_7
+	anim_frame Frame_RunKritterScript_8
+	anim_jump Anim_RunKritterScript_2
 
-Anim_04_495f::
+Anim_Kritter_JumpStart_1::
 	anim_param $40
 	anim_speed 6
-	anim_frame Frame_20_54be
-	anim_frame Frame_20_54c4
-	anim_frame Frame_20_54ca
+	anim_frame Frame_Kritter_JumpStart_1
+	anim_frame Frame_Kritter_JumpStart_2
+	anim_frame Frame_Kritter_JumpStart_3
 
-Anim_04_4969::
-	anim_frame Frame_20_54d0
-	anim_jump Anim_04_4969
+Anim_Kritter_JumpStart_2::
+	anim_frame Frame_Kritter_JumpStart_4
+	anim_jump Anim_Kritter_JumpStart_2
 
-Anim_04_496f::
+Anim_Enemy_HandleContact_1::
 	anim_speed 2
-	anim_frame Frame_20_496c
-	anim_frame Frame_20_4972
-	anim_frame Frame_20_4978
+	anim_frame Frame_Enemy_HandleContact_6
+	anim_frame Frame_Enemy_HandleContact_7
+	anim_frame Frame_Enemy_HandleContact_8
 
-Anim_04_4977::
-	anim_frame Frame_20_497e
-	anim_jump Anim_04_4977
+Anim_Enemy_HandleContact_2::
+	anim_frame Frame_Enemy_HandleContact_9
+	anim_jump Anim_Enemy_HandleContact_2
 
-Anim_04_497d::
+Anim_Obj_TurnAround_1::
 	anim_speed 2
-	anim_frame Frame_20_4984
-	anim_frame Frame_20_498a
+	anim_frame Frame_Obj_TurnAround_4
+	anim_frame Frame_Obj_TurnAround_5
 	anim_xor_attr $20
-	anim_frame Frame_20_498a
-	anim_frame Frame_20_4984
+	anim_frame Frame_Obj_TurnAround_5
+	anim_frame Frame_Obj_TurnAround_4
 	anim_clear_flag
-	anim_jump Anim_04_4947
+	anim_jump Anim_RunKritterScript_1
 
-Anim_04_498f::
+Anim_Gnawty_1::
 	anim_param $42
 	anim_speed 3
 
-Anim_04_4993::
-	anim_frame Frame_20_412c
-	anim_frame Frame_20_4132
-	anim_frame Frame_20_4138
-	anim_frame Frame_20_413e
-	anim_frame Frame_20_4144
-	anim_frame Frame_20_414a
-	anim_frame Frame_20_4150
-	anim_frame Frame_20_4156
-	anim_jump Anim_04_4993
+Anim_Gnawty_2::
+	anim_frame Frame_Gnawty_1
+	anim_frame Frame_Gnawty_2
+	anim_frame Frame_Gnawty_3
+	anim_frame Frame_Gnawty_4
+	anim_frame Frame_Gnawty_5
+	anim_frame Frame_Gnawty_6
+	anim_frame Frame_Gnawty_7
+	anim_frame Frame_Gnawty_8
+	anim_jump Anim_Gnawty_2
 
-Anim_04_49a7::
+Anim_Obj_TurnAround_2::
 	anim_speed 2
-	anim_frame Frame_20_4120
-	anim_frame Frame_20_4126
+	anim_frame Frame_Obj_TurnAround_1
+	anim_frame Frame_Obj_TurnAround_2
 	anim_xor_attr $20
-	anim_frame Frame_20_4126
-	anim_frame Frame_20_4120
+	anim_frame Frame_Obj_TurnAround_2
+	anim_frame Frame_Obj_TurnAround_1
 	anim_clear_flag
-	anim_jump Anim_04_498f
+	anim_jump Anim_Gnawty_1
 
-Anim_04_49b9::
+Anim_Enemy_HandleContact_3::
 	anim_speed 2
-	anim_frame Frame_20_4102
-	anim_frame Frame_20_4108
-	anim_frame Frame_20_410e
-	anim_frame Frame_20_4114
+	anim_frame Frame_Enemy_HandleContact_1
+	anim_frame Frame_Enemy_HandleContact_2
+	anim_frame Frame_Enemy_HandleContact_3
+	anim_frame Frame_Enemy_HandleContact_4
 
-Anim_04_49c3::
-	anim_frame Frame_20_411a
-	anim_jump Anim_04_49c3
+Anim_Enemy_HandleContact_4::
+	anim_frame Frame_Enemy_HandleContact_5
+	anim_jump Anim_Enemy_HandleContact_4
 
-Anim_04_49c9::
+Anim_Krusha_1::
 	anim_speed 3
 
-Anim_04_49cb::
-	anim_frame Frame_20_455e
-	anim_frame Frame_20_4564
-	anim_frame Frame_20_456a
-	anim_frame Frame_20_4570
-	anim_frame Frame_20_4576
-	anim_frame Frame_20_457c
-	anim_frame Frame_20_4582
-	anim_frame Frame_20_4588
-	anim_jump Anim_04_49cb
+Anim_Krusha_2::
+	anim_frame Frame_Krusha_2
+	anim_frame Frame_Krusha_3
+	anim_frame Frame_Krusha_4
+	anim_frame Frame_Krusha_5
+	anim_frame Frame_Krusha_6
+	anim_frame Frame_Krusha_7
+	anim_frame Frame_Krusha_8
+	anim_frame Frame_Krusha_9
+	anim_jump Anim_Krusha_2
 
-Anim_04_49df::
+Anim_Obj_TurnAround_3::
 	anim_speed 2
-	anim_frame Frame_20_4552
+	anim_frame Frame_Obj_TurnAround_3
 	anim_xor_attr $20
-	anim_frame Frame_20_4552
+	anim_frame Frame_Obj_TurnAround_3
 	anim_clear_flag
-	anim_jump Anim_04_49c9
+	anim_jump Anim_Krusha_1
 
-Anim_04_49ed::
+Anim_Gnawty_Touch_1::
 	anim_speed 2
-	anim_frame Frame_20_4528
-	anim_frame Frame_20_452e
-	anim_frame Frame_20_4534
-	anim_frame Frame_20_453a
-	anim_frame Frame_20_4540
-	anim_frame Frame_20_4546
+	anim_frame Frame_Gnawty_Touch_1
+	anim_frame Frame_Gnawty_Touch_2
+	anim_frame Frame_Gnawty_Touch_3
+	anim_frame Frame_Gnawty_Touch_4
+	anim_frame Frame_Gnawty_Touch_5
+	anim_frame Frame_Gnawty_Touch_6
 
-Anim_04_49fb::
-	anim_frame Frame_20_454c
-	anim_jump Anim_04_49fb
+Anim_Gnawty_Touch_2::
+	anim_frame Frame_Gnawty_Touch_7
+	anim_jump Anim_Gnawty_Touch_2
 
-Anim_04_4a01::
+Anim_Krusha_3::
 	anim_sfx 2, $4e
 	anim_speed 2
 	anim_clear_flag
 
-Anim_04_4a07::
-	anim_frame Frame_20_4558
-	anim_jump Anim_04_4a07
+Anim_Krusha_4::
+	anim_frame Frame_Krusha_1
+	anim_jump Anim_Krusha_4
 
-Anim_04_4a0d::
+Anim_RunNeckyScript_1::
 	anim_speed 10
 
-Anim_04_4a0f::
-	anim_frame Frame_20_4f48
-	anim_jump Anim_04_4a0f
+Anim_RunNeckyScript_2::
+	anim_frame Frame_RunNeckyScript_1
+	anim_jump Anim_RunNeckyScript_2
 
-Anim_04_4a15::
+Anim_RunNeckyScript_3::
 	anim_speed 5
-	anim_frame Frame_20_4f4e
-	anim_frame Frame_20_4f54
-	anim_frame Frame_20_4f5a
+	anim_frame Frame_RunNeckyScript_2
+	anim_frame Frame_RunNeckyScript_3
+	anim_frame Frame_RunNeckyScript_4
 	anim_sfx 2, $99
 	anim_clear_flag
-	anim_frame Frame_20_4f54
+	anim_frame Frame_RunNeckyScript_3
 
-Anim_04_4a23::
-	anim_frame Frame_20_4f4e
-	anim_jump Anim_04_4a23
+Anim_RunNeckyScript_4::
+	anim_frame Frame_RunNeckyScript_2
+	anim_jump Anim_RunNeckyScript_4
 
-Anim_04_4a29::
+Anim_Enemy_HandleContact_5::
 	anim_sfx 1, $42
 	anim_speed 5
 
-Anim_04_4a2d::
-	anim_frame Frame_20_4f42
-	anim_jump Anim_04_4a2d
+Anim_Enemy_HandleContact_6::
+	anim_frame Frame_Enemy_HandleContact_16
+	anim_jump Anim_Enemy_HandleContact_6
 
-Anim_04_4a33::
+Anim_Zinger_1::
 	anim_speed 4
 
-Anim_04_4a35::
-	anim_frame Frame_20_4f60
-	anim_frame Frame_20_4f66
-	anim_frame Frame_20_4f6c
-	anim_frame Frame_20_4f72
-	anim_frame Frame_20_4f78
-	anim_frame Frame_20_4f7e
-	anim_jump Anim_04_4a35
+Anim_Zinger_2::
+	anim_frame Frame_Zinger_1
+	anim_frame Frame_Zinger_2
+	anim_frame Frame_Zinger_3
+	anim_frame Frame_Zinger_4
+	anim_frame Frame_Zinger_5
+	anim_frame Frame_Zinger_6
+	anim_jump Anim_Zinger_2
 
-Anim_04_4a45::
+Anim_Zinger_Touch_1::
 	anim_speed 4
-	anim_frame Frame_20_5014
-	anim_frame Frame_20_501a
-	anim_frame Frame_20_5020
-	anim_frame Frame_20_5026
+	anim_frame Frame_Zinger_Touch_1
+	anim_frame Frame_Zinger_Touch_2
+	anim_frame Frame_Zinger_Touch_3
+	anim_frame Frame_Zinger_Touch_4
 
-Anim_04_4a4f::
-	anim_frame Frame_20_502c
-	anim_jump Anim_04_4a4f
+Anim_Zinger_Touch_2::
+	anim_frame Frame_Zinger_Touch_5
+	anim_jump Anim_Zinger_Touch_2
 
-Anim_04_4a55::
+Anim_Army_1::
 	anim_param $3d
 	anim_speed 4
 
-Anim_04_4a59::
-	anim_frame Frame_20_4036
-	anim_frame Frame_20_403c
-	anim_frame Frame_20_4042
-	anim_frame Frame_20_4048
-	anim_jump Anim_04_4a59
+Anim_Army_2::
+	anim_frame Frame_Army_4
+	anim_frame Frame_Army_5
+	anim_frame Frame_Army_6
+	anim_frame Frame_Army_7
+	anim_jump Anim_Army_2
 
-Anim_04_4a65::
+Anim_Army_Idle::
 	anim_param $3e
 	anim_speed 4
 	anim_sfx 4, $66
-	anim_frame Frame_20_4054
-	anim_frame Frame_20_405a
-	anim_frame Frame_20_4060
-	anim_frame Frame_20_4066
-	anim_frame Frame_20_406c
+	anim_frame Frame_Army_Idle_1
+	anim_frame Frame_Army_Idle_2
+	anim_frame Frame_Army_Idle_3
+	anim_frame Frame_Army_Idle_4
+	anim_frame Frame_Army_Idle_5
 	anim_clear_flag
-	anim_jump Anim_04_4a55
+	anim_jump Anim_Army_1
 
-Anim_04_4a7b::
+Anim_Army_3::
 	anim_param $3e
 	anim_speed 4
-	anim_frame Frame_20_406c
-	anim_frame Frame_20_4066
-	anim_frame Frame_20_4060
-	anim_frame Frame_20_405a
-	anim_frame Frame_20_4054
+	anim_frame Frame_Army_Idle_5
+	anim_frame Frame_Army_Idle_4
+	anim_frame Frame_Army_Idle_3
+	anim_frame Frame_Army_Idle_2
+	anim_frame Frame_Army_Idle_1
 	anim_clear_flag
-	anim_jump Anim_04_4a8f
+	anim_jump Anim_Army_4
 
-Anim_04_4a8f::
+Anim_Army_4::
 	anim_param $3c
 
-Anim_04_4a91::
+Anim_Army_5::
 	anim_speed 4
-	anim_frame Frame_20_4054
-	anim_frame Frame_20_4006
-	anim_frame Frame_20_400c
+	anim_frame Frame_Army_Idle_1
+	anim_frame Frame_Army_1
+	anim_frame Frame_Army_2
 	anim_speed 15
-	anim_frame Frame_20_4012
+	anim_frame Frame_Army_3
 	anim_speed 4
-	anim_frame Frame_20_400c
-	anim_frame Frame_20_4006
+	anim_frame Frame_Army_2
+	anim_frame Frame_Army_1
 	anim_speed 10
-	anim_frame Frame_20_4054
-	anim_jump Anim_04_4a91
+	anim_frame Frame_Army_Idle_1
+	anim_jump Anim_Army_5
 
-Anim_04_4aab::
+Anim_Army_Touch_1::
 	anim_speed 4
-	anim_frame Frame_20_4018
-	anim_frame Frame_20_401e
-	anim_frame Frame_20_4024
-	anim_frame Frame_20_402a
+	anim_frame Frame_Army_Touch_1
+	anim_frame Frame_Army_Touch_2
+	anim_frame Frame_Army_Touch_3
+	anim_frame Frame_Army_Touch_4
 
-Anim_04_4ab5::
-	anim_frame Frame_20_4030
-	anim_jump Anim_04_4ab5
+Anim_Army_Touch_2::
+	anim_frame Frame_Army_Touch_5
+	anim_jump Anim_Army_Touch_2
 
-Anim_04_4abb::
+Anim_Army_Roll::
 	anim_speed 4
-	anim_frame Frame_20_4018
-	anim_frame Frame_20_401e
-	anim_frame Frame_20_4024
-	anim_frame Frame_20_402a
+	anim_frame Frame_Army_Touch_1
+	anim_frame Frame_Army_Touch_2
+	anim_frame Frame_Army_Touch_3
+	anim_frame Frame_Army_Touch_4
 	anim_speed 20
-	anim_frame Frame_20_4030
+	anim_frame Frame_Army_Touch_5
 	anim_clear_flag
-	anim_jump Anim_04_4a8f
+	anim_jump Anim_Army_4
 
-Anim_04_4acf::
+Anim_Gnawty_3::
 	anim_speed 4
 
-Anim_04_4ad1::
-	anim_frame Frame_20_4d1a
-	anim_frame Frame_20_4d20
-	anim_frame Frame_20_4d26
-	anim_frame Frame_20_4d2c
-	anim_frame Frame_20_4d32
-	anim_frame Frame_20_4d38
-	anim_jump Anim_04_4ad1
+Anim_Gnawty_4::
+	anim_frame Frame_Gnawty_9
+	anim_frame Frame_Gnawty_10
+	anim_frame Frame_Gnawty_11
+	anim_frame Frame_Gnawty_12
+	anim_frame Frame_Gnawty_13
+	anim_frame Frame_Gnawty_14
+	anim_jump Anim_Gnawty_4
 
-Anim_04_4ae1::
+Anim_Obj_TurnAround_4::
 	anim_speed 4
-	anim_frame Frame_20_4df2
-	anim_frame Frame_20_4df8
-	anim_frame Frame_20_4dfe
-	anim_frame Frame_20_4e04
-	anim_frame Frame_20_4e0a
+	anim_frame Frame_Obj_TurnAround_6
+	anim_frame Frame_Obj_TurnAround_7
+	anim_frame Frame_Obj_TurnAround_8
+	anim_frame Frame_Obj_TurnAround_9
+	anim_frame Frame_Obj_TurnAround_10
 	anim_xor_attr $20
 	anim_clear_flag
-	anim_jump Anim_04_4acf
+	anim_jump Anim_Gnawty_3
 
-Anim_04_4af5::
+Anim_Enemy_HandleContact_7::
 	anim_sfx 4, $40
 	anim_speed 4
 
-Anim_04_4af9::
-	anim_frame Frame_20_4d86
-	anim_frame Frame_20_4d8c
-	anim_frame Frame_20_4d92
-	anim_frame Frame_20_4d98
-	anim_frame Frame_20_4d9e
-	anim_frame Frame_20_4da4
-	anim_jump Anim_04_4af9
+Anim_Enemy_HandleContact_8::
+	anim_frame Frame_Enemy_HandleContact_10
+	anim_frame Frame_Enemy_HandleContact_11
+	anim_frame Frame_Enemy_HandleContact_12
+	anim_frame Frame_Enemy_HandleContact_13
+	anim_frame Frame_Enemy_HandleContact_14
+	anim_frame Frame_Enemy_HandleContact_15
+	anim_jump Anim_Enemy_HandleContact_8
 
-Anim_04_4b09::
+Anim_Rockkroc_1::
 	anim_speed 3
 
-Anim_04_4b0b::
-	anim_frame Frame_20_55e4
-	anim_frame Frame_20_55ea
-	anim_frame Frame_20_55f0
-	anim_frame Frame_20_55f6
-	anim_frame Frame_20_55fc
-	anim_frame Frame_20_5602
-	anim_frame Frame_20_5608
-	anim_frame Frame_20_560e
-	anim_jump Anim_04_4b0b
+Anim_Rockkroc_2::
+	anim_frame Frame_Rockkroc_1
+	anim_frame Frame_Rockkroc_2
+	anim_frame Frame_Rockkroc_3
+	anim_frame Frame_Rockkroc_4
+	anim_frame Frame_Rockkroc_5
+	anim_frame Frame_Rockkroc_6
+	anim_frame Frame_Rockkroc_7
+	anim_frame Frame_Rockkroc_8
+	anim_jump Anim_Rockkroc_2
 
-Anim_04_4b1f::
+Anim_Obj_TurnAround_5::
 	anim_speed 2
-	anim_frame Frame_20_55d8
-	anim_frame Frame_20_55de
+	anim_frame Frame_Obj_TurnAround_14
+	anim_frame Frame_Obj_TurnAround_15
 	anim_xor_attr $20
-	anim_frame Frame_20_55de
-	anim_frame Frame_20_55d8
+	anim_frame Frame_Obj_TurnAround_15
+	anim_frame Frame_Obj_TurnAround_14
 	anim_clear_flag
-	anim_jump Anim_04_4b09
+	anim_jump Anim_Rockkroc_1
 
-Anim_04_4b31::
+Anim_Rockkroc_CurledUp_1::
 	anim_speed 5
-	anim_frame Frame_20_55ba
-	anim_frame Frame_20_55c0
-	anim_frame Frame_20_55c6
-	anim_frame Frame_20_55cc
+	anim_frame Frame_Rockkroc_CurledUp_1
+	anim_frame Frame_Rockkroc_CurledUp_2
+	anim_frame Frame_Rockkroc_CurledUp_3
+	anim_frame Frame_Rockkroc_CurledUp_4
 	anim_clear_flag
 
-Anim_04_4b3d::
-	anim_frame Frame_20_55d2
-	anim_jump Anim_04_4b3d
+Anim_Rockkroc_CurledUp_2::
+	anim_frame Frame_Rockkroc_CurledUp_5
+	anim_jump Anim_Rockkroc_CurledUp_2
 
-Anim_04_4b43::
+Anim_Rockkroc_CurledUp_3::
 	anim_speed 5
 	anim_sfx 4, $66
-	anim_frame Frame_20_55d2
-	anim_frame Frame_20_55cc
-	anim_frame Frame_20_55c6
-	anim_frame Frame_20_55c0
-	anim_frame Frame_20_55ba
+	anim_frame Frame_Rockkroc_CurledUp_5
+	anim_frame Frame_Rockkroc_CurledUp_4
+	anim_frame Frame_Rockkroc_CurledUp_3
+	anim_frame Frame_Rockkroc_CurledUp_2
+	anim_frame Frame_Rockkroc_CurledUp_1
 	anim_clear_flag
-	anim_jump Anim_04_4b09
+	anim_jump Anim_Rockkroc_1
 
-Anim_04_4b57::
+Anim_MankyKong_1::
 	anim_speed 5
 	anim_var38 $00f4
 
-Anim_04_4b5d::
-	anim_frame Frame_20_5572
-	anim_jump Anim_04_4b5d
+Anim_MankyKong_2::
+	anim_frame Frame_MankyKong
+	anim_jump Anim_MankyKong_2
 
-Anim_04_4b63::
+Anim_Mincer_1::
 	anim_speed 5
 	anim_var38 $00f4
-	anim_frame Frame_20_5572
-	anim_frame Frame_20_5578
-	anim_frame Frame_20_557e
-	anim_frame Frame_20_5584
+	anim_frame Frame_MankyKong
+	anim_frame Frame_Mincer_9
+	anim_frame Frame_Mincer_10
+	anim_frame Frame_Mincer_11
 	anim_var38 $fdf3
-	anim_frame Frame_20_558a
+	anim_frame Frame_Mincer_12
 	anim_var38 $fcee
-	anim_frame Frame_20_5590
+	anim_frame Frame_Mincer_13
 	anim_var38 $fbed
-	anim_frame Frame_20_5596
+	anim_frame Frame_Mincer_14
 	anim_var38 $fceb
-	anim_frame Frame_20_559c
+	anim_frame Frame_Mincer_15
 	anim_var38 $fd0d
-	anim_frame Frame_20_55a2
+	anim_frame Frame_Mincer_16
 	anim_clear_flag
-	anim_frame Frame_20_55a8
-	anim_frame Frame_20_55ae
-	anim_frame Frame_20_55b4
-	anim_jump Anim_04_4b57
+	anim_frame Frame_Mincer_17
+	anim_frame Frame_Mincer_18
+	anim_frame Frame_Mincer_19
+	anim_jump Anim_MankyKong_1
 
-Anim_04_4b9b::
+Anim_Enemy_HandleContact_9::
 	anim_speed 5
-	anim_frame Frame_20_5554
-	anim_frame Frame_20_555a
-	anim_frame Frame_20_5560
-	anim_frame Frame_20_5566
+	anim_frame Frame_Enemy_HandleContact_18
+	anim_frame Frame_Enemy_HandleContact_19
+	anim_frame Frame_Enemy_HandleContact_20
+	anim_frame Frame_Enemy_HandleContact_21
 
-Anim_04_4ba5::
-	anim_frame Frame_20_556c
-	anim_jump Anim_04_4ba5
+Anim_Enemy_HandleContact_10::
+	anim_frame Frame_Enemy_HandleContact_22
+	anim_jump Anim_Enemy_HandleContact_10
 
-Anim_04_4bab::
+Anim_Klump2_1::
 	anim_speed 5
 
-Anim_04_4bad::
-	anim_frame Frame_20_51fa
-	anim_frame Frame_20_5200
-	anim_frame Frame_20_5206
-	anim_frame Frame_20_520c
-	anim_frame Frame_20_5212
-	anim_frame Frame_20_5218
-	anim_frame Frame_20_521e
-	anim_frame Frame_20_5224
-	anim_frame Frame_20_522a
-	anim_frame Frame_20_5230
-	anim_jump Anim_04_4bad
+Anim_Klump2_2::
+	anim_frame Frame_Klump2_1
+	anim_frame Frame_Klump2_2
+	anim_frame Frame_Klump2_3
+	anim_frame Frame_Klump2_4
+	anim_frame Frame_Klump2_5
+	anim_frame Frame_Klump2_6
+	anim_frame Frame_Klump2_7
+	anim_frame Frame_Klump2_8
+	anim_frame Frame_Klump2_9
+	anim_frame Frame_Klump2_10
+	anim_jump Anim_Klump2_2
 
-Anim_04_4bc5::
+Anim_Obj_TurnAround_6::
 	anim_speed 5
-	anim_frame Frame_20_5236
-	anim_frame Frame_20_523c
+	anim_frame Frame_Obj_TurnAround_12
+	anim_frame Frame_Obj_TurnAround_13
 	anim_xor_attr $20
-	anim_frame Frame_20_523c
-	anim_frame Frame_20_5236
+	anim_frame Frame_Obj_TurnAround_13
+	anim_frame Frame_Obj_TurnAround_12
 	anim_clear_flag
-	anim_jump Anim_04_4bab
+	anim_jump Anim_Klump2_1
 
-Anim_04_4bd7::
+Anim_Klump_Touch_1::
 	anim_speed 5
-	anim_frame Frame_20_5242
-	anim_frame Frame_20_5248
-	anim_frame Frame_20_524e
-	anim_frame Frame_20_5254
-	anim_frame Frame_20_525a
+	anim_frame Frame_Klump_Touch_1
+	anim_frame Frame_Klump_Touch_2
+	anim_frame Frame_Klump_Touch_3
+	anim_frame Frame_Klump_Touch_4
+	anim_frame Frame_Klump_Touch_5
 
-Anim_04_4be3::
-	anim_frame Frame_20_5260
-	anim_jump Anim_04_4be3
+Anim_Klump_Touch_2::
+	anim_frame Frame_Klump_Touch_6
+	anim_jump Anim_Klump_Touch_2
 
-Anim_04_4be9::
+Anim_Klump2_3::
 	anim_clear_flag
 	anim_sfx 2, $46
 	anim_speed 5
-	anim_frame Frame_20_5302
-	anim_frame Frame_20_5308
-	anim_frame Frame_20_530e
+	anim_frame Frame_Klump2_11
+	anim_frame Frame_Klump2_12
+	anim_frame Frame_Klump2_13
 	anim_sfx 2, $46
 	anim_speed 10
 
-Anim_04_4bf9::
-	anim_frame Frame_20_5314
-	anim_frame Frame_20_531a
-	anim_jump Anim_04_4bf9
+Anim_Klump2_4::
+	anim_frame Frame_Klump2_14
+	anim_frame Frame_Klump2_15
+	anim_jump Anim_Klump2_4
 
-Anim_04_4c01::
+Anim_Touch_Enemy_1::
 	anim_speed 5
 
-Anim_04_4c03::
-	anim_frame Frame_20_5062
-	anim_frame Frame_20_5068
-	anim_frame Frame_20_506e
-	anim_frame Frame_20_5074
-	anim_frame Frame_20_507a
-	anim_frame Frame_20_5080
-	anim_frame Frame_20_5086
-	anim_frame Frame_20_508c
-	anim_frame Frame_20_5092
-	anim_frame Frame_20_5098
-	anim_jump Anim_04_4c03
+Anim_Touch_Enemy_2::
+	anim_frame Frame_Touch_Enemy_1
+	anim_frame Frame_Touch_Enemy_2
+	anim_frame Frame_Touch_Enemy_3
+	anim_frame Frame_Touch_Enemy_4
+	anim_frame Frame_Touch_Enemy_5
+	anim_frame Frame_Touch_Enemy_6
+	anim_frame Frame_Touch_Enemy_7
+	anim_frame Frame_Touch_Enemy_8
+	anim_frame Frame_Touch_Enemy_9
+	anim_frame Frame_Touch_Enemy_10
+	anim_jump Anim_Touch_Enemy_2
 
-Anim_04_4c1b::
+Anim_MiniNecky_1::
 	anim_speed 5
 
-Anim_04_4c1d::
-	anim_frame Frame_20_509e
-	anim_frame Frame_20_50a4
-	anim_frame Frame_20_50aa
-	anim_frame Frame_20_50b0
-	anim_frame Frame_20_50b6
-	anim_frame Frame_20_50bc
+Anim_MiniNecky_2::
+	anim_frame Frame_MiniNecky_1
+	anim_frame Frame_MiniNecky_2
+	anim_frame Frame_MiniNecky_3
+	anim_frame Frame_MiniNecky_4
+	anim_frame Frame_MiniNecky_5
+	anim_frame Frame_MiniNecky_6
 	anim_clear_flag
-	anim_jump Anim_04_4c1d
+	anim_jump Anim_MiniNecky_2
 
-Anim_04_4c2f::
+Anim_MiniNecky_RunScript::
 	anim_speed 5
-	anim_frame Frame_20_50c2
-	anim_frame Frame_20_50c8
-	anim_frame Frame_20_50ce
-	anim_frame Frame_20_50d4
-	anim_frame Frame_20_50da
+	anim_frame Frame_MiniNecky_RunScript_1
+	anim_frame Frame_MiniNecky_RunScript_2
+	anim_frame Frame_MiniNecky_RunScript_3
+	anim_frame Frame_MiniNecky_RunScript_4
+	anim_frame Frame_MiniNecky_RunScript_5
 	anim_clear_flag
-	anim_frame Frame_20_50e0
-	anim_frame Frame_20_50e6
-	anim_frame Frame_20_50ec
-	anim_jump Anim_04_4c1b
+	anim_frame Frame_MiniNecky_RunScript_6
+	anim_frame Frame_MiniNecky_RunScript_7
+	anim_frame Frame_MiniNecky_RunScript_8
+	anim_jump Anim_MiniNecky_1
 
-Anim_04_4c47::
+Anim_Enemy_HandleContact_11::
 	anim_sfx 1, $42
 	anim_speed 5
 
-Anim_04_4c4b::
-	anim_frame Frame_20_50f2
-	anim_jump Anim_04_4c4b
+Anim_Enemy_HandleContact_12::
+	anim_frame Frame_Enemy_HandleContact_17
+	anim_jump Anim_Enemy_HandleContact_12
 
-Anim_04_4c51::
+Anim_StompBonus_Klaptrap_Walk_1::
 	anim_speed 5
 
-Anim_04_4c53::
-	anim_frame Frame_20_50f8
-	anim_frame Frame_20_50fe
-	anim_frame Frame_20_5104
-	anim_frame Frame_20_510a
-	anim_frame Frame_20_5110
-	anim_frame Frame_20_5116
-	anim_frame Frame_20_511c
-	anim_frame Frame_20_5122
+Anim_StompBonus_Klaptrap_Walk_2::
+	anim_frame Frame_StompBonus_Klaptrap_Walk_1
+	anim_frame Frame_StompBonus_Klaptrap_Walk_2
+	anim_frame Frame_StompBonus_Klaptrap_Walk_3
+	anim_frame Frame_StompBonus_Klaptrap_Walk_4
+	anim_frame Frame_StompBonus_Klaptrap_Walk_5
+	anim_frame Frame_StompBonus_Klaptrap_Walk_6
+	anim_frame Frame_StompBonus_Klaptrap_Walk_7
+	anim_frame Frame_StompBonus_Klaptrap_Walk_8
 	anim_sfx 4, $48
-	anim_jump Anim_04_4c53
+	anim_jump Anim_StompBonus_Klaptrap_Walk_2
 
-Anim_04_4c69::
+Anim_StompBonus_Klaptrap_Stomped::
 	anim_speed 5
-	anim_frame Frame_20_5122
-	anim_frame Frame_20_511c
-	anim_frame Frame_20_5116
-	anim_frame Frame_20_5110
+	anim_frame Frame_StompBonus_Klaptrap_Walk_8
+	anim_frame Frame_StompBonus_Klaptrap_Walk_7
+	anim_frame Frame_StompBonus_Klaptrap_Walk_6
+	anim_frame Frame_StompBonus_Klaptrap_Walk_5
 	anim_clear_flag
-	anim_frame Frame_20_5116
-	anim_frame Frame_20_511c
-	anim_frame Frame_20_5122
+	anim_frame Frame_StompBonus_Klaptrap_Walk_6
+	anim_frame Frame_StompBonus_Klaptrap_Walk_7
+	anim_frame Frame_StompBonus_Klaptrap_Walk_8
 	anim_sfx 4, $48
-	anim_frame Frame_20_50f8
-	anim_frame Frame_20_5122
+	anim_frame Frame_StompBonus_Klaptrap_Walk_1
+	anim_frame Frame_StompBonus_Klaptrap_Walk_8
 	anim_sfx 4, $48
-	anim_frame Frame_20_50f8
-	anim_frame Frame_20_5122
+	anim_frame Frame_StompBonus_Klaptrap_Walk_1
+	anim_frame Frame_StompBonus_Klaptrap_Walk_8
 	anim_sfx 4, $48
-	anim_frame Frame_20_50f8
-	anim_jump Anim_04_4c51
+	anim_frame Frame_StompBonus_Klaptrap_Walk_1
+	anim_jump Anim_StompBonus_Klaptrap_Walk_1
 
-Anim_04_4c8f::
+Anim_Obj_TurnAround_7::
 	anim_speed 5
-	anim_frame Frame_20_5128
+	anim_frame Frame_Obj_TurnAround_11
 	anim_xor_attr $20
-	anim_frame Frame_20_5128
+	anim_frame Frame_Obj_TurnAround_11
 	anim_clear_flag
-	anim_jump Anim_04_4c51
+	anim_jump Anim_StompBonus_Klaptrap_Walk_1
 
-Anim_04_4c9d::
+Anim_Klaptrap_Touch_1::
 	anim_speed 5
-	anim_frame Frame_20_512e
+	anim_frame Frame_Klaptrap_Touch_1
 
-Anim_04_4ca1::
-	anim_frame Frame_20_5134
-	anim_jump Anim_04_4ca1
+Anim_Klaptrap_Touch_2::
+	anim_frame Frame_Klaptrap_Touch_2
+	anim_jump Anim_Klaptrap_Touch_2
 
-Anim_04_4ca7::
+Anim_Squidge_1::
 	anim_speed 3
-	anim_frame Frame_20_551e
-	anim_frame Frame_20_5524
-	anim_frame Frame_20_552a
-	anim_frame Frame_20_5530
-	anim_frame Frame_20_5536
-	anim_frame Frame_20_553c
-	anim_frame Frame_20_5542
-	anim_frame Frame_20_5548
+	anim_frame Frame_Squidge_1
+	anim_frame Frame_Squidge_2
+	anim_frame Frame_Squidge_3
+	anim_frame Frame_Squidge_4
+	anim_frame Frame_Squidge_5
+	anim_frame Frame_Squidge_6
+	anim_frame Frame_Squidge_7
+	anim_frame Frame_Squidge_8
 
-Anim_04_4cb9::
-	anim_frame Frame_20_554e
-	anim_jump Anim_04_4cb9
+Anim_Squidge_2::
+	anim_frame Frame_Squidge_9
+	anim_jump Anim_Squidge_2
 
-Anim_04_4cbf::
+Anim_Squidge_Touch_1::
 	anim_speed 3
 
-Anim_04_4cc1::
-	anim_frame Frame_20_551e
-	anim_jump Anim_04_4cc1
+Anim_Squidge_Touch_2::
+	anim_frame Frame_Squidge_1
+	anim_jump Anim_Squidge_Touch_2
 
-Anim_04_4cc7::
+Anim_RunClamboScript_1::
 	anim_speed 6
-	anim_frame Frame_20_42a0
-	anim_frame Frame_20_429a
+	anim_frame Frame_RunClamboScript_4
+	anim_frame Frame_RunClamboScript_3
 	anim_speed 5
-	anim_frame Frame_20_4294
+	anim_frame Frame_RunClamboScript_2
 	anim_speed 4
-	anim_frame Frame_20_428e
+	anim_frame Frame_RunClamboScript_1
 	anim_sfx 2, $4a
 	anim_speed 3
-	anim_frame Frame_20_4294
+	anim_frame Frame_RunClamboScript_2
 	anim_speed 9
 
-Anim_04_4cdd::
-	anim_frame Frame_20_428e
-	anim_jump Anim_04_4cdd
+Anim_RunClamboScript_2::
+	anim_frame Frame_RunClamboScript_1
+	anim_jump Anim_RunClamboScript_2
 
-Anim_04_4ce3::
+Anim_RunClamboScript_3::
 	anim_speed 6
-	anim_frame Frame_20_428e
-	anim_frame Frame_20_4294
-	anim_frame Frame_20_429a
-	anim_frame Frame_20_42a0
+	anim_frame Frame_RunClamboScript_1
+	anim_frame Frame_RunClamboScript_2
+	anim_frame Frame_RunClamboScript_3
+	anim_frame Frame_RunClamboScript_4
 	anim_speed 8
 
-Anim_04_4cef::
-	anim_frame Frame_20_42a6
-	anim_frame Frame_20_42ac
-	anim_jump Anim_04_4cef
+Anim_RunClamboScript_4::
+	anim_frame Frame_RunClamboScript_5
+	anim_frame Frame_RunClamboScript_6
+	anim_jump Anim_RunClamboScript_4
 
-Anim_04_4cf7::
+Anim_Bitesize_1::
 	anim_speed 4
 
-Anim_04_4cf9::
-	anim_frame Frame_20_4afe
-	anim_frame Frame_20_4b04
-	anim_frame Frame_20_4b0a
-	anim_frame Frame_20_4b10
-	anim_frame Frame_20_4b16
-	anim_frame Frame_20_4b1c
-	anim_frame Frame_20_4b22
-	anim_jump Anim_04_4cf9
+Anim_Bitesize_2::
+	anim_frame Frame_Bitesize_1
+	anim_frame Frame_Bitesize_2
+	anim_frame Frame_Bitesize_3
+	anim_frame Frame_Bitesize_4
+	anim_frame Frame_Bitesize_5
+	anim_frame Frame_Bitesize_6
+	anim_frame Frame_Bitesize_7
+	anim_jump Anim_Bitesize_2
 
-Anim_04_4d0b::
+Anim_Bitesize_Swim::
 	anim_speed 4
-	anim_frame Frame_20_4b28
-	anim_frame Frame_20_4b2e
-	anim_frame Frame_20_4b34
-	anim_frame Frame_20_4b3a
-	anim_frame Frame_20_4b40
-	anim_frame Frame_20_4b46
+	anim_frame Frame_Bitesize_Swim_1
+	anim_frame Frame_Bitesize_Swim_2
+	anim_frame Frame_Bitesize_Swim_3
+	anim_frame Frame_Bitesize_Swim_4
+	anim_frame Frame_Bitesize_Swim_5
+	anim_frame Frame_Bitesize_Swim_6
 	anim_xor_attr $20
 	anim_clear_flag
-	anim_jump Anim_04_4cf7
+	anim_jump Anim_Bitesize_1
 
-Anim_04_4d21::
+Anim_Bitesize_Touch_1::
 	anim_speed 4
-	anim_frame Frame_20_4ae0
-	anim_frame Frame_20_4ae6
-	anim_frame Frame_20_4aec
-	anim_frame Frame_20_4af2
+	anim_frame Frame_Bitesize_Touch_1
+	anim_frame Frame_Bitesize_Touch_2
+	anim_frame Frame_Bitesize_Touch_3
+	anim_frame Frame_Bitesize_Touch_4
 
-Anim_04_4d2b::
-	anim_frame Frame_20_4af8
-	anim_jump Anim_04_4d2b
+Anim_Bitesize_Touch_2::
+	anim_frame Frame_Bitesize_Touch_5
+	anim_jump Anim_Bitesize_Touch_2
 
-Anim_04_4d31::
+Anim_Chomps_1::
 	anim_speed 4
 
-Anim_04_4d33::
-	anim_frame Frame_20_4ccc
-	anim_frame Frame_20_4cd2
-	anim_frame Frame_20_4cd8
-	anim_frame Frame_20_4cde
-	anim_frame Frame_20_4ce4
-	anim_frame Frame_20_4cea
-	anim_frame Frame_20_4cf0
-	anim_frame Frame_20_4cf6
-	anim_jump Anim_04_4d33
+Anim_Chomps_2::
+	anim_frame Frame_Chomps_1
+	anim_frame Frame_Chomps_2
+	anim_frame Frame_Chomps_3
+	anim_frame Frame_Chomps_4
+	anim_frame Frame_Chomps_5
+	anim_frame Frame_Chomps_6
+	anim_frame Frame_Chomps_7
+	anim_frame Frame_Chomps_8
+	anim_jump Anim_Chomps_2
 
-Anim_04_4d47::
+Anim_Chomps_Swim::
 	anim_speed 4
-	anim_frame Frame_20_4cfc
-	anim_frame Frame_20_4d02
-	anim_frame Frame_20_4d08
-	anim_frame Frame_20_4d0e
-	anim_frame Frame_20_4d14
+	anim_frame Frame_Chomps_Swim_1
+	anim_frame Frame_Chomps_Swim_2
+	anim_frame Frame_Chomps_Swim_3
+	anim_frame Frame_Chomps_Swim_4
+	anim_frame Frame_Chomps_Swim_5
 	anim_xor_attr $20
 	anim_clear_flag
-	anim_jump Anim_04_4d31
+	anim_jump Anim_Chomps_1
 
-Anim_04_4d5b::
+Anim_Chomps_Touch_1::
 	anim_speed 4
-	anim_frame Frame_20_4ca8
-	anim_frame Frame_20_4cae
-	anim_frame Frame_20_4cb4
-	anim_frame Frame_20_4cba
-	anim_frame Frame_20_4cc0
+	anim_frame Frame_Chomps_Touch_1
+	anim_frame Frame_Chomps_Touch_2
+	anim_frame Frame_Chomps_Touch_3
+	anim_frame Frame_Chomps_Touch_4
+	anim_frame Frame_Chomps_Touch_5
 
-Anim_04_4d67::
-	anim_frame Frame_20_4cc6
-	anim_jump Anim_04_4d67
+Anim_Chomps_Touch_2::
+	anim_frame Frame_Chomps_Touch_6
+	anim_jump Anim_Chomps_Touch_2
 
-Anim_04_4d6d::
+Anim_ChompsJr_1::
 	anim_speed 4
 
-Anim_04_4d6f::
-	anim_frame Frame_20_49de
-	anim_frame Frame_20_49e4
-	anim_frame Frame_20_49ea
-	anim_frame Frame_20_49f0
-	anim_frame Frame_20_49f6
-	anim_frame Frame_20_49fc
-	anim_frame Frame_20_4a02
-	anim_frame Frame_20_4a08
-	anim_jump Anim_04_4d6f
+Anim_ChompsJr_2::
+	anim_frame Frame_ChompsJr_1
+	anim_frame Frame_ChompsJr_2
+	anim_frame Frame_ChompsJr_3
+	anim_frame Frame_ChompsJr_4
+	anim_frame Frame_ChompsJr_5
+	anim_frame Frame_ChompsJr_6
+	anim_frame Frame_ChompsJr_7
+	anim_frame Frame_ChompsJr_8
+	anim_jump Anim_ChompsJr_2
 
-Anim_04_4d83::
+Anim_ChompsJr_Swim::
 	anim_speed 4
-	anim_frame Frame_20_4a0e
-	anim_frame Frame_20_4a14
-	anim_frame Frame_20_4a1a
-	anim_frame Frame_20_4a20
-	anim_frame Frame_20_4a26
-	anim_frame Frame_20_4a2c
-	anim_frame Frame_20_4a32
-	anim_frame Frame_20_4a38
+	anim_frame Frame_ChompsJr_Swim_1
+	anim_frame Frame_ChompsJr_Swim_2
+	anim_frame Frame_ChompsJr_Swim_3
+	anim_frame Frame_ChompsJr_Swim_4
+	anim_frame Frame_ChompsJr_Swim_5
+	anim_frame Frame_ChompsJr_Swim_6
+	anim_frame Frame_ChompsJr_Swim_7
+	anim_frame Frame_ChompsJr_Swim_8
 	anim_xor_attr $20
 	anim_clear_flag
-	anim_jump Anim_04_4d6d
+	anim_jump Anim_ChompsJr_1
 
-Anim_04_4d9d::
+Anim_ChompsJr_Touch_1::
 	anim_speed 4
-	anim_frame Frame_20_49c0
-	anim_frame Frame_20_49c6
-	anim_frame Frame_20_49cc
-	anim_frame Frame_20_49d2
+	anim_frame Frame_ChompsJr_Touch_1
+	anim_frame Frame_ChompsJr_Touch_2
+	anim_frame Frame_ChompsJr_Touch_3
+	anim_frame Frame_ChompsJr_Touch_4
 
-Anim_04_4da7::
-	anim_frame Frame_20_49d8
-	anim_jump Anim_04_4da7
+Anim_ChompsJr_Touch_2::
+	anim_frame Frame_ChompsJr_Touch_5
+	anim_jump Anim_ChompsJr_Touch_2
 
-Anim_04_4dad::
+Anim_Croctopus_SetSpinAnim_1::
 	anim_speed 2
 	anim_param $49
 
-Anim_04_4db1::
-	anim_frame Frame_20_4a74
-	anim_frame Frame_20_4a7a
-	anim_frame Frame_20_4a80
-	anim_frame Frame_20_4a86
-	anim_frame Frame_20_4a8c
-	anim_frame Frame_20_4a92
-	anim_frame Frame_20_4a98
-	anim_jump Anim_04_4db1
+Anim_Croctopus_SetSpinAnim_2::
+	anim_frame Frame_Croctopus_SetSpinAnim_1
+	anim_frame Frame_Croctopus_SetSpinAnim_2
+	anim_frame Frame_Croctopus_SetSpinAnim_3
+	anim_frame Frame_Croctopus_SetSpinAnim_4
+	anim_frame Frame_Croctopus_SetSpinAnim_5
+	anim_frame Frame_Croctopus_SetSpinAnim_6
+	anim_frame Frame_Croctopus_SetSpinAnim_7
+	anim_jump Anim_Croctopus_SetSpinAnim_2
 
-Anim_04_4dc3::
+Anim_Unused_11::
 	anim_speed 6
-	anim_frame Frame_20_4a3e
-	anim_frame Frame_20_4a44
-	anim_frame Frame_20_4a4a
-	anim_frame Frame_20_4a50
-	anim_frame Frame_20_4a56
+	anim_frame Frame_Unused_16
+	anim_frame Frame_Unused_17
+	anim_frame Frame_Unused_18
+	anim_frame Frame_Unused_19
+	anim_frame Frame_Unused_20
 
-Anim_04_4dcf::
-	anim_frame Frame_20_4a5c
-	anim_jump Anim_04_4dcf
+Anim_Unused_12::
+	anim_frame Frame_Unused_21
+	anim_jump Anim_Unused_12
 
-Anim_04_4dd5::
+Anim_Croctopus_SetMoveAnim_1::
 	anim_speed 6
 	anim_param $48
 
-Anim_04_4dd9::
-	anim_frame Frame_20_4a9e
-	anim_frame Frame_20_4aa4
-	anim_frame Frame_20_4aaa
-	anim_frame Frame_20_4ab0
-	anim_frame Frame_20_4ab6
-	anim_frame Frame_20_4abc
-	anim_frame Frame_20_4ac2
-	anim_frame Frame_20_4ac8
-	anim_jump Anim_04_4dd9
+Anim_Croctopus_SetMoveAnim_2::
+	anim_frame Frame_Croctopus_SetMoveAnim_1
+	anim_frame Frame_Croctopus_SetMoveAnim_2
+	anim_frame Frame_Croctopus_SetMoveAnim_3
+	anim_frame Frame_Croctopus_SetMoveAnim_4
+	anim_frame Frame_Croctopus_SetMoveAnim_5
+	anim_frame Frame_Croctopus_SetMoveAnim_6
+	anim_frame Frame_Croctopus_SetMoveAnim_7
+	anim_frame Frame_Croctopus_SetMoveAnim_8
+	anim_jump Anim_Croctopus_SetMoveAnim_2
 
-Anim_04_4ded::
+Anim_Unused_13::
 	anim_speed 6
 
-Anim_04_4def::
-	anim_frame Frame_20_4a62
-	anim_jump Anim_04_4def
+Anim_Unused_14::
+	anim_frame Frame_Unused_22
+	anim_jump Anim_Unused_14
 
-Anim_04_4df5::
+Anim_Player_EnterInBarrel_1::
 	anim_speed 1
 
-Anim_04_4df7::
-	anim_frame Frame_20_4daa
-	anim_frame Frame_20_4db0
-	anim_frame Frame_20_4db6
-	anim_frame Frame_20_4dbc
-	anim_frame Frame_20_4dc2
-	anim_frame Frame_20_4dc8
-	anim_frame Frame_20_4dce
-	anim_frame Frame_20_4dd4
-	anim_jump Anim_04_4df7
+Anim_Player_EnterInBarrel_2::
+	anim_frame Frame_Player_EnterInBarrel_1
+	anim_frame Frame_Player_EnterInBarrel_2
+	anim_frame Frame_Player_EnterInBarrel_3
+	anim_frame Frame_Player_EnterInBarrel_4
+	anim_frame Frame_Player_EnterInBarrel_5
+	anim_frame Frame_Player_EnterInBarrel_6
+	anim_frame Frame_Player_EnterInBarrel_7
+	anim_frame Frame_Player_EnterInBarrel_8
+	anim_jump Anim_Player_EnterInBarrel_2
 
-Anim_04_4e0b::
+Anim_StompBonus_Bananas_1::
 	anim_speed 5
 
-Anim_04_4e0d::
-	anim_frame Frame_20_426a
-	anim_frame Frame_20_4270
-	anim_frame Frame_20_4276
-	anim_frame Frame_20_427c
-	anim_frame Frame_20_4282
-	anim_frame Frame_20_4288
-	anim_frame Frame_20_4282
-	anim_frame Frame_20_427c
-	anim_frame Frame_20_4276
-	anim_frame Frame_20_4270
-	anim_jump Anim_04_4e0d
+Anim_StompBonus_Bananas_2::
+	anim_frame Frame_StompBonus_Bananas_1
+	anim_frame Frame_StompBonus_Bananas_2
+	anim_frame Frame_StompBonus_Bananas_3
+	anim_frame Frame_StompBonus_Bananas_4
+	anim_frame Frame_StompBonus_Bananas_5
+	anim_frame Frame_StompBonus_Bananas_6
+	anim_frame Frame_StompBonus_Bananas_5
+	anim_frame Frame_StompBonus_Bananas_4
+	anim_frame Frame_StompBonus_Bananas_3
+	anim_frame Frame_StompBonus_Bananas_2
+	anim_jump Anim_StompBonus_Bananas_2
 
-Anim_04_4e25::
+Anim_Bonus_ShowPrize_1::
 	anim_speed 2
-	anim_frame Frame_20_459a
-	anim_frame Frame_20_45a0
-	anim_frame Frame_20_45a6
-	anim_frame Frame_20_45ac
+	anim_frame Frame_Bonus_ShowPrize_2
+	anim_frame Frame_Bonus_ShowPrize_3
+	anim_frame Frame_Bonus_ShowPrize_4
+	anim_frame Frame_Bonus_ShowPrize_5
 	anim_clear_flag
 
-Anim_04_4e31::
-	anim_frame Frame_20_4000
-	anim_jump Anim_04_4e31
+Anim_Bonus_ShowPrize_2::
+	anim_frame Frame_Bonus_ShowPrize_1
+	anim_jump Anim_Bonus_ShowPrize_2
 
-Anim_04_4e37::
+Anim_Unused_15::
 	anim_speed 8
 
-Anim_04_4e39::
-	anim_frame Frame_20_4b52
-	anim_frame Frame_20_4b58
-	anim_frame Frame_20_4b5e
-	anim_frame Frame_20_4b64
-	anim_frame Frame_20_4b6a
-	anim_frame Frame_20_4b70
-	anim_frame Frame_20_4b76
-	anim_frame Frame_20_4b7c
-	anim_jump Anim_04_4e39
+Anim_Unused_16::
+	anim_frame Frame_AnimalToken_3
+	anim_frame Frame_Unused_23
+	anim_frame Frame_Unused_24
+	anim_frame Frame_Unused_25
+	anim_frame Frame_Unused_26
+	anim_frame Frame_Unused_27
+	anim_frame Frame_Unused_28
+	anim_frame Frame_Unused_29
+	anim_jump Anim_Unused_16
 
-Anim_04_4e4d::
+Anim_Unused_17::
 	anim_speed 8
 
-Anim_04_4e4f::
-	anim_frame Frame_20_4f84
-	anim_frame Frame_20_4f8a
-	anim_frame Frame_20_4f90
-	anim_frame Frame_20_4f96
-	anim_frame Frame_20_4f9c
-	anim_frame Frame_20_4fa2
-	anim_frame Frame_20_4fa8
-	anim_frame Frame_20_4fae
-	anim_jump Anim_04_4e4f
+Anim_Unused_18::
+	anim_frame Frame_AnimalToken_8
+	anim_frame Frame_Unused_54
+	anim_frame Frame_Unused_55
+	anim_frame Frame_Unused_56
+	anim_frame Frame_Unused_57
+	anim_frame Frame_Unused_58
+	anim_frame Frame_Unused_59
+	anim_frame Frame_Unused_60
+	anim_jump Anim_Unused_18
 
-Anim_04_4e63::
+Anim_Unused_19::
 	anim_speed 8
 
-Anim_04_4e65::
-	anim_frame Frame_20_44f2
-	anim_frame Frame_20_44f8
-	anim_frame Frame_20_44fe
-	anim_frame Frame_20_4504
-	anim_frame Frame_20_450a
-	anim_frame Frame_20_4510
-	anim_frame Frame_20_4516
-	anim_frame Frame_20_451c
-	anim_jump Anim_04_4e65
+Anim_Unused_20::
+	anim_frame Frame_AnimalToken_2
+	anim_frame Frame_Unused_9
+	anim_frame Frame_Unused_10
+	anim_frame Frame_Unused_11
+	anim_frame Frame_Unused_12
+	anim_frame Frame_Unused_13
+	anim_frame Frame_Unused_14
+	anim_frame Frame_Unused_15
+	anim_jump Anim_Unused_20
 
-Anim_04_4e79::
+Anim_Unused_21::
 	anim_speed 8
 
-Anim_04_4e7b::
-	anim_frame Frame_20_44bc
-	anim_frame Frame_20_44c2
-	anim_frame Frame_20_44c8
-	anim_frame Frame_20_44ce
-	anim_frame Frame_20_44d4
-	anim_frame Frame_20_44da
-	anim_frame Frame_20_44e0
-	anim_frame Frame_20_44e6
-	anim_jump Anim_04_4e7b
+Anim_Unused_22::
+	anim_frame Frame_AnimalToken_1
+	anim_frame Frame_Unused_2
+	anim_frame Frame_Unused_3
+	anim_frame Frame_Unused_4
+	anim_frame Frame_Unused_5
+	anim_frame Frame_Unused_6
+	anim_frame Frame_Unused_7
+	anim_frame Frame_Unused_8
+	anim_jump Anim_Unused_22
 
-Anim_04_4e8f::
+Anim_ExtraLifeBalloon_1::
 	anim_speed 5
 
-Anim_04_4e91::
-	anim_frame Frame_20_4072
-	anim_frame Frame_20_4078
-	anim_frame Frame_20_407e
-	anim_frame Frame_20_4084
-	anim_frame Frame_20_408a
-	anim_frame Frame_20_4090
-	anim_frame Frame_20_4096
-	anim_frame Frame_20_409c
-	anim_frame Frame_20_4096
-	anim_frame Frame_20_4090
-	anim_frame Frame_20_408a
-	anim_frame Frame_20_4084
-	anim_frame Frame_20_407e
-	anim_frame Frame_20_4078
-	anim_jump Anim_04_4e91
+Anim_ExtraLifeBalloon_2::
+	anim_frame Frame_ExtraLifeBalloon_1
+	anim_frame Frame_ExtraLifeBalloon_2
+	anim_frame Frame_ExtraLifeBalloon_3
+	anim_frame Frame_ExtraLifeBalloon_4
+	anim_frame Frame_ExtraLifeBalloon_5
+	anim_frame Frame_ExtraLifeBalloon_6
+	anim_frame Frame_ExtraLifeBalloon_7
+	anim_frame Frame_ExtraLifeBalloon_8
+	anim_frame Frame_ExtraLifeBalloon_7
+	anim_frame Frame_ExtraLifeBalloon_6
+	anim_frame Frame_ExtraLifeBalloon_5
+	anim_frame Frame_ExtraLifeBalloon_4
+	anim_frame Frame_ExtraLifeBalloon_3
+	anim_frame Frame_ExtraLifeBalloon_2
+	anim_jump Anim_ExtraLifeBalloon_2
 
-Anim_04_4eb1::
+Anim_MasterNecky_Nut_1::
 	anim_speed 5
 
-Anim_04_4eb3::
-	anim_frame Frame_20_41ec
-	anim_frame Frame_20_41f2
-	anim_frame Frame_20_41f8
-	anim_frame Frame_20_41fe
-	anim_jump Anim_04_4eb3
+Anim_MasterNecky_Nut_2::
+	anim_frame Frame_MasterNecky_Nut_1
+	anim_frame Frame_MasterNecky_Nut_2
+	anim_frame Frame_MasterNecky_Nut_3
+	anim_frame Frame_MasterNecky_Nut_4
+	anim_jump Anim_MasterNecky_Nut_2
 
-Anim_04_4ebf::
+Anim_Nut_1::
 	anim_speed 5
 
-Anim_04_4ec1::
-	anim_frame Frame_20_565c
-	anim_frame Frame_20_5662
-	anim_frame Frame_20_5668
-	anim_frame Frame_20_566e
-	anim_jump Anim_04_4ec1
+Anim_Nut_2::
+	anim_frame Frame_Nut_1
+	anim_frame Frame_Nut_2
+	anim_frame Frame_Nut_3
+	anim_frame Frame_Nut_4
+	anim_jump Anim_Nut_2
 
-Anim_04_4ecd::
+Anim_Touch_Hurt_1::
 	anim_speed 2
 
-Anim_04_4ecf::
-	anim_frame Frame_20_5758
-	anim_frame Frame_20_575e
-	anim_frame Frame_20_5764
-	anim_frame Frame_20_576a
-	anim_jump Anim_04_4ecf
+Anim_Touch_Hurt_2::
+	anim_frame Frame_Touch_Hurt_1
+	anim_frame Frame_Touch_Hurt_2
+	anim_frame Frame_Touch_Hurt_3
+	anim_frame Frame_Touch_Hurt_4
+	anim_jump Anim_Touch_Hurt_2
 
-Anim_04_4edb::
+Anim_Touch_Hurt_3::
 	anim_speed 4
 
-Anim_04_4edd::
-	anim_frame Frame_20_5806
-	anim_frame Frame_20_580c
-	anim_frame Frame_20_5812
-	anim_frame Frame_20_5818
-	anim_jump Anim_04_4edd
+Anim_Touch_Hurt_4::
+	anim_frame Frame_Touch_Hurt_5
+	anim_frame Frame_Touch_Hurt_6
+	anim_frame Frame_Touch_Hurt_7
+	anim_frame Frame_Touch_Hurt_8
+	anim_jump Anim_Touch_Hurt_4
 
-Anim_04_4ee9::
+Anim_TrackPlatform_Wait_1::
 	anim_speed 4
 
-Anim_04_4eeb::
-	anim_frame Frame_20_5644
-	anim_frame Frame_20_564a
-	anim_frame Frame_20_5650
-	anim_jump Anim_04_4eeb
+Anim_TrackPlatform_Wait_2::
+	anim_frame Frame_TrackPlatform_Wait_1
+	anim_frame Frame_TrackPlatform_Wait_2
+	anim_frame Frame_TrackPlatform_Wait_3
+	anim_jump Anim_TrackPlatform_Wait_2
 
-Anim_04_4ef5::
+Anim_FuelPlatform_Wait_1::
 	anim_speed 4
 
-Anim_04_4ef7::
-	anim_frame Frame_20_5638
-	anim_jump Anim_04_4ef7
+Anim_FuelPlatform_Wait_2::
+	anim_frame Frame_FuelPlatform_Wait
+	anim_jump Anim_FuelPlatform_Wait_2
 
-Anim_04_4efd::
+Anim_OilDrum_Wait_1::
 	anim_speed 3
 
-Anim_04_4eff::
-	anim_frame Frame_20_5848
-	anim_frame Frame_20_584e
-	anim_frame Frame_20_5854
-	anim_frame Frame_20_585a
-	anim_frame Frame_20_5860
-	anim_frame Frame_20_5866
-	anim_frame Frame_20_586c
-	anim_jump Anim_04_4eff
+Anim_OilDrum_Wait_2::
+	anim_frame Frame_OilDrum_Wait_1
+	anim_frame Frame_OilDrum_Wait_2
+	anim_frame Frame_OilDrum_Wait_3
+	anim_frame Frame_OilDrum_Wait_4
+	anim_frame Frame_OilDrum_Wait_5
+	anim_frame Frame_OilDrum_Wait_6
+	anim_frame Frame_OilDrum_Wait_7
+	anim_jump Anim_OilDrum_Wait_2
 
-Anim_04_4f11::
+Anim_OilDrum_Wait_3::
 	anim_speed 3
 
-Anim_04_4f13::
-	anim_frame Frame_20_4000
-	anim_jump Anim_04_4f13
+Anim_OilDrum_Wait_4::
+	anim_frame Frame_Bonus_ShowPrize_1
+	anim_jump Anim_OilDrum_Wait_4
 
-Anim_04_4f19::
+Anim_OilDrum_Burn_1::
 	anim_speed 1
-	anim_frame Frame_20_5842
-	anim_frame Frame_20_583c
-	anim_frame Frame_20_5836
-	anim_frame Frame_20_5830
-	anim_frame Frame_20_582a
-	anim_frame Frame_20_5824
+	anim_frame Frame_OilDrum_Burn_6
+	anim_frame Frame_OilDrum_Burn_5
+	anim_frame Frame_OilDrum_Burn_4
+	anim_frame Frame_OilDrum_Burn_3
+	anim_frame Frame_OilDrum_Burn_2
+	anim_frame Frame_OilDrum_Burn_1
 	anim_clear_flag
-	anim_jump Anim_04_4efd
+	anim_jump Anim_OilDrum_Wait_1
 
-Anim_04_4f2d::
+Anim_OilDrum_Burn_2::
 	anim_speed 1
-	anim_frame Frame_20_5824
-	anim_frame Frame_20_582a
-	anim_frame Frame_20_5830
-	anim_frame Frame_20_5836
-	anim_frame Frame_20_583c
-	anim_frame Frame_20_5842
+	anim_frame Frame_OilDrum_Burn_1
+	anim_frame Frame_OilDrum_Burn_2
+	anim_frame Frame_OilDrum_Burn_3
+	anim_frame Frame_OilDrum_Burn_4
+	anim_frame Frame_OilDrum_Burn_5
+	anim_frame Frame_OilDrum_Burn_6
 	anim_clear_flag
-	anim_jump Anim_04_4f11
+	anim_jump Anim_OilDrum_Wait_3
 
-Anim_04_4f41::
+Anim_Tire_Top_Touch::
 	anim_speed 2
 	anim_var38 $1100
-	anim_frame Frame_20_4ed0
+	anim_frame Frame_Tire_Top_Touch_3
 	anim_var38 $0e00
-	anim_frame Frame_20_4eca
+	anim_frame Frame_Tire_Top_Touch_2
 	anim_var38 $0a00
-	anim_frame Frame_20_4ec4
+	anim_frame Frame_Tire_Top_Touch_1
 	anim_var38 $0e00
-	anim_frame Frame_20_4eca
+	anim_frame Frame_Tire_Top_Touch_2
 	anim_var38 $1100
-	anim_frame Frame_20_4ed0
+	anim_frame Frame_Tire_Top_Touch_3
 	anim_var38 $1700
-	anim_frame Frame_20_4ed6
+	anim_frame Frame_Tire_Top_Touch_4
 	anim_call Tire_SetBounceFlag
-	anim_frame Frame_20_4edc
-	anim_frame Frame_20_4ee2
-	anim_frame Frame_20_4edc
-	anim_frame Frame_20_4ed6
-	anim_frame Frame_20_4ed0
-	anim_frame Frame_20_4eca
-	anim_frame Frame_20_4ed0
+	anim_frame Frame_Tire_Top_Touch_5
+	anim_frame Frame_Tire_Top_Touch_6
+	anim_frame Frame_Tire_Top_Touch_5
+	anim_frame Frame_Tire_Top_Touch_4
+	anim_frame Frame_Tire_Top_Touch_3
+	anim_frame Frame_Tire_Top_Touch_2
+	anim_frame Frame_Tire_Top_Touch_3
 	anim_call Tire_ClearBounceFlag
 	anim_clear_flag
-	anim_jump Anim_04_4f83
+	anim_jump Anim_Tire_1
 
-Anim_04_4f83::
+Anim_Tire_1::
 	anim_speed 5
 
-Anim_04_4f85::
-	anim_frame Frame_20_4f2a
-	anim_jump Anim_04_4f85
+Anim_Tire_2::
+	anim_frame Frame_Tire_1
+	anim_jump Anim_Tire_2
 
-Anim_04_4f8b::
+Anim_TireHalf_Touch_1::
 	anim_speed 2
 	anim_var38 $0d00
-	anim_frame Frame_20_45be
+	anim_frame Frame_TireHalf_Touch_3
 	anim_var38 $0b00
-	anim_frame Frame_20_45b8
+	anim_frame Frame_TireHalf_Touch_2
 	anim_var38 $0900
-	anim_frame Frame_20_45b2
+	anim_frame Frame_TireHalf_Touch_1
 	anim_var38 $0b00
-	anim_frame Frame_20_45b8
+	anim_frame Frame_TireHalf_Touch_2
 	anim_var38 $0d00
-	anim_frame Frame_20_45be
+	anim_frame Frame_TireHalf_Touch_3
 	anim_var38 $1300
-	anim_frame Frame_20_45c4
+	anim_frame Frame_TireHalf_Touch_4
 	anim_call Tire_SetBounceFlag
-	anim_frame Frame_20_45ca
-	anim_frame Frame_20_45d0
-	anim_frame Frame_20_45ca
-	anim_frame Frame_20_45c4
-	anim_frame Frame_20_45be
-	anim_frame Frame_20_45b8
-	anim_frame Frame_20_45be
+	anim_frame Frame_TireHalf_Touch_5
+	anim_frame Frame_TireHalf_Touch_6
+	anim_frame Frame_TireHalf_Touch_5
+	anim_frame Frame_TireHalf_Touch_4
+	anim_frame Frame_TireHalf_Touch_3
+	anim_frame Frame_TireHalf_Touch_2
+	anim_frame Frame_TireHalf_Touch_3
 	anim_call Tire_ClearBounceFlag
 	anim_clear_flag
-	anim_jump Anim_04_4fcd
+	anim_jump Anim_TireHalf_Touch_2
 
-Anim_04_4fcd::
+Anim_TireHalf_Touch_2::
 	anim_speed 5
 
-Anim_04_4fcf::
-	anim_frame Frame_20_45d6
-	anim_jump Anim_04_4fcf
+Anim_TireHalf_Touch_3::
+	anim_frame Frame_TireHalf_Touch_7
+	anim_jump Anim_TireHalf_Touch_3
 
-Anim_04_4fd5::
+Anim_SpawnCollectedBanana_1::
 	anim_speed 3
 
-Anim_04_4fd7::
-	anim_frame Frame_20_48c4
-	anim_jump Anim_04_4fd7
+Anim_SpawnCollectedBanana_2::
+	anim_frame Frame_SpawnCollectedBanana_17
+	anim_jump Anim_SpawnCollectedBanana_2
 
-Anim_04_4fdd::
+Anim_SpawnCollectedBanana_3::
 	anim_param $46
 	anim_speed 3
-	anim_frame Frame_20_48c4
-	anim_frame Frame_20_48ca
-	anim_frame Frame_20_48d0
-	anim_frame Frame_20_48d6
+	anim_frame Frame_SpawnCollectedBanana_17
+	anim_frame Frame_SpawnCollectedBanana_18
+	anim_frame Frame_SpawnCollectedBanana_19
+	anim_frame Frame_SpawnCollectedBanana_20
 
-Anim_04_4fe9::
-	anim_frame Frame_20_48dc
-	anim_jump Anim_04_4fe9
+Anim_SpawnCollectedBanana_4::
+	anim_frame Frame_SpawnCollectedBanana_21
+	anim_jump Anim_SpawnCollectedBanana_4
 
-Anim_04_4fef::
+Anim_SpawnCollectedBanana_5::
 	anim_speed 3
-	anim_frame Frame_20_48dc
-	anim_frame Frame_20_48d6
-	anim_frame Frame_20_48d0
-	anim_frame Frame_20_48ca
+	anim_frame Frame_SpawnCollectedBanana_21
+	anim_frame Frame_SpawnCollectedBanana_20
+	anim_frame Frame_SpawnCollectedBanana_19
+	anim_frame Frame_SpawnCollectedBanana_18
 	anim_clear_flag
-	anim_jump Anim_04_4fd5
+	anim_jump Anim_SpawnCollectedBanana_1
 
-Anim_04_4fff::
+Anim_SpawnCollectedBanana_6::
 	anim_speed 3
 
-Anim_04_5001::
-	anim_frame Frame_20_48e2
-	anim_frame Frame_20_48e8
-	anim_frame Frame_20_48ee
-	anim_frame Frame_20_48f4
-	anim_frame Frame_20_48fa
-	anim_frame Frame_20_4900
-	anim_jump Anim_04_5001
+Anim_SpawnCollectedBanana_7::
+	anim_frame Frame_SpawnCollectedBanana_22
+	anim_frame Frame_SpawnCollectedBanana_23
+	anim_frame Frame_SpawnCollectedBanana_24
+	anim_frame Frame_SpawnCollectedBanana_25
+	anim_frame Frame_SpawnCollectedBanana_26
+	anim_frame Frame_SpawnCollectedBanana_27
+	anim_jump Anim_SpawnCollectedBanana_7
 
-Anim_04_5011::
+Anim_SpawnCollectedBanana_8::
 	anim_speed 3
 
-Anim_04_5013::
-	anim_frame Frame_20_4b4c
-	anim_jump Anim_04_5013
+Anim_SpawnCollectedBanana_9::
+	anim_frame Frame_SpawnCollectedBanana_28
+	anim_jump Anim_SpawnCollectedBanana_9
 
-Anim_04_5019::
+Anim_MankyBarrel::
 	anim_speed 3
-	anim_frame Frame_20_596e
-	anim_frame Frame_20_5974
-	anim_frame Frame_20_597a
-	anim_frame Frame_20_5980
-	anim_jump Anim_04_5011
+	anim_frame Frame_MankyBarrel_1
+	anim_frame Frame_MankyBarrel_2
+	anim_frame Frame_MankyBarrel_3
+	anim_frame Frame_MankyBarrel_4
+	anim_jump Anim_SpawnCollectedBanana_8
 
-Anim_04_5027::
+Anim_SpawnCollectedBanana_10::
 	anim_param $46
 	anim_speed 3
-	anim_frame Frame_20_4b4c
-	anim_frame Frame_20_415c
-	anim_frame Frame_20_4162
-	anim_frame Frame_20_4168
+	anim_frame Frame_SpawnCollectedBanana_28
+	anim_frame Frame_SpawnCollectedBanana_1
+	anim_frame Frame_SpawnCollectedBanana_2
+	anim_frame Frame_SpawnCollectedBanana_3
 
-Anim_04_5033::
-	anim_frame Frame_20_416e
-	anim_jump Anim_04_5033
+Anim_SpawnCollectedBanana_11::
+	anim_frame Frame_SpawnCollectedBanana_4
+	anim_jump Anim_SpawnCollectedBanana_11
 
-Anim_04_5039::
+Anim_SpawnCollectedBanana_12::
 	anim_speed 3
-	anim_frame Frame_20_416e
-	anim_frame Frame_20_4168
-	anim_frame Frame_20_4162
-	anim_frame Frame_20_415c
+	anim_frame Frame_SpawnCollectedBanana_4
+	anim_frame Frame_SpawnCollectedBanana_3
+	anim_frame Frame_SpawnCollectedBanana_2
+	anim_frame Frame_SpawnCollectedBanana_1
 	anim_clear_flag
-	anim_jump Anim_04_5011
+	anim_jump Anim_SpawnCollectedBanana_8
 
-Anim_04_5049::
+Anim_Mincer_2::
 	anim_speed 3
 
-Anim_04_504b::
-	anim_frame Frame_20_4234
-	anim_frame Frame_20_423a
-	anim_frame Frame_20_4240
-	anim_frame Frame_20_4246
-	anim_frame Frame_20_424c
-	anim_frame Frame_20_4252
-	anim_frame Frame_20_4258
-	anim_frame Frame_20_425e
-	anim_jump Anim_04_504b
+Anim_Mincer_3::
+	anim_frame Frame_Mincer_1
+	anim_frame Frame_Mincer_2
+	anim_frame Frame_Mincer_3
+	anim_frame Frame_Mincer_4
+	anim_frame Frame_Mincer_5
+	anim_frame Frame_Mincer_6
+	anim_frame Frame_Mincer_7
+	anim_frame Frame_Mincer_8
+	anim_jump Anim_Mincer_3
 
-Anim_04_505f::
+Anim_SpawnCollectedBanana_13::
 	anim_speed 5
 
-Anim_04_5061::
-	anim_frame Frame_20_42b2
-	anim_frame Frame_20_42b8
-	anim_frame Frame_20_42be
-	anim_frame Frame_20_42c4
-	anim_frame Frame_20_42ca
-	anim_frame Frame_20_42d0
-	anim_frame Frame_20_42d6
-	anim_frame Frame_20_42dc
-	anim_jump Anim_04_5061
+Anim_SpawnCollectedBanana_14::
+	anim_frame Frame_SpawnCollectedBanana_5
+	anim_frame Frame_SpawnCollectedBanana_6
+	anim_frame Frame_SpawnCollectedBanana_7
+	anim_frame Frame_SpawnCollectedBanana_8
+	anim_frame Frame_SpawnCollectedBanana_9
+	anim_frame Frame_SpawnCollectedBanana_10
+	anim_frame Frame_SpawnCollectedBanana_11
+	anim_frame Frame_SpawnCollectedBanana_12
+	anim_jump Anim_SpawnCollectedBanana_14
 
-Anim_04_5075::
+Anim_SpawnCollectedBanana_15::
 	anim_param $46
 	anim_speed 3
-	anim_frame Frame_20_42e2
-	anim_frame Frame_20_42e8
-	anim_frame Frame_20_42ee
+	anim_frame Frame_SpawnCollectedBanana_13
+	anim_frame Frame_SpawnCollectedBanana_14
+	anim_frame Frame_SpawnCollectedBanana_15
 
-Anim_04_507f::
-	anim_frame Frame_20_42f4
-	anim_jump Anim_04_507f
+Anim_SpawnCollectedBanana_16::
+	anim_frame Frame_SpawnCollectedBanana_16
+	anim_jump Anim_SpawnCollectedBanana_16
 
-Anim_04_5085::
+Anim_SpawnCollectedBanana_17::
 	anim_speed 3
-	anim_frame Frame_20_42f4
-	anim_frame Frame_20_42ee
-	anim_frame Frame_20_42e8
-	anim_frame Frame_20_42e2
+	anim_frame Frame_SpawnCollectedBanana_16
+	anim_frame Frame_SpawnCollectedBanana_15
+	anim_frame Frame_SpawnCollectedBanana_14
+	anim_frame Frame_SpawnCollectedBanana_13
 	anim_clear_flag
-	anim_jump Anim_04_505f
+	anim_jump Anim_SpawnCollectedBanana_13
 
-Anim_04_5095::
+Anim_SpawnCollectedBanana_18::
 	anim_speed 3
 
-Anim_04_5097::
-	anim_frame Frame_20_4ee8
-	anim_jump Anim_04_5097
+Anim_SpawnCollectedBanana_19::
+	anim_frame Frame_SpawnCollectedBanana_29
+	anim_jump Anim_SpawnCollectedBanana_19
 
-Anim_04_509d::
+Anim_SpawnCollectedBanana_20::
 	anim_param $46
 	anim_speed 3
-	anim_frame Frame_20_4ee8
-	anim_frame Frame_20_4eee
-	anim_frame Frame_20_4ef4
-	anim_frame Frame_20_4efa
+	anim_frame Frame_SpawnCollectedBanana_29
+	anim_frame Frame_SpawnCollectedBanana_30
+	anim_frame Frame_SpawnCollectedBanana_31
+	anim_frame Frame_SpawnCollectedBanana_32
 
-Anim_04_50a9::
-	anim_frame Frame_20_4f00
-	anim_jump Anim_04_50a9
+Anim_SpawnCollectedBanana_21::
+	anim_frame Frame_SpawnCollectedBanana_33
+	anim_jump Anim_SpawnCollectedBanana_21
 
-Anim_04_50af::
+Anim_SpawnCollectedBanana_22::
 	anim_speed 3
-	anim_frame Frame_20_4f00
-	anim_frame Frame_20_4efa
-	anim_frame Frame_20_4ef4
-	anim_frame Frame_20_4eee
+	anim_frame Frame_SpawnCollectedBanana_33
+	anim_frame Frame_SpawnCollectedBanana_32
+	anim_frame Frame_SpawnCollectedBanana_31
+	anim_frame Frame_SpawnCollectedBanana_30
 
-Anim_04_50b9::
-	anim_frame Frame_20_4ee8
-	anim_jump Anim_04_50b9
+Anim_SpawnCollectedBanana_23::
+	anim_frame Frame_SpawnCollectedBanana_29
+	anim_jump Anim_SpawnCollectedBanana_23
 
-Anim_04_50bf::
-	anim_speed 3
-
-Anim_04_50c1::
-	anim_frame Frame_20_4fb4
-	anim_frame Frame_20_4fba
-	anim_frame Frame_20_4fc0
-	anim_frame Frame_20_4fc6
-	anim_frame Frame_20_4fcc
-	anim_frame Frame_20_4fd2
-	anim_frame Frame_20_4fd8
-	anim_frame Frame_20_4fde
-	anim_jump Anim_04_50c1
-
-Anim_04_50d5::
+Anim_SpawnBarrelDebris_1::
 	anim_speed 3
 
-Anim_04_50d7::
-	anim_frame Frame_20_4fe4
-	anim_frame Frame_20_4fea
-	anim_frame Frame_20_4ff0
-	anim_frame Frame_20_4ff6
-	anim_frame Frame_20_4ffc
-	anim_frame Frame_20_5002
-	anim_frame Frame_20_5008
-	anim_frame Frame_20_500e
-	anim_jump Anim_04_50d7
+Anim_SpawnBarrelDebris_2::
+	anim_frame Frame_SpawnBarrelDebris_1
+	anim_frame Frame_SpawnBarrelDebris_2
+	anim_frame Frame_SpawnBarrelDebris_3
+	anim_frame Frame_SpawnBarrelDebris_4
+	anim_frame Frame_SpawnBarrelDebris_5
+	anim_frame Frame_SpawnBarrelDebris_6
+	anim_frame Frame_SpawnBarrelDebris_7
+	anim_frame Frame_SpawnBarrelDebris_8
+	anim_jump Anim_SpawnBarrelDebris_2
 
-Anim_04_50eb::
+Anim_SpawnBarrelDebris_3::
 	anim_speed 3
 
-Anim_04_50ed::
-	anim_frame Frame_20_4204
-	anim_frame Frame_20_420a
-	anim_frame Frame_20_4210
-	anim_frame Frame_20_4216
-	anim_frame Frame_20_421c
-	anim_frame Frame_20_4222
-	anim_frame Frame_20_4228
-	anim_frame Frame_20_422e
-	anim_clear_flag
-	anim_jump Anim_04_50ed
+Anim_SpawnBarrelDebris_4::
+	anim_frame Frame_SpawnBarrelDebris_9
+	anim_frame Frame_SpawnBarrelDebris_10
+	anim_frame Frame_SpawnBarrelDebris_11
+	anim_frame Frame_SpawnBarrelDebris_12
+	anim_frame Frame_SpawnBarrelDebris_13
+	anim_frame Frame_SpawnBarrelDebris_14
+	anim_frame Frame_SpawnBarrelDebris_15
+	anim_frame Frame_SpawnBarrelDebris_16
+	anim_jump Anim_SpawnBarrelDebris_4
 
-Anim_04_5103::
+Anim_BarrelBreak_Effect_1::
+	anim_speed 3
+
+Anim_BarrelBreak_Effect_2::
+	anim_frame Frame_BarrelBreak_Effect_1
+	anim_frame Frame_BarrelBreak_Effect_2
+	anim_frame Frame_BarrelBreak_Effect_3
+	anim_frame Frame_BarrelBreak_Effect_4
+	anim_frame Frame_BarrelBreak_Effect_5
+	anim_frame Frame_BarrelBreak_Effect_6
+	anim_frame Frame_BarrelBreak_Effect_7
+	anim_frame Frame_BarrelBreak_Effect_8
+	anim_clear_flag
+	anim_jump Anim_BarrelBreak_Effect_2
+
+Anim_DKBarrel_Touch_1::
 	anim_speed 5
 
-Anim_04_5105::
-	anim_frame Frame_20_4f06
-	anim_frame Frame_20_4f0c
-	anim_frame Frame_20_4f12
-	anim_frame Frame_20_4f18
-	anim_frame Frame_20_4f1e
-	anim_frame Frame_20_4f24
+Anim_DKBarrel_Touch_2::
+	anim_frame Frame_DKBarrel_Touch_1
+	anim_frame Frame_DKBarrel_Touch_2
+	anim_frame Frame_DKBarrel_Touch_3
+	anim_frame Frame_DKBarrel_Touch_4
+	anim_frame Frame_DKBarrel_Touch_5
+	anim_frame Frame_DKBarrel_Touch_6
 	anim_clear_flag
-	anim_jump Anim_04_5105
+	anim_jump Anim_DKBarrel_Touch_2
 
-Anim_04_5117::
+Anim_AnimalCrate_1::
 	anim_speed 10
-	anim_frame Frame_20_4c5a
+	anim_frame Frame_AnimalCrate_5
 	anim_speed 5
-	anim_frame Frame_20_4c60
+	anim_frame Frame_AnimalCrate_6
 	anim_sfx 4, $16
-	anim_frame Frame_20_4c66
-	anim_frame Frame_20_4c6c
+	anim_frame Frame_AnimalCrate_7
+	anim_frame Frame_AnimalCrate_8
 	anim_clear_flag
 
-Anim_04_5127::
-	anim_frame Frame_20_4c6c
-	anim_jump Anim_04_5127
+Anim_AnimalCrate_2::
+	anim_frame Frame_AnimalCrate_8
+	anim_jump Anim_AnimalCrate_2
 
-Anim_04_512d::
+Anim_AnimalCrate_3::
 	anim_speed 10
-	anim_frame Frame_20_4a68
+	anim_frame Frame_AnimalCrate_3
 	anim_speed 5
-	anim_frame Frame_20_4a6e
+	anim_frame Frame_AnimalCrate_4
 	anim_sfx 4, $16
-	anim_frame Frame_20_4c66
-	anim_frame Frame_20_4c6c
+	anim_frame Frame_AnimalCrate_7
+	anim_frame Frame_AnimalCrate_8
 	anim_clear_flag
 
-Anim_04_513d::
-	anim_frame Frame_20_4c6c
-	anim_jump Anim_04_513d
+Anim_AnimalCrate_4::
+	anim_frame Frame_AnimalCrate_8
+	anim_jump Anim_AnimalCrate_4
 
-Anim_04_5143::
+Anim_AnimalCrate_5::
 	anim_speed 10
-	anim_frame Frame_20_458e
+	anim_frame Frame_AnimalCrate_1
 	anim_speed 5
-	anim_frame Frame_20_4594
+	anim_frame Frame_AnimalCrate_2
 	anim_sfx 4, $16
-	anim_frame Frame_20_4c66
-	anim_frame Frame_20_4c6c
+	anim_frame Frame_AnimalCrate_7
+	anim_frame Frame_AnimalCrate_8
 	anim_clear_flag
 
-Anim_04_5153::
-	anim_frame Frame_20_4c6c
-	anim_jump Anim_04_5153
+Anim_AnimalCrate_6::
+	anim_frame Frame_AnimalCrate_8
+	anim_jump Anim_AnimalCrate_6
 
-Anim_04_5159::
+Anim_AnimalCrate_7::
 	anim_speed 10
-	anim_frame Frame_20_4c72
+	anim_frame Frame_AnimalCrate_9
 	anim_speed 5
-	anim_frame Frame_20_4c78
+	anim_frame Frame_AnimalCrate_10
 	anim_sfx 4, $16
-	anim_frame Frame_20_4c66
-	anim_frame Frame_20_4c6c
+	anim_frame Frame_AnimalCrate_7
+	anim_frame Frame_AnimalCrate_8
 	anim_clear_flag
 
-Anim_04_5169::
-	anim_frame Frame_20_4c6c
-	anim_jump Anim_04_5169
+Anim_AnimalCrate_8::
+	anim_frame Frame_AnimalCrate_8
+	anim_jump Anim_AnimalCrate_8
 
-Anim_04_516f::
+Anim_SquawksCrate_1::
 	anim_speed 10
-	anim_frame Frame_20_4ace
+	anim_frame Frame_SquawksCrate_1
 	anim_speed 5
-	anim_frame Frame_20_4ad4
+	anim_frame Frame_SquawksCrate_2
 	anim_sfx 4, $16
-	anim_frame Frame_20_4c66
-	anim_frame Frame_20_4c6c
+	anim_frame Frame_AnimalCrate_7
+	anim_frame Frame_AnimalCrate_8
 	anim_clear_flag
 
-Anim_04_517f::
-	anim_frame Frame_20_4c6c
-	anim_jump Anim_04_517f
+Anim_SquawksCrate_2::
+	anim_frame Frame_AnimalCrate_8
+	anim_jump Anim_SquawksCrate_2
 
-Anim_04_5185::
+Anim_MineCart_SetSlopeAnim_1::
 	anim_speed 5
 
-Anim_04_5187::
-	anim_frame Frame_20_568c
-	anim_frame Frame_20_5692
-	anim_frame Frame_20_5698
-	anim_jump Anim_04_5187
+Anim_MineCart_SetSlopeAnim_2::
+	anim_frame Frame_MineCart_SetSlopeAnim_1
+	anim_frame Frame_MineCart_SetSlopeAnim_2
+	anim_frame Frame_MineCart_SetSlopeAnim_3
+	anim_jump Anim_MineCart_SetSlopeAnim_2
 
-Anim_04_5191::
+Anim_MineCart_SetSlopeAnim_3::
 	anim_speed 5
 
-Anim_04_5193::
-	anim_frame Frame_20_569e
-	anim_frame Frame_20_56a4
-	anim_frame Frame_20_56aa
-	anim_jump Anim_04_5193
+Anim_MineCart_SetSlopeAnim_4::
+	anim_frame Frame_MineCart_SetSlopeAnim_4
+	anim_frame Frame_MineCart_SetSlopeAnim_5
+	anim_frame Frame_MineCart_SetSlopeAnim_6
+	anim_jump Anim_MineCart_SetSlopeAnim_4
 
-Anim_04_519d::
+Anim_MineCart_SetSlopeAnim_5::
 	anim_speed 5
 
-Anim_04_519f::
-	anim_frame Frame_20_56b6
-	anim_frame Frame_20_56bc
-	anim_frame Frame_20_56c2
-	anim_jump Anim_04_519f
+Anim_MineCart_SetSlopeAnim_6::
+	anim_frame Frame_MineCart_SetSlopeAnim_7
+	anim_frame Frame_MineCart_SetSlopeAnim_8
+	anim_frame Frame_MineCart_SetSlopeAnim_9
+	anim_jump Anim_MineCart_SetSlopeAnim_6
 
-Anim_04_51a9::
+Anim_MineCart_SetSlopeAnim_7::
 	anim_speed 5
 
-Anim_04_51ab::
-	anim_frame Frame_20_56c8
-	anim_frame Frame_20_56ce
-	anim_frame Frame_20_56d4
-	anim_jump Anim_04_51ab
+Anim_MineCart_SetSlopeAnim_8::
+	anim_frame Frame_MineCart_SetSlopeAnim_10
+	anim_frame Frame_MineCart_SetSlopeAnim_11
+	anim_frame Frame_MineCart_SetSlopeAnim_12
+	anim_jump Anim_MineCart_SetSlopeAnim_8
 
-Anim_04_51b5::
+Anim_MineCart_SetSlopeAnim_9::
 	anim_speed 5
 
-Anim_04_51b7::
-	anim_frame Frame_20_56da
-	anim_frame Frame_20_56e0
-	anim_frame Frame_20_56e6
-	anim_jump Anim_04_51b7
+Anim_MineCart_SetSlopeAnim_10::
+	anim_frame Frame_MineCart_SetSlopeAnim_13
+	anim_frame Frame_MineCart_SetSlopeAnim_14
+	anim_frame Frame_MineCart_SetSlopeAnim_15
+	anim_jump Anim_MineCart_SetSlopeAnim_10
 
-Anim_04_51c1::
+Anim_VeryGnawty_Recoil::
 	anim_speed 5
-	anim_frame Frame_20_5a16
-	anim_frame Frame_20_5a1c
-	anim_frame Frame_20_5a22
-	anim_frame Frame_20_5a28
+	anim_frame Frame_VeryGnawty_Recoil_1
+	anim_frame Frame_VeryGnawty_Recoil_2
+	anim_frame Frame_VeryGnawty_Recoil_3
+	anim_frame Frame_VeryGnawty_Recoil_4
 	anim_speed 2
-	anim_frame Frame_20_5a2e
-	anim_frame Frame_20_5a34
+	anim_frame Frame_VeryGnawty_Recoil_5
+	anim_frame Frame_VeryGnawty_Recoil_6
 	anim_sfx 2, $96
-	anim_frame Frame_20_5a3a
-	anim_frame Frame_20_5a34
-	anim_frame Frame_20_5a2e
-	anim_frame Frame_20_5a34
+	anim_frame Frame_VeryGnawty_Recoil_7
+	anim_frame Frame_VeryGnawty_Recoil_6
+	anim_frame Frame_VeryGnawty_Recoil_5
+	anim_frame Frame_VeryGnawty_Recoil_6
 	anim_sfx 2, $96
-	anim_frame Frame_20_5a3a
-	anim_frame Frame_20_5a34
-	anim_frame Frame_20_5a2e
-	anim_frame Frame_20_5a34
+	anim_frame Frame_VeryGnawty_Recoil_7
+	anim_frame Frame_VeryGnawty_Recoil_6
+	anim_frame Frame_VeryGnawty_Recoil_5
+	anim_frame Frame_VeryGnawty_Recoil_6
 	anim_sfx 2, $96
-	anim_frame Frame_20_5a3a
-	anim_frame Frame_20_5a34
+	anim_frame Frame_VeryGnawty_Recoil_7
+	anim_frame Frame_VeryGnawty_Recoil_6
 	anim_speed 5
-	anim_frame Frame_20_5a2e
-	anim_frame Frame_20_5a28
-	anim_frame Frame_20_5a22
-	anim_frame Frame_20_5a1c
+	anim_frame Frame_VeryGnawty_Recoil_5
+	anim_frame Frame_VeryGnawty_Recoil_4
+	anim_frame Frame_VeryGnawty_Recoil_3
+	anim_frame Frame_VeryGnawty_Recoil_2
 	anim_speed 2
-	anim_frame Frame_20_5a16
+	anim_frame Frame_VeryGnawty_Recoil_1
 	anim_clear_flag
-	anim_jump Anim_04_5217
+	anim_jump Anim_VeryGnawty_Hop_2
 
-Anim_04_51ff::
+Anim_VeryGnawty_Hop_1::
 	anim_speed 2
-	anim_frame Frame_20_5a8e
-	anim_frame Frame_20_5a94
-	anim_frame Frame_20_5a9a
-	anim_frame Frame_20_5aa0
-	anim_frame Frame_20_5aa6
-	anim_frame Frame_20_5aac
-	anim_frame Frame_20_5aa6
-	anim_frame Frame_20_5aa0
-	anim_frame Frame_20_5a9a
-	anim_frame Frame_20_5a94
+	anim_frame Frame_VeryGnawty_Hop_1
+	anim_frame Frame_VeryGnawty_Hop_2
+	anim_frame Frame_VeryGnawty_Hop_3
+	anim_frame Frame_VeryGnawty_Hop_4
+	anim_frame Frame_VeryGnawty_Hop_5
+	anim_frame Frame_VeryGnawty_Hop_6
+	anim_frame Frame_VeryGnawty_Hop_5
+	anim_frame Frame_VeryGnawty_Hop_4
+	anim_frame Frame_VeryGnawty_Hop_3
+	anim_frame Frame_VeryGnawty_Hop_2
 	anim_clear_flag
 
-Anim_04_5217::
+Anim_VeryGnawty_Hop_2::
 	anim_speed 5
 
-Anim_04_5219::
-	anim_frame Frame_20_5a8e
-	anim_jump Anim_04_5219
+Anim_VeryGnawty_Hop_3::
+	anim_frame Frame_VeryGnawty_Hop_1
+	anim_jump Anim_VeryGnawty_Hop_3
 
-Anim_04_521f::
+Anim_BossDefeated_1::
 	anim_speed 5
-	anim_frame Frame_20_5a40
-	anim_frame Frame_20_5a46
-	anim_frame Frame_20_5a4c
+	anim_frame Frame_BossDefeated_1
+	anim_frame Frame_BossDefeated_2
+	anim_frame Frame_BossDefeated_3
 	anim_sfx 4, $48
-	anim_frame Frame_20_5a52
-	anim_frame Frame_20_5a58
-	anim_frame Frame_20_5a52
-	anim_frame Frame_20_5a4c
-	anim_frame Frame_20_5a46
-	anim_frame Frame_20_5a40
-	anim_frame Frame_20_5a46
-	anim_frame Frame_20_5a4c
+	anim_frame Frame_BossDefeated_4
+	anim_frame Frame_BossDefeated_5
+	anim_frame Frame_BossDefeated_4
+	anim_frame Frame_BossDefeated_3
+	anim_frame Frame_BossDefeated_2
+	anim_frame Frame_BossDefeated_1
+	anim_frame Frame_BossDefeated_2
+	anim_frame Frame_BossDefeated_3
 	anim_sfx 4, $48
-	anim_frame Frame_20_5a52
-	anim_frame Frame_20_5a58
-	anim_frame Frame_20_5a52
-	anim_frame Frame_20_5a4c
-	anim_frame Frame_20_5a46
-	anim_frame Frame_20_5a40
-	anim_frame Frame_20_5a46
-	anim_frame Frame_20_5a4c
+	anim_frame Frame_BossDefeated_4
+	anim_frame Frame_BossDefeated_5
+	anim_frame Frame_BossDefeated_4
+	anim_frame Frame_BossDefeated_3
+	anim_frame Frame_BossDefeated_2
+	anim_frame Frame_BossDefeated_1
+	anim_frame Frame_BossDefeated_2
+	anim_frame Frame_BossDefeated_3
 	anim_sfx 4, $48
-	anim_frame Frame_20_5a52
-	anim_frame Frame_20_5a58
-	anim_frame Frame_20_5a5e
-	anim_frame Frame_20_5a64
-	anim_frame Frame_20_5a6a
-	anim_frame Frame_20_5a70
-	anim_frame Frame_20_5a76
-	anim_frame Frame_20_5a7c
+	anim_frame Frame_BossDefeated_4
+	anim_frame Frame_BossDefeated_5
+	anim_frame Frame_BossDefeated_6
+	anim_frame Frame_BossDefeated_7
+	anim_frame Frame_BossDefeated_8
+	anim_frame Frame_BossDefeated_9
+	anim_frame Frame_BossDefeated_10
+	anim_frame Frame_BossDefeated_11
 	anim_clear_flag
 
-Anim_04_525f::
+Anim_BossDefeated_2::
 	anim_speed 20
-	anim_frame Frame_20_5a82
+	anim_frame Frame_BossDefeated_12
 	anim_speed 100
-	anim_frame Frame_20_5a88
-	anim_jump Anim_04_525f
+	anim_frame Frame_BossDefeated_13
+	anim_jump Anim_BossDefeated_2
 
-Anim_04_526b::
+Anim_VeryGnawty_Hit::
 	anim_speed 5
-	anim_frame Frame_20_5a40
-	anim_frame Frame_20_5a46
-	anim_frame Frame_20_5a4c
+	anim_frame Frame_BossDefeated_1
+	anim_frame Frame_BossDefeated_2
+	anim_frame Frame_BossDefeated_3
 	anim_sfx 4, $48
-	anim_frame Frame_20_5a52
-	anim_frame Frame_20_5a58
-	anim_frame Frame_20_5a52
-	anim_frame Frame_20_5a4c
-	anim_frame Frame_20_5a46
-	anim_frame Frame_20_5a40
-	anim_jump Anim_04_51c1
+	anim_frame Frame_BossDefeated_4
+	anim_frame Frame_BossDefeated_5
+	anim_frame Frame_BossDefeated_4
+	anim_frame Frame_BossDefeated_3
+	anim_frame Frame_BossDefeated_2
+	anim_frame Frame_BossDefeated_1
+	anim_jump Anim_VeryGnawty_Recoil
 
-Anim_04_5285::
+Anim_QueenB_Init_1::
 	anim_speed 5
 
-Anim_04_5287::
-	anim_frame Frame_20_5ab2
-	anim_frame Frame_20_5ab8
-	anim_frame Frame_20_5abe
-	anim_frame Frame_20_5ac4
-	anim_frame Frame_20_5aca
-	anim_frame Frame_20_5ad0
-	anim_frame Frame_20_5ad6
-	anim_frame Frame_20_5adc
-	anim_jump Anim_04_5287
+Anim_QueenB_Init_2::
+	anim_frame Frame_QueenB_Init_1
+	anim_frame Frame_QueenB_Init_2
+	anim_frame Frame_QueenB_Init_3
+	anim_frame Frame_QueenB_Init_4
+	anim_frame Frame_QueenB_Init_5
+	anim_frame Frame_QueenB_Init_6
+	anim_frame Frame_QueenB_Init_7
+	anim_frame Frame_QueenB_Init_8
+	anim_jump Anim_QueenB_Init_2
 
-Anim_04_529b::
+Anim_BossDefeated_3::
 	anim_sfx 1, $3e
 	anim_speed 5
-	anim_frame Frame_20_5b06
-	anim_frame Frame_20_5b0c
-	anim_frame Frame_20_5b12
-	anim_frame Frame_20_5b18
-	anim_frame Frame_20_5ae2
-	anim_frame Frame_20_5ae8
-	anim_frame Frame_20_5aee
-	anim_frame Frame_20_5af4
+	anim_frame Frame_BossDefeated_20
+	anim_frame Frame_BossDefeated_21
+	anim_frame Frame_BossDefeated_22
+	anim_frame Frame_BossDefeated_23
+	anim_frame Frame_BossDefeated_14
+	anim_frame Frame_BossDefeated_15
+	anim_frame Frame_BossDefeated_16
+	anim_frame Frame_BossDefeated_17
 	anim_clear_flag
 	anim_speed 50
 
-Anim_04_52b3::
-	anim_frame Frame_20_5afa
-	anim_frame Frame_20_5b00
-	anim_jump Anim_04_52b3
+Anim_BossDefeated_4::
+	anim_frame Frame_BossDefeated_18
+	anim_frame Frame_BossDefeated_19
+	anim_jump Anim_BossDefeated_4
 
-Anim_04_52bb::
+Anim_QueenB_Hit::
 	anim_sfx 1, $3e
 	anim_speed 5
-	anim_frame Frame_20_5b06
-	anim_frame Frame_20_5b0c
-	anim_frame Frame_20_5b12
+	anim_frame Frame_BossDefeated_20
+	anim_frame Frame_BossDefeated_21
+	anim_frame Frame_BossDefeated_22
 	anim_speed 10
-	anim_frame Frame_20_5b18
+	anim_frame Frame_BossDefeated_23
 	anim_speed 5
-	anim_frame Frame_20_5b12
-	anim_frame Frame_20_5b0c
-	anim_frame Frame_20_5b06
-	anim_jump Anim_04_5285
+	anim_frame Frame_BossDefeated_22
+	anim_frame Frame_BossDefeated_21
+	anim_frame Frame_BossDefeated_20
+	anim_jump Anim_QueenB_Init_1
 
-Anim_04_52d5::
+Anim_MasterNecky_1::
 	anim_speed 5
 
-Anim_04_52d7::
-	anim_frame Frame_20_5b7e
-	anim_jump Anim_04_52d7
+Anim_MasterNecky_2::
+	anim_frame Frame_MasterNecky
+	anim_jump Anim_MasterNecky_2
 
-Anim_04_52dd::
+Anim_MasterNecky_Spit::
 	anim_speed 5
-	anim_frame Frame_20_5b7e
-	anim_frame Frame_20_5b84
-	anim_frame Frame_20_5b8a
-	anim_frame Frame_20_5b90
+	anim_frame Frame_MasterNecky
+	anim_frame Frame_MasterNecky_Spit_1
+	anim_frame Frame_MasterNecky_Spit_2
+	anim_frame Frame_MasterNecky_Spit_3
 	anim_sfx 2, $6a
 	anim_clear_flag
 	anim_speed 20
-	anim_frame Frame_20_5b96
+	anim_frame Frame_MasterNecky_Spit_4
 	anim_clear_flag
-	anim_jump Anim_04_52d5
+	anim_jump Anim_MasterNecky_1
 
-Anim_04_52f5::
+Anim_MasterNecky_Recoil::
 	anim_speed 5
-	anim_frame Frame_20_5b7e
-	anim_frame Frame_20_5b84
-	anim_frame Frame_20_5b8a
-	anim_frame Frame_20_5b84
-	anim_frame Frame_20_5b7e
+	anim_frame Frame_MasterNecky
+	anim_frame Frame_MasterNecky_Spit_1
+	anim_frame Frame_MasterNecky_Spit_2
+	anim_frame Frame_MasterNecky_Spit_1
+	anim_frame Frame_MasterNecky
 	anim_clear_flag
-	anim_jump Anim_04_52d5
+	anim_jump Anim_MasterNecky_1
 
-Anim_04_5307::
+Anim_MasterNecky_Defeated_1::
 	anim_speed 2
-	anim_frame Frame_20_5b5a
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b6c
+	anim_frame Frame_MasterNecky_Defeated_7
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_10
 	anim_sfx 1, $42
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b78
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b6c
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b5a
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b6c
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_12
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_10
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_7
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_10
 	anim_sfx 1, $42
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b78
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b6c
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b5a
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b6c
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_12
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_10
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_7
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_10
 	anim_sfx 1, $42
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b78
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b6c
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b36
-	anim_frame Frame_20_5b3c
-	anim_frame Frame_20_5b42
-	anim_frame Frame_20_5b48
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_12
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_10
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_1
+	anim_frame Frame_MasterNecky_Defeated_2
+	anim_frame Frame_MasterNecky_Defeated_3
+	anim_frame Frame_MasterNecky_Defeated_4
 	anim_clear_flag
 
-Anim_04_5355::
+Anim_MasterNecky_Defeated_2::
 	anim_speed 20
-	anim_frame Frame_20_5b4e
+	anim_frame Frame_MasterNecky_Defeated_5
 	anim_speed 50
-	anim_frame Frame_20_5b54
-	anim_jump Anim_04_5355
+	anim_frame Frame_MasterNecky_Defeated_6
+	anim_jump Anim_MasterNecky_Defeated_2
 
-Anim_04_5361::
+Anim_MasterNecky_Withdraw::
 	anim_speed 2
-	anim_frame Frame_20_5b5a
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b6c
+	anim_frame Frame_MasterNecky_Defeated_7
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_10
 	anim_sfx 1, $42
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b78
-	anim_frame Frame_20_5b72
-	anim_frame Frame_20_5b6c
-	anim_frame Frame_20_5b66
-	anim_frame Frame_20_5b60
-	anim_frame Frame_20_5b5a
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_12
+	anim_frame Frame_MasterNecky_Defeated_11
+	anim_frame Frame_MasterNecky_Defeated_10
+	anim_frame Frame_MasterNecky_Defeated_9
+	anim_frame Frame_MasterNecky_Defeated_8
+	anim_frame Frame_MasterNecky_Defeated_7
 	anim_clear_flag
-	anim_jump Anim_04_52d5
+	anim_jump Anim_MasterNecky_1
 
-Anim_04_5381::
+Anim_KingKRool_RunPause_1::
 	anim_speed 5
 
-Anim_04_5383::
-	anim_frame Frame_20_5b9c
-	anim_frame Frame_20_5ba2
-	anim_frame Frame_20_5ba8
-	anim_frame Frame_20_5bae
-	anim_frame Frame_20_5bb4
-	anim_frame Frame_20_5bba
-	anim_frame Frame_20_5bc0
-	anim_jump Anim_04_5383
+Anim_KingKRool_RunPause_2::
+	anim_frame Frame_KingKRool_RunPause_1
+	anim_frame Frame_KingKRool_RunPause_2
+	anim_frame Frame_KingKRool_RunPause_3
+	anim_frame Frame_KingKRool_RunPause_4
+	anim_frame Frame_KingKRool_RunPause_5
+	anim_frame Frame_KingKRool_RunPause_6
+	anim_frame Frame_KingKRool_RunPause_7
+	anim_jump Anim_KingKRool_RunPause_2
 
-Anim_04_5395::
+Anim_KingKRool_BeginRuns_1::
 	anim_speed 5
-	anim_frame Frame_20_5bc6
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5be4
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bc6
+	anim_frame Frame_KingKRool_BeginRuns_1
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_6
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_1
 	anim_clear_flag
-	anim_jump Anim_04_5489
+	anim_jump Anim_KingKRool_1
 
-Anim_04_53b3::
+Anim_KingKRool_Wait_1::
 	anim_speed 3
-	anim_frame Frame_20_5bea
-	anim_frame Frame_20_5bf0
-	anim_frame Frame_20_5bf6
-	anim_frame Frame_20_5bfc
-	anim_frame Frame_20_5c02
-	anim_frame Frame_20_5c08
-	anim_frame Frame_20_5c0e
-	anim_frame Frame_20_5c14
+	anim_frame Frame_KingKRool_Wait_1
+	anim_frame Frame_KingKRool_Wait_2
+	anim_frame Frame_KingKRool_Wait_3
+	anim_frame Frame_KingKRool_Wait_4
+	anim_frame Frame_KingKRool_Wait_5
+	anim_frame Frame_KingKRool_Wait_6
+	anim_frame Frame_KingKRool_Wait_7
+	anim_frame Frame_KingKRool_Wait_8
 	anim_clear_flag
 	anim_speed 10
 
-Anim_04_53c9::
-	anim_frame Frame_20_5c44
-	anim_frame Frame_20_5c4a
-	anim_frame Frame_20_5c50
-	anim_frame Frame_20_5c56
-	anim_frame Frame_20_5c50
-	anim_frame Frame_20_5c4a
-	anim_frame Frame_20_5c44
-	anim_jump Anim_04_53c9
+Anim_KingKRool_Wait_2::
+	anim_frame Frame_KingKRool_Wait_9
+	anim_frame Frame_KingKRool_Wait_10
+	anim_frame Frame_KingKRool_Wait_11
+	anim_frame Frame_KingKRool_Wait_12
+	anim_frame Frame_KingKRool_Wait_11
+	anim_frame Frame_KingKRool_Wait_10
+	anim_frame Frame_KingKRool_Wait_9
+	anim_jump Anim_KingKRool_Wait_2
 
-Anim_04_53db::
+Anim_KingKRool_Animate::
 	anim_speed 5
-	anim_frame Frame_20_5c14
-	anim_frame Frame_20_5c0e
-	anim_frame Frame_20_5c08
-	anim_frame Frame_20_5c02
-	anim_frame Frame_20_5bfc
-	anim_frame Frame_20_5bf6
-	anim_frame Frame_20_5bf0
-	anim_frame Frame_20_5bea
+	anim_frame Frame_KingKRool_Wait_8
+	anim_frame Frame_KingKRool_Wait_7
+	anim_frame Frame_KingKRool_Wait_6
+	anim_frame Frame_KingKRool_Wait_5
+	anim_frame Frame_KingKRool_Wait_4
+	anim_frame Frame_KingKRool_Wait_3
+	anim_frame Frame_KingKRool_Wait_2
+	anim_frame Frame_KingKRool_Wait_1
 	anim_clear_flag
-	anim_jump Anim_04_5489
+	anim_jump Anim_KingKRool_1
 
-Anim_04_53f3::
+Anim_KingKRool_Hop_1::
 	anim_speed 5
-	anim_frame Frame_20_5c1a
-	anim_frame Frame_20_5c20
-	anim_frame Frame_20_5c26
-	anim_frame Frame_20_5c2c
-	anim_frame Frame_20_5c32
-	anim_frame Frame_20_5c38
+	anim_frame Frame_KingKRool_Hop_1
+	anim_frame Frame_KingKRool_Hop_2
+	anim_frame Frame_KingKRool_Hop_3
+	anim_frame Frame_KingKRool_Hop_4
+	anim_frame Frame_KingKRool_Hop_5
+	anim_frame Frame_KingKRool_Hop_6
 
-Anim_04_5401::
-	anim_frame Frame_20_5c3e
-	anim_jump Anim_04_5401
+Anim_KingKRool_Hop_2::
+	anim_frame Frame_KingKRool_Hop_7
+	anim_jump Anim_KingKRool_Hop_2
 
-Anim_04_5407::
+Anim_KingKRool_Init_1::
 	anim_speed 5
-	anim_frame Frame_20_5c1a
+	anim_frame Frame_KingKRool_Hop_1
 
-Anim_04_540b::
-	anim_frame Frame_20_5c20
-	anim_jump Anim_04_540b
+Anim_KingKRool_Init_2::
+	anim_frame Frame_KingKRool_Hop_2
+	anim_jump Anim_KingKRool_Init_2
 
-Anim_04_5411::
+Anim_KingKRool_FakeDefeat_1::
 	anim_speed 5
-	anim_frame Frame_20_5bc6
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5be4
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bc6
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5be4
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bc6
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5be4
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5c5c
-	anim_frame Frame_20_5c62
-	anim_frame Frame_20_5c68
-	anim_frame Frame_20_5c6e
-	anim_frame Frame_20_5c74
-	anim_frame Frame_20_5c7a
-	anim_frame Frame_20_5c80
+	anim_frame Frame_KingKRool_BeginRuns_1
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_6
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_1
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_6
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_1
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_6
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_FakeDefeat_1
+	anim_frame Frame_KingKRool_FakeDefeat_2
+	anim_frame Frame_KingKRool_FakeDefeat_3
+	anim_frame Frame_KingKRool_FakeDefeat_4
+	anim_frame Frame_KingKRool_FakeDefeat_5
+	anim_frame Frame_KingKRool_FakeDefeat_6
+	anim_frame Frame_KingKRool_FakeDefeat_7
 	anim_clear_flag
 
-Anim_04_545f::
-	anim_frame Frame_20_5c86
-	anim_jump Anim_04_545f
+Anim_KingKRool_FakeDefeat_2::
+	anim_frame Frame_KingKRool_FakeDefeat_8
+	anim_jump Anim_KingKRool_FakeDefeat_2
 
-Anim_04_5465::
+Anim_KingKRool_BeginRuns_2::
 	anim_speed 5
-	anim_frame Frame_20_5c86
-	anim_frame Frame_20_5c80
-	anim_frame Frame_20_5c7a
-	anim_frame Frame_20_5c74
-	anim_frame Frame_20_5c6e
-	anim_frame Frame_20_5c68
-	anim_frame Frame_20_5c62
-	anim_frame Frame_20_5c5c
-	anim_frame Frame_20_5be4
-	anim_frame Frame_20_5bde
-	anim_frame Frame_20_5bd8
-	anim_frame Frame_20_5bd2
-	anim_frame Frame_20_5bcc
-	anim_frame Frame_20_5bc6
+	anim_frame Frame_KingKRool_FakeDefeat_8
+	anim_frame Frame_KingKRool_FakeDefeat_7
+	anim_frame Frame_KingKRool_FakeDefeat_6
+	anim_frame Frame_KingKRool_FakeDefeat_5
+	anim_frame Frame_KingKRool_FakeDefeat_4
+	anim_frame Frame_KingKRool_FakeDefeat_3
+	anim_frame Frame_KingKRool_FakeDefeat_2
+	anim_frame Frame_KingKRool_FakeDefeat_1
+	anim_frame Frame_KingKRool_BeginRuns_6
+	anim_frame Frame_KingKRool_BeginRuns_5
+	anim_frame Frame_KingKRool_BeginRuns_4
+	anim_frame Frame_KingKRool_BeginRuns_3
+	anim_frame Frame_KingKRool_BeginRuns_2
+	anim_frame Frame_KingKRool_BeginRuns_1
 	anim_clear_flag
-	anim_jump Anim_04_5489
+	anim_jump Anim_KingKRool_1
 
-Anim_04_5489::
+Anim_KingKRool_1::
 	anim_speed 10
 
-Anim_04_548b::
-	anim_frame Frame_20_5c8c
-	anim_frame Frame_20_5c92
-	anim_frame Frame_20_5c98
-	anim_frame Frame_20_5c92
-	anim_jump Anim_04_548b
+Anim_KingKRool_2::
+	anim_frame Frame_KingKRool_1
+	anim_frame Frame_KingKRool_2
+	anim_frame Frame_KingKRool_3
+	anim_frame Frame_KingKRool_2
+	anim_jump Anim_KingKRool_2
 
-Anim_04_5497::
+Anim_Crownerang_1::
 	anim_speed 4
 
-Anim_04_5499::
-	anim_frame Frame_20_5320
-	anim_frame Frame_20_5326
-	anim_frame Frame_20_532c
-	anim_frame Frame_20_5332
-	anim_frame Frame_20_5338
-	anim_frame Frame_20_533e
-	anim_jump Anim_04_5499
+Anim_Crownerang_2::
+	anim_frame Frame_Crownerang_1
+	anim_frame Frame_Crownerang_2
+	anim_frame Frame_Crownerang_3
+	anim_frame Frame_Crownerang_4
+	anim_frame Frame_Crownerang_5
+	anim_frame Frame_Crownerang_6
+	anim_jump Anim_Crownerang_2
 
-Anim_04_54a9::
+Anim_DumbDrum_Init_1::
 	anim_speed 20
 
-Anim_04_54ab::
-	anim_frame Frame_20_5b1e
-	anim_frame Frame_20_5b24
-	anim_jump Anim_04_54ab
+Anim_DumbDrum_Init_2::
+	anim_frame Frame_DumbDrum_Init_1
+	anim_frame Frame_DumbDrum_Init_2
+	anim_jump Anim_DumbDrum_Init_2
 
-Anim_04_54b3::
+Anim_DumbDrum_Descend_1::
 	anim_speed 5
 
-Anim_04_54b5::
-	anim_frame Frame_20_5b2a
-	anim_jump Anim_04_54b5
+Anim_DumbDrum_Descend_2::
+	anim_frame Frame_DumbDrum_Descend
+	anim_jump Anim_DumbDrum_Descend_2
 
-Anim_04_54bb::
+Anim_BossDefeated_5::
 	anim_speed 30
-	anim_frame Frame_20_5b1e
+	anim_frame Frame_DumbDrum_Init_1
 	anim_clear_flag
 	anim_speed 5
 
-Anim_04_54c3::
-	anim_frame Frame_20_5b30
-	anim_jump Anim_04_54c3
+Anim_BossDefeated_6::
+	anim_frame Frame_BossDefeated_24
+	anim_jump Anim_BossDefeated_6
 
-Anim_04_54c9::
+Anim_GiantBanana_1::
 	anim_speed 8
 
-Anim_04_54cb::
-	anim_frame Frame_20_5c9e
-	anim_frame Frame_20_5ca4
-	anim_frame Frame_20_5caa
-	anim_frame Frame_20_5cb0
-	anim_frame Frame_20_5cb6
-	anim_frame Frame_20_5cbc
-	anim_frame Frame_20_5cc2
-	anim_frame Frame_20_5cc8
-	anim_jump Anim_04_54cb
+Anim_GiantBanana_2::
+	anim_frame Frame_GiantBanana_1
+	anim_frame Frame_GiantBanana_2
+	anim_frame Frame_GiantBanana_3
+	anim_frame Frame_GiantBanana_4
+	anim_frame Frame_GiantBanana_5
+	anim_frame Frame_GiantBanana_6
+	anim_frame Frame_GiantBanana_7
+	anim_frame Frame_GiantBanana_8
+	anim_jump Anim_GiantBanana_2
 
-Anim_04_54df::
+Anim_AnimalToken_1::
 	anim_speed 3
-	anim_frame Frame_20_4d3e
-	anim_frame Frame_20_5dbe
-	anim_frame Frame_20_5dc4
+	anim_frame Frame_AnimalToken_4
+	anim_frame Frame_AnimalToken_13
+	anim_frame Frame_AnimalToken_14
 
-Anim_04_54e7::
-	anim_frame Frame_20_44bc
-	anim_jump Anim_04_54e7
+Anim_AnimalToken_2::
+	anim_frame Frame_AnimalToken_1
+	anim_jump Anim_AnimalToken_2
 
-Anim_04_54ed::
+Anim_AnimalToken_3::
 	anim_speed 3
-	anim_frame Frame_20_4d44
-	anim_frame Frame_20_5dca
-	anim_frame Frame_20_5dd0
+	anim_frame Frame_AnimalToken_5
+	anim_frame Frame_AnimalToken_15
+	anim_frame Frame_AnimalToken_16
 
-Anim_04_54f5::
-	anim_frame Frame_20_44f2
-	anim_jump Anim_04_54f5
+Anim_AnimalToken_4::
+	anim_frame Frame_AnimalToken_2
+	anim_jump Anim_AnimalToken_4
 
-Anim_04_54fb::
+Anim_AnimalToken_5::
 	anim_speed 3
-	anim_frame Frame_20_4d50
-	anim_frame Frame_20_5db2
-	anim_frame Frame_20_5db8
+	anim_frame Frame_AnimalToken_7
+	anim_frame Frame_AnimalToken_11
+	anim_frame Frame_AnimalToken_12
 
-Anim_04_5503::
-	anim_frame Frame_20_4f84
-	anim_jump Anim_04_5503
+Anim_AnimalToken_6::
+	anim_frame Frame_AnimalToken_8
+	anim_jump Anim_AnimalToken_6
 
-Anim_04_5509::
+Anim_AnimalToken_7::
 	anim_speed 3
-	anim_frame Frame_20_4d4a
-	anim_frame Frame_20_5da6
-	anim_frame Frame_20_5dac
+	anim_frame Frame_AnimalToken_6
+	anim_frame Frame_AnimalToken_9
+	anim_frame Frame_AnimalToken_10
 
-Anim_04_5511::
-	anim_frame Frame_20_4b52
-	anim_jump Anim_04_5511
+Anim_AnimalToken_8::
+	anim_frame Frame_AnimalToken_3
+	anim_jump Anim_AnimalToken_8
 
-Anim_04_5517::
+Anim_HUD_Items_Hidden_1::
 	anim_speed 2
 
-Anim_04_5519::
-	anim_frame Frame_20_5f74
-	anim_frame Frame_20_5f7a
-	anim_frame Frame_20_5f80
-	anim_frame Frame_20_5f86
-	anim_frame Frame_20_5f8c
-	anim_frame Frame_20_5f92
-	anim_frame Frame_20_5f98
-	anim_frame Frame_20_5f9e
-	anim_frame Frame_20_5fa4
-	anim_frame Frame_20_5faa
-	anim_frame Frame_20_5fb0
-	anim_frame Frame_20_5fb6
-	anim_frame Frame_20_5fbc
-	anim_frame Frame_20_5fc2
-	anim_frame Frame_20_5fc8
-	anim_frame Frame_20_5fce
-	anim_jump Anim_04_5519
+Anim_HUD_Items_Hidden_2::
+	anim_frame Frame_HUD_Items_Hidden_1
+	anim_frame Frame_HUD_Items_Hidden_2
+	anim_frame Frame_HUD_Items_Hidden_3
+	anim_frame Frame_HUD_Items_Hidden_4
+	anim_frame Frame_HUD_Items_Hidden_5
+	anim_frame Frame_HUD_Items_Hidden_6
+	anim_frame Frame_HUD_Items_Hidden_7
+	anim_frame Frame_HUD_Items_Hidden_8
+	anim_frame Frame_HUD_Items_Hidden_9
+	anim_frame Frame_HUD_Items_Hidden_10
+	anim_frame Frame_HUD_Items_Hidden_11
+	anim_frame Frame_HUD_Items_Hidden_12
+	anim_frame Frame_HUD_Items_Hidden_13
+	anim_frame Frame_HUD_Items_Hidden_14
+	anim_frame Frame_HUD_Items_Hidden_15
+	anim_frame Frame_HUD_Items_Hidden_16
+	anim_jump Anim_HUD_Items_Hidden_2
 
-Anim_04_553d::
+Anim_Sticker_Appear_1::
 	anim_speed 2
 
-Anim_04_553f::
-	anim_frame Frame_20_5fd4
-	anim_frame Frame_20_5fda
-	anim_frame Frame_20_5fe0
-	anim_frame Frame_20_5fe6
-	anim_frame Frame_20_5fec
-	anim_frame Frame_20_5ff2
-	anim_frame Frame_20_5ff8
-	anim_frame Frame_20_5ffe
-	anim_frame Frame_20_6004
-	anim_frame Frame_20_600a
-	anim_frame Frame_20_6010
-	anim_frame Frame_20_6016
-	anim_frame Frame_20_601c
-	anim_frame Frame_20_6022
-	anim_frame Frame_20_6028
-	anim_frame Frame_20_602e
-	anim_frame Frame_20_6034
-	anim_frame Frame_20_603a
-	anim_frame Frame_20_6040
-	anim_frame Frame_20_6046
-	anim_jump Anim_04_553f
+Anim_Sticker_Appear_2::
+	anim_frame Frame_Sticker_Appear_1
+	anim_frame Frame_Sticker_Appear_2
+	anim_frame Frame_Sticker_Appear_3
+	anim_frame Frame_Sticker_Appear_4
+	anim_frame Frame_Sticker_Appear_5
+	anim_frame Frame_Sticker_Appear_6
+	anim_frame Frame_Sticker_Appear_7
+	anim_frame Frame_Sticker_Appear_8
+	anim_frame Frame_Sticker_Appear_9
+	anim_frame Frame_Sticker_Appear_10
+	anim_frame Frame_Sticker_Appear_11
+	anim_frame Frame_Sticker_Appear_12
+	anim_frame Frame_Sticker_Appear_13
+	anim_frame Frame_Sticker_Appear_14
+	anim_frame Frame_Sticker_Appear_15
+	anim_frame Frame_Sticker_Appear_16
+	anim_frame Frame_Sticker_Appear_17
+	anim_frame Frame_Sticker_Appear_18
+	anim_frame Frame_Sticker_Appear_19
+	anim_frame Frame_Sticker_Appear_20
+	anim_jump Anim_Sticker_Appear_2
 
-Anim_04_556b::
+Anim_Shop_KongCelebrate_1::
 	anim_speed 8
 
-Anim_04_556d::
-	anim_frame Frame_20_5344
-	anim_frame Frame_20_534a
-	anim_frame Frame_20_5350
-	anim_frame Frame_20_5356
-	anim_frame Frame_20_535c
-	anim_frame Frame_20_5362
-	anim_frame Frame_20_5368
-	anim_frame Frame_20_536e
-	anim_frame Frame_20_5374
-	anim_frame Frame_20_5344
-	anim_frame Frame_20_534a
-	anim_frame Frame_20_5350
-	anim_frame Frame_20_5356
-	anim_frame Frame_20_535c
-	anim_frame Frame_20_5362
-	anim_frame Frame_20_5368
-	anim_frame Frame_20_536e
-	anim_frame Frame_20_5374
-	anim_frame Frame_20_5344
-	anim_frame Frame_20_534a
-	anim_frame Frame_20_5350
-	anim_frame Frame_20_5356
-	anim_frame Frame_20_535c
-	anim_frame Frame_20_5362
-	anim_frame Frame_20_5368
-	anim_frame Frame_20_536e
-	anim_frame Frame_20_5374
-	anim_frame Frame_20_537a
-	anim_frame Frame_20_5380
-	anim_frame Frame_20_5386
-	anim_frame Frame_20_538c
-	anim_frame Frame_20_5392
-	anim_frame Frame_20_5398
-	anim_frame Frame_20_5392
-	anim_frame Frame_20_5398
+Anim_Shop_KongCelebrate_2::
+	anim_frame Frame_Shop_KongCelebrate_1
+	anim_frame Frame_Shop_KongCelebrate_2
+	anim_frame Frame_Shop_KongCelebrate_3
+	anim_frame Frame_Shop_KongCelebrate_4
+	anim_frame Frame_Shop_KongCelebrate_5
+	anim_frame Frame_Shop_KongCelebrate_6
+	anim_frame Frame_Shop_KongCelebrate_7
+	anim_frame Frame_Shop_KongCelebrate_8
+	anim_frame Frame_Shop_KongCelebrate_9
+	anim_frame Frame_Shop_KongCelebrate_1
+	anim_frame Frame_Shop_KongCelebrate_2
+	anim_frame Frame_Shop_KongCelebrate_3
+	anim_frame Frame_Shop_KongCelebrate_4
+	anim_frame Frame_Shop_KongCelebrate_5
+	anim_frame Frame_Shop_KongCelebrate_6
+	anim_frame Frame_Shop_KongCelebrate_7
+	anim_frame Frame_Shop_KongCelebrate_8
+	anim_frame Frame_Shop_KongCelebrate_9
+	anim_frame Frame_Shop_KongCelebrate_1
+	anim_frame Frame_Shop_KongCelebrate_2
+	anim_frame Frame_Shop_KongCelebrate_3
+	anim_frame Frame_Shop_KongCelebrate_4
+	anim_frame Frame_Shop_KongCelebrate_5
+	anim_frame Frame_Shop_KongCelebrate_6
+	anim_frame Frame_Shop_KongCelebrate_7
+	anim_frame Frame_Shop_KongCelebrate_8
+	anim_frame Frame_Shop_KongCelebrate_9
+	anim_frame Frame_Shop_KongCelebrate_10
+	anim_frame Frame_Shop_KongCelebrate_11
+	anim_frame Frame_Shop_KongCelebrate_12
+	anim_frame Frame_Shop_KongCelebrate_13
+	anim_frame Frame_Shop_KongCelebrate_14
+	anim_frame Frame_Shop_KongCelebrate_15
+	anim_frame Frame_Shop_KongCelebrate_14
+	anim_frame Frame_Shop_KongCelebrate_15
 	anim_clear_flag
-	anim_frame Frame_20_539e
-	anim_frame Frame_20_53a4
-	anim_frame Frame_20_53aa
-	anim_frame Frame_20_53a4
-	anim_frame Frame_20_53aa
-	anim_frame Frame_20_53a4
-	anim_frame Frame_20_539e
-	anim_frame Frame_20_5398
-	anim_frame Frame_20_5392
-	anim_frame Frame_20_538c
-	anim_frame Frame_20_5386
-	anim_frame Frame_20_5380
-	anim_frame Frame_20_537a
-	anim_jump Anim_04_556d
+	anim_frame Frame_Shop_KongCelebrate_16
+	anim_frame Frame_Shop_KongCelebrate_17
+	anim_frame Frame_Shop_KongCelebrate_18
+	anim_frame Frame_Shop_KongCelebrate_17
+	anim_frame Frame_Shop_KongCelebrate_18
+	anim_frame Frame_Shop_KongCelebrate_17
+	anim_frame Frame_Shop_KongCelebrate_16
+	anim_frame Frame_Shop_KongCelebrate_15
+	anim_frame Frame_Shop_KongCelebrate_14
+	anim_frame Frame_Shop_KongCelebrate_13
+	anim_frame Frame_Shop_KongCelebrate_12
+	anim_frame Frame_Shop_KongCelebrate_11
+	anim_frame Frame_Shop_KongCelebrate_10
+	anim_jump Anim_Shop_KongCelebrate_2
 
-Anim_04_55d3::
+Anim_Obj_Animate_1::
 	anim_speed 8
 
-Anim_04_55d5::
-	anim_frame Frame_20_5d28
-	anim_frame Frame_20_5d2e
-	anim_frame Frame_20_5d34
-	anim_frame Frame_20_5d3a
-	anim_frame Frame_20_5d34
-	anim_frame Frame_20_5d2e
-	anim_frame Frame_20_5d28
-	anim_frame Frame_20_5d2e
-	anim_frame Frame_20_5d34
-	anim_frame Frame_20_5d3a
-	anim_frame Frame_20_5d34
-	anim_frame Frame_20_5d2e
-	anim_frame Frame_20_5d28
-	anim_frame Frame_20_5d2e
-	anim_frame Frame_20_5d34
-	anim_frame Frame_20_5d3a
-	anim_frame Frame_20_5d34
-	anim_frame Frame_20_5d2e
-	anim_frame Frame_20_5cd4
-	anim_frame Frame_20_5cda
-	anim_frame Frame_20_5ce0
-	anim_frame Frame_20_5ce6
-	anim_frame Frame_20_5cec
-	anim_frame Frame_20_5cf2
-	anim_frame Frame_20_5cf8
-	anim_frame Frame_20_5cfe
-	anim_frame Frame_20_5d04
-	anim_frame Frame_20_5d0a
-	anim_frame Frame_20_5d10
-	anim_frame Frame_20_5d16
-	anim_frame Frame_20_5d1c
+Anim_Obj_Animate_2::
+	anim_frame Frame_Obj_Animate_15
+	anim_frame Frame_Obj_Animate_16
+	anim_frame Frame_Obj_Animate_17
+	anim_frame Frame_Obj_Animate_18
+	anim_frame Frame_Obj_Animate_17
+	anim_frame Frame_Obj_Animate_16
+	anim_frame Frame_Obj_Animate_15
+	anim_frame Frame_Obj_Animate_16
+	anim_frame Frame_Obj_Animate_17
+	anim_frame Frame_Obj_Animate_18
+	anim_frame Frame_Obj_Animate_17
+	anim_frame Frame_Obj_Animate_16
+	anim_frame Frame_Obj_Animate_15
+	anim_frame Frame_Obj_Animate_16
+	anim_frame Frame_Obj_Animate_17
+	anim_frame Frame_Obj_Animate_18
+	anim_frame Frame_Obj_Animate_17
+	anim_frame Frame_Obj_Animate_16
+	anim_frame Frame_Obj_Animate_1
+	anim_frame Frame_Obj_Animate_2
+	anim_frame Frame_Obj_Animate_3
+	anim_frame Frame_Obj_Animate_4
+	anim_frame Frame_Obj_Animate_5
+	anim_frame Frame_Obj_Animate_6
+	anim_frame Frame_Obj_Animate_7
+	anim_frame Frame_Obj_Animate_8
+	anim_frame Frame_Obj_Animate_9
+	anim_frame Frame_Obj_Animate_10
+	anim_frame Frame_Obj_Animate_11
+	anim_frame Frame_Obj_Animate_12
+	anim_frame Frame_Obj_Animate_13
 	anim_speed 20
-	anim_frame Frame_20_5d22
+	anim_frame Frame_Obj_Animate_14
 	anim_speed 8
-	anim_frame Frame_20_5d1c
-	anim_frame Frame_20_5d16
-	anim_frame Frame_20_5d10
-	anim_frame Frame_20_5d0a
-	anim_frame Frame_20_5d04
-	anim_frame Frame_20_5cfe
-	anim_frame Frame_20_5cf8
-	anim_frame Frame_20_5cf2
-	anim_frame Frame_20_5cec
-	anim_frame Frame_20_5ce6
-	anim_frame Frame_20_5ce0
-	anim_frame Frame_20_5cda
-	anim_frame Frame_20_5cd4
-	anim_jump Anim_04_55d5
+	anim_frame Frame_Obj_Animate_13
+	anim_frame Frame_Obj_Animate_12
+	anim_frame Frame_Obj_Animate_11
+	anim_frame Frame_Obj_Animate_10
+	anim_frame Frame_Obj_Animate_9
+	anim_frame Frame_Obj_Animate_8
+	anim_frame Frame_Obj_Animate_7
+	anim_frame Frame_Obj_Animate_6
+	anim_frame Frame_Obj_Animate_5
+	anim_frame Frame_Obj_Animate_4
+	anim_frame Frame_Obj_Animate_3
+	anim_frame Frame_Obj_Animate_2
+	anim_frame Frame_Obj_Animate_1
+	anim_jump Anim_Obj_Animate_2
 
-Anim_04_5637::
+Anim_Shop_SpawnOnce_1::
 	anim_speed 8
 
-Anim_04_5639::
-	anim_frame Frame_20_53ec
-	anim_frame Frame_20_53f2
-	anim_frame Frame_20_53f8
-	anim_frame Frame_20_53fe
-	anim_frame Frame_20_5404
-	anim_frame Frame_20_53fe
-	anim_frame Frame_20_5404
-	anim_frame Frame_20_53f8
-	anim_frame Frame_20_53f2
-	anim_frame Frame_20_53ec
+Anim_Shop_SpawnOnce_2::
+	anim_frame Frame_Shop_SpawnOnce_10
+	anim_frame Frame_Shop_SpawnOnce_11
+	anim_frame Frame_Shop_SpawnOnce_12
+	anim_frame Frame_Shop_SpawnOnce_13
+	anim_frame Frame_Shop_SpawnOnce_14
+	anim_frame Frame_Shop_SpawnOnce_13
+	anim_frame Frame_Shop_SpawnOnce_14
+	anim_frame Frame_Shop_SpawnOnce_12
+	anim_frame Frame_Shop_SpawnOnce_11
+	anim_frame Frame_Shop_SpawnOnce_10
 	anim_speed 20
-	anim_frame Frame_20_53b6
+	anim_frame Frame_Shop_SpawnOnce_1
 	anim_speed 8
-	anim_frame Frame_20_53bc
-	anim_frame Frame_20_53b6
-	anim_frame Frame_20_53bc
-	anim_frame Frame_20_53c2
-	anim_frame Frame_20_53c8
-	anim_frame Frame_20_53ce
-	anim_frame Frame_20_53d4
-	anim_frame Frame_20_53da
-	anim_frame Frame_20_53e0
+	anim_frame Frame_Shop_SpawnOnce_2
+	anim_frame Frame_Shop_SpawnOnce_1
+	anim_frame Frame_Shop_SpawnOnce_2
+	anim_frame Frame_Shop_SpawnOnce_3
+	anim_frame Frame_Shop_SpawnOnce_4
+	anim_frame Frame_Shop_SpawnOnce_5
+	anim_frame Frame_Shop_SpawnOnce_6
+	anim_frame Frame_Shop_SpawnOnce_7
+	anim_frame Frame_Shop_SpawnOnce_8
 	anim_clear_flag
-	anim_frame Frame_20_53e6
-	anim_frame Frame_20_53e0
-	anim_frame Frame_20_53da
-	anim_frame Frame_20_53d4
-	anim_frame Frame_20_53ce
-	anim_frame Frame_20_53c8
-	anim_frame Frame_20_53c2
-	anim_frame Frame_20_53bc
-	anim_frame Frame_20_53b6
-	anim_jump Anim_04_5639
+	anim_frame Frame_Shop_SpawnOnce_9
+	anim_frame Frame_Shop_SpawnOnce_8
+	anim_frame Frame_Shop_SpawnOnce_7
+	anim_frame Frame_Shop_SpawnOnce_6
+	anim_frame Frame_Shop_SpawnOnce_5
+	anim_frame Frame_Shop_SpawnOnce_4
+	anim_frame Frame_Shop_SpawnOnce_3
+	anim_frame Frame_Shop_SpawnOnce_2
+	anim_frame Frame_Shop_SpawnOnce_1
+	anim_jump Anim_Shop_SpawnOnce_2
 
-Anim_04_567d::
+Anim_Shop_SpawnKong_1::
 	anim_speed 5
 
-Anim_04_567f::
-	anim_frame Frame_20_4492
-	anim_jump Anim_04_567f
+Anim_Shop_SpawnKong_2::
+	anim_frame Frame_SetPlayerAnimation_69
+	anim_jump Anim_Shop_SpawnKong_2
 
-Anim_04_5685::
+Anim_Shop_KongReactTimer_1::
 	anim_speed 5
-	anim_frame Frame_20_5872
-	anim_frame Frame_20_5878
-	anim_frame Frame_20_587e
-	anim_frame Frame_20_5884
-	anim_frame Frame_20_588a
-	anim_frame Frame_20_5890
-	anim_frame Frame_20_5896
+	anim_frame Frame_SetPlayerAnimation_206
+	anim_frame Frame_SetPlayerAnimation_207
+	anim_frame Frame_SetPlayerAnimation_208
+	anim_frame Frame_SetPlayerAnimation_209
+	anim_frame Frame_SetPlayerAnimation_210
+	anim_frame Frame_SetPlayerAnimation_211
+	anim_frame Frame_SetPlayerAnimation_212
 	anim_sfx 4, $60
-	anim_frame Frame_20_589c
-	anim_frame Frame_20_58a2
-	anim_frame Frame_20_58a8
-	anim_frame Frame_20_58a2
+	anim_frame Frame_SetPlayerAnimation_213
+	anim_frame Frame_SetPlayerAnimation_214
+	anim_frame Frame_SetPlayerAnimation_215
+	anim_frame Frame_SetPlayerAnimation_214
 	anim_sfx 4, $60
-	anim_frame Frame_20_589c
-	anim_frame Frame_20_58a2
-	anim_frame Frame_20_58a8
-	anim_frame Frame_20_58ae
-	anim_frame Frame_20_58b4
-	anim_frame Frame_20_58ba
-	anim_frame Frame_20_58c0
-	anim_frame Frame_20_58c6
-	anim_frame Frame_20_58cc
-	anim_frame Frame_20_58d2
-	anim_frame Frame_20_58d8
-	anim_frame Frame_20_58de
-	anim_jump Anim_04_567d
+	anim_frame Frame_SetPlayerAnimation_213
+	anim_frame Frame_SetPlayerAnimation_214
+	anim_frame Frame_SetPlayerAnimation_215
+	anim_frame Frame_SetPlayerAnimation_216
+	anim_frame Frame_SetPlayerAnimation_217
+	anim_frame Frame_SetPlayerAnimation_218
+	anim_frame Frame_SetPlayerAnimation_219
+	anim_frame Frame_SetPlayerAnimation_220
+	anim_frame Frame_SetPlayerAnimation_221
+	anim_frame Frame_SetPlayerAnimation_222
+	anim_frame Frame_SetPlayerAnimation_223
+	anim_frame Frame_SetPlayerAnimation_224
+	anim_jump Anim_Shop_SpawnKong_1
 
-Anim_04_56bd::
+Anim_Shop_KongCelebrate_3::
 	anim_speed 4
-	anim_frame Frame_20_4888
-	anim_frame Frame_20_488e
-	anim_frame Frame_20_4894
+	anim_frame Frame_SetPlayerAnimation_173
+	anim_frame Frame_SetPlayerAnimation_174
+	anim_frame Frame_SetPlayerAnimation_175
 	anim_speed 50
-	anim_frame Frame_20_489a
+	anim_frame Frame_SetPlayerAnimation_176
 	anim_speed 8
-	anim_frame Frame_20_48a0
-	anim_frame Frame_20_48a6
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48be
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48b2
-	anim_frame Frame_20_48ac
-	anim_frame Frame_20_48b2
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48be
-	anim_frame Frame_20_48b8
-	anim_frame Frame_20_48a6
-	anim_frame Frame_20_48a0
-	anim_frame Frame_20_489a
-	anim_frame Frame_20_4894
-	anim_frame Frame_20_488e
-	anim_frame Frame_20_4888
-	anim_jump Anim_04_567d
+	anim_frame Frame_SetPlayerAnimation_177
+	anim_frame Frame_SetPlayerAnimation_178
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_182
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_180
+	anim_frame Frame_SetPlayerAnimation_179
+	anim_frame Frame_SetPlayerAnimation_180
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_182
+	anim_frame Frame_SetPlayerAnimation_181
+	anim_frame Frame_SetPlayerAnimation_178
+	anim_frame Frame_SetPlayerAnimation_177
+	anim_frame Frame_SetPlayerAnimation_176
+	anim_frame Frame_SetPlayerAnimation_175
+	anim_frame Frame_SetPlayerAnimation_174
+	anim_frame Frame_SetPlayerAnimation_173
+	anim_jump Anim_Shop_SpawnKong_1
 
-Anim_04_56f1::
+Anim_Shop_KongReactTimer_2::
 	anim_speed 3
 
-Anim_04_56f3::
-	anim_frame Frame_20_5266
-	anim_frame Frame_20_526c
-	anim_frame Frame_20_5272
-	anim_jump Anim_04_56f3
+Anim_Shop_KongReactTimer_3::
+	anim_frame Frame_Shop_KongReactTimer_1
+	anim_frame Frame_Shop_KongReactTimer_2
+	anim_frame Frame_Shop_KongReactTimer_3
+	anim_jump Anim_Shop_KongReactTimer_3
 
-Anim_04_56fd::
+Anim_Obj_Animate_3::
 	anim_speed 6
 
-Anim_04_56ff::
-	anim_frame Frame_20_604c
-	anim_frame Frame_20_6052
-	anim_frame Frame_20_6058
-	anim_frame Frame_20_6052
-	anim_jump Anim_04_56ff
+Anim_Obj_Animate_4::
+	anim_frame Frame_Obj_Animate_19
+	anim_frame Frame_Obj_Animate_20
+	anim_frame Frame_Obj_Animate_21
+	anim_frame Frame_Obj_Animate_20
+	anim_jump Anim_Obj_Animate_4
 
-Anim_04_570b::
+Anim_HUD_Items_Hidden_3::
 	anim_speed 5
 
-Anim_04_570d::
-	anim_frame Frame_20_6064
-	anim_frame Frame_20_606a
-	anim_frame Frame_20_6070
-	anim_frame Frame_20_6076
-	anim_frame Frame_20_607c
-	anim_frame Frame_20_6082
-	anim_frame Frame_20_6088
-	anim_frame Frame_20_608e
-	anim_frame Frame_20_6094
-	anim_frame Frame_20_609a
-	anim_frame Frame_20_60a0
-	anim_frame Frame_20_60a6
-	anim_jump Anim_04_570d
+Anim_HUD_Items_Hidden_4::
+	anim_frame Frame_HUD_Items_Hidden_17
+	anim_frame Frame_HUD_Items_Hidden_18
+	anim_frame Frame_HUD_Items_Hidden_19
+	anim_frame Frame_HUD_Items_Hidden_20
+	anim_frame Frame_HUD_Items_Hidden_21
+	anim_frame Frame_HUD_Items_Hidden_22
+	anim_frame Frame_HUD_Items_Hidden_23
+	anim_frame Frame_HUD_Items_Hidden_24
+	anim_frame Frame_HUD_Items_Hidden_25
+	anim_frame Frame_HUD_Items_Hidden_26
+	anim_frame Frame_HUD_Items_Hidden_27
+	anim_frame Frame_HUD_Items_Hidden_28
+	anim_jump Anim_HUD_Items_Hidden_4
 
-Anim_04_5729::
+Anim_Unused_23::
 	anim_speed 5
 
-Anim_04_572b::
-	anim_frame Frame_20_60ac
-	anim_frame Frame_20_60b2
-	anim_frame Frame_20_60b8
-	anim_frame Frame_20_60be
-	anim_frame Frame_20_60c4
-	anim_frame Frame_20_60ca
-	anim_frame Frame_20_60d0
-	anim_frame Frame_20_60d6
-	anim_frame Frame_20_60dc
-	anim_frame Frame_20_60e2
-	anim_frame Frame_20_60e8
-	anim_frame Frame_20_60ee
-	anim_jump Anim_04_572b
+Anim_Unused_24::
+	anim_frame Frame_Unused_93
+	anim_frame Frame_Unused_94
+	anim_frame Frame_Unused_95
+	anim_frame Frame_Unused_96
+	anim_frame Frame_Unused_97
+	anim_frame Frame_Unused_98
+	anim_frame Frame_Unused_99
+	anim_frame Frame_Unused_100
+	anim_frame Frame_Unused_101
+	anim_frame Frame_Unused_102
+	anim_frame Frame_Unused_103
+	anim_frame Frame_Unused_104
+	anim_jump Anim_Unused_24
 
 Tire_SetBounceFlag::
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], $ff
 	ret
 
 
 Tire_ClearBounceFlag::
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], $00
 	ret
@@ -3549,7 +3549,7 @@ Diddy_ThrowCap::
 	push bc
 	call AllocObject
 	rst_farcall MoveObjectToSavedPosition
-	ld hl, ObjInit_04_5771
+	ld hl, ObjInit_Coconut_1
 	call InitObject
 	ld d, b
 	ld a, c
@@ -3561,11 +3561,11 @@ Diddy_ThrowCap::
 	ret
 
 
-ObjInit_04_5771::
+ObjInit_Coconut_1::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(Coconut)
 	obj_word OBJ_HANDLER, Coconut
-	obj_word OBJ_ANIM, Anim_04_46d3
+	obj_word OBJ_ANIM, Anim_Coconut_1
 	obj_byte OBJ_PALETTE, $02
 	obj_end
 
@@ -3574,7 +3574,7 @@ Diddy_ThrowCapHigh::
 	push bc
 	call AllocObject
 	rst_farcall MoveObjectToSavedPosition
-	ld hl, ObjInit_04_579a
+	ld hl, ObjInit_Coconut_2
 	call InitObject
 	ld d, b
 	ld a, c
@@ -3586,11 +3586,11 @@ Diddy_ThrowCapHigh::
 	ret
 
 
-ObjInit_04_579a::
+ObjInit_Coconut_2::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(Coconut)
 	obj_word OBJ_HANDLER, Coconut
-	obj_word OBJ_ANIM, Anim_04_46e9
+	obj_word OBJ_ANIM, Anim_Coconut_3
 	obj_byte OBJ_PALETTE, $02
 	obj_end
 
@@ -3878,8 +3878,8 @@ LevelEntrance_SlipslideRide_Area1_0::
 	dw LevelDesc_SlipslideRide_Area1
 	db $43, $8c, $00, $88, $00, $00
 
-LevelEntrance_04_5a24::
-	dw LevelDesc_04_6270
+LevelEntrance_Shop_Leave3::
+	dw LevelDesc_Shop_Leave3
 	db $63, $8c, $00, $88, $00, $00
 
 LevelEntrance_SlipslideRide_Area2_0::
@@ -3890,8 +3890,8 @@ LevelEntrance_SlipslideRide_Area3_0::
 	dw LevelDesc_SlipslideRide_Area3
 	db $03, $43, $00, $7f, $00, $00
 
-LevelEntrance_04_5a3c::
-	dw LevelDesc_04_6294
+LevelEntrance_Shop_Leave4::
+	dw LevelDesc_Shop_Leave4
 	db $23, $43, $00, $7f, $00, $00
 
 LevelEntrance_TreeTopTown_0::
@@ -3930,8 +3930,8 @@ LevelEntrance_RopeBridgeRumble_Area1_0::
 	dw LevelDesc_RopeBridgeRumble_Area1
 	db $03, $67, $00, $87, $00, $00
 
-LevelEntrance_04_5a8c::
-	dw LevelDesc_04_6054
+LevelEntrance_LevelTable_1::
+	dw LevelDesc_LevelTable_2
 	db $03, $67, $00, $87, $00, $00
 
 LevelEntrance_TreeTopTown_Area1_0::
@@ -3990,16 +3990,16 @@ LevelEntrance_OilDrumAlley_Area3_0::
 	dw LevelDesc_OilDrumAlley_Area3
 	db $03, $08, $00, $ab, $00, $00
 
-LevelEntrance_04_5b04::
-	dw LevelDesc_04_61e0
+LevelEntrance_LevelTable_2::
+	dw LevelDesc_LevelTable_3
 	db $03, $20, $00, $ab, $00, $00
 
-LevelEntrance_04_5b0c::
-	dw LevelDesc_04_61ec
+LevelEntrance_LevelTable_3::
+	dw LevelDesc_LevelTable_4
 	db $03, $32, $00, $ab, $00, $00
 
-LevelEntrance_04_5b14::
-	dw LevelDesc_04_61f8
+LevelEntrance_Shop_Leave5::
+	dw LevelDesc_Shop_Leave5
 	db $23, $30, $00, $4b, $02, $00
 
 LevelEntrance_VultureCulture_0::
@@ -4142,12 +4142,12 @@ LevelEntrance_BarrelCannonCanyon_3::
 	dw LevelDesc_BarrelCannonCanyon
 	db $43, $1b, $12, $fa, $00, $00
 
-LevelEntrance_04_5c34::
-	dw LevelDesc_04_5ff4
+LevelEntrance_LevelTable_4::
+	dw LevelDesc_LevelTable_1
 	db $01, $48, $00, $4a, $01, $00
 
-LevelEntrance_04_5c3c::
-	dw LevelDesc_04_5ff4
+LevelEntrance_LevelTable_5::
+	dw LevelDesc_LevelTable_1
 	db $02, $8a, $00, $72, $00, $03
 
 LevelEntrance_OrangUtanGang_Area1_0::
@@ -4474,20 +4474,20 @@ LevelEntrance_MillstoneMayhem_Area3_0::
 	dw LevelDesc_MillstoneMayhem_Area3
 	db $03, $36, $00, $70, $00, $00
 
-LevelEntrance_04_5ecc::
-	dw LevelDesc_04_63a8
+LevelEntrance_Shop_Leave1::
+	dw LevelDesc_Shop_Leave1
 	db $23, $36, $00, $70, $00, $00
 
 LevelEntrance_WinkyBonus_0::
 	dw LevelDesc_WinkyBonus
 	db $43, $10, $08, $6a, $01, $00
 
-LevelEntrance_04_5edc::
-	dw LevelDesc_04_6468
+LevelEntrance_BreakableWall_21::
+	dw LevelDesc_BreakableWall_21
 	db $03, $1e, $00, $7e, $00, $00
 
-LevelEntrance_04_5ee4::
-	dw LevelDesc_04_6474
+LevelEntrance_LevelTable_6::
+	dw LevelDesc_LevelTable_5
 	db $03, $1e, $00, $7e, $00, $00
 
 LevelEntrance_BouncyBonanza_Area3_0::
@@ -4510,8 +4510,8 @@ LevelEntrance_RopeBridgeRumble_Area2_0::
 	dw LevelDesc_RopeBridgeRumble_Area2
 	db $03, $1e, $00, $7e, $00, $00
 
-LevelEntrance_04_5f14::
-	dw LevelDesc_04_65b8
+LevelEntrance_LevelTable_7::
+	dw LevelDesc_LevelTable_6
 	db $43, $81, $00, $7e, $00, $00
 
 LevelEntrance_RambiBonus_0::
@@ -4522,8 +4522,8 @@ LevelEntrance_SnowBarrelBlast_Area3_0::
 	dw LevelDesc_SnowBarrelBlast_Area3
 	db $03, $29, $00, $60, $00, $00
 
-LevelEntrance_04_5f2c::
-	dw LevelDesc_04_6534
+LevelEntrance_Shop_Leave2::
+	dw LevelDesc_Shop_Leave2
 	db $23, $29, $00, $60, $00, $00
 
 LevelEntrance_IceAgeAlley_Area2_0::
@@ -4562,8 +4562,8 @@ LevelEntrance_OrangUtanGang_Area5_0::
 	dw LevelDesc_OrangUtanGang_Area5
 	db $03, $3d, $00, $69, $00, $00
 
-LevelEntrance_04_5f7c::
-	dw LevelDesc_04_65ac
+LevelEntrance_Shop_Leave0::
+	dw LevelDesc_Shop_Leave0
 	db $23, $3d, $00, $69, $00, $00
 
 LevelEntrance_VeryGnawtysLair_0::
@@ -4601,2368 +4601,2368 @@ LevelEntrance_JungleHijinxs_Area3_0::
 LevelDesc_JungleHijinxs::
 	db $00
 	dw BGPaletteSet_03 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66d5, $4379 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_JungleHijinxs, LevelObjects_JungleHijinxs ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_JungleHijinxs) ; bank of the level objects
 	db $02, $00
 
 LevelDesc_OrangUtanGang::
 	db $00
 	dw BGPaletteSet_06 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66e4, $459a ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OrangUtanGang, LevelObjects_OrangUtanGang ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OrangUtanGang) ; bank of the level objects
 	db $02, $00
 
 LevelDesc_RopeyRampage::
 	db $00
 	dw BGPaletteSet_04 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66f3, $4803 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_RopeyRampage, LevelObjects_RopeyRampage ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_RopeyRampage) ; bank of the level objects
 	db $02, $00
 
 LevelDesc_BarrelCannonCanyon::
 	db $00
 	dw BGPaletteSet_05 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6702, $4a9c ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BarrelCannonCanyon, LevelObjects_BarrelCannonCanyon ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BarrelCannonCanyon) ; bank of the level objects
 	db $02, $00
 
-LevelDesc_04_5ff4::
+LevelDesc_LevelTable_1::
 	db $88
 	dw BGPaletteSet_03 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6711, $4f8d ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LevelTable_2, LevelObjects_LevelTable_4 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LevelTable_4) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OrangUtanGang_Area1::
 	db $88
 	dw BGPaletteSet_06 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6720, $7d2b ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OrangUtanGang_Area1, LevelObjects_OrangUtanGang_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OrangUtanGang_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_RopeyRampage_Area1::
 	db $80
 	dw BGPaletteSet_04 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_672f, $4f8e ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_RopeyRampage_Area1, LevelObjects_RopeyRampage_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_RopeyRampage_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_BarrelCannonCanyon_Area1::
 	db $88
 	dw BGPaletteSet_05 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_673e, $502f ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BarrelCannonCanyon_Area1, LevelObjects_BarrelCannonCanyon_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BarrelCannonCanyon_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OrangUtanGang_Area2::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_674d, $5098 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OrangUtanGang_Area2, LevelObjects_OrangUtanGang_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OrangUtanGang_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TreeTopTown::
 	db $00
 	dw BGPaletteSet_0B ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6624, $65bf ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TreeTopTown, LevelObjects_TreeTopTown ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TreeTopTown) ; bank of the level objects
 	db $17, $00
 
 LevelDesc_RopeBridgeRumble::
 	db $00
 	dw BGPaletteSet_0C ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6633, $68cd ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_RopeBridgeRumble, LevelObjects_RopeBridgeRumble ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_RopeBridgeRumble) ; bank of the level objects
 	db $17, $00
 
 LevelDesc_RopeBridgeRumble_Area1::
 	db $88
 	dw BGPaletteSet_0C ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6642, $6b64 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_RopeBridgeRumble_Area1, LevelObjects_RopeBridgeRumble_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_RopeBridgeRumble_Area1) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_6054::
+LevelDesc_LevelTable_2::
 	db $88
 	dw BGPaletteSet_0B ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6651, $6bcd ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LevelTable_1, LevelObjects_LevelTable_1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LevelTable_1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TreeTopTown_Area1::
 	db $88
 	dw BGPaletteSet_0B ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6660, $6bce ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TreeTopTown_Area1, LevelObjects_TreeTopTown_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TreeTopTown_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ReptileRumble::
 	db $00
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_691e, $4003 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ReptileRumble, LevelObjects_ReptileRumble ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ReptileRumble) ; bank of the level objects
 	db $07, $00
 
 LevelDesc_BouncyBonanza::
 	db $00
 	dw BGPaletteSet_19 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_692d, $42bc ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BouncyBonanza, LevelObjects_BouncyBonanza ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BouncyBonanza) ; bank of the level objects
 	db $07, $00
 
 LevelDesc_TorchlightTrouble::
 	db $00
 	dw BGPaletteSet_1F ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6942, $461d ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TorchlightTrouble, LevelObjects_TorchlightTrouble ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TorchlightTrouble) ; bank of the level objects
 	db $07, $00
 
 LevelDesc_ManicMincers::
 	db $00
 	dw BGPaletteSet_1C ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6951, $480e ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ManicMincers, LevelObjects_ManicMincers ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ManicMincers) ; bank of the level objects
 	db $07, $00
 
 LevelDesc_ElevatorAntics::
 	db $00
 	dw BGPaletteSet_1B ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6966, $4b6c ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ElevatorAntics, LevelObjects_ElevatorAntics ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ElevatorAntics) ; bank of the level objects
 	db $07, $00
 
 LevelDesc_NeckyNutmare::
 	db $00
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_697b, $4ee9 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_NeckyNutmare, LevelObjects_NeckyNutmare ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_NeckyNutmare) ; bank of the level objects
 	db $07, $00
 
 LevelDesc_JungleHijinxs_Area1::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_698a, $51a2 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_JungleHijinxs_Area1, LevelObjects_JungleHijinxs_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_JungleHijinxs_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ReptileRumble_Area1::
 	db $88
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6999, $51e3 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ReptileRumble_Area1, LevelObjects_ReptileRumble_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ReptileRumble_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ReptileRumble_Area2::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69a8, $5214 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ReptileRumble_Area2, LevelObjects_ReptileRumble_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ReptileRumble_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ReptileRumble_Area3::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69b7, $527d ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ReptileRumble_Area3, LevelObjects_ReptileRumble_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ReptileRumble_Area3) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_BarrelCannonCanyon_Area2::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69c6, $52b6 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BarrelCannonCanyon_Area2, LevelObjects_BarrelCannonCanyon_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BarrelCannonCanyon_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_BouncyBonanza_Area1::
 	db $88
 	dw BGPaletteSet_19 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69d5, $5317 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BouncyBonanza_Area1, LevelObjects_BouncyBonanza_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BouncyBonanza_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_BouncyBonanza_Area2::
 	db $88
 	dw BGPaletteSet_19 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69e4, $5360 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BouncyBonanza_Area2, LevelObjects_BouncyBonanza_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BouncyBonanza_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ElevatorAntics_Area1::
 	db $88
 	dw BGPaletteSet_1B ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69f3, $5371 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ElevatorAntics_Area1, LevelObjects_ElevatorAntics_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ElevatorAntics_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ManicMincers_Area1::
 	db $80
 	dw BGPaletteSet_1C ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a02, $53ba ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ManicMincers_Area1, LevelObjects_ManicMincers_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ManicMincers_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TorchlightTrouble_Area1::
 	db $88
 	dw BGPaletteSet_1A ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a11, $7d4f ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TorchlightTrouble_Area1, LevelObjects_TorchlightTrouble_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TorchlightTrouble_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ElevatorAntics_Area2::
 	db $80
 	dw BGPaletteSet_1B ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a20, $53fb ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ElevatorAntics_Area2, LevelObjects_ElevatorAntics_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ElevatorAntics_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ManicMincers_Area2::
 	db $88
 	dw BGPaletteSet_1C ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a2f, $7d68 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ManicMincers_Area2, LevelObjects_ManicMincers_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ManicMincers_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_NeckyNutmare_Area1::
 	db $88
 	dw BGPaletteSet_1C ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a2f, $7d71 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ManicMincers_Area2, LevelObjects_NeckyNutmare_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_NeckyNutmare_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MineCartMadness_Area1::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a3e, $545c ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MineCartMadness_Area1, LevelObjects_MineCartMadness_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MineCartMadness_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_CoralCapers::
 	db $07
 	dw BGPaletteSet_2B ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_677a, $54bd ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_CoralCapers, LevelObjects_CoralCapers ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_CoralCapers) ; bank of the level objects
 	db $03, $00
 
 LevelDesc_ClamCity::
 	db $07
 	dw BGPaletteSet_2C ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6789, $5696 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ClamCity, LevelObjects_ClamCity ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ClamCity) ; bank of the level objects
 	db $03, $00
 
 LevelDesc_CroctopusChase::
 	db $07
 	dw BGPaletteSet_2D ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6798, $5897 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_CroctopusChase, LevelObjects_CroctopusChase ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_CroctopusChase) ; bank of the level objects
 	db $03, $00
 
 LevelDesc_PoisonPond::
 	db $07
 	dw BGPaletteSet_2E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67ad, $5ae8 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_PoisonPond, LevelObjects_PoisonPond ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_PoisonPond) ; bank of the level objects
 	db $03, $00
 
 LevelDesc_EnguardeBonus::
 	db $b7
 	dw BGPaletteSet_2F ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67c2, $5eaf ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_EnguardeBonus, LevelObjects_EnguardeBonus ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_EnguardeBonus) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OilDrumAlley::
 	db $00
 	dw BGPaletteSet_23 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67d1, $6c20 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OilDrumAlley, LevelObjects_OilDrumAlley ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OilDrumAlley) ; bank of the level objects
 	db $12, $00
 
 LevelDesc_BlackoutBasement::
 	db $06
 	dw BGPaletteSet_24 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67e0, $6f6d ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BlackoutBasement, LevelObjects_BlackoutBasement ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BlackoutBasement) ; bank of the level objects
 	db $12, $00
 
 LevelDesc_BlackoutBasement_Area1::
 	db $8e
 	dw BGPaletteSet_24 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67f5, $71c9 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BlackoutBasement_Area1, LevelObjects_BlackoutBasement_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BlackoutBasement_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OilDrumAlley_Area1::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6804, $723a ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OilDrumAlley_Area1, LevelObjects_OilDrumAlley_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OilDrumAlley_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OilDrumAlley_Area2::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6813, $72ab ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OilDrumAlley_Area2, LevelObjects_OilDrumAlley_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OilDrumAlley_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OilDrumAlley_Area3::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6822, $7d7a ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OilDrumAlley_Area3, LevelObjects_OilDrumAlley_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OilDrumAlley_Area3) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_61e0::
+LevelDesc_LevelTable_3::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6831, $72fc ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LevelTable_3, LevelObjects_LevelTable_2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LevelTable_2) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_61ec::
+LevelDesc_LevelTable_4::
 	db $88
 	dw BGPaletteSet_26 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6840, $72fd ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LevelTable_4, LevelObjects_LevelTable_3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LevelTable_3) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_61f8::
+LevelDesc_Shop_Leave5::
 	db $88
 	dw BGPaletteSet_26 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_684f, $75f7 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_Shop_Leave5, LevelObjects_Shop_Leave5 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_Shop_Leave5) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_VultureCulture::
 	db $00
 	dw BGPaletteSet_29 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_685e, $72fe ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_VultureCulture, LevelObjects_VultureCulture ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_VultureCulture) ; bank of the level objects
 	db $08, $00
 
 LevelDesc_ForestFrenzy::
 	db $00
 	dw BGPaletteSet_2A ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_686d, $4000 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ForestFrenzy, LevelObjects_ForestFrenzy ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ForestFrenzy) ; bank of the level objects
 	db $08, $00
 
 LevelDesc_VultureCulture_Area1::
 	db $88
 	dw BGPaletteSet_29 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_687c, $7c80 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_VultureCulture_Area1, LevelObjects_VultureCulture_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_VultureCulture_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_VultureCulture_Area2::
 	db $88
 	dw BGPaletteSet_29 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_687c, $7c89 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_VultureCulture_Area1, LevelObjects_VultureCulture_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_VultureCulture_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ForestFrenzy_Area1::
 	db $88
 	dw BGPaletteSet_2A ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_688b, $7c92 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ForestFrenzy_Area1, LevelObjects_ForestFrenzy_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ForestFrenzy_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_VultureCulture_Area3::
 	db $80
 	dw BGPaletteSet_29 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_689a, $7844 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_VultureCulture_Area3, LevelObjects_VultureCulture_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_VultureCulture_Area3) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ForestFrenzy_Area2::
 	db $88
 	dw BGPaletteSet_2A ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68a9, $77cb ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ForestFrenzy_Area2, LevelObjects_ForestFrenzy_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ForestFrenzy_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_SlipslideRide::
 	db $03
 	dw BGPaletteSet_20 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_666f, $5f90 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SlipslideRide, LevelObjects_SlipslideRide ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SlipslideRide) ; bank of the level objects
 	db $0d, $00
 
 LevelDesc_SlipslideRide_Area1::
 	db $8b
 	dw BGPaletteSet_21 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6684, $7d8c ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SlipslideRide_Area1, LevelObjects_SlipslideRide_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SlipslideRide_Area1) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_6270::
+LevelDesc_Shop_Leave3::
 	db $8b
 	dw BGPaletteSet_21 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6684, $7d95 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SlipslideRide_Area1, LevelObjects_Shop_Leave3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_Shop_Leave3) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_SlipslideRide_Area2::
 	db $8b
 	dw BGPaletteSet_22 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6693, $7d9e ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SlipslideRide_Area2, LevelObjects_SlipslideRide_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SlipslideRide_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_SlipslideRide_Area3::
 	db $83
 	dw BGPaletteSet_20 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66a2, $64cd ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SlipslideRide_Area3, LevelObjects_SlipslideRide_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SlipslideRide_Area3) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_6294::
+LevelDesc_Shop_Leave4::
 	db $8b
 	dw BGPaletteSet_20 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66b1, $654e ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_Shop_Leave4, LevelObjects_Shop_Leave4 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_Shop_Leave4) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MineCartCarnage::
 	db $01
 	dw BGPaletteSet_11 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66c0, $50d1 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MineCartCarnage, LevelObjects_MineCartCarnage ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MineCartCarnage) ; bank of the level objects
 	db $10, $00
 
 LevelDesc_StopAndGoStation::
 	db $04
 	dw BGPaletteSet_0F ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6af5, $52b2 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_StopAndGoStation, LevelObjects_StopAndGoStation ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_StopAndGoStation) ; bank of the level objects
 	db $10, $00
 
 LevelDesc_MistyMine::
 	db $00
 	dw BGPaletteSet_0E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b04, $55c1 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MistyMine, LevelObjects_MistyMine ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MistyMine) ; bank of the level objects
 	db $10, $00
 
 LevelDesc_LoopyLights::
 	db $05
 	dw BGPaletteSet_0E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b19, $59c2 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LoopyLights, LevelObjects_LoopyLights ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LoopyLights) ; bank of the level objects
 	db $10, $00
 
 LevelDesc_MistyMine_Area1::
 	db $80
 	dw BGPaletteSet_0E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b2e, $5d23 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MistyMine_Area1, LevelObjects_MistyMine_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MistyMine_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MistyMine_Area2::
 	db $88
 	dw BGPaletteSet_0E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b3d, $7d83 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MistyMine_Area2, LevelObjects_MistyMine_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MistyMine_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_LoopyLights_Area1::
 	db $85
 	dw BGPaletteSet_0E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b4c, $5e14 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LoopyLights_Area1, LevelObjects_LoopyLights_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LoopyLights_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_StopAndGoStation_Area1::
 	db $80
 	dw BGPaletteSet_0F ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b5b, $794f ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_StopAndGoStation_Area1, LevelObjects_StopAndGoStation_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_StopAndGoStation_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_StopAndGoStation_Area2::
 	db $88
 	dw BGPaletteSet_0F ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b6a, $78a5 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_StopAndGoStation_Area2, LevelObjects_StopAndGoStation_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_StopAndGoStation_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_LoopyLights_Area2::
 	db $85
 	dw BGPaletteSet_0E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b79, $790e ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LoopyLights_Area2, LevelObjects_LoopyLights_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LoopyLights_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_SnowBarrelBlast::
 	db $03
 	dw BGPaletteSet_30 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68b8, $7097 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SnowBarrelBlast, LevelObjects_SnowBarrelBlast ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SnowBarrelBlast) ; bank of the level objects
 	db $18, $00
 
 LevelDesc_IceAgeAlley::
 	db $03
 	dw BGPaletteSet_31 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68cd, $7560 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_IceAgeAlley, LevelObjects_IceAgeAlley ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_IceAgeAlley) ; bank of the level objects
 	db $18, $00
 
 LevelDesc_SnowBarrelBlast_Area1::
 	db $8b
 	dw BGPaletteSet_30 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68dc, $7769 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SnowBarrelBlast_Area1, LevelObjects_SnowBarrelBlast_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SnowBarrelBlast_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_SnowBarrelBlast_Area2::
 	db $83
 	dw BGPaletteSet_30 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68eb, $77ba ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SnowBarrelBlast_Area2, LevelObjects_SnowBarrelBlast_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SnowBarrelBlast_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_IceAgeAlley_Area1::
 	db $83
 	dw BGPaletteSet_31 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68fa, $781b ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_IceAgeAlley_Area1, LevelObjects_IceAgeAlley_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_IceAgeAlley_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MillstoneMayhem::
 	db $00
 	dw BGPaletteSet_35 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65c4, $6a61 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MillstoneMayhem, LevelObjects_MillstoneMayhem ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MillstoneMayhem) ; bank of the level objects
 	db $04, $00
 
 LevelDesc_TempleTempest::
 	db $00
 	dw BGPaletteSet_36 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65d3, $6d1c ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TempleTempest, LevelObjects_TempleTempest ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TempleTempest) ; bank of the level objects
 	db $04, $00
 
 LevelDesc_MillstoneMayhem_Area1::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65e8, $6fe5 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MillstoneMayhem_Area1, LevelObjects_MillstoneMayhem_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MillstoneMayhem_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MillstoneMayhem_Area2::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65f7, $7c9b ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MillstoneMayhem_Area2, LevelObjects_MillstoneMayhem_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MillstoneMayhem_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TempleTempest_Area1::
 	db $88
 	dw BGPaletteSet_36 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65f7, $7ca4 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MillstoneMayhem_Area2, LevelObjects_TempleTempest_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TempleTempest_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TempleTempest_Area2::
 	db $88
 	dw BGPaletteSet_36 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6606, $704e ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TempleTempest_Area2, LevelObjects_TempleTempest_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TempleTempest_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MillstoneMayhem_Area3::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6615, $7cad ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MillstoneMayhem_Area3, LevelObjects_MillstoneMayhem_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MillstoneMayhem_Area3) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_63a8::
+LevelDesc_Shop_Leave1::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6615, $7cb6 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MillstoneMayhem_Area3, LevelObjects_Shop_Leave1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_Shop_Leave1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TrickTrackTrek::
 	db $00
 	dw BGPaletteSet_14 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a4d, $5e7d ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TrickTrackTrek, LevelObjects_TrickTrackTrek ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TrickTrackTrek) ; bank of the level objects
 	db $15, $00
 
 LevelDesc_PlatformPerils::
 	db $00
 	dw BGPaletteSet_17 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a62, $60b6 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_PlatformPerils, LevelObjects_PlatformPerils ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_PlatformPerils) ; bank of the level objects
 	db $15, $00
 
 LevelDesc_TankedUpTrouble::
 	db $00
 	dw BGPaletteSet_16 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a77, $64c7 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TankedUpTrouble, LevelObjects_TankedUpTrouble ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TankedUpTrouble) ; bank of the level objects
 	db $15, $00
 
 LevelDesc_TrickTrackTrek_Area1::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a8c, $7cbf ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TrickTrackTrek_Area1, LevelObjects_TrickTrackTrek_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TrickTrackTrek_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MineCartMadness_Area2::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a8c, $7cc8 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TrickTrackTrek_Area1, LevelObjects_MineCartMadness_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MineCartMadness_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_WinkysWalkway::
 	db $00
 	dw BGPaletteSet_13 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a9b, $6818 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_WinkysWalkway, LevelObjects_WinkysWalkway ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_WinkysWalkway) ; bank of the level objects
 	db $15, $00
 
 LevelDesc_TrickTrackTrek_Area2::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6aaa, $76e8 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TrickTrackTrek_Area2, LevelObjects_TrickTrackTrek_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TrickTrackTrek_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MineCartMadness_Area3::
 	db $80
 	dw BGPaletteSet_15 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ab9, $7749 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MineCartMadness_Area3, LevelObjects_MineCartMadness_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MineCartMadness_Area3) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TankedUpTrouble_Area1::
 	db $88
 	dw BGPaletteSet_16 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ac8, $7cd1 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TankedUpTrouble_Area1, LevelObjects_TankedUpTrouble_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TankedUpTrouble_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_PlatformPerils_Area1::
 	db $88
 	dw BGPaletteSet_17 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ac8, $7cda ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TankedUpTrouble_Area1, LevelObjects_PlatformPerils_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_PlatformPerils_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_PlatformPerils_Area2::
 	db $88
 	dw BGPaletteSet_17 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ac8, $7ce3 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TankedUpTrouble_Area1, LevelObjects_PlatformPerils_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_PlatformPerils_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_WinkysWalkway_Area1::
 	db $80
 	dw BGPaletteSet_13 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ad7, $778a ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0b ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_WinkysWalkway_Area1, LevelObjects_WinkysWalkway_Area1 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_WinkysWalkway_Area1) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TrickTrackTrek_Area3::
 	db $80
 	dw BGPaletteSet_14 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ae6, $7cec ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TrickTrackTrek_Area3, LevelObjects_TrickTrackTrek_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TrickTrackTrek_Area3) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_MineCartMadness::
 	db $01
 	dw BGPaletteSet_15 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6909, $786c ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_MineCartMadness, LevelObjects_MineCartMadness ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_MineCartMadness) ; bank of the level objects
 	db $10, $00
 
 LevelDesc_WinkyBonus::
 	db $c0
 	dw BGPaletteSet_1D ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c2d, $7bae ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_WinkyBonus, LevelObjects_WinkyBonus ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_WinkyBonus) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_6468::
+LevelDesc_BreakableWall_21::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c3c, $7cf5 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BreakableWall_21, LevelObjects_BreakableWall_21 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BreakableWall_21) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_6474::
+LevelDesc_LevelTable_5::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c3c, $7cfe ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BreakableWall_21, LevelObjects_LevelTable_5 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LevelTable_5) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_BouncyBonanza_Area3::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c4b, $7d07 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BouncyBonanza_Area3, LevelObjects_BouncyBonanza_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BouncyBonanza_Area3) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TorchlightTrouble_Area2::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c4b, $7d10 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BouncyBonanza_Area3, LevelObjects_TorchlightTrouble_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TorchlightTrouble_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_JungleHijinxs_Area2::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c5a, $7dc0 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_JungleHijinxs_Area2, LevelObjects_JungleHijinxs_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_JungleHijinxs_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_TreeTopTown_Area2::
 	db $88
 	dw BGPaletteSet_12 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c69, $7d19 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_TreeTopTown_Area2, LevelObjects_TreeTopTown_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_TreeTopTown_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_RopeBridgeRumble_Area2::
 	db $88
 	dw BGPaletteSet_12 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c78, $7d22 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_RopeBridgeRumble_Area2, LevelObjects_RopeBridgeRumble_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_RopeBridgeRumble_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_VeryGnawtysLair::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
-	dw ObjPalPreload_80_4200 ; OBJ palettes to preload
-	dw MapHeader_04_676b, $7e02 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_VeryGnawtysLair ; OBJ palettes to preload
+	dw MapHeader_VeryGnawtysLair, LevelObjects_VeryGnawtysLair ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_VeryGnawtysLair) ; bank of the level objects
 	db $16, $00
 
 LevelDesc_NeckysNuts::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
-	dw ObjPalPreload_80_4208 ; OBJ palettes to preload
-	dw MapHeader_04_675c, $7e13 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_NeckysNuts ; OBJ palettes to preload
+	dw MapHeader_NeckysNuts, LevelObjects_NeckysNuts ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_NeckysNuts) ; bank of the level objects
 	db $16, $00
 
 LevelDesc_BumbleBRumble::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
-	dw ObjPalPreload_80_4210 ; OBJ palettes to preload
-	dw MapHeader_04_676b, $7e2c ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_BumbleBRumble ; OBJ palettes to preload
+	dw MapHeader_VeryGnawtysLair, LevelObjects_BumbleBRumble ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BumbleBRumble) ; bank of the level objects
 	db $16, $00
 
 LevelDesc_ReallyGnawtyRampage::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
-	dw ObjPalPreload_80_4218 ; OBJ palettes to preload
-	dw MapHeader_04_676b, $7e45 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_ReallyGnawtyRampage ; OBJ palettes to preload
+	dw MapHeader_VeryGnawtysLair, LevelObjects_ReallyGnawtyRampage ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ReallyGnawtyRampage) ; bank of the level objects
 	db $16, $00
 
 LevelDesc_BossDumbDrum::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
-	dw ObjPalPreload_80_4220 ; OBJ palettes to preload
-	dw MapHeader_04_675c, $7e56 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_BossDumbDrum ; OBJ palettes to preload
+	dw MapHeader_NeckysNuts, LevelObjects_BossDumbDrum ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BossDumbDrum) ; bank of the level objects
 	db $16, $00
 
 LevelDesc_NeckysRevenge::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
-	dw ObjPalPreload_80_4228 ; OBJ palettes to preload
-	dw MapHeader_04_675c, $7e67 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_NeckysRevenge ; OBJ palettes to preload
+	dw MapHeader_NeckysNuts, LevelObjects_NeckysRevenge ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_NeckysRevenge) ; bank of the level objects
 	db $16, $00
 
 LevelDesc_GangPlankGalleon::
 	db $02
 	dw BGPaletteSet_01 ; BG palettes
-	dw ObjPalPreload_80_4230 ; OBJ palettes to preload
-	dw MapHeader_04_6c96, $7e80 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_GangPlankGalleon ; OBJ palettes to preload
+	dw MapHeader_GangPlankGalleon, LevelObjects_GangPlankGalleon ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_GangPlankGalleon) ; bank of the level objects
 	db $06, $00
 
 LevelDesc_JungleHijinxs_Area3::
 	db $00
 	dw BGPaletteSet_02 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c87, $7bcf ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_JungleHijinxs_Area3, LevelObjects_JungleHijinxs_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_JungleHijinxs_Area3) ; bank of the level objects
 	db $01, $00
 
 LevelDesc_RambiBonus::
 	db $93
 	dw BGPaletteSet_32 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b88, $7ba5 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_RambiBonus, LevelObjects_RambiBonus ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_RambiBonus) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_SnowBarrelBlast_Area3::
 	db $8b
 	dw BGPaletteSet_33 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b97, $7d34 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SnowBarrelBlast_Area3, LevelObjects_SnowBarrelBlast_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_SnowBarrelBlast_Area3) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_6534::
+LevelDesc_Shop_Leave2::
 	db $8b
 	dw BGPaletteSet_33 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b97, $7d3d ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_SnowBarrelBlast_Area3, LevelObjects_Shop_Leave2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_Shop_Leave2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_IceAgeAlley_Area2::
 	db $8b
 	dw BGPaletteSet_34 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ba6, $7d46 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_IceAgeAlley_Area2, LevelObjects_IceAgeAlley_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_IceAgeAlley_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_ExpressoBonus::
 	db $a0
 	dw BGPaletteSet_07 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bb5, $7be8 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_ExpressoBonus, LevelObjects_ExpressoBonus ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_ExpressoBonus) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_RopeyRampage_Area2::
 	db $88
 	dw BGPaletteSet_09 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bc4, $7c54 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_RopeyRampage_Area2, LevelObjects_RopeyRampage_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_RopeyRampage_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_JungleHijinxs_Area4::
 	db $88
 	dw BGPaletteSet_08 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bd3, $7c5d ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_JungleHijinxs_Area4, LevelObjects_JungleHijinxs_Area4 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_JungleHijinxs_Area4) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_BlackoutBasement_Area2::
 	db $8e
 	dw BGPaletteSet_28 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6be2, $7c66 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_BlackoutBasement_Area2, LevelObjects_BlackoutBasement_Area2 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_BlackoutBasement_Area2) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OilDrumAlley_Area4::
 	db $88
 	dw BGPaletteSet_27 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bf1, $7c6f ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OilDrumAlley_Area4, LevelObjects_OilDrumAlley_Area4 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OilDrumAlley_Area4) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OrangUtanGang_Area3::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c00, $7bf1 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OrangUtanGang_Area3, LevelObjects_OrangUtanGang_Area3 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OrangUtanGang_Area3) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OrangUtanGang_Area4::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c0f, $7c0a ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OrangUtanGang_Area4, LevelObjects_OrangUtanGang_Area4 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OrangUtanGang_Area4) ; bank of the level objects
 	db $0b, $00
 
 LevelDesc_OrangUtanGang_Area5::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c1e, $7c2b ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OrangUtanGang_Area5, LevelObjects_OrangUtanGang_Area5 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_OrangUtanGang_Area5) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_65ac::
+LevelDesc_Shop_Leave0::
 	db $88
 	dw BGPaletteSet_06 ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c1e, $7dd9 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_OrangUtanGang_Area5, LevelObjects_Shop_Leave0 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_Shop_Leave0) ; bank of the level objects
 	db $0b, $00
 
-LevelDesc_04_65b8::
+LevelDesc_LevelTable_6::
 	db $88
 	dw BGPaletteSet_1E ; BG palettes
-	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ca5, $7da7 ; map header (LoadMap), level objects? (LoadLevelObjects)
-	db $0c ; bank of the second pointer
+	dw ObjPalPreload_LevelTable ; OBJ palettes to preload
+	dw MapHeader_LevelTable_5, LevelObjects_LevelTable_6 ; map header (LoadMap), level objects (LoadLevelObjects)
+	db BANK(LevelObjects_LevelTable_6) ; bank of the level objects
 	db $0b, $00
 
-MapHeader_04_65c4::
+MapHeader_MillstoneMayhem::
 	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
-	dw $4000 ; ($c45c)
-	db BANK(BGTiles_81_4000)
-	dw BGTiles_81_4000 ; tileset
-	db BANK(LevelMap_e0_4238)
-	dw LevelMap_e0_4238, LevelMap_e0_48ff, LevelMap_e0_4000 ; block numbers, block attributes, terrain
+	dw CameraRegions_MillstoneMayhem ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MillstoneMayhem)
+	dw BGTiles_MillstoneMayhem ; tileset
+	db BANK(LevelMap_MillstoneMayhem_2)
+	dw LevelMap_MillstoneMayhem_2, LevelMap_MillstoneMayhem_3, LevelMap_MillstoneMayhem_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_65d3::
+MapHeader_TempleTempest::
 	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $02 ; block bank, terrain bank, flags
-	dw $41e0 ; ($c45c)
-	db BANK(BGTiles_81_4000)
-	dw BGTiles_81_4000 ; tileset
-	db BANK(LevelMap_e0_4d68)
-	dw LevelMap_e0_4d68, LevelMap_e0_53ab, LevelMap_e0_4b5b ; block numbers, block attributes, terrain
-	dw LevelMap_e0_5726, LevelMap_e0_58db, LevelMap_e0_5651 ; same, second half
+	dw CameraRegions_TempleTempest ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MillstoneMayhem)
+	dw BGTiles_MillstoneMayhem ; tileset
+	db BANK(LevelMap_TempleTempest0)
+	dw LevelMap_TempleTempest0, LevelMap_TempleTempest1, LevelMap_TempleTempest2 ; block numbers, block attributes, terrain
+	dw LevelMap_TempleTempest3, LevelMap_TempleTempest4, LevelMap_TempleTempest5 ; same, second half
 
-MapHeader_04_65e8::
+MapHeader_MillstoneMayhem_Area1::
 	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
-	dw $42a0 ; ($c45c)
-	db BANK(BGTiles_81_4000)
-	dw BGTiles_81_4000 ; tileset
-	db BANK(LevelMap_e0_5a49)
-	dw LevelMap_e0_5a49, LevelMap_e0_5ac8, LevelMap_e0_5a06 ; block numbers, block attributes, terrain
+	dw CameraRegions_MillstoneMayhem_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MillstoneMayhem)
+	dw BGTiles_MillstoneMayhem ; tileset
+	db BANK(LevelMap_MillstoneMayhem_Area1_2)
+	dw LevelMap_MillstoneMayhem_Area1_2, LevelMap_MillstoneMayhem_Area1_3, LevelMap_MillstoneMayhem_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_65f7::
+MapHeader_MillstoneMayhem_Area2::
 	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
-	dw $42b0 ; ($c45c)
-	db BANK(BGTiles_81_4000)
-	dw BGTiles_81_4000 ; tileset
-	db BANK(LevelMap_eb_5300)
-	dw LevelMap_eb_5300, LevelMap_eb_536a, LevelMap_eb_52a1 ; block numbers, block attributes, terrain
+	dw CameraRegions_MillstoneMayhem_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MillstoneMayhem)
+	dw BGTiles_MillstoneMayhem ; tileset
+	db BANK(LevelMap_MillstoneMayhem_Area2_2)
+	dw LevelMap_MillstoneMayhem_Area2_2, LevelMap_MillstoneMayhem_Area2_3, LevelMap_MillstoneMayhem_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6606::
+MapHeader_TempleTempest_Area2::
 	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
-	dw $42c0 ; ($c45c)
-	db BANK(BGTiles_81_4000)
-	dw BGTiles_81_4000 ; tileset
-	db BANK(LevelMap_eb_541b)
-	dw LevelMap_eb_541b, LevelMap_eb_54c5, LevelMap_eb_53b6 ; block numbers, block attributes, terrain
+	dw CameraRegions_TempleTempest_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MillstoneMayhem)
+	dw BGTiles_MillstoneMayhem ; tileset
+	db BANK(LevelMap_TempleTempest_Area2_2)
+	dw LevelMap_TempleTempest_Area2_2, LevelMap_TempleTempest_Area2_3, LevelMap_TempleTempest_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6615::
+MapHeader_MillstoneMayhem_Area3::
 	db BANK(LevelBlocks_90), BANK(LevelTerrain_92), $00 ; block bank, terrain bank, flags
-	dw $42d0 ; ($c45c)
-	db BANK(BGTiles_81_4000)
-	dw BGTiles_81_4000 ; tileset
-	db BANK(LevelMap_eb_558a)
-	dw LevelMap_eb_558a, LevelMap_eb_55f0, LevelMap_eb_553d ; block numbers, block attributes, terrain
+	dw CameraRegions_MillstoneMayhem_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MillstoneMayhem)
+	dw BGTiles_MillstoneMayhem ; tileset
+	db BANK(LevelMap_MillstoneMayhem_Area3_2)
+	dw LevelMap_MillstoneMayhem_Area3_2, LevelMap_MillstoneMayhem_Area3_3, LevelMap_MillstoneMayhem_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6624::
+MapHeader_TreeTopTown::
 	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
-	dw $42e0 ; ($c45c)
-	db BANK(BGTiles_81_6000)
-	dw BGTiles_81_6000 ; tileset
-	db BANK(LevelMap_e0_5c50)
-	dw LevelMap_e0_5c50, LevelMap_e0_60d8, LevelMap_e0_5b25 ; block numbers, block attributes, terrain
+	dw CameraRegions_TreeTopTown ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TreeTopTown)
+	dw BGTiles_TreeTopTown ; tileset
+	db BANK(LevelMap_TreeTopTown_2)
+	dw LevelMap_TreeTopTown_2, LevelMap_TreeTopTown_3, LevelMap_TreeTopTown_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6633::
+MapHeader_RopeBridgeRumble::
 	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
-	dw $4350 ; ($c45c)
-	db BANK(BGTiles_81_6000)
-	dw BGTiles_81_6000 ; tileset
-	db BANK(LevelMap_e0_6405)
-	dw LevelMap_e0_6405, LevelMap_e0_6c5e, LevelMap_e0_62ca ; block numbers, block attributes, terrain
+	dw CameraRegions_RopeBridgeRumble ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TreeTopTown)
+	dw BGTiles_TreeTopTown ; tileset
+	db BANK(LevelMap_RopeBridgeRumble_2)
+	dw LevelMap_RopeBridgeRumble_2, LevelMap_RopeBridgeRumble_3, LevelMap_RopeBridgeRumble_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6642::
+MapHeader_RopeBridgeRumble_Area1::
 	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
-	dw $43c0 ; ($c45c)
-	db BANK(BGTiles_81_6000)
-	dw BGTiles_81_6000 ; tileset
-	db BANK(LevelMap_e0_70e7)
-	dw LevelMap_e0_70e7, LevelMap_e0_71c2, LevelMap_e0_7078 ; block numbers, block attributes, terrain
+	dw CameraRegions_RopeBridgeRumble_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TreeTopTown)
+	dw BGTiles_TreeTopTown ; tileset
+	db BANK(LevelMap_RopeBridgeRumble_Area1_2)
+	dw LevelMap_RopeBridgeRumble_Area1_2, LevelMap_RopeBridgeRumble_Area1_3, LevelMap_RopeBridgeRumble_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6651::
+MapHeader_LevelTable_1::
 	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
-	dw $43d0 ; ($c45c)
-	db BANK(BGTiles_81_6000)
-	dw BGTiles_81_6000 ; tileset
-	db BANK(LevelMap_eb_4cdf)
-	dw LevelMap_eb_4cdf, LevelMap_eb_4d45, LevelMap_eb_4c93 ; block numbers, block attributes, terrain
+	dw CameraRegions_LevelTable_1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TreeTopTown)
+	dw BGTiles_TreeTopTown ; tileset
+	db BANK(LevelMap_LevelTable_11)
+	dw LevelMap_LevelTable_11, LevelMap_LevelTable_12, LevelMap_LevelTable_10 ; block numbers, block attributes, terrain
 
-MapHeader_04_6660::
+MapHeader_TreeTopTown_Area1::
 	db BANK(LevelBlocks_93), BANK(LevelTerrain_95), $00 ; block bank, terrain bank, flags
-	dw $43e0 ; ($c45c)
-	db BANK(BGTiles_81_6000)
-	dw BGTiles_81_6000 ; tileset
-	db BANK(LevelMap_eb_4ddd)
-	dw LevelMap_eb_4ddd, LevelMap_eb_4e5c, LevelMap_eb_4d9a ; block numbers, block attributes, terrain
+	dw CameraRegions_TreeTopTown_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TreeTopTown)
+	dw BGTiles_TreeTopTown ; tileset
+	db BANK(LevelMap_TreeTopTown_Area1_2)
+	dw LevelMap_TreeTopTown_Area1_2, LevelMap_TreeTopTown_Area1_3, LevelMap_TreeTopTown_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_666f::
+MapHeader_SlipslideRide::
 	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $03 ; block bank, terrain bank, flags
-	dw $4400 ; ($c45c)
-	db BANK(BGTiles_82_4000)
-	dw BGTiles_82_4000 ; tileset
-	db BANK(LevelMap_e1_43bc)
-	dw LevelMap_e1_43bc, LevelMap_e1_4d30, LevelMap_e1_4000 ; block numbers, block attributes, terrain
-	dw LevelMap_e1_5191, LevelMap_e1_5222, LevelMap_e1_514e ; same, second half
+	dw CameraRegions_SlipslideRide ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SlipslideRide)
+	dw BGTiles_SlipslideRide ; tileset
+	db BANK(LevelMap_SlipslideRide0)
+	dw LevelMap_SlipslideRide0, LevelMap_SlipslideRide1, LevelMap_SlipslideRide2 ; block numbers, block attributes, terrain
+	dw LevelMap_SlipslideRide3, LevelMap_SlipslideRide4, LevelMap_SlipslideRide5 ; same, second half
 
-MapHeader_04_6684::
+MapHeader_SlipslideRide_Area1::
 	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
-	dw $45f0 ; ($c45c)
-	db BANK(BGTiles_82_4000)
-	dw BGTiles_82_4000 ; tileset
-	db BANK(LevelMap_e1_5294)
-	dw LevelMap_e1_5294, LevelMap_e1_52f5, LevelMap_e1_524d ; block numbers, block attributes, terrain
+	dw CameraRegions_SlipslideRide_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SlipslideRide)
+	dw BGTiles_SlipslideRide ; tileset
+	db BANK(LevelMap_SlipslideRide_Area1_2)
+	dw LevelMap_SlipslideRide_Area1_2, LevelMap_SlipslideRide_Area1_3, LevelMap_SlipslideRide_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6693::
+MapHeader_SlipslideRide_Area2::
 	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
-	dw $4600 ; ($c45c)
-	db BANK(BGTiles_82_4000)
-	dw BGTiles_82_4000 ; tileset
-	db BANK(LevelMap_eb_569d)
-	dw LevelMap_eb_569d, LevelMap_eb_5703, LevelMap_eb_563c ; block numbers, block attributes, terrain
+	dw CameraRegions_SlipslideRide_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SlipslideRide)
+	dw BGTiles_SlipslideRide ; tileset
+	db BANK(LevelMap_SlipslideRide_Area2_2)
+	dw LevelMap_SlipslideRide_Area2_2, LevelMap_SlipslideRide_Area2_3, LevelMap_SlipslideRide_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_66a2::
+MapHeader_SlipslideRide_Area3::
 	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
-	dw $4610 ; ($c45c)
-	db BANK(BGTiles_82_4000)
-	dw BGTiles_82_4000 ; tileset
-	db BANK(LevelMap_eb_57e2)
-	dw LevelMap_eb_57e2, LevelMap_eb_58a3, LevelMap_eb_575b ; block numbers, block attributes, terrain
+	dw CameraRegions_SlipslideRide_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SlipslideRide)
+	dw BGTiles_SlipslideRide ; tileset
+	db BANK(LevelMap_SlipslideRide_Area3_2)
+	dw LevelMap_SlipslideRide_Area3_2, LevelMap_SlipslideRide_Area3_3, LevelMap_SlipslideRide_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_66b1::
+MapHeader_Shop_Leave4::
 	db BANK(LevelBlocks_96), BANK(LevelTerrain_98), $00 ; block bank, terrain bank, flags
-	dw $4620 ; ($c45c)
-	db BANK(BGTiles_82_4000)
-	dw BGTiles_82_4000 ; tileset
-	db BANK(LevelMap_ec_579b)
-	dw LevelMap_ec_579b, LevelMap_ec_5897, LevelMap_ec_56f3 ; block numbers, block attributes, terrain
+	dw CameraRegions_Shop_Leave4 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SlipslideRide)
+	dw BGTiles_SlipslideRide ; tileset
+	db BANK(LevelMap_Shop_Leave4_2)
+	dw LevelMap_Shop_Leave4_2, LevelMap_Shop_Leave4_3, LevelMap_Shop_Leave4_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_66c0::
+MapHeader_MineCartCarnage::
 	db BANK(LevelBlocks_99), BANK(LevelTerrain_9b), $02 ; block bank, terrain bank, flags
-	dw $4630 ; ($c45c)
-	db BANK(BGTiles_82_5ed0)
-	dw BGTiles_82_5ed0 ; tileset
-	db BANK(LevelMap_e1_55c6)
-	dw LevelMap_e1_55c6, LevelMap_e1_5fe6, LevelMap_e1_5352 ; block numbers, block attributes, terrain
-	dw LevelMap_e1_654e, LevelMap_e1_6d9d, LevelMap_e1_6345 ; same, second half
+	dw CameraRegions_MineCartCarnage ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MineCartCarnage)
+	dw BGTiles_MineCartCarnage ; tileset
+	db BANK(LevelMap_MineCartCarnage0)
+	dw LevelMap_MineCartCarnage0, LevelMap_MineCartCarnage1, LevelMap_MineCartCarnage2 ; block numbers, block attributes, terrain
+	dw LevelMap_MineCartCarnage3, LevelMap_MineCartCarnage4, LevelMap_MineCartCarnage5 ; same, second half
 
-MapHeader_04_66d5::
+MapHeader_JungleHijinxs::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $4750 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_e2_421c)
-	dw LevelMap_e2_421c, LevelMap_e2_4587, LevelMap_e2_4000 ; block numbers, block attributes, terrain
+	dw CameraRegions_JungleHijinxs ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_JungleHijinxs_2)
+	dw LevelMap_JungleHijinxs_2, LevelMap_JungleHijinxs_3, LevelMap_JungleHijinxs_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_66e4::
+MapHeader_OrangUtanGang::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $47c0 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_e2_4a1d)
-	dw LevelMap_e2_4a1d, LevelMap_e2_5018, LevelMap_e2_4733 ; block numbers, block attributes, terrain
+	dw CameraRegions_OrangUtanGang ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_OrangUtanGang_2)
+	dw LevelMap_OrangUtanGang_2, LevelMap_OrangUtanGang_3, LevelMap_OrangUtanGang_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_66f3::
+MapHeader_RopeyRampage::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $49a0 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_e2_55be)
-	dw LevelMap_e2_55be, LevelMap_e2_5ab3, LevelMap_e2_53a4 ; block numbers, block attributes, terrain
+	dw CameraRegions_RopeyRampage ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_RopeyRampage_2)
+	dw LevelMap_RopeyRampage_2, LevelMap_RopeyRampage_3, LevelMap_RopeyRampage_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6702::
+MapHeader_BarrelCannonCanyon::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $4a60 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_e3_425c)
-	dw LevelMap_e3_425c, LevelMap_e3_4848, LevelMap_e3_4000 ; block numbers, block attributes, terrain
+	dw CameraRegions_BarrelCannonCanyon ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_BarrelCannonCanyon_2)
+	dw LevelMap_BarrelCannonCanyon_2, LevelMap_BarrelCannonCanyon_3, LevelMap_BarrelCannonCanyon_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6711::
+MapHeader_LevelTable_2::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $4af0 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_e3_4c87)
-	dw LevelMap_e3_4c87, LevelMap_e3_4ce0, LevelMap_e3_4c40 ; block numbers, block attributes, terrain
+	dw CameraRegions_LevelTable_2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_LevelTable_2)
+	dw LevelMap_LevelTable_2, LevelMap_LevelTable_3, LevelMap_LevelTable_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6720::
+MapHeader_OrangUtanGang_Area1::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $4b00 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_eb_59b3)
-	dw LevelMap_eb_59b3, LevelMap_eb_5a22, LevelMap_eb_5948 ; block numbers, block attributes, terrain
+	dw CameraRegions_OrangUtanGang_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_OrangUtanGang_Area1_2)
+	dw LevelMap_OrangUtanGang_Area1_2, LevelMap_OrangUtanGang_Area1_3, LevelMap_OrangUtanGang_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_672f::
+MapHeader_RopeyRampage_Area1::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $4b10 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_eb_5af7)
-	dw LevelMap_eb_5af7, LevelMap_eb_5bbc, LevelMap_eb_5a8a ; block numbers, block attributes, terrain
+	dw CameraRegions_RopeyRampage_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_RopeyRampage_Area1_2)
+	dw LevelMap_RopeyRampage_Area1_2, LevelMap_RopeyRampage_Area1_3, LevelMap_RopeyRampage_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_673e::
+MapHeader_BarrelCannonCanyon_Area1::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $4b20 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_eb_5c7e)
-	dw LevelMap_eb_5c7e, LevelMap_eb_5d19, LevelMap_eb_5c3b ; block numbers, block attributes, terrain
+	dw CameraRegions_BarrelCannonCanyon_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_BarrelCannonCanyon_Area1_2)
+	dw LevelMap_BarrelCannonCanyon_Area1_2, LevelMap_BarrelCannonCanyon_Area1_3, LevelMap_BarrelCannonCanyon_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_674d::
+MapHeader_OrangUtanGang_Area2::
 	db BANK(LevelBlocks_9c), BANK(LevelTerrain_9e), $00 ; block bank, terrain bank, flags
-	dw $4b30 ; ($c45c)
-	db BANK(BGTiles_83_4000)
-	dw BGTiles_83_4000 ; tileset
-	db BANK(LevelMap_ec_54c8)
-	dw LevelMap_ec_54c8, LevelMap_ec_5589, LevelMap_ec_5462 ; block numbers, block attributes, terrain
+	dw CameraRegions_OrangUtanGang_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs)
+	dw BGTiles_JungleHijinxs ; tileset
+	db BANK(LevelMap_OrangUtanGang_Area2_2)
+	dw LevelMap_OrangUtanGang_Area2_2, LevelMap_OrangUtanGang_Area2_3, LevelMap_OrangUtanGang_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_675c::
+MapHeader_NeckysNuts::
 	db BANK(LevelBlocks_9f), BANK(LevelTerrain_a1), $00 ; block bank, terrain bank, flags
-	dw $7360 ; ($c45c)
-	db BANK(BGTiles_83_5ff0)
-	dw BGTiles_83_5ff0 ; tileset
-	db BANK(LevelMap_e3_4d7f)
-	dw LevelMap_e3_4d7f, LevelMap_e3_4dea, LevelMap_e3_4d30 ; block numbers, block attributes, terrain
+	dw CameraRegions_NeckysNuts ; camera regions (wCameraRegion)
+	db BANK(BGTiles_NeckysNuts)
+	dw BGTiles_NeckysNuts ; tileset
+	db BANK(LevelMap_NeckysNuts_2)
+	dw LevelMap_NeckysNuts_2, LevelMap_NeckysNuts_3, LevelMap_NeckysNuts_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_676b::
+MapHeader_VeryGnawtysLair::
 	db BANK(LevelBlocks_9f), BANK(LevelTerrain_a1), $00 ; block bank, terrain bank, flags
-	dw $7370 ; ($c45c)
-	db BANK(BGTiles_83_5ff0)
-	dw BGTiles_83_5ff0 ; tileset
-	db BANK(LevelMap_e3_4e8d)
-	dw LevelMap_e3_4e8d, LevelMap_e3_4f11, LevelMap_e3_4e2d ; block numbers, block attributes, terrain
+	dw CameraRegions_VeryGnawtysLair ; camera regions (wCameraRegion)
+	db BANK(BGTiles_NeckysNuts)
+	dw BGTiles_NeckysNuts ; tileset
+	db BANK(LevelMap_VeryGnawtysLair_2)
+	dw LevelMap_VeryGnawtysLair_2, LevelMap_VeryGnawtysLair_3, LevelMap_VeryGnawtysLair_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_677a::
+MapHeader_CoralCapers::
 	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $01 ; block bank, terrain bank, flags
-	dw $4b40 ; ($c45c)
-	db BANK(BGTiles_84_59f0)
-	dw BGTiles_84_59f0 ; tileset
-	db BANK(LevelMap_e3_52ed)
-	dw LevelMap_e3_52ed, LevelMap_e3_58c9, LevelMap_e3_5062 ; block numbers, block attributes, terrain
+	dw CameraRegions_CoralCapers ; camera regions (wCameraRegion)
+	db BANK(BGTiles_CoralCapers)
+	dw BGTiles_CoralCapers ; tileset
+	db BANK(LevelMap_CoralCapers_2)
+	dw LevelMap_CoralCapers_2, LevelMap_CoralCapers_3, LevelMap_CoralCapers_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6789::
+MapHeader_ClamCity::
 	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $01 ; block bank, terrain bank, flags
-	dw $4c80 ; ($c45c)
-	db BANK(BGTiles_84_59f0)
-	dw BGTiles_84_59f0 ; tileset
-	db BANK(LevelMap_e3_5cfa)
-	dw LevelMap_e3_5cfa, LevelMap_e3_6366, LevelMap_e3_5a9a ; block numbers, block attributes, terrain
+	dw CameraRegions_ClamCity ; camera regions (wCameraRegion)
+	db BANK(BGTiles_CoralCapers)
+	dw BGTiles_CoralCapers ; tileset
+	db BANK(LevelMap_ClamCity_2)
+	dw LevelMap_ClamCity_2, LevelMap_ClamCity_3, LevelMap_ClamCity_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6798::
+MapHeader_CroctopusChase::
 	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $03 ; block bank, terrain bank, flags
-	dw $4df0 ; ($c45c)
-	db BANK(BGTiles_84_59f0)
-	dw BGTiles_84_59f0 ; tileset
-	db BANK(LevelMap_e4_4478)
-	dw LevelMap_e4_4478, LevelMap_e4_4b5f, LevelMap_e4_4000 ; block numbers, block attributes, terrain
-	dw LevelMap_e4_4f98, LevelMap_e4_5261, LevelMap_e4_4dd0 ; same, second half
+	dw CameraRegions_CroctopusChase ; camera regions (wCameraRegion)
+	db BANK(BGTiles_CoralCapers)
+	dw BGTiles_CoralCapers ; tileset
+	db BANK(LevelMap_CroctopusChase0)
+	dw LevelMap_CroctopusChase0, LevelMap_CroctopusChase1, LevelMap_CroctopusChase2 ; block numbers, block attributes, terrain
+	dw LevelMap_CroctopusChase3, LevelMap_CroctopusChase4, LevelMap_CroctopusChase5 ; same, second half
 
-MapHeader_04_67ad::
+MapHeader_PoisonPond::
 	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $03 ; block bank, terrain bank, flags
-	dw $5040 ; ($c45c)
-	db BANK(BGTiles_84_59f0)
-	dw BGTiles_84_59f0 ; tileset
-	db BANK(LevelMap_e4_56e9)
-	dw LevelMap_e4_56e9, LevelMap_e4_6005, LevelMap_e4_534c ; block numbers, block attributes, terrain
-	dw LevelMap_e4_6458, LevelMap_e4_66fe, LevelMap_e4_6382 ; same, second half
+	dw CameraRegions_PoisonPond ; camera regions (wCameraRegion)
+	db BANK(BGTiles_CoralCapers)
+	dw BGTiles_CoralCapers ; tileset
+	db BANK(LevelMap_PoisonPond0)
+	dw LevelMap_PoisonPond0, LevelMap_PoisonPond1, LevelMap_PoisonPond2 ; block numbers, block attributes, terrain
+	dw LevelMap_PoisonPond3, LevelMap_PoisonPond4, LevelMap_PoisonPond5 ; same, second half
 
-MapHeader_04_67c2::
+MapHeader_EnguardeBonus::
 	db BANK(LevelBlocks_a5), BANK(LevelTerrain_a7), $01 ; block bank, terrain bank, flags
-	dw $5280 ; ($c45c)
-	db BANK(BGTiles_84_59f0)
-	dw BGTiles_84_59f0 ; tileset
-	db BANK(LevelMap_e4_693a)
-	dw LevelMap_e4_693a, LevelMap_e4_6caf, LevelMap_e4_67d1 ; block numbers, block attributes, terrain
+	dw CameraRegions_EnguardeBonus ; camera regions (wCameraRegion)
+	db BANK(BGTiles_CoralCapers)
+	dw BGTiles_CoralCapers ; tileset
+	db BANK(LevelMap_EnguardeBonus_2)
+	dw LevelMap_EnguardeBonus_2, LevelMap_EnguardeBonus_3, LevelMap_EnguardeBonus_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_67d1::
+MapHeader_OilDrumAlley::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
-	dw $5410 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_e5_42e9)
-	dw LevelMap_e5_42e9, LevelMap_e5_4e13, LevelMap_e5_4000 ; block numbers, block attributes, terrain
+	dw CameraRegions_OilDrumAlley ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_OilDrumAlley_2)
+	dw LevelMap_OilDrumAlley_2, LevelMap_OilDrumAlley_3, LevelMap_OilDrumAlley_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_67e0::
+MapHeader_BlackoutBasement::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $02 ; block bank, terrain bank, flags
-	dw $55d0 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_e5_53a8)
-	dw LevelMap_e5_53a8, LevelMap_e5_5dd6, LevelMap_e5_519d ; block numbers, block attributes, terrain
-	dw LevelMap_e5_6132, LevelMap_e5_631d, LevelMap_e5_609c ; same, second half
+	dw CameraRegions_BlackoutBasement ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_BlackoutBasement0)
+	dw LevelMap_BlackoutBasement0, LevelMap_BlackoutBasement1, LevelMap_BlackoutBasement2 ; block numbers, block attributes, terrain
+	dw LevelMap_BlackoutBasement3, LevelMap_BlackoutBasement4, LevelMap_BlackoutBasement5 ; same, second half
 
-MapHeader_04_67f5::
+MapHeader_BlackoutBasement_Area1::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
-	dw $5800 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_e5_649e)
-	dw LevelMap_e5_649e, LevelMap_e5_6556, LevelMap_e5_6451 ; block numbers, block attributes, terrain
+	dw CameraRegions_BlackoutBasement_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_BlackoutBasement_Area1_2)
+	dw LevelMap_BlackoutBasement_Area1_2, LevelMap_BlackoutBasement_Area1_3, LevelMap_BlackoutBasement_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6804::
+MapHeader_OilDrumAlley_Area1::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
-	dw $5810 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_eb_467e)
-	dw LevelMap_eb_467e, LevelMap_eb_4744, LevelMap_eb_4633 ; block numbers, block attributes, terrain
+	dw CameraRegions_OilDrumAlley_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_OilDrumAlley_Area1_2)
+	dw LevelMap_OilDrumAlley_Area1_2, LevelMap_OilDrumAlley_Area1_3, LevelMap_OilDrumAlley_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6813::
+MapHeader_OilDrumAlley_Area2::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
-	dw $5820 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_eb_47f8)
-	dw LevelMap_eb_47f8, LevelMap_eb_486d, LevelMap_eb_47b5 ; block numbers, block attributes, terrain
+	dw CameraRegions_OilDrumAlley_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_OilDrumAlley_Area2_2)
+	dw LevelMap_OilDrumAlley_Area2_2, LevelMap_OilDrumAlley_Area2_3, LevelMap_OilDrumAlley_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6822::
+MapHeader_OilDrumAlley_Area3::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
-	dw $5830 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_eb_4935)
-	dw LevelMap_eb_4935, LevelMap_eb_49a6, LevelMap_eb_48ea ; block numbers, block attributes, terrain
+	dw CameraRegions_OilDrumAlley_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_OilDrumAlley_Area3_2)
+	dw LevelMap_OilDrumAlley_Area3_2, LevelMap_OilDrumAlley_Area3_3, LevelMap_OilDrumAlley_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6831::
+MapHeader_LevelTable_3::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
-	dw $5840 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_eb_4a5c)
-	dw LevelMap_eb_4a5c, LevelMap_eb_4ae7, LevelMap_eb_4a0d ; block numbers, block attributes, terrain
+	dw CameraRegions_LevelTable_3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_LevelTable_5)
+	dw LevelMap_LevelTable_5, LevelMap_LevelTable_6, LevelMap_LevelTable_4 ; block numbers, block attributes, terrain
 
-MapHeader_04_6840::
+MapHeader_LevelTable_4::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $00 ; block bank, terrain bank, flags
-	dw $5850 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_eb_4b9d)
-	dw LevelMap_eb_4b9d, LevelMap_eb_4c28, LevelMap_eb_4b52 ; block numbers, block attributes, terrain
+	dw CameraRegions_LevelTable_4 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_LevelTable_8)
+	dw LevelMap_LevelTable_8, LevelMap_LevelTable_9, LevelMap_LevelTable_7 ; block numbers, block attributes, terrain
 
-MapHeader_04_684f::
+MapHeader_Shop_Leave5::
 	db BANK(LevelBlocks_a8), BANK(LevelTerrain_aa), $01 ; block bank, terrain bank, flags
-	dw $5860 ; ($c45c)
-	db BANK(BGTiles_85_4000)
-	dw BGTiles_85_4000 ; tileset
-	db BANK(LevelMap_ec_598e)
-	dw LevelMap_ec_598e, LevelMap_ec_5a94, LevelMap_ec_594e ; block numbers, block attributes, terrain
+	dw CameraRegions_Shop_Leave5 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_1)
+	dw BGTiles_LevelTable_1 ; tileset
+	db BANK(LevelMap_Shop_Leave5_2)
+	dw LevelMap_Shop_Leave5_2, LevelMap_Shop_Leave5_3, LevelMap_Shop_Leave5_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_685e::
+MapHeader_VultureCulture::
 	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
-	dw $5870 ; ($c45c)
-	db BANK(BGTiles_85_5fc0)
-	dw BGTiles_85_5fc0 ; tileset
-	db BANK(LevelMap_e5_67a1)
-	dw LevelMap_e5_67a1, LevelMap_e5_6c96, LevelMap_e5_65da ; block numbers, block attributes, terrain
+	dw CameraRegions_VultureCulture ; camera regions (wCameraRegion)
+	db BANK(BGTiles_VultureCulture)
+	dw BGTiles_VultureCulture ; tileset
+	db BANK(LevelMap_VultureCulture_2)
+	dw LevelMap_VultureCulture_2, LevelMap_VultureCulture_3, LevelMap_VultureCulture_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_686d::
+MapHeader_ForestFrenzy::
 	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
-	dw $58e0 ; ($c45c)
-	db BANK(BGTiles_85_5fc0)
-	dw BGTiles_85_5fc0 ; tileset
-	db BANK(LevelMap_e5_7046)
-	dw LevelMap_e5_7046, LevelMap_e5_7431, LevelMap_e5_6ef1 ; block numbers, block attributes, terrain
+	dw CameraRegions_ForestFrenzy ; camera regions (wCameraRegion)
+	db BANK(BGTiles_VultureCulture)
+	dw BGTiles_VultureCulture ; tileset
+	db BANK(LevelMap_ForestFrenzy_2)
+	dw LevelMap_ForestFrenzy_2, LevelMap_ForestFrenzy_3, LevelMap_ForestFrenzy_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_687c::
+MapHeader_VultureCulture_Area1::
 	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
-	dw $5970 ; ($c45c)
-	db BANK(BGTiles_85_5fc0)
-	dw BGTiles_85_5fc0 ; tileset
-	db BANK(LevelMap_e5_76f2)
-	dw LevelMap_e5_76f2, LevelMap_e5_775d, LevelMap_e5_7691 ; block numbers, block attributes, terrain
+	dw CameraRegions_VultureCulture_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_VultureCulture)
+	dw BGTiles_VultureCulture ; tileset
+	db BANK(LevelMap_VultureCulture_Area1_2)
+	dw LevelMap_VultureCulture_Area1_2, LevelMap_VultureCulture_Area1_3, LevelMap_VultureCulture_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_688b::
+MapHeader_ForestFrenzy_Area1::
 	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
-	dw $5980 ; ($c45c)
-	db BANK(BGTiles_85_5fc0)
-	dw BGTiles_85_5fc0 ; tileset
-	db BANK(LevelMap_eb_5e16)
-	dw LevelMap_eb_5e16, LevelMap_eb_5e7c, LevelMap_eb_5db5 ; block numbers, block attributes, terrain
+	dw CameraRegions_ForestFrenzy_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_VultureCulture)
+	dw BGTiles_VultureCulture ; tileset
+	db BANK(LevelMap_ForestFrenzy_Area1_2)
+	dw LevelMap_ForestFrenzy_Area1_2, LevelMap_ForestFrenzy_Area1_3, LevelMap_ForestFrenzy_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_689a::
+MapHeader_VultureCulture_Area3::
 	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
-	dw $5990 ; ($c45c)
-	db BANK(BGTiles_85_5fc0)
-	dw BGTiles_85_5fc0 ; tileset
-	db BANK(LevelMap_eb_5f32)
-	dw LevelMap_eb_5f32, LevelMap_eb_5ff0, LevelMap_eb_5ec5 ; block numbers, block attributes, terrain
+	dw CameraRegions_VultureCulture_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_VultureCulture)
+	dw BGTiles_VultureCulture ; tileset
+	db BANK(LevelMap_VultureCulture_Area3_2)
+	dw LevelMap_VultureCulture_Area3_2, LevelMap_VultureCulture_Area3_3, LevelMap_VultureCulture_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_68a9::
+MapHeader_ForestFrenzy_Area2::
 	db BANK(LevelBlocks_ab), BANK(LevelTerrain_ad), $00 ; block bank, terrain bank, flags
-	dw $59a0 ; ($c45c)
-	db BANK(BGTiles_85_5fc0)
-	dw BGTiles_85_5fc0 ; tileset
-	db BANK(LevelMap_eb_60e5)
-	dw LevelMap_eb_60e5, LevelMap_eb_6182, LevelMap_eb_6068 ; block numbers, block attributes, terrain
+	dw CameraRegions_ForestFrenzy_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_VultureCulture)
+	dw BGTiles_VultureCulture ; tileset
+	db BANK(LevelMap_ForestFrenzy_Area2_2)
+	dw LevelMap_ForestFrenzy_Area2_2, LevelMap_ForestFrenzy_Area2_3, LevelMap_ForestFrenzy_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_68b8::
+MapHeader_SnowBarrelBlast::
 	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $02 ; block bank, terrain bank, flags
-	dw $59b0 ; ($c45c)
-	db BANK(BGTiles_86_5460)
-	dw BGTiles_86_5460 ; tileset
-	db BANK(LevelMap_e6_41af)
-	dw LevelMap_e6_41af, LevelMap_e6_47e1, LevelMap_e6_4000 ; block numbers, block attributes, terrain
-	dw LevelMap_e6_4b5c, LevelMap_e6_4df0, LevelMap_e6_4aba ; same, second half
+	dw CameraRegions_SnowBarrelBlast ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SnowBarrelBlast)
+	dw BGTiles_SnowBarrelBlast ; tileset
+	db BANK(LevelMap_SnowBarrelBlast0)
+	dw LevelMap_SnowBarrelBlast0, LevelMap_SnowBarrelBlast1, LevelMap_SnowBarrelBlast2 ; block numbers, block attributes, terrain
+	dw LevelMap_SnowBarrelBlast3, LevelMap_SnowBarrelBlast4, LevelMap_SnowBarrelBlast5 ; same, second half
 
-MapHeader_04_68cd::
+MapHeader_IceAgeAlley::
 	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
-	dw $5aa0 ; ($c45c)
-	db BANK(BGTiles_86_5460)
-	dw BGTiles_86_5460 ; tileset
-	db BANK(LevelMap_e6_5173)
-	dw LevelMap_e6_5173, LevelMap_e6_5956, LevelMap_e6_4f3c ; block numbers, block attributes, terrain
+	dw CameraRegions_IceAgeAlley ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SnowBarrelBlast)
+	dw BGTiles_SnowBarrelBlast ; tileset
+	db BANK(LevelMap_IceAgeAlley_2)
+	dw LevelMap_IceAgeAlley_2, LevelMap_IceAgeAlley_3, LevelMap_IceAgeAlley_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_68dc::
+MapHeader_SnowBarrelBlast_Area1::
 	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
-	dw $5c00 ; ($c45c)
-	db BANK(BGTiles_86_5460)
-	dw BGTiles_86_5460 ; tileset
-	db BANK(LevelMap_e6_5eb6)
-	dw LevelMap_e6_5eb6, LevelMap_e6_5f49, LevelMap_e6_5e73 ; block numbers, block attributes, terrain
+	dw CameraRegions_SnowBarrelBlast_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SnowBarrelBlast)
+	dw BGTiles_SnowBarrelBlast ; tileset
+	db BANK(LevelMap_SnowBarrelBlast_Area1_2)
+	dw LevelMap_SnowBarrelBlast_Area1_2, LevelMap_SnowBarrelBlast_Area1_3, LevelMap_SnowBarrelBlast_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_68eb::
+MapHeader_SnowBarrelBlast_Area2::
 	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
-	dw $5c10 ; ($c45c)
-	db BANK(BGTiles_86_5460)
-	dw BGTiles_86_5460 ; tileset
-	db BANK(LevelMap_eb_623a)
-	dw LevelMap_eb_623a, LevelMap_eb_62dd, LevelMap_eb_61e6 ; block numbers, block attributes, terrain
+	dw CameraRegions_SnowBarrelBlast_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SnowBarrelBlast)
+	dw BGTiles_SnowBarrelBlast ; tileset
+	db BANK(LevelMap_SnowBarrelBlast_Area2_2)
+	dw LevelMap_SnowBarrelBlast_Area2_2, LevelMap_SnowBarrelBlast_Area2_3, LevelMap_SnowBarrelBlast_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_68fa::
+MapHeader_IceAgeAlley_Area1::
 	db BANK(LevelBlocks_b1), BANK(LevelTerrain_b3), $00 ; block bank, terrain bank, flags
-	dw $5c20 ; ($c45c)
-	db BANK(BGTiles_86_5460)
-	dw BGTiles_86_5460 ; tileset
-	db BANK(LevelMap_eb_63a7)
-	dw LevelMap_eb_63a7, LevelMap_eb_6439, LevelMap_eb_6358 ; block numbers, block attributes, terrain
+	dw CameraRegions_IceAgeAlley_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_SnowBarrelBlast)
+	dw BGTiles_SnowBarrelBlast ; tileset
+	db BANK(LevelMap_IceAgeAlley_Area1_2)
+	dw LevelMap_IceAgeAlley_Area1_2, LevelMap_IceAgeAlley_Area1_3, LevelMap_IceAgeAlley_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6909::
+MapHeader_MineCartMadness::
 	db BANK(LevelBlocks_b4), BANK(LevelTerrain_b6), $02 ; block bank, terrain bank, flags
-	dw $5c30 ; ($c45c)
-	db BANK(BGTiles_87_4000)
-	dw BGTiles_87_4000 ; tileset
-	db BANK(LevelMap_e6_61df)
-	dw LevelMap_e6_61df, LevelMap_e6_69f5, LevelMap_e6_5fd3 ; block numbers, block attributes, terrain
-	dw LevelMap_e6_6eb1, LevelMap_e6_7375, LevelMap_e6_6d90 ; same, second half
+	dw CameraRegions_MineCartMadness ; camera regions (wCameraRegion)
+	db BANK(BGTiles_MineCartMadness)
+	dw BGTiles_MineCartMadness ; tileset
+	db BANK(LevelMap_MineCartMadness0)
+	dw LevelMap_MineCartMadness0, LevelMap_MineCartMadness1, LevelMap_MineCartMadness2 ; block numbers, block attributes, terrain
+	dw LevelMap_MineCartMadness3, LevelMap_MineCartMadness4, LevelMap_MineCartMadness5 ; same, second half
 
-MapHeader_04_691e::
+MapHeader_ReptileRumble::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $5dd0 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_e6_77f4)
-	dw LevelMap_e6_77f4, LevelMap_e6_7c89, LevelMap_e6_75e1 ; block numbers, block attributes, terrain
+	dw CameraRegions_ReptileRumble ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ReptileRumble_2)
+	dw LevelMap_ReptileRumble_2, LevelMap_ReptileRumble_3, LevelMap_ReptileRumble_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_692d::
+MapHeader_BouncyBonanza::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $02 ; block bank, terrain bank, flags
-	dw $5f30 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_e7_43a9)
-	dw LevelMap_e7_43a9, LevelMap_e7_4ce5, LevelMap_e7_4000 ; block numbers, block attributes, terrain
-	dw LevelMap_e7_51eb, LevelMap_e7_527d, LevelMap_e7_5193 ; same, second half
+	dw CameraRegions_BouncyBonanza ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_BouncyBonanza0)
+	dw LevelMap_BouncyBonanza0, LevelMap_BouncyBonanza1, LevelMap_BouncyBonanza2 ; block numbers, block attributes, terrain
+	dw LevelMap_BouncyBonanza3, LevelMap_BouncyBonanza4, LevelMap_BouncyBonanza5 ; same, second half
 
-MapHeader_04_6942::
+MapHeader_TorchlightTrouble::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6020 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_e7_5458)
-	dw LevelMap_e7_5458, LevelMap_e7_5902, LevelMap_e7_52f1 ; block numbers, block attributes, terrain
+	dw CameraRegions_TorchlightTrouble ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_TorchlightTrouble_2)
+	dw LevelMap_TorchlightTrouble_2, LevelMap_TorchlightTrouble_3, LevelMap_TorchlightTrouble_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6951::
+MapHeader_ManicMincers::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $02 ; block bank, terrain bank, flags
-	dw $60e0 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_e7_5e3a)
-	dw LevelMap_e7_5e3a, LevelMap_e7_6590, LevelMap_e7_5b8f ; block numbers, block attributes, terrain
-	dw LevelMap_e7_6997, LevelMap_e7_6a61, LevelMap_e7_6943 ; same, second half
+	dw CameraRegions_ManicMincers ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ManicMincers0)
+	dw LevelMap_ManicMincers0, LevelMap_ManicMincers1, LevelMap_ManicMincers2 ; block numbers, block attributes, terrain
+	dw LevelMap_ManicMincers3, LevelMap_ManicMincers4, LevelMap_ManicMincers5 ; same, second half
 
-MapHeader_04_6966::
+MapHeader_ElevatorAntics::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $02 ; block bank, terrain bank, flags
-	dw $6220 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_e8_43bf)
-	dw LevelMap_e8_43bf, LevelMap_e8_4e25, LevelMap_e8_4000 ; block numbers, block attributes, terrain
-	dw LevelMap_e8_54ba, LevelMap_e8_5747, LevelMap_e8_5375 ; same, second half
+	dw CameraRegions_ElevatorAntics ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ElevatorAntics0)
+	dw LevelMap_ElevatorAntics0, LevelMap_ElevatorAntics1, LevelMap_ElevatorAntics2 ; block numbers, block attributes, terrain
+	dw LevelMap_ElevatorAntics3, LevelMap_ElevatorAntics4, LevelMap_ElevatorAntics5 ; same, second half
 
-MapHeader_04_697b::
+MapHeader_NeckyNutmare::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6470 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_e8_5ba0)
-	dw LevelMap_e8_5ba0, LevelMap_e8_639c, LevelMap_e8_58e1 ; block numbers, block attributes, terrain
+	dw CameraRegions_NeckyNutmare ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_NeckyNutmare_2)
+	dw LevelMap_NeckyNutmare_2, LevelMap_NeckyNutmare_3, LevelMap_NeckyNutmare_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_698a::
+MapHeader_JungleHijinxs_Area1::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $65e0 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_e8_67e1)
-	dw LevelMap_e8_67e1, LevelMap_e8_6890, LevelMap_e8_677a ; block numbers, block attributes, terrain
+	dw CameraRegions_JungleHijinxs_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_JungleHijinxs_Area1_2)
+	dw LevelMap_JungleHijinxs_Area1_2, LevelMap_JungleHijinxs_Area1_3, LevelMap_JungleHijinxs_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6999::
+MapHeader_ReptileRumble_Area1::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $65f0 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_653c)
-	dw LevelMap_eb_653c, LevelMap_eb_65fb, LevelMap_eb_64bb ; block numbers, block attributes, terrain
+	dw CameraRegions_ReptileRumble_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ReptileRumble_Area1_2)
+	dw LevelMap_ReptileRumble_Area1_2, LevelMap_ReptileRumble_Area1_3, LevelMap_ReptileRumble_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_69a8::
+MapHeader_ReptileRumble_Area2::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6600 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_66d6)
-	dw LevelMap_eb_66d6, LevelMap_eb_67a1, LevelMap_eb_667f ; block numbers, block attributes, terrain
+	dw CameraRegions_ReptileRumble_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ReptileRumble_Area2_2)
+	dw LevelMap_ReptileRumble_Area2_2, LevelMap_ReptileRumble_Area2_3, LevelMap_ReptileRumble_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_69b7::
+MapHeader_ReptileRumble_Area3::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6610 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_6896)
-	dw LevelMap_eb_6896, LevelMap_eb_693a, LevelMap_eb_6834 ; block numbers, block attributes, terrain
+	dw CameraRegions_ReptileRumble_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ReptileRumble_Area3_2)
+	dw LevelMap_ReptileRumble_Area3_2, LevelMap_ReptileRumble_Area3_3, LevelMap_ReptileRumble_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_69c6::
+MapHeader_BarrelCannonCanyon_Area2::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6620 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_6a21)
-	dw LevelMap_eb_6a21, LevelMap_eb_6acd, LevelMap_eb_69c0 ; block numbers, block attributes, terrain
+	dw CameraRegions_BarrelCannonCanyon_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_BarrelCannonCanyon_Area2_2)
+	dw LevelMap_BarrelCannonCanyon_Area2_2, LevelMap_BarrelCannonCanyon_Area2_3, LevelMap_BarrelCannonCanyon_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_69d5::
+MapHeader_BouncyBonanza_Area1::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6630 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_6ba2)
-	dw LevelMap_eb_6ba2, LevelMap_eb_6c27, LevelMap_eb_6b5f ; block numbers, block attributes, terrain
+	dw CameraRegions_BouncyBonanza_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_BouncyBonanza_Area1_2)
+	dw LevelMap_BouncyBonanza_Area1_2, LevelMap_BouncyBonanza_Area1_3, LevelMap_BouncyBonanza_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_69e4::
+MapHeader_BouncyBonanza_Area2::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6640 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_6cf3)
-	dw LevelMap_eb_6cf3, LevelMap_eb_6d66, LevelMap_eb_6caa ; block numbers, block attributes, terrain
+	dw CameraRegions_BouncyBonanza_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_BouncyBonanza_Area2_2)
+	dw LevelMap_BouncyBonanza_Area2_2, LevelMap_BouncyBonanza_Area2_3, LevelMap_BouncyBonanza_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_69f3::
+MapHeader_ElevatorAntics_Area1::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6650 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_6dfb)
-	dw LevelMap_eb_6dfb, LevelMap_eb_6e7a, LevelMap_eb_6db8 ; block numbers, block attributes, terrain
+	dw CameraRegions_ElevatorAntics_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ElevatorAntics_Area1_2)
+	dw LevelMap_ElevatorAntics_Area1_2, LevelMap_ElevatorAntics_Area1_3, LevelMap_ElevatorAntics_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6a02::
+MapHeader_ManicMincers_Area1::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6660 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_6f3c)
-	dw LevelMap_eb_6f3c, LevelMap_eb_6fbb, LevelMap_eb_6ef3 ; block numbers, block attributes, terrain
+	dw CameraRegions_ManicMincers_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ManicMincers_Area1_2)
+	dw LevelMap_ManicMincers_Area1_2, LevelMap_ManicMincers_Area1_3, LevelMap_ManicMincers_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6a11::
+MapHeader_TorchlightTrouble_Area1::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6670 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_707c)
-	dw LevelMap_eb_707c, LevelMap_eb_70ef, LevelMap_eb_7019 ; block numbers, block attributes, terrain
+	dw CameraRegions_TorchlightTrouble_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_TorchlightTrouble_Area1_2)
+	dw LevelMap_TorchlightTrouble_Area1_2, LevelMap_TorchlightTrouble_Area1_3, LevelMap_TorchlightTrouble_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6a20::
+MapHeader_ElevatorAntics_Area2::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6680 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_71a2)
-	dw LevelMap_eb_71a2, LevelMap_eb_7253, LevelMap_eb_7141 ; block numbers, block attributes, terrain
+	dw CameraRegions_ElevatorAntics_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ElevatorAntics_Area2_2)
+	dw LevelMap_ElevatorAntics_Area2_2, LevelMap_ElevatorAntics_Area2_3, LevelMap_ElevatorAntics_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6a2f::
+MapHeader_ManicMincers_Area2::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $6690 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_7347)
-	dw LevelMap_eb_7347, LevelMap_eb_73ba, LevelMap_eb_72e6 ; block numbers, block attributes, terrain
+	dw CameraRegions_ManicMincers_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_ManicMincers_Area2_2)
+	dw LevelMap_ManicMincers_Area2_2, LevelMap_ManicMincers_Area2_3, LevelMap_ManicMincers_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6a3e::
+MapHeader_MineCartMadness_Area1::
 	db BANK(LevelBlocks_b7), BANK(LevelTerrain_b9), $00 ; block bank, terrain bank, flags
-	dw $66a0 ; ($c45c)
-	db BANK(BGTiles_87_5f70)
-	dw BGTiles_87_5f70 ; tileset
-	db BANK(LevelMap_eb_746d)
-	dw LevelMap_eb_746d, LevelMap_eb_751d, LevelMap_eb_740c ; block numbers, block attributes, terrain
+	dw CameraRegions_MineCartMadness_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ReptileRumble)
+	dw BGTiles_ReptileRumble ; tileset
+	db BANK(LevelMap_MineCartMadness_Area1_2)
+	dw LevelMap_MineCartMadness_Area1_2, LevelMap_MineCartMadness_Area1_3, LevelMap_MineCartMadness_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6a4d::
+MapHeader_TrickTrackTrek::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $02 ; block bank, terrain bank, flags
-	dw $66b0 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_e9_40b1)
-	dw LevelMap_e9_40b1, LevelMap_e9_4838, LevelMap_e9_4000 ; block numbers, block attributes, terrain
-	dw LevelMap_e9_4bae, LevelMap_e9_4fe0, LevelMap_e9_4b1d ; same, second half
+	dw CameraRegions_TrickTrackTrek ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_TrickTrackTrek0)
+	dw LevelMap_TrickTrackTrek0, LevelMap_TrickTrackTrek1, LevelMap_TrickTrackTrek2 ; block numbers, block attributes, terrain
+	dw LevelMap_TrickTrackTrek3, LevelMap_TrickTrackTrek4, LevelMap_TrickTrackTrek5 ; same, second half
 
-MapHeader_04_6a62::
+MapHeader_PlatformPerils::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $02 ; block bank, terrain bank, flags
-	dw $68f0 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_e9_5332)
-	dw LevelMap_e9_5332, LevelMap_e9_5bf8, LevelMap_e9_51da ; block numbers, block attributes, terrain
-	dw LevelMap_e9_610c, LevelMap_e9_62a0, LevelMap_e9_609d ; same, second half
+	dw CameraRegions_PlatformPerils ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_PlatformPerils0)
+	dw LevelMap_PlatformPerils0, LevelMap_PlatformPerils1, LevelMap_PlatformPerils2 ; block numbers, block attributes, terrain
+	dw LevelMap_PlatformPerils3, LevelMap_PlatformPerils4, LevelMap_PlatformPerils5 ; same, second half
 
-MapHeader_04_6a77::
+MapHeader_TankedUpTrouble::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $02 ; block bank, terrain bank, flags
-	dw $6960 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_e9_6490)
-	dw LevelMap_e9_6490, LevelMap_e9_6dac, LevelMap_e9_63b7 ; block numbers, block attributes, terrain
-	dw LevelMap_e9_715a, LevelMap_e9_7337, LevelMap_e9_70f2 ; same, second half
+	dw CameraRegions_TankedUpTrouble ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_TankedUpTrouble0)
+	dw LevelMap_TankedUpTrouble0, LevelMap_TankedUpTrouble1, LevelMap_TankedUpTrouble2 ; block numbers, block attributes, terrain
+	dw LevelMap_TankedUpTrouble3, LevelMap_TankedUpTrouble4, LevelMap_TankedUpTrouble5 ; same, second half
 
-MapHeader_04_6a8c::
+MapHeader_TrickTrackTrek_Area1::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
-	dw $6b20 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_e9_74ca)
-	dw LevelMap_e9_74ca, LevelMap_e9_7533, LevelMap_e9_747a ; block numbers, block attributes, terrain
+	dw CameraRegions_TrickTrackTrek_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_TrickTrackTrek_Area1_2)
+	dw LevelMap_TrickTrackTrek_Area1_2, LevelMap_TrickTrackTrek_Area1_3, LevelMap_TrickTrackTrek_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6a9b::
+MapHeader_WinkysWalkway::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
-	dw $6b30 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_e9_7717)
-	dw LevelMap_e9_7717, LevelMap_e9_7b4b, LevelMap_e9_7592 ; block numbers, block attributes, terrain
+	dw CameraRegions_WinkysWalkway ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_WinkysWalkway_2)
+	dw LevelMap_WinkysWalkway_2, LevelMap_WinkysWalkway_3, LevelMap_WinkysWalkway_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6aaa::
+MapHeader_TrickTrackTrek_Area2::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
-	dw $6c50 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_eb_7604)
-	dw LevelMap_eb_7604, LevelMap_eb_76a6, LevelMap_eb_75af ; block numbers, block attributes, terrain
+	dw CameraRegions_TrickTrackTrek_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_TrickTrackTrek_Area2_2)
+	dw LevelMap_TrickTrackTrek_Area2_2, LevelMap_TrickTrackTrek_Area2_3, LevelMap_TrickTrackTrek_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6ab9::
+MapHeader_MineCartMadness_Area3::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
-	dw $6c60 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_eb_7790)
-	dw LevelMap_eb_7790, LevelMap_eb_7810, LevelMap_eb_773b ; block numbers, block attributes, terrain
+	dw CameraRegions_MineCartMadness_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_MineCartMadness_Area3_2)
+	dw LevelMap_MineCartMadness_Area3_2, LevelMap_MineCartMadness_Area3_3, LevelMap_MineCartMadness_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6ac8::
+MapHeader_TankedUpTrouble_Area1::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
-	dw $6c70 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_eb_78d6)
-	dw LevelMap_eb_78d6, LevelMap_eb_7946, LevelMap_eb_7888 ; block numbers, block attributes, terrain
+	dw CameraRegions_TankedUpTrouble_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_TankedUpTrouble_Area1_2)
+	dw LevelMap_TankedUpTrouble_Area1_2, LevelMap_TankedUpTrouble_Area1_3, LevelMap_TankedUpTrouble_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6ad7::
+MapHeader_WinkysWalkway_Area1::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
-	dw $6c80 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_ec_404e)
-	dw LevelMap_ec_404e, LevelMap_ec_40bb, LevelMap_ec_4000 ; block numbers, block attributes, terrain
+	dw CameraRegions_WinkysWalkway_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_WinkysWalkway_Area1_2)
+	dw LevelMap_WinkysWalkway_Area1_2, LevelMap_WinkysWalkway_Area1_3, LevelMap_WinkysWalkway_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6ae6::
+MapHeader_TrickTrackTrek_Area3::
 	db BANK(LevelBlocks_bd), BANK(LevelTerrain_bf), $00 ; block bank, terrain bank, flags
-	dw $6c90 ; ($c45c)
-	db BANK(BGTiles_88_4000)
-	dw BGTiles_88_4000 ; tileset
-	db BANK(LevelMap_ec_4180)
-	dw LevelMap_ec_4180, LevelMap_ec_41ed, LevelMap_ec_411c ; block numbers, block attributes, terrain
+	dw CameraRegions_TrickTrackTrek_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_TrickTrackTrek)
+	dw BGTiles_TrickTrackTrek ; tileset
+	db BANK(LevelMap_TrickTrackTrek_Area3_2)
+	dw LevelMap_TrickTrackTrek_Area3_2, LevelMap_TrickTrackTrek_Area3_3, LevelMap_TrickTrackTrek_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6af5::
+MapHeader_StopAndGoStation::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
-	dw $6ca0 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ea_41ca)
-	dw LevelMap_ea_41ca, LevelMap_ea_47d6, LevelMap_ea_4000 ; block numbers, block attributes, terrain
+	dw CameraRegions_StopAndGoStation ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_StopAndGoStation_2)
+	dw LevelMap_StopAndGoStation_2, LevelMap_StopAndGoStation_3, LevelMap_StopAndGoStation_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b04::
+MapHeader_MistyMine::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $02 ; block bank, terrain bank, flags
-	dw $6d60 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ea_4c42)
-	dw LevelMap_ea_4c42, LevelMap_ea_5528, LevelMap_ea_4a27 ; block numbers, block attributes, terrain
-	dw LevelMap_ea_59ab, LevelMap_ea_5b9e, LevelMap_ea_592d ; same, second half
+	dw CameraRegions_MistyMine ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_MistyMine0)
+	dw LevelMap_MistyMine0, LevelMap_MistyMine1, LevelMap_MistyMine2 ; block numbers, block attributes, terrain
+	dw LevelMap_MistyMine3, LevelMap_MistyMine4, LevelMap_MistyMine5 ; same, second half
 
-MapHeader_04_6b19::
+MapHeader_LoopyLights::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $02 ; block bank, terrain bank, flags
-	dw $6f70 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ea_5f17)
-	dw LevelMap_ea_5f17, LevelMap_ea_6775, LevelMap_ea_5c95 ; block numbers, block attributes, terrain
-	dw LevelMap_ea_6cb6, LevelMap_ea_6e87, LevelMap_ea_6bd6 ; same, second half
+	dw CameraRegions_LoopyLights ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_LoopyLights0)
+	dw LevelMap_LoopyLights0, LevelMap_LoopyLights1, LevelMap_LoopyLights2 ; block numbers, block attributes, terrain
+	dw LevelMap_LoopyLights3, LevelMap_LoopyLights4, LevelMap_LoopyLights5 ; same, second half
 
-MapHeader_04_6b2e::
+MapHeader_MistyMine_Area1::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
-	dw $70c0 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ea_7021)
-	dw LevelMap_ea_7021, LevelMap_ea_7125, LevelMap_ea_6fb8 ; block numbers, block attributes, terrain
+	dw CameraRegions_MistyMine_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_MistyMine_Area1_2)
+	dw LevelMap_MistyMine_Area1_2, LevelMap_MistyMine_Area1_3, LevelMap_MistyMine_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b3d::
+MapHeader_MistyMine_Area2::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
-	dw $70d0 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ec_4297)
-	dw LevelMap_ec_4297, LevelMap_ec_4304, LevelMap_ec_424e ; block numbers, block attributes, terrain
+	dw CameraRegions_MistyMine_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_MistyMine_Area2_2)
+	dw LevelMap_MistyMine_Area2_2, LevelMap_MistyMine_Area2_3, LevelMap_MistyMine_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b4c::
+MapHeader_LoopyLights_Area1::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
-	dw $70e0 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ec_43ba)
-	dw LevelMap_ec_43ba, LevelMap_ec_449f, LevelMap_ec_4359 ; block numbers, block attributes, terrain
+	dw CameraRegions_LoopyLights_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_LoopyLights_Area1_2)
+	dw LevelMap_LoopyLights_Area1_2, LevelMap_LoopyLights_Area1_3, LevelMap_LoopyLights_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b5b::
+MapHeader_StopAndGoStation_Area1::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
-	dw $70f0 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ec_45a4)
-	dw LevelMap_ec_45a4, LevelMap_ec_464b, LevelMap_ec_454b ; block numbers, block attributes, terrain
+	dw CameraRegions_StopAndGoStation_Area1 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_StopAndGoStation_Area1_2)
+	dw LevelMap_StopAndGoStation_Area1_2, LevelMap_StopAndGoStation_Area1_3, LevelMap_StopAndGoStation_Area1_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b6a::
+MapHeader_StopAndGoStation_Area2::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
-	dw $7100 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ec_4726)
-	dw LevelMap_ec_4726, LevelMap_ec_47a5, LevelMap_ec_46e3 ; block numbers, block attributes, terrain
+	dw CameraRegions_StopAndGoStation_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_StopAndGoStation_Area2_2)
+	dw LevelMap_StopAndGoStation_Area2_2, LevelMap_StopAndGoStation_Area2_3, LevelMap_StopAndGoStation_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b79::
+MapHeader_LoopyLights_Area2::
 	db BANK(LevelBlocks_c0), BANK(LevelTerrain_c2), $00 ; block bank, terrain bank, flags
-	dw $7110 ; ($c45c)
-	db BANK(BGTiles_89_4000)
-	dw BGTiles_89_4000 ; tileset
-	db BANK(LevelMap_ec_48a4)
-	dw LevelMap_ec_48a4, LevelMap_ec_4a01, LevelMap_ec_4824 ; block numbers, block attributes, terrain
+	dw CameraRegions_LoopyLights_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_StopAndGoStation)
+	dw BGTiles_StopAndGoStation ; tileset
+	db BANK(LevelMap_LoopyLights_Area2_2)
+	dw LevelMap_LoopyLights_Area2_2, LevelMap_LoopyLights_Area2_3, LevelMap_LoopyLights_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b88::
+MapHeader_RambiBonus::
 	db BANK(LevelBlocks_c6), BANK(LevelTerrain_c8), $00 ; block bank, terrain bank, flags
-	dw $7170 ; ($c45c)
-	db BANK(BGTiles_88_5b00)
-	dw BGTiles_88_5b00 ; tileset
-	db BANK(LevelMap_ea_7306)
-	dw LevelMap_ea_7306, LevelMap_ea_751d, LevelMap_ea_71e4 ; block numbers, block attributes, terrain
+	dw CameraRegions_RambiBonus ; camera regions (wCameraRegion)
+	db BANK(BGTiles_RambiBonus)
+	dw BGTiles_RambiBonus ; tileset
+	db BANK(LevelMap_RambiBonus_2)
+	dw LevelMap_RambiBonus_2, LevelMap_RambiBonus_3, LevelMap_RambiBonus_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6b97::
+MapHeader_SnowBarrelBlast_Area3::
 	db BANK(LevelBlocks_c6), BANK(LevelTerrain_c8), $00 ; block bank, terrain bank, flags
-	dw $7180 ; ($c45c)
-	db BANK(BGTiles_88_5b00)
-	dw BGTiles_88_5b00 ; tileset
-	db BANK(LevelMap_ea_75bf)
-	dw LevelMap_ea_75bf, LevelMap_ea_7625, LevelMap_ea_7562 ; block numbers, block attributes, terrain
+	dw CameraRegions_SnowBarrelBlast_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_RambiBonus)
+	dw BGTiles_RambiBonus ; tileset
+	db BANK(LevelMap_SnowBarrelBlast_Area3_2)
+	dw LevelMap_SnowBarrelBlast_Area3_2, LevelMap_SnowBarrelBlast_Area3_3, LevelMap_SnowBarrelBlast_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6ba6::
+MapHeader_IceAgeAlley_Area2::
 	db BANK(LevelBlocks_c6), BANK(LevelTerrain_c8), $00 ; block bank, terrain bank, flags
-	dw $7190 ; ($c45c)
-	db BANK(BGTiles_88_5b00)
-	dw BGTiles_88_5b00 ; tileset
-	db BANK(LevelMap_ea_76cf)
-	dw LevelMap_ea_76cf, LevelMap_ea_7735, LevelMap_ea_7672 ; block numbers, block attributes, terrain
+	dw CameraRegions_IceAgeAlley_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_RambiBonus)
+	dw BGTiles_RambiBonus ; tileset
+	db BANK(LevelMap_IceAgeAlley_Area2_2)
+	dw LevelMap_IceAgeAlley_Area2_2, LevelMap_IceAgeAlley_Area2_3, LevelMap_IceAgeAlley_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6bb5::
+MapHeader_ExpressoBonus::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $7220 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_eb_5032)
-	dw LevelMap_eb_5032, LevelMap_eb_525a, LevelMap_eb_4ed6 ; block numbers, block attributes, terrain
+	dw CameraRegions_ExpressoBonus ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_ExpressoBonus_2)
+	dw LevelMap_ExpressoBonus_2, LevelMap_ExpressoBonus_3, LevelMap_ExpressoBonus_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6bc4::
+MapHeader_RopeyRampage_Area2::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $72f0 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_ec_4b33)
-	dw LevelMap_ec_4b33, LevelMap_ec_4b8f, LevelMap_ec_4aec ; block numbers, block attributes, terrain
+	dw CameraRegions_RopeyRampage_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_RopeyRampage_Area2_2)
+	dw LevelMap_RopeyRampage_Area2_2, LevelMap_RopeyRampage_Area2_3, LevelMap_RopeyRampage_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6bd3::
+MapHeader_JungleHijinxs_Area4::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $7300 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_ec_4c32)
-	dw LevelMap_ec_4c32, LevelMap_ec_4c9d, LevelMap_ec_4bd9 ; block numbers, block attributes, terrain
+	dw CameraRegions_JungleHijinxs_Area4 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_JungleHijinxs_Area4_2)
+	dw LevelMap_JungleHijinxs_Area4_2, LevelMap_JungleHijinxs_Area4_3, LevelMap_JungleHijinxs_Area4_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6be2::
+MapHeader_BlackoutBasement_Area2::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $7310 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_ec_4d40)
-	dw LevelMap_ec_4d40, LevelMap_ec_4dab, LevelMap_ec_4ce7 ; block numbers, block attributes, terrain
+	dw CameraRegions_BlackoutBasement_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_BlackoutBasement_Area2_2)
+	dw LevelMap_BlackoutBasement_Area2_2, LevelMap_BlackoutBasement_Area2_3, LevelMap_BlackoutBasement_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6bf1::
+MapHeader_OilDrumAlley_Area4::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $7320 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_ec_4e48)
-	dw LevelMap_ec_4e48, LevelMap_ec_4eb8, LevelMap_ec_4dee ; block numbers, block attributes, terrain
+	dw CameraRegions_OilDrumAlley_Area4 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_OilDrumAlley_Area4_2)
+	dw LevelMap_OilDrumAlley_Area4_2, LevelMap_OilDrumAlley_Area4_3, LevelMap_OilDrumAlley_Area4_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c00::
+MapHeader_OrangUtanGang_Area3::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $7330 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_ec_4f62)
-	dw LevelMap_ec_4f62, LevelMap_ec_4fd5, LevelMap_ec_4f03 ; block numbers, block attributes, terrain
+	dw CameraRegions_OrangUtanGang_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_OrangUtanGang_Area3_2)
+	dw LevelMap_OrangUtanGang_Area3_2, LevelMap_OrangUtanGang_Area3_3, LevelMap_OrangUtanGang_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c0f::
+MapHeader_OrangUtanGang_Area4::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $7340 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_ec_5083)
-	dw LevelMap_ec_5083, LevelMap_ec_50f6, LevelMap_ec_5024 ; block numbers, block attributes, terrain
+	dw CameraRegions_OrangUtanGang_Area4 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_OrangUtanGang_Area4_2)
+	dw LevelMap_OrangUtanGang_Area4_2, LevelMap_OrangUtanGang_Area4_3, LevelMap_OrangUtanGang_Area4_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c1e::
+MapHeader_OrangUtanGang_Area5::
 	db BANK(LevelBlocks_c9), BANK(LevelTerrain_cb), $00 ; block bank, terrain bank, flags
-	dw $7350 ; ($c45c)
-	db BANK(BGTiles_8a_4000)
-	dw BGTiles_8a_4000 ; tileset
-	db BANK(LevelMap_ec_51a4)
-	dw LevelMap_ec_51a4, LevelMap_ec_5217, LevelMap_ec_5145 ; block numbers, block attributes, terrain
+	dw CameraRegions_OrangUtanGang_Area5 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_ExpressoBonus)
+	dw BGTiles_ExpressoBonus ; tileset
+	db BANK(LevelMap_OrangUtanGang_Area5_2)
+	dw LevelMap_OrangUtanGang_Area5_2, LevelMap_OrangUtanGang_Area5_3, LevelMap_OrangUtanGang_Area5_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c2d::
+MapHeader_WinkyBonus::
 	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
-	dw $71a0 ; ($c45c)
-	db BANK(BGTiles_89_5e10)
-	dw BGTiles_89_5e10 ; tileset
-	db BANK(LevelMap_eb_414e)
-	dw LevelMap_eb_414e, LevelMap_eb_430d, LevelMap_eb_4000 ; block numbers, block attributes, terrain
+	dw CameraRegions_WinkyBonus ; camera regions (wCameraRegion)
+	db BANK(BGTiles_WinkyBonus)
+	dw BGTiles_WinkyBonus ; tileset
+	db BANK(LevelMap_WinkyBonus_2)
+	dw LevelMap_WinkyBonus_2, LevelMap_WinkyBonus_3, LevelMap_WinkyBonus_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c3c::
+MapHeader_BreakableWall_21::
 	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
-	dw $71f0 ; ($c45c)
-	db BANK(BGTiles_89_5e10)
-	dw BGTiles_89_5e10 ; tileset
-	db BANK(LevelMap_eb_439b)
-	dw LevelMap_eb_439b, LevelMap_eb_4406, LevelMap_eb_4354 ; block numbers, block attributes, terrain
+	dw CameraRegions_BreakableWall_21 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_WinkyBonus)
+	dw BGTiles_WinkyBonus ; tileset
+	db BANK(LevelMap_BreakableWall_21_2)
+	dw LevelMap_BreakableWall_21_2, LevelMap_BreakableWall_21_3, LevelMap_BreakableWall_21_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c4b::
+MapHeader_BouncyBonanza_Area3::
 	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
-	dw $7200 ; ($c45c)
-	db BANK(BGTiles_89_5e10)
-	dw BGTiles_89_5e10 ; tileset
-	db BANK(LevelMap_eb_4490)
-	dw LevelMap_eb_4490, LevelMap_eb_44fb, LevelMap_eb_4449 ; block numbers, block attributes, terrain
+	dw CameraRegions_BouncyBonanza_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_WinkyBonus)
+	dw BGTiles_WinkyBonus ; tileset
+	db BANK(LevelMap_BouncyBonanza_Area3_2)
+	dw LevelMap_BouncyBonanza_Area3_2, LevelMap_BouncyBonanza_Area3_3, LevelMap_BouncyBonanza_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c5a::
+MapHeader_JungleHijinxs_Area2::
 	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
-	dw $7210 ; ($c45c)
-	db BANK(BGTiles_89_5e10)
-	dw BGTiles_89_5e10 ; tileset
-	db BANK(LevelMap_eb_4585)
-	dw LevelMap_eb_4585, LevelMap_eb_45f0, LevelMap_eb_453e ; block numbers, block attributes, terrain
+	dw CameraRegions_JungleHijinxs_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_WinkyBonus)
+	dw BGTiles_WinkyBonus ; tileset
+	db BANK(LevelMap_JungleHijinxs_Area2_2)
+	dw LevelMap_JungleHijinxs_Area2_2, LevelMap_JungleHijinxs_Area2_3, LevelMap_JungleHijinxs_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c69::
+MapHeader_TreeTopTown_Area2::
 	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
-	dw $7380 ; ($c45c)
-	db BANK(BGTiles_89_5e10)
-	dw BGTiles_89_5e10 ; tileset
-	db BANK(LevelMap_ec_52b2)
-	dw LevelMap_ec_52b2, LevelMap_ec_5317, LevelMap_ec_5266 ; block numbers, block attributes, terrain
+	dw CameraRegions_TreeTopTown_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_WinkyBonus)
+	dw BGTiles_WinkyBonus ; tileset
+	db BANK(LevelMap_TreeTopTown_Area2_2)
+	dw LevelMap_TreeTopTown_Area2_2, LevelMap_TreeTopTown_Area2_3, LevelMap_TreeTopTown_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c78::
+MapHeader_RopeBridgeRumble_Area2::
 	db BANK(LevelBlocks_c3), BANK(LevelTerrain_c5), $00 ; block bank, terrain bank, flags
-	dw $7390 ; ($c45c)
-	db BANK(BGTiles_89_5e10)
-	dw BGTiles_89_5e10 ; tileset
-	db BANK(LevelMap_ec_53b0)
-	dw LevelMap_ec_53b0, LevelMap_ec_5415, LevelMap_ec_5364 ; block numbers, block attributes, terrain
+	dw CameraRegions_RopeBridgeRumble_Area2 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_WinkyBonus)
+	dw BGTiles_WinkyBonus ; tileset
+	db BANK(LevelMap_RopeBridgeRumble_Area2_2)
+	dw LevelMap_RopeBridgeRumble_Area2_2, LevelMap_RopeBridgeRumble_Area2_3, LevelMap_RopeBridgeRumble_Area2_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c87::
+MapHeader_JungleHijinxs_Area3::
 	db BANK(LevelBlocks_ae), BANK(LevelTerrain_b0), $00 ; block bank, terrain bank, flags
-	dw $73a0 ; ($c45c)
-	db BANK(BGTiles_86_4000)
-	dw BGTiles_86_4000 ; tileset
-	db BANK(LevelMap_e5_77ef)
-	dw LevelMap_e5_77ef, LevelMap_e5_7850, LevelMap_e5_77a0 ; block numbers, block attributes, terrain
+	dw CameraRegions_JungleHijinxs_Area3 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_JungleHijinxs_Area3)
+	dw BGTiles_JungleHijinxs_Area3 ; tileset
+	db BANK(LevelMap_JungleHijinxs_Area3_2)
+	dw LevelMap_JungleHijinxs_Area3_2, LevelMap_JungleHijinxs_Area3_3, LevelMap_JungleHijinxs_Area3_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6c96::
+MapHeader_GangPlankGalleon::
 	db BANK(LevelBlocks_a2), BANK(LevelTerrain_a4), $00 ; block bank, terrain bank, flags
-	dw $73b0 ; ($c45c)
-	db BANK(BGTiles_84_4000)
-	dw BGTiles_84_4000 ; tileset
-	db BANK(LevelMap_e3_4f9b)
-	dw LevelMap_e3_4f9b, LevelMap_e3_501f, LevelMap_e3_4f54 ; block numbers, block attributes, terrain
+	dw CameraRegions_GangPlankGalleon ; camera regions (wCameraRegion)
+	db BANK(BGTiles_GangPlankGalleon)
+	dw BGTiles_GangPlankGalleon ; tileset
+	db BANK(LevelMap_GangPlankGalleon_2)
+	dw LevelMap_GangPlankGalleon_2, LevelMap_GangPlankGalleon_3, LevelMap_GangPlankGalleon_1 ; block numbers, block attributes, terrain
 
-MapHeader_04_6ca5::
+MapHeader_LevelTable_5::
 	db BANK(LevelBlocks_ba), BANK(LevelTerrain_bc), $00 ; block bank, terrain bank, flags
-	dw $73c0 ; ($c45c)
-	db BANK(BGTiles_8a_5ff0)
-	dw BGTiles_8a_5ff0 ; tileset
-	db BANK(LevelMap_ec_564f)
-	dw LevelMap_ec_564f, LevelMap_ec_56b0, LevelMap_ec_5608 ; block numbers, block attributes, terrain
+	dw CameraRegions_LevelTable_5 ; camera regions (wCameraRegion)
+	db BANK(BGTiles_LevelTable_2)
+	dw BGTiles_LevelTable_2 ; tileset
+	db BANK(LevelMap_LevelTable_14)
+	dw LevelMap_LevelTable_14, LevelMap_LevelTable_15, LevelMap_LevelTable_13 ; block numbers, block attributes, terrain
 
-MapPatch_04_6cb4::
+MapPatch_HiddenKongLetter_14::
 	db $03, $05, 1, 1 ; block x, y, width, height
 	db $9c, $02, $01
 
-MapPatch_04_6cbb::
+MapPatch_BlackDrum_34::
 	db $0d, $05, 1, 2 ; block x, y, width, height
 	db $08, $05, $00
 	db $f8, $00, $00
 
-MapPatch_04_6cc5::
+MapPatch_BreakableWall_24::
 	db $2d, $03, 1, 3 ; block x, y, width, height
 	db $a2, $05, $18
 	db $b2, $05, $0f
 	db $c2, $05, $5f
 
-MapPatch_04_6cd2::
+MapPatch_HiddenKongLetter_15::
 	db $2f, $04, 1, 2 ; block x, y, width, height
 	db $18, $00, $0a
 	db $28, $00, $5f
 
-MapPatch_04_6cdc::
+MapPatch_HiddenKongLetter_17::
 	db $45, $0a, 1, 1 ; block x, y, width, height
 	db $9c, $02, $01
 
-MapPatch_04_6ce3::
+MapPatch_HiddenKongLetter_18::
 	db $4e, $06, 1, 1 ; block x, y, width, height
 	db $9c, $02, $01
 
-MapPatch_04_6cea::
+MapPatch_HiddenKongLetter_19::
 	db $77, $06, 1, 2 ; block x, y, width, height
 	db $18, $00, $0a
 	db $28, $00, $5f
 
-MapPatch_04_6cf4::
+MapPatch_BreakableWall_25::
 	db $9f, $08, 1, 3 ; block x, y, width, height
 	db $6e, $02, $05
 	db $7e, $02, $05
 	db $7c, $02, $b4
 
-MapPatch_04_6d01::
+MapPatch_HiddenKongLetter_20::
 	db $ac, $07, 1, 2 ; block x, y, width, height
 	db $18, $00, $0a
 	db $28, $00, $5f
 
-MapPatch_04_6d0b::
+MapPatch_HiddenKongLetter_16::
 	db $f4, $0b, 1, 1 ; block x, y, width, height
 	db $9c, $02, $01
 
-MapPatch_04_6d12::
+MapPatch_BlackDrum_35::
 	db $16, $06, 1, 2 ; block x, y, width, height
 	db $ca, $00, $00
 	db $d6, $00, $01
 
-MapPatch_04_6d1c::
+MapPatch_BlackDrum_36::
 	db $20, $06, 1, 2 ; block x, y, width, height
 	db $94, $00, $13
 	db $a4, $00, $17
 
-MapPatch_04_6d26::
+MapPatch_BlackDrum_37::
 	db $32, $02, 1, 2 ; block x, y, width, height
 	db $6a, $02, $00
 	db $7a, $02, $1a
 
-MapPatch_04_6d30::
+MapPatch_BlackDrum_38::
 	db $35, $01, 1, 2 ; block x, y, width, height
 	db $6e, $01, $00
 	db $7e, $01, $1f
 
-MapPatch_04_6d3a::
+MapPatch_BlackDrum_39::
 	db $3d, $02, 1, 2 ; block x, y, width, height
 	db $24, $01, $0b
 	db $34, $01, $0c
 
-MapPatch_04_6d44::
+MapPatch_BlackDrum_40::
 	db $40, $05, 1, 2 ; block x, y, width, height
 	db $24, $01, $0b
 	db $34, $01, $0c
 
-MapPatch_04_6d4e::
+MapPatch_BlackDrum_41::
 	db $43, $08, 1, 2 ; block x, y, width, height
 	db $24, $01, $0b
 	db $34, $01, $0c
 
-MapPatch_04_6d58::
+MapPatch_HiddenKongLetter_23::
 	db $09, $08, 1, 1 ; block x, y, width, height
 	db $e2, $00, $08
 
-MapPatch_04_6d5f::
+MapPatch_BreakableWall_2::
 	db $55, $08, 1, 2 ; block x, y, width, height
 	db $ae, $03, $41
 	db $be, $03, $40
 
-MapPatch_04_6d69::
+MapPatch_OpenedWall_2::
 	db $61, $05, 1, 2 ; block x, y, width, height
 	db $8e, $03, $4a
 	db $9e, $03, $4b
 
-MapPatch_04_6d73::
+MapPatch_BreakableWall_3::
 	db $66, $09, 1, 2 ; block x, y, width, height
 	db $ae, $03, $41
 	db $be, $03, $40
 
-MapPatch_04_6d7d::
+MapPatch_HiddenKongLetter_24::
 	db $67, $08, 1, 2 ; block x, y, width, height
 	db $2c, $02, $4f
 	db $0e, $02, $f9
 
-MapPatch_04_6d87::
+MapPatch_HiddenKongLetter_10::
 	db $a5, $02, 1, 1 ; block x, y, width, height
 	db $2c, $02, $4f
 
-MapPatch_04_6d8e::
+MapPatch_HiddenKongLetter_11::
 	db $ad, $02, 1, 1 ; block x, y, width, height
 	db $2c, $02, $4f
 
-MapPatch_04_6d95::
+MapPatch_BreakableWall_14::
 	db $b6, $0a, 1, 2 ; block x, y, width, height
 	db $1e, $07, $81
 	db $1c, $07, $06
 
-MapPatch_04_6d9f::
+MapPatch_BreakableWall_13::
 	db $9e, $09, 1, 2 ; block x, y, width, height
 	db $26, $07, $a8
 	db $36, $07, $a7
 
-MapPatch_04_6da9::
+MapPatch_BreakableWall_16::
 	db $c6, $06, 1, 2 ; block x, y, width, height
 	db $4c, $07, $9a
 	db $5c, $07, $42
 
-MapPatch_04_6db3::
+MapPatch_BreakableWall_15::
 	db $bb, $08, 1, 2 ; block x, y, width, height
 	db $2c, $07, $a1
 	db $3c, $07, $be
 
-MapPatch_04_6dbd::
+MapPatch_Entrance_5::
 	db $45, $07, 2, 2 ; block x, y, width, height
 	db $74, $03, $00, $40, $06, $d1
 	db $30, $06, $a8, $50, $06, $f9
 
-MapPatch_04_6dcd::
+MapPatch_LevelTable_1::
 	db $67, $05, 2, 2 ; block x, y, width, height
 	db $a8, $06, $f2, $b8, $06, $00
 	db $36, $03, $f9, $c8, $06, $00
 
-MapPatch_04_6ddd::
+MapPatch_HiddenKongLetter_25::
 	db $85, $06, 1, 1 ; block x, y, width, height
 	db $3a, $06, $d9
 
-MapPatch_04_6de4::
+MapPatch_HiddenKongLetter_26::
 	db $8e, $05, 1, 1 ; block x, y, width, height
 	db $2c, $02, $e9
 
-MapPatch_04_6deb::
+MapPatch_HiddenKongLetter_27::
 	db $0d, $07, 1, 1 ; block x, y, width, height
 	db $e2, $00, $08
 
-MapPatch_04_6df2::
+MapPatch_Entrance_7::
 	db $6b, $08, 2, 2 ; block x, y, width, height
 	db $74, $03, $00, $92, $06, $aa
 	db $30, $06, $a8, $50, $06, $a9
 
-MapPatch_04_6e02::
+MapPatch_LevelTable_2::
 	db $7c, $05, 1, 2 ; block x, y, width, height
 	db $ae, $03, $c1
 	db $be, $03, $40
 
-MapPatch_04_6e0c::
+MapPatch_BreakableWall_4::
 	db $8d, $06, 1, 2 ; block x, y, width, height
 	db $ae, $03, $c1
 	db $be, $03, $40
 
-MapPatch_04_6e16::
+MapPatch_LevelTable_3::
 	db $91, $06, 1, 2 ; block x, y, width, height
 	db $d4, $06, $a1
 	db $e4, $06, $a0
 
-MapPatch_04_6e20::
+MapPatch_HiddenKongLetter_28::
 	db $aa, $09, 1, 1 ; block x, y, width, height
 	db $e2, $00, $08
 
-MapPatch_04_6e27::
+MapPatch_BreakableWall_5::
 	db $1c, $07, 1, 2 ; block x, y, width, height
 	db $ba, $06, $43
 	db $ca, $06, $17
 
-MapPatch_04_6e31::
+MapPatch_BreakableWall_6::
 	db $67, $08, 1, 2 ; block x, y, width, height
 	db $ec, $07, $38
 	db $ac, $06, $47
 
-MapPatch_04_6e3b::
+MapPatch_BreakableWall_7::
 	db $3b, $07, 1, 2 ; block x, y, width, height
 	db $de, $06, $32
 	db $ac, $06, $47
 
-MapPatch_04_6e45::
+MapPatch_BreakableWall_18::
 	db $40, $06, 1, 2 ; block x, y, width, height
 	db $cc, $06, $48
 	db $ee, $06, $30
 
-MapPatch_04_6e4f::
+MapPatch_BreakableWall_19::
 	db $7a, $07, 1, 2 ; block x, y, width, height
 	db $86, $06, $94
 	db $96, $06, $44
 
-MapPatch_04_6e59::
+MapPatch_BreakableWall_20::
 	db $8a, $0a, 1, 2 ; block x, y, width, height
 	db $de, $06, $48
 	db $ee, $06, $da
 
-MapPatch_04_6e63::
+MapPatch_BreakableWall_21::
 	db $fe, $0c, 1, 2 ; block x, y, width, height
 	db $86, $06, $50
 	db $ca, $06, $21
 
-MapPatch_04_6e6d::
+MapPatch_BreakableWall_22::
 	db $01, $36, 1, 1 ; block x, y, width, height
 	db $42, $00, $0b
 
-MapPatch_04_6e74::
+MapPatch_BreakableWall_23::
 	db $22, $41, 1, 1 ; block x, y, width, height
 	db $42, $00, $0b
 
-MapPatch_04_6e7b::
+MapPatch_HiddenKongLetter_13::
 	db $08, $1e, 1, 1 ; block x, y, width, height
 	db $c0, $07, $05
 
-MapPatch_04_6e82::
+MapPatch_HiddenKongLetter_21::
 	db $6f, $08, 1, 1 ; block x, y, width, height
 	db $9c, $02, $01
 
-MapPatch_04_6e89::
+MapPatch_HiddenKongLetter_22::
 	db $e5, $07, 1, 1 ; block x, y, width, height
 	db $9c, $02, $01
 
-MapPatch_04_6e90::
+MapPatch_BreakableWall_26::
 	db $11, $86, 1, 3 ; block x, y (second layer), width, height
 	db $8e, $05, $46
 	db $9e, $05, $0c
 	db $ae, $05, $0d
 
-MapPatch_04_6e9d::
+MapPatch_HiddenKongLetter_5::
 	db $22, $05, 1, 1 ; block x, y, width, height
 	db $46, $02, $14
 
-MapPatch_04_6ea4::
+MapPatch_HiddenKongLetter_6::
 	db $59, $07, 1, 1 ; block x, y, width, height
 	db $14, $00, $14
 
-MapPatch_04_6eab::
+MapPatch_HiddenKongLetter_7::
 	db $c9, $06, 1, 1 ; block x, y, width, height
 	db $02, $02, $01
 
-MapPatch_04_6eb2::
+MapPatch_BreakableWall_10::
 	db $58, $06, 1, 2 ; block x, y, width, height
 	db $02, $00, $23
 	db $12, $00, $3f
 
-MapPatch_04_6ebc::
+MapPatch_BreakableWall_11::
 	db $cd, $03, 2, 2 ; block x, y, width, height
 	db $3a, $04, $49, $3c, $04, $4a
 	db $4a, $04, $42, $4c, $04, $4c
 
-MapPatch_04_6ecc::
+MapPatch_HiddenKongLetter_8::
 	db $33, $07, 1, 1 ; block x, y, width, height
 	db $02, $02, $2f
 
-MapPatch_04_6ed3::
+MapPatch_BreakableWall_12::
 	db $f6, $06, 1, 2 ; block x, y, width, height
 	db $1e, $04, $3d
 	db $2e, $04, $3c
 
-MapPatch_04_6edd::
+MapPatch_HiddenKongLetter_9::
 	db $e4, $07, 1, 1 ; block x, y, width, height
 	db $46, $02, $14
 
-MapPatch_04_6ee4::
+MapPatch_BreakableWall_8::
 	db $7b, $06, 1, 2 ; block x, y, width, height
 	db $e8, $06, $6d
 	db $f8, $06, $38
 
-MapPatch_04_6eee::
+MapPatch_BlackDrum_22::
 	db $0e, $07, 2, 2 ; block x, y, width, height
 	db $ea, $03, $1c, $3a, $04, $2d
 	db $fa, $03, $2a, $4a, $04, $2c
 
-MapPatch_04_6efe::
+MapPatch_BlackDrum_14::
 	db $19, $05, 2, 2 ; block x, y, width, height
 	db $06, $03, $00, $e0, $03, $0a
 	db $16, $03, $21, $f0, $03, $22
 
-MapPatch_04_6f0e::
+MapPatch_BlackDrum_7::
 	db $22, $07, 2, 2 ; block x, y, width, height
 	db $58, $00, $00, $be, $03, $0c
 	db $18, $00, $01, $ce, $03, $0b
 
-MapPatch_04_6f1e::
+MapPatch_BlackDrum_15::
 	db $27, $05, 2, 2 ; block x, y, width, height
 	db $ea, $03, $02, $3a, $04, $2d
 	db $fa, $03, $2a, $4a, $04, $2c
 
-MapPatch_04_6f2e::
+MapPatch_BlackDrum_16::
 	db $2f, $06, 2, 1 ; block x, y, width, height
 	db $50, $03, $0d, $40, $02, $0e
 
-MapPatch_04_6f38::
+MapPatch_BlackDrum_17::
 	db $38, $03, 1, 2 ; block x, y, width, height
 	db $4a, $00, $00
 	db $c2, $00, $26
 
-MapPatch_04_6f42::
+MapPatch_BlackDrum_23::
 	db $3d, $06, 2, 2 ; block x, y, width, height
 	db $ea, $03, $02, $3a, $04, $2d
 	db $fa, $03, $2a, $4a, $04, $2c
 
-MapPatch_04_6f52::
+MapPatch_BlackDrum_20::
 	db $47, $03, 1, 2 ; block x, y, width, height
 	db $be, $01, $00
 	db $ce, $01, $23
 
-MapPatch_04_6f5c::
+MapPatch_BlackDrum_18::
 	db $53, $04, 1, 2 ; block x, y, width, height
 	db $5a, $00, $00
 	db $c8, $01, $01
 
-MapPatch_04_6f66::
+MapPatch_BlackDrum_21::
 	db $77, $06, 1, 2 ; block x, y, width, height
 	db $b6, $01, $00
 	db $c6, $01, $17
 
-MapPatch_04_6f70::
+MapPatch_BlackDrum_19::
 	db $8c, $06, 1, 2 ; block x, y, width, height
 	db $b2, $01, $00
 	db $c2, $01, $16
 
-MapPatch_04_6f7a::
+MapPatch_BlackDrum_13::
 	db $98, $06, 1, 2 ; block x, y, width, height
 	db $b6, $01, $00
 	db $c6, $01, $17
 
-MapPatch_04_6f84::
+MapPatch_BlackDrum_12::
 	db $b1, $07, 1, 2 ; block x, y, width, height
 	db $b2, $01, $00
 	db $c2, $01, $16
 
-MapPatch_04_6f8e::
+MapPatch_LevelTable_4::
 	db $14, $86, 2, 2 ; block x, y (second layer), width, height
 	db $ea, $03, $1c, $3a, $04, $2d
 	db $fa, $03, $2a, $4a, $04, $2c
 
-MapPatch_04_6f9e::
+MapPatch_LevelTable_5::
 	db $16, $86, 2, 2 ; block x, y (second layer), width, height
 	db $ea, $03, $1c, $3a, $04, $2d
 	db $fa, $03, $2a, $4a, $04, $2c
 
-MapPatch_04_6fae::
+MapPatch_LevelTable_6::
 	db $18, $86, 2, 2 ; block x, y (second layer), width, height
 	db $ea, $03, $1c, $3a, $04, $2d
 	db $fa, $03, $2a, $4a, $04, $2c
 
-MapPatch_04_6fbe::
+MapPatch_LevelTable_7::
 	db $1a, $86, 2, 2 ; block x, y (second layer), width, height
 	db $ea, $03, $1c, $3a, $04, $2d
 	db $fa, $03, $2a, $4a, $04, $2c
 
-MapPatch_04_6fce::
+MapPatch_BreakableWall_27::
 	db $d4, $09, 1, 2 ; block x, y, width, height
 	db $34, $07, $0c
 	db $44, $07, $22
 
-MapPatch_04_6fd8::
+MapPatch_BreakableWall_28::
 	db $bb, $0c, 1, 1 ; block x, y, width, height
 	db $ea, $06, $0c
 
-MapPatch_04_6fdf::
+MapPatch_BreakableWall_9::
 	db $57, $08, 2, 2 ; block x, y, width, height
 	db $80, $01, $36, $82, $01, $37
 	db $90, $01, $35, $92, $01, $6a
 
-MapPatch_04_6fef::
+MapPatch_HiddenKongLetter_3::
 	db $23, $07, 1, 1 ; block x, y, width, height
 	db $cc, $01, $06
 
-MapPatch_04_6ff6::
+MapPatch_HiddenKongLetter_4::
 	db $87, $08, 1, 1 ; block x, y, width, height
 	db $12, $03, $3c
 
-MapPatch_04_6ffd::
+MapPatch_LevelTable_8::
 	db $2e, $06, 2, 2 ; block x, y, width, height
 	db $f0, $01, $00, $f2, $01, $13
 	db $f4, $01, $12, $f6, $01, $ff
 
-MapPatch_04_700d::
+MapPatch_HiddenKongLetter_12::
 	db $b6, $05, 1, 1 ; block x, y, width, height
 	db $8a, $02, $5d
 
-MapPatch_04_7014::
+MapPatch_BreakableWall_17::
 	db $2e, $06, 2, 2 ; block x, y, width, height
 	db $f0, $01, $00, $f2, $01, $13
 	db $f4, $01, $12, $f6, $01, $ff
 
-MapPatch_04_7024::
+MapPatch_BreakableWall_29::
 	db $05, $01, 1, 3 ; block x, y, width, height
 	db $ca, $00, $00
 	db $c8, $00, $00
 	db $c6, $00, $03
 
-MapPatch_04_7031::
+MapPatch_HiddenKongLetter_29::
 	db $04, $04, 1, 1 ; block x, y, width, height
 	db $c0, $01, $03
 
-MapPatch_04_7038::
+MapPatch_HiddenKongLetter_36::
 	db $03, $04, 1, 1 ; block x, y, width, height
 	db $c0, $01, $03
 
-MapPatch_04_703f::
+MapPatch_HiddenKongLetter_37::
 	db $04, $04, 1, 1 ; block x, y, width, height
 	db $c0, $01, $03
 
-MapPatch_04_7046::
+MapPatch_HiddenKongLetter_30::
 	db $02, $04, 1, 1 ; block x, y, width, height
 	db $c0, $01, $03
 
-MapPatch_04_704d::
+MapPatch_HiddenKongLetter_31::
 	db $03, $04, 1, 1 ; block x, y, width, height
 	db $c0, $01, $03
 
-MapPatch_04_7054::
+MapPatch_HiddenKongLetter_32::
 	db $04, $04, 1, 1 ; block x, y, width, height
 	db $c0, $01, $03
 	ds 4005, $00 ; $705b

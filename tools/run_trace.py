@@ -219,6 +219,23 @@ def claim_obj_scripts(t, rom):
         t._claim(osc.BANK, a, end - a, "rows", rows, "ObjScript")
 
 
+_LABEL_OVERRIDES = None
+
+
+def lname(default, bank, addr):
+    """The label at (bank, addr): its name from tools/datanames.py,
+    tools/names.py or hints.NAMES if it has one (as tools/emit.py names it),
+    else `default`. For label references the tracer writes out as text."""
+    global _LABEL_OVERRIDES
+    if _LABEL_OVERRIDES is None:
+        import datanames
+        import names
+        _LABEL_OVERRIDES = {}
+        for table in (datanames.NAMES, names.NAMES, hints.NAMES):
+            _LABEL_OVERRIDES.update(table)
+    return _LABEL_OVERRIDES.get((bank, addr), default)
+
+
 def _routine_name(bank, addr):
     import names
     return (hints.NAMES.get((bank, addr)) or names.NAMES.get((bank, addr))
@@ -390,7 +407,7 @@ def parse_banks(t, rom):
     # Front-end sprite animations ($f0:5a24, FE_DrawSpriteAnim; tools/feanim.py)
     import feanim
     fa = feanim.decode(rom)
-    tname = lambda b, a: feanim.TILE_NAMES.get((b, a), "FESprites_%02x_%04x" % (b, a))  # noqa: E731
+    tname = lambda b, a: feanim.TILE_NAMES.get((b, a), lname("FESprites_%02x_%04x" % (b, a), b, a))  # noqa: E731
     for (b, a), ln in sorted(fa["tiles"].items()):
         t._claim(b, a, ln, "tiles", None, "=" + tname(b, a))
     for la, (n, ty) in sorted(fa["layouts"].items()):
@@ -412,10 +429,12 @@ def parse_banks(t, rom):
             ta, la = r[2] << 8 | r[3], r[4] << 8 | r[5]
             tn = tname(r[1], ta)
             toks = ["%d" % r[0], "BANK(%s)" % tn, "HIGH(%s)" % tn, "LOW(%s)" % tn,
-                    "HIGH(SpriteLayout_f0_%04x)" % la, "LOW(SpriteLayout_f0_%04x)" % la]
+                    "HIGH(%s)" % lname("SpriteLayout_f0_%04x" % la, 0xF0, la),
+                    "LOW(%s)" % lname("SpriteLayout_f0_%04x" % la, 0xF0, la)]
             if ty >= 2:
                 aa = r[6] << 8 | r[7]
-                toks += ["HIGH(SpriteAttrs_f0_%04x)" % aa, "LOW(SpriteAttrs_f0_%04x)" % aa]
+                toks += ["HIGH(%s)" % lname("SpriteAttrs_f0_%04x" % aa, 0xF0, aa),
+                         "LOW(%s)" % lname("SpriteAttrs_f0_%04x" % aa, 0xF0, aa)]
             com = "variant %d" % v + (" (%s)" % langs[v] if k in (2, 3) else "")
             if v == 0:
                 com = "sprites, tiles, layout%s; %s" % (", attributes" if ty >= 2 else "", com)
@@ -450,8 +469,8 @@ def parse_banks(t, rom):
                 else:
                     a = bs[1] << 8 | bs[2]
                     records.add((bs[0], a))
-                    rows.append(("db", ["BANK(%s)" % "FEText_%02x_%04x" % (bs[0], a), "HIGH(FEText_%02x_%04x)" % (bs[0], a),
-                                        "LOW(FEText_%02x_%04x)" % (bs[0], a)], "entry %d" % e))
+                    fe = lname("FEText_%02x_%04x" % (bs[0], a), bs[0], a)
+                    rows.append(("db", ["BANK(%s)" % fe, "HIGH(%s)" % fe, "LOW(%s)" % fe], "entry %d" % e))
             t._claim(0xF0, ta, sizes[k] * counts[k], "rows", rows, "=FrontEndText_%s_%d" % (lang_names[i], k))
     recs = sorted(records)
     for i, (b, a) in enumerate(recs):
@@ -481,7 +500,7 @@ def parse_banks(t, rom):
     rows = []
     for k in range(hints.THUMBNAILS["count"]):
         r = rom[off(tb, ta + 8 * k):off(tb, ta + 8 * k) + 8]
-        lab = "BGTiles_%02x_%04x" % (r[3], r[4] | r[5] << 8)
+        lab = lname("BGTiles_%02x_%04x" % (r[3], r[4] | r[5] << 8), r[3], r[4] | r[5] << 8)
         rows.append(("db", ["$%02x" % r[0], "%d" % r[1], "%d" % r[2], "BANK(%s)" % lab, "LOW(%s)" % lab, "HIGH(%s)" % lab,
                             "%d" % r[6], "%d" % r[7]], "slot, x, y, tiles, width, height" if k == 0 else None))
     t._claim(tb, ta, 8 * len(rows), "rows", rows, "=ThumbnailTable")
@@ -894,7 +913,7 @@ def parse_banks(t, rom):
     t._claim(0, 0xF6, 2, "rows", [("dw", ["$c329"], "a RAM address, read by FE_SoundTest_DrawNumber in bank $f1")], "=RAMPointer_00_00f6")
     t._claim(8, 0x5365, 16, "rows", [("db", ["%" + format(v, "08b") for v in bytes_(8, 0x5365, 8)], None),
                                      ("db", ["%" + format(v, "08b") for v in bytes_(8, 0x536D, 8)], None)],
-             "=Flags_08_5365")  # by OBJ_VAR_38 >> 4; bits 7 and 6 tested (BarrelCannon_Fire at $5265 area)
+             "=Flags_08_5365")  # by OBJ_ANIM_WORD >> 4; bits 7 and 6 tested (BarrelCannon_Fire at $5265 area)
     for a in (0x41B7, 0x4284, 0x6979, 0x6CB2, 0x6CCA):
         t._claim(9, a, 2, "rows", [("dw", ["$0000"], "empty animation table entry")], "=AnimTableNull_09_%04x" % a)
     t._claim(9, 0x41BF, 8, "rows", [("dw", ["$0000"] * 4, "empty animation table entries")], "=AnimTableNull_09_41bf")
@@ -955,7 +974,7 @@ def parse_banks(t, rom):
     # menus: (item count, pointer) per menu; items are 12 bytes, byte 8
     # is the item's action ([$c993], FE_StickerBook_SelectSticker)
     mt = [(rom[off(0xF1, 0x6893 + 3 * k)], words(0xF1, 0x6894 + 3 * k, 1)[0]) for k in range(5)]
-    t._claim(0xF1, 0x6893, 15, "rows", [("db", ["%d" % n, "LOW(%s)" % "MenuItems_f1_%04x" % p, "HIGH(%s)" % "MenuItems_f1_%04x" % p], "items, list")
+    t._claim(0xF1, 0x6893, 15, "rows", [("db", ["%d" % n, "LOW(%s)" % lname("MenuItems_f1_%04x" % p, 0xF1, p), "HIGH(%s)" % lname("MenuItems_f1_%04x" % p, 0xF1, p)], "items, list")
                                         for n, p in mt], "=MenuTable_f1_6893")
     for n, p in mt:
         t._claim(0xF1, p, 12 * n, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, p + 12 * k, 12)], None) for k in range(n)], "MenuItems")

@@ -10,7 +10,7 @@ Obj_GetFacingOffset::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hli]
 	jr z, .skip_4010
@@ -341,7 +341,7 @@ VeryGnawty_Hop::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, ObjYVelTable_0a_4248
+	ld hl, ObjYVelTable_VeryGnawty_Hop
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -378,9 +378,9 @@ VeryGnawty_Hop::
 	ld [hl], d
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_51ff)
+	ld [hl], LOW(Anim_VeryGnawty_Hop_1)
 	inc l
-	ld [hl], HIGH(Anim_04_51ff)
+	ld [hl], HIGH(Anim_VeryGnawty_Hop_1)
 	ld hl, wObjects + OBJ_ANIM_TIMER
 	add hl, bc
 	ld [hl], $00
@@ -401,7 +401,7 @@ VeryGnawty_Hop::
 	jp NextObject
 
 
-ObjYVelTable_0a_4248::
+ObjYVelTable_VeryGnawty_Hop::
 	dw $fd00, $fd00, $fd00, $fd00 ; Y velocity by OBJ_VAR_2E
 	dw $fd00, $fce0, $fce0, $fce0
 	dw $fce0, $fce0, $0200, $0210
@@ -424,7 +424,7 @@ VeryGnawty_Land::
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
-	ld hl, Timers_0a_42af
+	ld hl, Timers_VeryGnawty_Land
 	add hl, de
 	ld a, [hl]
 	ld hl, wObjects + OBJ_VAR_30
@@ -444,7 +444,7 @@ VeryGnawty_Land::
 	jp NextObject
 
 
-Timers_0a_42af::
+Timers_VeryGnawty_Land::
 	db 20, 18, 16, 14, 12, 10, 8, 6, 4, 2 ; OBJ_VAR_30 by OBJ_VAR_2E
 
 VeryGnawty_Recoil::
@@ -541,9 +541,9 @@ VeryGnawty_AngryHop::
 	ld [hl], $f9
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_51ff)
+	ld [hl], LOW(Anim_VeryGnawty_Hop_1)
 	inc l
-	ld [hl], HIGH(Anim_04_51ff)
+	ld [hl], HIGH(Anim_VeryGnawty_Hop_1)
 	ld hl, wObjects + OBJ_ANIM_TIMER
 	add hl, bc
 	ld [hl], $00
@@ -657,7 +657,7 @@ MasterNecky::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, ObjInitTable_0a_443c
+	ld hl, ObjInitTable_MasterNecky
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -675,13 +675,13 @@ MasterNecky::
 	jr MasterNecky_Enter
 
 
-ObjInitTable_0a_443c::
-	dw ObjInit_0a_4466
-	dw ObjInit_0a_446c
-	dw ObjInit_0a_4472
-	dw ObjInit_0a_4478
+ObjInitTable_MasterNecky::
+	dw ObjInit_MasterNecky_Enter_4
+	dw ObjInit_MasterNecky_Enter_5
+	dw ObjInit_MasterNecky_Enter_6
+	dw ObjInit_MasterNecky_Enter_7
 
-ObjInit_0a_4444::
+ObjInit_MasterNecky_Enter_1::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Enter)
 	obj_word OBJ_HANDLER, MasterNecky_Enter
 	obj_byte OBJ_XSUB, $00
@@ -690,35 +690,35 @@ ObjInit_0a_4444::
 	obj_byte OBJ_COLLISION, $04
 	obj_end
 
-ObjInit_0a_4452::
-	obj_include ObjInit_0a_4444
+ObjInit_MasterNecky_Enter_2::
+	obj_include ObjInit_MasterNecky_Enter_1
 	obj_word OBJ_X, $ffe0
 	obj_word OBJ_XVEL, $0080
 	obj_end
 
-ObjInit_0a_445c::
-	obj_include ObjInit_0a_4444
+ObjInit_MasterNecky_Enter_3::
+	obj_include ObjInit_MasterNecky_Enter_1
 	obj_word OBJ_X, $0100
 	obj_word OBJ_XVEL, $ff80
 	obj_end
 
-ObjInit_0a_4466::
-	obj_include ObjInit_0a_4452
+ObjInit_MasterNecky_Enter_4::
+	obj_include ObjInit_MasterNecky_Enter_2
 	obj_byte OBJ_VAR_31, $38
 	obj_end
 
-ObjInit_0a_446c::
-	obj_include ObjInit_0a_4452
+ObjInit_MasterNecky_Enter_5::
+	obj_include ObjInit_MasterNecky_Enter_2
 	obj_byte OBJ_VAR_31, $60
 	obj_end
 
-ObjInit_0a_4472::
-	obj_include ObjInit_0a_445c
+ObjInit_MasterNecky_Enter_6::
+	obj_include ObjInit_MasterNecky_Enter_3
 	obj_byte OBJ_VAR_31, $38
 	obj_end
 
-ObjInit_0a_4478::
-	obj_include ObjInit_0a_445c
+ObjInit_MasterNecky_Enter_7::
+	obj_include ObjInit_MasterNecky_Enter_3
 	obj_byte OBJ_VAR_31, $60
 	obj_end
 
@@ -734,15 +734,15 @@ MasterNecky_Enter::
 
 
 VeryGnawty_ApplyHitList::
-	ld hl, ObjInit_0a_4496
+	ld hl, ObjInit_MasterNecky_Spit
 	call ApplyObjInit
 	ret
 
 
-ObjInit_0a_4496::
+ObjInit_MasterNecky_Spit::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Spit)
 	obj_word OBJ_HANDLER, MasterNecky_Spit
-	obj_word OBJ_ANIM, Anim_04_52dd
+	obj_word OBJ_ANIM, Anim_MasterNecky_Spit
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_VAR_36, $01
 	obj_end
@@ -773,7 +773,7 @@ MasterNecky_Spit::
 	push bc
 	push de
 	call AllocObject
-	ld hl, ObjInit_0a_4519
+	ld hl, ObjInit_MasterNecky_Nut
 	call InitObject
 	pop de
 	ld hl, wObjects + OBJ_XSUB
@@ -819,12 +819,12 @@ MasterNecky_Spit::
 	jr MasterNecky_Bob
 
 
-ObjInit_0a_4519::
+ObjInit_MasterNecky_Nut::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(MasterNecky_Nut)
 	obj_word OBJ_HANDLER, MasterNecky_Nut
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
-	obj_word OBJ_ANIM, Anim_04_4eb1
+	obj_word OBJ_ANIM, Anim_MasterNecky_Nut_1
 	obj_byte OBJ_ANIM_PARAM, $33
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_PALETTE, $01
@@ -843,7 +843,7 @@ MasterNecky_AfterSpit::
 	ld a, [hl]
 	or a
 	jr nz, .else
-	ld hl, ObjInit_0a_4550
+	ld hl, ObjInit_MasterNecky_Pause
 	call ApplyObjInit
 	jr MasterNecky_Bob
 
@@ -852,7 +852,7 @@ MasterNecky_AfterSpit::
 	jr MasterNecky_Bob
 
 
-ObjInit_0a_4550::
+ObjInit_MasterNecky_Pause::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Pause)
 	obj_word OBJ_HANDLER, MasterNecky_Pause
 	obj_byte OBJ_VAR_2F, $00
@@ -934,14 +934,14 @@ MasterNecky_Defeated::
 	jr .continue
 
 .else:
-	ld hl, ObjInit_0a_45d7
+	ld hl, ObjInit_BossDefeated_4
 	call ApplyObjInit
 .continue:
 	call AnimateObject
 	jp NextObject
 
 
-ObjInit_0a_45d7::
+ObjInit_BossDefeated_4::
 	obj_byte OBJ_BANK, BANK(BossDefeated)
 	obj_word OBJ_HANDLER, BossDefeated
 	obj_word OBJ_XVEL, $0000
@@ -959,13 +959,13 @@ MasterNecky_Recoil::
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	ld a, [hl]
-	ld hl, ObjInit_0a_460f
+	ld hl, ObjInit_MasterNecky_Enter_8
 	or a
 	jr z, .skip
-	ld hl, ObjInit_0a_461b
+	ld hl, ObjInit_MasterNecky_AfterSpit
 	cp $01
 	jr z, .skip
-	ld hl, ObjInit_0a_4615
+	ld hl, ObjInit_MasterNecky_Withdraw_2
 .skip:
 	call ApplyObjInit
 .continue:
@@ -973,17 +973,17 @@ MasterNecky_Recoil::
 	jp NextObject
 
 
-ObjInit_0a_460f::
+ObjInit_MasterNecky_Enter_8::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Enter)
 	obj_word OBJ_HANDLER, MasterNecky_Enter
 	obj_end
 
-ObjInit_0a_4615::
+ObjInit_MasterNecky_Withdraw_2::
 	obj_byte OBJ_BANK, BANK(MasterNecky_Withdraw)
 	obj_word OBJ_HANDLER, MasterNecky_Withdraw
 	obj_end
 
-ObjInit_0a_461b::
+ObjInit_MasterNecky_AfterSpit::
 	obj_byte OBJ_BANK, BANK(MasterNecky_AfterSpit)
 	obj_word OBJ_HANDLER, MasterNecky_AfterSpit
 	obj_end
@@ -1042,7 +1042,7 @@ QueenB::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, Accel_0a_46a4
+	ld hl, Accel_QueenB
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -1067,7 +1067,7 @@ QueenB::
 	jr QueenB_Fly
 
 
-Accel_0a_46a4::
+Accel_QueenB::
 	dw $0100, $0180, $0200, $0280, $0300 ; acceleration by OBJ_VAR_2E
 
 QueenB_Fly::
@@ -1280,7 +1280,7 @@ QueenB_SetSpeed::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, ObjXVelTable_0a_481d
+	ld hl, ObjXVelTable_QueenB_SetSpeed
 	add hl, de
 	ld d, h
 	ld e, l
@@ -1302,7 +1302,7 @@ QueenB_SetSpeed::
 	ret
 
 
-ObjXVelTable_0a_481d::
+ObjXVelTable_QueenB_SetSpeed::
 	dw $0040, $0020 ; target X velocity, ?
 	dw $0040, $0080
 	dw $0140, $0080
@@ -1363,7 +1363,7 @@ QueenB_CycleColour::
 	ret
 
 
-Cycle_0a_4871::
+Cycle_QueenB_CycleColour::
 	dw $03ff, $02ff, $01fe, $00fe, $001d, $00fe, $01fe, $02ff ; by [$c336] & $0e (QueenB_CycleColour)
 
 DumbDrum::
@@ -1388,16 +1388,16 @@ DumbDrum_BeginRound::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], a
-	ld hl, ObjInit_0a_48ab
+	ld hl, ObjInit_DumbDrum_AimAtPlayer
 	call ApplyObjInit
 	call AnimateObject
 	jp NextObject
 
 
-ObjInit_0a_48ab::
+ObjInit_DumbDrum_AimAtPlayer::
 	obj_byte OBJ_BANK, BANK(DumbDrum_AimAtPlayer)
 	obj_word OBJ_HANDLER, DumbDrum_AimAtPlayer
-	obj_word OBJ_ANIM, Anim_04_54a9
+	obj_word OBJ_ANIM, Anim_DumbDrum_Init_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_COLLISION, $40
 	obj_end
@@ -1415,13 +1415,13 @@ DumbDrum_AimAtPlayer::
 	ld [hli], a
 	ld a, [wPlayer + OBJ_X + 1]
 	ld [hli], a
-	ld hl, ObjInit_0a_48d7
+	ld hl, ObjInit_DumbDrum_Hover
 	call ApplyObjInit
 	call AnimateObject
 	jp NextObject
 
 
-ObjInit_0a_48d7::
+ObjInit_DumbDrum_Hover::
 	obj_byte OBJ_BANK, BANK(DumbDrum_Hover)
 	obj_word OBJ_HANDLER, DumbDrum_Hover
 	obj_byte OBJ_VAR_2F, $0f
@@ -1439,7 +1439,7 @@ DumbDrum_Hover::
 	add hl, bc
 	ld e, [hl]
 	ld d, $00
-	ld hl, Timers_0a_4911
+	ld hl, Timers_DumbDrum_Hover
 	add hl, de
 	ld a, [hl]
 	ld hl, wObjects + OBJ_VAR_2F
@@ -1456,7 +1456,7 @@ DumbDrum_Hover::
 	jp NextObject
 
 
-Timers_0a_4911::
+Timers_DumbDrum_Hover::
 	db 30, 25, 20, 15, 10, 5 ; OBJ_VAR_2F by index
 
 DumbDrum_Pause::
@@ -1522,12 +1522,12 @@ DumbDrum_Rise::
 
 
 DumbDrum_BeginSpawn::
-	ld hl, ObjInit_0a_4985
+	ld hl, ObjInit_DumbDrum_Descend
 	call ApplyObjInit
 	jp NextObject
 
 
-ObjInit_0a_4985::
+ObjInit_DumbDrum_Descend::
 	obj_byte OBJ_BANK, BANK(DumbDrum_Descend)
 	obj_word OBJ_HANDLER, DumbDrum_Descend
 	obj_byte OBJ_VAR_30, $14
@@ -1535,7 +1535,7 @@ ObjInit_0a_4985::
 	obj_word OBJ_X, $0070
 	obj_byte OBJ_YSUB, $00
 	obj_word OBJ_Y, $fff8
-	obj_word OBJ_ANIM, Anim_04_54b3
+	obj_word OBJ_ANIM, Anim_DumbDrum_Descend_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_word OBJ_YVEL, $0200
 	obj_byte OBJ_COLLISION, $00
@@ -1592,7 +1592,7 @@ DumbDrum_SpawnEnemies::
 	ld l, a
 	ld h, $af
 	inc [hl]
-	ld hl, ObjInitTable_0a_4a47
+	ld hl, ObjInitTable_DumbDrum_SpawnEnemies
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -1603,7 +1603,7 @@ DumbDrum_SpawnEnemies::
 	pop hl
 	call InitObject
 	rst_farcall MoveObjectToSavedPosition
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ldh a, [hSavedSlot]
 	ld [hl], a
@@ -1634,127 +1634,127 @@ DumbDrum_SpawnEnemies::
 	jp NextObject
 
 .else:
-	ld hl, ObjInit_0a_4a3c
+	ld hl, ObjInit_DumbDrum_Leave
 	call ApplyObjInit
 	jp NextObject
 
 
-ObjInit_0a_4a3c::
+ObjInit_DumbDrum_Leave::
 	obj_byte OBJ_BANK, BANK(DumbDrum_Leave)
 	obj_word OBJ_HANDLER, DumbDrum_Leave
 	obj_word OBJ_YVEL, $fe00
 	obj_byte OBJ_VAR_30, $14
 	obj_end
 
-ObjInitTable_0a_4a47::
-	dw ObjInit_0a_4a5b
-	dw ObjInit_0a_4a64
-	dw ObjInit_0a_4a6b
-	dw ObjInit_0a_4a74
-	dw ObjInit_0a_4a7b
-	dw ObjInit_0a_4a84
-	dw ObjInit_0a_4a8b
-	dw ObjInit_0a_4a94
-	dw ObjInit_0a_4afa
-	dw ObjInit_0a_4afa
+ObjInitTable_DumbDrum_SpawnEnemies::
+	dw ObjInit_Gnawty_1
+	dw ObjInit_Gnawty_2
+	dw ObjInit_Gnawty_3
+	dw ObjInit_Gnawty_4
+	dw ObjInit_Gnawty_5
+	dw ObjInit_Gnawty_6
+	dw ObjInit_Gnawty_7
+	dw ObjInit_Gnawty_8
+	dw ObjInit_Army_1
+	dw ObjInit_Army_1
 
-ObjInit_0a_4a5b::
-	obj_include ObjInit_0a_4a9b
+ObjInit_Gnawty_1::
+	obj_include ObjInit_Gnawty_9
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0a_4a64::
-	obj_include ObjInit_0a_4a9b
+ObjInit_Gnawty_2::
+	obj_include ObjInit_Gnawty_9
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_end
 
-ObjInit_0a_4a6b::
-	obj_include ObjInit_0a_4ab2
+ObjInit_Gnawty_3::
+	obj_include ObjInit_Gnawty_10
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0a_4a74::
-	obj_include ObjInit_0a_4ab2
+ObjInit_Gnawty_4::
+	obj_include ObjInit_Gnawty_10
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_end
 
-ObjInit_0a_4a7b::
-	obj_include ObjInit_0a_4ae2
+ObjInit_Gnawty_5::
+	obj_include ObjInit_Gnawty_12
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0a_4a84::
-	obj_include ObjInit_0a_4ae2
+ObjInit_Gnawty_6::
+	obj_include ObjInit_Gnawty_12
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_end
 
-ObjInit_0a_4a8b::
-	obj_include ObjInit_0a_4aca
+ObjInit_Gnawty_7::
+	obj_include ObjInit_Gnawty_11
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_end
 
-ObjInit_0a_4a94::
-	obj_include ObjInit_0a_4aca
+ObjInit_Gnawty_8::
+	obj_include ObjInit_Gnawty_11
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_end
 
-ObjInit_0a_4a9b::
-	obj_include ObjInit_0a_4b15
+ObjInit_Gnawty_9::
+	obj_include ObjInit_Gnawty_Common_1
 	obj_byte OBJ_BANK, BANK(Gnawty)
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $02
-	obj_word OBJ_ANIM, Anim_04_4947
+	obj_word OBJ_ANIM, Anim_RunKritterScript_1
 	obj_word OBJ_XACCEL, $0020
 	obj_word OBJ_PALETTE, $000e
 	obj_end
 
-ObjInit_0a_4ab2::
-	obj_include ObjInit_0a_4b15
+ObjInit_Gnawty_10::
+	obj_include ObjInit_Gnawty_Common_1
 	obj_byte OBJ_BANK, BANK(Gnawty)
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $03
 	obj_byte OBJ_ANIM_PARAM, $39
 	obj_byte OBJ_PALETTE, $0f
-	obj_word OBJ_ANIM, Anim_04_4acf
+	obj_word OBJ_ANIM, Anim_Gnawty_3
 	obj_word OBJ_XACCEL, $0040
 	obj_end
 
-ObjInit_0a_4aca::
-	obj_include ObjInit_0a_4b15
+ObjInit_Gnawty_11::
+	obj_include ObjInit_Gnawty_Common_1
 	obj_byte OBJ_BANK, BANK(Gnawty)
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Gnawty_Touch
 	obj_byte OBJ_VAR_2C, $04
 	obj_byte OBJ_ANIM_PARAM, $43
 	obj_byte OBJ_PALETTE, $09
-	obj_word OBJ_ANIM, Anim_04_49c9
+	obj_word OBJ_ANIM, Anim_Krusha_1
 	obj_word OBJ_XACCEL, $0020
 	obj_end
 
-ObjInit_0a_4ae2::
-	obj_include ObjInit_0a_4b15
+ObjInit_Gnawty_12::
+	obj_include ObjInit_Gnawty_Common_1
 	obj_byte OBJ_BANK, BANK(Gnawty)
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Klaptrap_Touch
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_ANIM_PARAM, $39
-	obj_word OBJ_ANIM, Anim_04_4c51
+	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Walk_1
 	obj_word OBJ_XACCEL, $0020
 	obj_byte OBJ_PALETTE, $0e
 	obj_end
 
-ObjInit_0a_4afa::
-	obj_include ObjInit_0a_4b15
+ObjInit_Army_1::
+	obj_include ObjInit_Gnawty_Common_1
 	obj_byte OBJ_BANK, BANK(Army)
 	obj_word OBJ_HANDLER, Army
 	obj_word OBJ_TOUCH_HANDLER, Army_Touch
-	obj_word OBJ_ANIM, Anim_04_4a55
+	obj_word OBJ_ANIM, Anim_Army_1
 	obj_word OBJ_PALETTE, $0000
 	obj_word OBJ_XACCEL, $0020
 	obj_byte OBJ_VAR_2E, $28
@@ -1762,7 +1762,7 @@ ObjInit_0a_4afa::
 	obj_byte OBJ_VAR_30, $64
 	obj_end
 
-ObjInit_0a_4b15::
+ObjInit_Gnawty_Common_1::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_LAYER, $01
 	obj_word OBJ_YVEL, $0200
@@ -1810,15 +1810,15 @@ DumbDrum_WaitForEnemies::
 	jp NextObject
 
 .else:
-	ld hl, ObjInit_0a_4b66
+	ld hl, ObjInit_BossDefeated_5
 	call ApplyObjInit
 	jr .jp_NextObject
 
 
-ObjInit_0a_4b66::
+ObjInit_BossDefeated_5::
 	obj_byte OBJ_BANK, BANK(BossDefeated)
 	obj_word OBJ_HANDLER, BossDefeated
-	obj_word OBJ_ANIM, Anim_04_54bb
+	obj_word OBJ_ANIM, Anim_BossDefeated_5
 	obj_word OBJ_XVEL, $0000
 	obj_word OBJ_YVEL, $0000
 	obj_word OBJ_TARGET_XVEL, $0000
@@ -1859,9 +1859,9 @@ KingKRool::
 .set_anim:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_5489)
+	ld [hl], LOW(Anim_KingKRool_1)
 	inc l
-	ld [hl], HIGH(Anim_04_5489)
+	ld [hl], HIGH(Anim_KingKRool_1)
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KingKRool_Wait)
@@ -1886,9 +1886,9 @@ KingKRool_Wait::
 	ld [hl], $80
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_53b3)
+	ld [hl], LOW(Anim_KingKRool_Wait_1)
 	inc l
-	ld [hl], HIGH(Anim_04_53b3)
+	ld [hl], HIGH(Anim_KingKRool_Wait_1)
 .continue:
 	call AnimateObject
 	call KingKRool_AimCamera
@@ -1925,7 +1925,7 @@ KingKRool_Throw::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, ObjWordTable_0a_4cb1
+	ld hl, ObjWordTable_KingKRool_Throw
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -1944,7 +1944,7 @@ KingKRool_Throw::
 	push bc
 	push de
 	call AllocObject
-	ld hl, ObjInit_0a_4c9b
+	ld hl, ObjInit_Crownerang
 	call InitObject
 	pop de
 	ld hl, wObjects + OBJ_YSUB
@@ -1977,7 +1977,7 @@ KingKRool_Throw::
 	ldh a, [hTempX + 1]
 	adc a, d
 	ld [hl], a
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ldh a, [hSavedSlot]
 	ld [hl], a
@@ -1998,19 +1998,19 @@ KingKRool_Throw::
 	jp NextObject
 
 
-ObjInit_0a_4c9b::
+ObjInit_Crownerang::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_BANK, BANK(Crownerang)
 	obj_word OBJ_HANDLER, Crownerang
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
 	obj_byte OBJ_PALETTE, $2a
-	obj_word OBJ_ANIM, Anim_04_5497
+	obj_word OBJ_ANIM, Anim_Crownerang_1
 	obj_byte OBJ_ANIM_PARAM, $01
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_VAR_2E, $96
 	obj_end
 
-ObjWordTable_0a_4cb1::
+ObjWordTable_KingKRool_Throw::
 	dw $0200, $0220, $0240, $0280, $02a0, $02c0, $0300, $0320, $0340, $0400 ; by OBJ_VAR_2E
 
 KingKRool_WaitForCrown::
@@ -2021,7 +2021,7 @@ KingKRool_WaitForCrown::
 	ld a, [hl]
 	or a
 	jr nz, .skip
-	ld hl, ObjInit_0a_4cdf
+	ld hl, ObjInit_KingKRool_Animate
 	call ApplyObjInit
 .skip:
 	call AnimateObject
@@ -2029,10 +2029,10 @@ KingKRool_WaitForCrown::
 	jp NextObject
 
 
-ObjInit_0a_4cdf::
+ObjInit_KingKRool_Animate::
 	obj_byte OBJ_BANK, BANK(KingKRool_Animate)
 	obj_word OBJ_HANDLER, KingKRool_Animate
-	obj_word OBJ_ANIM, Anim_04_53db
+	obj_word OBJ_ANIM, Anim_KingKRool_Animate
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_byte OBJ_VAR_2F, $01
@@ -2106,9 +2106,9 @@ KingKRool_BeginRuns::
 	ld [hl], $1e
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_5489)
+	ld [hl], LOW(Anim_KingKRool_1)
 	inc l
-	ld [hl], HIGH(Anim_04_5489)
+	ld [hl], HIGH(Anim_KingKRool_1)
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KingKRool_RunPause)
@@ -2127,9 +2127,9 @@ KingKRool_RunPause::
 	ld [hl], HIGH(KingKRool_Run)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_5381)
+	ld [hl], LOW(Anim_KingKRool_RunPause_1)
 	inc l
-	ld [hl], HIGH(Anim_04_5381)
+	ld [hl], HIGH(Anim_KingKRool_RunPause_1)
 .continue:
 	call AnimateObject
 	call KingKRool_AimCamera
@@ -2143,7 +2143,7 @@ KingKRool_Run::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, WordTable_0a_4e04
+	ld hl, WordTable_KingKRool_Run
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -2216,7 +2216,7 @@ KingKRool_Run::
 	jp KingKRool_BeginRuns.next_run
 
 
-WordTable_0a_4e04::
+WordTable_KingKRool_Run::
 	dw $0200, $0300, $0400
 
 KingKRool_Hop::
@@ -2224,9 +2224,9 @@ KingKRool_Hop::
 	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_53f3)
+	ld [hl], LOW(Anim_KingKRool_Hop_1)
 	inc l
-	ld [hl], HIGH(Anim_04_53f3)
+	ld [hl], HIGH(Anim_KingKRool_Hop_1)
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
@@ -2234,7 +2234,7 @@ KingKRool_Hop::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, YSpeeds_0a_4e56
+	ld hl, YSpeeds_KingKRool_Hop
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -2268,7 +2268,7 @@ KingKRool_Hop::
 	jr KingKRool_HopInAir
 
 
-YSpeeds_0a_4e56::
+YSpeeds_KingKRool_Hop::
 	dw $f800, $f980, $fb00 ; y speeds
 
 KingKRool_HopInAir::
@@ -2330,14 +2330,14 @@ KingKRool_Hopping::
 	ld [hl], HIGH(KingKRool_HopPause)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_5489)
+	ld [hl], LOW(Anim_KingKRool_1)
 	inc l
-	ld [hl], HIGH(Anim_04_5489)
+	ld [hl], HIGH(Anim_KingKRool_1)
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
 	jr nz, .else_4ee6
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], $20
 	inc l
@@ -2349,7 +2349,7 @@ KingKRool_Hopping::
 	jr .continue
 
 .else_4ee6:
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld [hl], $e0
 	inc l
@@ -2365,7 +2365,7 @@ KingKRool_Hopping::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $28
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -2382,7 +2382,7 @@ KingKRool_Hopping::
 	dec [hl]
 	jr nz, .skip_4f2e
 	ld [hl], $07
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	xor a
 	sub [hl]
@@ -2440,17 +2440,17 @@ KingKRool_SpawnProjectile::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ldh a, [hSavedSlot]
 	ld [hl], a
-	ld hl, ObjInit_0a_4f77
+	ld hl, ObjInit_Cannonball
 	call InitObject
 	pop bc
 	ret
 
 
-ObjInit_0a_4f77::
+ObjInit_Cannonball::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_BANK, BANK(Cannonball)
 	obj_word OBJ_HANDLER, Cannonball
@@ -2461,7 +2461,7 @@ ObjInit_0a_4f77::
 	obj_word OBJ_Y, $fff8
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
-	obj_word OBJ_FRAME, Frame_20_53b0
+	obj_word OBJ_FRAME, Frame_Cannonball
 	obj_end
 
 KingKRool_StartThrowPause::
@@ -2490,7 +2490,7 @@ KingKRool_ThrowPause::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, WordTable_0a_5005
+	ld hl, WordTable_KingKRool_ThrowPause
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -2523,9 +2523,9 @@ KingKRool_ThrowPause::
 	ld [hl], HIGH(KingKRool_TurnAtEdge)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_53f3)
+	ld [hl], LOW(Anim_KingKRool_Hop_1)
 	inc l
-	ld [hl], HIGH(Anim_04_53f3)
+	ld [hl], HIGH(Anim_KingKRool_Hop_1)
 .continue:
 	call UpdateVelocity
 	call ApplyVelocity
@@ -2535,7 +2535,7 @@ KingKRool_ThrowPause::
 	jp NextObject
 
 
-WordTable_0a_5005::
+WordTable_KingKRool_ThrowPause::
 	dw $0300, $0280, $0200
 
 KingKRool_TurnAtEdge::
@@ -2641,7 +2641,7 @@ KingKRool_FakeDefeat::
 	ld [hl], b
 	push bc
 	call AllocObject
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ldh a, [hSavedSlot]
 	ld [hl], a
@@ -2651,7 +2651,7 @@ KingKRool_FakeDefeat::
 	ld [hli], a
 	ldh a, [hScratch + 1]
 	ld [hl], a
-	ld hl, ObjInit_0a_50e4
+	ld hl, ObjInit_KingKRool_AfterKredits
 	call InitObject
 	pop bc
 	ld hl, wObjects + OBJ_HANDLER
@@ -2664,7 +2664,7 @@ KingKRool_FakeDefeat::
 	jp NextObject
 
 
-ObjInit_0a_50e4::
+ObjInit_KingKRool_AfterKredits::
 	obj_byte OBJ_FLAGS, $0f
 	obj_byte OBJ_BANK, BANK(KingKRool_AfterKredits)
 	obj_word OBJ_HANDLER, KingKRool_AfterKredits
@@ -2749,16 +2749,16 @@ KingKRool_FakeKredits::
 .start_kredits:
 	ld a, $4e
 	ld [wSFXQueue + 1], a
-	ld hl, ObjInit_0a_518a
+	ld hl, ObjInit_KingKRool_BeginRuns_2
 	call ApplyObjInit
 	call AnimateObject
 	jp NextObject
 
 
-ObjInit_0a_518a::
+ObjInit_KingKRool_BeginRuns_2::
 	obj_byte OBJ_BANK, BANK(KingKRool_BeginRuns)
 	obj_word OBJ_HANDLER, KingKRool_BeginRuns
-	obj_word OBJ_ANIM, Anim_04_5465
+	obj_word OBJ_ANIM, Anim_KingKRool_BeginRuns_2
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_word OBJ_VAR_30, $001e
 	obj_end
@@ -2876,7 +2876,7 @@ BossDefeated_Banana::
 	rst_farcall Save_MarkLevelCleared
 	rst_farcall Player_WinAndExit
 	call AllocObject
-	ld hl, ObjInit_0a_5271
+	ld hl, ObjInit_GiantBanana
 	call InitObject
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
@@ -2892,7 +2892,7 @@ BossDefeated_Banana::
 	ret
 
 
-ObjInit_0a_5271::
+ObjInit_GiantBanana::
 	obj_byte OBJ_FLAGS, $13
 	obj_byte OBJ_BANK, BANK(GiantBanana)
 	obj_word OBJ_HANDLER, GiantBanana
@@ -2900,7 +2900,7 @@ ObjInit_0a_5271::
 	obj_word OBJ_Y, $0000
 	obj_byte OBJ_OAM_ATTR, $10
 	obj_byte OBJ_PALETTE, $2e
-	obj_word OBJ_ANIM, Anim_04_54c9
+	obj_word OBJ_ANIM, Anim_GiantBanana_1
 	obj_end
 
 GiantBanana::
@@ -3122,22 +3122,22 @@ KingKRool_KreditsDrawCaption::
 
 
 CreditsCaptions::
-	dw $0034, Frame_20_5d46 ; KREDITS
-	dw $0008, Frame_20_5d4c ; KODING
-	dw $0050, Frame_20_5d88 ; KLAP TRAP
-	dw $0008, Frame_20_5d52 ; KARACTERS
-	dw $0068, Frame_20_5d8e ; KRUSHA
-	dw $0008, Frame_20_5d58 ; KOLORING
-	dw $0060, Frame_20_5d94 ; KRITTER
-	dw $0008, Frame_20_5d5e ; KONCEPT
-	dw $0070, Frame_20_5d9a ; KLUMP
-	dw $0008, Frame_20_5d64 ; KOMMANDER
-	dw $0040, Frame_20_5da0 ; KING K.ROOL
-	dw $0030, Frame_20_5d6a ; THE END? (English)
-	dw $0028, Frame_20_5d76 ; DAS ENDE(?) (German)
-	dw $003c, Frame_20_5d70 ; FIN ? (French)
-	dw $0030, Frame_20_5d7c ; FINE...? (Italian)
-	dw $003c, Frame_20_5d82 ; ¿FIN? (Spanish)
+	dw $0034, Frame_CreditsCaptions_1 ; KREDITS
+	dw $0008, Frame_CreditsCaptions_2 ; KODING
+	dw $0050, Frame_CreditsCaptions_12 ; KLAP TRAP
+	dw $0008, Frame_CreditsCaptions_3 ; KARACTERS
+	dw $0068, Frame_CreditsCaptions_13 ; KRUSHA
+	dw $0008, Frame_CreditsCaptions_4 ; KOLORING
+	dw $0060, Frame_CreditsCaptions_14 ; KRITTER
+	dw $0008, Frame_CreditsCaptions_5 ; KONCEPT
+	dw $0070, Frame_CreditsCaptions_15 ; KLUMP
+	dw $0008, Frame_CreditsCaptions_6 ; KOMMANDER
+	dw $0040, Frame_CreditsCaptions_16 ; KING K.ROOL
+	dw $0030, Frame_CreditsCaptions_7 ; THE END? (English)
+	dw $0028, Frame_CreditsCaptions_9 ; DAS ENDE(?) (German)
+	dw $003c, Frame_CreditsCaptions_8 ; FIN ? (French)
+	dw $0030, Frame_CreditsCaptions_10 ; FINE...? (Italian)
+	dw $003c, Frame_CreditsCaptions_11 ; ¿FIN? (Spanish)
 
 KingKRool_KreditsScrollBack::
 	ld hl, hCameraX
@@ -3417,49 +3417,49 @@ HUD_Items_Hidden::
 .else_55bf:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], LOW(Frame_20_4b52)
+	ld [hl], LOW(Frame_AnimalToken_3)
 	inc l
-	ld [hl], HIGH(Frame_20_4b52)
+	ld [hl], HIGH(Frame_AnimalToken_3)
 	jr .jp_NextObject
 
 .else_55ca:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], LOW(Frame_20_44f2)
+	ld [hl], LOW(Frame_AnimalToken_2)
 	inc l
-	ld [hl], HIGH(Frame_20_44f2)
+	ld [hl], HIGH(Frame_AnimalToken_2)
 	jr .jp_NextObject
 
 .else_55d5:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], LOW(Frame_20_44bc)
+	ld [hl], LOW(Frame_AnimalToken_1)
 	inc l
-	ld [hl], HIGH(Frame_20_44bc)
+	ld [hl], HIGH(Frame_AnimalToken_1)
 	jr .jp_NextObject
 
 .else_55e0:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], LOW(Frame_20_4f84)
+	ld [hl], LOW(Frame_AnimalToken_8)
 	inc l
-	ld [hl], HIGH(Frame_20_4f84)
+	ld [hl], HIGH(Frame_AnimalToken_8)
 	jr .jp_NextObject
 
 .else_55eb:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_570b)
+	ld [hl], LOW(Anim_HUD_Items_Hidden_3)
 	inc l
-	ld [hl], HIGH(Anim_04_570b)
+	ld [hl], HIGH(Anim_HUD_Items_Hidden_3)
 	jr .jp_NextObject
 
 .else_55f6:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_5517)
+	ld [hl], LOW(Anim_HUD_Items_Hidden_1)
 	inc l
-	ld [hl], HIGH(Anim_04_5517)
+	ld [hl], HIGH(Anim_HUD_Items_Hidden_1)
 	jr .jp_NextObject
 
 
@@ -3675,10 +3675,10 @@ HUD_Items_Reward::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, ObjInit_0a_57c0
+	ld hl, ObjInit_HUD_Items_Reward_1
 	call ApplyObjInit
 .loop:
-	ld hl, ObjInit_0a_57b5
+	ld hl, ObjInit_Obj_Move
 	call ApplyObjInit
 	ld de, $0081
 	call MoveTowardsX
@@ -3700,7 +3700,7 @@ HUD_Items_Reward::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, ObjInit_0a_57c7
+	ld hl, ObjInit_HUD_Items_Reward_2
 	call ApplyObjInit
 	jr .loop
 
@@ -3714,7 +3714,7 @@ HUD_Items_Reward::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, ObjInit_0a_57ce
+	ld hl, ObjInit_HUD_Items_Reward_3
 	call ApplyObjInit
 	jr .loop
 
@@ -3728,35 +3728,35 @@ HUD_Items_Reward::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, ObjInit_0a_57d5
+	ld hl, ObjInit_HUD_Items_Reward_4
 	call ApplyObjInit
 	jr .loop
 
 
-ObjInit_0a_57b5::
+ObjInit_Obj_Move::
 	obj_byte OBJ_FLAGS, $1b
 	obj_byte OBJ_BANK, BANK(Obj_Move)
 	obj_word OBJ_HANDLER, Obj_Move
 	obj_word OBJ_Y, $000c
 	obj_end
 
-ObjInit_0a_57c0::
-	obj_word OBJ_FRAME, Frame_20_4bbe
+ObjInit_HUD_Items_Reward_1::
+	obj_word OBJ_FRAME, Frame_Letter_K
 	obj_word OBJ_X, $0032
 	obj_end
 
-ObjInit_0a_57c7::
-	obj_word OBJ_FRAME, Frame_20_4bd6
+ObjInit_HUD_Items_Reward_2::
+	obj_word OBJ_FRAME, Frame_Letter_O
 	obj_word OBJ_X, $0046
 	obj_end
 
-ObjInit_0a_57ce::
-	obj_word OBJ_FRAME, Frame_20_4bd0
+ObjInit_HUD_Items_Reward_3::
+	obj_word OBJ_FRAME, Frame_Letter_N
 	obj_word OBJ_X, $005a
 	obj_end
 
-ObjInit_0a_57d5::
-	obj_word OBJ_FRAME, Frame_20_4ba6
+ObjInit_HUD_Items_Reward_4::
+	obj_word OBJ_FRAME, Frame_Letter_G
 	obj_word OBJ_X, $006e
 	obj_end
 
@@ -3908,7 +3908,7 @@ AnimalToken_Count::
 	jp NextObject
 
 
-Entrances_0a_58c0::
+Entrances_AnimalToken_Count::
 	dw LevelEntrance_RambiBonus_0, LevelEntrance_ExpressoBonus_0, LevelEntrance_EnguardeBonus_0, LevelEntrance_WinkyBonus_0 ; wLevelEntrance by OBJ_VAR_2F
 
 Bananas::
@@ -4115,9 +4115,9 @@ BarrelSupply::
 	push bc
 	call AllocObject
 	rst_farcall MoveObjectToSavedPosition
-	ld hl, ObjInit_0a_5a27
+	ld hl, ObjInit_Barrel_6
 	call InitObject
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ldh a, [hSavedSlot]
 	ld [hl], a
@@ -4125,12 +4125,12 @@ BarrelSupply::
 	jp NextObject
 
 
-ObjInit_0a_5a27::
+ObjInit_Barrel_6::
 	obj_byte OBJ_BANK, BANK(Obj_Idle)
 	obj_word OBJ_HANDLER, Obj_Idle
 	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_FLAGS, $15
-	obj_word OBJ_FRAME, Frame_20_4b4c
+	obj_word OBJ_FRAME, Frame_SpawnCollectedBanana_28
 	obj_byte OBJ_PALETTE, $01
 	obj_byte OBJ_LAYER, $02
 	obj_byte OBJ_COLLISION, $08
@@ -4290,14 +4290,14 @@ Barrel_Dropped::
 	inc l
 	ld [hl], HIGH(Obj_FallThenAnimate)
 .continue_5b32:
-	ld hl, ObjInit_0a_5b3e
+	ld hl, ObjInit_Barrel_7
 	call ApplyObjInit
 .continue_5b38:
 	call DespawnIfOutOfRange
 	jp NextObject
 
 
-ObjInit_0a_5b3e::
+ObjInit_Barrel_7::
 	obj_word OBJ_TOUCH_HANDLER, Barrel_Touch
 	obj_byte OBJ_COLLISION, $08
 	obj_word OBJ_YACCEL, $0080
@@ -4369,9 +4369,9 @@ RunKritterScript::
 	ld [hl], $00
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4947)
+	ld [hl], LOW(Anim_RunKritterScript_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4947)
+	ld [hl], HIGH(Anim_RunKritterScript_1)
 	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld [hl], $20
@@ -4507,9 +4507,9 @@ Kritter_JumpStart::
 	ld [hl], HIGH(Kritter_Jumping)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_495f)
+	ld [hl], LOW(Anim_Kritter_JumpStart_1)
 	inc l
-	ld [hl], HIGH(Anim_04_495f)
+	ld [hl], HIGH(Anim_Kritter_JumpStart_1)
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	ld a, [hli]
@@ -4597,9 +4597,9 @@ Kritter_Jumping::
 Kritter_Jump::
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_495f)
+	ld [hl], LOW(Anim_Kritter_JumpStart_1)
 	inc l
-	ld [hl], HIGH(Anim_04_495f)
+	ld [hl], HIGH(Anim_Kritter_JumpStart_1)
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Kritter_Jump_Loop)
@@ -4800,9 +4800,9 @@ Krusha::
 .else_5e37:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_49c9)
+	ld [hl], LOW(Anim_Krusha_1)
 	inc l
-	ld [hl], HIGH(Anim_04_49c9)
+	ld [hl], HIGH(Anim_Krusha_1)
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -4867,9 +4867,9 @@ RunNeckyScript::
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4a0d)
+	ld [hl], LOW(Anim_RunNeckyScript_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4a0d)
+	ld [hl], HIGH(Anim_RunNeckyScript_1)
 	pop hl
 	jr .loop_5e6c
 
@@ -4893,9 +4893,9 @@ RunNeckyScript::
 	ld [hl], HIGH(Necky_Throw)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4a15)
+	ld [hl], LOW(Anim_RunNeckyScript_3)
 	inc l
-	ld [hl], HIGH(Anim_04_4a15)
+	ld [hl], HIGH(Anim_RunNeckyScript_3)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -4959,19 +4959,19 @@ Necky_Throw::
 	ld [hli], a
 	ld [hl], d
 	rst_farcall MoveObjectToSavedPosition
-	ld hl, ObjInit_0a_5f2a
+	ld hl, ObjInit_BouncingCoconut_Bounce
 	call InitObject
 	pop bc
 	call RunNeckyScript
 	jp .loop
 
 
-ObjInit_0a_5f2a::
+ObjInit_BouncingCoconut_Bounce::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(BouncingCoconut_Bounce)
 	obj_word OBJ_HANDLER, BouncingCoconut_Bounce
 	obj_word OBJ_TOUCH_HANDLER, BouncingCoconut_Touch
-	obj_word OBJ_ANIM, Anim_04_4eb1
+	obj_word OBJ_ANIM, Anim_MasterNecky_Nut_1
 	obj_byte OBJ_ANIM_PARAM, $33
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_PALETTE, $01
@@ -4982,7 +4982,7 @@ ObjInit_0a_5f2a::
 	obj_end
 
 BouncingCoconut_Bounce::
-	ld hl, ObjInit_0a_5f5f
+	ld hl, ObjInit_BouncingCoconut_Fall
 	call ApplyObjInit
 	call UpdateVelocity
 	call ApplyVelocity
@@ -4991,7 +4991,7 @@ BouncingCoconut_Bounce::
 	jp NextObject
 
 
-ObjInit_0a_5f5f::
+ObjInit_BouncingCoconut_Fall::
 	obj_byte OBJ_BANK, BANK(BouncingCoconut_Fall)
 	obj_word OBJ_HANDLER, BouncingCoconut_Fall
 	obj_byte OBJ_VAR_2E, $14
@@ -5046,14 +5046,14 @@ BouncingCoconut_Fall::
 
 
 Rope_Held::
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	bit 0, [hl]
 	call nz, CheckObjectOnScreen
 	ldh a, [hObjectRunMask]
 	and $02
 	jp nz, NextObject
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	bit 1, [hl]
 	call nz, Rope_Slide
@@ -5062,7 +5062,7 @@ Rope_Held::
 
 
 Rope::
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	bit 0, [hl]
 	call nz, CheckObjectOnScreen
@@ -5129,14 +5129,14 @@ Rope::
 	ld [hl], LOW(Rope_Held)
 	inc l
 	ld [hl], HIGH(Rope_Held)
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	set 1, [hl]
 	rst_farcall Player_GrabRope
 	jp NextObject
 
 .else_6054:
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	bit 1, [hl]
 	call nz, Rope_Slide
@@ -5148,7 +5148,7 @@ Rope_Slide::
 	call GetOffsetFromSpawnX
 	call CheckRangeLimit
 	jr nc, .skip
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	bit 2, [hl]
 	jr nz, .done
@@ -5169,18 +5169,18 @@ Rope_Slide::
 
 
 Rope_Released::
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	bit 0, [hl]
 	call nz, CheckObjectOnScreen
 	ldh a, [hObjectRunMask]
 	and $02
 	jp nz, NextObject
-	ld hl, wObjects + OBJ_VAR_39
+	ld hl, wObjects + OBJ_ANIM_WORD + 1
 	add hl, bc
 	bit 2, [hl]
 	call nz, Rope_Slide
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	dec [hl]
 	jr nz, .jp_NextObject
@@ -5216,7 +5216,7 @@ SwingingRope_SetFrame::
 	add a, a
 	ld h, $00
 	ld l, a
-	ld de, FrameTable_0a_60e7
+	ld de, FrameTable_SwingingRope_SetFrame
 	add hl, de
 	ld a, [hli]
 	ld e, a
@@ -5232,39 +5232,39 @@ SwingingRope_SetFrame::
 	ret
 
 
-FrameTable_0a_60e7::
-	dw Frame_20_4ea6, $42c4, Frame_20_4906, Frame_20_46d2
-	dw Frame_20_4ea0, $43c5, Frame_20_4906, Frame_20_46d2
-	dw Frame_20_4e9a, $44c6, Frame_20_490c, Frame_20_46d8
-	dw Frame_20_4e94, $45c8, Frame_20_490c, Frame_20_46d8
-	dw Frame_20_4e8e, $46ca, Frame_20_4912, Frame_20_46de
-	dw Frame_20_4e88, $47cd, Frame_20_4912, Frame_20_46de
-	dw Frame_20_4e82, $48d1, Frame_20_4918, Frame_20_46e4
-	dw Frame_20_4e7c, $49d5, Frame_20_4918, Frame_20_46e4
-	dw Frame_20_4e76, $4bd9, Frame_20_491e, Frame_20_46ea
-	dw Frame_20_4e70, $4dde, Frame_20_491e, Frame_20_46ea
-	dw Frame_20_4e6a, $4ee3, Frame_20_4924, Frame_20_46f0
-	dw Frame_20_4e64, $4fe9, Frame_20_4924, Frame_20_46f0
-	dw Frame_20_4e5e, $50ee, Frame_20_492a, Frame_20_46f6
-	dw Frame_20_4e58, $52f4, Frame_20_492a, Frame_20_46f6
-	dw Frame_20_4e52, $54fa, Frame_20_4930, Frame_20_46fc
-	dw Frame_20_4e4c, $5500, Frame_20_4930, Frame_20_46fc
-	dw Frame_20_4e52, $5406, Frame_20_4936, Frame_20_4702
-	dw Frame_20_4e58, $520c, Frame_20_4936, Frame_20_4702
-	dw Frame_20_4e5e, $5012, Frame_20_493c, Frame_20_4708
-	dw Frame_20_4e64, $4f17, Frame_20_493c, Frame_20_4708
-	dw Frame_20_4e6a, $4e1d, Frame_20_4942, Frame_20_470e
-	dw Frame_20_4e70, $4d22, Frame_20_4942, Frame_20_470e
-	dw Frame_20_4e76, $4b27, Frame_20_4948, Frame_20_4714
-	dw Frame_20_4e7c, $492b, Frame_20_4948, Frame_20_4714
-	dw Frame_20_4e82, $482f, Frame_20_494e, Frame_20_471a
-	dw Frame_20_4e88, $4733, Frame_20_494e, Frame_20_471a
-	dw Frame_20_4e8e, $4636, Frame_20_4954, Frame_20_4720
-	dw Frame_20_4e94, $4538, Frame_20_4954, Frame_20_4720
-	dw Frame_20_4e9a, $443a, Frame_20_495a, Frame_20_4726
-	dw Frame_20_4ea0, $443b, Frame_20_4960, Frame_20_472c
-	dw Frame_20_4ea6, $433c, Frame_20_4960, Frame_20_472c
-	dw Frame_20_4ea6, $433c, Frame_20_4966, Frame_20_4732
+FrameTable_SwingingRope_SetFrame::
+	dw Frame_SwingingRope_SetFrame_50, $42c4, Frame_SwingingRope_SetFrame_18, Frame_SwingingRope_SetFrame_1
+	dw Frame_SwingingRope_SetFrame_49, $43c5, Frame_SwingingRope_SetFrame_18, Frame_SwingingRope_SetFrame_1
+	dw Frame_SwingingRope_SetFrame_48, $44c6, Frame_SwingingRope_SetFrame_19, Frame_SwingingRope_SetFrame_2
+	dw Frame_SwingingRope_SetFrame_47, $45c8, Frame_SwingingRope_SetFrame_19, Frame_SwingingRope_SetFrame_2
+	dw Frame_SwingingRope_SetFrame_46, $46ca, Frame_SwingingRope_SetFrame_20, Frame_SwingingRope_SetFrame_3
+	dw Frame_SwingingRope_SetFrame_45, $47cd, Frame_SwingingRope_SetFrame_20, Frame_SwingingRope_SetFrame_3
+	dw Frame_SwingingRope_SetFrame_44, $48d1, Frame_SwingingRope_SetFrame_21, Frame_SwingingRope_SetFrame_4
+	dw Frame_SwingingRope_SetFrame_43, $49d5, Frame_SwingingRope_SetFrame_21, Frame_SwingingRope_SetFrame_4
+	dw Frame_SwingingRope_SetFrame_42, $4bd9, Frame_SwingingRope_SetFrame_22, Frame_SwingingRope_SetFrame_5
+	dw Frame_SwingingRope_SetFrame_41, $4dde, Frame_SwingingRope_SetFrame_22, Frame_SwingingRope_SetFrame_5
+	dw Frame_SwingingRope_SetFrame_40, $4ee3, Frame_SwingingRope_SetFrame_23, Frame_SwingingRope_SetFrame_6
+	dw Frame_SwingingRope_SetFrame_39, $4fe9, Frame_SwingingRope_SetFrame_23, Frame_SwingingRope_SetFrame_6
+	dw Frame_SwingingRope_SetFrame_38, $50ee, Frame_SwingingRope_SetFrame_24, Frame_SwingingRope_SetFrame_7
+	dw Frame_SwingingRope_SetFrame_37, $52f4, Frame_SwingingRope_SetFrame_24, Frame_SwingingRope_SetFrame_7
+	dw Frame_SwingingRope_SetFrame_36, $54fa, Frame_SwingingRope_SetFrame_25, Frame_SwingingRope_SetFrame_8
+	dw Frame_SwingingRope_SetFrame_35, $5500, Frame_SwingingRope_SetFrame_25, Frame_SwingingRope_SetFrame_8
+	dw Frame_SwingingRope_SetFrame_36, $5406, Frame_SwingingRope_SetFrame_26, Frame_SwingingRope_SetFrame_9
+	dw Frame_SwingingRope_SetFrame_37, $520c, Frame_SwingingRope_SetFrame_26, Frame_SwingingRope_SetFrame_9
+	dw Frame_SwingingRope_SetFrame_38, $5012, Frame_SwingingRope_SetFrame_27, Frame_SwingingRope_SetFrame_10
+	dw Frame_SwingingRope_SetFrame_39, $4f17, Frame_SwingingRope_SetFrame_27, Frame_SwingingRope_SetFrame_10
+	dw Frame_SwingingRope_SetFrame_40, $4e1d, Frame_SwingingRope_SetFrame_28, Frame_SwingingRope_SetFrame_11
+	dw Frame_SwingingRope_SetFrame_41, $4d22, Frame_SwingingRope_SetFrame_28, Frame_SwingingRope_SetFrame_11
+	dw Frame_SwingingRope_SetFrame_42, $4b27, Frame_SwingingRope_SetFrame_29, Frame_SwingingRope_SetFrame_12
+	dw Frame_SwingingRope_SetFrame_43, $492b, Frame_SwingingRope_SetFrame_29, Frame_SwingingRope_SetFrame_12
+	dw Frame_SwingingRope_SetFrame_44, $482f, Frame_SwingingRope_SetFrame_30, Frame_SwingingRope_SetFrame_13
+	dw Frame_SwingingRope_SetFrame_45, $4733, Frame_SwingingRope_SetFrame_30, Frame_SwingingRope_SetFrame_13
+	dw Frame_SwingingRope_SetFrame_46, $4636, Frame_SwingingRope_SetFrame_31, Frame_SwingingRope_SetFrame_14
+	dw Frame_SwingingRope_SetFrame_47, $4538, Frame_SwingingRope_SetFrame_31, Frame_SwingingRope_SetFrame_14
+	dw Frame_SwingingRope_SetFrame_48, $443a, Frame_SwingingRope_SetFrame_32, Frame_SwingingRope_SetFrame_15
+	dw Frame_SwingingRope_SetFrame_49, $443b, Frame_SwingingRope_SetFrame_33, Frame_SwingingRope_SetFrame_16
+	dw Frame_SwingingRope_SetFrame_50, $433c, Frame_SwingingRope_SetFrame_33, Frame_SwingingRope_SetFrame_16
+	dw Frame_SwingingRope_SetFrame_50, $433c, Frame_SwingingRope_SetFrame_34, Frame_SwingingRope_SetFrame_17
 
 SwingingRope::
 	ld hl, wObjects + OBJ_VAR_31
@@ -5377,9 +5377,9 @@ Army::
 	jr nz, .else_6299
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4a7b)
+	ld [hl], LOW(Anim_Army_3)
 	inc hl
-	ld [hl], HIGH(Anim_04_4a7b)
+	ld [hl], HIGH(Anim_Army_3)
 	call Army_StopRolling
 	jr .continue_62dd
 
@@ -5461,9 +5461,9 @@ Army_Idle::
 	jr c, .continue
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4a65)
+	ld [hl], LOW(Anim_Army_Idle)
 	inc hl
-	ld [hl], HIGH(Anim_04_4a65)
+	ld [hl], HIGH(Anim_Army_Idle)
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
@@ -5567,9 +5567,9 @@ Bitesize_Swim::
 	jr nc, Bitesize_Wave_Loop
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4d0b)
+	ld [hl], LOW(Anim_Bitesize_Swim)
 	inc l
-	ld [hl], HIGH(Anim_04_4d0b)
+	ld [hl], HIGH(Anim_Bitesize_Swim)
 
 Bitesize_Wave_Loop::
 	ld hl, wObjects + OBJ_VAR_34
@@ -5615,9 +5615,9 @@ Chomps_Swim::
 	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4d47)
+	ld [hl], LOW(Anim_Chomps_Swim)
 	inc l
-	ld [hl], HIGH(Anim_04_4d47)
+	ld [hl], HIGH(Anim_Chomps_Swim)
 .skip:
 	call UpdateVelocity
 	call ApplyVelocity
@@ -5640,9 +5640,9 @@ ChompsJr_Swim::
 	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4d83)
+	ld [hl], LOW(Anim_ChompsJr_Swim)
 	inc l
-	ld [hl], HIGH(Anim_04_4d83)
+	ld [hl], HIGH(Anim_ChompsJr_Swim)
 .skip:
 	call UpdateVelocity
 	call ApplyVelocity
@@ -5721,9 +5721,9 @@ Squidge::
 	ld [hl], d
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4ca7)
+	ld [hl], LOW(Anim_Squidge_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4ca7)
+	ld [hl], HIGH(Anim_Squidge_1)
 	jr .loop
 
 
@@ -5766,9 +5766,9 @@ RunClamboScript::
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4ce3)
+	ld [hl], LOW(Anim_RunClamboScript_3)
 	inc l
-	ld [hl], HIGH(Anim_04_4ce3)
+	ld [hl], HIGH(Anim_RunClamboScript_3)
 	pop hl
 	jr .loop_64c1
 
@@ -5776,9 +5776,9 @@ RunClamboScript::
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4cc7)
+	ld [hl], LOW(Anim_RunClamboScript_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4cc7)
+	ld [hl], HIGH(Anim_RunClamboScript_1)
 	pop hl
 	jr .loop_64c1
 
@@ -5810,7 +5810,7 @@ RunClamboScript::
 	ld a, [de]
 	ld [hl], a
 	inc de
-	ld hl, ObjInit_0a_6542
+	ld hl, ObjInit_ClamboPearl
 	call InitObject
 	pop bc
 	pop hl
@@ -5828,12 +5828,12 @@ RunClamboScript::
 	ret
 
 
-ObjInit_0a_6542::
+ObjInit_ClamboPearl::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(ClamboPearl)
 	obj_word OBJ_HANDLER, ClamboPearl
 	obj_word OBJ_TOUCH_HANDLER, Touch_Hurt
-	obj_word OBJ_FRAME, Frame_20_4ada
+	obj_word OBJ_FRAME, Frame_ClamboPearl
 	obj_byte OBJ_ANIM_PARAM, $02
 	obj_byte OBJ_COLLISION, $40
 	obj_byte OBJ_PALETTE, $03
@@ -6126,7 +6126,7 @@ Platform_RunScript::
 
 .else_66e2:
 	push hl
-	ld hl, ObjInit_0a_66f8
+	ld hl, ObjInit_ArrowPlatform_Fall_2
 	call ApplyObjInit
 	pop hl
 	jr .done
@@ -6143,7 +6143,7 @@ Platform_RunScript::
 	ret
 
 
-ObjInit_0a_66f8::
+ObjInit_ArrowPlatform_Fall_2::
 	obj_byte OBJ_BANK, BANK(ArrowPlatform_Fall)
 	obj_word OBJ_HANDLER, ArrowPlatform_Fall
 	obj_word OBJ_TARGET_YVEL, $07ff
@@ -6258,7 +6258,7 @@ FuelPlatform_Move::
 	ld [hl], a
 	rlca
 	jr nc, .else_67ba
-	ld hl, ObjInit_0a_67c0
+	ld hl, ObjInit_ArrowPlatform_Fall_3
 	call ApplyObjInit
 	jr .jp_NextObject
 
@@ -6268,10 +6268,10 @@ FuelPlatform_Move::
 	jp NextObject
 
 
-ObjInit_0a_67c0::
+ObjInit_ArrowPlatform_Fall_3::
 	obj_byte OBJ_BANK, BANK(ArrowPlatform_Fall)
 	obj_word OBJ_HANDLER, ArrowPlatform_Fall
-	obj_word OBJ_FRAME, Frame_20_5638
+	obj_word OBJ_FRAME, Frame_FuelPlatform_Wait
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_TARGET_XVEL, $0000
 	obj_word OBJ_XACCEL, $0003
@@ -6358,7 +6358,7 @@ FuelPlatform_Travel::
 	add a, a
 	ld e, a
 	ld d, $00
-	ld hl, FrameTable_0a_68a8
+	ld hl, FrameTable_FuelPlatform_Travel
 	add hl, de
 	ld a, [hli]
 	ld d, [hl]
@@ -6410,12 +6410,12 @@ FuelPlatform_Travel::
 	jp NextObject
 
 
-FadeColours_0a_6894::
+FadeColours_FuelPlatform_Travel::
 	dw $001f, $00bf, $015f, $01ff, $0277, $02ef, $0367, $03e0, $03e0, $03e0 ; colour 3 of the object's palette, red to green
 
-FrameTable_0a_68a8::
-	dw Frame_20_5638, Frame_20_5632, Frame_20_562c, Frame_20_5626
-	dw Frame_20_5620, Frame_20_561a
+FrameTable_FuelPlatform_Travel::
+	dw Frame_FuelPlatform_Wait, Frame_FuelPlatform_Travel_5, Frame_FuelPlatform_Travel_4, Frame_FuelPlatform_Travel_3
+	dw Frame_FuelPlatform_Travel_2, Frame_FuelPlatform_Travel_1
 
 ArrowPlatform_Wait::
 	ld hl, wObjects + OBJ_VAR_32
@@ -6437,7 +6437,7 @@ ArrowPlatform_Wait::
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-	ld hl, wObjects + OBJ_VAR_38
+	ld hl, wObjects + OBJ_ANIM_WORD
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
@@ -6544,9 +6544,9 @@ Klump2::
 	ld [hl], HIGH(Klump_Walk)
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4bab)
+	ld [hl], LOW(Anim_Klump2_1)
 	inc hl
-	ld [hl], HIGH(Anim_04_4bab)
+	ld [hl], HIGH(Anim_Klump2_1)
 	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld [hl], $20
@@ -6616,9 +6616,9 @@ MiniNecky_RunScript::
 	ld [hl], $80
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4c2f)
+	ld [hl], LOW(Anim_MiniNecky_RunScript)
 	inc l
-	ld [hl], HIGH(Anim_04_4c2f)
+	ld [hl], HIGH(Anim_MiniNecky_RunScript)
 	call Obj_FacePlayer
 	pop hl
 	jr .done
@@ -6701,7 +6701,7 @@ MiniNecky_Spit::
 	ld [hli], a
 	ld [hl], d
 	rst_farcall MoveObjectToSavedPosition
-	ld hl, ObjInit_0a_6a77
+	ld hl, ObjInit_Nut
 	call InitObject
 .continue:
 	pop bc
@@ -6709,12 +6709,12 @@ MiniNecky_Spit::
 	jp .loop
 
 
-ObjInit_0a_6a77::
+ObjInit_Nut::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Nut)
 	obj_word OBJ_HANDLER, Nut
 	obj_word OBJ_TOUCH_HANDLER, Nut_Touch
-	obj_word OBJ_ANIM, Anim_04_4ebf
+	obj_word OBJ_ANIM, Anim_Nut_1
 	obj_byte OBJ_COLLISION, $04
 	obj_byte OBJ_ANIM_PARAM, $02
 	obj_byte OBJ_PALETTE, $01
@@ -6835,7 +6835,7 @@ RunMankyKongScript::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld hl, ObjInit_0a_6b94
+	ld hl, ObjInit_Mincer
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
@@ -6873,7 +6873,7 @@ RunMankyKongScript::
 	inc e
 	ld a, b
 	ld [de], a
-	ld hl, ObjInit_0a_6b76
+	ld hl, ObjInit_MankyBarrel
 	call InitObject
 	pop bc
 	rst_farcall Obj_GetFacingOffset
@@ -6890,13 +6890,13 @@ RunMankyKongScript::
 	ret
 
 
-ObjInit_0a_6b76::
+ObjInit_MankyBarrel::
 	obj_byte OBJ_FLAGS, $11
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
 	obj_word OBJ_TOUCH_HANDLER, MankyBarrel_Touch
 	obj_byte OBJ_LAYER, $02
-	obj_word OBJ_ANIM, Anim_04_5019
+	obj_word OBJ_ANIM, Anim_MankyBarrel
 	obj_word OBJ_TARGET_YVEL, $07ff
 	obj_word OBJ_YACCEL, $0050
 	obj_byte OBJ_ANIM_PARAM, $07
@@ -6905,10 +6905,10 @@ ObjInit_0a_6b76::
 	obj_byte OBJ_VAR_2C, $0c
 	obj_end
 
-ObjInit_0a_6b94::
+ObjInit_Mincer::
 	obj_byte OBJ_BANK, BANK(Mincer)
 	obj_word OBJ_HANDLER, Mincer
-	obj_word OBJ_ANIM, Anim_04_4b63
+	obj_word OBJ_ANIM, Anim_Mincer_1
 	obj_byte OBJ_ANIM_FLAGS, $80
 	obj_end
 
@@ -6943,9 +6943,9 @@ Mincer::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, de
-	ld [hl], LOW(Anim_04_5049)
+	ld [hl], LOW(Anim_Mincer_2)
 	inc l
-	ld [hl], HIGH(Anim_04_5049)
+	ld [hl], HIGH(Anim_Mincer_2)
 	ld hl, wObjects + OBJ_BANK
 	add hl, de
 	ld [hl], $0a
@@ -7141,9 +7141,9 @@ Croctopus_SetSpinAnim::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4dad)
+	ld [hl], LOW(Anim_Croctopus_SetSpinAnim_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4dad)
+	ld [hl], HIGH(Anim_Croctopus_SetSpinAnim_1)
 	ret
 
 
@@ -7156,9 +7156,9 @@ Croctopus_SetMoveAnim::
 	ld [hl], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
-	ld [hl], LOW(Anim_04_4dd5)
+	ld [hl], LOW(Anim_Croctopus_SetMoveAnim_1)
 	inc l
-	ld [hl], HIGH(Anim_04_4dd5)
+	ld [hl], HIGH(Anim_Croctopus_SetMoveAnim_1)
 	ret
 
 
@@ -7263,9 +7263,9 @@ StopGoBarrel::
 .continue_6d96:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ld [hl], LOW(Frame_20_4de0)
+	ld [hl], LOW(Frame_StopGoBarrel_2)
 	inc l
-	ld [hl], HIGH(Frame_20_4de0)
+	ld [hl], HIGH(Frame_StopGoBarrel_2)
 	jr .continue_6dc6
 
 .else:
@@ -7284,7 +7284,7 @@ StopGoBarrel::
 	add hl, bc
 	ld [hl], a
 .continue_6dbc:
-	ld de, Frame_20_4dda
+	ld de, Frame_StopGoBarrel_1
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, e
@@ -7304,7 +7304,7 @@ OnOffBarrel::
 	jr nz, .skip_6dd6
 	ld [hl], a
 .skip_6dd6:
-	ld de, Frame_20_4de6
+	ld de, Frame_OnOffBarrel_1
 	ld hl, wLevelTimer + 1
 	ld a, [hld]
 	or a
@@ -7312,7 +7312,7 @@ OnOffBarrel::
 	ld a, [hl]
 	cp $19
 	jr nc, .skip_6de8
-	ld de, Frame_20_4dec
+	ld de, Frame_OnOffBarrel_2
 .skip_6de8:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
@@ -7555,18 +7555,18 @@ Millstone::
 	ld [hl], c
 	inc l
 	ld [hl], b
-	ld hl, ObjInit_0a_6f62
+	ld hl, ObjInit_Obj_Animate_4
 	call InitObject
 	pop bc
 	jp NextObject
 
 
-ObjInit_0a_6f62::
+ObjInit_Obj_Animate_4::
 	obj_byte OBJ_FLAGS, $01
 	obj_byte OBJ_BANK, BANK(Obj_Animate)
 	obj_word OBJ_HANDLER, Obj_Animate
 	obj_byte OBJ_LAYER, $02
-	obj_word OBJ_ANIM, Anim_04_498f
+	obj_word OBJ_ANIM, Anim_Gnawty_1
 	obj_byte OBJ_PALETTE, $1a
 	obj_end
 
@@ -7976,7 +7976,7 @@ RunBlackDrumScript::
 	ldh a, [hTempY + 1]
 	sbc a, $00
 	ld [hli], a
-	ld hl, wObjects + OBJ_VAR_2D
+	ld hl, wObjects + OBJ_SPAWN_GROUP
 	add hl, bc
 	ldh a, [hSavedSlot]
 	ld [hl], a
@@ -8096,14 +8096,14 @@ OilDrum_RunScript::
 
 .else_7232:
 	push hl
-	ld hl, ObjInit_0a_726f
+	ld hl, ObjInit_OilDrum_Burn_1
 	call ApplyObjInit
 	pop hl
 	jr .done
 
 .else_723c:
 	push hl
-	ld hl, ObjInit_0a_727a
+	ld hl, ObjInit_OilDrum_Burn_2
 	call ApplyObjInit
 	pop hl
 	jr .done
@@ -8114,7 +8114,7 @@ OilDrum_RunScript::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld [hl], a
-	ld hl, ObjInit_0a_7285
+	ld hl, ObjInit_OilDrum_Wait_1
 	call ApplyObjInit
 	pop hl
 	jr .done
@@ -8125,7 +8125,7 @@ OilDrum_RunScript::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld [hl], a
-	ld hl, ObjInit_0a_7290
+	ld hl, ObjInit_OilDrum_Wait_2
 	call ApplyObjInit
 	pop hl
 	jr .done
@@ -8140,31 +8140,31 @@ OilDrum_RunScript::
 	ret
 
 
-ObjInit_0a_726f::
+ObjInit_OilDrum_Burn_1::
 	obj_byte OBJ_BANK, BANK(OilDrum_Burn)
 	obj_word OBJ_HANDLER, OilDrum_Burn
 	obj_byte OBJ_ANIM_FLAGS, $80
-	obj_word OBJ_ANIM, Anim_04_4f2d
+	obj_word OBJ_ANIM, Anim_OilDrum_Burn_2
 	obj_end
 
-ObjInit_0a_727a::
+ObjInit_OilDrum_Burn_2::
 	obj_byte OBJ_BANK, BANK(OilDrum_Burn)
 	obj_word OBJ_HANDLER, OilDrum_Burn
 	obj_byte OBJ_ANIM_FLAGS, $80
-	obj_word OBJ_ANIM, Anim_04_4f19
+	obj_word OBJ_ANIM, Anim_OilDrum_Burn_1
 	obj_end
 
-ObjInit_0a_7285::
+ObjInit_OilDrum_Wait_1::
 	obj_byte OBJ_BANK, BANK(OilDrum_Wait)
 	obj_word OBJ_HANDLER, OilDrum_Wait
-	obj_word OBJ_ANIM, Anim_04_4efd
+	obj_word OBJ_ANIM, Anim_OilDrum_Wait_1
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
-ObjInit_0a_7290::
+ObjInit_OilDrum_Wait_2::
 	obj_byte OBJ_BANK, BANK(OilDrum_Wait)
 	obj_word OBJ_HANDLER, OilDrum_Wait
-	obj_word OBJ_ANIM, Anim_04_4f11
+	obj_word OBJ_ANIM, Anim_OilDrum_Wait_3
 	obj_byte OBJ_ANIM_TIMER, $00
 	obj_end
 
@@ -8244,13 +8244,13 @@ ExtraLifeBalloon_FlyUp::
 	add hl, bc
 	dec [hl]
 	jr nz, .jp_NextObject
-	ld hl, ObjInit_0a_731e
+	ld hl, ObjInit_ExtraLifeBalloon_Count
 	call ApplyObjInit
 .jp_NextObject:
 	jp NextObject
 
 
-ObjInit_0a_731e::
+ObjInit_ExtraLifeBalloon_Count::
 	obj_byte OBJ_BANK, BANK(ExtraLifeBalloon_Count)
 	obj_word OBJ_HANDLER, ExtraLifeBalloon_Count
 	obj_word OBJ_X, $0081
@@ -8282,27 +8282,27 @@ ExtraLifeBalloon_Count::
 	jp NextObject
 
 
-ObjScript_0a_7358::
+ObjScript_MiniNecky_2_Sub::
 	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
 	db $01, $50 ; wait (MiniNecky_Hover)
 	db $00 ; jump
-	dw ObjScript_0a_7358
+	dw ObjScript_MiniNecky_2_Sub
 
-ObjScript_0a_735e::
+ObjScript_MiniNecky_5_Sub::
 	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
 	db $01, $96 ; wait (MiniNecky_Hover)
 	db $00 ; jump
-	dw ObjScript_0a_735e
+	dw ObjScript_MiniNecky_5_Sub
 
-ObjScript_0a_7364::
+ObjScript_MiniNecky_3_Sub::
 	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
 	db $02, $32 ; wait (MiniNecky_Swoop)
 	db $03 ; finish (MiniNecky_Spit)
 	db $02, $00 ; wait (MiniNecky_Swoop)
 	db $00 ; jump
-	dw ObjScript_0a_7364
+	dw ObjScript_MiniNecky_3_Sub
 
-ObjScript_0a_736d::
+ObjScript_MiniNecky_4_Sub::
 	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
 	db $02, $32 ; wait (MiniNecky_Swoop)
 	db $03 ; finish (MiniNecky_Spit)
@@ -8310,9 +8310,9 @@ ObjScript_0a_736d::
 	db $03 ; finish (MiniNecky_Spit)
 	db $02, $00 ; wait (MiniNecky_Swoop)
 	db $00 ; jump
-	dw ObjScript_0a_736d
+	dw ObjScript_MiniNecky_4_Sub
 
-ObjScript_0a_7379::
+ObjScript_Necky_ThrowNuts_2_Sub::
 	db $03 ; jump (Necky_Throw) -- RunNeckyScript
 	dw $fd00
 	db $01, $14 ; wait
@@ -8325,27 +8325,27 @@ ObjScript_0a_7379::
 	db $02 ; animation Anim_04_4a0d
 	db $01, $32 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_7379
+	dw ObjScript_Necky_ThrowNuts_2_Sub
 
-ObjScript_0a_738e::
+ObjScript_Necky_ThrowNuts_3_Sub::
 	db $03 ; jump (Necky_Throw) -- RunNeckyScript
 	dw $0000
 	db $01, $14 ; wait
 	db $02 ; animation Anim_04_4a0d
 	db $01, $1e ; wait
 	db $00 ; jump
-	dw ObjScript_0a_738e
+	dw ObjScript_Necky_ThrowNuts_3_Sub
 
-ObjScript_0a_7399::
+ObjScript_Necky_ThrowNuts_4_Sub::
 	db $03 ; jump (Necky_Throw) -- RunNeckyScript
 	dw $0300
 	db $01, $14 ; wait
 	db $02 ; animation Anim_04_4a0d
 	db $01, $1e ; wait
 	db $00 ; jump
-	dw ObjScript_0a_7399
+	dw ObjScript_Necky_ThrowNuts_4_Sub
 
-ObjScript_0a_73a4::
+ObjScript_Clambo_2_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8356,9 +8356,9 @@ ObjScript_0a_73a4::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $28 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_73a4
+	dw ObjScript_Clambo_2_Sub
 
-ObjScript_0a_73b9::
+ObjScript_Clambo_3_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8367,9 +8367,9 @@ ObjScript_0a_73b9::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $28 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_73b9
+	dw ObjScript_Clambo_3_Sub
 
-ObjScript_0a_73c9::
+ObjScript_Clambo_4_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8380,9 +8380,9 @@ ObjScript_0a_73c9::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $28 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_73c9
+	dw ObjScript_Clambo_4_Sub
 
-ObjScript_0a_73de::
+ObjScript_Clambo_5_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8393,9 +8393,9 @@ ObjScript_0a_73de::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $28 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_73de
+	dw ObjScript_Clambo_5_Sub
 
-ObjScript_0a_73f3::
+ObjScript_Clambo_6_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8408,9 +8408,9 @@ ObjScript_0a_73f3::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $28 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_73f3
+	dw ObjScript_Clambo_6_Sub
 
-ObjScript_0a_740d::
+ObjScript_Clambo_9_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8419,9 +8419,9 @@ ObjScript_0a_740d::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $28 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_740d
+	dw ObjScript_Clambo_9_Sub
 
-ObjScript_0a_741d::
+ObjScript_Clambo_10_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8430,9 +8430,9 @@ ObjScript_0a_741d::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $28 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_741d
+	dw ObjScript_Clambo_10_Sub
 
-ObjScript_0a_742d::
+ObjScript_Clambo_7_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8449,9 +8449,9 @@ ObjScript_0a_742d::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $32 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_742d
+	dw ObjScript_Clambo_7_Sub
 
-ObjScript_0a_7451::
+ObjScript_Clambo_8_Sub::
 	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
@@ -8468,26 +8468,26 @@ ObjScript_0a_7451::
 	db $03 ; animation Anim_04_4cc7
 	db $01, $32 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_7451
+	dw ObjScript_Clambo_8_Sub
 
-ObjScript_0a_7475::
+ObjScript_Kritter_Walk_5_Sub::
 	db $02, $ff ; walk (Anim_04_4947) -- RunKritterScript
 	db $00 ; jump
-	dw ObjScript_0a_7475
+	dw ObjScript_Kritter_Walk_5_Sub
 
-ObjScript_0a_747a::
+ObjScript_Kritter_Walk_12_Sub::
 	db $03 ; move (Kritter_JumpStart) -- RunKritterScript
 	dw $fbb0
 	db $00 ; jump
-	dw ObjScript_0a_747a
+	dw ObjScript_Kritter_Walk_12_Sub
 
-ObjScript_0a_7480::
+ObjScript_Kritter_Walk_7_Sub::
 	db $03 ; move (Kritter_JumpStart) -- RunKritterScript
 	dw $fcb0
 	db $00 ; jump
-	dw ObjScript_0a_7480
+	dw ObjScript_Kritter_Walk_7_Sub
 
-ObjScript_0a_7486::
+ObjScript_Kritter_Walk_30_Sub::
 	db $03 ; move (Kritter_JumpStart) -- RunKritterScript
 	dw $fbb0
 	db $03 ; move (Kritter_JumpStart)
@@ -8497,9 +8497,9 @@ ObjScript_0a_7486::
 	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
 	db $00 ; jump
-	dw ObjScript_0a_7486
+	dw ObjScript_Kritter_Walk_30_Sub
 
-ObjScript_0a_7495::
+ObjScript_Kritter_Unused_1::
 	db $03 ; move (Kritter_JumpStart) -- RunKritterScript (no object list points here)
 	dw $fcb0
 	db $03 ; move (Kritter_JumpStart)
@@ -8509,23 +8509,23 @@ ObjScript_0a_7495::
 	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
 	db $00 ; jump
-	dw ObjScript_0a_7495
+	dw ObjScript_Kritter_Unused_1
 
-ObjScript_0a_74a4::
+ObjScript_Kritter_Walk_11_Sub::
 	db $02, $1e ; walk (Anim_04_4947) -- RunKritterScript
 	db $03 ; move (Kritter_JumpStart)
 	dw $fbb0
 	db $00 ; jump
-	dw ObjScript_0a_74a4
+	dw ObjScript_Kritter_Walk_11_Sub
 
-ObjScript_0a_74ac::
+ObjScript_Kritter_Unused_2::
 	db $02, $32 ; walk (Anim_04_4947) -- RunKritterScript (no object list points here)
 	db $03 ; move (Kritter_JumpStart)
 	dw $fcb0
 	db $00 ; jump
-	dw ObjScript_0a_74ac
+	dw ObjScript_Kritter_Unused_2
 
-ObjScript_0a_74b4::
+ObjScript_MankyKong_2_Sub::
 	db $02 ; attack (RunMankyKongScript.else_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $58 ; wait
@@ -8536,9 +8536,9 @@ ObjScript_0a_74b4::
 	dw $0180
 	db $01, $a0 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_74b4
+	dw ObjScript_MankyKong_2_Sub
 
-ObjScript_0a_74c6::
+ObjScript_MankyKong_3_Sub::
 	db $02 ; attack (RunMankyKongScript.else_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $42 ; wait
@@ -8549,9 +8549,9 @@ ObjScript_0a_74c6::
 	dw $0180
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_74c6
+	dw ObjScript_MankyKong_3_Sub
 
-ObjScript_0a_74d8::
+ObjScript_MankyKong_4_Sub::
 	db $02 ; attack (RunMankyKongScript.else_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $2c ; wait
@@ -8562,14 +8562,14 @@ ObjScript_0a_74d8::
 	dw $0180
 	db $01, $50 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_74d8
+	dw ObjScript_MankyKong_4_Sub
 
-ObjScript_0a_74ea::
+ObjScript_Croctopus_2_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $067c
 
-ObjScript_0a_74ee::
+ObjScript_Croctopus_2_Sub_Part::
 	db $04 ; target y speed -- RunCroctopusScript
 	dw $025c
 	db $02 ; yield (Croctopus_Chase)
@@ -8583,14 +8583,14 @@ ObjScript_0a_74ee::
 	dw $067c
 	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
-	dw ObjScript_0a_74ee
+	dw ObjScript_Croctopus_2_Sub_Part
 
-ObjScript_0a_7501::
+ObjScript_Croctopus_3_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $04a8
 
-ObjScript_0a_7505::
+ObjScript_Croctopus_3_Sub_Part::
 	db $04 ; target y speed -- RunCroctopusScript
 	dw $0397
 	db $02 ; yield (Croctopus_Chase)
@@ -8606,14 +8606,14 @@ ObjScript_0a_7505::
 	db $03 ; target x speed
 	dw $04a8
 	db $00 ; jump
-	dw ObjScript_0a_7505
+	dw ObjScript_Croctopus_3_Sub_Part
 
-ObjScript_0a_751b::
+ObjScript_Croctopus_4_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $04 ; target y speed
 	dw $02df
 
-ObjScript_0a_751f::
+ObjScript_Croctopus_4_Sub_Part::
 	db $03 ; target x speed -- RunCroctopusScript
 	dw $0205
 	db $02 ; yield (Croctopus_Chase)
@@ -8627,14 +8627,14 @@ ObjScript_0a_751f::
 	dw $02df
 	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
-	dw ObjScript_0a_751f
+	dw ObjScript_Croctopus_4_Sub_Part
 
-ObjScript_0a_7532::
+ObjScript_Croctopus_5_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $05be
 
-ObjScript_0a_7536::
+ObjScript_Croctopus_5_Sub_Part::
 	db $04 ; target y speed -- RunCroctopusScript
 	dw $00c4
 	db $02 ; yield (Croctopus_Chase)
@@ -8660,14 +8660,14 @@ ObjScript_0a_7536::
 	dw $05be
 	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
-	dw ObjScript_0a_7536
+	dw ObjScript_Croctopus_5_Sub_Part
 
-ObjScript_0a_7559::
+ObjScript_Croctopus_19_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $044c
 
-ObjScript_0a_755d::
+ObjScript_Croctopus_19_Sub_Part::
 	db $04 ; target y speed -- RunCroctopusScript
 	dw $0064
 	db $02 ; yield (Croctopus_Chase)
@@ -8684,14 +8684,14 @@ ObjScript_0a_755d::
 	dw $0064
 	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
-	dw ObjScript_0a_755d
+	dw ObjScript_Croctopus_19_Sub_Part
 
-ObjScript_0a_7574::
+ObjScript_Croctopus_20_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $050a
 
-ObjScript_0a_7578::
+ObjScript_Croctopus_20_Sub_Part::
 	db $04 ; target y speed -- RunCroctopusScript
 	dw $0064
 	db $02 ; yield (Croctopus_Chase)
@@ -8708,9 +8708,9 @@ ObjScript_0a_7578::
 	dw $0064
 	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
-	dw ObjScript_0a_7578
+	dw ObjScript_Croctopus_20_Sub_Part
 
-ObjScript_0a_758f::
+ObjScript_Croctopus_6_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0228
@@ -8725,7 +8725,7 @@ ObjScript_0a_758f::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_75a0::
+ObjScript_Croctopus_7_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0400
@@ -8743,7 +8743,7 @@ ObjScript_0a_75a0::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_75b5::
+ObjScript_Croctopus_8_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0503
@@ -8758,7 +8758,7 @@ ObjScript_0a_75b5::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_75c6::
+ObjScript_Croctopus_9_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $038b
@@ -8785,7 +8785,7 @@ ObjScript_0a_75c6::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_75e7::
+ObjScript_Croctopus_10_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0164
@@ -8824,7 +8824,7 @@ ObjScript_0a_75e7::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_7618::
+ObjScript_Croctopus_11_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $01ae
@@ -8839,7 +8839,7 @@ ObjScript_0a_7618::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_7629::
+ObjScript_Croctopus_12_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0384
@@ -8848,7 +8848,7 @@ ObjScript_0a_7629::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_7632::
+ObjScript_Croctopus_13_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0543
@@ -8868,7 +8868,7 @@ ObjScript_0a_7632::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_764a::
+ObjScript_Croctopus_14_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0366
@@ -8897,7 +8897,7 @@ ObjScript_0a_764a::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_766e::
+ObjScript_Croctopus_15_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0143
@@ -8915,7 +8915,7 @@ ObjScript_0a_766e::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_7683::
+ObjScript_Croctopus_16_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0230
@@ -8942,7 +8942,7 @@ ObjScript_0a_7683::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_76a4::
+ObjScript_Croctopus_17_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $02b2
@@ -8969,7 +8969,7 @@ ObjScript_0a_76a4::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_76c5::
+ObjScript_Croctopus_18_Sub::
 	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0460
@@ -8998,7 +8998,7 @@ ObjScript_0a_76c5::
 	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
-ObjScript_0a_76e9::
+ObjScript_Millstone_Scripted_2_Sub::
 	db $06 ; acceleration -- RunMillstoneScript
 	dw $0193
 	db $03 ; target x speed
@@ -9011,7 +9011,7 @@ ObjScript_0a_76e9::
 	db $02 ; yield
 	db $05 ; yield (Millstone_Despawn)
 
-ObjScript_0a_76f8::
+ObjScript_Millstone_Scripted_3_Sub::
 	db $06 ; acceleration -- RunMillstoneScript
 	dw $0193
 	db $03 ; target x speed
@@ -9036,7 +9036,7 @@ ObjScript_0a_76f8::
 	db $02 ; yield
 	db $05 ; yield (Millstone_Despawn)
 
-ObjScript_0a_7718::
+ObjScript_Millstone_Scripted_4_Sub::
 	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
@@ -9068,7 +9068,7 @@ ObjScript_0a_7718::
 	db $02 ; yield
 	db $05 ; yield (Millstone_Despawn)
 
-ObjScript_0a_7742::
+ObjScript_Millstone_Scripted_5_Sub::
 	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
@@ -9081,7 +9081,7 @@ ObjScript_0a_7742::
 	db $02 ; yield
 	db $05 ; yield (Millstone_Despawn)
 
-ObjScript_0a_7751::
+ObjScript_Millstone_Scripted_6_Sub::
 	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
@@ -9112,7 +9112,7 @@ ObjScript_0a_7751::
 	db $02 ; yield
 	db $05 ; yield (Millstone_Despawn)
 
-ObjScript_0a_7779::
+ObjScript_Millstone_Scripted_7_Sub::
 	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
@@ -9138,59 +9138,59 @@ ObjScript_0a_7779::
 	db $02 ; yield
 	db $05 ; yield (Millstone_Despawn)
 
-ObjScript_0a_779a::
+ObjScript_BlackDrum_6_Sub::
 	db $02 ; spawn -- RunBlackDrumScript
-	dw ObjInit_0a_77ff
+	dw ObjInit_Gnawty_14
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_779a
+	dw ObjScript_BlackDrum_6_Sub
 
-ObjScript_0a_77a2::
+ObjScript_BlackDrum_8_Sub::
 	db $02 ; spawn -- RunBlackDrumScript
-	dw ObjInit_0a_7808
+	dw ObjInit_Gnawty_15
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_77a2
+	dw ObjScript_BlackDrum_8_Sub
 
-ObjScript_0a_77aa::
+ObjScript_BlackDrum_11_Sub::
 	db $02 ; spawn -- RunBlackDrumScript
-	dw ObjInit_0a_7829
+	dw ObjInit_Gnawty_17
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_77aa
+	dw ObjScript_BlackDrum_11_Sub
 
-ObjScript_0a_77b2::
+ObjScript_BlackDrum_20_Sub::
 	db $02 ; spawn -- RunBlackDrumScript
-	dw ObjInit_0a_7832
+	dw ObjInit_Gnawty_18
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_77b2
+	dw ObjScript_BlackDrum_20_Sub
 
-ObjScript_0a_77ba::
+ObjScript_BlackDrum_22_Sub::
 	db $02 ; spawn -- RunBlackDrumScript
-	dw ObjInit_0a_7829
+	dw ObjInit_Gnawty_17
 	db $01, $78 ; wait
 	db $02 ; spawn
-	dw ObjInit_0a_7832
+	dw ObjInit_Gnawty_18
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_77ba
+	dw ObjScript_BlackDrum_22_Sub
 
-ObjScript_0a_77c7::
+ObjScript_BlackDrum_24_Sub::
 	db $02 ; spawn -- RunBlackDrumScript
-	dw ObjInit_0a_7853
+	dw ObjInit_Gnawty_20
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_77c7
+	dw ObjScript_BlackDrum_24_Sub
 
-ObjScript_0a_77cf::
+ObjScript_BlackDrum_25_Sub::
 	db $02 ; spawn -- RunBlackDrumScript
-	dw ObjInit_0a_785c
+	dw ObjInit_Army_2
 	db $01, $78 ; wait
 	db $00 ; jump
-	dw ObjScript_0a_77cf
+	dw ObjScript_BlackDrum_25_Sub
 
-ObjInit_0a_77d7::
+ObjInit_Gnawty_Common_2::
 	obj_byte OBJ_FLAGS, $15
 	obj_byte OBJ_COLLISION, $04
 	obj_word OBJ_YACCEL, $0050
@@ -9199,78 +9199,78 @@ ObjInit_0a_77d7::
 	obj_byte OBJ_LAYER, $01
 	obj_end
 
-ObjInit_0a_77e7::
-	obj_include ObjInit_0a_77d7
+ObjInit_Gnawty_13::
+	obj_include ObjInit_Gnawty_Common_2
 	obj_byte OBJ_BANK, BANK(Gnawty)
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $01
 	obj_byte OBJ_ANIM_PARAM, $42
-	obj_word OBJ_ANIM, Anim_04_498f
+	obj_word OBJ_ANIM, Anim_Gnawty_1
 	obj_byte OBJ_PALETTE, $08
 	obj_word OBJ_XACCEL, $0020
 	obj_end
 
-ObjInit_0a_77ff::
-	obj_include ObjInit_0a_77e7
+ObjInit_Gnawty_14::
+	obj_include ObjInit_Gnawty_13
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_word OBJ_TARGET_XVEL, $ff80
 	obj_end
 
-ObjInit_0a_7808::
-	obj_include ObjInit_0a_77e7
+ObjInit_Gnawty_15::
+	obj_include ObjInit_Gnawty_13
 	obj_byte OBJ_OAM_ATTR, $00
 	obj_word OBJ_TARGET_XVEL, $0080
 	obj_end
 
-ObjInit_0a_7811::
-	obj_include ObjInit_0a_77d7
+ObjInit_Gnawty_16::
+	obj_include ObjInit_Gnawty_Common_2
 	obj_byte OBJ_BANK, BANK(Gnawty)
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Touch_Enemy
 	obj_byte OBJ_VAR_2C, $03
 	obj_byte OBJ_ANIM_PARAM, $39
 	obj_byte OBJ_PALETTE, $0f
-	obj_word OBJ_ANIM, Anim_04_4acf
+	obj_word OBJ_ANIM, Anim_Gnawty_3
 	obj_word OBJ_XACCEL, $0040
 	obj_end
 
-ObjInit_0a_7829::
-	obj_include ObjInit_0a_7811
+ObjInit_Gnawty_17::
+	obj_include ObjInit_Gnawty_16
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_end
 
-ObjInit_0a_7832::
-	obj_include ObjInit_0a_7811
+ObjInit_Gnawty_18::
+	obj_include ObjInit_Gnawty_16
 	obj_byte OBJ_OAM_ATTR, $00
 	obj_word OBJ_TARGET_XVEL, $0100
 	obj_end
 
-ObjInit_0a_783b::
-	obj_include ObjInit_0a_77d7
+ObjInit_Gnawty_19::
+	obj_include ObjInit_Gnawty_Common_2
 	obj_byte OBJ_BANK, BANK(Gnawty)
 	obj_word OBJ_HANDLER, Gnawty
 	obj_word OBJ_TOUCH_HANDLER, Klaptrap_Touch
 	obj_byte OBJ_VAR_2C, $05
 	obj_byte OBJ_ANIM_PARAM, $39
-	obj_word OBJ_ANIM, Anim_04_4c51
+	obj_word OBJ_ANIM, Anim_StompBonus_Klaptrap_Walk_1
 	obj_word OBJ_XACCEL, $0020
 	obj_byte OBJ_PALETTE, $0b
 	obj_end
 
-ObjInit_0a_7853::
-	obj_include ObjInit_0a_783b
+ObjInit_Gnawty_20::
+	obj_include ObjInit_Gnawty_19
 	obj_byte OBJ_OAM_ATTR, $20
 	obj_word OBJ_TARGET_XVEL, $ff00
 	obj_end
 
-ObjInit_0a_785c::
-	obj_include ObjInit_0a_77d7
+ObjInit_Army_2::
+	obj_include ObjInit_Gnawty_Common_2
 	obj_byte OBJ_BANK, BANK(Army)
 	obj_word OBJ_HANDLER, Army
 	obj_word OBJ_TOUCH_HANDLER, Army_Touch
-	obj_word OBJ_ANIM, Anim_04_4a55
+	obj_word OBJ_ANIM, Anim_Army_1
 	obj_word OBJ_PALETTE, $0000
 	obj_word OBJ_XACCEL, $0020
 	obj_byte OBJ_VAR_2E, $28
@@ -9278,7 +9278,7 @@ ObjInit_0a_785c::
 	obj_byte OBJ_VAR_30, $64
 	obj_end
 
-ObjScript_0a_7877::
+ObjScript_OilDrum_1_Sub::
 	db $06 ; set OBJ_VAR_2E bit 7 -- OilDrum_RunScript
 	db $04, $49 ; animation (ObjInit_0a_7285)
 	db $07 ; clear OBJ_VAR_2E bit 7
@@ -9287,9 +9287,9 @@ ObjScript_0a_7877::
 	db $08 ; sound $94
 	db $02 ; animation (ObjInit_0a_727a)
 	db $00 ; jump
-	dw ObjScript_0a_7877
+	dw ObjScript_OilDrum_1_Sub
 
-ObjScript_0a_7883::
+ObjScript_OilDrum_2_Sub::
 	db $09 ; sound $9a -- OilDrum_RunScript
 	db $02 ; animation (ObjInit_0a_727a)
 	db $06 ; set OBJ_VAR_2E bit 7
@@ -9302,9 +9302,9 @@ ObjScript_0a_7883::
 	db $03 ; animation (ObjInit_0a_726f)
 	db $05, $40 ; animation (ObjInit_0a_7290)
 	db $00 ; jump
-	dw ObjScript_0a_7883
+	dw ObjScript_OilDrum_2_Sub
 
-ObjScript_0a_7893::
+ObjScript_OilDrum_4_Sub::
 	db $02 ; animation (ObjInit_0a_727a) -- OilDrum_RunScript
 	db $04, $27 ; animation (ObjInit_0a_7285)
 	db $07 ; clear OBJ_VAR_2E bit 7
@@ -9317,9 +9317,9 @@ ObjScript_0a_7893::
 	db $02 ; animation (ObjInit_0a_727a)
 	db $03 ; animation (ObjInit_0a_726f)
 	db $00 ; jump
-	dw ObjScript_0a_7893
+	dw ObjScript_OilDrum_4_Sub
 
-ObjScript_0a_78a3::
+ObjScript_TrackPlatform_Wait_2_Sub::
 	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed
@@ -9429,7 +9429,7 @@ ObjScript_0a_78a3::
 	db $02 ; yield
 	db $06 ; fall (ObjInit_0a_66f8)
 
-ObjScript_0a_7937::
+ObjScript_TrackPlatform_Wait_3_Sub::
 	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed
@@ -9570,7 +9570,7 @@ ObjScript_0a_7937::
 	db $02 ; yield
 	db $06 ; fall (ObjInit_0a_66f8)
 
-ObjScript_0a_79f5::
+ObjScript_TrackPlatform_Wait_4_Sub::
 	db $05 ; acceleration -- Platform_RunScript
 	dw $0140
 	db $03 ; target x speed
@@ -9578,7 +9578,7 @@ ObjScript_0a_79f5::
 	db $04 ; target y speed
 	dw $00d2
 
-ObjScript_0a_79fe::
+ObjScript_TrackPlatform_Wait_4_Sub_Part::
 	db $02 ; yield -- Platform_RunScript
 	db $03 ; target x speed
 	dw $0028
@@ -9592,9 +9592,9 @@ ObjScript_0a_79fe::
 	db $04 ; target y speed
 	dw $00d2
 	db $00 ; jump
-	dw ObjScript_0a_79fe
+	dw ObjScript_TrackPlatform_Wait_4_Sub_Part
 
-ObjScript_0a_7a11::
+ObjScript_FuelPlatform_Wait_2_Sub::
 	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed
@@ -9657,7 +9657,7 @@ ObjScript_0a_7a11::
 	db $02 ; yield
 	db $07 ; end
 
-ObjScript_0a_7a64::
+ObjScript_FuelPlatform_Wait_3_Sub::
 	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed

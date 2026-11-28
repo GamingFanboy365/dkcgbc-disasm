@@ -4,13 +4,13 @@ INCLUDE "include/common.inc"
 SECTION "Bank $fe", ROMX[$4000], BANK[$fe]
 
 CrosshairCranky::
-	jp Cranky_MainLoop.jump_4115
+	jp Cranky_MainLoop.start
 
 
 CrosshairCrankyLink::
-	jp .jump_4006
+	jp .else
 
-.jump_4006:
+.else:
 	di
 	ld [wCranky_SavedSP], sp
 	ld a, $01
@@ -37,16 +37,16 @@ CrosshairCrankyLink::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-.jump_4041:
+.loop_4041:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_4041
-.jump_4048:
+	jr z, .loop_4041
+.loop_4048:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_4048
+	jr nz, .loop_4048
 	call FE_OAMDMA
 	ld a, BANK(Cranky_LoadFont)
 	ld hl, Cranky_LoadFont
@@ -94,9 +94,9 @@ CrankyModeToGame_Unused::
 	ld hl, $40be
 	add a, l
 	ld l, a
-	jr nc, .jump_40b9
+	jr nc, .done
 	inc h
-.jump_40b9:
+.done:
 	ld a, [hl]
 	ld [wCranky_Game], a
 	ret
@@ -137,7 +137,7 @@ Cranky_MainLoop::
 	call Cranky_SwapTileBuffer
 	jr Cranky_MainLoop
 
-.jump_4115:
+.start:
 	di
 	ld [wCranky_SavedSP], sp
 	ld a, $01
@@ -163,16 +163,16 @@ Cranky_MainLoop::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-.jump_414d:
+.loop_414d:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_414d
-.jump_4154:
+	jr z, .loop_414d
+.loop_4154:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_4154
+	jr nz, .loop_4154
 	call FE_OAMDMA
 	ld a, BANK(Cranky_LoadFont)
 	ld hl, Cranky_LoadFont
@@ -218,9 +218,9 @@ CrankyModeToGame::
 	ld hl, $41c5
 	add a, l
 	ld l, a
-	jr nc, .jump_41c0
+	jr nc, .done
 	inc h
-.jump_41c0:
+.done:
 	ld a, [hl]
 	ld [wCranky_Game], a
 	ret
@@ -248,16 +248,16 @@ Cranky_EndingFrame::
 	call Cranky_DrawTimer
 	call Cranky_DrawActors
 	call Cranky_WaitLineAndUpdateSound
-.jump_41fb:
+.loop_41fb:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_41fb
-.jump_4202:
+	jr z, .loop_41fb
+.loop_4202:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_4202
+	jr nz, .loop_4202
 	call Cranky_AnimateBackgroundTiles
 	call Cranky_DrawAmmo
 	call Cranky_FlashScreen
@@ -288,34 +288,34 @@ Cranky_GalleonGunner_CheckLost::
 	ld a, [wCranky_ActorType + 5]
 	cp $0f
 	ret nz
-	jp Cranky_CheckGameOver.jump_42bd
+	jp Cranky_CheckGameOver.game_over
 
 
 Cranky_CheckAllTargetsDown::
 	ld a, [wCranky_TargetHits]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_TargetHits + 1]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_TargetHits + 2]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_TargetHits + 3]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_TargetHits + 4]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_TargetHits + 5]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_TargetHits + 6]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_TargetHits + 7]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_Mode]
 	cp $02
 	ret z
@@ -328,13 +328,13 @@ Cranky_CheckAllTargetsDown::
 	ld a, [wCranky_Score + 2]
 	or a
 	ret nz
-	jp Cranky_CheckGameOver.jump_42bd
+	jp Cranky_CheckGameOver.game_over
 
 
 Cranky_BarrelOKremlings_UseBarrel::
 	ld a, [wCranky_Barrels]
 	or a
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	dec a
 	ld [wCranky_Barrels], a
 	ld a, $21
@@ -351,10 +351,10 @@ Cranky_CheckGameOver::
 	ld a, [wCranky_Score]
 	or a
 	ret nz
-.jump_42bd:
+.game_over:
 	ld a, [wCranky_Mode]
 	cp $02
-	jr z, .jump_431e
+	jr z, .wait_end
 	call Cranky_EndEffect
 	ld a, BANK(Cranky_FadeOut)
 	ld hl, Cranky_FadeOut
@@ -376,10 +376,10 @@ Cranky_CheckGameOver::
 	ld c, $00
 	ret
 
-.jump_42eb:
+.tally:
 	ld a, [wCranky_Mode]
 	cp $02
-	jr z, .jump_431e
+	jr z, .wait_end
 	call Cranky_EndTally
 	ld a, BANK(Cranky_FadeOut)
 	ld hl, Cranky_FadeOut
@@ -405,15 +405,15 @@ Cranky_CheckGameOver::
 	ld b, a
 	ret
 
-.jump_431e:
+.wait_end:
 	ld a, $03
 	ld [wCranky_State], a
-.jump_4323:
+.loop_4323:
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
 	ld a, [wCranky_LinkIn + 2]
 	cp $03
-	jr nz, .jump_4323
+	jr nz, .loop_4323
 	call Cranky_EndTally
 	ld a, [wCranky_Score]
 	and $0f
@@ -442,24 +442,24 @@ Cranky_CheckGameOver::
 	ld h, $00
 	ret
 
-.jump_436d:
+.quit:
 	ld a, [wCranky_Mode]
 	cp $02
-	jr z, .jump_43b5
+	jr z, .else
 	call Cranky_WaitLineAndUpdateSound
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-.jump_437f:
+.loop_437f:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_437f
-.jump_4386:
+	jr z, .loop_437f
+.loop_4386:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_4386
+	jr nz, .loop_4386
 	ld b, $c0
 	ld a, BANK(Cranky_CopyOAM)
 	ld hl, Cranky_CopyOAM
@@ -481,32 +481,32 @@ Cranky_CheckGameOver::
 	ldh [rIE], a
 	ret
 
-.jump_43b5:
+.else:
 	ld a, $04
 	ld [wCranky_State], a
-.jump_43ba:
+.loop_43ba:
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
 	ld a, [wCranky_LinkIn + 2]
 	cp $03
-	jr nz, .jump_43ba
-.jump_43c7:
+	jr nz, .loop_43ba
+.finish:
 	ld a, $03
 	ld [wCranky_State], a
 	call Cranky_WaitLineAndUpdateSound
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-.jump_43d7:
+.loop_43d7:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_43d7
-.jump_43de:
+	jr z, .loop_43d7
+.loop_43de:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_43de
+	jr nz, .loop_43de
 	ld b, $c0
 	ld a, BANK(Cranky_CopyOAM)
 	ld hl, Cranky_CopyOAM
@@ -557,27 +557,27 @@ CrankyShowInstructions::
 	ld a, BANK(Cranky_FadeIn)
 	ld hl, Cranky_FadeIn
 	call FarCall_A_HL
-.jump_444e:
+.loop_444e:
 	ldh a, [hFE_FrameCounter]
 	inc a
 	ldh [hFE_FrameCounter], a
 	call Cranky_WaitLineAndUpdateSound
-.jump_4456:
+.loop_4456:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_4456
-.jump_445d:
+	jr z, .loop_4456
+.loop_445d:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_445d
+	jr nz, .loop_445d
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
 	ldh a, [hFE_JoyInput]
 	and $0f
-	jr z, .jump_444e
+	jr z, .loop_444e
 	ldh a, [hFE_FrameCounter]
 	ld b, a
 	ld a, BANK(FE_SeedRandom)
@@ -619,9 +619,9 @@ Cranky_EndEffect::
 	ld hl, $44b9
 	add a, l
 	ld l, a
-	jr nc, .jump_44b8
+	jr nc, .skip
 	inc h
-.jump_44b8:
+.skip:
 	jp hl
 
 
@@ -706,7 +706,7 @@ Cranky_GalleonGunner_EndEffectBody::
 	ld l, a
 	pop af
 	ld [hl], a
-.jump_451e:
+.loop:
 	ldh a, [hFE_FrameCounter]
 	inc a
 	ldh [hFE_FrameCounter], a
@@ -730,7 +730,7 @@ Cranky_GalleonGunner_EndEffectBody::
 	call Cranky_SwapTileBuffer
 	ld a, [wCranky_ActorType + 6]
 	or a
-	jr nz, .jump_451e
+	jr nz, .loop
 	ret
 
 
@@ -744,9 +744,9 @@ Cranky_EndTally::
 	ld hl, $4570
 	add a, l
 	ld l, a
-	jr nc, .jump_456f
+	jr nc, .skip
 	inc h
-.jump_456f:
+.skip:
 	jp hl
 
 
@@ -781,19 +781,19 @@ Cranky_TallyBonus::
 	ld b, a
 	ld [wCranky_Time], a
 	sub b
-	jr c, .jump_459a
+	jr c, .else
 	ld [wCranky_Time], a
 	xor a
 	ld [wCranky_TimeFrames], a
-	jr .jump_45a3
+	jr .loop_45a3
 
-.jump_459a:
+.else:
 	cpl
 	inc a
 	ld [wCranky_TimeFrames], a
 	xor a
 	ld [wCranky_Time], a
-.jump_45a3:
+.loop_45a3:
 	ldh a, [hFE_FrameCounter]
 	inc a
 	ldh [hFE_FrameCounter], a
@@ -818,9 +818,9 @@ Cranky_TallyBonus::
 	call FarCall_A_HL
 	call Cranky_SwapTileBuffer
 	call Cranky_AreActorsGone
-	jr nz, .jump_45a3
+	jr nz, .loop_45a3
 	call Cranky_IsTallyDone
-	jr nz, .jump_45a3
+	jr nz, .loop_45a3
 	call Cranky_TallyFrame
 	call Cranky_TallyFrame
 	ld a, [wCranky_Mode]
@@ -828,12 +828,12 @@ Cranky_TallyBonus::
 	ret z
 	ld a, $03
 	ld [wCranky_State], a
-.jump_45fb:
+.loop_45fb:
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
 	ld a, [wCranky_LinkIn + 2]
 	cp $03
-	jr nz, .jump_45fb
+	jr nz, .loop_45fb
 	ret
 
 
@@ -847,12 +847,12 @@ Cranky_AreActorsGone::
 	ld d, $20
 	ld hl, wCranky_ActorType
 	xor a
-.jump_4614:
+.loop:
 	cp [hl]
 	ret nz
 	inc l
 	dec d
-	jr nz, .jump_4614
+	jr nz, .loop
 	ret
 
 
@@ -910,17 +910,17 @@ Cranky_Input::
 	call Cranky_AutoRepeatLeftRight
 	ld a, [wCranky_Mode]
 	cp $01
-	jr z, .jump_4686
+	jr z, .skip_4686
 	ld a, [wCranky_LinkIn + 2]
 	cp $06
 	jp z, Cranky_ResumeFromPause
-.jump_4686:
+.skip_4686:
 	ldh a, [hFE_JoyInput]
 	bit 3, a
 	call nz, Cranky_Pause
 	ld a, [wCranky_CrosshairBlink]
 	or a
-	jr nz, .jump_46c7
+	jr nz, .continue
 	ldh a, [hFE_JoyInput]
 	bit 4, a
 	call nz, Cranky_CursorRight
@@ -937,15 +937,15 @@ Cranky_Input::
 	ld e, a
 	ldh a, [hCranky_LinkMode]
 	cp $66
-	jr z, .jump_46bd
+	jr z, .skip_46bd
 	ld a, [wCranky_CursorY]
 	ld e, a
-.jump_46bd:
+.skip_46bd:
 	ld a, e
 	ld [wCranky_TargetHit], a
 	call Cranky_Reload
 	call Cranky_Shoot
-.jump_46c7:
+.continue:
 	ld a, [wCranky_Mode]
 	cp $01
 	ret z
@@ -956,28 +956,28 @@ Cranky_Input::
 Cranky_CursorUp::
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr z, .jump_46e9
+	jr z, .else
 	call Cranky_GetTargetRecord
 	ld a, $02
 	add a, l
 	ld l, a
-	jr nc, .jump_46e1
+	jr nc, .skip_46e1
 	inc h
-.jump_46e1:
+.skip_46e1:
 	ld a, [hl]
 	cp $ff
 	ret z
 	ld [wCranky_CursorX], a
 	ret
 
-.jump_46e9:
+.else:
 	call Cranky_GetOtherTargetRecord
 	ld a, $02
 	add a, l
 	ld l, a
-	jr nc, .jump_46f3
+	jr nc, .skip_46f3
 	inc h
-.jump_46f3:
+.skip_46f3:
 	ld a, [hl]
 	cp $ff
 	ret z
@@ -988,28 +988,28 @@ Cranky_CursorUp::
 Cranky_CursorDown::
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr z, .jump_4713
+	jr z, .else
 	call Cranky_GetTargetRecord
 	ld a, $03
 	add a, l
 	ld l, a
-	jr nc, .jump_470b
+	jr nc, .skip_470b
 	inc h
-.jump_470b:
+.skip_470b:
 	ld a, [hl]
 	cp $ff
 	ret z
 	ld [wCranky_CursorX], a
 	ret
 
-.jump_4713:
+.else:
 	call Cranky_GetOtherTargetRecord
 	ld a, $03
 	add a, l
 	ld l, a
-	jr nc, .jump_471d
+	jr nc, .skip_471d
 	inc h
-.jump_471d:
+.skip_471d:
 	ld a, [hl]
 	cp $ff
 	ret z
@@ -1022,28 +1022,28 @@ Cranky_CursorLeft::
 	ld [wCranky_RepeatTimer], a
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr z, .jump_4741
+	jr z, .else
 	call Cranky_GetTargetRecord
 	ld a, $04
 	add a, l
 	ld l, a
-	jr nc, .jump_4739
+	jr nc, .skip_4739
 	inc h
-.jump_4739:
+.skip_4739:
 	ld a, [hl]
 	cp $ff
 	ret z
 	ld [wCranky_CursorX], a
 	ret
 
-.jump_4741:
+.else:
 	call Cranky_GetOtherTargetRecord
 	ld a, $04
 	add a, l
 	ld l, a
-	jr nc, .jump_474b
+	jr nc, .skip_474b
 	inc h
-.jump_474b:
+.skip_474b:
 	ld a, [hl]
 	cp $ff
 	ret z
@@ -1056,28 +1056,28 @@ Cranky_CursorRight::
 	ld [wCranky_RepeatTimer], a
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr z, .jump_476f
+	jr z, .else
 	call Cranky_GetTargetRecord
 	ld a, $05
 	add a, l
 	ld l, a
-	jr nc, .jump_4767
+	jr nc, .skip_4767
 	inc h
-.jump_4767:
+.skip_4767:
 	ld a, [hl]
 	cp $ff
 	ret z
 	ld [wCranky_CursorX], a
 	ret
 
-.jump_476f:
+.else:
 	call Cranky_GetOtherTargetRecord
 	ld a, $05
 	add a, l
 	ld l, a
-	jr nc, .jump_4779
+	jr nc, .skip_4779
 	inc h
-.jump_4779:
+.skip_4779:
 	ld a, [hl]
 	cp $ff
 	ret z
@@ -1135,13 +1135,13 @@ ByteTable_fe_47c4::
 Cranky_Shoot::
 	ld a, [wCranky_Mode]
 	cp $02
-	jp z, Cranky_SpawnHitEffect.jump_4b7b
+	jp z, Cranky_SpawnHitEffect.check_fire
 	ldh a, [hFE_JoyInput]
 	and $01
 	ret z
 	ld a, [wCranky_Ammo]
 	or a
-	jr z, .jump_47ed
+	jr z, .else
 	ld hl, wCranky_Shots
 	inc [hl]
 	ld a, [wCranky_Game]
@@ -1151,12 +1151,12 @@ Cranky_Shoot::
 	ld hl, $47fb
 	add a, l
 	ld l, a
-	jr nc, .jump_47ec
+	jr nc, .skip
 	inc h
-.jump_47ec:
+.skip:
 	jp hl
 
-.jump_47ed:
+.else:
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1198,9 +1198,9 @@ Cranky_Shoot_BuddiesBeware_Body::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_4819
+	jr nc, .skip_4819
 	inc h
-.jump_4819:
+.skip_4819:
 	ld a, [hl]
 	cp $01
 	ret z
@@ -1209,9 +1209,9 @@ Cranky_Shoot_BuddiesBeware_Body::
 	ld hl, wCranky_TargetTimers
 	add a, l
 	ld l, a
-	jr nc, .jump_4828
+	jr nc, .skip_4828
 	inc h
-.jump_4828:
+.skip_4828:
 	ld [hl], $b4
 	ld a, b
 	ld hl, wCranky_ShotMask
@@ -1249,7 +1249,7 @@ Cranky_Shoot_BarrelOKremlings_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_4865:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -1257,7 +1257,7 @@ Cranky_Shoot_BarrelOKremlings_Body::
 	ld l, a
 	ld a, [hl]
 	cp $05
-	jr nz, .jump_48aa
+	jr nz, .else
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1266,7 +1266,7 @@ Cranky_Shoot_BarrelOKremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_48aa
+	jr nz, .else
 	ld hl, wCranky_ActorFlags
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1276,9 +1276,9 @@ Cranky_Shoot_BarrelOKremlings_Body::
 	ld hl, $47c4
 	add a, l
 	ld l, a
-	jr nc, .jump_4893
+	jr nc, .skip
 	inc h
-.jump_4893:
+.skip:
 	ld a, [wCranky_TimeFrames]
 	add a, [hl]
 	ld [wCranky_TimeFrames], a
@@ -1292,17 +1292,17 @@ Cranky_Shoot_BarrelOKremlings_Body::
 	pop af
 	ret
 
-.jump_48aa:
+.else:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_4865
+	jp nz, .loop
 	ld a, [wCranky_Result]
 	dec a
 	ld [wCranky_Result], a
 	ret nz
-	jp Cranky_CheckGameOver.jump_42eb
+	jp Cranky_CheckGameOver.tally
 
 
 Cranky_Shoot_Wanted_Body::
@@ -1321,7 +1321,7 @@ Cranky_Shoot_Wanted_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_48d8:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -1329,7 +1329,7 @@ Cranky_Shoot_Wanted_Body::
 	ld l, a
 	ld a, [hl]
 	cp $05
-	jp nz, .jump_4932
+	jp nz, .else_4932
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1338,7 +1338,7 @@ Cranky_Shoot_Wanted_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jp nz, .jump_4932
+	jp nz, .else_4932
 	ld hl, wCranky_ActorFlags
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1347,7 +1347,7 @@ Cranky_Shoot_Wanted_Body::
 	ld b, a
 	ld a, [wCranky_Wanted + 8]
 	cp b
-	jr z, .jump_491f
+	jr z, .else_491f
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1358,11 +1358,11 @@ Cranky_Shoot_Wanted_Body::
 	ld a, [wCranky_Result]
 	dec a
 	ld [wCranky_Result], a
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	pop af
 	ret
 
-.jump_491f:
+.else_491f:
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1374,16 +1374,16 @@ Cranky_Shoot_Wanted_Body::
 	pop af
 	ret
 
-.jump_4932:
+.else_4932:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_48d8
+	jp nz, .loop
 	ld a, [wCranky_Result]
 	dec a
 	ld [wCranky_Result], a
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ret
 
 
@@ -1490,7 +1490,7 @@ Cranky_Shoot_Kremlings_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_49e0:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -1498,19 +1498,19 @@ Cranky_Shoot_Kremlings_Body::
 	ld l, a
 	ld a, [hl]
 	cp $0c
-	jr z, .jump_4a35
+	jr z, .else_4a35
 	cp $09
-	jr z, .jump_4a01
+	jr z, .continue
 	cp $07
-	jr nz, .jump_4a63
+	jr nz, .else_4a63
 	ld hl, wCranky_ActorFrame
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $02
-	jr z, .jump_4a63
-.jump_4a01:
+	jr z, .else_4a63
+.continue:
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1519,7 +1519,7 @@ Cranky_Shoot_Kremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4a63
+	jr nz, .else_4a63
 	ld hl, wCranky_TargetsUp
 	call Cranky_ResBitN
 	ld a, [$00f6]
@@ -1541,7 +1541,7 @@ Cranky_Shoot_Kremlings_Body::
 	pop af
 	ret
 
-.jump_4a35:
+.else_4a35:
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1550,7 +1550,7 @@ Cranky_Shoot_Kremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4a63
+	jr nz, .else_4a63
 	ld hl, wCranky_TargetsUp
 	call Cranky_ResBitN
 	ld a, $78
@@ -1567,12 +1567,12 @@ Cranky_Shoot_Kremlings_Body::
 	pop af
 	ret
 
-.jump_4a63:
+.else_4a63:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_49e0
+	jp nz, .loop
 	ret
 
 
@@ -1608,14 +1608,14 @@ Cranky_Shoot_GalleonGunner_Body::
 	ld l, a
 	ld a, [hl]
 	dec [hl]
-	jr z, .jump_4ac4
+	jr z, .else
 	ldh a, [hCranky_Actor]
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_4ab2
+	jr nc, .skip_4ab2
 	inc h
-.jump_4ab2:
+.skip_4ab2:
 	ld [hl], $00
 	ld a, $0d
 	ld hl, wCranky_ActorType
@@ -1628,14 +1628,14 @@ Cranky_Shoot_GalleonGunner_Body::
 	call Cranky_SpawnHitEffect
 	ret
 
-.jump_4ac4:
+.else:
 	ldh a, [hCranky_Actor]
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_4ace
+	jr nc, .skip_4ace
 	inc h
-.jump_4ace:
+.skip_4ace:
 	ld [hl], $02
 	ld a, $0f
 	ld hl, wCranky_ActorType
@@ -1650,7 +1650,7 @@ Cranky_Shoot_GalleonGunner_Body::
 	inc a
 	ld [wCranky_ShipsSunk], a
 	cp $06
-	jp z, Cranky_CheckGameOver.jump_42bd
+	jp z, Cranky_CheckGameOver.game_over
 	ret
 
 
@@ -1663,9 +1663,9 @@ Cranky_SpawnHitEffect::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_4afb
+	jr nc, .skip_4afb
 	inc h
-.jump_4afb:
+.skip_4afb:
 	ld a, [hli]
 	ld b, a
 	ld a, [hl]
@@ -1755,13 +1755,13 @@ Cranky_SpawnHitEffect::
 	ld [hl], a
 	ret
 
-.jump_4b7b:
+.check_fire:
 	ldh a, [hFE_JoyInput]
 	and $01
 	ret z
 	ld a, [wCranky_Ammo]
 	or a
-	jr z, .jump_4b99
+	jr z, .else
 	ld hl, wCranky_Shots
 	inc [hl]
 	ld a, [wCranky_Game]
@@ -1771,12 +1771,12 @@ Cranky_SpawnHitEffect::
 	ld hl, $4ba7
 	add a, l
 	ld l, a
-	jr nc, .jump_4b98
+	jr nc, .skip_4b98
 	inc h
-.jump_4b98:
+.skip_4b98:
 	jp hl
 
-.jump_4b99:
+.else:
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1814,9 +1814,9 @@ Cranky_LinkShoot_BuddiesBeware_Body::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_4bc2
+	jr nc, .skip_4bc2
 	inc h
-.jump_4bc2:
+.skip_4bc2:
 	ld a, [hl]
 	cp $01
 	ret z
@@ -1825,9 +1825,9 @@ Cranky_LinkShoot_BuddiesBeware_Body::
 	ld hl, wCranky_TargetTimers
 	add a, l
 	ld l, a
-	jr nc, .jump_4bd1
+	jr nc, .skip_4bd1
 	inc h
-.jump_4bd1:
+.skip_4bd1:
 	ld [hl], $b4
 	ld a, b
 	ld hl, wCranky_ShotMask
@@ -1864,7 +1864,7 @@ Cranky_LinkShoot_BarrelOKremlings_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_4c0b:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -1872,7 +1872,7 @@ Cranky_LinkShoot_BarrelOKremlings_Body::
 	ld l, a
 	ld a, [hl]
 	cp $05
-	jr nz, .jump_4c50
+	jr nz, .else
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1881,7 +1881,7 @@ Cranky_LinkShoot_BarrelOKremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4c50
+	jr nz, .else
 	ld hl, wCranky_ActorFlags
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1891,9 +1891,9 @@ Cranky_LinkShoot_BarrelOKremlings_Body::
 	ld hl, $47c4
 	add a, l
 	ld l, a
-	jr nc, .jump_4c39
+	jr nc, .skip
 	inc h
-.jump_4c39:
+.skip:
 	ld a, [wCranky_Time]
 	add a, [hl]
 	ld [wCranky_Time], a
@@ -1907,12 +1907,12 @@ Cranky_LinkShoot_BarrelOKremlings_Body::
 	pop af
 	ret
 
-.jump_4c50:
+.else:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_4c0b
+	jp nz, .loop
 	ld hl, wCranky_TimeFrames
 	inc [hl]
 	ret
@@ -1934,7 +1934,7 @@ Cranky_LinkShoot_Wanted_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_4c78:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -1942,7 +1942,7 @@ Cranky_LinkShoot_Wanted_Body::
 	ld l, a
 	ld a, [hl]
 	cp $05
-	jp nz, .jump_4ccd
+	jp nz, .else_4ccd
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1951,7 +1951,7 @@ Cranky_LinkShoot_Wanted_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jp nz, .jump_4ccd
+	jp nz, .else_4ccd
 	ld hl, wCranky_ActorFlags
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -1960,7 +1960,7 @@ Cranky_LinkShoot_Wanted_Body::
 	ld b, a
 	ld a, [wCranky_Wanted + 8]
 	cp b
-	jr z, .jump_4cb9
+	jr z, .else_4cb9
 	ld hl, wCranky_TimeFrames
 	inc [hl]
 	ld a, [$00f6]
@@ -1973,7 +1973,7 @@ Cranky_LinkShoot_Wanted_Body::
 	pop af
 	ret
 
-.jump_4cb9:
+.else_4cb9:
 	ld a, [$00f6]
 	ld l, a
 	ld a, [$00f7]
@@ -1986,12 +1986,12 @@ Cranky_LinkShoot_Wanted_Body::
 	pop af
 	ret
 
-.jump_4ccd:
+.else_4ccd:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_4c78
+	jp nz, .loop
 	ret
 
 
@@ -2098,7 +2098,7 @@ Cranky_LinkShoot_Kremlings_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_4d71:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -2106,19 +2106,19 @@ Cranky_LinkShoot_Kremlings_Body::
 	ld l, a
 	ld a, [hl]
 	cp $0c
-	jr z, .jump_4dc6
+	jr z, .else_4dc6
 	cp $09
-	jr z, .jump_4d92
+	jr z, .continue
 	cp $07
-	jr nz, .jump_4df4
+	jr nz, .else_4df4
 	ld hl, wCranky_ActorFrame
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $02
-	jr z, .jump_4df4
-.jump_4d92:
+	jr z, .else_4df4
+.continue:
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2127,7 +2127,7 @@ Cranky_LinkShoot_Kremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4df4
+	jr nz, .else_4df4
 	ld hl, wCranky_TargetsUp
 	call Cranky_ResBitN
 	ld a, [$00f6]
@@ -2149,7 +2149,7 @@ Cranky_LinkShoot_Kremlings_Body::
 	pop af
 	ret
 
-.jump_4dc6:
+.else_4dc6:
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2158,7 +2158,7 @@ Cranky_LinkShoot_Kremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4df4
+	jr nz, .else_4df4
 	ld hl, wCranky_TargetsUp
 	call Cranky_ResBitN
 	xor a
@@ -2175,41 +2175,41 @@ Cranky_LinkShoot_Kremlings_Body::
 	pop af
 	ret
 
-.jump_4df4:
+.else_4df4:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_4d71
+	jp nz, .loop
 	ret
 
 
 Cranky_LinkReceiveShot::
 	ld a, [wCranky_LinkIn + 4]
 	or a
-	jr nz, .jump_4e0c
+	jr nz, .else
 	ld b, a
 	ld a, [wCranky_RemoteShot]
 	or a
-	jr nz, .jump_4e12
+	jr nz, .skip_4e12
 	ret
 
-.jump_4e0c:
+.else:
 	ld b, a
 	ld a, [wCranky_RemoteShot]
 	cp b
 	ret nc
-.jump_4e12:
+.skip_4e12:
 	ld a, b
 	ld [wCranky_RemoteShot], a
 	ld a, [wCranky_LinkIn]
 	ld [wCranky_TargetHit], a
 	ldh a, [hCranky_LinkMode]
 	cp $66
-	jr nz, .jump_4e28
+	jr nz, .skip_4e28
 	ld a, [wCranky_LinkIn + 1]
 	ld [wCranky_TargetHit], a
-.jump_4e28:
+.skip_4e28:
 	ld a, [wCranky_Game]
 	ld b, a
 	add a, a
@@ -2217,9 +2217,9 @@ Cranky_LinkReceiveShot::
 	ld hl, $4e38
 	add a, l
 	ld l, a
-	jr nc, .jump_4e36
+	jr nc, .skip_4e36
 	inc h
-.jump_4e36:
+.skip_4e36:
 	jp hl
 
 .unreached_4e37:
@@ -2251,9 +2251,9 @@ Cranky_LinkHit_BuddiesBeware_Body::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_4e53
+	jr nc, .skip_4e53
 	inc h
-.jump_4e53:
+.skip_4e53:
 	ld a, [hl]
 	cp $01
 	ret z
@@ -2262,9 +2262,9 @@ Cranky_LinkHit_BuddiesBeware_Body::
 	ld hl, wCranky_TargetTimers
 	add a, l
 	ld l, a
-	jr nc, .jump_4e62
+	jr nc, .skip_4e62
 	inc h
-.jump_4e62:
+.skip_4e62:
 	ld [hl], $b4
 	ld a, b
 	ld hl, wCranky_ShotMask
@@ -2276,7 +2276,7 @@ Cranky_LinkHit_BarrelOKremlings_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_4e71:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -2284,7 +2284,7 @@ Cranky_LinkHit_BarrelOKremlings_Body::
 	ld l, a
 	ld a, [hl]
 	cp $05
-	jr nz, .jump_4e92
+	jr nz, .else
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2293,17 +2293,17 @@ Cranky_LinkHit_BarrelOKremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4e92
+	jr nz, .else
 	call Cranky_RemoveActorLinkHit
 	pop af
 	ret
 
-.jump_4e92:
+.else:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_4e71
+	jp nz, .loop
 	ret
 
 
@@ -2311,7 +2311,7 @@ Cranky_LinkHit_Wanted_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_4ea1:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -2319,7 +2319,7 @@ Cranky_LinkHit_Wanted_Body::
 	ld l, a
 	ld a, [hl]
 	cp $05
-	jp nz, .jump_4ec4
+	jp nz, .else
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2328,17 +2328,17 @@ Cranky_LinkHit_Wanted_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jp nz, .jump_4ec4
+	jp nz, .else
 	call Cranky_RemoveActorLinkHit
 	pop af
 	ret
 
-.jump_4ec4:
+.else:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_4ea1
+	jp nz, .loop
 	ret
 
 
@@ -2433,7 +2433,7 @@ Cranky_LinkHit_Kremlings_Body::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_4f53:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -2441,19 +2441,19 @@ Cranky_LinkHit_Kremlings_Body::
 	ld l, a
 	ld a, [hl]
 	cp $0c
-	jr z, .jump_4fa1
+	jr z, .else_4fa1
 	cp $09
-	jr z, .jump_4f74
+	jr z, .continue
 	cp $07
-	jr nz, .jump_4fc7
+	jr nz, .else_4fc7
 	ld hl, wCranky_ActorFrame
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $02
-	jr z, .jump_4fc7
-.jump_4f74:
+	jr z, .else_4fc7
+.continue:
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2462,7 +2462,7 @@ Cranky_LinkHit_Kremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4fc7
+	jr nz, .else_4fc7
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2481,7 +2481,7 @@ Cranky_LinkHit_Kremlings_Body::
 	pop af
 	ret
 
-.jump_4fa1:
+.else_4fa1:
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -2490,7 +2490,7 @@ Cranky_LinkHit_Kremlings_Body::
 	ld b, a
 	ld a, [wCranky_TargetHit]
 	cp b
-	jr nz, .jump_4fc7
+	jr nz, .else_4fc7
 	xor a
 	ld [wCranky_KongShown], a
 	ld hl, wCranky_ActorTarget
@@ -2504,12 +2504,12 @@ Cranky_LinkHit_Kremlings_Body::
 	pop af
 	ret
 
-.jump_4fc7:
+.else_4fc7:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jp nz, .jump_4f53
+	jp nz, .loop
 
 Cranky_Reload::
 	ldh a, [hFE_JoyInput]
@@ -2522,9 +2522,9 @@ Cranky_Reload::
 	ld hl, $4fe4
 	add a, l
 	ld l, a
-	jr nc, .jump_4fe3
+	jr nc, .skip
 	inc h
-.jump_4fe3:
+.skip:
 	jp hl
 
 
@@ -2626,9 +2626,9 @@ Cranky_GetTargetRecord::
 	ld hl, $789b
 	add a, l
 	ld l, a
-	jr nc, .jump_5071
+	jr nc, .skip
 	inc h
-.jump_5071:
+.skip:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -2639,9 +2639,9 @@ Cranky_GetTargetRecord::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_5080
+	jr nc, .return
 	inc h
-.jump_5080:
+.return:
 	ret
 
 
@@ -2651,9 +2651,9 @@ Cranky_GetOtherTargetRecord::
 	ld hl, $789b
 	add a, l
 	ld l, a
-	jr nc, .jump_508d
+	jr nc, .skip
 	inc h
-.jump_508d:
+.skip:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -2664,9 +2664,9 @@ Cranky_GetOtherTargetRecord::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_509c
+	jr nc, .return
 	inc h
-.jump_509c:
+.return:
 	ret
 
 
@@ -2678,9 +2678,9 @@ Cranky_UpdateTargets::
 	ld hl, $50ac
 	add a, l
 	ld l, a
-	jr nc, .jump_50ab
+	jr nc, .skip
 	inc h
-.jump_50ab:
+.skip:
 	jp hl
 
 
@@ -2713,14 +2713,14 @@ Cranky_UpdateTargets_BuddiesBeware_Body::
 	ld bc, wCranky_TargetHits
 	ld a, $06
 	ld d, $00
-.jump_50c8:
+.loop:
 	push af
 	push hl
 	ld a, [bc]
 	or a
-	jr z, .jump_50fd
+	jr z, .skip_50fd
 	dec [hl]
-	jr nz, .jump_50fd
+	jr nz, .skip_50fd
 	xor a
 	ld [bc], a
 	ld hl, wCranky_TargetsUp
@@ -2730,30 +2730,30 @@ Cranky_UpdateTargets_BuddiesBeware_Body::
 	call Cranky_SetBitN
 	ld a, [wCranky_Mode]
 	cp $01
-	jr z, .jump_50fd
+	jr z, .skip_50fd
 	ld a, [wCranky_ReloadTimer]
 	or a
-	jr z, .jump_50fd
+	jr z, .skip_50fd
 	dec a
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_50f4
+	jr nc, .skip_50f4
 	inc h
-.jump_50f4:
+.skip_50f4:
 	ld a, [hl]
 	or a
-	jr nz, .jump_50fd
+	jr nz, .skip_50fd
 	ld a, $01
 	ld [wCranky_Ammo], a
-.jump_50fd:
+.skip_50fd:
 	pop hl
 	inc d
 	inc hl
 	inc bc
 	pop af
 	dec a
-	jr nz, .jump_50c8
+	jr nz, .loop
 	ret
 
 
@@ -2767,79 +2767,79 @@ Cranky_TestBitN::
 	ld hl, $5112
 	add a, l
 	ld l, a
-	jr nc, .jump_5111
+	jr nc, .skip
 	inc h
-.jump_5111:
+.skip:
 	jp hl
 
 
 Cranky_TestBitN_0::
-	jr Cranky_TestBitN_Body.jump_5122
+	jr Cranky_TestBitN_Body.test_bit0
 
 
 Cranky_TestBitN_1::
-	jr Cranky_TestBitN_Body.jump_5126
+	jr Cranky_TestBitN_Body.test_bit1
 
 
 Cranky_TestBitN_2::
-	jr Cranky_TestBitN_Body.jump_512a
+	jr Cranky_TestBitN_Body.test_bit2
 
 
 Cranky_TestBitN_3::
-	jr Cranky_TestBitN_Body.jump_512e
+	jr Cranky_TestBitN_Body.test_bit3
 
 
 Cranky_TestBitN_4::
-	jr Cranky_TestBitN_Body.jump_5132
+	jr Cranky_TestBitN_Body.test_bit4
 
 
 Cranky_TestBitN_5::
-	jr Cranky_TestBitN_Body.jump_5136
+	jr Cranky_TestBitN_Body.test_bit5
 
 
 Cranky_TestBitN_6::
-	jr Cranky_TestBitN_Body.jump_513a
+	jr Cranky_TestBitN_Body.test_bit6
 
 
 Cranky_TestBitN_Body::
-	jr .jump_513e
+	jr .done
 
-.jump_5122:
+.test_bit0:
 	pop hl
 	bit 0, [hl]
 	ret
 
-.jump_5126:
+.test_bit1:
 	pop hl
 	bit 1, [hl]
 	ret
 
-.jump_512a:
+.test_bit2:
 	pop hl
 	bit 2, [hl]
 	ret
 
-.jump_512e:
+.test_bit3:
 	pop hl
 	bit 3, [hl]
 	ret
 
-.jump_5132:
+.test_bit4:
 	pop hl
 	bit 4, [hl]
 	ret
 
-.jump_5136:
+.test_bit5:
 	pop hl
 	bit 5, [hl]
 	ret
 
-.jump_513a:
+.test_bit6:
 	pop hl
 	bit 6, [hl]
 	ret
 
-.jump_513e:
+.done:
 	pop hl
 	bit 7, [hl]
 	ret
@@ -2851,79 +2851,79 @@ Cranky_ResBitN::
 	ld hl, $514d
 	add a, l
 	ld l, a
-	jr nc, .jump_514c
+	jr nc, .skip
 	inc h
-.jump_514c:
+.skip:
 	jp hl
 
 
 Cranky_ResBitN_0::
-	jr Cranky_ResBitN_Body.jump_515d
+	jr Cranky_ResBitN_Body.res_bit0
 
 
 Cranky_ResBitN_1::
-	jr Cranky_ResBitN_Body.jump_5161
+	jr Cranky_ResBitN_Body.res_bit1
 
 
 Cranky_ResBitN_2::
-	jr Cranky_ResBitN_Body.jump_5165
+	jr Cranky_ResBitN_Body.res_bit2
 
 
 Cranky_ResBitN_3::
-	jr Cranky_ResBitN_Body.jump_5169
+	jr Cranky_ResBitN_Body.res_bit3
 
 
 Cranky_ResBitN_4::
-	jr Cranky_ResBitN_Body.jump_516d
+	jr Cranky_ResBitN_Body.res_bit4
 
 
 Cranky_ResBitN_5::
-	jr Cranky_ResBitN_Body.jump_5171
+	jr Cranky_ResBitN_Body.res_bit5
 
 
 Cranky_ResBitN_6::
-	jr Cranky_ResBitN_Body.jump_5175
+	jr Cranky_ResBitN_Body.res_bit6
 
 
 Cranky_ResBitN_Body::
-	jr .jump_5179
+	jr .done
 
-.jump_515d:
+.res_bit0:
 	pop hl
 	res 0, [hl]
 	ret
 
-.jump_5161:
+.res_bit1:
 	pop hl
 	res 1, [hl]
 	ret
 
-.jump_5165:
+.res_bit2:
 	pop hl
 	res 2, [hl]
 	ret
 
-.jump_5169:
+.res_bit3:
 	pop hl
 	res 3, [hl]
 	ret
 
-.jump_516d:
+.res_bit4:
 	pop hl
 	res 4, [hl]
 	ret
 
-.jump_5171:
+.res_bit5:
 	pop hl
 	res 5, [hl]
 	ret
 
-.jump_5175:
+.res_bit6:
 	pop hl
 	res 6, [hl]
 	ret
 
-.jump_5179:
+.done:
 	pop hl
 	res 7, [hl]
 	ret
@@ -2935,79 +2935,79 @@ Cranky_SetBitN::
 	ld hl, $5188
 	add a, l
 	ld l, a
-	jr nc, .jump_5187
+	jr nc, .skip
 	inc h
-.jump_5187:
+.skip:
 	jp hl
 
 
 Cranky_SetBitN_0::
-	jr Cranky_SetBitN_Body.jump_5198
+	jr Cranky_SetBitN_Body.set_bit0
 
 
 Cranky_SetBitN_1::
-	jr Cranky_SetBitN_Body.jump_519c
+	jr Cranky_SetBitN_Body.set_bit1
 
 
 Cranky_SetBitN_2::
-	jr Cranky_SetBitN_Body.jump_51a0
+	jr Cranky_SetBitN_Body.set_bit2
 
 
 Cranky_SetBitN_3::
-	jr Cranky_SetBitN_Body.jump_51a4
+	jr Cranky_SetBitN_Body.set_bit3
 
 
 Cranky_SetBitN_4::
-	jr Cranky_SetBitN_Body.jump_51a8
+	jr Cranky_SetBitN_Body.set_bit4
 
 
 Cranky_SetBitN_5::
-	jr Cranky_SetBitN_Body.jump_51ac
+	jr Cranky_SetBitN_Body.set_bit5
 
 
 Cranky_SetBitN_6::
-	jr Cranky_SetBitN_Body.jump_51b0
+	jr Cranky_SetBitN_Body.set_bit6
 
 
 Cranky_SetBitN_Body::
-	jr .jump_51b4
+	jr .done
 
-.jump_5198:
+.set_bit0:
 	pop hl
 	set 0, [hl]
 	ret
 
-.jump_519c:
+.set_bit1:
 	pop hl
 	set 1, [hl]
 	ret
 
-.jump_51a0:
+.set_bit2:
 	pop hl
 	set 2, [hl]
 	ret
 
-.jump_51a4:
+.set_bit3:
 	pop hl
 	set 3, [hl]
 	ret
 
-.jump_51a8:
+.set_bit4:
 	pop hl
 	set 4, [hl]
 	ret
 
-.jump_51ac:
+.set_bit5:
 	pop hl
 	set 5, [hl]
 	ret
 
-.jump_51b0:
+.set_bit6:
 	pop hl
 	set 6, [hl]
 	ret
 
-.jump_51b4:
+.done:
 	pop hl
 	set 7, [hl]
 	ret
@@ -3019,7 +3019,7 @@ Cranky_DrawCrosshair::
 	jr z, Cranky_DrawCrosshairBlinking
 	ldh a, [hCranky_LinkMode]
 	cp $66
-	jr z, .jump_51da
+	jr z, .else
 	ld a, [wCranky_LinkIn]
 	ld [wCranky_CursorX], a
 	ldh a, [hFE_FrameCounter]
@@ -3028,9 +3028,9 @@ Cranky_DrawCrosshair::
 	srl a
 	ldh [hFE_Scratch], a
 	call Cranky_DrawCrosshairAt
-	jr Cranky_DrawCrosshairBlinking.jump_5212
+	jr Cranky_DrawCrosshairBlinking.blink
 
-.jump_51da:
+.else:
 	call Cranky_DrawCrosshairBlinking
 	ld a, [wCranky_LinkIn + 1]
 	ld [wCranky_CursorY], a
@@ -3039,18 +3039,18 @@ Cranky_DrawCrosshair::
 	srl a
 	srl a
 	ldh [hFE_Scratch], a
-	jr Cranky_DrawCrosshairAt.jump_525f
+	jr Cranky_DrawCrosshairAt.draw
 
 
 Cranky_DrawCrosshairBlinking::
 	ld a, [wCranky_CrosshairBlink]
 	or a
-	jr z, .jump_51fc
+	jr z, .skip_51fc
 	dec a
 	ld [wCranky_CrosshairBlink], a
 	bit 4, a
 	ret z
-.jump_51fc:
+.skip_51fc:
 	ldh a, [hFE_FrameCounter]
 	and $0c
 	srl a
@@ -3058,21 +3058,21 @@ Cranky_DrawCrosshairBlinking::
 	ldh [hFE_Scratch], a
 	ld a, [wCranky_CrosshairBlink]
 	or a
-	jr z, .jump_5210
+	jr z, .jp_Cranky_DrawCrosshairAt
 	ld a, $01
 	ldh [hFE_Scratch], a
-.jump_5210:
+.jp_Cranky_DrawCrosshairAt:
 	jr Cranky_DrawCrosshairAt
 
-.jump_5212:
+.blink:
 	ld a, [wCranky_CrosshairBlink]
 	or a
-	jr z, .jump_521f
+	jr z, .skip_521f
 	dec a
 	ld [wCranky_CrosshairBlink], a
 	bit 4, a
 	ret z
-.jump_521f:
+.skip_521f:
 	ldh a, [hFE_FrameCounter]
 	and $0c
 	srl a
@@ -3080,11 +3080,11 @@ Cranky_DrawCrosshairBlinking::
 	ldh [hFE_Scratch], a
 	ld a, [wCranky_CrosshairBlink]
 	or a
-	jr z, .jump_5233
+	jr z, .skip_5233
 	ld a, $01
 	ldh [hFE_Scratch], a
-.jump_5233:
-	jr Cranky_DrawCrosshairAt.jump_525f
+.skip_5233:
+	jr Cranky_DrawCrosshairAt.draw
 
 
 Cranky_DrawCrosshairAt::
@@ -3093,9 +3093,9 @@ Cranky_DrawCrosshairAt::
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_5241
+	jr nc, .skip_5241
 	inc h
-.jump_5241:
+.skip_5241:
 	ld b, [hl]
 	inc hl
 	ld c, [hl]
@@ -3117,15 +3117,15 @@ Cranky_DrawCrosshairAt::
 	call FarCall_A_HL
 	ret
 
-.jump_525f:
+.draw:
 	ld hl, $794f
 	ld a, [wCranky_Game]
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_526b
+	jr nc, .skip_526b
 	inc h
-.jump_526b:
+.skip_526b:
 	ld b, [hl]
 	inc hl
 	ld c, [hl]
@@ -3154,13 +3154,13 @@ Cranky_BeginOAM::
 	call FarCall_A_HL
 	ld a, [wCranky_TileBuffer]
 	or $00
-	jr nz, .jump_529e
+	jr nz, .done
 	xor a
 	ldh [hFE_Scratch2], a
 	ld e, $00
 	ret
 
-.jump_529e:
+.done:
 	ld a, $50
 	ldh [hFE_Scratch2], a
 	ld e, $00
@@ -3172,7 +3172,7 @@ Cranky_SwapTileBuffer::
 	ldh [rSVBK], a
 	ld a, [wCranky_TileBuffer]
 	or a
-	jr nz, Cranky_SwapTileBuffer_B.jump_52e3
+	jr nz, Cranky_SwapTileBuffer_B.swap
 	xor a
 	ldh [rVBK], a
 	ld hl, wCranky_ScreenBuffer
@@ -3199,7 +3199,7 @@ Cranky_SwapTileBuffer::
 	push af
 	inc sp
 	ld a, BANK(Cranky_StartHBlankDMA)
-	jp RestoreBankAndReturn.jump_3fdc
+	jp RestoreBankAndReturn.far_jump
 
 
 Cranky_SwapTileBuffer_B::
@@ -3208,7 +3208,7 @@ Cranky_SwapTileBuffer_B::
 	call Cranky_CopyOAMBuffer
 	ret
 
-.jump_52e3:
+.swap:
 	ld a, $01
 	ldh [rVBK], a
 	ld hl, wCranky_ScreenBuffer + $500
@@ -3235,7 +3235,7 @@ Cranky_SwapTileBuffer_B::
 	push af
 	inc sp
 	ld a, BANK(Cranky_StartHBlankDMA)
-	jp RestoreBankAndReturn.jump_3fdc
+	jp RestoreBankAndReturn.far_jump
 
 
 Cranky_SwapTileBuffer_A::
@@ -3250,7 +3250,7 @@ Cranky_CopyOAMBuffer::
 	ld hl, wFE_ShadowOAM
 	ld bc, wCranky_OAMBuffer
 	ld d, $28
-.jump_5322:
+.loop:
 	ld a, [hli]
 	ld [bc], a
 	inc c
@@ -3264,7 +3264,7 @@ Cranky_CopyOAMBuffer::
 	ld [bc], a
 	inc c
 	dec d
-	jr nz, .jump_5322
+	jr nz, .loop
 	ret
 
 
@@ -3272,11 +3272,11 @@ Cranky_ClearOAMTileBank::
 	ld hl, wFE_ShadowOAM + 3
 	ld bc, $0004
 	ld d, $28
-.jump_533a:
+.loop:
 	res 3, [hl]
 	add hl, bc
 	dec d
-	jr nz, .jump_533a
+	jr nz, .loop
 	ret
 
 
@@ -3284,14 +3284,14 @@ Cranky_ShiftOAMTiles::
 	ld hl, wFE_ShadowOAM + 2
 	ld bc, $0003
 	ld d, $28
-.jump_5349:
+.loop:
 	ld a, [hl]
 	sub $50
 	ld [hli], a
 	set 3, [hl]
 	add hl, bc
 	dec d
-	jr nz, .jump_5349
+	jr nz, .loop
 	ret
 
 
@@ -3303,9 +3303,9 @@ Cranky_AnimateBackgroundTiles::
 	ld hl, $79cf
 	add a, l
 	ld l, a
-	jr nc, .jump_5362
+	jr nc, .skip_5362
 	inc h
-.jump_5362:
+.skip_5362:
 	ld a, [hli]
 	ld [wFE_FarBank], a
 	ld a, [hli]
@@ -3315,75 +3315,75 @@ Cranky_AnimateBackgroundTiles::
 	ldh [rVBK], a
 	ld a, [wCranky_ShotMask]
 	bit 0, a
-	jr z, .jump_5382
+	jr z, .else_5382
 	res 0, a
 	ld [wCranky_ShotMask], a
 	ld a, [wCranky_TargetHits]
 	ld c, a
 	ld b, $00
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_5382:
+.else_5382:
 	bit 1, a
-	jr z, .jump_5394
+	jr z, .else_5394
 	res 1, a
 	ld [wCranky_ShotMask], a
 	ld a, [wCranky_TargetHits + 1]
 	ld c, a
 	ld b, $01
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_5394:
+.else_5394:
 	bit 2, a
-	jr z, .jump_53a6
+	jr z, .else_53a6
 	res 2, a
 	ld [wCranky_ShotMask], a
 	ld a, [wCranky_TargetHits + 2]
 	ld c, a
 	ld b, $02
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_53a6:
+.else_53a6:
 	bit 3, a
-	jr z, .jump_53b8
+	jr z, .else_53b8
 	res 3, a
 	ld [wCranky_ShotMask], a
 	ld a, [wCranky_TargetHits + 3]
 	ld c, a
 	ld b, $03
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_53b8:
+.else_53b8:
 	bit 4, a
-	jr z, .jump_53ca
+	jr z, .else_53ca
 	res 4, a
 	ld [wCranky_ShotMask], a
 	ld a, [wCranky_TargetHits + 4]
 	ld c, a
 	ld b, $04
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_53ca:
+.else_53ca:
 	bit 5, a
-	jr z, .jump_53dc
+	jr z, .else_53dc
 	res 5, a
 	ld [wCranky_ShotMask], a
 	ld a, [wCranky_TargetHits + 5]
 	ld c, a
 	ld b, $05
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_53dc:
+.else_53dc:
 	bit 6, a
-	jr z, .jump_53ee
+	jr z, .else_53ee
 	res 6, a
 	ld [wCranky_ShotMask], a
 	ld a, [wCranky_TargetHits + 6]
 	ld c, a
 	ld b, $06
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_53ee:
+.else_53ee:
 	bit 7, a
 	ret z
 	res 7, a
@@ -3391,16 +3391,16 @@ Cranky_AnimateBackgroundTiles::
 	ld a, [wCranky_TargetHits + 7]
 	ld c, a
 	ld b, $07
-	jp .jump_53ff
+	jp .else_53ff
 
-.jump_53ff:
+.else_53ff:
 	ld a, b
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_5406
+	jr nc, .skip_5406
 	inc h
-.jump_5406:
+.skip_5406:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -3414,9 +3414,9 @@ Cranky_AnimateBackgroundTiles::
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_5416
+	jr nc, .skip_5416
 	inc h
-.jump_5416:
+.skip_5416:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -3426,10 +3426,10 @@ Cranky_AnimateBackgroundTiles::
 Cranky_DrawAmmo::
 	ld a, [wCranky_Mode]
 	cp $01
-	jr z, .jump_5438
+	jr z, .continue
 	ld a, [wCranky_Game]
 	or a
-	jr nz, .jump_5438
+	jr nz, .continue
 	ld a, [wCranky_Ammo]
 	ld b, a
 	ld a, [wCranky_LinkIn + $0d]
@@ -3438,7 +3438,7 @@ Cranky_DrawAmmo::
 	ld a, $07
 	sub b
 	ld [wCranky_AmmoMax], a
-.jump_5438:
+.continue:
 	ld a, $f5
 	ld [wFE_FarBank], a
 	ld hl, $4df0
@@ -3498,7 +3498,7 @@ Cranky_SubtractPoints::
 	ld [wCranky_ScoreFlash + 2], a
 	ld a, [wCranky_Score + 2]
 	or a
-	jr nz, .jump_54ce
+	jr nz, .done_54ce
 	ld a, $09
 	add a, $20
 	ld [wCranky_Score + 2], a
@@ -3506,7 +3506,7 @@ Cranky_SubtractPoints::
 	ld [wCranky_ScoreFlash + 1], a
 	ld a, [wCranky_Score + 1]
 	or a
-	jr nz, .jump_54c7
+	jr nz, .done_54c7
 	ld a, $09
 	add a, $20
 	ld [wCranky_Score + 1], a
@@ -3518,13 +3518,13 @@ Cranky_SubtractPoints::
 	ld [wCranky_Score], a
 	ret
 
-.jump_54c7:
+.done_54c7:
 	dec a
 	add a, $20
 	ld [wCranky_Score + 1], a
 	ret
 
-.jump_54ce:
+.done_54ce:
 	dec a
 	add a, $20
 	ld [wCranky_Score + 2], a
@@ -3533,62 +3533,62 @@ Cranky_SubtractPoints::
 
 Cranky_DrawScoreNow::
 	xor a
-	jr Cranky_DrawScore.jump_54da
+	jr Cranky_DrawScore.draw_now
 
 
 Cranky_DrawScore::
 	ldh a, [hFE_FrameCounter]
-.jump_54da:
+.draw_now:
 	and $03
-	jr nz, .jump_5541
+	jr nz, .continue_5541
 	ld a, [wCranky_Score]
 	swap a
 	and $0f
-	jr z, .jump_54ff
+	jr z, .continue_54ff
 	cp $01
-	jr z, .jump_54f6
+	jr z, .else_54f6
 	ld hl, wCranky_Score
 	ld bc, wCranky_ScoreFlash
 	call Cranky_DigitBlinkDown
-	jr .jump_54ff
+	jr .continue_54ff
 
-.jump_54f6:
+.else_54f6:
 	ld hl, wCranky_Score
 	ld bc, wCranky_ScoreFlash
 	call Cranky_DigitRollUp
-.jump_54ff:
+.continue_54ff:
 	ld a, [wCranky_Score + 1]
 	swap a
 	and $0f
-	jr z, .jump_5520
+	jr z, .continue_5520
 	cp $01
-	jr z, .jump_5517
+	jr z, .else_5517
 	ld hl, wCranky_Score + 1
 	ld bc, wCranky_ScoreFlash + 1
 	call Cranky_DigitBlinkDown
-	jr .jump_5520
+	jr .continue_5520
 
-.jump_5517:
+.else_5517:
 	ld hl, wCranky_Score + 1
 	ld bc, wCranky_ScoreFlash + 1
 	call Cranky_DigitRollUp
-.jump_5520:
+.continue_5520:
 	ld a, [wCranky_Score + 2]
 	swap a
 	and $0f
-	jr z, .jump_5541
+	jr z, .continue_5541
 	cp $01
-	jr z, .jump_5538
+	jr z, .else_5538
 	ld hl, wCranky_Score + 2
 	ld bc, wCranky_ScoreFlash + 2
 	call Cranky_DigitBlinkDown
-	jr .jump_5541
+	jr .continue_5541
 
-.jump_5538:
+.else_5538:
 	ld hl, wCranky_Score + 2
 	ld bc, wCranky_ScoreFlash + 2
 	call Cranky_DigitRollUp
-.jump_5541:
+.continue_5541:
 	ld a, $07
 	ldh [hFE_Scratch2 + 1], a
 	ld a, [wCranky_Score]
@@ -3670,36 +3670,36 @@ Cranky_SetAmmoIcon::
 	ld hl, $55c1
 	add a, l
 	ld l, a
-	jr nc, .jump_55c0
+	jr nc, .skip
 	inc h
-.jump_55c0:
+.skip:
 	jp hl
 
 
 Cranky_SetAmmoIcon_BuddiesBeware::
-	jr Cranky_SetAmmoIcon_Common.jump_55cd
+	jr Cranky_SetAmmoIcon_Common.set
 
 
 Cranky_SetAmmoIcon_BarrelOKremlings::
-	jr Cranky_SetAmmoIcon_Common.jump_55cd
+	jr Cranky_SetAmmoIcon_Common.set
 
 
 Cranky_SetAmmoIcon_Wanted::
-	jr Cranky_SetAmmoIcon_Common.jump_55cd
+	jr Cranky_SetAmmoIcon_Common.set
 
 
 Cranky_SetAmmoIcon_KremlingKrackdown::
-	jr Cranky_SetAmmoIcon_Common.jump_55cd
+	jr Cranky_SetAmmoIcon_Common.set
 
 
 Cranky_SetAmmoIcon_KremlingsAndKongs::
-	jr Cranky_SetAmmoIcon_Common.jump_55cd
+	jr Cranky_SetAmmoIcon_Common.set
 
 
 Cranky_SetAmmoIcon_Common::
-	jr .jump_55cd
+	jr .set
 
-.jump_55cd:
+.set:
 	ld a, [wCranky_Result]
 	cpl
 	inc a
@@ -3711,7 +3711,7 @@ Cranky_SetAmmoIcon_Common::
 Cranky_DrawTimer::
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr z, .jump_55f5
+	jr z, .else
 	ld a, $00
 	ldh [hFE_Scratch2 + 1], a
 	ld a, [wCranky_AmmoTile]
@@ -3723,7 +3723,7 @@ Cranky_DrawTimer::
 	call FarCall_A_HL
 	ret
 
-.jump_55f5:
+.else:
 	ld a, $21
 	ldh [hFE_Scratch2 + 1], a
 	ld a, [wCranky_AmmoTile]
@@ -3759,14 +3759,14 @@ Cranky_CheckTimeUp::
 	ld [wCranky_TimeFrames], a
 	ld a, [wCranky_Score + 2]
 	or a
-	jr nz, .jump_5641
+	jr nz, .skip
 	ld a, [wCranky_Score + 1]
 	or a
-	jr nz, .jump_5641
+	jr nz, .skip
 	ld a, [wCranky_Score]
 	or a
 	ret z
-.jump_5641:
+.skip:
 	call Cranky_SubtractPoints
 	ret
 
@@ -3813,7 +3813,7 @@ Cranky_ResumeFromPause::
 	ld hl, Cranky_LoadPauseFont
 	call FarCall_A_HL
 	call Cranky_SetPausePalettes
-.jump_5698:
+.resume:
 	ld a, $00
 	ld [wCranky_DimLevel], a
 	ld [wCranky_State], a
@@ -3827,18 +3827,18 @@ Cranky_ResumeFromPause::
 	ld a, BANK(Cranky_CopyOAM)
 	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-.jump_56b9:
+.loop:
 	ld a, [wCranky_LinkIn + 2]
 	cp $06
-	jr nz, .jump_56d0
+	jr nz, .else
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
 	ld a, [wCranky_LinkIn + 2]
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_43c7
-	jr .jump_56b9
+	jp z, Cranky_CheckGameOver.finish
+	jr .loop
 
-.jump_56d0:
+.else:
 	xor a
 	ld [wCranky_DimLevel], a
 	ld [wCranky_State], a
@@ -3883,11 +3883,11 @@ Cranky_Pause::
 	call Cranky_SetPausePalettes
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr nz, .jump_5744
+	jr nz, .loop
 	ld a, [wCranky_LinkIn + 2]
 	cp $06
-	jp z, Cranky_ResumeFromPause.jump_5698
-.jump_5744:
+	jp z, Cranky_ResumeFromPause.resume
+.loop:
 	ld a, $00
 	ldh [hFE_Scratch2 + 1], a
 	ld e, $00
@@ -3906,7 +3906,7 @@ Cranky_Pause::
 	call Cranky_PauseLoop
 	ld a, [wCranky_PauseItem]
 	or $00
-	jp z, .jump_57d8
+	jp z, .else
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -3936,7 +3936,7 @@ Cranky_Pause::
 	call Cranky_PauseLoop
 	ld a, [wCranky_PauseItem]
 	or a
-	jp z, Cranky_CheckGameOver.jump_436d
+	jp z, Cranky_CheckGameOver.quit
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -3946,9 +3946,9 @@ Cranky_Pause::
 	ld a, BANK(Cranky_CopyOAM)
 	ld hl, Cranky_CopyOAM
 	call FarCall_A_HL
-	jp .jump_5744
+	jp .loop
 
-.jump_57d8:
+.else:
 	xor a
 	ld [wCranky_DimLevel], a
 	ld [wCranky_State], a
@@ -3973,7 +3973,7 @@ Cranky_Pause::
 
 Cranky_PauseLoop::
 	call Cranky_PauseShowCursor
-.jump_580e:
+.loop:
 	call Cranky_WaitLineAndUpdateSound
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
@@ -3987,7 +3987,7 @@ Cranky_PauseLoop::
 	ldh a, [hFE_JoyInput]
 	and $09
 	ret nz
-	jr .jump_580e
+	jr .loop
 
 
 Cranky_PauseNext::
@@ -3997,9 +3997,9 @@ Cranky_PauseNext::
 	ld a, [wCranky_PauseItem]
 	inc a
 	cp b
-	jr nz, .jump_583d
+	jr nz, .skip
 	xor a
-.jump_583d:
+.skip:
 	ld [wCranky_PauseItem], a
 	call Cranky_PauseShowCursor
 	ret
@@ -4010,10 +4010,10 @@ Cranky_PausePrevious::
 	ld a, [wCranky_PauseItem]
 	dec a
 	cp $ff
-	jr nz, .jump_5853
+	jr nz, .skip
 	ld a, [wCranky_PauseItems]
 	dec a
-.jump_5853:
+.skip:
 	ld [wCranky_PauseItem], a
 	call Cranky_PauseShowCursor
 	ret
@@ -4024,9 +4024,9 @@ Cranky_PauseShowCursor::
 	ld hl, wCranky_PauseCursorX
 	add a, l
 	ld l, a
-	jr nc, .jump_5865
+	jr nc, .skip_5865
 	inc h
-.jump_5865:
+.skip_5865:
 	ld e, [hl]
 	inc e
 	inc e
@@ -4036,19 +4036,19 @@ Cranky_PauseShowCursor::
 	ld hl, wCranky_PauseCursorY
 	add a, l
 	ld l, a
-	jr nc, .jump_5876
+	jr nc, .skip_5876
 	inc h
-.jump_5876:
+.skip_5876:
 	ld b, [hl]
 	ld a, $01
-.jump_5879:
+.loop:
 	ld [de], a
 	inc e
 	inc e
 	inc e
 	inc e
 	dec b
-	jr nz, .jump_5879
+	jr nz, .loop
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
 	ld b, $c0
@@ -4063,9 +4063,9 @@ Cranky_PauseHideCursor::
 	ld hl, wCranky_PauseCursorX
 	add a, l
 	ld l, a
-	jr nc, .jump_589d
+	jr nc, .skip_589d
 	inc h
-.jump_589d:
+.skip_589d:
 	ld e, [hl]
 	inc e
 	inc e
@@ -4075,19 +4075,19 @@ Cranky_PauseHideCursor::
 	ld hl, wCranky_PauseCursorY
 	add a, l
 	ld l, a
-	jr nc, .jump_58ae
+	jr nc, .skip_58ae
 	inc h
-.jump_58ae:
+.skip_58ae:
 	ld b, [hl]
 	ld a, $00
-.jump_58b1:
+.loop:
 	ld [de], a
 	inc e
 	inc e
 	inc e
 	inc e
 	dec b
-	jr nz, .jump_58b1
+	jr nz, .loop
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
 	ld b, $c0
@@ -4102,17 +4102,17 @@ Cranky_PauseSetItem::
 	ld hl, wCranky_PauseCursorX
 	add a, l
 	ld l, a
-	jr nc, .jump_58d3
+	jr nc, .skip
 	inc h
-.jump_58d3:
+.skip:
 	ld [hl], c
 	pop af
 	ld hl, wCranky_PauseCursorY
 	add a, l
 	ld l, a
-	jr nc, .jump_58dd
+	jr nc, .done
 	inc h
-.jump_58dd:
+.done:
 	ld [hl], b
 	ret
 
@@ -4123,9 +4123,9 @@ Cranky_DrawPauseText::
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_58eb
+	jr nc, .skip_58eb
 	inc h
-.jump_58eb:
+.skip_58eb:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -4133,9 +4133,9 @@ Cranky_DrawPauseText::
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_58f5
+	jr nc, .skip_58f5
 	inc h
-.jump_58f5:
+.skip_58f5:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -4150,10 +4150,10 @@ Cranky_DrawPauseText::
 	ld [wFE_FarBank], a
 	push de
 	ld d, $c0
-.jump_5907:
+.loop:
 	ld a, [hli]
 	cp $87
-	jr z, .jump_5932
+	jr z, .done
 	push af
 	ld a, c
 	ld [de], a
@@ -4170,9 +4170,9 @@ Cranky_DrawPauseText::
 	ld hl, $6ca7
 	add a, l
 	ld l, a
-	jr nc, .jump_5923
+	jr nc, .skip_5923
 	inc h
-.jump_5923:
+.skip_5923:
 	call FE_FarReadByte
 	ld a, c
 	add a, a
@@ -4183,9 +4183,9 @@ Cranky_DrawPauseText::
 	ldh a, [hFE_Scratch2 + 1]
 	ld [de], a
 	inc e
-	jr .jump_5907
+	jr .loop
 
-.jump_5932:
+.done:
 	pop bc
 	ret
 
@@ -4201,11 +4201,11 @@ Cranky_SetPausePalettes::
 	ld a, $80
 	ldh [rOCPS], a
 	ld d, $10
-.jump_5953:
+.loop:
 	ld a, [hli]
 	ldh [rOCPD], a
 	dec d
-	jr nz, .jump_5953
+	jr nz, .loop
 	ret
 
 
@@ -4213,13 +4213,13 @@ Cranky_ClearPauseScreen::
 	ld hl, wCranky_ScreenBuffer
 	ld bc, $0a00
 	xor a
-.jump_5961:
+.loop:
 	ld [hli], a
 	dec bc
 	cp c
-	jr nz, .jump_5961
+	jr nz, .loop
 	cp b
-	jr nz, .jump_5961
+	jr nz, .loop
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
 	xor a
@@ -4248,7 +4248,7 @@ Cranky_ClearPauseScreen::
 	push af
 	inc sp
 	ld a, BANK(Cranky_StartHBlankDMA)
-	jp RestoreBankAndReturn.jump_3fdc
+	jp RestoreBankAndReturn.far_jump
 
 
 Cranky_UploadPauseScreen::
@@ -4280,7 +4280,7 @@ Cranky_UploadPauseScreen::
 	push af
 	inc sp
 	ld a, BANK(Cranky_StartHBlankDMA)
-	jp RestoreBankAndReturn.jump_3fdc
+	jp RestoreBankAndReturn.far_jump
 
 
 Cranky_PauseWait::
@@ -4294,7 +4294,7 @@ Cranky_FlashScreen::
 	or a
 	ret z
 	cp $01
-	jr z, .jump_5a04
+	jr z, .else
 	ld a, $80
 	ldh [rOCPS], a
 	ldh [rBCPS], a
@@ -4302,7 +4302,7 @@ Cranky_FlashScreen::
 	ld bc, $ff69
 	ld a, $ff
 	ld d, $08
-.jump_59ec:
+.loop:
 	ld [hl], a
 	ld [bc], a
 	ld [hl], a
@@ -4320,12 +4320,12 @@ Cranky_FlashScreen::
 	ld [hl], a
 	ld [bc], a
 	dec d
-	jr nz, .jump_59ec
+	jr nz, .loop
 	ld hl, wCranky_ScreenFlash
 	dec [hl]
 	ret
 
-.jump_5a04:
+.else:
 	ld a, BANK(Cranky_UploadPalettes)
 	ld hl, Cranky_UploadPalettes
 	call FarCall_A_HL
@@ -4339,7 +4339,7 @@ Cranky_CheckQuit::
 	cp $00
 	ret z
 	cp $03
-	jp z, Cranky_CheckGameOver.jump_431e
+	jp z, Cranky_CheckGameOver.wait_end
 	ret
 
 
@@ -4358,9 +4358,9 @@ Cranky_HandleRemoteEvent::
 	ld hl, $5a39
 	add a, l
 	ld l, a
-	jr nc, .jump_5a38
+	jr nc, .skip
 	inc h
-.jump_5a38:
+.skip:
 	jp hl
 
 
@@ -4377,19 +4377,19 @@ Cranky_RemoteEvent_ActorShot::
 	ld b, a
 	xor a
 	ldh [hCranky_Actor], a
-.jump_5a46:
+.loop:
 	ld hl, wCranky_ActorID
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp b
-	jr z, .jump_5a57
+	jr z, .else
 	ld hl, hCranky_Actor
 	inc [hl]
-	jr .jump_5a46
+	jr .loop
 
-.jump_5a57:
+.else:
 	ld hl, wCranky_ActorAnimFlags
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -4450,9 +4450,9 @@ Cranky_RemoteEvent_ActorShot::
 	ld hl, wCranky_ActorAnimFlags
 	add a, l
 	ld l, a
-	jr nc, .jump_5ab5
+	jr nc, .done
 	inc h
-.jump_5ab5:
+.done:
 	set 3, [hl]
 	ret
 
@@ -4469,13 +4469,13 @@ Cranky_RemoteEvent_TargetHit::
 	ld b, a
 	add a, l
 	ld l, a
-	jr nc, .jump_5acf
+	jr nc, .skip
 	inc h
-.jump_5acf:
+.skip:
 	ld a, [hl]
 	inc a
 	cp $04
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	inc [hl]
 	ld a, b
 	ld hl, wCranky_ShotMask
@@ -4489,9 +4489,9 @@ Cranky_DrawTargets::
 	ld hl, $795b
 	add a, l
 	ld l, a
-	jr nc, .jump_5aeb
+	jr nc, .skip_5aeb
 	inc h
-.jump_5aeb:
+.skip_5aeb:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -4503,8 +4503,8 @@ Cranky_DrawTargets::
 	ld a, [hli]
 	ld [wCranky_TargetIcon], a
 	cp $00
-	jr z, .jump_5b0f
-.jump_5afe:
+	jr z, .continue
+.loop_5afe:
 	push af
 	push hl
 	call Cranky_DrawTarget
@@ -4512,120 +4512,120 @@ Cranky_DrawTargets::
 	ld a, $04
 	add a, l
 	ld l, a
-	jr nc, .jump_5b0b
+	jr nc, .skip_5b0b
 	inc h
-.jump_5b0b:
+.skip_5b0b:
 	pop af
 	dec a
-	jr nz, .jump_5afe
-.jump_5b0f:
+	jr nz, .loop_5afe
+.continue:
 	ld d, $fc
 	call Cranky_DrawTarget
 	ld a, $01
 	ldh [rSVBK], a
 	pop af
 	ld [wCranky_ShotMask], a
-.jump_5b1c:
+.loop_5b1c:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5b1c
-.jump_5b23:
+	jr z, .loop_5b1c
+.loop_5b23:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5b23
+	jr nz, .loop_5b23
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
-.jump_5b32:
+.loop_5b32:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5b32
-.jump_5b39:
+	jr z, .loop_5b32
+.loop_5b39:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5b39
+	jr nz, .loop_5b39
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
-.jump_5b48:
+.loop_5b48:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5b48
-.jump_5b4f:
+	jr z, .loop_5b48
+.loop_5b4f:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5b4f
+	jr nz, .loop_5b4f
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
-.jump_5b5e:
+.loop_5b5e:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5b5e
-.jump_5b65:
+	jr z, .loop_5b5e
+.loop_5b65:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5b65
+	jr nz, .loop_5b65
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
-.jump_5b74:
+.loop_5b74:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5b74
-.jump_5b7b:
+	jr z, .loop_5b74
+.loop_5b7b:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5b7b
+	jr nz, .loop_5b7b
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
-.jump_5b8a:
+.loop_5b8a:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5b8a
-.jump_5b91:
+	jr z, .loop_5b8a
+.loop_5b91:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5b91
+	jr nz, .loop_5b91
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
-.jump_5ba0:
+.loop_5ba0:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5ba0
-.jump_5ba7:
+	jr z, .loop_5ba0
+.loop_5ba7:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5ba7
+	jr nz, .loop_5ba7
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
-.jump_5bb6:
+.loop_5bb6:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_5bb6
-.jump_5bbd:
+	jr z, .loop_5bb6
+.loop_5bbd:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_5bbd
+	jr nz, .loop_5bbd
 	ld a, BANK(Cranky_AnimateBackgroundTiles)
 	ld hl, Cranky_AnimateBackgroundTiles
 	call FarCall_A_HL
@@ -4658,27 +4658,27 @@ Cranky_DrawTarget::
 	ld a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_5bf4
+	jr nc, .skip
 	inc h
-.jump_5bf4:
+.skip:
 	pop af
-.jump_5bf5:
+.loop_5bf5:
 	ld b, d
 	push hl
-.jump_5bf7:
+.loop_5bf7:
 	res 2, h
 	set 3, [hl]
 	set 2, h
 	ld [hli], a
 	inc a
 	dec d
-	jr nz, .jump_5bf7
+	jr nz, .loop_5bf7
 	pop hl
 	ld d, b
 	ld bc, $0020
 	add hl, bc
 	dec e
-	jr nz, .jump_5bf5
+	jr nz, .loop_5bf5
 	ld d, a
 	ret
 
@@ -4691,12 +4691,12 @@ Cranky_LoadPalettes::
 	ld de, $7ba9
 	add a, e
 	ld e, a
-	jr nc, .jump_5c1b
+	jr nc, .skip_5c1b
 	inc d
-.jump_5c1b:
+.skip_5c1b:
 	ld bc, wFE_OBJPalettes
 	ld a, $08
-.jump_5c20:
+.loop_5c20:
 	push af
 	ld a, [de]
 	inc de
@@ -4706,21 +4706,21 @@ Cranky_LoadPalettes::
 	ld hl, $77e1
 	add a, l
 	ld l, a
-	jr nc, .jump_5c2e
+	jr nc, .skip_5c2e
 	inc h
-.jump_5c2e:
+.skip_5c2e:
 	ld a, $08
-.jump_5c30:
+.loop_5c30:
 	push af
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	pop af
 	dec a
-	jr nz, .jump_5c30
+	jr nz, .loop_5c30
 	pop af
 	dec a
-	jr nz, .jump_5c20
+	jr nz, .loop_5c20
 	ret
 
 
@@ -4783,25 +4783,25 @@ Cranky_LoadPauseFont::
 Cranky_RunActors::
 	xor a
 	ldh [hCranky_Actor], a
-.jump_5cb5:
+.run_actor:
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $13
-	jr c, .jump_5cc2
+	jr c, .skip_5cc2
 	rst $38
-.jump_5cc2:
+.skip_5cc2:
 	ld b, a
 	add a, a
 	add a, b
 	ld hl, $5cd8
 	add a, l
 	ld l, a
-	jr nc, .jump_5ccd
+	jr nc, .skip_5ccd
 	inc h
-.jump_5ccd:
+.skip_5ccd:
 	jp hl
 
 
@@ -4810,7 +4810,7 @@ Cranky_NextActor::
 	inc a
 	ldh [hCranky_Actor], a
 	cp $20
-	jr nz, Cranky_RunActors.jump_5cb5
+	jr nz, Cranky_RunActors.run_actor
 	ret
 
 
@@ -4897,9 +4897,9 @@ Cranky_Actor_BuddiesBeware_Pop::
 	ld l, a
 	ld a, [hl]
 	or a
-	jr z, .jump_5d1d
+	jr z, .skip
 	dec [hl]
-.jump_5d1d:
+.skip:
 	call Cranky_AnimateActor
 	ld hl, wCranky_ActorAnimFlags
 	ldh a, [hCranky_Actor]
@@ -4907,7 +4907,7 @@ Cranky_Actor_BuddiesBeware_Pop::
 	ld l, a
 	ld a, [hl]
 	bit 2, [hl]
-	jr nz, .jump_5d3d
+	jr nz, .else
 	call Cranky_MoveActor
 	call Cranky_Actor_BuddiesBeware_Move
 	call Cranky_Actor_BuddiesBeware_AtEdge
@@ -4916,7 +4916,7 @@ Cranky_Actor_BuddiesBeware_Pop::
 	call Cranky_Actor_BuddiesBeware_Shot
 	jr Cranky_NextActor
 
-.jump_5d3d:
+.else:
 	ld hl, wCranky_ActorFrame
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -4944,7 +4944,7 @@ Cranky_Actor_BuddiesBeware_Pop::
 	dec a
 	ld [wCranky_Result], a
 	jp nz, Cranky_NextActor
-	jp Cranky_CheckGameOver.jump_42eb
+	jp Cranky_CheckGameOver.tally
 
 
 Cranky_Actor_BuddiesBeware_Run::
@@ -4960,11 +4960,11 @@ Cranky_Actor_BuddiesBeware_Run::
 	ld l, a
 	ld a, [hl]
 	or a
-	jr z, .jump_5d8f
+	jr z, .else
 	dec [hl]
 	jp Cranky_NextActor
 
-.jump_5d8f:
+.else:
 	dec b
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
@@ -4991,12 +4991,12 @@ Cranky_Actor_BuddiesBeware_Shot::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_5db9
+	jr nc, .skip
 	inc h
-.jump_5db9:
+.skip:
 	ld a, [hl]
 	cp $01
-	jr z, .jump_5e37
+	jr z, .else
 	ld hl, wCranky_ActorTimer
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -5070,20 +5070,20 @@ Cranky_Actor_BuddiesBeware_Shot::
 	ld hl, wCranky_ActorAnimFlags
 	add a, l
 	ld l, a
-	jr nc, .jump_5e34
+	jr nc, .done_5e34
 	inc h
-.jump_5e34:
+.done_5e34:
 	set 3, [hl]
 	ret
 
-.jump_5e37:
+.else:
 	ld a, b
 	ld hl, wCranky_TargetTimers
 	add a, l
 	ld l, a
-	jr nc, .jump_5e40
+	jr nc, .done_5e40
 	inc h
-.jump_5e40:
+.done_5e40:
 	ld [hl], $18
 	ret
 
@@ -5095,34 +5095,34 @@ Cranky_Actor_BuddiesBeware_Move::
 	ld l, a
 	ld a, [hl]
 	cp $02
-	jr z, .jump_5e5d
+	jr z, .else_5e5d
 	ld hl, wCranky_ActorX
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $f0
-	jp z, .jump_5e6b
+	jp z, .else_5e6b
 	ret
 
-.jump_5e5d:
+.else_5e5d:
 	ld hl, wCranky_ActorX
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $d0
-	jp z, .jump_5e6b
+	jp z, .else_5e6b
 	ret
 
-.jump_5e6b:
+.else_5e6b:
 	ld hl, wCranky_ActorY
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	cp $74
-	jr z, .jump_5ebc
+	jr z, .else_5ebc
 	add a, $20
 	ld [hl], a
 	ld hl, wCranky_ActorDir
@@ -5146,7 +5146,7 @@ Cranky_Actor_BuddiesBeware_Move::
 	ld l, a
 	ld a, [hl]
 	bit 5, a
-	jr z, .jump_5eac
+	jr z, .else_5eac
 	res 5, [hl]
 	ld hl, wCranky_ActorAnimFlags
 	ldh a, [hCranky_Actor]
@@ -5158,7 +5158,7 @@ Cranky_Actor_BuddiesBeware_Move::
 	set 0, [hl]
 	ret
 
-.jump_5eac:
+.else_5eac:
 	set 5, [hl]
 	ld hl, wCranky_ActorAnimFlags
 	ldh a, [hCranky_Actor]
@@ -5170,7 +5170,7 @@ Cranky_Actor_BuddiesBeware_Move::
 	set 0, [hl]
 	ret
 
-.jump_5ebc:
+.else_5ebc:
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -5206,14 +5206,14 @@ Cranky_Actor_BuddiesBeware_AtEdge::
 	ld a, [hl]
 	ld b, $00
 	cp $38
-	jp z, .jump_5eff
+	jp z, .else
 	ld b, $01
 	cp $78
-	jp z, .jump_5eff
+	jp z, .else
 	xor a
 	ret
 
-.jump_5eff:
+.else:
 	ld hl, wCranky_ActorY
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -5221,12 +5221,12 @@ Cranky_Actor_BuddiesBeware_AtEdge::
 	ld a, [hl]
 	ld c, $00
 	cp $34
-	jr z, .jump_5f15
+	jr z, .done
 	ld c, $02
 	cp $54
-	jr z, .jump_5f15
+	jr z, .done
 	ld c, $04
-.jump_5f15:
+.done:
 	ld a, c
 	add a, b
 	inc a
@@ -5240,18 +5240,18 @@ Cranky_Actor_Barrel::
 	ld l, a
 	ld a, [hl]
 	bit 1, a
-	jr z, .jump_5f77
+	jr z, .else_5f77
 	ld hl, wCranky_ActorTimer
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	or a
-	jr z, .jump_5f34
+	jr z, .else_5f34
 	dec [hl]
 	jp Cranky_NextActor
 
-.jump_5f34:
+.else_5f34:
 	call Cranky_AnimateActor
 	ld hl, wCranky_ActorFrame
 	ldh a, [hCranky_Actor]
@@ -5277,10 +5277,10 @@ Cranky_Actor_Barrel::
 	ld b, a
 	ld a, [wCranky_Wanted + 8]
 	cp b
-	jr nz, .jump_5f69
+	jr nz, .skip
 	ld a, $01
 	ld [wCranky_Wanted + $0a], a
-.jump_5f69:
+.skip:
 	xor a
 	ld hl, wCranky_ActorType
 	push af
@@ -5291,7 +5291,7 @@ Cranky_Actor_Barrel::
 	ld [hl], a
 	jp Cranky_NextActor
 
-.jump_5f77:
+.else_5f77:
 	call Cranky_AnimateActor
 	ld hl, wCranky_ActorFrame
 	ldh a, [hCranky_Actor]
@@ -5352,7 +5352,7 @@ Cranky_Actor_Kremling::
 	ld l, a
 	ld a, [hl]
 	cp $03
-	jr nz, .jump_5fe1
+	jr nz, .continue
 	xor a
 	ld hl, wCranky_ActorAnimSpeed
 	push af
@@ -5361,7 +5361,7 @@ Cranky_Actor_Kremling::
 	ld l, a
 	pop af
 	ld [hl], a
-.jump_5fe1:
+.continue:
 	ld hl, wCranky_ActorTimer
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -5444,7 +5444,7 @@ Cranky_Actor_Kremling_Hide::
 	ld [hl], $46
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr z, .jump_608c
+	jr z, .continue
 	ld a, $01
 	ld [wCranky_EventKind], a
 	ld hl, wCranky_ActorTarget
@@ -5458,9 +5458,9 @@ Cranky_Actor_Kremling_Hide::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_607d
+	jr nc, .skip
 	inc h
-.jump_607d:
+.skip:
 	inc [hl]
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
@@ -5469,7 +5469,7 @@ Cranky_Actor_Kremling_Hide::
 	ld a, [hl]
 	ld hl, wCranky_ShotMask
 	call Cranky_SetBitN
-.jump_608c:
+.continue:
 	ld hl, wCranky_ActorTarget
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -5557,11 +5557,11 @@ Cranky_Actor_Kremling_Appear::
 	ld l, a
 	ld a, [hl]
 	cp $02
-	jr z, .jump_6116
+	jr z, .else
 	call Cranky_AnimateActor
 	jp Cranky_NextActor
 
-.jump_6116:
+.else:
 	call Cranky_MoveActor
 	ld hl, wCranky_ActorTimer
 	ldh a, [hCranky_Actor]
@@ -5627,7 +5627,7 @@ Cranky_Actor_Kong_Hide::
 	ld l, a
 	ld a, [hl]
 	cp $25
-	jr nz, .jump_6197
+	jr nz, .else
 	inc [hl]
 	ld a, $06
 	ld hl, wCranky_ActorFrames
@@ -5647,7 +5647,7 @@ Cranky_Actor_Kong_Hide::
 	ld [hl], a
 	jp Cranky_NextActor
 
-.jump_6197:
+.else:
 	inc [hl]
 	ld a, $08
 	ld hl, wCranky_ActorFrames
@@ -5773,12 +5773,12 @@ Cranky_Actor_GalleonShip::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_6256
+	jr nc, .skip_6256
 	inc h
-.jump_6256:
+.skip_6256:
 	ld a, [hl]
 	cp $01
-	jr z, .jump_6289
+	jr z, .else_6289
 	ld hl, wCranky_ActorTimer
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -5795,9 +5795,9 @@ Cranky_Actor_GalleonShip::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_627d
+	jr nc, .skip_627d
 	inc h
-.jump_627d:
+.skip_627d:
 	inc [hl]
 	ld a, [hl]
 	cp $0b
@@ -5805,7 +5805,7 @@ Cranky_Actor_GalleonShip::
 	ld [hl], $01
 	jp Cranky_NextActor
 
-.jump_6289:
+.else_6289:
 	ld hl, wCranky_ActorTimer
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -5828,9 +5828,9 @@ Cranky_Actor_GalleonShip::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_62b3
+	jr nc, .skip_62b3
 	inc h
-.jump_62b3:
+.skip_62b3:
 	ld [hl], $00
 	call Cranky_Actor_GalleonSpawnShot
 	ld a, [$00f6]
@@ -5843,11 +5843,11 @@ Cranky_Actor_GalleonShip::
 	ld [hl], $14
 	ld a, [wCranky_Result]
 	dec a
-	jr z, .jump_62d1
+	jr z, .else_62d1
 	ld [wCranky_Result], a
 	jp Cranky_NextActor
 
-.jump_62d1:
+.else_62d1:
 	ld a, $02
 	ld [wCranky_ScreenFlash], a
 	call Cranky_UpdateTileAnims
@@ -5855,10 +5855,10 @@ Cranky_Actor_GalleonShip::
 	ld d, $80
 	ld a, $ff
 	ld hl, wFE_BGPalettes
-.jump_62e3:
+.loop:
 	ld [hli], a
 	dec d
-	jr nz, .jump_62e3
+	jr nz, .loop
 	ld a, $40
 	ldh [hFE_Scratch], a
 	ld de, wFE_BGPalettes
@@ -5866,7 +5866,7 @@ Cranky_Actor_GalleonShip::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	jp Cranky_CheckGameOver.jump_42eb
+	jp Cranky_CheckGameOver.tally
 
 
 Cranky_Actor_Type15::
@@ -5903,9 +5903,9 @@ Cranky_Actor_GalleonSpawnShot::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_632b
+	jr nc, .skip
 	inc h
-.jump_632b:
+.skip:
 	ld a, [hli]
 	ld b, a
 	ld a, [hl]
@@ -6015,7 +6015,7 @@ Cranky_Actor_GalleonCannonball::
 	ld l, a
 	ld a, [hl]
 	or a
-	jr nz, .jump_63f0
+	jr nz, .else
 	ld a, $2b
 	ld hl, wCranky_ActorSprite
 	push af
@@ -6042,7 +6042,7 @@ Cranky_Actor_GalleonCannonball::
 	ld [hl], a
 	jp Cranky_NextActor
 
-.jump_63f0:
+.else:
 	dec [hl]
 	call Cranky_AnimateActor
 	call Cranky_MoveActor
@@ -6061,9 +6061,9 @@ Cranky_Actor_Type18::
 	ld hl, $640e
 	add a, l
 	ld l, a
-	jr nc, .jump_640d
+	jr nc, .skip
 	inc h
-.jump_640d:
+.skip:
 	jp hl
 
 
@@ -6707,9 +6707,9 @@ Cranky_Type18_ReachedTop::
 	ld a, e
 	sub $40
 	ld e, a
-	jr nc, .jump_6718
+	jr nc, .skip
 	dec d
-.jump_6718:
+.skip:
 	ld a, d
 	ld hl, wCranky_ActorSteps
 	push af
@@ -6749,9 +6749,9 @@ Cranky_Type18_ReachedBottom::
 	ld a, $40
 	add a, e
 	ld e, a
-	jr nc, .jump_674c
+	jr nc, .skip
 	inc d
-.jump_674c:
+.skip:
 	ld a, d
 	ld hl, wCranky_ActorSteps
 	push af
@@ -6829,14 +6829,14 @@ Cranky_AnimateActor::
 	ld l, a
 	ld a, [hl]
 	bit 1, a
-	jr z, .jump_67d2
+	jr z, .else
 	ld hl, wCranky_ActorFrame
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	sub $01
-	jr nc, .jump_67e8
+	jr nc, .skip
 	ld hl, wCranky_ActorFrames
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6852,7 +6852,7 @@ Cranky_AnimateActor::
 	ld [hl], a
 	ret
 
-.jump_67d2:
+.else:
 	ld hl, wCranky_ActorFrames
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6866,9 +6866,9 @@ Cranky_AnimateActor::
 	ld a, [hl]
 	inc a
 	cp d
-	jr nz, .jump_67e8
+	jr nz, .skip
 	xor a
-.jump_67e8:
+.skip:
 	ld hl, wCranky_ActorFrame
 	push af
 	ldh a, [hCranky_Actor]
@@ -6886,13 +6886,13 @@ Cranky_MoveActor::
 	ld l, a
 	ld a, [hl]
 	or a
-	jr z, .jump_6805
+	jr z, .skip
 	ld d, a
-.jump_67ff:
+.loop:
 	call Cranky_MoveActorStep
 	dec d
-	jr nz, .jump_67ff
-.jump_6805:
+	jr nz, .loop
+.skip:
 	ld hl, wCranky_ActorSpeed
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6921,44 +6921,44 @@ Cranky_MoveActorStep::
 	ld hl, $682f
 	add a, l
 	ld l, a
-	jr nc, .jump_682e
+	jr nc, .skip
 	inc h
-.jump_682e:
+.skip:
 	jp hl
 
 
 Cranky_MoveActorDir0::
-	jr Cranky_MoveActorDir_Body.jump_683f
+	jr Cranky_MoveActorDir_Body.dir0
 
 
 Cranky_MoveActorDir1::
-	jr Cranky_MoveActorDir_Body.jump_6849
+	jr Cranky_MoveActorDir_Body.dir1
 
 
 Cranky_MoveActorDir2::
-	jr Cranky_MoveActorDir_Body.jump_685c
+	jr Cranky_MoveActorDir_Body.dir2
 
 
 Cranky_MoveActorDir3::
-	jr Cranky_MoveActorDir_Body.jump_6866
+	jr Cranky_MoveActorDir_Body.dir3
 
 
 Cranky_MoveActorDir4::
-	jr Cranky_MoveActorDir_Body.jump_6879
+	jr Cranky_MoveActorDir_Body.dir4
 
 
 Cranky_MoveActorDir5::
-	jr Cranky_MoveActorDir_Body.jump_6883
+	jr Cranky_MoveActorDir_Body.dir5
 
 
 Cranky_MoveActorDir6::
-	jr Cranky_MoveActorDir_Body.jump_6896
+	jr Cranky_MoveActorDir_Body.dir6
 
 
 Cranky_MoveActorDir_Body::
-	jr .jump_68a0
+	jr .else
 
-.jump_683f:
+.dir0:
 	ld hl, wCranky_ActorY
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6967,7 +6967,7 @@ Cranky_MoveActorDir_Body::
 	dec [hl]
 	ret
 
-.jump_6849:
+.dir1:
 	ld hl, wCranky_ActorY
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6982,7 +6982,7 @@ Cranky_MoveActorDir_Body::
 	inc [hl]
 	ret
 
-.jump_685c:
+.dir2:
 	ld hl, wCranky_ActorX
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -6991,7 +6991,7 @@ Cranky_MoveActorDir_Body::
 	inc [hl]
 	ret
 
-.jump_6866:
+.dir3:
 	ld hl, wCranky_ActorX
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7006,7 +7006,7 @@ Cranky_MoveActorDir_Body::
 	inc [hl]
 	ret
 
-.jump_6879:
+.dir4:
 	ld hl, wCranky_ActorY
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7015,7 +7015,7 @@ Cranky_MoveActorDir_Body::
 	inc [hl]
 	ret
 
-.jump_6883:
+.dir5:
 	ld hl, wCranky_ActorY
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7030,7 +7030,7 @@ Cranky_MoveActorDir_Body::
 	dec [hl]
 	ret
 
-.jump_6896:
+.dir6:
 	ld hl, wCranky_ActorX
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7039,7 +7039,7 @@ Cranky_MoveActorDir_Body::
 	dec [hl]
 	ret
 
-.jump_68a0:
+.else:
 	ld hl, wCranky_ActorY
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7058,14 +7058,14 @@ Cranky_MoveActorDir_Body::
 Cranky_DrawActors::
 	xor a
 	ldh [hCranky_Actor], a
-.jump_68b6:
+.loop:
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	or a
-	jr z, .jump_68ce
+	jr z, .continue
 	ld hl, wCranky_ActorAnimFlags
 	ldh a, [hCranky_Actor]
 	add a, l
@@ -7073,12 +7073,12 @@ Cranky_DrawActors::
 	ld a, [hl]
 	bit 0, a
 	call z, Cranky_DrawActor
-.jump_68ce:
+.continue:
 	ldh a, [hCranky_Actor]
 	inc a
 	ldh [hCranky_Actor], a
 	cp $20
-	jr nz, .jump_68b6
+	jr nz, .loop
 	ret
 
 
@@ -7123,7 +7123,7 @@ Cranky_FindFreeActor::
 	ld hl, wCranky_ActorType
 	xor a
 	ld e, a
-.jump_6915:
+.loop:
 	cp [hl]
 	ret z
 	inc l
@@ -7151,11 +7151,11 @@ Cranky_FindFreeActor::
 	inc e
 	ld a, e
 	cp $04
-	jr nz, .jump_6934
+	jr nz, .skip
 	rst $38
-.jump_6934:
+.skip:
 	xor a
-	jr .jump_6915
+	jr .loop
 
 
 Cranky_Spawn::
@@ -7166,9 +7166,9 @@ Cranky_Spawn::
 	ld hl, $6946
 	add a, l
 	ld l, a
-	jr nc, .jump_6945
+	jr nc, .skip
 	inc h
-.jump_6945:
+.skip:
 	jp hl
 
 
@@ -7208,18 +7208,18 @@ Cranky_Spawn_BuddiesBeware_Body::
 	call Cranky_BuddiesBeware_CountActors
 	ld a, [wCranky_SpawnRate]
 	cp $00
-	jr z, .jump_6979
+	jr z, .else_6979
 	dec a
 	ld [wCranky_SpawnRate], a
 	ret
 
-.jump_6979:
+.else_6979:
 	ld a, [wCranky_SpawnRate2]
 	or a
-	jr nz, .jump_6980
+	jr nz, .loop_6980
 	ret
 
-.jump_6980:
+.loop_6980:
 	xor a
 	ld [wCranky_SpawnRate2], a
 	ld a, [wCranky_ActorsUp]
@@ -7227,24 +7227,24 @@ Cranky_Spawn_BuddiesBeware_Body::
 	ld hl, $7bd9
 	add a, l
 	ld l, a
-	jr nc, .jump_6990
+	jr nc, .skip_6990
 	inc h
-.jump_6990:
+.skip_6990:
 	ld a, [hli]
 	cp $ff
-	jr nz, .jump_69ac
+	jr nz, .else_69ac
 	xor a
 	ld [wCranky_ActorsUp], a
 	ld a, [wCranky_BuddyCounts]
 	add a, $20
 	ld [wCranky_BuddyCounts], a
 	add a, $55
-	jr nc, .jump_6980
+	jr nc, .loop_6980
 	ld a, $aa
 	ld [wCranky_BuddyCounts], a
-	jr .jump_6980
+	jr .loop_6980
 
-.jump_69ac:
+.else_69ac:
 	ld d, [hl]
 	push de
 	ld b, a
@@ -7253,9 +7253,9 @@ Cranky_Spawn_BuddiesBeware_Body::
 	ld hl, $6958
 	add a, l
 	ld l, a
-	jr nc, .jump_69b9
+	jr nc, .skip_69b9
 	inc h
-.jump_69b9:
+.skip_69b9:
 	ld d, [hl]
 	inc hl
 	ld b, [hl]
@@ -7263,7 +7263,7 @@ Cranky_Spawn_BuddiesBeware_Body::
 	ld c, [hl]
 	push bc
 	push de
-.jump_69c0:
+.loop_69c0:
 	ld b, $02
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -7271,18 +7271,18 @@ Cranky_Spawn_BuddiesBeware_Body::
 	ld a, b
 	ld hl, wCranky_BuddyCounts + 1
 	call Cranky_TestBitN
-	jr nz, .jump_69c0
+	jr nz, .loop_69c0
 	ld a, b
 	ld hl, wCranky_BuddyCounts + 1
 	call Cranky_SetBitN
 	ld a, b
 	or a
-	jr z, .jump_69e4
+	jr z, .else_69e4
 	cp $02
-	jr z, .jump_69f2
-	jr .jump_6a00
+	jr z, .else_69f2
+	jr .else_6a00
 
-.jump_69e4:
+.else_69e4:
 	pop de
 	pop bc
 	pop af
@@ -7292,7 +7292,7 @@ Cranky_Spawn_BuddiesBeware_Body::
 	ld [wCranky_ActorsUp], a
 	ret
 
-.jump_69f2:
+.else_69f2:
 	pop de
 	pop bc
 	pop af
@@ -7302,7 +7302,7 @@ Cranky_Spawn_BuddiesBeware_Body::
 	ld [wCranky_ActorsUp], a
 	ret
 
-.jump_6a00:
+.else_6a00:
 	pop de
 	pop bc
 	pop af
@@ -7317,7 +7317,7 @@ Cranky_BuddiesBeware_CountActors::
 	xor a
 	ldh [hCranky_Actor], a
 	ld a, $20
-.jump_6a13:
+.loop:
 	push af
 	ld hl, wCranky_ActorType
 	ldh a, [hCranky_Actor]
@@ -7325,29 +7325,29 @@ Cranky_BuddiesBeware_CountActors::
 	ld l, a
 	ld a, [hl]
 	or a
-	jr z, .jump_6a33
+	jr z, .else_6a33
 	cp $04
-	jr z, .jump_6a25
+	jr z, .else_6a25
 	pop af
 	ret
 
-.jump_6a25:
+.else_6a25:
 	ld hl, wCranky_ActorAnimFlags
 	ldh a, [hCranky_Actor]
 	add a, l
 	ld l, a
 	ld a, [hl]
 	bit 0, a
-	jr nz, .jump_6a33
+	jr nz, .else_6a33
 	pop af
 	ret
 
-.jump_6a33:
+.else_6a33:
 	ld hl, hCranky_Actor
 	inc [hl]
 	pop af
 	dec a
-	jr nz, .jump_6a13
+	jr nz, .loop
 	ld a, BANK(Cranky_ClearGradient)
 	ld hl, Cranky_ClearGradient
 	call FarCall_A_HL
@@ -7417,7 +7417,7 @@ Cranky_BuddiesBeware_SpawnBuddy::
 	pop bc
 	pop de
 	pop af
-	jp Cranky_BuddiesBeware_SpawnOther.jump_6b64
+	jp Cranky_BuddiesBeware_SpawnOther.spawn
 
 
 Cranky_BuddiesBeware_SpawnKremling::
@@ -7481,7 +7481,7 @@ Cranky_BuddiesBeware_SpawnKremling::
 	pop bc
 	pop de
 	pop af
-	jr Cranky_BuddiesBeware_SpawnOther.jump_6b64
+	jr Cranky_BuddiesBeware_SpawnOther.spawn
 
 
 Cranky_BuddiesBeware_SpawnOther::
@@ -7545,23 +7545,23 @@ Cranky_BuddiesBeware_SpawnOther::
 	pop bc
 	pop de
 	pop af
-	jr .jump_6b64
+	jr .spawn
 
-.jump_6b64:
+.spawn:
 	push af
 	ld a, d
 	cp $02
-	jr z, .jump_6b70
+	jr z, .else
 	ld a, b
 	add a, $20
 	ld b, a
-	jr .jump_6b74
+	jr .continue
 
-.jump_6b70:
+.else:
 	ld a, b
 	sub $20
 	ld b, a
-.jump_6b74:
+.continue:
 	call Cranky_FindFreeActor
 	ld a, l
 	ld hl, wCranky_ActorSavedFlags
@@ -7724,48 +7724,48 @@ Cranky_InitActor::
 Cranky_Spawn_BarrelOKremlings_Body::
 	ld a, [wCranky_Mode]
 	cp $02
-	jr z, .jump_6c74
+	jr z, .skip_6c74
 	ld a, [wCranky_Score]
 	or a
-	jr nz, .jump_6c74
+	jr nz, .skip_6c74
 	ld a, [wCranky_Score + 1]
 	or a
-	jr nz, .jump_6c74
+	jr nz, .skip_6c74
 	ld a, [wCranky_Score + 2]
 	or a
-	jp z, Cranky_CheckGameOver.jump_42bd
-.jump_6c74:
+	jp z, Cranky_CheckGameOver.game_over
+.skip_6c74:
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr nz, .jump_6c94
+	jr nz, .else_6c94
 	ld a, [wCranky_LinkIn + 3]
 	or a
-	jr nz, .jump_6c88
+	jr nz, .else_6c88
 	ld b, a
 	ld a, [wCranky_Spawned]
 	or a
-	jr nz, .jump_6c8e
+	jr nz, .skip_6c8e
 	ret
 
-.jump_6c88:
+.else_6c88:
 	ld b, a
 	ld a, [wCranky_Spawned]
 	cp b
 	ret nc
-.jump_6c8e:
+.skip_6c8e:
 	ld a, b
 	ld [wCranky_Spawned], a
-	jr .jump_6c9f
+	jr .else_6c9f
 
-.jump_6c94:
+.else_6c94:
 	ld a, [wCranky_SpawnRate2]
 	or a
-	jr z, .jump_6c9f
+	jr z, .else_6c9f
 	dec a
 	ld [wCranky_SpawnRate2], a
 	ret
 
-.jump_6c9f:
+.else_6c9f:
 	call Cranky_NextWave
 	ld a, [wCranky_SpawnRate]
 	ld [wCranky_Wanted + 7], a
@@ -7783,9 +7783,9 @@ Cranky_Spawn_BarrelOKremlings_Body::
 	ld a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_6cc9
+	jr nc, .skip_6cc9
 	inc h
-.jump_6cc9:
+.skip_6cc9:
 	ld e, [hl]
 	call Cranky_BarrelOKremlings_SpawnBarrel
 	ret
@@ -7799,7 +7799,7 @@ Cranky_BarrelOKremlings_SpawnBarrel::
 	call Cranky_FindFreeActor
 	ld a, l
 	ldh [hCranky_Actor], a
-.jump_6cdc:
+.loop:
 	ld b, $07
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -7807,7 +7807,7 @@ Cranky_BarrelOKremlings_SpawnBarrel::
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_TestBitN
-	jr nz, .jump_6cdc
+	jr nz, .loop
 	ld a, b
 	ld hl, wCranky_ActorTarget
 	push af
@@ -7826,9 +7826,9 @@ Cranky_BarrelOKremlings_SpawnBarrel::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_6d0d
+	jr nc, .skip
 	inc h
-.jump_6d0d:
+.skip:
 	ld a, [hli]
 	add a, $0e
 	ld b, a
@@ -7930,28 +7930,28 @@ Cranky_BarrelOKremlings_SpawnBarrel::
 Cranky_Spawn_Wanted_Body::
 	ld a, [wCranky_Mode]
 	cp $02
-	jr z, .jump_6dc1
+	jr z, .continue_6dc1
 	ld a, [wCranky_Score]
 	or a
-	jr nz, .jump_6db1
+	jr nz, .skip_6db1
 	ld a, [wCranky_Score + 1]
 	or a
-	jr nz, .jump_6db1
+	jr nz, .skip_6db1
 	ld a, [wCranky_Score + 2]
 	or a
-	jp z, Cranky_CheckGameOver.jump_42bd
-.jump_6db1:
+	jp z, Cranky_CheckGameOver.game_over
+.skip_6db1:
 	ld a, [wCranky_Wanted + $0a]
 	or a
-	jr z, .jump_6dc5
+	jr z, .skip_6dc5
 	ld a, [wCranky_Result]
 	dec a
 	ld [wCranky_Result], a
-	jp z, Cranky_CheckGameOver.jump_42eb
-.jump_6dc1:
+	jp z, Cranky_CheckGameOver.tally
+.continue_6dc1:
 	xor a
 	ld [wCranky_Wanted + $0a], a
-.jump_6dc5:
+.skip_6dc5:
 	ld a, [wCranky_ActorType]
 	or a
 	ret nz
@@ -7980,11 +7980,11 @@ Cranky_Spawn_Wanted_Body::
 	ld [wCranky_TargetsUp], a
 	ld a, [wCranky_Wanted + 3]
 	or a
-	jp z, Cranky_CheckGameOver.jump_42eb
+	jp z, Cranky_CheckGameOver.tally
 	ld a, [wCranky_Wanted + 5]
 	or a
-	jr z, .jump_6e79
-.jump_6dfe:
+	jr z, .else
+.loop_6dfe:
 	ld hl, wCranky_Wanted + 2
 	inc [hl]
 	ld hl, wCranky_Wanted + 5
@@ -7994,9 +7994,9 @@ Cranky_Spawn_Wanted_Body::
 	ld hl, $7be6
 	add a, l
 	ld l, a
-	jr nc, .jump_6e12
+	jr nc, .skip_6e12
 	inc h
-.jump_6e12:
+.skip_6e12:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -8006,9 +8006,9 @@ Cranky_Spawn_Wanted_Body::
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_6e20
+	jr nc, .skip_6e20
 	inc h
-.jump_6e20:
+.skip_6e20:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -8019,9 +8019,9 @@ Cranky_Spawn_Wanted_Body::
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_6e2f
+	jr nc, .skip_6e2f
 	inc h
-.jump_6e2f:
+.skip_6e2f:
 	ld a, [hli]
 	ld [wCranky_Wanted + 6], a
 	ld a, [hli]
@@ -8029,24 +8029,24 @@ Cranky_Spawn_Wanted_Body::
 	xor a
 	ld [wCranky_TargetsUp], a
 	ld a, [wCranky_Wanted + 9]
-.jump_6e3e:
+.loop_6e3e:
 	push af
 	call Cranky_Wanted_SpawnWanted
 	pop af
 	dec a
-	jr nz, .jump_6e3e
+	jr nz, .loop_6e3e
 	ld a, [wCranky_Wanted + 6]
-.jump_6e49:
+.loop_6e49:
 	push af
 	call Cranky_Wanted_SpawnRandom
 	pop af
 	dec a
 	ret z
-	jr .jump_6e49
+	jr .loop_6e49
 
 .unreached_6e52:
 	db $c9 ; ret, never reached
-.jump_6e53:
+.loop_6e53:
 	ld hl, wCranky_Wanted
 	inc [hl]
 	ld hl, wCranky_Wanted + 3
@@ -8056,9 +8056,9 @@ Cranky_Spawn_Wanted_Body::
 	ld hl, $7be6
 	add a, l
 	ld l, a
-	jr nc, .jump_6e67
+	jr nc, .skip_6e67
 	inc h
-.jump_6e67:
+.skip_6e67:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -8068,13 +8068,13 @@ Cranky_Spawn_Wanted_Body::
 	ld [wCranky_Wanted + 7], a
 	ld a, $ff
 	ld [wCranky_Wanted + 1], a
-	jr .jump_6e7f
+	jr .continue_6e7f
 
-.jump_6e79:
+.else:
 	ld a, [wCranky_Wanted + 4]
 	or a
-	jr z, .jump_6e53
-.jump_6e7f:
+	jr z, .loop_6e53
+.continue_6e7f:
 	ld hl, wCranky_Wanted + 1
 	inc [hl]
 	ld hl, wCranky_Wanted + 4
@@ -8084,9 +8084,9 @@ Cranky_Spawn_Wanted_Body::
 	ld hl, $7be6
 	add a, l
 	ld l, a
-	jr nc, .jump_6e93
+	jr nc, .skip_6e93
 	inc h
-.jump_6e93:
+.skip_6e93:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -8096,9 +8096,9 @@ Cranky_Spawn_Wanted_Body::
 	add a, a
 	add a, l
 	ld l, a
-	jr nc, .jump_6ea1
+	jr nc, .skip_6ea1
 	inc h
-.jump_6ea1:
+.skip_6ea1:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -8118,16 +8118,16 @@ Cranky_Spawn_Wanted_Body::
 	add a, $02
 	ld [wCranky_Wanted + 8], a
 	call Cranky_Wanted_ShowPoster
-	jp .jump_6dfe
+	jp .loop_6dfe
 
 
 Cranky_Wanted_ShowPoster::
 	ld a, [wCranky_Mode]
 	cp $01
-	jr z, .jump_6eef
+	jr z, .continue
 	ld a, $05
 	ld [wCranky_State], a
-.jump_6ed7:
+.loop_6ed7:
 	call Cranky_CheckQuit
 	call Cranky_WaitLineAndUpdateSound
 	call Cranky_UpdateTileAnims
@@ -8136,8 +8136,8 @@ Cranky_Wanted_ShowPoster::
 	call z, Cranky_ResumeFromPause
 	ld a, [wCranky_LinkIn + 2]
 	cp $05
-	jr nz, .jump_6ed7
-.jump_6eef:
+	jr nz, .loop_6ed7
+.continue:
 	ld a, BANK(Cranky_ClearGradient)
 	ld hl, Cranky_ClearGradient
 	call FarCall_A_HL
@@ -8147,7 +8147,7 @@ Cranky_Wanted_ShowPoster::
 	call FarCall_A_HL
 	ld a, [wCranky_Wanted + 9]
 	ld b, $00
-.jump_6f07:
+.loop_6f07:
 	push af
 	push bc
 	call Cranky_Wanted_SpawnSuspect
@@ -8155,13 +8155,13 @@ Cranky_Wanted_ShowPoster::
 	inc b
 	ld a, $02
 	cp b
-	jr nz, .jump_6f15
+	jr nz, .skip
 	ld b, $07
-.jump_6f15:
+.skip:
 	pop af
 	dec a
-	jr nz, .jump_6f07
-.jump_6f19:
+	jr nz, .loop_6f07
+.loop_6f19:
 	ldh a, [hFE_FrameCounter]
 	inc a
 	ldh [hFE_FrameCounter], a
@@ -8185,7 +8185,7 @@ Cranky_Wanted_ShowPoster::
 	ldh [rSVBK], a
 	ld a, [wCranky_ActorType]
 	or a
-	jr nz, .jump_6f19
+	jr nz, .loop_6f19
 	call Cranky_Wanted_PosterFrames
 	ld a, BANK(Cranky_DimForPause)
 	ld hl, Cranky_DimForPause
@@ -8199,7 +8199,7 @@ Cranky_Wanted_ShowPoster::
 
 Cranky_Wanted_PosterFrames::
 	ld a, $02
-.jump_6f6c:
+.loop:
 	push af
 	call Cranky_BeginOAM
 	call Cranky_DrawScore
@@ -8214,7 +8214,7 @@ Cranky_Wanted_PosterFrames::
 	call Cranky_SwapTileBuffer
 	pop af
 	dec a
-	jr nz, .jump_6f6c
+	jr nz, .loop
 	ret
 
 
@@ -8230,7 +8230,7 @@ Cranky_Wanted_SpawnSuspect::
 	ld [hl], a
 	ld a, [wCranky_Wanted + 8]
 	ld e, a
-	jr Cranky_Wanted_SpawnRandom.jump_6ff1
+	jr Cranky_Wanted_SpawnRandom.spawn
 
 
 Cranky_Wanted_SpawnWanted::
@@ -8239,7 +8239,7 @@ Cranky_Wanted_SpawnWanted::
 	ldh [hCranky_Actor], a
 	ld a, [wCranky_Wanted + 8]
 	ld e, a
-	jr Cranky_Wanted_SpawnRandom.jump_6fcd
+	jr Cranky_Wanted_SpawnRandom.pick
 
 
 Cranky_Wanted_SpawnRandom::
@@ -8248,7 +8248,7 @@ Cranky_Wanted_SpawnRandom::
 	ldh [hCranky_Actor], a
 	ld a, [wCranky_Wanted + 8]
 	ld e, a
-.jump_6fba:
+.loop:
 	ld a, [wCranky_WantedRange]
 	ld b, a
 	ld a, BANK(FE_RandomBelow)
@@ -8257,9 +8257,9 @@ Cranky_Wanted_SpawnRandom::
 	ld a, b
 	add a, $02
 	cp e
-	jr z, .jump_6fba
+	jr z, .loop
 	ld e, a
-.jump_6fcd:
+.pick:
 	ld b, $07
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -8267,7 +8267,7 @@ Cranky_Wanted_SpawnRandom::
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_TestBitN
-	jr nz, .jump_6fcd
+	jr nz, .pick
 	ld a, b
 	ld hl, wCranky_ActorTarget
 	push af
@@ -8278,7 +8278,7 @@ Cranky_Wanted_SpawnRandom::
 	ld [hl], a
 	ld hl, wCranky_TargetsUp
 	call Cranky_SetBitN
-.jump_6ff1:
+.spawn:
 	ld hl, $78cb
 	ld a, b
 	add a, a
@@ -8287,9 +8287,9 @@ Cranky_Wanted_SpawnRandom::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_6ffe
+	jr nc, .skip
 	inc h
-.jump_6ffe:
+.skip:
 	ld a, [hli]
 	add a, $0e
 	ld b, a
@@ -8389,7 +8389,7 @@ Cranky_Spawn_Kremlings_Body::
 	call Cranky_CheckAllTargetsDown
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jr nz, .jump_70a0
+	jr nz, .else_70a0
 	ld a, [wCranky_LinkIn + 3]
 	ld b, a
 	ld a, [wCranky_Spawned]
@@ -8399,35 +8399,35 @@ Cranky_Spawn_Kremlings_Body::
 	ld [wCranky_Spawned], a
 	xor a
 	ld [wCranky_SpawnDelay], a
-	jr .jump_70ab
+	jr .else_70ab
 
-.jump_70a0:
+.else_70a0:
 	ld a, [wCranky_SpawnRate2]
 	or a
-	jr z, .jump_70ab
+	jr z, .else_70ab
 	dec a
 	ld [wCranky_SpawnRate2], a
 	ret
 
-.jump_70ab:
+.else_70ab:
 	call Cranky_NextWave
 	call Cranky_Kremlings_SpeedUp
 	call Cranky_Kremlings_SpawnWave
 	ld a, [wCranky_KongShown]
 	cp $01
-	jp z, Cranky_Kremlings_SpawnWave.jump_721b
+	jp z, Cranky_Kremlings_SpawnWave.find_slot
 	ld a, BANK(FE_Random)
 	ld hl, FE_Random
 	call FarCall_A_HL
 	ldh a, [hFE_RandomState]
 	and $03
-	jp nz, Cranky_Kremlings_SpawnWave.jump_721b
+	jp nz, Cranky_Kremlings_SpawnWave.find_slot
 	ld a, $01
 	ld [wCranky_KongShown], a
 	call Cranky_FindFreeActor
 	ld a, l
 	ldh [hCranky_Actor], a
-.jump_70d6:
+.loop:
 	ld b, $07
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -8435,7 +8435,7 @@ Cranky_Spawn_Kremlings_Body::
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_TestBitN
-	jr nz, .jump_70d6
+	jr nz, .loop
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_SetBitN
@@ -8455,9 +8455,9 @@ Cranky_Spawn_Kremlings_Body::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_7108
+	jr nc, .skip
 	inc h
-.jump_7108:
+.skip:
 	ld a, [hli]
 	sub $80
 	add a, $20
@@ -8554,7 +8554,7 @@ Cranky_Spawn_Kremlings_Body::
 	ld [hl], a
 	ldh a, [hFE_RandomState + 1]
 	bit 4, a
-	jr z, Cranky_Kremlings_SpawnWave.jump_7202
+	jr z, Cranky_Kremlings_SpawnWave.spawn_kremling
 	ld a, $25
 	ld hl, wCranky_ActorSprite
 	push af
@@ -8581,17 +8581,17 @@ Cranky_Kremlings_SpeedUp::
 	ld c, a
 	ld a, [wCranky_SpawnRate]
 	cp c
-	jr z, .jump_71c2
+	jr z, .skip
 	sub b
 	ld [wCranky_SpawnRate], a
-.jump_71c2:
+.skip:
 	ld a, [wCranky_Mode]
 	cp $01
-	jr z, .jump_71d0
+	jr z, .done
 	ld hl, wCranky_Barrels
 	dec [hl]
-	jp z, Cranky_CheckGameOver.jump_42bd
-.jump_71d0:
+	jp z, Cranky_CheckGameOver.game_over
+.done:
 	ld a, [wCranky_SpawnRate]
 	srl a
 	ld [wCranky_SpawnRate2], a
@@ -8601,7 +8601,7 @@ Cranky_Kremlings_SpeedUp::
 Cranky_Kremlings_SpawnWave::
 	ld a, [wCranky_Mode]
 	cp $02
-	jr z, .jump_71f6
+	jr z, .else
 	ld a, [wCranky_Score]
 	or a
 	ret nz
@@ -8615,7 +8615,7 @@ Cranky_Kremlings_SpawnWave::
 	ld [wCranky_SpawnRate2], a
 	ret
 
-.jump_71f6:
+.else:
 	ld a, [wCranky_Barrels]
 	cp $03
 	ret nc
@@ -8623,7 +8623,7 @@ Cranky_Kremlings_SpawnWave::
 	ld [wCranky_SpawnRate2], a
 	ret
 
-.jump_7202:
+.spawn_kremling:
 	ld a, $27
 	ld hl, wCranky_ActorSprite
 	push af
@@ -8642,11 +8642,11 @@ Cranky_Kremlings_SpawnWave::
 	ld [hl], a
 	ret
 
-.jump_721b:
+.find_slot:
 	call Cranky_FindFreeActor
 	ld a, l
 	ldh [hCranky_Actor], a
-.jump_7221:
+.loop:
 	ld b, $07
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -8654,7 +8654,7 @@ Cranky_Kremlings_SpawnWave::
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_TestBitN
-	jr nz, .jump_7221
+	jr nz, .loop
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_SetBitN
@@ -8674,9 +8674,9 @@ Cranky_Kremlings_SpawnWave::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_7253
+	jr nc, .skip
 	inc h
-.jump_7253:
+.skip:
 	ld a, [hli]
 	sub $80
 	add a, $20
@@ -8803,20 +8803,20 @@ Cranky_Spawn_GalleonGunner_Body::
 	call Cranky_GalleonGunner_CheckLost
 	ld a, [wCranky_SpawnRate2]
 	or a
-	jr z, .jump_7311
+	jr z, .else_7311
 	dec a
 	ld [wCranky_SpawnRate2], a
 	ret
 
-.jump_7311:
+.else_7311:
 	ld a, [wCranky_Wanted + 5]
 	or a
-	jp z, .jump_737d
+	jp z, .else_737d
 	dec a
 	ld [wCranky_Wanted + 5], a
 	ld a, $3c
 	ld [wCranky_SpawnRate2], a
-.jump_7321:
+.loop:
 	ld b, $05
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -8824,17 +8824,17 @@ Cranky_Spawn_GalleonGunner_Body::
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_TestBitN
-	jr nz, .jump_7321
+	jr nz, .loop
 	ld hl, wCranky_ActorType
 	ld a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_733d
+	jr nc, .skip_733d
 	inc h
-.jump_733d:
+.skip_733d:
 	ld a, [hl]
 	cp $0f
-	jr z, .jump_7321
+	jr z, .loop
 	push bc
 	call Cranky_GalleonGunner_SpawnShip
 	pop bc
@@ -8848,9 +8848,9 @@ Cranky_Spawn_GalleonGunner_Body::
 	ld hl, wCranky_TargetHits
 	add a, l
 	ld l, a
-	jr nc, .jump_735e
+	jr nc, .skip_735e
 	inc h
-.jump_735e:
+.skip_735e:
 	ld [hl], $03
 	ld a, b
 	ldh [hCranky_Actor], a
@@ -8872,7 +8872,7 @@ Cranky_Spawn_GalleonGunner_Body::
 	ld [hl], a
 	ret
 
-.jump_737d:
+.else_737d:
 	xor a
 	ld [wCranky_TargetsUp], a
 	ld a, $4e
@@ -8906,7 +8906,7 @@ Cranky_GalleonGunner_SpawnShip::
 	ld b, a
 	push hl
 	push bc
-.jump_73b7:
+.loop:
 	ld b, $05
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -8914,17 +8914,17 @@ Cranky_GalleonGunner_SpawnShip::
 	ld a, b
 	ld hl, wCranky_TargetsUp
 	call Cranky_TestBitN
-	jr nz, .jump_73b7
+	jr nz, .loop
 	ld hl, wCranky_ActorType
 	ld a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_73d3
+	jr nc, .skip_73d3
 	inc h
-.jump_73d3:
+.skip_73d3:
 	ld a, [hl]
 	cp $0f
-	jr z, .jump_73b7
+	jr z, .loop
 	ld a, b
 	ld hl, $792b
 	add a, a
@@ -8933,9 +8933,9 @@ Cranky_GalleonGunner_SpawnShip::
 	add a, b
 	add a, l
 	ld l, a
-	jr nc, .jump_73e5
+	jr nc, .skip_73e5
 	inc h
-.jump_73e5:
+.skip_73e5:
 	ld d, [hl]
 	pop bc
 	pop hl
@@ -8959,7 +8959,7 @@ Cranky_GalleonGunner_SpawnShip::
 	ld a, [hl]
 	sub b
 	ret z
-	jr c, .jump_7439
+	jr c, .else
 	ld hl, wCranky_ActorTimer
 	push af
 	ldh a, [hCranky_Actor]
@@ -8994,7 +8994,7 @@ Cranky_GalleonGunner_SpawnShip::
 	ld [hl], a
 	ret
 
-.jump_7439:
+.else:
 	cpl
 	inc a
 	ld hl, wCranky_ActorTimer
@@ -9030,7 +9030,7 @@ Cranky_GalleonGunner_SpawnShip::
 	ld [hl], a
 	ret
 
-.jump_746a:
+.next_wave:
 	ld a, [wCranky_Game]
 	cp $02
 	ret z
@@ -9072,7 +9072,7 @@ Cranky_SaveRandomState::
 Cranky_NextWave::
 	ldh a, [hCranky_LinkMode]
 	cp $bb
-	jp z, Cranky_GalleonGunner_SpawnShip.jump_746a
+	jp z, Cranky_GalleonGunner_SpawnShip.next_wave
 	call Cranky_SaveRandomState
 	ld hl, wCranky_Spawned
 	inc [hl]
@@ -9086,31 +9086,31 @@ Cranky_LinkPacket_Code::
 	ld c, $9d
 	ld hl, $0000
 	ld b, $0e
-.jump_74ce:
+.loop:
 	ldh a, [c]
 	inc c
 	ld [de], a
 	inc e
 	add a, l
 	ld l, a
-	jr nc, .jump_74d7
+	jr nc, .skip
 	inc h
-.jump_74d7:
+.skip:
 	dec b
-	jr nz, .jump_74ce
+	jr nz, .loop
 	ldh a, [c]
 	inc c
 	cp l
-	jr nz, .jump_74e9
+	jr nz, .return
 	ldh a, [c]
 	cp h
-	jr nz, .jump_74e9
+	jr nz, .return
 	ld a, e
 	add a, $02
 	ldh [hCranky_LinkReceivePos + 1], a
 	ret
 
-.jump_74e9:
+.return:
 	ret
 
 
@@ -9118,9 +9118,9 @@ Cranky_LinkSendPacket_Code::
 	ld c, $ad
 	ldh a, [hCranky_LinkSending]
 	or a
-	jr z, .jump_74f3
+	jr z, .skip
 	ld c, $bd
-.jump_74f3:
+.skip:
 	ld a, c
 	ldh [hCranky_LinkPos], a
 	ld a, $10
@@ -9139,38 +9139,38 @@ Cranky_LinkSendPacket_Code::
 Cranky_LinkExchangeByte_Code::
 	xor a
 	ldh [hCranky_LinkTimer], a
-.jump_750d:
+.loop_750d:
 	ld d, $0e
-.jump_750f:
+.loop_750f:
 	dec d
-	jr nz, .jump_750f
+	jr nz, .loop_750f
 	ld a, b
 	ldh [rSB], a
 	ld a, $03
 	ldh [rSC], a
 	ld a, $83
 	ldh [rSC], a
-.jump_751d:
+.loop_751d:
 	ldh a, [hCranky_LinkGotByte]
 	or a
-	jr z, .jump_751d
+	jr z, .loop_751d
 	xor a
 	ldh [hCranky_LinkGotByte], a
 	ldh a, [rSB]
 	cp $ea
-	jr nz, .jump_7532
+	jr nz, .else
 	xor a
 	ldh [hCranky_LinkTimer], a
 	dec c
-	jr nz, .jump_750d
+	jr nz, .loop_750d
 	ret
 
-.jump_7532:
+.else:
 	ldh a, [hCranky_LinkTimer]
 	inc a
 	ldh [hCranky_LinkTimer], a
 	cp $96
-	jr nz, .jump_750d
+	jr nz, .loop_750d
 	ld a, $11
 	jp Init
 
@@ -9196,30 +9196,30 @@ Cranky_InstallLinkRoutines::
 	ld hl, $761b
 	ld bc, Cranky_SerialHandler
 	ld d, $86
-.jump_7562:
+.loop_7562:
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	dec d
-	jr nz, .jump_7562
+	jr nz, .loop_7562
 	ld hl, $74c2
 	ld bc, Cranky_LinkPacket
 	ld d, $28
-.jump_7570:
+.loop_7570:
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	dec d
-	jr nz, .jump_7570
+	jr nz, .loop_7570
 	ld hl, $74ea
 	ld bc, FE_VBlank_MenuBody
 	ld d, $20
-.jump_757e:
+.loop_757e:
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	dec d
-	jr nz, .jump_757e
+	jr nz, .loop_757e
 	xor a
 	ldh [hCranky_LinkReceivePos + 1], a
 	ldh [hCranky_LinkReceivePos], a
@@ -9230,7 +9230,7 @@ Cranky_InstallLinkRoutines::
 	ldh [hCranky_LinkCount], a
 	ldh a, [hCranky_LinkRole]
 	cp $66
-	jr z, .jump_75de
+	jr z, .else_75de
 	ld a, $ea
 	ldh [rSB], a
 	xor a
@@ -9242,15 +9242,15 @@ Cranky_InstallLinkRoutines::
 	call Cranky_EnableSerial
 	ei
 	ld a, $1e
-.jump_75ae:
+.loop_75ae:
 	push af
 	ld a, [wCranky_LinkIn + 2]
 	cp $07
-	jr z, .jump_75d3
+	jr z, .else_75d3
 	call Cranky_UpdateTileAnims
 	pop af
 	dec a
-	jr nz, .jump_75ae
+	jr nz, .loop_75ae
 	ld a, [wCranky_SavedSP]
 	ld l, a
 	ld a, [wCranky_SavedSP + 1]
@@ -9265,27 +9265,27 @@ Cranky_InstallLinkRoutines::
 	ldh [rIE], a
 	ret
 
-.jump_75d3:
+.else_75d3:
 	pop af
 	call Cranky_UpdateTileAnims
 	call Cranky_UpdateTileAnims
 	call Cranky_UpdateTileAnims
 	ret
 
-.jump_75de:
+.else_75de:
 	ld b, $0a
-.jump_75e0:
+.loop_75e0:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_75e0
-.jump_75e7:
+	jr z, .loop_75e0
+.loop_75e7:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_75e7
+	jr nz, .loop_75e7
 	dec b
-	jr nz, .jump_75e0
+	jr nz, .loop_75e0
 	ld a, $07
 	ld [wCranky_State], a
 	call Cranky_LinkSendState
@@ -9448,9 +9448,9 @@ Cranky_LinkSendState::
 	ld c, $ad
 	ldh a, [hCranky_LinkSending]
 	xor $01
-	jr z, .jump_76d4
+	jr z, .skip
 	ld c, $bd
-.jump_76d4:
+.skip:
 	ld hl, $0000
 	ld d, h
 	ld a, [wCranky_CursorX]
@@ -9539,7 +9539,7 @@ Cranky_LinkReceiveState::
 	ld l, a
 	ldh a, [hCranky_LinkReceivePos + 1]
 	cp l
-	jr z, .jump_776a
+	jr z, .else
 	sub $10
 	ldh [hCranky_LinkReceivePos], a
 	ld a, $1e
@@ -9549,17 +9549,17 @@ Cranky_LinkReceiveState::
 	ld c, a
 	ld b, $ca
 	ld d, $10
-.jump_7760:
+.loop_7760:
 	ld a, [bc]
 	inc c
 	ld [hli], a
 	dec d
-	jr nz, .jump_7760
+	jr nz, .loop_7760
 	ld a, c
 	ldh [hCranky_LinkReceivePos], a
 	ret
 
-.jump_776a:
+.else:
 	ld hl, hCranky_LinkDelay
 	dec [hl]
 	ret nz
@@ -9567,16 +9567,16 @@ Cranky_LinkReceiveState::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
-.jump_777a:
+.loop_777a:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_777a
-.jump_7781:
+	jr z, .loop_777a
+.loop_7781:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_7781
+	jr nz, .loop_7781
 	ld b, $c0
 	ld a, BANK(Cranky_CopyOAM)
 	ld hl, Cranky_CopyOAM
@@ -9602,37 +9602,37 @@ Cranky_LinkReceiveState::
 Cranky_UpdateTileAnims::
 	ld a, [wCranky_Mode]
 	cp $01
-	jr z, .jump_77d2
+	jr z, .loop_77d2
 	push hl
 	push de
 	push bc
 	call Cranky_LinkSendState
 	call Cranky_LinkReceiveState
-.jump_77c0:
+.loop_77c0:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_77c0
-.jump_77c7:
+	jr z, .loop_77c0
+.loop_77c7:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_77c7
+	jr nz, .loop_77c7
 	pop bc
 	pop de
 	pop hl
 	ret
 
-.jump_77d2:
+.loop_77d2:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_77d2
-.jump_77d9:
+	jr z, .loop_77d2
+.loop_77d9:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_77d9
+	jr nz, .loop_77d9
 	ret
 
 

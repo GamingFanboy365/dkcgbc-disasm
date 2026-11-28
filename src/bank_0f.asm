@@ -27,9 +27,9 @@ Shop_CandysChallenge::
 	ld h, $b0
 	xor a
 	bit 6, [hl]
-	jr z, .jump_402e
+	jr z, .skip
 	ld a, $01
-.jump_402e:
+.skip:
 	ld [wShopChoice], a
 	call Shop_SpawnKong
 	ld hl, ObjInit_0f_409d
@@ -40,24 +40,24 @@ Shop_CandysChallenge::
 	call AllocObject
 	ld a, [wShopChoice]
 	or a
-	jr nz, .jump_406c
+	jr nz, .else_406c
 	ld hl, ObjInit_0f_408a
 	call InitObject
 	call Shop_SpawnExtra
 	ld hl, wMapFlags
 	bit 1, [hl]
-	jr z, .jump_4063
+	jr z, .else_4063
 	ld de, $0e06
 	call RandomBelow
 	ret
 
-.jump_4063:
+.else_4063:
 	set 1, [hl]
 	ld de, $0c00
 	call LoadTextString
 	ret
 
-.jump_406c:
+.else_406c:
 	ld de, $0e06
 	call LoadTextString
 	ret
@@ -112,29 +112,29 @@ Shop_CrankysCabin::
 	call Shop_SpawnExtra
 	ld a, [wLevel]
 	cp $03
-	jr z, .jump_40fb
+	jr z, .else_40fb
 	ld hl, wMapFlags
 	bit 0, [hl]
-	jr z, .jump_4102
+	jr z, .else_4102
 	ld a, [wKongs]
 	bit 1, a
 	ld de, $020b
-	jr nz, .jump_4107
+	jr nz, .continue
 	ld de, $1a08
 	bit 0, a
-	jr z, .jump_4107
+	jr z, .continue
 	ld de, $1c02
-	jr .jump_4107
+	jr .continue
 
-.jump_40fb:
+.else_40fb:
 	ld de, $1800
 	call LoadTextString
 	ret
 
-.jump_4102:
+.else_4102:
 	set 0, [hl]
 	ld de, $001f
-.jump_4107:
+.continue:
 	call RandomBelow
 	ret
 
@@ -181,20 +181,20 @@ Shop_FunkysFlights::
 	call Shop_SpawnExtra
 	ld hl, wMapFlags
 	bit 2, [hl]
-	jr z, .jump_4184
+	jr z, .else
 	ld a, [wKongs]
 	bit 1, a
 	ld de, $1205
-	jr nz, .jump_4180
+	jr nz, .skip
 	ld de, $1402
 	bit 0, a
-	jr z, .jump_4180
+	jr z, .skip
 	ld de, $1602
-.jump_4180:
+.skip:
 	call RandomBelow
 	ret
 
-.jump_4184:
+.else:
 	set 2, [hl]
 	ld de, $1000
 	call LoadTextString
@@ -269,9 +269,9 @@ Shop_SpawnKong::
 	ld a, [wKongs]
 	rrca
 	ld hl, ObjInit_0f_4217
-	jr nc, .jump_4213
+	jr nc, .skip
 	ld hl, ObjInit_0f_4223
-.jump_4213:
+.skip:
 	call InitObject
 	ret
 
@@ -313,14 +313,14 @@ Shop_SpawnOnce::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
-	jr nz, .jump_4261
+	jr nz, .skip
 	set 7, [hl]
 	push bc
 	call AllocObject
 	ld hl, ObjInit_0f_4267
 	call InitObject
 	pop bc
-.jump_4261:
+.skip:
 	call AnimateObject
 	jp NextObject
 
@@ -341,20 +341,20 @@ Shop_KongReactTimer::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_429d
+	jr nz, .continue
 	ld a, [wKongs]
 	rrca
-	jr c, .jump_429a
+	jr c, .skip
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	or a
-	jr nz, .jump_429a
+	jr nz, .skip
 	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], LOW(Anim_04_5685)
 	inc l
 	ld [hl], HIGH(Anim_04_5685)
-.jump_429a:
+.skip:
 	call DeleteObject
-.jump_429d:
+.continue:
 	call ApplyVelocity
 	call AnimateObject
 	jp NextObject
@@ -363,17 +363,17 @@ Shop_KongReactTimer::
 Shop_KongCelebrate::
 	ld a, [wKongs]
 	rrca
-	jr c, .jump_42be
+	jr c, .skip
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
-	jr nz, .jump_42be
+	jr nz, .skip
 	set 7, [hl]
 	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], LOW(Anim_04_56bd)
 	inc l
 	ld [hl], HIGH(Anim_04_56bd)
-.jump_42be:
+.skip:
 	call AnimateObject
 	jp NextObject
 
@@ -402,57 +402,57 @@ FunkysPlane_Bob::
 Shop_Input::
 	ldh a, [hJoyPressed]
 	bit 0, a
-	jr nz, .jump_42f4
+	jr nz, .else_42f4
 	bit 5, a
-	jr nz, .jump_432a
-.jump_42ee:
+	jr nz, .else_432a
+.loop:
 	call AnimateObject
 	jp NextObject
 
-.jump_42f4:
+.else_42f4:
 	ld a, [wPlayer + OBJ_VAR_2F]
 	or a
-	jr nz, .jump_42ee
+	jr nz, .loop
 	ld a, [wLevel]
 	or a
-	jr z, .jump_42ee
+	jr z, .loop
 	cp $03
-	jr z, .jump_42ee
+	jr z, .loop
 	dec a
 	ld hl, ObjInit_0f_4357
-	jr z, .jump_4313
+	jr z, .skip_4313
 	ld a, [wShopChoice]
 	or a
-	jr nz, .jump_432a
+	jr nz, .else_432a
 	ld hl, ObjInit_0f_4360
-.jump_4313:
+.skip_4313:
 	call ApplyObjInit
 	ld a, [wKongs]
 	rrca
 	ld de, $40e9
-	jr nc, .jump_4322
+	jr nc, .skip_4322
 	ld de, $4467
-.jump_4322:
+.skip_4322:
 	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], e
 	inc l
 	ld [hl], d
-	jr .jump_42ee
+	jr .loop
 
-.jump_432a:
+.else_432a:
 	ld a, [wKongs]
 	rrca
 	ld de, $4103
-	jr nc, .jump_4336
+	jr nc, .skip_4336
 	ld de, $447f
-.jump_4336:
+.skip_4336:
 	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], e
 	inc l
 	ld [hl], d
 	ld hl, ObjInit_0f_4369
 	call ApplyObjInit
-	jr .jump_42ee
+	jr .loop
 
 
 ObjInit_0f_4344::
@@ -487,20 +487,20 @@ ObjInit_0f_4369::
 Shop_SetKongAnim::
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	rlca
-	jr c, .jump_4391
+	jr c, .continue
 	ld a, [wKongs]
 	rrca
 	ld de, $407b
-	jr nc, .jump_4385
+	jr nc, .skip
 	ld de, $43f9
-.jump_4385:
+.skip:
 	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], e
 	inc l
 	ld [hl], d
 	ld hl, ObjInit_0f_4397
 	call ApplyObjInit
-.jump_4391:
+.continue:
 	call AnimateObject
 	jp NextObject
 
@@ -518,11 +518,11 @@ Shop_LeaveTimer::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_43b6
+	jr nz, .skip
 	ld a, $ff
 	ld [wShopExit], a
 	rst_farcall Obj_SetIdle
-.jump_43b6:
+.skip:
 	call ApplyVelocity
 	call AnimateObject
 	jp NextObject
@@ -532,18 +532,18 @@ Shop_FlyAwayTimer::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr z, .jump_43d2
+	jr z, .else
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
-.jump_43cf:
+.jp_NextObject:
 	jp NextObject
 
-.jump_43d2:
+.else:
 	ld a, $fe
 	ld [wShopExit], a
 	rst_farcall Obj_SetIdle
-	jr .jump_43cf
+	jr .jp_NextObject
 
 
 Shop_Update::
@@ -557,70 +557,70 @@ Shop_Update::
 	jp z, Shop_Leave
 	ld a, [wLevel]
 	or a
-	jr z, .jump_4417
+	jr z, .else_4417
 	cp $03
-	jr z, .jump_4430
+	jr z, .else_4430
 	cp $04
-	jp z, .jump_4561
+	jp z, .else_4561
 	ld a, $01
 	ld [wPlayer + OBJ_VAR_2F], a
 	ld a, [wShopExit]
 	or a
-	jr z, .jump_4456
+	jr z, .else_4456
 	dec a
-	jr z, .jump_447e
+	jr z, .else_447e
 	dec a
-	jp z, .jump_4495
+	jp z, .else_4495
 	xor a
 	ld [wPlayer + OBJ_VAR_2F], a
 	ret
 
-.jump_4417:
+.else_4417:
 	ld a, [wShopExit]
 	or a
-	jr z, .jump_4456
+	jr z, .else_4456
 	dec a
-	jr z, .jump_447e
+	jr z, .else_447e
 	dec a
-	jr z, .jump_4495
+	jr z, .else_4495
 	dec a
-	jp z, .jump_44ea
+	jp z, .else_44ea
 	dec a
-	jp z, .jump_451b
+	jp z, .else_451b
 	dec a
 	jp z, RunFlowScript
 	ret
 
-.jump_4430:
+.else_4430:
 	ld a, [wShopExit]
 	or a
-	jr z, .jump_4456
+	jr z, .else_4456
 	dec a
-	jr z, .jump_447e
+	jr z, .else_447e
 	dec a
-	jr z, .jump_4495
+	jr z, .else_4495
 	dec a
-	jp z, .jump_44ea
+	jp z, .else_44ea
 	dec a
-	jp z, .jump_44fc
+	jp z, .else_44fc
 	dec a
-	jr z, .jump_4456
+	jr z, .else_4456
 	dec a
-	jr z, .jump_447e
+	jr z, .else_447e
 	dec a
-	jr z, .jump_4495
+	jr z, .else_4495
 	dec a
-	jp z, .jump_44ea
+	jp z, .else_44ea
 	dec a
 	jp z, RunFlowScript
 	ret
 
-.jump_4456:
+.else_4456:
 	ldh a, [hTextLines]
 	cp $03
-	jr c, .jump_445e
+	jr c, .skip_445e
 	ld a, $03
-.jump_445e:
+.skip_445e:
 	add a, a
 	add a, a
 	add a, $04
@@ -639,12 +639,12 @@ Shop_Update::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jp .jump_455c
+	jp .done_455c
 
-.jump_447e:
+.else_447e:
 	ldh a, [hSplitBottom]
 	cp $8c
-	jp z, .jump_455c
+	jp z, .done_455c
 	inc a
 	ldh [hSplitBottom], a
 	ld hl, hSplitTarget
@@ -657,19 +657,19 @@ Shop_Update::
 	ldh [hShopTextState], a
 	ret
 
-.jump_4495:
+.else_4495:
 	ldh a, [hShopTextState]
 	or a
-	jr nz, .jump_44e2
+	jr nz, .done_44e2
 	ldh a, [hTextLines]
 	cp $03
-	jr nz, .jump_44a4
+	jr nz, .skip_44a4
 	xor a
 	ld [wPlayer + OBJ_VAR_2F], a
-.jump_44a4:
+.skip_44a4:
 	ldh a, [hJoyPressed]
 	and $01
-	jp nz, .jump_44bb
+	jp nz, .else_44bb
 	ld hl, wLevelTimer
 	ld a, [hl]
 	sub $01
@@ -679,19 +679,19 @@ Shop_Update::
 	sbc a, $00
 	ld [hl], a
 	or e
-	jr z, .jump_44bb
+	jr z, .else_44bb
 	ret
 
-.jump_44bb:
+.else_44bb:
 	ldh a, [hTextLines]
 	cp $03
-	jp z, .jump_455c
-	jp c, .jump_455c
+	jp z, .done_455c
+	jp c, .done_455c
 	sub $03
 	cp $04
-	jr c, .jump_44cd
+	jr c, .skip_44cd
 	ld a, $04
-.jump_44cd:
+.skip_44cd:
 	ld e, a
 	add a, a
 	add a, a
@@ -707,18 +707,18 @@ Shop_Update::
 	ld [hl], d
 	ret
 
-.jump_44e2:
+.done_44e2:
 	dec a
 	ldh [hShopTextState], a
 	ld hl, hSplitSCY
 	inc [hl]
 	ret
 
-.jump_44ea:
+.else_44ea:
 	ld hl, hSplitTarget
 	ldh a, [hSplitBottom]
 	cp [hl]
-	jr z, .jump_455c
+	jr z, .done_455c
 	dec a
 	ldh [hSplitBottom], a
 	sub [hl]
@@ -728,7 +728,7 @@ Shop_Update::
 	ldh [hSplitTop], a
 	ret
 
-.jump_44fc:
+.else_44fc:
 	ld hl, wLevelTimer
 	ld de, $0078
 	ld a, e
@@ -736,18 +736,18 @@ Shop_Update::
 	ld [hl], d
 	ld hl, wMapFlags
 	bit 5, [hl]
-	jr z, .jump_4513
+	jr z, .else_4513
 	res 5, [hl]
 	ld de, $1808
-	jr .jump_4516
+	jr .continue
 
-.jump_4513:
+.else_4513:
 	ld de, $1807
-.jump_4516:
+.continue:
 	call LoadTextString
-	jr .jump_455c
+	jr .done_455c
 
-.jump_451b:
+.else_451b:
 	ld hl, wLevelTimer
 	ld de, $0078
 	ld a, e
@@ -755,13 +755,13 @@ Shop_Update::
 	ld [hl], d
 	ld a, [wShopChoice]
 	cp $08
-	jr z, .jump_455c
+	jr z, .done_455c
 	cp $07
 	ld de, $0a1f
-	jr z, .jump_4550
+	jr z, .skip_4550
 	cp $06
 	ld de, $0825
-	jr z, .jump_4550
+	jr z, .skip_4550
 	push af
 	ld d, $06
 	ld hl, ByteTable_0f_4568
@@ -774,9 +774,9 @@ Shop_Update::
 	ld e, [hl]
 	pop af
 	cp $05
-	jr z, .jump_4550
+	jr z, .skip_4550
 	ld de, $0425
-.jump_4550:
+.skip_4550:
 	inc a
 	ld [wShopChoice], a
 	call RandomBelow
@@ -784,12 +784,12 @@ Shop_Update::
 	ld [wShopExit], a
 	ret
 
-.jump_455c:
+.done_455c:
 	ld hl, wShopExit
 	inc [hl]
 	ret
 
-.jump_4561:
+.else_4561:
 	call IsMusicPlaying
 	jp z, RunFlowScript
 	ret
@@ -854,22 +854,22 @@ NewGame_InitState::
 	ld hl, sOptions
 	ld a, $02
 	bit 0, [hl]
-	jr nz, .jump_45f2
+	jr nz, .skip_45f2
 	ld a, $04
 	bit 1, [hl]
-	jr nz, .jump_45f2
+	jr nz, .skip_45f2
 	ld a, $01
-.jump_45f2:
+.skip_45f2:
 	ld [wGameModeBit], a
 	ld a, $04
 	ldh [rSVBK], a
 	ld hl, wBonusesFound
 	ld c, $00
 	xor a
-.jump_45ff:
+.loop_45ff:
 	ld [hli], a
 	dec c
-	jr nz, .jump_45ff
+	jr nz, .loop_45ff
 	ld a, [wSaveFile]
 	rrca
 	rrca
@@ -882,22 +882,22 @@ NewGame_InitState::
 	ld [wPlayTimeMinutes], a
 	ld a, [wGameModeBit]
 	bit 0, a
-	jr nz, .jump_4622
+	jr nz, .skip_4622
 	inc l
 	bit 1, a
-	jr nz, .jump_4622
+	jr nz, .skip_4622
 	inc l
-.jump_4622:
+.skip_4622:
 	ld a, [hli]
 	ld [wWorld], a
 	cp $07
-	jr c, .jump_462b
+	jr c, .skip_462b
 	xor a
-.jump_462b:
+.skip_462b:
 	or a
-	jr z, .jump_462f
+	jr z, .skip_462f
 	dec a
-.jump_462f:
+.skip_462f:
 	add a, $2a
 	ld [wMapLocation], a
 	ld a, [wSaveFile]
@@ -907,16 +907,16 @@ NewGame_InitState::
 	ld h, $b0
 	xor a
 	ld c, $18
-.jump_463f:
+.loop_463f:
 	bit 5, [hl]
-	jr z, .jump_4646
+	jr z, .skip_4646
 	or a
 	inc a
 	daa
-.jump_4646:
+.skip_4646:
 	inc l
 	dec c
-	jr nz, .jump_463f
+	jr nz, .loop_463f
 	ld [wStickers], a
 	ret
 
@@ -934,42 +934,42 @@ Save_MarkLevelCleared::
 	ld h, $b0
 	ld a, [hl]
 	and $07
-	jr nz, .jump_466d
+	jr nz, .skip_466d
 	ld a, [wKongs]
 	rrca
-	jr nc, .jump_466d
+	jr nc, .skip_466d
 	set 3, [hl]
-.jump_466d:
+.skip_466d:
 	ld a, [wGameModeBit]
 	bit 1, a
-	jr z, .jump_467d
+	jr z, .else_467d
 	ld a, [hl]
 	set 1, [hl]
 	bit 1, a
-	jr z, .jump_4693
-	jr .jump_469b
+	jr z, .else_4693
+	jr .continue
 
-.jump_467d:
+.else_467d:
 	bit 2, a
-	jr z, .jump_468a
+	jr z, .else_468a
 	ld a, [hl]
 	set 2, [hl]
 	bit 2, a
-	jr z, .jump_4693
-	jr .jump_469b
+	jr z, .else_4693
+	jr .continue
 
-.jump_468a:
+.else_468a:
 	ld a, [hl]
 	set 0, [hl]
 	bit 0, a
-	jr z, .jump_4693
-	jr .jump_469b
+	jr z, .else_4693
+	jr .continue
 
-.jump_4693:
+.else_4693:
 	ld a, [wMapFlags]
 	set 6, a
 	ld [wMapFlags], a
-.jump_469b:
+.continue:
 	push hl
 	ld a, $04
 	ldh [rSVBK], a
@@ -1007,9 +1007,9 @@ Save_MarkLevelCleared::
 	xor [hl]
 	or c
 	pop hl
-	jr nz, .jump_46cd
+	jr nz, .skip_46cd
 	set 4, [hl]
-.jump_46cd:
+.skip_46cd:
 	ld a, l
 	and $c0
 	or $30
@@ -1020,12 +1020,12 @@ Save_MarkLevelCleared::
 	ld [hli], a
 	ld a, [wGameModeBit]
 	bit 0, a
-	jr nz, .jump_46e8
+	jr nz, .skip_46e8
 	inc l
 	bit 1, a
-	jr nz, .jump_46e8
+	jr nz, .skip_46e8
 	inc l
-.jump_46e8:
+.skip_46e8:
 	ld a, [wWorld]
 	ld [hli], a
 	call Save_WriteFile
@@ -1047,24 +1047,24 @@ Masks_0f_46f0::
 
 Save_CheckFiles::
 	ld de, $0004
-.jump_4747:
+.loop_4747:
 	push de
 	ld a, d
 	call Save_Checksum
 	ld a, [hli]
 	cp c
-	jr nz, .jump_4754
+	jr nz, .skip
 	ld a, [hl]
 	cp b
-	jr z, .jump_478e
-.jump_4754:
+	jr z, .loop_478e
+.skip:
 	push de
 	ld a, d
 	rrca
 	rrca
 	ld l, a
 	ld c, $40
-.jump_475b:
+.loop_475b:
 	push bc
 	ld h, $b3
 	ld b, [hl]
@@ -1076,46 +1076,46 @@ Save_CheckFiles::
 	ld e, [hl]
 	ld a, e
 	cp d
-	jr z, .jump_477c
+	jr z, .else_477c
 	cp c
-	jr z, .jump_477c
+	jr z, .else_477c
 	cp b
-	jr z, .jump_477c
+	jr z, .else_477c
 	ld a, d
 	cp c
-	jr z, .jump_477c
+	jr z, .else_477c
 	cp b
-	jr z, .jump_477c
+	jr z, .else_477c
 	ld a, c
 	cp b
-	jr z, .jump_477c
-	jr .jump_4794
+	jr z, .else_477c
+	jr .else_4794
 
-.jump_477c:
+.else_477c:
 	ld [hli], a
 	pop bc
 	dec c
-	jr nz, .jump_475b
+	jr nz, .loop_475b
 	pop de
 	ld a, d
 	call Save_Checksum
 	ld a, [hli]
 	cp c
-	jr nz, .jump_4796
+	jr nz, .continue
 	ld a, [hl]
 	cp b
-	jr nz, .jump_4796
-.jump_478e:
+	jr nz, .continue
+.loop_478e:
 	pop de
 	inc d
 	dec e
-	jr nz, .jump_4747
+	jr nz, .loop_4747
 	ret
 
-.jump_4794:
+.else_4794:
 	pop bc
 	pop de
-.jump_4796:
+.continue:
 	ld a, d
 	ld [wSaveFile], a
 	rrca
@@ -1124,12 +1124,12 @@ Save_CheckFiles::
 	ld h, $b0
 	ld c, $40
 	xor a
-.jump_47a2:
+.loop_47a2:
 	ld [hli], a
 	dec c
-	jr nz, .jump_47a2
+	jr nz, .loop_47a2
 	call Save_WriteFile
-	jr .jump_478e
+	jr .loop_478e
 
 
 Save_WriteFile::
@@ -1175,7 +1175,7 @@ Save_Checksum::
 	ld h, $b0
 	ld bc, sLevelObjects + $255
 	ld e, $3e
-.jump_47f2:
+.loop:
 	ld a, [hli]
 	add a, c
 	ld c, a
@@ -1187,7 +1187,7 @@ Save_Checksum::
 	rl b
 	rl c
 	dec e
-	jr nz, .jump_47f2
+	jr nz, .loop
 	ret
 
 
@@ -1199,17 +1199,17 @@ Save_EraseFile::
 	ld h, $b0
 	ld c, $40
 	xor a
-.jump_480d:
+.loop:
 	ld [hli], a
 	dec c
-	jr nz, .jump_480d
+	jr nz, .loop
 	call Save_WriteFile
 	ret
 
 
 Save_ComputeSummaries::
 	ld bc, $0003
-.jump_4818:
+.loop_4818:
 	push bc
 	ld a, b
 	call Save_CountCompletion
@@ -1237,19 +1237,19 @@ Save_ComputeSummaries::
 	pop bc
 	inc b
 	dec c
-	jr nz, .jump_4818
+	jr nz, .loop_4818
 	ld bc, $0318
-.jump_483e:
+.loop_483e:
 	ld a, b
 	dec a
 	rrca
 	rrca
 	ld l, a
 	ld h, $b0
-.jump_4845:
+.loop_4845:
 	ld a, [hl]
 	bit 5, a
-	jr z, .jump_4873
+	jr z, .continue
 	push hl
 	ld a, l
 	and $1f
@@ -1272,46 +1272,46 @@ Save_ComputeSummaries::
 	and $07
 	ld e, a
 	ld a, $01
-.jump_486a:
-	jr z, .jump_4870
+.loop_486a:
+	jr z, .else
 	add a, a
 	dec e
-	jr .jump_486a
+	jr .loop_486a
 
-.jump_4870:
+.else:
 	or [hl]
 	ld [hl], a
 	pop hl
-.jump_4873:
+.continue:
 	inc hl
 	dec c
-	jr nz, .jump_4845
+	jr nz, .loop_4845
 	ld c, $18
 	dec b
-	jr nz, .jump_483e
+	jr nz, .loop_483e
 	ld a, [sMostBonusCoins]
 	ld hl, sSaveFile0 + SAVE_BONUS_COINS
 	cp [hl]
-	jr nc, .jump_4886
+	jr nc, .skip_4886
 	ld a, [hl]
-.jump_4886:
+.skip_4886:
 	ld hl, sSaveFile1 + SAVE_BONUS_COINS
 	cp [hl]
-	jr nc, .jump_488d
+	jr nc, .skip_488d
 	ld a, [hl]
-.jump_488d:
+.skip_488d:
 	ld hl, sSaveFile2 + SAVE_BONUS_COINS
 	cp [hl]
-	jr nc, .jump_4894
+	jr nc, .skip_4894
 	ld a, [hl]
-.jump_4894:
+.skip_4894:
 	ld [sMostBonusCoins], a
 	ld a, [sTitlePicture]
 	inc a
 	cp $03
-	jr c, .jump_48a0
+	jr c, .skip_48a0
 	xor a
-.jump_48a0:
+.skip_48a0:
 	ld [sTitlePicture], a
 	xor a
 	ld [sOptions], a
@@ -1332,7 +1332,7 @@ Save_CountCompletion::
 	ld h, $b0
 	ld de, $0000
 	ld c, $22
-.jump_48d4:
+.loop_48d4:
 	ld a, [hl]
 	rrca
 	call AddCarryBCD
@@ -1343,23 +1343,23 @@ Save_CountCompletion::
 	rrca
 	call AddCarryBCD
 	dec c
-	jr nz, .jump_48d4
+	jr nz, .loop_48d4
 	ld c, $06
-.jump_48e9:
+.loop_48e9:
 	ld a, [hli]
 	rrca
-	jr nc, .jump_48f4
+	jr nc, .skip_48f4
 	call AddCarryBCD
 	scf
 	call AddCarryBCD
-.jump_48f4:
+.skip_48f4:
 	dec c
-	jr nz, .jump_48e9
+	jr nz, .loop_48e9
 	ld a, [hl]
 	rrca
-	jr nc, .jump_48fd
+	jr nc, .skip_48fd
 	set 6, d
-.jump_48fd:
+.skip_48fd:
 	call AddCarryBCD
 	rrca
 	call AddCarryBCD
@@ -1367,9 +1367,9 @@ Save_CountCompletion::
 	call AddCarryBCD
 	ld a, e
 	or d
-	jr z, .jump_490e
+	jr z, .return
 	set 7, d
-.jump_490e:
+.return:
 	ret
 
 

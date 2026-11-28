@@ -26,9 +26,9 @@ CallHL::
 OAMDMARoutine::
 	ldh [rDMA], a
 	ld a, $28
-.jump_001f:
+.loop:
 	dec a
-	jr nz, .jump_001f
+	jr nz, .loop
 	ret
 
 
@@ -45,13 +45,13 @@ CopyBytes::
 
 FillMemory::
 	ld d, a
-.jump_002d:
+.loop:
 	ld a, d
 	ld [hli], a
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_002d
+	jr nz, .loop
 	ret
 
 
@@ -152,10 +152,10 @@ SetDoubleSpeed::
 	ld a, $30
 	ldh [rP1], a
 	stop
-.jump_00b0:
+.loop:
 	ldh a, [rKEY1]
 	bit 7, a
-	jr z, .jump_00b0
+	jr z, .loop
 	xor a
 	ldh [rP1], a
 	ldh [rIF], a
@@ -171,10 +171,10 @@ SetNormalSpeed::
 	ld a, $30
 	ldh [rP1], a
 	stop
-.jump_00cb:
+.loop:
 	ldh a, [rKEY1]
 	bit 7, a
-	jr nz, .jump_00cb
+	jr nz, .loop
 	xor a
 	ldh [rP1], a
 	ldh [rIF], a
@@ -195,7 +195,7 @@ RAMPointer_00_00f6::
 	dw $c329 ; a RAM address, read by FE_SoundTest_DrawNumber in bank $f1
 
 Vector_00f8::
-	jp Decompress.jump_041d
+	jp Decompress.jp_write_save_file
 
 
 Padding_00_00fb::
@@ -230,7 +230,7 @@ SECTION "Home", ROM0[$0150]
 Init::
 	cp $11
 	jp nz, NotGBC
-.jump_0155:
+.loop_0155:
 	di
 	ld sp, $fffe
 	xor a
@@ -250,11 +250,11 @@ Init::
 	ld [rRAMG], a
 	xor a
 	ld bc, $7f80
-.jump_017d:
+.loop_017d:
 	ldh [c], a
 	inc c
 	dec b
-	jr nz, .jump_017d
+	jr nz, .loop_017d
 	xor a
 	ldh [rVBK], a
 	ld hl, $8000
@@ -271,22 +271,22 @@ Init::
 	ld bc, $1000
 	call FillMemory
 	ld de, $0000
-.jump_01a9:
+.loop_01a9:
 	ld a, d
 	ldh [rSVBK], a
 	ld hl, wWRAMX
 	ld bc, $1000
-.jump_01b2:
+.loop_01b2:
 	ld a, e
 	ld [hli], a
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_01b2
+	jr nz, .loop_01b2
 	inc d
 	ld a, d
 	cp $08
-	jr nz, .jump_01a9
+	jr nz, .loop_01a9
 	xor a
 	ld hl, sWorkRAM
 	ld bc, $1000
@@ -297,23 +297,23 @@ Init::
 	ld c, $c8
 	ld b, $08
 	ld hl, $001b
-.jump_01d8:
+.loop_01d8:
 	ld a, [hli]
 	ldh [c], a
 	inc c
 	dec b
-	jr nz, .jump_01d8
+	jr nz, .loop_01d8
 	ld hl, wRandomState
 	ld a, $ff
 	ld [hli], a
 	ld [hli], a
 	ld a, $f8
 	ld [hli], a
-.jump_01e8:
+.loop_01e8:
 	call ReadJoypad
 	ldh a, [hJoyHeld]
 	cp $0f
-	jr z, .jump_01e8
+	jr z, .loop_01e8
 	call SetDoubleSpeed
 	ld a, $81
 	ldh [rLCDC], a
@@ -332,11 +332,11 @@ Init::
 	ld de, Flow_0d_5f58
 	call SetFlowPointer
 	ei
-.jump_021c:
+.loop_021c:
 	call ReadJoypad
 	ldh a, [hJoyHeld]
 	cp $0f
-	jp z, .jump_0155
+	jp z, .loop_0155
 	call UpdateSound
 	ld hl, wFrameCounter
 	ld a, [hl]
@@ -346,33 +346,33 @@ Init::
 	adc a, $00
 	ld [hl], a
 	sub $0e
-	jr nz, .jump_0248
+	jr nz, .loop_0248
 	ld [hli], a
 	ld a, [hl]
 	inc a
 	daa
 	ld [hl], a
 	sub $60
-	jr nz, .jump_0248
+	jr nz, .loop_0248
 	ld [hli], a
 	ld a, [hl]
 	inc a
 	daa
-	jr c, .jump_0248
+	jr c, .loop_0248
 	ld [hl], a
-.jump_0248:
+.loop_0248:
 	halt
 	nop
 	ldh a, [hVBlankDone]
 	or a
-	jr z, .jump_0248
+	jr z, .loop_0248
 	xor a
 	ldh [hVBlankDone], a
 	ldh a, [hGameState]
 	ld l, a
 	ld h, $03
 	call CallHL
-	jp .jump_021c
+	jp .loop_021c
 
 
 InstallInterruptTrampolines::
@@ -415,10 +415,10 @@ NotGBC::
 	di
 	ld sp, $fffe
 	ld hl, rLY
-.jump_0293:
+.loop_0293:
 	ld a, [hl]
 	cp $91
-	jr c, .jump_0293
+	jr c, .loop_0293
 	ld a, $11
 	ldh [rLCDC], a
 	xor a
@@ -440,10 +440,10 @@ NotGBC::
 	call CopyScreenTileMap
 	ld hl, rLCDC
 	set 7, [hl]
-.jump_02ca:
+.loop_02ca:
 	halt
 	nop
-	jr .jump_02ca
+	jr .loop_02ca
 
 	ds 51, $00 ; $02ce
 
@@ -587,14 +587,14 @@ Random::
 	xor a
 	ld a, [hld]
 	bit 7, a
-	jr z, .jump_0370
+	jr z, .skip_0370
 	ccf
-.jump_0370:
+.skip_0370:
 	ld a, [hld]
 	bit 1, a
-	jr z, .jump_0376
+	jr z, .skip_0376
 	ccf
-.jump_0376:
+.skip_0376:
 	rl [hl]
 	inc hl
 	rl [hl]
@@ -636,47 +636,47 @@ HDMACopy::
 	ldh [rHDMA3], a
 	ld a, l
 	ldh [rHDMA4], a
-.jump_03ad:
+.loop_03ad:
 	ldh a, [rSTAT]
 	and $03
-	jr z, .jump_03ad
+	jr z, .loop_03ad
 	ld a, c
 	or $80
 	ldh [rHDMA5], a
-.jump_03b8:
+.loop_03b8:
 	ldh a, [rHDMA5]
 	rlca
-	jr nc, .jump_03b8
+	jr nc, .loop_03b8
 	ret
 
 
 GetBitMask::
 	bit 3, a
-	jr nz, .jump_03d3
+	jr nz, .else
 	ld de, $0001
 	bit 2, a
-	jr z, .jump_03cb
+	jr z, .skip_03cb
 	swap e
-.jump_03cb:
+.skip_03cb:
 	and $03
-.jump_03cd:
+.loop_03cd:
 	ret z
 	sla e
 	dec a
-	jr .jump_03cd
+	jr .loop_03cd
 
-.jump_03d3:
+.else:
 	ld de, $0100
 	bit 2, a
-	jr z, .jump_03dc
+	jr z, .skip_03dc
 	swap d
-.jump_03dc:
+.skip_03dc:
 	and $03
-.jump_03de:
+.loop_03de:
 	ret z
 	sla d
 	dec a
-	jr .jump_03de
+	jr .loop_03de
 
 
 Decompress::
@@ -685,32 +685,32 @@ Decompress::
 	ret z
 	inc de
 	bit 7, a
-	jr nz, .jump_03f7
+	jr nz, .else_03f7
 	ld c, a
 	ld a, [de]
 	inc de
-.jump_03ef:
+.loop_03ef:
 	ld [hli], a
 	dec c
-	jr nz, .jump_03ef
+	jr nz, .loop_03ef
 	jr Decompress
 
 .unreached_03f5:
 	db $18, $ed ; jr $03e4, never reached
-.jump_03f7:
+.else_03f7:
 	bit 6, a
-	jr nz, .jump_0406
+	jr nz, .else_0406
 	and $3f
 	ld c, a
-.jump_03fe:
+.loop_03fe:
 	ld a, [de]
 	inc de
 	ld [hli], a
 	dec c
-	jr nz, .jump_03fe
+	jr nz, .loop_03fe
 	jr Decompress
 
-.jump_0406:
+.else_0406:
 	and $3f
 	ld c, a
 	ld a, [de]
@@ -723,17 +723,17 @@ Decompress::
 	ld a, h
 	sbc a, $00
 	ld d, a
-.jump_0414:
+.loop_0414:
 	ld a, [de]
 	inc de
 	ld [hli], a
 	dec c
-	jr nz, .jump_0414
+	jr nz, .loop_0414
 	pop de
 	jr Decompress
 
-.jump_041d:
-	jp State_Fading.jump_2ef2
+.jp_write_save_file:
+	jp State_Fading.write_save_file
 
 
 CharToTile::
@@ -776,14 +776,14 @@ State_EnterCrankysCabin::
 	call Save_CountCompletion
 	ld a, e
 	cp $01
-	jr nz, .jump_052e
+	jr nz, .skip
 	ld a, d
 	and $0f
 	cp $01
-	jr nz, .jump_052e
+	jr nz, .skip
 	ld hl, wMapFlags
 	set 5, [hl]
-.jump_052e:
+.skip:
 	ld a, $03
 	ld [wLevel], a
 
@@ -836,18 +836,18 @@ State_EnterShop::
 	ld [wLastRandom], a
 	ld a, [wLevel]
 	or a
-	jr z, .jump_05bf
+	jr z, .else_05bf
 	dec a
-	jr z, .jump_05d6
+	jr z, .else_05d6
 	dec a
-	jr z, .jump_05a8
+	jr z, .else_05a8
 	dec a
-	jr z, .jump_05bf
+	jr z, .else_05bf
 	dec a
-	jr z, .jump_05ed
-	jr .jump_05bf
+	jr z, .else_05ed
+	jr .else_05bf
 
-.jump_05a8:
+.else_05a8:
 	ld hl, ObjPalPreload_80_424e
 	call PreloadObjPalettes
 	ld a, $20
@@ -858,7 +858,7 @@ State_EnterShop::
 	ei
 	jp RunFlowScript
 
-.jump_05bf:
+.else_05bf:
 	ld hl, ObjPalPreload_80_423c
 	call PreloadObjPalettes
 	ld a, $11
@@ -869,7 +869,7 @@ State_EnterShop::
 	ei
 	jp RunFlowScript
 
-.jump_05d6:
+.else_05d6:
 	ld hl, ObjPalPreload_80_4245
 	call PreloadObjPalettes
 	ld a, $14
@@ -880,7 +880,7 @@ State_EnterShop::
 	ei
 	jp RunFlowScript
 
-.jump_05ed:
+.else_05ed:
 	ld hl, ObjPalPreload_80_4245
 	call PreloadObjPalettes
 	ld a, $09
@@ -910,27 +910,27 @@ LCDSplitHandler::
 	ld c, a
 	ldh a, [hSplitBottom]
 	cp c
-	jr z, .jump_067e
+	jr z, .done
 	ld b, a
 	ldh a, [rLY]
 	cp c
-	jr z, .jump_0650
-	jr c, .jump_067e
+	jr z, .else_0650
+	jr c, .done
 	cp b
-	jr z, .jump_0667
-	jr nc, .jump_067e
+	jr z, .else_0667
+	jr nc, .done
 	sub c
 	cp $04
-	jr nc, .jump_0635
-	jr .jump_063c
+	jr nc, .else_0635
+	jr .continue
 
-.jump_0635:
+.else_0635:
 	add a, c
 	sub b
 	cpl
 	cp $04
-	jr nc, .jump_067e
-.jump_063c:
+	jr nc, .done
+.continue:
 	add a, a
 	ld c, a
 	ld b, $00
@@ -944,40 +944,40 @@ LCDSplitHandler::
 	ldh [c], a
 	ld a, [hli]
 	ldh [c], a
-	jr .jump_067e
+	jr .done
 
-.jump_0650:
+.else_0650:
 	ld bc, $0868
 	ld a, $80
 	ldh [c], a
 	inc c
 	xor a
-.jump_0658:
+.loop_0658:
 	ldh [c], a
 	dec b
-	jr nz, .jump_0658
+	jr nz, .loop_0658
 	ld hl, rLCDC
 	set 3, [hl]
 	ldh a, [hSplitSCY]
 	ldh [rSCY], a
-	jr .jump_067e
+	jr .done
 
-.jump_0667:
+.else_0667:
 	ld bc, $0868
 	ld hl, wBGPalettesOut
 	ld a, $80
 	ldh [c], a
 	inc c
-.jump_0671:
+.loop_0671:
 	ld a, [hli]
 	ldh [c], a
 	dec b
-	jr nz, .jump_0671
+	jr nz, .loop_0671
 	ld hl, rLCDC
 	res 3, [hl]
 	xor a
 	ldh [rSCY], a
-.jump_067e:
+.done:
 	pop bc
 	pop hl
 	pop af
@@ -987,7 +987,7 @@ LCDSplitHandler::
 RandomBelow::
 	ld a, [wLastRandom]
 	or a
-	jr z, .jump_0696
+	jr z, .else_0696
 	push hl
 	call Random
 	and $03
@@ -995,17 +995,17 @@ RandomBelow::
 	ld hl, wLastRandom
 	add a, [hl]
 	pop hl
-	jr .jump_0699
+	jr .loop
 
-.jump_0696:
+.else_0696:
 	call Random
-.jump_0699:
+.loop:
 	cp e
-	jr c, .jump_069f
+	jr c, .else_069f
 	sub e
-	jr .jump_0699
+	jr .loop
 
-.jump_069f:
+.else_069f:
 	ld e, a
 	ld [wLastRandom], a
 
@@ -1037,22 +1037,22 @@ LoadTextString::
 	ld h, [hl]
 	ld l, a
 	ld de, wTextBuffer
-.jump_06d4:
+.loop:
 	ld a, [hli]
 	or a
-	jr z, .jump_06f9
+	jr z, .else_06f9
 	cp $0d
-	jr z, .jump_06e9
+	jr z, .else_06e9
 	cp $20
-	jr z, .jump_06e6
+	jr z, .skip
 	call CharToTile
 	or $80
 	ld [de], a
-.jump_06e6:
+.skip:
 	inc e
-	jr .jump_06d4
+	jr .loop
 
-.jump_06e9:
+.else_06e9:
 	ld a, e
 	and $e0
 	add a, $20
@@ -1063,9 +1063,9 @@ LoadTextString::
 	ldh a, [hTextLines]
 	inc a
 	ldh [hTextLines], a
-	jr .jump_06d4
+	jr .loop
 
-.jump_06f9:
+.else_06f9:
 	ld hl, hTextLines
 	inc [hl]
 	ld hl, rSTAT
@@ -1093,7 +1093,7 @@ WriteScrollEdges::
 	ld d, $98
 	ld hl, wMapColumnBuffer
 	ld b, $20
-.jump_072e:
+.loop_072e:
 	ld a, [hli]
 	inc l
 	ld [de], a
@@ -1104,20 +1104,20 @@ WriteScrollEdges::
 	adc a, $00
 	ld d, a
 	dec b
-	jr nz, .jump_072e
+	jr nz, .loop_072e
 	ld hl, wMapRowDest
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
 	ld hl, wMapRowBuffer
 	ld b, $20
-.jump_0747:
+.loop_0747:
 	ld a, [hli]
 	inc l
 	ld [de], a
 	inc e
 	dec b
-	jr nz, .jump_0747
+	jr nz, .loop_0747
 	ld a, $01
 	ldh [rVBK], a
 	ld hl, wMapColumnBuffer + 1
@@ -1125,7 +1125,7 @@ WriteScrollEdges::
 	ld e, a
 	ld d, $98
 	ld b, $20
-.jump_075d:
+.loop_075d:
 	ld a, [hli]
 	inc l
 	ld [de], a
@@ -1136,55 +1136,55 @@ WriteScrollEdges::
 	adc a, $00
 	ld d, a
 	dec b
-	jr nz, .jump_075d
+	jr nz, .loop_075d
 	ld hl, wMapRowBuffer + 1
 	ld a, [wMapRowDest]
 	ld e, a
 	ld a, [wMapRowDest + 1]
 	ld d, a
 	ld b, $20
-.jump_0778:
+.loop_0778:
 	ld a, [hli]
 	inc l
 	ld [de], a
 	inc e
 	dec b
-	jr nz, .jump_0778
+	jr nz, .loop_0778
 	ret
 
 
 UpdateMapScroll::
 	ldh a, [hMapFlags]
 	bit 0, a
-	jp nz, .jump_07a4
+	jp nz, .else
 	bit 4, a
 	ld bc, $15ff
-	jr z, .jump_0791
+	jr z, .skip_0791
 	ld bc, $ffff
-.jump_0791:
+.skip_0791:
 	call LoadMapColumn
 	ldh a, [hMapFlags]
 	bit 5, a
 	ld bc, $ff13
-	jr z, .jump_07a0
+	jr z, .skip_07a0
 	ld bc, $ffff
-.jump_07a0:
+.skip_07a0:
 	call LoadMapRow
 	ret
 
-.jump_07a4:
+.else:
 	bit 4, a
 	ld bc, $15ff
-	jr z, .jump_07ae
+	jr z, .skip_07ae
 	ld bc, $ffff
-.jump_07ae:
+.skip_07ae:
 	call LoadMapColumn_Vertical
 	ldh a, [hMapFlags]
 	bit 5, a
 	ld bc, $ff13
-	jr z, .jump_07bd
+	jr z, .skip_07bd
 	ld bc, $ffff
-.jump_07bd:
+.skip_07bd:
 	call LoadMapRow_Vertical
 	ret
 
@@ -1208,15 +1208,15 @@ LoadMapColumn::
 	ld a, h
 	adc a, $00
 	bit 7, b
-	jr z, .jump_07e3
+	jr z, .skip_07e3
 	add a, $ff
-.jump_07e3:
+.skip_07e3:
 	ld h, a
 	bit 2, h
-	jr z, .jump_07ec
+	jr z, .skip_07ec
 	ld a, $05
 	ldh [rSVBK], a
-.jump_07ec:
+.skip_07ec:
 	ld a, l
 	and $1f
 	ld [wMapColumnDest], a
@@ -1246,9 +1246,9 @@ LoadMapColumn::
 	ld a, h
 	adc a, $00
 	bit 7, c
-	jr z, .jump_0823
+	jr z, .skip_0823
 	add a, $ff
-.jump_0823:
+.skip_0823:
 	ld h, a
 	srl h
 	rr l
@@ -1264,7 +1264,7 @@ LoadMapColumn::
 	sla a
 	ld l, a
 	ld b, $08
-.jump_083c:
+.loop:
 	push bc
 	ld a, [de]
 	ld c, a
@@ -1278,9 +1278,9 @@ LoadMapColumn::
 	ldh [rSVBK], a
 	ldh a, [hMapBlockBank]
 	bit 2, b
-	jr z, .jump_0852
+	jr z, .skip_0852
 	inc a
-.jump_0852:
+.skip_0852:
 	ld [rROMB0], a
 	res 2, b
 	ldh a, [hMapBlockRow]
@@ -1330,7 +1330,7 @@ LoadMapColumn::
 	pop bc
 	inc d
 	dec b
-	jr nz, .jump_083c
+	jr nz, .loop
 	ret
 
 
@@ -1353,9 +1353,9 @@ LoadMapRow::
 	ld a, h
 	adc a, $00
 	bit 7, c
-	jr z, .jump_08b3
+	jr z, .skip_08b3
 	add a, $ff
-.jump_08b3:
+.skip_08b3:
 	ld h, a
 	ld a, l
 	and $1f
@@ -1400,15 +1400,15 @@ LoadMapRow::
 	ld a, h
 	adc a, $00
 	bit 7, b
-	jr z, .jump_0903
+	jr z, .skip_0903
 	add a, $ff
-.jump_0903:
+.skip_0903:
 	ld h, a
 	bit 2, h
-	jr z, .jump_090c
+	jr z, .skip_090c
 	ld a, $05
 	ldh [rSVBK], a
-.jump_090c:
+.skip_090c:
 	srl h
 	rr l
 	srl h
@@ -1421,7 +1421,7 @@ LoadMapRow::
 	sla a
 	ld l, a
 	ld b, $08
-.jump_0921:
+.loop:
 	push bc
 	ld a, [de]
 	ld c, a
@@ -1435,9 +1435,9 @@ LoadMapRow::
 	ldh [rSVBK], a
 	ldh a, [hMapBlockBank]
 	bit 2, b
-	jr z, .jump_0937
+	jr z, .skip_0937
 	inc a
-.jump_0937:
+.skip_0937:
 	ld [rROMB0], a
 	res 2, b
 	ldh a, [hMapBlockRow]
@@ -1486,13 +1486,13 @@ LoadMapRow::
 	ld b, a
 	pop bc
 	inc e
-	jr nz, .jump_097a
+	jr nz, .skip_097a
 	ldh a, [rSVBK]
 	xor $04
 	ldh [rSVBK], a
-.jump_097a:
+.skip_097a:
 	dec b
-	jr nz, .jump_0921
+	jr nz, .loop
 	ret
 
 
@@ -1515,9 +1515,9 @@ LoadMapColumn_Vertical::
 	ld a, h
 	adc a, $00
 	bit 7, b
-	jr z, .jump_09a0
+	jr z, .skip_09a0
 	add a, $ff
-.jump_09a0:
+.skip_09a0:
 	ld h, a
 	ld a, l
 	and $1f
@@ -1546,15 +1546,15 @@ LoadMapColumn_Vertical::
 	ld a, h
 	adc a, $00
 	bit 7, c
-	jr z, .jump_09d4
+	jr z, .skip_09d4
 	add a, $ff
-.jump_09d4:
+.skip_09d4:
 	ld h, a
 	bit 0, h
-	jr z, .jump_09dd
+	jr z, .skip_09dd
 	ld a, $05
 	ldh [rSVBK], a
-.jump_09dd:
+.skip_09dd:
 	srl l
 	srl l
 	ld h, l
@@ -1575,7 +1575,7 @@ LoadMapColumn_Vertical::
 	sla a
 	ld l, a
 	ld b, $08
-.jump_09fb:
+.loop:
 	push bc
 	ld a, [de]
 	ld c, a
@@ -1589,9 +1589,9 @@ LoadMapColumn_Vertical::
 	ldh [rSVBK], a
 	ldh a, [hMapBlockBank]
 	bit 2, b
-	jr z, .jump_0a11
+	jr z, .skip_0a11
 	inc a
-.jump_0a11:
+.skip_0a11:
 	ld [rROMB0], a
 	res 2, b
 	ldh a, [hMapBlockRow]
@@ -1647,7 +1647,7 @@ LoadMapColumn_Vertical::
 	ld d, a
 	and $f0
 	cp $e0
-	jr nz, .jump_0a65
+	jr nz, .continue
 	ld a, d
 	and $f0
 	or $d0
@@ -1655,9 +1655,9 @@ LoadMapColumn_Vertical::
 	ldh a, [rSVBK]
 	xor $04
 	ldh [rSVBK], a
-.jump_0a65:
+.continue:
 	dec b
-	jr nz, .jump_09fb
+	jr nz, .loop
 	ret
 
 
@@ -1680,15 +1680,15 @@ LoadMapRow_Vertical::
 	ld a, h
 	adc a, $00
 	bit 7, c
-	jr z, .jump_0a8b
+	jr z, .skip_0a8b
 	add a, $ff
-.jump_0a8b:
+.skip_0a8b:
 	ld h, a
 	bit 0, h
-	jr z, .jump_0a94
+	jr z, .skip_0a94
 	ld a, $05
 	ldh [rSVBK], a
-.jump_0a94:
+.skip_0a94:
 	ld a, l
 	and $1f
 	ld d, a
@@ -1728,9 +1728,9 @@ LoadMapRow_Vertical::
 	ld a, h
 	adc a, $00
 	bit 7, b
-	jr z, .jump_0adc
+	jr z, .skip_0adc
 	add a, $ff
-.jump_0adc:
+.skip_0adc:
 	ld h, a
 	srl l
 	srl l
@@ -1751,7 +1751,7 @@ LoadMapRow_Vertical::
 	sla a
 	ld l, a
 	ld b, $08
-.jump_0afa:
+.loop:
 	push bc
 	ld a, [de]
 	ld c, a
@@ -1765,9 +1765,9 @@ LoadMapRow_Vertical::
 	ldh [rSVBK], a
 	ldh a, [hMapBlockBank]
 	bit 2, b
-	jr z, .jump_0b10
+	jr z, .skip_0b10
 	inc a
-.jump_0b10:
+.skip_0b10:
 	ld [rROMB0], a
 	res 2, b
 	ldh a, [hMapBlockRow]
@@ -1817,7 +1817,7 @@ LoadMapRow_Vertical::
 	pop bc
 	inc e
 	dec b
-	jr nz, .jump_0afa
+	jr nz, .loop
 	ret
 
 
@@ -1864,7 +1864,7 @@ LoadMap::
 	ld a, [hli]
 	ld c, a
 	ld b, $01
-.jump_0b9c:
+.loop_0b9c:
 	push bc
 	ld a, b
 	ldh [rSVBK], a
@@ -1884,12 +1884,12 @@ LoadMap::
 	inc b
 	ld a, $04
 	cp b
-	jr nz, .jump_0b9c
+	jr nz, .loop_0b9c
 	ldh a, [hMapFlags]
 	and $02
 	ret z
 	ld b, $05
-.jump_0bc3:
+.loop_0bc3:
 	push bc
 	ld a, b
 	ldh [rSVBK], a
@@ -1909,14 +1909,14 @@ LoadMap::
 	inc b
 	ld a, $08
 	cp b
-	jr nz, .jump_0bc3
+	jr nz, .loop_0bc3
 	ret
 
 
 DrawMapScreen::
 	ldh a, [hMapFlags]
 	rrca
-	jp c, DrawMapArea.jump_0cae
+	jp c, DrawMapArea.draw_at_camera
 	ldh a, [hCameraY]
 	ld l, a
 	ldh a, [hCameraY + 1]
@@ -1957,17 +1957,17 @@ DrawMapScreen::
 
 DrawMapArea::
 	ld c, $08
-.jump_0c26:
+.loop_0c26:
 	ld b, $08
 	push hl
-.jump_0c29:
+.loop_0c29:
 	push bc
 	push hl
 	ld a, $01
 	bit 7, h
-	jr z, .jump_0c33
+	jr z, .skip_0c33
 	ld a, $05
-.jump_0c33:
+.skip_0c33:
 	ldh [rSVBK], a
 	ld d, h
 	ld e, a
@@ -1982,16 +1982,16 @@ DrawMapArea::
 	ld b, [hl]
 	ldh a, [hMapBlockBank]
 	bit 2, b
-	jr z, .jump_0c4a
+	jr z, .skip_0c4a
 	inc a
-.jump_0c4a:
+.skip_0c4a:
 	ld [rROMB0], a
 	res 2, b
 	set 6, b
 	bit 6, d
-	jr z, .jump_0c56
+	jr z, .skip_0c56
 	inc c
-.jump_0c56:
+.skip_0c56:
 	ld h, $c3
 	ld a, l
 	rla
@@ -2000,33 +2000,33 @@ DrawMapArea::
 	or $80
 	ld l, a
 	ld d, $04
-.jump_0c62:
+.loop_0c62:
 	ld e, $04
-.jump_0c64:
+.loop_0c64:
 	ld a, [bc]
 	ld [hli], a
 	ld a, b
 	add a, $04
 	ld b, a
 	dec e
-	jr nz, .jump_0c64
+	jr nz, .loop_0c64
 	ld a, l
 	add a, $1c
 	ld l, a
 	dec d
-	jr nz, .jump_0c62
+	jr nz, .loop_0c62
 	pop hl
 	ld a, l
 	add a, $01
 	ld l, a
-	jr nc, .jump_0c7f
+	jr nc, .skip_0c7f
 	ld a, h
 	xor $80
 	ld h, a
-.jump_0c7f:
+.skip_0c7f:
 	pop bc
 	dec b
-	jr nz, .jump_0c29
+	jr nz, .loop_0c29
 	pop hl
 	ld a, h
 	and $07
@@ -2045,16 +2045,16 @@ DrawMapArea::
 	ldh [rHDMA4], a
 	ld a, $88
 	ldh [rHDMA5], a
-.jump_0ca2:
+.loop_0ca2:
 	ldh a, [rHDMA5]
 	bit 7, a
-	jr z, .jump_0ca2
+	jr z, .loop_0ca2
 	inc h
 	dec c
-	jp nz, .jump_0c26
+	jp nz, .loop_0c26
 	ret
 
-.jump_0cae:
+.draw_at_camera:
 	ldh a, [hCameraY]
 	ld l, a
 	ldh a, [hCameraY + 1]
@@ -2093,17 +2093,17 @@ DrawMapArea::
 
 DrawMapArea_Vertical::
 	ld c, $08
-.jump_0ce6:
+.loop_0ce6:
 	ld b, $08
 	push hl
-.jump_0ce9:
+.loop_0ce9:
 	push bc
 	push hl
 	ld a, $01
 	bit 6, h
-	jr z, .jump_0cf3
+	jr z, .skip_0cf3
 	ld a, $05
-.jump_0cf3:
+.skip_0cf3:
 	ldh [rSVBK], a
 	ld d, h
 	ld e, a
@@ -2125,16 +2125,16 @@ DrawMapArea_Vertical::
 	ld b, [hl]
 	ldh a, [hMapBlockBank]
 	bit 2, b
-	jr z, .jump_0d13
+	jr z, .skip_0d13
 	inc a
-.jump_0d13:
+.skip_0d13:
 	ld [rROMB0], a
 	res 2, b
 	set 6, b
 	bit 7, d
-	jr z, .jump_0d1f
+	jr z, .skip_0d1f
 	inc c
-.jump_0d1f:
+.skip_0d1f:
 	ld h, $c3
 	ld a, l
 	and $3f
@@ -2144,21 +2144,21 @@ DrawMapArea_Vertical::
 	or $80
 	ld l, a
 	ld d, $04
-.jump_0d2d:
+.loop_0d2d:
 	ld e, $04
-.jump_0d2f:
+.loop_0d2f:
 	ld a, [bc]
 	ld [hli], a
 	ld a, b
 	add a, $04
 	ld b, a
 	dec e
-	jr nz, .jump_0d2f
+	jr nz, .loop_0d2f
 	ld a, l
 	add a, $1c
 	ld l, a
 	dec d
-	jr nz, .jump_0d2d
+	jr nz, .loop_0d2d
 	pop hl
 	ld a, l
 	inc a
@@ -2166,7 +2166,7 @@ DrawMapArea_Vertical::
 	ld l, a
 	pop bc
 	dec b
-	jr nz, .jump_0ce9
+	jr nz, .loop_0ce9
 	pop hl
 	ld a, h
 	and $07
@@ -2185,13 +2185,13 @@ DrawMapArea_Vertical::
 	ldh [rHDMA4], a
 	ld a, $88
 	ldh [rHDMA5], a
-.jump_0d68:
+.loop_0d68:
 	ldh a, [rHDMA5]
 	bit 7, a
-	jr z, .jump_0d68
+	jr z, .loop_0d68
 	inc h
 	dec c
-	jp nz, .jump_0ce6
+	jp nz, .loop_0ce6
 	ret
 
 
@@ -2208,10 +2208,10 @@ ApplyMapPatch::
 	ld e, a
 	ld a, [hli]
 	ld d, a
-.jump_0d85:
+.loop_0d85:
 	push de
 	push bc
-.jump_0d87:
+.loop_0d87:
 	push de
 	push bc
 	call SetMapCell
@@ -2219,12 +2219,12 @@ ApplyMapPatch::
 	inc c
 	pop de
 	dec e
-	jr nz, .jump_0d87
+	jr nz, .loop_0d87
 	pop bc
 	inc b
 	pop de
 	dec d
-	jr nz, .jump_0d85
+	jr nz, .loop_0d85
 	pop af
 	ld [rROMB0], a
 	ret
@@ -2238,12 +2238,12 @@ SetMapCell::
 	push de
 	ldh a, [hMapFlags]
 	rrca
-	jr c, .jump_0dcc
+	jr c, .else
 	ld a, $01
 	bit 7, b
-	jr z, .jump_0daf
+	jr z, .skip_0daf
 	ld a, $05
-.jump_0daf:
+.skip_0daf:
 	ldh [rSVBK], a
 	inc a
 	ld e, a
@@ -2265,14 +2265,14 @@ SetMapCell::
 	ld a, b
 	and $0f
 	ld b, a
-	jr .jump_0df6
+	jr .continue
 
-.jump_0dcc:
+.else:
 	ld a, $01
 	bit 6, b
-	jr z, .jump_0dd4
+	jr z, .skip_0dd4
 	ld a, $05
-.jump_0dd4:
+.skip_0dd4:
 	ldh [rSVBK], a
 	inc a
 	ld e, a
@@ -2300,7 +2300,7 @@ SetMapCell::
 	ld a, [hli]
 	ld [bc], a
 	pop bc
-.jump_0df6:
+.continue:
 	pop de
 	push hl
 	ldh a, [hCameraX]
@@ -2315,7 +2315,7 @@ SetMapCell::
 	sub c
 	dec a
 	cp $f9
-	jp c, .jump_0e8f
+	jp c, .done
 	ldh a, [hCameraY]
 	ld h, a
 	ldh a, [hCameraY + 1]
@@ -2328,7 +2328,7 @@ SetMapCell::
 	sub b
 	dec a
 	cp $f9
-	jr c, .jump_0e8f
+	jr c, .done
 	ld a, c
 	and $07
 	rlca
@@ -2345,56 +2345,56 @@ SetMapCell::
 	push af
 	ldh a, [hMapBlockBank]
 	bit 2, d
-	jr z, .jump_0e3c
+	jr z, .skip_0e3c
 	inc a
-.jump_0e3c:
+.skip_0e3c:
 	ld [rROMB0], a
 	res 2, d
 	set 6, d
 	ld b, $04
-.jump_0e45:
+.loop_0e45:
 	ld c, $02
-.jump_0e47:
+.loop_0e47:
 	ldh a, [rSTAT]
 	and c
-	jr z, .jump_0e47
-.jump_0e4c:
+	jr z, .loop_0e47
+.loop_0e4c:
 	ldh a, [rSTAT]
 	and c
-	jr nz, .jump_0e4c
+	jr nz, .loop_0e4c
 	xor a
 	ldh [rVBK], a
 	ld c, $04
-.jump_0e56:
+.loop_0e56:
 	ld a, [de]
 	ld [hli], a
 	ld a, d
 	add a, $04
 	ld d, a
 	dec c
-	jr nz, .jump_0e56
+	jr nz, .loop_0e56
 	ld c, $02
-.jump_0e61:
+.loop_0e61:
 	ldh a, [rSTAT]
 	and c
-	jr z, .jump_0e61
-.jump_0e66:
+	jr z, .loop_0e61
+.loop_0e66:
 	ldh a, [rSTAT]
 	and c
-	jr nz, .jump_0e66
+	jr nz, .loop_0e66
 	ld a, $01
 	ldh [rVBK], a
 	inc e
 	dec hl
 	ld c, $04
-.jump_0e73:
+.loop_0e73:
 	ld a, d
 	sub $04
 	ld d, a
 	ld a, [de]
 	ld [hld], a
 	dec c
-	jr nz, .jump_0e73
+	jr nz, .loop_0e73
 	dec e
 	ld a, d
 	add a, $10
@@ -2406,10 +2406,10 @@ SetMapCell::
 	sub l
 	ld h, a
 	dec b
-	jr nz, .jump_0e45
+	jr nz, .loop_0e45
 	pop af
 	ld [rROMB0], a
-.jump_0e8f:
+.done:
 	pop hl
 	ret
 
@@ -2427,16 +2427,16 @@ LoadCommonSpriteTiles::
 	ldh [rHDMA3], a
 	ld a, $00
 	ldh [rHDMA4], a
-.jump_0ea9:
+.loop_0ea9:
 	ldh a, [rSTAT]
 	and $03
-	jr z, .jump_0ea9
+	jr z, .loop_0ea9
 	ld a, $95
 	ldh [rHDMA5], a
-.jump_0eb3:
+.loop_0eb3:
 	ldh a, [rHDMA5]
 	rlca
-	jr nc, .jump_0eb3
+	jr nc, .loop_0eb3
 	ld a, $01
 	ldh [rVBK], a
 	ld a, $45
@@ -2447,16 +2447,16 @@ LoadCommonSpriteTiles::
 	ldh [rHDMA3], a
 	ld a, $40
 	ldh [rHDMA4], a
-.jump_0ecc:
+.loop_0ecc:
 	ldh a, [rSTAT]
 	and $03
-	jr z, .jump_0ecc
+	jr z, .loop_0ecc
 	ld a, $8b
 	ldh [rHDMA5], a
-.jump_0ed6:
+.loop_0ed6:
 	ldh a, [rHDMA5]
 	rlca
-	jr nc, .jump_0ed6
+	jr nc, .loop_0ed6
 	call ResetOAMBuffers
 	call ClearOAM
 	ret
@@ -2476,13 +2476,13 @@ ClearOAM::
 	xor a
 	ld hl, wShadowOAM
 	ld c, $28
-.jump_0ef4:
+.loop:
 	ld [hli], a
 	inc l
 	inc l
 	inc l
 	dec c
-	jr nz, .jump_0ef4
+	jr nz, .loop
 	ret
 
 
@@ -2502,11 +2502,11 @@ BuildOAM::
 	xor $09
 	ldh [hSpriteBufferPhase], a
 	rrca
-	jr c, .jump_0f1d
+	jr c, .else
 	call CopyOAMBuffersForward
 	ret
 
-.jump_0f1d:
+.else:
 	call CopyOAMBuffersBackward
 	ret
 
@@ -2537,10 +2537,10 @@ AnimateSpriteTiles::
 	ldh [rHDMA4], a
 	ld a, $87
 	ldh [rHDMA5], a
-.jump_0f4c:
+.loop:
 	ldh a, [rHDMA5]
 	rlca
-	jr nc, .jump_0f4c
+	jr nc, .loop
 	ret
 
 
@@ -2548,13 +2548,13 @@ CopyOAMBuffersForward::
 	ld hl, wShadowOAMEnd
 	ldh a, [hSpriteLayerFill + 2]
 	or a
-	jr z, .jump_0f74
+	jr z, .continue_0f74
 	ld d, $c7
 	ld e, a
 	cp l
-	jr c, .jump_0f61
+	jr c, .loop_0f61
 	ld e, l
-.jump_0f61:
+.loop_0f61:
 	dec l
 	dec e
 	ld a, [de]
@@ -2568,20 +2568,20 @@ CopyOAMBuffersForward::
 	dec e
 	ld a, [de]
 	ld [hl], a
-	jr nz, .jump_0f61
+	jr nz, .loop_0f61
 	ld a, l
 	or a
-	jr z, .jump_0fba
-.jump_0f74:
+	jr z, .return
+.continue_0f74:
 	ldh a, [hSpriteLayerFill + 1]
 	or a
-	jr z, .jump_0f93
+	jr z, .continue_0f93
 	ld d, $c6
 	ld e, a
 	cp l
-	jr c, .jump_0f80
+	jr c, .loop_0f80
 	ld e, l
-.jump_0f80:
+.loop_0f80:
 	dec l
 	dec e
 	ld a, [de]
@@ -2595,20 +2595,20 @@ CopyOAMBuffersForward::
 	dec e
 	ld a, [de]
 	ld [hl], a
-	jr nz, .jump_0f80
+	jr nz, .loop_0f80
 	ld a, l
 	or a
-	jr z, .jump_0fba
-.jump_0f93:
+	jr z, .return
+.continue_0f93:
 	ldh a, [hSpriteLayerFill]
 	or a
-	jr z, .jump_0fae
+	jr z, .continue_0fae
 	ld d, $c5
 	ld e, a
 	cp l
-	jr c, .jump_0f9f
+	jr c, .loop_0f9f
 	ld e, l
-.jump_0f9f:
+.loop_0f9f:
 	dec l
 	dec e
 	ld a, [de]
@@ -2622,20 +2622,20 @@ CopyOAMBuffersForward::
 	dec e
 	ld a, [de]
 	ld [hl], a
-	jr nz, .jump_0f9f
-.jump_0fae:
+	jr nz, .loop_0f9f
+.continue_0fae:
 	ld a, l
 	or a
-	jr z, .jump_0fba
+	jr z, .return
 	xor a
-.jump_0fb3:
+.loop_0fb3:
 	dec l
 	dec l
 	dec l
 	dec l
 	ld [hl], a
-	jr nz, .jump_0fb3
-.jump_0fba:
+	jr nz, .loop_0fb3
+.return:
 	ret
 
 
@@ -2645,14 +2645,14 @@ CopyOAMBuffersBackward::
 	ld d, $c5
 	ld e, a
 	or a
-	jr z, .jump_0fe2
+	jr z, .continue_0fe2
 	ld a, e
 	sub $04
 	ld e, a
-.jump_0fca:
+.loop_0fca:
 	ld a, l
 	cp $a0
-	jp z, .jump_1036
+	jp z, .return
 	ld a, [de]
 	ld [hli], a
 	inc e
@@ -2668,20 +2668,20 @@ CopyOAMBuffersBackward::
 	ld a, e
 	sub $08
 	ld e, a
-	jr nc, .jump_0fca
-.jump_0fe2:
+	jr nc, .loop_0fca
+.continue_0fe2:
 	ldh a, [hSpriteLayerFill + 1]
 	ld d, $c6
 	ld e, a
 	or a
-	jr z, .jump_1006
+	jr z, .continue_1006
 	ld a, e
 	sub $04
 	ld e, a
-.jump_0fee:
+.loop_0fee:
 	ld a, l
 	cp $a0
-	jp z, .jump_1036
+	jp z, .return
 	ld a, [de]
 	ld [hli], a
 	inc e
@@ -2697,20 +2697,20 @@ CopyOAMBuffersBackward::
 	ld a, e
 	sub $08
 	ld e, a
-	jr nc, .jump_0fee
-.jump_1006:
+	jr nc, .loop_0fee
+.continue_1006:
 	ldh a, [hSpriteLayerFill + 2]
 	ld d, $c7
 	ld e, a
 	or a
-	jr z, .jump_102a
+	jr z, .continue_102a
 	ld a, e
 	sub $04
 	ld e, a
-.jump_1012:
+.loop_1012:
 	ld a, l
 	cp $a0
-	jp z, .jump_1036
+	jp z, .return
 	ld a, [de]
 	ld [hli], a
 	inc e
@@ -2726,18 +2726,18 @@ CopyOAMBuffersBackward::
 	ld a, e
 	sub $08
 	ld e, a
-	jr nc, .jump_1012
-.jump_102a:
+	jr nc, .loop_1012
+.continue_102a:
 	ld a, l
-.jump_102b:
+.loop_102b:
 	cp $a0
-	jr z, .jump_1036
+	jr z, .return
 	ld [hl], $00
 	add a, $04
 	ld l, a
-	jr .jump_102b
+	jr .loop_102b
 
-.jump_1036:
+.return:
 	ret
 
 
@@ -2745,7 +2745,7 @@ DrawSpriteFrame::
 	push bc
 	ldh a, [hSpriteTileSpace]
 	or a
-	jp z, .jump_110e
+	jp z, .done_110e
 	ld c, a
 	ldh a, [hSpriteBufferPhase]
 	and $01
@@ -2766,12 +2766,12 @@ DrawSpriteFrame::
 	ld d, a
 	ld a, [hli]
 	or a
-	jp z, .jump_110e
+	jp z, .done_110e
 	ld b, a
 	cp c
-	jr c, .jump_1064
+	jr c, .skip_1064
 	ld b, c
-.jump_1064:
+.skip_1064:
 	ld a, [hli]
 	ld [rROMB0], a
 	ld l, e
@@ -2784,13 +2784,13 @@ DrawSpriteFrame::
 	add a, a
 	add a, e
 	cp $a0
-	jr c, .jump_1080
+	jr c, .skip_1080
 	ld a, $a0
 	sub e
 	srl a
-	jp z, .jump_110e
+	jp z, .done_110e
 	ld b, a
-.jump_1080:
+.skip_1080:
 	ld a, c
 	sub b
 	ld c, a
@@ -2811,26 +2811,26 @@ DrawSpriteFrame::
 	ldh a, [hSpriteBufferPhase]
 	and $01
 	ldh a, [hSpriteAttr]
-	jr z, .jump_10a6
+	jr z, .skip_10a6
 	or $08
 	ldh [hSpriteAttr], a
-.jump_10a6:
+.skip_10a6:
 	bit 4, a
-	jp nz, .jump_11ce
+	jp nz, .else_11ce
 	bit 5, a
-	jp nz, .jump_1120
+	jp nz, .else_1120
 	bit 6, a
-	jp nz, .jump_1177
-.jump_10b5:
+	jp nz, .else_1177
+.loop_10b5:
 	ldh a, [hSpriteX]
 	add a, [hl]
 	ldh [hSpriteX], a
 	ldh a, [hSpriteX + 1]
 	adc a, $00
 	bit 7, [hl]
-	jr z, .jump_10c4
+	jr z, .skip_10c4
 	add a, $ff
-.jump_10c4:
+.skip_10c4:
 	ldh [hSpriteX + 1], a
 	inc hl
 	ldh a, [hSpriteY]
@@ -2839,23 +2839,23 @@ DrawSpriteFrame::
 	ldh a, [hSpriteY + 1]
 	adc a, $00
 	bit 7, [hl]
-	jr z, .jump_10d6
+	jr z, .skip_10d6
 	add a, $ff
-.jump_10d6:
+.skip_10d6:
 	ldh [hSpriteY + 1], a
 	inc hl
 	or a
-	jr nz, .jump_10f8
+	jr nz, .continue_10f8
 	ldh a, [hSpriteY]
 	cp $a0
-	jr nc, .jump_10f8
+	jr nc, .continue_10f8
 	ld [de], a
 	ldh a, [hSpriteX + 1]
 	or a
-	jr nz, .jump_10f8
+	jr nz, .continue_10f8
 	ldh a, [hSpriteX]
 	cp $a8
-	jr nc, .jump_10f8
+	jr nc, .continue_10f8
 	inc e
 	ld [de], a
 	inc e
@@ -2865,58 +2865,58 @@ DrawSpriteFrame::
 	ldh a, [hSpriteAttr]
 	ld [de], a
 	inc e
-.jump_10f8:
+.continue_10f8:
 	inc c
 	inc c
 	dec b
-	jr nz, .jump_10b5
-.jump_10fd:
+	jr nz, .loop_10b5
+.loop_10fd:
 	pop bc
 	ldh a, [hSpriteLayerPos]
 	cp e
-	jr z, .jump_1110
+	jr z, .loop_1110
 	ld a, e
 	ldh [hSpriteLayerPos], a
 	ld a, c
 	ldh [hSpriteTileSpace], a
-.jump_1109:
+.loop_1109:
 	ldh a, [rHDMA5]
 	rlca
-	jr nc, .jump_1109
-.jump_110e:
+	jr nc, .loop_1109
+.done_110e:
 	pop bc
 	ret
 
-.jump_1110:
+.loop_1110:
 	ldh a, [rSTAT]
 	and $02
-	jr nz, .jump_1110
+	jr nz, .loop_1110
 	ldh a, [rHDMA5]
 	rlca
-	jr c, .jump_111e
+	jr c, .done_111e
 	xor a
 	ldh [rHDMA5], a
-.jump_111e:
+.done_111e:
 	pop bc
 	ret
 
-.jump_1120:
+.else_1120:
 	ldh a, [hSpriteX]
 	sub $08
 	ldh [hSpriteX], a
 	ldh a, [hSpriteX + 1]
 	sbc a, $00
 	ldh [hSpriteX + 1], a
-.jump_112c:
+.loop_112c:
 	ldh a, [hSpriteX]
 	sub [hl]
 	ldh [hSpriteX], a
 	ldh a, [hSpriteX + 1]
 	sbc a, $00
 	bit 7, [hl]
-	jr z, .jump_113b
+	jr z, .skip_113b
 	sub $ff
-.jump_113b:
+.skip_113b:
 	ldh [hSpriteX + 1], a
 	inc hl
 	ldh a, [hSpriteY]
@@ -2925,23 +2925,23 @@ DrawSpriteFrame::
 	ldh a, [hSpriteY + 1]
 	adc a, $00
 	bit 7, [hl]
-	jr z, .jump_114d
+	jr z, .skip_114d
 	add a, $ff
-.jump_114d:
+.skip_114d:
 	ldh [hSpriteY + 1], a
 	inc hl
 	or a
-	jr nz, .jump_116f
+	jr nz, .continue_116f
 	ldh a, [hSpriteY]
 	cp $a0
-	jr nc, .jump_116f
+	jr nc, .continue_116f
 	ld [de], a
 	ldh a, [hSpriteX + 1]
 	or a
-	jr nz, .jump_116f
+	jr nz, .continue_116f
 	ldh a, [hSpriteX]
 	cp $a8
-	jr nc, .jump_116f
+	jr nc, .continue_116f
 	inc e
 	ld [de], a
 	inc e
@@ -2951,30 +2951,30 @@ DrawSpriteFrame::
 	ldh a, [hSpriteAttr]
 	ld [de], a
 	inc e
-.jump_116f:
+.continue_116f:
 	inc c
 	inc c
 	dec b
-	jr nz, .jump_112c
-	jp .jump_10fd
+	jr nz, .loop_112c
+	jp .loop_10fd
 
-.jump_1177:
+.else_1177:
 	ldh a, [hSpriteY]
 	sub $10
 	ldh [hSpriteY], a
 	ldh a, [hSpriteY + 1]
 	sbc a, $00
 	ldh [hSpriteY + 1], a
-.jump_1183:
+.loop_1183:
 	ldh a, [hSpriteX]
 	add a, [hl]
 	ldh [hSpriteX], a
 	ldh a, [hSpriteX + 1]
 	adc a, $00
 	bit 7, [hl]
-	jr z, .jump_1192
+	jr z, .skip_1192
 	add a, $ff
-.jump_1192:
+.skip_1192:
 	ldh [hSpriteX + 1], a
 	inc hl
 	ldh a, [hSpriteY]
@@ -2983,23 +2983,23 @@ DrawSpriteFrame::
 	ldh a, [hSpriteY + 1]
 	sbc a, $00
 	bit 7, [hl]
-	jr z, .jump_11a4
+	jr z, .skip_11a4
 	sub $ff
-.jump_11a4:
+.skip_11a4:
 	ldh [hSpriteY + 1], a
 	inc hl
 	or a
-	jr nz, .jump_11c6
+	jr nz, .continue_11c6
 	ldh a, [hSpriteY]
 	cp $a0
-	jr nc, .jump_11c6
+	jr nc, .continue_11c6
 	ld [de], a
 	ldh a, [hSpriteX + 1]
 	or a
-	jr nz, .jump_11c6
+	jr nz, .continue_11c6
 	ldh a, [hSpriteX]
 	cp $a8
-	jr nc, .jump_11c6
+	jr nc, .continue_11c6
 	inc e
 	ld [de], a
 	inc e
@@ -3009,28 +3009,28 @@ DrawSpriteFrame::
 	ldh a, [hSpriteAttr]
 	ld [de], a
 	inc e
-.jump_11c6:
+.continue_11c6:
 	inc c
 	inc c
 	dec b
-	jr nz, .jump_1183
-	jp .jump_10fd
+	jr nz, .loop_1183
+	jp .loop_10fd
 
-.jump_11ce:
+.else_11ce:
 	res 4, a
 	ldh [hSpriteAttr], a
 	bit 5, a
-	jp nz, .jump_1224
-.jump_11d7:
+	jp nz, .else_1224
+.loop_11d7:
 	ldh a, [hSpriteX]
 	add a, [hl]
 	ldh [hSpriteX], a
 	ldh a, [hSpriteX + 1]
 	adc a, $00
 	bit 7, [hl]
-	jr z, .jump_11e6
+	jr z, .skip_11e6
 	add a, $ff
-.jump_11e6:
+.skip_11e6:
 	ldh [hSpriteX + 1], a
 	inc hl
 	ldh a, [hSpriteY]
@@ -3039,23 +3039,23 @@ DrawSpriteFrame::
 	ldh a, [hSpriteY + 1]
 	adc a, $00
 	bit 7, [hl]
-	jr z, .jump_11f8
+	jr z, .skip_11f8
 	add a, $ff
-.jump_11f8:
+.skip_11f8:
 	ldh [hSpriteY + 1], a
 	inc hl
 	or a
-	jr nz, .jump_121b
+	jr nz, .continue_121b
 	ldh a, [hSpriteY]
 	cp $a0
-	jr nc, .jump_121b
+	jr nc, .continue_121b
 	ld [de], a
 	ldh a, [hSpriteX + 1]
 	or a
-	jr nz, .jump_121b
+	jr nz, .continue_121b
 	ldh a, [hSpriteX]
 	cp $a8
-	jr nc, .jump_121b
+	jr nc, .continue_121b
 	inc e
 	ld [de], a
 	inc e
@@ -3066,31 +3066,31 @@ DrawSpriteFrame::
 	add a, [hl]
 	ld [de], a
 	inc e
-.jump_121b:
+.continue_121b:
 	inc hl
 	inc c
 	inc c
 	dec b
-	jr nz, .jump_11d7
-	jp .jump_10fd
+	jr nz, .loop_11d7
+	jp .loop_10fd
 
-.jump_1224:
+.else_1224:
 	ldh a, [hSpriteX]
 	sub $08
 	ldh [hSpriteX], a
 	ldh a, [hSpriteX + 1]
 	sbc a, $00
 	ldh [hSpriteX + 1], a
-.jump_1230:
+.loop_1230:
 	ldh a, [hSpriteX]
 	sub [hl]
 	ldh [hSpriteX], a
 	ldh a, [hSpriteX + 1]
 	sbc a, $00
 	bit 7, [hl]
-	jr z, .jump_123f
+	jr z, .skip_123f
 	sub $ff
-.jump_123f:
+.skip_123f:
 	ldh [hSpriteX + 1], a
 	inc hl
 	ldh a, [hSpriteY]
@@ -3099,23 +3099,23 @@ DrawSpriteFrame::
 	ldh a, [hSpriteY + 1]
 	adc a, $00
 	bit 7, [hl]
-	jr z, .jump_1251
+	jr z, .skip_1251
 	add a, $ff
-.jump_1251:
+.skip_1251:
 	ldh [hSpriteY + 1], a
 	inc hl
 	or a
-	jr nz, .jump_1274
+	jr nz, .continue_1274
 	ldh a, [hSpriteY]
 	cp $a0
-	jr nc, .jump_1274
+	jr nc, .continue_1274
 	ld [de], a
 	ldh a, [hSpriteX + 1]
 	or a
-	jr nz, .jump_1274
+	jr nz, .continue_1274
 	ldh a, [hSpriteX]
 	cp $a8
-	jr nc, .jump_1274
+	jr nc, .continue_1274
 	inc e
 	ld [de], a
 	inc e
@@ -3126,13 +3126,13 @@ DrawSpriteFrame::
 	add a, [hl]
 	ld [de], a
 	inc e
-.jump_1274:
+.continue_1274:
 	inc hl
 	inc c
 	inc c
 	dec b
-	jr nz, .jump_1230
-	jp .jump_10fd
+	jr nz, .loop_1230
+	jp .loop_10fd
 
 
 AnimateObject::
@@ -3151,13 +3151,13 @@ AnimateObject::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-.jump_1295:
+.loop:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
 	ld d, a
 	bit 7, d
-	jr nz, .jump_12b6
+	jr nz, .else_12b6
 	push hl
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
@@ -3178,39 +3178,39 @@ AnimateObject::
 	ld [rROMB0], a
 	ret
 
-.jump_12b6:
+.else_12b6:
 	ld a, d
 	and $7f
-	jr z, .jump_12db
+	jr z, .else_12db
 	dec a
-	jr z, .jump_12ed
+	jr z, .else_12ed
 	dec a
-	jr z, .jump_12e0
+	jr z, .else_12e0
 	dec a
-	jr z, .jump_1301
+	jr z, .else_1301
 	dec a
-	jr z, .jump_1327
+	jr z, .else_1327
 	dec a
-	jr z, .jump_1331
+	jr z, .else_1331
 	dec a
-	jr z, .jump_12f6
+	jr z, .else_12f6
 	dec a
-	jr z, .jump_130b
+	jr z, .else_130b
 	dec a
-	jr z, .jump_1312
+	jr z, .else_1312
 	dec a
-	jr z, .jump_1319
+	jr z, .else_1319
 	dec a
-	jr z, .jump_1320
-	jr .jump_1295
+	jr z, .else_1320
+	jr .loop
 
-.jump_12db:
+.else_12db:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jr .jump_1295
+	jr .loop
 
-.jump_12e0:
+.else_12e0:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -3220,17 +3220,17 @@ AnimateObject::
 	ld l, e
 	call CallHL
 	pop hl
-	jr .jump_1295
+	jr .loop
 
-.jump_12ed:
+.else_12ed:
 	push hl
 	ld hl, wObjects + OBJ_ANIM_SPEED
 	add hl, bc
 	ld [hl], e
 	pop hl
-	jr .jump_1295
+	jr .loop
 
-.jump_12f6:
+.else_12f6:
 	push hl
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
@@ -3238,45 +3238,45 @@ AnimateObject::
 	xor e
 	ld [hl], a
 	pop hl
-	jr .jump_1295
+	jr .loop
 
-.jump_1301:
+.else_1301:
 	push hl
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	res 7, [hl]
 	pop hl
-	jr .jump_1295
+	jr .loop
 
-.jump_130b:
+.else_130b:
 	ld a, e
 	ld [wSFXQueue], a
-	jp .jump_1295
+	jp .loop
 
-.jump_1312:
+.else_1312:
 	ld a, e
 	ld [wSFXQueue + 1], a
-	jp .jump_1295
+	jp .loop
 
-.jump_1319:
+.else_1319:
 	ld a, e
 	ld [wSFXQueue + 2], a
-	jp .jump_1295
+	jp .loop
 
-.jump_1320:
+.else_1320:
 	ld a, e
 	ld [wSFXQueue + 3], a
-	jp .jump_1295
+	jp .loop
 
-.jump_1327:
+.else_1327:
 	push hl
 	ld hl, wObjects + OBJ_ANIM_PARAM
 	add hl, bc
 	ld [hl], e
 	pop hl
-	jp .jump_1295
+	jp .loop
 
-.jump_1331:
+.else_1331:
 	push hl
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
@@ -3288,18 +3288,18 @@ AnimateObject::
 	inc e
 	ld a, [hli]
 	ld [de], a
-	jp .jump_1295
+	jp .loop
 
 
 DrawObject::
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	bit 5, [hl]
-	jr z, .jump_134f
+	jr z, .skip
 	ld a, [wFrameCounter]
 	bit 2, a
 	ret z
-.jump_134f:
+.skip:
 	ld a, [$4000]
 	push af
 	call GetObjectScreenPos
@@ -3315,7 +3315,7 @@ DrawObject::
 	ld a, [hl]
 	ldh [hSpriteFrame + 1], a
 	or e
-	jr z, .jump_138c
+	jr z, .done
 	ld hl, wObjects + OBJ_LAYER
 	add hl, bc
 	ld a, $a2
@@ -3335,7 +3335,7 @@ DrawObject::
 	ld d, $ff
 	ldh a, [hSpriteLayerPos]
 	ld [de], a
-.jump_138c:
+.done:
 	pop af
 	ld [rROMB0], a
 	ret
@@ -3371,7 +3371,7 @@ HUD_DrawBananas::
 	ld a, [wBananas]
 	swap a
 	and $0f
-	jr z, .jump_13d2
+	jr z, .continue
 	add a, a
 	add a, $60
 	ld [hli], a
@@ -3382,7 +3382,7 @@ HUD_DrawBananas::
 	ldh a, [hSpriteX]
 	add a, $12
 	ld [hli], a
-.jump_13d2:
+.continue:
 	ld a, [wBananas]
 	and $0f
 	add a, a
@@ -3432,7 +3432,7 @@ HUD_DrawLives::
 	ld [hli], a
 	ld a, [wLives]
 	cp $ff
-	jr z, .jump_144a
+	jr z, .done
 	ldh a, [hSpriteY]
 	ld [hli], a
 	ldh a, [hSpriteX]
@@ -3441,7 +3441,7 @@ HUD_DrawLives::
 	ld a, [wLives]
 	swap a
 	and $0f
-	jr z, .jump_143f
+	jr z, .continue
 	add a, a
 	add a, $60
 	ld [hli], a
@@ -3452,7 +3452,7 @@ HUD_DrawLives::
 	ldh a, [hSpriteX]
 	add a, $1b
 	ld [hli], a
-.jump_143f:
+.continue:
 	ld a, [wLives]
 	and $0f
 	add a, a
@@ -3460,7 +3460,7 @@ HUD_DrawLives::
 	ld [hli], a
 	xor a
 	ld [hli], a
-.jump_144a:
+.done:
 	ld a, l
 	ldh [hSpriteLayerFill], a
 	ret
@@ -3489,24 +3489,24 @@ HUD_DrawItems::
 	swap a
 	and $0f
 	cp $04
-	jp c, .jump_1504
+	jp c, .else_1504
 	sub $04
-	jr z, .jump_148a
+	jr z, .else_148a
 	dec a
-	jp z, .jump_153a
+	jp z, .else_153a
 	dec a
-	jp z, .jump_153a
+	jp z, .else_153a
 	pop af
 	ld [rROMB0], a
 	ret
 
-.jump_148a:
+.else_148a:
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	ldh [hScratch2], a
 	bit 0, a
-	jr z, .jump_14ac
+	jr z, .continue_14ac
 	ld a, $38
 	ldh [hSpriteX], a
 	ldh a, [hSpriteY]
@@ -3518,9 +3518,9 @@ HUD_DrawItems::
 	ldh [hSpriteFrame + 1], a
 	call DrawSpriteFrame
 	ldh a, [hScratch2]
-.jump_14ac:
+.continue_14ac:
 	bit 1, a
-	jr z, .jump_14c7
+	jr z, .continue_14c7
 	ld a, $4c
 	ldh [hSpriteX], a
 	ldh a, [hSpriteY]
@@ -3532,9 +3532,9 @@ HUD_DrawItems::
 	ldh [hSpriteFrame + 1], a
 	call DrawSpriteFrame
 	ldh a, [hScratch2]
-.jump_14c7:
+.continue_14c7:
 	bit 2, a
-	jr z, .jump_14e2
+	jr z, .continue_14e2
 	ld a, $60
 	ldh [hSpriteX], a
 	ldh a, [hSpriteY]
@@ -3546,9 +3546,9 @@ HUD_DrawItems::
 	ldh [hSpriteFrame + 1], a
 	call DrawSpriteFrame
 	ldh a, [hScratch2]
-.jump_14e2:
+.continue_14e2:
 	bit 3, a
-	jr z, .jump_14fb
+	jr z, .done_14fb
 	ld a, $74
 	ldh [hSpriteX], a
 	ldh a, [hSpriteY]
@@ -3559,14 +3559,14 @@ HUD_DrawItems::
 	ld a, $4b
 	ldh [hSpriteFrame + 1], a
 	call DrawSpriteFrame
-.jump_14fb:
+.done_14fb:
 	ldh a, [hSpriteLayerPos]
 	ldh [hSpriteLayerFill], a
 	pop af
 	ld [rROMB0], a
 	ret
 
-.jump_1504:
+.else_1504:
 	ld a, $42
 	ldh [hSpriteX], a
 	ld hl, wObjects + OBJ_VAR_2F
@@ -3574,14 +3574,14 @@ HUD_DrawItems::
 	ld a, [hl]
 	ldh [hScratch2], a
 	or a
-	jr z, .jump_1535
+	jr z, .done_1535
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, [hli]
 	ldh [hSpriteFrame], a
 	ld a, [hli]
 	ldh [hSpriteFrame + 1], a
-.jump_151c:
+.loop:
 	ldh a, [hSpriteY]
 	add a, $08
 	ldh [hSpriteY], a
@@ -3591,15 +3591,15 @@ HUD_DrawItems::
 	ldh [hSpriteX], a
 	ld hl, hScratch2
 	dec [hl]
-	jr nz, .jump_151c
+	jr nz, .loop
 	ldh a, [hSpriteLayerPos]
 	ldh [hSpriteLayerFill], a
-.jump_1535:
+.done_1535:
 	pop af
 	ld [rROMB0], a
 	ret
 
-.jump_153a:
+.else_153a:
 	ldh a, [hSpriteY]
 	add a, $08
 	ldh [hSpriteY], a
@@ -3625,7 +3625,7 @@ HUD_DrawItems::
 	ldh a, [hSpriteLayerPos]
 	ld l, a
 	rlca
-	jr c, .jump_1590
+	jr c, .done_1590
 	ldh a, [hSpriteY]
 	ld [hli], a
 	ld a, $70
@@ -3633,7 +3633,7 @@ HUD_DrawItems::
 	ld a, e
 	swap a
 	and $0f
-	jr z, .jump_1587
+	jr z, .continue_1587
 	add a, a
 	add a, $60
 	ld [hli], a
@@ -3641,12 +3641,12 @@ HUD_DrawItems::
 	ld [hli], a
 	ld a, l
 	rlca
-	jr c, .jump_1590
+	jr c, .done_1590
 	ldh a, [hSpriteY]
 	ld [hli], a
 	ld a, $78
 	ld [hli], a
-.jump_1587:
+.continue_1587:
 	ld a, e
 	and $0f
 	add a, a
@@ -3654,7 +3654,7 @@ HUD_DrawItems::
 	ld [hli], a
 	xor a
 	ld [hli], a
-.jump_1590:
+.done_1590:
 	ld a, l
 	ldh [hSpriteLayerFill], a
 	pop af
@@ -3705,13 +3705,13 @@ CheckObjectOnScreen::
 	ret z
 	or a
 	ld a, e
-	jr nz, .jump_15d8
+	jr nz, .skip_15d8
 	cp $a0
-	jr c, .jump_15dc
-.jump_15d8:
+	jr c, .skip_15dc
+.skip_15d8:
 	and $0f
 	add a, $a0
-.jump_15dc:
+.skip_15dc:
 	ldh [hSpriteY], a
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
@@ -3720,9 +3720,9 @@ CheckObjectOnScreen::
 	ld h, $c7
 	ldh a, [hSpriteLayerFill + 2]
 	ld l, a
-.jump_15ea:
+.loop:
 	bit 7, l
-	jr nz, .jump_1600
+	jr nz, .done
 	ldh a, [hSpriteY]
 	ld [hli], a
 	sub $10
@@ -3733,8 +3733,8 @@ CheckObjectOnScreen::
 	ld [hli], a
 	ldh a, [hSpriteAttr]
 	ld [hli], a
-	jr nc, .jump_15ea
-.jump_1600:
+	jr nc, .loop
+.done:
 	ld a, l
 	ldh [hSpriteLayerFill + 2], a
 	ret
@@ -3835,7 +3835,7 @@ InitObjectSlots::
 	ld d, $1f
 	ld a, d
 	ld [wObjectFreeCount], a
-.jump_1689:
+.loop:
 	ld a, c
 	ld [hli], a
 	add a, $40
@@ -3845,7 +3845,7 @@ InitObjectSlots::
 	adc a, $00
 	ld b, a
 	dec d
-	jr nz, .jump_1689
+	jr nz, .loop
 	xor a
 	ld hl, wPlayer + OBJ_FLAGS
 	ld bc, $0800
@@ -3860,14 +3860,14 @@ InitObjectSlots::
 BuildSpawnGrid::
 	ldh a, [hMapFlags]
 	rrca
-	jr c, .jump_16dd
+	jr c, .else
 	ld de, sLevelObjects
-.jump_16b3:
+.loop_16b3:
 	ld a, [de]
 	or a
-	jr z, .jump_16d7
+	jr z, .continue_16d7
 	bit 6, a
-	jr nz, .jump_16d7
+	jr nz, .continue_16d7
 	inc d
 	ld a, [de]
 	inc d
@@ -3883,27 +3883,27 @@ BuildSpawnGrid::
 	ld a, l
 	and $f0
 	ld l, a
-.jump_16cf:
+.loop_16cf:
 	ld a, [hli]
 	res 3, h
 	or a
-	jr nz, .jump_16cf
+	jr nz, .loop_16cf
 	dec hl
 	ld [hl], e
-.jump_16d7:
+.continue_16d7:
 	ld d, $a8
 	inc e
-	jr nz, .jump_16b3
+	jr nz, .loop_16b3
 	ret
 
-.jump_16dd:
+.else:
 	ld de, sLevelObjects
-.jump_16e0:
+.loop_16e0:
 	ld a, [de]
 	or a
-	jr z, .jump_170f
+	jr z, .continue_170f
 	bit 6, a
-	jr nz, .jump_170f
+	jr nz, .continue_170f
 	inc d
 	ld a, [de]
 	inc d
@@ -3928,17 +3928,17 @@ BuildSpawnGrid::
 	rr l
 	or $a0
 	ld h, a
-.jump_1707:
+.loop_1707:
 	ld a, [hli]
 	res 3, h
 	or a
-	jr nz, .jump_1707
+	jr nz, .loop_1707
 	dec hl
 	ld [hl], e
-.jump_170f:
+.continue_170f:
 	ld d, $a8
 	inc e
-	jr nz, .jump_16e0
+	jr nz, .loop_16e0
 	ret
 
 
@@ -3947,57 +3947,57 @@ LoadLevelObjects::
 	ldh [rSVBK], a
 	ld h, d
 	ld l, e
-.jump_171b:
+.loop_171b:
 	ld a, [hli]
 	or a
-	jr z, .jump_1740
+	jr z, .else
 	ld e, a
 	ld d, $a8
 	ld c, $07
-.jump_1724:
+.loop_1724:
 	ld a, [hli]
 	ld [de], a
 	inc d
 	dec c
-	jr nz, .jump_1724
+	jr nz, .loop_1724
 	ld d, $a8
 	ld a, [de]
 	and $30
 	cp $10
-	jr nz, .jump_171b
+	jr nz, .loop_171b
 	push hl
 	call GetLevelObjStringSlot
-.jump_1737:
+.loop_1737:
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	or a
-	jr nz, .jump_1737
+	jr nz, .loop_1737
 	pop hl
-	jr .jump_171b
+	jr .loop_171b
 
-.jump_1740:
+.else:
 	ld a, $03
 	ld [rROMB0], a
 	ld e, $00
-.jump_1747:
+.loop_1747:
 	inc e
 	ret z
 	ld d, $a8
 	ld a, [de]
 	bit 7, a
-	jr z, .jump_1747
+	jr z, .loop_1747
 	and $30
-	jr nz, .jump_1747
+	jr nz, .loop_1747
 	call GetLevelObjStringSlot
-.jump_1757:
+.loop_1757:
 	ld a, [bc]
 	ld [hli], a
 	inc c
 	ld a, c
 	and $0f
-	jr nz, .jump_1757
-	jr .jump_1747
+	jr nz, .loop_1757
+	jr .loop_1747
 
 
 GetLevelObjStringSlot::
@@ -4022,7 +4022,7 @@ GetLevelObjStringSlot::
 	ld [de], a
 	ret
 
-.jump_1778:
+.pop_and_spawn:
 	pop hl
 
 SpawnLevelObjects::
@@ -4038,7 +4038,7 @@ SpawnLevelObjects::
 	inc d
 	push hl
 	bit 6, a
-	jr nz, .jump_17e0
+	jr nz, .skip
 	ld a, [de]
 	ld c, a
 	inc d
@@ -4051,13 +4051,13 @@ SpawnLevelObjects::
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr nc, GetLevelObjStringSlot.jump_1778
+	jr nc, GetLevelObjStringSlot.pop_and_spawn
 	ld a, [hli]
 	sub c
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr c, GetLevelObjStringSlot.jump_1778
+	jr c, GetLevelObjStringSlot.pop_and_spawn
 	ld a, [de]
 	ld c, a
 	inc d
@@ -4070,25 +4070,25 @@ SpawnLevelObjects::
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr nc, GetLevelObjStringSlot.jump_1778
+	jr nc, GetLevelObjStringSlot.pop_and_spawn
 	ld a, [hli]
 	sub c
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr c, GetLevelObjStringSlot.jump_1778
+	jr c, GetLevelObjStringSlot.pop_and_spawn
 	ld hl, wSpawnRangeY
 	ld a, [hli]
 	sub c
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr nc, .jump_17e0
+	jr nc, .skip
 	ld a, [hli]
 	sub c
 	ld a, [hli]
 	sbc a, b
-	jr c, .jump_17e0
+	jr c, .skip
 	ld d, $a9
 	ld a, [de]
 	ld c, a
@@ -4101,15 +4101,15 @@ SpawnLevelObjects::
 	ld a, [hli]
 	sbc a, b
 	rlca
-	jr nc, .jump_17e0
+	jr nc, .skip
 	ld a, [hli]
 	sub c
 	ld a, [hli]
 	sbc a, b
-	jr nc, GetLevelObjStringSlot.jump_1778
-.jump_17e0:
+	jr nc, GetLevelObjStringSlot.pop_and_spawn
+.skip:
 	call AllocObject
-	jr c, GetLevelObjStringSlot.jump_1778
+	jr c, GetLevelObjStringSlot.pop_and_spawn
 	ld d, $a9
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
@@ -4145,21 +4145,21 @@ SpawnLevelObjects::
 	or $01
 	ld [de], a
 	and $30
-	jr z, .jump_1823
+	jr z, .else_1823
 	cp $10
-	jr z, .jump_1828
+	jr z, .else_1828
 	ld a, $0e
 	ld [rROMB0], a
 	call InitObject
-	jr .jump_182b
+	jr .continue
 
-.jump_1823:
+.else_1823:
 	call SpawnBananaString
-	jr .jump_182b
+	jr .continue
 
-.jump_1828:
+.else_1828:
 	call SpawnObjectGroup
-.jump_182b:
+.continue:
 	pop hl
 	jp SpawnLevelObjects
 
@@ -4211,17 +4211,17 @@ SpawnObjectGroup::
 	push de
 	ld a, $04
 	ldh [rSVBK], a
-.jump_1873:
+.loop:
 	ld a, [de]
 	or a
-	jr z, .jump_187e
+	jr z, .else
 	inc de
 	ld l, a
 	ld h, $af
 	inc [hl]
-	jr .jump_1873
+	jr .loop
 
-.jump_187e:
+.else:
 	pop hl
 	call SpawnLevelObjects
 	ret
@@ -4236,23 +4236,23 @@ ObjInit_00_1883::
 ApplyObjInit::
 	ld de, $0000
 	push de
-.jump_188f:
+.loop_188f:
 	ld a, $c8
 	add a, b
 	ld d, a
-.jump_1893:
+.loop_1893:
 	ld a, [hli]
 	bit 7, a
-	jr nz, .jump_18ad
+	jr nz, .else_18ad
 	bit 6, a
-	jr nz, .jump_18a2
+	jr nz, .else_18a2
 	add a, c
 	ld e, a
 	ld a, [hli]
 	ld [de], a
-	jr .jump_1893
+	jr .loop_1893
 
-.jump_18a2:
+.else_18a2:
 	and $3f
 	add a, c
 	ld e, a
@@ -4261,18 +4261,18 @@ ApplyObjInit::
 	inc e
 	ld a, [hli]
 	ld [de], a
-	jr .jump_1893
+	jr .loop_1893
 
-.jump_18ad:
+.else_18ad:
 	cp $80
-	jr z, .jump_18b7
+	jr z, .else_18b7
 	pop hl
 	ld a, l
 	or h
-	jr nz, .jump_1893
+	jr nz, .loop_1893
 	ret
 
-.jump_18b7:
+.else_18b7:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -4280,17 +4280,17 @@ ApplyObjInit::
 	push hl
 	ld h, d
 	ld l, e
-	jr .jump_188f
+	jr .loop_188f
 
 
 AllocObject::
 	ld a, [wObjectFreeCount]
 	or a
-	jr nz, .jump_18c8
+	jr nz, .else
 	scf
 	ret
 
-.jump_18c8:
+.else:
 	dec a
 	ld [wObjectFreeCount], a
 	add a, a
@@ -4305,10 +4305,10 @@ AllocObject::
 	add hl, bc
 	ld c, $40
 	xor a
-.jump_18dd:
+.loop:
 	ld [hli], a
 	dec c
-	jr nz, .jump_18dd
+	jr nz, .loop
 	pop bc
 	xor a
 	ret
@@ -4326,7 +4326,7 @@ MarkObjectSpawnDone::
 
 DeleteObjectForGood::
 	call MarkObjectSpawnDone
-	jr DeleteObject.jump_18fe
+	jr DeleteObject.delete
 
 
 DeleteObject::
@@ -4335,18 +4335,18 @@ DeleteObject::
 	ld l, [hl]
 	ld h, $a8
 	res 0, [hl]
-.jump_18fe:
+.delete:
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
 	and $04
-	jr z, .jump_190f
+	jr z, .skip
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
 	ld l, [hl]
 	ld h, $af
 	dec [hl]
-.jump_190f:
+.skip:
 	xor a
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -4375,7 +4375,7 @@ UpdateSpawnWindow::
 	ld a, [wLevelKind]
 	and $0f
 	cp $07
-	jp z, .jump_1992
+	jp z, .else
 	ld hl, wSpawnRangeX
 	ldh a, [hCameraX]
 	ld e, a
@@ -4434,7 +4434,7 @@ UpdateSpawnWindow::
 	ld [hli], a
 	ret
 
-.jump_1992:
+.else:
 	ld hl, wSpawnRangeX
 	ldh a, [hCameraX]
 	ld e, a
@@ -4497,7 +4497,7 @@ UpdateSpawnWindow::
 SpawnObjectsOnScroll::
 	ldh a, [hMapFlags]
 	rrca
-	jr c, .jump_1a15
+	jr c, .else
 	ld a, [wDespawnRangeX]
 	ld h, a
 	ld a, [wDespawnRangeX + 1]
@@ -4512,7 +4512,7 @@ SpawnObjectsOnScroll::
 	and $f0
 	ld l, a
 	ld c, $05
-.jump_1a04:
+.loop_1a04:
 	push bc
 	push hl
 	call SpawnLevelObjects
@@ -4522,10 +4522,10 @@ SpawnObjectsOnScroll::
 	res 3, h
 	pop bc
 	dec c
-	jr nz, .jump_1a04
+	jr nz, .loop_1a04
 	ret
 
-.jump_1a15:
+.else:
 	ld a, [wDespawnRangeX]
 	ld h, a
 	ld a, [wDespawnRangeX + 1]
@@ -4542,10 +4542,10 @@ SpawnObjectsOnScroll::
 	and $f0
 	ld l, a
 	ld bc, $0504
-.jump_1a34:
+.loop_1a34:
 	push bc
 	push hl
-.jump_1a36:
+.loop_1a36:
 	push bc
 	push hl
 	ld a, h
@@ -4561,7 +4561,7 @@ SpawnObjectsOnScroll::
 	ld h, a
 	pop bc
 	dec c
-	jr nz, .jump_1a36
+	jr nz, .loop_1a36
 	pop hl
 	ld a, l
 	add a, $10
@@ -4569,7 +4569,7 @@ SpawnObjectsOnScroll::
 	ld l, a
 	pop bc
 	dec b
-	jr nz, .jump_1a34
+	jr nz, .loop_1a34
 	ret
 
 
@@ -4586,9 +4586,9 @@ State_WorldMapInit::
 	ld hl, wMapFlags
 	ld a, $0f
 	bit 7, [hl]
-	jr z, .jump_1a73
+	jr z, .skip
 	ld a, $14
-.jump_1a73:
+.skip:
 	call PlaySong
 	ld a, $41
 	ld [rROMB0], a
@@ -4652,12 +4652,12 @@ State_WorldMapInit::
 	ld d, a
 	push hl
 	ld hl, wRasterTable
-.jump_1aee:
+.loop:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	cp $ff
-	jr nz, .jump_1aee
+	jr nz, .loop
 	pop hl
 	ld a, [hli]
 	ld e, a
@@ -4717,45 +4717,45 @@ State_WorldMapLook::
 	call UpdateWorldMapSprites
 	ld hl, wMapFlags
 	bit 6, [hl]
-	jp nz, WorldMap_ReadNode.jump_1e0a
+	jp nz, WorldMap_ReadNode.newly_cleared
 	ldh a, [hJoyHeld]
 	bit 2, a
-	jr z, .jump_1b97
+	jr z, .else_1b97
 	bit 5, a
-	jr z, .jump_1b80
+	jr z, .else_1b80
 	ld a, [wMapScrollX]
 	sub $03
-	jr nc, .jump_1b7b
+	jr nc, .skip_1b7b
 	xor a
-.jump_1b7b:
+.skip_1b7b:
 	ld [wMapScrollX], a
-	jr .jump_1b93
+	jr .continue
 
-.jump_1b80:
+.else_1b80:
 	bit 4, a
-	jr z, .jump_1b93
+	jr z, .continue
 	ld hl, wMapScrollMax
 	ld a, [wMapScrollX]
 	add a, $03
 	cp [hl]
-	jr c, .jump_1b90
+	jr c, .skip_1b90
 	ld a, [hl]
-.jump_1b90:
+.skip_1b90:
 	ld [wMapScrollX], a
-.jump_1b93:
+.continue:
 	call GetWorldMapColumnToDraw
 	ret
 
-.jump_1b97:
+.else_1b97:
 	call WorldMapFrameTasks
 	call UpdateWorldMapScroll
 	call GetWorldMapColumnToDraw
 	ldh a, [hJoyHeld]
 	and $09
-	jp nz, WorldMap_ReadNode.jump_1d55
+	jp nz, WorldMap_ReadNode.from_node
 	ldh a, [hJoyHeld]
 	and $f0
-	jp nz, WorldMap_ReadNode.jump_1dc2
+	jp nz, WorldMap_ReadNode.check_node
 	ret
 
 
@@ -4773,7 +4773,7 @@ State_WorldMapWalk::
 	ld d, a
 	ld a, [de]
 	cp $ff
-	jp z, .jump_1c6e
+	jp z, .done_1c6e
 	ld [wMapNode], a
 	ld l, a
 	ld h, $00
@@ -4816,10 +4816,10 @@ State_WorldMapWalk::
 	ld b, a
 	ld hl, wMapFlags
 	bit 7, [hl]
-	jr z, .jump_1c18
+	jr z, .skip_1c18
 	sla e
 	rl d
-.jump_1c18:
+.skip_1c18:
 	sla e
 	rl d
 	sla e
@@ -4829,10 +4829,10 @@ State_WorldMapWalk::
 	sla e
 	rl d
 	bit 7, [hl]
-	jr z, .jump_1c30
+	jr z, .skip_1c30
 	sla c
 	rl b
-.jump_1c30:
+.skip_1c30:
 	sla c
 	rl b
 	sla c
@@ -4852,21 +4852,21 @@ State_WorldMapWalk::
 	ld hl, wMapKongFlags
 	res 1, [hl]
 	bit 7, d
-	jr z, .jump_1c5b
+	jr z, .skip_1c5b
 	set 1, [hl]
-.jump_1c5b:
+.skip_1c5b:
 	ld hl, wMapFlags
 	ld a, $10
 	bit 7, [hl]
-	jr z, .jump_1c66
+	jr z, .done_1c66
 	ld a, $08
-.jump_1c66:
+.done_1c66:
 	ld [wMapStepFrames], a
 	ld a, $3a
 	ldh [hGameState], a
 	ret
 
-.jump_1c6e:
+.done_1c6e:
 	ld a, $49
 	ldh [hGameState], a
 	ret
@@ -4899,9 +4899,9 @@ AddSignedWordTo24::
 	ld d, a
 	ld b, $00
 	rlca
-	jr nc, .jump_1ca7
+	jr nc, .skip
 	dec b
-.jump_1ca7:
+.skip:
 	ld a, [hl]
 	add a, e
 	ld [hli], a
@@ -4959,15 +4959,15 @@ WorldMapLCDHandler::
 	ld h, $c5
 	ld a, [hli]
 	or a
-	jr nz, .jump_1d03
+	jr nz, .else
 	ld a, [hli]
 	call hOAMDMA
 	ldh a, [rLCDC]
 	set 2, a
 	ldh [rLCDC], a
-	jr .jump_1d26
+	jr .done
 
-.jump_1d03:
+.else:
 	push bc
 	ld c, $68
 	ld a, [hli]
@@ -4977,10 +4977,10 @@ WorldMapLCDHandler::
 	ld h, $c2
 	ld l, a
 	inc c
-.jump_1d0e:
+.loop:
 	ldh a, [rSTAT]
 	and $03
-	jr nz, .jump_1d0e
+	jr nz, .loop
 	ld a, [hli]
 	ldh [c], a
 	ld a, [hli]
@@ -4999,7 +4999,7 @@ WorldMapLCDHandler::
 	ldh [c], a
 	pop hl
 	pop bc
-.jump_1d26:
+.done:
 	ld a, [hli]
 	ldh [rLYC], a
 	ld a, l
@@ -5032,7 +5032,7 @@ WorldMap_ReadNode::
 	ld [wMapKongY + 1], a
 	ret
 
-.jump_1d55:
+.from_node:
 	ld a, [wMapNodes]
 	ld l, a
 	ld a, [wMapNodes + 1]
@@ -5061,19 +5061,19 @@ WorldMap_ReadNode::
 	or a
 	ret z
 	dec a
-	jr z, .jump_1d8d
+	jr z, .else_1d8d
 	dec a
-	jr z, .jump_1d9c
+	jr z, .else_1d9c
 	dec a
 	dec a
-	jr z, .jump_1da6
+	jr z, .else_1da6
 	dec a
-	jr z, .jump_1d9c
+	jr z, .else_1d9c
 	dec a
-	jr z, .jump_1db6
+	jr z, .else_1db6
 	ret
 
-.jump_1d8d:
+.else_1d8d:
 	ld a, e
 	ld [wLevel], a
 	ld hl, wMapFlags
@@ -5081,13 +5081,13 @@ WorldMap_ReadNode::
 	ld de, Flow_0d_5f96
 	jp SetFlowPointer
 
-.jump_1d9c:
+.else_1d9c:
 	ld a, e
 	ld [wMapLocation], a
 	ld de, Flow_0d_5f90
 	jp SetFlowPointer
 
-.jump_1da6:
+.else_1da6:
 	ld a, e
 	ld [wLevel], a
 	ld hl, wMapFlags
@@ -5097,7 +5097,7 @@ WorldMap_ReadNode::
 
 .unreached_1db5:
 	db $c9 ; ret, never reached
-.jump_1db6:
+.else_1db6:
 	ld a, e
 	or a
 	ret z
@@ -5105,7 +5105,7 @@ WorldMap_ReadNode::
 	ld de, Flow_0d_5fbe
 	jp SetFlowPointer
 
-.jump_1dc2:
+.check_node:
 	ld e, a
 	ld a, [wMapNode]
 	ld l, a
@@ -5134,15 +5134,15 @@ WorldMap_ReadNode::
 	ld bc, $0002
 	ld a, e
 	rla
-	jr c, .jump_1df8
+	jr c, .skip
 	add hl, bc
 	rla
-	jr c, .jump_1df8
+	jr c, .skip
 	add hl, bc
 	rla
-	jr c, .jump_1df8
+	jr c, .skip
 	add hl, bc
-.jump_1df8:
+.skip:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -5156,7 +5156,7 @@ WorldMap_ReadNode::
 	ldh [hGameState], a
 	ret
 
-.jump_1e0a:
+.newly_cleared:
 	res 6, [hl]
 	ld a, [wMapNode]
 	ld l, a
@@ -5209,7 +5209,7 @@ DrawWorldMapColumn::
 	push de
 	push hl
 	ld c, $12
-.jump_1e5c:
+.loop_1e5c:
 	ld a, [hli]
 	ld [de], a
 	ld a, e
@@ -5219,7 +5219,7 @@ DrawWorldMapColumn::
 	adc a, $00
 	ld d, a
 	dec c
-	jr nz, .jump_1e5c
+	jr nz, .loop_1e5c
 	pop hl
 	ld de, $0020
 	add hl, de
@@ -5227,7 +5227,7 @@ DrawWorldMapColumn::
 	ld a, $01
 	ldh [rVBK], a
 	ld c, $12
-.jump_1e75:
+.loop_1e75:
 	ld a, [hli]
 	ld [de], a
 	ld a, e
@@ -5237,7 +5237,7 @@ DrawWorldMapColumn::
 	adc a, $00
 	ld d, a
 	dec c
-	jr nz, .jump_1e75
+	jr nz, .loop_1e75
 	ret
 
 
@@ -5247,7 +5247,7 @@ GetWorldMapColumnToDraw::
 	cp [hl]
 	ret z
 	ld [hl], a
-	jr c, .jump_1e99
+	jr c, .done
 	rrca
 	rrca
 	rrca
@@ -5256,7 +5256,7 @@ GetWorldMapColumnToDraw::
 	ld [wMapColumnToDraw], a
 	ret
 
-.jump_1e99:
+.done:
 	rrca
 	rrca
 	rrca
@@ -5268,12 +5268,12 @@ GetWorldMapColumnToDraw::
 
 InitWorldMapGraphics::
 	ld a, $08
-.jump_1ea6:
+.loop:
 	push af
 	call AnimateWorldMapTiles
 	pop af
 	dec a
-	jr nz, .jump_1ea6
+	jr nz, .loop
 	ld b, $41
 	ld de, $5220
 	ld hl, $0400
@@ -5301,9 +5301,9 @@ AnimateWorldMapTiles::
 	and $07
 	cp $04
 	ld a, c
-	jr c, .jump_1ed8
+	jr c, .skip
 	and $30
-.jump_1ed8:
+.skip:
 	and $70
 	ld e, a
 	ld d, $00
@@ -5359,10 +5359,10 @@ DrawWorldMapScreen::
 	rra
 	ld e, a
 	ld bc, $2000
-.jump_1f38:
+.loop_1f38:
 	push bc
 	push hl
-.jump_1f3a:
+.loop_1f3a:
 	ld a, e
 	and $1f
 	or $c0
@@ -5386,7 +5386,7 @@ DrawWorldMapScreen::
 	ld h, a
 	inc e
 	dec b
-	jr nz, .jump_1f3a
+	jr nz, .loop_1f3a
 	ld l, c
 	ld h, $00
 	add hl, hl
@@ -5415,7 +5415,7 @@ DrawWorldMapScreen::
 	inc c
 	ld a, $12
 	cp c
-	jr nz, .jump_1f38
+	jr nz, .loop_1f38
 	ret
 
 
@@ -5428,19 +5428,19 @@ CopyWorldTileMap::
 	ld c, a
 	ld b, $12
 	ld hl, wWRAMX
-.jump_1f97:
+.loop_1f97:
 	push bc
-.jump_1f98:
+.loop_1f98:
 	ld a, [de]
 	inc de
 	ld [hli], a
 	dec b
-	jr nz, .jump_1f98
+	jr nz, .loop_1f98
 	ld bc, $000e
 	add hl, bc
 	pop bc
 	dec c
-	jr nz, .jump_1f97
+	jr nz, .loop_1f97
 	ret
 
 
@@ -5452,19 +5452,19 @@ GetWorldMapScrollTarget::
 	sbc a, $00
 	ld d, a
 	rlca
-	jr nc, .jump_1fba
+	jr nc, .else_1fba
 	ld de, $0000
 	ret
 
-.jump_1fba:
+.else_1fba:
 	ld hl, wMapScrollMax
 	or a
-	jr z, .jump_1fc4
+	jr z, .else_1fc4
 	ld e, [hl]
 	ld d, $00
 	ret
 
-.jump_1fc4:
+.else_1fc4:
 	ld a, e
 	cp [hl]
 	ret c
@@ -5490,18 +5490,18 @@ UpdateWorldMapScroll::
 	sra e
 	ld a, e
 	bit 7, d
-	jr nz, .jump_1fef
+	jr nz, .else
 	inc a
 	cp $07
-	jr c, .jump_1ff5
+	jr c, .done
 	ld a, $07
-	jr .jump_1ff5
+	jr .done
 
-.jump_1fef:
+.else:
 	cp $f9
-	jr nc, .jump_1ff5
+	jr nc, .done
 	ld a, $f9
-.jump_1ff5:
+.done:
 	ld e, a
 	ld a, [wMapScrollX]
 	add a, e
@@ -5538,9 +5538,9 @@ WorldMap_UpdateNodeSong::
 	ld h, $c9
 	ld a, $0b
 	bit 0, [hl]
-	jr z, .jump_2032
+	jr z, .skip
 	ld a, $08
-.jump_2032:
+.skip:
 	ldh [hSpriteAttr], a
 	ld hl, $4a5a
 	add hl, bc
@@ -5562,17 +5562,17 @@ WorldMap_UpdateNodeSong::
 	ld d, a
 	ld bc, $1400
 	ld hl, wShadowOAM
-.jump_2058:
+.loop_2058:
 	ld a, [de]
 	inc de
 	or a
-	jr z, .jump_209f
+	jr z, .else_209f
 	cp $20
-	jr z, .jump_2076
+	jr z, .continue
 	cp $0c
-	jr z, .jump_2058
+	jr z, .loop_2058
 	cp $0d
-	jr z, .jump_207c
+	jr z, .else_207c
 	ld [hl], b
 	inc hl
 	ld [hl], c
@@ -5583,13 +5583,13 @@ WorldMap_UpdateNodeSong::
 	ld [hli], a
 	ldh a, [hSpriteAttr]
 	ld [hli], a
-.jump_2076:
+.continue:
 	ld a, $08
 	add a, c
 	ld c, a
-	jr .jump_2058
+	jr .loop_2058
 
-.jump_207c:
+.else_207c:
 	ld a, $a0
 	sub c
 	srl a
@@ -5599,19 +5599,19 @@ WorldMap_UpdateNodeSong::
 	dec hl
 	dec hl
 	dec hl
-.jump_2088:
+.loop_2088:
 	ld a, [hl]
 	or a
-	jr z, .jump_2094
+	jr z, .else_2094
 	add a, c
 	ld [hl], a
 	dec hl
 	dec hl
 	dec hl
 	dec hl
-	jr .jump_2088
+	jr .loop_2088
 
-.jump_2094:
+.else_2094:
 	add a, c
 	ld [hl], a
 	pop hl
@@ -5619,22 +5619,22 @@ WorldMap_UpdateNodeSong::
 	add a, b
 	ld b, a
 	ld c, $00
-	jr .jump_2058
+	jr .loop_2058
 
-.jump_209f:
+.else_209f:
 	ld a, $a0
 	sub l
 	ld b, a
 	srl b
 	srl b
 	xor a
-.jump_20a8:
+.loop_20a8:
 	ld [hli], a
 	inc l
 	inc l
 	inc l
 	dec b
-	jr nz, .jump_20a8
+	jr nz, .loop_20a8
 	ld a, $05
 	ld [rROMB0], a
 	ret
@@ -5653,13 +5653,13 @@ UpdateWorldMapSprites::
 	call WorldMap_DrawCursor
 	call WorldMap_DrawShopSign
 	ld a, l
-.jump_20d3:
+.loop:
 	cp $a0
 	ret nc
 	ld [hl], $00
 	add a, $04
 	ld l, a
-	jr .jump_20d3
+	jr .loop
 
 
 UpdateCameraRegion::
@@ -5671,7 +5671,7 @@ UpdateCameraRegion::
 	ld a, [wCameraRegion + 1]
 	ld d, a
 	ld h, a
-.jump_20ec:
+.loop:
 	inc l
 	inc l
 	ld a, [wPlayer + OBJ_X]
@@ -5679,7 +5679,7 @@ UpdateCameraRegion::
 	inc l
 	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
-	jr c, .jump_2125
+	jr c, .else_2125
 	inc l
 	inc l
 	inc l
@@ -5688,7 +5688,7 @@ UpdateCameraRegion::
 	inc l
 	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
-	jr nc, .jump_2125
+	jr nc, .else_2125
 	inc l
 	inc l
 	inc l
@@ -5697,7 +5697,7 @@ UpdateCameraRegion::
 	inc l
 	ld a, [wPlayer + OBJ_Y + 1]
 	sbc a, [hl]
-	jr c, .jump_2125
+	jr c, .else_2125
 	inc l
 	inc l
 	inc l
@@ -5706,17 +5706,17 @@ UpdateCameraRegion::
 	inc l
 	ld a, [wPlayer + OBJ_Y + 1]
 	sbc a, [hl]
-	jr nc, .jump_2125
-	jr .jump_212d
+	jr nc, .else_2125
+	jr .else_212d
 
-.jump_2125:
+.else_2125:
 	ld hl, $0010
 	add hl, de
 	ld d, h
 	ld e, l
-	jr .jump_20ec
+	jr .loop
 
-.jump_212d:
+.else_212d:
 	call SetCameraRegion
 	ld a, [wCameraPlayerX]
 	ld l, a
@@ -5727,19 +5727,19 @@ UpdateCameraRegion::
 	sbc a, $00
 	ld h, a
 	rlca
-	jr c, .jump_214b
+	jr c, .skip_214b
 	ldh a, [hCameraMinX]
 	sub l
 	ldh a, [hCameraMinX + 1]
 	sbc a, h
 	rlca
-	jr c, .jump_2151
-.jump_214b:
+	jr c, .skip_2151
+.skip_214b:
 	ldh a, [hCameraMinX]
 	ld l, a
 	ldh a, [hCameraMinX + 1]
 	ld h, a
-.jump_2151:
+.skip_2151:
 	ld de, $00a0
 	add hl, de
 	ldh a, [hCameraMaxX]
@@ -5747,12 +5747,12 @@ UpdateCameraRegion::
 	ldh a, [hCameraMaxX + 1]
 	sbc a, h
 	rlca
-	jr nc, .jump_2164
+	jr nc, .skip_2164
 	ldh a, [hCameraMaxX]
 	ld l, a
 	ldh a, [hCameraMaxX + 1]
 	ld h, a
-.jump_2164:
+.skip_2164:
 	ld de, $ff60
 	add hl, de
 	ld a, l
@@ -5768,19 +5768,19 @@ UpdateCameraRegion::
 	sbc a, $00
 	ld h, a
 	rlca
-	jr c, .jump_2189
+	jr c, .skip_2189
 	ldh a, [hCameraMinY]
 	sub l
 	ldh a, [hCameraMinY + 1]
 	sbc a, h
 	rlca
-	jr c, .jump_218f
-.jump_2189:
+	jr c, .skip_218f
+.skip_2189:
 	ldh a, [hCameraMinY]
 	ld l, a
 	ldh a, [hCameraMinY + 1]
 	ld h, a
-.jump_218f:
+.skip_218f:
 	ld de, $0090
 	add hl, de
 	ldh a, [hCameraMaxY]
@@ -5788,12 +5788,12 @@ UpdateCameraRegion::
 	ldh a, [hCameraMaxY + 1]
 	sbc a, h
 	rlca
-	jr nc, .jump_21a2
+	jr nc, .done
 	ldh a, [hCameraMaxY]
 	ld l, a
 	ldh a, [hCameraMaxY + 1]
 	ld h, a
-.jump_21a2:
+.done:
 	ld de, $ff70
 	add hl, de
 	ld a, l
@@ -5807,13 +5807,13 @@ GetCameraRegionEdge::
 	add hl, de
 	ld a, [hli]
 	bit 1, a
-	jr z, .jump_21b9
+	jr z, .done
 	ld h, [hl]
 	and $f0
 	ld l, a
 	jr GetCameraRegionEdge
 
-.jump_21b9:
+.done:
 	inc l
 	ld a, [hli]
 	ld e, a
@@ -5829,12 +5829,12 @@ SetCameraRegion::
 	ld [rROMB0], a
 	ld hl, wCameraRegion
 	ld b, $10
-.jump_21cd:
+.loop:
 	ld a, [de]
 	inc e
 	ld [hli], a
 	dec b
-	jr nz, .jump_21cd
+	jr nz, .loop
 	ld hl, wCameraRegion
 	ld de, $0000
 	call GetCameraRegionEdge
@@ -5875,27 +5875,27 @@ GetTerrainUnderObject::
 	ld [rROMB0], a
 	ldh a, [hMapFlags]
 	rrca
-	jp c, .jump_22d3
+	jp c, .else_22d3
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
 	bit 7, d
-	jr z, .jump_2231
+	jr z, .else_2231
 	xor a
 	ld d, a
-	jr .jump_2238
+	jr .continue_2238
 
-.jump_2231:
+.else_2231:
 	srl d
 	rra
 	swap a
 	and $0f
-.jump_2238:
+.continue_2238:
 	ldh [hTerrainTemp + 2], a
 	ld a, d
 	or a
-	jp nz, .jump_23bb
+	jp nz, .else_23bb
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -5905,9 +5905,9 @@ GetTerrainUnderObject::
 	ld d, [hl]
 	ld a, $03
 	bit 5, d
-	jr z, .jump_2252
+	jr z, .skip_2252
 	ld a, $07
-.jump_2252:
+.skip_2252:
 	ldh [rSVBK], a
 	ld a, d
 	sla e
@@ -5926,16 +5926,16 @@ GetTerrainUnderObject::
 	ld d, a
 	ld a, [hl]
 	or a
-	jp z, .jump_22bc
+	jp z, .loop_22bc
 	ld e, a
 	ld a, [de]
 	bit 5, a
-	jr z, .jump_227e
+	jr z, .loop_227e
 	bit 0, a
-	jp nz, .jump_22a5
-	jp .jump_22bc
+	jp nz, .loop_22a5
+	jp .loop_22bc
 
-.jump_227e:
+.loop_227e:
 	push hl
 	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
@@ -5963,64 +5963,64 @@ GetTerrainUnderObject::
 	ld [rROMB0], a
 	ret
 
-.jump_22a5:
+.loop_22a5:
 	dec h
 	ld a, h
 	and $f0
 	cp $c0
-	jr z, .jump_22b9
+	jr z, .else_22b9
 	ld a, [hl]
 	or a
-	jr z, .jump_22a5
+	jr z, .loop_22a5
 	ld e, a
 	ld a, [de]
 	bit 5, a
-	jr z, .jump_227e
-	jr .jump_22a5
+	jr z, .loop_227e
+	jr .loop_22a5
 
-.jump_22b9:
-	jp .jump_23d3
+.else_22b9:
+	jp .else_23d3
 
-.jump_22bc:
+.loop_22bc:
 	inc h
 	ld a, h
 	and $f0
 	cp $e0
-	jr z, .jump_22d0
+	jr z, .else_22d0
 	ld a, [hl]
 	or a
-	jr z, .jump_22bc
+	jr z, .loop_22bc
 	ld e, a
 	ld a, [de]
 	bit 5, a
-	jr z, .jump_227e
-	jr .jump_22bc
+	jr z, .loop_227e
+	jr .loop_22bc
 
-.jump_22d0:
-	jp .jump_23bb
+.else_22d0:
+	jp .else_23bb
 
-.jump_22d3:
+.else_22d3:
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	ld e, a
 	ld a, [hl]
 	bit 7, a
-	jr z, .jump_22e1
+	jr z, .else_22e1
 	xor a
-	jr .jump_22ea
+	jr .continue_22ea
 
-.jump_22e1:
+.else_22e1:
 	sla e
 	rla
 	sla e
 	rla
 	sla e
 	rla
-.jump_22ea:
+.continue_22ea:
 	ldh [hTerrainTemp + 2], a
 	rla
-	jp c, .jump_23bb
+	jp c, .else_23bb
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -6051,9 +6051,9 @@ GetTerrainUnderObject::
 	push hl
 	ld a, $03
 	bit 4, h
-	jr z, .jump_2321
+	jr z, .skip_2321
 	ld a, $07
-.jump_2321:
+.skip_2321:
 	ldh [rSVBK], a
 	ld a, h
 	and $0f
@@ -6062,16 +6062,16 @@ GetTerrainUnderObject::
 	ld a, [hl]
 	pop hl
 	or a
-	jp z, .jump_2390
+	jp z, .loop_2390
 	ld e, a
 	ld a, [de]
 	bit 5, a
-	jr z, .jump_233d
+	jr z, .loop_233d
 	bit 0, a
-	jp nz, .jump_2365
-	jp .jump_2390
+	jp nz, .loop_2365
+	jp .loop_2390
 
-.jump_233d:
+.loop_233d:
 	push hl
 	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
@@ -6100,7 +6100,7 @@ GetTerrainUnderObject::
 	ld [rROMB0], a
 	ret
 
-.jump_2365:
+.loop_2365:
 	ld a, l
 	sub $40
 	ld l, a
@@ -6108,13 +6108,13 @@ GetTerrainUnderObject::
 	sbc a, $00
 	ld h, a
 	rlca
-	jr c, .jump_238e
+	jr c, .else_238e
 	push hl
 	ld a, $03
 	bit 4, h
-	jr z, .jump_2379
+	jr z, .skip_2379
 	ld a, $07
-.jump_2379:
+.skip_2379:
 	ldh [rSVBK], a
 	ld a, h
 	and $0f
@@ -6123,17 +6123,17 @@ GetTerrainUnderObject::
 	ld a, [hl]
 	pop hl
 	or a
-	jr z, .jump_2365
+	jr z, .loop_2365
 	ld e, a
 	ld a, [de]
 	bit 5, a
-	jr z, .jump_233d
-	jr .jump_2365
+	jr z, .loop_233d
+	jr .loop_2365
 
-.jump_238e:
-	jr .jump_23d3
+.else_238e:
+	jr .else_23d3
 
-.jump_2390:
+.loop_2390:
 	ld a, l
 	add a, $40
 	ld l, a
@@ -6141,13 +6141,13 @@ GetTerrainUnderObject::
 	adc a, $00
 	ld h, a
 	and $e0
-	jr nz, .jump_23bb
+	jr nz, .else_23bb
 	push hl
 	ld a, $03
 	bit 4, h
-	jr z, .jump_23a5
+	jr z, .skip_23a5
 	ld a, $07
-.jump_23a5:
+.skip_23a5:
 	ldh [rSVBK], a
 	ld a, h
 	and $0f
@@ -6156,14 +6156,14 @@ GetTerrainUnderObject::
 	ld a, [hl]
 	pop hl
 	or a
-	jr z, .jump_2390
+	jr z, .loop_2390
 	ld e, a
 	ld a, [de]
 	bit 5, a
-	jp z, .jump_233d
-	jr .jump_2390
+	jp z, .loop_233d
+	jr .loop_2390
 
-.jump_23bb:
+.else_23bb:
 	xor a
 	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
@@ -6180,7 +6180,7 @@ GetTerrainUnderObject::
 	ld [rROMB0], a
 	ret
 
-.jump_23d3:
+.else_23d3:
 	xor a
 	ld hl, wObjects + OBJ_TERRAIN_A
 	add hl, bc
@@ -6248,9 +6248,9 @@ RasterLCDHandler::
 	ld h, $cf
 	ld a, [hli]
 	cp $ff
-	jr z, .jump_2457
+	jr z, .done
 	cp c
-	jr nz, .jump_2457
+	jr nz, .done
 	ld d, $00
 	ld c, $68
 	ld a, [hli]
@@ -6278,7 +6278,7 @@ RasterLCDHandler::
 	ldh [c], a
 	ld a, [hli]
 	ldh [c], a
-.jump_2457:
+.done:
 	pop de
 	pop bc
 	pop hl
@@ -6297,10 +6297,10 @@ State_EnterLevel::
 	ld [wKongs], a
 	ld a, [sOptions]
 	bit 0, a
-	jr z, .jump_2477
+	jr z, .enter
 	ld hl, wKongs
 	set 1, [hl]
-.jump_2477:
+.enter:
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, [wLevel]
@@ -6313,10 +6313,10 @@ State_EnterLevel::
 	ld h, $d4
 	bit 7, [hl]
 	ld hl, $57b4
-	jr z, .jump_2490
+	jr z, .skip
 	inc hl
 	inc hl
-.jump_2490:
+.skip:
 	add hl, de
 	ld a, $04
 	ld [rROMB0], a
@@ -6440,36 +6440,36 @@ State_LoadLevel::
 	ld a, [wLevelKind]
 	and $07
 	cp $01
-	jr nz, .jump_258a
+	jr nz, .else_258a
 	ld a, [wEntranceKind]
 	and $0f
 	cp $02
 	call z, SpawnMineCart
-	jr .jump_25ac
+	jr .skip_25ac
 
-.jump_258a:
+.else_258a:
 	cp $04
-	jr nz, .jump_2593
+	jr nz, .else_2593
 	call SpawnStopGoTimer
-	jr .jump_25ac
+	jr .skip_25ac
 
-.jump_2593:
+.else_2593:
 	cp $05
-	jr nz, .jump_259c
+	jr nz, .else_259c
 	call SpawnLightsTimer
-	jr .jump_25ac
+	jr .skip_25ac
 
-.jump_259c:
+.else_259c:
 	cp $06
-	jr nz, .jump_25a5
+	jr nz, .else_25a5
 	call SpawnLightsFlicker
-	jr .jump_25ac
+	jr .skip_25ac
 
-.jump_25a5:
+.else_25a5:
 	cp $07
-	jr nz, .jump_25ac
+	jr nz, .skip_25ac
 	call SpawnSnowflakes
-.jump_25ac:
+.skip_25ac:
 	ld a, [wLevelKind]
 	and $70
 	call nz, SpawnAnimalMask
@@ -6486,11 +6486,11 @@ State_LoadLevel::
 	ld [wItemsInFlight], a
 	ld a, [wLevelKind]
 	and $70
-	jr nz, .jump_25f7
+	jr nz, .skip_25f7
 	ld a, [wLevelKind]
 	and $07
 	cp $02
-	jr z, .jump_25f7
+	jr z, .skip_25f7
 	ld a, [wSaveFile]
 	rrca
 	rrca
@@ -6501,14 +6501,14 @@ State_LoadLevel::
 	ld l, a
 	ld a, [wGameModeBit]
 	and [hl]
-	jr z, .jump_25f7
+	jr z, .skip_25f7
 	ld hl, wLevelFlags
 	set 5, [hl]
-.jump_25f7:
+.skip_25f7:
 	ld a, [wEntranceKind]
 	and $0f
 	cp $01
-	jr nz, .jump_260f
+	jr nz, .continue_260f
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, [wLevel]
@@ -6519,11 +6519,11 @@ State_LoadLevel::
 	xor a
 	ld [hli], a
 	ld [hli], a
-.jump_260f:
+.continue_260f:
 	ld a, [wEntranceKind]
 	and $0f
 	cp $02
-	jr nz, .jump_262c
+	jr nz, .continue_262c
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, [wLevel]
@@ -6537,7 +6537,7 @@ State_LoadLevel::
 	ld a, [hl]
 	and $80
 	ld [hli], a
-.jump_262c:
+.continue_262c:
 	ld hl, wVBlankTrampoline + 1
 	ld a, $86
 	ld [hli], a
@@ -6561,15 +6561,15 @@ State_Level::
 	call nz, UpdatePalettes
 	ld a, [wLevelFlags]
 	bit 1, a
-	jr nz, .jump_26b3
+	jr nz, .continue
 	bit 0, a
-	jr nz, .jump_268e
+	jr nz, .else_268e
 	bit 4, a
-	jr z, .jump_2664
+	jr z, .skip
 	ldh a, [hJoyPressed]
 	bit 3, a
-	jr nz, .jump_267d
-.jump_2664:
+	jr nz, .else_267d
+.skip:
 	call UpdateCamera
 	call ResetOAMBuffers
 	call RunObjects
@@ -6580,7 +6580,7 @@ State_Level::
 	call UpdateMapScroll
 	ret
 
-.jump_267d:
+.else_267d:
 	ld hl, wLevelFlags
 	set 0, [hl]
 	ld a, $0c
@@ -6589,16 +6589,16 @@ State_Level::
 	call Pause_LoadPalette
 	ret
 
-.jump_268e:
+.else_268e:
 	ldh a, [hJoyPressed]
 	bit 3, a
-	jr nz, .jump_269c
+	jr nz, .else_269c
 	bit 2, a
-	jr nz, .jump_26ad
+	jr nz, .else_26ad
 	call DrawPauseScreen
 	ret
 
-.jump_269c:
+.else_269c:
 	ld hl, wLevelFlags
 	res 0, [hl]
 	ld a, $0c
@@ -6607,11 +6607,11 @@ State_Level::
 	call RequestOBJPaletteUpdate
 	ret
 
-.jump_26ad:
+.else_26ad:
 	ld a, [wLevelFlags]
 	bit 5, a
 	ret z
-.jump_26b3:
+.continue:
 	xor a
 	ld hl, wBGPalettesOut
 	ld bc, $0100
@@ -6626,7 +6626,7 @@ State_Level::
 	call ClearOAM
 	ld a, [wLives]
 	cp $ff
-	jr z, .jump_273a
+	jr z, .else_273a
 	ld hl, wAnimalTokens
 	ld a, [wAnimalTokensPending]
 	add a, [hl]
@@ -6646,10 +6646,10 @@ State_Level::
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
-.jump_26f6:
+.loop_26f6:
 	ld a, [wBananasPending]
 	or a
-	jr z, .jump_2713
+	jr z, .loop_2713
 	dec a
 	ld [wBananasPending], a
 	xor a
@@ -6660,51 +6660,51 @@ State_Level::
 	ld a, [wLivesPending]
 	adc a, $00
 	ld [wLivesPending], a
-	jr .jump_26f6
+	jr .loop_26f6
 
-.jump_2713:
+.loop_2713:
 	ld a, [wLivesPending]
 	or a
-	jr z, .jump_273a
+	jr z, .else_273a
 	dec a
 	ld [wLivesPending], a
 	xor a
 	ld a, [wLives]
 	cp $99
-	jr z, .jump_272d
+	jr z, .else_272d
 	or a
 	inc a
 	daa
 	ld [wLives], a
-	jr .jump_2713
+	jr .loop_2713
 
-.jump_272d:
+.else_272d:
 	ld a, [wLivesOver99]
 	cp $ff
-	jr z, .jump_273a
+	jr z, .else_273a
 	inc a
 	ld [wLivesOver99], a
-	jr .jump_2713
+	jr .loop_2713
 
-.jump_273a:
+.else_273a:
 	ld a, [wLevelFlags]
 	bit 2, a
-	jr nz, .jump_2758
+	jr nz, .else_2758
 	bit 3, a
 	jp nz, State_LoadLevel
 	bit 6, a
-	jp nz, State_EnterLevel.jump_2477
+	jp nz, State_EnterLevel.enter
 	ld hl, wMapFlags
 	bit 4, [hl]
-	jr nz, .jump_275e
+	jr nz, .else_275e
 	ld de, Flow_0d_5f92
 	jp SetFlowPointer
 
-.jump_2758:
+.else_2758:
 	ld de, Flow_0d_5fa5
 	jp SetFlowPointer
 
-.jump_275e:
+.else_275e:
 	res 4, [hl]
 	ld de, Flow_0d_5fc1
 	jp SetFlowPointer
@@ -6932,19 +6932,19 @@ UpdateCamera::
 	ld a, [hld]
 	ld d, a
 	or e
-	jr z, .jump_28cf
+	jr z, .continue_28cf
 	bit 7, d
-	jr z, .jump_28cb
+	jr z, .else_28cb
 	inc de
-	jr .jump_28cc
+	jr .continue_28cc
 
-.jump_28cb:
+.else_28cb:
 	dec de
-.jump_28cc:
+.continue_28cc:
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_28cf:
+.continue_28cf:
 	call GetCameraTargetX
 	ld a, [wCameraShiftX]
 	add a, l
@@ -6963,9 +6963,9 @@ UpdateCamera::
 	add hl, de
 	ld a, h
 	or l
-	jr z, .jump_2929
+	jr z, .continue_2929
 	bit 7, h
-	jr z, .jump_2903
+	jr z, .else_2903
 	ld h, $ff
 	ld a, l
 	sra a
@@ -6973,11 +6973,11 @@ UpdateCamera::
 	sra a
 	ld l, a
 	cp $f9
-	jr nc, .jump_2914
+	jr nc, .skip_2914
 	ld l, $f9
-	jr .jump_2914
+	jr .skip_2914
 
-.jump_2903:
+.else_2903:
 	ld h, $00
 	ld a, l
 	srl a
@@ -6986,9 +6986,9 @@ UpdateCamera::
 	inc a
 	ld l, a
 	cp $08
-	jr c, .jump_2914
+	jr c, .skip_2914
 	ld l, $08
-.jump_2914:
+.skip_2914:
 	ldh a, [hCameraX]
 	add a, l
 	ldh [hCameraX], a
@@ -7002,30 +7002,30 @@ UpdateCamera::
 	and $ef
 	or h
 	ldh [hMapFlags], a
-.jump_2929:
+.continue_2929:
 	ld hl, wCameraShiftY
 	ld a, [hli]
 	ld e, a
 	ld a, [hld]
 	ld d, a
 	or e
-	jr z, .jump_2943
+	jr z, .continue_2943
 	bit 7, d
-	jr z, .jump_293f
+	jr z, .else_293f
 	bit 0, e
-	jr nz, .jump_293c
+	jr nz, .skip_293c
 	inc de
-.jump_293c:
+.skip_293c:
 	inc de
-	jr .jump_2940
+	jr .continue_2940
 
-.jump_293f:
+.else_293f:
 	dec de
-.jump_2940:
+.continue_2940:
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_2943:
+.continue_2943:
 	call GetCameraTargetY
 	ld a, [wCameraShiftY]
 	add a, l
@@ -7034,9 +7034,9 @@ UpdateCamera::
 	adc a, h
 	ld h, a
 	rlca
-	jr nc, .jump_2956
+	jr nc, .skip_2956
 	ld hl, $0000
-.jump_2956:
+.skip_2956:
 	ldh a, [hCameraY]
 	cpl
 	add a, $01
@@ -7050,7 +7050,7 @@ UpdateCamera::
 	or l
 	ret z
 	bit 7, h
-	jr z, .jump_297c
+	jr z, .else_297c
 	ld h, $ff
 	ld a, l
 	sra a
@@ -7058,11 +7058,11 @@ UpdateCamera::
 	sra a
 	ld l, a
 	cp $f9
-	jr nc, .jump_298d
+	jr nc, .skip_298d
 	ld l, $f9
-	jr .jump_298d
+	jr .skip_298d
 
-.jump_297c:
+.else_297c:
 	ld h, $00
 	ld a, l
 	srl a
@@ -7071,9 +7071,9 @@ UpdateCamera::
 	inc a
 	ld l, a
 	cp $05
-	jr c, .jump_298d
+	jr c, .skip_298d
 	ld l, $05
-.jump_298d:
+.skip_298d:
 	ldh a, [hCameraY]
 	add a, l
 	ldh [hCameraY], a
@@ -7125,10 +7125,10 @@ GetCameraTargetX::
 	ld d, a
 	sbc a, h
 	rlca
-	jr c, .jump_29df
+	jr c, .skip
 	ld h, d
 	ld l, e
-.jump_29df:
+.skip:
 	ld de, $00a0
 	add hl, de
 	ldh a, [hCameraMaxX]
@@ -7138,10 +7138,10 @@ GetCameraTargetX::
 	ld d, a
 	sbc a, h
 	rlca
-	jr nc, .jump_29f0
+	jr nc, .done
 	ld h, d
 	ld l, e
-.jump_29f0:
+.done:
 	ld de, $ff60
 	add hl, de
 	ret
@@ -7154,24 +7154,24 @@ GetCameraTargetY::
 	ld e, a
 	ld hl, wPlayer + OBJ_VAR_2E
 	bit 0, [hl]
-	jr nz, .jump_2a38
+	jr nz, .skip_2a38
 	ld hl, wPlayer + OBJ_GROUND_Y
 	ld a, [hli]
 	sub e
 	ld a, [hl]
 	sbc a, d
-	jr c, .jump_2a21
+	jr c, .skip_2a21
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	ld hl, wPlayer + OBJ_FLAGS
 	and [hl]
 	and $80
-	jr nz, .jump_2a21
+	jr nz, .skip_2a21
 	ld hl, wPlayer + OBJ_GROUND_Y
 	ld a, [hli]
 	ld [wCameraGroundY], a
 	ld a, [hl]
 	ld [wCameraGroundY + 1], a
-.jump_2a21:
+.skip_2a21:
 	ld a, e
 	add a, $37
 	ld e, a
@@ -7185,10 +7185,10 @@ GetCameraTargetY::
 	ld h, a
 	sbc a, d
 	bit 7, a
-	jr z, .jump_2a38
+	jr z, .skip_2a38
 	ld e, l
 	ld d, h
-.jump_2a38:
+.skip_2a38:
 	ld a, [wCameraPlayerY]
 	cpl
 	ld l, a
@@ -7201,10 +7201,10 @@ GetCameraTargetY::
 	ld d, a
 	sbc a, h
 	rlca
-	jr c, .jump_2a4d
+	jr c, .skip_2a4d
 	ld h, d
 	ld l, e
-.jump_2a4d:
+.skip_2a4d:
 	ld de, $0090
 	add hl, de
 	ldh a, [hCameraMaxY]
@@ -7214,10 +7214,10 @@ GetCameraTargetY::
 	ld d, a
 	sbc a, h
 	rlca
-	jr nc, .jump_2a5e
+	jr nc, .done
 	ld h, d
 	ld l, e
-.jump_2a5e:
+.done:
 	ld de, $ff70
 	add hl, de
 	ret
@@ -7272,10 +7272,10 @@ Pause_LoadPalette::
 	ld hl, $40ea
 	ld a, $80
 	ld [rROMB0], a
-.jump_2abf:
+.loop:
 	ldh a, [rSTAT]
 	and $03
-	jr nz, .jump_2abf
+	jr nz, .loop
 	ld a, $82
 	ld c, $6b
 	ldh [rOCPS], a
@@ -7316,12 +7316,12 @@ CommitPlatformList::
 	ld [wPlatformsNextSize], a
 	ld hl, wPlatformsNext
 	ld de, wPlatforms
-.jump_2b00:
+.loop:
 	ld a, [hli]
 	ld [de], a
 	inc e
 	dec c
-	jr nz, .jump_2b00
+	jr nz, .loop
 	ret
 
 
@@ -7351,14 +7351,14 @@ State_RareLogo::
 	ld a, [wObjectFreeList + 2]
 	sub $01
 	ld [wObjectFreeList + 2], a
-	jr c, .jump_2b44
+	jr c, .else
 	ld a, $0d
 	ld [rROMB0], a
 	call RareLogo_StartHDMA
 	call RareLogo_DecodeFrame
 	ret
 
-.jump_2b44:
+.else:
 	call RunFlowScript
 	ret
 
@@ -7448,7 +7448,7 @@ State_LoadScreenTiles::
 	ld d, a
 	xor a
 	ldh [rVBK], a
-.jump_2bd2:
+.copy:
 	ld c, $ff
 	ld hl, $1000
 	call HDMACopy
@@ -7471,24 +7471,24 @@ State_LoadScreenTilesBank1::
 	ld d, a
 	ld a, $01
 	ldh [rVBK], a
-	jp State_LoadScreenTiles.jump_2bd2
+	jp State_LoadScreenTiles.copy
 
 
 CopyScreenTileMap::
 	ld bc, $1214
-.jump_2bfe:
+.loop_2bfe:
 	push bc
-.jump_2bff:
+.loop_2bff:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec c
-	jr nz, .jump_2bff
+	jr nz, .loop_2bff
 	ld bc, $000c
 	add hl, bc
 	pop bc
 	dec b
-	jr nz, .jump_2bfe
+	jr nz, .loop_2bfe
 	ret
 
 
@@ -7593,7 +7593,7 @@ PreloadObjPalettes::
 	ld a, [hli]
 	ld c, a
 	ld de, wOBJPalettes
-.jump_2cc0:
+.loop_2cc0:
 	ld a, [hli]
 	add a, a
 	ld b, a
@@ -7616,29 +7616,29 @@ PreloadObjPalettes::
 	sub l
 	ld h, a
 	ld b, $08
-.jump_2cda:
+.loop_2cda:
 	ld a, [hli]
 	ld [de], a
 	inc e
 	dec b
-	jr nz, .jump_2cda
+	jr nz, .loop_2cda
 	pop hl
 	dec c
-	jr nz, .jump_2cc0
+	jr nz, .loop_2cc0
 	ld a, e
 	and $38
 	rrca
 	rrca
 	rrca
 	ld hl, wFreeObjPaletteSlots
-.jump_2ced:
+.loop_2ced:
 	cp $08
-	jr z, .jump_2cf5
+	jr z, .done
 	ld [hli], a
 	inc a
-	jr .jump_2ced
+	jr .loop_2ced
 
-.jump_2cf5:
+.done:
 	ld a, l
 	and $0f
 	ldh [hFreeObjPalettes], a
@@ -7654,23 +7654,23 @@ AllocObjPalette::
 	ldh [rSVBK], a
 	ld a, [hl]
 	or a
-	jr z, .jump_2d12
+	jr z, .else
 	inc a
 	ld [hli], a
 	ld a, [hl]
 	ret
 
-.jump_2d0c:
+.done:
 	ld a, $01
 	ld [hli], a
 	xor a
 	ld [hl], a
 	ret
 
-.jump_2d12:
+.else:
 	ldh a, [hFreeObjPalettes]
 	or a
-	jr z, .jump_2d0c
+	jr z, .done
 	dec a
 	ldh [hFreeObjPalettes], a
 	push bc
@@ -7702,12 +7702,12 @@ AllocObjPalette::
 	sub l
 	ld h, a
 	ld c, $06
-.jump_2d43:
+.loop:
 	ld a, [hli]
 	ld [de], a
 	inc e
 	dec c
-	jr nz, .jump_2d43
+	jr nz, .loop
 	pop af
 	ld [rROMB0], a
 	ld a, [wPaletteUpdate]
@@ -7749,15 +7749,15 @@ FreeObjPalette::
 UpdatePalettes::
 	ld a, [wPaletteUpdate]
 	and $04
-	jr nz, .jump_2d87
+	jr nz, .else
 	ld a, [wPaletteBrightness]
 	call FadePalettesToBlack
-	jr .jump_2d8d
+	jr .continue
 
-.jump_2d87:
+.else:
 	ld a, [wPaletteBrightness]
 	call FadePalettesToWhite
-.jump_2d8d:
+.continue:
 	ld a, [wPaletteUpdate]
 	and $01
 	call nz, UploadBGPalettes
@@ -7778,11 +7778,11 @@ LoadBGPalettesHL::
 	ldh [rBCPS], a
 	ld b, $40
 	inc c
-.jump_2db4:
+.loop:
 	ld a, [hli]
 	ldh [c], a
 	dec b
-	jr nz, .jump_2db4
+	jr nz, .loop
 	ret
 
 
@@ -7793,10 +7793,10 @@ UploadBGPalettes::
 	ldh [c], a
 	ld b, $08
 	inc c
-.jump_2dc5:
+.loop:
 	ldh a, [rSTAT]
 	and $03
-	jr nz, .jump_2dc5
+	jr nz, .loop
 	ld a, [hli]
 	ldh [c], a
 	ld a, [hli]
@@ -7814,7 +7814,7 @@ UploadBGPalettes::
 	ld a, [hli]
 	ldh [c], a
 	dec b
-	jr nz, .jump_2dc5
+	jr nz, .loop
 	ret
 
 
@@ -7823,11 +7823,11 @@ LoadOBJPalettesHL::
 	ldh [rOCPS], a
 	ld b, $40
 	ld c, $6b
-.jump_2de7:
+.loop:
 	ld a, [hli]
 	ldh [c], a
 	dec b
-	jr nz, .jump_2de7
+	jr nz, .loop
 	ret
 
 
@@ -7839,10 +7839,10 @@ LoadOBJPalettesInHBlank::
 	ldh [rOCPS], a
 	ld b, $08
 	ld c, $6b
-.jump_2df8:
+.loop:
 	ldh a, [rSTAT]
 	and $03
-	jr nz, .jump_2df8
+	jr nz, .loop
 	ld a, [hli]
 	ldh [c], a
 	ld a, [hli]
@@ -7860,7 +7860,7 @@ LoadOBJPalettesInHBlank::
 	ld a, [hli]
 	ldh [c], a
 	dec b
-	jr nz, .jump_2df8
+	jr nz, .loop
 	ret
 
 
@@ -7868,7 +7868,7 @@ FadePalettesToBlack::
 	and $f8
 	ld c, a
 	ld b, $00
-.jump_2e17:
+.loop_2e17:
 	push bc
 	ld h, $c1
 	ld l, b
@@ -7877,20 +7877,20 @@ FadePalettesToBlack::
 	ld a, [hli]
 	ld d, a
 	ld hl, $0000
-.jump_2e22:
+.loop_2e22:
 	sla c
-	jr nc, .jump_2e27
+	jr nc, .skip
 	add hl, de
-.jump_2e27:
-	jr z, .jump_2e35
+.skip:
+	jr z, .continue
 	srl d
 	rr e
 	res 4, e
 	res 1, d
 	ld a, e
 	or d
-	jr nz, .jump_2e22
-.jump_2e35:
+	jr nz, .loop_2e22
+.continue:
 	ld d, h
 	ld e, l
 	ld h, $c2
@@ -7902,7 +7902,7 @@ FadePalettesToBlack::
 	pop bc
 	inc b
 	inc b
-	jr nz, .jump_2e17
+	jr nz, .loop_2e17
 	ret
 
 
@@ -7910,7 +7910,7 @@ FadePalettesToWhite::
 	and $f8
 	ld c, a
 	ld b, $00
-.jump_2e49:
+.loop_2e49:
 	push bc
 	ld h, $c1
 	ld l, b
@@ -7922,20 +7922,20 @@ FadePalettesToWhite::
 	and $7f
 	ld d, a
 	ld hl, $0000
-.jump_2e58:
+.loop_2e58:
 	sla c
-	jr nc, .jump_2e5d
+	jr nc, .skip
 	add hl, de
-.jump_2e5d:
-	jr z, .jump_2e6b
+.skip:
+	jr z, .continue
 	srl d
 	rr e
 	res 4, e
 	res 1, d
 	ld a, e
 	or d
-	jr nz, .jump_2e58
-.jump_2e6b:
+	jr nz, .loop_2e58
+.continue:
 	ld d, h
 	ld e, l
 	ld h, $c2
@@ -7950,7 +7950,7 @@ FadePalettesToWhite::
 	pop bc
 	inc b
 	inc b
-	jr nz, .jump_2e49
+	jr nz, .loop_2e49
 	ret
 
 
@@ -7959,12 +7959,12 @@ State_BeginFade::
 	ldh [hGameState], a
 	ld a, [wFlowArg1]
 	bit 0, a
-	jr nz, .jump_2e8f
+	jr nz, .done
 	ld a, $80
 	ld [wFlowArg2], a
 	ret
 
-.jump_2e8f:
+.done:
 	xor a
 	ld [wFlowArg2], a
 	ret
@@ -7977,53 +7977,53 @@ State_Fading::
 	call nz, UploadOBJPalettes
 	ld a, [wFlowArg1]
 	bit 0, a
-	jr nz, .jump_2eb6
+	jr nz, .else_2eb6
 	ld a, [wFlowArg2]
 	or a
-	jr z, .jump_2eef
+	jr z, .jp_RunFlowScript
 	sub $08
-	jr nc, .jump_2eb1
+	jr nc, .skip_2eb1
 	xor a
-.jump_2eb1:
+.skip_2eb1:
 	ld [wFlowArg2], a
-	jr .jump_2ec8
+	jr .continue_2ec8
 
-.jump_2eb6:
+.else_2eb6:
 	ld a, [wFlowArg2]
 	cp $80
-	jr z, .jump_2eef
+	jr z, .jp_RunFlowScript
 	add a, $08
 	bit 7, a
-	jr z, .jump_2ec5
+	jr z, .skip_2ec5
 	ld a, $80
-.jump_2ec5:
+.skip_2ec5:
 	ld [wFlowArg2], a
-.jump_2ec8:
+.continue_2ec8:
 	ld a, [wFlowArg1]
 	bit 1, a
-	jr nz, .jump_2ed7
+	jr nz, .else_2ed7
 	ld a, [wFlowArg2]
 	call FadePalettesToBlack
-	jr .jump_2edd
+	jr .continue_2edd
 
-.jump_2ed7:
+.else_2ed7:
 	ld a, [wFlowArg2]
 	call FadePalettesToWhite
-.jump_2edd:
+.continue_2edd:
 	ld a, [wFlowArg1]
 	bit 4, a
-	jr z, .jump_2eee
+	jr z, .return
 	xor a
 	ld hl, wBGPalettesOut + $38
 	ld bc, $0008
 	call FillMemory
-.jump_2eee:
+.return:
 	ret
 
-.jump_2eef:
+.jp_RunFlowScript:
 	jp RunFlowScript
 
-.jump_2ef2:
+.write_save_file:
 	ld a, [wSaveFile]
 	push af
 	ld a, d
@@ -8101,10 +8101,10 @@ StartSFX::
 	ld h, b
 	ld l, $39
 	bit 0, a
-	jr nz, .jump_2f64
+	jr nz, .skip_2f64
 	bit 0, [hl]
 	ret nz
-.jump_2f64:
+.skip_2f64:
 	ld [hl], a
 	and $fe
 	ld l, a
@@ -8117,9 +8117,9 @@ StartSFX::
 	ld h, b
 	ld a, $d0
 	sub h
-	jr nz, .jump_2f79
+	jr nz, .skip_2f79
 	ldh [rNR10], a
-.jump_2f79:
+.skip_2f79:
 	xor a
 	ld l, $42
 	ld [hl], a
@@ -8137,7 +8137,7 @@ UpdateSFXChannel::
 	ld a, [hli]
 	add a, [hl]
 	ld [hli], a
-	jr nc, .jump_2ff9
+	jr nc, .else_2ff9
 	dec [hl]
 	ret nz
 	ld l, $40
@@ -8150,9 +8150,9 @@ UpdateSFXChannel::
 	dec l
 	ld [hl], e
 	cp $80
-	jr c, .jump_2fe8
+	jr c, .else_2fe8
 	and $7f
-	jr z, .jump_2fba
+	jr z, .continue_2fba
 	add a, a
 	add a, $07
 	ld e, a
@@ -8171,7 +8171,7 @@ UpdateSFXChannel::
 	ld [hl], a
 	ld l, $3f
 	ld a, [hl]
-.jump_2fba:
+.continue_2fba:
 	ld l, $3e
 	ld [hl], a
 	ld l, $48
@@ -8182,7 +8182,7 @@ UpdateSFXChannel::
 	ld l, $3d
 	ld a, [hl]
 	and a
-	jr nz, .jump_2fd5
+	jr nz, .continue_2fd5
 	ld l, $40
 	ld a, [hli]
 	ld d, [hl]
@@ -8192,20 +8192,20 @@ UpdateSFXChannel::
 	ld [hl], d
 	dec l
 	ld [hl], e
-.jump_2fd5:
+.continue_2fd5:
 	ld l, $3c
 	ld [hl], a
 	ld l, $56
 	ld [hl], $80
 	ld l, $51
 	ld [hl], $0f
-.jump_2fe0:
+.loop:
 	ld l, $3e
 	ld c, [hl]
 	ld l, $4d
-	jp Sound_WriteChannelRegisters.jump_3347
+	jp Sound_WriteChannelRegisters.copy_regs
 
-.jump_2fe8:
+.else_2fe8:
 	add a, $00
 	ld e, a
 	ld d, $3f
@@ -8221,40 +8221,40 @@ UpdateSFXChannel::
 	ld d, [hl]
 	ret
 
-.jump_2ff9:
+.else_2ff9:
 	ld l, $42
 	ld a, [hl]
 	and a
-	jr z, .jump_303a
+	jr z, .continue_303a
 	ld l, $45
 	ld a, [hl]
 	and a
-	jr z, .jump_3008
+	jr z, .skip_3008
 	dec [hl]
-	jr nz, .jump_303a
-.jump_3008:
+	jr nz, .continue_303a
+.skip_3008:
 	ld l, $46
 	dec [hl]
-	jr nz, .jump_303a
+	jr nz, .continue_303a
 	ld l, $42
 	ld a, [hl]
 	ld l, $46
 	ld [hl], a
 	ld l, $47
 	dec [hl]
-	jr nz, .jump_301c
+	jr nz, .skip_301c
 	ld l, $42
 	ld [hl], $00
-.jump_301c:
+.skip_301c:
 	ld l, $44
 	ld a, [hld]
 	and a
 	ld a, [hli]
-	jr z, .jump_3026
+	jr z, .skip_3026
 	dec [hl]
 	cpl
 	inc a
-.jump_3026:
+.skip_3026:
 	ld e, a
 	add a, a
 	sbc a, a
@@ -8271,14 +8271,14 @@ UpdateSFXChannel::
 	ld a, [hl]
 	or $0c
 	ld [hl], a
-.jump_303a:
+.continue_303a:
 	ld l, $48
 	ld a, [hl]
 	and a
-	jp z, .jump_2fe0
+	jp z, .loop
 	ld l, $4b
 	dec [hl]
-	jp nz, .jump_2fe0
+	jp nz, .loop
 	inc l
 	ld a, [hld]
 	ld [hld], a
@@ -8299,20 +8299,20 @@ UpdateSFXChannel::
 	ld [hl], a
 	ld l, $49
 	dec [hl]
-	jp nz, .jump_2fe0
+	jp nz, .loop
 	dec l
 	ld a, [hli]
 	ld [hli], a
 	xor a
 	sub [hl]
 	ld [hl], a
-	jp .jump_2fe0
+	jp .loop
 
 
 SfxCmd_End::
 	ld l, $39
 	ld [hl], $00
-	jp MusCmd_End.jump_33d2
+	jp MusCmd_End.stop_channel
 
 
 SfxCmd_Regs::
@@ -8334,7 +8334,7 @@ SfxCmd_Regs::
 	ld a, [de]
 	and $3f
 	ld [hl], a
-.jump_308b:
+.store_regs:
 	inc de
 	ld l, $40
 	ld [hl], e
@@ -8371,7 +8371,7 @@ SfxCmd_PitchSlide::
 	ld [hli], a
 	ld a, [de]
 	ld [hl], a
-	jr SfxCmd_Regs.jump_308b
+	jr SfxCmd_Regs.store_regs
 
 
 SfxCmd_Vibrato::
@@ -8391,13 +8391,13 @@ SfxCmd_Vibrato::
 	ld [hli], a
 	ld a, [de]
 	ld [hl], a
-	jr SfxCmd_Regs.jump_308b
+	jr SfxCmd_Regs.store_regs
 
 
 SfxCmd_Sweep::
 	ld a, [de]
 	ldh [rNR10], a
-	jr SfxCmd_Regs.jump_308b
+	jr SfxCmd_Regs.store_regs
 
 
 SongBanks::
@@ -8447,7 +8447,7 @@ PlaySong::
 	ld e, l
 	ld d, h
 	ld h, $d0
-.jump_3137:
+.loop:
 	ld l, $21
 	ld a, [de]
 	inc de
@@ -8479,7 +8479,7 @@ PlaySong::
 	inc h
 	ld a, h
 	cp $d4
-	jr c, .jump_3137
+	jr c, .loop
 	pop af
 	ld [rROMB0], a
 	ret
@@ -8501,28 +8501,28 @@ StartQueuedSFX::
 	ld [rROMB0], a
 	ld a, [wSFXQueue]
 	or a
-	jr z, .jump_3188
+	jr z, .skip_3188
 	ld b, $d0
 	call StartSFX
-.jump_3188:
+.skip_3188:
 	ld a, [wSFXQueue + 1]
 	or a
-	jr z, .jump_3193
+	jr z, .skip_3193
 	ld b, $d1
 	call StartSFX
-.jump_3193:
+.skip_3193:
 	ld a, [wSFXQueue + 2]
 	or a
-	jr z, .jump_319e
+	jr z, .skip_319e
 	ld b, $d2
 	call StartSFX
-.jump_319e:
+.skip_319e:
 	ld a, [wSFXQueue + 3]
 	or a
-	jr z, .jump_31a9
+	jr z, .done
 	ld b, $d3
 	call StartSFX
-.jump_31a9:
+.done:
 	xor a
 	ld [wSFXQueue], a
 	ld [wSFXQueue + 1], a
@@ -8540,7 +8540,7 @@ UpdateMusic::
 	rra
 	ld [hl], a
 	ld h, $d0
-.jump_31c2:
+.loop_31c2:
 	ld a, [wMusicBank]
 	ld [rROMB0], a
 	ld l, $1f
@@ -8556,48 +8556,48 @@ UpdateMusic::
 	inc h
 	ld a, h
 	cp $d4
-	jr nz, .jump_31c2
+	jr nz, .loop_31c2
 	ld de, $ff11
 	ld h, $d0
-.jump_31e6:
+.loop_31e6:
 	ld l, $51
 	ld c, [hl]
 	ld [hl], $00
 	inc l
 	rr c
-	jr nc, .jump_31f2
+	jr nc, .skip_31f2
 	ld a, [hl]
 	ld [de], a
-.jump_31f2:
+.skip_31f2:
 	inc e
 	inc l
 	rr c
-	jr nc, .jump_31fa
+	jr nc, .skip_31fa
 	ld a, [hl]
 	ld [de], a
-.jump_31fa:
+.skip_31fa:
 	inc e
 	inc l
 	rr c
-	jr nc, .jump_3202
+	jr nc, .skip_3202
 	ld a, [hl]
 	ld [de], a
-.jump_3202:
+.skip_3202:
 	inc e
 	inc l
 	rr c
-	jr nc, .jump_320d
+	jr nc, .skip_320d
 	ld a, [hli]
 	or [hl]
 	ld [hl], $00
 	ld [de], a
-.jump_320d:
+.skip_320d:
 	inc e
 	inc e
 	inc h
 	ld a, h
 	cp $d4
-	jr c, .jump_31e6
+	jr c, .loop_31e6
 	ld a, [wMusicSweepActive]
 	and a
 	ret nz
@@ -8609,7 +8609,7 @@ UpdateMusic::
 UpdateMusicChannel::
 	ld a, [wMusicTick]
 	cp $80
-	jp c, Music_UpdatePitchSlide.jump_332d
+	jp c, Music_UpdatePitchSlide.update_effects
 	ld l, $20
 	dec [hl]
 	ret nz
@@ -8618,21 +8618,21 @@ UpdateMusicChannel::
 	ld l, $59
 	ld a, [hld]
 	or a
-	jr z, .jump_323a
+	jr z, .else
 	ld a, [hli]
 	dec [hl]
-	jr Music_JumpHL.jump_325c
+	jr Music_JumpHL.set_period
 
-.jump_323a:
+.else:
 	ld l, $21
 	ld e, [hl]
 	inc l
 	ld d, [hl]
-.jump_323f:
+.loop:
 	ld a, [de]
 	inc de
 	cp $80
-	jr nc, Music_JumpHL.jump_3255
+	jr nc, Music_JumpHL.play_note
 	ld b, h
 	add a, a
 	add a, $0a
@@ -8642,20 +8642,20 @@ UpdateMusicChannel::
 	ld h, [hl]
 	ld l, a
 	call Music_JumpHL
-	jr .jump_323f
+	jr .loop
 
 
 Music_JumpHL::
 	jp hl
 
-.jump_3255:
-	jr z, .jump_32b4
-.jump_3257:
+.play_note:
+	jr z, .else_32b4
+.save_stream_pos:
 	ld l, $21
 	ld [hl], e
 	inc l
 	ld [hl], d
-.jump_325c:
+.set_period:
 	ld l, $5a
 	add a, [hl]
 	ld l, $28
@@ -8679,19 +8679,19 @@ Music_JumpHL::
 	ld l, $57
 	ld a, [hl]
 	swap a
-	jr z, .jump_3285
+	jr z, .else_3285
 	ld [hl], a
 	ld l, $2a
 	and $f0
 	ld [hli], a
-	jr .jump_3288
+	jr .continue
 
-.jump_3285:
+.else_3285:
 	ld l, $2b
 	ld a, [hld]
-.jump_3288:
+.continue:
 	ld [hl], a
-.jump_3289:
+.loop:
 	ld l, $39
 	ld a, [hl]
 	and a
@@ -8709,7 +8709,7 @@ Music_JumpHL::
 	ld l, $27
 	ld a, [hl]
 	and a
-	jr nz, .jump_32b0
+	jr nz, .done
 	ld l, $21
 	ld e, [hl]
 	inc l
@@ -8719,12 +8719,12 @@ Music_JumpHL::
 	ld [hl], d
 	dec l
 	ld [hl], e
-.jump_32b0:
+.done:
 	ld l, $20
 	ld [hl], a
 	ret
 
-.jump_32b4:
+.else_32b4:
 	ld l, $57
 	ld a, [hl]
 	swap a
@@ -8735,7 +8735,7 @@ Music_JumpHL::
 	ld [hl], e
 	inc l
 	ld [hl], d
-	jr .jump_3289
+	jr .loop
 
 
 Music_UpdateVibrato::
@@ -8747,10 +8747,10 @@ Music_UpdateVibrato::
 	ld l, $2f
 	ld a, [hl]
 	and a
-	jr z, .jump_32d3
+	jr z, .skip_32d3
 	dec [hl]
 	ret nz
-.jump_32d3:
+.skip_32d3:
 	inc l
 	dec [hl]
 	ret nz
@@ -8758,29 +8758,29 @@ Music_UpdateVibrato::
 	ld a, [bc]
 	ld [hli], a
 	dec [hl]
-	jr nz, .jump_32de
+	jr nz, .skip_32de
 	xor a
 	ld [bc], a
-.jump_32de:
+.skip_32de:
 	ld c, $ff
 	ld l, $2e
 	ld a, [hl]
 	and a
-	jr z, .jump_32ec
+	jr z, .else
 	dec [hl]
 	dec l
 	xor a
 	sub [hl]
-	jr .jump_32ee
+	jr .continue
 
-.jump_32ec:
+.else:
 	dec l
 	ld a, [hl]
-.jump_32ee:
+.continue:
 	bit 7, a
-	jr nz, .jump_32f3
+	jr nz, .skip_32f3
 	inc c
-.jump_32f3:
+.skip_32f3:
 	ld l, $25
 	add a, [hl]
 	ld [hli], a
@@ -8831,13 +8831,13 @@ Music_UpdatePitchSlide::
 	ld [hl], a
 	ret
 
-.jump_332d:
+.update_effects:
 	call Music_UpdateVibrato
 	call Music_UpdatePitchSlide
 	ld l, $39
 	ld a, [hl]
 	and a
-	jr z, Sound_WriteChannelRegisters.jump_3342
+	jr z, Sound_WriteChannelRegisters.write_regs
 	ret
 
 
@@ -8846,11 +8846,11 @@ Sound_WriteChannelRegisters::
 	ld [hl], $80
 	ld l, $51
 	ld [hl], $0f
-.jump_3342:
+.write_regs:
 	ld l, $2a
 	ld c, [hl]
 	ld l, $23
-.jump_3347:
+.copy_regs:
 	ld d, h
 	ld e, $52
 	ld a, [hli]
@@ -8859,9 +8859,9 @@ Sound_WriteChannelRegisters::
 	ld b, $0f
 	ld a, c
 	and a
-	jr nz, .jump_3355
+	jr nz, .skip
 	res 3, b
-.jump_3355:
+.skip:
 	ld a, [hli]
 	and b
 	or c
@@ -8939,7 +8939,7 @@ MusCmd_Wave::
 MusCmd_PanLeft::
 	call GetChannelPanMask
 	and $f0
-.jump_33a0:
+.set_pan:
 	ld c, a
 	ldh a, [rNR51]
 	and b
@@ -8951,12 +8951,12 @@ MusCmd_PanLeft::
 MusCmd_PanRight::
 	call GetChannelPanMask
 	and $0f
-	jr MusCmd_PanLeft.jump_33a0
+	jr MusCmd_PanLeft.set_pan
 
 
 MusCmd_PanCenter::
 	call GetChannelPanMask
-	jr MusCmd_PanLeft.jump_33a0
+	jr MusCmd_PanLeft.set_pan
 
 
 GetChannelPanMask::
@@ -8986,7 +8986,7 @@ MusCmd_End::
 	ld [hl], e
 	inc l
 	ld [hl], d
-.jump_33d2:
+.stop_channel:
 	ld l, $53
 	ld [hl], $00
 	ld l, $56
@@ -9019,17 +9019,17 @@ MusCmd_JumpBack::
 
 MusCmd_DutyEnvelope2::
 	ld a, $80
-	jr MusCmd_DutyEnvelope0.jump_33f8
+	jr MusCmd_DutyEnvelope0.set_duty_envelope
 
 
 MusCmd_DutyEnvelope1::
 	ld a, $40
-	jr MusCmd_DutyEnvelope0.jump_33f8
+	jr MusCmd_DutyEnvelope0.set_duty_envelope
 
 
 MusCmd_DutyEnvelope0::
 	xor a
-.jump_33f8:
+.set_duty_envelope:
 	ld h, b
 	ld l, $23
 	ld [hli], a
@@ -9100,44 +9100,44 @@ MusCmd_Regs2::
 
 MusCmd_Call::
 	ld c, $01
-	jr MusCmd_CallTimes.jump_345c
+	jr MusCmd_CallTimes.call
 
 
 MusCmd_CallX3::
 	ld c, $02
-	jr MusCmd_CallTimes.jump_345c
+	jr MusCmd_CallTimes.call
 
 
 MusCmd_CallX2::
 	ld c, $03
-	jr MusCmd_CallTimes.jump_345c
+	jr MusCmd_CallTimes.call
 
 
 MusCmd_CallX4::
 	ld c, $04
-	jr MusCmd_CallTimes.jump_345c
+	jr MusCmd_CallTimes.call
 
 
 MusCmd_CallX6::
 	ld c, $06
-	jr MusCmd_CallTimes.jump_345c
+	jr MusCmd_CallTimes.call
 
 
 MusCmd_CallX8::
 	ld c, $08
-	jr MusCmd_CallTimes.jump_345c
+	jr MusCmd_CallTimes.call
 
 
 MusCmd_CallX16::
 	ld c, $10
-	jr MusCmd_CallTimes.jump_345c
+	jr MusCmd_CallTimes.call
 
 
 MusCmd_CallTimes::
 	ld a, [de]
 	inc de
 	ld c, a
-.jump_345c:
+.call:
 	ld h, b
 	ld l, $1e
 	ld a, [hl]
@@ -9225,7 +9225,7 @@ MusCmd_RetTransposeOff::
 	ld h, b
 	ld l, $28
 	ld [hl], $00
-	jr MusCmd_Ret.jump_34cb
+	jr MusCmd_Ret.ret
 
 
 MusCmd_RetPanCenter::
@@ -9235,7 +9235,7 @@ MusCmd_RetPanCenter::
 	and b
 	or c
 	ldh [rNR51], a
-	jr MusCmd_Ret.jump_34cb
+	jr MusCmd_Ret.ret
 
 
 MusCmd_RetReset::
@@ -9250,11 +9250,11 @@ MusCmd_RetLengthOff::
 
 MusCmd_Ret::
 	ld h, b
-.jump_34cb:
+.ret:
 	ld l, $1e
 	ld l, [hl]
 	dec [hl]
-	jr z, .jump_34d8
+	jr z, .else
 	inc l
 	inc l
 	inc l
@@ -9263,7 +9263,7 @@ MusCmd_Ret::
 	ld d, [hl]
 	ret
 
-.jump_34d8:
+.else:
 	inc l
 	ld e, [hl]
 	inc l
@@ -9278,33 +9278,33 @@ MusCmd_Ret::
 
 MusCmd_LengthX1::
 	ld a, $01
-	jr MusCmd_Length.jump_34fa
+	jr MusCmd_Length.set_length
 
 
 MusCmd_LengthX2::
 	ld a, $02
-	jr MusCmd_Length.jump_34fa
+	jr MusCmd_Length.set_length
 
 
 MusCmd_LengthX6::
 	ld a, $06
-	jr MusCmd_Length.jump_34fa
+	jr MusCmd_Length.set_length
 
 
 MusCmd_LengthX8::
 	ld a, $08
-	jr MusCmd_Length.jump_34fa
+	jr MusCmd_Length.set_length
 
 
 MusCmd_LengthX4::
 	ld a, $04
-	jr MusCmd_Length.jump_34fa
+	jr MusCmd_Length.set_length
 
 
 MusCmd_Length::
 	ld a, [de]
 	inc de
-.jump_34fa:
+.set_length:
 	ld h, b
 	ld l, $27
 	ld [hl], a
@@ -9379,12 +9379,12 @@ MusCmd_Key::
 
 MusCmd_Loop2::
 	ld l, $5e
-	jr MusCmd_Loop.jump_3546
+	jr MusCmd_Loop.set_loop
 
 
 MusCmd_Loop::
 	ld l, $5b
-.jump_3546:
+.set_loop:
 	ld h, b
 	ld a, [de]
 	inc de
@@ -9397,12 +9397,12 @@ MusCmd_Loop::
 
 MusCmd_Loop2End::
 	ld l, $5e
-	jr MusCmd_LoopEnd.jump_3554
+	jr MusCmd_LoopEnd.loop_end
 
 
 MusCmd_LoopEnd::
 	ld l, $5b
-.jump_3554:
+.loop_end:
 	ld h, b
 	dec [hl]
 	ret z
@@ -9425,23 +9425,23 @@ MusCmd_NoteRepeat::
 	ld [hld], a
 	ld a, [hli]
 	pop bc
-	jp Music_JumpHL.jump_3257
+	jp Music_JumpHL.save_stream_pos
 
 
 MusCmd_Echo48::
 	ld a, $48
-	jr MusCmd_Echo.jump_3575
+	jr MusCmd_Echo.set_echo
 
 
 MusCmd_Echo5a::
 	ld a, $5a
-	jr MusCmd_Echo.jump_3575
+	jr MusCmd_Echo.set_echo
 
 
 MusCmd_Echo::
 	ld a, [de]
 	inc de
-.jump_3575:
+.set_echo:
 	ld h, b
 	ld l, $57
 	ld [hl], a
@@ -9454,77 +9454,77 @@ MusCmd_Echo::
 
 MusCmd_Volume1::
 	ld a, $10
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume3::
 	ld a, $30
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume4::
 	ld a, $40
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume5::
 	ld a, $50
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume6::
 	ld a, $60
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume7::
 	ld a, $70
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume8::
 	ld a, $80
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume9::
 	ld a, $90
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume10::
 	ld a, $a0
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume11::
 	ld a, $b0
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume12::
 	ld a, $c0
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume13::
 	ld a, $d0
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume14::
 	ld a, $e0
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume15::
 	ld a, $f0
-	jr MusCmd_Volume2.jump_35bb
+	jr MusCmd_Volume2.set_volume
 
 
 MusCmd_Volume2::
 	ld a, $20
-.jump_35bb:
+.set_volume:
 	ld h, b
 	ld l, $2b
 	ld [hl], a
@@ -9771,54 +9771,54 @@ RunFlowScript::
 	ld a, $0d
 	ld [rROMB0], a
 	ld hl, wFlowPointer
-.jump_38d5:
+.loop:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	or a
-	jr z, .jump_38d5
+	jr z, .loop
 	ldh [hGameState], a
 	cp $4c
-	jr z, .jump_3905
+	jr z, .else_3905
 	cp $1c
-	jr z, .jump_390f
+	jr z, .else_390f
 	cp $1f
-	jr z, .jump_38f7
+	jr z, .else_38f7
 	cp $19
-	jr z, .jump_3915
-.jump_38ee:
+	jr z, .else_3915
+.done:
 	ld a, l
 	ld [wFlowPointer], a
 	ld a, h
 	ld [wFlowPointer + 1], a
 	ret
 
-.jump_38f7:
+.else_38f7:
 	ld a, [hli]
 	ld [wFlowArg1], a
 	ld a, [hli]
 	ld [wFlowArg2], a
 	ld a, [hli]
 	ld [wFlowArg3], a
-	jr .jump_38ee
+	jr .done
 
-.jump_3905:
+.else_3905:
 	ld a, [hli]
 	ld [wFlowArg1], a
 	ld a, [hli]
 	ld [wFlowArg2], a
-	jr .jump_38ee
+	jr .done
 
-.jump_390f:
+.else_390f:
 	ld a, [hli]
 	ld [wFlowArg1], a
-	jr .jump_38ee
+	jr .done
 
-.jump_3915:
+.else_3915:
 	ld a, [hli]
 	ld [wFlowArg1], a
-	jr .jump_38ee
+	jr .done
 
 
 State_Wait::
@@ -9828,10 +9828,10 @@ State_Wait::
 	ld a, [wFlowArg2]
 	sbc a, $00
 	ld [wFlowArg2], a
-	jr c, .jump_392e
+	jr c, .jp_RunFlowScript
 	ret
 
-.jump_392e:
+.jp_RunFlowScript:
 	jp RunFlowScript
 
 
@@ -9861,15 +9861,15 @@ State_ChooseLevelFlow::
 	call Save_CountCompletion
 	ld a, e
 	cp $01
-	jr nz, .jump_3965
+	jr nz, .else
 	ld a, d
 	and $0f
 	cp $01
-	jr nz, .jump_3965
+	jr nz, .else
 	ld de, $6184
-	jr .jump_3973
+	jr .jp_SetFlowPointer
 
-.jump_3965:
+.else:
 	ld a, [wLanguage]
 	add a, a
 	add a, $76
@@ -9880,7 +9880,7 @@ State_ChooseLevelFlow::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-.jump_3973:
+.jp_SetFlowPointer:
 	jp SetFlowPointer
 
 
@@ -9889,7 +9889,7 @@ WorldFlowEntries::
 
 RunObjects::
 	ld bc, $0000
-.jump_3983:
+.run_object:
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ldh a, [hObjectRunMask]
@@ -9917,7 +9917,7 @@ NextObject::
 	sub c
 	ld b, a
 	cp $08
-	jr nz, RunObjects.jump_3983
+	jr nz, RunObjects.run_object
 	ret
 
 
@@ -9934,16 +9934,16 @@ NegateObjectWord::
 
 ApplyVelocity::
 	call ApplyXVelocity
-	jp ApplyXVelocity.jump_39bf
+	jp ApplyXVelocity.apply_y
 
 
 ApplyXVelocity::
 	ld hl, wPlayer + OBJ_XVEL
-	jr .jump_39c2
+	jr .continue
 
-.jump_39bf:
+.apply_y:
 	ld hl, wObjects + OBJ_YVEL
-.jump_39c2:
+.continue:
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -9958,9 +9958,9 @@ ApplyXVelocity::
 	ld a, [hl]
 	adc a, $00
 	bit 7, d
-	jr z, .jump_39d5
+	jr z, .done
 	dec a
-.jump_39d5:
+.done:
 	ld [hli], a
 	ret
 
@@ -9972,12 +9972,12 @@ UndoVelocity::
 
 UndoXVelocity::
 	ld hl, wPlayer + OBJ_XVEL
-	jr UndoYVelocity.jump_39e5
+	jr UndoYVelocity.undo
 
 
 UndoYVelocity::
 	ld hl, wObjects + OBJ_YVEL
-.jump_39e5:
+.undo:
 	add hl, bc
 	ld a, [hli]
 	ld e, a
@@ -9992,9 +9992,9 @@ UndoYVelocity::
 	ld a, [hl]
 	sbc a, $00
 	bit 7, d
-	jr z, .jump_39f8
+	jr z, .done
 	inc a
-.jump_39f8:
+.done:
 	ld [hl], a
 	ret
 
@@ -10013,9 +10013,9 @@ UpdateVelocity::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr c, .jump_3a35
+	jr c, .else_3a35
 	or e
-	jr z, .jump_3a58
+	jr z, .continue
 	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld a, [hli]
@@ -10035,19 +10035,19 @@ UpdateVelocity::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr nc, .jump_3a2c
+	jr nc, .skip_3a2c
 	ld a, [hld]
 	ld e, [hl]
 	ld d, a
-.jump_3a2c:
+.skip_3a2c:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jr .jump_3a58
+	jr .continue
 
-.jump_3a35:
+.else_3a35:
 	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld a, [hli]
@@ -10067,17 +10067,17 @@ UpdateVelocity::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr c, .jump_3a51
+	jr c, .skip_3a51
 	ld a, [hld]
 	ld e, [hl]
 	ld d, a
-.jump_3a51:
+.skip_3a51:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_3a58:
+.continue:
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, [hli]
@@ -10091,7 +10091,7 @@ UpdateVelocity::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr c, .jump_3a91
+	jr c, .else_3a91
 	or e
 	ret z
 	ld hl, wObjects + OBJ_YACCEL
@@ -10113,11 +10113,11 @@ UpdateVelocity::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr nc, .jump_3a89
+	jr nc, .done_3a89
 	ld a, [hld]
 	ld e, [hl]
 	ld d, a
-.jump_3a89:
+.done_3a89:
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, e
@@ -10125,7 +10125,7 @@ UpdateVelocity::
 	ld [hl], d
 	ret
 
-.jump_3a91:
+.else_3a91:
 	ld hl, wObjects + OBJ_YACCEL
 	add hl, bc
 	ld a, [hli]
@@ -10145,11 +10145,11 @@ UpdateVelocity::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr c, .jump_3aad
+	jr c, .done_3aad
 	ld a, [hld]
 	ld e, [hl]
 	ld d, a
-.jump_3aad:
+.done_3aad:
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, e
@@ -10163,19 +10163,19 @@ DespawnIfOutOfRange::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr z, .jump_3b02
+	jr z, .else_3b02
 	ld l, a
 	ld h, $a8
 	bit 6, [hl]
-	jr z, .jump_3ac9
+	jr z, .skip
 	ld h, $af
 	ld a, [hl]
 	or a
 	ret nz
-.jump_3ac9:
+.skip:
 	ld h, $a8
 	bit 1, [hl]
-	jr nz, .jump_3b02
+	jr nz, .else_3b02
 	ld h, $a9
 	ld e, [hl]
 	inc h
@@ -10186,13 +10186,13 @@ DespawnIfOutOfRange::
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr nc, .jump_3b02
+	jr nc, .else_3b02
 	ld a, [hli]
 	sub e
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr c, .jump_3b02
+	jr c, .else_3b02
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld l, [hl]
@@ -10206,17 +10206,17 @@ DespawnIfOutOfRange::
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr nc, .jump_3b02
+	jr nc, .else_3b02
 	ld a, [hli]
 	sub e
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr c, .jump_3b02
+	jr c, .else_3b02
 	xor a
 	ret
 
-.jump_3b02:
+.else_3b02:
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -10228,13 +10228,13 @@ DespawnIfOutOfRange::
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr nc, .jump_3b34
+	jr nc, .else_3b34
 	ld a, [hli]
 	sub e
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr c, .jump_3b34
+	jr c, .else_3b34
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
@@ -10246,17 +10246,17 @@ DespawnIfOutOfRange::
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr nc, .jump_3b34
+	jr nc, .else_3b34
 	ld a, [hli]
 	sub e
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr c, .jump_3b34
+	jr c, .else_3b34
 	xor a
 	ret
 
-.jump_3b34:
+.else_3b34:
 	call DeleteObject
 	scf
 	ret
@@ -10307,23 +10307,23 @@ GetOffsetFromSpawnY::
 
 
 CheckRangeLimit::
-	jr nz, .jump_3b7b
+	jr nz, .else
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
 	sub e
 	ld a, [hli]
 	sbc a, d
-	jr .jump_3b83
+	jr .done
 
-.jump_3b7b:
+.else:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
 	add a, e
 	ld a, [hli]
 	adc a, d
-.jump_3b83:
+.done:
 	rlca
 	ret
 
@@ -10333,30 +10333,30 @@ TurnAtRangeLimit::
 	add hl, bc
 	ld a, [hli]
 	or [hl]
-	jr z, .jump_3b92
+	jr z, .else
 	call GetOffsetFromSpawnX
-	jr .jump_3b95
+	jr .continue
 
-.jump_3b92:
+.else:
 	call GetOffsetFromSpawnY
-.jump_3b95:
+.continue:
 	call CheckRangeLimit
-	jr nc, .jump_3ba6
+	jr nc, .return
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	call NegateObjectWord
 	ld hl, wPlayer + OBJ_TARGET_YVEL
 	call NegateObjectWord
-.jump_3ba6:
+.return:
 	ret
 
 
 TurnAtRangeLimitX::
 	call GetOffsetFromSpawnX
 	call CheckRangeLimit
-	jr nc, .jump_3bb5
+	jr nc, .return
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	call NegateObjectWord
-.jump_3bb5:
+.return:
 	ret
 
 
@@ -10371,14 +10371,14 @@ GetPlayerDistanceX::
 	sbc a, [hl]
 	ld d, a
 	rlca
-	jr nc, .jump_3bce
+	jr nc, .return
 	ld a, e
 	cpl
 	ld e, a
 	ld a, d
 	cpl
 	ld d, a
-.jump_3bce:
+.return:
 	ret
 
 
@@ -10443,17 +10443,17 @@ MoveTowardsY::
 SwingingRope_Touch::
 	ld a, [wPlayer + OBJ_COLLISION]
 	and $01
-	jr z, .jump_3c2e
+	jr z, .skip
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
-	jr nz, .jump_3c2e
+	jr nz, .skip
 	ld a, [wPlayer + OBJ_VAR_37]
 	or a
-	jr z, .jump_3c31
-.jump_3c2e:
+	jr z, .else_3c31
+.skip:
 	jp $44f5
 
-.jump_3c31:
+.else_3c31:
 	ld a, $20
 	ld [rROMB0], a
 	ld hl, wObjects + OBJ_X
@@ -10496,8 +10496,8 @@ SwingingRope_Touch::
 	pop de
 	ldh a, [hSpriteAttr]
 	bit 5, a
-	jr nz, .jump_3c8e
-.jump_3c74:
+	jr nz, .loop_3c8e
+.loop_3c74:
 	ld a, e
 	sub [hl]
 	inc hl
@@ -10508,19 +10508,19 @@ SwingingRope_Touch::
 	ld d, a
 	ld a, e
 	cp $10
-	jr nc, .jump_3c89
+	jr nc, .else_3c89
 	ld a, d
 	cp $10
-	jr nc, .jump_3c89
+	jr nc, .else_3c89
 	inc b
-	jr .jump_3ca5
+	jr .continue_3ca5
 
-.jump_3c89:
+.else_3c89:
 	dec c
-	jr nz, .jump_3c74
-	jr .jump_3ca5
+	jr nz, .loop_3c74
+	jr .continue_3ca5
 
-.jump_3c8e:
+.loop_3c8e:
 	ld a, [hli]
 	add a, e
 	ld e, a
@@ -10530,21 +10530,21 @@ SwingingRope_Touch::
 	ld d, a
 	ld a, e
 	cp $10
-	jr nc, .jump_3ca2
+	jr nc, .else_3ca2
 	ld a, d
 	cp $10
-	jr nc, .jump_3ca2
+	jr nc, .else_3ca2
 	inc b
-	jr .jump_3ca5
+	jr .continue_3ca5
 
-.jump_3ca2:
+.else_3ca2:
 	dec c
-	jr nz, .jump_3c8e
-.jump_3ca5:
+	jr nz, .loop_3c8e
+.continue_3ca5:
 	ld a, b
 	pop bc
 	or a
-	jr z, .jump_3cd9
+	jr z, .continue_3cd9
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
@@ -10569,10 +10569,10 @@ SwingingRope_Touch::
 	ld [wPlayer + OBJ_VAR_34], a
 	ld a, $03
 	ld [wPlayer + OBJ_VAR_37], a
-.jump_3cd9:
+.continue_3cd9:
 	ld a, $09
 	ld [rROMB0], a
-	jp CheckPlayerContact.jump_44f5
+	jp CheckPlayerContact.next_object
 
 
 LoadBGPaletteSet::
@@ -10583,12 +10583,12 @@ LoadBGPaletteSet::
 	ld [rROMB0], a
 	ld hl, wBGPalettes
 	ld c, $40
-.jump_3cf0:
+.loop:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec c
-	jr nz, .jump_3cf0
+	jr nz, .loop
 	pop bc
 	pop af
 	ld [rROMB0], a
@@ -10601,7 +10601,7 @@ State_FrontEndLanguageSelect::
 	ld a, $f1
 	ld [rROMB0], a
 	call FE_Enter
-	jp State_FrontEnd.jump_3d42
+	jp State_FrontEnd.enter
 
 
 State_FrontEndMainMenu::
@@ -10617,7 +10617,7 @@ State_FrontEndMainMenu::
 	ld a, $f1
 	ld [rROMB0], a
 	call FE_Enter
-	jp State_FrontEnd.jump_3d42
+	jp State_FrontEnd.enter
 
 
 State_FrontEnd::
@@ -10632,50 +10632,50 @@ State_FrontEnd::
 	ld a, $f1
 	ld [rROMB0], a
 	call FE_Enter
-	jp .jump_3d42
+	jp .enter
 
-.jump_3d42:
+.enter:
 	ld a, d
 	or a
-	jr z, .jump_3d51
+	jr z, .else_3d51
 	dec a
-	jr z, .jump_3d5a
+	jr z, .else_3d5a
 	dec a
-	jr z, .jump_3d63
+	jr z, .else_3d63
 	dec a
-	jr z, .jump_3d6c
-	jr .jump_3d7f
+	jr z, .else_3d6c
+	jr .continue_3d7f
 
-.jump_3d51:
+.else_3d51:
 	ld a, e
 	ld [wSaveFile], a
 	ld de, $5f8c
-	jr .jump_3d79
+	jr .continue_3d79
 
-.jump_3d5a:
+.else_3d5a:
 	ld a, l
 	ld [wLanguage], a
 	ld de, $5f87
-	jr .jump_3d79
+	jr .continue_3d79
 
-.jump_3d63:
+.else_3d63:
 	ld a, b
 	ld [wLives], a
 	ld de, $5fba
-	jr .jump_3d79
+	jr .continue_3d79
 
-.jump_3d6c:
+.else_3d6c:
 	ld a, $05
 	ld [wLives], a
 	ld a, $29
 	ld [wMapLocation], a
 	ld de, $5fba
-.jump_3d79:
+.continue_3d79:
 	ld hl, wFlowPointer
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_3d7f:
+.continue_3d7f:
 	call InstallInterruptTrampolines
 	xor a
 	ldh [rIF], a
@@ -10739,7 +10739,7 @@ RestoreBankAndReturn::
 	ld [rROMB0], a
 	ret
 
-.jump_3fdc::
+.far_jump::
 	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
 	ret

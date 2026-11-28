@@ -14,61 +14,61 @@ Fishing_LoadScreen::
 	call Fishing_CopyBytes
 	push bc
 	ld c, $41
-.jump_4017:
+.loop_4017:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4017
-.jump_401d:
+	jr z, .loop_4017
+.loop_401d:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_401d
+	jr nz, .loop_401d
 	pop bc
 	ld hl, $70d0
 	call Fishing_UploadOBJPalettes_51
 	ldh a, [hFishing_LinkRole]
 	cp $ff
-	jr nz, .jump_403b
+	jr nz, .else
 	ld bc, $6a90
 	call Fishing_UploadScreenMap
 	call Fishing_LoadTiles
-	jr .jump_4044
+	jr .continue
 
-.jump_403b:
+.else:
 	ld bc, $6d60
 	call Fishing_UploadScreenMap
 	call Fishing_LoadTiles
-.jump_4044:
+.continue:
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
 	ldh [rVBK], a
 	ld bc, $7030
 	ld hl, $98b4
 	ld d, $04
-.jump_4052:
+.loop_4052:
 	ld e, $0c
 	push bc
 	push bc
 	ld c, $41
-.jump_4058:
+.loop_4058:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4058
-.jump_405e:
+	jr z, .loop_4058
+.loop_405e:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_405e
+	jr nz, .loop_405e
 	pop bc
 	pop bc
-.jump_4066:
+.loop_4066:
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	dec e
-	jr nz, .jump_4066
+	jr nz, .loop_4066
 	ld a, $14
 	add a, l
 	ld l, a
@@ -76,35 +76,35 @@ Fishing_LoadScreen::
 	adc a, $00
 	ld h, a
 	dec d
-	jr nz, .jump_4052
+	jr nz, .loop_4052
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
 	ldh [rVBK], a
 	ld hl, $98b4
 	ld d, $04
-.jump_4082:
+.loop_4082:
 	ld e, $0c
 	push bc
 	push bc
 	ld c, $41
-.jump_4088:
+.loop_4088:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4088
-.jump_408e:
+	jr z, .loop_4088
+.loop_408e:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_408e
+	jr nz, .loop_408e
 	pop bc
 	pop bc
-.jump_4096:
+.loop_4096:
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	dec e
-	jr nz, .jump_4096
+	jr nz, .loop_4096
 	ld a, $14
 	add a, l
 	ld l, a
@@ -112,7 +112,7 @@ Fishing_LoadScreen::
 	adc a, $00
 	ld h, a
 	dec d
-	jr nz, .jump_4082
+	jr nz, .loop_4082
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
 	ldh [rVBK], a
@@ -125,29 +125,29 @@ Fishing_UploadScreenMap::
 	ldh [rVBK], a
 	ld hl, $9800
 	ld d, $12
-.jump_40b9:
+.loop_40b9:
 	ld e, $14
 	push bc
 	push bc
 	ld c, $41
-.jump_40bf:
+.loop_40bf:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_40bf
-.jump_40c5:
+	jr z, .loop_40bf
+.loop_40c5:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_40c5
+	jr nz, .loop_40c5
 	pop bc
 	pop bc
-.jump_40cd:
+.loop_40cd:
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	dec e
-	jr nz, .jump_40cd
+	jr nz, .loop_40cd
 	ld a, $0c
 	add a, l
 	ld l, a
@@ -155,35 +155,35 @@ Fishing_UploadScreenMap::
 	adc a, $00
 	ld h, a
 	dec d
-	jr nz, .jump_40b9
+	jr nz, .loop_40b9
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
 	ldh [rVBK], a
 	ld hl, $9800
 	ld d, $12
-.jump_40e9:
+.loop_40e9:
 	ld e, $14
 	push bc
 	push bc
 	ld c, $41
-.jump_40ef:
+.loop_40ef:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_40ef
-.jump_40f5:
+	jr z, .loop_40ef
+.loop_40f5:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_40f5
+	jr nz, .loop_40f5
 	pop bc
 	pop bc
-.jump_40fd:
+.loop_40fd:
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	dec e
-	jr nz, .jump_40fd
+	jr nz, .loop_40fd
 	ld a, $0c
 	add a, l
 	ld l, a
@@ -191,23 +191,23 @@ Fishing_UploadScreenMap::
 	adc a, $00
 	ld h, a
 	dec d
-	jr nz, .jump_40e9
+	jr nz, .loop_40e9
 	ret
 
 
 Fishing_LoadTiles::
 	push bc
 	ld c, $41
-.jump_4112:
+.loop_4112:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4112
-.jump_4118:
+	jr z, .loop_4112
+.loop_4118:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4118
+	jr nz, .loop_4118
 	pop bc
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
@@ -218,16 +218,16 @@ Fishing_LoadTiles::
 	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
-.jump_4133:
+.loop_4133:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4133
-.jump_4139:
+	jr z, .loop_4133
+.loop_4139:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4139
+	jr nz, .loop_4139
 	pop bc
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
@@ -238,16 +238,16 @@ Fishing_LoadTiles::
 	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
-.jump_4154:
+.loop_4154:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4154
-.jump_415a:
+	jr z, .loop_4154
+.loop_415a:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_415a
+	jr nz, .loop_415a
 	pop bc
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
@@ -258,16 +258,16 @@ Fishing_LoadTiles::
 	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
-.jump_4175:
+.loop_4175:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4175
-.jump_417b:
+	jr z, .loop_4175
+.loop_417b:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_417b
+	jr nz, .loop_417b
 	pop bc
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
@@ -278,16 +278,16 @@ Fishing_LoadTiles::
 	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
-.jump_4196:
+.loop_4196:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4196
-.jump_419c:
+	jr z, .loop_4196
+.loop_419c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_419c
+	jr nz, .loop_419c
 	pop bc
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
@@ -298,16 +298,16 @@ Fishing_LoadTiles::
 	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
-.jump_41b7:
+.loop_41b7:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_41b7
-.jump_41bd:
+	jr z, .loop_41b7
+.loop_41bd:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_41bd
+	jr nz, .loop_41bd
 	pop bc
 	ld a, $01
 	ldh [hFishing_VRAMBank], a

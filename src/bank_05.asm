@@ -16,7 +16,7 @@ WorldMap_DrawMetasprite::
 	ld d, [hl]
 	ld e, a
 	pop hl
-.jump_400d:
+.loop:
 	ld a, [de]
 	cp $80
 	ret z
@@ -35,7 +35,7 @@ WorldMap_DrawMetasprite::
 	ld a, [de]
 	ld [hli], a
 	inc de
-	jr .jump_400d
+	jr .loop
 
 
 WorldMapMetasprites::
@@ -186,22 +186,22 @@ WorldMapMetasprite_05_4169::
 WorldMap_DrawKong::
 	ld a, [wMapFlags]
 	rlca
-	jr nc, .jump_4178
+	jr nc, .else
 	ld e, $0c
-	jr .jump_4182
+	jr .skip_4182
 
-.jump_4178:
+.else:
 	ld a, [wKongs]
 	rrca
 	ld e, $08
-	jr nc, .jump_4182
+	jr nc, .skip_4182
 	ld e, $0a
-.jump_4182:
+.skip_4182:
 	ld a, [wMapKongFlags]
 	bit 1, a
-	jr z, .jump_418a
+	jr z, .skip_418a
 	inc e
-.jump_418a:
+.skip_418a:
 	ld a, [wMapScrollX]
 	ld c, a
 	ld a, [wMapKongX + 1]
@@ -222,14 +222,14 @@ WorldMap_DrawKong::
 
 WorldMap_DrawLevelMarkers::
 	ld bc, $0000
-.jump_41a9:
+.loop_41a9:
 	push bc
 	push hl
 	ld h, $c8
 	ld l, c
 	ld a, [hl]
 	cp $ff
-	jr z, .jump_41de
+	jr z, .done
 	ld e, a
 	ld a, [wMapNodes]
 	ld l, a
@@ -246,10 +246,10 @@ WorldMap_DrawLevelMarkers::
 	ld c, a
 	ld a, [hli]
 	sbc a, $00
-	jr nz, .jump_41e1
+	jr nz, .else
 	ld a, c
 	cp $b0
-	jr nc, .jump_41e1
+	jr nc, .else
 	ld a, [hli]
 	ld b, a
 	pop hl
@@ -257,29 +257,29 @@ WorldMap_DrawLevelMarkers::
 	or a
 	call nz, WorldMap_DrawMetasprite
 	pop bc
-.jump_41da:
+.loop_41da:
 	inc c
-	jr nz, .jump_41a9
+	jr nz, .loop_41a9
 	ret
 
-.jump_41de:
+.done:
 	pop hl
 	pop bc
 	ret
 
-.jump_41e1:
+.else:
 	pop hl
 	pop bc
-	jr .jump_41da
+	jr .loop_41da
 
 
 WorldMap_DrawShopSign::
 	ld a, [wWorld]
 	cp $07
-	jr z, .jump_41ee
+	jr z, .skip
 	or a
 	ret nz
-.jump_41ee:
+.skip:
 	ld a, [wMapLevelsCleared]
 	or a
 	ret z
@@ -302,7 +302,7 @@ WorldMap_DrawCursor::
 	ld a, [bc]
 	ld e, a
 	or a
-	jr z, .jump_4252
+	jr z, .done
 	ld b, $00
 	ld hl, wMapNodes
 	ld a, [hli]
@@ -319,16 +319,16 @@ WorldMap_DrawCursor::
 	ld c, a
 	ld a, [hli]
 	sbc a, $00
-	jr nz, .jump_4252
+	jr nz, .done
 	ld a, c
 	cp $b0
-	jr nc, .jump_4252
+	jr nc, .done
 	ld b, [hl]
 	pop hl
 	xor a
-.jump_422e:
+.loop:
 	bit 0, e
-	jr z, .jump_424c
+	jr z, .continue
 	push de
 	push af
 	add a, a
@@ -353,13 +353,13 @@ WorldMap_DrawCursor::
 	ld [hli], a
 	pop af
 	pop de
-.jump_424c:
+.continue:
 	inc a
 	srl e
-	jr nz, .jump_422e
+	jr nz, .loop
 	ret
 
-.jump_4252:
+.done:
 	pop hl
 	ret
 
@@ -377,10 +377,10 @@ WorldMapSpriteOffsets::
 WorldMap_LoadSignTiles::
 	ld a, [wWorld]
 	cp $07
-	jr z, .jump_427d
+	jr z, .skip
 	or a
 	ret nz
-.jump_427d:
+.skip:
 	ld a, [wMapLevelsCleared]
 	add a, a
 	ret z
@@ -420,12 +420,12 @@ WorldMap_SetUpMarkers::
 	adc a, $00
 	ld b, a
 	ld e, $00
-.jump_42bc:
+.loop_42bc:
 	ld a, [bc]
 	cp $ff
-	jr z, .jump_42f3
+	jr z, .done_42f3
 	or a
-	jr z, .jump_42f9
+	jr z, .loop_42f9
 	ld l, a
 	ld h, $00
 	add hl, hl
@@ -439,81 +439,81 @@ WorldMap_SetUpMarkers::
 	ld a, [hli]
 	and $7f
 	cp $01
-	jr z, .jump_4304
+	jr z, .else_4304
 	cp $02
-	jr z, .jump_433c
+	jr z, .else_433c
 	cp $04
-	jp z, .jump_4383
+	jp z, .else_4383
 	cp $05
-	jp z, .jump_4432
+	jp z, .else_4432
 	cp $06
-	jp z, .jump_43b4
-.jump_42eb:
+	jp z, .else_43b4
+.loop_42eb:
 	inc bc
 	inc bc
 	inc bc
 	inc bc
 	inc e
-	jr .jump_42bc
+	jr .loop_42bc
 
-.jump_42f2:
+.done_42f2:
 	inc e
-.jump_42f3:
+.done_42f3:
 	ld a, $ff
 	ld d, $c8
 	ld [de], a
 	ret
 
-.jump_42f9:
+.loop_42f9:
 	ld d, $c8
 	ld [de], a
 	ld d, $c9
 	ld [de], a
 	ld d, $ca
 	ld [de], a
-	jr .jump_42eb
+	jr .loop_42eb
 
-.jump_4304:
+.else_4304:
 	ld l, [hl]
 	call WorldMap_GetLevelState
 	ld a, [wGameModeBit]
 	and [hl]
 	push hl
 	ld a, [bc]
-	jr z, .jump_4320
+	jr z, .else_4320
 	ld l, a
 	ld h, $00
 	add hl, hl
 	add hl, hl
 	ld a, [wMapFlags]
 	bit 7, a
-	jr z, .jump_4326
+	jr z, .continue_4326
 	inc hl
 	inc hl
-	jr .jump_4326
+	jr .continue_4326
 
-.jump_4320:
+.else_4320:
 	ld l, a
 	ld h, $00
 	add hl, hl
 	add hl, hl
 	inc hl
-.jump_4326:
+.continue_4326:
 	call WorldMap_GetPathBits
 	pop hl
 	bit 4, [hl]
-	jr z, .jump_4334
+	jr z, .skip
 	ld d, $c9
 	ld a, [de]
 	or $01
 	ld [de], a
-.jump_4334:
+.skip:
 	ld a, [wGameModeBit]
 	and [hl]
-	jr z, .jump_42f2
-	jr .jump_42eb
+	jr z, .done_42f2
+	jr .loop_42eb
 
-.jump_433c:
+.else_433c:
 	ld l, [hl]
 	ld h, $00
 	add hl, hl
@@ -532,36 +532,36 @@ WorldMap_SetUpMarkers::
 	and [hl]
 	push hl
 	ld a, [bc]
-	jr z, .jump_4368
+	jr z, .else_4368
 	ld l, a
 	ld h, $00
 	add hl, hl
 	add hl, hl
 	ld a, [wMapFlags]
 	bit 7, a
-	jr z, .jump_436e
+	jr z, .continue_436e
 	inc hl
 	inc hl
-	jr .jump_436e
+	jr .continue_436e
 
-.jump_4368:
+.else_4368:
 	ld l, a
 	ld h, $00
 	add hl, hl
 	add hl, hl
 	inc hl
-.jump_436e:
+.continue_436e:
 	call WorldMap_GetPathBits
 	pop hl
 	ld a, [wGameModeBit]
 	and [hl]
-	jp z, .jump_42f2
+	jp z, .done_42f2
 	ld a, [wMapLevelsCleared]
 	inc a
 	ld [wMapLevelsCleared], a
-	jp .jump_42eb
+	jp .loop_42eb
 
-.jump_4383:
+.else_4383:
 	ld a, [hl]
 	push af
 	add a, $04
@@ -575,7 +575,7 @@ WorldMap_SetUpMarkers::
 	call WorldMap_GetPathBits
 	pop af
 	cp $02
-	jp nz, .jump_42eb
+	jp nz, .loop_42eb
 	ld a, [wWorld]
 	ld l, a
 	ld a, [wSaveFile]
@@ -585,28 +585,28 @@ WorldMap_SetUpMarkers::
 	ld l, a
 	ld h, $b0
 	bit 6, [hl]
-	jp z, .jump_42eb
+	jp z, .loop_42eb
 	ld d, $c9
 	ld a, [de]
 	or $01
 	ld [de], a
-	jp .jump_42eb
+	jp .loop_42eb
 
-.jump_43b4:
+.else_43b4:
 	ld a, [hl]
 	or a
-	jr z, .jump_43f2
+	jr z, .else_43f2
 	cp $06
-	jr z, .jump_4422
+	jr z, .else_4422
 	ld a, [sCrankyUnlock]
 	inc a
 	cp [hl]
-	jr z, .jump_440c
-.jump_43c3:
+	jr z, .else_440c
+.loop_43c3:
 	ld a, $05
 	cp [hl]
-	jr z, .jump_43d9
-.jump_43c8:
+	jr z, .else_43d9
+.loop_43c8:
 	ld a, $01
 	ld d, $c8
 	ld [de], a
@@ -616,12 +616,12 @@ WorldMap_SetUpMarkers::
 	add hl, hl
 	add hl, hl
 	call WorldMap_GetPathBits
-	jp .jump_42eb
+	jp .loop_42eb
 
-.jump_43d9:
+.else_43d9:
 	ld a, [wMapLevelsCleared]
 	cp $06
-	jr z, .jump_43c8
+	jr z, .loop_43c8
 	ld a, $01
 	ld d, $c8
 	ld [de], a
@@ -632,9 +632,9 @@ WorldMap_SetUpMarkers::
 	add hl, hl
 	inc hl
 	call WorldMap_GetPathBits
-	jp .jump_42eb
+	jp .loop_42eb
 
-.jump_43f2:
+.else_43f2:
 	xor a
 	push hl
 	ld hl, sSaveFile0 + $29
@@ -645,14 +645,14 @@ WorldMap_SetUpMarkers::
 	or [hl]
 	pop hl
 	and $07
-	jr z, .jump_43c3
+	jr z, .loop_43c3
 	ld a, $06
 	ld [wMapLevelsCleared], a
-	jr .jump_43c3
+	jr .loop_43c3
 
-.jump_440c:
+.else_440c:
 	cp $06
-	jr z, .jump_4422
+	jr z, .else_4422
 	ld a, $03
 	ld d, $c8
 	ld [de], a
@@ -663,9 +663,9 @@ WorldMap_SetUpMarkers::
 	add hl, hl
 	inc hl
 	call WorldMap_GetPathBits
-	jp .jump_42f2
+	jp .done_42f2
 
-.jump_4422:
+.else_4422:
 	xor a
 	ld d, $c8
 	ld [de], a
@@ -675,13 +675,13 @@ WorldMap_SetUpMarkers::
 	add hl, hl
 	add hl, hl
 	call WorldMap_GetPathBits
-	jp .jump_42eb
+	jp .loop_42eb
 
-.jump_4432:
+.else_4432:
 	ld a, [wMapFlags]
 	rlca
 	ld a, $00
-	jp nc, .jump_42f9
+	jp nc, .loop_42f9
 	ld a, $14
 	ld d, $c8
 	ld [de], a
@@ -691,7 +691,7 @@ WorldMap_SetUpMarkers::
 	add hl, hl
 	add hl, hl
 	call WorldMap_GetPathBits
-	jp .jump_42eb
+	jp .loop_42eb
 
 
 WorldMap_GetLevelState::
@@ -703,16 +703,16 @@ WorldMap_GetLevelState::
 	ld h, $b0
 	ld a, [wGameModeBit]
 	and [hl]
-	jr z, .jump_4464
+	jr z, .done_4464
 	ld a, $01
 	bit 3, [hl]
-	jr z, .jump_4466
+	jr z, .done_4466
 	inc a
-	jr .jump_4466
+	jr .done_4466
 
-.jump_4464:
+.done_4464:
 	ld a, $03
-.jump_4466:
+.done_4466:
 	ld d, $c8
 	ld [de], a
 	ret
@@ -732,24 +732,24 @@ WorldMap_GetPathBits::
 	ld h, $00
 	ld a, l
 	and $83
-	jr z, .jump_4480
+	jr z, .skip_4480
 	set 6, h
-.jump_4480:
+.skip_4480:
 	ld a, l
 	and $0e
-	jr z, .jump_4487
+	jr z, .skip_4487
 	set 4, h
-.jump_4487:
+.skip_4487:
 	ld a, l
 	and $38
-	jr z, .jump_448e
+	jr z, .skip_448e
 	set 7, h
-.jump_448e:
+.skip_448e:
 	ld a, l
 	and $e0
-	jr z, .jump_4495
+	jr z, .done
 	set 5, h
-.jump_4495:
+.done:
 	ld d, $c9
 	ld a, h
 	ld [de], a

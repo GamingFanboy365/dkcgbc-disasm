@@ -64,19 +64,19 @@ RareLogo_Init::
 	ld hl, $c866
 	ld de, $5f00
 	ld bc, $0b08
-.jump_419b:
+.loop_419b:
 	push bc
 	push hl
-.jump_419d:
+.loop_419d:
 	ld [hli], a
 	dec c
-	jr nz, .jump_419d
+	jr nz, .loop_419d
 	pop hl
 	ld bc, $0020
 	add hl, bc
 	pop bc
 	dec b
-	jr nz, .jump_419b
+	jr nz, .loop_419b
 	ld de, $c800
 	ld hl, $1800
 	ld c, $23
@@ -91,20 +91,20 @@ RareLogo_Init::
 	ld hl, $c866
 	ld bc, $0b08
 	ld de, $0020
-.jump_41cd:
+.loop_41cd:
 	push hl
 	push bc
-.jump_41cf:
+.loop_41cf:
 	ld [hl], a
 	add hl, de
 	inc a
 	dec b
-	jr nz, .jump_41cf
+	jr nz, .loop_41cf
 	pop bc
 	pop hl
 	inc hl
 	dec c
-	jr nz, .jump_41cd
+	jr nz, .loop_41cd
 	ld de, $c800
 	ld hl, $1800
 	ld c, $23
@@ -140,21 +140,21 @@ RareLogo_LoadAttributes::
 	ld hl, $c866
 	ld de, $5f00
 	ld bc, $0b08
-.jump_422f:
+.loop_422f:
 	push bc
 	push hl
-.jump_4231:
+.loop_4231:
 	ld a, [de]
 	inc de
 	ld [hli], a
 	dec c
-	jr nz, .jump_4231
+	jr nz, .loop_4231
 	pop hl
 	ld bc, $0020
 	add hl, bc
 	pop bc
 	dec b
-	jr nz, .jump_422f
+	jr nz, .loop_422f
 	ld de, $c800
 	ld hl, $1800
 	ld c, $23
@@ -179,28 +179,28 @@ RareLogo_DecodeFrame::
 	ld d, a
 	ld b, $00
 	ld hl, $c800
-.jump_4273:
+.loop_4273:
 	ld a, [de]
 	inc de
 	or a
-	jr z, .jump_4289
+	jr z, .done
 	ld c, a
 	rlca
-	jr c, .jump_4284
-.jump_427c:
+	jr c, .else
+.loop_427c:
 	ld a, [de]
 	inc de
 	ld [hli], a
 	dec c
-	jr nz, .jump_427c
-	jr .jump_4273
+	jr nz, .loop_427c
+	jr .loop_4273
 
-.jump_4284:
+.else:
 	res 7, c
 	add hl, bc
-	jr .jump_4273
+	jr .loop_4273
 
-.jump_4289:
+.done:
 	ld a, e
 	ld [wObjectFreeList], a
 	ld a, d

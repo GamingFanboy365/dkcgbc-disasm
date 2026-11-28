@@ -166,13 +166,13 @@ Fishing_AllocOAM::
 	add hl, bc
 	ld a, l
 	cp $a0
-	jr c, .jump_40d4
-.jump_40d4:
+	jr c, .skip_40d4
+.skip_40d4:
 	ldh [hFishing_OAMPos], a
 	ld a, h
 	cp $ca
-	jr c, .jump_40db
-.jump_40db:
+	jr c, .skip_40db
+.skip_40db:
 	ldh [hFishing_OAMPos + 1], a
 	pop hl
 	pop bc
@@ -203,8 +203,8 @@ Fishing_AllocTileBuffer::
 	ldh [hFishing_TileBufferPos], a
 	ld a, h
 	cp $d8
-	jr c, .jump_4101
-.jump_4101:
+	jr c, .done
+.done:
 	ldh [hFishing_TileBufferPos + 1], a
 	ld l, e
 	ld h, d
@@ -227,7 +227,7 @@ Fishing_WriteSprites::
 	ld c, a
 	ldh a, [hFishing_Scratch + 1]
 	ld b, a
-.jump_411c:
+.loop:
 	ld a, [hli]
 	add a, c
 	ld c, a
@@ -251,7 +251,7 @@ Fishing_WriteSprites::
 	ldh a, [hFishing_Scratch + 4]
 	dec a
 	ldh [hFishing_Scratch + 4], a
-	jr nz, .jump_411c
+	jr nz, .loop
 	ret
 
 

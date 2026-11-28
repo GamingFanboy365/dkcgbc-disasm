@@ -79,7 +79,7 @@ Cranky_LoadPicture::
 	push af
 	inc sp
 	ld a, BANK(FE_AdvanceFarPointer)
-	jp RestoreBankAndReturn.jump_3fdc
+	jp RestoreBankAndReturn.far_jump
 
 
 Cranky_LoadPictureTiles_8800::
@@ -109,7 +109,7 @@ Cranky_LoadPictureTiles_8800::
 	push af
 	inc sp
 	ld a, BANK(FE_AdvanceFarPointer)
-	jp RestoreBankAndReturn.jump_3fdc
+	jp RestoreBankAndReturn.far_jump
 
 
 Cranky_LoadPictureTiles_9000::
@@ -137,7 +137,7 @@ Cranky_HDMAAcrossBanks::
 	ld bc, $8000
 	add hl, bc
 	bit 7, h
-	jr nz, .jump_410f
+	jr nz, .else
 	srl h
 	rr l
 	srl h
@@ -172,13 +172,13 @@ Cranky_HDMAAcrossBanks::
 	dec a
 	ld [wFE_FarBank], a
 	call Cranky_FarCopySprites
-	jr .jump_4116
+	jr .continue
 
-.jump_410f:
+.else:
 	ld bc, wCranky_ScreenBuffer
 	pop hl
 	call Cranky_FarCopySprites
-.jump_4116:
+.continue:
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
@@ -277,12 +277,12 @@ Cranky_InstallSpriteCopy::
 	ld hl, $449c
 	ld bc, Cranky_FarCopySprites
 	ld d, $45
-.jump_41ec:
+.loop:
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	dec d
-	jr nz, .jump_41ec
+	jr nz, .loop
 	ret
 
 
@@ -299,16 +299,16 @@ Cranky_ClearPalettes::
 	ld hl, Cranky_UpdateTileAnims
 	call FarCall_A_HL
 	xor a
-.jump_420f:
+.loop_420f:
 	ld [hl], a
 	dec d
-	jr nz, .jump_420f
+	jr nz, .loop_420f
 	ld hl, rBCPD
 	ld d, $40
-.jump_4218:
+.loop_4218:
 	ld [hl], a
 	dec d
-	jr nz, .jump_4218
+	jr nz, .loop_4218
 	ret
 
 
@@ -321,7 +321,7 @@ Cranky_FadeIn::
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
 	xor a
-.jump_4230:
+.loop:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $40
@@ -340,13 +340,13 @@ Cranky_FadeIn::
 	call Cranky_UploadPalettes
 	pop af
 	add a, $08
-	jr nc, .jump_4230
+	jr nc, .loop
 	ret
 
 
 Cranky_FadeOut::
 	ld a, $ff
-.jump_4260:
+.loop:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $40
@@ -365,7 +365,7 @@ Cranky_FadeOut::
 	call Cranky_UploadPalettes
 	pop af
 	sub $08
-	jr nc, .jump_4260
+	jr nc, .loop
 	call Cranky_ClearPalettes
 	ret
 
@@ -889,7 +889,7 @@ Cranky_FarCopySprites_Code::
 	ld a, [wFE_FarBank]
 	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
-.jump_44a7:
+.loop:
 	ld a, [hli]
 	ld [bc], a
 	inc c
@@ -939,7 +939,7 @@ Cranky_FarCopySprites_Code::
 	ld [bc], a
 	inc bc
 	dec d
-	jr nz, .jump_44a7
+	jr nz, .loop
 	pop af
 	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
@@ -988,7 +988,7 @@ Cranky_RestoreBGMap::
 	push af
 	inc sp
 	ld a, BANK(FE_CopyBytes)
-	jp RestoreBankAndReturn.jump_3fdc
+	jp RestoreBankAndReturn.far_jump
 
 
 Cranky_SetWRAMBank1::
@@ -999,7 +999,7 @@ Cranky_SetWRAMBank1::
 
 Cranky_DimForPause::
 	ld a, $60
-.jump_4527:
+.loop:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $20
@@ -1019,13 +1019,13 @@ Cranky_DimForPause::
 	pop af
 	add a, $04
 	or a
-	jr nz, .jump_4527
+	jr nz, .loop
 	ret
 
 
 Cranky_UndimAfterPause::
 	ld a, $f8
-.jump_4558:
+.loop:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $20
@@ -1045,13 +1045,13 @@ Cranky_UndimAfterPause::
 	pop af
 	sub $04
 	cp $60
-	jr nz, .jump_4558
+	jr nz, .loop
 	ret
 
 
 Cranky_DimBackground::
 	ld a, $60
-.jump_458a:
+.loop:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $40
@@ -1074,13 +1074,13 @@ Cranky_DimBackground::
 	pop af
 	add a, $04
 	or a
-	jr nz, .jump_458a
+	jr nz, .loop
 	ret
 
 
 Cranky_UndimBackground::
 	ld a, $f8
-.jump_45c3:
+.loop:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $40
@@ -1103,7 +1103,7 @@ Cranky_UndimBackground::
 	pop af
 	sub $04
 	cp $60
-	jr nz, .jump_45c3
+	jr nz, .loop
 	ret
 
 
@@ -1184,21 +1184,21 @@ Cranky_ResetState::
 	ld hl, wCranky_LinkIn
 	ld c, $9d
 	ld b, $10
-.jump_46a2:
+.loop_46a2:
 	ld [hli], a
 	ldh [c], a
 	inc c
 	dec b
-	jr nz, .jump_46a2
+	jr nz, .loop_46a2
 	ld hl, $ffad
 	ld c, $bd
 	ld b, $10
-.jump_46af:
+.loop_46af:
 	ld [hli], a
 	ldh [c], a
 	inc c
 	dec b
-	jr nz, .jump_46af
+	jr nz, .loop_46af
 	ld a, $00
 	ld [wCranky_State], a
 
@@ -1206,10 +1206,10 @@ Cranky_ClearGradient::
 	xor a
 	ld hl, wCranky_ActorType
 	ld d, $20
-.jump_46c0:
+.loop:
 	ld [hli], a
 	dec d
-	jr nz, .jump_46c0
+	jr nz, .loop
 	ret
 
 
@@ -1223,9 +1223,9 @@ Cranky_SetUpLinkGame::
 	ld hl, $46d8
 	add a, l
 	ld l, a
-	jr nc, .jump_46d7
+	jr nc, .skip
 	inc h
-.jump_46d7:
+.skip:
 	jp hl
 
 
@@ -1358,9 +1358,9 @@ Cranky_SetUpGame::
 	ld hl, $47c6
 	add a, l
 	ld l, a
-	jr nc, .jump_47c5
+	jr nc, .skip
 	inc h
-.jump_47c5:
+.skip:
 	jp hl
 
 
@@ -1562,9 +1562,9 @@ Cranky_LoadBackground::
 	ld hl, $45fb
 	add a, l
 	ld l, a
-	jr nc, .jump_495c
+	jr nc, .skip
 	inc h
-.jump_495c:
+.skip:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -1589,16 +1589,16 @@ Cranky_LoadFont::
 	ld hl, $6b20
 	ld bc, $8800
 	ld d, $7c
-.jump_4984:
+.loop_4984:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_4984
-.jump_498b:
+	jr z, .loop_4984
+.loop_498b:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_498b
+	jr nz, .loop_498b
 	ld a, $ff
 	call FE_HDMA
 	ld hl, $7aa0
@@ -1628,16 +1628,16 @@ Cranky_DrawScreen::
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-.jump_49d5:
+.loop_49d5:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_49d5
-.jump_49dc:
+	jr z, .loop_49d5
+.loop_49dc:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_49dc
+	jr nz, .loop_49dc
 	ld b, $cb
 	ld a, BANK(Cranky_CopyOAM)
 	ld hl, Cranky_CopyOAM
@@ -1660,16 +1660,16 @@ Cranky_DrawScreen::
 	ld a, BANK(Cranky_WaitLineAndUpdateSound)
 	ld hl, Cranky_WaitLineAndUpdateSound
 	call FarCall_A_HL
-.jump_4a1d:
+.loop_4a1d:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_4a1d
-.jump_4a24:
+	jr z, .loop_4a1d
+.loop_4a24:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_4a24
+	jr nz, .loop_4a24
 	ld b, $cb
 	ld a, BANK(Cranky_CopyOAM)
 	ld hl, Cranky_CopyOAM

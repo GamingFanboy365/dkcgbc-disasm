@@ -20,14 +20,14 @@ HiScore_Start::
 	ld bc, $0022
 	ld de, wHiScore_Loader
 	ld hl, $481e
-.jump_401e:
+.loop_401e:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_401e
+	jr nz, .loop_401e
 	call wHiScore_Loader
 	di
 	ld a, $46
@@ -50,39 +50,39 @@ HiScore_Start::
 	ei
 	push bc
 	ld c, $41
-.jump_404c:
+.loop_404c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_404c
-.jump_4052:
+	jr z, .loop_404c
+.loop_4052:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4052
+	jr nz, .loop_4052
 	pop bc
 	ld a, $c3
 	ldh [rLCDC], a
 	ld b, $a0
 	xor a
 	ld hl, $fe00
-.jump_4063:
+.loop_4063:
 	ld [hl], a
 	inc l
 	dec b
-	jr nz, .jump_4063
+	jr nz, .loop_4063
 	push bc
 	ld c, $41
-.jump_406b:
+.loop_406b:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_406b
-.jump_4071:
+	jr z, .loop_406b
+.loop_4071:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4071
+	jr nz, .loop_4071
 	pop bc
 	ldh a, [rLCDC]
 	set 1, a
@@ -93,12 +93,12 @@ HiScore_Start::
 	pop bc
 	ld a, h
 	or a
-	jp z, .jump_411e
+	jp z, .else_411e
 	cp $01
-	jr z, .jump_408e
+	jr z, .else_408e
 	ret
 
-.jump_408e:
+.else_408e:
 	push bc
 	push de
 	ld b, $0e
@@ -108,7 +108,7 @@ HiScore_Start::
 	call HiScore_FindRank
 	ld a, h
 	cp $ff
-	jr z, .jump_411e
+	jr z, .else_411e
 	ld [wHiScoreNewRank], a
 	ld hl, wHiScoreNewName
 	ld a, $fd
@@ -144,7 +144,7 @@ HiScore_Start::
 	ld bc, wHiScoreNames
 	ld de, wHiScoreScores
 	ld a, $05
-.jump_40e4:
+.loop_40e4:
 	push af
 	ld a, [bc]
 	ld [hli], a
@@ -169,7 +169,7 @@ HiScore_Start::
 	inc de
 	pop af
 	dec a
-	jr nz, .jump_40e4
+	jr nz, .loop_40e4
 	call HiScore_SetChecksum
 	ld hl, sHiScoreTable1
 	ld de, wHiScoreRecord
@@ -180,24 +180,24 @@ HiScore_Start::
 	ld hl, sHiScoreTable3
 	ld de, wHiScoreRecord
 	call HiScore_WriteCopy
-	jr .jump_4123
+	jr .finish
 
-.jump_411e:
+.else_411e:
 	ld e, $00
 	call HiScore_FadeIn
-.jump_4123:
+.finish:
 	push bc
 	ld c, $41
-.jump_4126:
+.loop_4126:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4126
-.jump_412c:
+	jr z, .loop_4126
+.loop_412c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_412c
+	jr nz, .loop_412c
 	pop bc
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
@@ -221,7 +221,7 @@ HiScore_Start::
 HiScore_WaitForButton::
 	ld a, [wFishing_JoyPressed]
 	or a
-	jr z, HiScore_Start.jump_4123
+	jr z, HiScore_Start.finish
 	ld e, $01
 	call HiScore_FadeIn
 	ret
@@ -232,14 +232,14 @@ HiScore_InsertScore::
 	call HiScore_FindRank
 	ld a, h
 	cp $ff
-	jr nz, .jump_416c
+	jr nz, .else_416c
 	pop hl
 	ret
 
-.jump_416c:
+.else_416c:
 	ld a, h
 	cp $04
-	jr z, .jump_41e0
+	jr z, .else_41e0
 	push hl
 	push de
 	push bc
@@ -317,7 +317,7 @@ HiScore_InsertScore::
 	call Fishing_CopyBytes
 	ret
 
-.jump_41e0:
+.else_41e0:
 	ld hl, wHiScoreScores + $10
 	ld a, b
 	ld [hli], a
@@ -344,45 +344,45 @@ HiScore_InsertScore::
 HiScore_FindRank::
 	ld hl, wHiScoreScores + $10
 	call HiScore_CompareScore
-	jr z, .jump_4237
-	jr c, .jump_423a
+	jr z, .done_4237
+	jr c, .done_423a
 	ld hl, wHiScoreScores + $0c
 	call HiScore_CompareScore
-	jr z, .jump_4234
-	jr c, .jump_4237
+	jr z, .done_4234
+	jr c, .done_4237
 	ld hl, wHiScoreScores + 8
 	call HiScore_CompareScore
-	jr z, .jump_4231
-	jr c, .jump_4234
+	jr z, .done_4231
+	jr c, .done_4234
 	ld hl, wHiScoreScores + 4
 	call HiScore_CompareScore
-	jr z, .jump_422e
-	jr c, .jump_4231
+	jr z, .done_422e
+	jr c, .done_4231
 	ld hl, wHiScoreScores
 	call HiScore_CompareScore
-	jr z, .jump_422b
-	jr c, .jump_422e
-.jump_422b:
+	jr z, .done_422b
+	jr c, .done_422e
+.done_422b:
 	ld h, $00
 	ret
 
-.jump_422e:
+.done_422e:
 	ld h, $01
 	ret
 
-.jump_4231:
+.done_4231:
 	ld h, $02
 	ret
 
-.jump_4234:
+.done_4234:
 	ld h, $03
 	ret
 
-.jump_4237:
+.done_4237:
 	ld h, $04
 	ret
 
-.jump_423a:
+.done_423a:
 	ld h, $ff
 	ret
 
@@ -390,33 +390,33 @@ HiScore_FindRank::
 HiScore_CompareScore::
 	ld a, b
 	cp [hl]
-	jr z, .jump_4246
+	jr z, .else_4246
 	inc hl
 	inc hl
 	inc hl
 	inc hl
 	ret
 
-.jump_4246:
+.else_4246:
 	inc hl
 	ld a, c
 	cp [hl]
-	jr z, .jump_424f
+	jr z, .else_424f
 	inc hl
 	inc hl
 	inc hl
 	ret
 
-.jump_424f:
+.else_424f:
 	inc hl
 	ld a, d
 	cp [hl]
-	jr z, .jump_4257
+	jr z, .done
 	inc hl
 	inc hl
 	ret
 
-.jump_4257:
+.done:
 	inc hl
 	ld a, e
 	cp [hl]
@@ -464,24 +464,24 @@ HiScore_LoadTable::
 	ld hl, sHiScoreTable1
 	ld de, wHiScoreRecord
 	call HiScore_ReadCopy
-	jr nc, .jump_42e1
+	jr nc, .continue
 	ld hl, sHiScoreTable2
 	ld de, wHiScoreRecord
 	call HiScore_ReadCopy
-	jr nc, .jump_42e1
+	jr nc, .continue
 	ld hl, sHiScoreTable3
 	ld de, wHiScoreRecord
 	call HiScore_ReadCopy
-	jr nc, .jump_42e1
+	jr nc, .continue
 	ld hl, $4840
 	ld de, wHiScoreRecord + 2
 	ld b, $23
-.jump_42bd:
+.loop:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_42bd
+	jr nz, .loop
 	call HiScore_SetChecksum
 	ld hl, sHiScoreTable1
 	ld de, wHiScoreRecord
@@ -492,7 +492,7 @@ HiScore_LoadTable::
 	ld hl, sHiScoreTable3
 	ld de, wHiScoreRecord
 	call HiScore_WriteCopy
-.jump_42e1:
+.continue:
 	call HiScore_UnpackTable
 	ld hl, wFishing_BGPalettes
 	ld de, wFishing_OBJPalettes
@@ -617,7 +617,7 @@ HiScore_ScoresToTiles::
 	ld hl, wHiScoreScores
 	ld de, wHiScoreDigits
 	ld c, $14
-.jump_436c:
+.loop:
 	ld a, [hli]
 	ld b, a
 	swap a
@@ -631,7 +631,7 @@ HiScore_ScoresToTiles::
 	ld [de], a
 	inc de
 	dec c
-	jr nz, .jump_436c
+	jr nz, .loop
 	ret
 
 
@@ -643,7 +643,7 @@ HiScore_SetChecksum::
 	ld b, $25
 	ld hl, $0000
 	ld de, wHiScoreRecord
-.jump_4393:
+.loop:
 	ld a, [de]
 	add a, l
 	ld l, a
@@ -652,7 +652,7 @@ HiScore_SetChecksum::
 	ld h, a
 	inc de
 	dec b
-	jr nz, .jump_4393
+	jr nz, .loop
 	ld a, l
 	ld [wHiScoreRecord + $25], a
 	ld a, h
@@ -662,33 +662,33 @@ HiScore_SetChecksum::
 
 HiScore_WriteCopy::
 	ld b, $27
-.jump_43a9:
+.loop:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec b
-	jr nz, .jump_43a9
+	jr nz, .loop
 	ret
 
 
 HiScore_ReadCopy::
 	ld b, $27
-.jump_43b2:
+.loop_43b2:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_43b2
+	jr nz, .loop_43b2
 	ld a, [wHiScoreRecord]
 	cp $48
-	jr nz, .jump_43ea
+	jr nz, .done
 	ld a, [wHiScoreRecord + 1]
 	cp $08
-	jr nz, .jump_43ea
+	jr nz, .done
 	ld de, wHiScoreRecord
 	ld hl, $0000
 	ld b, $25
-.jump_43ce:
+.loop_43ce:
 	ld a, [de]
 	add a, l
 	ld l, a
@@ -697,20 +697,20 @@ HiScore_ReadCopy::
 	ld h, a
 	inc de
 	dec b
-	jr nz, .jump_43ce
+	jr nz, .loop_43ce
 	ld a, [wHiScoreRecord + $25]
 	ld c, a
 	ld a, [wHiScoreRecord + $26]
 	ld b, a
 	cp h
-	jr nz, .jump_43ea
+	jr nz, .done
 	ld a, c
 	cp l
-	jr nz, .jump_43ea
+	jr nz, .done
 	or a
 	ret
 
-.jump_43ea:
+.done:
 	scf
 	ret
 
@@ -726,16 +726,16 @@ HiScore_LoadScreen::
 	call Fishing_CopyBytes
 	push bc
 	ld c, $41
-.jump_4403:
+.loop_4403:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4403
-.jump_4409:
+	jr z, .loop_4403
+.loop_4409:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4409
+	jr nz, .loop_4409
 	pop bc
 	ld hl, $60f0
 	call HiScore_UploadOBJPalettes
@@ -752,16 +752,16 @@ HiScore_DrawTable::
 	ldh [rVBK], a
 	push bc
 	ld c, $41
-.jump_442c:
+.loop_442c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_442c
-.jump_4432:
+	jr z, .loop_442c
+.loop_4432:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4432
+	jr nz, .loop_4432
 	pop bc
 	ld hl, wHiScoreNames
 	ld bc, $9883
@@ -1074,29 +1074,29 @@ HiScore_UploadMap::
 	ldh [rVBK], a
 	ld hl, $9800
 	ld d, $12
-.jump_458b:
+.loop_458b:
 	ld e, $14
 	push bc
 	push bc
 	ld c, $41
-.jump_4591:
+.loop_4591:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4591
-.jump_4597:
+	jr z, .loop_4591
+.loop_4597:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4597
+	jr nz, .loop_4597
 	pop bc
 	pop bc
-.jump_459f:
+.loop_459f:
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	dec e
-	jr nz, .jump_459f
+	jr nz, .loop_459f
 	ld a, $0c
 	add a, l
 	ld l, a
@@ -1104,35 +1104,35 @@ HiScore_UploadMap::
 	adc a, $00
 	ld h, a
 	dec d
-	jr nz, .jump_458b
+	jr nz, .loop_458b
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
 	ldh [rVBK], a
 	ld hl, $9800
 	ld d, $12
-.jump_45bb:
+.loop_45bb:
 	ld e, $14
 	push bc
 	push bc
 	ld c, $41
-.jump_45c1:
+.loop_45c1:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_45c1
-.jump_45c7:
+	jr z, .loop_45c1
+.loop_45c7:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_45c7
+	jr nz, .loop_45c7
 	pop bc
 	pop bc
-.jump_45cf:
+.loop_45cf:
 	ld a, [bc]
 	ld [hli], a
 	inc bc
 	dec e
-	jr nz, .jump_45cf
+	jr nz, .loop_45cf
 	ld a, $0c
 	add a, l
 	ld l, a
@@ -1140,23 +1140,23 @@ HiScore_UploadMap::
 	adc a, $00
 	ld h, a
 	dec d
-	jr nz, .jump_45bb
+	jr nz, .loop_45bb
 	ret
 
 
 HiScore_LoadTiles::
 	push bc
 	ld c, $41
-.jump_45e4:
+.loop_45e4:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_45e4
-.jump_45ea:
+	jr z, .loop_45e4
+.loop_45ea:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_45ea
+	jr nz, .loop_45ea
 	pop bc
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
@@ -1167,16 +1167,16 @@ HiScore_LoadTiles::
 	call HiScore_StartHDMA
 	push bc
 	ld c, $41
-.jump_4605:
+.loop_4605:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4605
-.jump_460b:
+	jr z, .loop_4605
+.loop_460b:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_460b
+	jr nz, .loop_460b
 	pop bc
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
@@ -1187,16 +1187,16 @@ HiScore_LoadTiles::
 	call HiScore_StartHDMA
 	push bc
 	ld c, $41
-.jump_4626:
+.loop_4626:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4626
-.jump_462c:
+	jr z, .loop_4626
+.loop_462c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_462c
+	jr nz, .loop_462c
 	pop bc
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
@@ -1207,16 +1207,16 @@ HiScore_LoadTiles::
 	call HiScore_StartHDMA
 	push bc
 	ld c, $41
-.jump_4647:
+.loop_4647:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4647
-.jump_464d:
+	jr z, .loop_4647
+.loop_464d:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_464d
+	jr nz, .loop_464d
 	pop bc
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
@@ -1246,9 +1246,9 @@ HiScore_FadeIn::
 	ld hl, $00ff
 	ld a, e
 	cp $00
-	jr z, .jump_4681
+	jr z, .skip
 	ld hl, $ff00
-.jump_4681:
+.skip:
 	ld b, $0f
 	ld c, $01
 	ld de, wFishing_BGPalettes
@@ -1277,9 +1277,9 @@ HiScore_FadeInAll::
 	ld hl, $00ff
 	ld a, e
 	cp $00
-	jr z, .jump_46b0
+	jr z, .skip
 	ld hl, $ff00
-.jump_46b0:
+.skip:
 	ld b, $0f
 	ld c, $01
 	ldh [hFishing_FarA], a
@@ -1306,16 +1306,16 @@ HiScore_Return46D0::
 HiScore_EnterName::
 	push bc
 	ld c, $41
-.jump_46d4:
+.loop_46d4:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_46d4
-.jump_46da:
+	jr z, .loop_46d4
+.loop_46da:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_46da
+	jr nz, .loop_46da
 	pop bc
 	ld hl, $fe00
 	ld [hl], $80
@@ -1364,16 +1364,16 @@ HiScore_EnterName::
 	call HiScore_EnterName_Loop
 	push bc
 	ld c, $41
-.jump_472c:
+.loop_472c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_472c
-.jump_4732:
+	jr z, .loop_472c
+.loop_4732:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4732
+	jr nz, .loop_4732
 	pop bc
 	ld hl, wHiScoreNewName
 	ld a, [$fe0a]
@@ -1385,27 +1385,27 @@ HiScore_EnterName::
 	ld b, $a0
 	xor a
 	ld hl, $fe00
-.jump_474e:
+.loop_474e:
 	ld [hl], a
 	inc l
 	dec b
-	jr nz, .jump_474e
+	jr nz, .loop_474e
 	ret
 
 
 HiScore_EnterName_Loop::
 	push bc
 	ld c, $41
-.jump_4757:
+.loop_4757:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4757
-.jump_475d:
+	jr z, .loop_4757
+.loop_475d:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_475d
+	jr nz, .loop_475d
 	pop bc
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
@@ -1431,7 +1431,7 @@ HiScore_EnterName_Input::
 	bit 0, a
 	ret nz
 	bit 6, a
-	jr z, .jump_47aa
+	jr z, .else_47aa
 	ld a, [wHiScoreLetter]
 	add a, a
 	add a, a
@@ -1441,19 +1441,19 @@ HiScore_EnterName_Input::
 	add hl, bc
 	ld a, [hl]
 	cp $fc
-	jr nz, .jump_47a6
+	jr nz, .else_47a6
 	ld a, $c9
 	ld [hl], a
 	jr HiScore_EnterName_Loop
 
-.jump_47a6:
+.else_47a6:
 	inc a
 	ld [hl], a
 	jr HiScore_EnterName_Loop
 
-.jump_47aa:
+.else_47aa:
 	bit 7, a
-	jr z, .jump_47c9
+	jr z, .else_47c9
 	ld a, [wHiScoreLetter]
 	add a, a
 	add a, a
@@ -1463,30 +1463,30 @@ HiScore_EnterName_Input::
 	add hl, bc
 	ld a, [hl]
 	cp $c9
-	jr nz, .jump_47c4
+	jr nz, .else_47c4
 	ld a, $fc
 	ld [hl], a
 	jr HiScore_EnterName_Loop
 
-.jump_47c4:
+.else_47c4:
 	dec a
 	ld [hl], a
 	jp HiScore_EnterName_Loop
 
-.jump_47c9:
+.else_47c9:
 	bit 5, a
-	jr z, .jump_47f3
+	jr z, .else_47f3
 	ld a, [wHiScoreLetter]
 	or a
-	jr nz, .jump_47da
+	jr nz, .else_47da
 	ld a, $02
 	ld [wHiScoreLetter], a
-	jr .jump_47de
+	jr .continue_47de
 
-.jump_47da:
+.else_47da:
 	dec a
 	ld [wHiScoreLetter], a
-.jump_47de:
+.continue_47de:
 	add a, a
 	add a, a
 	ld c, a
@@ -1500,20 +1500,20 @@ HiScore_EnterName_Input::
 	ld [hl], a
 	jp HiScore_EnterName_Loop
 
-.jump_47f3:
+.else_47f3:
 	bit 4, a
 	jp z, HiScore_EnterName_Loop
 	ld a, [wHiScoreLetter]
 	cp $02
-	jr nz, .jump_4805
+	jr nz, .else_4805
 	xor a
 	ld [wHiScoreLetter], a
-	jr .jump_4809
+	jr .continue_4809
 
-.jump_4805:
+.else_4805:
 	inc a
 	ld [wHiScoreLetter], a
-.jump_4809:
+.continue_4809:
 	add a, a
 	add a, a
 	ld c, a
@@ -1537,14 +1537,14 @@ HiScore_InstallRuntime_Code::
 	ld bc, $01fd
 	ld de, Fishing_SerialHandler
 	ld hl, $42f4
-.jump_4831:
+.loop:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_4831
+	jr nz, .loop
 	pop af
 	ldh [hFishing_ROMBank], a
 	ld [rROMB0], a

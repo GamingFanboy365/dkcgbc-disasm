@@ -29,7 +29,7 @@ INTERPRETERS = {
     0x6689: (0x2E, {1: ("b", "wait"), 2: ("", "yield"), 3: ("w", "target x speed"), 4: ("w", "target y speed"),
                     5: ("w", "acceleration"), 6: ("", "fall (ObjInit_0a_66f8)"), 7: ("", "end")}),
     0x6992: (0x2E, {1: ("b", "wait (MiniNecky_Hover)"), 2: ("b", "wait (MiniNecky_Swoop)"), 3: ("", "finish (MiniNecky_Spit)")}),
-    0x6AEC: (0x2E, {1: ("b", "wait"), 2: ("w", "attack (RunMankyKongScript.jump_6b11)")}),
+    0x6AEC: (0x2E, {1: ("b", "wait"), 2: ("w", "attack (RunMankyKongScript.else_6b11)")}),
     0x6C60: (0x2E, {2: ("", "yield (Croctopus_Chase)"), 3: ("w", "target x speed"), 4: ("w", "target y speed"),
                     5: ("", "end"), 6: ("", "yield (Croctopus_WaitForPlayer)")}),
     0x6FC5: (0x2E, {1: ("b", "wait"), 2: ("", "yield"), 3: ("w", "target x speed"), 4: ("w", "target y speed"),

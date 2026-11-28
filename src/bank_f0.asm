@@ -18,9 +18,9 @@ FE_OAMDMA_Code::
 	ld a, $c0
 	ldh [rDMA], a
 	ld a, $28
-.jump_401c:
+.loop:
 	dec a
-	jr nz, .jump_401c
+	jr nz, .loop
 	ret
 
 
@@ -75,12 +75,12 @@ FE_HDMAAcrossBanks::
 	ld bc, $8000
 	add hl, bc
 	bit 7, h
-	jr nz, .jump_40bc
+	jr nz, .else
 	cp l
-	jr nz, .jump_4069
+	jr nz, .skip_4069
 	cp h
-	jr z, .jump_40bc
-.jump_4069:
+	jr z, .else
+.skip_4069:
 	srl h
 	rr l
 	srl h
@@ -107,15 +107,15 @@ FE_HDMAAcrossBanks::
 	ld hl, $4000
 	dec d
 	bit 7, d
-	jr z, .jump_4092
+	jr z, .skip_4092
 	rst $38
-.jump_4092:
+.skip_4092:
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_4095:
+.loop_4095:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_4095
+	jr nz, .loop_4095
 	ld a, [wFE_FarBank]
 	inc a
 	call FE_HDMA
@@ -124,30 +124,30 @@ FE_HDMAAcrossBanks::
 	ld d, e
 	dec d
 	bit 7, d
-	jr z, .jump_40ab
+	jr z, .skip_40ab
 	rst $38
-.jump_40ab:
+.skip_40ab:
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_40ae:
+.loop_40ae:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_40ae
+	jr nz, .loop_40ae
 	ld a, [wFE_FarBank]
 	call FE_HDMA
 	pop de
 	ret
 
-.jump_40bc:
+.else:
 	pop bc
 	pop hl
 	dec d
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_40c2:
+.loop_40c2:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_40c2
+	jr nz, .loop_40c2
 	ld a, [wFE_FarBank]
 	call FE_HDMA
 	pop de
@@ -179,16 +179,16 @@ FE_FarCopy_Code::
 	ld a, [wFE_FarBank]
 	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
-.jump_40f6:
+.loop:
 	ld a, [hli]
 	ld [bc], a
 	inc bc
 	dec de
 	xor a
 	cp e
-	jr nz, .jump_40f6
+	jr nz, .loop
 	cp d
-	jr nz, .jump_40f6
+	jr nz, .loop
 	pop af
 	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
@@ -355,21 +355,21 @@ FE_ClearPalettes::
 	ld d, $40
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_41ec:
+.loop_41ec:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_41ec
+	jr nz, .loop_41ec
 	xor a
-.jump_41f3:
+.loop_41f3:
 	ld [hl], a
 	dec d
-	jr nz, .jump_41f3
+	jr nz, .loop_41f3
 	ld hl, rBCPD
 	ld d, $40
-.jump_41fc:
+.loop_41fc:
 	ld [hl], a
 	dec d
-	jr nz, .jump_41fc
+	jr nz, .loop_41fc
 	ret
 
 
@@ -384,10 +384,10 @@ FE_FadeToTargetPalettes::
 	ret z
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_4215:
+.loop:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_4215
+	jr nz, .loop
 	call FE_UploadPalettes
 	call FE_ReadJoypadHeld
 	jr FE_FadeToTargetPalettes
@@ -400,7 +400,7 @@ FE_FadeIn::
 	ld bc, wFE_FadePalettes
 	call FE_UnpackPalettes
 	xor a
-.jump_4231:
+.loop_4231:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $40
@@ -411,21 +411,21 @@ FE_FadeIn::
 	call FE_ReadJoypadPressed
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_4247:
+.loop_4247:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_4247
+	jr nz, .loop_4247
 	call FE_UploadPalettes
 	pop af
 	add a, $08
-	jr nc, .jump_4231
+	jr nc, .loop_4231
 	ret
 
 
 FE_FadeOut::
 	call FE_ReadPalettesFromHW
 	ld a, $ff
-.jump_425b:
+.loop_425b:
 	push af
 	ldh [hFE_Scratch], a
 	ld a, $40
@@ -436,14 +436,14 @@ FE_FadeOut::
 	call FE_ReadJoypadPressed
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_4271:
+.loop_4271:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_4271
+	jr nz, .loop_4271
 	call FE_UploadPalettes
 	pop af
 	sub $08
-	jr nc, .jump_425b
+	jr nc, .loop_425b
 	call FE_ClearPalettes
 	ret
 
@@ -453,7 +453,7 @@ FE_UnpackPalettes::
 	ld l, c
 	ldh a, [hFE_Scratch]
 	ld b, a
-.jump_4288:
+.loop:
 	push bc
 	ld a, [de]
 	and $1f
@@ -480,40 +480,40 @@ FE_UnpackPalettes::
 	ld [hli], a
 	pop bc
 	dec b
-	jr nz, .jump_4288
+	jr nz, .loop
 	ret
 
 
 FE_ReadPalettesFromHW::
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_42b0:
+.loop_42b0:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_42b0
+	jr nz, .loop_42b0
 	xor a
 	ldh [rOCPS], a
 	ldh [rBCPS], a
 	ld hl, $ff68
 	ld bc, wFE_BGPalettes
 	ld d, $40
-.jump_42c3:
+.loop_42c3:
 	ldh a, [rBCPD]
 	ld [bc], a
 	inc bc
 	inc [hl]
 	dec d
-	jr nz, .jump_42c3
+	jr nz, .loop_42c3
 	ld hl, $ff6a
 	ld bc, wFE_OBJPalettes
 	ld d, $40
-.jump_42d3:
+.loop_42d3:
 	ldh a, [rOCPD]
 	ld [bc], a
 	inc bc
 	inc [hl]
 	dec d
-	jr nz, .jump_42d3
+	jr nz, .loop_42d3
 	ld a, $40
 	ldh [hFE_Scratch], a
 	ld de, wFE_BGPalettes
@@ -548,33 +548,33 @@ FE_PackColor::
 FE_StepChannelTowards::
 	ld a, b
 	cp d
-	jr z, .jump_4324
-	jr c, .jump_431a
+	jr z, .done_4324
+	jr c, .else
 	sub c
 	bit 7, a
-	jr nz, .jump_4316
+	jr nz, .done_4316
 	cp d
-	jr z, .jump_4317
-	jr nc, .jump_4317
-.jump_4316:
+	jr z, .done_4317
+	jr nc, .done_4317
+.done_4316:
 	ld a, d
-.jump_4317:
+.done_4317:
 	ld b, a
 	or a
 	ret
 
-.jump_431a:
+.else:
 	add a, c
 	cp d
-	jr c, .jump_4321
-	jr z, .jump_4321
+	jr c, .done_4321
+	jr z, .done_4321
 	ld a, d
-.jump_4321:
+.done_4321:
 	ld b, a
 	or a
 	ret
 
-.jump_4324:
+.done_4324:
 	scf
 	ret
 
@@ -590,7 +590,7 @@ FE_FadePaletteStep::
 	ld c, a
 	xor a
 	ldh [hFE_Scratch + 4], a
-.jump_4333:
+.loop:
 	push bc
 	push de
 	push hl
@@ -599,46 +599,46 @@ FE_FadePaletteStep::
 	ldh a, [hFE_Scratch + 1]
 	ld d, a
 	call FE_StepChannelTowards
-	jr nc, .jump_4343
+	jr nc, .else_4343
 	inc hl
-	jr .jump_4349
+	jr .continue_4349
 
-.jump_4343:
+.else_4343:
 	ld a, b
 	ld [hli], a
 	ld a, $01
 	ldh [hFE_Scratch + 4], a
-.jump_4349:
+.continue_4349:
 	ld a, [hl]
 	ld b, a
 	ldh a, [hFE_Scratch + 2]
 	ld d, a
 	call FE_StepChannelTowards
-	jr nc, .jump_4356
+	jr nc, .else_4356
 	inc hl
-	jr .jump_435c
+	jr .continue_435c
 
-.jump_4356:
+.else_4356:
 	ld a, b
 	ld [hli], a
 	ld a, $01
 	ldh [hFE_Scratch + 4], a
-.jump_435c:
+.continue_435c:
 	ld a, [hl]
 	ld b, a
 	ldh a, [hFE_Scratch + 3]
 	ld d, a
 	call FE_StepChannelTowards
-	jr nc, .jump_4369
+	jr nc, .else_4369
 	inc hl
-	jr .jump_436f
+	jr .continue_436f
 
-.jump_4369:
+.else_4369:
 	ld a, b
 	ld [hli], a
 	ld a, $01
 	ldh [hFE_Scratch + 4], a
-.jump_436f:
+.continue_436f:
 	pop hl
 	pop de
 	push hl
@@ -663,7 +663,7 @@ FE_FadePaletteStep::
 	inc hl
 	pop bc
 	dec b
-	jr nz, .jump_4333
+	jr nz, .loop
 	ldh a, [hFE_Scratch + 4]
 	or a
 	ld b, $00
@@ -677,7 +677,7 @@ FE_ScalePalettes::
 	ld l, c
 	ldh a, [hFE_Scratch + 4]
 	ld b, a
-.jump_4399:
+.loop:
 	push bc
 	push hl
 	ldh a, [hFE_Scratch]
@@ -691,29 +691,29 @@ FE_ScalePalettes::
 	rla
 	rla
 	rla
-	jr nc, .jump_43ab
+	jr nc, .skip_43ab
 	add hl, bc
-.jump_43ab:
+.skip_43ab:
 	add hl, hl
 	rla
-	jr nc, .jump_43b0
+	jr nc, .skip_43b0
 	add hl, bc
-.jump_43b0:
+.skip_43b0:
 	add hl, hl
 	rla
-	jr nc, .jump_43b5
+	jr nc, .skip_43b5
 	add hl, bc
-.jump_43b5:
+.skip_43b5:
 	add hl, hl
 	rla
-	jr nc, .jump_43ba
+	jr nc, .skip_43ba
 	add hl, bc
-.jump_43ba:
+.skip_43ba:
 	add hl, hl
 	rla
-	jr nc, .jump_43bf
+	jr nc, .skip_43bf
 	add hl, bc
-.jump_43bf:
+.skip_43bf:
 	ld c, $80
 	add hl, bc
 	ld a, h
@@ -728,29 +728,29 @@ FE_ScalePalettes::
 	rla
 	rla
 	rla
-	jr nc, .jump_43d3
+	jr nc, .skip_43d3
 	add hl, bc
-.jump_43d3:
+.skip_43d3:
 	add hl, hl
 	rla
-	jr nc, .jump_43d8
+	jr nc, .skip_43d8
 	add hl, bc
-.jump_43d8:
+.skip_43d8:
 	add hl, hl
 	rla
-	jr nc, .jump_43dd
+	jr nc, .skip_43dd
 	add hl, bc
-.jump_43dd:
+.skip_43dd:
 	add hl, hl
 	rla
-	jr nc, .jump_43e2
+	jr nc, .skip_43e2
 	add hl, bc
-.jump_43e2:
+.skip_43e2:
 	add hl, hl
 	rla
-	jr nc, .jump_43e7
+	jr nc, .skip_43e7
 	add hl, bc
-.jump_43e7:
+.skip_43e7:
 	ld c, $80
 	add hl, bc
 	ld a, h
@@ -765,29 +765,29 @@ FE_ScalePalettes::
 	rla
 	rla
 	rla
-	jr nc, .jump_43fb
+	jr nc, .skip_43fb
 	add hl, bc
-.jump_43fb:
+.skip_43fb:
 	add hl, hl
 	rla
-	jr nc, .jump_4400
+	jr nc, .skip_4400
 	add hl, bc
-.jump_4400:
+.skip_4400:
 	add hl, hl
 	rla
-	jr nc, .jump_4405
+	jr nc, .skip_4405
 	add hl, bc
-.jump_4405:
+.skip_4405:
 	add hl, hl
 	rla
-	jr nc, .jump_440a
+	jr nc, .skip_440a
 	add hl, bc
-.jump_440a:
+.skip_440a:
 	add hl, hl
 	rla
-	jr nc, .jump_440f
+	jr nc, .skip_440f
 	add hl, bc
-.jump_440f:
+.skip_440f:
 	ld c, $80
 	add hl, bc
 	ld a, h
@@ -815,7 +815,7 @@ FE_ScalePalettes::
 	ld [hli], a
 	pop bc
 	dec b
-	jp nz, .jump_4399
+	jp nz, .loop
 	ret
 
 
@@ -1049,7 +1049,7 @@ FE_ReadJoypadPressed::
 	ldh [hFE_JoyHeld], a
 	and $0f
 	cp $0f
-	jp z, FE_ReadJoypadHeld.jump_4600
+	jp z, FE_ReadJoypadHeld.soft_reset
 	ldh a, [hFE_JoyHeld]
 	ld c, a
 	ldh a, [hFE_JoyPrevious]
@@ -1079,23 +1079,23 @@ FE_ReadJoypadPressed_Link::
 	ld c, a
 	and $0f
 	cp $0f
-	jp z, .jump_4572
+	jp z, .wait_lcd
 	ldh a, [hFE_JoyPrevious]
 	cpl
 	and c
 	ldh [hFE_JoyInput], a
 	ret
 
-.jump_4572:
+.wait_lcd:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, .jump_4572
-.jump_4579:
+	jr z, .wait_lcd
+.loop_4579:
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr nz, .jump_4579
+	jr nz, .loop_4579
 	ld a, $ef
 	ldh [rSB], a
 	ld a, $03
@@ -1103,9 +1103,9 @@ FE_ReadJoypadPressed_Link::
 	ld a, $83
 	ldh [rSC], a
 	ld d, $3c
-.jump_458e:
+.loop_458e:
 	dec d
-	jr nz, .jump_458e
+	jr nz, .loop_458e
 	ld a, $11
 	jp Init
 
@@ -1130,29 +1130,29 @@ FE_ReadJoypadHeld_Link::
 	ldh [hFE_JoyInput], a
 	and $0f
 	cp $0f
-	jp z, FE_ReadJoypadPressed_Link.jump_4572
+	jp z, FE_ReadJoypadPressed_Link.wait_lcd
 	ld a, b
 	ret
 
 
 FE_WaitForButton::
 	call FE_ReadJoypadHeld
-.jump_45bf:
+.loop_45bf:
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_45c2:
+.loop_45c2:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_45c2
+	jr nz, .loop_45c2
 	call FE_ReadJoypadHeld
 	ldh a, [hFE_JoyInput]
 	and $0f
-	jr z, .jump_45bf
+	jr z, .loop_45bf
 	ld b, a
 	ldh a, [hFE_JoyPrevious]
 	and $0f
 	and b
-	jr nz, .jump_45bf
+	jr nz, .loop_45bf
 	ret
 
 
@@ -1176,11 +1176,11 @@ FE_ReadJoypadHeld::
 	ldh [hFE_JoyInput], a
 	and $0f
 	cp $0f
-	jp z, .jump_4600
+	jp z, .soft_reset
 	ld a, b
 	ret
 
-.jump_4600:
+.soft_reset:
 	xor a
 	ldh [rLCDC], a
 	ld a, $11
@@ -1194,17 +1194,17 @@ FE_RandomBelow::
 	ret z
 	ld c, a
 	ld b, $ff
-.jump_4610:
+.loop_4610:
 	rlca
-	jr c, .jump_4617
+	jr c, .loop_4617
 	srl b
-	jr .jump_4610
+	jr .loop_4610
 
-.jump_4617:
+.loop_4617:
 	call FE_Random
 	and b
 	cp c
-	jr nc, .jump_4617
+	jr nc, .loop_4617
 	ld b, a
 	ret
 
@@ -1239,9 +1239,9 @@ FE_Random::
 FE_SeedRandom::
 	ld a, b
 	cp $00
-	jr nz, .jump_4649
+	jr nz, .skip
 	ld a, $36
-.jump_4649:
+.skip:
 	ldh [hFE_RandomState], a
 	add a, $2e
 	ldh [hFE_RandomState + 1], a
@@ -1259,51 +1259,51 @@ FE_Multiply::
 	ld h, b
 	ld l, b
 	rr a
-	jr nc, .jump_4662
+	jr nc, .skip_4662
 	add hl, bc
-.jump_4662:
+.skip_4662:
 	sla c
 	rl b
 	rr a
-	jr nc, .jump_466b
+	jr nc, .skip_466b
 	add hl, bc
-.jump_466b:
+.skip_466b:
 	sla c
 	rl b
 	rr a
-	jr nc, .jump_4674
+	jr nc, .skip_4674
 	add hl, bc
-.jump_4674:
+.skip_4674:
 	sla c
 	rl b
 	rr a
-	jr nc, .jump_467d
+	jr nc, .skip_467d
 	add hl, bc
-.jump_467d:
+.skip_467d:
 	sla c
 	rl b
 	rr a
-	jr nc, .jump_4686
+	jr nc, .skip_4686
 	add hl, bc
-.jump_4686:
+.skip_4686:
 	sla c
 	rl b
 	rr a
-	jr nc, .jump_468f
+	jr nc, .skip_468f
 	add hl, bc
-.jump_468f:
+.skip_468f:
 	sla c
 	rl b
 	rr a
-	jr nc, .jump_4698
+	jr nc, .skip_4698
 	add hl, bc
-.jump_4698:
+.skip_4698:
 	sla c
 	rl b
 	rr a
-	jr nc, .jump_46a1
+	jr nc, .done
 	add hl, bc
-.jump_46a1:
+.done:
 	ld b, h
 	ld c, l
 	pop hl
@@ -1315,51 +1315,51 @@ FE_Divide::
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46ad
+	jr nc, .skip_46ad
 	add a, b
-.jump_46ad:
+.skip_46ad:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46b4
+	jr nc, .skip_46b4
 	add a, b
-.jump_46b4:
+.skip_46b4:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46bb
+	jr nc, .skip_46bb
 	add a, b
-.jump_46bb:
+.skip_46bb:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46c2
+	jr nc, .skip_46c2
 	add a, b
-.jump_46c2:
+.skip_46c2:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46c9
+	jr nc, .skip_46c9
 	add a, b
-.jump_46c9:
+.skip_46c9:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46d0
+	jr nc, .skip_46d0
 	add a, b
-.jump_46d0:
+.skip_46d0:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46d7
+	jr nc, .skip_46d7
 	add a, b
-.jump_46d7:
+.skip_46d7:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_46de
+	jr nc, .done
 	add a, b
-.jump_46de:
+.done:
 	ld b, a
 	ld a, c
 	rla
@@ -1372,10 +1372,10 @@ FE_WaitFrames::
 	push de
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_46e8:
+.loop:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_46e8
+	jr nz, .loop
 	call FE_ReadJoypadHeld
 	pop de
 	dec d
@@ -1401,31 +1401,31 @@ FE_InitLineStep::
 	ld l, e
 	ld de, $0101
 	bit 7, b
-	jr z, .jump_4716
+	jr z, .skip_4716
 	ld a, b
 	cpl
 	inc a
 	ld b, a
 	ld d, $ff
-.jump_4716:
+.skip_4716:
 	bit 7, c
-	jr z, .jump_4720
+	jr z, .skip_4720
 	ld a, c
 	cpl
 	inc a
 	ld c, a
 	ld e, $ff
-.jump_4720:
+.skip_4720:
 	xor a
 	cp c
-	jr z, .jump_474a
+	jr z, .done_474a
 	cp b
-	jr z, .jump_4752
+	jr z, .done_4752
 	ld a, c
 	cp b
-	jr z, .jump_475a
+	jr z, .done_475a
 	sub b
-	jr c, .jump_473c
+	jr c, .else
 	ld a, $05
 	ld [hli], a
 	ld [hl], d
@@ -1440,7 +1440,7 @@ FE_InitLineStep::
 	ld [hl], c
 	ret
 
-.jump_473c:
+.else:
 	ld a, $04
 	ld [hli], a
 	ld [hl], d
@@ -1455,7 +1455,7 @@ FE_InitLineStep::
 	ld [hl], b
 	ret
 
-.jump_474a:
+.done_474a:
 	ld a, $01
 	ld [hli], a
 	ld [hl], d
@@ -1463,7 +1463,7 @@ FE_InitLineStep::
 	ld [hl], $00
 	ret
 
-.jump_4752:
+.done_4752:
 	ld a, $02
 	ld [hli], a
 	ld [hl], $00
@@ -1471,7 +1471,7 @@ FE_InitLineStep::
 	ld [hl], e
 	ret
 
-.jump_475a:
+.done_475a:
 	ld a, $03
 	ld [hli], a
 	ld [hl], d
@@ -1485,33 +1485,33 @@ FE_LineStep::
 	ld l, e
 	ld a, [hli]
 	cp $04
-	jr z, .jump_4785
+	jr z, .else_4785
 	cp $05
-	jr z, .jump_4795
+	jr z, .else_4795
 	cp $01
-	jr z, .jump_4778
+	jr z, .done_4778
 	cp $02
-	jr z, .jump_477c
+	jr z, .done_477c
 	cp $03
-	jr z, .jump_4781
-.jump_4778:
+	jr z, .done_4781
+.done_4778:
 	ld b, [hl]
 	ld c, $00
 	ret
 
-.jump_477c:
+.done_477c:
 	inc hl
 	ld c, [hl]
 	ld b, $00
 	ret
 
-.jump_4781:
+.done_4781:
 	ld b, [hl]
 	inc hl
 	ld c, [hl]
 	ret
 
-.jump_4785:
+.else_4785:
 	ld c, $00
 	ld b, [hl]
 	inc hl
@@ -1528,7 +1528,7 @@ FE_LineStep::
 	ld c, e
 	ret
 
-.jump_4795:
+.else_4795:
 	ld b, $00
 	ld d, [hl]
 	inc hl
@@ -1555,23 +1555,23 @@ FE_LoadPictureMap::
 	cp $00
 	jp z, FE_CopyPictureMap
 	cp $01
-	jp z, FE_CopyPictureMap.jump_4840
+	jp z, FE_CopyPictureMap.copy_unique_map
 	cp $02
-	jp z, .jump_47bc
-.jump_47bc:
+	jp z, .skip
+.skip:
 	call FE_CopyPictureMap
 	ld a, $02
 	ldh [rSVBK], a
 	ld hl, wFE_ScreenBuffer
 	ld bc, wFE_ScreenBuffer + $400
-.jump_47c9:
+.loop:
 	ld a, [hl]
 	ld [hl], $00
 	inc hl
 	ld [bc], a
 	inc bc
 	bit 2, h
-	jr z, .jump_47c9
+	jr z, .loop
 	ld a, $01
 	ldh [rSVBK], a
 	ret
@@ -1606,17 +1606,17 @@ FE_CopyPictureMap::
 	ldh [rSVBK], a
 	ld de, wFE_ScreenBuffer
 	ldh a, [hFE_Scratch + 2]
-.jump_4806:
+.loop_4806:
 	push af
 	push hl
 	ld b, $20
-.jump_480a:
+.loop_480a:
 	call FE_FarReadByte
 	ld a, c
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_480a
+	jr nz, .loop_480a
 	pop hl
 	ldh a, [hFE_Scratch + 1]
 	ld c, a
@@ -1624,20 +1624,20 @@ FE_CopyPictureMap::
 	add hl, bc
 	pop af
 	dec a
-	jr nz, .jump_4806
+	jr nz, .loop_4806
 	ld de, wFE_ScreenBuffer + $400
 	ldh a, [hFE_Scratch + 2]
-.jump_4823:
+.loop_4823:
 	push af
 	push hl
 	ld b, $20
-.jump_4827:
+.loop_4827:
 	call FE_FarReadByte
 	ld a, c
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_4827
+	jr nz, .loop_4827
 	pop hl
 	ldh a, [hFE_Scratch + 1]
 	ld c, a
@@ -1645,12 +1645,12 @@ FE_CopyPictureMap::
 	add hl, bc
 	pop af
 	dec a
-	jr nz, .jump_4823
+	jr nz, .loop_4823
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
-.jump_4840:
+.copy_unique_map:
 	ld hl, $4a9d
 	ld a, $02
 	ldh [rSVBK], a
@@ -1658,12 +1658,12 @@ FE_CopyPictureMap::
 	ld c, $20
 	push hl
 	ld b, c
-.jump_484e:
+.loop_484e:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_484e
+	jr nz, .loop_484e
 	pop hl
 	ld a, c
 	ld bc, $0014
@@ -1672,18 +1672,18 @@ FE_CopyPictureMap::
 	ld c, a
 	ld b, $20
 	dec c
-	jr nz, .jump_484e
+	jr nz, .loop_484e
 	pop hl
 	ld de, wFE_ScreenBuffer + $400
 	ld c, $20
 	push hl
 	ld b, c
-.jump_4869:
+.loop_4869:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_4869
+	jr nz, .loop_4869
 	pop hl
 	ld a, c
 	ld bc, $0014
@@ -1692,7 +1692,7 @@ FE_CopyPictureMap::
 	ld c, a
 	ld b, $20
 	dec c
-	jr nz, .jump_4869
+	jr nz, .loop_4869
 	pop hl
 	ld a, $01
 	ldh [rSVBK], a
@@ -1766,7 +1766,7 @@ FE_LoadPicture::
 FE_LoadPictureForPrinter_Check::
 	ld a, d
 	cp $00
-	jp z, FE_LoadPictureForPrinter.jump_496d
+	jp z, FE_LoadPictureForPrinter.load
 
 FE_LoadPictureForPrinter::
 	ld a, b
@@ -1804,10 +1804,10 @@ FE_LoadPictureForPrinter::
 	ld de, wFE_ScreenBuffer
 	pop hl
 	pop af
-.jump_492a:
+.loop_492a:
 	push af
 	ld a, $14
-.jump_492d:
+.loop_492d:
 	push af
 	push bc
 	ldh a, [hFE_Scratch + 1]
@@ -1827,32 +1827,32 @@ FE_LoadPictureForPrinter::
 	call FE_AdvanceFarPointer
 	push bc
 	ld b, $10
-.jump_494d:
+.loop_494d:
 	call FE_FarReadByte
 	ld a, c
 	cpl
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_494d
+	jr nz, .loop_494d
 	ld a, d
 	cp $e0
-	jr nz, .jump_4962
+	jr nz, .skip_4962
 	ld d, $d0
 	ld hl, rSVBK
 	inc [hl]
-.jump_4962:
+.skip_4962:
 	pop bc
 	pop hl
 	pop af
 	dec a
-	jr nz, .jump_492d
+	jr nz, .loop_492d
 	pop af
 	dec a
-	jr nz, .jump_492a
+	jr nz, .loop_492a
 	ret
 
-.jump_496d:
+.load:
 	ld a, b
 	call FE_GetPictureHeight
 	ld c, b
@@ -1876,40 +1876,40 @@ FE_LoadPictureForPrinter::
 	ld de, wFE_ScreenBuffer
 	ld b, $14
 	call FE_Multiply
-.jump_4992:
+.loop_4992:
 	push bc
 	ld b, $10
-.jump_4995:
+.loop_4995:
 	call FE_FarReadByte
 	ld a, c
 	cpl
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .jump_4995
+	jr nz, .loop_4995
 	ld a, h
 	cp $80
-	jr nz, .jump_49ad
+	jr nz, .skip_49ad
 	ld a, [wFE_FarBank]
 	inc a
 	ld [wFE_FarBank], a
 	ld h, $40
-.jump_49ad:
+.skip_49ad:
 	ld a, d
 	cp $e0
-	jr nz, .jump_49b9
+	jr nz, .skip_49b9
 	ldh a, [rSVBK]
 	inc a
 	ldh [rSVBK], a
 	ld d, $d0
-.jump_49b9:
+.skip_49b9:
 	xor a
 	pop bc
 	dec bc
 	cp c
-	jr nz, .jump_4992
+	jr nz, .loop_4992
 	cp b
-	jr nz, .jump_4992
+	jr nz, .loop_4992
 	ret
 
 
@@ -1946,10 +1946,10 @@ FE_UploadBGMap::
 	ld d, $3f
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_49ff:
+.loop:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_49ff
+	jr nz, .loop
 	call FE_HDMA
 	xor a
 	ldh [rVBK], a
@@ -1970,10 +1970,10 @@ FE_UploadBGMap9C00::
 	ld d, $3f
 	xor a
 	ldh [hFE_VBlankFlag], a
-.jump_4a29:
+.loop:
 	ldh a, [hFE_VBlankFlag]
 	cp $01
-	jr nz, .jump_4a29
+	jr nz, .loop
 	call FE_HDMA
 	xor a
 	ldh [rVBK], a
@@ -2162,16 +2162,16 @@ FE_DrawSpriteAnim::
 	ld l, a
 	pop af
 	cp $00
-	jr z, .jump_4fd2
+	jr z, .continue
 	cp $01
-	jr z, .jump_5005
+	jr z, .else_5005
 	cp $02
-	jp z, .jump_503c
+	jp z, .else_503c
 	cp $03
-	jp z, .jump_507b
+	jp z, .else_507b
 	cp $04
-	jp z, .jump_50ba
-.jump_4fd2:
+	jp z, .else_50ba
+.continue:
 	ldh a, [hFE_Scratch]
 	add a, a
 	ld d, a
@@ -2209,7 +2209,7 @@ FE_DrawSpriteAnim::
 	pop de
 	ret
 
-.jump_5005:
+.else_5005:
 	ldh a, [hFE_Scratch]
 	add a, a
 	ld d, a
@@ -2248,12 +2248,12 @@ FE_DrawSpriteAnim::
 	pop de
 	ret
 
-.jump_5039:
+.done:
 	pop de
 	pop de
 	ret
 
-.jump_503c:
+.else_503c:
 	ldh a, [hFE_Scratch]
 	add a, a
 	add a, a
@@ -2270,7 +2270,7 @@ FE_DrawSpriteAnim::
 	call FE_PlaceSpritesSteppedFlip
 	ld a, c
 	cp $00
-	jr z, .jump_5039
+	jr z, .done
 	push hl
 	add a, a
 	ld c, a
@@ -2297,7 +2297,7 @@ FE_DrawSpriteAnim::
 	call FE_AddSpriteAttributes
 	ret
 
-.jump_507b:
+.else_507b:
 	ldh a, [hFE_Scratch]
 	add a, a
 	add a, a
@@ -2314,7 +2314,7 @@ FE_DrawSpriteAnim::
 	call FE_PlaceSpritesFixed
 	ld a, c
 	cp $00
-	jr z, .jump_5039
+	jr z, .done
 	push hl
 	add a, a
 	ld c, a
@@ -2341,7 +2341,7 @@ FE_DrawSpriteAnim::
 	call FE_AddSpriteAttributes
 	ret
 
-.jump_50ba:
+.else_50ba:
 	ldh a, [hFE_Scratch]
 	add a, a
 	add a, a
@@ -2358,7 +2358,7 @@ FE_DrawSpriteAnim::
 	call FE_PlaceSpritesStepped
 	ld a, c
 	cp $00
-	jp z, .jump_5039
+	jp z, .done
 	push hl
 	ld c, a
 	ldh [hFE_Scratch + 1], a
@@ -2398,11 +2398,11 @@ FE_PlaceSpritesFixed::
 	ld h, a
 	ld a, d
 	ld d, $c0
-.jump_5107:
+.loop:
 	push af
 	ld a, e
 	cp $a0
-	jr z, .jump_5130
+	jr z, .else
 	inc hl
 	ld a, [hld]
 	add a, c
@@ -2423,7 +2423,7 @@ FE_PlaceSpritesFixed::
 	inc e
 	pop af
 	dec a
-	jr nz, .jump_5107
+	jr nz, .loop
 	pop hl
 	ld c, [hl]
 	inc hl
@@ -2434,7 +2434,7 @@ FE_PlaceSpritesFixed::
 	ld h, a
 	ret
 
-.jump_5130:
+.else:
 	pop bc
 	pop hl
 	ld a, [hli]
@@ -2462,11 +2462,11 @@ FE_PlaceSpritesStepped::
 	ld h, a
 	ld a, d
 	ld d, $c0
-.jump_514b:
+.loop:
 	push af
 	ld a, e
 	cp $a0
-	jr z, .jump_5174
+	jr z, .else
 	ld a, [hli]
 	add a, b
 	ld b, a
@@ -2488,7 +2488,7 @@ FE_PlaceSpritesStepped::
 	inc e
 	pop af
 	dec a
-	jr nz, .jump_514b
+	jr nz, .loop
 	pop hl
 	ld c, [hl]
 	inc hl
@@ -2499,7 +2499,7 @@ FE_PlaceSpritesStepped::
 	ld h, a
 	ret
 
-.jump_5174:
+.else:
 	pop bc
 	pop hl
 	ld a, [hli]
@@ -2525,7 +2525,7 @@ FE_AddSpriteAttributes::
 	inc e
 	inc e
 	inc e
-.jump_518d:
+.loop:
 	ld a, [de]
 	add a, [hl]
 	ld [de], a
@@ -2535,7 +2535,7 @@ FE_AddSpriteAttributes::
 	inc e
 	inc e
 	dec c
-	jr nz, .jump_518d
+	jr nz, .loop
 	inc e
 	ret
 
@@ -2554,21 +2554,21 @@ FE_PlaceSpritesSteppedFlip::
 	ld h, a
 	ldh a, [hFE_Scratch2 + 1]
 	and $60
-	jr z, .jump_51b8
+	jr z, .else_51b8
 	cp $20
-	jr z, .jump_51e5
+	jr z, .else_51e5
 	cp $40
-	jr z, .jump_5222
-	jp .jump_5254
+	jr z, .else_5222
+	jp .else_5254
 
-.jump_51b8:
+.else_51b8:
 	ld a, d
 	ld d, $c0
-.jump_51bb:
+.loop_51bb:
 	push af
 	ld a, e
 	cp $a0
-	jr z, .jump_5217
+	jr z, .loop_5217
 	ld a, [hli]
 	add a, b
 	ld b, a
@@ -2590,7 +2590,7 @@ FE_PlaceSpritesSteppedFlip::
 	inc e
 	pop af
 	dec a
-	jr nz, .jump_51bb
+	jr nz, .loop_51bb
 	pop hl
 	ld c, [hl]
 	inc hl
@@ -2601,17 +2601,17 @@ FE_PlaceSpritesSteppedFlip::
 	ld h, a
 	ret
 
-.jump_51e5:
+.else_51e5:
 	ld a, $f9
 	add a, b
 	ld b, a
 	ld a, d
 	ld d, $c0
-.jump_51ec:
+.loop_51ec:
 	push af
 	ld a, e
 	cp $a0
-	jr z, .jump_5217
+	jr z, .loop_5217
 	ld a, b
 	sub [hl]
 	inc hl
@@ -2634,7 +2634,7 @@ FE_PlaceSpritesSteppedFlip::
 	inc e
 	pop af
 	dec a
-	jr nz, .jump_51ec
+	jr nz, .loop_51ec
 	pop hl
 	ld c, [hl]
 	inc hl
@@ -2645,7 +2645,7 @@ FE_PlaceSpritesSteppedFlip::
 	ld h, a
 	ret
 
-.jump_5217:
+.loop_5217:
 	pop bc
 	pop hl
 	ld a, [hli]
@@ -2658,17 +2658,17 @@ FE_PlaceSpritesSteppedFlip::
 	ld h, a
 	ret
 
-.jump_5222:
+.else_5222:
 	ld a, $f9
 	add a, c
 	ld c, a
 	ld a, d
 	ld d, $c0
-.jump_5229:
+.loop_5229:
 	push af
 	ld a, e
 	cp $a0
-	jr z, .jump_5217
+	jr z, .loop_5217
 	ld a, [hli]
 	add a, b
 	ld b, a
@@ -2691,7 +2691,7 @@ FE_PlaceSpritesSteppedFlip::
 	inc e
 	pop af
 	dec a
-	jr nz, .jump_5229
+	jr nz, .loop_5229
 	pop hl
 	ld c, [hl]
 	inc hl
@@ -2702,7 +2702,7 @@ FE_PlaceSpritesSteppedFlip::
 	ld h, a
 	ret
 
-.jump_5254:
+.else_5254:
 	ld a, $f9
 	add a, c
 	ld c, a
@@ -2711,11 +2711,11 @@ FE_PlaceSpritesSteppedFlip::
 	ld b, a
 	ld a, d
 	ld d, $c0
-.jump_525f:
+.loop_525f:
 	push af
 	ld a, e
 	cp $a0
-	jr z, .jump_5217
+	jr z, .loop_5217
 	ld a, b
 	sub [hl]
 	inc hl
@@ -2739,7 +2739,7 @@ FE_PlaceSpritesSteppedFlip::
 	inc e
 	pop af
 	dec a
-	jr nz, .jump_525f
+	jr nz, .loop_525f
 	pop hl
 	ld c, [hl]
 	inc hl
@@ -2761,7 +2761,7 @@ FE_FarCopySprites_Code::
 	ld l, c
 	ldh a, [hFE_Scratch + 1]
 	ld c, a
-.jump_529a:
+.loop:
 	ld a, [hli]
 	ld [de], a
 	inc e
@@ -2811,7 +2811,7 @@ FE_FarCopySprites_Code::
 	ld [de], a
 	inc de
 	dec c
-	jr nz, .jump_529a
+	jr nz, .loop
 	pop af
 	ldh [hFE_ROMBank], a
 	ld [rROMB0], a
@@ -2822,13 +2822,13 @@ FE_ClearOAM::
 	ld hl, wFE_ShadowOAM
 	ld d, $28
 	xor a
-.jump_52da:
+.loop:
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	dec d
-	jr nz, .jump_52da
+	jr nz, .loop
 	ret
 
 
@@ -5032,7 +5032,7 @@ FE_DrawTextFromPointer::
 	ld h, d
 	ld l, e
 	push bc
-	jr FE_DrawText.jump_6b02
+	jr FE_DrawText.next_char
 
 
 FE_DrawText::
@@ -5066,17 +5066,17 @@ FE_DrawText::
 	ld c, l
 	pop hl
 	push bc
-.jump_6b02:
+.next_char:
 	push bc
 	call FE_FarReadByte
 	ld a, c
 	pop bc
 	cp $20
-	jr z, .jump_6b2f
+	jr z, .continue
 	cp $86
-	jr z, .jump_6b32
+	jr z, .else
 	cp $87
-	jr z, .jump_6b3e
+	jr z, .done
 	sub $20
 	ld de, $6d84
 	add a, e
@@ -5096,11 +5096,11 @@ FE_DrawText::
 	ldh a, [hFE_Scratch2 + 1]
 	ld [bc], a
 	set 2, b
-.jump_6b2f:
+.continue:
 	inc c
-	jr .jump_6b02
+	jr .next_char
 
-.jump_6b32:
+.else:
 	pop bc
 	ld a, $20
 	add a, c
@@ -5109,9 +5109,9 @@ FE_DrawText::
 	adc a, b
 	ld b, a
 	push bc
-	jr .jump_6b02
+	jr .next_char
 
-.jump_6b3e:
+.done:
 	pop bc
 	ld a, $01
 	ldh [rSVBK], a
@@ -5147,17 +5147,17 @@ FE_DrawTextOnMap::
 	ld c, l
 	pop hl
 	push bc
-.jump_6b6a:
+.loop:
 	push bc
 	call FE_FarReadByte
 	ld a, c
 	pop bc
 	cp $20
-	jr z, .jump_6ba2
+	jr z, .continue
 	cp $86
-	jr z, .jump_6ba5
+	jr z, .else
 	cp $87
-	jr z, .jump_6bb0
+	jr z, .done
 	sub $20
 	ld de, $6ca7
 	add a, e
@@ -5184,11 +5184,11 @@ FE_DrawTextOnMap::
 	ld [hl], a
 	set 2, b
 	pop hl
-.jump_6ba2:
+.continue:
 	inc c
-	jr .jump_6b6a
+	jr .loop
 
-.jump_6ba5:
+.else:
 	pop bc
 	ld a, $40
 	add a, c
@@ -5196,9 +5196,9 @@ FE_DrawTextOnMap::
 	ld a, $00
 	adc a, b
 	ld b, a
-	jr .jump_6b6a
+	jr .loop
 
-.jump_6bb0:
+.done:
 	pop bc
 	ld a, $01
 	ldh [rSVBK], a
@@ -5234,7 +5234,7 @@ FE_DrawBox::
 	res 2, h
 	ld [hli], a
 	set 2, h
-.jump_6bde:
+.loop_6bde:
 	ldh a, [hFE_Scratch2]
 	add a, $7e
 	ld [hl], a
@@ -5243,7 +5243,7 @@ FE_DrawBox::
 	ld [hli], a
 	set 2, h
 	dec b
-	jr nz, .jump_6bde
+	jr nz, .loop_6bde
 	ldh a, [hFE_Scratch2]
 	add a, $7d
 	ld [hl], a
@@ -5252,7 +5252,7 @@ FE_DrawBox::
 	res 2, h
 	ld [hli], a
 	set 2, h
-.jump_6bfb:
+.loop_6bfb:
 	pop hl
 	add hl, de
 	push hl
@@ -5265,7 +5265,7 @@ FE_DrawBox::
 	res 2, h
 	ld [hli], a
 	set 2, h
-.jump_6c0d:
+.loop_6c0d:
 	ldh a, [hFE_Scratch2]
 	ld [hl], a
 	ldh a, [hFE_Scratch2 + 1]
@@ -5273,7 +5273,7 @@ FE_DrawBox::
 	ld [hli], a
 	set 2, h
 	dec b
-	jr nz, .jump_6c0d
+	jr nz, .loop_6c0d
 	ldh a, [hFE_Scratch2]
 	add a, $7f
 	ld [hl], a
@@ -5283,7 +5283,7 @@ FE_DrawBox::
 	ld [hli], a
 	set 2, h
 	dec c
-	jr nz, .jump_6bfb
+	jr nz, .loop_6bfb
 	pop hl
 	add hl, de
 	ldh a, [hFE_Scratch]
@@ -5296,7 +5296,7 @@ FE_DrawBox::
 	res 2, h
 	ld [hli], a
 	set 2, h
-.jump_6c3e:
+.loop_6c3e:
 	ldh a, [hFE_Scratch2]
 	add a, $7e
 	ld [hl], a
@@ -5306,7 +5306,7 @@ FE_DrawBox::
 	ld [hli], a
 	set 2, h
 	dec b
-	jr nz, .jump_6c3e
+	jr nz, .loop_6c3e
 	ldh a, [hFE_Scratch2]
 	add a, $7d
 	ld [hl], a

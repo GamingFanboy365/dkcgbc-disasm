@@ -14,27 +14,27 @@ Fishing_Start::
 	push de
 	push bc
 	ld c, $41
-.jump_400f:
+.loop_400f:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_400f
-.jump_4015:
+	jr z, .loop_400f
+.loop_4015:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4015
+	jr nz, .loop_4015
 	pop bc
 	ld a, $c7
 	ldh [rLCDC], a
 	ld b, $a0
 	xor a
 	ld hl, $fe00
-.jump_4026:
+.loop_4026:
 	ld [hl], a
 	inc l
 	dec b
-	jr nz, .jump_4026
+	jr nz, .loop_4026
 	ld a, $50
 	ldh [hFishing_ROMBank], a
 	ld a, $01
@@ -42,27 +42,27 @@ Fishing_Start::
 	ld bc, $0022
 	ld de, wFishing_OAMBuffer
 	ld hl, $429c
-.jump_403c:
+.loop_403c:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_403c
+	jr nz, .loop_403c
 	call wFishing_OAMBuffer
 	push bc
 	ld c, $41
-.jump_404a:
+.loop_404a:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_404a
-.jump_4050:
+	jr z, .loop_404a
+.loop_4050:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4050
+	jr nz, .loop_4050
 	pop bc
 	ldh a, [rLCDC]
 	set 1, a
@@ -103,7 +103,7 @@ Fishing_LinkGame::
 	call Fishing_FadeIn
 	ldh a, [hFishing_LinkRole]
 	cp $ff
-	jp z, Fishing_OnePlayerGame.jump_41fc
+	jp z, Fishing_OnePlayerGame.start_game
 	ld a, $10
 	ldh [hFishing_LinkLength], a
 	di
@@ -121,24 +121,24 @@ Fishing_LinkGame::
 	ei
 	ldh a, [hFishing_LinkRole]
 	cp $bb
-	jr z, .jump_40d5
+	jr z, .else_40d5
 	push bc
 	ld c, $41
-.jump_40c3:
+.loop_40c3:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_40c3
-.jump_40c9:
+	jr z, .loop_40c3
+.loop_40c9:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_40c9
+	jr nz, .loop_40c9
 	pop bc
 	call Fishing_LinkSendNext
-	jr .jump_40ea
+	jr .loop_40ea
 
-.jump_40d5:
+.else_40d5:
 	ld hl, $ff8a
 	ld a, l
 	ldh [hFishing_LinkPos], a
@@ -150,32 +150,32 @@ Fishing_LinkGame::
 	ldh [rSC], a
 	ld a, $80
 	ldh [rSC], a
-.jump_40ea:
+.loop_40ea:
 	call Fishing_LinkFrame
-	jr c, .jump_4130
+	jr c, .else_4130
 	push bc
 	ld c, $41
-.jump_40f2:
+.loop_40f2:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_40f2
-.jump_40f8:
+	jr z, .loop_40f2
+.loop_40f8:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_40f8
+	jr nz, .loop_40f8
 	pop bc
 	call Fishing_LinkVBlankWork
-.jump_4102:
+.loop_4102:
 	ldh a, [rLY]
 	cp $90
-	jr c, .jump_410a
-	jr .jump_4102
+	jr c, .else_410a
+	jr .loop_4102
 
-.jump_410a:
+.else_410a:
 	call Fishing_CheckEnd
-	jr c, .jump_4130
+	jr c, .else_4130
 	ld a, [wFishing_TileBufferHalf]
 	or $d0
 	ldh [rHDMA1], a
@@ -188,13 +188,13 @@ Fishing_LinkGame::
 	ldh [rHDMA4], a
 	ldh a, [hFishing_TileCount]
 	or a
-	jr z, .jump_40ea
+	jr z, .loop_40ea
 	dec a
 	or $80
 	ldh [rHDMA5], a
-	jp .jump_40ea
+	jp .loop_40ea
 
-.jump_4130:
+.else_4130:
 	di
 	ld a, $02
 	ldh [rIE], a
@@ -223,11 +223,11 @@ Fishing_LinkGame::
 	ld b, a
 	ld a, [wFishing_PartnerScore]
 	cp b
-	jr c, .jump_419e
-	jr z, .jump_4168
-	jr .jump_41a8
+	jr c, .continue
+	jr z, .else_4168
+	jr .else_41a8
 
-.jump_4168:
+.else_4168:
 	ld a, [wFishing_PartnerScore + 1]
 	ldh [hFishing_FinalPartnerScore], a
 	ld a, [wFishing_PartnerScore + 2]
@@ -250,19 +250,19 @@ Fishing_LinkGame::
 	ld b, a
 	ld hl, $ffed
 	call Fishing_Compare24
-	jr z, .jump_41a3
-	jr c, .jump_41a8
-.jump_419e:
+	jr z, .else_41a3
+	jr c, .else_41a8
+.continue:
 	ld hl, $0001
-	jr .jump_41ab
+	jr .done
 
-.jump_41a3:
+.else_41a3:
 	ld hl, $0002
-	jr .jump_41ab
+	jr .done
 
-.jump_41a8:
+.else_41a8:
 	ld hl, $0000
-.jump_41ab:
+.done:
 	ld bc, $ffe9
 	di
 	xor a
@@ -291,25 +291,25 @@ Fishing_OnePlayerGame::
 	ldh [rNR51], a
 	push bc
 	ld c, $41
-.jump_41d5:
+.loop_41d5:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_41d5
-.jump_41db:
+	jr z, .loop_41d5
+.loop_41db:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_41db
+	jr nz, .loop_41db
 	pop bc
 	ld b, $a0
 	xor a
 	ld hl, $fe00
-.jump_41e8:
+.loop_41e8:
 	ld [hl], a
 	inc l
 	dec b
-	jr nz, .jump_41e8
+	jr nz, .loop_41e8
 	ld e, $01
 	call Fishing_FadeIn
 	ld d, $ff
@@ -320,7 +320,7 @@ Fishing_OnePlayerGame::
 	ei
 	ret
 
-.jump_41fc:
+.start_game:
 	di
 	ld a, $08
 	ldh [rSTAT], a
@@ -334,31 +334,31 @@ Fishing_OnePlayerGame::
 	ld a, $cb
 	ld [hli], a
 	ei
-.jump_4212:
+.loop_4212:
 	call Fishing_OnePlayerFrame
 	push bc
 	ld c, $41
-.jump_4218:
+.loop_4218:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_4218
-.jump_421e:
+	jr z, .loop_4218
+.loop_421e:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_421e
+	jr nz, .loop_421e
 	pop bc
 	call Fishing_VBlankWork
-.jump_4228:
+.loop_4228:
 	ldh a, [rLY]
 	cp $90
-	jr c, .jump_4230
-	jr .jump_4228
+	jr c, .else_4230
+	jr .loop_4228
 
-.jump_4230:
+.else_4230:
 	call Fishing_PlayMeterSample
-	jr c, .jump_4252
+	jr c, .else_4252
 	ld a, [wFishing_TileBufferHalf]
 	or $d0
 	ldh [rHDMA1], a
@@ -373,9 +373,9 @@ Fishing_OnePlayerGame::
 	dec a
 	or $80
 	ldh [rHDMA5], a
-	jr .jump_4212
+	jr .loop_4212
 
-.jump_4252:
+.else_4252:
 	xor a
 	ldh [hFishing_SampleFrames], a
 	ld hl, Fishing_STATPatch
@@ -401,13 +401,13 @@ Fishing_OnePlayerGame::
 	ei
 	ld a, [wFishing_PointsToAdd]
 	or a
-	jr z, .jump_4289
+	jr z, .else_4289
 	ld bc, $9999
 	ld de, $9999
 	ld h, $00
 	ret
 
-.jump_4289:
+.else_4289:
 	ld h, $00
 	ld a, [wFishing_Score]
 	ld e, a
@@ -429,14 +429,14 @@ Fishing_InstallRuntime::
 	ld bc, $01fd
 	ld de, Fishing_SerialHandler
 	ld hl, $42f4
-.jump_42af:
+.loop:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_42af
+	jr nz, .loop
 	pop af
 	ldh [hFishing_ROMBank], a
 	ld [rROMB0], a
@@ -449,7 +449,7 @@ Fishing_LinkFrame::
 	call nz, Fishing_PartnerPaused
 	ldh a, [hFishing_LinkRole2]
 	cp $bb
-	jp z, .jump_4330
+	jp z, .else
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
 	call Fishing_ReadJoypad
@@ -467,7 +467,7 @@ Fishing_LinkFrame::
 	call Fishing_ScrollWater
 	call Fishing_AnimateWater
 	call Fishing_LinkCheckEnd
-	jp c, Fishing_LinkDrawCharacters.jump_43c3
+	jp c, Fishing_LinkDrawCharacters.far_jump
 	call Fishing_LinkPause
 	call Fishing_CheckHookOnFish
 	call Fishing_SpawnFish
@@ -484,9 +484,9 @@ Fishing_LinkFrame::
 	ldh [hFishing_Scroll + 3], a
 	call Fishing_ComboTextTimer
 	call Fishing_AnimateAll
-	jp .jump_4390
+	jp .continue
 
-.jump_4330:
+.else:
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
 	call Fishing_ReadJoypad
@@ -504,7 +504,7 @@ Fishing_LinkFrame::
 	call Fishing_ScrollWater
 	call Fishing_AnimateWater
 	call Fishing_LinkCheckEnd
-	jr c, Fishing_LinkDrawCharacters.jump_43c3
+	jr c, Fishing_LinkDrawCharacters.far_jump
 	call Fishing_LinkPause
 	call Fishing_CheckHookOnFish
 	call Fishing_SpawnFish
@@ -521,7 +521,7 @@ Fishing_LinkFrame::
 	ldh [hFishing_Scroll + 3], a
 	call Fishing_ComboTextTimer
 	call Fishing_AnimateAll
-.jump_4390:
+.continue:
 	ldh [hFishing_FarA], a
 	ld a, h
 	ldh [hFishing_FarHL + 1], a
@@ -552,7 +552,7 @@ Fishing_LinkDrawCharacters::
 	or a
 	ret
 
-.jump_43c3:
+.far_jump:
 	ldh [hFishing_FarA], a
 	ld a, h
 	ldh [hFishing_FarHL + 1], a
@@ -667,10 +667,10 @@ Fishing_CheckScore500::
 	ld de, $0000
 	ld hl, $ffc8
 	call Fishing_Compare24
-	jr c, .jump_44a1
+	jr c, .done
 	ret
 
-.jump_44a1:
+.done:
 	ld a, $01
 	ld [wFishing_Reached500], a
 	ret
@@ -684,30 +684,30 @@ Fishing_LinkCheckEnd::
 	ret z
 	ld a, [wFishing_EndState]
 	or a
-	jr nz, .jump_44bd
+	jr nz, .else_44bd
 	call Fishing_LinkDrainMeter
-	jr c, .jump_44c5
+	jr c, .else_44c5
 	scf
 	ret
 
-.jump_44bd:
+.else_44bd:
 	ld a, [wFishing_EndState + 1]
 	or a
-	jr nz, .jump_44c5
+	jr nz, .else_44c5
 	scf
 	ret
 
-.jump_44c5:
+.else_44c5:
 	ld a, [wFishing_EndState + 2]
 	or a
-	jr nz, .jump_44da
+	jr nz, .done
 	ld a, $01
 	ld [wFishing_EndState], a
 	ld a, $1e
 	ld [wFishing_EndState + 3], a
 	ld a, $01
 	ld [wFishing_EndState + 2], a
-.jump_44da:
+.done:
 	scf
 	ret
 
@@ -715,20 +715,20 @@ Fishing_LinkCheckEnd::
 Fishing_LinkDrainMeter::
 	ld a, [wFishing_Meter]
 	or a
-	jr nz, .jump_44e4
+	jr nz, .else_44e4
 	scf
 	ret
 
-.jump_44e4:
+.else_44e4:
 	ld a, [wFishing_EndState + 4]
 	or a
-	jr z, .jump_44f0
+	jr z, .else_44f0
 	dec a
 	ld [wFishing_EndState + 4], a
 	or a
 	ret
 
-.jump_44f0:
+.else_44f0:
 	ld a, $03
 	ld [wFishing_EndState + 4], a
 	ld c, $ff
@@ -845,10 +845,10 @@ Fishing_InitSound::
 	ldh [rNR33], a
 	ld a, $ff
 	ld hl, $ff30
-.jump_45a4:
+.loop:
 	ld [hli], a
 	bit 4, l
-	jr nz, .jump_45a4
+	jr nz, .loop
 	ld a, $20
 	ldh [rNR32], a
 	ld a, $ff
@@ -994,10 +994,10 @@ Fishing_ClearCatchList::
 	ld a, $ff
 	ld hl, wFishing_Catch
 	ld b, $08
-.jump_46d1:
+.loop:
 	ld [hli], a
 	dec b
-	jr nz, .jump_46d1
+	jr nz, .loop
 	ret
 
 
@@ -1179,7 +1179,7 @@ Fishing_Init::
 	ld [wFishing_PartnerMeter], a
 	ldh a, [hFishing_LinkRole]
 	cp $ff
-	jr z, .jump_4899
+	jr z, .else
 	ld a, $3c
 	ld [wFishing_MeterStart], a
 	ld [wFishing_LevelMeter], a
@@ -1197,9 +1197,9 @@ Fishing_Init::
 	ld [wFishing_Unused_df74], a
 	ld a, $04
 	ld [wFishing_Unused_df74 + 1], a
-	jr .jump_48bf
+	jr .continue
 
-.jump_4899:
+.else:
 	call Fishing_InitLevels
 	ld a, $01
 	ld [wFishing_PointsByKind], a
@@ -1215,7 +1215,7 @@ Fishing_Init::
 	ld [wFishing_Unused_df74], a
 	ld a, $06
 	ld [wFishing_Unused_df74 + 1], a
-.jump_48bf:
+.continue:
 	ld a, $ca
 	ld hl, wFishing_ScoreRow
 	ld [hli], a
@@ -1261,16 +1261,16 @@ Fishing_Init::
 	push af
 	push bc
 	ld c, $41
-.jump_48ff:
+.loop_48ff:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_48ff
-.jump_4905:
+	jr z, .loop_48ff
+.loop_4905:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_4905
+	jr nz, .loop_4905
 	pop bc
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
@@ -1301,13 +1301,13 @@ Fishing_Init::
 Fishing_LinkSendState::
 	ldh a, [hFishing_LinkBuffer]
 	xor $01
-	jr z, .jump_493a
+	jr z, .else
 	ld hl, $ffaa
-	jr .jump_493d
+	jr .continue
 
-.jump_493a:
+.else:
 	ld hl, $ff9a
-.jump_493d:
+.continue:
 	push hl
 	xor a
 	ld [hli], a
@@ -1340,13 +1340,13 @@ Fishing_LinkSendState::
 	ld hl, $0000
 	ld b, $0e
 	ld d, l
-.jump_4974:
+.loop:
 	ldh a, [c]
 	inc c
 	ld e, a
 	add hl, de
 	dec b
-	jr nz, .jump_4974
+	jr nz, .loop
 	ld a, l
 	ldh [c], a
 	inc c
@@ -1360,13 +1360,13 @@ Fishing_LinkReceiveState::
 	ld b, a
 	ld a, [wFishing_LinkFrameIn]
 	cp b
-	jr nz, .jump_4993
+	jr nz, .else
 	ld hl, wFishing_LinkTimeout
 	dec [hl]
 	ret nz
 	jp Fishing_RestartMainLoop
 
-.jump_4993:
+.else:
 	ld b, a
 	ld a, $1e
 	ld [wFishing_LinkTimeout], a
@@ -1376,15 +1376,15 @@ Fishing_LinkReceiveState::
 	ld l, a
 	push hl
 	call Fishing_LinkCheckPacket
-	jr nc, Fishing_LinkApplyReceived.jump_49b9
+	jr nc, Fishing_LinkApplyReceived.apply
 	pop hl
 	ld a, [wFishing_LinkFrameOut]
 	cp l
-	jr z, .jump_49b2
+	jr z, .return
 	ldh a, [hFishing_LinkLength]
 	add a, l
 	ld [wFishing_LinkFrameIn], a
-.jump_49b2:
+.return:
 	ret
 
 
@@ -1394,7 +1394,7 @@ Fishing_LinkApplyReceived::
 	ret z
 	ret
 
-.jump_49b9:
+.apply:
 	ld a, $01
 	ld [wFishing_PartnerState], a
 	ld [wFishing_PartnerFlags], a
@@ -1438,7 +1438,7 @@ Fishing_LinkCheckPacket::
 	ld hl, $0000
 	ld c, $0e
 	ld b, $00
-.jump_4a04:
+.loop:
 	push bc
 	ld a, [de]
 	inc de
@@ -1446,25 +1446,25 @@ Fishing_LinkCheckPacket::
 	add hl, bc
 	pop bc
 	dec c
-	jr nz, .jump_4a04
+	jr nz, .loop
 	ld a, [de]
 	inc de
 	ld c, a
 	ld a, [de]
 	ld b, a
 	or c
-	jr z, .jump_4a1d
+	jr z, .done_4a1d
 	ld a, b
 	xor h
-	jr nz, .jump_4a1d
+	jr nz, .done_4a1d
 	ld a, c
 	xor l
-	jr z, .jump_4a22
-.jump_4a1d:
+	jr z, .done_4a22
+.done_4a1d:
 	ld a, $01
 	ldh [hFishing_PacketOK], a
 	scf
-.jump_4a22:
+.done_4a22:
 	pop hl
 	ret
 
@@ -1480,10 +1480,10 @@ Fishing_LinkVBlankWork::
 	call Fishing_UploadWaterTiles
 	ldh a, [hFishing_SampleFrames]
 	or a
-	jr z, .jump_4a5a
+	jr z, .done
 	dec a
 	ldh [hFishing_SampleFrames], a
-	jr z, .jump_4a51
+	jr z, .else
 	ld hl, Fishing_SamplePos
 	ld a, [hl]
 	add a, $04
@@ -1491,15 +1491,15 @@ Fishing_LinkVBlankWork::
 	ld a, [hl]
 	adc a, $00
 	ld [hl], a
-	jr .jump_4a5a
+	jr .done
 
-.jump_4a51:
+.else:
 	ld hl, Fishing_STATPatch
 	xor a
 	ld [hli], a
 	ld [hl], a
 	ld [wFishing_FrameReady], a
-.jump_4a5a:
+.done:
 	ld a, [wFishing_TileBufferHalf]
 	xor $04
 	ld [wFishing_TileBufferHalf], a
@@ -1525,10 +1525,10 @@ Fishing_VBlankWork::
 	call Fishing_UploadWaterTiles
 	ldh a, [hFishing_SampleFrames]
 	or a
-	jr z, .jump_4aa9
+	jr z, .done
 	dec a
 	ldh [hFishing_SampleFrames], a
-	jr z, .jump_4aa0
+	jr z, .else
 	ld hl, Fishing_SamplePos
 	ld a, [hl]
 	add a, $04
@@ -1536,15 +1536,15 @@ Fishing_VBlankWork::
 	ld a, [hl]
 	adc a, $00
 	ld [hl], a
-	jr .jump_4aa9
+	jr .done
 
-.jump_4aa0:
+.else:
 	ld hl, Fishing_STATPatch
 	xor a
 	ld [hli], a
 	ld [hl], a
 	ld [wFishing_FrameReady], a
-.jump_4aa9:
+.done:
 	ld a, [wFishing_TileBufferHalf]
 	xor $04
 	ld [wFishing_TileBufferHalf], a
@@ -2265,11 +2265,11 @@ Fishing_MoveRod::
 	ret z
 	ld a, [wFishing_CastState + 2]
 	or a
-	jr z, .jump_4dd9
+	jr z, .else
 	ld a, [wFishing_RodX]
 	cp $18
-	jr c, .jump_4df9
-	jr z, .jump_4df9
+	jr c, .done
+	jr z, .done
 	ld hl, wFishing_FunkyAnim + 7
 	ld a, [hl]
 	sub c
@@ -2283,13 +2283,13 @@ Fishing_MoveRod::
 	ld [wFishing_HookTargetX], a
 	ret
 
-.jump_4dd9:
+.else:
 	ld a, [wFishing_RodX]
 	ld d, a
 	ld a, $97
 	cp d
-	jr c, .jump_4df9
-	jr z, .jump_4df9
+	jr c, .done
+	jr z, .done
 	ld hl, wFishing_FunkyAnim + 7
 	ld a, [hl]
 	add a, c
@@ -2303,7 +2303,7 @@ Fishing_MoveRod::
 	ld [wFishing_HookTargetX], a
 	ret
 
-.jump_4df9:
+.done:
 	xor a
 	ld [wFishing_CastState], a
 	ld [wFishing_CastState + 1], a
@@ -2336,10 +2336,10 @@ Fishing_MoveHook::
 	ld b, [hl]
 	ld c, a
 	or b
-	jr z, .jump_4e45
+	jr z, .continue
 	ld a, [wFishing_Reeling]
 	or a
-	jr z, .jump_4e39
+	jr z, .else_4e39
 	ld hl, wFishing_HookAnim + 7
 	ld a, [hl]
 	sub c
@@ -2348,9 +2348,9 @@ Fishing_MoveHook::
 	sbc a, b
 	ld [hl], a
 	ld [wFishing_HookX], a
-	jr .jump_4e45
+	jr .continue
 
-.jump_4e39:
+.else_4e39:
 	ld hl, wFishing_HookAnim + 7
 	ld a, [hl]
 	add a, c
@@ -2359,7 +2359,7 @@ Fishing_MoveHook::
 	adc a, b
 	ld [hl], a
 	ld [wFishing_HookX], a
-.jump_4e45:
+.continue:
 	ld hl, wFishing_HookYSpeed
 	ld a, [hli]
 	ld b, [hl]
@@ -2368,15 +2368,15 @@ Fishing_MoveHook::
 	ret z
 	ld a, [wFishing_HookInWater]
 	or a
-	jr z, .jump_4e6f
+	jr z, .else_4e6f
 	ld a, [wFishing_HookState]
 	or a
-	jr nz, .jump_4e62
+	jr nz, .skip_4e62
 	ld a, [wFishing_HookY]
 	cp $5f
-	jr c, .jump_4e8d
-	jr z, .jump_4e8d
-.jump_4e62:
+	jr c, .done
+	jr z, .done
+.skip_4e62:
 	ld hl, wFishing_HookAnim + 9
 	ld a, [hl]
 	sub c
@@ -2387,17 +2387,17 @@ Fishing_MoveHook::
 	ld [wFishing_HookY], a
 	ret
 
-.jump_4e6f:
+.else_4e6f:
 	ld a, [wFishing_HookState]
 	or a
-	jr nz, .jump_4e80
+	jr nz, .skip_4e80
 	ld a, [wFishing_HookY]
 	ld d, a
 	ld a, $98
 	cp d
-	jr c, .jump_4e8d
-	jr z, .jump_4e8d
-.jump_4e80:
+	jr c, .done
+	jr z, .done
+.skip_4e80:
 	ld hl, wFishing_HookAnim + 9
 	ld a, [hl]
 	add a, c
@@ -2408,7 +2408,7 @@ Fishing_MoveHook::
 	ld [wFishing_HookY], a
 	ret
 
-.jump_4e8d:
+.done:
 	xor a
 	ld [wFishing_HookYSpeed], a
 	ld [wFishing_HookYSpeed + 1], a
@@ -2436,7 +2436,7 @@ Fishing_HookFollowScroll::
 Fishing_ScrollWater::
 	ldh a, [hFishing_Scroll + 8]
 	or a
-	jr z, .jump_4ede
+	jr z, .else_4ede
 	ld hl, hFishing_Scroll + 6
 	ld a, [hli]
 	ld b, [hl]
@@ -2464,13 +2464,13 @@ Fishing_ScrollWater::
 	sbc a, b
 	ld [hli], a
 	bit 7, d
-	jr nz, .jump_4f11
+	jr nz, .skip
 	ld a, $38
 	cp d
-	jr c, .jump_4f0b
-	jr .jump_4f11
+	jr c, .else_4f0b
+	jr .skip
 
-.jump_4ede:
+.else_4ede:
 	ld hl, hFishing_Scroll + 6
 	ld a, [hli]
 	ld b, [hl]
@@ -2499,16 +2499,16 @@ Fishing_ScrollWater::
 	ld [hli], a
 	ld a, d
 	bit 7, a
-	jr z, .jump_4f11
+	jr z, .skip
 	cp $d0
-	jr c, .jump_4f0b
-	jr .jump_4f11
+	jr c, .else_4f0b
+	jr .skip
 
-.jump_4f0b:
+.else_4f0b:
 	ldh a, [hFishing_Scroll + 8]
 	xor $01
 	ldh [hFishing_Scroll + 8], a
-.jump_4f11:
+.skip:
 	ld hl, hFishing_Scroll + 4
 	ld a, [hli]
 	ld b, [hl]
@@ -2545,10 +2545,10 @@ Fishing_AnimateFish::
 	ld de, $0010
 	ld b, $08
 	ld c, $00
-.jump_4f4e:
+.loop:
 	ld a, [hl]
 	or a
-	jr z, .jump_4f65
+	jr z, .continue
 	push hl
 	push de
 	push bc
@@ -2562,10 +2562,10 @@ Fishing_AnimateFish::
 	ld a, [wFishing_FishCount]
 	cp c
 	ret z
-.jump_4f65:
+.continue:
 	add hl, de
 	dec b
-	jr nz, .jump_4f4e
+	jr nz, .loop
 	ret
 
 
@@ -2574,19 +2574,19 @@ Fishing_UpdateHookedFish::
 	or a
 	ret z
 	cp $08
-	jr z, .jump_4f76
-	jr c, .jump_4f76
+	jr z, .else
+	jr c, .else
 	ret
 
-.jump_4f76:
+.else:
 	ld hl, wFishing_Hooked
 	ld de, $000c
 	ld b, $08
 	ld c, $00
-.jump_4f80:
+.loop:
 	ld a, [hl]
 	cp $ff
-	jr z, .jump_4f92
+	jr z, .continue
 	push bc
 	push de
 	call Fishing_UpdateHookedOne
@@ -2596,10 +2596,10 @@ Fishing_UpdateHookedFish::
 	ld a, [wFishing_HookedCount]
 	cp c
 	ret z
-.jump_4f92:
+.continue:
 	add hl, de
 	dec b
-	jr nz, .jump_4f80
+	jr nz, .loop
 	ret
 
 
@@ -2612,14 +2612,14 @@ Fishing_UpdateHookedOne::
 	ld c, a
 	pop hl
 	or b
-	jr z, .jump_4fcd
+	jr z, .continue
 	ld de, $000a
 	push hl
 	add hl, de
 	ld a, [hl]
 	pop hl
 	or a
-	jr z, .jump_4fbe
+	jr z, .else_4fbe
 	ld de, $0005
 	push hl
 	add hl, de
@@ -2633,9 +2633,9 @@ Fishing_UpdateHookedOne::
 	sbc a, b
 	ld [hl], a
 	pop hl
-	jr .jump_4fcd
+	jr .continue
 
-.jump_4fbe:
+.else_4fbe:
 	ld de, $0005
 	push hl
 	add hl, de
@@ -2649,7 +2649,7 @@ Fishing_UpdateHookedOne::
 	adc a, b
 	ld [hl], a
 	pop hl
-.jump_4fcd:
+.continue:
 	ld de, $0003
 	push hl
 	add hl, de
@@ -2665,7 +2665,7 @@ Fishing_UpdateHookedOne::
 	ld a, [hl]
 	pop hl
 	or a
-	jr z, .jump_4ff2
+	jr z, .else_4ff2
 	ld de, $0007
 	push hl
 	add hl, de
@@ -2681,7 +2681,7 @@ Fishing_UpdateHookedOne::
 	pop hl
 	ret
 
-.jump_4ff2:
+.else_4ff2:
 	ld de, $0007
 	push hl
 	add hl, de
@@ -2713,10 +2713,10 @@ Fishing_MoveFish::
 	ld de, $0010
 	ld b, $08
 	ld c, $00
-.jump_5019:
+.loop:
 	ld a, [hl]
 	or a
-	jr z, .jump_5075
+	jr z, .continue_5075
 	push hl
 	push de
 	push bc
@@ -2732,7 +2732,7 @@ Fishing_MoveFish::
 	add hl, bc
 	ldh a, [hFishing_Scratch]
 	or a
-	jr nz, .jump_5049
+	jr nz, .else_5049
 	xor a
 	ldh [hFishing_Scratch + 1], a
 	ld a, [hl]
@@ -2744,12 +2744,12 @@ Fishing_MoveFish::
 	ld b, a
 	ld a, $aa
 	cp b
-	jr nc, .jump_505c
+	jr nc, .skip
 	ld a, $01
 	ldh [hFishing_Scratch + 1], a
-	jr .jump_505c
+	jr .skip
 
-.jump_5049:
+.else_5049:
 	xor a
 	ldh [hFishing_Scratch + 1], a
 	ld a, [hl]
@@ -2761,33 +2761,33 @@ Fishing_MoveFish::
 	ld b, a
 	ld a, $f0
 	cp b
-	jr nc, .jump_505c
+	jr nc, .skip
 	ld a, $01
 	ldh [hFishing_Scratch + 1], a
-.jump_505c:
+.skip:
 	pop bc
 	pop de
 	pop hl
 	ldh a, [hFishing_Scratch + 1]
 	or a
-	jr z, .jump_506f
+	jr z, .else_506f
 	xor a
 	ld [hl], a
 	ld a, [wFishing_FishCount]
 	dec a
 	ld [wFishing_FishCount], a
-	jr .jump_5073
+	jr .continue_5073
 
-.jump_506f:
+.else_506f:
 	inc c
 	ld a, [wFishing_FishCount]
-.jump_5073:
+.continue_5073:
 	cp c
 	ret z
-.jump_5075:
+.continue_5075:
 	add hl, de
 	dec b
-	jr nz, .jump_5019
+	jr nz, .loop
 	ret
 
 
@@ -2814,13 +2814,13 @@ Fishing_LinkComboTimer::
 Fishing_LinkStartCombo::
 	ld a, [wFishing_LinkCombo]
 	or a
-	jr z, .jump_50aa
+	jr z, .skip
 	ld a, [wFishing_LinkCombo + 3]
 	or a
-	jr z, .jump_50aa
+	jr z, .skip
 	xor a
 	ld [wFishing_LinkCombo], a
-.jump_50aa:
+.skip:
 	ld a, [wFishing_LinkCombo + 1]
 	or a
 	ret z
@@ -2879,10 +2879,10 @@ Fishing_DrawFish::
 	ld de, $0010
 	ld b, $08
 	ld c, $00
-.jump_510c:
+.draw_slot:
 	ld a, [hl]
 	or a
-	jr z, Fishing_DrawFish_Next.jump_5152
+	jr z, Fishing_DrawFish_Next.next_slot
 	push hl
 	push de
 	push bc
@@ -2930,10 +2930,10 @@ Fishing_DrawFish_Next::
 	ld a, [wFishing_FishCount]
 	cp c
 	ret z
-.jump_5152:
+.next_slot:
 	add hl, de
 	dec b
-	jr nz, Fishing_DrawFish.jump_510c
+	jr nz, Fishing_DrawFish.draw_slot
 	ret
 
 
@@ -3044,28 +3044,28 @@ FishingWordTable_51f8::
 Fishing_HookPhysics::
 	ld a, [wFishing_HookInWater]
 	or a
-	jr z, .jump_523a
+	jr z, .else_523a
 	ld b, $10
 	ld a, [wFishing_HookY]
 	cp b
-	jr z, .jump_5286
-	jr .jump_5265
+	jr z, .done_5286
+	jr .else_5265
 
-.jump_523a:
+.else_523a:
 	ld a, [wFishing_HookY]
 	ld b, a
 	ld a, $4b
 	cp b
-	jr c, .jump_5295
-	jr z, .jump_5295
+	jr c, .else_5295
+	jr z, .else_5295
 	ld b, $10
 	ld a, [wFishing_HookY]
 	sub b
 	ld b, a
 	ld a, $19
 	cp b
-	jr c, .jump_52d0
-	jr z, .jump_52d0
+	jr c, .done_52d0
+	jr z, .done_52d0
 	ld a, b
 	add a, a
 	ld c, a
@@ -3078,7 +3078,7 @@ Fishing_HookPhysics::
 	ld [wFishing_HookYSpeed + 1], a
 	ret
 
-.jump_5265:
+.else_5265:
 	ld a, $10
 	ld b, a
 	ld a, [wFishing_HookY]
@@ -3086,8 +3086,8 @@ Fishing_HookPhysics::
 	ld b, a
 	ld a, $19
 	cp b
-	jr c, .jump_52d0
-	jr z, .jump_52d0
+	jr c, .done_52d0
+	jr z, .done_52d0
 	ld a, b
 	add a, a
 	ld c, a
@@ -3100,7 +3100,7 @@ Fishing_HookPhysics::
 	ld [wFishing_HookYSpeed + 1], a
 	ret
 
-.jump_5286:
+.done_5286:
 	xor a
 	ld [wFishing_HookInWater], a
 	ld a, [wFishing_HookY]
@@ -3109,7 +3109,7 @@ Fishing_HookPhysics::
 	ld [wFishing_HookAnim + $0a], a
 	ret
 
-.jump_5295:
+.else_5295:
 	xor a
 	ld [wFishing_HookState], a
 	ld [wFishing_LineState], a
@@ -3120,28 +3120,28 @@ Fishing_HookPhysics::
 	ld [wFishing_HookYSpeed + 1], a
 	ld a, [wFishing_HookTimer]
 	or a
-	jr nz, .jump_52b4
+	jr nz, .skip
 	ld a, [wFishing_HookedKind]
 	ld c, a
 	call Fishing_PlaySample
-.jump_52b4:
+.skip:
 	xor a
 	ld [wFishing_HookTimer], a
 	ld a, [wFishing_CastState + 2]
 	or a
-	jr nz, .jump_52c7
+	jr nz, .else_52c7
 	ld b, $0d
 	ld hl, wFishing_FunkyAnim
 	call Fishing_SetAnim
 	ret
 
-.jump_52c7:
+.else_52c7:
 	ld b, $0c
 	ld hl, wFishing_FunkyAnim
 	call Fishing_SetAnim
 	ret
 
-.jump_52d0:
+.done_52d0:
 	ld hl, wFishing_HookYSpeed
 	ld bc, $01cc
 	ld a, c
@@ -3163,27 +3163,27 @@ Fishing_ReelInHookedFish::
 	or a
 	ret z
 	cp $08
-	jr z, .jump_5337
-	jr c, .jump_5337
+	jr z, .else
+	jr c, .else
 	ret
 
-.jump_5337:
+.else:
 	ld hl, wFishing_Hooked
 	ld de, $000c
 	ld b, $08
-.jump_533f:
+.loop:
 	ld a, [hl]
 	cp $ff
-	jr z, .jump_534b
+	jr z, .skip
 	push bc
 	push de
 	call Fishing_ReelInOne
 	pop de
 	pop bc
-.jump_534b:
+.skip:
 	add hl, de
 	dec b
-	jr nz, .jump_533f
+	jr nz, .loop
 	ld a, [wFishing_HookedCount]
 	or a
 	ret nz
@@ -3215,8 +3215,8 @@ Fishing_ReelInOne::
 	ld b, a
 	ld a, c
 	cp b
-	jr z, .jump_53e3
-	jr c, .jump_53ac
+	jr z, .continue
+	jr c, .else_53ac
 	ld de, $000a
 	push hl
 	add hl, de
@@ -3227,8 +3227,8 @@ Fishing_ReelInOne::
 	ld b, a
 	ld a, $28
 	cp b
-	jr c, .jump_53d7
-	jr z, .jump_53d7
+	jr c, .else_53d7
+	jr z, .else_53d7
 	ld a, b
 	add a, a
 	ld c, a
@@ -3247,9 +3247,9 @@ Fishing_ReelInOne::
 	ld [hli], a
 	ld [hl], b
 	pop hl
-	jr .jump_53e3
+	jr .continue
 
-.jump_53ac:
+.else_53ac:
 	ld de, $000a
 	push hl
 	add hl, de
@@ -3260,8 +3260,8 @@ Fishing_ReelInOne::
 	ld b, a
 	ld a, $28
 	cp b
-	jr c, .jump_53d7
-	jr z, .jump_53d7
+	jr c, .else_53d7
+	jr z, .else_53d7
 	ld a, b
 	add a, a
 	ld c, a
@@ -3280,9 +3280,9 @@ Fishing_ReelInOne::
 	ld [hli], a
 	ld [hl], b
 	pop hl
-	jr .jump_53e3
+	jr .continue
 
-.jump_53d7:
+.else_53d7:
 	ld de, $0001
 	push hl
 	add hl, de
@@ -3291,7 +3291,7 @@ Fishing_ReelInOne::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-.jump_53e3:
+.continue:
 	ld de, $0007
 	push hl
 	add hl, de
@@ -3309,20 +3309,20 @@ Fishing_ReelInOne::
 	ld a, [hl]
 	pop hl
 	or a
-	jr z, .jump_5403
+	jr z, .else_5403
 	ld b, $10
 	ld a, c
 	cp b
-	jr z, .jump_5478
-	jr .jump_5453
+	jr z, .done
+	jr .else_5453
 
-.jump_5403:
+.else_5403:
 	ld a, [wFishing_WaterScroll + 5]
 	add a, $04
 	cp c
-	jr c, .jump_5428
+	jr c, .else_5428
 	call Fishing_IsInRect
-	jr nc, .jump_5428
+	jr nc, .else_5428
 	ld de, $000b
 	push hl
 	add hl, de
@@ -3336,21 +3336,21 @@ Fishing_ReelInOne::
 	ld hl, wFishing_CatchCount
 	inc [hl]
 	pop hl
-	jr .jump_5481
+	jr .else_5481
 
-.jump_5428:
+.else_5428:
 	ld a, $4b
 	cp c
-	jr c, .jump_5481
-	jr z, .jump_5481
+	jr c, .else_5481
+	jr z, .else_5481
 	ld b, $10
 	ld a, c
 	sub b
 	ld b, a
 	ld a, $19
 	cp b
-	jr c, .jump_5492
-	jr z, .jump_5492
+	jr c, .else_5492
+	jr z, .else_5492
 	ld a, b
 	add a, a
 	ld c, a
@@ -3371,7 +3371,7 @@ Fishing_ReelInOne::
 	pop hl
 	ret
 
-.jump_5453:
+.else_5453:
 	ld a, $10
 	ld b, a
 	ld a, c
@@ -3379,8 +3379,8 @@ Fishing_ReelInOne::
 	ld b, a
 	ld a, $19
 	cp b
-	jr c, .jump_5492
-	jr z, .jump_5492
+	jr c, .else_5492
+	jr z, .else_5492
 	ld a, b
 	add a, a
 	ld c, a
@@ -3401,7 +3401,7 @@ Fishing_ReelInOne::
 	pop hl
 	ret
 
-.jump_5478:
+.done:
 	ld de, $0009
 	push hl
 	add hl, de
@@ -3409,7 +3409,7 @@ Fishing_ReelInOne::
 	pop hl
 	ret
 
-.jump_5481:
+.else_5481:
 	ld de, $0000
 	push hl
 	add hl, de
@@ -3421,7 +3421,7 @@ Fishing_ReelInOne::
 	pop hl
 	ret
 
-.jump_5492:
+.else_5492:
 	ld de, $0003
 	push hl
 	add hl, de
@@ -3438,29 +3438,29 @@ Fishing_IsInRect::
 	ld d, a
 	ld a, [wFishing_WaterScroll + 1]
 	cp d
-	jr c, .jump_54ab
-	jr z, .jump_54ab
+	jr c, .else_54ab
+	jr z, .else_54ab
 	ret
 
-.jump_54ab:
+.else_54ab:
 	ld a, [wFishing_WaterScroll + 3]
 	ld e, a
 	ld a, d
 	cp e
-	jr c, .jump_54b6
-	jr z, .jump_54b6
+	jr c, .else_54b6
+	jr z, .else_54b6
 	ret
 
-.jump_54b6:
+.else_54b6:
 	ldh a, [hFishing_Scratch + 1]
 	ld e, a
 	ld a, [wFishing_WaterScroll + 5]
 	cp e
-	jr c, .jump_54c2
-	jr z, .jump_54c2
+	jr c, .done
+	jr z, .done
 	ret
 
-.jump_54c2:
+.done:
 	scf
 	ret
 
@@ -3470,8 +3470,8 @@ Fishing_ReelHook::
 	ld b, a
 	ld a, [wFishing_HookX]
 	cp b
-	jr z, .jump_5529
-	jr c, .jump_54f8
+	jr z, .continue
+	jr c, .else_54f8
 	ld a, $01
 	ld [wFishing_Reeling], a
 	ld a, [wFishing_HookTargetX]
@@ -3481,8 +3481,8 @@ Fishing_ReelHook::
 	ld b, a
 	ld a, $28
 	cp b
-	jr c, .jump_551f
-	jr z, .jump_551f
+	jr c, .else_551f
+	jr z, .else_551f
 	ld a, b
 	add a, a
 	ld c, a
@@ -3493,9 +3493,9 @@ Fishing_ReelHook::
 	ld [wFishing_HookXSpeed], a
 	ld a, [hl]
 	ld [wFishing_HookXSpeed + 1], a
-	jr .jump_5529
+	jr .continue
 
-.jump_54f8:
+.else_54f8:
 	xor a
 	ld [wFishing_Reeling], a
 	ld a, [wFishing_HookX]
@@ -3505,8 +3505,8 @@ Fishing_ReelHook::
 	ld b, a
 	ld a, $28
 	cp b
-	jr c, .jump_551f
-	jr z, .jump_551f
+	jr c, .else_551f
+	jr z, .else_551f
 	ld a, b
 	add a, a
 	ld c, a
@@ -3517,31 +3517,31 @@ Fishing_ReelHook::
 	ld [wFishing_HookXSpeed], a
 	ld a, [hl]
 	ld [wFishing_HookXSpeed + 1], a
-	jr .jump_5529
+	jr .continue
 
-.jump_551f:
+.else_551f:
 	ld hl, wFishing_HookXSpeed
 	ld bc, $00b3
 	ld a, c
 	ld [hli], a
 	ld a, b
 	ld [hli], a
-.jump_5529:
+.continue:
 	ld a, [wFishing_HookState]
 	or a
-	jr z, .jump_5533
+	jr z, .else_5533
 	call Fishing_HookPhysics
 	ret
 
-.jump_5533:
+.else_5533:
 	ld a, [wFishing_JoyHeld]
 	or a
-	jr z, .jump_5565
+	jr z, .else_5565
 	bit 6, a
-	jr z, .jump_5550
+	jr z, .else_5550
 	ld a, [wFishing_HookInWater]
 	or a
-	jr nz, .jump_5581
+	jr nz, .else_5581
 	ld a, $01
 	ld [wFishing_HookInWater], a
 	xor a
@@ -3549,19 +3549,19 @@ Fishing_ReelHook::
 	ld [wFishing_HookYSpeed + 1], a
 	ret
 
-.jump_5550:
+.else_5550:
 	bit 7, a
-	jr z, .jump_5565
+	jr z, .else_5565
 	ld a, [wFishing_HookInWater]
 	or a
-	jr z, .jump_5581
+	jr z, .else_5581
 	xor a
 	ld [wFishing_HookInWater], a
 	ld [wFishing_HookYSpeed], a
 	ld [wFishing_HookYSpeed + 1], a
 	ret
 
-.jump_5565:
+.else_5565:
 	ld hl, wFishing_HookYSpeed
 	ld a, [hli]
 	ld b, [hl]
@@ -3576,18 +3576,18 @@ Fishing_ReelHook::
 	sbc a, d
 	ld b, a
 	bit 7, b
-	jr nz, .jump_557d
+	jr nz, .done_557d
 	ld [hld], a
 	ld [hl], c
 	ret
 
-.jump_557d:
+.done_557d:
 	xor a
 	ld [hld], a
 	ld [hl], a
 	ret
 
-.jump_5581:
+.else_5581:
 	ld de, $0080
 	ld hl, wFishing_HookYSpeed
 	ld a, [hli]
@@ -3604,22 +3604,22 @@ Fishing_ReelHook::
 	ld b, a
 	ld de, $0080
 	cp d
-	jr c, .jump_55ab
-	jr z, .jump_55a1
-	jr .jump_55a7
+	jr c, .done_55ab
+	jr z, .else_55a1
+	jr .done_55a7
 
-.jump_55a1:
+.else_55a1:
 	ld a, c
 	cp e
-	jr c, .jump_55ab
-	jr z, .jump_55ab
-.jump_55a7:
+	jr c, .done_55ab
+	jr z, .done_55ab
+.done_55a7:
 	ld a, d
 	ld [hld], a
 	ld [hl], e
 	ret
 
-.jump_55ab:
+.done_55ab:
 	ld a, b
 	ld [hld], a
 	ld [hl], c
@@ -3629,53 +3629,53 @@ Fishing_ReelHook::
 Fishing_Input::
 	ld a, [wFishing_JoyHeld]
 	or a
-	jp z, .jump_568a
+	jp z, .else_568a
 	ld a, [wFishing_JoyPressed]
 	bit 0, a
-	jr z, .jump_5605
+	jr z, .continue_5605
 	ld a, [wFishing_LineState + 1]
 	or a
-	jr z, .jump_5605
+	jr z, .continue_5605
 	ld a, [wFishing_HookState]
 	or a
-	jr nz, .jump_5605
+	jr nz, .continue_5605
 	ld a, $01
 	ld [wFishing_HookState], a
 	ld [wFishing_HookInWater], a
 	ld [wFishing_LineState + 2], a
 	ld a, [wFishing_CastState + 2]
 	or a
-	jr nz, .jump_55e9
+	jr nz, .else_55e9
 	ld b, $0b
 	ld hl, wFishing_FunkyAnim
 	call Fishing_SetAnim
 	ld a, $01
 	ld [wFishing_FunkyAnim + 4], a
-	jr .jump_55f6
+	jr .continue_55f6
 
-.jump_55e9:
+.else_55e9:
 	ld b, $0a
 	ld hl, wFishing_FunkyAnim
 	call Fishing_SetAnim
 	ld a, $01
 	ld [wFishing_FunkyAnim + 4], a
-.jump_55f6:
+.continue_55f6:
 	ld c, $08
 	call Fishing_PlaySample
 	ld a, $07
 	ld [wFishing_HookedKind], a
 	ld a, $01
 	ld [wFishing_LineState], a
-.jump_5605:
+.continue_5605:
 	ld a, [wFishing_JoyHeld]
 	bit 5, a
-	jr z, .jump_5649
+	jr z, .else_5649
 	ld a, [wFishing_CastState + 2]
 	or a
-	jp nz, .jump_56a6
+	jp nz, .else_56a6
 	ld a, [wFishing_LineState]
 	or a
-	jr z, .jump_562c
+	jr z, .else_562c
 	ld a, [wFishing_FunkyAnim + 1]
 	ld c, a
 	ld b, $0a
@@ -3683,13 +3683,13 @@ Fishing_Input::
 	call Fishing_SetAnimKeepFrame
 	ld a, $01
 	ld [wFishing_FunkyAnim + 4], a
-	jr .jump_5634
+	jr .continue_5634
 
-.jump_562c:
+.else_562c:
 	ld b, $0c
 	ld hl, wFishing_FunkyAnim
 	call Fishing_SetAnim
-.jump_5634:
+.continue_5634:
 	ld b, $08
 	ld hl, wFishing_RodAnim
 	call Fishing_SetAnim
@@ -3700,16 +3700,16 @@ Fishing_Input::
 	ld [wFishing_CastState + 1], a
 	ret
 
-.jump_5649:
+.else_5649:
 	ld a, [wFishing_JoyHeld]
 	bit 4, a
-	jr z, .jump_568a
+	jr z, .else_568a
 	ld a, [wFishing_CastState + 2]
 	or a
-	jr z, .jump_56a6
+	jr z, .else_56a6
 	ld a, [wFishing_LineState]
 	or a
-	jr z, .jump_566f
+	jr z, .else_566f
 	ld a, [wFishing_FunkyAnim + 1]
 	ld c, a
 	ld b, $0b
@@ -3717,13 +3717,13 @@ Fishing_Input::
 	call Fishing_SetAnimKeepFrame
 	ld a, $01
 	ld [wFishing_FunkyAnim + 4], a
-	jr .jump_5677
+	jr .continue_5677
 
-.jump_566f:
+.else_566f:
 	ld b, $0d
 	ld hl, wFishing_FunkyAnim
 	call Fishing_SetAnim
-.jump_5677:
+.continue_5677:
 	ld b, $09
 	ld hl, wFishing_RodAnim
 	call Fishing_SetAnim
@@ -3733,7 +3733,7 @@ Fishing_Input::
 	ld [wFishing_CastState + 1], a
 	ret
 
-.jump_568a:
+.else_568a:
 	ld hl, wFishing_CastState
 	ld a, [hli]
 	ld b, [hl]
@@ -3748,18 +3748,18 @@ Fishing_Input::
 	sbc a, d
 	ld b, a
 	bit 7, b
-	jr nz, .jump_56a2
+	jr nz, .done_56a2
 	ld [hld], a
 	ld [hl], c
 	ret
 
-.jump_56a2:
+.done_56a2:
 	xor a
 	ld [hld], a
 	ld [hl], a
 	ret
 
-.jump_56a6:
+.else_56a6:
 	ld de, $0126
 	ld hl, wFishing_CastState
 	ld a, [hli]
@@ -3776,22 +3776,22 @@ Fishing_Input::
 	ld b, a
 	ld de, $0126
 	cp d
-	jr c, .jump_56d0
-	jr z, .jump_56c6
-	jr .jump_56cc
+	jr c, .done_56d0
+	jr z, .else_56c6
+	jr .done_56cc
 
-.jump_56c6:
+.else_56c6:
 	ld a, c
 	cp e
-	jr c, .jump_56d0
-	jr z, .jump_56d0
-.jump_56cc:
+	jr c, .done_56d0
+	jr z, .done_56d0
+.done_56cc:
 	ld a, d
 	ld [hld], a
 	ld [hl], e
 	ret
 
-.jump_56d0:
+.done_56d0:
 	ld a, b
 	ld [hld], a
 	ld [hl], c
@@ -3804,15 +3804,15 @@ Fishing_CheckHookOnFish::
 	ret z
 	ld a, [wFishing_HookY]
 	cp $4b
-	jr c, .jump_572f
+	jr c, .done
 	ld hl, wFishing_Fish
 	ld de, $0010
 	ld b, $08
 	ld c, $00
-.jump_56ea:
+.loop:
 	ld a, [hl]
 	or a
-	jr z, .jump_572a
+	jr z, .continue_572a
 	push bc
 	push de
 	push hl
@@ -3827,7 +3827,7 @@ Fishing_CheckHookOnFish::
 	ld d, [hl]
 	pop hl
 	or d
-	jr z, .jump_5721
+	jr z, .else
 	ld a, c
 	ld de, $000c
 	add hl, de
@@ -3841,27 +3841,27 @@ Fishing_CheckHookOnFish::
 	ld a, [wFishing_HookY]
 	ld l, a
 	call Fishing_IsPointInBox
-	jr nc, .jump_5721
+	jr nc, .else
 	pop hl
 	call Fishing_HookFish
-	jr .jump_5722
+	jr .continue_5722
 
-.jump_5721:
+.else:
 	pop hl
-.jump_5722:
+.continue_5722:
 	pop de
 	pop bc
 	inc c
 	ld a, [wFishing_FishCount]
 	cp c
 	ret z
-.jump_572a:
+.continue_572a:
 	add hl, de
 	dec b
-	jr nz, .jump_56ea
+	jr nz, .loop
 	ret
 
-.jump_572f:
+.done:
 	xor a
 	ld [wFishing_LineState + 2], a
 	ret
@@ -3945,20 +3945,20 @@ Fishing_HookFish::
 
 Fishing_FishHitbox::
 	cp $01
-	jr z, .jump_57bb
+	jr z, .else_57bb
 	cp $02
-	jr z, .jump_57bb
+	jr z, .else_57bb
 	cp $03
-	jr z, .jump_57bb
+	jr z, .else_57bb
 	cp $04
-	jr z, .jump_57cf
+	jr z, .else_57cf
 	cp $05
-	jr z, .jump_57e3
+	jr z, .else_57e3
 	cp $06
-	jr z, .jump_57f7
+	jr z, .else_57f7
 	ret
 
-.jump_57bb:
+.else_57bb:
 	ld d, c
 	ld c, b
 	ld e, d
@@ -3976,7 +3976,7 @@ Fishing_FishHitbox::
 	ld e, a
 	ret
 
-.jump_57cf:
+.else_57cf:
 	ld d, c
 	ld c, b
 	ld e, d
@@ -3994,7 +3994,7 @@ Fishing_FishHitbox::
 	ld e, a
 	ret
 
-.jump_57e3:
+.else_57e3:
 	ld d, c
 	ld c, b
 	ld e, d
@@ -4012,7 +4012,7 @@ Fishing_FishHitbox::
 	ld e, a
 	ret
 
-.jump_57f7:
+.else_57f7:
 	ld d, c
 	ld c, b
 	ld e, d
@@ -4035,90 +4035,90 @@ Fishing_FindFreeFishSlot::
 	ld hl, wFishing_Fish
 	ld de, $0010
 	ld b, $08
-.jump_5813:
+.loop:
 	ld a, [hl]
 	or a
 	ret z
 	add hl, de
 	dec b
-	jr nz, .jump_5813
+	jr nz, .loop
 	scf
 	ret
 
 
 Fishing_SetFishType::
 	cp $01
-	jr z, .jump_5835
+	jr z, .else_5835
 	cp $02
-	jr z, .jump_5845
+	jr z, .else_5845
 	cp $03
-	jr z, .jump_5855
+	jr z, .else_5855
 	cp $04
-	jr z, .jump_5865
+	jr z, .else_5865
 	cp $05
-	jr z, .jump_5875
+	jr z, .else_5875
 	cp $06
-	jr z, .jump_587b
+	jr z, .else_587b
 	ret
 
-.jump_5835:
+.else_5835:
 	ld a, b
 	or a
-	jr nz, .jump_583f
+	jr nz, .else_583f
 	ld b, $01
 	call Fishing_SetAnim
 	ret
 
-.jump_583f:
+.else_583f:
 	ld b, $00
 	call Fishing_SetAnim
 	ret
 
-.jump_5845:
+.else_5845:
 	ld a, b
 	or a
-	jr nz, .jump_584f
+	jr nz, .else_584f
 	ld b, $03
 	call Fishing_SetAnim
 	ret
 
-.jump_584f:
+.else_584f:
 	ld b, $02
 	call Fishing_SetAnim
 	ret
 
-.jump_5855:
+.else_5855:
 	ld a, b
 	or a
-	jr nz, .jump_585f
+	jr nz, .else_585f
 	ld b, $05
 	call Fishing_SetAnim
 	ret
 
-.jump_585f:
+.else_585f:
 	ld b, $04
 	call Fishing_SetAnim
 	ret
 
-.jump_5865:
+.else_5865:
 	ld a, b
 	or a
-	jr nz, .jump_586f
+	jr nz, .else_586f
 	ld b, $07
 	call Fishing_SetAnim
 	ret
 
-.jump_586f:
+.else_586f:
 	ld b, $06
 	call Fishing_SetAnim
 	ret
 
-.jump_5875:
+.else_5875:
 	ld b, $0f
 	call Fishing_SetAnim
 	ret
 
-.jump_587b:
+.else_587b:
 	ld b, $10
 	call Fishing_SetAnim
 	ret
@@ -4129,10 +4129,10 @@ Fishing_SpawnFish::
 	cp $08
 	ret z
 	call Fishing_FindFreeFishSlot
-	jr nc, .jump_588d
+	jr nc, .else_588d
 	ret
 
-.jump_588d:
+.else_588d:
 	push hl
 	ld bc, $00ff
 	call Fishing_RandomRange
@@ -4183,13 +4183,13 @@ Fishing_SpawnFish::
 	ld [hli], a
 	ldh a, [hFishing_Scratch]
 	or a
-	jr nz, .jump_58ea
+	jr nz, .else_58ea
 	ld b, $00
-	jr .jump_58ec
+	jr .continue
 
-.jump_58ea:
+.else_58ea:
 	ld b, $a8
-.jump_58ec:
+.continue:
 	ldh a, [hFishing_Scratch + 3]
 	ld c, a
 	ld de, $0007
@@ -4251,11 +4251,11 @@ Fishing_CheckNextLevel::
 	ldh [hFishing_Scratch], a
 	ld hl, $ffc8
 	call Fishing_Compare24
-	jr z, .jump_594b
-	jr c, .jump_594b
+	jr z, .else_594b
+	jr c, .else_594b
 	ret
 
-.jump_594b:
+.else_594b:
 	ld c, $0a
 	call Fishing_PlaySample
 	ld a, $01
@@ -4290,12 +4290,12 @@ Fishing_CheckNextLevel::
 	ld [wFishing_MessageTimers + 3], a
 	ld a, [wFishing_Level]
 	cp $03
-	jr z, .jump_59a2
+	jr z, .else_59a2
 	cp $05
-	jr z, .jump_59b3
+	jr z, .else_59b3
 	ret
 
-.jump_59a2:
+.else_59a2:
 	ld bc, $781b
 	ld a, c
 	ld [wFishing_SpawnTimer], a
@@ -4305,7 +4305,7 @@ Fishing_CheckNextLevel::
 	ld [wFishing_SpawnTimer + 2], a
 	ret
 
-.jump_59b3:
+.else_59b3:
 	ld bc, $782f
 	ld a, c
 	ld [wFishing_SpawnTimer], a
@@ -4319,33 +4319,33 @@ Fishing_CheckNextLevel::
 Fishing_Compare24::
 	ld a, b
 	cp [hl]
-	jr z, .jump_59cd
+	jr z, .else_59cd
 	inc hl
 	inc hl
 	inc hl
 	inc hl
 	ret
 
-.jump_59cd:
+.else_59cd:
 	inc hl
 	ld a, c
 	cp [hl]
-	jr z, .jump_59d6
+	jr z, .else_59d6
 	inc hl
 	inc hl
 	inc hl
 	ret
 
-.jump_59d6:
+.else_59d6:
 	inc hl
 	ld a, d
 	cp [hl]
-	jr z, .jump_59de
+	jr z, .done
 	inc hl
 	inc hl
 	ret
 
-.jump_59de:
+.done:
 	inc hl
 	ld a, e
 	cp [hl]
@@ -4372,24 +4372,24 @@ Fishing_DrawMeter::
 	srl a
 	srl a
 	or a
-	jr z, .jump_5a08
+	jr z, .skip
 	ld b, a
 	ld a, $dc
-.jump_5a04:
+.loop:
 	ld [hli], a
 	dec b
-	jr nz, .jump_5a04
-.jump_5a08:
+	jr nz, .loop
+.skip:
 	ld a, [wFishing_Meter]
 	and $07
 	ld b, a
-	jr z, .jump_5a15
+	jr z, .done
 	ld a, $d5
 	add a, b
 	ld [hl], a
 	ret
 
-.jump_5a15:
+.done:
 	ld a, $d4
 	add a, b
 	ld [hl], a
@@ -4415,24 +4415,24 @@ Fishing_DrawLinkMeter::
 	srl a
 	srl a
 	or a
-	jr z, .jump_5a3f
+	jr z, .skip
 	ld b, a
 	ld a, $e5
-.jump_5a3b:
+.loop:
 	ld [hli], a
 	dec b
-	jr nz, .jump_5a3b
-.jump_5a3f:
+	jr nz, .loop
+.skip:
 	ld a, [wFishing_PartnerMeter]
 	and $07
 	ld b, a
-	jr z, .jump_5a4c
+	jr z, .done
 	ld a, $de
 	add a, b
 	ld [hl], a
 	ret
 
-.jump_5a4c:
+.done:
 	ld a, $dd
 	add a, b
 	ld [hl], a
@@ -4579,11 +4579,11 @@ Fishing_ScoreCatch::
 	call Fishing_PointsByType
 	ldh a, [hFishing_LinkRole]
 	cp $ff
-	jr nz, .jump_5b5e
+	jr nz, .else_5b5e
 	call Fishing_CheckCombo
 	ld a, [wFishing_ComboKind]
 	or a
-	jr z, .jump_5b59
+	jr z, .else_5b59
 	ld de, $77f3
 	ld hl, wFishing_ScoreDigits
 	ld a, [de]
@@ -4611,17 +4611,17 @@ Fishing_ScoreCatch::
 	ld [wFishing_HookedKind], a
 	ld c, $19
 	call Fishing_AddToMeter
-	jr .jump_5b94
+	jr .continue_5b94
 
-.jump_5b59:
+.else_5b59:
 	call Fishing_DrawComboText
-	jr .jump_5b94
+	jr .continue_5b94
 
-.jump_5b5e:
+.else_5b5e:
 	call Fishing_CheckCombo
 	ld a, [wFishing_ComboKind]
 	or a
-	jr z, .jump_5b91
+	jr z, .else_5b91
 	ld a, $01
 	ld [wFishing_LinkCombo], a
 	ld de, $77f3
@@ -4649,14 +4649,14 @@ Fishing_ScoreCatch::
 	ld [wFishing_ComboTextTimer], a
 	ld a, $04
 	ld [wFishing_HookedKind], a
-	jr .jump_5b94
+	jr .continue_5b94
 
-.jump_5b91:
+.else_5b91:
 	call Fishing_DrawComboText
-.jump_5b94:
+.continue_5b94:
 	ld a, [wFishing_CatchByKind]
 	or a
-	jr z, .jump_5bbc
+	jr z, .continue_5bbc
 	dec a
 	add a, a
 	add a, a
@@ -4686,10 +4686,10 @@ Fishing_ScoreCatch::
 	adc a, [hl]
 	daa
 	ld [hli], a
-.jump_5bbc:
+.continue_5bbc:
 	ld a, [wFishing_CatchByKind + 1]
 	or a
-	jr z, .jump_5be4
+	jr z, .continue_5be4
 	dec a
 	add a, a
 	add a, a
@@ -4719,10 +4719,10 @@ Fishing_ScoreCatch::
 	adc a, [hl]
 	daa
 	ld [hli], a
-.jump_5be4:
+.continue_5be4:
 	ld a, [wFishing_CatchByKind + 2]
 	or a
-	jr z, .jump_5c0c
+	jr z, .continue_5c0c
 	dec a
 	add a, a
 	add a, a
@@ -4752,10 +4752,10 @@ Fishing_ScoreCatch::
 	adc a, [hl]
 	daa
 	ld [hli], a
-.jump_5c0c:
+.continue_5c0c:
 	ld a, [wFishing_CatchByKind + 3]
 	or a
-	jr z, .jump_5c34
+	jr z, .continue_5c34
 	dec a
 	add a, a
 	add a, a
@@ -4785,10 +4785,10 @@ Fishing_ScoreCatch::
 	adc a, [hl]
 	daa
 	ld [hli], a
-.jump_5c34:
+.continue_5c34:
 	ld a, [wFishing_CatchByKind + 4]
 	or a
-	jr z, .jump_5c61
+	jr z, .continue_5c61
 	dec a
 	add a, a
 	add a, a
@@ -4820,8 +4820,8 @@ Fishing_ScoreCatch::
 	daa
 	ld [de], a
 	cp $99
-	jr z, .jump_5cc8
-.jump_5c61:
+	jr z, .continue_5cc8
+.continue_5c61:
 	ld hl, wFishing_Score
 	ld de, wFishing_ScoreDigits
 	ld a, [de]
@@ -4894,7 +4894,7 @@ Fishing_ScoreCatch::
 	and $0f
 	add a, $ca
 	ld [bc], a
-.jump_5cc8:
+.continue_5cc8:
 	call Fishing_ClearCatchList
 	call Fishing_CheckNextLevel
 	ret
@@ -4904,30 +4904,30 @@ Fishing_PointsByType::
 	ld a, $06
 	ld [wFishing_HookedKind], a
 	ld b, $08
-.jump_5cd6:
+.loop:
 	ld a, [hli]
 	cp $01
-	jr z, .jump_5cf8
+	jr z, .else_5cf8
 	cp $02
-	jr z, .jump_5d0a
+	jr z, .else_5d0a
 	cp $03
-	jr z, .jump_5d1c
+	jr z, .else_5d1c
 	cp $04
-	jr z, .jump_5d2e
+	jr z, .else_5d2e
 	cp $05
-	jr z, .jump_5d40
+	jr z, .else_5d40
 	cp $06
-	jr z, .jump_5d58
+	jr z, .else_5d58
 	cp $ff
-	jr z, .jump_5cf4
+	jr z, .else_5cf4
 	ret
 
-.jump_5cf4:
+.else_5cf4:
 	dec b
-	jr nz, .jump_5cd6
+	jr nz, .loop
 	ret
 
-.jump_5cf8:
+.else_5cf8:
 	ld a, [wFishing_PointsByKind]
 	ld c, a
 	call Fishing_AddToMeter
@@ -4935,10 +4935,10 @@ Fishing_PointsByType::
 	inc a
 	ld [wFishing_CatchByKind], a
 	dec b
-	jr nz, .jump_5cd6
+	jr nz, .loop
 	ret
 
-.jump_5d0a:
+.else_5d0a:
 	ld a, [wFishing_PointsByKind + 1]
 	ld c, a
 	call Fishing_AddToMeter
@@ -4946,10 +4946,10 @@ Fishing_PointsByType::
 	inc a
 	ld [wFishing_CatchByKind + 1], a
 	dec b
-	jr nz, .jump_5cd6
+	jr nz, .loop
 	ret
 
-.jump_5d1c:
+.else_5d1c:
 	ld a, [wFishing_PointsByKind + 2]
 	ld c, a
 	call Fishing_AddToMeter
@@ -4957,10 +4957,10 @@ Fishing_PointsByType::
 	inc a
 	ld [wFishing_CatchByKind + 2], a
 	dec b
-	jr nz, .jump_5cd6
+	jr nz, .loop
 	ret
 
-.jump_5d2e:
+.else_5d2e:
 	ld a, [wFishing_PointsByKind + 3]
 	ld c, a
 	call Fishing_AddToMeter
@@ -4968,10 +4968,10 @@ Fishing_PointsByType::
 	inc a
 	ld [wFishing_CatchByKind + 3], a
 	dec b
-	jr nz, .jump_5cd6
+	jr nz, .loop
 	ret
 
-.jump_5d40:
+.else_5d40:
 	ld a, $05
 	ld [wFishing_HookedKind], a
 	ld a, [wFishing_PointsByKind + 4]
@@ -4981,10 +4981,10 @@ Fishing_PointsByType::
 	inc a
 	ld [wFishing_CatchByKind + 4], a
 	dec b
-	jp nz, .jump_5cd6
+	jp nz, .loop
 	ret
 
-.jump_5d58:
+.else_5d58:
 	ld a, $05
 	ld [wFishing_HookedKind], a
 	ld a, [wFishing_PointsByKind + 4]
@@ -4994,7 +4994,7 @@ Fishing_PointsByType::
 	inc a
 	ld [wFishing_CatchByKind + 4], a
 	dec b
-	jp nz, .jump_5cd6
+	jp nz, .loop
 	ret
 
 
@@ -5002,21 +5002,21 @@ Fishing_AddToMeter::
 	ld a, [wFishing_Meter]
 	add a, c
 	bit 7, a
-	jr nz, .jump_5d89
+	jr nz, .done_5d89
 	ld c, a
 	ld a, $4f
 	cp c
-	jr c, .jump_5d83
+	jr c, .done_5d83
 	ld a, c
 	ld [wFishing_Meter], a
 	ret
 
-.jump_5d83:
+.done_5d83:
 	ld a, $4f
 	ld [wFishing_Meter], a
 	ret
 
-.jump_5d89:
+.done_5d89:
 	xor a
 	ld [wFishing_Meter], a
 	ret
@@ -5031,19 +5031,19 @@ Fishing_CheckCombo::
 	ret nz
 	ld a, [wFishing_CatchByKind]
 	call Fishing_ComboByCount
-	jr nc, .jump_5da5
+	jr nc, .skip_5da5
 	ld a, $01
 	ld [wFishing_ComboKind], a
-.jump_5da5:
+.skip_5da5:
 	ld a, [wFishing_CatchByKind + 1]
 	call Fishing_ComboByCount
-	jr nc, .jump_5db8
+	jr nc, .skip_5db8
 	ld a, [wFishing_ComboKind]
 	or a
-	jr nz, .jump_5db8
+	jr nz, .skip_5db8
 	ld a, $01
 	ld [wFishing_ComboKind], a
-.jump_5db8:
+.skip_5db8:
 	ld a, [wFishing_CatchByKind + 2]
 	call Fishing_ComboByCount
 	ret nc
@@ -5061,10 +5061,10 @@ Fishing_ComboByCount::
 	cp $01
 	ret z
 	cp $02
-	jr z, .jump_5de9
+	jr z, .else_5de9
 	cp $03
-	jr z, .jump_5dfc
-.jump_5dd7:
+	jr z, .else_5dfc
+.loop:
 	ld a, [wFishing_Combo]
 	push af
 	ld a, $05
@@ -5075,57 +5075,57 @@ Fishing_ComboByCount::
 	scf
 	ret
 
-.jump_5de9:
+.else_5de9:
 	ld a, [wFishing_Combo]
 	inc a
 	cp $05
-	jr nz, .jump_5df7
+	jr nz, .done
 	xor a
 	ld [wFishing_Combo], a
-	jr .jump_5dd7
+	jr .loop
 
-.jump_5df7:
+.done:
 	ld [wFishing_Combo], a
 	or a
 	ret
 
-.jump_5dfc:
+.else_5dfc:
 	ld a, [wFishing_Combo]
 	add a, $03
 	ld b, a
 	ld a, $05
 	cp b
-	jr c, .jump_5e0f
-	jr z, .jump_5e0f
+	jr c, .else_5e0f
+	jr z, .else_5e0f
 	ld a, b
 	ld [wFishing_Combo], a
 	or a
 	ret
 
-.jump_5e0f:
+.else_5e0f:
 	ld a, b
 	sub $05
 	ld [wFishing_Combo], a
-	jr .jump_5dd7
+	jr .loop
 
 
 Fishing_DrawComboText::
 	ld a, [wFishing_Combo]
 	or a
-	jr z, .jump_5e32
+	jr z, .else_5e32
 	cp $01
-	jr z, .jump_5e41
+	jr z, .else_5e41
 	cp $02
-	jr z, .jump_5e51
+	jr z, .else_5e51
 	cp $03
-	jr z, .jump_5e61
+	jr z, .else_5e61
 	cp $04
-	jr z, .jump_5e71
+	jr z, .else_5e71
 	cp $05
-	jr z, .jump_5e81
+	jr z, .else_5e81
 	ret
 
-.jump_5e32:
+.else_5e32:
 	ld hl, wFishing_ComboText
 	ld a, $e6
 	ld [hli], a
@@ -5139,7 +5139,7 @@ Fishing_DrawComboText::
 	ld [hli], a
 	ret
 
-.jump_5e41:
+.else_5e41:
 	ld hl, wFishing_ComboText
 	ld a, $eb
 	ld [hli], a
@@ -5153,7 +5153,7 @@ Fishing_DrawComboText::
 	ld [hli], a
 	ret
 
-.jump_5e51:
+.else_5e51:
 	ld hl, wFishing_ComboText
 	ld a, $eb
 	ld [hli], a
@@ -5167,7 +5167,7 @@ Fishing_DrawComboText::
 	ld [hli], a
 	ret
 
-.jump_5e61:
+.else_5e61:
 	ld hl, wFishing_ComboText
 	ld a, $eb
 	ld [hli], a
@@ -5181,7 +5181,7 @@ Fishing_DrawComboText::
 	ld [hli], a
 	ret
 
-.jump_5e71:
+.else_5e71:
 	ld hl, wFishing_ComboText
 	ld a, $eb
 	ld [hli], a
@@ -5195,7 +5195,7 @@ Fishing_DrawComboText::
 	ld [hli], a
 	ret
 
-.jump_5e81:
+.else_5e81:
 	ld hl, wFishing_ComboText
 	ld a, $eb
 	ld [hli], a
@@ -5216,12 +5216,12 @@ Fishing_ComboTextTimer::
 	ret z
 	ld a, [wFishing_ComboTextTimer]
 	or a
-	jr z, .jump_5ea0
+	jr z, .else
 	dec a
 	ld [wFishing_ComboTextTimer], a
 	ret
 
-.jump_5ea0:
+.else:
 	xor a
 	ld [wFishing_ComboKind], a
 	call Fishing_DrawComboText
@@ -5231,22 +5231,22 @@ Fishing_ComboTextTimer::
 Fishing_IsPointInBox::
 	ld a, b
 	cp h
-	jr c, .jump_5ead
+	jr c, .else_5ead
 	ret
 
-.jump_5ead:
+.else_5ead:
 	ld a, h
 	cp c
-	jr c, .jump_5eb2
+	jr c, .else_5eb2
 	ret
 
-.jump_5eb2:
+.else_5eb2:
 	ld a, d
 	cp l
-	jr c, .jump_5eb7
+	jr c, .done
 	ret
 
-.jump_5eb7:
+.done:
 	ld a, l
 	cp e
 	ret
@@ -5269,15 +5269,15 @@ Fishing_StartHDMA::
 Fishing_PlayMeterSample::
 	ld a, [wFishing_SampleMeter]
 	or a
-	jr z, .jump_5ed6
+	jr z, .else
 	dec a
 	ld [wFishing_SampleMeter], a
-	jr .jump_5eee
+	jr .continue
 
-.jump_5ed6:
+.else:
 	ldh a, [hFishing_SampleFrames]
 	or a
-	jr nz, .jump_5f0c
+	jr nz, .done_5f0c
 	ld c, $00
 	call Fishing_PlaySample
 	ld a, [wFishing_Meter]
@@ -5287,26 +5287,26 @@ Fishing_PlayMeterSample::
 	add hl, bc
 	ld a, [hl]
 	ld [wFishing_SampleMeter], a
-.jump_5eee:
+.continue:
 	ld a, [wFishing_MeterTimer]
 	or a
 	ret z
 	ld a, [wFishing_MeterStart]
 	dec a
 	ld [wFishing_MeterStart], a
-	jr nz, .jump_5f0c
+	jr nz, .done_5f0c
 	ld a, [wFishing_LevelMeter]
 	ld [wFishing_MeterStart], a
 	ld a, [wFishing_Meter]
 	or a
-	jr z, .jump_5f0e
+	jr z, .done_5f0e
 	dec a
 	ld [wFishing_Meter], a
-.jump_5f0c:
+.done_5f0c:
 	or a
 	ret
 
-.jump_5f0e:
+.done_5f0e:
 	scf
 	ret
 
@@ -5314,34 +5314,34 @@ Fishing_PlayMeterSample::
 Fishing_CheckEnd::
 	ld a, [wFishing_EndState]
 	or a
-	jr z, .jump_5f29
+	jr z, .else_5f29
 	ld a, [wFishing_EndState + 2]
 	or a
 	ret z
 	ld a, [wFishing_EndState + 3]
 	or a
-	jr z, .jump_5f27
+	jr z, .done_5f27
 	dec a
 	ld [wFishing_EndState + 3], a
 	or a
 	ret
 
-.jump_5f27:
+.done_5f27:
 	scf
 	ret
 
-.jump_5f29:
+.else_5f29:
 	ld a, [wFishing_SampleMeter]
 	or a
-	jr z, .jump_5f35
+	jr z, .else_5f35
 	dec a
 	ld [wFishing_SampleMeter], a
-	jr .jump_5f4d
+	jr .continue
 
-.jump_5f35:
+.else_5f35:
 	ldh a, [hFishing_SampleFrames]
 	or a
-	jr nz, .jump_5f6b
+	jr nz, .done_5f6b
 	ld c, $00
 	call Fishing_PlaySample
 	ld a, [wFishing_Meter]
@@ -5351,26 +5351,26 @@ Fishing_CheckEnd::
 	add hl, bc
 	ld a, [hl]
 	ld [wFishing_SampleMeter], a
-.jump_5f4d:
+.continue:
 	ld a, [wFishing_MeterTimer]
 	or a
 	ret z
 	ld a, [wFishing_MeterStart]
 	dec a
 	ld [wFishing_MeterStart], a
-	jr nz, .jump_5f6b
+	jr nz, .done_5f6b
 	ld a, [wFishing_LevelMeter]
 	ld [wFishing_MeterStart], a
 	ld a, [wFishing_Meter]
 	or a
-	jr z, .jump_5f6d
+	jr z, .done_5f6d
 	dec a
 	ld [wFishing_Meter], a
-.jump_5f6b:
+.done_5f6b:
 	or a
 	ret
 
-.jump_5f6d:
+.done_5f6d:
 	ld a, $01
 	ld [wFishing_EndState], a
 	ret
@@ -5384,22 +5384,22 @@ FishingByteTable_5f73::
 Fishing_AnimateWater::
 	ld a, [wFishing_WaterAnim + 1]
 	or a
-	jr z, .jump_5fa4
+	jr z, .else_5fa4
 	dec a
 	ld [wFishing_WaterAnim + 1], a
-	jr .jump_5fc5
+	jr .continue_5fc5
 
-.jump_5fa4:
+.else_5fa4:
 	ld a, $08
 	ld [wFishing_WaterAnim + 1], a
 	ld a, [wFishing_WaterAnim]
 	inc a
 	ld [wFishing_WaterAnim], a
 	cp $25
-	jr nz, .jump_5fb8
+	jr nz, .skip_5fb8
 	xor a
 	ld [wFishing_WaterAnim], a
-.jump_5fb8:
+.skip_5fb8:
 	ld c, a
 	ld b, $00
 	ld hl, $5f73
@@ -5407,46 +5407,46 @@ Fishing_AnimateWater::
 	ld a, [hl]
 	add a, $80
 	ld [wFishing_WaterAnim + 6], a
-.jump_5fc5:
+.continue_5fc5:
 	ld a, [wFishing_WaterAnim + 3]
 	or a
-	jr z, .jump_5fd1
+	jr z, .else_5fd1
 	dec a
 	ld [wFishing_WaterAnim + 3], a
-	jr .jump_5fea
+	jr .continue_5fea
 
-.jump_5fd1:
+.else_5fd1:
 	ld a, $0c
 	ld [wFishing_WaterAnim + 3], a
 	ld a, [wFishing_WaterAnim + 2]
 	inc a
 	ld [wFishing_WaterAnim + 2], a
 	cp $03
-	jr nz, .jump_5fe5
+	jr nz, .skip_5fe5
 	xor a
 	ld [wFishing_WaterAnim + 2], a
-.jump_5fe5:
+.skip_5fe5:
 	add a, $90
 	ld [wFishing_WaterAnim + 7], a
-.jump_5fea:
+.continue_5fea:
 	ld a, [wFishing_WaterAnim + 5]
 	or a
-	jr z, .jump_5ff5
+	jr z, .else_5ff5
 	dec a
 	ld [wFishing_WaterAnim + 5], a
 	ret
 
-.jump_5ff5:
+.else_5ff5:
 	ld a, $0e
 	ld [wFishing_WaterAnim + 5], a
 	ld a, [wFishing_WaterAnim + 4]
 	inc a
 	ld [wFishing_WaterAnim + 4], a
 	cp $0c
-	jr nz, .jump_6009
+	jr nz, .done
 	xor a
 	ld [wFishing_WaterAnim + 4], a
-.jump_6009:
+.done:
 	add a, a
 	add a, $93
 	ld [wFishing_WaterAnim + 8], a
@@ -5483,24 +5483,24 @@ Fishing_BlinkMessage::
 	ret z
 	ld a, [wFishing_MessageTimers + 2]
 	or a
-	jr z, .jump_6044
+	jr z, .else_6044
 	dec a
 	ld [wFishing_MessageTimers + 2], a
 	ret
 
-.jump_6044:
+.else_6044:
 	ld a, $0f
 	ld [wFishing_MessageTimers + 2], a
 	ld a, [wFishing_MessageTimers + 1]
 	or a
-	jr z, .jump_6076
+	jr z, .else_6076
 	dec a
 	ld [wFishing_MessageTimers + 1], a
 	ld a, [wFishing_MessageTimers + 3]
 	xor $01
 	ld [wFishing_MessageTimers + 3], a
 	or a
-	jr z, .jump_606a
+	jr z, .done
 	ld bc, wFishing_MessageTiles + 4
 	ld a, c
 	ld [wFishing_MessagePointer], a
@@ -5508,7 +5508,7 @@ Fishing_BlinkMessage::
 	ld [wFishing_MessagePointer + 1], a
 	ret
 
-.jump_606a:
+.done:
 	ld bc, wFishing_MessageTiles
 	ld a, c
 	ld [wFishing_MessagePointer], a
@@ -5516,7 +5516,7 @@ Fishing_BlinkMessage::
 	ld [wFishing_MessagePointer + 1], a
 	ret
 
-.jump_6076:
+.else_6076:
 	xor a
 	ld [wFishing_MessageTimers], a
 	ld bc, wFishing_MessageTiles
@@ -5531,9 +5531,9 @@ Fishing_FadeIn::
 	ld hl, $00ff
 	ld a, e
 	cp $00
-	jr z, .jump_6091
+	jr z, .skip
 	ld hl, $ff00
-.jump_6091:
+.skip:
 	ld b, $0f
 	ld c, $01
 	ld de, wFishing_BGPalettes
@@ -5545,9 +5545,9 @@ Fishing_FadeOut::
 	ld hl, $00ff
 	ld a, e
 	cp $00
-	jr z, .jump_60a7
+	jr z, .skip
 	ld hl, $ff00
-.jump_60a7:
+.skip:
 	ld b, $0f
 	ld c, $01
 	call Fishing_FadeAllPalettes
@@ -5559,10 +5559,10 @@ Fishing_ClearRestOfOAM::
 	sub l
 	ld b, a
 	xor a
-.jump_60b4:
+.loop:
 	ld [hli], a
 	dec b
-	jr nz, .jump_60b4
+	jr nz, .loop
 	ret
 
 
@@ -5613,7 +5613,7 @@ Fishing_Return60F2::
 Fishing_ScaleWord::
 	ld a, d
 	or a
-	jr z, Fishing_ScaleWord3.jump_615d
+	jr z, Fishing_ScaleWord3.scale
 	ld a, e
 	sub $ff
 	ld d, a
@@ -5675,9 +5675,9 @@ Fishing_ScaleWord3::
 	ld a, [wFishing_Product + 3]
 	adc a, d
 	ld b, a
-	jr Fishing_ScaleWordRead.jump_6186
+	jr Fishing_ScaleWordRead.read
 
-.jump_615d:
+.scale:
 	ld d, e
 	ld e, b
 	ld bc, $02d8
@@ -5703,7 +5703,7 @@ Fishing_ScaleWordRead::
 	ld c, a
 	ld a, [wFishing_Product + 3]
 	ld b, a
-.jump_6186:
+.read:
 	call Fishing_ReadWordTable51
 	ret
 
@@ -5760,13 +5760,13 @@ Fishing_FindButton::
 	ld c, a
 	and b
 	cp c
-	jr z, .jump_61c7
+	jr z, .done
 	dec d
 	jr nz, Fishing_FindButton
 	or a
 	ret
 
-.jump_61c7:
+.done:
 	scf
 	ret
 
@@ -5778,7 +5778,7 @@ Fishing_SetDoubleSpeed::
 	push af
 	ld hl, rKEY1
 	bit 7, [hl]
-	jr nz, .jump_61e2
+	jr nz, .done
 	set 0, [hl]
 	xor a
 	ldh [rIF], a
@@ -5786,7 +5786,7 @@ Fishing_SetDoubleSpeed::
 	ld a, $30
 	ldh [rP1], a
 	stop
-.jump_61e2:
+.done:
 	pop af
 	ldh [rIE], a
 	xor a
@@ -5827,12 +5827,12 @@ Fishing_InitLCD::
 	ld c, $80
 	ld b, $0a
 	ld hl, $626c
-.jump_6219:
+.loop:
 	ld a, [hli]
 	ldh [c], a
 	inc c
 	dec b
-	jr nz, .jump_6219
+	jr nz, .loop
 	xor a
 	ldh [hFishing_VBlankDone], a
 	ret
@@ -5841,13 +5841,13 @@ Fishing_InitLCD::
 Fishing_ClearWRAM::
 	ld de, $0000
 	ld hl, wFishing_OAMBuffer
-.jump_6229:
+.loop:
 	xor a
 	ld [hli], a
 	dec de
 	ld a, d
 	or e
-	jr nz, .jump_6229
+	jr nz, .loop
 	ret
 
 
@@ -5857,19 +5857,19 @@ Fishing_ClearVRAM::
 	ldh [rVBK], a
 	ld hl, $8000
 	xor a
-.jump_623b:
+.loop_623b:
 	ld [hli], a
 	bit 5, h
-	jr z, .jump_623b
+	jr z, .loop_623b
 	ld a, $01
 	ldh [hFishing_VRAMBank], a
 	ldh [rVBK], a
 	ld hl, $8000
 	xor a
-.jump_624a:
+.loop_624a:
 	ld [hli], a
 	bit 5, h
-	jr z, .jump_624a
+	jr z, .loop_624a
 	ld a, $00
 	ldh [hFishing_VRAMBank], a
 	ldh [rVBK], a
@@ -5880,10 +5880,10 @@ Fishing_ClearHRAM::
 	ld hl, $ff80
 	ld b, $71
 	xor a
-.jump_625c:
+.loop:
 	ld [hli], a
 	dec b
-	jr nz, .jump_625c
+	jr nz, .loop
 	ret
 
 
@@ -5891,10 +5891,10 @@ Fishing_ClearOAMBuffer::
 	ld hl, wFishing_OAMBuffer
 	ld d, $a0
 	xor a
-.jump_6267:
+.loop:
 	ld [hli], a
 	dec d
-	jr nz, .jump_6267
+	jr nz, .loop
 	ret
 
 
@@ -5902,61 +5902,61 @@ Fishing_OAMDMA_Code::
 	ld a, $c8
 	ldh [rDMA], a
 	ld a, $28
-.jump_6272:
+.loop:
 	dec a
-	jr nz, .jump_6272
+	jr nz, .loop
 	ret
 
 
 Fishing_HighestBitMask::
 	bit 7, b
-	jr nz, .jump_6299
+	jr nz, .done_6299
 	bit 6, b
-	jr nz, .jump_629c
+	jr nz, .done_629c
 	bit 5, b
-	jr nz, .jump_629f
+	jr nz, .done_629f
 	bit 4, b
-	jr nz, .jump_62a2
+	jr nz, .done_62a2
 	bit 3, b
-	jr nz, .jump_62a5
+	jr nz, .done_62a5
 	bit 2, b
-	jr nz, .jump_62a8
+	jr nz, .done_62a8
 	bit 1, b
-	jr nz, .jump_62ab
+	jr nz, .done_62ab
 	bit 0, b
-	jr nz, .jump_62ae
+	jr nz, .done_62ae
 	ld c, $00
 	ret
 
-.jump_6299:
+.done_6299:
 	ld c, $ff
 	ret
 
-.jump_629c:
+.done_629c:
 	ld c, $7f
 	ret
 
-.jump_629f:
+.done_629f:
 	ld c, $3f
 	ret
 
-.jump_62a2:
+.done_62a2:
 	ld c, $1f
 	ret
 
-.jump_62a5:
+.done_62a5:
 	ld c, $0f
 	ret
 
-.jump_62a8:
+.done_62a8:
 	ld c, $07
 	ret
 
-.jump_62ab:
+.done_62ab:
 	ld c, $03
 	ret
 
-.jump_62ae:
+.done_62ae:
 	ld c, $01
 	ret
 
@@ -5964,13 +5964,13 @@ Fishing_HighestBitMask::
 Fishing_RangeMask16::
 	ld a, b
 	or a
-	jr z, .jump_62bc
+	jr z, .else
 	call Fishing_HighestBitMask
 	ld b, c
 	ld c, $ff
 	ret
 
-.jump_62bc:
+.else:
 	ld b, c
 	call Fishing_HighestBitMask
 	ld b, $00
@@ -5980,20 +5980,20 @@ Fishing_RangeMask16::
 Fishing_InitRandomFromDIV::
 	push hl
 	push bc
-.jump_62c5:
+.loop_62c5:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_62c5
+	jr nz, .loop_62c5
 	pop bc
 	call Fishing_RandomSeedFromDIV
 	ld e, l
 	ld d, h
 	pop hl
-.jump_62d4:
+.loop_62d4:
 	ld a, [de]
 	xor [hl]
 	ld [hli], a
@@ -6001,7 +6001,7 @@ Fishing_InitRandomFromDIV::
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_62d4
+	jr nz, .loop_62d4
 	ld a, $00
 	ld [wFishing_RandomState], a
 	ld a, $85
@@ -6012,21 +6012,21 @@ Fishing_InitRandomFromDIV::
 Fishing_InitRandom::
 	push hl
 	push bc
-.jump_62ea:
+.loop_62ea:
 	ld a, [de]
 	ld [hli], a
 	inc de
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_62ea
+	jr nz, .loop_62ea
 	ldh a, [hFishing_Scratch]
 	ld e, a
 	ldh a, [hFishing_Scratch + 1]
 	ld d, a
 	pop bc
 	pop hl
-.jump_62fa:
+.loop_62fa:
 	ld a, [de]
 	xor [hl]
 	ld [hli], a
@@ -6034,7 +6034,7 @@ Fishing_InitRandom::
 	dec bc
 	ld a, b
 	or c
-	jr nz, .jump_62fa
+	jr nz, .loop_62fa
 	ld a, $00
 	ld [wFishing_RandomState], a
 	ld a, $85
@@ -6157,7 +6157,7 @@ Fishing_RandomRange::
 	ld b, a
 	call Fishing_HighestBitMask
 	ld l, c
-.jump_63a6:
+.loop:
 	push hl
 	ld bc, wFishing_RandomState
 	ld de, wFishing_RandomState + 1
@@ -6167,24 +6167,24 @@ Fishing_RandomRange::
 	ld a, e
 	and l
 	cp h
-	jr c, .jump_63d0
-	jr z, .jump_63d0
+	jr c, .done
+	jr z, .done
 	ld a, d
 	and l
 	cp h
-	jr c, .jump_63d0
-	jr z, .jump_63d0
+	jr c, .done
+	jr z, .done
 	ld a, c
 	and l
 	cp h
-	jr c, .jump_63d0
-	jr z, .jump_63d0
+	jr c, .done
+	jr z, .done
 	ld a, b
 	and l
 	cp h
-	jr c, .jump_63d0
-	jr nz, .jump_63a6
-.jump_63d0:
+	jr c, .done
+	jr nz, .loop
+.done:
 	pop bc
 	add a, b
 	ld b, a
@@ -6204,7 +6204,7 @@ Fishing_RandomRange16::
 	call Fishing_RangeMask16
 	ld e, c
 	ld d, b
-.jump_63e2:
+.loop:
 	push de
 	push hl
 	ld bc, wFishing_RandomState
@@ -6224,9 +6224,9 @@ Fishing_RandomRange16::
 	ld e, l
 	call Fishing_SignedDifference2
 	pop de
-	jr c, .jump_6403
-	jr nz, .jump_63e2
-.jump_6403:
+	jr c, .done
+	jr nz, .loop
+.done:
 	ld l, c
 	ld h, b
 	pop bc
@@ -6261,7 +6261,7 @@ Fishing_MultiplySigned::
 	ld a, b
 	and $80
 	ld h, a
-	jr z, .jump_6430
+	jr z, .continue_6430
 	ld a, c
 	cpl
 	add a, $01
@@ -6270,11 +6270,11 @@ Fishing_MultiplySigned::
 	cpl
 	adc a, $00
 	ld b, a
-.jump_6430:
+.continue_6430:
 	ld a, d
 	and $80
 	ld l, a
-	jr z, .jump_6440
+	jr z, .continue_6440
 	ld a, e
 	cpl
 	add a, $01
@@ -6283,7 +6283,7 @@ Fishing_MultiplySigned::
 	cpl
 	adc a, $00
 	ld d, a
-.jump_6440:
+.continue_6440:
 	ld a, h
 	xor l
 	ld [wFishing_ProductSign], a
@@ -6292,12 +6292,12 @@ Fishing_MultiplySigned::
 	ld a, e
 	ld [wFishing_Multiplier], a
 	ld de, $0000
-.jump_6450:
+.loop:
 	ld hl, wFishing_Multiplier + 1
 	srl [hl]
 	dec l
 	rr [hl]
-	jr nc, .jump_6469
+	jr nc, .continue_6469
 	ld hl, wFishing_Product
 	ld a, c
 	add a, [hl]
@@ -6311,18 +6311,18 @@ Fishing_MultiplySigned::
 	ld a, d
 	adc a, [hl]
 	ld [hl], a
-.jump_6469:
+.continue_6469:
 	ld hl, wFishing_Multiplier
 	ld a, [hli]
 	or [hl]
-	jr z, .jump_647a
+	jr z, .else
 	sla c
 	rl b
 	rl e
 	rl d
-	jr .jump_6450
+	jr .loop
 
-.jump_647a:
+.else:
 	ld a, [wFishing_ProductSign]
 	and $80
 	ret z
@@ -6358,12 +6358,12 @@ Fishing_Multiply16::
 	ld a, e
 	ld [wFishing_Multiplier], a
 	ld de, $0000
-.jump_64ab:
+.loop:
 	ld hl, wFishing_Multiplier + 1
 	srl [hl]
 	dec l
 	rr [hl]
-	jr nc, .jump_64c4
+	jr nc, .continue
 	ld hl, wFishing_Product
 	ld a, c
 	add a, [hl]
@@ -6377,7 +6377,7 @@ Fishing_Multiply16::
 	ld a, d
 	adc a, [hl]
 	ld [hl], a
-.jump_64c4:
+.continue:
 	ld hl, wFishing_Multiplier
 	ld a, [hli]
 	or [hl]
@@ -6386,7 +6386,7 @@ Fishing_Multiply16::
 	rl b
 	rl e
 	rl d
-	jr .jump_64ab
+	jr .loop
 
 
 Fishing_Multiply8::
@@ -6394,51 +6394,51 @@ Fishing_Multiply8::
 	ld h, b
 	ld l, b
 	srl a
-	jr nc, .jump_64dd
+	jr nc, .skip_64dd
 	add hl, bc
-.jump_64dd:
+.skip_64dd:
 	ret z
 	sla c
 	rl b
 	srl a
-	jr nc, .jump_64e7
+	jr nc, .skip_64e7
 	add hl, bc
-.jump_64e7:
+.skip_64e7:
 	ret z
 	sla c
 	rl b
 	srl a
-	jr nc, .jump_64f1
+	jr nc, .skip_64f1
 	add hl, bc
-.jump_64f1:
+.skip_64f1:
 	ret z
 	sla c
 	rl b
 	srl a
-	jr nc, .jump_64fb
+	jr nc, .skip_64fb
 	add hl, bc
-.jump_64fb:
+.skip_64fb:
 	ret z
 	sla c
 	rl b
 	srl a
-	jr nc, .jump_6505
+	jr nc, .skip_6505
 	add hl, bc
-.jump_6505:
+.skip_6505:
 	ret z
 	sla c
 	rl b
 	srl a
-	jr nc, .jump_650f
+	jr nc, .skip_650f
 	add hl, bc
-.jump_650f:
+.skip_650f:
 	ret z
 	sla c
 	rl b
 	srl a
-	jr nc, .jump_6519
+	jr nc, .skip_6519
 	add hl, bc
-.jump_6519:
+.skip_6519:
 	ret z
 	sla c
 	rl b
@@ -6453,51 +6453,51 @@ Fishing_Divide::
 	rl c
 	rla
 	sub b
-	jr nc, .jump_652b
+	jr nc, .skip_652b
 	add a, b
-.jump_652b:
+.skip_652b:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_6532
+	jr nc, .skip_6532
 	add a, b
-.jump_6532:
+.skip_6532:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_6539
+	jr nc, .skip_6539
 	add a, b
-.jump_6539:
+.skip_6539:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_6540
+	jr nc, .skip_6540
 	add a, b
-.jump_6540:
+.skip_6540:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_6547
+	jr nc, .skip_6547
 	add a, b
-.jump_6547:
+.skip_6547:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_654e
+	jr nc, .skip_654e
 	add a, b
-.jump_654e:
+.skip_654e:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_6555
+	jr nc, .skip_6555
 	add a, b
-.jump_6555:
+.skip_6555:
 	rl c
 	rla
 	sub b
-	jr nc, .jump_655c
+	jr nc, .done
 	add a, b
-.jump_655c:
+.done:
 	ld b, a
 	ld a, c
 	rla
@@ -6510,27 +6510,27 @@ Fishing_IsWithin::
 	sub d
 	ret z
 	bit 7, a
-	jr z, .jump_6573
+	jr z, .else
 	cpl
 	inc a
 	ld b, a
 	cp c
-	jr c, .jump_6570
+	jr c, .done_6570
 	scf
 	ret
 
-.jump_6570:
+.done_6570:
 	xor a
 	scf
 	ret
 
-.jump_6573:
+.else:
 	ld b, a
 	cp c
-	jr c, .jump_6578
+	jr c, .done_6578
 	ret
 
-.jump_6578:
+.done_6578:
 	xor a
 	ret
 
@@ -6540,11 +6540,11 @@ Fishing_IsBelow::
 	sub d
 	ret z
 	bit 7, a
-	jr z, .jump_6583
+	jr z, .done
 	scf
 	ret
 
-.jump_6583:
+.done:
 	or a
 	ret
 
@@ -6599,7 +6599,7 @@ Fishing_SubDEFromBC::
 Fishing_LoadPalette::
 	ld a, e
 	cp $01
-	jr z, .jump_65ce
+	jr z, .else
 	ld a, $80
 	sla d
 	sla d
@@ -6624,7 +6624,7 @@ Fishing_LoadPalette::
 	ldh [rOCPD], a
 	ret
 
-.jump_65ce:
+.else:
 	ld a, $80
 	sla d
 	sla d
@@ -7056,11 +7056,11 @@ Fishing_UploadOBJPalettes::
 	ldh [rOCPS], a
 	ld d, $40
 	ld c, $6b
-.jump_678b:
+.loop:
 	ld a, [hli]
 	ldh [c], a
 	dec d
-	jr nz, .jump_678b
+	jr nz, .loop
 	ret
 
 
@@ -7071,11 +7071,11 @@ Fishing_UploadOBJPalettesN::
 	sla d
 	sla d
 	ld c, $6b
-.jump_679d:
+.loop:
 	ld a, [hli]
 	ldh [c], a
 	dec d
-	jr nz, .jump_679d
+	jr nz, .loop
 	ret
 
 
@@ -7086,11 +7086,11 @@ Fishing_UploadBGPalettesN::
 	sla d
 	sla d
 	ld c, $69
-.jump_67af:
+.loop:
 	ld a, [hli]
 	ldh [c], a
 	dec d
-	jr nz, .jump_67af
+	jr nz, .loop
 	ret
 
 
@@ -7102,29 +7102,29 @@ Fishing_MultiplyFade::
 	rla
 	rla
 	rla
-	jr nc, .jump_67c0
+	jr nc, .skip_67c0
 	add hl, bc
-.jump_67c0:
+.skip_67c0:
 	add hl, hl
 	rla
-	jr nc, .jump_67c5
+	jr nc, .skip_67c5
 	add hl, bc
-.jump_67c5:
+.skip_67c5:
 	add hl, hl
 	rla
-	jr nc, .jump_67ca
+	jr nc, .skip_67ca
 	add hl, bc
-.jump_67ca:
+.skip_67ca:
 	add hl, hl
 	rla
-	jr nc, .jump_67cf
+	jr nc, .skip_67cf
 	add hl, bc
-.jump_67cf:
+.skip_67cf:
 	add hl, hl
 	rla
-	jr nc, .jump_67d4
+	jr nc, .done
 	add hl, bc
-.jump_67d4:
+.done:
 	ld c, $80
 	add hl, bc
 	ret
@@ -7132,9 +7132,9 @@ Fishing_MultiplyFade::
 
 Fishing_ScalePalettes::
 	ldh [hFishing_Scratch], a
-.jump_67da:
+.loop_67da:
 	ld c, $04
-.jump_67dc:
+.loop_67dc:
 	push bc
 	push hl
 	ldh a, [hFishing_Scratch]
@@ -7183,16 +7183,16 @@ Fishing_ScalePalettes::
 	inc l
 	pop bc
 	dec c
-	jp nz, .jump_67dc
+	jp nz, .loop_67dc
 	dec b
-	jp nz, .jump_67da
+	jp nz, .loop_67da
 	ret
 
 
 Fishing_UnpackPalettes::
 	sla b
 	sla b
-.jump_682c:
+.loop:
 	push bc
 	ld a, [de]
 	ld c, a
@@ -7231,14 +7231,14 @@ Fishing_UnpackPalettes::
 	pop de
 	pop bc
 	dec b
-	jr nz, .jump_682c
+	jr nz, .loop
 	ret
 
 
 Fishing_FadePalettes::
 	ld a, c
 	or a
-	jr z, .jump_6870
+	jr z, .continue_6870
 	push bc
 	push hl
 	ld b, $08
@@ -7246,36 +7246,36 @@ Fishing_FadePalettes::
 	call Fishing_UnpackPalettes
 	pop hl
 	pop bc
-.jump_6870:
+.continue_6870:
 	ld a, h
 	cp l
-	jr c, .jump_6876
+	jr c, .skip
 	set 7, b
-.jump_6876:
+.skip:
 	ld a, l
 	ldh [hFishing_Scratch + 3], a
 	ld c, h
-.jump_687a:
+.loop_687a:
 	bit 7, b
-	jr z, .jump_688c
+	jr z, .else_688c
 	ld d, b
 	res 7, d
 	ld a, c
 	sub d
-	jr c, .jump_68bd
+	jr c, .else_68bd
 	cp l
-	jr c, .jump_68bd
-	jr z, .jump_68bd
-	jr .jump_6895
+	jr c, .else_68bd
+	jr z, .else_68bd
+	jr .continue_6895
 
-.jump_688c:
+.else_688c:
 	ld a, c
 	add a, b
-	jr c, .jump_68bd
+	jr c, .else_68bd
 	cp l
-	jr z, .jump_68bd
-	jr nc, .jump_68bd
-.jump_6895:
+	jr z, .else_68bd
+	jr nc, .else_68bd
+.continue_6895:
 	ld c, a
 	push bc
 	push hl
@@ -7285,24 +7285,24 @@ Fishing_FadePalettes::
 	call Fishing_ScalePalettes
 	push bc
 	ld c, $41
-.jump_68a6:
+.loop_68a6:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_68a6
-.jump_68ac:
+	jr z, .loop_68a6
+.loop_68ac:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_68ac
+	jr nz, .loop_68ac
 	pop bc
 	ld hl, wFishing_BGPalettes
 	call Fishing_UploadBGPalettes
 	pop hl
 	pop bc
-	jr .jump_687a
+	jr .loop_687a
 
-.jump_68bd:
+.else_68bd:
 	ldh a, [hFishing_Scratch + 3]
 	ld b, $08
 	ld de, wFishing_Palettes
@@ -7310,16 +7310,16 @@ Fishing_FadePalettes::
 	call Fishing_ScalePalettes
 	push bc
 	ld c, $41
-.jump_68cd:
+.loop_68cd:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_68cd
-.jump_68d3:
+	jr z, .loop_68cd
+.loop_68d3:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_68d3
+	jr nz, .loop_68d3
 	pop bc
 	ld hl, wFishing_BGPalettes
 	call Fishing_UploadBGPalettes
@@ -7329,7 +7329,7 @@ Fishing_FadePalettes::
 Fishing_FadeAllPalettes::
 	ld a, c
 	or a
-	jr z, .jump_68ff
+	jr z, .continue_68ff
 	push bc
 	push hl
 	ld b, $08
@@ -7342,36 +7342,36 @@ Fishing_FadeAllPalettes::
 	call Fishing_UnpackPalettes
 	pop hl
 	pop bc
-.jump_68ff:
+.continue_68ff:
 	ld a, h
 	cp l
-	jr c, .jump_6905
+	jr c, .skip
 	set 7, b
-.jump_6905:
+.skip:
 	ld a, l
 	ldh [hFishing_Scratch + 3], a
 	ld c, h
-.jump_6909:
+.loop_6909:
 	bit 7, b
-	jr z, .jump_691b
+	jr z, .else_691b
 	ld d, b
 	res 7, d
 	ld a, c
 	sub d
-	jr c, .jump_695f
+	jr c, .else_695f
 	cp l
-	jr c, .jump_695f
-	jr z, .jump_695f
-	jr .jump_6924
+	jr c, .else_695f
+	jr z, .else_695f
+	jr .continue_6924
 
-.jump_691b:
+.else_691b:
 	ld a, c
 	add a, b
-	jr c, .jump_695f
+	jr c, .else_695f
 	cp l
-	jr z, .jump_695f
-	jr nc, .jump_695f
-.jump_6924:
+	jr z, .else_695f
+	jr nc, .else_695f
+.continue_6924:
 	ld c, a
 	push bc
 	push hl
@@ -7387,16 +7387,16 @@ Fishing_FadeAllPalettes::
 	call Fishing_ScalePalettes
 	push bc
 	ld c, $41
-.jump_6942:
+.loop_6942:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6942
-.jump_6948:
+	jr z, .loop_6942
+.loop_6948:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6948
+	jr nz, .loop_6948
 	pop bc
 	ld hl, wFishing_BGPalettes
 	call Fishing_UploadBGPalettes
@@ -7404,9 +7404,9 @@ Fishing_FadeAllPalettes::
 	call Fishing_UploadOBJPalettes
 	pop hl
 	pop bc
-	jr .jump_6909
+	jr .loop_6909
 
-.jump_695f:
+.else_695f:
 	ldh a, [hFishing_Scratch + 3]
 	ld b, $08
 	ld de, wFishing_Palettes
@@ -7419,16 +7419,16 @@ Fishing_FadeAllPalettes::
 	call Fishing_ScalePalettes
 	push bc
 	ld c, $41
-.jump_697c:
+.loop_697c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_697c
-.jump_6982:
+	jr z, .loop_697c
+.loop_6982:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6982
+	jr nz, .loop_6982
 	pop bc
 	ld hl, wFishing_BGPalettes
 	call Fishing_UploadBGPalettes
@@ -7447,7 +7447,7 @@ Fishing_SubClamped::
 	ld d, a
 	ld a, b
 	cp d
-	jr c, .jump_69ab
+	jr c, .done
 	pop de
 	ld [de], a
 	ld [hld], a
@@ -7456,7 +7456,7 @@ Fishing_SubClamped::
 	or a
 	ret
 
-.jump_69ab:
+.done:
 	pop bc
 	scf
 	ret
@@ -7470,7 +7470,7 @@ Fishing_AddClamped::
 	call Fishing_AddDEToBC
 	ldh a, [hFishing_Scratch]
 	cp b
-	jr c, .jump_69c2
+	jr c, .done
 	ld a, b
 	pop de
 	ld [de], a
@@ -7480,7 +7480,7 @@ Fishing_AddClamped::
 	or a
 	ret
 
-.jump_69c2:
+.done:
 	pop bc
 	scf
 	ret
@@ -7497,14 +7497,14 @@ Fishing_AnimTimer::
 	ld a, [hl]
 	inc a
 	cp c
-	jr z, .jump_69db
-	jr c, .jump_69db
+	jr z, .done
+	jr c, .done
 	xor a
 	ld [hl], a
 	scf
 	ret
 
-.jump_69db:
+.done:
 	ld [hl], a
 	or a
 	ret
@@ -7567,7 +7567,7 @@ Fishing_Animate::
 	ld a, [hl]
 	pop hl
 	or a
-	jr z, .jump_6a3e
+	jr z, .continue
 	ld de, $0000
 	push hl
 	add hl, de
@@ -7580,7 +7580,7 @@ Fishing_Animate::
 	pop hl
 	cp b
 	ret z
-.jump_6a3e:
+.continue:
 	ld de, $0002
 	push hl
 	add hl, de
@@ -7592,9 +7592,9 @@ Fishing_Animate::
 	ld a, [hl]
 	inc a
 	cp b
-	jr c, .jump_6a50
+	jr c, .skip
 	xor a
-.jump_6a50:
+.skip:
 	ld [hl], a
 	or a
 	pop hl
@@ -7625,20 +7625,20 @@ Fishing_DrawPauseWindow::
 	ld hl, $fe00
 	push bc
 	ld c, $41
-.jump_6b5e:
+.loop_6b5e:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6b5e
-.jump_6b64:
+	jr z, .loop_6b5e
+.loop_6b64:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6b64
+	jr nz, .loop_6b64
 	pop bc
 	ld a, b
 	or a
-	jr z, .jump_6b7c
+	jr z, .else
 	ld a, l
 	ldh [hFishing_Scratch + 2], a
 	ld a, h
@@ -7647,7 +7647,7 @@ Fishing_DrawPauseWindow::
 	call Fishing_DrawPauseText
 	ret
 
-.jump_6b7c:
+.else:
 	push hl
 	ld a, [wFishing_PauseWindow + $0a]
 	ld b, a
@@ -7658,7 +7658,7 @@ Fishing_DrawPauseWindow::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo]
 	ldh [hFishing_Scratch + 5], a
-.jump_6b90:
+.loop_6b90:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -7675,20 +7675,20 @@ Fishing_DrawPauseWindow::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6b90
+	jr nz, .loop_6b90
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText
 	ld de, $0004
-.jump_6bae:
+.loop_6bae:
 	ld a, [bc]
 	or a
 	ret z
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6bae
+	jr .loop_6bae
 
 
 Fishing_DrawPauseText::
@@ -7696,44 +7696,44 @@ Fishing_DrawPauseText::
 	push hl
 	push bc
 	ld c, $41
-.jump_6bbb:
+.loop_6bbb:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6bbb
-.jump_6bc1:
+	jr z, .loop_6bbb
+.loop_6bc1:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6bc1
+	jr nz, .loop_6bc1
 	pop bc
 	ld b, $00
 	ld a, $a0
-.jump_6bcc:
+.loop_6bcc:
 	ld [hl], b
 	inc l
 	cp l
-	jr nz, .jump_6bcc
+	jr nz, .loop_6bcc
 	pop hl
 	pop bc
 	ld a, c
 	or a
-	jr z, .jump_6be3
+	jr z, .else_6be3
 	ld a, [wFishing_PauseTextPos]
 	ldh [hFishing_Scratch], a
 	ld a, [wFishing_PauseTextPos + 1]
 	ldh [hFishing_Scratch + 1], a
-	jr .jump_6bed
+	jr .continue
 
-.jump_6be3:
+.else_6be3:
 	ld a, [wFishing_PauseTextPos + 1]
 	ldh [hFishing_Scratch], a
 	ld a, [wFishing_PauseTextPos]
 	ldh [hFishing_Scratch + 1], a
-.jump_6bed:
+.continue:
 	ld a, b
 	or a
-	jp nz, .jump_6c67
+	jp nz, .else_6c67
 	push hl
 	ld a, [wFishing_PauseWindow]
 	ld b, a
@@ -7744,7 +7744,7 @@ Fishing_DrawPauseText::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo + 1]
 	ldh [hFishing_Scratch + 5], a
-.jump_6c05:
+.loop_6c05:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -7761,22 +7761,22 @@ Fishing_DrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6c05
+	jr nz, .loop_6c05
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $0b
 	ld de, $0004
-.jump_6c23:
+.loop_6c23:
 	ld a, [bc]
 	or a
-	jr z, .jump_6c2c
+	jr z, .else_6c2c
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6c23
+	jr .loop_6c23
 
-.jump_6c2c:
+.else_6c2c:
 	dec l
 	dec l
 	push hl
@@ -7789,7 +7789,7 @@ Fishing_DrawPauseText::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo + 2]
 	ldh [hFishing_Scratch + 5], a
-.jump_6c41:
+.loop_6c41:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -7806,22 +7806,22 @@ Fishing_DrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6c41
+	jr nz, .loop_6c41
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $16
 	ld de, $0004
-.jump_6c5f:
+.loop_6c5f:
 	ld a, [bc]
 	or a
 	ret z
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6c5f
+	jr .loop_6c5f
 
-.jump_6c67:
+.else_6c67:
 	push hl
 	ld a, [wFishing_PauseWindow + 4]
 	ld b, a
@@ -7832,7 +7832,7 @@ Fishing_DrawPauseText::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo + 5]
 	ldh [hFishing_Scratch + 5], a
-.jump_6c7b:
+.loop_6c7b:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -7849,22 +7849,22 @@ Fishing_DrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6c7b
+	jr nz, .loop_6c7b
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $37
 	ld de, $0004
-.jump_6c99:
+.loop_6c99:
 	ld a, [bc]
 	or a
-	jr z, .jump_6ca2
+	jr z, .else_6ca2
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6c99
+	jr .loop_6c99
 
-.jump_6ca2:
+.else_6ca2:
 	dec l
 	dec l
 	push hl
@@ -7877,7 +7877,7 @@ Fishing_DrawPauseText::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo + 3]
 	ldh [hFishing_Scratch + 5], a
-.jump_6cb7:
+.loop_6cb7:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -7894,22 +7894,22 @@ Fishing_DrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6cb7
+	jr nz, .loop_6cb7
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $21
 	ld de, $0004
-.jump_6cd5:
+.loop_6cd5:
 	ld a, [bc]
 	or a
-	jr z, .jump_6cde
+	jr z, .else_6cde
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6cd5
+	jr .loop_6cd5
 
-.jump_6cde:
+.else_6cde:
 	dec l
 	dec l
 	push hl
@@ -7922,7 +7922,7 @@ Fishing_DrawPauseText::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo + 4]
 	ldh [hFishing_Scratch + 5], a
-.jump_6cf3:
+.loop_6cf3:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -7939,40 +7939,40 @@ Fishing_DrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6cf3
+	jr nz, .loop_6cf3
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $2c
 	ld de, $0004
-.jump_6d11:
+.loop_6d11:
 	ld a, [bc]
 	or a
 	ret z
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6d11
+	jr .loop_6d11
 
 
 Fishing_LinkDrawPauseWindow::
 	ld hl, $fe00
 	push bc
 	ld c, $41
-.jump_6d1f:
+.loop_6d1f:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6d1f
-.jump_6d25:
+	jr z, .loop_6d1f
+.loop_6d25:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6d25
+	jr nz, .loop_6d25
 	pop bc
 	ld a, b
 	or a
-	jr z, .jump_6d3d
+	jr z, .else
 	ld a, l
 	ldh [hFishing_Scratch + 2], a
 	ld a, h
@@ -7981,7 +7981,7 @@ Fishing_LinkDrawPauseWindow::
 	call Fishing_LinkDrawPauseText
 	ret
 
-.jump_6d3d:
+.else:
 	push hl
 	ld a, [wFishing_PauseWindow + $0a]
 	ld b, a
@@ -7992,7 +7992,7 @@ Fishing_LinkDrawPauseWindow::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo]
 	ldh [hFishing_Scratch + 5], a
-.jump_6d51:
+.loop_6d51:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -8009,20 +8009,20 @@ Fishing_LinkDrawPauseWindow::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6d51
+	jr nz, .loop_6d51
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText
 	ld de, $0004
-.jump_6d6f:
+.loop_6d6f:
 	ld a, [bc]
 	or a
 	ret z
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6d6f
+	jr .loop_6d6f
 
 
 Fishing_LinkDrawPauseText::
@@ -8030,44 +8030,44 @@ Fishing_LinkDrawPauseText::
 	push hl
 	push bc
 	ld c, $41
-.jump_6d7c:
+.loop_6d7c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6d7c
-.jump_6d82:
+	jr z, .loop_6d7c
+.loop_6d82:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6d82
+	jr nz, .loop_6d82
 	pop bc
 	ld b, $00
 	ld a, $a0
-.jump_6d8d:
+.loop_6d8d:
 	ld [hl], b
 	inc l
 	cp l
-	jr nz, .jump_6d8d
+	jr nz, .loop_6d8d
 	pop hl
 	pop bc
 	ld a, c
 	or a
-	jr z, .jump_6da4
+	jr z, .else_6da4
 	ld a, [wFishing_PauseTextPos]
 	ldh [hFishing_Scratch], a
 	ld a, [wFishing_PauseTextPos + 1]
 	ldh [hFishing_Scratch + 1], a
-	jr .jump_6dae
+	jr .continue
 
-.jump_6da4:
+.else_6da4:
 	ld a, [wFishing_PauseTextPos + 1]
 	ldh [hFishing_Scratch], a
 	ld a, [wFishing_PauseTextPos]
 	ldh [hFishing_Scratch + 1], a
-.jump_6dae:
+.continue:
 	ld a, b
 	or a
-	jp nz, .jump_6e40
+	jp nz, .else_6e40
 	push hl
 	ld a, [wFishing_PauseWindow]
 	ld b, a
@@ -8080,7 +8080,7 @@ Fishing_LinkDrawPauseText::
 	ldh [hFishing_Scratch + 5], a
 	ld a, l
 	ld [wFishing_PauseCursorPos], a
-.jump_6dca:
+.loop_6dca:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -8097,34 +8097,34 @@ Fishing_LinkDrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6dca
+	jr nz, .loop_6dca
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $0b
 	ld de, $0004
-.jump_6de8:
+.loop_6de8:
 	ld a, [bc]
 	or a
-	jr z, .jump_6df1
+	jr z, .else_6df1
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6de8
+	jr .loop_6de8
 
-.jump_6df1:
+.else_6df1:
 	push bc
 	ld c, $41
-.jump_6df4:
+.loop_6df4:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6df4
-.jump_6dfa:
+	jr z, .loop_6df4
+.loop_6dfa:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6dfa
+	jr nz, .loop_6dfa
 	pop bc
 	dec l
 	dec l
@@ -8140,7 +8140,7 @@ Fishing_LinkDrawPauseText::
 	ldh [hFishing_Scratch + 5], a
 	ld a, l
 	ld [wFishing_PauseCursorPos + 1], a
-.jump_6e1a:
+.loop_6e1a:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -8157,34 +8157,34 @@ Fishing_LinkDrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6e1a
+	jr nz, .loop_6e1a
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $16
 	ld de, $0004
-.jump_6e38:
+.loop_6e38:
 	ld a, [bc]
 	or a
 	ret z
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6e38
+	jr .loop_6e38
 
-.jump_6e40:
+.else_6e40:
 	push bc
 	ld c, $41
-.jump_6e43:
+.loop_6e43:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6e43
-.jump_6e49:
+	jr z, .loop_6e43
+.loop_6e49:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6e49
+	jr nz, .loop_6e49
 	pop bc
 	push hl
 	ld a, [wFishing_PauseWindow + 4]
@@ -8196,7 +8196,7 @@ Fishing_LinkDrawPauseText::
 	ld e, a
 	ld a, [wFishing_PauseTextInfo + 5]
 	ldh [hFishing_Scratch + 5], a
-.jump_6e64:
+.loop_6e64:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -8213,34 +8213,34 @@ Fishing_LinkDrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6e64
+	jr nz, .loop_6e64
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $37
 	ld de, $0004
-.jump_6e82:
+.loop_6e82:
 	ld a, [bc]
 	or a
-	jr z, .jump_6e8b
+	jr z, .else_6e8b
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6e82
+	jr .loop_6e82
 
-.jump_6e8b:
+.else_6e8b:
 	push bc
 	ld c, $41
-.jump_6e8e:
+.loop_6e8e:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6e8e
-.jump_6e94:
+	jr z, .loop_6e8e
+.loop_6e94:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6e94
+	jr nz, .loop_6e94
 	pop bc
 	dec l
 	dec l
@@ -8256,7 +8256,7 @@ Fishing_LinkDrawPauseText::
 	ldh [hFishing_Scratch + 5], a
 	ld a, l
 	ld [wFishing_PauseCursorPos], a
-.jump_6eb4:
+.loop_6eb4:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -8273,34 +8273,34 @@ Fishing_LinkDrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6eb4
+	jr nz, .loop_6eb4
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $21
 	ld de, $0004
-.jump_6ed2:
+.loop_6ed2:
 	ld a, [bc]
 	or a
-	jr z, .jump_6edb
+	jr z, .else_6edb
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6ed2
+	jr .loop_6ed2
 
-.jump_6edb:
+.else_6edb:
 	push bc
 	ld c, $41
-.jump_6ede:
+.loop_6ede:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6ede
-.jump_6ee4:
+	jr z, .loop_6ede
+.loop_6ee4:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6ee4
+	jr nz, .loop_6ee4
 	pop bc
 	dec l
 	dec l
@@ -8316,7 +8316,7 @@ Fishing_LinkDrawPauseText::
 	ldh [hFishing_Scratch + 5], a
 	ld a, l
 	ld [wFishing_PauseCursorPos + 1], a
-.jump_6f04:
+.loop_6f04:
 	ld [hl], c
 	inc l
 	ld a, b
@@ -8333,41 +8333,41 @@ Fishing_LinkDrawPauseText::
 	ldh a, [hFishing_Scratch + 5]
 	dec a
 	ldh [hFishing_Scratch + 5], a
-	jr nz, .jump_6f04
+	jr nz, .loop_6f04
 	pop hl
 	inc l
 	inc l
 	ld bc, wFishing_PauseText + $2c
 	ld de, $0004
-.jump_6f22:
+.loop_6f22:
 	ld a, [bc]
 	or a
 	ret z
 	ld [hl], a
 	add hl, de
 	inc bc
-	jr .jump_6f22
+	jr .loop_6f22
 
 
 Fishing_DrawPauseCursor::
 	ld a, c
 	or a
-	jr z, .jump_6f3a
+	jr z, .else_6f3a
 	ld a, [wFishing_PauseTextPos]
 	ldh [hFishing_Scratch], a
 	ld a, [wFishing_PauseTextPos + 1]
 	ldh [hFishing_Scratch + 1], a
-	jr .jump_6f44
+	jr .continue
 
-.jump_6f3a:
+.else_6f3a:
 	ld a, [wFishing_PauseTextPos + 1]
 	ldh [hFishing_Scratch], a
 	ld a, [wFishing_PauseTextPos]
 	ldh [hFishing_Scratch + 1], a
-.jump_6f44:
+.continue:
 	ld a, b
 	or a
-	jp nz, .jump_6f9a
+	jp nz, .else_6f9a
 	ld h, $fe
 	ld a, [wFishing_PauseCursorPos]
 	ld l, a
@@ -8381,22 +8381,22 @@ Fishing_DrawPauseCursor::
 	ld e, a
 	push bc
 	ld c, $41
-.jump_6f5f:
+.loop_6f5f:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6f5f
-.jump_6f65:
+	jr z, .loop_6f5f
+.loop_6f65:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6f65
+	jr nz, .loop_6f65
 	pop bc
-.jump_6f6c:
+.loop_6f6c:
 	ld [hl], d
 	add hl, bc
 	dec e
-	jr nz, .jump_6f6c
+	jr nz, .loop_6f6c
 	ld h, $fe
 	ld a, [wFishing_PauseCursorPos + 1]
 	ld l, a
@@ -8410,25 +8410,25 @@ Fishing_DrawPauseCursor::
 	ld e, a
 	push bc
 	ld c, $41
-.jump_6f87:
+.loop_6f87:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6f87
-.jump_6f8d:
+	jr z, .loop_6f87
+.loop_6f8d:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6f8d
+	jr nz, .loop_6f8d
 	pop bc
-.jump_6f94:
+.loop_6f94:
 	ld [hl], d
 	add hl, bc
 	dec e
-	jr nz, .jump_6f94
+	jr nz, .loop_6f94
 	ret
 
-.jump_6f9a:
+.else_6f9a:
 	ld h, $fe
 	ld a, [wFishing_PauseCursorPos]
 	ld l, a
@@ -8442,22 +8442,22 @@ Fishing_DrawPauseCursor::
 	ld e, a
 	push bc
 	ld c, $41
-.jump_6fb0:
+.loop_6fb0:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6fb0
-.jump_6fb6:
+	jr z, .loop_6fb0
+.loop_6fb6:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6fb6
+	jr nz, .loop_6fb6
 	pop bc
-.jump_6fbd:
+.loop_6fbd:
 	ld [hl], d
 	add hl, bc
 	dec e
-	jr nz, .jump_6fbd
+	jr nz, .loop_6fbd
 	ld h, $fe
 	ld a, [wFishing_PauseCursorPos + 1]
 	ld l, a
@@ -8471,29 +8471,29 @@ Fishing_DrawPauseCursor::
 	ld e, a
 	push bc
 	ld c, $41
-.jump_6fd8:
+.loop_6fd8:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_6fd8
-.jump_6fde:
+	jr z, .loop_6fd8
+.loop_6fde:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_6fde
+	jr nz, .loop_6fde
 	pop bc
-.jump_6fe5:
+.loop_6fe5:
 	ld [hl], d
 	add hl, bc
 	dec e
-	jr nz, .jump_6fe5
+	jr nz, .loop_6fe5
 	ret
 
 
 Fishing_LinkWaitForPartner::
 	or a
-	jr nz, .jump_7028
-.jump_6fee:
+	jr nz, .loop_7028
+.loop_6fee:
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
 	call Fishing_ReadJoypad
@@ -8504,7 +8504,7 @@ Fishing_LinkWaitForPartner::
 	jp z, Init
 	ldh a, [hFishing_LinkRole]
 	cp $66
-	jr z, .jump_6fee
+	jr z, .loop_6fee
 	ld a, $bd
 	ldh [hFishing_LinkInA], a
 	ldh [hFishing_LinkInB], a
@@ -8522,7 +8522,7 @@ Fishing_LinkWaitForPartner::
 	ldh [hFishing_LinkInB + $0f], a
 	ret
 
-.jump_7028:
+.loop_7028:
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
 	call Fishing_ReadJoypad
@@ -8533,7 +8533,7 @@ Fishing_LinkWaitForPartner::
 	jp z, Init
 	ldh a, [hFishing_LinkRole]
 	cp $66
-	jr z, .jump_7028
+	jr z, .loop_7028
 	xor a
 	ldh [hFishing_LinkInA], a
 	ldh [hFishing_LinkInB], a
@@ -8565,16 +8565,16 @@ Fishing_Pause::
 	ld [wFishing_FrameReady], a
 	push bc
 	ld c, $41
-.jump_7076:
+.loop_7076:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_7076
-.jump_707c:
+	jr z, .loop_7076
+.loop_707c:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_707c
+	jr nz, .loop_707c
 	pop bc
 	ld hl, wFishing_BGPalettes
 	call Fishing_ReadBGPalettes
@@ -8583,19 +8583,19 @@ Fishing_Pause::
 	xor a
 	ld [wFishing_PauseCursor], a
 	ld [wFishing_PauseConfirm], a
-.jump_7095:
+.loop_7095:
 	push bc
 	ld c, $41
-.jump_7098:
+.loop_7098:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_7098
-.jump_709e:
+	jr z, .loop_7098
+.loop_709e:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_709e
+	jr nz, .loop_709e
 	pop bc
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
@@ -8606,7 +8606,7 @@ Fishing_Pause::
 	ld a, $11
 	jp z, Init
 	call Fishing_PauseInput
-	jr nc, .jump_7095
+	jr nc, .loop_7095
 	ld a, $01
 	call Fishing_LinkWaitForPartner
 	call Fishing_UndimAfterPause
@@ -8626,16 +8626,16 @@ Fishing_LinkPause::
 	ld [wFishing_FrameReady], a
 	push bc
 	ld c, $41
-.jump_70dd:
+.loop_70dd:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_70dd
-.jump_70e3:
+	jr z, .loop_70dd
+.loop_70e3:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_70e3
+	jr nz, .loop_70e3
 	pop bc
 	ld hl, wFishing_BGPalettes
 	call Fishing_ReadBGPalettes
@@ -8646,39 +8646,39 @@ Fishing_LinkPause::
 	xor a
 	ld [wFishing_PauseCursor], a
 	ld [wFishing_PauseConfirm], a
-.jump_7100:
+.loop_7100:
 	ld a, [wFishing_LinkFrameOut]
 	ld b, a
 	ld a, [wFishing_LinkFrameIn]
 	cp b
-	jr nz, .jump_7119
+	jr nz, .else
 	ld hl, wFishing_LinkTimeout
 	dec [hl]
-	jr nz, .jump_7126
+	jr nz, .skip
 	ld a, [wFishing_PartnerPaused]
 	or a
-	jr nz, .jump_7126
+	jr nz, .skip
 	jp Fishing_RestartMainLoop
 
-.jump_7119:
+.else:
 	ld a, $1e
 	ld [wFishing_LinkTimeout], a
 	ld a, [wFishing_LinkFrameIn]
 	add a, $10
 	ld [wFishing_LinkFrameIn], a
-.jump_7126:
+.skip:
 	push bc
 	ld c, $41
-.jump_7129:
+.loop_7129:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_7129
-.jump_712f:
+	jr z, .loop_7129
+.loop_712f:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_712f
+	jr nz, .loop_712f
 	pop bc
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
@@ -8689,7 +8689,7 @@ Fishing_LinkPause::
 	ld a, $11
 	jp z, Init
 	call Fishing_LinkPauseInput
-	jr nc, .jump_7100
+	jr nc, .loop_7100
 	ld a, $01
 	call Fishing_LinkWaitForPartner
 	call Fishing_LinkUndimAfterPause
@@ -8699,61 +8699,61 @@ Fishing_LinkPause::
 Fishing_PauseInput::
 	ld a, [wFishing_JoyPressed]
 	bit 0, a
-	jr nz, .jump_7177
+	jr nz, .continue_7177
 	bit 1, a
-	jr z, .jump_7173
+	jr z, .else_7173
 	ld a, [wFishing_PauseCursor]
 	or a
 	ret z
 	ld a, [wFishing_PauseCursor]
 	xor $01
 	ld [wFishing_PauseCursor], a
-	jr .jump_71ac
+	jr .else_71ac
 
-.jump_7173:
+.else_7173:
 	bit 3, a
-	jr z, .jump_71a2
-.jump_7177:
+	jr z, .else_71a2
+.continue_7177:
 	ld a, [wFishing_PauseCursor]
 	or a
-	jr z, .jump_7190
+	jr z, .else_7190
 	ld a, [wFishing_PauseConfirm]
 	or a
-	jr nz, .jump_7186
+	jr nz, .else_7186
 	jp Fishing_RestartMainLoop
 
-.jump_7186:
+.else_7186:
 	ld a, [wFishing_PauseCursor]
 	xor $01
 	ld [wFishing_PauseCursor], a
-	jr .jump_71ac
+	jr .else_71ac
 
-.jump_7190:
+.else_7190:
 	ld a, [wFishing_PauseConfirm]
 	or a
-	jr z, .jump_71a0
+	jr z, .done
 	ld a, [wFishing_PauseCursor]
 	xor $01
 	ld [wFishing_PauseCursor], a
-	jr .jump_71b4
+	jr .continue_71b4
 
-.jump_71a0:
+.done:
 	scf
 	ret
 
-.jump_71a2:
+.else_71a2:
 	bit 6, a
-	jr nz, .jump_71ac
+	jr nz, .else_71ac
 	bit 7, a
-	jr nz, .jump_71ac
+	jr nz, .else_71ac
 	or a
 	ret
 
-.jump_71ac:
+.else_71ac:
 	ld a, [wFishing_PauseConfirm]
 	xor $01
 	ld [wFishing_PauseConfirm], a
-.jump_71b4:
+.continue_71b4:
 	ld hl, hFishing_Scratch + 2
 	ld a, [hli]
 	ld h, [hl]
@@ -8770,69 +8770,69 @@ Fishing_PauseInput::
 Fishing_LinkPauseInput::
 	ld a, [wFishing_JoyPressed]
 	bit 0, a
-	jr nz, .jump_71e5
+	jr nz, .continue
 	bit 1, a
-	jr z, .jump_71e1
+	jr z, .else_71e1
 	ld a, [wFishing_PauseCursor]
 	or a
 	ret z
 	ld a, [wFishing_PauseCursor]
 	xor $01
 	ld [wFishing_PauseCursor], a
-	jr .jump_722e
+	jr .else_722e
 
-.jump_71e1:
+.else_71e1:
 	bit 3, a
-	jr z, .jump_7210
-.jump_71e5:
+	jr z, .else_7210
+.continue:
 	ld a, [wFishing_PauseCursor]
 	or a
-	jr z, .jump_71fe
+	jr z, .else_71fe
 	ld a, [wFishing_PauseConfirm]
 	or a
-	jr nz, .jump_71f4
+	jr nz, .else_71f4
 	jp Fishing_RestartMainLoop
 
-.jump_71f4:
+.else_71f4:
 	ld a, [wFishing_PauseCursor]
 	xor $01
 	ld [wFishing_PauseCursor], a
-	jr .jump_722e
+	jr .else_722e
 
-.jump_71fe:
+.else_71fe:
 	ld a, [wFishing_PauseConfirm]
 	or a
-	jr z, .jump_720e
+	jr z, .done_720e
 	ld a, [wFishing_PauseCursor]
 	xor $01
 	ld [wFishing_PauseCursor], a
-	jr .jump_722e
+	jr .else_722e
 
-.jump_720e:
+.done_720e:
 	scf
 	ret
 
-.jump_7210:
+.else_7210:
 	bit 6, a
-	jr z, .jump_721e
+	jr z, .else_721e
 	ld a, [wFishing_PauseConfirm]
 	xor $01
 	ld [wFishing_PauseConfirm], a
-	jr .jump_7241
+	jr .else_7241
 
-.jump_721e:
+.else_721e:
 	bit 7, a
-	jr z, .jump_722c
+	jr z, .done_722c
 	ld a, [wFishing_PauseConfirm]
 	xor $01
 	ld [wFishing_PauseConfirm], a
-	jr .jump_7241
+	jr .else_7241
 
-.jump_722c:
+.done_722c:
 	or a
 	ret
 
-.jump_722e:
+.else_722e:
 	ld hl, hFishing_Scratch + 2
 	ld a, [hli]
 	ld h, [hl]
@@ -8845,7 +8845,7 @@ Fishing_LinkPauseInput::
 	or a
 	ret
 
-.jump_7241:
+.else_7241:
 	ld a, [wFishing_PauseCursor]
 	ld b, a
 	ld a, [wFishing_PauseConfirm]
@@ -8865,51 +8865,51 @@ Fishing_PartnerPaused::
 	ld [wFishing_FrameReady], a
 	push bc
 	ld c, $41
-.jump_725d:
+.loop_725d:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_725d
-.jump_7263:
+	jr z, .loop_725d
+.loop_7263:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_7263
+	jr nz, .loop_7263
 	pop bc
 	ld hl, wFishing_BGPalettes
 	call Fishing_ReadBGPalettes
 	ld b, $00
 	call Fishing_LinkDimForPause
-.jump_7275:
+.loop_7275:
 	ld a, [wFishing_LinkFrameOut]
 	ld b, a
 	ld a, [wFishing_LinkFrameIn]
 	cp b
-	jr nz, .jump_7288
+	jr nz, .else
 	ld hl, wFishing_LinkTimeout
 	dec [hl]
-	jr nz, .jump_7295
+	jr nz, .skip
 	jp Fishing_RestartMainLoop
 
-.jump_7288:
+.else:
 	ld a, $1e
 	ld [wFishing_LinkTimeout], a
 	ld a, [wFishing_LinkFrameIn]
 	add a, $10
 	ld [wFishing_LinkFrameIn], a
-.jump_7295:
+.skip:
 	push bc
 	ld c, $41
-.jump_7298:
+.loop_7298:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_7298
-.jump_729e:
+	jr z, .loop_7298
+.loop_729e:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_729e
+	jr nz, .loop_729e
 	pop bc
 	ld hl, wFishing_JoyHeld
 	ld de, wFishing_JoyPressed
@@ -8921,7 +8921,7 @@ Fishing_PartnerPaused::
 	jp z, Init
 	ld a, [wFishing_LinkPacketIn]
 	or a
-	jr nz, .jump_7275
+	jr nz, .loop_7275
 	call Fishing_LinkUndimAfterPause
 	ret
 
@@ -8930,25 +8930,25 @@ Fishing_DimForPause::
 	push bc
 	push bc
 	ld c, $41
-.jump_72c8:
+.loop_72c8:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_72c8
-.jump_72ce:
+	jr z, .loop_72c8
+.loop_72ce:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_72ce
+	jr nz, .loop_72ce
 	pop bc
 	ld hl, $fe00
 	ld d, $a0
 	xor a
-.jump_72db:
+.loop_72db:
 	ld [hl], a
 	inc l
 	dec d
-	jr nz, .jump_72db
+	jr nz, .loop_72db
 	ld e, $01
 	call Fishing_PauseFade
 	pop bc
@@ -8959,25 +8959,25 @@ Fishing_DimForPause::
 Fishing_UndimAfterPause::
 	push bc
 	ld c, $41
-.jump_72ed:
+.loop_72ed:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_72ed
-.jump_72f3:
+	jr z, .loop_72ed
+.loop_72f3:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_72f3
+	jr nz, .loop_72f3
 	pop bc
 	ld hl, $fe00
 	ld d, $a0
 	xor a
-.jump_7300:
+.loop_7300:
 	ld [hl], a
 	inc l
 	dec d
-	jr nz, .jump_7300
+	jr nz, .loop_7300
 	ld e, $00
 	call Fishing_PauseFade
 	ret
@@ -8987,25 +8987,25 @@ Fishing_LinkDimForPause::
 	push bc
 	push bc
 	ld c, $41
-.jump_730f:
+.loop_730f:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_730f
-.jump_7315:
+	jr z, .loop_730f
+.loop_7315:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_7315
+	jr nz, .loop_7315
 	pop bc
 	ld hl, $fe00
 	ld d, $a0
 	xor a
-.jump_7322:
+.loop_7322:
 	ld [hl], a
 	inc l
 	dec d
-	jr nz, .jump_7322
+	jr nz, .loop_7322
 	ld e, $01
 	call Fishing_PauseFade
 	pop bc
@@ -9016,25 +9016,25 @@ Fishing_LinkDimForPause::
 Fishing_LinkUndimAfterPause::
 	push bc
 	ld c, $41
-.jump_7334:
+.loop_7334:
 	ldh a, [c]
 	and $03
 	dec a
-	jr z, .jump_7334
-.jump_733a:
+	jr z, .loop_7334
+.loop_733a:
 	ldh a, [c]
 	and $03
 	dec a
-	jr nz, .jump_733a
+	jr nz, .loop_733a
 	pop bc
 	ld hl, $fe00
 	ld d, $a0
 	xor a
-.jump_7347:
+.loop_7347:
 	ld [hl], a
 	inc l
 	dec d
-	jr nz, .jump_7347
+	jr nz, .loop_7347
 	ld e, $00
 	call Fishing_PauseFade
 	ret
@@ -9043,7 +9043,7 @@ Fishing_LinkUndimAfterPause::
 Fishing_PauseFade::
 	ld a, e
 	cp $00
-	jr z, .jump_7368
+	jr z, .else
 	ld h, $ff
 	ld a, [wFishing_PauseFade]
 	ld l, a
@@ -9053,7 +9053,7 @@ Fishing_PauseFade::
 	call Fishing_FadePalettes
 	ret
 
-.jump_7368:
+.else:
 	ld a, [wFishing_PauseFade]
 	ld h, a
 	ld l, $ff
@@ -9082,18 +9082,18 @@ Fishing_InitPause::
 Fishing_SetUpPauseText::
 	ldh a, [hFishing_Language]
 	cp $00
-	jr z, .jump_73b1
+	jr z, .else_73b1
 	cp $02
-	jp z, .jump_7442
+	jp z, .else_7442
 	cp $04
-	jp z, .jump_74d3
+	jp z, .else_74d3
 	cp $03
-	jp z, .jump_7564
+	jp z, .else_7564
 	cp $01
-	jp z, .jump_75f5
+	jp z, .else_75f5
 	ret
 
-.jump_73b1:
+.else_73b1:
 	ld hl, $769a
 	ld de, wFishing_PauseText
 	call Fishing_TextToTiles
@@ -9150,7 +9150,7 @@ Fishing_SetUpPauseText::
 	ld [wFishing_PauseTextInfo + 5], a
 	ret
 
-.jump_7442:
+.else_7442:
 	ld hl, $76bc
 	ld de, wFishing_PauseText
 	call Fishing_TextToTiles
@@ -9207,7 +9207,7 @@ Fishing_SetUpPauseText::
 	ld [wFishing_PauseTextInfo + 5], a
 	ret
 
-.jump_74d3:
+.else_74d3:
 	ld hl, $76e5
 	ld de, wFishing_PauseText
 	call Fishing_TextToTiles
@@ -9264,7 +9264,7 @@ Fishing_SetUpPauseText::
 	ld [wFishing_PauseTextInfo + 5], a
 	ret
 
-.jump_7564:
+.else_7564:
 	ld hl, $7709
 	ld de, wFishing_PauseText
 	call Fishing_TextToTiles
@@ -9321,7 +9321,7 @@ Fishing_SetUpPauseText::
 	ld [wFishing_PauseTextInfo + 5], a
 	ret
 
-.jump_75f5:
+.else_75f5:
 	ld hl, $7729
 	ld de, wFishing_PauseText
 	call Fishing_TextToTiles
@@ -9382,7 +9382,7 @@ Fishing_SetUpPauseText::
 Fishing_TextToTiles::
 	ld a, [hli]
 	or a
-	jr z, .jump_7698
+	jr z, .done
 	push hl
 	ld c, a
 	ld b, $00
@@ -9394,7 +9394,7 @@ Fishing_TextToTiles::
 	inc de
 	jr Fishing_TextToTiles
 
-.jump_7698:
+.done:
 	ld [de], a
 	ret
 

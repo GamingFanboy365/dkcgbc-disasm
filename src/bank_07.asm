@@ -69,27 +69,27 @@ Title_Init::
 	ld e, a
 	ld hl, wObjectFreeList
 	ld bc, $1448
-.jump_407e:
+.loop_407e:
 	push bc
-.jump_407f:
+.loop_407f:
 	ld a, [de]
 	inc de
 	ld [hli], a
 	dec b
-	jr nz, .jump_407f
+	jr nz, .loop_407f
 	ld bc, $000c
 	add hl, bc
 	pop bc
 	dec c
-	jr nz, .jump_407e
-.jump_408d:
+	jr nz, .loop_407e
+.loop_408d:
 	ldh a, [rSTAT]
 	and $03
-	jr nz, .jump_408d
-.jump_4093:
+	jr nz, .loop_408d
+.loop_4093:
 	ldh a, [rSTAT]
 	and $03
-	jr z, .jump_4093
+	jr z, .loop_4093
 	ld a, [sTitlePicture]
 	and $03
 	ld e, a
@@ -105,21 +105,21 @@ Title_Init::
 	ld d, [hl]
 	ld e, a
 	call LoadTileset
-.jump_40b0:
+.loop_40b0:
 	ldh a, [rSTAT]
 	and $03
-	jr nz, .jump_40b0
-.jump_40b6:
+	jr nz, .loop_40b0
+.loop_40b6:
 	ldh a, [rSTAT]
 	and $03
-	jr z, .jump_40b6
+	jr z, .loop_40b6
 	ld c, $12
-.jump_40be:
+.loop_40be:
 	ld a, $12
 	sub c
 	call Title_StartHDMA
 	dec c
-	jr nz, .jump_40be
+	jr nz, .loop_40be
 	xor a
 	ldh [rVBK], a
 	ld b, $28
@@ -217,15 +217,15 @@ Title_UpdatePalettes::
 	ld a, [wTitleScrollY]
 	ld d, a
 	ld hl, wTitlePaletteSwaps
-.jump_41a8:
+.loop_41a8:
 	ld a, [hl]
 	cp $ff
-	jr z, .jump_41d6
+	jr z, .else_41d6
 	sub d
-	jr z, .jump_41b3
+	jr z, .skip
 	rlca
-	jr nc, .jump_41d6
-.jump_41b3:
+	jr nc, .else_41d6
+.skip:
 	inc l
 	ld a, [hli]
 	ld e, a
@@ -242,67 +242,67 @@ Title_UpdatePalettes::
 	ld a, $00
 	add a, b
 	ld e, a
-.jump_41c9:
+.loop_41c9:
 	ld a, [hli]
 	ld [de], a
 	inc de
 	dec c
-	jr nz, .jump_41c9
+	jr nz, .loop_41c9
 	pop hl
 	ld a, [wTitleScrollY]
 	ld d, a
-	jr .jump_41a8
+	jr .loop_41a8
 
-.jump_41d6:
+.else_41d6:
 	ld a, l
 	ld [wTitleSwapStart], a
 	ld a, [wTitleStep]
 	or a
-	jr z, .jump_41f5
+	jr z, .else_41f5
 	dec a
-	jr z, .jump_4214
+	jr z, .else_4214
 	dec a
-	jr z, .jump_4224
+	jr z, .else_4224
 	dec a
-	jr z, .jump_4214
+	jr z, .else_4214
 	dec a
-	jr z, .jump_4242
+	jr z, .else_4242
 	dec a
-	jr z, .jump_424a
+	jr z, .else_424a
 	dec a
-	jr z, .jump_4205
+	jr z, .else_4205
 	jp RunFlowScript
 
-.jump_41f5:
+.else_41f5:
 	ld a, [wTitleBrightness]
 	cp $80
-	jr z, .jump_421c
+	jr z, .done
 	add a, $08
 	ld [wTitleBrightness], a
 	call FadePalettesToBlack
 	ret
 
-.jump_4205:
+.else_4205:
 	ld a, [wTitleBrightness]
 	or a
-	jr z, .jump_421c
+	jr z, .done
 	sub $08
 	ld [wTitleBrightness], a
 	call FadePalettesToBlack
 	ret
 
-.jump_4214:
+.else_4214:
 	ld a, [wTitleTimer]
 	dec a
 	ld [wTitleTimer], a
 	ret nz
-.jump_421c:
+.done:
 	ld a, [wTitleStep]
 	inc a
 	ld [wTitleStep], a
 	ret
 
-.jump_4224:
+.else_4224:
 	ld a, [wTitleScrollY]
 	inc a
 	ld [wTitleScrollY], a
@@ -317,14 +317,14 @@ Title_UpdatePalettes::
 	ret nz
 	ld a, $78
 	ld [wTitleTimer], a
-	jr .jump_421c
+	jr .done
 
-.jump_4242:
+.else_4242:
 	ld hl, wOBJPalettes + $40
 	call LoadOBJPalettesInHBlank
-	jr .jump_421c
+	jr .done
 
-.jump_424a:
+.else_424a:
 	ld a, [wTitleTimer]
 	inc a
 	ld [wTitleTimer], a
@@ -349,7 +349,7 @@ Title_UpdatePalettes::
 	ld a, $24
 	ld [wSFXQueue + 1], a
 	call ClearOAM
-	jr .jump_421c
+	jr .done
 
 
 TitleSpriteFrames::
@@ -470,10 +470,10 @@ Title_StartHDMA::
 	ldh [rVBK], a
 	ld a, $81
 	ldh [rHDMA5], a
-.jump_43dd:
+.loop_43dd:
 	ldh a, [rHDMA5]
 	rlca
-	jr nc, .jump_43dd
+	jr nc, .loop_43dd
 	ld a, h
 	ldh [rHDMA1], a
 	ld a, l
@@ -487,10 +487,10 @@ Title_StartHDMA::
 	ldh [rVBK], a
 	ld a, $81
 	ldh [rHDMA5], a
-.jump_43f8:
+.loop_43f8:
 	ldh a, [rHDMA5]
 	rlca
-	jr nc, .jump_43f8
+	jr nc, .loop_43f8
 	ret
 
 

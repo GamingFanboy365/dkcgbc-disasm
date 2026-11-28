@@ -170,6 +170,9 @@ class Emitter:
                         continue
                     k = bisect.bisect_right(globals_sorted, o) - 1
                 self.locals[o] = (globals_sorted[k], ".jump_%04x" % addr)
+        # structural names for the local labels (tools/localnames.py)
+        import localnames
+        localnames.name_locals(self.locals, self.names, t.insns, BANK_SIZE, off)
         # scope of every code offset, for deciding local vs qualified refs
         self.scope_starts = {}
         for bank in by_bank:
@@ -417,7 +420,7 @@ class Emitter:
             return [(o if k == 0 else None, "db %d, %d" % (sb[k], sb[k + 1])) for k in range(0, len(sb), 2)]
         if kind == "sprites3":
             # dx, dy and a value added to the sprite's attributes (used when the
-            # object's OAM attributes have bit 4 set, DrawSpriteFrame .jump_11ce)
+            # object's OAM attributes have bit 4 set, DrawSpriteFrame.else_11ce)
             sb = [b - 0x100 if b >= 0x80 else b for b in item[2]]
             return [(o if k == 0 else None, "db %d, %d, $%02x" % (sb[k], sb[k + 1], item[2][k + 2]) +
                      (" ; dx, dy, attribute add" if k == 0 else "")) for k in range(0, len(sb), 3)]

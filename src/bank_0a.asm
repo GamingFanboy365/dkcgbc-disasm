@@ -13,24 +13,24 @@ Obj_GetFacingOffset::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld a, [hli]
-	jr z, .jump_4010
+	jr z, .skip_4010
 	cpl
 	inc a
-.jump_4010:
+.skip_4010:
 	ldh [hScratch], a
 	bit 7, a
 	ld a, $00
-	jr z, .jump_4019
+	jr z, .skip_4019
 	dec a
-.jump_4019:
+.skip_4019:
 	ldh [hScratch + 1], a
 	ld a, [hli]
 	ldh [hScratch + 2], a
 	bit 7, a
 	ld a, $00
-	jr z, .jump_4025
+	jr z, .skip_4025
 	dec a
-.jump_4025:
+.skip_4025:
 	ldh [hScratch + 3], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
@@ -142,9 +142,9 @@ Obj_MoveToTarget::
 	sbc a, d
 	ld d, a
 	rlca
-	jr c, .jump_40ff
+	jr c, .else_40ff
 	or e
-	jr nz, .jump_4126
+	jr nz, .else_4126
 	ld hl, hScratch
 	inc [hl]
 	xor a
@@ -152,7 +152,7 @@ Obj_MoveToTarget::
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-.jump_40d7:
+.loop:
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
@@ -167,9 +167,9 @@ Obj_MoveToTarget::
 	sbc a, d
 	ld d, a
 	rlca
-	jp c, .jump_4148
+	jp c, .else_4148
 	or e
-	jp nz, .jump_4170
+	jp nz, .else_4170
 	xor a
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
@@ -179,11 +179,11 @@ Obj_MoveToTarget::
 	bit 0, [hl]
 	ret
 
-.jump_40fd:
+.done:
 	xor a
 	ret
 
-.jump_40ff:
+.else_40ff:
 	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
@@ -199,20 +199,20 @@ Obj_MoveToTarget::
 	ld d, a
 	ldh a, [hScratch + 5]
 	cp $ff
-	jr nz, .jump_411d
+	jr nz, .skip_411d
 	ldh a, [hScratch + 4]
 	cp d
-	jr c, .jump_411d
+	jr c, .skip_411d
 	ld d, a
-.jump_411d:
+.skip_411d:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jr .jump_40d7
+	jr .loop
 
-.jump_4126:
+.else_4126:
 	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
@@ -224,20 +224,20 @@ Obj_MoveToTarget::
 	ld e, a
 	ldh a, [hScratch + 5]
 	or a
-	jr nz, .jump_413e
+	jr nz, .skip_413e
 	ldh a, [hScratch + 4]
 	cp d
-	jr nc, .jump_413e
+	jr nc, .skip_413e
 	ld d, a
-.jump_413e:
+.skip_413e:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jp .jump_40d7
+	jp .loop
 
-.jump_4148:
+.else_4148:
 	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
@@ -253,20 +253,20 @@ Obj_MoveToTarget::
 	ld d, a
 	ldh a, [hScratch + 5]
 	cp $ff
-	jr nz, .jump_4166
+	jr nz, .skip_4166
 	ldh a, [hScratch + 4]
 	cp d
-	jr c, .jump_4166
+	jr c, .skip_4166
 	ld d, a
-.jump_4166:
+.skip_4166:
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jp .jump_40fd
+	jp .done
 
-.jump_4170:
+.else_4170:
 	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
@@ -278,18 +278,18 @@ Obj_MoveToTarget::
 	ld e, a
 	ldh a, [hScratch + 5]
 	or a
-	jr nz, .jump_4188
+	jr nz, .skip_4188
 	ldh a, [hScratch + 4]
 	cp d
-	jr nc, .jump_4188
+	jr nc, .skip_4188
 	ld d, a
-.jump_4188:
+.skip_4188:
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jp .jump_40fd
+	jp .done
 
 
 VeryGnawty::
@@ -307,9 +307,9 @@ VeryGnawty::
 	add hl, bc
 	res 5, [hl]
 	rlca
-	jr nc, .jump_41b0
+	jr nc, .skip
 	set 5, [hl]
-.jump_41b0:
+.skip:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(VeryGnawty_Hop)
@@ -328,11 +328,11 @@ VeryGnawty_Hop::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_4235
+	jr c, .continue
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4235
+	jr nz, .continue
 	ld a, $5c
 	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_2E
@@ -363,14 +363,14 @@ VeryGnawty_Hop::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr z, .jump_4210
+	jr z, .skip
 	xor a
 	sub e
 	ld e, a
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_4210:
+.skip:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
@@ -392,7 +392,7 @@ VeryGnawty_Hop::
 	ld [hl], LOW(VeryGnawty_Land)
 	inc l
 	ld [hl], HIGH(VeryGnawty_Land)
-.jump_4235:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -414,7 +414,7 @@ VeryGnawty_Land::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_429c
+	jr c, .continue
 	xor a
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
@@ -435,7 +435,7 @@ VeryGnawty_Land::
 	ld [hl], LOW(VeryGnawty_Hop)
 	inc l
 	ld [hl], HIGH(VeryGnawty_Hop)
-.jump_429c:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -452,13 +452,13 @@ VeryGnawty_Recoil::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_42ca
+	jr c, .skip
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(VeryGnawty)
 	inc l
 	ld [hl], HIGH(VeryGnawty)
-.jump_42ca:
+.skip:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -472,18 +472,18 @@ VeryGnawty_Hit::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_4306
+	jr c, .continue
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
 	sub $05
 	ld de, $4192
-	jr c, .jump_42f9
+	jr c, .skip
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	ld [hl], a
 	ld de, $4319
-.jump_42f9:
+.skip:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld a, e
@@ -492,7 +492,7 @@ VeryGnawty_Hit::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $0a
-.jump_4306:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -506,11 +506,11 @@ VeryGnawty_AngryHop::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_4379
+	jr c, .continue
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4379
+	jr nz, .continue
 	ld a, $5c
 	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_X
@@ -525,10 +525,10 @@ VeryGnawty_AngryHop::
 	res 5, [hl]
 	rlca
 	ld de, $0280
-	jr nc, .jump_434b
+	jr nc, .skip
 	ld de, $fd80
 	set 5, [hl]
-.jump_434b:
+.skip:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
@@ -555,7 +555,7 @@ VeryGnawty_AngryHop::
 	ld [hl], LOW(VeryGnawty_AngryLand)
 	inc l
 	ld [hl], HIGH(VeryGnawty_AngryLand)
-.jump_4379:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -570,7 +570,7 @@ VeryGnawty_AngryLand::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_43b8
+	jr c, .continue
 	xor a
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
@@ -583,15 +583,15 @@ VeryGnawty_AngryLand::
 	add hl, bc
 	dec [hl]
 	ld de, $4319
-	jr nz, .jump_43b1
+	jr nz, .skip
 	ld de, $4192
-.jump_43b1:
+.skip:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_43b8:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -608,32 +608,32 @@ VeryGnawty_TurnAtEdge::
 	ld e, a
 	ld hl, $ffc0
 	add hl, de
-	jr c, .jump_43e9
+	jr c, .skip
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr z, .jump_43e9
+	jr z, .skip
 	res 5, [hl]
 	xor a
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-.jump_43e9:
+.skip:
 	ld hl, $fec0
 	add hl, de
-	jr nc, .jump_4400
+	jr nc, .return
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr nz, .jump_4400
+	jr nz, .return
 	set 5, [hl]
 	xor a
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-.jump_4400:
+.return:
 	ret
 
 
@@ -644,9 +644,9 @@ MasterNecky::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	sub $05
-	jr nc, .jump_440f
+	jr nc, .skip
 	xor a
-.jump_440f:
+.skip:
 	inc a
 	ld [hl], a
 	ld hl, wObjects + OBJ_VAR_2F
@@ -752,7 +752,7 @@ MasterNecky_Spit::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_4517
+	jr c, .jp_MasterNecky_Bob
 	ld [hl], $80
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -767,9 +767,9 @@ MasterNecky_Spit::
 	add hl, bc
 	bit 5, [hl]
 	ld de, $0032
-	jr nz, .jump_44cd
+	jr nz, .skip
 	ld de, $ffce
-.jump_44cd:
+.skip:
 	push bc
 	push de
 	call AllocObject
@@ -815,7 +815,7 @@ MasterNecky_Spit::
 	ld [hli], a
 	ld [hl], d
 	pop bc
-.jump_4517:
+.jp_MasterNecky_Bob:
 	jr MasterNecky_Bob
 
 
@@ -842,12 +842,12 @@ MasterNecky_AfterSpit::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr nz, .jump_454b
+	jr nz, .else
 	ld hl, ObjInit_0a_4550
 	call ApplyObjInit
 	jr MasterNecky_Bob
 
-.jump_454b:
+.else:
 	call VeryGnawty_ApplyHitList
 	jr MasterNecky_Bob
 
@@ -887,7 +887,7 @@ MasterNecky_Pause::
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4598
+	jr nz, .jp_MasterNecky_Bob
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(MasterNecky_Withdraw)
@@ -896,7 +896,7 @@ MasterNecky_Pause::
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	ld [hl], $03
-.jump_4598:
+.jp_MasterNecky_Bob:
 	jr MasterNecky_Bob
 
 
@@ -926,17 +926,17 @@ MasterNecky_Defeated::
 	add hl, bc
 	ld a, [hl]
 	cp $70
-	jr z, .jump_45cb
-	jr nc, .jump_45cb
+	jr z, .else
+	jr nc, .else
 	inc a
 	ld [hl], a
 	call ApplyXVelocity
-	jr .jump_45d1
+	jr .continue
 
-.jump_45cb:
+.else:
 	ld hl, ObjInit_0a_45d7
 	call ApplyObjInit
-.jump_45d1:
+.continue:
 	call AnimateObject
 	jp NextObject
 
@@ -955,20 +955,20 @@ MasterNecky_Recoil::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_4609
+	jr c, .continue
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	ld a, [hl]
 	ld hl, ObjInit_0a_460f
 	or a
-	jr z, .jump_4606
+	jr z, .skip
 	ld hl, ObjInit_0a_461b
 	cp $01
-	jr z, .jump_4606
+	jr z, .skip
 	ld hl, ObjInit_0a_4615
-.jump_4606:
+.skip:
 	call ApplyObjInit
-.jump_4609:
+.continue:
 	call AnimateObject
 	jp NextObject
 
@@ -995,12 +995,12 @@ MasterNecky_Nut::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr nz, .jump_466b
+	jr nz, .continue
 	rst_farcall CollideWithTerrain
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_466b
+	jr z, .continue
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	inc [hl]
@@ -1029,7 +1029,7 @@ MasterNecky_Nut::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_466b:
+.continue:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -1072,7 +1072,7 @@ Accel_0a_46a4::
 
 QueenB_Fly::
 	call Obj_MoveToTarget
-	jr z, .jump_46c3
+	jr z, .continue
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
@@ -1082,29 +1082,29 @@ QueenB_Fly::
 	and $03
 	ld [hl], a
 	call QueenB_SetSpeed
-.jump_46c3:
+.continue:
 	ld hl, wObjects + OBJ_XVEL + 1
 	add hl, bc
 	ld a, [hld]
 	rlca
-	jr c, .jump_46d0
+	jr c, .else_46d0
 	or [hl]
-	jr nz, .jump_46d8
-	jr .jump_46e0
+	jr nz, .else_46d8
+	jr .else_46e0
 
-.jump_46d0:
+.else_46d0:
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	set 5, [hl]
-	jr .jump_46e0
+	jr .else_46e0
 
-.jump_46d8:
+.else_46d8:
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	res 5, [hl]
-	jr .jump_46e0
+	jr .else_46e0
 
-.jump_46e0:
+.else_46e0:
 	call AnimateObject
 	call KingKRool_AimCamera
 	jp NextObject
@@ -1115,7 +1115,7 @@ QueenB_Hit::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_471d
+	jr nz, .continue
 	call QueenB_SetHitColour
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -1137,7 +1137,7 @@ QueenB_Hit::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $04
-.jump_471d:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
@@ -1148,13 +1148,13 @@ QueenB_HitRise::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4739
+	jr nz, .skip
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(QueenB_Charge)
 	inc l
 	ld [hl], HIGH(QueenB_Charge)
-.jump_4739:
+.skip:
 	call ApplyVelocity
 	call AnimateObject
 	jp NextObject
@@ -1173,7 +1173,7 @@ QueenB_Charge::
 	add hl, bc
 	res 5, [hl]
 	rlca
-	jr nc, .jump_4764
+	jr nc, .continue
 	set 5, [hl]
 	xor a
 	sub e
@@ -1181,7 +1181,7 @@ QueenB_Charge::
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_4764:
+.continue:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
@@ -1199,17 +1199,17 @@ QueenB_Wave::
 	ld a, [hl]
 	add a, $03
 	ld [hl], a
-	jr nc, .jump_478e
+	jr nc, .continue
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	dec [hl]
-	jr z, .jump_47aa
+	jr z, .else
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(QueenB_Charge)
 	inc l
 	ld [hl], HIGH(QueenB_Charge)
-.jump_478e:
+.continue:
 	add a, $40
 	ld e, a
 	rst_farcall SineLookup
@@ -1221,12 +1221,12 @@ QueenB_Wave::
 	ld a, $00
 	adc a, d
 	ld [hl], a
-.jump_47a1:
+.loop:
 	call ApplyVelocity
 	call AnimateObject
 	jp NextObject
 
-.jump_47aa:
+.else:
 	call QueenB_SetYellow
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -1245,9 +1245,9 @@ QueenB_Wave::
 	add hl, bc
 	rlca
 	ld [hl], $00
-	jr nc, .jump_47a1
+	jr nc, .loop
 	dec [hl]
-	jr .jump_47a1
+	jr .loop
 
 
 BossDefeated::
@@ -1257,11 +1257,11 @@ BossDefeated::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_47f8
+	jr z, .continue
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
-	jr nz, .jump_47f8
+	jr nz, .continue
 	call BossDefeated_Banana
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
@@ -1270,7 +1270,7 @@ BossDefeated::
 	ld [hl], LOW(Obj_Animate)
 	inc l
 	ld [hl], HIGH(Obj_Animate)
-.jump_47f8:
+.continue:
 	call AnimateObject
 	jp NextObject
 
@@ -1370,13 +1370,13 @@ DumbDrum::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4891
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(DumbDrum_BeginRound)
 	inc l
 	ld [hl], HIGH(DumbDrum_BeginRound)
-.jump_4891:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -1434,7 +1434,7 @@ DumbDrum_Hover::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4908
+	jr nz, .continue
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld e, [hl]
@@ -1450,7 +1450,7 @@ DumbDrum_Hover::
 	ld [hl], LOW(DumbDrum_Pause)
 	inc l
 	ld [hl], HIGH(DumbDrum_Pause)
-.jump_4908:
+.continue:
 	call ApplyVelocity
 	call AnimateObject
 	jp NextObject
@@ -1463,13 +1463,13 @@ DumbDrum_Pause::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4927
+	jr nz, .skip
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(DumbDrum_Drop)
 	inc l
 	ld [hl], HIGH(DumbDrum_Drop)
-.jump_4927:
+.skip:
 	call AnimateObject
 	jp NextObject
 
@@ -1481,7 +1481,7 @@ DumbDrum_Drop::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_4951
+	jr z, .continue
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(DumbDrum_Rise)
@@ -1492,7 +1492,7 @@ DumbDrum_Drop::
 	ld [hl], $00
 	inc l
 	ld [hl], $fe
-.jump_4951:
+.continue:
 	call AnimateObject
 	jp NextObject
 
@@ -1503,20 +1503,20 @@ DumbDrum_Rise::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr nc, .jump_4976
+	jr nc, .continue
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
 	ld de, $48bb
-	jr nz, .jump_496f
+	jr nz, .skip
 	ld de, $497c
-.jump_496f:
+.skip:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_4976:
+.continue:
 	call AnimateObject
 	jp NextObject
 
@@ -1545,7 +1545,7 @@ DumbDrum_Descend::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_49ba
+	jr nz, .continue
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(DumbDrum_SpawnEnemies)
@@ -1556,7 +1556,7 @@ DumbDrum_Descend::
 	ld [hl], $20
 	inc l
 	ld [hl], $03
-.jump_49ba:
+.continue:
 	call ApplyVelocity
 	call AnimateObject
 	jp NextObject
@@ -1567,7 +1567,7 @@ DumbDrum_SpawnEnemies::
 	add hl, bc
 	dec [hl]
 	ld a, [hl]
-	jr nz, .jump_4a11
+	jr nz, .continue
 	ld [hl], $20
 	ld a, $66
 	ld [wSFXQueue + 3], a
@@ -1579,7 +1579,7 @@ DumbDrum_SpawnEnemies::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr z, .jump_4a33
+	jr z, .else
 	add a, [hl]
 	dec a
 	add a, a
@@ -1609,7 +1609,7 @@ DumbDrum_SpawnEnemies::
 	ld [hl], a
 	pop bc
 	xor a
-.jump_4a11:
+.continue:
 	add a, a
 	add a, a
 	add a, a
@@ -1633,7 +1633,7 @@ DumbDrum_SpawnEnemies::
 	ld [hl], d
 	jp NextObject
 
-.jump_4a33:
+.else:
 	ld hl, ObjInit_0a_4a3c
 	call ApplyObjInit
 	jp NextObject
@@ -1775,13 +1775,13 @@ DumbDrum_Leave::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4b35
+	jr nz, .skip
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(DumbDrum_WaitForEnemies)
 	inc l
 	ld [hl], HIGH(DumbDrum_WaitForEnemies)
-.jump_4b35:
+.skip:
 	call ApplyVelocity
 	jp NextObject
 
@@ -1800,19 +1800,19 @@ DumbDrum_WaitForEnemies::
 	inc a
 	ld [hl], a
 	cp $05
-	jr z, .jump_4b5e
+	jr z, .else
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(DumbDrum_BeginRound)
 	inc l
 	ld [hl], HIGH(DumbDrum_BeginRound)
-.jump_4b5b:
+.jp_NextObject:
 	jp NextObject
 
-.jump_4b5e:
+.else:
 	ld hl, ObjInit_0a_4b66
 	call ApplyObjInit
-	jr .jump_4b5b
+	jr .jp_NextObject
 
 
 ObjInit_0a_4b66::
@@ -1835,28 +1835,28 @@ KingKRool::
 	add hl, bc
 	ld a, [hl]
 	rrca
-	jr nc, .jump_4b97
+	jr nc, .else
 	ld a, $5e
 	ld [wSFXQueue + 3], a
-	jp .jump_4bb4
+	jp .set_anim
 
-.jump_4b97:
+.else:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, .jump_4bae
+	jr nz, .skip
 	ld [hl], a
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
 	call AnimateObject
-.jump_4bae:
+.skip:
 	call KingKRool_AimCamera
 	jp NextObject
 
-.jump_4bb4:
+.set_anim:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_5489)
@@ -1875,7 +1875,7 @@ KingKRool_Wait::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4beb
+	jr nz, .continue
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KingKRool_Throw)
@@ -1889,7 +1889,7 @@ KingKRool_Wait::
 	ld [hl], LOW(Anim_04_53b3)
 	inc l
 	ld [hl], HIGH(Anim_04_53b3)
-.jump_4beb:
+.continue:
 	call AnimateObject
 	call KingKRool_AimCamera
 	jp NextObject
@@ -1900,7 +1900,7 @@ KingKRool_Throw::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jp c, .jump_4c88
+	jp c, .continue
 	ld a, $52
 	ld [wSFXQueue + 3], a
 	ld hl, wObjects + OBJ_HANDLER
@@ -1933,14 +1933,14 @@ KingKRool_Throw::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr z, .jump_4c3f
+	jr z, .skip_4c3f
 	xor a
 	sub e
 	ld e, a
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_4c3f:
+.skip_4c3f:
 	push bc
 	push de
 	call AllocObject
@@ -1964,9 +1964,9 @@ KingKRool_Throw::
 	ld [hl], d
 	rl d
 	ld de, $001e
-	jr nc, .jump_4c6c
+	jr nc, .skip_4c6c
 	ld de, $ffe2
-.jump_4c6c:
+.skip_4c6c:
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
@@ -1986,7 +1986,7 @@ KingKRool_Throw::
 	ld [hli], a
 	ld [hl], b
 	pop bc
-.jump_4c88:
+.continue:
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ldh a, [hTempY]
@@ -2020,10 +2020,10 @@ KingKRool_WaitForCrown::
 	ld h, $af
 	ld a, [hl]
 	or a
-	jr nz, .jump_4cd6
+	jr nz, .skip
 	ld hl, ObjInit_0a_4cdf
 	call ApplyObjInit
-.jump_4cd6:
+.skip:
 	call AnimateObject
 	call KingKRool_AimCamera
 	jp NextObject
@@ -2043,7 +2043,7 @@ KingKRool_Animate::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jp nc, KingKRool.jump_4bb4
+	jp nc, KingKRool.set_anim
 	call AnimateObject
 	call KingKRool_AimCamera
 	jp NextObject
@@ -2054,7 +2054,7 @@ KingKRool_BeginRuns::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_4d29
+	jr c, .continue
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $04
@@ -2068,21 +2068,21 @@ KingKRool_BeginRuns::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	cp $04
-	jr c, .jump_4d32
+	jr c, .else_4d32
 	cp $07
-	jr c, .jump_4d35
+	jr c, .else_4d35
 	cp $0a
-	jr c, .jump_4d48
-.jump_4d29:
+	jr c, .else_4d48
+.continue:
 	call AnimateObject
 	call KingKRool_AimCamera
 	jp NextObject
 
-.jump_4d32:
+.else_4d32:
 	ld [hl], a
-	jr .jump_4d4e
+	jr .next_run
 
-.jump_4d35:
+.else_4d35:
 	sub $03
 	ld [hl], a
 	ld hl, wObjects + OBJ_VAR_30
@@ -2095,12 +2095,12 @@ KingKRool_BeginRuns::
 	ld [hl], a
 	jp KingKRool_Hop
 
-.jump_4d48:
+.else_4d48:
 	sub $06
 	ld [hl], a
 	jp KingKRool_StartThrowPause
 
-.jump_4d4e:
+.next_run:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $1e
@@ -2119,7 +2119,7 @@ KingKRool_RunPause::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4d7f
+	jr nz, .continue
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KingKRool_Run)
@@ -2130,7 +2130,7 @@ KingKRool_RunPause::
 	ld [hl], LOW(Anim_04_5381)
 	inc l
 	ld [hl], HIGH(Anim_04_5381)
-.jump_4d7f:
+.continue:
 	call AnimateObject
 	call KingKRool_AimCamera
 	jp NextObject
@@ -2151,14 +2151,14 @@ KingKRool_Run::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr z, .jump_4da7
+	jr z, .skip
 	xor a
 	sub e
 	ld e, a
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_4da7:
+.skip:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
@@ -2172,28 +2172,28 @@ KingKRool_Run::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr nz, .jump_4dc8
+	jr nz, .else_4dc8
 	ld hl, $fec0
 	add hl, de
-	jr nc, .jump_4dd3
+	jr nc, .else_4dd3
 	ld de, $0140
-	jr .jump_4de3
+	jr .else_4de3
 
-.jump_4dc8:
+.else_4dc8:
 	ld hl, $ffc0
 	add hl, de
-	jr c, .jump_4dd3
+	jr c, .else_4dd3
 	ld de, $0040
-	jr .jump_4de3
+	jr .else_4de3
 
-.jump_4dd3:
+.else_4dd3:
 	call ApplyVelocity
 	call AnimateObject
 	rst_farcall CollideWithTerrain
 	call KingKRool_AimCamera
 	jp NextObject
 
-.jump_4de3:
+.else_4de3:
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
@@ -2212,8 +2212,8 @@ KingKRool_Run::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	dec [hl]
-	jp z, KingKRool.jump_4bb4
-	jp KingKRool_BeginRuns.jump_4d4e
+	jp z, KingKRool.set_anim
+	jp KingKRool_BeginRuns.next_run
 
 
 WordTable_0a_4e04::
@@ -2246,20 +2246,20 @@ KingKRool_Hop::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr nz, .jump_4e4b
+	jr nz, .continue
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
 	ld de, $05a0
-	jr z, .jump_4e44
+	jr z, .skip
 	ld de, $fa60
-.jump_4e44:
+.skip:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_4e4b:
+.continue:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KingKRool_Hopping)
@@ -2285,15 +2285,15 @@ KingKRool_Hopping::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_4e83
+	jr c, .else_4e83
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
 	or a
 	jp nz, KingKRool_Hop
-	jp .jump_4e96
+	jp .else_4e96
 
-.jump_4e83:
+.else_4e83:
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
@@ -2301,7 +2301,7 @@ KingKRool_Hopping::
 	call KingKRool_AimCamera
 	jp NextObject
 
-.jump_4e96:
+.else_4e96:
 	ld a, $5e
 	ld [wSFXQueue + 3], a
 	ld a, $50
@@ -2313,9 +2313,9 @@ KingKRool_Hopping::
 	ld [hl], a
 	bit 5, [hl]
 	ld de, $0040
-	jr z, .jump_4eb2
+	jr z, .skip_4eb2
 	ld de, $0140
-.jump_4eb2:
+.skip_4eb2:
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
@@ -2336,7 +2336,7 @@ KingKRool_Hopping::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr nz, .jump_4ee6
+	jr nz, .else_4ee6
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld [hl], $20
@@ -2346,9 +2346,9 @@ KingKRool_Hopping::
 	ld [hl], $50
 	inc l
 	ld [hl], $00
-	jr .jump_4ef5
+	jr .continue
 
-.jump_4ee6:
+.else_4ee6:
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	ld [hl], $e0
@@ -2358,10 +2358,10 @@ KingKRool_Hopping::
 	ld [hl], $30
 	inc l
 	ld [hl], $01
-.jump_4ef5:
+.continue:
 	inc l
 	ld [hl], $08
-.jump_4ef8:
+.hop:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], $28
@@ -2380,7 +2380,7 @@ KingKRool_Hopping::
 	ld [hli], a
 	ld d, a
 	dec [hl]
-	jr nz, .jump_4f2e
+	jr nz, .skip_4f2e
 	ld [hl], $07
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
@@ -2393,20 +2393,20 @@ KingKRool_Hopping::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4f2e
+	jr nz, .skip_4f2e
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KingKRool_WaitForProjectiles)
 	inc l
 	ld [hl], HIGH(KingKRool_WaitForProjectiles)
-.jump_4f2e:
+.skip_4f2e:
 	call KingKRool_SpawnProjectile
 
 KingKRool_HopPause::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr z, KingKRool_Hopping.jump_4ef8
+	jr z, KingKRool_Hopping.hop
 	call AnimateObject
 	jp NextObject
 
@@ -2418,7 +2418,7 @@ KingKRool_WaitForProjectiles::
 	ld h, $af
 	ld a, [hl]
 	or a
-	jp z, KingKRool.jump_4bb4
+	jp z, KingKRool.set_anim
 	call AnimateObject
 	jp NextObject
 
@@ -2483,7 +2483,7 @@ KingKRool_ThrowPause::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_4ff2
+	jr nz, .continue
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
@@ -2498,14 +2498,14 @@ KingKRool_ThrowPause::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr z, .jump_4fd0
+	jr z, .skip
 	xor a
 	sub e
 	ld e, a
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_4fd0:
+.skip:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
@@ -2526,7 +2526,7 @@ KingKRool_ThrowPause::
 	ld [hl], LOW(Anim_04_53f3)
 	inc l
 	ld [hl], HIGH(Anim_04_53f3)
-.jump_4ff2:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -2547,21 +2547,21 @@ KingKRool_TurnAtEdge::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	bit 5, [hl]
-	jr nz, .jump_5025
+	jr nz, .else_5025
 	ld hl, $fec0
 	add hl, de
-	jr nc, .jump_5030
+	jr nc, .else_5030
 	ld de, $0140
-	jr .jump_504c
+	jr .else_504c
 
-.jump_5025:
+.else_5025:
 	ld hl, $ffc0
 	add hl, de
-	jr c, .jump_5030
+	jr c, .else_5030
 	ld de, $0040
-	jr .jump_504c
+	jr .else_504c
 
-.jump_5030:
+.else_5030:
 	ld hl, wObjects + OBJ_VAR_0C
 	add hl, bc
 	ld a, [hl]
@@ -2574,7 +2574,7 @@ KingKRool_TurnAtEdge::
 	call KingKRool_AimCamera
 	jp NextObject
 
-.jump_504c:
+.else_504c:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	xor a
@@ -2599,14 +2599,14 @@ KingKRool_RunAcross::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_507d
+	jr c, .else
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	dec [hl]
-	jp z, KingKRool.jump_4bb4
+	jp z, KingKRool.set_anim
 	jp KingKRool_StartThrowPause
 
-.jump_507d:
+.else:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -2620,10 +2620,10 @@ KingKRool_FakeDefeat::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_50de
+	jr c, .animate
 	ld hl, wMapFlags
 	bit 3, [hl]
-	jp nz, KingKRool_FakeKredits.jump_5179
+	jp nz, KingKRool_FakeKredits.start_kredits
 	set 3, [hl]
 	ldh a, [hMapFlags]
 	or $80
@@ -2659,7 +2659,7 @@ KingKRool_FakeDefeat::
 	ld [hl], LOW(KingKRool_FakeKredits)
 	inc l
 	ld [hl], HIGH(KingKRool_FakeKredits)
-.jump_50de:
+.animate:
 	call AnimateObject
 	jp NextObject
 
@@ -2681,7 +2681,7 @@ KingKRool_Defeated::
 	rst_farcall CollideWithTerrain
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
-	jr nc, .jump_513b
+	jr nc, .continue
 	push bc
 	ld a, $09
 	call PlaySong
@@ -2689,9 +2689,9 @@ KingKRool_Defeated::
 	ld a, [wKongs]
 	rrca
 	ld de, $431b
-	jr nc, .jump_511b
+	jr nc, .skip
 	ld de, $4697
-.jump_511b:
+.skip:
 	ld hl, wPlayer + OBJ_ANIM
 	ld [hl], e
 	inc l
@@ -2710,7 +2710,7 @@ KingKRool_Defeated::
 	ld hl, wPlayer + OBJ_XVEL
 	ld [hli], a
 	ld [hl], a
-.jump_513b:
+.continue:
 	call AnimateObject
 	jp NextObject
 
@@ -2722,7 +2722,7 @@ KingKRool_FakeKredits::
 	ld h, $af
 	ld a, [hl]
 	or a
-	jr nz, KingKRool_FakeDefeat.jump_50de
+	jr nz, KingKRool_FakeDefeat.animate
 	push bc
 	ld a, $06
 	call PlaySong
@@ -2746,7 +2746,7 @@ KingKRool_FakeKredits::
 	ld a, [hl]
 	or $10
 	ld [hl], a
-.jump_5179:
+.start_kredits:
 	ld a, $4e
 	ld [wSFXQueue + 1], a
 	ld hl, ObjInit_0a_518a
@@ -2767,14 +2767,14 @@ Crownerang::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_51aa
+	jr nz, .skip
 	ld [hl], $96
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Crownerang_Return)
 	inc l
 	ld [hl], HIGH(Crownerang_Return)
-.jump_51aa:
+.skip:
 	call ApplyXVelocity
 	call AnimateObject
 	jp NextObject
@@ -2784,9 +2784,9 @@ Crownerang_Return::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_51bd
+	jr nz, .skip
 	call DeleteObject
-.jump_51bd:
+.skip:
 	call UndoXVelocity
 	call AnimateObject
 	jp NextObject
@@ -2796,12 +2796,12 @@ Cannonball::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	bit 0, [hl]
-	jr nz, .jump_51e9
+	jr nz, .continue
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	ld a, [hl]
 	rrca
-	jr nc, .jump_51e9
+	jr nc, .continue
 	ld a, $54
 	ld [wSFXQueue + 3], a
 	ld hl, wObjects + OBJ_VAR_2E
@@ -2812,15 +2812,15 @@ Cannonball::
 	ld [hl], $00
 	inc l
 	ld [hl], $fe
-.jump_51e9:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	bit 0, [hl]
-	jr nz, .jump_51fb
+	jr nz, .skip
 	rst_farcall CollideWithTerrain
-.jump_51fb:
+.skip:
 	call DespawnIfOutOfRange
 	jp NextObject
 
@@ -2838,40 +2838,40 @@ KingKRool_AimCamera::
 	sra d
 	rr e
 	rlca
-	jr c, .jump_5227
+	jr c, .else
 	ld hl, $ffc4
 	add hl, de
-	jr nc, .jump_5220
+	jr nc, .done
 	ld de, $003c
-.jump_5220:
+.done:
 	ld a, $50
 	add a, e
 	ld [wCameraPlayerX], a
 	ret
 
-.jump_5227:
+.else:
 	ld hl, $003c
 	add hl, de
-	jr c, .jump_5220
+	jr c, .done
 	ld de, $ffc4
-	jr .jump_5220
+	jr .done
 
 
 BossDefeated_Banana::
 	ld a, [wMapLocation]
 	cp $3c
-	jr nz, .jump_5240
+	jr nz, .else
 	ld hl, wMapFlags
 	set 4, [hl]
-	jr .jump_524d
+	jr .continue
 
-.jump_5240:
+.else:
 	ld hl, wMapFlags
 	set 6, [hl]
 	ld a, [wWorld]
 	add a, $29
 	ld [wMapLocation], a
-.jump_524d:
+.continue:
 	push bc
 	rst_farcall Save_MarkLevelCleared
 	rst_farcall Player_WinAndExit
@@ -2911,21 +2911,21 @@ GiantBanana::
 	ld e, a
 	ld hl, $ffb6
 	add hl, de
-	jr c, .jump_529a
+	jr c, .skip
 	inc de
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_529a:
+.skip:
 	call AnimateObject
 	jp NextObject
 
 
 KingKRool_AfterKredits::
 	call IsMusicPlaying
-	jr nz, .jump_5304
+	jr nz, .jp_NextObject
 	ld hl, hCameraX
 	ld a, [hli]
 	ld d, [hl]
@@ -2934,28 +2934,28 @@ KingKRool_AfterKredits::
 	add hl, de
 	ld a, l
 	or h
-	jr z, .jump_52cf
+	jr z, .else_52cf
 	bit 7, h
-	jr z, .jump_52c0
+	jr z, .else_52c0
 	inc de
 	ldh a, [hMapFlags]
 	and $ef
 	ldh [hMapFlags], a
-	jr .jump_52c7
+	jr .continue
 
-.jump_52c0:
+.else_52c0:
 	dec de
 	ldh a, [hMapFlags]
 	or $10
 	ldh [hMapFlags], a
-.jump_52c7:
+.continue:
 	ld hl, hCameraX
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jr .jump_5304
+	jr .jp_NextObject
 
-.jump_52cf:
+.else_52cf:
 	push bc
 	ld a, $13
 	call PlaySong
@@ -2987,7 +2987,7 @@ KingKRool_AfterKredits::
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-.jump_5304:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3003,7 +3003,7 @@ KingKRool_KreditsRoll::
 	ld [hl], a
 	ld d, a
 	or e
-	jr z, .jump_535b
+	jr z, .else
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -3013,12 +3013,12 @@ KingKRool_KreditsRoll::
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_5340
+	jr nz, .continue_5340
 	ld [hl], $03
 	dec de
 	ld a, d
 	rlca
-	jr nc, .jump_5339
+	jr nc, .continue_5339
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	inc [hl]
@@ -3026,13 +3026,13 @@ KingKRool_KreditsRoll::
 	add hl, de
 	ld d, h
 	ld e, l
-.jump_5339:
+.continue_5339:
 	ld a, e
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-.jump_5340:
+.continue_5340:
 	ld hl, $fff8
 	add hl, de
 	ld d, h
@@ -3045,10 +3045,10 @@ KingKRool_KreditsRoll::
 	call KingKRool_KreditsDrawCaption
 	call KingKRool_KreditsDrawCaption
 	call KingKRool_KreditsDrawCaption
-.jump_5358:
+.jp_NextObject:
 	jp NextObject
 
-.jump_535b:
+.else:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
@@ -3056,17 +3056,17 @@ KingKRool_KreditsRoll::
 	ld [hl], LOW(KingKRool_KreditsScrollBack)
 	inc l
 	ld [hl], HIGH(KingKRool_KreditsScrollBack)
-	jr .jump_5358
+	jr .jp_NextObject
 
 
 KingKRool_KreditsDrawCaption::
 	ld a, d
 	rlca
-	jr c, .jump_5371
+	jr c, .skip_5371
 	ld a, e
 	cp $90
 	ret nc
-.jump_5371:
+.skip_5371:
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, e
@@ -3083,11 +3083,11 @@ KingKRool_KreditsDrawCaption::
 	cp $0c
 	ret nc
 	cp $0b
-	jr nz, .jump_5390
+	jr nz, .skip_5390
 	ld l, a
 	ld a, [wLanguage]
 	add a, l
-.jump_5390:
+.skip_5390:
 	add a, a
 	add a, a
 	add a, $bf
@@ -3158,34 +3158,34 @@ KingKRool_KreditsScrollBack::
 	add hl, de
 	ld a, l
 	or h
-	jr z, .jump_5435
+	jr z, .else_5435
 	bit 7, h
-	jr z, .jump_5425
+	jr z, .else_5425
 	inc de
 	ldh a, [hMapFlags]
 	and $ef
 	ldh [hMapFlags], a
-	jr .jump_542c
+	jr .continue
 
-.jump_5425:
+.else_5425:
 	dec de
 	ldh a, [hMapFlags]
 	or $10
 	ldh [hMapFlags], a
-.jump_542c:
+.continue:
 	ld hl, hCameraX
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_5432:
+.jp_NextObject:
 	jp NextObject
 
-.jump_5435:
+.else_5435:
 	ldh a, [hMapFlags]
 	and $7f
 	ldh [hMapFlags], a
 	call DeleteObject
-	jr .jump_5432
+	jr .jp_NextObject
 
 
 HUD_Bananas_Hidden::
@@ -3230,19 +3230,19 @@ HUD_Bananas_Shown::
 	add hl, bc
 	ld a, [wHUDFlags]
 	bit 1, a
-	jr z, .jump_5491
+	jr z, .skip
 	res 1, a
 	ld [wHUDFlags], a
 	ld [hl], $3c
-.jump_5491:
+.skip:
 	dec [hl]
-	jr nz, .jump_549d
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(HUD_Bananas_SlideOut)
 	inc l
 	ld [hl], HIGH(HUD_Bananas_SlideOut)
-.jump_549d:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3314,19 +3314,19 @@ HUD_Lives_Shown::
 	add hl, bc
 	ld a, [wHUDFlags]
 	bit 0, a
-	jr z, .jump_551f
+	jr z, .skip
 	res 0, a
 	ld [wHUDFlags], a
 	ld [hl], $3c
-.jump_551f:
+.skip:
 	dec [hl]
-	jr nz, .jump_552b
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(HUD_Lives_SlideOut)
 	inc l
 	ld [hl], HIGH(HUD_Lives_SlideOut)
-.jump_552b:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3355,10 +3355,10 @@ HUD_Lives_SlideOut::
 HUD_PartnerIcon::
 	ld a, [wPlayer + OBJ_FLAGS]
 	and $13
-	jr z, .jump_5575
+	jr z, .jp_NextObject
 	ld a, [wKongs]
 	bit 1, a
-	jr z, .jump_5575
+	jr z, .jp_NextObject
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
@@ -3368,14 +3368,14 @@ HUD_PartnerIcon::
 	ld a, $8c
 	ldh [hSpriteY], a
 	call DrawIcon16
-.jump_5575:
+.jp_NextObject:
 	jp NextObject
 
 
 HUD_Items_Hidden::
 	ld a, [wHUDFlags]
 	bit 2, a
-	jr z, .jump_55bc
+	jr z, .jp_NextObject
 	ld hl, wHUDState
 	set 2, [hl]
 	ld hl, wObjects + OBJ_HANDLER
@@ -3396,71 +3396,71 @@ HUD_Items_Hidden::
 	ld [hl], a
 	swap a
 	and $0f
-	jr z, .jump_55bf
+	jr z, .else_55bf
 	dec a
-	jr z, .jump_55ca
+	jr z, .else_55ca
 	dec a
-	jr z, .jump_55d5
+	jr z, .else_55d5
 	dec a
-	jr z, .jump_55e0
+	jr z, .else_55e0
 	dec a
-	jr z, .jump_55bc
+	jr z, .jp_NextObject
 	dec a
-	jr z, .jump_55eb
+	jr z, .else_55eb
 	dec a
-	jr z, .jump_55f6
+	jr z, .else_55f6
 	ld hl, wHUDFlags
 	res 2, [hl]
-.jump_55bc:
+.jp_NextObject:
 	jp NextObject
 
-.jump_55bf:
+.else_55bf:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld [hl], LOW(Frame_20_4b52)
 	inc l
 	ld [hl], HIGH(Frame_20_4b52)
-	jr .jump_55bc
+	jr .jp_NextObject
 
-.jump_55ca:
+.else_55ca:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld [hl], LOW(Frame_20_44f2)
 	inc l
 	ld [hl], HIGH(Frame_20_44f2)
-	jr .jump_55bc
+	jr .jp_NextObject
 
-.jump_55d5:
+.else_55d5:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld [hl], LOW(Frame_20_44bc)
 	inc l
 	ld [hl], HIGH(Frame_20_44bc)
-	jr .jump_55bc
+	jr .jp_NextObject
 
-.jump_55e0:
+.else_55e0:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld [hl], LOW(Frame_20_4f84)
 	inc l
 	ld [hl], HIGH(Frame_20_4f84)
-	jr .jump_55bc
+	jr .jp_NextObject
 
-.jump_55eb:
+.else_55eb:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_570b)
 	inc l
 	ld [hl], HIGH(Anim_04_570b)
-	jr .jump_55bc
+	jr .jp_NextObject
 
-.jump_55f6:
+.else_55f6:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_5517)
 	inc l
 	ld [hl], HIGH(Anim_04_5517)
-	jr .jump_55bc
+	jr .jp_NextObject
 
 
 HUD_Items_SlideIn::
@@ -3471,13 +3471,13 @@ HUD_Items_SlideIn::
 	inc [hl]
 	ld a, [hl]
 	cp $04
-	jr nz, .jump_561a
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(HUD_Items_Shown)
 	inc l
 	ld [hl], HIGH(HUD_Items_Shown)
-.jump_561a:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3488,37 +3488,37 @@ HUD_Items_Shown::
 	add hl, bc
 	ld a, [wHUDFlags]
 	bit 2, a
-	jr z, .jump_5635
+	jr z, .skip
 	res 2, a
 	ld [wHUDFlags], a
 	ld [hl], $3c
-.jump_5635:
+.skip:
 	dec [hl]
-	jr nz, .jump_5659
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
 	swap a
 	and $0f
 	cp $04
-	jr c, .jump_5650
+	jr c, .else_5650
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	cp $0f
-	jr z, .jump_565c
-	jr .jump_5650
+	jr z, .else_565c
+	jr .else_5650
 
-.jump_5650:
+.else_5650:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(HUD_Items_SlideOut)
 	inc l
 	ld [hl], HIGH(HUD_Items_SlideOut)
-.jump_5659:
+.jp_NextObject:
 	jp NextObject
 
-.jump_565c:
+.else_565c:
 	ld hl, wHUDFlags
 	set 0, [hl]
 	ld hl, wObjects + OBJ_HANDLER
@@ -3539,7 +3539,7 @@ HUD_Items_Shown::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld [hl], $01
-	jr .jump_5659
+	jr .jp_NextObject
 
 
 HUD_Items_SlideOut::
@@ -3550,7 +3550,7 @@ HUD_Items_SlideOut::
 	dec [hl]
 	ld a, [hl]
 	cp $f0
-	jr nz, .jump_569e
+	jr nz, .jp_NextObject
 	ld hl, wHUDState
 	res 2, [hl]
 	ld hl, wObjects + OBJ_HANDLER
@@ -3558,7 +3558,7 @@ HUD_Items_SlideOut::
 	ld [hl], LOW(HUD_Items_Hidden)
 	inc l
 	ld [hl], HIGH(HUD_Items_Hidden)
-.jump_569e:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3569,16 +3569,16 @@ HUD_Items_Draw::
 	swap a
 	and $0f
 	cp $04
-	jr c, .jump_56ce
+	jr c, .else_56ce
 	sub $04
-	jr z, .jump_56b9
+	jr z, .else_56b9
 	dec a
-	jr z, .jump_56da
+	jr z, .else_56da
 	dec a
-	jr z, .jump_56eb
+	jr z, .done
 	ret
 
-.jump_56b9:
+.else_56b9:
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, [wLevel]
@@ -3593,7 +3593,7 @@ HUD_Items_Draw::
 	ld [hl], a
 	ret
 
-.jump_56ce:
+.else_56ce:
 	ld hl, wAnimalTokens
 	add a, l
 	ld l, a
@@ -3603,7 +3603,7 @@ HUD_Items_Draw::
 	ld [hl], a
 	ret
 
-.jump_56da:
+.else_56da:
 	ld a, [wSaveFile]
 	rrca
 	rrca
@@ -3616,7 +3616,7 @@ HUD_Items_Draw::
 	ld [hl], a
 	ret
 
-.jump_56eb:
+.done:
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [wStickers]
@@ -3631,18 +3631,18 @@ HUD_Items_Reward::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_5736
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	cp $0f
-	jr z, .jump_5739
+	jr z, .else_5739
 	cp $0e
-	jr z, .jump_5770
+	jr z, .else_5770
 	cp $0c
-	jr z, .jump_5787
+	jr z, .else_5787
 	cp $08
-	jp z, .jump_579e
+	jp z, .else_579e
 	ld hl, wLivesPending
 	dec [hl]
 	rst_farcall GiveExtraLife
@@ -3659,10 +3659,10 @@ HUD_Items_Reward::
 	ld [hl], LOW(HUD_Items_Hidden)
 	inc l
 	ld [hl], HIGH(HUD_Items_Hidden)
-.jump_5736:
+.jp_NextObject:
 	jp NextObject
 
-.jump_5739:
+.else_5739:
 	res 0, [hl]
 	ld a, $01
 	ld [wSFXQueue + 1], a
@@ -3677,7 +3677,7 @@ HUD_Items_Reward::
 	ld c, a
 	ld hl, ObjInit_0a_57c0
 	call ApplyObjInit
-.jump_5754:
+.loop:
 	ld hl, ObjInit_0a_57b5
 	call ApplyObjInit
 	ld de, $0081
@@ -3690,7 +3690,7 @@ HUD_Items_Reward::
 	ld [hl], $20
 	jp NextObject
 
-.jump_5770:
+.else_5770:
 	res 1, [hl]
 	ld a, $03
 	ld [wSFXQueue + 1], a
@@ -3702,9 +3702,9 @@ HUD_Items_Reward::
 	ld c, a
 	ld hl, ObjInit_0a_57c7
 	call ApplyObjInit
-	jr .jump_5754
+	jr .loop
 
-.jump_5787:
+.else_5787:
 	res 2, [hl]
 	ld a, $05
 	ld [wSFXQueue + 1], a
@@ -3716,9 +3716,9 @@ HUD_Items_Reward::
 	ld c, a
 	ld hl, ObjInit_0a_57ce
 	call ApplyObjInit
-	jr .jump_5754
+	jr .loop
 
-.jump_579e:
+.else_579e:
 	res 3, [hl]
 	ld a, $07
 	ld [wSFXQueue + 1], a
@@ -3730,7 +3730,7 @@ HUD_Items_Reward::
 	ld c, a
 	ld hl, ObjInit_0a_57d5
 	call ApplyObjInit
-	jr .jump_5754
+	jr .loop
 
 
 ObjInit_0a_57b5::
@@ -3777,7 +3777,7 @@ KongLetter::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	and [hl]
-	jr nz, .jump_580a
+	jr nz, .else
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -3788,11 +3788,11 @@ KongLetter::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $02
-	jr .jump_580d
+	jr .jp_NextObject
 
-.jump_580a:
+.else:
 	call DeleteObject
-.jump_580d:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3801,20 +3801,20 @@ KongLetter_FlyUp::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_5823
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KongLetter_Collected)
 	inc l
 	ld [hl], HIGH(KongLetter_Collected)
-.jump_5823:
+.jp_NextObject:
 	jp NextObject
 
 
 KongLetter_Collected::
 	ld hl, wHUDFlags
 	bit 2, [hl]
-	jr nz, .jump_5852
+	jr nz, .jp_NextObject
 	ld hl, wItemsInFlight
 	dec [hl]
 	ld hl, wObjects + OBJ_VAR_2E
@@ -3832,12 +3832,12 @@ KongLetter_Collected::
 	ld [hl], a
 	and $0f
 	cp $0f
-	jr nz, .jump_584f
+	jr nz, .skip
 	ld hl, wLivesPending
 	inc [hl]
-.jump_584f:
+.skip:
 	call DeleteObjectForGood
-.jump_5852:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3846,13 +3846,13 @@ AnimalToken_FlyToHUD::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_5868
+	jr nz, .skip
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(AnimalToken_Count)
 	inc l
 	ld [hl], HIGH(AnimalToken_Count)
-.jump_5868:
+.skip:
 	call AnimateObject
 	jp NextObject
 
@@ -3860,7 +3860,7 @@ AnimalToken_FlyToHUD::
 AnimalToken_Count::
 	ld hl, wHUDFlags
 	bit 2, [hl]
-	jr nz, .jump_58bd
+	jr nz, .jp_NextObject
 	ld hl, wItemsInFlight
 	dec [hl]
 	ld hl, wObjects + OBJ_VAR_2F
@@ -3880,7 +3880,7 @@ AnimalToken_Count::
 	inc a
 	ld [hl], a
 	cp $03
-	jr nz, .jump_58ba
+	jr nz, .else
 	xor a
 	ld [hl], a
 	ld hl, wLevelFlags
@@ -3900,11 +3900,11 @@ AnimalToken_Count::
 	ld [wLevelEntrance + 1], a
 	rst_farcall Player_ExitToEntrance
 	call DeleteObject
-	jr .jump_58bd
+	jr .jp_NextObject
 
-.jump_58ba:
+.else:
 	call DeleteObjectForGood
-.jump_58bd:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -3940,7 +3940,7 @@ Bananas::
 	ldh a, [hSpriteLayerFill]
 	ld l, a
 	push bc
-.jump_58fc:
+.loop_58fc:
 	ld a, [de]
 	inc e
 	ld b, a
@@ -3948,24 +3948,24 @@ Bananas::
 	inc e
 	ld c, a
 	or b
-	jr z, .jump_5953
+	jr z, .continue_5953
 	ldh a, [hSpriteY + 1]
 	or a
-	jr nz, .jump_5953
+	jr nz, .continue_5953
 	ldh a, [hSpriteY]
 	cp $a0
-	jr nc, .jump_5953
-.jump_5910:
+	jr nc, .continue_5953
+.loop_5910:
 	bit 7, l
-	jr nz, .jump_596e
+	jr nz, .continue_596e
 	ldh a, [hSpriteX + 1]
 	or a
-	jr nz, .jump_593f
+	jr nz, .else
 	ldh a, [hSpriteX]
 	cp $a8
-	jr nc, .jump_593f
+	jr nc, .else
 	sla b
-	jr nc, .jump_592e
+	jr nc, .continue_592e
 	ldh a, [hSpriteY]
 	ld [hli], a
 	ldh a, [hSpriteX]
@@ -3974,9 +3974,9 @@ Bananas::
 	ld [hli], a
 	xor a
 	ld [hli], a
-.jump_592e:
+.continue_592e:
 	sla c
-	jr nc, .jump_5943
+	jr nc, .continue_5943
 	ldh a, [hSpriteY]
 	ld [hli], a
 	ldh a, [hSpriteX]
@@ -3985,12 +3985,12 @@ Bananas::
 	ld [hli], a
 	xor a
 	ld [hli], a
-	jr .jump_5943
+	jr .continue_5943
 
-.jump_593f:
+.else:
 	sla b
 	sla c
-.jump_5943:
+.continue_5943:
 	ldh a, [hSpriteX]
 	add a, $08
 	ldh [hSpriteX], a
@@ -3999,8 +3999,8 @@ Bananas::
 	ldh [hSpriteX + 1], a
 	ld a, c
 	or b
-	jr nz, .jump_5910
-.jump_5953:
+	jr nz, .loop_5910
+.continue_5953:
 	ldh a, [hSpriteY]
 	add a, $08
 	ldh [hSpriteY], a
@@ -4014,8 +4014,8 @@ Bananas::
 	ldh a, [hSpriteAttr]
 	dec a
 	ldh [hSpriteAttr], a
-	jr nz, .jump_58fc
-.jump_596e:
+	jr nz, .loop_58fc
+.continue_596e:
 	pop bc
 	ld a, l
 	ldh [hSpriteLayerFill], a
@@ -4050,23 +4050,23 @@ DKBarrel::
 DKBarrel_Wait::
 	ld a, [wKongs]
 	bit 1, a
-	jr nz, .jump_59c5
+	jr nz, .skip
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, .jump_59c5
+	jr nz, .skip
 	ld [hl], $50
 	call GetPlayerDistanceX
 	ld hl, $ffb0
 	add hl, de
-	jr c, .jump_59c5
+	jr c, .skip
 	ld a, $58
 	ld [wSFXQueue + 1], a
 	ld a, $5a
 	ld [wSFXQueue + 3], a
-.jump_59c5:
+.skip:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -4080,7 +4080,7 @@ Obj_Remove::
 DKBarrel2::
 	ld a, [wKongs]
 	bit 1, a
-	jr nz, .jump_59ea
+	jr nz, .else
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
@@ -4090,7 +4090,7 @@ DKBarrel2::
 	ld [hl], HIGH(DKBarrel_Wait)
 	jp NextObject
 
-.jump_59ea:
+.else:
 	call DeleteObjectForGood
 	jp NextObject
 
@@ -4147,17 +4147,17 @@ BarrelSupply_Wait::
 	ld h, $af
 	ld a, [hl]
 	or a
-	jr nz, .jump_5a5e
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_5a5e
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(BarrelSupply)
 	inc l
 	ld [hl], HIGH(BarrelSupply)
-.jump_5a5e:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -4181,7 +4181,7 @@ DKBarrel_Open::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_5a97
+	jr nz, .jp_NextObject
 	ld hl, wKongs
 	set 1, [hl]
 	ldh a, [hObjectRunMask]
@@ -4189,7 +4189,7 @@ DKBarrel_Open::
 	or $01
 	ldh [hObjectRunMask], a
 	call DeleteObjectForGood
-.jump_5a97:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -4203,7 +4203,7 @@ StarBarrel::
 	ld [hl], HIGH(Obj_AnimateAndDespawn)
 	ld a, [wGameModeBit]
 	bit 2, a
-	jr nz, .jump_5ac1
+	jr nz, .else
 	ld a, $04
 	ldh [rSVBK], a
 	ld a, [wLevel]
@@ -4213,13 +4213,13 @@ StarBarrel::
 	ld l, a
 	ld h, $d4
 	bit 7, [hl]
-	jr nz, .jump_5ac1
-.jump_5abe:
+	jr nz, .else
+.jp_NextObject:
 	jp NextObject
 
-.jump_5ac1:
+.else:
 	call DeleteObjectForGood
-	jr .jump_5abe
+	jr .jp_NextObject
 
 
 Barrel_Dropped::
@@ -4229,16 +4229,16 @@ Barrel_Dropped::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_5b38
+	jr z, .continue_5b38
 	bit 2, [hl]
-	jr nz, .jump_5af6
+	jr nz, .else_5af6
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr z, .jump_5b04
+	jr z, .else_5b04
 	cp $03
-	jr z, .jump_5b12
+	jr z, .else_5b12
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -4246,9 +4246,9 @@ Barrel_Dropped::
 	ld [hl], LOW(Obj_AnimateAndDespawn)
 	inc l
 	ld [hl], HIGH(Obj_AnimateAndDespawn)
-	jr .jump_5b26
+	jr .else_5b26
 
-.jump_5af6:
+.else_5af6:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -4256,9 +4256,9 @@ Barrel_Dropped::
 	ld [hl], LOW(Obj_MoveAndAnimate)
 	inc l
 	ld [hl], HIGH(Obj_MoveAndAnimate)
-	jr .jump_5b38
+	jr .continue_5b38
 
-.jump_5b04:
+.else_5b04:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
@@ -4266,9 +4266,9 @@ Barrel_Dropped::
 	ld [hl], LOW(DKBarrel_Wait)
 	inc l
 	ld [hl], HIGH(DKBarrel_Wait)
-	jr .jump_5b32
+	jr .continue_5b32
 
-.jump_5b12:
+.else_5b12:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $09
@@ -4279,9 +4279,9 @@ Barrel_Dropped::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	ld [hl], $3c
-	jr .jump_5b32
+	jr .continue_5b32
 
-.jump_5b26:
+.else_5b26:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $08
@@ -4289,10 +4289,10 @@ Barrel_Dropped::
 	ld [hl], LOW(Obj_FallThenAnimate)
 	inc l
 	ld [hl], HIGH(Obj_FallThenAnimate)
-.jump_5b32:
+.continue_5b32:
 	ld hl, ObjInit_0a_5b3e
 	call ApplyObjInit
-.jump_5b38:
+.continue_5b38:
 	call DespawnIfOutOfRange
 	jp NextObject
 
@@ -4311,29 +4311,29 @@ ObjInit_0a_5b3e::
 RunKritterScript::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
-.jump_5b5a:
+.loop_5b5a:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-.jump_5b5d:
+.loop_5b5d:
 	ld a, [hli]
 	or a
-	jr z, .jump_5b5a
+	jr z, .loop_5b5a
 	dec a
-	jr z, .jump_5b74
+	jr z, .else_5b74
 	dec a
-	jr z, .jump_5b8f
+	jr z, .else_5b8f
 	dec a
-	jr z, .jump_5bba
+	jr z, .else_5bba
 	dec a
-	jr z, .jump_5b88
+	jr z, .else_5b88
 	dec a
-	jr z, .jump_5bd2
+	jr z, .else_5bd2
 	dec a
-	jr z, .jump_5bf0
+	jr z, .else_5bf0
 	ret
 
-.jump_5b74:
+.else_5b74:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_34
@@ -4345,15 +4345,15 @@ RunKritterScript::
 	inc l
 	ld [hl], HIGH(Kritter_Scripted)
 	pop hl
-	jp .jump_5c0e
+	jp .done
 
-.jump_5b88:
+.else_5b88:
 	push hl
 	call Player_ReverseX
 	pop hl
-	jr .jump_5b5d
+	jr .loop_5b5d
 
-.jump_5b8f:
+.else_5b8f:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_34
@@ -4378,9 +4378,9 @@ RunKritterScript::
 	inc l
 	ld [hl], $00
 	pop hl
-	jr .jump_5c0e
+	jr .done
 
-.jump_5bba:
+.else_5bba:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -4397,9 +4397,9 @@ RunKritterScript::
 	inc l
 	ld [hl], HIGH(Kritter_JumpStart)
 	pop hl
-	jr .jump_5c0e
+	jr .done
 
-.jump_5bd2:
+.else_5bd2:
 	push hl
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
@@ -4421,9 +4421,9 @@ RunKritterScript::
 	ld a, [hli]
 	ld [de], a
 	pop hl
-	jp .jump_5b5d
+	jp .loop_5b5d
 
-.jump_5bf0:
+.else_5bf0:
 	push hl
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
@@ -4445,9 +4445,9 @@ RunKritterScript::
 	ld a, [de]
 	ld [hli], a
 	pop hl
-	jp .jump_5b5d
+	jp .loop_5b5d
 
-.jump_5c0e:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_32
@@ -4493,13 +4493,13 @@ Kritter_JumpStart::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
-	jr nz, .jump_5c68
-.jump_5c5f:
+	jr nz, .else
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_5c68:
+.else:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Kritter_Jumping)
@@ -4543,7 +4543,7 @@ Kritter_JumpStart::
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-	jr .jump_5c5f
+	jr .loop
 
 
 Kritter_Jumping::
@@ -4557,33 +4557,33 @@ Kritter_Jumping::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
-	jr nz, .jump_5cdc
+	jr nz, .continue
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, [hli]
 	or [hl]
-	jr z, .jump_5cdc
+	jr z, .continue
 	ld a, [hl]
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	rlca
-	jr c, .jump_5cda
+	jr c, .else_5cda
 	res 5, [hl]
-	jr .jump_5cdc
+	jr .continue
 
-.jump_5cda:
+.else_5cda:
 	set 5, [hl]
-.jump_5cdc:
+.continue:
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
-	jr nz, .jump_5ced
-.jump_5ce4:
+	jr nz, .else_5ced
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_5ced:
+.else_5ced:
 	call TurnAtRangeLimit
 	ld hl, wObjects + OBJ_TARGET_YVEL
 	add hl, bc
@@ -4591,7 +4591,7 @@ Kritter_Jumping::
 	inc l
 	ld [hl], $07
 	call RunKritterScript
-	jr .jump_5ce4
+	jr .loop
 
 
 Kritter_Jump::
@@ -4619,11 +4619,11 @@ Kritter_Jump::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	rlca
-	jr c, .jump_5d2c
+	jr c, .else
 	res 5, [hl]
 	jr Kritter_Jump_Loop
 
-.jump_5d2c:
+.else:
 	set 5, [hl]
 
 Kritter_Jump_Loop::
@@ -4642,7 +4642,7 @@ Kritter_Jump_Loop::
 	sub e
 	ld a, [hl]
 	sbc a, d
-	jr c, .jump_5d5d
+	jr c, .continue
 	ld a, d
 	ld [hld], a
 	ld a, e
@@ -4656,7 +4656,7 @@ Kritter_Jump_Loop::
 	ld [hl], LOW(Kritter_Jump)
 	inc l
 	ld [hl], HIGH(Kritter_Jump)
-.jump_5d5d:
+.continue:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -4710,7 +4710,7 @@ Zinger_Move_Loop::
 	adc a, d
 	ld [hl], a
 	rst_farcall SetOrbitPosition
-	jp Zinger_Patrol.jump_5e14
+	jp Zinger_Patrol.animate
 
 
 Zinger_Move2::
@@ -4755,30 +4755,30 @@ Zinger_Move2_Loop::
 	add a, $08
 	and $f0
 	bit 7, d
-	jr nz, .jump_5df9
+	jr nz, .else
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	cp [hl]
 	ld hl, wPlayer + OBJ_TARGET_YVEL
 	call z, NegateObjectWord
-	jr .jump_5e04
+	jr .continue
 
-.jump_5df9:
+.else:
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	cp [hl]
 	ld hl, wPlayer + OBJ_TARGET_YVEL
 	call z, NegateObjectWord
-.jump_5e04:
+.continue:
 	rst_farcall SetOrbitPosition
-	jp Zinger_Patrol.jump_5e14
+	jp Zinger_Patrol.animate
 
 
 Zinger_Patrol::
 	call TurnAtRangeLimit
 	call UpdateVelocity
 	call ApplyVelocity
-.jump_5e14:
+.animate:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -4788,16 +4788,16 @@ Krusha::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	dec [hl]
-	jr z, .jump_5e37
+	jr z, .else_5e37
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
-.jump_5e2e:
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_5e37:
+.else_5e37:
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_49c9)
@@ -4807,7 +4807,7 @@ Krusha::
 	add hl, bc
 	ld a, [hl]
 	and $04
-	jr nz, .jump_5e57
+	jr nz, .else_5e57
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $09
@@ -4815,9 +4815,9 @@ Krusha::
 	ld [hl], LOW(Gnawty_Red_Walk)
 	inc l
 	ld [hl], HIGH(Gnawty_Red_Walk)
-	jr .jump_5e2e
+	jr .loop
 
-.jump_5e57:
+.else_5e57:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $09
@@ -4825,29 +4825,29 @@ Krusha::
 	ld [hl], LOW(Gnawty)
 	inc l
 	ld [hl], HIGH(Gnawty)
-	jr .jump_5e2e
+	jr .loop
 
 
 RunNeckyScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-.jump_5e69:
+.loop_5e69:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-.jump_5e6c:
+.loop_5e6c:
 	ld a, [hli]
 	or a
-	jr z, .jump_5e69
+	jr z, .loop_5e69
 	dec a
-	jr z, .jump_5e7a
+	jr z, .else_5e7a
 	dec a
-	jr z, .jump_5e90
+	jr z, .else_5e90
 	dec a
-	jr z, .jump_5e9d
+	jr z, .else_5e9d
 	ret
 
-.jump_5e7a:
+.else_5e7a:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_30
@@ -4861,9 +4861,9 @@ RunNeckyScript::
 	inc l
 	ld [hl], HIGH(Necky_ThrowNuts)
 	pop hl
-	jr .jump_5ec7
+	jr .done
 
-.jump_5e90:
+.else_5e90:
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
@@ -4871,9 +4871,9 @@ RunNeckyScript::
 	inc l
 	ld [hl], HIGH(Anim_04_4a0d)
 	pop hl
-	jr .jump_5e6c
+	jr .loop_5e6c
 
-.jump_5e9d:
+.else_5e9d:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -4900,9 +4900,9 @@ RunNeckyScript::
 	add hl, bc
 	ld [hl], $80
 	pop hl
-	jr .jump_5ec7
+	jr .done
 
-.jump_5ec7:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_2E
@@ -4916,15 +4916,15 @@ Necky_ThrowNuts::
 	call GetPlayerDistanceX
 	ld hl, $ff9c
 	add hl, de
-	jr c, .jump_5ee5
+	jr c, .skip
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, .jump_5ee5
+	jr nz, .skip
 	call RunNeckyScript
-.jump_5ee5:
+.skip:
 	call DespawnIfOutOfRange
 	call AnimateObject
 	jp NextObject
@@ -4934,12 +4934,12 @@ Necky_Throw::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
-	jr z, .jump_5efc
-.jump_5ef6:
+	jr z, .else
+.loop:
 	call AnimateObject
 	jp NextObject
 
-.jump_5efc:
+.else:
 	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
@@ -4963,7 +4963,7 @@ Necky_Throw::
 	call InitObject
 	pop bc
 	call RunNeckyScript
-	jp .jump_5ef6
+	jp .loop
 
 
 ObjInit_0a_5f2a::
@@ -5005,7 +5005,7 @@ BouncingCoconut_Fall::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_5fb1
+	jr nz, .continue
 	ld [hl], $01
 	call GetTerrainUnderObject
 	ld hl, wObjects + OBJ_Y
@@ -5022,16 +5022,16 @@ BouncingCoconut_Fall::
 	sbc a, d
 	ld d, a
 	bit 7, d
-	jr nz, .jump_5fb1
+	jr nz, .continue
 	ld hl, $fff8
 	add hl, de
-	jr c, .jump_5fb1
+	jr c, .continue
 	ld a, [wSFXQueue + 1]
 	rrca
-	jr c, .jump_5fa5
+	jr c, .skip
 	ld a, $9c
 	ld [wSFXQueue + 1], a
-.jump_5fa5:
+.skip:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
@@ -5039,7 +5039,7 @@ BouncingCoconut_Fall::
 	ld [hl], LOW(BouncingCoconut_Bounce)
 	inc l
 	ld [hl], HIGH(BouncingCoconut_Bounce)
-.jump_5fb1:
+.continue:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -5071,13 +5071,13 @@ Rope::
 	jp nz, NextObject
 	ld a, [wPlayer + OBJ_COLLISION]
 	and $01
-	jp z, .jump_6054
+	jp z, .else_6054
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
-	jp nz, .jump_6054
+	jp nz, .else_6054
 	ld a, [wPlayer + OBJ_VAR_37]
 	or a
-	jp nz, .jump_6054
+	jp nz, .else_6054
 	ld hl, wPlayer + OBJ_X
 	ld a, [hli]
 	ld d, [hl]
@@ -5091,17 +5091,17 @@ Rope::
 	sbc a, d
 	ld d, a
 	rlca
-	jr nc, .jump_601a
+	jr nc, .else_601a
 	ld hl, $0008
 	add hl, de
-	jr nc, .jump_6054
-	jr .jump_6020
+	jr nc, .else_6054
+	jr .continue
 
-.jump_601a:
+.else_601a:
 	ld hl, $fff8
 	add hl, de
-	jr c, .jump_6054
-.jump_6020:
+	jr c, .else_6054
+.continue:
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
@@ -5115,7 +5115,7 @@ Rope::
 	sbc a, d
 	ld d, a
 	rlca
-	jr c, .jump_6054
+	jr c, .else_6054
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	ld a, [hli]
@@ -5123,7 +5123,7 @@ Rope::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr c, .jump_6054
+	jr c, .else_6054
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Rope_Held)
@@ -5135,7 +5135,7 @@ Rope::
 	rst_farcall Player_GrabRope
 	jp NextObject
 
-.jump_6054:
+.else_6054:
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	bit 1, [hl]
@@ -5147,19 +5147,19 @@ Rope::
 Rope_Slide::
 	call GetOffsetFromSpawnX
 	call CheckRangeLimit
-	jr nc, .jump_6079
+	jr nc, .skip
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, bc
 	bit 2, [hl]
-	jr nz, .jump_6080
+	jr nz, .done
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	call NegateObjectWord
-.jump_6079:
+.skip:
 	call UpdateVelocity
 	call ApplyVelocity
 	ret
 
-.jump_6080:
+.done:
 	xor a
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
@@ -5183,7 +5183,7 @@ Rope_Released::
 	ld hl, wObjects + OBJ_VAR_38
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_60b4
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
@@ -5191,7 +5191,7 @@ Rope_Released::
 	ld [hl], LOW(Rope)
 	inc l
 	ld [hl], HIGH(Rope)
-.jump_60b4:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -5200,16 +5200,16 @@ SwingingRope_SetFrame::
 	add hl, bc
 	ld a, [hl]
 	bit 5, a
-	jr z, .jump_60c1
+	jr z, .skip_60c1
 	cpl
-.jump_60c1:
+.skip_60c1:
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	res 5, [hl]
 	bit 4, a
-	jr z, .jump_60cd
+	jr z, .skip_60cd
 	set 5, [hl]
-.jump_60cd:
+.skip_60cd:
 	and $1f
 	add a, a
 	add a, a
@@ -5283,23 +5283,23 @@ SwingingRope_Held::
 	add hl, bc
 	ld a, [de]
 	bit 7, a
-	jr nz, .jump_6215
+	jr nz, .else
 	add a, [hl]
 	ld [wPlayer + OBJ_X], a
 	inc hl
 	ld a, [hl]
 	adc a, $00
 	ld [wPlayer + OBJ_X + 1], a
-	jr .jump_6220
+	jr .continue
 
-.jump_6215:
+.else:
 	add a, [hl]
 	ld [wPlayer + OBJ_X], a
 	inc hl
 	ld a, [hl]
 	adc a, $ff
 	ld [wPlayer + OBJ_X + 1], a
-.jump_6220:
+.continue:
 	inc de
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
@@ -5313,10 +5313,10 @@ SwingingRope_Held::
 	inc de
 	ld a, [wKongs]
 	rrca
-	jr nc, .jump_623a
+	jr nc, .skip
 	inc de
 	inc de
-.jump_623a:
+.skip:
 	ld hl, wPlayer + OBJ_FRAME
 	ld a, [de]
 	ld [hli], a
@@ -5368,22 +5368,22 @@ Army::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_62e7
+	jr c, .continue_62e7
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, .jump_6299
+	jr nz, .else_6299
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_4a7b)
 	inc hl
 	ld [hl], HIGH(Anim_04_4a7b)
 	call Army_StopRolling
-	jr .jump_62dd
+	jr .continue_62dd
 
-.jump_6299:
+.else_6299:
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	ld [hl], $00
@@ -5398,42 +5398,42 @@ Army::
 	ld a, [hl]
 	sbc a, d
 	rlca
-	jr nc, .jump_62bb
+	jr nc, .else_62bb
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld [hl], $00
 	inc hl
 	ld [hl], $fe
-	jr .jump_62c4
+	jr .continue_62c4
 
-.jump_62bb:
+.else_62bb:
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld [hl], $00
 	inc hl
 	ld [hl], $02
-.jump_62c4:
+.continue_62c4:
 	ld hl, wObjects + OBJ_XVEL + 1
 	add hl, bc
 	ld a, [hld]
 	rlca
-	jr c, .jump_62d7
+	jr c, .else_62d7
 	or [hl]
-	jr z, .jump_62dd
+	jr z, .continue_62dd
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	res 5, [hl]
-	jr .jump_62dd
+	jr .continue_62dd
 
-.jump_62d7:
+.else_62d7:
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	set 5, [hl]
-.jump_62dd:
+.continue_62dd:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
-.jump_62e7:
+.continue_62e7:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -5444,7 +5444,7 @@ Army_Idle::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr c, .jump_6333
+	jr c, .continue
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
 	ld [hl], $01
@@ -5453,12 +5453,12 @@ Army_Idle::
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, .jump_6333
+	jr nz, .continue
 	ld [hl], a
 	call GetPlayerDistanceX
 	ld hl, $ff9c
 	add hl, de
-	jr c, .jump_6333
+	jr c, .continue
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_4a65)
@@ -5478,7 +5478,7 @@ Army_Idle::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], a
-.jump_6333:
+.continue:
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
@@ -5491,18 +5491,18 @@ Army_Roll::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	dec [hl]
-	jr z, .jump_6360
+	jr z, .else
 	call UpdateVelocity
 	call ApplyVelocity
 	rst_farcall CollideWithTerrain
-.jump_6357:
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_6360:
+.else:
 	call Army_StopRolling
-	jr .jump_6357
+	jr .loop
 
 
 Army_StopRolling::
@@ -5612,13 +5612,13 @@ Chomps::
 Chomps_Swim::
 	call Fish_TurnAndFace
 	rr e
-	jr nc, .jump_6411
+	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_4d47)
 	inc l
 	ld [hl], HIGH(Anim_04_4d47)
-.jump_6411:
+.skip:
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
@@ -5637,13 +5637,13 @@ ChompsJr::
 ChompsJr_Swim::
 	call Fish_TurnAndFace
 	rr e
-	jr nc, .jump_643d
+	jr nc, .skip
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_4d83)
 	inc l
 	ld [hl], HIGH(Anim_04_4d83)
-.jump_643d:
+.skip:
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
@@ -5656,12 +5656,12 @@ Fish_TurnAndFace::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
-	jr nz, .jump_6474
+	jr nz, .done
 	ld hl, wObjects + OBJ_TARGET_XVEL
 	add hl, bc
 	ld a, [hli]
 	or [hl]
-	jr z, .jump_6474
+	jr z, .done
 	ld a, [hl]
 	rra
 	rra
@@ -5669,14 +5669,14 @@ Fish_TurnAndFace::
 	add hl, bc
 	xor [hl]
 	and $20
-	jr z, .jump_6474
+	jr z, .done
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $88
 	ld e, $01
 	ret
 
-.jump_6474:
+.done:
 	ld e, $00
 	ret
 
@@ -5686,15 +5686,15 @@ Squidge::
 	add hl, bc
 	ld a, [hli]
 	or [hl]
-	jr z, .jump_648e
-.jump_647f:
+	jr z, .else
+.loop:
 	call UpdateVelocity
 	call ApplyVelocity
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_648e:
+.else:
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
@@ -5706,14 +5706,14 @@ Squidge::
 	xor $20
 	ld [hl], a
 	and $20
-	jr z, .jump_64a8
+	jr z, .skip
 	xor a
 	sub e
 	ld e, a
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_64a8:
+.skip:
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
@@ -5724,31 +5724,31 @@ Squidge::
 	ld [hl], LOW(Anim_04_4ca7)
 	inc l
 	ld [hl], HIGH(Anim_04_4ca7)
-	jr .jump_647f
+	jr .loop
 
 
 RunClamboScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-.jump_64be:
+.loop_64be:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-.jump_64c1:
+.loop_64c1:
 	ld a, [hli]
 	or a
-	jr z, .jump_64be
+	jr z, .loop_64be
 	dec a
-	jr z, .jump_64d2
+	jr z, .else_64d2
 	dec a
-	jr z, .jump_64e6
+	jr z, .else_64e6
 	dec a
-	jr z, .jump_64f3
+	jr z, .else_64f3
 	dec a
-	jr z, .jump_6500
+	jr z, .else_6500
 	ret
 
-.jump_64d2:
+.else_64d2:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_30
@@ -5760,9 +5760,9 @@ RunClamboScript::
 	inc l
 	ld [hl], HIGH(Clambo)
 	pop hl
-	jp .jump_6539
+	jp .done
 
-.jump_64e6:
+.else_64e6:
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
@@ -5770,9 +5770,9 @@ RunClamboScript::
 	inc l
 	ld [hl], HIGH(Anim_04_4ce3)
 	pop hl
-	jr .jump_64c1
+	jr .loop_64c1
 
-.jump_64f3:
+.else_64f3:
 	push hl
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
@@ -5780,9 +5780,9 @@ RunClamboScript::
 	inc l
 	ld [hl], HIGH(Anim_04_4cc7)
 	pop hl
-	jr .jump_64c1
+	jr .loop_64c1
 
-.jump_6500:
+.else_6500:
 	ld d, h
 	ld e, l
 	push hl
@@ -5816,9 +5816,9 @@ RunClamboScript::
 	pop hl
 	ld de, $0004
 	add hl, de
-	jp .jump_64c1
+	jp .loop_64c1
 
-.jump_6539:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_2E
@@ -5845,15 +5845,15 @@ Clambo::
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr z, .jump_6568
-.jump_655f:
+	jr z, .else
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_6568:
+.else:
 	call RunClamboScript
-	jr .jump_655f
+	jr .loop
 
 
 Necky_Fly::
@@ -5890,20 +5890,20 @@ Klaptrap_Walk::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_65c8
+	jr z, .skip
 	ldh a, [hJoyPressed]
 	bit 0, a
-	jr z, .jump_65c8
+	jr z, .skip
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_65c8
+	jr z, .skip
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
 	ld [hl], $90
 	inc l
 	ld [hl], $f9
-.jump_65c8:
+.skip:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -5942,34 +5942,34 @@ LoopElevator::
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_6605:
+.loop_6605:
 	ldh a, [hCameraY]
 	sub l
 	ldh a, [hCameraY + 1]
 	sbc a, h
 	rlca
-	jr nc, .jump_6611
+	jr nc, .else_6611
 	add hl, de
-	jr .jump_6605
+	jr .loop_6605
 
-.jump_6611:
+.else_6611:
 	xor a
 	sub e
 	ld e, a
 	ld a, $00
 	sbc a, d
 	ld d, a
-.jump_6618:
+.loop_6618:
 	ldh a, [hCameraY]
 	sub l
 	ldh a, [hCameraY + 1]
 	sbc a, h
 	rlca
-	jr c, .jump_6624
+	jr c, .else_6624
 	add hl, de
-	jr .jump_6618
+	jr .loop_6618
 
-.jump_6624:
+.else_6624:
 	ld a, l
 	sub $10
 	ld e, a
@@ -5981,7 +5981,7 @@ LoopElevator::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_6633:
+.loop_6633:
 	call DrawObject
 	call Platform_Register
 	ld hl, wObjects + OBJ_VAR_2E
@@ -6009,7 +6009,7 @@ LoopElevator::
 	ld d, a
 	ld hl, $ff70
 	add hl, de
-	jr nc, .jump_6633
+	jr nc, .loop_6633
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -6021,18 +6021,18 @@ LoopElevator::
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr nc, .jump_6677
+	jr nc, .else_6677
 	ld a, [hli]
 	sub e
 	ld a, [hli]
 	sbc a, d
 	rlca
-	jr c, .jump_6677
+	jr c, .else_6677
 	jp NextObject
 
-.jump_6677:
+.else_6677:
 	push bc
-.jump_6678:
+.loop_6678:
 	call DeleteObject
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
@@ -6040,7 +6040,7 @@ LoopElevator::
 	ld b, [hl]
 	ld c, a
 	or b
-	jr nz, .jump_6678
+	jr nz, .loop_6678
 	pop bc
 	jp NextObject
 
@@ -6048,37 +6048,37 @@ LoopElevator::
 Platform_RunScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-.jump_668d:
+.loop_668d:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	or h
 	ret z
-.jump_6692:
+.loop_6692:
 	ld a, [hli]
 	or a
-	jr z, .jump_668d
+	jr z, .loop_668d
 	dec a
-	jr z, .jump_66ac
+	jr z, .else_66ac
 	dec a
-	jr z, .jump_66ef
+	jr z, .done
 	dec a
-	jr z, .jump_66af
+	jr z, .else_66af
 	dec a
-	jr z, .jump_66be
+	jr z, .else_66be
 	dec a
-	jr z, .jump_66cd
+	jr z, .else_66cd
 	dec a
-	jr z, .jump_66e2
+	jr z, .else_66e2
 	dec a
-	jr z, .jump_66ec
+	jr z, .else_66ec
 	ret
 
-.jump_66ac:
+.else_66ac:
 	ld a, [hli]
-	jr .jump_66ef
+	jr .done
 
-.jump_66af:
+.else_66af:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -6090,9 +6090,9 @@ Platform_RunScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6692
+	jr .loop_6692
 
-.jump_66be:
+.else_66be:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -6104,9 +6104,9 @@ Platform_RunScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6692
+	jr .loop_6692
 
-.jump_66cd:
+.else_66cd:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -6122,18 +6122,18 @@ Platform_RunScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6692
+	jr .loop_6692
 
-.jump_66e2:
+.else_66e2:
 	push hl
 	ld hl, ObjInit_0a_66f8
 	call ApplyObjInit
 	pop hl
-	jr .jump_66ef
+	jr .done
 
-.jump_66ec:
+.else_66ec:
 	ld hl, $0000
-.jump_66ef:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_2E
@@ -6156,14 +6156,14 @@ TrackPlatform_Wait::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_671e
+	jr z, .skip
 	call Platform_RunScript
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(TrackPlatform_Move)
 	inc l
 	ld [hl], HIGH(TrackPlatform_Move)
-.jump_671e:
+.skip:
 	call AnimateObject
 	call Platform_Register
 	jp NextObject
@@ -6174,11 +6174,11 @@ TrackPlatform_Move::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr z, .jump_6735
+	jr z, .skip
 	dec [hl]
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 1, [hl]
-.jump_6735:
+.skip:
 	call Obj_MoveToTarget
 	call nz, Platform_RunScript
 	call AnimateObject
@@ -6190,7 +6190,7 @@ FuelPlatform_Wait::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_675e
+	jr z, .continue
 	call Platform_RunScript
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
@@ -6200,7 +6200,7 @@ FuelPlatform_Wait::
 	ld [hl], LOW(FuelPlatform_Move)
 	inc l
 	ld [hl], HIGH(FuelPlatform_Move)
-.jump_675e:
+.continue:
 	call Platform_Register
 	jp NextObject
 
@@ -6211,7 +6211,7 @@ FuelPlatform_Move::
 	ld d, [hl]
 	ld e, a
 	or d
-	jr z, .jump_6785
+	jr z, .else_6785
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	ld [hl], e
@@ -6226,28 +6226,28 @@ FuelPlatform_Move::
 	ld [hl], LOW(FuelPlatform_Refuel)
 	inc l
 	ld [hl], HIGH(FuelPlatform_Refuel)
-	jr .jump_67ba
+	jr .else_67ba
 
-.jump_6785:
+.else_6785:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
 	or a
-	jr nz, .jump_67a3
+	jr nz, .skip
 	ld a, [hl]
 	or a
-	jr nz, .jump_6798
+	jr nz, .else_6798
 	ld a, $20
 	ld [wSFXQueue + 3], a
-	jr .jump_67a3
+	jr .skip
 
-.jump_6798:
+.else_6798:
 	ld a, [wSFXQueue + 1]
 	rrca
-	jr c, .jump_67a3
+	jr c, .skip
 	ld a, $24
 	ld [wSFXQueue + 1], a
-.jump_67a3:
+.skip:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -6257,14 +6257,14 @@ FuelPlatform_Move::
 	sbc a, $00
 	ld [hl], a
 	rlca
-	jr nc, .jump_67ba
+	jr nc, .else_67ba
 	ld hl, ObjInit_0a_67c0
 	call ApplyObjInit
-	jr .jump_67bd
+	jr .jp_NextObject
 
-.jump_67ba:
+.else_67ba:
 	call FuelPlatform_Travel
-.jump_67bd:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -6288,7 +6288,7 @@ FuelPlatform_Refuel::
 	sbc a, $00
 	ld [hl], a
 	rlca
-	jr c, .jump_6801
+	jr c, .else
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hl]
@@ -6298,17 +6298,17 @@ FuelPlatform_Refuel::
 	adc a, $00
 	ld [hl], a
 	cp $05
-	jr c, .jump_67fb
+	jr c, .loop
 	ld a, $04
 	ld [hld], a
 	ld [hl], $ff
-	jr .jump_6801
+	jr .else
 
-.jump_67fb:
+.loop:
 	call FuelPlatform_Travel
 	jp NextObject
 
-.jump_6801:
+.else:
 	xor a
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
@@ -6319,7 +6319,7 @@ FuelPlatform_Refuel::
 	ld [hl], LOW(FuelPlatform_Move)
 	inc l
 	ld [hl], HIGH(FuelPlatform_Move)
-	jr .jump_67fb
+	jr .loop
 
 
 FuelPlatform_Travel::
@@ -6329,11 +6329,11 @@ FuelPlatform_Travel::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr z, .jump_6827
+	jr z, .skip_6827
 	dec [hl]
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 1, [hl]
-.jump_6827:
+.skip_6827:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
@@ -6341,19 +6341,19 @@ FuelPlatform_Travel::
 	ld e, a
 	ld a, d
 	cp $04
-	jr c, .jump_6836
+	jr c, .skip_6836
 	ld de, $04ff
-.jump_6836:
+.skip_6836:
 	ld a, e
 	and $c0
-	jr nz, .jump_6841
+	jr nz, .else
 	bit 3, e
-	jr nz, .jump_6841
-	jr .jump_6842
+	jr nz, .else
+	jr .continue_6842
 
-.jump_6841:
+.else:
 	inc d
-.jump_6842:
+.continue_6842:
 	ld a, d
 	add a, a
 	ld e, a
@@ -6375,7 +6375,7 @@ FuelPlatform_Travel::
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	cp [hl]
-	jr z, .jump_688b
+	jr z, .continue_688b
 	ld [hl], a
 	add a, a
 	add a, $94
@@ -6404,7 +6404,7 @@ FuelPlatform_Travel::
 	ld a, [wPaletteUpdate]
 	or $02
 	ld [wPaletteUpdate], a
-.jump_688b:
+.continue_688b:
 	call Platform_Register
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -6421,7 +6421,7 @@ ArrowPlatform_Wait::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	bit 0, [hl]
-	jr z, .jump_68e0
+	jr z, .continue
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $09
@@ -6445,7 +6445,7 @@ ArrowPlatform_Wait::
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-.jump_68e0:
+.continue:
 	call Platform_Register
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -6536,7 +6536,7 @@ Klump2::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_6989
+	jr nz, .continue
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Klump_Walk)
@@ -6552,7 +6552,7 @@ Klump2::
 	ld [hl], $20
 	inc l
 	ld [hl], $00
-.jump_6989:
+.continue:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -6561,22 +6561,22 @@ Klump2::
 MiniNecky_RunScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-.jump_6996:
+.loop:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	or a
-	jr z, .jump_6996
+	jr z, .loop
 	dec a
-	jr z, .jump_69a7
+	jr z, .else_69a7
 	dec a
-	jr z, .jump_69ba
+	jr z, .else_69ba
 	dec a
-	jr z, .jump_69cd
+	jr z, .else_69cd
 	ret
 
-.jump_69a7:
+.else_69a7:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_30
@@ -6588,9 +6588,9 @@ MiniNecky_RunScript::
 	inc l
 	ld [hl], HIGH(MiniNecky_Hover)
 	pop hl
-	jr .jump_69ec
+	jr .done
 
-.jump_69ba:
+.else_69ba:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_30
@@ -6602,9 +6602,9 @@ MiniNecky_RunScript::
 	inc l
 	ld [hl], HIGH(MiniNecky_Swoop)
 	pop hl
-	jr .jump_69ec
+	jr .done
 
-.jump_69cd:
+.else_69cd:
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -6621,9 +6621,9 @@ MiniNecky_RunScript::
 	ld [hl], HIGH(Anim_04_4c2f)
 	call Obj_FacePlayer
 	pop hl
-	jr .jump_69ec
+	jr .done
 
-.jump_69ec:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_2E
@@ -6654,26 +6654,26 @@ MiniNecky_Hover::
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr z, .jump_6a25
+	jr z, .else
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld [hl], $80
-.jump_6a1c:
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_6a25:
+.else:
 	call MiniNecky_RunScript
-	jr .jump_6a1c
+	jr .loop
 
 
 MiniNecky_Spit::
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	bit 7, [hl]
-	jr z, .jump_6a42
-.jump_6a32:
+	jr z, .else
+.loop:
 	call GetPlayerDistanceX
 	ld hl, $ff80
 	add hl, de
@@ -6681,7 +6681,7 @@ MiniNecky_Spit::
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_6a42:
+.else:
 	ld a, $4c
 	ld [wSFXQueue + 3], a
 	rst_farcall SaveObjectPosition
@@ -6689,12 +6689,12 @@ MiniNecky_Spit::
 	add hl, bc
 	bit 5, [hl]
 	ld de, $0200
-	jr z, .jump_6a59
+	jr z, .skip
 	ld de, $fe00
-.jump_6a59:
+.skip:
 	push bc
 	call AllocObject
-	jr c, .jump_6a70
+	jr c, .continue
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
 	ld a, e
@@ -6703,10 +6703,10 @@ MiniNecky_Spit::
 	rst_farcall MoveObjectToSavedPosition
 	ld hl, ObjInit_0a_6a77
 	call InitObject
-.jump_6a70:
+.continue:
 	pop bc
 	call MiniNecky_RunScript
-	jp .jump_6a32
+	jp .loop
 
 
 ObjInit_0a_6a77::
@@ -6742,32 +6742,32 @@ MiniNecky_Swoop::
 	sbc a, d
 	ld d, a
 	or e
-	jr z, .jump_6aca
+	jr z, .else_6aca
 	bit 7, d
-	jr z, .jump_6ab9
+	jr z, .else_6ab9
 	ld a, [hl]
 	add a, $01
 	ld [hli], a
 	ld a, [hl]
 	adc a, $00
 	ld [hl], a
-	jr .jump_6ac1
+	jr .loop
 
-.jump_6ab9:
+.else_6ab9:
 	ld a, [hl]
 	sub $01
 	ld [hli], a
 	ld a, [hl]
 	sbc a, $00
 	ld [hl], a
-.jump_6ac1:
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_6aca:
+.else_6aca:
 	call MiniNecky_RunScript
-	jr .jump_6ac1
+	jr .loop
 
 
 Obj_FacePlayer::
@@ -6795,20 +6795,20 @@ Obj_FacePlayer::
 RunMankyKongScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-.jump_6af0:
+.loop:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hli]
 	or a
-	jr z, .jump_6af0
+	jr z, .loop
 	dec a
-	jr z, .jump_6afe
+	jr z, .else_6afe
 	dec a
-	jr z, .jump_6b11
+	jr z, .else_6b11
 	ret
 
-.jump_6afe:
+.else_6afe:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_30
@@ -6820,9 +6820,9 @@ RunMankyKongScript::
 	inc l
 	ld [hl], HIGH(MankyKong_Throw)
 	pop hl
-	jr .jump_6b6d
+	jr .done
 
-.jump_6b11:
+.else_6b11:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -6840,7 +6840,7 @@ RunMankyKongScript::
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
 	bit 0, [hl]
-	jr nz, .jump_6b4e
+	jr nz, .skip
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [wPlayer + OBJ_X]
@@ -6851,15 +6851,15 @@ RunMankyKongScript::
 	sbc a, [hl]
 	ld h, a
 	or l
-	jr z, .jump_6b4e
+	jr z, .skip
 	ld a, h
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	res 5, [hl]
 	rlca
-	jr nc, .jump_6b4e
+	jr nc, .skip
 	set 5, [hl]
-.jump_6b4e:
+.skip:
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld d, h
@@ -6878,9 +6878,9 @@ RunMankyKongScript::
 	pop bc
 	rst_farcall Obj_GetFacingOffset
 	pop hl
-	jr .jump_6b6d
+	jr .done
 
-.jump_6b6d:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_2E
@@ -6923,14 +6923,14 @@ Mincer::
 	add hl, bc
 	ld a, [hl]
 	rlca
-	jr nc, .jump_6bc0
+	jr nc, .else_6bc0
 	call AnimateObject
 	rst_farcall Obj_GetFacingOffset
 	call DespawnIfOutOfRange
 	call c, MankyKong_RemoveBarrel
 	jp NextObject
 
-.jump_6bc0:
+.else_6bc0:
 	ld a, $6a
 	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_33
@@ -6965,15 +6965,15 @@ Mincer::
 	bit 5, [hl]
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
-	jr nz, .jump_6c03
+	jr nz, .else_6c03
 	ld a, [hli]
 	ld [de], a
 	inc e
 	ld a, [hli]
 	ld [de], a
-	jr .jump_6c0c
+	jr .continue
 
-.jump_6c03:
+.else_6c03:
 	xor a
 	sub [hl]
 	ld [de], a
@@ -6982,7 +6982,7 @@ Mincer::
 	ld a, $00
 	sbc a, [hl]
 	ld [de], a
-.jump_6c0c:
+.continue:
 	call RunMankyKongScript
 	call AnimateObject
 	call DespawnIfOutOfRange
@@ -6993,9 +6993,9 @@ MankyKong_Throw::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_6c22
+	jr nz, .skip
 	call RunMankyKongScript
-.jump_6c22:
+.skip:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	call c, MankyKong_RemoveBarrel
@@ -7025,44 +7025,44 @@ Mincer_Fall::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	bit 1, [hl]
-	jr nz, .jump_6c59
+	jr nz, .else
 	call DespawnIfOutOfRange
 	call AnimateObject
-	jr .jump_6c5d
+	jr .jp_NextObject
 
-.jump_6c59:
+.else:
 	rst_farcall BreakBarrel
-.jump_6c5d:
+.jp_NextObject:
 	jp NextObject
 
 
 RunCroctopusScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-.jump_6c64:
+.loop_6c64:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	or h
 	ret z
-.jump_6c69:
+.loop_6c69:
 	ld a, [hli]
 	or a
-	jr z, .jump_6c64
+	jr z, .loop_6c64
 	dec a
 	dec a
-	jr z, .jump_6c7e
+	jr z, .else_6c7e
 	dec a
-	jr z, .jump_6c8e
+	jr z, .else_6c8e
 	dec a
-	jr z, .jump_6c9d
+	jr z, .else_6c9d
 	dec a
-	jr z, .jump_6cac
+	jr z, .else_6cac
 	dec a
-	jr z, .jump_6cbd
+	jr z, .else_6cbd
 	ret
 
-.jump_6c7e:
+.else_6c7e:
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -7071,9 +7071,9 @@ RunCroctopusScript::
 	ld [hl], HIGH(Croctopus_Chase)
 	call Croctopus_SetSpinAnim
 	pop hl
-	jr .jump_6ccd
+	jr .done
 
-.jump_6c8e:
+.else_6c8e:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7085,9 +7085,9 @@ RunCroctopusScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6c69
+	jr .loop_6c69
 
-.jump_6c9d:
+.else_6c9d:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7099,9 +7099,9 @@ RunCroctopusScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6c69
+	jr .loop_6c69
 
-.jump_6cac:
+.else_6cac:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Croctopus_Stopped)
@@ -7109,9 +7109,9 @@ RunCroctopusScript::
 	ld [hl], HIGH(Croctopus_Stopped)
 	call Croctopus_SetMoveAnim
 	ld hl, $0000
-	jr .jump_6ccd
+	jr .done
 
-.jump_6cbd:
+.else_6cbd:
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -7120,9 +7120,9 @@ RunCroctopusScript::
 	ld [hl], HIGH(Croctopus_WaitForPlayer)
 	call Croctopus_SetMoveAnim
 	pop hl
-	jr .jump_6ccd
+	jr .done
 
-.jump_6ccd:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_2E
@@ -7202,10 +7202,10 @@ Croctopus_WaitForPlayer::
 	add hl, bc
 	ld a, [hli]
 	cp d
-	jr nc, .jump_6d5c
+	jr nc, .skip
 	ld a, [hli]
 	cp d
-	jr c, .jump_6d5c
+	jr c, .skip
 	ld hl, wPlayer + OBJ_Y
 	ld a, [hli]
 	ld d, [hl]
@@ -7219,12 +7219,12 @@ Croctopus_WaitForPlayer::
 	add hl, bc
 	ld a, [hli]
 	cp d
-	jr nc, .jump_6d5c
+	jr nc, .skip
 	ld a, [hli]
 	cp d
-	jr c, .jump_6d5c
+	jr c, .skip
 	call RunCroctopusScript
-.jump_6d5c:
+.skip:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
@@ -7236,21 +7236,21 @@ StopGoBarrel::
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, .jump_6d6f
+	jr nz, .skip
 	ld [hl], a
-.jump_6d6f:
+.skip:
 	ld hl, wLevelTimer + 1
 	ld a, [hld]
 	or a
-	jr nz, .jump_6da1
+	jr nz, .else
 	ld a, [hl]
 	cp $19
-	jr nc, .jump_6da1
+	jr nc, .else
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld a, [hl]
 	cp $06
-	jr z, .jump_6d96
+	jr z, .continue_6d96
 	call FreeObjPalette
 	ld a, $06
 	ld hl, wObjects + OBJ_PALETTE
@@ -7260,20 +7260,20 @@ StopGoBarrel::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld [hl], a
-.jump_6d96:
+.continue_6d96:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld [hl], LOW(Frame_20_4de0)
 	inc l
 	ld [hl], HIGH(Frame_20_4de0)
-	jr .jump_6dc6
+	jr .continue_6dc6
 
-.jump_6da1:
+.else:
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
 	ld a, [hl]
 	cp $04
-	jr z, .jump_6dbc
+	jr z, .continue_6dbc
 	call FreeObjPalette
 	ld a, $04
 	ld hl, wObjects + OBJ_PALETTE
@@ -7283,14 +7283,14 @@ StopGoBarrel::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld [hl], a
-.jump_6dbc:
+.continue_6dbc:
 	ld de, Frame_20_4dda
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-.jump_6dc6:
+.continue_6dc6:
 	call DespawnIfOutOfRange
 	jp NextObject
 
@@ -7301,19 +7301,19 @@ OnOffBarrel::
 	ld a, [hl]
 	dec [hl]
 	or a
-	jr nz, .jump_6dd6
+	jr nz, .skip_6dd6
 	ld [hl], a
-.jump_6dd6:
+.skip_6dd6:
 	ld de, Frame_20_4de6
 	ld hl, wLevelTimer + 1
 	ld a, [hld]
 	or a
-	jr nz, .jump_6de8
+	jr nz, .skip_6de8
 	ld a, [hl]
 	cp $19
-	jr nc, .jump_6de8
+	jr nc, .skip_6de8
 	ld de, Frame_20_4dec
-.jump_6de8:
+.skip_6de8:
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
 	ld a, e
@@ -7328,25 +7328,25 @@ LightsFlicker::
 	dec [hl]
 	ld a, [hl]
 	and $3f
-	jr nz, .jump_6e20
+	jr nz, .jp_NextObject
 	bit 6, [hl]
-	jr nz, .jump_6e11
+	jr nz, .else
 	ld a, $80
 	ld [wPaletteBrightness], a
 	ld a, [wPaletteUpdate]
 	or $03
 	ld [wPaletteUpdate], a
-	jr .jump_6e20
+	jr .jp_NextObject
 
-.jump_6e11:
+.else:
 	ld a, $20
 	ld [wPaletteBrightness], a
 	ld a, [wPaletteUpdate]
 	or $03
 	ld [wPaletteUpdate], a
-	jr .jump_6e20
+	jr .jp_NextObject
 
-.jump_6e20:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -7365,10 +7365,10 @@ StopGoTimer::
 	sbc a, d
 	ld [hl], d
 	rlca
-	jr c, .jump_6e69
+	jr c, .else_6e69
 	ld a, e
 	or d
-	jr z, .jump_6e66
+	jr z, .jp_NextObject
 	dec de
 	ld hl, wLevelTimer
 	ld a, e
@@ -7376,39 +7376,39 @@ StopGoTimer::
 	ld [hl], d
 	ld a, d
 	or a
-	jr nz, .jump_6e66
+	jr nz, .jp_NextObject
 	ld a, e
 	cp $1e
-	jr z, .jump_6e69
+	jr z, .else_6e69
 	cp $19
-	jr z, .jump_6e6e
+	jr z, .else_6e6e
 	cp $14
-	jr z, .jump_6e69
+	jr z, .else_6e69
 	cp $0f
-	jr z, .jump_6e6e
+	jr z, .else_6e6e
 	cp $08
-	jr z, .jump_6e69
+	jr z, .else_6e69
 	cp $05
-	jr z, .jump_6e6e
+	jr z, .else_6e6e
 	cp $02
-	jr z, .jump_6e69
+	jr z, .else_6e69
 	or a
-	jr z, .jump_6e6e
-.jump_6e66:
+	jr z, .else_6e6e
+.jp_NextObject:
 	jp NextObject
 
-.jump_6e69:
+.else_6e69:
 	ld de, $4657
-	jr .jump_6e71
+	jr .continue
 
-.jump_6e6e:
+.else_6e6e:
 	ld de, $4617
-.jump_6e71:
+.continue:
 	call LoadBGPaletteSet
 	ld a, [wPaletteUpdate]
 	or $01
 	ld [wPaletteUpdate], a
-	jr .jump_6e66
+	jr .jp_NextObject
 
 
 LightsTimer::
@@ -7426,10 +7426,10 @@ LightsTimer::
 	sbc a, d
 	ld [hl], d
 	rlca
-	jr c, .jump_6ec4
+	jr c, .else_6ec4
 	ld a, e
 	or d
-	jr z, .jump_6ec1
+	jr z, .jp_NextObject
 	dec de
 	ld a, e
 	ld hl, wLevelTimer
@@ -7437,40 +7437,40 @@ LightsTimer::
 	ld [hl], d
 	ld a, d
 	or a
-	jr nz, .jump_6ec1
+	jr nz, .jp_NextObject
 	ld a, e
 	cp $1e
-	jr z, .jump_6ec4
+	jr z, .else_6ec4
 	cp $19
-	jr z, .jump_6ecb
+	jr z, .else_6ecb
 	cp $14
-	jr z, .jump_6ec4
+	jr z, .else_6ec4
 	cp $0f
-	jr z, .jump_6ecb
+	jr z, .else_6ecb
 	cp $08
-	jr z, .jump_6ec4
+	jr z, .else_6ec4
 	cp $05
-	jr z, .jump_6ecb
+	jr z, .else_6ecb
 	cp $02
-	jr z, .jump_6ec4
+	jr z, .else_6ec4
 	or a
-	jr z, .jump_6ecb
-.jump_6ec1:
+	jr z, .else_6ecb
+.jp_NextObject:
 	jp NextObject
 
-.jump_6ec4:
+.else_6ec4:
 	ld a, $80
 	ld [wPaletteBrightness], a
-	jr .jump_6ed0
+	jr .continue
 
-.jump_6ecb:
+.else_6ecb:
 	ld a, $20
 	ld [wPaletteBrightness], a
-.jump_6ed0:
+.continue:
 	ld a, [wPaletteUpdate]
 	or $03
 	ld [wPaletteUpdate], a
-	jr .jump_6ec1
+	jr .jp_NextObject
 
 
 SetBrightness::
@@ -7490,16 +7490,16 @@ LevelFadeIn::
 	add hl, bc
 	ld a, [hl]
 	cp $80
-	jr z, .jump_6f05
+	jr z, .else
 	add a, $10
 	cp $80
-	jr c, .jump_6f01
+	jr c, .skip
 	ld a, $80
-.jump_6f01:
+.skip:
 	ld [hl], a
 	jp NextObject
 
-.jump_6f05:
+.else:
 	ld hl, wLevelFlags
 	set 4, [hl]
 	call DeleteObject
@@ -7512,15 +7512,15 @@ Player_ExitFade::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr z, .jump_6f24
+	jr z, .else
 	sub $10
-	jr nc, .jump_6f20
+	jr nc, .skip
 	xor a
-.jump_6f20:
+.skip:
 	ld [hl], a
 	jp NextObject
 
-.jump_6f24:
+.else:
 	call DeleteObject
 	ld hl, wLevelFlags
 	set 1, [hl]
@@ -7545,7 +7545,7 @@ Millstone::
 	ld [hl], LOW(Millstone_Roll)
 	inc l
 	ld [hl], HIGH(Millstone_Roll)
-.jump_6f4b:
+.spawn:
 	ld d, b
 	ld e, c
 	push bc
@@ -7573,12 +7573,12 @@ ObjInit_0a_6f62::
 Millstone_Roll::
 	ldh a, [hObjectRunMask]
 	and $02
-	jr nz, .jump_6f83
+	jr nz, .skip
 	call UpdateVelocity
 	call ApplyVelocity
 	call TurnAtRangeLimit
 	call DespawnIfOutOfRange
-.jump_6f83:
+.skip:
 	call Millstone_UpdateRider
 	jp NextObject
 
@@ -7597,11 +7597,11 @@ Millstone_UpdateRider::
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	jr nz, .jump_6fa8
+	jr nz, .else
 	call DeleteObject
-	jr .jump_6fc3
+	jr .done
 
-.jump_6fa8:
+.else:
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ldh a, [hTempX]
@@ -7617,7 +7617,7 @@ Millstone_UpdateRider::
 	sbc a, $00
 	ld [hl], a
 	call DrawObject
-.jump_6fc3:
+.done:
 	pop bc
 	ret
 
@@ -7625,39 +7625,39 @@ Millstone_UpdateRider::
 RunMillstoneScript::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-.jump_6fc9:
+.loop_6fc9:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	or h
 	ret z
-.jump_6fce:
+.loop_6fce:
 	ld a, [hli]
 	or a
-	jr z, .jump_6fc9
+	jr z, .loop_6fc9
 	dec a
-	jr z, .jump_6feb
+	jr z, .else_6feb
 	dec a
-	jr z, .jump_704c
+	jr z, .done
 	dec a
-	jr z, .jump_6fee
+	jr z, .else_6fee
 	dec a
-	jr z, .jump_6ffd
+	jr z, .else_6ffd
 	dec a
-	jr z, .jump_703f
+	jr z, .else_703f
 	dec a
-	jr z, .jump_700c
+	jr z, .else_700c
 	dec a
-	jr z, .jump_7021
+	jr z, .else_7021
 	dec a
-	jr z, .jump_7030
+	jr z, .else_7030
 	ret
 
-.jump_6feb:
+.else_6feb:
 	ld a, [hli]
-	jr .jump_704c
+	jr .done
 
-.jump_6fee:
+.else_6fee:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7669,9 +7669,9 @@ RunMillstoneScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6fce
+	jr .loop_6fce
 
-.jump_6ffd:
+.else_6ffd:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7683,9 +7683,9 @@ RunMillstoneScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6fce
+	jr .loop_6fce
 
-.jump_700c:
+.else_700c:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7701,9 +7701,9 @@ RunMillstoneScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6fce
+	jr .loop_6fce
 
-.jump_7021:
+.else_7021:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7715,9 +7715,9 @@ RunMillstoneScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6fce
+	jr .loop_6fce
 
-.jump_7030:
+.else_7030:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7729,9 +7729,9 @@ RunMillstoneScript::
 	ld [hli], a
 	ld [hl], d
 	pop hl
-	jr .jump_6fce
+	jr .loop_6fce
 
-.jump_703f:
+.else_703f:
 	push hl
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -7739,9 +7739,9 @@ RunMillstoneScript::
 	inc l
 	ld [hl], HIGH(Millstone_Despawn)
 	pop hl
-	jr .jump_704c
+	jr .done
 
-.jump_704c:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_2E
@@ -7757,7 +7757,7 @@ Millstone_Scripted::
 	ld [hl], LOW(Millstone_Wait)
 	inc l
 	ld [hl], HIGH(Millstone_Wait)
-	jp Millstone.jump_6f4b
+	jp Millstone.spawn
 
 
 Millstone_Wait::
@@ -7773,31 +7773,31 @@ Millstone_Wait::
 	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, [hl]
 	rlca
-	jr c, .jump_707c
+	jr c, .loop
 	ld a, e
 	cp $14
-	jr nc, .jump_7082
-.jump_707c:
+	jr nc, .else
+.loop:
 	call Millstone_UpdateRider
 	jp NextObject
 
-.jump_7082:
+.else:
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Millstone_Move)
 	inc l
 	ld [hl], HIGH(Millstone_Move)
 	call RunMillstoneScript
-	jr .jump_707c
+	jr .loop
 
 
 Millstone_Move::
 	ldh a, [hObjectRunMask]
 	and $02
-	jr nz, .jump_709c
+	jr nz, .skip
 	call Obj_MoveToTarget
 	call nz, RunMillstoneScript
-.jump_709c:
+.skip:
 	call Millstone_UpdateRider
 	jp NextObject
 
@@ -7836,12 +7836,12 @@ Snowflake_Randomise::
 
 Snowflakes_Init::
 	ld hl, wSnowflakes
-.jump_70d6:
+.loop:
 	call Snowflake_Randomise
 	ld a, l
 	and $3f
 	cp $30
-	jr nz, .jump_70d6
+	jr nz, .loop
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(Snowflakes)
@@ -7861,7 +7861,7 @@ Snowflakes::
 	ldh a, [hSpriteLayerFill]
 	ld c, a
 	ld b, $c5
-.jump_70fe:
+.loop_70fe:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7877,11 +7877,11 @@ Snowflakes::
 	cpl
 	add a, d
 	cp $f0
-	jr nc, .jump_7133
+	jr nc, .else
 	ld [bc], a
 	ld a, c
 	rlca
-	jr c, .jump_712c
+	jr c, .continue
 	inc c
 	ldh a, [hCameraX]
 	cpl
@@ -7895,52 +7895,52 @@ Snowflakes::
 	ldh a, [hSpriteAttr]
 	ld [bc], a
 	inc c
-.jump_7125:
+.loop_7125:
 	ld a, l
 	and $3f
 	cp $30
-	jr nz, .jump_70fe
-.jump_712c:
+	jr nz, .loop_70fe
+.continue:
 	ld a, c
 	ldh [hSpriteLayerFill], a
 	pop bc
 	jp NextObject
 
-.jump_7133:
+.else:
 	ld a, $fc
 	add a, l
 	ld l, a
 	call Snowflake_Randomise
-	jr .jump_7125
+	jr .loop_7125
 
 
 RunBlackDrumScript::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
-.jump_7140:
+.loop_7140:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-.jump_7143:
+.loop_7143:
 	ld a, [hli]
 	or a
-	jr z, .jump_7140
+	jr z, .loop_7140
 	dec a
-	jr z, .jump_714e
+	jr z, .else_714e
 	dec a
-	jr z, .jump_7158
+	jr z, .else_7158
 	ret
 
-.jump_714e:
+.else_714e:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
 	ld [hl], a
 	pop hl
-	jr .jump_71a8
+	jr .done
 
-.jump_7158:
+.else_7158:
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -7957,7 +7957,7 @@ RunBlackDrumScript::
 	push de
 	rst_farcall SaveObjectPosition
 	call AllocObject
-	jr c, .jump_71a3
+	jr c, .else_71a3
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
@@ -7986,15 +7986,15 @@ RunBlackDrumScript::
 	ld a, $3a
 	ld [wSFXQueue + 3], a
 	pop hl
-	jr .jump_7143
+	jr .loop_7143
 
-.jump_71a3:
+.else_71a3:
 	pop hl
 	pop bc
 	pop hl
-	jr .jump_7143
+	jr .loop_7143
 
-.jump_71a8:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_31
@@ -8041,74 +8041,74 @@ BlackDrum_Wait::
 OilDrum_RunScript::
 	ld hl, wObjects + OBJ_VAR_31
 	add hl, bc
-.jump_71ef:
+.loop_71ef:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-.jump_71f2:
+.loop_71f2:
 	ld a, [hli]
 	or a
-	jr z, .jump_71ef
+	jr z, .loop_71ef
 	dec a
 	dec a
-	jr z, .jump_723c
+	jr z, .else_723c
 	dec a
-	jr z, .jump_7232
+	jr z, .else_7232
 	dec a
-	jr z, .jump_7246
+	jr z, .else_7246
 	dec a
-	jr z, .jump_7256
+	jr z, .else_7256
 	dec a
-	jr z, .jump_721e
+	jr z, .else_721e
 	dec a
-	jr z, .jump_7228
+	jr z, .else_7228
 	dec a
-	jr z, .jump_7210
+	jr z, .else_7210
 	dec a
-	jr z, .jump_7217
+	jr z, .else_7217
 	ret
 
-.jump_7210:
+.else_7210:
 	ld a, $94
 	ld [wSFXQueue + 3], a
-	jr .jump_71f2
+	jr .loop_71f2
 
-.jump_7217:
+.else_7217:
 	ld a, $9a
 	ld [wSFXQueue + 3], a
-	jr .jump_71f2
+	jr .loop_71f2
 
-.jump_721e:
+.else_721e:
 	push hl
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	set 7, [hl]
 	pop hl
-	jr .jump_71f2
+	jr .loop_71f2
 
-.jump_7228:
+.else_7228:
 	push hl
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	res 7, [hl]
 	pop hl
-	jr .jump_71f2
+	jr .loop_71f2
 
-.jump_7232:
+.else_7232:
 	push hl
 	ld hl, ObjInit_0a_726f
 	call ApplyObjInit
 	pop hl
-	jr .jump_7266
+	jr .done
 
-.jump_723c:
+.else_723c:
 	push hl
 	ld hl, ObjInit_0a_727a
 	call ApplyObjInit
 	pop hl
-	jr .jump_7266
+	jr .done
 
-.jump_7246:
+.else_7246:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_33
@@ -8117,9 +8117,9 @@ OilDrum_RunScript::
 	ld hl, ObjInit_0a_7285
 	call ApplyObjInit
 	pop hl
-	jr .jump_7266
+	jr .done
 
-.jump_7256:
+.else_7256:
 	ld a, [hli]
 	push hl
 	ld hl, wObjects + OBJ_VAR_33
@@ -8128,9 +8128,9 @@ OilDrum_RunScript::
 	ld hl, ObjInit_0a_7290
 	call ApplyObjInit
 	pop hl
-	jr .jump_7266
+	jr .done
 
-.jump_7266:
+.done:
 	ld a, l
 	ld d, h
 	ld hl, wObjects + OBJ_VAR_31
@@ -8196,7 +8196,7 @@ ExtraLifeBalloon::
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr z, .jump_72e0
+	jr z, .continue
 	call GetBitMask
 	ld a, $04
 	ldh [rSVBK], a
@@ -8207,32 +8207,32 @@ ExtraLifeBalloon::
 	ld h, $d4
 	ld a, [hli]
 	and e
-	jr nz, .jump_7302
+	jr nz, .else_7302
 	ld a, [hl]
 	and d
-	jr nz, .jump_7302
-.jump_72e0:
+	jr nz, .else_7302
+.continue:
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	or a
-	jr z, .jump_72f2
+	jr z, .else_72f2
 	dec [hl]
-.jump_72e9:
+.loop:
 	call AnimateObject
 	call DespawnIfOutOfRange
 	jp NextObject
 
-.jump_72f2:
+.else_72f2:
 	ld hl, wObjects + OBJ_Y + 1
 	add hl, bc
 	bit 7, [hl]
-	jr nz, .jump_7302
+	jr nz, .else_7302
 	call UpdateVelocity
 	call ApplyVelocity
-	jr .jump_72e9
+	jr .loop
 
-.jump_7302:
+.else_7302:
 	call DeleteObjectForGood
 	jp NextObject
 
@@ -8243,10 +8243,10 @@ ExtraLifeBalloon_FlyUp::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_731b
+	jr nz, .jp_NextObject
 	ld hl, ObjInit_0a_731e
 	call ApplyObjInit
-.jump_731b:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -8262,11 +8262,11 @@ ExtraLifeBalloon_Count::
 	call AnimateObject
 	ld hl, wHUDFlags
 	bit 0, [hl]
-	jr nz, .jump_7355
+	jr nz, .jp_NextObject
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_7355
+	jr nz, .jp_NextObject
 	ld [hl], $14
 	rst_farcall GiveExtraLife
 	ld hl, wLivesPending
@@ -8274,11 +8274,11 @@ ExtraLifeBalloon_Count::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
-	jr nz, .jump_7355
+	jr nz, .jp_NextObject
 	ld hl, wItemsInFlight
 	dec [hl]
 	call DeleteObjectForGood
-.jump_7355:
+.jp_NextObject:
 	jp NextObject
 
 
@@ -8526,39 +8526,39 @@ ObjScript_0a_74ac::
 	dw ObjScript_0a_74ac
 
 ObjScript_0a_74b4::
-	db $02 ; attack (RunMankyKongScript.jump_6b11) -- RunMankyKongScript
+	db $02 ; attack (RunMankyKongScript.else_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $58 ; wait
-	db $02 ; attack (RunMankyKongScript.jump_6b11)
+	db $02 ; attack (RunMankyKongScript.else_6b11)
 	dw $0180
 	db $01, $58 ; wait
-	db $02 ; attack (RunMankyKongScript.jump_6b11)
+	db $02 ; attack (RunMankyKongScript.else_6b11)
 	dw $0180
 	db $01, $a0 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_74b4
 
 ObjScript_0a_74c6::
-	db $02 ; attack (RunMankyKongScript.jump_6b11) -- RunMankyKongScript
+	db $02 ; attack (RunMankyKongScript.else_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $42 ; wait
-	db $02 ; attack (RunMankyKongScript.jump_6b11)
+	db $02 ; attack (RunMankyKongScript.else_6b11)
 	dw $0180
 	db $01, $42 ; wait
-	db $02 ; attack (RunMankyKongScript.jump_6b11)
+	db $02 ; attack (RunMankyKongScript.else_6b11)
 	dw $0180
 	db $01, $78 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_74c6
 
 ObjScript_0a_74d8::
-	db $02 ; attack (RunMankyKongScript.jump_6b11) -- RunMankyKongScript
+	db $02 ; attack (RunMankyKongScript.else_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $2c ; wait
-	db $02 ; attack (RunMankyKongScript.jump_6b11)
+	db $02 ; attack (RunMankyKongScript.else_6b11)
 	dw $0180
 	db $01, $2c ; wait
-	db $02 ; attack (RunMankyKongScript.jump_6b11)
+	db $02 ; attack (RunMankyKongScript.else_6b11)
 	dw $0180
 	db $01, $50 ; wait
 	db $00 ; jump

@@ -222,7 +222,7 @@ Bank `$31` ends with 31 sparkle sprite tiles (8×16, at `$31:5CA0`) after the la
 
 ## Sprite offset lists
 
-An earlier version of this file listed 2.3 KB of bytes after sprite offset lists as never read. That was wrong. When an object's OAM attributes have bit 4 set, `DrawSpriteFrame` (`DrawSpriteFrame`, path `.jump_11ce`) reads 3 bytes per sprite instead of 2: dx, dy and a value added to that sprite's attributes, which gives each sprite its own palette. The bosses and other large objects are drawn this way. 167 of the 1,414 frames use these 3-byte lists, and the "leftover" bytes were their third bytes. The frame headers don't say which layout a list uses; `tools/gfx.py` (`sprite_layouts`) counts a list as 3-byte when the room before the next list, or the padding at the end of the bank, is exactly 3 bytes per sprite.
+An earlier version of this file listed 2.3 KB of bytes after sprite offset lists as never read. That was wrong. When an object's OAM attributes have bit 4 set, `DrawSpriteFrame` (path `.else_11ce`) reads 3 bytes per sprite instead of 2: dx, dy and a value added to that sprite's attributes, which gives each sprite its own palette. The bosses and other large objects are drawn this way. 167 of the 1,414 frames use these 3-byte lists, and the "leftover" bytes were their third bytes. The frame headers don't say which layout a list uses; `tools/gfx.py` (`sprite_layouts`) counts a list as 3-byte when the room before the next list, or the padding at the end of the bank, is exactly 3 bytes per sprite.
 
 What remains after that are 15 short runs that nothing reads (`FrameSpritesTail_…`): one after a list in bank `$31` and fourteen 2-byte runs after lists in bank `$37`.
 ## Level object blocks

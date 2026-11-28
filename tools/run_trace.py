@@ -934,7 +934,7 @@ def parse_banks(t, rom):
     t._claim(0x51, 0x4CFF, 1, "rows", [("db", ["$00"], "padding")], "=Padding_51_4cff")
     # a 20x32 map in which every position has its own tile (0-255 in VRAM
     # bank 0, then again in bank 1), so code can draw into the tiles; copied
-    # to WRAM 2 $d000/$d400 by Func_f0_47xx (.jump_4840), 32 bytes a row
+    # to WRAM 2 $d000/$d400 by FE_CopyPictureMap (.copy_unique_map), 32 bytes a row
     um = bytes_(0xF0, 0x4A9D, 1280)
     t._claim(0xF0, 0x4A9D, 1280, "rows", [("db", ["$%02x" % v for v in um[k:k + 20]],
                                             "attributes" if k == 0 else "tile numbers" if k == 640 else None)
@@ -972,7 +972,7 @@ def parse_banks(t, rom):
     for k in range(5):
         p, r = words(0xF1, 0x69F0 + 4 * k, 2)
         rows.append(("dw", [ref(0xF1, p) if p else "$0000", "$%04x" % r], None))
-    t._claim(0xF1, 0x69F0, 20, "rows", rows, "=Columns_f1_69f0")  # by [$c96c] (FE_DrawRingExtras.jump_545f)
+    t._claim(0xF1, 0x69F0, 20, "rows", rows, "=Columns_f1_69f0")  # by [$c96c] (FE_DrawRingExtras.else_545f)
     for a in range(0x6A04, 0x6A1D, 5):
         t._claim(0xF1, a, 5, "rows", [("db", ["%d" % v for v in bytes_(0xF1, a, 5)], "by language ([$c805])")], "LanguageColumns")
     lw = words(0xF1, 0x6A1D, 10)

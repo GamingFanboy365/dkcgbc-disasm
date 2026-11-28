@@ -180,6 +180,9 @@ SRAM = [
     (0xB100, 0x100, "sSaveBackup1", "copies of the four records"),
     (0xB200, 0x100, "sSaveBackup2", ""),
     (0xB300, 0x100, "sSaveBackup3", ""),
+    (0xB400, 0x27, "sHiScoreTable1", "the Hi-Score table (layout of wHiScoreRecord), kept in three copies"),
+    (0xB427, 0x27, "sHiScoreTable2", ""),
+    (0xB44E, 0x27, "sHiScoreTable3", ""),
 ]
 
 # Offsets in a save file record
@@ -279,7 +282,7 @@ def lookup(v, bank, main=True):
     """Name for RAM address v used in bank, or None. main: code of the main
     game (not the front end or the programs in banks $50+)."""
     if 0xA000 <= v < 0xC000:
-        if main or 0xF0 <= bank <= 0xFE:
+        if main or 0xF0 <= bank <= 0xFE or bank == 0x55:
             return SRAM_TABLE.get(v)
         return None
     if main:
@@ -313,6 +316,7 @@ def write_inc(path):
     block("Front end: the menus (banks $F0-$F4)", FE_MENUS + FE_MENUS_HRAM)
     block("Crosshair Cranky (banks $F5, $FE)", CRANKY + CRANKY_HRAM)
     block("Funky's Fishing (banks $50-$52)", FISHING + FISHING_HRAM)
+    block("The Hi-Score screen (bank $55; it also uses Funky's Fishing's HRAM, joypad and palettes)", HISCORE)
     out.append("\n; Front-end code copied to RAM (FE_RAM_CODE)\n")
     for a, n in sorted(list(FE_RAM_CODE.items()) + list(CRANKY_RAM_CODE.items())):
         out.append("DEF %-22s EQU $%04x\n" % (n, a))
@@ -724,8 +728,8 @@ FISHING_HRAM = [
     (0xFFC6, 1, "hFishing_VRAMBank", "rVBK as last set"),
     (0xFFC7, 1, "hFishing_VBlankDone", ""),
     (0xFFC8, 6, "hFishing_Scratch", "scratch: numbers being compared, fish records, text"),
-    (0xFFCF, 1, "hFishing_FrameBank", "bank of the routine the runtime calls each frame (tentative)"),
-    (0xFFD0, 2, "hFishing_FrameRoutine", "that routine"),
+    (0xFFCF, 1, "hFishing_FarA", "a kept across a far jump: Fishing_FarJump reloads it, the far returns keep a in it"),
+    (0xFFD0, 2, "hFishing_FarHL", "hl kept across a far jump (Fishing_FarJump reloads it)"),
     (0xFFD2, 1, "hFishing_RuntimeTemp", ""),
     (0xFFD3, 2, "hFishing_OAMPos", "next free entry in wFishing_OAMBuffer"),
     (0xFFD5, 1, "hFishing_TileCount", "sprite tiles to stream this frame"),
@@ -748,3 +752,27 @@ def fishing_lookup(v, bank):
     if bank in FISHING_CODE_BANKS:
         return FISHING_TABLE.get(v)
     return None
+
+
+# ---------------------------------------------------------------------------
+# The Hi-Score screen (bank $55). It runs on Funky's Fishing's runtime, so it
+# shares that program's HRAM variables, joypad bytes and palette buffers.
+HISCORE = [
+    (0xC800, 0x22, "wHiScore_Loader", "HiScore_InstallRuntime_Code is copied here and run: it installs the runtime"),
+    (0xDD75, 0x27, "wHiScoreRecord", "the table as saved: signature $48 $08, five entries of three letters "
+                                    "and a 4-byte score, then the checksum (sum of the first $25 bytes)"),
+    (0xDD9C, 15, "wHiScoreNames", "the five names, three letters each"),
+    (0xDDAB, 20, "wHiScoreScores", "the five scores, four bytes each, best first"),
+    (0xDDBF, 15, "wHiScoreMoveBuffer", "entries moved down by HiScore_InsertScore"),
+    (0xDDCE, 40, "wHiScoreDigits", "the scores as digit tiles (HiScore_ScoresToTiles)"),
+    (0xDDF6, 3, "wHiScoreNewName", "name being entered ($fd = blank)"),
+    (0xDDF9, 1, "wHiScoreNewRank", "place of the new score"),
+    (0xDDFA, 1, "wHiScoreLetter", "letter of the name being entered (0-2)"),
+]
+_HISCORE_SHARED = [e for e in FISHING + FISHING_HRAM
+                   if e[0] in (0xD800, 0xD880, 0xDD6F, 0xDD70) or e[0] >= 0xFFC5]
+HISCORE_TABLE = _table(HISCORE + _HISCORE_SHARED)
+
+
+def hiscore_lookup(v):
+    return HISCORE_TABLE.get(v)

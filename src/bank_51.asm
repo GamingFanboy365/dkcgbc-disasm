@@ -726,23 +726,23 @@ FishingRuntime::
 ; Fishing_FarJump:
 	ldh [hFishing_ROMBank], a
 	ld [$2000], a
-	ld hl, hFishing_FrameRoutine
+	ld hl, hFishing_FarHL
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ldh a, [hFishing_FrameBank]
+	ldh a, [hFishing_FarA]
 	ret
 
 ; Fishing_FarReturn:
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	pop af
 	ldh [hFishing_ROMBank], a
 	ld [$2000], a
-	ldh a, [hFishing_FrameBank]
+	ldh a, [hFishing_FarA]
 	ret
 
 ; Fishing_FarReturnKeepFlags:
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	push bc
 	push af
 	pop bc
@@ -758,7 +758,7 @@ FishingRuntime::
 	push bc
 	pop af
 	pop bc
-	ldh a, [hFishing_FrameBank]
+	ldh a, [hFishing_FarA]
 	ret
 
 ; Fishing_CopyBytes:

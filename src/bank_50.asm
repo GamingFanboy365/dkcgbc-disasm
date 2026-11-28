@@ -80,11 +80,11 @@ Fishing_Start::
 	ld [wFishing_StartArg + 1], a
 	ld hl, wFishing_BGPalettes
 	ld de, wFishing_OBJPalettes
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_LinkGame
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -522,11 +522,11 @@ Fishing_LinkFrame::
 	call Fishing_ComboTextTimer
 	call Fishing_AnimateAll
 .jump_4390:
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_LinkDrawCharacters
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -553,11 +553,11 @@ Fishing_LinkDrawCharacters::
 	ret
 
 .jump_43c3:
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_LinkFinishOAM
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -607,11 +607,11 @@ Fishing_OnePlayerFrame::
 	ldh [hFishing_Scroll + 3], a
 	call Fishing_ComboTextTimer
 	call Fishing_AnimateAll
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_DrawCharacters
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -2850,11 +2850,11 @@ Fishing_LinkDrawComboSprite::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_Return50FC
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -2905,11 +2905,11 @@ Fishing_DrawFish::
 	ldh [hFishing_Scratch + 2], a
 	ld h, d
 	ld l, e
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_DrawFish_Next
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -2950,11 +2950,11 @@ Fishing_DrawFunky::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_DrawRod
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -2980,11 +2980,11 @@ Fishing_DrawRod::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_Return51C1
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -3014,11 +3014,11 @@ Fishing_DrawHook::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_Return51F7
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -5567,11 +5567,11 @@ Fishing_ClearRestOfOAM::
 
 
 Fishing_SetAnim::
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_Return60D5
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -5589,11 +5589,11 @@ Fishing_Return60D5::
 
 
 Fishing_SetAnimKeepFrame::
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_Return60F2
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -5619,11 +5619,11 @@ Fishing_ScaleWord::
 	ld d, a
 	ld e, b
 	ld bc, $02d8
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_ScaleWord2
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -5647,11 +5647,11 @@ Fishing_ScaleWord2::
 	push bc
 	ld bc, $ff00
 	ld de, $02d8
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_ScaleWord3
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -5681,11 +5681,11 @@ Fishing_ScaleWord3::
 	ld d, e
 	ld e, b
 	ld bc, $02d8
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_ScaleWordRead
 	push hl
 	ldh a, [hFishing_ROMBank]
@@ -7539,11 +7539,11 @@ Fishing_UpdateAnim::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ldh [hFishing_FrameBank], a
+	ldh [hFishing_FarA], a
 	ld a, h
-	ldh [hFishing_FrameRoutine + 1], a
+	ldh [hFishing_FarHL + 1], a
 	ld a, l
-	ldh [hFishing_FrameRoutine], a
+	ldh [hFishing_FarHL], a
 	ld hl, Fishing_Return6A23
 	push hl
 	ldh a, [hFishing_ROMBank]

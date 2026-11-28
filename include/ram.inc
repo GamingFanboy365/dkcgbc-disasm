@@ -455,8 +455,8 @@ DEF hFishing_ROMBank       EQU $ffc5 ; current ROM bank (Fishing_FarJump keeps i
 DEF hFishing_VRAMBank      EQU $ffc6 ; rVBK as last set
 DEF hFishing_VBlankDone    EQU $ffc7
 DEF hFishing_Scratch       EQU $ffc8 ; (6 bytes) scratch: numbers being compared, fish records, text
-DEF hFishing_FrameBank     EQU $ffcf ; bank of the routine the runtime calls each frame (tentative)
-DEF hFishing_FrameRoutine  EQU $ffd0 ; (2 bytes) that routine
+DEF hFishing_FarA          EQU $ffcf ; a kept across a far jump: Fishing_FarJump reloads it, the far returns keep a in it
+DEF hFishing_FarHL         EQU $ffd0 ; (2 bytes) hl kept across a far jump (Fishing_FarJump reloads it)
 DEF hFishing_RuntimeTemp   EQU $ffd2
 DEF hFishing_OAMPos        EQU $ffd3 ; (2 bytes) next free entry in wFishing_OAMBuffer
 DEF hFishing_TileCount     EQU $ffd5 ; sprite tiles to stream this frame
@@ -470,6 +470,17 @@ DEF hFishing_SampleTable   EQU $ffde ; (2 bytes)
 DEF hFishing_Scroll        EQU $ffe0 ; (9 bytes) scroll positions and speeds of the water layers (Fishing_InitScroll)
 DEF hFishing_FinalScore    EQU $ffe9 ; (4 bytes) link play: this player's score at the end
 DEF hFishing_FinalPartnerScore EQU $ffed ; (4 bytes) and the other player's
+
+; The Hi-Score screen (bank $55; it also uses Funky's Fishing's HRAM, joypad and palettes)
+DEF wHiScore_Loader        EQU $c800 ; (34 bytes) HiScore_InstallRuntime_Code is copied here and run: it installs the runtime
+DEF wHiScoreRecord         EQU $dd75 ; (39 bytes) the table as saved: signature $48 $08, five entries of three letters and a 4-byte score, then the checksum (sum of the first $25 bytes)
+DEF wHiScoreNames          EQU $dd9c ; (15 bytes) the five names, three letters each
+DEF wHiScoreScores         EQU $ddab ; (20 bytes) the five scores, four bytes each, best first
+DEF wHiScoreMoveBuffer     EQU $ddbf ; (15 bytes) entries moved down by HiScore_InsertScore
+DEF wHiScoreDigits         EQU $ddce ; (40 bytes) the scores as digit tiles (HiScore_ScoresToTiles)
+DEF wHiScoreNewName        EQU $ddf6 ; (3 bytes) name being entered ($fd = blank)
+DEF wHiScoreNewRank        EQU $ddf9 ; place of the new score
+DEF wHiScoreLetter         EQU $ddfa ; letter of the name being entered (0-2)
 
 ; Front-end code copied to RAM (FE_RAM_CODE)
 DEF Cranky_SerialHandler   EQU $cc0e
@@ -504,6 +515,9 @@ DEF sCrankyUnlock          EQU $b0c7 ; Crosshair Cranky unlock level (0-6)
 DEF sSaveBackup1           EQU $b100 ; (256 bytes) copies of the four records
 DEF sSaveBackup2           EQU $b200 ; (256 bytes) 
 DEF sSaveBackup3           EQU $b300 ; (256 bytes) 
+DEF sHiScoreTable1         EQU $b400 ; (39 bytes) the Hi-Score table (layout of wHiScoreRecord), kept in three copies
+DEF sHiScoreTable2         EQU $b427 ; (39 bytes) 
+DEF sHiScoreTable3         EQU $b44e ; (39 bytes) 
 
 ; Save file record fields (sSaveFile0-2, $40 bytes each)
 DEF SAVE_LEVELS            EQU $00 ; a byte per level: bits 0-2 cleared (per wGameModeBit), bit 3 first cleared with Diddy leading, bit 4 every bonus found, bit 5 sticker taken; bit 6 of the byte numbered by a world: its bonus coin taken

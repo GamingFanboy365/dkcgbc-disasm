@@ -226,6 +226,12 @@ class Emitter:
             if 0xA000 <= v < 0xC000:
                 return ramnames.lookup(v, 0xF0, False)
             return ramnames.fe_lookup(v, 0xF0 if fe_home else bank)
+        if bank == 0x55:
+            if v in hints.FISHING_RAM_NAMES:
+                return hints.FISHING_RAM_NAMES[v]
+            if 0xA000 <= v < 0xC000:
+                return ramnames.lookup(v, bank, False)
+            return ramnames.hiscore_lookup(v)
         if bank in ramnames.FISHING_CODE_BANKS:
             if v in hints.FISHING_RAM_NAMES:
                 return hints.FISHING_RAM_NAMES[v]

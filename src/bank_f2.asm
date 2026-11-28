@@ -60,7 +60,7 @@ FE_Alphabet::
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ld a, BANK(FE_FadeToColours)
 	ld hl, FE_FadeToColours
@@ -168,7 +168,7 @@ FE_Alphabet_DrawArrows::
 	call FarCall_A_HL
 	ld a, $26
 	ldh [$ff99], a
-	ld bc, $a048
+	ld bc, sWorkRAM + $48
 	ld d, $09
 	xor a
 	ldh [$ff82], a
@@ -217,7 +217,7 @@ FE_Alphabet_Previous::
 
 
 FE_Alphabet_ShowLetter::
-	ld hl, $ff40
+	ld hl, rLCDC
 	set 3, [hl]
 	ld a, [$c9e5]
 	ld c, a
@@ -231,7 +231,7 @@ FE_Alphabet_ShowLetter::
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 3, [hl]
 	ld d, $14
 .jump_41ec:
@@ -535,7 +535,7 @@ FE_MakeFlag::
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
 	call FE_MakeFlag_DrawKeyboard
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ld a, BANK(FE_FadeToColours)
 	ld hl, FE_FadeToColours
@@ -4260,7 +4260,7 @@ FE_Link::
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ld a, $0c
 	ldh [$ff99], a
@@ -4336,7 +4336,7 @@ FE_Link::
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ld b, $03
 	ld c, $04
@@ -4744,7 +4744,7 @@ FE_Link_ExchangeSettings::
 	ld a, BANK(FE_SaveState)
 	ld hl, FE_SaveState
 	call FarCall_A_HL
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ldh a, [$ff94]
 	ld e, a
@@ -4960,7 +4960,7 @@ FE_Link_ShowScreen::
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ld b, $90
 	ld a, BANK(FE_LoadPicture)

@@ -7792,7 +7792,7 @@ Cranky_Spawn_BarrelOKremlings_Body::
 
 
 ByteTable_fe_6cce::
-	db 0, 0, 0, 0, 1, 1, 2 ; by a random number below 7 (Func_f0_4608)
+	db 0, 0, 0, 0, 1, 1, 2 ; by a random number below 7 (FE_RandomBelow)
 
 Cranky_BarrelOKremlings_SpawnBarrel::
 	push de
@@ -9412,7 +9412,7 @@ RAMCopy_fe_761b_to_cc0e::
 
 
 SerialJump_fe_76a1::
-	db $c3 ; jp $cc0e, copied by Func_fe_76a4 to the serial interrupt's
+	db $c3 ; jp $cc0e, copied by Cranky_SetSerialJump to the serial interrupt's
 	dw $cc0e ; RAM trampoline (the address in the vector at $0059)
 
 Cranky_SetSerialJump::

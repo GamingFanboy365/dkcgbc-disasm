@@ -92,7 +92,7 @@ Only the first 64 bytes of each block (8 BG palettes) reach the screen, so the c
 
 Bank `$05` also has two well-formed lists of level markers that no world map record points to (`WorldMapMarkersUnused`). One at `$45D6` has ten points ending at locations `$2D`, `$2E`, `$2F` and `$3C`; the other at `$48CA` has a single point (location `$3B`) and sits right after the end marker of the previous list. Map 0 (DK Isle) uses the eight points just before the first one, so it may once have continued with these.
 
-World map 7 is reached by no location in the location table, but `Func_05_4274` checks for it by number, so code uses it directly. It shows the same island as map 0, with a different list of level markers.
+World map 7 is reached by no location in the location table, but `WorldMap_LoadSignTiles` checks for it by number, so code uses it directly. It shows the same island as map 0, with a different list of level markers.
 
 ## Title screen
 
@@ -196,8 +196,8 @@ A few more pieces of code in the main game's banks can't be reached:
 | Where | What |
 |---|---|
 | `KingKRool_Touch` | an object handler (it checks `[$ffb0]`, then spawns objects from `ObjInit_09_4918`, `$4934` or `ObjInit_09_4927`). No list, table or code points to it |
-| `Func_00_2f09` | `rst_farcall Func_0f_4815` and `ret`, right after another `ret`, with no caller |
-| `Func_0a_48b8` | a lone `jp NextObject` after an initialiser list, with no caller |
+| `Save_ComputeSummaries_Far` | `rst_farcall Save_ComputeSummaries` and `ret`, right after another `ret`, with no caller |
+| `Obj_DoNothing_0A` | a lone `jp NextObject` after an initialiser list, with no caller |
 | `$09:4DFC` | the same `jp NextObject`, sharing its first byte (`$C3`) with the end byte of the list before it |
 | `$09:71F3` (`.unreached_71f3`) | 13 bytes inside `Tire_PushDown_Touch` that the `jr` before them always skips. They repeat the lines above them with different values (they test bit 7 of the player's y speed and set it to `$FD00` instead of `$0300`), so they look like an older version left in place |
 | `$00:03F5`, `$00:1DB5` | a `jr` and a `ret` that nothing reaches, at the end of other code |
@@ -244,4 +244,4 @@ These turned up nothing unused, which is worth knowing too:
 
 Every byte of the ROM is now identified, so this list holds things whose kind is known but whose use isn't yet. The 256 tiles at `$F2:5760` (after the letter piece records) and the four tiles at `$F7:7F60` (after the front-end sprites) have no known loader. They need more emulator runs (Link-up, Print, the credits) before they can be called unused. A few small front-end tables are decoded by size and reader but not by meaning: `Defaults_f1_5d0a` (copied to `$C9E6`, `$C9FE` and `$CA08`), `Pairs_f1_6fe0` (written relative to the RAM address `$C329` kept in ROM at `$00F6`), `Triples_fe_6958` and `ByteTable_fe_6cce`. The 11th Funky's Fishing sample, which fills bank `$56`, wasn't heard in any session, but it's in the sample table, so it isn't unused on that evidence.
 
-A few names in the gameplay banks are still guesses and are marked as tentative where they are defined in `tools/names.py`: `Entrance_BananaHoard` (the doorway at the very start of Jungle Hijinxs, whose destination changes once the save file has cleared levels), `Player_Carry` and `Player_AfterThrow`, and `HUD_PartnerIcon`. Two routines seen running in the emulator have no name yet (`Func_08_5d4a`, which copies a small grid of bytes into WRAM bank 4, and `Func_09_4dff`). Every sprite frame the game uses now has a palette; the 70 frames still drawn gray are all among the unused ones above.
+A few names in the gameplay banks are still guesses and are marked as tentative where they are defined in `tools/names.py`: `Entrance_BananaHoard` (the doorway at the very start of Jungle Hijinxs, whose destination changes once the save file has cleared levels), `Player_Carry` and `Player_AfterThrow`, and `HUD_PartnerIcon`. Two routines seen running in the emulator have no name yet (`AnimalBonus_LoadMask`, which copies a small grid of bytes into WRAM bank 4, and `HandSlap_Hitbox`). Every sprite frame the game uses now has a palette; the 70 frames still drawn gray are all among the unused ones above.

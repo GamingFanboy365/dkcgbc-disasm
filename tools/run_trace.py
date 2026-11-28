@@ -215,8 +215,14 @@ def claim_obj_scripts(t, rom):
                         t.parse_obj_list(osc.BANK, v, osc.BANK)
             end = p + 1 + sum(1 if k == "b" else 2 for k in kinds)
         unref = " (no object list points here)" if a in dict(osc.UNREFERENCED) else ""
-        rows[0] = (rows[0][0], rows[0][1], (rows[0][2] or "") + " -- Func_0a_%04x%s" % (it, unref))
+        rows[0] = (rows[0][0], rows[0][1], (rows[0][2] or "") + " -- %s%s" % (_routine_name(0x0A, it), unref))
         t._claim(osc.BANK, a, end - a, "rows", rows, "ObjScript")
+
+
+def _routine_name(bank, addr):
+    import names
+    return (hints.NAMES.get((bank, addr)) or names.NAMES.get((bank, addr))
+            or "Func_%02x_%04x" % (bank, addr))
 
 
 def parse_banks(t, rom):
@@ -314,7 +320,7 @@ def parse_banks(t, rom):
         rows.append(("db", ["0"], "end"))
         t._claim(b, a, 8 * len(recs) + 1, "rows", rows, "LevelObjects")
     blocks = sorted(set(p for recs in lists.values() for (i, fl, x, y, p) in recs if fl & 0x30 == 0))
-    for p in blocks:  # copied to $d800 + 16 * id (Func_00_1715)
+    for p in blocks:  # copied to $d800 + 16 * id (LoadLevelObjects)
         t._claim(3, p, 16, "rows", hexrow("db", rom[off(3, p):off(3, p) + 16]), "LevelObjBlock")
     # --- text
     for b in range(0x10, 0x15):
@@ -351,11 +357,11 @@ def parse_banks(t, rom):
                  "=FishingLayout_52_%04x" % a)
     for a, n in sorted(fd["tiles"].items()):
         t._claim(fb, a, n, "tiles", None, "=FishingTiles_52_%04x" % a)
-    # Rare logo (flow state $10; Func_0d_4130, Func_0d_4216, Func_0d_4266)
+    # Rare logo (flow state $10; RareLogo_Init, RareLogo_LoadAttributes, RareLogo_DecodeFrame)
     t._claim(0x0D, 0x4110, 32, "rows", [("db", ["$%02x" % x for x in rom[off(0x0D, 0x4110 + 4 * k):off(0x0D, 0x4110 + 4 * k) + 4]],
                                          "y, x, tile, attributes" if k == 0 else None) for k in range(8)], "=RareLogoCornerOAM")
     t._claim(0x0D, 0x42A9, 64, "palette", 8, "=RareLogoPalettes")
-    # Rare logo animation (Func_0d_4266): per frame, runs of n < $80 bytes to
+    # Rare logo animation (RareLogo_DecodeFrame): per frame, runs of n < $80 bytes to
     # copy into the tile map buffer, or $80 + n bytes to skip; 0 ends a frame
     d, i, rows, fr = rom[off(0x0D, 0x42E9):off(0x0D, 0x5980)], 0, [], 0
     while i < len(d):
@@ -373,15 +379,15 @@ def parse_banks(t, rom):
     t._claim(0x0D, 0x42E9, 0x5980 - 0x42E9, "rows", rows, "=RareLogoAnimation")
     t._claim(0x0D, 0x5F00, 88, "rows", hexrow("db", rom[off(0x0D, 0x5F00):off(0x0D, 0x5F00) + 88], 8), "=RareLogoAttributes")
     # Hi-Score screen (bank $55): default table, tiles (HDMA'd by Func_55_45xx),
-    # the screen map and two sets of 8 palettes (Func_55_43ec)
+    # the screen map and two sets of 8 palettes (HiScore_LoadScreen)
     hs = rom[off(0x55, 0x4840):off(0x55, 0x4863)]
     t._claim(0x55, 0x4840, 35, "rows", [("db", ["$%02x" % v for v in hs[k:k + 3]] + ["$%02x" % v for v in hs[k + 3:k + 7]],
                                          "name (3 tiles), score (BCD)") for k in range(0, 35, 7)], "=HiScoreDefaults")  # copied to $dd77
     t._claim(0x55, 0x4863, 13, "rows", [("ds", ["13", "$00"], "padding")], "=Padding_55_4863")
-    t._claim(0x55, 0x5DE0, 720, "screenmap", None, "=HiScoreMap")  # Func_55_4580: attributes, then tile numbers
+    t._claim(0x55, 0x5DE0, 720, "screenmap", None, "=HiScoreMap")  # HiScore_UploadMap: attributes, then tile numbers
     t._claim(0x55, 0x60B0, 64, "palette", 8, "=HiScorePalettes")
     t._claim(0x55, 0x60F0, 64, "palette", 8, "=HiScoreObjPalettes_55")
-    # Front-end sprite animations ($f0:5a24, Func_f0_4fa8; tools/feanim.py)
+    # Front-end sprite animations ($f0:5a24, FE_DrawSpriteAnim; tools/feanim.py)
     import feanim
     fa = feanim.decode(rom)
     tname = lambda b, a: feanim.TILE_NAMES.get((b, a), "FESprites_%02x_%04x" % (b, a))  # noqa: E731
@@ -479,7 +485,7 @@ def parse_banks(t, rom):
         rows.append(("db", ["$%02x" % r[0], "%d" % r[1], "%d" % r[2], "BANK(%s)" % lab, "LOW(%s)" % lab, "HIGH(%s)" % lab,
                             "%d" % r[6], "%d" % r[7]], "slot, x, y, tiles, width, height" if k == 0 else None))
     t._claim(tb, ta, 8 * len(rows), "rows", rows, "=ThumbnailTable")
-    # Crosshair Cranky animated BG tiles (Func_fe_5354): per game type a
+    # Crosshair Cranky animated BG tiles (Cranky_AnimateBackgroundTiles): per game type a
     # bank and a list of slots; a slot is tile count, VRAM destination, and
     # frame pointers (tiles in that bank, a multiple of 16 bytes each)
     games = ["Buddies Beware", "Barrel O'Kremlings", "Wanted", "Kremling Krackdown", "Kremlings and Kongs", "Galleon Gunner"]
@@ -514,7 +520,7 @@ def parse_banks(t, rom):
             r = [("db", ["%d" % n], "tiles per frame"), ("dw", ["$%04x" % dest], "VRAM destination")]
             r += [("dw", [ref(abk, f) for f in frames[k:k + 4]], "frames" if k == 0 else None) for k in range(0, len(frames), 4)]
             t._claim(0xFE, x, nxt - x, "rows", r, "CrankyTileAnim")
-    # Crosshair Cranky: background picture and song per game type (Func_f5_4950)
+    # Crosshair Cranky: background picture and song per game type (Cranky_LoadBackground)
     t._claim(0xF5, 0x45FB, 12, "rows", [("dw", [ref(0xF5, rom[off(0xF5, 0x45FB + 2 * g)] | rom[off(0xF5, 0x45FB + 2 * g) + 1] << 8)],
                                          games[g]) for g in range(6)], "=CrankyBackgrounds")
     for g in range(6):
@@ -523,14 +529,14 @@ def parse_banks(t, rom):
                                        "picture, song")], "CrankyBackground")
     for a, name in ((0x40BE, "=CrankyModeToGame_UnusedTable"), (0x41C5, "=CrankyModeToGameTable")):
         t._claim(0xFE, a, 6, "rows", [("db", ["%d" % x for x in rom[off(0xFE, a):off(0xFE, a) + 6]], "game type per mode")], name)
-    t._claim(0xFE, 0x5934, 16, "palette", 2, "=CrankyObjPalettes")  # Func_fe_5944 writes them to OCPD
+    t._claim(0xFE, 0x5934, 16, "palette", 2, "=CrankyObjPalettes")  # Cranky_SetPausePalettes writes them to OCPD
     t._claim(0xFE, 0x77E1, 22 * 8, "palette", 22, "=CrankyObjPaletteSet")
     t._claim(0xFE, 0x7BA9, 48, "rows", [("db", ["%d" % x for x in rom[off(0xFE, 0x7BA9 + 8 * g):off(0xFE, 0x7BA9 + 8 * g) + 8]],
-                                         games[g]) for g in range(6)], "=CrankyPaletteChoice")  # Func_fe_5c0d
+                                         games[g]) for g in range(6)], "=CrankyPaletteChoice")  # Cranky_LoadPalettes
     t._claim(0xFE, 0x794F, 12, "rows", [("db", ["%d" % x for x in rom[off(0xFE, 0x794F + 2 * g):off(0xFE, 0x794F + 2 * g) + 2]],
-                                         games[g]) for g in range(6)], "=CrankyCoords")  # Func_fe_5235
-    for tab, end, name, sub in ((0x789B, 0x794F, "=CrankyRecordTable", "CrankyRecords"),   # Func_fe_5065/5081, 6 bytes per [$cbc0]
-                                (0x795B, 0x79CF, "=CrankyTileAnimSetup", "CrankyTileAnimInit")):  # Func_fe_5adf
+                                         games[g]) for g in range(6)], "=CrankyCoords")  # Cranky_DrawCrosshairAt
+    for tab, end, name, sub in ((0x789B, 0x794F, "=CrankyRecordTable", "CrankyRecords"),   # Cranky_GetTargetRecord/5081, 6 bytes per [$cbc0]
+                                (0x795B, 0x79CF, "=CrankyTileAnimSetup", "CrankyTileAnimInit")):  # Cranky_DrawTargets
         ps = [rom[off(0xFE, tab + 2 * g)] | rom[off(0xFE, tab + 2 * g) + 1] << 8 for g in range(6)]
         t._claim(0xFE, tab, 12, "rows", [("dw", [ref(0xFE, x)], games[g]) for g, x in enumerate(ps)], name)
         cuts = sorted(set(ps))
@@ -555,7 +561,7 @@ def parse_banks(t, rom):
     for x, y in zip(ls, ls[1:]):
         t._claim(0xFE, x, y - x, "rows", [("db", ["$%02x" % B(a) for a in range(x, y)], None)], "CrankyLevelList")
     # pause menu text: a table per language ([$c805]) of six strings, each x,
-    # y, length, 0, the letters and $87 (Func_fe_58df)
+    # y, length, 0, the letters and $87 (Cranky_DrawPauseText)
     langs = [W(0x7D11 + 2 * k) for k in range(5)]
     t._claim(0xFE, 0x7D11, 10, "rows", [("dw", [ref(0xFE, p) for p in langs], "by language")], "=CrankyPauseText")
     strs = []
@@ -583,14 +589,14 @@ def parse_banks(t, rom):
     for a in (0x495C, 0x4B5C, 0x4BDC, 0x4C5C, 0x4CDC, 0x4D5C, 0x4F5C):
         if not any(off(0x0F, a) + j in t.owner for j in range(64)):
             t._claim(0x0F, a, 64, "palette", 8, "WorldPalettesTail")  # loaded with the block, never shown
-    for b, a in ((0x42, 0x72D0), (0x43, 0x60C0), (0x43, 0x6410)):  # Func_00_2c48 copies 128 bytes
+    for b, a in ((0x42, 0x72D0), (0x43, 0x60C0), (0x43, 0x6410)):  # LoadScreen copies 128 bytes
         t._claim(b, a, 64, "palette", 8, "ScreenPalettesTail")
     # bank $03 16-byte blocks that no level object list points to
     for a in range(0x4000, 0x4FF0, 16):
         if not any(off(3, a) + j in t.owner for j in range(16)) and any(rom[off(3, a):off(3, a) + 16]):
             t._claim(3, a, 16, "rows", hexrow("db", rom[off(3, a):off(3, a) + 16]), "LevelObjBlockUnused")
     t._claim(0x0D, 0x4000, 1, "rows", [("db", ["$0d"], "bank number")], "=Bank0D_Number")
-    # bytes after a frame's sprite offset list that the draw code (Func_00_1037) never reads
+    # bytes after a frame's sprite offset list that the draw code (DrawSpriteFrame) never reads
     for b in range(0x21, 0x3B):
         spr = sorted(o for o, (k, bb, pl, ln) in t.data.items() if k in ("sprites", "sprites3") and o // 0x4000 == b)
         if not spr:
@@ -611,7 +617,7 @@ def parse_banks(t, rom):
                     for k in range(0, len(tail), 16)]
             t._claim(b, 0x4000 + i % 0x4000, j - i, "rows", rows, "FrameSpritesTail")
             i = j
-    # world map (bank $05): metasprites for Func_05_4001 (4-byte steps: dy, dx, tile, attributes; $80 ends)
+    # world map (bank $05): metasprites for WorldMap_DrawMetasprite (4-byte steps: dy, dx, tile, attributes; $80 ends)
     mps = []
     a = 0x4022
     while True:
@@ -651,7 +657,7 @@ def parse_banks(t, rom):
     t._claim(5, 0x491E, 392, "rows", [("db", ["$%02x" % v for v in rom[off(5, 0x491E + 4 * k):off(5, 0x491E + 4 * k) + 4]],
                                        "location %d" % k) for k in range(98)], "=WorldMapLocations")  # type in bits 0-6 of byte 2
     t._claim(5, 0x4AA6, 3, "rows", hexrow("db", rom[off(5, 0x4AA6):off(5, 0x4AA9)]), "=WorldMapLocationsTail")
-    # world map movement (Func_00_1dc5 area): per location 4 path pointers, picked by the
+    # world map movement (WorldMap_ReadNode at $1dc5 area): per location 4 path pointers, picked by the
     # pressed direction (down, up, left, right); a path lists marker numbers, $ff ends
     mv = [rom[off(5, 0x4AB9 + 2 * k)] | rom[off(5, 0x4AB9 + 2 * k) + 1] << 8 for k in range(4 * 98)]
     t._claim(5, 0x4AB9, 784, "rows", [("dw", [ref(5, x) if x else "0" for x in mv[4 * k:4 * k + 4]],
@@ -659,7 +665,7 @@ def parse_banks(t, rom):
              "=WorldMapMoves")
     t._claim(5, 0x4DC9, 10, "rows", hexrow("db", rom[off(5, 0x4DC9):off(5, 0x4DD3)]), "=WorldMapMovesTail")
     t._claim(5, 0x4DD3, 78 * 4, "rows", [("db", ["$%02x" % v for v in rom[off(5, 0x4DD3 + 4 * k):off(5, 0x4DD3 + 4 * k) + 4]],
-                                          "location %d" % (k + 1)) for k in range(78)], "=WorldMapArrows")  # Func_05_446a
+                                          "location %d" % (k + 1)) for k in range(78)], "=WorldMapArrows")  # WorldMap_GetPathBits
     pstarts = sorted(set(x for x in mv if x))
     for i, x in enumerate(pstarts):
         y = pstarts[i + 1] if i + 1 < len(pstarts) else rom.index(0xFF, off(5, x)) - 5 * 0x4000 + 0x4000 + 1
@@ -673,7 +679,7 @@ def parse_banks(t, rom):
     for x in sorted(set(fr)):
         t._claim(7, x, 40, "rows", [("db", ["%d" % v for v in rom[off(7, x + 4 * k):off(7, x + 4 * k) + 4]],
                                      "y, x, tile, attributes" if k == 0 else None) for k in range(10)], "TitleSpriteFrame")
-    t._claim(7, 0x43FE, 48, "palette", 6, "=TitleObjPalettes")  # Func_07_4001 copies 64 bytes from here to $c1c0
+    t._claim(7, 0x43FE, 48, "palette", 6, "=TitleObjPalettes")  # Title_Init copies 64 bytes from here to $c1c0
     for a in (0x452E, 0x4CCE, 0x546E):  # second half of each title palette block, read during the title
         t._claim(7, a, 256, "palette", 32, "TitlePalettesExtra")
     # small tables in the object code banks, named by what reads them
@@ -682,9 +688,9 @@ def parse_banks(t, rom):
     t._claim(0x0A, 0x4248, 40, "rows", [("dw", ["$%04x" % w for w in words(0x0A, 0x4248, 20)[k:k + 4]],
                                          "Y velocity by OBJ_VAR_2E" if k == 0 else None) for k in range(0, 20, 4)], "ObjYVelTable")
     t._claim(0x0A, 0x481D, 16, "rows", [("dw", ["$%04x" % w for w in words(0x0A, 0x481D + 4 * k, 2)],
-                                         "target X velocity, ?" if k == 0 else None) for k in range(4)], "ObjXVelTable")  # Func_0a_47fe
+                                         "target X velocity, ?" if k == 0 else None) for k in range(4)], "ObjXVelTable")  # QueenB_SetSpeed
     t._claim(0x0A, 0x4CB1, 20, "rows", [("dw", ["$%04x" % w for w in words(0x0A, 0x4CB1, 10)], "by OBJ_VAR_2E")], "ObjWordTable")
-    for a in (0x63C6, 0x63D6):  # chosen by [$c445] (Func_09_6390 area), indexed by the terrain attribute
+    for a in (0x63C6, 0x63D6):  # chosen by [$c445] (Player_ApplySlope at $6390 area), indexed by the terrain attribute
         t._claim(0x09, a, 16, "rows", hexrow("db", rom[off(9, a):off(9, a) + 16]), "TerrainTable")
     t._claim(0x09, 0x7F01, 0x8000 - 0x7F01, "rows", hexrow("db", rom[off(9, 0x7F01):off(9, 0x8000)]), "=RampTable_09_7f01")
     # blocks the front end copies to RAM before use ("ld hl,src / ld bc,dest / ld d,n" loops)
@@ -696,17 +702,17 @@ def parse_banks(t, rom):
             t._claim(b, src, n, "palette", 10, "=RAMCopy_f1_659a_to_db00")
         elif b * 0x10000 + src not in {x[0] * 0x10000 + x[1] for x in hints.RAM_CODE}:
             t._claim(b, src, n, "incbin", None, "=RAMCopy_%02x_%04x_to_%04x" % (b, src, dst))
-    # 8 OBJ palettes copied to $c846 from $65e8 (Func_f1_433a); their first 2 bytes are the end of the block above
+    # 8 OBJ palettes copied to $c846 from $65e8 (FE_LoadMenuOBJPalettes); their first 2 bytes are the end of the block above
     t._claim(0xF1, 0x65EA, 62, "rows", hexrow("db", rom[off(0xF1, 0x65EA):off(0xF1, 0x6628)], 8), "=FrontEndObjPalettesRest")
-    t._claim(0xF1, 0x5CC1, 16, "palette", 2, "=HiScoreObjPalettes")       # copied to $c846 (Func_f1_5cd1)
+    t._claim(0xF1, 0x5CC1, 16, "palette", 2, "=HiScoreObjPalettes")       # copied to $c846 (FE_ViewItems_LoadPalettes)
     # bank $f2 tables
     t._claim(0xF2, 0x4397, 52, "rows", hexrow("db", rom[off(0xF2, 0x4397):off(0xF2, 0x4397 + 52)], 16),
-             "=PictureByItem")  # picture number by [$c9e5] (Func_f2_41c5)
+             "=PictureByItem")  # picture number by [$c9e5] (FE_Alphabet_ShowLetter)
     t._claim(0xF2, 0x4E0C, 360, "rows", [("db", ["$%02x" % v for v in rom[off(0xF2, 0x4E0C + 6 * k):off(0xF2, 0x4E0C + 6 * k) + 6]],
-                                          "entry %d" % k) for k in range(60)], "=MenuItemRecords")  # by [$c9a0] (Func_f2_4600)
-    t._claim(0xF2, 0x4F74, 60, "rows", hexrow("db", rom[off(0xF2, 0x4F74):off(0xF2, 0x4F74 + 60)], 12), "=MenuItemBytes")  # Func_f2_4626
+                                          "entry %d" % k) for k in range(60)], "=MenuItemRecords")  # by [$c9a0] (FE_MakeFlag_LoadKey)
+    t._claim(0xF2, 0x4F74, 60, "rows", hexrow("db", rom[off(0xF2, 0x4F74):off(0xF2, 0x4F74 + 60)], 12), "=MenuItemBytes")  # FE_MakeFlag_TypeKey
     t._claim(0xF2, 0x6A22, 56, "rows", [("db", ["%d" % v for v in rom[off(0xF2, 0x6A22 + 4 * k):off(0xF2, 0x6A22 + 4 * k) + 4]],
-                                         "picture, type, ?, ?" if k == 0 else None) for k in range(14)], "=PictureScreens")  # Func_f2_6c5a
+                                         "picture, type, ?, ?" if k == 0 else None) for k in range(14)], "=PictureScreens")  # FE_LinkGameResults
     # Funky's Fishing (banks $50/$51)
     t._claim(0x50, 0x51F8, 50, "rows", [("dw", ["$%04x" % (rom[off(0x50, 0x51F8 + 2 * k)] | rom[off(0x50, 0x51F8 + 2 * k) + 1] << 8)
                                                for k in range(j, min(j + 8, 25))], None) for j in range(0, 25, 8)], "=FishingWordTable_51f8")
@@ -740,7 +746,7 @@ def parse_banks(t, rom):
     sine = [rom[off(0x51, 0x44F1 + 2 * k)] | rom[off(0x51, 0x44F1 + 2 * k) + 1] << 8 for k in range(1031)]
     t._claim(0x51, 0x44F1, 2062, "rows", [("dw", ["$%04x" % w for w in sine[j:j + 8]], None) for j in range(0, 1031, 8)],
              "=FishingSineTable")
-    # letters drawn from pieces of the alphabet pictures (Func_f2_5313): character -> FontMapC -> record
+    # letters drawn from pieces of the alphabet pictures (FE_DrawBigLetter): character -> FontMapC -> record
     t._claim(0xF2, 0x5574, 61 * 8, "rows", [("db", ["%d" % v for v in rom[off(0xF2, 0x5574 + 8 * k):off(0xF2, 0x5574 + 8 * k) + 8]],
                                              "picture, x, y, width, height, ..." if k == 0 else None) for k in range(61)], "=LetterPieces")
     t._claim(0xF2, 0x575C, 4, "rows", hexrow("db", rom[off(0xF2, 0x575C):off(0xF2, 0x5760)]), "=LetterPiecesEnd")
@@ -776,12 +782,12 @@ def parse_banks(t, rom):
     for (b, a, n) in hints.OBJ_LIST_TABLES:
         ps = [rom[off(b, a + 2 * k)] | rom[off(b, a + 2 * k) + 1] << 8 for k in range(n)]
         t._claim(b, a, 2 * n, "rows", [("dw", [ref(b, x)], None) for x in ps], "ObjInitTable")
-    t._claim(0, 0x33C3, 4, "rows", [("db", ["$ee", "$dd", "$bb", "$77"], "NR51 masks per channel (Func_00_33b4)")], "=ChannelPanMasks")
+    t._claim(0, 0x33C3, 4, "rows", [("db", ["$ee", "$dd", "$bb", "$77"], "NR51 masks per channel (GetChannelPanMask)")], "=ChannelPanMasks")
     t._claim(0, 0x1EFA, 16, "rows", [("dw", ["$%04x" % (rom[0x1EFA + 2 * k] | rom[0x1EFB + 2 * k] << 8) for k in range(8)], None)],
              "=WordTable_00_1efa")
     t._claim(0, 0x20B5, 6, "rows", [("db", ["%d" % v for v in rom[0x20B5:0x20BB]], None)], "=ByteTable_00_20b5")
     # map patches in bank $04: objects keep a pointer in OBJ_VAR_2F/30/32 and
-    # pass it to ApplyMapPatch (Func_00_0d74), which writes a block of the level
+    # pass it to ApplyMapPatch (ApplyMapPatch), which writes a block of the level
     # map (block number, block attribute, terrain byte per cell) at block x, y
     a = 0x6CB4
     t.obj_ptr_refs = {}
@@ -796,7 +802,7 @@ def parse_banks(t, rom):
         for f in (0x2F, 0x30, 0x32):
             t.obj_ptr_refs[(f, a)] = 4
         a += 4 + 3 * w * h
-    # bank $08 objects that carry a second object (Func_08_4652 area): indexed
+    # bank $08 objects that carry a second object (MatchBonus_Item_Cycle at $4652 area): indexed
     # by OBJ_VAR_2E, 8 bytes each: sprite frame and palette for the carrier,
     # then a y offset and an initialiser list for the object it spawns
     rows = []
@@ -810,7 +816,7 @@ def parse_banks(t, rom):
         rows.append(("db", ["$%02x" % r[2], "$%02x" % r[3]], "palette, unused"))
         rows.append(("dw", ["$%04x" % yo, ref(8, il)], "y offset, spawned object"))
     t._claim(8, 0x4CA0, 8 * 17, "rows", rows, "=CarrierObjectTable")
-    # words spelled in letter blocks by Func_08_4344 (pointer in OBJ_VAR_35,
+    # words spelled in letter blocks by SpellBonus (pointer in OBJ_VAR_35,
     # count in OBJ_VAR_33): $80 / $81 spawn ObjInit_08_441d / ObjInit_08_442b,
     # anything else is the letter's position (its OBJ_VAR_33) and its frame
     def obj_refs(field, lo, hi):
@@ -847,7 +853,7 @@ def parse_banks(t, rom):
             rows.append(("dw", [ref(t.frame_bank, fr)], "letter %s" % chr(65 + (fr - 0x4B82) // 6)))
             letters.append((rom[off(8, a)], fr))
             a += 3
-    # step patterns for Func_08_4581 rows (pointer in OBJ_VAR_33, length in
+    # step patterns for MatchBonus rows (pointer in OBJ_VAR_33, length in
     # OBJ_VAR_32): frames to wait, then an index into CarrierObjectTable (0 = hidden)
     starts = sorted(obj_refs(0x33, 0x4F8F, 0x502F) | {0x4F8F}) + [0x502F]
     for x, y in zip(starts, starts[1:]):
@@ -857,9 +863,9 @@ def parse_banks(t, rom):
     # bank $08 small tables
     w8 = lambda a: rom[off(8, a)] | rom[off(8, a + 1)] << 8  # noqa: E731
     t._claim(8, 0x5AE3, 0xC0, "rows", [("dw", ["$%04x" % w8(a), "$%04x" % w8(a + 2)], None) for a in range(0x5AE3, 0x5BA3, 4)],
-             "=SlopeVelocities")  # x and y speed by OBJ_TERRAIN_B slope (Func_08_5aba)
+             "=SlopeVelocities")  # x and y speed by OBJ_TERRAIN_B slope (MineCart_SetSlopeVelocity)
     masks = [w8(0x5D93 + 2 * k) for k in range(4)]
-    t._claim(8, 0x5D93, 8, "rows", [("dw", [ref(8, m) for m in masks], "by animal buddy ([$c445] bits 4-6), Func_08_5d4a")],
+    t._claim(8, 0x5D93, 8, "rows", [("dw", [ref(8, m) for m in masks], "by animal buddy ([$c445] bits 4-6), AnimalBonus_LoadMask")],
              "=AnimalMaskTable")
     for m in masks:
         w, h = rom[off(8, m)], rom[off(8, m + 1)]
@@ -868,12 +874,12 @@ def parse_banks(t, rom):
             rows.append(("db", ["%" + format(v, "08b") for v in rom[off(8, m + 2 + w * r):off(8, m + 2 + w * (r + 1))]], None))
         t._claim(8, m, 2 + w * h, "rows", rows, "AnimalMask")
     t._claim(8, 0x5F73, 5, "rows", hexrow("db", rom[off(8, 0x5F73):off(8, 0x5F78)]), "=AnimalMask_Unused_08_5f73")
-    t._claim(8, 0x614E, 3, "rows", [("db", ["$fc", "$07", "$00"], "block, attribute, terrain (written by Func_00_0d9d)")], "=MapCell_08_614e")
-    t._claim(8, 0x615B, 8, "rows", [("dw", ["$%04x" % w8(0x615B + 2 * k) for k in range(4)], "y offset by animal buddy (Func_08_5fe6)")],
+    t._claim(8, 0x614E, 3, "rows", [("db", ["$fc", "$07", "$00"], "block, attribute, terrain (written by SetMapCell)")], "=MapCell_08_614e")
+    t._claim(8, 0x615B, 8, "rows", [("dw", ["$%04x" % w8(0x615B + 2 * k) for k in range(4)], "y offset by animal buddy (TileAnimator)")],
              "=AnimalYOffsets")
     t._claim(8, 0x62B6, 20, "rows", [("db", ["%" + format(v, "08b") for v in rom[off(8, a):off(8, a + 5)]], c)
                                       for a, c in zip(range(0x62B6, 0x62CA, 5), ("x", "1", "2", "3"))],
-             "=ObjectDigits")  # drawn one object per set bit by Func_08_6246
+             "=ObjectDigits")  # drawn one object per set bit by SpawnObjectDigits
     # small tables in the main game's code banks
     def words(b, a, n):
         return [rom[off(b, a + 2 * k)] | rom[off(b, a + 2 * k) + 1] << 8 for k in range(n)]
@@ -885,10 +891,10 @@ def parse_banks(t, rom):
                                       for k in range(0, 224, 16)], "=CharTileTable")
     for a, n in ((0x35, 3), (0x43, 5), (0x4C, 4), (0x53, 5), (0x5B, 5), (0xFB, 5)):
         t._claim(0, a, n, "rows", [("ds", ["%d" % n, "$00"], "padding between restart vectors")], "=Padding_00_%04x" % a)
-    t._claim(0, 0xF6, 2, "rows", [("dw", ["$c329"], "a RAM address, read by Func_f1_4dc4 in bank $f1")], "=RAMPointer_00_00f6")
+    t._claim(0, 0xF6, 2, "rows", [("dw", ["$c329"], "a RAM address, read by FE_SoundTest_DrawNumber in bank $f1")], "=RAMPointer_00_00f6")
     t._claim(8, 0x5365, 16, "rows", [("db", ["%" + format(v, "08b") for v in bytes_(8, 0x5365, 8)], None),
                                      ("db", ["%" + format(v, "08b") for v in bytes_(8, 0x536D, 8)], None)],
-             "=Flags_08_5365")  # by OBJ_VAR_38 >> 4; bits 7 and 6 tested (Func_08_5265 area)
+             "=Flags_08_5365")  # by OBJ_VAR_38 >> 4; bits 7 and 6 tested (BarrelCannon_Fire at $5265 area)
     for a in (0x41B7, 0x4284, 0x6979, 0x6CB2, 0x6CCA):
         t._claim(9, a, 2, "rows", [("dw", ["$0000"], "empty animation table entry")], "=AnimTableNull_09_%04x" % a)
     t._claim(9, 0x41BF, 8, "rows", [("dw", ["$0000"] * 4, "empty animation table entries")], "=AnimTableNull_09_41bf")
@@ -900,13 +906,13 @@ def parse_banks(t, rom):
                                       for k in range(0, 332, 4)], "=Hitboxes")
     t._claim(0x0A, 0x42AF, 10, "rows", [("db", ["%d" % v for v in bytes_(0x0A, 0x42AF, 10)], "OBJ_VAR_30 by OBJ_VAR_2E")], "=Timers_0a_42af")
     t._claim(0x0A, 0x46A4, 10, "rows", [("dw", ["$%04x" % v for v in words(0x0A, 0x46A4, 5)], "acceleration by OBJ_VAR_2E")], "=Accel_0a_46a4")
-    t._claim(0x0A, 0x4871, 16, "rows", [("dw", ["$%04x" % v for v in words(0x0A, 0x4871, 8)], "by [$c336] & $0e (Func_0a_485c)")], "=Cycle_0a_4871")
+    t._claim(0x0A, 0x4871, 16, "rows", [("dw", ["$%04x" % v for v in words(0x0A, 0x4871, 8)], "by [$c336] & $0e (QueenB_CycleColour)")], "=Cycle_0a_4871")
     t._claim(0x0A, 0x4911, 6, "rows", [("db", ["%d" % v for v in bytes_(0x0A, 0x4911, 6)], "OBJ_VAR_2F by index")], "=Timers_0a_4911")
     t._claim(0x0A, 0x4E04, 6, "rows", [("dw", ["$%04x" % v for v in words(0x0A, 0x4E04, 3)], None)], "=WordTable_0a_4e04")
     t._claim(0x0A, 0x4E56, 6, "rows", [("dw", ["$%04x" % v for v in words(0x0A, 0x4E56, 3)], "y speeds")], "=YSpeeds_0a_4e56")
     t._claim(0x0A, 0x5005, 6, "rows", [("dw", ["$%04x" % v for v in words(0x0A, 0x5005, 3)], None)], "=WordTable_0a_5005")
     # the ending's captions: x position and sprite frame; entry 11 + [$c30d]
-    # (the language) is "THE END?" (Func_0a_5370 area)
+    # (the language) is "THE END?" (KingKRool_KreditsDrawCaption at $5370 area)
     caps = ["KREDITS", "KODING", "KLAP TRAP", "KARACTERS", "KRUSHA", "KOLORING", "KRITTER", "KONCEPT",
             "KLUMP", "KOMMANDER", "KING K.ROOL", "THE END? (English)", "DAS ENDE(?) (German)",
             "FIN ? (French)", "FINE...? (Italian)", "\u00bfFIN? (Spanish)"]
@@ -924,7 +930,7 @@ def parse_banks(t, rom):
     t._claim(0, 0x1DB5, 1, "rows", [("db", ["$c9"], "ret, never reached")], "=.unreached_1db5")
     ct = bytes_(0x50, 0x6A58, 256)
     t._claim(0x50, 0x6A58, 256, "rows", [("db", ["$%02x" % v for v in ct[k:k + 16]], "characters $%02x-$%02x" % (k, k + 15))
-                                         for k in range(0, 256, 16)], "=CharTileTable_50")  # Func_50_7686
+                                         for k in range(0, 256, 16)], "=CharTileTable_50")  # Fishing_TextToTiles
     t._claim(0x51, 0x4CFF, 1, "rows", [("db", ["$00"], "padding")], "=Padding_51_4cff")
     # a 20x32 map in which every position has its own tile (0-255 in VRAM
     # bank 0, then again in bank 1), so code can draw into the tiles; copied
@@ -937,17 +943,17 @@ def parse_banks(t, rom):
     # bank $f1 (front end) tables
     t._claim(0xF1, 0x4D01, 2, "rows", [("db", ["$00", "$00"], "pads the ret entry above to 3 bytes")], "=.jp_table_pad")
     t._claim(0xF1, 0x5CA9, 24, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x5CA9 + 4 * k, 4)], None) for k in range(6)],
-             "=SpritePositions_f1_5ca9")  # x, y, sprite animation, direction (bit 7) for Func_f1_5c69
+             "=SpritePositions_f1_5ca9")  # x, y, sprite animation, direction (bit 7) for FE_ViewItems_DrawItem
     t._claim(0xF1, 0x5D0A, 30, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x5D0A + 10 * k, 10)], "copied to $%04x" % d)
                                         for k, d in enumerate((0xC9E6, 0xC9FE, 0xCA08))], "=Defaults_f1_5d0a")
     t._claim(0xF1, 0x678A, 32, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x678A, 10)], "not read in any session, nothing points here"),
                                         ("dw", ["$6798", "$67a1"], None),
                                         ("db", ["$%02x" % v for v in bytes_(0xF1, 0x6798, 9)], None),
                                         ("db", ["$%02x" % v for v in bytes_(0xF1, 0x67A1, 9)], None)], "=Unused_f1_678a")
-    t._claim(0xF1, 0x67AA, 21, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x67AA, 21)], "by [$c96e], $ff for none (Func_f1_4926)")],
+    t._claim(0xF1, 0x67AA, 21, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, 0x67AA, 21)], "by [$c96e], $ff for none (FE_IsRingItemHidden)")],
              "=ByteTable_f1_67aa")
     # menus: (item count, pointer) per menu; items are 12 bytes, byte 8
-    # is the item's action ([$c993], Func_f1_73ef)
+    # is the item's action ([$c993], FE_StickerBook_SelectSticker)
     mt = [(rom[off(0xF1, 0x6893 + 3 * k)], words(0xF1, 0x6894 + 3 * k, 1)[0]) for k in range(5)]
     t._claim(0xF1, 0x6893, 15, "rows", [("db", ["%d" % n, "LOW(%s)" % "MenuItems_f1_%04x" % p, "HIGH(%s)" % "MenuItems_f1_%04x" % p], "items, list")
                                         for n, p in mt], "=MenuTable_f1_6893")
@@ -966,36 +972,36 @@ def parse_banks(t, rom):
     for k in range(5):
         p, r = words(0xF1, 0x69F0 + 4 * k, 2)
         rows.append(("dw", [ref(0xF1, p) if p else "$0000", "$%04x" % r], None))
-    t._claim(0xF1, 0x69F0, 20, "rows", rows, "=Columns_f1_69f0")  # by [$c96c] (Func_f1_545f)
+    t._claim(0xF1, 0x69F0, 20, "rows", rows, "=Columns_f1_69f0")  # by [$c96c] (FE_DrawRingExtras.jump_545f)
     for a in range(0x6A04, 0x6A1D, 5):
         t._claim(0xF1, a, 5, "rows", [("db", ["%d" % v for v in bytes_(0xF1, a, 5)], "by language ([$c805])")], "LanguageColumns")
     lw = words(0xF1, 0x6A1D, 10)
     t._claim(0xF1, 0x6A1D, 20, "rows", [("dw", [ref(0xF1, lw[2 * k]), ref(0xF1, lw[2 * k + 1])], ("English", "German", "French", "Italian", "Spanish")[k])
-                                        for k in range(5)], "=LanguageWordTiles")  # Func_f1_54d2 copies the first of each pair
+                                        for k in range(5)], "=LanguageWordTiles")  # LoadLanguageWordTiles copies the first of each pair
     t._claim(0xF1, 0x6A31, 15, "rows", [("ds", ["15", "$00"], "padding")], "=.pad_6a31")
-    t._claim(0xF1, 0x6FD0, 16, "rows", hexrow("db", bytes(bytes_(0xF1, 0x6FD0, 16))), "=Tile_f1_6fd0")  # a 10th tile after the 9 Func_f1_54d2 copies
+    t._claim(0xF1, 0x6FD0, 16, "rows", hexrow("db", bytes(bytes_(0xF1, 0x6FD0, 16))), "=Tile_f1_6fd0")  # a 10th tile after the 9 LoadLanguageWordTiles copies
     t._claim(0xF1, 0x6FE0, 154, "rows", [("db", ["$%02x" % v for v in bytes_(0xF1, a, 16)][:min(16, 0x707A - a)], None)
-                                         for a in range(0x6FE0, 0x707A, 16)], "=Pairs_f1_6fe0")  # by [$c986]: value, offset from $c329 - 1 (Func_f1_4dc4)
+                                         for a in range(0x6FE0, 0x707A, 16)], "=Pairs_f1_6fe0")  # by [$c986]: value, offset from $c329 - 1 (FE_SoundTest_DrawNumber)
     # last front-end leftovers: unreached bytes after a ret/jr/jp
     for b, a, bs, c in ((0xF2, 0x4A38, [0xC9], "ret"), (0xF2, 0x4A4D, [0xC6, 0x18], "add a, $18"), (0xF2, 0x6F25, [0xC9], "ret"),
                         (0xFE, 0x4E37, [0xC9], "ret"), (0xFE, 0x6E52, [0xC9], "ret")):
         assert list(bytes_(b, a, len(bs))) == bs
         t._claim(b, a, len(bs), "rows", [("db", ["$%02x" % v for v in bs], "%s, never reached" % c)], "=.unreached_%04x" % a)
     t._claim(0xF5, 0x4AE2, 14, "rows", [("ds", ["14", "$00"], "padding")], "=Padding_f5_4ae2")
-    t._claim(0xFE, 0x76A1, 3, "rows", [("db", ["$c3"], "jp $cc0e, copied by Func_fe_76a4 to the serial interrupt's"),
+    t._claim(0xFE, 0x76A1, 3, "rows", [("db", ["$c3"], "jp $cc0e, copied by Cranky_SetSerialJump to the serial interrupt's"),
                                        ("dw", ["$cc0e"], "RAM trampoline (the address in the vector at $0059)")], "=SerialJump_fe_76a1")
     t._claim(0xFE, 0x47C4, 3, "rows", [("db", ["%d" % v for v in bytes_(0xFE, 0x47C4, 3)], "added to [$cbc8] by [$dc20 + [$ff9c]] - 2")],
              "=ByteTable_fe_47c4")
     t._claim(0xFE, 0x6958, 18, "rows", [("db", ["$%02x" % v for v in bytes_(0xFE, 0x6958 + 3 * k, 3)], None) for k in range(6)],
              "=Triples_fe_6958")  # d, b, c by index (Func_fe_69xx)
-    t._claim(0xFE, 0x6CCE, 7, "rows", [("db", ["%d" % v for v in bytes_(0xFE, 0x6CCE, 7)], "by a random number below 7 (Func_f0_4608)")],
+    t._claim(0xFE, 0x6CCE, 7, "rows", [("db", ["%d" % v for v in bytes_(0xFE, 0x6CCE, 7)], "by a random number below 7 (FE_RandomBelow)")],
              "=ByteTable_fe_6cce")
     t._claim(0x0B, 0x6C1F, 1, "rows", [("db", ["$00"], "padding")], "=Padding_0b_6c1f")
     t._claim(0x0F, 0x4568, 7, "rows", [("db", ["%d" % v for v in bytes_(0x0F, 0x4568, 7)], "by [$c30a]")], "=ByteTable_0f_4568")
     t._claim(0x0F, 0x4595, 12, "rows", [("dw", [ref(4, v) for v in words(0x0F, 0x4595, 6)], "wLevelEntrance")], "=Entrances_0f_4595")
     t._claim(0x0F, 0x46F0, 84, "rows", [("dw", ["%" + format(v, "016b") for v in words(0x0F, 0x46F0 + 8 * k, min(4, 42 - 4 * k))], None)
                                         for k in range(11)], "=Masks_0f_46f0")  # by [$c30c]
-    t._claim(0x0F, 0x48B0, 25, "rows", [("db", ["%d" % v for v in bytes_(0x0F, 0x48B0, 25)], "save flag bit by level (Func_0f_4830 area)")],
+    t._claim(0x0F, 0x48B0, 25, "rows", [("db", ["%d" % v for v in bytes_(0x0F, 0x48B0, 25)], "save flag bit by level (Save_ComputeSummaries at $4830 area)")],
              "=LevelFlagBits")
     # --- samples
     sbk, sta, ents, ext = bk.samples(rom)

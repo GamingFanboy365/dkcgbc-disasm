@@ -2,7 +2,7 @@
 
 Several object handlers in bank $0A step through a small byte-code script
 whose pointer they keep in an object variable. Every interpreter shares the
-same outline (see Func_0a_5b56):
+same outline (see RunKritterScript):
 
   read a command byte; 0 = jump to the word that follows (a jump to $0000
   stops the script for the interpreters that check for it); other commands
@@ -21,19 +21,19 @@ BANK, START, END = 0x0A, 0x7358, 0x7AF6
 
 # interpreter -> (object variable holding the pointer, {command: (args, text)})
 INTERPRETERS = {
-    0x5B56: (0x32, {1: ("b", "wait"), 2: ("b", "walk (Anim_04_4947)"), 3: ("w", "move (Func_0a_5c4d)"),
-                    4: ("", "call Func_0a_5d66"), 5: ("", "save position"), 6: ("", "restore position")}),
-    0x5E65: (0x2E, {1: ("b", "wait"), 2: ("", "animation Anim_04_4a0d"), 3: ("w", "jump (Func_0a_5eee)")}),
+    0x5B56: (0x32, {1: ("b", "wait"), 2: ("b", "walk (Anim_04_4947)"), 3: ("w", "move (Kritter_JumpStart)"),
+                    4: ("", "call Player_ReverseX"), 5: ("", "save position"), 6: ("", "restore position")}),
+    0x5E65: (0x2E, {1: ("b", "wait"), 2: ("", "animation Anim_04_4a0d"), 3: ("w", "jump (Necky_Throw)")}),
     0x64BA: (0x2E, {1: ("b", "wait"), 2: ("", "animation Anim_04_4ce3"), 3: ("", "animation Anim_04_4cc7"),
                     4: ("ww", "throw: x speed, y speed")}),
     0x6689: (0x2E, {1: ("b", "wait"), 2: ("", "yield"), 3: ("w", "target x speed"), 4: ("w", "target y speed"),
                     5: ("w", "acceleration"), 6: ("", "fall (ObjInit_0a_66f8)"), 7: ("", "end")}),
-    0x6992: (0x2E, {1: ("b", "wait (Func_0a_6a0a)"), 2: ("b", "wait (Func_0a_6a8b)"), 3: ("", "finish (Func_0a_6a2a)")}),
-    0x6AEC: (0x2E, {1: ("b", "wait"), 2: ("w", "attack (Func_0a_6b11)")}),
-    0x6C60: (0x2E, {2: ("", "yield (Func_0a_6d16)"), 3: ("w", "target x speed"), 4: ("w", "target y speed"),
-                    5: ("", "end"), 6: ("", "yield (Func_0a_6d25)")}),
+    0x6992: (0x2E, {1: ("b", "wait (MiniNecky_Hover)"), 2: ("b", "wait (MiniNecky_Swoop)"), 3: ("", "finish (MiniNecky_Spit)")}),
+    0x6AEC: (0x2E, {1: ("b", "wait"), 2: ("w", "attack (RunMankyKongScript.jump_6b11)")}),
+    0x6C60: (0x2E, {2: ("", "yield (Croctopus_Chase)"), 3: ("w", "target x speed"), 4: ("w", "target y speed"),
+                    5: ("", "end"), 6: ("", "yield (Croctopus_WaitForPlayer)")}),
     0x6FC5: (0x2E, {1: ("b", "wait"), 2: ("", "yield"), 3: ("w", "target x speed"), 4: ("w", "target y speed"),
-                    5: ("", "yield (Func_0a_70a2)"), 6: ("w", "acceleration"), 7: ("w", "x acceleration"),
+                    5: ("", "yield (Millstone_Despawn)"), 6: ("w", "acceleration"), 7: ("w", "x acceleration"),
                     8: ("w", "y acceleration")}),
     0x713C: (0x31, {1: ("b", "wait"), 2: ("o", "spawn")}),
     0x71EB: (0x31, {2: ("", "animation (ObjInit_0a_727a)"), 3: ("", "animation (ObjInit_0a_726f)"),

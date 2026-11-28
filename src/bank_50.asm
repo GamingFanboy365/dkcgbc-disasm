@@ -5776,7 +5776,7 @@ Fishing_SetDoubleSpeed::
 	di
 	ldh a, [rIE]
 	push af
-	ld hl, $ff4d
+	ld hl, rKEY1
 	bit 7, [hl]
 	jr nz, .jump_61e2
 	set 0, [hl]
@@ -5801,7 +5801,7 @@ Fishing_ToggleCPUSpeed::
 	di
 	ldh a, [rIE]
 	push af
-	ld hl, $ff4d
+	ld hl, rKEY1
 	set 0, [hl]
 	xor a
 	ldh [rIF], a
@@ -6653,7 +6653,7 @@ Fishing_LoadPalette::
 Fishing_ReadBGPalettes::
 	ld d, h
 	ld e, l
-	ld hl, $ff68
+	ld hl, rBCPS
 	xor a
 	ld [hl], a
 	ld c, $69

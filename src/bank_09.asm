@@ -53,12 +53,12 @@ LevelExit_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	push bc
 	rst_farcall Save_MarkLevelCleared
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	inc a
@@ -76,7 +76,7 @@ ReturnExit_Touch::
 	ld a, [hl]
 	or a
 	jr z, .jump_407b
-	ld hl, $ff80
+	ld hl, hJoyHeld
 	and [hl]
 	jr z, .jump_4092
 .jump_407b:
@@ -84,11 +84,11 @@ ReturnExit_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	ld hl, wLevelEntrance
-	ld a, [$c44b]
+	ld a, [wReturnEntrance]
 	ld [hli], a
-	ld a, [$c44c]
+	ld a, [wReturnEntrance + 1]
 	ld [hli], a
 	rst_farcall Player_ExitToEntrance
 .jump_4092:
@@ -97,8 +97,8 @@ ReturnExit_Touch::
 
 GiveExtraLife::
 	ld a, $1d
-	ld [$c32a], a
-	ld a, [$c31d]
+	ld [wSFXQueue + 1], a
+	ld a, [wLives]
 	cp $ff
 	ret z
 	cp $99
@@ -106,41 +106,41 @@ GiveExtraLife::
 	or a
 	inc a
 	daa
-	ld [$c31d], a
+	ld [wLives], a
 	ret
 
 .jump_40ab:
-	ld a, [$c31e]
+	ld a, [wLivesOver99]
 	cp $ff
 	ret z
 	inc a
-	ld [$c31e], a
+	ld [wLivesOver99], a
 	ret
 
 
 LoseLife::
 	ld a, $18
-	ld [$c32c], a
-	ld a, [$c31e]
+	ld [wSFXQueue + 3], a
+	ld a, [wLivesOver99]
 	or a
 	jr z, .jump_40c6
 	dec a
-	ld [$c31e], a
+	ld [wLivesOver99], a
 	ret
 
 .jump_40c6:
 	xor a
-	ld a, [$c31d]
+	ld a, [wLives]
 	or a
 	jr z, .jump_40d3
 	dec a
 	daa
-	ld [$c31d], a
+	ld [wLives], a
 	ret
 
 .jump_40d3:
 	dec a
-	ld [$c31d], a
+	ld [wLives], a
 	ret
 
 
@@ -266,12 +266,12 @@ SetOrbitPosition::
 
 
 Enemy_HandleContact::
-	ldh a, [$ffa7]
+	ldh a, [hContactFlags]
 	and $fb
-	ldh [$ffa7], a
-	ldh a, [$ffb0]
+	ldh [hContactFlags], a
+	ldh a, [hContactObject]
 	ld e, a
-	ldh a, [$ffb1]
+	ldh a, [hContactObject + 1]
 	ld d, a
 	or e
 	jr nz, .jump_4192
@@ -551,29 +551,29 @@ Hitboxes::
 	db 16, 16, 0, -16 ; 82
 
 CheckPlayerContact::
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	ld a, b
 	or c
 	jr nz, .jump_43f5
 	ld hl, wPlayer + OBJ_VAR_2E
 	res 7, [hl]
 .jump_43f5:
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, c
 	ld [hli], a
 	ld [hl], b
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	ld a, [hl]
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld a, [hl]
-	ldh [$ffab], a
+	ldh [hScratch + 3], a
 	ld hl, wObjects + OBJ_ANIM_PARAM
 	add hl, bc
 	ld e, [hl]
@@ -587,49 +587,49 @@ CheckPlayerContact::
 	add hl, de
 	add hl, de
 	ld a, [hli]
-	ldh [$ffac], a
+	ldh [hScratch + 4], a
 	ld a, [hli]
-	ldh [$ffae], a
+	ldh [hScratch + 6], a
 	jr z, .jump_443d
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	sub [hl]
-	ldh [$ffa8], a
-	ldh a, [$ffa9]
+	ldh [hScratch], a
+	ldh a, [hScratch + 1]
 	sbc a, $00
 	bit 7, [hl]
 	jr z, .jump_4439
 	inc a
 .jump_4439:
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	jr .jump_444d
 
 .jump_443d:
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	add a, [hl]
-	ldh [$ffa8], a
-	ldh a, [$ffa9]
+	ldh [hScratch], a
+	ldh a, [hScratch + 1]
 	adc a, $00
 	bit 7, [hl]
 	jr z, .jump_444b
 	dec a
 .jump_444b:
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 .jump_444d:
 	inc hl
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	add a, [hl]
-	ldh [$ffaa], a
-	ldh a, [$ffab]
+	ldh [hScratch + 2], a
+	ldh a, [hScratch + 3]
 	adc a, $00
 	bit 7, [hl]
 	jr z, .jump_445c
 	dec a
 .jump_445c:
-	ldh [$ffab], a
+	ldh [hScratch + 3], a
 	push bc
 	ld bc, $0040
 .jump_4462:
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	cp c
 	jr nz, .jump_446e
@@ -639,16 +639,16 @@ CheckPlayerContact::
 .jump_446e:
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
-	ldh a, [$ffa7]
+	ldh a, [hContactFlags]
 	and [hl]
 	jp z, .jump_44f5
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	sub [hl]
 	ld e, a
 	inc l
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	sbc a, [hl]
 	ld d, a
 	rlca
@@ -663,13 +663,13 @@ CheckPlayerContact::
 	or a
 	jr nz, .jump_44f5
 	ld a, e
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
-	ldh [$ffb5], a
+	ldh [hTempY + 1], a
 	ld hl, wObjects + OBJ_ANIM_PARAM
 	add hl, bc
 	ld e, [hl]
@@ -679,34 +679,34 @@ CheckPlayerContact::
 	add hl, de
 	add hl, de
 	add hl, de
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	add a, [hl]
-	ldh [$ffb6], a
+	ldh [hTempX2], a
 	ld e, a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	sub e
 	jr nc, .jump_44f5
 	inc hl
-	ldh a, [$ffae]
+	ldh a, [hScratch + 6]
 	add a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	inc hl
 	inc hl
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	add a, [hl]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld e, a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	adc a, $00
 	bit 7, [hl]
 	jr z, .jump_44cf
 	dec a
 .jump_44cf:
 	ld d, a
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	sub e
 	ld e, a
-	ldh a, [$ffab]
+	ldh a, [hScratch + 3]
 	sbc a, d
 	ld d, a
 	rlca
@@ -721,7 +721,7 @@ CheckPlayerContact::
 	or a
 	jr nz, .jump_44f5
 	ld d, e
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld e, a
 	ld a, d
 	sub e
@@ -792,7 +792,7 @@ SpellBonus_Letter_Touch::
 	ld [hl], $01
 .jump_4543:
 	ld a, $08
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jr .jump_455b
 
 .jump_454a:
@@ -802,7 +802,7 @@ SpellBonus_Letter_Touch::
 	ld hl, wPlayer + OBJ_VAR_31
 	call NegateObjectWord
 	ld a, $28
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_455b:
 	jp CheckPlayerContact.jump_44f5
 
@@ -901,7 +901,7 @@ MatchBonus_Item_Touch::
 	add hl, de
 	ld [hl], a
 	ld a, $08
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jr .jump_4620
 
 .jump_45f0:
@@ -914,7 +914,7 @@ MatchBonus_Item_Touch::
 	jr nz, .jump_4615
 .jump_45fc:
 	ld a, $08
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, de
 	ld a, [hl]
@@ -932,7 +932,7 @@ MatchBonus_Item_Touch::
 	add hl, de
 	ld [hl], $02
 	ld a, $28
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_4620:
 	jp CheckPlayerContact.jump_44f5
 
@@ -964,7 +964,7 @@ ShuffleBonus_Spot_Touch::
 	add hl, de
 	ld [hl], $02
 	ld a, $28
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jr .jump_4666
 
 .jump_4653:
@@ -977,7 +977,7 @@ ShuffleBonus_Spot_Touch::
 	and $ef
 	ld [hl], a
 	ld a, $08
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_4666:
 	jp CheckPlayerContact.jump_44f5
 
@@ -1002,9 +1002,9 @@ StompBonus_Klaptrap_Touch::
 	call BouncePlayer
 	ld hl, ObjInit_09_46aa
 	call ApplyObjInit
-	ldh a, [$ffa7]
+	ldh a, [hContactFlags]
 	and $fb
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 .jump_4695:
 	jp CheckPlayerContact.jump_44f5
 
@@ -1056,10 +1056,10 @@ StompBonus_Bananas_Touch::
 
 BonusCoin_Touch::
 	ld a, $07
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld a, $54
-	ld [$c441], a
-	ld hl, $c448
+	ld [wHUDFlags], a
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld hl, ObjInit_09_4708
 	call ApplyObjInit
@@ -1084,7 +1084,7 @@ ObjInit_09_4708::
 	obj_end
 
 StompBoss_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	or [hl]
 	jr nz, .jump_4786
@@ -1154,7 +1154,7 @@ StompBoss_Touch::
 
 .jump_4789:
 	ld a, $50
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ld hl, wObjects + OBJ_VAR_35
 	add hl, bc
 	bit 0, [hl]
@@ -1213,7 +1213,7 @@ ObjInit_09_47e4::
 	obj_end
 
 QueenB_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -1292,7 +1292,7 @@ ObjInit_09_485e::
 	obj_end
 
 KingKRool_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	or [hl]
 	jp nz, CheckPlayerContact.jump_44f5
@@ -1334,7 +1334,7 @@ KingKRool_Touch::
 .jump_48c0:
 	ld hl, ObjInit_09_4927
 	call ApplyObjInit
-	ld hl, $c310
+	ld hl, wMapFlags
 	bit 3, [hl]
 	jr nz, .jump_48bb
 	ld hl, wObjects + OBJ_OAM_ATTR
@@ -1359,7 +1359,7 @@ KingKRool_Touch::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	ld a, [hl]
@@ -1375,7 +1375,7 @@ KingKRool_Touch::
 	pop bc
 .jump_490b:
 	ld a, $50
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_4910:
 	jp CheckPlayerContact.jump_44f5
 
@@ -1440,9 +1440,9 @@ Player_EnterLevel::
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 0, [hl]
 	ld a, $50
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ld a, $48
-	ld [$c451], a
+	ld [wCameraPlayerY], a
 	ld hl, ObjInit_09_498d
 	call InitObject
 	jp NextObject
@@ -1465,28 +1465,28 @@ Player_EnterLevel_Begin::
 	ld [wPlayer + OBJ_COLLISION], a
 	ld a, $01
 	ld [wPlayer + OBJ_LAYER], a
-	ld a, [$c444]
+	ld a, [wEntranceKind]
 	and $40
 	jr z, .jump_49be
 	ld a, [wPlayer + OBJ_OAM_ATTR]
 	or $20
 	ld [wPlayer + OBJ_OAM_ATTR], a
 .jump_49be:
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $70
 	jr nz, .jump_49f2
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $08
 	jr nz, .jump_49d3
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 3, a
 	jr nz, .jump_4a00
 .jump_49d3:
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $07
 	jr z, .jump_49ed
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	cp $02
 	jr nz, .jump_49e8
 	ld hl, wPlayer + OBJ_VAR_30
@@ -1543,7 +1543,7 @@ Player_EnterLevel_Begin::
 
 .jump_4a2e:
 	ld a, $14
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld hl, wPlayer + OBJ_XVEL
 	ld [hl], $00
 	inc l
@@ -1619,7 +1619,7 @@ Player_EnterLevel_Walk::
 
 
 Player_SetKongOnLand::
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr nc, .jump_4ac5
@@ -1629,7 +1629,7 @@ Player_SetKongOnLand::
 	call Player_StoreFacing
 	ld hl, ObjInit_09_4aef
 	call ApplyObjInit
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $03
 	ld de, $0080
@@ -1659,7 +1659,7 @@ Player_OnGround::
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $10
 	jp nz, .jump_4cea
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jp nz, .jump_4c46
 .jump_4b0e:
@@ -1671,15 +1671,15 @@ Player_OnGround::
 	dec a
 	ld [wPlayer + OBJ_VAR_36], a
 .jump_4b1d:
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 2, a
 	jp nz, .jump_4cdf
 .jump_4b24:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 7, a
 	jr nz, .jump_4b5c
 .jump_4b2a:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 4, a
 	jr nz, .jump_4b78
 	bit 5, a
@@ -1732,7 +1732,7 @@ Player_OnGround::
 .jump_4b86:
 	ld e, $00
 	call Player_SetFacingBits
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	jr z, .jump_4baa
 	ld de, $0200
@@ -1789,7 +1789,7 @@ Player_OnGround::
 .jump_4bed:
 	ld e, $0f
 	call Player_SetFacingBits
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	jr z, .jump_4c11
 	ld de, $fe00
@@ -1837,11 +1837,11 @@ Player_OnGround::
 	jp .jump_4b51
 
 .jump_4c46:
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 0, a
 	jp nz, .jump_4b0e
 	set 0, a
-	ldh [$ff82], a
+	ldh [hJoyUsed], a
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jp nc, .jump_4b24
@@ -1853,11 +1853,11 @@ Player_OnGround::
 	jp .jump_4b51
 
 .jump_4c68:
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	jp nz, .jump_4b1d
 	set 1, a
-	ldh [$ff82], a
+	ldh [hJoyUsed], a
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jp nc, .jump_4b1d
@@ -1872,7 +1872,7 @@ Player_OnGround::
 	ld [hl], $01
 	inc l
 	ld [hl], $00
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jr nz, .jump_4caf
 	bit 4, a
@@ -1911,7 +1911,7 @@ Player_OnGround::
 	ld [hl], LOW(Player_Roll)
 	inc l
 	ld [hl], HIGH(Player_Roll)
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $0f
 	jr nc, .jump_4cd9
@@ -1964,10 +1964,10 @@ Player_InAir::
 	rlca
 	jr c, .jump_4d3f
 	call Player_SetKongOnLand
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 1, a
 	jr z, .jump_4d3f
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	set 1, [hl]
 	jr .jump_4d3f
 
@@ -1980,12 +1980,12 @@ Player_InAir::
 
 
 Player_Crouch::
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 1, a
 	jr z, .jump_4d6f
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	set 1, [hl]
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_4d6d
 	ld hl, wPlayer + OBJ_HANDLER
@@ -2003,7 +2003,7 @@ Player_Crouch::
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	rlca
 	jr c, .jump_4d83
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 7, a
 	jr nz, .jump_4d83
 	call Player_SetKongOnLand
@@ -2110,7 +2110,7 @@ Player_HandSlapEnd::
 
 
 Player_Roll::
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jp nz, .jump_4ec8
 	bit 5, a
@@ -2127,7 +2127,7 @@ Player_Roll::
 	ld hl, wPlayer + OBJ_VAR_2E
 	bit 6, [hl]
 	jr z, .jump_4e5d
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	jr z, .jump_4e5d
 .jump_4e51:
@@ -2202,7 +2202,7 @@ Player_Roll::
 	ld a, [wPlayer + OBJ_XVEL + 1]
 	ld [wPlayer + OBJ_TARGET_XVEL + 1], a
 	call Player_Jump
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	set 0, [hl]
 	jr .jump_4e7a
 
@@ -2223,7 +2223,7 @@ ObjInit_09_4ef0::
 	obj_end
 
 Player_Carry::
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jr nz, .jump_4f33
 	bit 4, a
@@ -2299,7 +2299,7 @@ Player_AfterThrow::
 
 
 Player_SetKongSwimming::
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr nc, .jump_4f86
@@ -2325,20 +2325,20 @@ ObjInit_09_4f9d::
 	obj_end
 
 Player_Swim::
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 2, a
 	jr nz, .jump_5022
 	bit 0, a
 	jr nz, .jump_4ff1
 .jump_4fb5:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $0100
 	jr nc, .jump_4fc1
 	ld de, $0133
 .jump_4fc1:
 	call Player_SteerX
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 7, a
 	jr nz, .jump_4fdd
 	ld hl, wPlayer + OBJ_TARGET_YVEL
@@ -2352,7 +2352,7 @@ Player_Swim::
 	jp HurtKong_RunAway.jump_5ca4
 
 .jump_4fdd:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $0145
 	jr nc, .jump_4fe9
@@ -2371,16 +2371,16 @@ Player_Swim::
 	ld a, $96
 	call SetPlayerAnimation
 .jump_4ffc:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $fd9b
 	jr nc, .jump_5008
 	ld de, $fdd9
 .jump_5008:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 7, a
 	jr z, .jump_501a
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $fe8b
 	jr nc, .jump_501a
@@ -2423,17 +2423,17 @@ ObjInit_09_503c::
 	obj_end
 
 PlayerRambi::
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $70
 	jr nz, .jump_5066
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 2, a
 	jp nz, .jump_5178
 .jump_5066:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 1, a
 	jr z, .jump_5080
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	bit 1, [hl]
 	jr nz, .jump_5080
 	set 1, [hl]
@@ -2446,11 +2446,11 @@ PlayerRambi::
 .jump_5080:
 	bit 0, a
 	jr z, .jump_50a7
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 0, a
 	jr nz, .jump_50a7
 	set 0, a
-	ldh [$ff82], a
+	ldh [hJoyUsed], a
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_50a7
@@ -2459,12 +2459,12 @@ PlayerRambi::
 	cp $06
 	jr nc, .jump_50a7
 	ld a, $68
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call PlayerRambi_Jump
 	jr .jump_50d5
 
 .jump_50a7:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jp nz, .jump_512b
 	bit 4, a
@@ -2521,7 +2521,7 @@ PlayerRambi::
 	inc l
 	ld [hl], HIGH(Anim_04_4789)
 .jump_5112:
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	ld de, $0155
 	jr z, .jump_511e
@@ -2562,7 +2562,7 @@ PlayerRambi::
 	inc l
 	ld [hl], HIGH(Anim_04_4789)
 .jump_515e:
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	ld de, $feab
 	jr z, .jump_516a
@@ -2578,16 +2578,16 @@ PlayerRambi::
 
 .jump_5178:
 	ld a, $1e
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call Player_LeaveAnimal
 	jp .jump_50dd
 
 
 PlayerRambi_InAir::
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 1, a
 	jr z, .jump_5198
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	bit 1, [hl]
 	jp nz, .jump_5198
 	set 1, [hl]
@@ -2669,18 +2669,18 @@ ObjInit_09_51fe::
 	obj_end
 
 PlayerExpresso::
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $70
 	jr nz, .jump_522b
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 2, a
 	jp nz, .jump_52fd
 .jump_522b:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jp nz, .jump_526b
 .jump_5232:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jp nz, .jump_52c6
 	bit 4, a
@@ -2712,11 +2712,11 @@ PlayerExpresso::
 	jp HurtKong_RunAway.jump_5ca4
 
 .jump_526b:
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 0, a
 	jp nz, .jump_5232
 	set 0, a
-	ldh [$ff82], a
+	ldh [hJoyUsed], a
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jp nc, .jump_5232
@@ -2725,7 +2725,7 @@ PlayerExpresso::
 	cp $06
 	jp nc, .jump_5232
 	ld a, $68
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call PlayerExpresso_Jump
 	jp .jump_5260
 
@@ -2788,7 +2788,7 @@ PlayerExpresso::
 
 .jump_52fd:
 	ld a, $1e
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call Player_LeaveAnimal
 	jp .jump_5268
 
@@ -2811,7 +2811,7 @@ ObjInit_09_530f::
 	obj_end
 
 PlayerExpresso_InAir::
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jr nz, .jump_5346
 .jump_532b:
@@ -2828,7 +2828,7 @@ PlayerExpresso_InAir::
 	jp HurtKong_RunAway.jump_5ca4
 
 .jump_5346:
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	bit 0, [hl]
 	jp nz, .jump_532b
 	set 0, [hl]
@@ -2851,14 +2851,14 @@ PlayerExpresso_Flap::
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	rlca
 	jr c, .jump_5390
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jr z, .jump_5390
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 0, a
 	jp nz, .jump_5390
 	set 0, a
-	ldh [$ff82], a
+	ldh [hJoyUsed], a
 	ld a, $86
 	ld [wPlayer + OBJ_ANIM_FLAGS], a
 	ld hl, wPlayer + OBJ_YVEL
@@ -2881,9 +2881,9 @@ Player_SetEnguarde::
 	ld a, $12
 	call SetPlayerPalette
 	ld a, $50
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ld a, $48
-	ld [$c451], a
+	ld [wCameraPlayerY], a
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 0, [hl]
 	ld hl, ObjInit_09_53c3
@@ -2905,21 +2905,21 @@ ObjInit_09_53c3::
 	obj_end
 
 PlayerEnguarde::
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $70
 	jr nz, .jump_53ea
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 2, a
 	jp nz, .jump_545f
 .jump_53ea:
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	rlca
 	jr c, .jump_5411
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	and $03
 	jr nz, .jump_5422
 	ld hl, wPlayer + OBJ_TARGET_XVEL
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jr nz, .jump_543a
 	bit 4, a
@@ -2981,7 +2981,7 @@ PlayerEnguarde::
 
 .jump_545f:
 	ld a, $1e
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call Player_LeaveAnimal
 	jp .jump_541f
 
@@ -3034,18 +3034,18 @@ ObjInit_09_54a0::
 	obj_end
 
 PlayerWinky::
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $70
 	jr nz, .jump_54cd
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 2, a
 	jp nz, .jump_559a
 .jump_54cd:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jp nz, .jump_550d
 .jump_54d4:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jp nz, .jump_5563
 	bit 4, a
@@ -3077,11 +3077,11 @@ PlayerWinky::
 	jp HurtKong_RunAway.jump_5ca4
 
 .jump_550d:
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 0, a
 	jp nz, .jump_54d4
 	set 0, a
-	ldh [$ff82], a
+	ldh [hJoyUsed], a
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jp nc, .jump_54d4
@@ -3151,14 +3151,14 @@ PlayerWinky::
 
 .jump_559a:
 	ld a, $1e
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call Player_LeaveAnimal
 	jp .jump_550a
 
 
 PlayerWinky_Jump::
 	ld a, $10
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, ObjInit_09_55b1
 	call ApplyObjInit
 	ret
@@ -3208,7 +3208,7 @@ PlayerWinky_InAir::
 	cp $03
 	ret z
 	ld a, $5c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld a, $83
 	ld [wPlayer + OBJ_ANIM_FLAGS], a
 	xor a
@@ -3227,15 +3227,15 @@ PlayerWinky_InAir::
 Player_LeaveAnimal::
 	xor a
 	ld [wPlayer + OBJ_VAR_35], a
-	ld a, [$c30f]
+	ld a, [wKongs]
 	and $03
-	ld [$c30f], a
+	ld [wKongs], a
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld l, [hl]
 	ld h, $a8
 	res 1, [hl]
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $07
 	jr z, .jump_5648
@@ -3248,7 +3248,7 @@ Player_LeaveAnimal::
 
 
 Player_Defeated_Fall::
-	ld hl, $c443
+	ld hl, wLevelFlags
 	res 4, [hl]
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
@@ -3266,9 +3266,9 @@ Player_Defeated_Fall::
 
 
 Player_Defeated_Begin::
-	ld hl, $c443
+	ld hl, wLevelFlags
 	res 4, [hl]
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 0, [hl]
 	ld hl, wPlayer + OBJ_HANDLER
 	ld [hl], LOW(Player_Defeated_Wait)
@@ -3286,7 +3286,7 @@ Player_Defeated_Begin::
 
 
 Player_Defeated_Wait::
-	ld hl, $c441
+	ld hl, wHUDFlags
 	bit 0, [hl]
 	jr nz, .jump_56a2
 	call LoseLife
@@ -3300,12 +3300,12 @@ Player_Defeated_Wait::
 
 
 Player_Defeated_Exit::
-	ld hl, $c442
+	ld hl, wHUDState
 	bit 0, [hl]
 	jr nz, .jump_56bd
-	ld hl, $c443
+	ld hl, wLevelFlags
 	set 1, [hl]
-	ld a, [$c31d]
+	ld a, [wLives]
 	cp $ff
 	jr nz, .jump_56bd
 	set 2, [hl]
@@ -3358,7 +3358,7 @@ Player_Launched::
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jr nz, .jump_5729
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $07
 	jr z, .jump_5724
@@ -3412,14 +3412,14 @@ Player_Hurt::
 
 
 Player_HoldBarrel::
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	jp z, .jump_5839
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jp nz, .jump_57b0
 .jump_5773:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jp nz, .jump_5804
 	bit 4, a
@@ -3452,11 +3452,11 @@ Player_HoldBarrel::
 	jp HurtKong_RunAway.jump_5ca4
 
 .jump_57b0:
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 0, a
 	jp nz, .jump_5773
 	set 0, a
-	ldh [$ff82], a
+	ldh [hJoyUsed], a
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jp nc, .jump_5773
@@ -3523,7 +3523,7 @@ Player_HoldBarrel::
 	jp .jump_579d
 
 .jump_5839:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 7, a
 	jr z, .jump_5856
 	ld a, $8c
@@ -3550,7 +3550,7 @@ Player_HoldBarrel::
 
 
 Player_HoldBarrel_InAir::
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 1, a
 	jr z, .jump_58a6
 	ld de, $0200
@@ -3558,7 +3558,7 @@ Player_HoldBarrel_InAir::
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_5890
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $03
 	ld de, $0080
@@ -3607,7 +3607,7 @@ Player_LiftBarrel::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	set 1, [hl]
 	ld hl, wObjects + OBJ_BANK
 	add hl, de
@@ -3663,7 +3663,7 @@ Player_ThrowCarried::
 	add hl, bc
 	ld [hli], a
 	ld [hl], d
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_593f
 	ld hl, wObjects + OBJ_ANIM_PARAM
@@ -3752,10 +3752,10 @@ Player_OnRope::
 	ld [wPlayer + OBJ_X], a
 	ld a, [hl]
 	ld [wPlayer + OBJ_X + 1], a
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jp nz, .jump_5b2d
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jp nz, .jump_5ab5
 	bit 6, a
@@ -3774,7 +3774,7 @@ Player_OnRope::
 	jr z, .jump_59ef
 	call SetPlayerAnimation
 .jump_59ef:
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jp nz, .jump_5afd
 	bit 4, a
@@ -3854,7 +3854,7 @@ Player_OnRope::
 	ld d, [hl]
 	ld e, a
 	ld a, $64
-	ld [$c451], a
+	ld [wCameraPlayerY], a
 	ld hl, wObjects + OBJ_VAR_39
 	add hl, de
 	bit 3, [hl]
@@ -3950,14 +3950,14 @@ Player_OnRope::
 	jp .jump_59fb
 
 .jump_5b2d:
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	set 0, [hl]
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	ld de, $fea5
 	and $30
 	jr z, .jump_5abf
 	ld de, $0540
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 4, a
 	jr nz, .jump_5b47
 	ld de, $fac0
@@ -4079,7 +4079,7 @@ Player_ResetAnim::
 Player_OnSwingingRope::
 	ld e, $08
 	call Player_SetFacingBits
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jr nz, .jump_5c18
 .jump_5c0d:
@@ -4089,7 +4089,7 @@ Player_OnSwingingRope::
 	jp NextObject
 
 .jump_5c18:
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	set 0, [hl]
 	call Player_Jump
 	ld hl, wPlayer + OBJ_VAR_37
@@ -4129,7 +4129,7 @@ HurtKong_RunAway::
 
 .jump_5c59:
 	call DeleteObject
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr nc, .jump_5c66
@@ -4137,12 +4137,12 @@ HurtKong_RunAway::
 .jump_5c66:
 	call SetPlayerPalette
 	ld a, $01
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	ld a, $01
 	ld [wPlayer + OBJ_COLLISION], a
 	ld a, $11
 	ld [wPlayer + OBJ_FLAGS], a
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $07
 	jr z, .jump_5c99
@@ -4319,10 +4319,10 @@ CheckPlayerAttack::
 	jp HurtPlayer
 
 .jump_5da6:
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld e, a
-	ldh a, [$ffb4]
-	ld hl, $ffaa
+	ldh a, [hTempY]
+	ld hl, hScratch + 2
 	sub [hl]
 	bit 7, a
 	jr nz, HurtPlayer
@@ -4338,21 +4338,21 @@ HurtPlayer::
 	or a
 	jr nz, .jump_5e20
 	xor a
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	ld a, [wPlayer + OBJ_VAR_37]
 	cp $04
 	jr z, .jump_5dd2
 	ld a, $3c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jr .jump_5ddc
 
 .jump_5dd2:
 	ld a, $34
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld a, $36
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_5ddc:
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $80
 	jp nz, Player_HurtExitToEntrance
 	ld hl, wPlayer + OBJ_VAR_35
@@ -4366,11 +4366,11 @@ HurtPlayer::
 	call nz, Player_LetGoWhenHurt
 	ld hl, wPlayer + OBJ_VAR_2E
 	set 7, [hl]
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $02
-	ldh [$ffa6], a
-	ld a, [$c30f]
+	ldh [hObjectRunMask], a
+	ld a, [wKongs]
 	bit 1, a
 	jp nz, .jump_5e22
 	ld a, $89
@@ -4387,10 +4387,10 @@ HurtPlayer::
 	ret
 
 .jump_5e22:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	and $fd
 	xor $01
-	ld [$c30f], a
+	ld [wKongs], a
 	xor a
 	ld [wPlayer + OBJ_FLAGS], a
 	ld [wPlayer + OBJ_COLLISION], a
@@ -4411,7 +4411,7 @@ HurtPlayer::
 	ld [hl], LOW(HurtKong_RunAway)
 	inc l
 	ld [hl], HIGH(HurtKong_RunAway)
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $40f5
 	jr nc, .jump_5e61
@@ -4422,7 +4422,7 @@ HurtPlayer::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr nc, .jump_5e72
@@ -4449,7 +4449,7 @@ HurtPlayer::
 	ld a, $8c
 	ld [hli], a
 	ld [hl], $00
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	ld e, a
@@ -4458,7 +4458,7 @@ HurtPlayer::
 	sbc a, [hl]
 	ld d, a
 	call MoveTowardsX
-	ld hl, $ff8b
+	ld hl, hCameraY
 	ld a, [wPlayer + OBJ_Y]
 	sub [hl]
 	ld e, a
@@ -4482,7 +4482,7 @@ HurtPlayer::
 	ld [hl], LOW(Obj_MoveAndAnimate)
 	inc l
 	ld [hl], HIGH(Obj_MoveAndAnimate)
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $4115
 	jr c, .jump_5edf
@@ -4493,7 +4493,7 @@ HurtPlayer::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr c, .jump_5ef0
@@ -4570,9 +4570,9 @@ ObjInit_09_5f56::
 Player_HurtExitToEntrance::
 	push bc
 	ld hl, wLevelEntrance
-	ld a, [$c44b]
+	ld a, [wReturnEntrance]
 	ld [hli], a
-	ld a, [$c44c]
+	ld a, [wReturnEntrance + 1]
 	ld [hli], a
 	rst_farcall Player_ExitToEntrance
 	ld bc, $0000
@@ -4658,7 +4658,7 @@ BouncePlayer::
 	push bc
 	ld bc, $0000
 	ld a, $5c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wPlayer + OBJ_VAR_37
 	ld a, [hl]
 	ld [hl], $00
@@ -4689,7 +4689,7 @@ BouncePlayer::
 	jr .jump_6046
 
 .jump_603e:
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 0, [hl]
 	call GiveExtraLife
 .jump_6046:
@@ -4749,7 +4749,7 @@ Player_Jump::
 	ld a, [wPlayer + OBJ_VAR_35]
 	or a
 	jr nz, .jump_60df
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $f980
 	jr nc, .jump_60a6
@@ -4796,7 +4796,7 @@ Player_Jump::
 
 
 BouncePlayerOffBoss::
-	ld hl, $c45e
+	ld hl, wCameraRegion + 2
 	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	ld e, a
@@ -4811,7 +4811,7 @@ BouncePlayerOffBoss::
 	jr Player_Recoil.jump_612b
 
 .jump_6105:
-	ld hl, $c462
+	ld hl, wCameraRegion + 6
 	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	ld e, a
@@ -4874,7 +4874,7 @@ ObjInit_09_615b::
 
 Player_SteerX::
 	ld hl, wPlayer + OBJ_TARGET_XVEL
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 5, a
 	jr nz, .jump_618b
 	bit 4, a
@@ -4910,7 +4910,7 @@ Player_SteerX::
 
 PlayerEnguarde_UpDown::
 	ld hl, wPlayer + OBJ_TARGET_YVEL
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 6, a
 	jr nz, .jump_61b2
 	bit 7, a
@@ -4960,7 +4960,7 @@ Player_DropCarried::
 
 Player_SetGravity::
 	ld de, $0080
-	ldh a, [$ff82]
+	ldh a, [hJoyUsed]
 	bit 0, a
 	jr z, .jump_61e5
 	ld de, $0050
@@ -4973,7 +4973,7 @@ Player_SetGravity::
 
 
 Player_SwapKongs::
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $07
 	jr z, .jump_6204
@@ -4986,17 +4986,17 @@ Player_SwapKongs::
 	cp $04
 	ret z
 .jump_6204:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	ret z
 	xor $01
-	ld [$c30f], a
+	ld [wKongs], a
 	ld a, $1e
-	ld [$c32a], a
-	ldh a, [$ffa6]
+	ld [wSFXQueue + 1], a
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $02
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	xor a
 	ld [wPlayer + OBJ_FLAGS], a
 	ld [wPlayer + OBJ_COLLISION], a
@@ -5015,7 +5015,7 @@ Player_SwapKongs::
 	ld [hl], LOW(SwapKongs_Partner)
 	inc l
 	ld [hl], HIGH(SwapKongs_Partner)
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $40f5
 	jr nc, .jump_624c
@@ -5026,7 +5026,7 @@ Player_SwapKongs::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr nc, .jump_625d
@@ -5053,7 +5053,7 @@ Player_SwapKongs::
 	ld a, $8c
 	ld [hli], a
 	ld [hl], $00
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, [wPlayer + OBJ_X]
 	sub [hl]
 	ld e, a
@@ -5062,7 +5062,7 @@ Player_SwapKongs::
 	sbc a, [hl]
 	ld d, a
 	call MoveTowardsX
-	ld hl, $ff8b
+	ld hl, hCameraY
 	ld a, [wPlayer + OBJ_Y]
 	sub [hl]
 	ld e, a
@@ -5086,7 +5086,7 @@ Player_SwapKongs::
 	ld [hl], LOW(Obj_MoveForTime)
 	inc l
 	ld [hl], HIGH(Obj_MoveForTime)
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $40f5
 	jr c, .jump_62ca
@@ -5097,7 +5097,7 @@ Player_SwapKongs::
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr c, .jump_62db
@@ -5110,9 +5110,9 @@ Player_SwapKongs::
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld [hl], a
-	ldh a, [$ff89]
+	ldh a, [hCameraX]
 	ld e, a
-	ldh a, [$ff8a]
+	ldh a, [hCameraX + 1]
 	ld d, a
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
@@ -5124,9 +5124,9 @@ Player_SwapKongs::
 	ld a, [wPlayer + OBJ_X + 1]
 	sbc a, d
 	ld [hli], a
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	ld e, a
-	ldh a, [$ff8c]
+	ldh a, [hCameraY + 1]
 	ld d, a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
@@ -5175,7 +5175,7 @@ SwapKongs_Partner::
 
 .jump_6351:
 	call DeleteObject
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld a, $01
 	jr nc, .jump_635e
@@ -5183,12 +5183,12 @@ SwapKongs_Partner::
 .jump_635e:
 	call SetPlayerPalette
 	ld a, $01
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	ld a, $01
 	ld [wPlayer + OBJ_COLLISION], a
 	ld a, $11
 	ld [wPlayer + OBJ_FLAGS], a
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $07
 	jr z, .jump_6383
@@ -5213,7 +5213,7 @@ Player_ApplySlope::
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	ld e, a
 	ld d, $00
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $0f
 	cp $03
 	ld hl, TerrainTable_09_63c6
@@ -5259,7 +5259,7 @@ Player_InMineCart::
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	res 5, [hl]
 	ld a, $14
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ld a, [wPlayer + OBJ_VAR_0A]
 	rrca
 	jr nc, .jump_6405
@@ -5275,7 +5275,7 @@ Player_InMineCart::
 	ld a, [wPlayer + OBJ_TERRAIN_B]
 	and $20
 	jp nz, .jump_6493
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jr nz, .jump_6432
 .jump_6413:
@@ -5294,7 +5294,7 @@ Player_InMineCart::
 	jp NextObject
 
 .jump_6432:
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	bit 0, [hl]
 	jr nz, .jump_6413
 	set 0, [hl]
@@ -5363,7 +5363,7 @@ Player_MineCartJump::
 	rrca
 	jr nc, .jump_64b9
 	ld a, $32
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wPlayer + OBJ_HANDLER
 	ld [hl], LOW(Player_InMineCart)
 	inc l
@@ -5386,7 +5386,7 @@ Player_SetMineCartFrame::
 	add hl, bc
 	ld a, [hl]
 	and $0f
-	ld hl, $c30f
+	ld hl, wKongs
 	ld e, a
 	sla e
 	bit 0, [hl]
@@ -5434,10 +5434,10 @@ Player_DrawMineCart::
 
 Player_RidingBarrel::
 	call Player_StoreFacing
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jr z, .jump_6568
-	ld hl, $ff82
+	ld hl, hJoyUsed
 	bit 0, [hl]
 	jr nz, .jump_6568
 	set 0, [hl]
@@ -5448,7 +5448,7 @@ Player_RidingBarrel::
 	bit 1, [hl]
 	jr z, .jump_65a2
 	ld a, $32
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wPlayer + OBJ_TARGET_XVEL
 	xor a
 	sub [hl]
@@ -5569,12 +5569,12 @@ Player_WinAndExit::
 	push bc
 	ld a, $09
 	call PlaySong
-	ld hl, $c443
+	ld hl, wLevelFlags
 	res 4, [hl]
 	ld hl, wPlayer + OBJ_FLAGS
 	res 5, [hl]
 	ld bc, $0000
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_6659
 	ld hl, ObjInit_09_6661
@@ -5613,12 +5613,12 @@ Player_LoseAndExit::
 	push bc
 	ld a, $1d
 	call PlaySong
-	ld hl, $c443
+	ld hl, wLevelFlags
 	res 4, [hl]
 	ld hl, wPlayer + OBJ_FLAGS
 	res 5, [hl]
 	ld bc, $0000
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_66a8
 	ld hl, ObjInit_09_66b0
@@ -5654,21 +5654,21 @@ ObjInit_09_66c3::
 	obj_end
 
 Player_ExitToEntrance::
-	ld a, [$c444]
+	ld a, [wEntranceKind]
 	and $20
 	jr nz, Player_BeginExit
-	ld hl, $c443
+	ld hl, wLevelFlags
 	set 3, [hl]
 	jr Player_BeginExit
 
 
 Player_BeginExit::
-	ld hl, $c443
+	ld hl, wLevelFlags
 	res 4, [hl]
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $02
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	xor a
 	ld [wPlayer + OBJ_COLLISION], a
 	ld hl, wPlayer + OBJ_FLAGS
@@ -5687,7 +5687,7 @@ Player_BeginExit::
 
 
 Player_ExitWait::
-	ld a, [$c448]
+	ld a, [wItemsInFlight]
 	or a
 	jr nz, .jump_6725
 	ld hl, wObjects + OBJ_BANK
@@ -5708,9 +5708,9 @@ Player_ExitAfterJingle::
 	call IsMusicPlaying
 	jr nz, .jump_673d
 	ld hl, wLevelEntrance
-	ld a, [$c44b]
+	ld a, [wReturnEntrance]
 	ld [hli], a
-	ld a, [$c44c]
+	ld a, [wReturnEntrance + 1]
 	ld [hli], a
 	call Player_ExitToEntrance
 	jr .jump_6743
@@ -5727,7 +5727,7 @@ Player_EnterInBarrel::
 	dec [hl]
 	jr nz, .jump_6764
 	ld a, $12
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	call SpawnBarrelDebris
 	ld hl, wPlayer + OBJ_BANK
 	ld [hl], $09
@@ -5747,11 +5747,11 @@ Player_ClampToLevel::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c45e
+	ld hl, wCameraRegion + 2
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [$c45c]
+	ld a, [wCameraRegion]
 	rrca
 	jr c, .jump_678c
 	ld a, $10
@@ -5776,11 +5776,11 @@ Player_ClampToLevel::
 	rlca
 	jr c, .jump_67da
 .jump_6793:
-	ld hl, $c462
+	ld hl, wCameraRegion + 6
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [$c460]
+	ld a, [wCameraRegion + 4]
 	rrca
 	jr c, .jump_67b0
 	ld a, l
@@ -5809,10 +5809,10 @@ Player_ClampToLevel::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld a, [$c464]
+	ld a, [wCameraRegion + 8]
 	rrca
 	jr nc, .jump_67ce
-	ld hl, $c466
+	ld hl, wCameraRegion + $0a
 	ld a, [hli]
 	ld h, [hl]
 	sub e
@@ -5821,7 +5821,7 @@ Player_ClampToLevel::
 	rlca
 	jr nc, .jump_6802
 .jump_67ce:
-	ld hl, $c46a
+	ld hl, wCameraRegion + $0e
 	ld a, [hli]
 	ld h, [hl]
 	sub e
@@ -5832,11 +5832,11 @@ Player_ClampToLevel::
 	ret
 
 .jump_67da:
-	ld hl, $c45c
+	ld hl, wCameraRegion
 	jr .jump_67e2
 
 .jump_67df:
-	ld hl, $c460
+	ld hl, wCameraRegion + 4
 .jump_67e2:
 	ld a, [hli]
 	and $f0
@@ -5863,22 +5863,22 @@ Player_ClampToLevel::
 	jr .jump_67b7
 
 .jump_6802:
-	ld hl, $c464
+	ld hl, wCameraRegion + 8
 	jr .jump_6850
 
 .jump_6807:
-	ld hl, $c468
+	ld hl, wCameraRegion + $0c
 	ld a, [hl]
 	rrca
 	jr c, .jump_6850
-	ld hl, $ff8b
+	ld hl, hCameraY
 	ld a, [hli]
 	add a, $d0
 	ld e, a
 	ld a, [hl]
 	adc a, $00
 	ld d, a
-	ld hl, $c454
+	ld hl, wCameraShiftY
 	ld a, [hli]
 	add a, e
 	ld e, a
@@ -5894,7 +5894,7 @@ Player_ClampToLevel::
 	ret c
 	ld hl, wPlayer + OBJ_FLAGS
 	res 4, [hl]
-	ld a, [$c445]
+	ld a, [wLevelKind]
 	and $80
 	jr nz, .jump_6840
 	ld hl, wPlayer + OBJ_HANDLER
@@ -5905,9 +5905,9 @@ Player_ClampToLevel::
 
 .jump_6840:
 	ld hl, wLevelEntrance
-	ld a, [$c44b]
+	ld a, [wReturnEntrance]
 	ld [hli], a
-	ld a, [$c44c]
+	ld a, [wReturnEntrance + 1]
 	ld [hli], a
 	rst_farcall Player_ExitToEntrance
 	ret
@@ -5959,7 +5959,7 @@ Player_GetFacingOffset::
 	ld a, [hl]
 	sra a
 	add a, $50
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ld a, e
 	sub d
 	ret z
@@ -6004,7 +6004,7 @@ Player_StoreFacing::
 .jump_68c9:
 	call Player_SetFacingBits
 	ld a, $55
-	ld [$c451], a
+	ld [wCameraPlayerY], a
 	ret
 
 
@@ -6030,7 +6030,7 @@ SetPlayerAnimation::
 	add a, a
 	add a, a
 	ld e, a
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr nc, .jump_68f8
 	inc e
@@ -6083,10 +6083,10 @@ Player_Move::
 
 
 KongLetter_Touch::
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld a, $44
-	ld [$c441], a
+	ld [wHUDFlags], a
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $0a
@@ -6130,37 +6130,37 @@ KongLetter_Touch::
 	dec a
 	jr z, .jump_69fd
 	ld a, $07
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jr .jump_6a02
 
 .jump_69ef:
 	ld a, $01
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jr .jump_6a02
 
 .jump_69f6:
 	ld a, $03
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jr .jump_6a02
 
 .jump_69fd:
 	ld a, $05
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_6a02:
 	jp CheckPlayerContact.jump_44f5
 
 
 AnimalToken_Touch::
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld a, $2e
-	ld [$c329], a
+	ld [wSFXQueue], a
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
 	swap a
 	or $04
-	ld [$c441], a
+	ld [wHUDFlags], a
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
@@ -6180,14 +6180,14 @@ AnimalToken_Touch::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
-	ld hl, $c317
+	ld hl, wAnimalTokensPending
 	add a, l
 	ld l, a
 	inc [hl]
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
-	ld hl, $c313
+	ld hl, wAnimalTokens
 	add a, l
 	ld l, a
 	ld a, [hl]
@@ -6196,11 +6196,11 @@ AnimalToken_Touch::
 	ld e, a
 	cp $03
 	jr nz, .jump_6a62
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $02
-	ldh [$ffa6], a
-	ld hl, $c443
+	ldh [hObjectRunMask], a
+	ld hl, wLevelFlags
 	res 4, [hl]
 .jump_6a62:
 	ld a, $26
@@ -6224,27 +6224,27 @@ Bananas_Touch::
 	add hl, bc
 	ld a, [hli]
 	sub $1c
-	ldh [$ffb2], a
-	ldh [$ffb6], a
+	ldh [hTempX], a
+	ldh [hTempX2], a
 	ld a, [hli]
 	sbc a, $00
-	ldh [$ffb3], a
-	ldh [$ffb7], a
+	ldh [hTempX + 1], a
+	ldh [hTempX2 + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	sub $18
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
 	sbc a, $00
-	ldh [$ffb5], a
+	ldh [hTempY + 1], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, $08
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	ld a, $04
 	ldh [rSVBK], a
 	push bc
@@ -6255,12 +6255,12 @@ Bananas_Touch::
 	inc l
 	ld d, a
 	jr z, .jump_6b0f
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	and $f8
 	ld c, a
-	ldh a, [$ffae]
+	ldh a, [hScratch + 6]
 	ld b, a
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	sub c
 	bit 7, a
 	jr z, .jump_6ac7
@@ -6273,12 +6273,12 @@ Bananas_Touch::
 .jump_6acc:
 	sla d
 	jr nc, .jump_6afd
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	and $f8
 	ld c, a
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	ld b, a
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	sub c
 	bit 7, a
 	jr z, .jump_6ae1
@@ -6301,46 +6301,46 @@ Bananas_Touch::
 	push hl
 	push de
 	ld a, $08
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call SpawnCollectedBanana
 	pop de
 	pop hl
 	nop
 .jump_6afd:
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	add a, $08
-	ldh [$ffb2], a
-	ldh a, [$ffb3]
+	ldh [hTempX], a
+	ldh a, [hTempX + 1]
 	adc a, $00
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	srl e
 	ld a, d
 	or a
 	jr nz, .jump_6acc
 .jump_6b0f:
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	add a, $08
-	ldh [$ffb4], a
-	ldh a, [$ffb5]
+	ldh [hTempY], a
+	ldh a, [hTempY + 1]
 	adc a, $00
-	ldh [$ffb5], a
-	ldh a, [$ffb6]
-	ldh [$ffb2], a
-	ldh a, [$ffb7]
-	ldh [$ffb3], a
-	ldh a, [$ff9b]
+	ldh [hTempY + 1], a
+	ldh a, [hTempX2]
+	ldh [hTempX], a
+	ldh a, [hTempX2 + 1]
+	ldh [hTempX + 1], a
+	ldh a, [hSpriteAttr]
 	dec a
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	jr nz, .jump_6aae
 	pop bc
 	jp CheckPlayerContact.jump_44f5
 
 
 BananaBunch_Touch::
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld a, $0a
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
 	ld [hl], $09
@@ -6354,7 +6354,7 @@ BananaBunch_Touch::
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld [hl], $01
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 1, [hl]
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
@@ -6364,9 +6364,9 @@ BananaBunch_Touch::
 	ld [hl], a
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ld a, [$c31c]
+	ld a, [wBananasPending]
 	add a, [hl]
-	ld [$c31c], a
+	ld [wBananasPending], a
 	jp CheckPlayerContact.jump_44f5
 
 
@@ -6379,16 +6379,16 @@ BananaBunch_Count::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hl]
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hl]
-	ldh [$ffb5], a
-	ld hl, $c31c
+	ldh [hTempY + 1], a
+	ld hl, wBananasPending
 	dec [hl]
 	call SpawnCollectedBanana
 	ld hl, wObjects + OBJ_VAR_2E
@@ -6396,59 +6396,59 @@ BananaBunch_Count::
 	dec [hl]
 	jr nz, .jump_6b9e
 	call DeleteObjectForGood
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
 .jump_6b9e:
 	jp NextObject
 
 
 CollectedBanana_Fly::
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 1, [hl]
 	call ApplyVelocity
 	call GetObjectScreenPos
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld a, [hl]
-	ldh [$ff9c], a
-	ldh a, [$ffa2]
+	ldh [hScratch3], a
+	ldh a, [hSpriteLayerFill]
 	ld l, a
 	rlca
 	jr c, .jump_6be4
 	ld h, $c5
-	ldh a, [$ff9a]
+	ldh a, [hSpriteX + 1]
 	or a
 	jr nz, .jump_6be4
-	ldh a, [$ff98]
+	ldh a, [hSpriteY + 1]
 	or a
 	jr nz, .jump_6be4
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	cp $a8
 	jr nc, .jump_6be4
-	ldh a, [$ff97]
+	ldh a, [hSpriteY]
 	cp $a0
 	jr nc, .jump_6be4
 	ld [hli], a
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	ld [hli], a
 	ld a, $78
 	ld [hli], a
 	xor a
 	ld [hli], a
 	ld a, l
-	ldh [$ffa2], a
+	ldh [hSpriteLayerFill], a
 .jump_6be4:
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_6bf9
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
-	ld hl, $c31c
+	ld hl, wBananasPending
 	dec [hl]
 	call AddBanana
 	call DeleteObject
@@ -6457,9 +6457,9 @@ CollectedBanana_Fly::
 
 
 Obj_ToScreenCoords::
-	ldh a, [$ff89]
+	ldh a, [hCameraX]
 	ld e, a
-	ldh a, [$ff8a]
+	ldh a, [hCameraX + 1]
 	ld d, a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
@@ -6469,9 +6469,9 @@ Obj_ToScreenCoords::
 	ld a, [hl]
 	sbc a, d
 	ld [hl], a
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	ld e, a
-	ldh a, [$ff8c]
+	ldh a, [hCameraY + 1]
 	ld d, a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
@@ -6486,14 +6486,14 @@ Obj_ToScreenCoords::
 
 AddBanana::
 	xor a
-	ld a, [$c31b]
+	ld a, [wBananas]
 	inc a
 	daa
-	ld [$c31b], a
+	ld [wBananas], a
 	ret nc
 	xor a
-	ld [$c31b], a
-	ld hl, $c441
+	ld [wBananas], a
+	ld hl, wHUDFlags
 	set 0, [hl]
 	rst_farcall GiveExtraLife
 	ret
@@ -6508,9 +6508,9 @@ SpawnCollectedBanana::
 	ret
 
 .jump_6c40:
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
-	ld hl, $c31c
+	ld hl, wBananasPending
 	inc [hl]
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
@@ -6533,36 +6533,36 @@ SpawnCollectedBanana::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], $20
-	ldh a, [$ff89]
+	ldh a, [hCameraX]
 	add a, $04
 	ld e, a
-	ldh a, [$ff8a]
+	ldh a, [hCameraX + 1]
 	adc a, $00
 	ld d, a
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	sub e
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	sbc a, d
 	ld [hl], a
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	add a, $08
 	ld e, a
-	ldh a, [$ff8c]
+	ldh a, [hCameraY + 1]
 	adc a, $00
 	ld d, a
 	xor a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	sub e
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	sbc a, d
 	ld [hl], a
 	ld de, $0004
@@ -6588,7 +6588,7 @@ AnimTableNull_09_6cca::
 	dw $0000 ; empty animation table entry
 
 Barrel_Touch::
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 1, a
 	jr z, .jump_6d1b
 	and $30
@@ -6723,10 +6723,10 @@ Barrel_Thrown::
 	rst_farcall CollideWithTerrain
 	ld a, $24
 	call CheckPlayerContact
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	add a, $d0
 	ld e, a
-	ldh a, [$ff8c]
+	ldh a, [hCameraY + 1]
 	adc a, $00
 	ld d, a
 	ld hl, wObjects + OBJ_Y
@@ -6756,7 +6756,7 @@ Barrel_Thrown::
 	jr nz, .jump_6df1
 	push af
 	ld a, $32
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	pop af
 .jump_6df1:
 	add a, a
@@ -6829,7 +6829,7 @@ Barrel_Rolling::
 
 .jump_6e65:
 	ld a, $32
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	inc [hl]
@@ -6870,7 +6870,7 @@ DKBarrel_Touch::
 	ld [hl], $00
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -6904,11 +6904,11 @@ DKBarrel_Touch::
 	call SpawnBarrelDebris
 	call MarkObjectSpawnDone
 	ld a, $12
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	jr .jump_6ef5
 
 .jump_6ee5:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	jr nz, .jump_6ef5
 	ld hl, wObjects + OBJ_COLLISION
@@ -6922,15 +6922,15 @@ DKBarrel_Touch::
 FuelBarrel_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ld a, [$c446]
+	ld a, [wLevelTimer]
 	add a, [hl]
-	ld [$c446], a
+	ld [wLevelTimer], a
 	inc l
-	ld a, [$c447]
+	ld a, [wLevelTimer + 1]
 	adc a, [hl]
-	ld [$c447], a
+	ld [wLevelTimer + 1], a
 	ld a, $27
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call DeleteObjectForGood
 	jp CheckPlayerContact.jump_44f5
 
@@ -6991,22 +6991,22 @@ BreakBarrel::
 	jr z, .jump_6fa9
 .jump_6f73:
 	xor a
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	ld a, $12
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	call DeleteObject
 	ret
 
 .jump_6f7f:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	jr nz, .jump_6f73
 	ld a, $12
-	ld [$c32c], a
-	ldh a, [$ffa6]
+	ld [wSFXQueue + 3], a
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $02
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	ld hl, ObjInit_09_6fc5
 	call ApplyObjInit
 	call Obj_ToScreenCoords
@@ -7018,7 +7018,7 @@ BreakBarrel::
 
 .jump_6fa9:
 	ld a, $14
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld hl, ObjInit_09_6fd1
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_PALETTE
@@ -7144,7 +7144,7 @@ Barrel_BreakAfterDelay::
 
 
 Zinger_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -7174,7 +7174,7 @@ Zinger_Touch::
 	ld [hl], HIGH(Anim_04_4a45)
 	call DefeatObject
 	ld a, $3e
-	ld [$c329], a
+	ld [wSFXQueue], a
 	ld hl, wObjects + OBJ_XACCEL
 	add hl, bc
 	ld [hl], $20
@@ -7211,7 +7211,7 @@ Zinger_Touch::
 
 
 Gnawty_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -7228,7 +7228,7 @@ Gnawty_Touch::
 	jr z, .jump_711c
 	cp $03
 	jr z, .jump_711c
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_712d
 .jump_711c:
@@ -7267,7 +7267,7 @@ ObjInit_09_7145::
 	obj_end
 
 BouncingCoconut_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -7395,12 +7395,12 @@ Tire_Touch::
 	ld hl, wPlayer + OBJ_VAR_0A
 	bit 0, [hl]
 	jp z, Tire_Top_Touch
-	ldh a, [$ffb6]
+	ldh a, [hTempX2]
 	ld e, a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hl]
-	ld hl, $ffa8
+	ld hl, hScratch
 	sub [hl]
 	ld d, a
 	bit 7, a
@@ -7493,7 +7493,7 @@ Tire_BouncePlayer::
 	bit 7, [hl]
 	jr nz, .jump_72c4
 	ld hl, $ff82
-	ldh a, [$ff80]
+	ldh a, [hJoyHeld]
 	bit 0, a
 	jr nz, .jump_72dc
 	ret
@@ -7509,7 +7509,7 @@ Tire_BouncePlayer::
 	inc hl
 	ld [hl], $fb
 	ld a, $92
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ret
 
 .jump_72dc:
@@ -7523,13 +7523,13 @@ Tire_BouncePlayer::
 	inc hl
 	ld [hl], $f7
 	ld a, $0e
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ret
 
 
 BarrelCannon_Touch::
 	ld a, $5e
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(BarrelCannon_Loaded)
@@ -7560,14 +7560,14 @@ BarrelCannon_Touch::
 	ld hl, wObjects + OBJ_VAR_3A
 	add hl, bc
 	ld a, [hli]
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ld a, [hli]
-	ld [$c451], a
+	ld [wCameraPlayerY], a
 	jp CheckPlayerContact.jump_44f5
 
 
 Army_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -7587,7 +7587,7 @@ Army_Touch::
 	and $7f
 	cp $03
 	jr z, .jump_737b
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_737b
 .jump_736a:
@@ -7714,7 +7714,7 @@ HiddenKongLetter_Touch::
 	ld a, [hl]
 	or a
 	jr z, .jump_7424
-	ldh a, [$ffa7]
+	ldh a, [hContactFlags]
 	and $80
 	jr nz, .jump_744b
 .jump_7424:
@@ -7726,7 +7726,7 @@ HiddenKongLetter_Touch::
 	or e
 	jr nz, .jump_746b
 	ld a, $16
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	call BouncePlayer
 	xor a
 	ld [wPlayer + OBJ_VAR_3B], a
@@ -7763,9 +7763,9 @@ HiddenKongLetter_Touch::
 
 BreakableWall_Touch::
 	ld a, $2b
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	push bc
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
@@ -7788,9 +7788,9 @@ BreakableWall_Touch::
 	ld l, a
 	ld h, $a8
 	set 2, [hl]
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
-	ld hl, $c443
+	ld hl, wLevelFlags
 	set 7, [hl]
 	ld hl, ObjInit_09_74b7
 	call ApplyObjInit
@@ -7837,7 +7837,7 @@ Entrance_Touch::
 	ld a, [hl]
 	or a
 	jr z, .jump_74f1
-	ld hl, $ff80
+	ld hl, hJoyHeld
 	and [hl]
 	jr z, .jump_752f
 .jump_74f1:
@@ -7845,7 +7845,7 @@ Entrance_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	rst_farcall SetLevelFlag
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
@@ -7869,11 +7869,11 @@ Entrance_Touch::
 	ld a, [hli]
 	ld [wLevelEntrance], a
 	ld a, [hli]
-	ld [$c44a], a
+	ld [wLevelEntrance + 1], a
 	ld a, [hli]
-	ld [$c44b], a
+	ld [wReturnEntrance], a
 	ld a, [hli]
-	ld [$c44c], a
+	ld [wReturnEntrance + 1], a
 	rst_farcall Player_ExitToEntrance
 .jump_752f:
 	jp CheckPlayerContact.jump_44f5
@@ -7881,23 +7881,23 @@ Entrance_Touch::
 
 Entrance_Blast_Touch::
 	ld a, $5e
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	rst_farcall SetLevelFlag
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
 	ld [wLevelEntrance], a
 	ld a, [hli]
-	ld [$c44a], a
+	ld [wLevelEntrance + 1], a
 	ld a, [hli]
-	ld [$c44b], a
+	ld [wReturnEntrance], a
 	ld a, [hli]
-	ld [$c44c], a
+	ld [wReturnEntrance + 1], a
 	xor a
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], a
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	ld hl, wPlayer + OBJ_FLAGS
 	res 4, [hl]
 	ld a, $05
@@ -7925,10 +7925,10 @@ ObjInit_09_7574::
 
 Sticker_Touch::
 	ld a, $07
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld a, $64
-	ld [$c441], a
-	ld hl, $c448
+	ld [wHUDFlags], a
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld hl, ObjInit_09_75ac
 	call ApplyObjInit
@@ -7951,7 +7951,7 @@ ObjInit_09_75ac::
 	obj_end
 
 Klaptrap_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -8003,7 +8003,7 @@ Rockkroc::
 
 Rockkroc_Run::
 	rst_farcall Obj_PatrolOnTerrain
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hli]
 	or [hl]
 	jr z, .jump_7620
@@ -8031,7 +8031,7 @@ Rockkroc_CurledUp::
 	add hl, bc
 	bit 7, [hl]
 	jr nz, .jump_7667
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hli]
 	or [hl]
 	jr nz, .jump_7667
@@ -8107,7 +8107,7 @@ Platform_Touch::
 
 
 BlackDrum_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -8155,10 +8155,10 @@ BlackDrum_Touch::
 	jr .jump_774d
 
 .jump_7711:
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld e, a
-	ldh a, [$ffb4]
-	ld hl, $ffaa
+	ldh a, [hTempY]
+	ld hl, hScratch + 2
 	sub [hl]
 	ld d, a
 	bit 7, a
@@ -8228,12 +8228,12 @@ BlackDrum_Touch::
 	jr .jump_774d
 
 .jump_778b:
-	ldh a, [$ffb6]
+	ldh a, [hTempX2]
 	ld e, a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hl]
-	ld hl, $ffa8
+	ld hl, hScratch
 	sub [hl]
 	ld d, a
 	bit 7, a
@@ -8304,10 +8304,10 @@ ObjInit_09_77f9::
 	obj_end
 
 Klump_Touch::
-	ldh a, [$ffa7]
+	ldh a, [hContactFlags]
 	and $80
 	jr nz, .jump_785f
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -8335,7 +8335,7 @@ Klump_Touch::
 	add hl, bc
 	bit 0, [hl]
 	jr nz, .jump_785c
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_785c
 .jump_784b:
@@ -8376,7 +8376,7 @@ ObjInit_09_7871::
 	obj_end
 
 Nut_Touch::
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -8429,7 +8429,7 @@ MankyKong_Touch::
 
 MankyBarrel_Touch::
 	call BreakBarrel
-	ld hl, $ffb0
+	ld hl, hContactObject
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -8617,15 +8617,15 @@ AnimalCrate_Touch::
 	ld hl, wObjects + OBJ_LAYER
 	add hl, bc
 	ld [hl], $00
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $02
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	ld hl, wPlayer + OBJ_FLAGS
 	res 4, [hl]
 	xor a
 	ld [wPlayer + OBJ_COLLISION], a
-	ldh [$ffa7], a
+	ldh [hContactFlags], a
 	rst_farcall SaveObjectPosition
 	push bc
 	ld bc, $0000
@@ -8666,20 +8666,20 @@ AnimalCrate_Open::
 	dec a
 	jp z, .jump_7ad3
 .jump_7a73:
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $01
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	ld a, $01
 	ld [wPlayer + OBJ_COLLISION], a
 	jp NextObject
 
 .jump_7a83:
 	push bc
-	ld a, [$c30f]
+	ld a, [wKongs]
 	and $03
 	or $08
-	ld [$c30f], a
+	ld [wKongs], a
 	ld bc, $0000
 	call Player_SetRambi
 	pop bc
@@ -8687,10 +8687,10 @@ AnimalCrate_Open::
 
 .jump_7a97:
 	push bc
-	ld a, [$c30f]
+	ld a, [wKongs]
 	and $03
 	or $18
-	ld [$c30f], a
+	ld [wKongs], a
 	ld bc, $0000
 	call Player_SetExpresso
 	pop bc
@@ -8698,10 +8698,10 @@ AnimalCrate_Open::
 
 .jump_7aab:
 	push bc
-	ld a, [$c30f]
+	ld a, [wKongs]
 	and $03
 	or $28
-	ld [$c30f], a
+	ld [wKongs], a
 	ld bc, $0000
 	call Player_SetEnguarde
 	pop bc
@@ -8709,10 +8709,10 @@ AnimalCrate_Open::
 
 .jump_7abf:
 	push bc
-	ld a, [$c30f]
+	ld a, [wKongs]
 	and $03
 	or $38
-	ld [$c30f], a
+	ld [wKongs], a
 	ld bc, $0000
 	call Player_SetWinky
 	pop bc
@@ -8729,9 +8729,9 @@ SwitchBarrel_Touch::
 	ld [hl], $0a
 	or a
 	jr nz, .jump_7b02
-	ld a, [$c446]
+	ld a, [wLevelTimer]
 	ld e, a
-	ld a, [$c447]
+	ld a, [wLevelTimer + 1]
 	ld d, a
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -8744,28 +8744,28 @@ SwitchBarrel_Touch::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
-	ld [$c446], a
+	ld [wLevelTimer], a
 	ld a, [hl]
-	ld [$c447], a
+	ld [wLevelTimer + 1], a
 	ld a, $24
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_7b02:
 	jp CheckPlayerContact.jump_44f5
 
 
 ExtraLifeBalloon_Touch::
 	ld a, $1a
-	ld [$c32a], a
-	ld hl, $c441
+	ld [wSFXQueue + 1], a
+	ld hl, wHUDFlags
 	set 0, [hl]
 	rst_farcall SetLevelFlag
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ld a, [$c31f]
+	ld a, [wLivesPending]
 	add a, [hl]
-	ld [$c31f], a
+	ld [wLivesPending], a
 	ld hl, wObjects + OBJ_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -8798,13 +8798,13 @@ BigAnimalToken_Touch::
 	ld hl, wObjects + OBJ_COLLISION
 	add hl, bc
 	ld [hl], $00
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ld a, [$c446]
+	ld a, [wLevelTimer]
 	ld [hli], a
-	ld a, [$c447]
+	ld a, [wLevelTimer + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
@@ -8815,12 +8815,12 @@ BigAnimalToken_Touch::
 	ld [hl], HIGH(BigAnimalToken_Count)
 	rst_farcall BigAnimalToken_SpawnDigits
 	ld a, $31
-	ld [$c329], a
+	ld [wSFXQueue], a
 	jp CheckPlayerContact.jump_44f5
 
 
 MiniAnimalToken_Touch::
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
 	ld hl, ObjInit_09_7ba5
 	call ApplyObjInit
@@ -8830,7 +8830,7 @@ MiniAnimalToken_Touch::
 	ld de, $0004
 	call MoveTowardsY
 	ld a, $2c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	jp CheckPlayerContact.jump_44f5
 
 

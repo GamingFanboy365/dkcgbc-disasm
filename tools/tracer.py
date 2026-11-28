@@ -413,7 +413,7 @@ class Tracer:
                 return
 
     def parse_obj_list(self, bank, addr, code_bank, src=None, inherited=None):
-        """Parse an object initialiser list (see Func_00_188b) and queue its
+        """Parse an object initialiser list (see ApplyObjInit) and queue its
         handler. Entries: $00-$3f field,byte / $40-$7f field,word /
         $80 include-pointer / $81+ end."""
         o = off(bank, addr)
@@ -491,7 +491,7 @@ class Tracer:
 
     def parse_anim(self, bank, start, end=None):
         """Parse animation script entries from start: up to end, or (without
-        end) up to and including the first jump. See Func_00_127d."""
+        end) up to and including the first jump. See AnimateObject."""
         rom = self.rom
         entries = []
         a = start
@@ -557,7 +557,7 @@ class Tracer:
             self.conflicts.append((self.frame_bank, ptr, "frame-ref"))
 
     def parse_frame_table(self, bank, start, count):
-        """Frame headers (see Func_00_1037): dw tiles, dw sprite offsets,
+        """Frame headers (see DrawSpriteFrame): dw tiles, dw sprite offsets,
         db tile count, db bank of both. Header 0 is an empty frame."""
         rom = self.rom
         entries = []

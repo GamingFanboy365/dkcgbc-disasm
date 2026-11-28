@@ -38,7 +38,7 @@ def spans(starts, end):
 # ------------------------------------------------------------------ sound
 def sound(rom):
     """Song tables in bank 0 (PlaySong, $30F1), the song channel streams in
-    banks $01/$02 and the sound effects in bank $02 (Func_00_2f5a)."""
+    banks $01/$02 and the sound effects in bank $02 (StartSFX)."""
     c = hints.SOUND
     n = c["songs"]
     banks = list(rom[c["song_banks"]:c["song_banks"] + n])
@@ -80,7 +80,7 @@ def camera_regions(rom, map_headers):
     Each box is four edges (left, right, top, bottom) of 4 bytes: a flags
     byte, a byte and a 16-bit coordinate. When bit 1 of the flags is set the
     first two bytes are instead the address of another box (low nibble =
-    flags) whose same edge is used (Func_00_21ad). Func_00_20dd picks the
+    flags) whose same edge is used (GetCameraRegionEdge). UpdateCameraRegion picks the
     first box that contains the player; lists have no terminator."""
     b = hints.CAMERA_BANK
     starts = sorted(set(h["c45c"] for h in map_headers))
@@ -89,7 +89,7 @@ def camera_regions(rom, map_headers):
 
 # ---------------------------------------------------------- level objects
 def level_objects(rom, descriptors):
-    """The object list of each level descriptor (Func_00_1715): 8-byte
+    """The object list of each level descriptor (LoadLevelObjects): 8-byte
     records (id, flags, x, y, pointer) ended by a 0 byte. Flags bits 4-5
     say what the pointer is: $00 a 16-byte block in bank $03, $10 a
     zero-terminated byte string in the list's own bank, $30 a value used

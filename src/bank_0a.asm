@@ -17,39 +17,39 @@ Obj_GetFacingOffset::
 	cpl
 	inc a
 .jump_4010:
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	bit 7, a
 	ld a, $00
 	jr z, .jump_4019
 	dec a
 .jump_4019:
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	ld a, [hli]
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	bit 7, a
 	ld a, $00
 	jr z, .jump_4025
 	dec a
 .jump_4025:
-	ldh [$ffab], a
+	ldh [hScratch + 3], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	add a, [hl]
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	inc l
-	ldh a, [$ffab]
+	ldh a, [hScratch + 3]
 	adc a, [hl]
-	ldh [$ffab], a
+	ldh [hScratch + 3], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	add a, [hl]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	inc l
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	adc a, [hl]
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	push bc
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
@@ -58,15 +58,15 @@ Obj_GetFacingOffset::
 	ld c, a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	ld [hli], a
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	ld [hli], a
-	ldh a, [$ffab]
+	ldh a, [hScratch + 3]
 	ld [hli], a
 	pop bc
 	ret
@@ -76,23 +76,23 @@ SaveObjectPosition::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hl]
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hl]
-	ldh [$ffb5], a
+	ldh [hTempY + 1], a
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb6], a
+	ldh [hTempX2], a
 	ld hl, wObjects + OBJ_TERRAIN_B
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb7], a
+	ldh [hTempX2 + 1], a
 	ret
 
 
@@ -101,32 +101,32 @@ MoveObjectToSavedPosition::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
-	ldh a, [$ffb6]
+	ldh a, [hTempX2]
 	ld [hl], a
 	ld hl, wObjects + OBJ_TERRAIN_B
 	add hl, bc
-	ldh a, [$ffb7]
+	ldh a, [hTempX2 + 1]
 	ld [hl], a
 	ret
 
 
 Obj_MoveToTarget::
 	call ApplyVelocity
-	ld hl, $ffa8
+	ld hl, hScratch
 	ld [hl], $00
 	ld hl, wObjects + OBJ_X
 	add hl, bc
@@ -145,7 +145,7 @@ Obj_MoveToTarget::
 	jr c, .jump_40ff
 	or e
 	jr nz, .jump_4126
-	ld hl, $ffa8
+	ld hl, hScratch
 	inc [hl]
 	xor a
 	ld hl, wObjects + OBJ_XVEL
@@ -175,7 +175,7 @@ Obj_MoveToTarget::
 	add hl, bc
 	ld [hli], a
 	ld [hl], a
-	ld hl, $ffa8
+	ld hl, hScratch
 	bit 0, [hl]
 	ret
 
@@ -184,7 +184,7 @@ Obj_MoveToTarget::
 	ret
 
 .jump_40ff:
-	ld hl, $ffac
+	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -197,10 +197,10 @@ Obj_MoveToTarget::
 	ld a, $00
 	sbc a, [hl]
 	ld d, a
-	ldh a, [$ffad]
+	ldh a, [hScratch + 5]
 	cp $ff
 	jr nz, .jump_411d
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	cp d
 	jr c, .jump_411d
 	ld d, a
@@ -213,7 +213,7 @@ Obj_MoveToTarget::
 	jr .jump_40d7
 
 .jump_4126:
-	ld hl, $ffac
+	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -222,10 +222,10 @@ Obj_MoveToTarget::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ldh a, [$ffad]
+	ldh a, [hScratch + 5]
 	or a
 	jr nz, .jump_413e
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	cp d
 	jr nc, .jump_413e
 	ld d, a
@@ -238,7 +238,7 @@ Obj_MoveToTarget::
 	jp .jump_40d7
 
 .jump_4148:
-	ld hl, $ffac
+	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -251,10 +251,10 @@ Obj_MoveToTarget::
 	ld a, $00
 	sbc a, [hl]
 	ld d, a
-	ldh a, [$ffad]
+	ldh a, [hScratch + 5]
 	cp $ff
 	jr nz, .jump_4166
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	cp d
 	jr c, .jump_4166
 	ld d, a
@@ -267,7 +267,7 @@ Obj_MoveToTarget::
 	jp .jump_40fd
 
 .jump_4170:
-	ld hl, $ffac
+	ld hl, hScratch + 4
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -276,10 +276,10 @@ Obj_MoveToTarget::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ldh a, [$ffad]
+	ldh a, [hScratch + 5]
 	or a
 	jr nz, .jump_4188
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	cp d
 	jr nc, .jump_4188
 	ld d, a
@@ -334,7 +334,7 @@ VeryGnawty_Hop::
 	dec [hl]
 	jr nz, .jump_4235
 	ld a, $5c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hl]
@@ -512,7 +512,7 @@ VeryGnawty_AngryHop::
 	dec [hl]
 	jr nz, .jump_4379
 	ld a, $5c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [wPlayer + OBJ_X]
@@ -780,17 +780,17 @@ MasterNecky_Spit::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	add a, e
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	adc a, d
 	ld [hl], a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	sub $19
 	ld [hli], a
 	ld [hl], $00
@@ -1348,7 +1348,7 @@ QueenB_SetYellow::
 
 QueenB_CycleColour::
 	call QueenB_PaletteColour
-	ld a, [$c336]
+	ld a, [wFrameCounter]
 	and $0e
 	add a, $71
 	ld e, a
@@ -1364,7 +1364,7 @@ QueenB_CycleColour::
 
 
 Cycle_0a_4871::
-	dw $03ff, $02ff, $01fe, $00fe, $001d, $00fe, $01fe, $02ff ; by [$c336] & $0e (Func_0a_485c)
+	dw $03ff, $02ff, $01fe, $00fe, $001d, $00fe, $01fe, $02ff ; by [$c336] & $0e (QueenB_CycleColour)
 
 DumbDrum::
 	ld hl, wObjects + OBJ_VAR_2F
@@ -1570,7 +1570,7 @@ DumbDrum_SpawnEnemies::
 	jr nz, .jump_4a11
 	ld [hl], $20
 	ld a, $66
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -1588,7 +1588,7 @@ DumbDrum_SpawnEnemies::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	inc [hl]
@@ -1605,7 +1605,7 @@ DumbDrum_SpawnEnemies::
 	rst_farcall MoveObjectToSavedPosition
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hl], a
 	pop bc
 	xor a
@@ -1837,7 +1837,7 @@ KingKRool::
 	rrca
 	jr nc, .jump_4b97
 	ld a, $5e
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	jp .jump_4bb4
 
 .jump_4b97:
@@ -1902,7 +1902,7 @@ KingKRool_Throw::
 	rlca
 	jp c, .jump_4c88
 	ld a, $52
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(KingKRool_WaitForCrown)
@@ -1914,7 +1914,7 @@ KingKRool_Throw::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	inc [hl]
@@ -1951,10 +1951,10 @@ KingKRool_Throw::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	sub $0f
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	sbc a, $00
 	ld [hl], a
 	ld hl, wObjects + OBJ_XVEL
@@ -1971,17 +1971,17 @@ KingKRool_Throw::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	add a, e
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	adc a, d
 	ld [hl], a
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hl], a
-	ld hl, $ffb4
+	ld hl, hTempY
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -1989,9 +1989,9 @@ KingKRool_Throw::
 .jump_4c88:
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	ld [hl], a
 	call AnimateObject
 	call KingKRool_AimCamera
@@ -2221,7 +2221,7 @@ WordTable_0a_4e04::
 
 KingKRool_Hop::
 	ld a, $82
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld [hl], LOW(Anim_04_53f3)
@@ -2303,9 +2303,9 @@ KingKRool_Hopping::
 
 .jump_4e96:
 	ld a, $5e
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld a, $50
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
@@ -2427,7 +2427,7 @@ KingKRool_SpawnProjectile::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	inc [hl]
@@ -2442,7 +2442,7 @@ KingKRool_SpawnProjectile::
 	ld [hl], d
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hl], a
 	ld hl, ObjInit_0a_4f77
 	call InitObject
@@ -2621,21 +2621,21 @@ KingKRool_FakeDefeat::
 	ld a, [hl]
 	rlca
 	jr c, .jump_50de
-	ld hl, $c310
+	ld hl, wMapFlags
 	bit 3, [hl]
 	jp nz, KingKRool_FakeKredits.jump_5179
 	set 3, [hl]
-	ldh a, [$ff88]
+	ldh a, [hMapFlags]
 	or $80
-	ldh [$ff88], a
+	ldh [hMapFlags], a
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	inc [hl]
-	ld hl, $ffa8
+	ld hl, hScratch
 	ld [hl], c
 	inc l
 	ld [hl], b
@@ -2643,13 +2643,13 @@ KingKRool_FakeDefeat::
 	call AllocObject
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hl], a
 	ld hl, wObjects + OBJ_VAR_36
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	ld [hli], a
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	ld [hl], a
 	ld hl, ObjInit_0a_50e4
 	call InitObject
@@ -2686,7 +2686,7 @@ KingKRool_Defeated::
 	ld a, $09
 	call PlaySong
 	pop bc
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $431b
 	jr nc, .jump_511b
@@ -2748,7 +2748,7 @@ KingKRool_FakeKredits::
 	ld [hl], a
 .jump_5179:
 	ld a, $4e
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, ObjInit_0a_518a
 	call ApplyObjInit
 	call AnimateObject
@@ -2803,7 +2803,7 @@ Cannonball::
 	rrca
 	jr nc, .jump_51e9
 	ld a, $54
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	inc [hl]
@@ -2846,7 +2846,7 @@ KingKRool_AimCamera::
 .jump_5220:
 	ld a, $50
 	add a, e
-	ld [$c450], a
+	ld [wCameraPlayerX], a
 	ret
 
 .jump_5227:
@@ -2858,19 +2858,19 @@ KingKRool_AimCamera::
 
 
 BossDefeated_Banana::
-	ld a, [$c30b]
+	ld a, [wMapLocation]
 	cp $3c
 	jr nz, .jump_5240
-	ld hl, $c310
+	ld hl, wMapFlags
 	set 4, [hl]
 	jr .jump_524d
 
 .jump_5240:
-	ld hl, $c310
+	ld hl, wMapFlags
 	set 6, [hl]
-	ld a, [$c30a]
+	ld a, [wWorld]
 	add a, $29
-	ld [$c30b], a
+	ld [wMapLocation], a
 .jump_524d:
 	push bc
 	rst_farcall Save_MarkLevelCleared
@@ -2882,10 +2882,10 @@ BossDefeated_Banana::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ff89]
+	ldh a, [hCameraX]
 	add a, $50
 	ld [hli], a
-	ldh a, [$ff8a]
+	ldh a, [hCameraX + 1]
 	adc a, $00
 	ld [hl], a
 	pop bc
@@ -2926,7 +2926,7 @@ GiantBanana::
 KingKRool_AfterKredits::
 	call IsMusicPlaying
 	jr nz, .jump_5304
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -2938,18 +2938,18 @@ KingKRool_AfterKredits::
 	bit 7, h
 	jr z, .jump_52c0
 	inc de
-	ldh a, [$ff88]
+	ldh a, [hMapFlags]
 	and $ef
-	ldh [$ff88], a
+	ldh [hMapFlags], a
 	jr .jump_52c7
 
 .jump_52c0:
 	dec de
-	ldh a, [$ff88]
+	ldh a, [hMapFlags]
 	or $10
-	ldh [$ff88], a
+	ldh [hMapFlags], a
 .jump_52c7:
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -2980,7 +2980,7 @@ KingKRool_AfterKredits::
 	ld [hl], LOW(KingKRool_KreditsRoll)
 	inc l
 	ld [hl], HIGH(KingKRool_KreditsRoll)
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, [hli]
 	ld d, [hl]
 	ld hl, wObjects + OBJ_VAR_36
@@ -3085,7 +3085,7 @@ KingKRool_KreditsDrawCaption::
 	cp $0b
 	jr nz, .jump_5390
 	ld l, a
-	ld a, [$c30d]
+	ld a, [wLanguage]
 	add a, l
 .jump_5390:
 	add a, a
@@ -3096,24 +3096,24 @@ KingKRool_KreditsDrawCaption::
 	sub l
 	ld h, a
 	ld a, [hli]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	ld a, [hli]
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	ld a, [hli]
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld a, [hli]
-	ldh [$ffab], a
+	ldh [hScratch + 3], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	ld [hli], a
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	ld [hli], a
-	ldh a, [$ffab]
+	ldh a, [hScratch + 3]
 	ld [hli], a
 	push de
 	call DrawObject
@@ -3140,7 +3140,7 @@ CreditsCaptions::
 	dw $003c, Frame_20_5d82 ; ¿FIN? (Spanish)
 
 KingKRool_KreditsScrollBack::
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -3162,18 +3162,18 @@ KingKRool_KreditsScrollBack::
 	bit 7, h
 	jr z, .jump_5425
 	inc de
-	ldh a, [$ff88]
+	ldh a, [hMapFlags]
 	and $ef
-	ldh [$ff88], a
+	ldh [hMapFlags], a
 	jr .jump_542c
 
 .jump_5425:
 	dec de
-	ldh a, [$ff88]
+	ldh a, [hMapFlags]
 	or $10
-	ldh [$ff88], a
+	ldh [hMapFlags], a
 .jump_542c:
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -3181,18 +3181,18 @@ KingKRool_KreditsScrollBack::
 	jp NextObject
 
 .jump_5435:
-	ldh a, [$ff88]
+	ldh a, [hMapFlags]
 	and $7f
-	ldh [$ff88], a
+	ldh [hMapFlags], a
 	call DeleteObject
 	jr .jump_5432
 
 
 HUD_Bananas_Hidden::
-	ld a, [$c441]
+	ld a, [wHUDFlags]
 	bit 1, a
 	jp z, NextObject
-	ld hl, $c442
+	ld hl, wHUDState
 	set 1, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -3228,11 +3228,11 @@ HUD_Bananas_Shown::
 	call HUD_DrawBananas
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
-	ld a, [$c441]
+	ld a, [wHUDFlags]
 	bit 1, a
 	jr z, .jump_5491
 	res 1, a
-	ld [$c441], a
+	ld [wHUDFlags], a
 	ld [hl], $3c
 .jump_5491:
 	dec [hl]
@@ -3254,7 +3254,7 @@ HUD_Bananas_SlideOut::
 	ld a, [hl]
 	cp $f0
 	jp nz, NextObject
-	ld hl, $c442
+	ld hl, wHUDState
 	res 1, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -3265,10 +3265,10 @@ HUD_Bananas_SlideOut::
 
 
 HUD_Lives_Hidden::
-	ld a, [$c441]
+	ld a, [wHUDFlags]
 	bit 0, a
 	jp z, NextObject
-	ld hl, $c442
+	ld hl, wHUDState
 	set 0, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -3312,11 +3312,11 @@ HUD_Lives_Shown::
 	call HUD_DrawLives
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
-	ld a, [$c441]
+	ld a, [wHUDFlags]
 	bit 0, a
 	jr z, .jump_551f
 	res 0, a
-	ld [$c441], a
+	ld [wHUDFlags], a
 	ld [hl], $3c
 .jump_551f:
 	dec [hl]
@@ -3338,7 +3338,7 @@ HUD_Lives_SlideOut::
 	ld a, [hl]
 	cp $f0
 	jp nz, NextObject
-	ld hl, $c442
+	ld hl, wHUDState
 	res 0, [hl]
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, bc
@@ -3356,27 +3356,27 @@ HUD_PartnerIcon::
 	ld a, [wPlayer + OBJ_FLAGS]
 	and $13
 	jr z, .jump_5575
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	jr z, .jump_5575
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	ld a, $10
-	ldh [$ff99], a
+	ldh [hSpriteX], a
 	ld a, $8c
-	ldh [$ff97], a
+	ldh [hSpriteY], a
 	call DrawIcon16
 .jump_5575:
 	jp NextObject
 
 
 HUD_Items_Hidden::
-	ld a, [$c441]
+	ld a, [wHUDFlags]
 	bit 2, a
 	jr z, .jump_55bc
-	ld hl, $c442
+	ld hl, wHUDState
 	set 2, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -3390,7 +3390,7 @@ HUD_Items_Hidden::
 	ld [hl], $f0
 	inc l
 	ld [hl], a
-	ld a, [$c441]
+	ld a, [wHUDFlags]
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld [hl], a
@@ -3409,7 +3409,7 @@ HUD_Items_Hidden::
 	jr z, .jump_55eb
 	dec a
 	jr z, .jump_55f6
-	ld hl, $c441
+	ld hl, wHUDFlags
 	res 2, [hl]
 .jump_55bc:
 	jp NextObject
@@ -3486,11 +3486,11 @@ HUD_Items_Shown::
 	call HUD_DrawItems
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
-	ld a, [$c441]
+	ld a, [wHUDFlags]
 	bit 2, a
 	jr z, .jump_5635
 	res 2, a
-	ld [$c441], a
+	ld [wHUDFlags], a
 	ld [hl], $3c
 .jump_5635:
 	dec [hl]
@@ -3519,7 +3519,7 @@ HUD_Items_Shown::
 	jp NextObject
 
 .jump_565c:
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 0, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -3551,7 +3551,7 @@ HUD_Items_SlideOut::
 	ld a, [hl]
 	cp $f0
 	jr nz, .jump_569e
-	ld hl, $c442
+	ld hl, wHUDState
 	res 2, [hl]
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
@@ -3581,7 +3581,7 @@ HUD_Items_Draw::
 .jump_56b9:
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -3594,7 +3594,7 @@ HUD_Items_Draw::
 	ret
 
 .jump_56ce:
-	ld hl, $c313
+	ld hl, wAnimalTokens
 	add a, l
 	ld l, a
 	ld a, [hl]
@@ -3604,7 +3604,7 @@ HUD_Items_Draw::
 	ret
 
 .jump_56da:
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	add a, $35
@@ -3619,13 +3619,13 @@ HUD_Items_Draw::
 .jump_56eb:
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
-	ld a, [$c320]
+	ld a, [wStickers]
 	ld [hl], a
 	ret
 
 
 HUD_Items_Reward::
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 0, [hl]
 	call HUD_DrawItems
 	ld hl, wObjects + OBJ_VAR_32
@@ -3643,7 +3643,7 @@ HUD_Items_Reward::
 	jr z, .jump_5787
 	cp $08
 	jp z, .jump_579e
-	ld hl, $c31f
+	ld hl, wLivesPending
 	dec [hl]
 	rst_farcall GiveExtraLife
 	push bc
@@ -3665,7 +3665,7 @@ HUD_Items_Reward::
 .jump_5739:
 	res 0, [hl]
 	ld a, $01
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld [hl], $20
@@ -3693,7 +3693,7 @@ HUD_Items_Reward::
 .jump_5770:
 	res 1, [hl]
 	ld a, $03
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	push bc
@@ -3707,7 +3707,7 @@ HUD_Items_Reward::
 .jump_5787:
 	res 2, [hl]
 	ld a, $05
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	push bc
@@ -3721,7 +3721,7 @@ HUD_Items_Reward::
 .jump_579e:
 	res 3, [hl]
 	ld a, $07
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	push bc
@@ -3768,7 +3768,7 @@ Obj_Move::
 KongLetter::
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld e, a
@@ -3812,17 +3812,17 @@ KongLetter_FlyUp::
 
 
 KongLetter_Collected::
-	ld hl, $c441
+	ld hl, wHUDFlags
 	bit 2, [hl]
 	jr nz, .jump_5852
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld e, [hl]
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -3833,7 +3833,7 @@ KongLetter_Collected::
 	and $0f
 	cp $0f
 	jr nz, .jump_584f
-	ld hl, $c31f
+	ld hl, wLivesPending
 	inc [hl]
 .jump_584f:
 	call DeleteObjectForGood
@@ -3858,22 +3858,22 @@ AnimalToken_FlyToHUD::
 
 
 AnimalToken_Count::
-	ld hl, $c441
+	ld hl, wHUDFlags
 	bit 2, [hl]
 	jr nz, .jump_58bd
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
-	ld hl, $c317
+	ld hl, wAnimalTokensPending
 	add a, l
 	ld l, a
 	dec [hl]
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
 	ld a, [hl]
-	ld hl, $c313
+	ld hl, wAnimalTokens
 	add a, l
 	ld l, a
 	ld a, [hl]
@@ -3883,7 +3883,7 @@ AnimalToken_Count::
 	jr nz, .jump_58ba
 	xor a
 	ld [hl], a
-	ld hl, $c443
+	ld hl, wLevelFlags
 	set 7, [hl]
 	ld hl, wObjects + OBJ_VAR_2F
 	add hl, bc
@@ -3897,7 +3897,7 @@ AnimalToken_Count::
 	ld a, [hli]
 	ld [wLevelEntrance], a
 	ld a, [hli]
-	ld [$c44a], a
+	ld [wLevelEntrance + 1], a
 	rst_farcall Player_ExitToEntrance
 	call DeleteObject
 	jr .jump_58bd
@@ -3915,29 +3915,29 @@ Bananas::
 	call GetObjectScreenPos_Camera
 	ld a, $04
 	ldh [rSVBK], a
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	sub $20
-	ldh [$ff99], a
-	ldh [$ff95], a
-	ldh a, [$ff9a]
+	ldh [hSpriteX], a
+	ldh [hScratch2], a
+	ldh a, [hSpriteX + 1]
 	sbc a, $00
-	ldh [$ff9a], a
-	ldh [$ff96], a
-	ldh a, [$ff97]
+	ldh [hSpriteX + 1], a
+	ldh [hScratch2 + 1], a
+	ldh a, [hSpriteY]
 	sub $20
-	ldh [$ff97], a
-	ldh a, [$ff98]
+	ldh [hSpriteY], a
+	ldh a, [hSpriteY + 1]
 	sbc a, $00
-	ldh [$ff98], a
+	ldh [hSpriteY + 1], a
 	ld a, $08
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	ld hl, wObjects + OBJ_ANIM
 	add hl, bc
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
 	ld h, $c5
-	ldh a, [$ffa2]
+	ldh a, [hSpriteLayerFill]
 	ld l, a
 	push bc
 .jump_58fc:
@@ -3949,26 +3949,26 @@ Bananas::
 	ld c, a
 	or b
 	jr z, .jump_5953
-	ldh a, [$ff98]
+	ldh a, [hSpriteY + 1]
 	or a
 	jr nz, .jump_5953
-	ldh a, [$ff97]
+	ldh a, [hSpriteY]
 	cp $a0
 	jr nc, .jump_5953
 .jump_5910:
 	bit 7, l
 	jr nz, .jump_596e
-	ldh a, [$ff9a]
+	ldh a, [hSpriteX + 1]
 	or a
 	jr nz, .jump_593f
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	cp $a8
 	jr nc, .jump_593f
 	sla b
 	jr nc, .jump_592e
-	ldh a, [$ff97]
+	ldh a, [hSpriteY]
 	ld [hli], a
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	ld [hli], a
 	ld a, $78
 	ld [hli], a
@@ -3977,9 +3977,9 @@ Bananas::
 .jump_592e:
 	sla c
 	jr nc, .jump_5943
-	ldh a, [$ff97]
+	ldh a, [hSpriteY]
 	ld [hli], a
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	ld [hli], a
 	ld a, $7a
 	ld [hli], a
@@ -3991,34 +3991,34 @@ Bananas::
 	sla b
 	sla c
 .jump_5943:
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	add a, $08
-	ldh [$ff99], a
-	ldh a, [$ff9a]
+	ldh [hSpriteX], a
+	ldh a, [hSpriteX + 1]
 	adc a, $00
-	ldh [$ff9a], a
+	ldh [hSpriteX + 1], a
 	ld a, c
 	or b
 	jr nz, .jump_5910
 .jump_5953:
-	ldh a, [$ff97]
+	ldh a, [hSpriteY]
 	add a, $08
-	ldh [$ff97], a
-	ldh a, [$ff98]
+	ldh [hSpriteY], a
+	ldh a, [hSpriteY + 1]
 	adc a, $00
-	ldh [$ff98], a
-	ldh a, [$ff95]
-	ldh [$ff99], a
-	ldh a, [$ff96]
-	ldh [$ff9a], a
-	ldh a, [$ff9b]
+	ldh [hSpriteY + 1], a
+	ldh a, [hScratch2]
+	ldh [hSpriteX], a
+	ldh a, [hScratch2 + 1]
+	ldh [hSpriteX + 1], a
+	ldh a, [hSpriteAttr]
 	dec a
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	jr nz, .jump_58fc
 .jump_596e:
 	pop bc
 	ld a, l
-	ldh [$ffa2], a
+	ldh [hSpriteLayerFill], a
 	call DespawnIfOutOfRange
 	jp NextObject
 
@@ -4041,14 +4041,14 @@ DKBarrel::
 	ld [hl], LOW(DKBarrel_Wait)
 	inc l
 	ld [hl], HIGH(DKBarrel_Wait)
-	ld a, [$c30e]
+	ld a, [wGameModeBit]
 	bit 1, a
 	call nz, DeleteObjectForGood
 	jp NextObject
 
 
 DKBarrel_Wait::
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	jr nz, .jump_59c5
 	ld hl, wObjects + OBJ_VAR_32
@@ -4063,9 +4063,9 @@ DKBarrel_Wait::
 	add hl, de
 	jr c, .jump_59c5
 	ld a, $58
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld a, $5a
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 .jump_59c5:
 	call AnimateObject
 	call DespawnIfOutOfRange
@@ -4078,7 +4078,7 @@ Obj_Remove::
 
 
 DKBarrel2::
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	jr nz, .jump_59ea
 	ld hl, wObjects + OBJ_BANK
@@ -4107,7 +4107,7 @@ BarrelSupply::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	inc [hl]
@@ -4119,7 +4119,7 @@ BarrelSupply::
 	call InitObject
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hl], a
 	pop bc
 	jp NextObject
@@ -4165,29 +4165,29 @@ DKBarrel_Open::
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hl]
-	ldh [$ff99], a
+	ldh [hSpriteX], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hl]
-	ldh [$ff97], a
+	ldh [hSpriteY], a
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
 	ld a, [hl]
 	and $07
 	or $08
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	call DrawIcon16
 	call ApplyVelocity
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_5a97
-	ld hl, $c30f
+	ld hl, wKongs
 	set 1, [hl]
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $01
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	call DeleteObjectForGood
 .jump_5a97:
 	jp NextObject
@@ -4201,12 +4201,12 @@ StarBarrel::
 	ld [hl], LOW(Obj_AnimateAndDespawn)
 	inc l
 	ld [hl], HIGH(Obj_AnimateAndDespawn)
-	ld a, [$c30e]
+	ld a, [wGameModeBit]
 	bit 2, a
 	jr nz, .jump_5ac1
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	inc a
@@ -5026,11 +5026,11 @@ BouncingCoconut_Fall::
 	ld hl, $fff8
 	add hl, de
 	jr c, .jump_5fb1
-	ld a, [$c32a]
+	ld a, [wSFXQueue + 1]
 	rrca
 	jr c, .jump_5fa5
 	ld a, $9c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_5fa5:
 	ld hl, wObjects + OBJ_BANK
 	add hl, bc
@@ -5050,7 +5050,7 @@ Rope_Held::
 	add hl, bc
 	bit 0, [hl]
 	call nz, CheckObjectOnScreen
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $02
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_VAR_39
@@ -5066,7 +5066,7 @@ Rope::
 	add hl, bc
 	bit 0, [hl]
 	call nz, CheckObjectOnScreen
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $02
 	jp nz, NextObject
 	ld a, [wPlayer + OBJ_COLLISION]
@@ -5173,7 +5173,7 @@ Rope_Released::
 	add hl, bc
 	bit 0, [hl]
 	call nz, CheckObjectOnScreen
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $02
 	jp nz, NextObject
 	ld hl, wObjects + OBJ_VAR_39
@@ -5311,7 +5311,7 @@ SwingingRope_Held::
 	adc a, $00
 	ld [wPlayer + OBJ_Y + 1], a
 	inc de
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr nc, .jump_623a
 	inc de
@@ -5787,7 +5787,7 @@ RunClamboScript::
 	ld e, l
 	push hl
 	ld a, $4c
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	push bc
 	push de
 	rst_farcall SaveObjectPosition
@@ -5891,7 +5891,7 @@ Klaptrap_Walk::
 	add hl, bc
 	bit 0, [hl]
 	jr z, .jump_65c8
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jr z, .jump_65c8
 	ld hl, wObjects + OBJ_VAR_0A
@@ -5919,7 +5919,7 @@ Elevator::
 
 
 LoopElevator::
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $01
 	call nz, ApplyVelocity
 	ld hl, wObjects + OBJ_VAR_2E
@@ -5943,9 +5943,9 @@ LoopElevator::
 	sbc a, d
 	ld d, a
 .jump_6605:
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	sub l
-	ldh a, [$ff8c]
+	ldh a, [hCameraY + 1]
 	sbc a, h
 	rlca
 	jr nc, .jump_6611
@@ -5960,9 +5960,9 @@ LoopElevator::
 	sbc a, d
 	ld d, a
 .jump_6618:
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	sub l
-	ldh a, [$ff8c]
+	ldh a, [hCameraY + 1]
 	sbc a, h
 	rlca
 	jr c, .jump_6624
@@ -5999,7 +5999,7 @@ LoopElevator::
 	adc a, d
 	ld [hl], a
 	ld d, a
-	ld hl, $ff8b
+	ld hl, hCameraY
 	ld a, e
 	sub [hl]
 	ld e, a
@@ -6015,7 +6015,7 @@ LoopElevator::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $c474
+	ld hl, wDespawnRangeX
 	ld a, [hli]
 	sub e
 	ld a, [hli]
@@ -6206,7 +6206,7 @@ FuelPlatform_Wait::
 
 
 FuelPlatform_Move::
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -6218,7 +6218,7 @@ FuelPlatform_Move::
 	inc l
 	ld [hl], d
 	xor a
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld [hli], a
 	ld [hl], a
 	ld hl, wObjects + OBJ_HANDLER
@@ -6238,15 +6238,15 @@ FuelPlatform_Move::
 	or a
 	jr nz, .jump_6798
 	ld a, $20
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	jr .jump_67a3
 
 .jump_6798:
-	ld a, [$c32a]
+	ld a, [wSFXQueue + 1]
 	rrca
 	jr c, .jump_67a3
 	ld a, $24
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_67a3:
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
@@ -6462,12 +6462,12 @@ ArrowPlatform_Fall::
 Platform_Register::
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$d5fe]
+	ld a, [wPlatformsNextCount]
 	cp $0e
 	ret z
 	inc a
-	ld [$d5fe], a
-	ld a, [$d5fc]
+	ld [wPlatformsNextCount], a
+	ld a, [wPlatformsNextSize]
 	add a, $7e
 	ld e, a
 	ld d, $d5
@@ -6508,7 +6508,7 @@ Platform_Register::
 	inc e
 	ld a, e
 	sub $7e
-	ld [$d5fc], a
+	ld [wPlatformsNextSize], a
 	ret
 
 
@@ -6683,7 +6683,7 @@ MiniNecky_Spit::
 
 .jump_6a42:
 	ld a, $4c
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	rst_farcall SaveObjectPosition
 	ld hl, wObjects + OBJ_OAM_ATTR
 	add hl, bc
@@ -6829,7 +6829,7 @@ RunMankyKongScript::
 	ld d, a
 	push hl
 	ld a, $38
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, e
@@ -6932,7 +6932,7 @@ Mincer::
 
 .jump_6bc0:
 	ld a, $6a
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
@@ -7239,7 +7239,7 @@ StopGoBarrel::
 	jr nz, .jump_6d6f
 	ld [hl], a
 .jump_6d6f:
-	ld hl, $c447
+	ld hl, wLevelTimer + 1
 	ld a, [hld]
 	or a
 	jr nz, .jump_6da1
@@ -7305,7 +7305,7 @@ OnOffBarrel::
 	ld [hl], a
 .jump_6dd6:
 	ld de, Frame_20_4de6
-	ld hl, $c447
+	ld hl, wLevelTimer + 1
 	ld a, [hld]
 	or a
 	jr nz, .jump_6de8
@@ -7324,7 +7324,7 @@ OnOffBarrel::
 
 
 LightsFlicker::
-	ld hl, $c446
+	ld hl, wLevelTimer
 	dec [hl]
 	ld a, [hl]
 	and $3f
@@ -7351,7 +7351,7 @@ LightsFlicker::
 
 
 StopGoTimer::
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -7370,7 +7370,7 @@ StopGoTimer::
 	or d
 	jr z, .jump_6e66
 	dec de
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, e
 	ld [hli], a
 	ld [hl], d
@@ -7412,7 +7412,7 @@ StopGoTimer::
 
 
 LightsTimer::
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -7432,7 +7432,7 @@ LightsTimer::
 	jr z, .jump_6ec1
 	dec de
 	ld a, e
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld [hli], a
 	ld [hl], d
 	ld a, d
@@ -7500,7 +7500,7 @@ LevelFadeIn::
 	jp NextObject
 
 .jump_6f05:
-	ld hl, $c443
+	ld hl, wLevelFlags
 	set 4, [hl]
 	call DeleteObject
 	jp NextObject
@@ -7522,7 +7522,7 @@ Player_ExitFade::
 
 .jump_6f24:
 	call DeleteObject
-	ld hl, $c443
+	ld hl, wLevelFlags
 	set 1, [hl]
 	jp NextObject
 
@@ -7571,7 +7571,7 @@ ObjInit_0a_6f62::
 	obj_end
 
 Millstone_Roll::
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $02
 	jr nz, .jump_6f83
 	call UpdateVelocity
@@ -7604,16 +7604,16 @@ Millstone_UpdateRider::
 .jump_6fa8:
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	ld [hl], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	sub $26
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	sbc a, $00
 	ld [hl], a
 	call DrawObject
@@ -7792,7 +7792,7 @@ Millstone_Wait::
 
 
 Millstone_Move::
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $02
 	jr nz, .jump_709c
 	call Obj_MoveToTarget
@@ -7821,7 +7821,7 @@ Snowflake_Randomise::
 	and $3f
 	add a, $a0
 	ld [hl], a
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	add a, [hl]
 	ld [hli], a
 	call Random
@@ -7835,7 +7835,7 @@ Snowflake_Randomise::
 
 
 Snowflakes_Init::
-	ld hl, $c480
+	ld hl, wSnowflakes
 .jump_70d6:
 	call Snowflake_Randomise
 	ld a, l
@@ -7856,9 +7856,9 @@ Snowflakes::
 	add hl, bc
 	ld a, [hl]
 	or $08
-	ldh [$ff9b], a
-	ld hl, $c480
-	ldh a, [$ffa2]
+	ldh [hSpriteAttr], a
+	ld hl, wSnowflakes
+	ldh a, [hSpriteLayerFill]
 	ld c, a
 	ld b, $c5
 .jump_70fe:
@@ -7873,7 +7873,7 @@ Snowflakes::
 	adc a, d
 	ld [hli], a
 	ld d, a
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	cpl
 	add a, d
 	cp $f0
@@ -7883,7 +7883,7 @@ Snowflakes::
 	rlca
 	jr c, .jump_712c
 	inc c
-	ldh a, [$ff89]
+	ldh a, [hCameraX]
 	cpl
 	add a, [hl]
 	inc l
@@ -7892,7 +7892,7 @@ Snowflakes::
 	ld a, [hli]
 	ld [bc], a
 	inc c
-	ldh a, [$ff9b]
+	ldh a, [hSpriteAttr]
 	ld [bc], a
 	inc c
 .jump_7125:
@@ -7902,7 +7902,7 @@ Snowflakes::
 	jr nz, .jump_70fe
 .jump_712c:
 	ld a, c
-	ldh [$ffa2], a
+	ldh [hSpriteLayerFill], a
 	pop bc
 	jp NextObject
 
@@ -7949,7 +7949,7 @@ RunBlackDrumScript::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	inc [hl]
@@ -7962,29 +7962,29 @@ RunBlackDrumScript::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	sub $1c
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	sbc a, $00
 	ld [hli], a
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hl], a
 	pop hl
 	call InitObject
 	pop bc
 	ld a, $3a
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	pop hl
 	jr .jump_7143
 
@@ -8070,12 +8070,12 @@ OilDrum_RunScript::
 
 .jump_7210:
 	ld a, $94
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	jr .jump_71f2
 
 .jump_7217:
 	ld a, $9a
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	jr .jump_71f2
 
 .jump_721e:
@@ -8200,7 +8200,7 @@ ExtraLifeBalloon::
 	call GetBitMask
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -8260,7 +8260,7 @@ ObjInit_0a_731e::
 
 ExtraLifeBalloon_Count::
 	call AnimateObject
-	ld hl, $c441
+	ld hl, wHUDFlags
 	bit 0, [hl]
 	jr nz, .jump_7355
 	ld hl, wObjects + OBJ_VAR_2F
@@ -8269,13 +8269,13 @@ ExtraLifeBalloon_Count::
 	jr nz, .jump_7355
 	ld [hl], $14
 	rst_farcall GiveExtraLife
-	ld hl, $c31f
+	ld hl, wLivesPending
 	dec [hl]
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_7355
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
 	call DeleteObjectForGood
 .jump_7355:
@@ -8283,43 +8283,43 @@ ExtraLifeBalloon_Count::
 
 
 ObjScript_0a_7358::
-	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
-	db $01, $50 ; wait (Func_0a_6a0a)
+	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
+	db $01, $50 ; wait (MiniNecky_Hover)
 	db $00 ; jump
 	dw ObjScript_0a_7358
 
 ObjScript_0a_735e::
-	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
-	db $01, $96 ; wait (Func_0a_6a0a)
+	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
+	db $01, $96 ; wait (MiniNecky_Hover)
 	db $00 ; jump
 	dw ObjScript_0a_735e
 
 ObjScript_0a_7364::
-	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
-	db $02, $32 ; wait (Func_0a_6a8b)
-	db $03 ; finish (Func_0a_6a2a)
-	db $02, $00 ; wait (Func_0a_6a8b)
+	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
+	db $02, $32 ; wait (MiniNecky_Swoop)
+	db $03 ; finish (MiniNecky_Spit)
+	db $02, $00 ; wait (MiniNecky_Swoop)
 	db $00 ; jump
 	dw ObjScript_0a_7364
 
 ObjScript_0a_736d::
-	db $03 ; finish (Func_0a_6a2a) -- Func_0a_6992
-	db $02, $32 ; wait (Func_0a_6a8b)
-	db $03 ; finish (Func_0a_6a2a)
-	db $02, $0a ; wait (Func_0a_6a8b)
-	db $03 ; finish (Func_0a_6a2a)
-	db $02, $00 ; wait (Func_0a_6a8b)
+	db $03 ; finish (MiniNecky_Spit) -- MiniNecky_RunScript
+	db $02, $32 ; wait (MiniNecky_Swoop)
+	db $03 ; finish (MiniNecky_Spit)
+	db $02, $0a ; wait (MiniNecky_Swoop)
+	db $03 ; finish (MiniNecky_Spit)
+	db $02, $00 ; wait (MiniNecky_Swoop)
 	db $00 ; jump
 	dw ObjScript_0a_736d
 
 ObjScript_0a_7379::
-	db $03 ; jump (Func_0a_5eee) -- Func_0a_5e65
+	db $03 ; jump (Necky_Throw) -- RunNeckyScript
 	dw $fd00
 	db $01, $14 ; wait
-	db $03 ; jump (Func_0a_5eee)
+	db $03 ; jump (Necky_Throw)
 	dw $0000
 	db $01, $14 ; wait
-	db $03 ; jump (Func_0a_5eee)
+	db $03 ; jump (Necky_Throw)
 	dw $0300
 	db $01, $14 ; wait
 	db $02 ; animation Anim_04_4a0d
@@ -8328,7 +8328,7 @@ ObjScript_0a_7379::
 	dw ObjScript_0a_7379
 
 ObjScript_0a_738e::
-	db $03 ; jump (Func_0a_5eee) -- Func_0a_5e65
+	db $03 ; jump (Necky_Throw) -- RunNeckyScript
 	dw $0000
 	db $01, $14 ; wait
 	db $02 ; animation Anim_04_4a0d
@@ -8337,7 +8337,7 @@ ObjScript_0a_738e::
 	dw ObjScript_0a_738e
 
 ObjScript_0a_7399::
-	db $03 ; jump (Func_0a_5eee) -- Func_0a_5e65
+	db $03 ; jump (Necky_Throw) -- RunNeckyScript
 	dw $0300
 	db $01, $14 ; wait
 	db $02 ; animation Anim_04_4a0d
@@ -8346,7 +8346,7 @@ ObjScript_0a_7399::
 	dw ObjScript_0a_7399
 
 ObjScript_0a_73a4::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $ff00, $ff00
@@ -8359,7 +8359,7 @@ ObjScript_0a_73a4::
 	dw ObjScript_0a_73a4
 
 ObjScript_0a_73b9::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $ff00, $ff00
@@ -8370,7 +8370,7 @@ ObjScript_0a_73b9::
 	dw ObjScript_0a_73b9
 
 ObjScript_0a_73c9::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $0100, $ff00
@@ -8383,7 +8383,7 @@ ObjScript_0a_73c9::
 	dw ObjScript_0a_73c9
 
 ObjScript_0a_73de::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $ff00, $ff00
@@ -8396,7 +8396,7 @@ ObjScript_0a_73de::
 	dw ObjScript_0a_73de
 
 ObjScript_0a_73f3::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $0100, $0000
@@ -8411,7 +8411,7 @@ ObjScript_0a_73f3::
 	dw ObjScript_0a_73f3
 
 ObjScript_0a_740d::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $0100, $0000
@@ -8422,7 +8422,7 @@ ObjScript_0a_740d::
 	dw ObjScript_0a_740d
 
 ObjScript_0a_741d::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $ff00, $0000
@@ -8433,7 +8433,7 @@ ObjScript_0a_741d::
 	dw ObjScript_0a_741d
 
 ObjScript_0a_742d::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $ff00, $ff00
@@ -8452,7 +8452,7 @@ ObjScript_0a_742d::
 	dw ObjScript_0a_742d
 
 ObjScript_0a_7451::
-	db $02 ; animation Anim_04_4ce3 -- Func_0a_64ba
+	db $02 ; animation Anim_04_4ce3 -- RunClamboScript
 	db $01, $28 ; wait
 	db $04 ; throw: x speed, y speed
 	dw $ff00, $0100
@@ -8471,535 +8471,535 @@ ObjScript_0a_7451::
 	dw ObjScript_0a_7451
 
 ObjScript_0a_7475::
-	db $02, $ff ; walk (Anim_04_4947) -- Func_0a_5b56
+	db $02, $ff ; walk (Anim_04_4947) -- RunKritterScript
 	db $00 ; jump
 	dw ObjScript_0a_7475
 
 ObjScript_0a_747a::
-	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56
+	db $03 ; move (Kritter_JumpStart) -- RunKritterScript
 	dw $fbb0
 	db $00 ; jump
 	dw ObjScript_0a_747a
 
 ObjScript_0a_7480::
-	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56
+	db $03 ; move (Kritter_JumpStart) -- RunKritterScript
 	dw $fcb0
 	db $00 ; jump
 	dw ObjScript_0a_7480
 
 ObjScript_0a_7486::
-	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56
+	db $03 ; move (Kritter_JumpStart) -- RunKritterScript
 	dw $fbb0
-	db $03 ; move (Func_0a_5c4d)
+	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
-	db $03 ; move (Func_0a_5c4d)
+	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
-	db $03 ; move (Func_0a_5c4d)
+	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
 	db $00 ; jump
 	dw ObjScript_0a_7486
 
 ObjScript_0a_7495::
-	db $03 ; move (Func_0a_5c4d) -- Func_0a_5b56 (no object list points here)
+	db $03 ; move (Kritter_JumpStart) -- RunKritterScript (no object list points here)
 	dw $fcb0
-	db $03 ; move (Func_0a_5c4d)
+	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
-	db $03 ; move (Func_0a_5c4d)
+	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
-	db $03 ; move (Func_0a_5c4d)
+	db $03 ; move (Kritter_JumpStart)
 	dw $fd00
 	db $00 ; jump
 	dw ObjScript_0a_7495
 
 ObjScript_0a_74a4::
-	db $02, $1e ; walk (Anim_04_4947) -- Func_0a_5b56
-	db $03 ; move (Func_0a_5c4d)
+	db $02, $1e ; walk (Anim_04_4947) -- RunKritterScript
+	db $03 ; move (Kritter_JumpStart)
 	dw $fbb0
 	db $00 ; jump
 	dw ObjScript_0a_74a4
 
 ObjScript_0a_74ac::
-	db $02, $32 ; walk (Anim_04_4947) -- Func_0a_5b56 (no object list points here)
-	db $03 ; move (Func_0a_5c4d)
+	db $02, $32 ; walk (Anim_04_4947) -- RunKritterScript (no object list points here)
+	db $03 ; move (Kritter_JumpStart)
 	dw $fcb0
 	db $00 ; jump
 	dw ObjScript_0a_74ac
 
 ObjScript_0a_74b4::
-	db $02 ; attack (Func_0a_6b11) -- Func_0a_6aec
+	db $02 ; attack (RunMankyKongScript.jump_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $58 ; wait
-	db $02 ; attack (Func_0a_6b11)
+	db $02 ; attack (RunMankyKongScript.jump_6b11)
 	dw $0180
 	db $01, $58 ; wait
-	db $02 ; attack (Func_0a_6b11)
+	db $02 ; attack (RunMankyKongScript.jump_6b11)
 	dw $0180
 	db $01, $a0 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_74b4
 
 ObjScript_0a_74c6::
-	db $02 ; attack (Func_0a_6b11) -- Func_0a_6aec
+	db $02 ; attack (RunMankyKongScript.jump_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $42 ; wait
-	db $02 ; attack (Func_0a_6b11)
+	db $02 ; attack (RunMankyKongScript.jump_6b11)
 	dw $0180
 	db $01, $42 ; wait
-	db $02 ; attack (Func_0a_6b11)
+	db $02 ; attack (RunMankyKongScript.jump_6b11)
 	dw $0180
 	db $01, $78 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_74c6
 
 ObjScript_0a_74d8::
-	db $02 ; attack (Func_0a_6b11) -- Func_0a_6aec
+	db $02 ; attack (RunMankyKongScript.jump_6b11) -- RunMankyKongScript
 	dw $0180
 	db $01, $2c ; wait
-	db $02 ; attack (Func_0a_6b11)
+	db $02 ; attack (RunMankyKongScript.jump_6b11)
 	dw $0180
 	db $01, $2c ; wait
-	db $02 ; attack (Func_0a_6b11)
+	db $02 ; attack (RunMankyKongScript.jump_6b11)
 	dw $0180
 	db $01, $50 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_74d8
 
 ObjScript_0a_74ea::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $067c
 
 ObjScript_0a_74ee::
-	db $04 ; target y speed -- Func_0a_6c60
+	db $04 ; target y speed -- RunCroctopusScript
 	dw $025c
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $05e6
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $01e2
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $067c
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
 	dw ObjScript_0a_74ee
 
 ObjScript_0a_7501::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $04a8
 
 ObjScript_0a_7505::
-	db $04 ; target y speed -- Func_0a_6c60
+	db $04 ; target y speed -- RunCroctopusScript
 	dw $0397
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0328
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0558
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0397
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $04a8
 	db $00 ; jump
 	dw ObjScript_0a_7505
 
 ObjScript_0a_751b::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $04 ; target y speed
 	dw $02df
 
 ObjScript_0a_751f::
-	db $03 ; target x speed -- Func_0a_6c60
+	db $03 ; target x speed -- RunCroctopusScript
 	dw $0205
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $035d
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $029d
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $02df
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
 	dw ObjScript_0a_751f
 
 ObjScript_0a_7532::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $05be
 
 ObjScript_0a_7536::
-	db $04 ; target y speed -- Func_0a_6c60
+	db $04 ; target y speed -- RunCroctopusScript
 	dw $00c4
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0632
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $011b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $06a8
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $00c4
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0632
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $011b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $05be
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
 	dw ObjScript_0a_7536
 
 ObjScript_0a_7559::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $044c
 
 ObjScript_0a_755d::
-	db $04 ; target y speed -- Func_0a_6c60
+	db $04 ; target y speed -- RunCroctopusScript
 	dw $0064
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0492
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $00b4
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $044c
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0064
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
 	dw ObjScript_0a_755d
 
 ObjScript_0a_7574::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $050a
 
 ObjScript_0a_7578::
-	db $04 ; target y speed -- Func_0a_6c60
+	db $04 ; target y speed -- RunCroctopusScript
 	dw $0064
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $04ba
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $00b4
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $050a
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0064
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $00 ; jump
 	dw ObjScript_0a_7578
 
 ObjScript_0a_758f::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0228
 	db $04 ; target y speed
 	dw $09dd
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $02c1
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0a00
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_75a0::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0400
 	db $04 ; target y speed
 	dw $09ff
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $043b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0938
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $04ed
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_75b5::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0503
 	db $04 ; target y speed
 	dw $09f9
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0547
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0897
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_75c6::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $038b
 	db $04 ; target y speed
 	dw $08da
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $02ee
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $07fd
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $038b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $079f
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $026f
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $076c
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_75e7::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0164
 	db $04 ; target y speed
 	dw $08d9
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $00bf
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $07dd
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $011f
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $073a
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $00c2
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $069a
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0110
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0618
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $00cf
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0534
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_7618::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $01ae
 	db $04 ; target y speed
 	dw $057b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $027b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $05a0
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_7629::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0384
 	db $04 ; target y speed
 	dw $0457
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_7632::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0543
 	db $04 ; target y speed
 	dw $057d
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $05f5
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $04c9
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0455
 	db $03 ; target x speed
 	dw $04b0
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_764a::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0366
 	db $04 ; target y speed
 	dw $035a
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $02fa
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $03bb
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $02a3
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $029d
 	db $04 ; target y speed
 	dw $0416
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $023a
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $04b2
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_766e::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0143
 	db $04 ; target y speed
 	dw $047e
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $010b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $03c0
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0226
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_7683::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0230
 	db $04 ; target y speed
 	dw $0279
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $01b5
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $01db
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0212
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $017c
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $02b2
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0159
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_76a4::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $02b2
 	db $04 ; target y speed
 	dw $017c
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0393
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $01fe
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0401
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $027b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0460
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $02a3
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_76c5::
-	db $06 ; yield (Func_0a_6d25) -- Func_0a_6c60
+	db $06 ; yield (Croctopus_WaitForPlayer) -- RunCroctopusScript
 	db $03 ; target x speed
 	dw $0460
 	db $04 ; target y speed
 	dw $027b
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $04fb
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $01e0
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0455
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $04 ; target y speed
 	dw $0163
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0410
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $03 ; target x speed
 	dw $0404
 	db $04 ; target y speed
 	dw $0082
-	db $02 ; yield (Func_0a_6d16)
+	db $02 ; yield (Croctopus_Chase)
 	db $05 ; end
 
 ObjScript_0a_76e9::
-	db $06 ; acceleration -- Func_0a_6fc5
+	db $06 ; acceleration -- RunMillstoneScript
 	dw $0193
 	db $03 ; target x speed
 	dw $038e
@@ -9009,10 +9009,10 @@ ObjScript_0a_76e9::
 	db $03 ; target x speed
 	dw $05be
 	db $02 ; yield
-	db $05 ; yield (Func_0a_70a2)
+	db $05 ; yield (Millstone_Despawn)
 
 ObjScript_0a_76f8::
-	db $06 ; acceleration -- Func_0a_6fc5
+	db $06 ; acceleration -- RunMillstoneScript
 	dw $0193
 	db $03 ; target x speed
 	dw $0783
@@ -9034,10 +9034,10 @@ ObjScript_0a_76f8::
 	db $06 ; acceleration
 	dw $0180
 	db $02 ; yield
-	db $05 ; yield (Func_0a_70a2)
+	db $05 ; yield (Millstone_Despawn)
 
 ObjScript_0a_7718::
-	db $06 ; acceleration -- Func_0a_6fc5
+	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
 	dw $0abe
@@ -9066,10 +9066,10 @@ ObjScript_0a_7718::
 	db $08 ; y acceleration
 	dw $006c
 	db $02 ; yield
-	db $05 ; yield (Func_0a_70a2)
+	db $05 ; yield (Millstone_Despawn)
 
 ObjScript_0a_7742::
-	db $06 ; acceleration -- Func_0a_6fc5
+	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
 	dw $11df
@@ -9079,10 +9079,10 @@ ObjScript_0a_7742::
 	db $03 ; target x speed
 	dw $1602
 	db $02 ; yield
-	db $05 ; yield (Func_0a_70a2)
+	db $05 ; yield (Millstone_Despawn)
 
 ObjScript_0a_7751::
-	db $06 ; acceleration -- Func_0a_6fc5
+	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
 	dw $1aea
@@ -9110,10 +9110,10 @@ ObjScript_0a_7751::
 	db $04 ; target y speed
 	dw $00cb
 	db $02 ; yield
-	db $05 ; yield (Func_0a_70a2)
+	db $05 ; yield (Millstone_Despawn)
 
 ObjScript_0a_7779::
-	db $06 ; acceleration -- Func_0a_6fc5
+	db $06 ; acceleration -- RunMillstoneScript
 	dw $0180
 	db $03 ; target x speed
 	dw $2283
@@ -9136,38 +9136,38 @@ ObjScript_0a_7779::
 	db $04 ; target y speed
 	dw $0116
 	db $02 ; yield
-	db $05 ; yield (Func_0a_70a2)
+	db $05 ; yield (Millstone_Despawn)
 
 ObjScript_0a_779a::
-	db $02 ; spawn -- Func_0a_713c
+	db $02 ; spawn -- RunBlackDrumScript
 	dw ObjInit_0a_77ff
 	db $01, $78 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_779a
 
 ObjScript_0a_77a2::
-	db $02 ; spawn -- Func_0a_713c
+	db $02 ; spawn -- RunBlackDrumScript
 	dw ObjInit_0a_7808
 	db $01, $78 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_77a2
 
 ObjScript_0a_77aa::
-	db $02 ; spawn -- Func_0a_713c
+	db $02 ; spawn -- RunBlackDrumScript
 	dw ObjInit_0a_7829
 	db $01, $78 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_77aa
 
 ObjScript_0a_77b2::
-	db $02 ; spawn -- Func_0a_713c
+	db $02 ; spawn -- RunBlackDrumScript
 	dw ObjInit_0a_7832
 	db $01, $78 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_77b2
 
 ObjScript_0a_77ba::
-	db $02 ; spawn -- Func_0a_713c
+	db $02 ; spawn -- RunBlackDrumScript
 	dw ObjInit_0a_7829
 	db $01, $78 ; wait
 	db $02 ; spawn
@@ -9177,14 +9177,14 @@ ObjScript_0a_77ba::
 	dw ObjScript_0a_77ba
 
 ObjScript_0a_77c7::
-	db $02 ; spawn -- Func_0a_713c
+	db $02 ; spawn -- RunBlackDrumScript
 	dw ObjInit_0a_7853
 	db $01, $78 ; wait
 	db $00 ; jump
 	dw ObjScript_0a_77c7
 
 ObjScript_0a_77cf::
-	db $02 ; spawn -- Func_0a_713c
+	db $02 ; spawn -- RunBlackDrumScript
 	dw ObjInit_0a_785c
 	db $01, $78 ; wait
 	db $00 ; jump
@@ -9279,7 +9279,7 @@ ObjInit_0a_785c::
 	obj_end
 
 ObjScript_0a_7877::
-	db $06 ; set OBJ_VAR_2E bit 7 -- Func_0a_71eb
+	db $06 ; set OBJ_VAR_2E bit 7 -- OilDrum_RunScript
 	db $04, $49 ; animation (ObjInit_0a_7285)
 	db $07 ; clear OBJ_VAR_2E bit 7
 	db $03 ; animation (ObjInit_0a_726f)
@@ -9290,7 +9290,7 @@ ObjScript_0a_7877::
 	dw ObjScript_0a_7877
 
 ObjScript_0a_7883::
-	db $09 ; sound $9a -- Func_0a_71eb
+	db $09 ; sound $9a -- OilDrum_RunScript
 	db $02 ; animation (ObjInit_0a_727a)
 	db $06 ; set OBJ_VAR_2E bit 7
 	db $03 ; animation (ObjInit_0a_726f)
@@ -9305,7 +9305,7 @@ ObjScript_0a_7883::
 	dw ObjScript_0a_7883
 
 ObjScript_0a_7893::
-	db $02 ; animation (ObjInit_0a_727a) -- Func_0a_71eb
+	db $02 ; animation (ObjInit_0a_727a) -- OilDrum_RunScript
 	db $04, $27 ; animation (ObjInit_0a_7285)
 	db $07 ; clear OBJ_VAR_2E bit 7
 	db $03 ; animation (ObjInit_0a_726f)
@@ -9320,7 +9320,7 @@ ObjScript_0a_7893::
 	dw ObjScript_0a_7893
 
 ObjScript_0a_78a3::
-	db $05 ; acceleration -- Func_0a_6689
+	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed
 	dw $0391
@@ -9430,7 +9430,7 @@ ObjScript_0a_78a3::
 	db $06 ; fall (ObjInit_0a_66f8)
 
 ObjScript_0a_7937::
-	db $05 ; acceleration -- Func_0a_6689
+	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed
 	dw $1953
@@ -9571,7 +9571,7 @@ ObjScript_0a_7937::
 	db $06 ; fall (ObjInit_0a_66f8)
 
 ObjScript_0a_79f5::
-	db $05 ; acceleration -- Func_0a_6689
+	db $05 ; acceleration -- Platform_RunScript
 	dw $0140
 	db $03 ; target x speed
 	dw $005b
@@ -9579,7 +9579,7 @@ ObjScript_0a_79f5::
 	dw $00d2
 
 ObjScript_0a_79fe::
-	db $02 ; yield -- Func_0a_6689
+	db $02 ; yield -- Platform_RunScript
 	db $03 ; target x speed
 	dw $0028
 	db $02 ; yield
@@ -9595,7 +9595,7 @@ ObjScript_0a_79fe::
 	dw ObjScript_0a_79fe
 
 ObjScript_0a_7a11::
-	db $05 ; acceleration -- Func_0a_6689
+	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed
 	dw $03d2
@@ -9658,7 +9658,7 @@ ObjScript_0a_7a11::
 	db $07 ; end
 
 ObjScript_0a_7a64::
-	db $05 ; acceleration -- Func_0a_6689
+	db $05 ; acceleration -- Platform_RunScript
 	dw $0100
 	db $03 ; target x speed
 	dw $11b2

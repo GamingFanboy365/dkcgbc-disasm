@@ -303,7 +303,7 @@ Cranky_ClearPalettes::
 	ld [hl], a
 	dec d
 	jr nz, .jump_420f
-	ld hl, $ff69
+	ld hl, rBCPD
 	ld d, $40
 .jump_4218:
 	ld [hl], a

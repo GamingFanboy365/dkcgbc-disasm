@@ -248,7 +248,7 @@ FE_CopyBytes::
 
 
 FE_SetDoubleSpeed::
-	ld hl, $ff4d
+	ld hl, rKEY1
 	bit 7, [hl]
 	ret nz
 	set 0, [hl]
@@ -364,7 +364,7 @@ FE_ClearPalettes::
 	ld [hl], a
 	dec d
 	jr nz, .jump_41f3
-	ld hl, $ff69
+	ld hl, rBCPD
 	ld d, $40
 .jump_41fc:
 	ld [hl], a
@@ -826,7 +826,7 @@ FE_UploadPalettes::
 	ld [$c801], sp
 	ld hl, $c806
 	ld sp, hl
-	ld hl, $ff69
+	ld hl, rBCPD
 	pop bc
 	ld [hl], c
 	ld [hl], b
@@ -925,7 +925,7 @@ FE_UploadPalettes::
 	ld [hl], b
 	ld hl, $c846
 	ld sp, hl
-	ld hl, $ff6b
+	ld hl, rOCPD
 	pop bc
 	ld [hl], c
 	ld [hl], b
@@ -1839,7 +1839,7 @@ FE_LoadPictureForPrinter::
 	cp $e0
 	jr nz, .jump_4962
 	ld d, $d0
-	ld hl, $ff70
+	ld hl, rSVBK
 	inc [hl]
 .jump_4962:
 	pop bc

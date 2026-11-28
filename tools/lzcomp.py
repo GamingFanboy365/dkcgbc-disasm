@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The level map compression (unpacked by Func_00_03e4).
+"""The level map compression (unpacked by Decompress).
 
 A stream is a list of control bytes n:
 

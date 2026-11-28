@@ -6,18 +6,18 @@
 Renders every level map and every full screen to PNGs in outdir (default
 gfx/backgrounds/, which is gitignored: these are the game's graphics).
 
-Level maps (see Func_00_0b4f, Func_00_0c24): a level descriptor points to a
+Level maps (see LoadMap, DrawMapArea): a level descriptor points to a
 map header in bank $04 (see MAP_HEADER below). The map is a grid of 32x32
-pixel blocks. Two compressed layers (Func_00_03e4) give each cell's block
+pixel blocks. Two compressed layers (Decompress) give each cell's block
 number and block attribute; blocks are 4x4 tiles defined in a block bank;
 tiles come from an 8 KB tileset; colors from the descriptor's BG palette set.
 
 World maps (state $0d, $1a58): see world_maps().
 
-Full screens (Func_00_2b5f and the states after it): a screen record is
+Full screens (GetFlowRecord and the states after it): a screen record is
 three pointers, to 128 bytes of palettes, a 20x18 tile map (360 attribute
 bytes, then 360 tile numbers) and 8 KB of tiles. Records are picked by the
-game's flow script (bank $0d, run by Func_00_38cd).
+game's flow script (bank $0d, run by RunFlowScript).
 """
 import os
 import sys
@@ -40,7 +40,7 @@ def rw(rom, bank, addr):
 
 # ------------------------------------------------------------ compression
 def decompress(rom, bank, addr, limit=0x1000):
-    """Func_00_03e4. Returns (data, compressed length)."""
+    """Decompress. Returns (data, compressed length)."""
     out = bytearray()
     o = start = off(bank, addr)
     while True:
@@ -266,7 +266,7 @@ def world_maps(rom):
     tile map (bank $0f), a list copied to $c500 (ends with $ff), BG
     palettes (bank $0f) and the tileset (address, bank). The tile map is a
     width byte n, then n columns of 18 tile numbers followed by their 18
-    attributes (Func_00_1f8a)."""
+    attributes (CopyWorldTileMap)."""
     bank, table, count = hints.WORLD_MAPS
     out = []
     for k in range(count):

@@ -167,7 +167,7 @@ class FramePalettes:
                 self.sources[f].add(o)
         self._player_palettes()
         self._barrel_palettes()
-        # The pause screen (Func_00_2a63) draws a frame of FrameTable_00_2a9e
+        # The pause screen (DrawPauseScreen) draws a frame of FrameTable_00_2a9e
         # straight into OAM with attribute 0: hardware slot 0, which every
         # level's preload list fills with palette 0 (seen in mGBA, paused).
         item = t.data.get(off(0, 0x2A9E))

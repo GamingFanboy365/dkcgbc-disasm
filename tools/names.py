@@ -212,7 +212,7 @@ NAMES = {
     (0x0A, 0x6477): "Squidge",
     (0x0A, 0x69F5): "MiniNecky",
     (0x0A, 0x6BA8): "Mincer",
-    (0x0A, 0x71B1): "BlackDrum",               # spawns enemies (ObjScript, Func_0a_713c)
+    (0x0A, 0x71B1): "BlackDrum",               # spawns enemies (ObjScript, RunBlackDrumScript)
     (0x08, 0x5C2E): "AnimalCrate",
     (0x08, 0x4088): "Coconut",
     (0x0A, 0x65D1): "Elevator",

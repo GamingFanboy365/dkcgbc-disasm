@@ -41,7 +41,7 @@ MACRO obj_end
 ENDM
 
 
-; Animation scripts (bank $04), run by Func_00_127d once every OBJ_ANIM_SPEED
+; Animation scripts (bank $04), run by AnimateObject once every OBJ_ANIM_SPEED
 ; frames. Each entry is a word: with bit 15 clear it is a frame to show (it
 ; goes into OBJ_FRAME and ends the step); otherwise the low byte is an
 ; argument and bits 8-14 select a command, which runs immediately.
@@ -95,7 +95,7 @@ MACRO anim_sfx
 	db \2, $86 + (\1)
 ENDM
 
-; Frame headers (bank $20), drawn by Func_00_1037.
+; Frame headers (bank $20), drawn by DrawSpriteFrame.
 ; frame tiles, offsets, count: count 8x8 tiles at tiles are copied to VRAM by
 ; HDMA, and each pair of tiles becomes one 8x16 sprite. offsets holds a
 ; signed (dx, dy) byte pair per sprite; each pair moves from the previous
@@ -123,14 +123,14 @@ MACRO rgb
 ENDM
 
 ; obj_pal_preload id, ...: object palettes loaded into hardware slots 0, 1, ...
-; in order (Func_00_2ca6), with a count byte first
+; in order (PreloadObjPalettes), with a count byte first
 MACRO obj_pal_preload
 	db _NARG
 	db \#
 ENDM
 
 
-; Flow script (bank $0d), run by Func_00_38cd: each byte is a game state
+; Flow script (bank $0d), run by RunFlowScript: each byte is a game state
 ; (an offset into the jump table at $0300), some followed by arguments.
 ; Only the states below are named so far; others are written as numbers.
 DEF FLOW_LOAD_LEVEL          EQU $01

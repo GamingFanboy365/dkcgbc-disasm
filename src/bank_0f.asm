@@ -17,9 +17,9 @@ Shop_CandysChallenge::
 	ld hl, $0800
 	ld c, $7f
 	call FarHDMACopy
-	ld a, [$c30a]
+	ld a, [wWorld]
 	ld l, a
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	add a, l
@@ -30,7 +30,7 @@ Shop_CandysChallenge::
 	jr z, .jump_402e
 	ld a, $01
 .jump_402e:
-	ld [$c44e], a
+	ld [wShopChoice], a
 	call Shop_SpawnKong
 	ld hl, ObjInit_0f_409d
 	call ApplyObjInit
@@ -38,13 +38,13 @@ Shop_CandysChallenge::
 	ld hl, ObjInit_0f_4073
 	call InitObject
 	call AllocObject
-	ld a, [$c44e]
+	ld a, [wShopChoice]
 	or a
 	jr nz, .jump_406c
 	ld hl, ObjInit_0f_408a
 	call InitObject
 	call Shop_SpawnExtra
-	ld hl, $c310
+	ld hl, wMapFlags
 	bit 1, [hl]
 	jr z, .jump_4063
 	ld de, $0e06
@@ -110,13 +110,13 @@ Shop_CrankysCabin::
 	ld hl, ObjInit_0f_410b
 	call InitObject
 	call Shop_SpawnExtra
-	ld a, [$c30c]
+	ld a, [wLevel]
 	cp $03
 	jr z, .jump_40fb
-	ld hl, $c310
+	ld hl, wMapFlags
 	bit 0, [hl]
 	jr z, .jump_4102
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	ld de, $020b
 	jr nz, .jump_4107
@@ -179,10 +179,10 @@ Shop_FunkysFlights::
 	ld hl, ObjInit_0f_41a2
 	call InitObject
 	call Shop_SpawnExtra
-	ld hl, $c310
+	ld hl, wMapFlags
 	bit 2, [hl]
 	jr z, .jump_4184
-	ld a, [$c30f]
+	ld a, [wKongs]
 	bit 1, a
 	ld de, $1205
 	jr nz, .jump_4180
@@ -266,7 +266,7 @@ ObjInit_0f_41f4::
 
 Shop_SpawnKong::
 	ld bc, $0000
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld hl, ObjInit_0f_4217
 	jr nc, .jump_4213
@@ -342,7 +342,7 @@ Shop_KongReactTimer::
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_429d
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_429a
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
@@ -361,7 +361,7 @@ Shop_KongReactTimer::
 
 
 Shop_KongCelebrate::
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr c, .jump_42be
 	ld hl, wObjects + OBJ_ANIM_FLAGS
@@ -400,7 +400,7 @@ FunkysPlane_Bob::
 
 
 Shop_Input::
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jr nz, .jump_42f4
 	bit 5, a
@@ -413,7 +413,7 @@ Shop_Input::
 	ld a, [wPlayer + OBJ_VAR_2F]
 	or a
 	jr nz, .jump_42ee
-	ld a, [$c30c]
+	ld a, [wLevel]
 	or a
 	jr z, .jump_42ee
 	cp $03
@@ -421,13 +421,13 @@ Shop_Input::
 	dec a
 	ld hl, ObjInit_0f_4357
 	jr z, .jump_4313
-	ld a, [$c44e]
+	ld a, [wShopChoice]
 	or a
 	jr nz, .jump_432a
 	ld hl, ObjInit_0f_4360
 .jump_4313:
 	call ApplyObjInit
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $40e9
 	jr nc, .jump_4322
@@ -440,7 +440,7 @@ Shop_Input::
 	jr .jump_42ee
 
 .jump_432a:
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $4103
 	jr nc, .jump_4336
@@ -488,7 +488,7 @@ Shop_SetKongAnim::
 	ld a, [wPlayer + OBJ_ANIM_FLAGS]
 	rlca
 	jr c, .jump_4391
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	ld de, $407b
 	jr nc, .jump_4385
@@ -520,7 +520,7 @@ Shop_LeaveTimer::
 	dec [hl]
 	jr nz, .jump_43b6
 	ld a, $ff
-	ld [$c44d], a
+	ld [wShopExit], a
 	rst_farcall Obj_SetIdle
 .jump_43b6:
 	call ApplyVelocity
@@ -541,21 +541,21 @@ Shop_FlyAwayTimer::
 
 .jump_43d2:
 	ld a, $fe
-	ld [$c44d], a
+	ld [wShopExit], a
 	rst_farcall Obj_SetIdle
 	jr .jump_43cf
 
 
 Shop_Update::
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	and $0a
 	jp nz, RunFlowScript
-	ld a, [$c44d]
+	ld a, [wShopExit]
 	cp $ff
 	jp z, RunFlowScript
 	cp $fe
 	jp z, Shop_Leave
-	ld a, [$c30c]
+	ld a, [wLevel]
 	or a
 	jr z, .jump_4417
 	cp $03
@@ -564,7 +564,7 @@ Shop_Update::
 	jp z, .jump_4561
 	ld a, $01
 	ld [wPlayer + OBJ_VAR_2F], a
-	ld a, [$c44d]
+	ld a, [wShopExit]
 	or a
 	jr z, .jump_4456
 	dec a
@@ -576,7 +576,7 @@ Shop_Update::
 	ret
 
 .jump_4417:
-	ld a, [$c44d]
+	ld a, [wShopExit]
 	or a
 	jr z, .jump_4456
 	dec a
@@ -592,7 +592,7 @@ Shop_Update::
 	ret
 
 .jump_4430:
-	ld a, [$c44d]
+	ld a, [wShopExit]
 	or a
 	jr z, .jump_4456
 	dec a
@@ -616,7 +616,7 @@ Shop_Update::
 	ret
 
 .jump_4456:
-	ldh a, [$ffc3]
+	ldh a, [hTextLines]
 	cp $03
 	jr c, .jump_445e
 	ld a, $03
@@ -627,14 +627,14 @@ Shop_Update::
 	ld e, a
 	ld a, $8c
 	sub e
-	ldh [$ffc0], a
-	ldh [$ffc1], a
-	ldh [$ffc2], a
+	ldh [hSplitTop], a
+	ldh [hSplitBottom], a
+	ldh [hSplitTarget], a
 	sub e
 	cpl
 	add a, $04
-	ldh [$ffc4], a
-	ld hl, $c446
+	ldh [hSplitSCY], a
+	ld hl, wLevelTimer
 	ld de, $012c
 	ld a, e
 	ld [hli], a
@@ -642,35 +642,35 @@ Shop_Update::
 	jp .jump_455c
 
 .jump_447e:
-	ldh a, [$ffc1]
+	ldh a, [hSplitBottom]
 	cp $8c
 	jp z, .jump_455c
 	inc a
-	ldh [$ffc1], a
-	ld hl, $ffc2
+	ldh [hSplitBottom], a
+	ld hl, hSplitTarget
 	sub [hl]
 	cpl
 	inc a
 	add a, [hl]
-	ldh [$ffc0], a
+	ldh [hSplitTop], a
 	xor a
-	ldh [$ffc5], a
+	ldh [hShopTextState], a
 	ret
 
 .jump_4495:
-	ldh a, [$ffc5]
+	ldh a, [hShopTextState]
 	or a
 	jr nz, .jump_44e2
-	ldh a, [$ffc3]
+	ldh a, [hTextLines]
 	cp $03
 	jr nz, .jump_44a4
 	xor a
 	ld [wPlayer + OBJ_VAR_2F], a
 .jump_44a4:
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	and $01
 	jp nz, .jump_44bb
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hl]
 	sub $01
 	ld [hli], a
@@ -683,7 +683,7 @@ Shop_Update::
 	ret
 
 .jump_44bb:
-	ldh a, [$ffc3]
+	ldh a, [hTextLines]
 	cp $03
 	jp z, .jump_455c
 	jp c, .jump_455c
@@ -696,11 +696,11 @@ Shop_Update::
 	add a, a
 	add a, a
 	add a, a
-	ldh [$ffc5], a
-	ldh a, [$ffc3]
+	ldh [hShopTextState], a
+	ldh a, [hTextLines]
 	sub e
-	ldh [$ffc3], a
-	ld hl, $c446
+	ldh [hTextLines], a
+	ld hl, wLevelTimer
 	ld de, $012c
 	ld a, e
 	ld [hli], a
@@ -709,32 +709,32 @@ Shop_Update::
 
 .jump_44e2:
 	dec a
-	ldh [$ffc5], a
-	ld hl, $ffc4
+	ldh [hShopTextState], a
+	ld hl, hSplitSCY
 	inc [hl]
 	ret
 
 .jump_44ea:
-	ld hl, $ffc2
-	ldh a, [$ffc1]
+	ld hl, hSplitTarget
+	ldh a, [hSplitBottom]
 	cp [hl]
 	jr z, .jump_455c
 	dec a
-	ldh [$ffc1], a
+	ldh [hSplitBottom], a
 	sub [hl]
 	cpl
 	inc a
 	add a, [hl]
-	ldh [$ffc0], a
+	ldh [hSplitTop], a
 	ret
 
 .jump_44fc:
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld de, $0078
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld hl, $c310
+	ld hl, wMapFlags
 	bit 5, [hl]
 	jr z, .jump_4513
 	res 5, [hl]
@@ -748,12 +748,12 @@ Shop_Update::
 	jr .jump_455c
 
 .jump_451b:
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld de, $0078
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	ld a, [$c44e]
+	ld a, [wShopChoice]
 	cp $08
 	jr z, .jump_455c
 	cp $07
@@ -765,7 +765,7 @@ Shop_Update::
 	push af
 	ld d, $06
 	ld hl, ByteTable_0f_4568
-	ld a, [$c30a]
+	ld a, [wWorld]
 	add a, l
 	ld l, a
 	adc a, h
@@ -778,14 +778,14 @@ Shop_Update::
 	ld de, $0425
 .jump_4550:
 	inc a
-	ld [$c44e], a
+	ld [wShopChoice], a
 	call RandomBelow
 	xor a
-	ld [$c44d], a
+	ld [wShopExit], a
 	ret
 
 .jump_455c:
-	ld hl, $c44d
+	ld hl, wShopExit
 	inc [hl]
 	ret
 
@@ -799,13 +799,13 @@ ByteTable_0f_4568::
 	db 5, 9, 14, 19, 24, 27, 27 ; by [$c30a]
 
 Shop_Leave::
-	ld a, [$c30c]
+	ld a, [wLevel]
 	dec a
 	jr z, Shop_SetDestination
-	ld a, [$c44e]
+	ld a, [wShopChoice]
 	or a
 	jp nz, RunFlowScript
-	ld a, [$c30a]
+	ld a, [wWorld]
 	dec a
 	add a, a
 	ld e, a
@@ -825,33 +825,33 @@ Entrances_0f_4595::
 	dw LevelEntrance_04_5f7c, LevelEntrance_04_5ecc, LevelEntrance_04_5f2c, LevelEntrance_04_5a24, LevelEntrance_04_5a3c, LevelEntrance_04_5b14 ; wLevelEntrance
 
 Shop_SetDestination::
-	ld a, [$c30a]
+	ld a, [wWorld]
 	add a, $29
-	ld [$c30b], a
-	ld hl, $c310
+	ld [wMapLocation], a
+	ld hl, wMapFlags
 	set 7, [hl]
 	jp RunFlowScript
 
 
 NewGame_InitState::
 	ld a, $05
-	ld [$c31d], a
+	ld [wLives], a
 	xor a
-	ld [$c31b], a
-	ld [$c31e], a
-	ld [$c313], a
-	ld [$c314], a
-	ld [$c315], a
-	ld [$c316], a
-	ld [$c31c], a
-	ld [$c31f], a
-	ld [$c317], a
-	ld [$c318], a
-	ld [$c319], a
-	ld [$c31a], a
-	ld [$c310], a
-	ld [$c30f], a
-	ld hl, $b0c6
+	ld [wBananas], a
+	ld [wLivesOver99], a
+	ld [wAnimalTokens], a
+	ld [wAnimalTokens + 1], a
+	ld [wAnimalTokens + 2], a
+	ld [wAnimalTokens + 3], a
+	ld [wBananasPending], a
+	ld [wLivesPending], a
+	ld [wAnimalTokensPending], a
+	ld [wAnimalTokensPending + 1], a
+	ld [wAnimalTokensPending + 2], a
+	ld [wAnimalTokensPending + 3], a
+	ld [wMapFlags], a
+	ld [wKongs], a
+	ld hl, sOptions
 	ld a, $02
 	bit 0, [hl]
 	jr nz, .jump_45f2
@@ -860,27 +860,27 @@ NewGame_InitState::
 	jr nz, .jump_45f2
 	ld a, $01
 .jump_45f2:
-	ld [$c30e], a
+	ld [wGameModeBit], a
 	ld a, $04
 	ldh [rSVBK], a
-	ld hl, $d400
+	ld hl, wBonusesFound
 	ld c, $00
 	xor a
 .jump_45ff:
 	ld [hli], a
 	dec c
 	jr nz, .jump_45ff
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	add a, $30
 	ld l, a
 	ld h, $b0
 	ld a, [hli]
-	ld [$c339], a
+	ld [wPlayTimeHours], a
 	ld a, [hli]
-	ld [$c338], a
-	ld a, [$c30e]
+	ld [wPlayTimeMinutes], a
+	ld a, [wGameModeBit]
 	bit 0, a
 	jr nz, .jump_4622
 	inc l
@@ -889,7 +889,7 @@ NewGame_InitState::
 	inc l
 .jump_4622:
 	ld a, [hli]
-	ld [$c30a], a
+	ld [wWorld], a
 	cp $07
 	jr c, .jump_462b
 	xor a
@@ -899,8 +899,8 @@ NewGame_InitState::
 	dec a
 .jump_462f:
 	add a, $2a
-	ld [$c30b], a
-	ld a, [$c309]
+	ld [wMapLocation], a
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	ld l, a
@@ -917,16 +917,16 @@ NewGame_InitState::
 	inc l
 	dec c
 	jr nz, .jump_463f
-	ld [$c320], a
+	ld [wStickers], a
 	ret
 
 
 Save_MarkLevelCleared::
-	ld hl, $c310
+	ld hl, wMapFlags
 	res 0, [hl]
-	ld a, [$c30c]
+	ld a, [wLevel]
 	ld l, a
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	or l
@@ -935,12 +935,12 @@ Save_MarkLevelCleared::
 	ld a, [hl]
 	and $07
 	jr nz, .jump_466d
-	ld a, [$c30f]
+	ld a, [wKongs]
 	rrca
 	jr nc, .jump_466d
 	set 3, [hl]
 .jump_466d:
-	ld a, [$c30e]
+	ld a, [wGameModeBit]
 	bit 1, a
 	jr z, .jump_467d
 	ld a, [hl]
@@ -966,14 +966,14 @@ Save_MarkLevelCleared::
 	jr .jump_469b
 
 .jump_4693:
-	ld a, [$c310]
+	ld a, [wMapFlags]
 	set 6, a
-	ld [$c310], a
+	ld [wMapFlags], a
 .jump_469b:
 	push hl
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -990,7 +990,7 @@ Save_MarkLevelCleared::
 	or b
 	ld [hl], a
 	ld b, a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, $f0
 	ld l, a
@@ -1014,11 +1014,11 @@ Save_MarkLevelCleared::
 	and $c0
 	or $30
 	ld l, a
-	ld a, [$c339]
+	ld a, [wPlayTimeHours]
 	ld [hli], a
-	ld a, [$c338]
+	ld a, [wPlayTimeMinutes]
 	ld [hli], a
-	ld a, [$c30e]
+	ld a, [wGameModeBit]
 	bit 0, a
 	jr nz, .jump_46e8
 	inc l
@@ -1026,7 +1026,7 @@ Save_MarkLevelCleared::
 	jr nz, .jump_46e8
 	inc l
 .jump_46e8:
-	ld a, [$c30a]
+	ld a, [wWorld]
 	ld [hli], a
 	call Save_WriteFile
 	ret
@@ -1117,7 +1117,7 @@ Save_CheckFiles::
 	pop de
 .jump_4796:
 	ld a, d
-	ld [$c309], a
+	ld [wSaveFile], a
 	rrca
 	rrca
 	ld l, a
@@ -1133,12 +1133,12 @@ Save_CheckFiles::
 
 
 Save_WriteFile::
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	call Save_Checksum
 	ld a, c
 	ld [hli], a
 	ld [hl], b
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	ld e, a
@@ -1147,7 +1147,7 @@ Save_WriteFile::
 	ld h, $b1
 	ld bc, $0040
 	call CopyBytes
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	ld e, a
@@ -1156,7 +1156,7 @@ Save_WriteFile::
 	ld h, $b2
 	ld bc, $0040
 	call CopyBytes
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	ld e, a
@@ -1173,7 +1173,7 @@ Save_Checksum::
 	rrca
 	ld l, a
 	ld h, $b0
-	ld bc, $aa55
+	ld bc, sLevelObjects + $255
 	ld e, $3e
 .jump_47f2:
 	ld a, [hli]
@@ -1192,7 +1192,7 @@ Save_Checksum::
 
 
 Save_EraseFile::
-	ld [$c309], a
+	ld [wSaveFile], a
 	rrca
 	rrca
 	ld l, a
@@ -1289,40 +1289,40 @@ Save_ComputeSummaries::
 	ld c, $18
 	dec b
 	jr nz, .jump_483e
-	ld a, [$b0c5]
-	ld hl, $b035
+	ld a, [sMostBonusCoins]
+	ld hl, sSaveFile0 + SAVE_BONUS_COINS
 	cp [hl]
 	jr nc, .jump_4886
 	ld a, [hl]
 .jump_4886:
-	ld hl, $b075
+	ld hl, sSaveFile1 + SAVE_BONUS_COINS
 	cp [hl]
 	jr nc, .jump_488d
 	ld a, [hl]
 .jump_488d:
-	ld hl, $b0b5
+	ld hl, sSaveFile2 + SAVE_BONUS_COINS
 	cp [hl]
 	jr nc, .jump_4894
 	ld a, [hl]
 .jump_4894:
-	ld [$b0c5], a
-	ld a, [$b0c1]
+	ld [sMostBonusCoins], a
+	ld a, [sTitlePicture]
 	inc a
 	cp $03
 	jr c, .jump_48a0
 	xor a
 .jump_48a0:
-	ld [$b0c1], a
+	ld [sTitlePicture], a
 	xor a
-	ld [$b0c6], a
+	ld [sOptions], a
 	ld a, $03
-	ld [$c309], a
+	ld [wSaveFile], a
 	call Save_WriteFile
 	ret
 
 
 LevelFlagBits::
-	db 0, 0, 1, 7, 15, 2, 8, 0, 0, 3, 4, 11, 14, 12, 9, 0, 0, 5, 13, 17, 6, 16, 10, 0, 201 ; save flag bit by level (Func_0f_4830 area)
+	db 0, 0, 1, 7, 15, 2, 8, 0, 0, 3, 4, 11, 14, 12, 9, 0, 0, 5, 13, 17, 6, 16, 10, 0, 201 ; save flag bit by level (Save_ComputeSummaries at $4830 area)
 
 Save_CountCompletion::
 	rrca

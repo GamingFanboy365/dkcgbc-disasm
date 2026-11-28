@@ -374,6 +374,7 @@ def main():
     a.define_constants(os.path.join(ROOT, "include", "macros.inc"))
     a.define_constants(os.path.join(ROOT, "include", "music.inc"))
     a.define_constants(os.path.join(ROOT, "include", "objects.inc"))
+    a.define_constants(os.path.join(ROOT, "include", "ram.inc"))
     items = a.parse_files(files)
     a.assemble(items, base)
     # header fields filled in by rgbfix

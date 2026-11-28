@@ -19,7 +19,7 @@ Title_Init::
 	xor a
 	ldh [rSCX], a
 	ldh [rSCY], a
-	ld a, [$b0c1]
+	ld a, [sTitlePicture]
 	and $03
 	add a, a
 	ld e, a
@@ -33,18 +33,18 @@ Title_Init::
 	ld bc, $0100
 	call CopyBytes
 	ld de, TitleObjPalettes
-	ld hl, $c1c0
+	ld hl, wOBJPalettes + $40
 	ld bc, $0040
 	call CopyBytes
 	xor a
-	ld hl, $ce00
+	ld hl, wTitlePalettes
 	ld bc, $0040
 	call FillMemory
 	xor a
 	ld hl, wBGPalettesOut
 	ld bc, $00c0
 	call FillMemory
-	ld a, [$b0c1]
+	ld a, [sTitlePicture]
 	and $03
 	add a, a
 	ld e, a
@@ -54,10 +54,10 @@ Title_Init::
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
-	ld hl, $cf00
+	ld hl, wTitlePaletteSwaps
 	ld bc, $0060
 	call CopyBytes
-	ld a, [$b0c1]
+	ld a, [sTitlePicture]
 	and $03
 	add a, a
 	ld e, a
@@ -90,7 +90,7 @@ Title_Init::
 	ldh a, [rSTAT]
 	and $03
 	jr z, .jump_4093
-	ld a, [$b0c1]
+	ld a, [sTitlePicture]
 	and $03
 	ld e, a
 	add a, a
@@ -141,15 +141,15 @@ Title_Init::
 	ld c, $0b
 	call FarHDMACopy
 	ld a, $78
-	ld [$cf61], a
+	ld [wTitleTimer], a
 	xor a
-	ld [$cf62], a
-	ld hl, $c32e
+	ld [wTitleStep], a
+	ld hl, wVBlankTrampoline + 1
 	ld a, $00
 	ld [hli], a
 	ld a, $24
 	ld [hli], a
-	ld hl, $c331
+	ld hl, wLCDTrampoline + 1
 	ld a, $1d
 	ld [hli], a
 	ld a, $24
@@ -211,12 +211,12 @@ TitlePaletteSwaps_07_4179::
 
 Title_UpdatePalettes::
 	ld de, wBGPalettesOut
-	ld hl, $ce00
+	ld hl, wTitlePalettes
 	ld bc, $0040
 	call CopyBytes
-	ld a, [$cf60]
+	ld a, [wTitleScrollY]
 	ld d, a
-	ld hl, $cf00
+	ld hl, wTitlePaletteSwaps
 .jump_41a8:
 	ld a, [hl]
 	cp $ff
@@ -249,14 +249,14 @@ Title_UpdatePalettes::
 	dec c
 	jr nz, .jump_41c9
 	pop hl
-	ld a, [$cf60]
+	ld a, [wTitleScrollY]
 	ld d, a
 	jr .jump_41a8
 
 .jump_41d6:
 	ld a, l
-	ld [$cf64], a
-	ld a, [$cf62]
+	ld [wTitleSwapStart], a
+	ld a, [wTitleStep]
 	or a
 	jr z, .jump_41f5
 	dec a
@@ -274,60 +274,60 @@ Title_UpdatePalettes::
 	jp RunFlowScript
 
 .jump_41f5:
-	ld a, [$cf65]
+	ld a, [wTitleBrightness]
 	cp $80
 	jr z, .jump_421c
 	add a, $08
-	ld [$cf65], a
+	ld [wTitleBrightness], a
 	call FadePalettesToBlack
 	ret
 
 .jump_4205:
-	ld a, [$cf65]
+	ld a, [wTitleBrightness]
 	or a
 	jr z, .jump_421c
 	sub $08
-	ld [$cf65], a
+	ld [wTitleBrightness], a
 	call FadePalettesToBlack
 	ret
 
 .jump_4214:
-	ld a, [$cf61]
+	ld a, [wTitleTimer]
 	dec a
-	ld [$cf61], a
+	ld [wTitleTimer], a
 	ret nz
 .jump_421c:
-	ld a, [$cf62]
+	ld a, [wTitleStep]
 	inc a
-	ld [$cf62], a
+	ld [wTitleStep], a
 	ret
 
 .jump_4224:
-	ld a, [$cf60]
+	ld a, [wTitleScrollY]
 	inc a
-	ld [$cf60], a
+	ld [wTitleScrollY], a
 	rra
 	rra
 	rra
 	and $1f
 	add a, $12
 	call Title_StartHDMA
-	ld a, [$cf60]
+	ld a, [wTitleScrollY]
 	cp $90
 	ret nz
 	ld a, $78
-	ld [$cf61], a
+	ld [wTitleTimer], a
 	jr .jump_421c
 
 .jump_4242:
-	ld hl, $c1c0
+	ld hl, wOBJPalettes + $40
 	call LoadOBJPalettesInHBlank
 	jr .jump_421c
 
 .jump_424a:
-	ld a, [$cf61]
+	ld a, [wTitleTimer]
 	inc a
-	ld [$cf61], a
+	ld [wTitleTimer], a
 	rlca
 	swap a
 	and $0f
@@ -340,14 +340,14 @@ Title_UpdatePalettes::
 	ld e, a
 	ld a, [hli]
 	ld d, a
-	ld hl, $c000
+	ld hl, wShadowOAM
 	ld bc, $0028
 	call CopyBytes
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	and $0d
 	ret z
 	ld a, $24
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	call ClearOAM
 	jr .jump_421c
 

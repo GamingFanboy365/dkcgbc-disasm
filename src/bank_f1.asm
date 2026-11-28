@@ -253,12 +253,12 @@ FE_ReturnToGame::
 
 
 FE_RaiseCrankyUnlock::
-	ld a, [$b0c7]
+	ld a, [sCrankyUnlock]
 	cp l
 	ret nc
 	push bc
 	ld a, l
-	ld [$b0c7], a
+	ld [sCrankyUnlock], a
 	ld d, $03
 	ld a, BANK(Vector_00f8)
 	ld hl, Vector_00f8
@@ -268,7 +268,7 @@ FE_RaiseCrankyUnlock::
 
 
 FE_ShowCrankyUnlocked::
-	ld a, [$b0c7]
+	ld a, [sCrankyUnlock]
 	cp $06
 	ret z
 	ld a, b
@@ -335,7 +335,7 @@ FE_ShowCrankyUnlocked::
 	ld a, $0f
 	call FE_PlaySong
 	call FE_EnableInterrupts_Plain
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
@@ -1368,7 +1368,7 @@ FE_HideMakeFlagUntilUnlocked::
 	ld a, [$c96c]
 	cp $02
 	ret nz
-	ld a, [$b0c7]
+	ld a, [sCrankyUnlock]
 	cp $06
 	jp c, FE_RingRuleCommon.jump_4a63
 	ret
@@ -1378,7 +1378,7 @@ FE_HideLinkUntilUnlocked::
 	ld a, [$c96c]
 	cp $02
 	ret nz
-	ld a, [$b0c5]
+	ld a, [sMostBonusCoins]
 	or a
 	jp z, FE_RingRuleCommon.jump_4a63
 	ret
@@ -1390,7 +1390,7 @@ FE_HideRing3Items::
 	ret z
 	or a
 	ret z
-	ld a, [$b0c5]
+	ld a, [sMostBonusCoins]
 	cp $01
 	jp z, FE_RingRuleCommon.jump_4a63
 	ret
@@ -1399,7 +1399,7 @@ FE_HideRing3Items::
 FE_HideLockedLinkModes::
 	ld a, [$c96c]
 	ld b, a
-	ld a, [$b0c5]
+	ld a, [sMostBonusCoins]
 	dec a
 	dec a
 	sub b
@@ -2003,7 +2003,7 @@ FE_CrosshairCranky_Start::
 	ld a, [$c804]
 	ld h, a
 	ld sp, hl
-	ld a, [$b0c6]
+	ld a, [sOptions]
 	and $f8
 	ld b, a
 	ld a, [$c976]
@@ -2018,7 +2018,7 @@ FE_CrosshairCranky_Start::
 	ld a, [$c977]
 	add a, b
 	ld b, a
-	ld [$b0c6], a
+	ld [sOptions], a
 	push af
 	ld a, $01
 	ld d, $03
@@ -2612,7 +2612,7 @@ FE_ClearLinkFlags::
 .jump_5129:
 	bit 6, [hl]
 	call z, FE_ClearLinkFlags
-	ld a, [$b0c6]
+	ld a, [sOptions]
 	and $f8
 	ld b, a
 	ld a, [$c976]
@@ -2627,7 +2627,7 @@ FE_ClearLinkFlags::
 	ld a, [$c977]
 	add a, b
 	ld b, a
-	ld [$b0c6], a
+	ld [sOptions], a
 	push af
 	ld a, $01
 	ld d, $03
@@ -4130,7 +4130,7 @@ FE_ViewItems::
 	ld a, BANK(FE_UnpackPalettes)
 	ld hl, FE_UnpackPalettes
 	call FarCall_A_HL
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	xor a
 	ld [$c99d], a
@@ -4364,14 +4364,14 @@ FE_ViewItems_DrawItems::
 	ldh [$ff99], a
 	ld e, $00
 	ld hl, $5ca9
-	ld a, [$b0c5]
+	ld a, [sMostBonusCoins]
 	or a
 	jr z, .jump_5c3f
 	call FE_ViewItems_DrawItem
 .jump_5c3f:
 	ld a, $01
 	ldh [$ff99], a
-	ld a, [$b0c5]
+	ld a, [sMostBonusCoins]
 	ld b, a
 	ld a, $06
 	sub b
@@ -5011,7 +5011,7 @@ FE_SetDoubleSpeed_F1::
 	di
 	ldh a, [rIE]
 	push af
-	ld hl, $ff4d
+	ld hl, rKEY1
 	bit 7, [hl]
 	jr nz, .jump_6060
 	set 0, [hl]
@@ -5036,7 +5036,7 @@ FE_ToggleCPUSpeed::
 	di
 	ldh a, [rIE]
 	push af
-	ld hl, $ff4d
+	ld hl, rKEY1
 	set 0, [hl]
 	xor a
 	ldh [rIF], a
@@ -6014,7 +6014,7 @@ Unused_f1_678a::
 	db $20, $03, $b0, $20, $2a, $2b, $2c, $2d, $2e
 
 ByteTable_f1_67aa::
-	db $04, $00, $ff, $05, $07, $03, $ff, $ff, $ff, $ff, $01, $01, $02, $ff, $ff, $06, $ff, $ff, $ff, $ff, $ff ; by [$c96e], $ff for none (Func_f1_4926)
+	db $04, $00, $ff, $05, $07, $03, $ff, $ff, $ff, $ff, $01, $01, $02, $ff, $ff, $06, $ff, $ff, $ff, $ff, $ff ; by [$c96e], $ff for none (FE_IsRingItemHidden)
 
 RingTable::
 	dw Ring_f1_67df, Ring_f1_67f1, Ring_f1_6803, Ring_f1_6812
@@ -6292,7 +6292,7 @@ FE_StickerBook::
 	call FE_StickerBook_Reset
 	call FE_LoadStickerFrameTile
 	call FE_LoadMenuFont
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	call FE_FadeToColours
 	ld a, $04
@@ -7346,7 +7346,7 @@ FE_TestStickerBit::
 	srl a
 	ld c, a
 	ld b, $00
-	ld hl, $b0c2
+	ld hl, sStickersFound
 	add hl, bc
 	pop af
 	and $07
@@ -7394,7 +7394,7 @@ FE_SetStickerBit::
 	srl a
 	ld c, a
 	ld b, $00
-	ld hl, $b0c2
+	ld hl, sStickersFound
 	add hl, bc
 	ld a, d
 	and $07
@@ -8262,7 +8262,7 @@ FE_LanguageSelect::
 
 .jump_7cba:
 	call FE_EnableInterrupts_Plain
-	ld hl, $ff40
+	ld hl, rLCDC
 	res 4, [hl]
 	ld a, $06
 	ld [$c96e], a

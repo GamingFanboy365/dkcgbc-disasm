@@ -4602,7 +4602,7 @@ LevelDesc_JungleHijinxs::
 	db $00
 	dw BGPaletteSet_03 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66d5, $4379 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_66d5, $4379 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4610,7 +4610,7 @@ LevelDesc_OrangUtanGang::
 	db $00
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66e4, $459a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_66e4, $459a ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4618,7 +4618,7 @@ LevelDesc_RopeyRampage::
 	db $00
 	dw BGPaletteSet_04 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66f3, $4803 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_66f3, $4803 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4626,7 +4626,7 @@ LevelDesc_BarrelCannonCanyon::
 	db $00
 	dw BGPaletteSet_05 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6702, $4a9c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6702, $4a9c ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $02, $00
 
@@ -4634,7 +4634,7 @@ LevelDesc_04_5ff4::
 	db $88
 	dw BGPaletteSet_03 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6711, $4f8d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6711, $4f8d ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4642,7 +4642,7 @@ LevelDesc_OrangUtanGang_Area1::
 	db $88
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6720, $7d2b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6720, $7d2b ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4650,7 +4650,7 @@ LevelDesc_RopeyRampage_Area1::
 	db $80
 	dw BGPaletteSet_04 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_672f, $4f8e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_672f, $4f8e ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4658,7 +4658,7 @@ LevelDesc_BarrelCannonCanyon_Area1::
 	db $88
 	dw BGPaletteSet_05 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_673e, $502f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_673e, $502f ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4666,7 +4666,7 @@ LevelDesc_OrangUtanGang_Area2::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_674d, $5098 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_674d, $5098 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4674,7 +4674,7 @@ LevelDesc_TreeTopTown::
 	db $00
 	dw BGPaletteSet_0B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6624, $65bf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6624, $65bf ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $17, $00
 
@@ -4682,7 +4682,7 @@ LevelDesc_RopeBridgeRumble::
 	db $00
 	dw BGPaletteSet_0C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6633, $68cd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6633, $68cd ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $17, $00
 
@@ -4690,7 +4690,7 @@ LevelDesc_RopeBridgeRumble_Area1::
 	db $88
 	dw BGPaletteSet_0C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6642, $6b64 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6642, $6b64 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4698,7 +4698,7 @@ LevelDesc_04_6054::
 	db $88
 	dw BGPaletteSet_0B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6651, $6bcd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6651, $6bcd ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4706,7 +4706,7 @@ LevelDesc_TreeTopTown_Area1::
 	db $88
 	dw BGPaletteSet_0B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6660, $6bce ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6660, $6bce ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4714,7 +4714,7 @@ LevelDesc_ReptileRumble::
 	db $00
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_691e, $4003 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_691e, $4003 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4722,7 +4722,7 @@ LevelDesc_BouncyBonanza::
 	db $00
 	dw BGPaletteSet_19 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_692d, $42bc ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_692d, $42bc ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4730,7 +4730,7 @@ LevelDesc_TorchlightTrouble::
 	db $00
 	dw BGPaletteSet_1F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6942, $461d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6942, $461d ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4738,7 +4738,7 @@ LevelDesc_ManicMincers::
 	db $00
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6951, $480e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6951, $480e ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4746,7 +4746,7 @@ LevelDesc_ElevatorAntics::
 	db $00
 	dw BGPaletteSet_1B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6966, $4b6c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6966, $4b6c ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4754,7 +4754,7 @@ LevelDesc_NeckyNutmare::
 	db $00
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_697b, $4ee9 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_697b, $4ee9 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $07, $00
 
@@ -4762,7 +4762,7 @@ LevelDesc_JungleHijinxs_Area1::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_698a, $51a2 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_698a, $51a2 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4770,7 +4770,7 @@ LevelDesc_ReptileRumble_Area1::
 	db $88
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6999, $51e3 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6999, $51e3 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4778,7 +4778,7 @@ LevelDesc_ReptileRumble_Area2::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69a8, $5214 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_69a8, $5214 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4786,7 +4786,7 @@ LevelDesc_ReptileRumble_Area3::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69b7, $527d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_69b7, $527d ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4794,7 +4794,7 @@ LevelDesc_BarrelCannonCanyon_Area2::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69c6, $52b6 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_69c6, $52b6 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4802,7 +4802,7 @@ LevelDesc_BouncyBonanza_Area1::
 	db $88
 	dw BGPaletteSet_19 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69d5, $5317 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_69d5, $5317 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4810,7 +4810,7 @@ LevelDesc_BouncyBonanza_Area2::
 	db $88
 	dw BGPaletteSet_19 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69e4, $5360 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_69e4, $5360 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4818,7 +4818,7 @@ LevelDesc_ElevatorAntics_Area1::
 	db $88
 	dw BGPaletteSet_1B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_69f3, $5371 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_69f3, $5371 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4826,7 +4826,7 @@ LevelDesc_ManicMincers_Area1::
 	db $80
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a02, $53ba ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a02, $53ba ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4834,7 +4834,7 @@ LevelDesc_TorchlightTrouble_Area1::
 	db $88
 	dw BGPaletteSet_1A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a11, $7d4f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a11, $7d4f ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4842,7 +4842,7 @@ LevelDesc_ElevatorAntics_Area2::
 	db $80
 	dw BGPaletteSet_1B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a20, $53fb ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a20, $53fb ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4850,7 +4850,7 @@ LevelDesc_ManicMincers_Area2::
 	db $88
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a2f, $7d68 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a2f, $7d68 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4858,7 +4858,7 @@ LevelDesc_NeckyNutmare_Area1::
 	db $88
 	dw BGPaletteSet_1C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a2f, $7d71 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a2f, $7d71 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4866,7 +4866,7 @@ LevelDesc_MineCartMadness_Area1::
 	db $80
 	dw BGPaletteSet_18 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a3e, $545c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a3e, $545c ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4874,7 +4874,7 @@ LevelDesc_CoralCapers::
 	db $07
 	dw BGPaletteSet_2B ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_677a, $54bd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_677a, $54bd ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4882,7 +4882,7 @@ LevelDesc_ClamCity::
 	db $07
 	dw BGPaletteSet_2C ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6789, $5696 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6789, $5696 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4890,7 +4890,7 @@ LevelDesc_CroctopusChase::
 	db $07
 	dw BGPaletteSet_2D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6798, $5897 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6798, $5897 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4898,7 +4898,7 @@ LevelDesc_PoisonPond::
 	db $07
 	dw BGPaletteSet_2E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67ad, $5ae8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_67ad, $5ae8 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $03, $00
 
@@ -4906,7 +4906,7 @@ LevelDesc_EnguardeBonus::
 	db $b7
 	dw BGPaletteSet_2F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67c2, $5eaf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_67c2, $5eaf ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4914,7 +4914,7 @@ LevelDesc_OilDrumAlley::
 	db $00
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67d1, $6c20 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_67d1, $6c20 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $12, $00
 
@@ -4922,7 +4922,7 @@ LevelDesc_BlackoutBasement::
 	db $06
 	dw BGPaletteSet_24 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67e0, $6f6d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_67e0, $6f6d ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $12, $00
 
@@ -4930,7 +4930,7 @@ LevelDesc_BlackoutBasement_Area1::
 	db $8e
 	dw BGPaletteSet_24 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_67f5, $71c9 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_67f5, $71c9 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4938,7 +4938,7 @@ LevelDesc_OilDrumAlley_Area1::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6804, $723a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6804, $723a ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4946,7 +4946,7 @@ LevelDesc_OilDrumAlley_Area2::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6813, $72ab ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6813, $72ab ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4954,7 +4954,7 @@ LevelDesc_OilDrumAlley_Area3::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6822, $7d7a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6822, $7d7a ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -4962,7 +4962,7 @@ LevelDesc_04_61e0::
 	db $88
 	dw BGPaletteSet_23 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6831, $72fc ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6831, $72fc ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4970,7 +4970,7 @@ LevelDesc_04_61ec::
 	db $88
 	dw BGPaletteSet_26 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6840, $72fd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6840, $72fd ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4978,7 +4978,7 @@ LevelDesc_04_61f8::
 	db $88
 	dw BGPaletteSet_26 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_684f, $75f7 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_684f, $75f7 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -4986,7 +4986,7 @@ LevelDesc_VultureCulture::
 	db $00
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_685e, $72fe ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_685e, $72fe ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $08, $00
 
@@ -4994,7 +4994,7 @@ LevelDesc_ForestFrenzy::
 	db $00
 	dw BGPaletteSet_2A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_686d, $4000 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_686d, $4000 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $08, $00
 
@@ -5002,7 +5002,7 @@ LevelDesc_VultureCulture_Area1::
 	db $88
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_687c, $7c80 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_687c, $7c80 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5010,7 +5010,7 @@ LevelDesc_VultureCulture_Area2::
 	db $88
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_687c, $7c89 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_687c, $7c89 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5018,7 +5018,7 @@ LevelDesc_ForestFrenzy_Area1::
 	db $88
 	dw BGPaletteSet_2A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_688b, $7c92 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_688b, $7c92 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5026,7 +5026,7 @@ LevelDesc_VultureCulture_Area3::
 	db $80
 	dw BGPaletteSet_29 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_689a, $7844 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_689a, $7844 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5034,7 +5034,7 @@ LevelDesc_ForestFrenzy_Area2::
 	db $88
 	dw BGPaletteSet_2A ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68a9, $77cb ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_68a9, $77cb ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5042,7 +5042,7 @@ LevelDesc_SlipslideRide::
 	db $03
 	dw BGPaletteSet_20 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_666f, $5f90 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_666f, $5f90 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0d, $00
 
@@ -5050,7 +5050,7 @@ LevelDesc_SlipslideRide_Area1::
 	db $8b
 	dw BGPaletteSet_21 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6684, $7d8c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6684, $7d8c ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5058,7 +5058,7 @@ LevelDesc_04_6270::
 	db $8b
 	dw BGPaletteSet_21 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6684, $7d95 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6684, $7d95 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5066,7 +5066,7 @@ LevelDesc_SlipslideRide_Area2::
 	db $8b
 	dw BGPaletteSet_22 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6693, $7d9e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6693, $7d9e ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5074,7 +5074,7 @@ LevelDesc_SlipslideRide_Area3::
 	db $83
 	dw BGPaletteSet_20 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66a2, $64cd ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_66a2, $64cd ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5082,7 +5082,7 @@ LevelDesc_04_6294::
 	db $8b
 	dw BGPaletteSet_20 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66b1, $654e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_66b1, $654e ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5090,7 +5090,7 @@ LevelDesc_MineCartCarnage::
 	db $01
 	dw BGPaletteSet_11 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_66c0, $50d1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_66c0, $50d1 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5098,7 +5098,7 @@ LevelDesc_StopAndGoStation::
 	db $04
 	dw BGPaletteSet_0F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6af5, $52b2 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6af5, $52b2 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5106,7 +5106,7 @@ LevelDesc_MistyMine::
 	db $00
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b04, $55c1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b04, $55c1 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5114,7 +5114,7 @@ LevelDesc_LoopyLights::
 	db $05
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b19, $59c2 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b19, $59c2 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5122,7 +5122,7 @@ LevelDesc_MistyMine_Area1::
 	db $80
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b2e, $5d23 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b2e, $5d23 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5130,7 +5130,7 @@ LevelDesc_MistyMine_Area2::
 	db $88
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b3d, $7d83 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b3d, $7d83 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5138,7 +5138,7 @@ LevelDesc_LoopyLights_Area1::
 	db $85
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b4c, $5e14 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b4c, $5e14 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5146,7 +5146,7 @@ LevelDesc_StopAndGoStation_Area1::
 	db $80
 	dw BGPaletteSet_0F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b5b, $794f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b5b, $794f ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5154,7 +5154,7 @@ LevelDesc_StopAndGoStation_Area2::
 	db $88
 	dw BGPaletteSet_0F ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b6a, $78a5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b6a, $78a5 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5162,7 +5162,7 @@ LevelDesc_LoopyLights_Area2::
 	db $85
 	dw BGPaletteSet_0E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b79, $790e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b79, $790e ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5170,7 +5170,7 @@ LevelDesc_SnowBarrelBlast::
 	db $03
 	dw BGPaletteSet_30 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68b8, $7097 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_68b8, $7097 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $18, $00
 
@@ -5178,7 +5178,7 @@ LevelDesc_IceAgeAlley::
 	db $03
 	dw BGPaletteSet_31 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68cd, $7560 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_68cd, $7560 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $18, $00
 
@@ -5186,7 +5186,7 @@ LevelDesc_SnowBarrelBlast_Area1::
 	db $8b
 	dw BGPaletteSet_30 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68dc, $7769 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_68dc, $7769 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5194,7 +5194,7 @@ LevelDesc_SnowBarrelBlast_Area2::
 	db $83
 	dw BGPaletteSet_30 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68eb, $77ba ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_68eb, $77ba ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5202,7 +5202,7 @@ LevelDesc_IceAgeAlley_Area1::
 	db $83
 	dw BGPaletteSet_31 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_68fa, $781b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_68fa, $781b ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5210,7 +5210,7 @@ LevelDesc_MillstoneMayhem::
 	db $00
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65c4, $6a61 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_65c4, $6a61 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $04, $00
 
@@ -5218,7 +5218,7 @@ LevelDesc_TempleTempest::
 	db $00
 	dw BGPaletteSet_36 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65d3, $6d1c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_65d3, $6d1c ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $04, $00
 
@@ -5226,7 +5226,7 @@ LevelDesc_MillstoneMayhem_Area1::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65e8, $6fe5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_65e8, $6fe5 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5234,7 +5234,7 @@ LevelDesc_MillstoneMayhem_Area2::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65f7, $7c9b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_65f7, $7c9b ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5242,7 +5242,7 @@ LevelDesc_TempleTempest_Area1::
 	db $88
 	dw BGPaletteSet_36 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_65f7, $7ca4 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_65f7, $7ca4 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5250,7 +5250,7 @@ LevelDesc_TempleTempest_Area2::
 	db $88
 	dw BGPaletteSet_36 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6606, $704e ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6606, $704e ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5258,7 +5258,7 @@ LevelDesc_MillstoneMayhem_Area3::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6615, $7cad ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6615, $7cad ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5266,7 +5266,7 @@ LevelDesc_04_63a8::
 	db $88
 	dw BGPaletteSet_35 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6615, $7cb6 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6615, $7cb6 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5274,7 +5274,7 @@ LevelDesc_TrickTrackTrek::
 	db $00
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a4d, $5e7d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a4d, $5e7d ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5282,7 +5282,7 @@ LevelDesc_PlatformPerils::
 	db $00
 	dw BGPaletteSet_17 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a62, $60b6 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a62, $60b6 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5290,7 +5290,7 @@ LevelDesc_TankedUpTrouble::
 	db $00
 	dw BGPaletteSet_16 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a77, $64c7 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a77, $64c7 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5298,7 +5298,7 @@ LevelDesc_TrickTrackTrek_Area1::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a8c, $7cbf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a8c, $7cbf ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5306,7 +5306,7 @@ LevelDesc_MineCartMadness_Area2::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a8c, $7cc8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a8c, $7cc8 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5314,7 +5314,7 @@ LevelDesc_WinkysWalkway::
 	db $00
 	dw BGPaletteSet_13 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6a9b, $6818 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6a9b, $6818 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $15, $00
 
@@ -5322,7 +5322,7 @@ LevelDesc_TrickTrackTrek_Area2::
 	db $88
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6aaa, $76e8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6aaa, $76e8 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5330,7 +5330,7 @@ LevelDesc_MineCartMadness_Area3::
 	db $80
 	dw BGPaletteSet_15 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ab9, $7749 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ab9, $7749 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5338,7 +5338,7 @@ LevelDesc_TankedUpTrouble_Area1::
 	db $88
 	dw BGPaletteSet_16 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ac8, $7cd1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ac8, $7cd1 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5346,7 +5346,7 @@ LevelDesc_PlatformPerils_Area1::
 	db $88
 	dw BGPaletteSet_17 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ac8, $7cda ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ac8, $7cda ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5354,7 +5354,7 @@ LevelDesc_PlatformPerils_Area2::
 	db $88
 	dw BGPaletteSet_17 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ac8, $7ce3 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ac8, $7ce3 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5362,7 +5362,7 @@ LevelDesc_WinkysWalkway_Area1::
 	db $80
 	dw BGPaletteSet_13 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ad7, $778a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ad7, $778a ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0b ; bank of the second pointer
 	db $0b, $00
 
@@ -5370,7 +5370,7 @@ LevelDesc_TrickTrackTrek_Area3::
 	db $80
 	dw BGPaletteSet_14 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ae6, $7cec ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ae6, $7cec ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5378,7 +5378,7 @@ LevelDesc_MineCartMadness::
 	db $01
 	dw BGPaletteSet_15 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6909, $786c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6909, $786c ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $10, $00
 
@@ -5386,7 +5386,7 @@ LevelDesc_WinkyBonus::
 	db $c0
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c2d, $7bae ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c2d, $7bae ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5394,7 +5394,7 @@ LevelDesc_04_6468::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c3c, $7cf5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c3c, $7cf5 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5402,7 +5402,7 @@ LevelDesc_04_6474::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c3c, $7cfe ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c3c, $7cfe ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5410,7 +5410,7 @@ LevelDesc_BouncyBonanza_Area3::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c4b, $7d07 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c4b, $7d07 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5418,7 +5418,7 @@ LevelDesc_TorchlightTrouble_Area2::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c4b, $7d10 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c4b, $7d10 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5426,7 +5426,7 @@ LevelDesc_JungleHijinxs_Area2::
 	db $88
 	dw BGPaletteSet_1D ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c5a, $7dc0 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c5a, $7dc0 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5434,7 +5434,7 @@ LevelDesc_TreeTopTown_Area2::
 	db $88
 	dw BGPaletteSet_12 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c69, $7d19 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c69, $7d19 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5442,7 +5442,7 @@ LevelDesc_RopeBridgeRumble_Area2::
 	db $88
 	dw BGPaletteSet_12 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c78, $7d22 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c78, $7d22 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5450,7 +5450,7 @@ LevelDesc_VeryGnawtysLair::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4200 ; OBJ palettes to preload
-	dw MapHeader_04_676b, $7e02 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_676b, $7e02 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5458,7 +5458,7 @@ LevelDesc_NeckysNuts::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4208 ; OBJ palettes to preload
-	dw MapHeader_04_675c, $7e13 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_675c, $7e13 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5466,7 +5466,7 @@ LevelDesc_BumbleBRumble::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4210 ; OBJ palettes to preload
-	dw MapHeader_04_676b, $7e2c ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_676b, $7e2c ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5474,7 +5474,7 @@ LevelDesc_ReallyGnawtyRampage::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4218 ; OBJ palettes to preload
-	dw MapHeader_04_676b, $7e45 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_676b, $7e45 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5482,7 +5482,7 @@ LevelDesc_BossDumbDrum::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4220 ; OBJ palettes to preload
-	dw MapHeader_04_675c, $7e56 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_675c, $7e56 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5490,7 +5490,7 @@ LevelDesc_NeckysRevenge::
 	db $02
 	dw BGPaletteSet_00 ; BG palettes
 	dw ObjPalPreload_80_4228 ; OBJ palettes to preload
-	dw MapHeader_04_675c, $7e67 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_675c, $7e67 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $16, $00
 
@@ -5498,7 +5498,7 @@ LevelDesc_GangPlankGalleon::
 	db $02
 	dw BGPaletteSet_01 ; BG palettes
 	dw ObjPalPreload_80_4230 ; OBJ palettes to preload
-	dw MapHeader_04_6c96, $7e80 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c96, $7e80 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $06, $00
 
@@ -5506,7 +5506,7 @@ LevelDesc_JungleHijinxs_Area3::
 	db $00
 	dw BGPaletteSet_02 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c87, $7bcf ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c87, $7bcf ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $01, $00
 
@@ -5514,7 +5514,7 @@ LevelDesc_RambiBonus::
 	db $93
 	dw BGPaletteSet_32 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b88, $7ba5 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b88, $7ba5 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5522,7 +5522,7 @@ LevelDesc_SnowBarrelBlast_Area3::
 	db $8b
 	dw BGPaletteSet_33 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b97, $7d34 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b97, $7d34 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5530,7 +5530,7 @@ LevelDesc_04_6534::
 	db $8b
 	dw BGPaletteSet_33 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6b97, $7d3d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6b97, $7d3d ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5538,7 +5538,7 @@ LevelDesc_IceAgeAlley_Area2::
 	db $8b
 	dw BGPaletteSet_34 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ba6, $7d46 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ba6, $7d46 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5546,7 +5546,7 @@ LevelDesc_ExpressoBonus::
 	db $a0
 	dw BGPaletteSet_07 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bb5, $7be8 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6bb5, $7be8 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5554,7 +5554,7 @@ LevelDesc_RopeyRampage_Area2::
 	db $88
 	dw BGPaletteSet_09 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bc4, $7c54 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6bc4, $7c54 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5562,7 +5562,7 @@ LevelDesc_JungleHijinxs_Area4::
 	db $88
 	dw BGPaletteSet_08 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bd3, $7c5d ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6bd3, $7c5d ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5570,7 +5570,7 @@ LevelDesc_BlackoutBasement_Area2::
 	db $8e
 	dw BGPaletteSet_28 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6be2, $7c66 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6be2, $7c66 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5578,7 +5578,7 @@ LevelDesc_OilDrumAlley_Area4::
 	db $88
 	dw BGPaletteSet_27 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6bf1, $7c6f ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6bf1, $7c6f ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5586,7 +5586,7 @@ LevelDesc_OrangUtanGang_Area3::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c00, $7bf1 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c00, $7bf1 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5594,7 +5594,7 @@ LevelDesc_OrangUtanGang_Area4::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c0f, $7c0a ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c0f, $7c0a ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5602,7 +5602,7 @@ LevelDesc_OrangUtanGang_Area5::
 	db $80
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c1e, $7c2b ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c1e, $7c2b ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5610,7 +5610,7 @@ LevelDesc_04_65ac::
 	db $88
 	dw BGPaletteSet_06 ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6c1e, $7dd9 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6c1e, $7dd9 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 
@@ -5618,7 +5618,7 @@ LevelDesc_04_65b8::
 	db $88
 	dw BGPaletteSet_1E ; BG palettes
 	dw ObjPalPreload_80_4238 ; OBJ palettes to preload
-	dw MapHeader_04_6ca5, $7da7 ; map header (Func_00_0b4f), level objects? (Func_00_1715)
+	dw MapHeader_04_6ca5, $7da7 ; map header (LoadMap), level objects? (LoadLevelObjects)
 	db $0c ; bank of the second pointer
 	db $0b, $00
 

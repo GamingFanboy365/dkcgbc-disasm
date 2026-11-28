@@ -242,7 +242,7 @@ _LAYOUTS = None
 def sprite_layouts(rom):
     """{(bank, sprite list addr): bytes per sprite (2 or 3)}.
 
-    DrawSpriteFrame (Func_00_1037) reads 2 bytes per sprite (dx, dy) unless
+    DrawSpriteFrame (DrawSpriteFrame) reads 2 bytes per sprite (dx, dy) unless
     the object's OAM attributes have bit 4 set; then it reads 3 (dx, dy and a
     value added to that sprite's attributes, i.e. its own palette). The
     frame headers don't say which, so a list counts as 3-byte when the room

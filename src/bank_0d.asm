@@ -41,7 +41,7 @@ RareLogo_Init::
 	ld hl, wOBJPalettesOut
 	call FillMemory
 	xor a
-	ld hl, wPlayer + OBJ_FLAGS
+	ld hl, $c800
 	ld bc, $0800
 	call FillMemory
 	xor a
@@ -57,7 +57,7 @@ RareLogo_Init::
 	ld a, $01
 	ldh [rVBK], a
 	ld a, $07
-	ld hl, wPlayer + OBJ_FLAGS
+	ld hl, $c800
 	ld bc, $0400
 	call FillMemory
 	xor a
@@ -84,7 +84,7 @@ RareLogo_Init::
 	xor a
 	ldh [rVBK], a
 	ld a, $58
-	ld hl, wPlayer + OBJ_FLAGS
+	ld hl, $c800
 	ld bc, $0400
 	call FillMemory
 	xor a
@@ -111,7 +111,7 @@ RareLogo_Init::
 	call HDMACopy
 	call ClearOAM
 	ld de, $4110
-	ld hl, $c000
+	ld hl, wShadowOAM
 	ld bc, $0020
 	call CopyBytes
 	ld de, BGTiles_0d_4010
@@ -119,13 +119,13 @@ RareLogo_Init::
 	ld bc, $000f
 	call HDMACopy
 	xor a
-	ld hl, wPlayer + OBJ_FLAGS
+	ld hl, $c800
 	ld bc, $0800
 	call FillMemory
 	ld a, $e9
 	ld [wObjectFreeList], a
 	ld a, $42
-	ld [$c401], a
+	ld [wObjectFreeList + 1], a
 	ret
 
 
@@ -133,7 +133,7 @@ RareLogo_LoadAttributes::
 	ld a, $01
 	ldh [rVBK], a
 	ld a, $07
-	ld hl, wPlayer + OBJ_FLAGS
+	ld hl, $c800
 	ld bc, $0400
 	call FillMemory
 	xor a
@@ -162,7 +162,7 @@ RareLogo_LoadAttributes::
 	xor a
 	ldh [rVBK], a
 	ld de, BGTiles_0d_5980
-	ld hl, wPlayer + OBJ_FLAGS
+	ld hl, $c800
 	ld bc, $0580
 	call CopyBytes
 	ld de, $c800
@@ -175,10 +175,10 @@ RareLogo_LoadAttributes::
 RareLogo_DecodeFrame::
 	ld a, [wObjectFreeList]
 	ld e, a
-	ld a, [$c401]
+	ld a, [wObjectFreeList + 1]
 	ld d, a
 	ld b, $00
-	ld hl, wPlayer + OBJ_FLAGS
+	ld hl, $c800
 .jump_4273:
 	ld a, [de]
 	inc de
@@ -204,7 +204,7 @@ RareLogo_DecodeFrame::
 	ld a, e
 	ld [wObjectFreeList], a
 	ld a, d
-	ld [$c401], a
+	ld [wObjectFreeList + 1], a
 	ret
 
 

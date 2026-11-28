@@ -157,8 +157,8 @@ CollideWithTerrain::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	ld [hl], a
-	ldh [$ffac], a
-	ldh [$ffad], a
+	ldh [hScratch + 4], a
+	ldh [hScratch + 5], a
 .jump_40eb:
 	call GetTerrainUnderObject
 	ld hl, wObjects + OBJ_TERRAIN_B
@@ -310,30 +310,30 @@ CollideWithTerrain::
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
 	set 1, [hl]
-	ld hl, $ffad
+	ld hl, hScratch + 5
 	bit 0, [hl]
 	jr nz, .jump_41b2
-	ld hl, $ffad
+	ld hl, hScratch + 5
 	bit 1, [hl]
 	jr nz, .jump_41ba
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	or a
 	jr nz, .jump_41fe
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	ld a, [hli]
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld a, [hli]
-	ldh [$ffab], a
-	ldh a, [$ffac]
+	ldh [hScratch + 3], a
+	ldh a, [hScratch + 4]
 	add a, $04
-	ldh [$ffac], a
+	ldh [hScratch + 4], a
 .jump_41fe:
 	bit 0, a
 	jr nz, .jump_422a
@@ -346,10 +346,10 @@ CollideWithTerrain::
 	sra e
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	add a, e
 	ld [hli], a
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	adc a, $00
 	bit 7, e
 	jr z, .jump_421d
@@ -358,9 +358,9 @@ CollideWithTerrain::
 	ld [hl], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	ld [hli], a
-	ldh a, [$ffab]
+	ldh a, [hScratch + 3]
 	ld [hli], a
 	jr .jump_4250
 
@@ -374,10 +374,10 @@ CollideWithTerrain::
 	sra e
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	add a, e
 	ld [hli], a
-	ldh a, [$ffab]
+	ldh a, [hScratch + 3]
 	adc a, $00
 	bit 7, e
 	jr z, .jump_4245
@@ -386,21 +386,21 @@ CollideWithTerrain::
 	ld [hl], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	ld [hli], a
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	ld [hli], a
 .jump_4250:
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	inc a
-	ldh [$ffac], a
+	ldh [hScratch + 4], a
 	ret z
 	jp .jump_40eb
 
 .jump_4259:
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$d5fd]
+	ld a, [wPlatformsCount]
 	or a
 	ret z
 	ld hl, wObjects + OBJ_YVEL + 1
@@ -408,34 +408,34 @@ CollideWithTerrain::
 	bit 7, [hl]
 	ret nz
 	xor a
-	ldh [$ffad], a
+	ldh [hScratch + 5], a
 	dec a
-	ldh [$ffac], a
+	ldh [hScratch + 4], a
 	ld a, $04
 	ldh [rSVBK], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	ld a, [hli]
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld a, [hli]
-	ldh [$ffab], a
+	ldh [hScratch + 3], a
 	push bc
-	ld hl, $d500
-	ld a, [$d5fd]
+	ld hl, wPlatforms
+	ld a, [wPlatformsCount]
 	ld c, a
 .jump_428f:
 	inc l
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	sub [hl]
 	ld e, a
 	inc l
-	ldh a, [$ffab]
+	ldh a, [hScratch + 3]
 	sbc a, [hl]
 	ld d, a
 	inc l
@@ -445,11 +445,11 @@ CollideWithTerrain::
 	cp $0c
 	jr nc, .jump_42d8
 	ld b, a
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	sub [hl]
 	ld e, a
 	inc l
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	sbc a, [hl]
 	ld d, a
 	inc l
@@ -467,16 +467,16 @@ CollideWithTerrain::
 	ld a, e
 	cp $18
 	jr nc, .jump_42dd
-	ldh a, [$ffad]
+	ldh a, [hScratch + 5]
 	cp b
 	jr z, .jump_42c7
 	jr nc, .jump_42cf
 .jump_42c7:
 	ld a, l
 	sub $05
-	ldh [$ffac], a
+	ldh [hScratch + 4], a
 	ld a, b
-	ldh [$ffad], a
+	ldh [hScratch + 5], a
 .jump_42cf:
 	ld a, l
 	add a, $04
@@ -498,7 +498,7 @@ CollideWithTerrain::
 
 .jump_42e2:
 	pop bc
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	bit 7, a
 	ret nz
 	ld e, a
@@ -543,17 +543,17 @@ CollideWithTerrain::
 	ld a, [de]
 	adc a, [hl]
 	ld [hli], a
-	ldh [$ffae], a
+	ldh [hScratch + 6], a
 	ld a, [hl]
 	adc a, $00
 	ld [hl], a
-	ldh [$ffaf], a
+	ldh [hScratch + 7], a
 	ld a, [de]
 	rlca
 	jr nc, .jump_432a
 	dec [hl]
 	ld a, [hl]
-	ldh [$ffaf], a
+	ldh [hScratch + 7], a
 .jump_432a:
 	xor a
 	ld hl, wObjects + OBJ_YVEL
@@ -562,9 +562,9 @@ CollideWithTerrain::
 	ld [hl], a
 	ld hl, wObjects + OBJ_GROUND_Y
 	add hl, bc
-	ldh a, [$ffae]
+	ldh a, [hScratch + 6]
 	ld [hli], a
-	ldh a, [$ffaf]
+	ldh a, [hScratch + 7]
 	ld [hli], a
 	ld hl, wObjects + OBJ_VAR_0A
 	add hl, bc
@@ -591,27 +591,27 @@ SpellBonus::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	ld a, [hli]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	xor a
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hli]
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
-	ldh [$ffb5], a
+	ldh [hTempY + 1], a
 	ld hl, wObjects + OBJ_VAR_3A
 	add hl, bc
 	ld [hl], $00
-	ld hl, $ffb8
+	ld hl, hSavedSlot
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -643,7 +643,7 @@ SpellBonus::
 	ld [hli], a
 	inc de
 	push de
-	ld hl, $ffb8
+	ld hl, hSavedSlot
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -670,31 +670,31 @@ SpellBonus::
 .jump_43d3:
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hli], a
-	ldh a, [$ffb9]
+	ldh a, [hSavedSlot + 1]
 	ld [hl], a
 	xor a
 	ld hl, wObjects + OBJ_XVEL
 	add hl, bc
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	ld [hl], a
 	ld hl, wObjects + OBJ_YVEL
 	add hl, bc
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	ld [hl], a
 	ld hl, wObjects + OBJ_VAR_34
 	add hl, bc
-	ldh a, [$ffaa]
+	ldh a, [hScratch + 2]
 	ld [hl], a
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	add a, [hl]
-	ldh [$ffaa], a
-	ld hl, $ff9b
+	ldh [hScratch + 2], a
+	ld hl, hSpriteAttr
 	dec [hl]
 	jr nz, .jump_438e
 	pop bc
@@ -793,7 +793,7 @@ SpellBonus_Main::
 	jr c, .jump_44a1
 	ld a, $00
 	jr nz, .jump_44a3
-	ld hl, $c336
+	ld hl, wFrameCounter
 	bit 5, [hl]
 	jr nz, .jump_44a3
 .jump_44a1:
@@ -960,24 +960,24 @@ MatchBonus::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hli]
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	ld a, [hli]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	xor a
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hli]
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
-	ldh [$ffb5], a
-	ld hl, $ffb8
+	ldh [hTempY + 1], a
+	ld hl, hSavedSlot
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -988,11 +988,11 @@ MatchBonus::
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hli], a
-	ldh a, [$ffb9]
+	ldh a, [hSavedSlot + 1]
 	ld [hl], a
-	ld hl, $ffaa
+	ld hl, hScratch + 2
 	inc [hl]
 	ld a, [hl]
 	ld hl, wObjects + OBJ_VAR_33
@@ -1002,29 +1002,29 @@ MatchBonus::
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld [hl], a
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	ld e, a
 	ld hl, wObjects + OBJ_XSUB
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
 	add a, e
-	ldh [$ffb2], a
-	ldh a, [$ffb3]
+	ldh [hTempX], a
+	ldh a, [hTempX + 1]
 	ld [hl], a
 	adc a, $00
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	ld [hl], a
-	ld hl, $ff9b
+	ld hl, hSpriteAttr
 	dec [hl]
 	jr nz, .jump_45b5
 	pop bc
@@ -1061,10 +1061,10 @@ MatchBonus_Main::
 .jump_4632:
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ff89]
+	ldh a, [hCameraX]
 	add a, $50
 	ld [hli], a
-	ldh a, [$ff8a]
+	ldh a, [hCameraX + 1]
 	adc a, $00
 	ld [hli], a
 	call Bonus_ShowPrize
@@ -1189,7 +1189,7 @@ MatchBonus_Item_Stopped::
 .jump_46ef:
 	ld hl, ObjInit_08_4711
 	call ApplyObjInit
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, [hli]
 	add a, $50
 	ld e, a
@@ -1263,32 +1263,32 @@ ShuffleBonus::
 	add hl, bc
 	ld a, [de]
 	ld [hli], a
-	ldh [$ffac], a
+	ldh [hScratch + 4], a
 	inc de
 	ld a, [de]
 	ld [hl], a
-	ldh [$ffad], a
+	ldh [hScratch + 5], a
 	inc de
 	ld a, [de]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	call SetObjectPalette
 	ld a, $04
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	xor a
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hli]
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
-	ldh [$ffb5], a
-	ld hl, $ffb8
+	ldh [hTempY + 1], a
+	ld hl, hSavedSlot
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -1299,19 +1299,19 @@ ShuffleBonus::
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hli], a
-	ldh a, [$ffb9]
+	ldh a, [hSavedSlot + 1]
 	ld [hl], a
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ldh a, [$ffac]
+	ldh a, [hScratch + 4]
 	ld [hli], a
-	ldh a, [$ffad]
+	ldh a, [hScratch + 5]
 	ld [hli], a
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	call SetObjectPalette
-	ld hl, $ffaa
+	ld hl, hScratch + 2
 	ld a, [hl]
 	inc [hl]
 	ld hl, wObjects + OBJ_VAR_30
@@ -1321,23 +1321,23 @@ ShuffleBonus::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
 	add a, $28
-	ldh [$ffb2], a
-	ldh a, [$ffb3]
+	ldh [hTempX], a
+	ldh a, [hTempX + 1]
 	ld [hl], a
 	adc a, $00
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	ld [hl], a
-	ld hl, $ff9b
+	ld hl, hSpriteAttr
 	dec [hl]
 	jr nz, .jump_4793
 	pop bc
@@ -1531,14 +1531,14 @@ ShuffleBonus_Spot_Reveal::
 	ld hl, wObjects + OBJ_FRAME
 	add hl, de
 	ld a, [hli]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	ld a, [hli]
-	ldh [$ffa9], a
+	ldh [hScratch + 1], a
 	ld hl, wObjects + OBJ_FRAME
 	add hl, bc
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	ld [hli], a
-	ldh a, [$ffa9]
+	ldh a, [hScratch + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_PALETTE
 	add hl, de
@@ -1560,22 +1560,22 @@ StompBonus::
 	ld hl, wObjects + OBJ_VAR_33
 	add hl, bc
 	ld a, [hli]
-	ldh [$ff9b], a
+	ldh [hSpriteAttr], a
 	xor a
-	ldh [$ffb6], a
+	ldh [hTempX2], a
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hli]
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
-	ldh [$ffb5], a
-	ld hl, $ffb8
+	ldh [hTempY + 1], a
+	ld hl, hSavedSlot
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -1584,10 +1584,10 @@ StompBonus::
 	call AllocObject
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hli], a
 	ld e, a
-	ldh a, [$ffb9]
+	ldh a, [hSavedSlot + 1]
 	ld [hl], a
 	ld d, a
 	ld hl, wObjects + OBJ_VAR_34
@@ -1605,21 +1605,21 @@ StompBonus::
 	call InitObject
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
 	add a, $20
-	ldh [$ffb2], a
-	ldh a, [$ffb3]
+	ldh [hTempX], a
+	ldh a, [hTempX + 1]
 	ld [hli], a
 	adc a, $00
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	ld [hli], a
-	ld hl, $ff9b
+	ld hl, hSpriteAttr
 	dec [hl]
 	jr nz, .jump_4945
 	pop bc
@@ -1643,7 +1643,7 @@ ObjInit_08_4991::
 	obj_end
 
 StompBonus_Main::
-	ld a, [$c448]
+	ld a, [wItemsInFlight]
 	or a
 	jr nz, .jump_49f0
 	ld hl, wObjects + OBJ_VAR_30
@@ -1658,18 +1658,18 @@ StompBonus_Main::
 .jump_49c8:
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ff89]
+	ldh a, [hCameraX]
 	add a, $50
 	ld [hli], a
-	ldh a, [$ff8a]
+	ldh a, [hCameraX + 1]
 	adc a, $00
 	ld [hli], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ff8b]
+	ldh a, [hCameraY]
 	add a, $28
 	ld [hli], a
-	ldh a, [$ff8c]
+	ldh a, [hCameraY + 1]
 	adc a, $00
 	ld [hli], a
 	call Bonus_ShowPrize
@@ -1755,7 +1755,7 @@ ObjInit_08_4a61::
 	obj_end
 
 StompBonus_Klaptrap_Stomped::
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -1778,7 +1778,7 @@ StompBonus_Klaptrap_Stomped::
 	set 5, [hl]
 .jump_4a8c:
 	ld a, [hl]
-	ldh [$ffa8], a
+	ldh [hScratch], a
 	ld hl, wObjects + OBJ_ANIM_FLAGS
 	add hl, bc
 	ld a, [hl]
@@ -1831,9 +1831,9 @@ StompBonus_Klaptrap_Stomped::
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld a, [hli]
-	ldh [$ffb9], a
+	ldh [hSavedSlot + 1], a
 	rst_farcall SaveObjectPosition
 	push bc
 	call AllocObject
@@ -1841,12 +1841,12 @@ StompBonus_Klaptrap_Stomped::
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hli], a
-	ldh a, [$ffb9]
+	ldh a, [hSavedSlot + 1]
 	ld [hli], a
 	rst_farcall MoveObjectToSavedPosition
-	ldh a, [$ffa8]
+	ldh a, [hScratch]
 	and $20
 	ld de, $0400
 	jr z, .jump_4b09
@@ -1913,7 +1913,7 @@ StompBonus_Bananas::
 
 
 BonusPrize_WaitCollected::
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $01
 	jr z, .jump_4ba2
 	ld a, [wPlayer + OBJ_VAR_0A]
@@ -1939,7 +1939,7 @@ BonusPrize_WaitCollected::
 	jr .jump_4ba2
 
 .jump_4b94:
-	ld hl, $c443
+	ld hl, wLevelFlags
 	bit 7, [hl]
 	jr nz, .jump_4ba2
 	rst_farcall Player_WinAndExit
@@ -1997,7 +1997,7 @@ Bonus_ShowPrize::
 	ld hl, wObjects + OBJ_SPAWN_INDEX
 	add hl, bc
 	ld a, [hl]
-	ldh [$ffb8], a
+	ldh [hSavedSlot], a
 	ld l, a
 	ld h, $af
 	inc [hl]
@@ -2020,9 +2020,9 @@ Bonus_ShowPrize::
 	add hl, bc
 	xor a
 	ld [hli], a
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	ld [hl], a
 	ld hl, wObjects + OBJ_YSUB
 	add hl, bc
@@ -2031,18 +2031,18 @@ Bonus_ShowPrize::
 	ld a, [de]
 	inc de
 	ld [hl], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	add a, [hl]
 	ld [hli], a
 	ld a, [de]
 	ld [hl], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	adc a, [hl]
 	ld [hl], a
 	inc de
 	ld hl, wObjects + OBJ_VAR_2D
 	add hl, bc
-	ldh a, [$ffb8]
+	ldh a, [hSavedSlot]
 	ld [hl], a
 	ld a, [de]
 	ld l, a
@@ -2063,7 +2063,7 @@ BonusCoin_FlyToHUD::
 	dec [hl]
 	jr nz, .jump_4c5d
 	ld a, $1d
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, ObjInit_08_4c60
 	call ApplyObjInit
 .jump_4c5d:
@@ -2079,21 +2079,21 @@ ObjInit_08_4c60::
 
 BonusCoin_Count::
 	call AnimateObject
-	ld hl, $c441
+	ld hl, wHUDFlags
 	bit 2, [hl]
 	jr nz, .jump_4c9d
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
-	ld a, [$c30a]
+	ld a, [wWorld]
 	ld l, a
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	add a, l
 	ld l, a
 	ld h, $b0
 	set 6, [hl]
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	add a, $35
@@ -2967,7 +2967,7 @@ BarrelCannon_Fire::
 	dec [hl]
 	jp nz, NextObject
 	ld a, $16
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 	ld hl, wPlayer + OBJ_FLAGS
 	set 4, [hl]
 	xor a
@@ -3085,7 +3085,7 @@ BarrelCannon_Fire::
 	ld [wPlayer + OBJ_VAR_0A], a
 	ld [wPlayer + OBJ_VAR_37], a
 	ld a, $55
-	ld [$c451], a
+	ld [wCameraPlayerY], a
 	ld hl, wPlayer + OBJ_OAM_ATTR
 	res 5, [hl]
 	ld a, [wPlayer + OBJ_XVEL + 1]
@@ -3240,7 +3240,7 @@ BarrelCannon_AutoRotate::
 	ld [hl], a
 	call BarrelCannon_SetFrame
 .jump_541f:
-	ld de, $c814
+	ld de, wPlayer + OBJ_X
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
@@ -3248,7 +3248,7 @@ BarrelCannon_AutoRotate::
 	inc de
 	ld a, [hli]
 	ld [de], a
-	ld de, $c81d
+	ld de, wPlayer + OBJ_Y
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
@@ -3256,7 +3256,7 @@ BarrelCannon_AutoRotate::
 	inc de
 	ld a, [hli]
 	ld [de], a
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jr z, .jump_5455
 	ld hl, wObjects + OBJ_VAR_39
@@ -3280,7 +3280,7 @@ BarrelCannon_SwingForward::
 	add hl, bc
 	bit 1, [hl]
 	call nz, BarrelCannon_Move
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jr nz, BarrelCannon_SwingBack.jump_54db
 	ld hl, wObjects + OBJ_VAR_38
@@ -3321,7 +3321,7 @@ BarrelCannon_SwingBack::
 	add hl, bc
 	bit 1, [hl]
 	call nz, BarrelCannon_Move
-	ldh a, [$ff81]
+	ldh a, [hJoyPressed]
 	bit 0, a
 	jr nz, .jump_54db
 	call BarrelCannon_SetFrame
@@ -3432,7 +3432,7 @@ OpenedWall::
 	call GetBitMask
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -3469,7 +3469,7 @@ BreakableWall::
 	call GetBitMask
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -3532,7 +3532,7 @@ Entrance::
 	jr nz, .jump_5622
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -3580,7 +3580,7 @@ Entrance_WaitForSound::
 	ld de, $022b
 	call CheckChannelSFX
 	jr z, .jump_5662
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
 	rst_farcall Obj_SetIdle
 .jump_5662:
@@ -3588,7 +3588,7 @@ Entrance_WaitForSound::
 
 
 Entrance_BananaHoard::
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	or $29
@@ -3711,7 +3711,7 @@ Sticker_FlyToHUD::
 	dec [hl]
 	jr nz, .jump_5730
 	ld a, $1d
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 	ld hl, ObjInit_08_5733
 	call ApplyObjInit
 .jump_5730:
@@ -3727,16 +3727,16 @@ ObjInit_08_5733::
 
 Sticker_Count::
 	call AnimateObject
-	ld hl, $c441
+	ld hl, wHUDFlags
 	bit 2, [hl]
 	jr nz, .jump_5779
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
-	ld a, [$c320]
+	ld a, [wStickers]
 	or a
 	inc a
 	daa
-	ld [$c320], a
+	ld [wStickers], a
 	push bc
 	ld hl, wObjects + OBJ_VAR_2E
 	add hl, bc
@@ -3746,10 +3746,10 @@ Sticker_Count::
 	add a, a
 	add a, a
 	ld l, a
-	ld a, [$c30a]
+	ld a, [wWorld]
 	add a, l
 	ld l, a
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	or l
@@ -3766,7 +3766,7 @@ Sticker_Count::
 IsStickerAvailable::
 	cp $01
 	jr nz, .jump_578a
-	ld a, [$b0c6]
+	ld a, [sOptions]
 	and $03
 	ret nz
 	ld a, $01
@@ -3775,7 +3775,7 @@ IsStickerAvailable::
 .jump_578a:
 	cp $02
 	jr nz, .jump_579a
-	ld a, [$b0c6]
+	ld a, [sOptions]
 	and $03
 	xor $01
 	ret nz
@@ -3785,7 +3785,7 @@ IsStickerAvailable::
 .jump_579a:
 	cp $03
 	jr nz, .jump_57aa
-	ld a, [$b0c6]
+	ld a, [sOptions]
 	and $03
 	xor $02
 	ret nz
@@ -3798,10 +3798,10 @@ IsStickerAvailable::
 	add a, a
 	add a, a
 	ld l, a
-	ld a, [$c30a]
+	ld a, [wWorld]
 	add a, l
 	ld l, a
-	ld a, [$c309]
+	ld a, [wSaveFile]
 	rrca
 	rrca
 	or l
@@ -3820,7 +3820,7 @@ SetLevelFlag::
 	call GetBitMask
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -3841,7 +3841,7 @@ SetLevelFlag::
 
 
 InitKongLetter::
-	ld a, [$c30e]
+	ld a, [wGameModeBit]
 	bit 1, a
 	jr z, .jump_57ef
 	ld a, e
@@ -3855,7 +3855,7 @@ InitKongLetter::
 	push af
 	ld a, $04
 	ldh [rSVBK], a
-	ld a, [$c30c]
+	ld a, [wLevel]
 	add a, a
 	add a, a
 	ld l, a
@@ -4166,7 +4166,7 @@ MineCart_Ridden::
 	add hl, bc
 	bit 0, [hl]
 	jr nz, .jump_5a1a
-	ld hl, $c46a
+	ld hl, wCameraRegion + $0e
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -4608,7 +4608,7 @@ AnimalBonus_LoadMask::
 	ld c, a
 	ld a, $04
 	ldh [rSVBK], a
-	ld de, $d800
+	ld de, wTileAnimBuffer
 .jump_5d66:
 	push bc
 .jump_5d67:
@@ -4631,7 +4631,7 @@ AnimalBonus_LoadMask::
 	ld hl, ObjInit_08_5d8a
 	call ApplyObjInit
 	xor a
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld [hli], a
 	ld [hl], a
 	jp NextObject
@@ -4644,7 +4644,7 @@ ObjInit_08_5d8a::
 	obj_end
 
 AnimalMaskTable::
-	dw AnimalMask_08_5d9b, AnimalMask_08_5e0d, AnimalMask_08_5eb8, AnimalMask_08_5f78 ; by animal buddy ([$c445] bits 4-6), Func_08_5d4a
+	dw AnimalMask_08_5d9b, AnimalMask_08_5e0d, AnimalMask_08_5eb8, AnimalMask_08_5f78 ; by animal buddy ([$c445] bits 4-6), AnimalBonus_LoadMask
 
 AnimalMask_08_5d9b::
 	db 7, 16 ; bytes per row, rows; copied to WRAM 4 $d800, 16 bytes a row
@@ -4748,7 +4748,7 @@ TileAnimator::
 	add a, a
 	add a, $78
 	ld h, a
-	ld a, [$c336]
+	ld a, [wFrameCounter]
 	and $38
 	add a, a
 	add a, a
@@ -4786,11 +4786,11 @@ TileAnimator::
 	ld hl, wPlayer + OBJ_Y
 	ld a, [hli]
 	add a, e
-	ldh [$ffaa], a
+	ldh [hScratch + 2], a
 	ld e, a
 	ld a, [hl]
 	adc a, d
-	ldh [$ffab], a
+	ldh [hScratch + 3], a
 	ld d, a
 	rlca
 	jp c, .jump_610c
@@ -4815,7 +4815,7 @@ TileAnimator::
 	and $0f
 	add a, e
 	ld e, a
-	ld hl, $d800
+	ld hl, wTileAnimBuffer
 	add hl, de
 	ld e, $80
 	ld a, b
@@ -4844,7 +4844,7 @@ TileAnimator::
 	rl c
 	add a, a
 	rl c
-	ld hl, $ffaa
+	ld hl, hScratch + 2
 	ld a, [hli]
 	ld b, [hl]
 	add a, a
@@ -4854,19 +4854,19 @@ TileAnimator::
 	add a, a
 	rl b
 	ld a, c
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, b
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld hl, MapCell_08_614e
 	call SetMapCell
 	pop bc
 	push bc
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	inc [hl]
 	call AllocObject
 	ld hl, ObjInit_08_6151
 	call InitObject
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld d, a
 	ld e, $00
 	sra d
@@ -4875,7 +4875,7 @@ TileAnimator::
 	rr e
 	sra d
 	rr e
-	ld hl, $ff89
+	ld hl, hCameraX
 	ld a, e
 	sub [hl]
 	ld e, a
@@ -4893,7 +4893,7 @@ TileAnimator::
 	ld a, d
 	adc a, $00
 	ld [hli], a
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld d, a
 	ld e, $00
 	sra d
@@ -4902,7 +4902,7 @@ TileAnimator::
 	rr e
 	sra d
 	rr e
-	ld hl, $ff8b
+	ld hl, hCameraY
 	ld a, e
 	sub [hl]
 	ld e, a
@@ -4925,7 +4925,7 @@ TileAnimator::
 	ld de, $0004
 	call MoveTowardsY
 	ld a, $2c
-	ld [$c32a], a
+	ld [wSFXQueue + 1], a
 .jump_610c:
 	pop bc
 	ld hl, wObjects + OBJ_VAR_2F
@@ -4945,10 +4945,10 @@ TileAnimator::
 	ld a, [hl]
 	or $03
 	ld [hl], a
-	ldh a, [$ffa6]
+	ldh a, [hObjectRunMask]
 	and $fc
 	or $02
-	ldh [$ffa6], a
+	ldh [hObjectRunMask], a
 	ld hl, wObjects + OBJ_HANDLER
 	add hl, bc
 	ld [hl], LOW(AnimalBonus_CountTokens)
@@ -4957,17 +4957,17 @@ TileAnimator::
 	ld hl, wObjects + OBJ_VAR_32
 	add hl, bc
 	ld [hl], $00
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 0, [hl]
 	ld a, $22
-	ld [$c32c], a
+	ld [wSFXQueue + 3], a
 .jump_6148:
 	call AnimalBonus_DrawCount
 	jp NextObject
 
 
 MapCell_08_614e::
-	db $fc, $07, $00 ; block, attribute, terrain (written by Func_00_0d9d)
+	db $fc, $07, $00 ; block, attribute, terrain (written by SetMapCell)
 
 ObjInit_08_6151::
 	obj_byte OBJ_FLAGS, $0b
@@ -4977,15 +4977,15 @@ ObjInit_08_6151::
 	obj_end
 
 AnimalYOffsets::
-	dw $ffe0, $ffe0, $0000, $ffe0 ; y offset by animal buddy (Func_08_5fe6)
+	dw $ffe0, $ffe0, $0000, $ffe0 ; y offset by animal buddy (TileAnimator)
 
 AnimalBonus_CountTokens::
-	ld hl, $c441
+	ld hl, wHUDFlags
 	set 0, [hl]
-	ld a, [$c448]
+	ld a, [wItemsInFlight]
 	or a
 	jr nz, .jump_6190
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hli]
 	or [hl]
 	jr z, .jump_6196
@@ -5011,7 +5011,7 @@ AnimalBonus_CountTokens::
 	jp NextObject
 
 .jump_6196:
-	ld hl, $c443
+	ld hl, wLevelFlags
 	set 6, [hl]
 	rst_farcall Player_BeginExit
 	call DeleteObject
@@ -5026,9 +5026,9 @@ MiniAnimalToken_Collected::
 	add hl, bc
 	dec [hl]
 	jr nz, .jump_61c8
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hl]
 	add a, $01
 	daa
@@ -5059,7 +5059,7 @@ BigAnimalToken_Count::
 	sbc a, $00
 	daa
 	ld [hl], a
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hl]
 	add a, $01
 	daa
@@ -5072,7 +5072,7 @@ BigAnimalToken_Count::
 
 .jump_61ef:
 	call DeleteObjectForGood
-	ld hl, $c448
+	ld hl, wItemsInFlight
 	dec [hl]
 .jump_61f6:
 	jp NextObject
@@ -5090,44 +5090,44 @@ BigAnimalToken_SpawnDigits::
 	add hl, bc
 	ld a, [hli]
 	sub $40
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hli]
 	sbc a, $00
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	sub $40
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
 	sbc a, $00
-	ldh [$ffb5], a
+	ldh [hTempY + 1], a
 	ld de, $0000
 	call SpawnObjectDigits
 	ld hl, wObjects + OBJ_X
 	add hl, bc
 	ld a, [hli]
-	ldh [$ffb2], a
+	ldh [hTempX], a
 	ld a, [hli]
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
 	ld a, [hli]
 	sub $40
-	ldh [$ffb4], a
+	ldh [hTempY], a
 	ld a, [hli]
 	sbc a, $00
-	ldh [$ffb5], a
+	ldh [hTempY + 1], a
 	ld de, $000a
 	call SpawnObjectDigits
 	ret
 
 
 SpawnObjectDigits::
-	ldh a, [$ffb2]
-	ldh [$ffb6], a
-	ldh a, [$ffb3]
-	ldh [$ffb7], a
+	ldh a, [hTempX]
+	ldh [hTempX2], a
+	ldh a, [hTempX + 1]
+	ldh [hTempX2 + 1], a
 	ld hl, ObjectDigits
 	add hl, de
 	push bc
@@ -5149,38 +5149,38 @@ SpawnObjectDigits::
 	call ApplyObjInit
 	ld hl, wObjects + OBJ_X
 	add hl, bc
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	ld [hli], a
-	ldh a, [$ffb3]
+	ldh a, [hTempX + 1]
 	ld [hli], a
 	ld hl, wObjects + OBJ_Y
 	add hl, bc
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	ld [hli], a
-	ldh a, [$ffb5]
+	ldh a, [hTempY + 1]
 	ld [hli], a
 	pop bc
 .jump_627f:
-	ldh a, [$ffb2]
+	ldh a, [hTempX]
 	add a, $0c
-	ldh [$ffb2], a
-	ldh a, [$ffb3]
+	ldh [hTempX], a
+	ldh a, [hTempX + 1]
 	adc a, $00
-	ldh [$ffb3], a
+	ldh [hTempX + 1], a
 	jr .jump_6258
 
 .jump_628d:
 	pop hl
-	ldh a, [$ffb4]
+	ldh a, [hTempY]
 	add a, $0c
-	ldh [$ffb4], a
-	ldh a, [$ffb5]
+	ldh [hTempY], a
+	ldh a, [hTempY + 1]
 	adc a, $00
-	ldh [$ffb5], a
-	ldh a, [$ffb6]
-	ldh [$ffb2], a
-	ldh a, [$ffb7]
-	ldh [$ffb3], a
+	ldh [hTempY + 1], a
+	ldh a, [hTempX2]
+	ldh [hTempX], a
+	ldh a, [hTempX2 + 1]
+	ldh [hTempX + 1], a
 	dec c
 	jr nz, .jump_6255
 	pop bc
@@ -5204,26 +5204,26 @@ ObjectDigits::
 
 MiniAnimalToken_Draw::
 	ld h, $c5
-	ldh a, [$ffa2]
+	ldh a, [hSpriteLayerFill]
 	ld l, a
 	add a, $08
 	ret c
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	cp $a8
 	ret nc
-	ldh a, [$ff9a]
+	ldh a, [hSpriteX + 1]
 	or a
 	ret nz
-	ldh a, [$ff97]
+	ldh a, [hSpriteY]
 	cp $a0
 	ret nc
-	ldh a, [$ff98]
+	ldh a, [hSpriteY + 1]
 	or a
 	ret nz
-	ldh a, [$ff97]
+	ldh a, [hSpriteY]
 	ld [hli], a
 	ld e, a
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	ld d, a
 	ld [hli], a
 	ld a, $f8
@@ -5240,17 +5240,17 @@ MiniAnimalToken_Draw::
 	ld a, $08
 	ld [hli], a
 	ld a, l
-	ldh [$ffa2], a
+	ldh [hSpriteLayerFill], a
 	ret
 
 
 AnimalBonus_DrawCount::
-	ld hl, $c446
+	ld hl, wLevelTimer
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
 	ld h, $c5
-	ldh a, [$ffa2]
+	ldh a, [hSpriteLayerFill]
 	ld l, a
 	ld a, $14
 	ld [hli], a
@@ -5273,7 +5273,7 @@ AnimalBonus_DrawCount::
 	ld a, $1e
 	ld [hli], a
 	add a, $08
-	ldh [$ff99], a
+	ldh [hSpriteX], a
 	ld a, d
 	and $0f
 	jr z, .jump_634b
@@ -5284,10 +5284,10 @@ AnimalBonus_DrawCount::
 	ld [hli], a
 	ld a, $14
 	ld [hli], a
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	ld [hli], a
 	add a, $08
-	ldh [$ff99], a
+	ldh [hSpriteX], a
 	ld a, e
 	swap a
 	and $0f
@@ -5306,10 +5306,10 @@ AnimalBonus_DrawCount::
 	ld [hli], a
 	ld a, $14
 	ld [hli], a
-	ldh a, [$ff99]
+	ldh a, [hSpriteX]
 	ld [hli], a
 	add a, $08
-	ldh [$ff99], a
+	ldh [hSpriteX], a
 .jump_6362:
 	ld a, e
 	and $0f
@@ -5319,14 +5319,14 @@ AnimalBonus_DrawCount::
 	xor a
 	ld [hli], a
 	ld a, l
-	ldh [$ffa2], a
+	ldh [hSpriteLayerFill], a
 	ld hl, wObjects + OBJ_VAR_30
 	add hl, bc
 	ld a, [hld]
 	ld e, a
 	or [hl]
 	ret z
-	ld a, [$c336]
+	ld a, [wFrameCounter]
 	bit 2, a
 	jr nz, .jump_6381
 	ld a, e
@@ -5334,7 +5334,7 @@ AnimalBonus_DrawCount::
 	ret z
 .jump_6381:
 	ld h, $c5
-	ldh a, [$ffa2]
+	ldh a, [hSpriteLayerFill]
 	ld l, a
 	ld a, $14
 	ld [hli], a
@@ -5360,7 +5360,7 @@ AnimalBonus_DrawCount::
 	xor a
 	ld [hli], a
 	ld a, l
-	ldh [$ffa2], a
+	ldh [hSpriteLayerFill], a
 	ret
 
 	ds 5206, $00 ; $63aa

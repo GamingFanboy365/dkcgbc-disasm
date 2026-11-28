@@ -18,6 +18,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import hints  # noqa: E402
+import ramnames  # noqa: E402
 from run_trace import make  # noqa: E402
 from tracer import BANK_SIZE, off  # noqa: E402
 from hwregs import HW_REGS  # noqa: E402
@@ -59,9 +60,6 @@ def write_objects_inc(path):
             lines.append("DEF %-17s EQU $%02x ; %s%s\n" % (n, o, "(word) " if sz == 2 else "", d))
         elif o not in covered:
             lines.append("DEF %-17s EQU $%02x\n" % ("OBJ_VAR_%02X" % o, o))
-    lines.append("\n; Other RAM (from RAM_NAMES in tools/hints.py)\n")
-    for a, n in sorted(hints.RAM_NAMES.items()):
-        lines.append("DEF %-17s EQU $%04x\n" % (n, a))
     lines.append("\n; Front-end routines copied to RAM (FE_RAM_NAMES in tools/hints.py)\n")
     for a, n in sorted(hints.FE_RAM_NAMES.items()):
         lines.append("DEF %-17s EQU $%04x\n" % (n, a))
@@ -213,6 +211,26 @@ class Emitter:
         return None
 
     # ----------------------------------------------------------- instructions
+    def ram_name(self, v, bank, i):
+        """Name of RAM address v accessed by instruction i in bank, or None."""
+        main = (bank not in hints.SECOND_PROGRAM_BANKS
+                and not (bank == 0 and any(s <= i.addr < e for s, e in hints.FE_HOME_CODE)))
+        return ramnames.lookup(v, bank, main)
+
+    def hl_pointer(self, t, o, i):
+        """ld hl, n16 whose value is then used as a pointer, not a number
+        (ld hl, $ff9c / add hl, de adds -100)."""
+        if not t.startswith("ld hl,"):
+            return False
+        for _ in range(2):
+            o += i.length
+            i = self.t.insns.get(o)
+            if i is None or i.text.startswith("add hl") or i.flow:
+                return False
+            if "[hl" in i.text:
+                return True
+        return False
+
     def fmt(self, i, o):
         t = i.text
         bank = o // BANK_SIZE
@@ -238,7 +256,9 @@ class Emitter:
             elif 0x50 <= bank <= 0x56 and v in hints.FISHING_RAM_NAMES:
                 txt = hints.FISHING_RAM_NAMES[v]
             elif i.flow in ("jp", "jpc", "call", "callc"):
-                if v < 0x4000:
+                if v >= 0xC000:
+                    txt = self.ram_name(v, bank, i)
+                elif v < 0x4000:
                     txt = self.ref(0, v, o)
                 elif v < 0x8000:
                     tb = bank if bank else i.ctx
@@ -246,8 +266,11 @@ class Emitter:
                         txt = self.ref(tb, v, o)
             elif i.dataref is not None:
                 txt = self.qref(*i.dataref)
-            elif v in hints.RAM_NAMES and bank not in hints.SECOND_PROGRAM_BANKS:
-                txt = hints.RAM_NAMES[v]
+            elif (v >= 0xA000 and (v < 0xFF80 or "[{n16}]" in t or self.hl_pointer(t, o, i))
+                  and self.ram_name(v, bank, i)):
+                txt = self.ram_name(v, bank, i)
+            elif v >= 0xFF00 and v in HW_REGS and self.hl_pointer(t, o, i):
+                txt = HW_REGS[v]
             elif (i.op in (0x21, 0x11, 0x01) and 0x4000 <= v < 0x8000 and bank
                   and bank not in hints.SECOND_PROGRAM_BANKS and off(bank, v) in self.t.data
                   and (i.op == 0x21 or self.t.data[off(bank, v)][0] != "rows")):
@@ -255,7 +278,8 @@ class Emitter:
                 # de, bc: only the kinds whose format the tracer parsed)
                 txt = self.qref(bank, v)
             elif (WOBJECTS <= v < WOBJECTS + OBJ_SIZE and bank not in hints.SECOND_PROGRAM_BANKS
-                  and (t.startswith("ld hl,") or "[{n16}]" in t)):
+                  and bank != 0x0D  # the Rare logo uses this RAM as a buffer
+                  and (t.startswith("ld hl,") or t.startswith("ld de,") or "[{n16}]" in t)):
                 nxt = self.t.insns.get(o + i.length)
                 indexed = t.startswith("ld hl,") and nxt is not None and nxt.op in (0x09, 0x19)
                 txt = "%s + %s" % ("wObjects" if indexed else "wPlayer", obj_field(v - WOBJECTS))
@@ -274,7 +298,7 @@ class Emitter:
             t = t.replace("{e8}", txt)
         elif "{a8}" in t:
             v = 0xFF00 | i.imm
-            t = t.replace("{a8}", HW_REGS.get(v, hexw(v)))
+            t = t.replace("{a8}", HW_REGS.get(v) or self.ram_name(v, bank, i) or hexw(v))
         elif "{n8}" in t:
             txt = None
             if o in self.lohi_map:
@@ -621,7 +645,7 @@ class Emitter:
             return [(o, "db %s" % hexb(r[0])),
                     (None, "dw %s ; BG palettes" % (self.qref(pb, w(1)) or hexw(w(1)))),
                     (None, "dw %s ; OBJ palettes to preload" % (self.qref(pb, w(3)) or hexw(w(3)))),
-                    (None, "dw %s, %s ; map header (Func_00_0b4f), level objects? (Func_00_1715)"
+                    (None, "dw %s, %s ; map header (LoadMap), level objects? (LoadLevelObjects)"
                      % (self.qref(bank, w(5)) or hexw(w(5)), hexw(w(7)))),
                     (None, "db %s ; bank of the second pointer" % hexb(r[9])),
                     (None, "db %s, %s" % (hexb(r[10]), hexb(r[11])))]
@@ -696,7 +720,7 @@ class Emitter:
                 elif (f, v) in getattr(self.t, "obj_ptr_refs", {}):
                     val = self.qref(self.t.obj_ptr_refs[(f, v)], v)
                 elif f == 0x3B and bank in (8, 0x0E) and 0x502F <= v < 0x50DE:
-                    val = self.qref(8, v)  # next initialiser in a chain (Func_08_4344)
+                    val = self.qref(8, v)  # next initialiser in a chain (SpellBonus)
                 val = val or hexw(v)
                 lines.append("obj_word %s, %s" % (obj_field(f), val))
             elif e[0] == "include":
@@ -721,6 +745,7 @@ class Emitter:
     def write_all(self):
         os.makedirs(os.path.join(ROOT, "src"), exist_ok=True)
         write_objects_inc(os.path.join(ROOT, "include", "objects.inc"))
+        ramnames.write_inc(os.path.join(ROOT, "include", "ram.inc"))
         import music
         music.write_include(os.path.join(ROOT, "include", "music.inc"))
         code = self.code_banks()

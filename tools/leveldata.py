@@ -7,14 +7,14 @@ block attribute (0-7) picks a set of 128 blocks: bit 2 the bank, bits 0-1 the
 set within it; its block number (always even) picks the block. A block is
 4x4 tiles. In the ROM the bank is 64 pages of 256 bytes: the tile of cell k
 (0-15, row by row) of block n in set s is at page $40 + s + 4k, offset 2n,
-and its CGB attribute at offset 2n + 1 (Func_00_0c24, Func_00_0ce4).
+and its CGB attribute at offset 2n + 1 (DrawMapArea, DrawMapArea_Vertical).
 data/blocks/BB.bin holds the 512 blocks in order (set by set), each as 16
 pairs of (tile, attribute): block s*128 + n starts at byte 32 * (s*128 + n).
 
 Terrain banks (LevelTerrain_BB). A map cell's terrain byte picks one of 256
 terrain types. For pixel column x (0-31) of the cell, page $40 + x, offset
 type holds the ground height (bits 0-4) and flags (bit 5 and up), and page
-$60 + x the second byte, OBJ_TERRAIN_B (Func_00_2214). data/terrain/BB.bin
+$60 + x the second byte, OBJ_TERRAIN_B (GetTerrainUnderObject). data/terrain/BB.bin
 holds the 256 types in order, each as its 32 column bytes followed by its 32
 second bytes.
 

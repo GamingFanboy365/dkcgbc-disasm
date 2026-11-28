@@ -7,12 +7,12 @@ CODE = [
     (0, 0x0616), (0, 0x1CC2), (0, 0x2400),  # interrupt handlers installed at runtime
     (0, 0x3995),
     (0x50, 0x4000),  # extra program, far-jumped to from bank $f2 ($736a, $7571)
-    (0, 0x36A7),  # sound hardware reset falling into Func_00_36b8; no caller found
+    (0, 0x36A7),  # sound hardware reset falling into LoadWavePattern; no caller found
     (0x55, 0x4000),  # Hi-Score screen, far-jumped to from bank $f1 ($4ec8, $4f31)
     # code the tracer missed: a stub after a list (0a:48b8, no caller), a
     # function nothing calls (09:487a), handlers set by lists in bank $09
     (9, 0x487A), (0xA, 0x5090), (0xA, 0x50F8), (0xA, 0x48B8), (9, 0x71E4),
-    (0, 0x2F09),  # rst_farcall Func_0f_4815 / ret after a ret, no caller
+    (0, 0x2F09),  # rst_farcall Save_ComputeSummaries / ret after a ret, no caller
     (0xF, 0x456F),  # tail jumped to from Func_0f_44xx, after ByteTable_0f_4568
     (0, 0x1CEC), (0, 0x241D),  # interrupt handlers (push af/hl, read LY), installed at runtime
     (0xF2, 0x6760),  # infrared port routine (writes rRP), far-called from $f1:70f7
@@ -112,12 +112,12 @@ KEEP = set()
 SPECULATE_BANKS = [0, 4, 5, 7, 8, 9, 10, 15] + list(range(0x50, 0x57)) + list(range(0xF0, 0xFF))
 
 # Bank-0 routines that apply an object initialiser list at hl to the object
-# in bc (see Func_00_188b).
+# in bc (see ApplyObjInit).
 OBJ_INIT_FUNCS = [0x188B, 0x182F]
 
 # Runs of consecutive object initialiser lists: (bank, start, end).
 # Bank $0e holds the lists that level data refers to (spawned by Func_00_17xx
-# via Func_00_182f with bank $0e mapped).
+# via InitObject with bank $0e mapped).
 OBJ_LIST_RUNS = [
     (0x0E, 0x4000, 0x79F4),
 ]
@@ -125,8 +125,8 @@ OBJ_LIST_RUNS = [
 # Tables of pointers to object initialiser lists: (bank, start, count)
 OBJ_LIST_TABLES = [
     (0x0A, 0x443C, 4),
-    (0x08, 0x583A, 13),  # picked by Func_08_5814 and InitObject
-    (0x0A, 0x4A47, 10),  # spawned objects, indexed by a counter (Func_0a_4a2c area)
+    (0x08, 0x583A, 13),  # picked by InitKongLetter at $5814 and InitObject
+    (0x0A, 0x4A47, 10),  # spawned objects, indexed by a counter (DumbDrum_SpawnEnemies at $4a2c area)
 ]
 
 # Single object initialiser lists the tracer misses (applied after a branch)
@@ -141,9 +141,9 @@ OBJ_FIELD_TABLE = {
     0x01: ("OBJ_BANK", 1, "ROM bank of OBJ_HANDLER"),
     0x02: ("OBJ_HANDLER", 2, "code run every frame by RunObjects"),
     0x04: ("OBJ_TOUCH_HANDLER", 2, "routine in bank 9 jumped to when the player touches the object"),
-    0x06: ("OBJ_GROUND_Y", 2, "height of the terrain under the object (Func_00_2214)"),
-    0x08: ("OBJ_TERRAIN_A", 1, "attribute of the tile under the object (Func_00_2214)"),
-    0x09: ("OBJ_TERRAIN_B", 1, "second attribute of that tile (Func_00_2214)"),
+    0x06: ("OBJ_GROUND_Y", 2, "height of the terrain under the object (GetTerrainUnderObject)"),
+    0x08: ("OBJ_TERRAIN_A", 1, "attribute of the tile under the object (GetTerrainUnderObject)"),
+    0x09: ("OBJ_TERRAIN_B", 1, "second attribute of that tile (GetTerrainUnderObject)"),
     0x0D: ("OBJ_TARGET_XVEL", 2, "X velocity that OBJ_XVEL accelerates towards"),
     0x0F: ("OBJ_XACCEL", 2, "per-frame step from OBJ_XVEL towards OBJ_TARGET_XVEL"),
     0x11: ("OBJ_XVEL", 2, "X velocity, 1/256 pixel per frame"),
@@ -156,7 +156,7 @@ OBJ_FIELD_TABLE = {
     0x1D: ("OBJ_Y", 2, "Y position in pixels"),
     0x1F: ("OBJ_OAM_ATTR", 1, "OAM attributes for every sprite of the object (palette, flip)"),
     0x20: ("OBJ_FRAME", 2, "current sprite frame pointer, set by the animation"),
-    0x22: ("OBJ_ANIM", 2, "animation script pointer (bank $04), run by Func_00_127d"),
+    0x22: ("OBJ_ANIM", 2, "animation script pointer (bank $04), run by AnimateObject"),
     0x24: ("OBJ_ANIM_SPEED", 1, "frames per animation step"),
     0x25: ("OBJ_ANIM_TIMER", 1, "frames left in the current animation step"),
     0x26: ("OBJ_ANIM_FLAGS", 1, "bit 7 is cleared by an animation command (tentative)"),
@@ -164,33 +164,26 @@ OBJ_FIELD_TABLE = {
     0x28: ("OBJ_ANIM_PARAM", 1, "set by an animation command, read by handlers (tentative)"),
     0x29: ("OBJ_COLLISION", 1, "collision/interaction flags, cleared on delete (tentative)"),
     0x2A: ("OBJ_PALETTE", 1, "object palette slot, allocated by InitObject"),
-    0x2B: ("OBJ_LAYER", 1, "sprite layer used when drawing (Func_00_1341)"),
+    0x2B: ("OBJ_LAYER", 1, "sprite layer used when drawing (DrawObject)"),
 }
 
 # Banks of the separate program that has its own memory map (stack at
 # $cff6, different HRAM and WRAM use), so main-game RAM names don't apply.
 SECOND_PROGRAM_BANKS = set(range(0xF0, 0xFF)) | set(range(0x50, 0x70))
 
-# Main-game RAM variables (not used for SECOND_PROGRAM_BANKS): address -> name
-RAM_NAMES = {
-    0xC400: "wObjectFreeList",   # stack of free slot offsets (words)
-    0xC440: "wObjectFreeCount",  # number of entries in wObjectFreeList
-    0xC100: "wBGPalettes",        # 8 BG palettes as the level/screen defines them
-    0xC180: "wOBJPalettes",       # 8 OBJ palettes (slots handed out by AllocObjPalette)
-    0xC200: "wBGPalettesOut",     # wBGPalettes after brightness, uploaded to the LCD
-    0xC280: "wOBJPalettesOut",
-    0xC311: "wPaletteUpdate",     # bit 0: upload BG, bit 1: upload OBJ, bit 2: fade mode
-    0xC312: "wPaletteBrightness",
-    0xC449: "wLevelEntrance",     # pointer to the current LevelEntrance record
-}
+# Main-game RAM variables are in tools/ramnames.py.
 
-# Animation scripts (see Func_00_127d): runs of consecutive entries
+# Bank-0 code that only the front-end program runs (its far call), which
+# uses the front end's HRAM: (start, end) addresses
+FE_HOME_CODE = [(0x3FC0, 0x3FE2)]
+
+# Animation scripts (see AnimateObject): runs of consecutive entries
 # (bank, start, end).
 ANIM_RUNS = [
     (0x04, 0x4001, 0x5747),
 ]
 
-# Frame header tables (see Func_00_1037): (bank, start, count)
+# Frame header tables (see DrawSpriteFrame): (bank, start, count)
 FRAME_TABLES = [
     (0x20, 0x4000, 1415),
 ]
@@ -199,7 +192,7 @@ FRAME_TABLES = [
 # $4000 + 8p; InitObject copies colors 1-3 into a free hardware slot.
 # BG palette sets are 8 palettes each, picked by the level descriptor.
 # Preload lists (count, then palette IDs) fill the OBJ slots in order
-# (Func_00_2ca6).
+# (PreloadObjPalettes).
 PALETTES = {
     "bank": 0x80,
     "obj_palettes": (0x4000, 64),
@@ -225,8 +218,8 @@ FRAME_STRUCTS = [
     (0x0A, 0x60E7, 32, 4, (0, 2, 3)),  # rotating object: frame by angle; column 1 is a curve
 ]
 
-# Flow script (bank $0d, Func_00_38cd): entry points set by code
-# (ld de, X / call Func_00_38c7) and the per-world table at $3976.
+# Flow script (bank $0d, RunFlowScript): entry points set by code
+# (ld de, X / call SetFlowPointer) and the per-world table at $3976.
 FLOW_ENTRIES = [0x5F58, 0x5F90, 0x5F92, 0x5F96, 0x5F9C, 0x5FA5, 0x5FB7, 0x5FBE, 0x5FC1,
                 0x618F, 0x619A, 0x61A5, 0x61B0, 0x61BB, 0x6184]
 
@@ -247,8 +240,8 @@ FARJUMP_STACK = [0x3FDC]
 # last (return address, bank and the cleanup routine $cba7 pushed before).
 FARJUMP_HL_STACK = [0xCB99]
 
-# Funky's Fishing (bank $51), loaded by Func_51_410f (tiles, HDMA) and
-# Func_51_4000 (palettes, screens, box). Tile pieces: (start, tiles,
+# Funky's Fishing (bank $51), loaded by Fishing_LoadTiles (tiles, HDMA) and
+# Fishing_LoadScreen (palettes, screens, box). Tile pieces: (start, tiles,
 # VRAM bank, destination).
 FISHING = {
     "bank": 0x51,
@@ -260,11 +253,11 @@ FISHING = {
     "obj_palettes": 0x70D0,
 }
 
-# Title screen pictures (bank $07, Func_07_4001). [$b0c1] & 3 picks one of
+# Title screen pictures (bank $07, Title_Init). [$b0c1] & 3 picks one of
 # four slots; slot 3 repeats slot 2, so there are three pictures. Tables:
 # map pointers, palette pointers (256 bytes = 32 palettes), tilesets (bank,
 # address) and palette-swap lists ((scroll line, source palette*8, $80 |
-# slot*8), ending with $ff; Func_07_4195 applies them as the title scrolls).
+# slot*8), ending with $ff; Title_UpdatePalettes applies them as the title scrolls).
 TITLES = {"bank": 0x07, "maps": 0x4117, "palettes": 0x411F, "tilesets": 0x4127, "lists": 0x4133, "count": 4}
 
 # The front end's picture table (bank $f0): 149 records of (map, palettes,
@@ -283,8 +276,8 @@ SOUND = {
     "song_table": 0x37AC,    # 4 channel stream pointers per song
     "note_periods": (0x3607, 63),   # dw frequency register values
     "table_3685": (0x3685, 17),     # dw, purpose unknown (follows the periods)
-    "wave_patterns": (0x36F8, 9),   # 16-byte wave RAM patterns (Func_00_36b8)
-    "sfx_table": (0x02, 0x70E4),    # dw per effect, indexed by id & $fe (Func_00_2f5a)
+    "wave_patterns": (0x36F8, 9),   # 16-byte wave RAM patterns (LoadWavePattern)
+    "sfx_table": (0x02, 0x70E4),    # dw per effect, indexed by id & $fe (StartSFX)
 }
 
 CAMERA_BANK = 0x06   # camera regions, pointed to by map headers ($c45c)
@@ -292,37 +285,37 @@ CAMERA_BANK = 0x06   # camera regions, pointed to by map headers ($c45c)
 # Funky's Fishing digitized samples, played through NR50 by its timer interrupt
 SAMPLES = {"bank": 0x52, "table": 0x41C2, "count": 11}
 
-# Full screens loaded by code rather than the flow script (Func_00_2c48 with
+# Full screens loaded by code rather than the flow script (LoadScreen with
 # the bank in b): the world map's shops, picked by location type [$c30c]
 EXTRA_SCREENS = [
-    ((0x43, 0x6720), "Candy's Challenge"),   # Func_0f_4001, type 2
-    ((0x43, 0x6726), "Cranky's Cabin"),      # Func_0f_40a9, types 0 and 3
-    ((0x42, 0x75E0), "Funky's Flights"),     # Func_0f_412e, type 1
-    ((0x74, 0x5490), "DK's banana hoard"),  # Func_0f_41c2, type 4, song $09
+    ((0x43, 0x6720), "Candy's Challenge"),   # Shop_CandysChallenge, type 2
+    ((0x43, 0x6726), "Cranky's Cabin"),      # Shop_CrankysCabin, types 0 and 3
+    ((0x42, 0x75E0), "Funky's Flights"),     # Shop_FunkysFlights, type 1
+    ((0x74, 0x5490), "DK's banana hoard"),  # Shop_BananaHoard, type 4, song $09
 ]
 
 # Tile data found by what loads it, outside the level/screen/picture tables:
 # (bank, address, tile count, what it is)
 EXTRA_TILES = [
-    (0x40, 0x4000, 128, "dialogue font for the shops and maps (Func_0f_4001 etc., VRAM bank 1)"),
+    (0x40, 0x4000, 128, "dialogue font for the shops and maps (Shop_CandysChallenge etc., VRAM bank 1)"),
     (0x40, 0x4800, 9, "world map arrows and icons"),
     (0x40, 0x4A28, 256, "the DMG 'needs a Game Boy Color' screen (NotGBC copies $1000 bytes)"),
     (0x41, 0x4000, 312, "world map sprites (8x16 objects)"),
     (0x0D, 0x4010, 16, "Rare logo: rounded corner sprites"),
-    (0x0D, 0x5980, 88, "Rare logo tiles (Func_0d_4216 copies $580 bytes)"),
+    (0x0D, 0x5980, 88, "Rare logo tiles (RareLogo_LoadAttributes copies $580 bytes)"),
     (0xFF, 0x6B30, 250, "front-end fonts"),
     # Crosshair Cranky animated background tiles (frames listed by $fe:79cf)
     (0xF5, 0x4AF0, 48, "Crosshair Cranky: Buddies Beware tile animation frames"),
     (0xF5, 0x4FF0, 320, "Crosshair Cranky: Kremlings and Kongs tile animation frames"),
     (0xF5, 0x63F0, 320, "Crosshair Cranky: Kremling Krackdown tile animation frames"),
     (0xF5, 0x77F0, 44, "Crosshair Cranky: Galleon Gunner tile animation frames"),
-    (0xF5, 0x4DF0, 32, "Crosshair Cranky: tiles copied by Func_fe_541c"),
+    (0xF5, 0x4DF0, 32, "Crosshair Cranky: tiles copied by Cranky_DrawAmmo"),
     (0x07, 0x6000, 12, "title screen sprite tiles (copied to VRAM $81c0)"),
     (0x08, 0x7800, 128, "animal buddy icons (Rambi, Expresso, Enguarde, Winky), 8x16 sprites"),
     (0xF2, 0x5760, 256, "front-end tiles after the letter piece records; no user found yet"),
     (0xF1, 0x6F40, 9, "front-end tiles copied to VRAM $8e60 (Func_f1_54xx)"),
     (0xF1, 0x6A40, 80, "front-end sprite words (8x16); loader not found yet"),
-    # the strip runs on from BGTiles_1b_4000 ($5fd0); Func_05_4274 copies a
+    # the strip runs on from BGTiles_1b_4000 ($5fd0); WorldMap_LoadSignTiles copies a
     # 20-tile window of it to VRAM $8200, picked by [$c607] (WorldMapTileSources)
     (0x1B, 0x6000, 79, "world map animated tiles (rest of the $5fd0 strip)"),
     (0x31, 0x5CA0, 62, "sparkle sprite tiles (8x16) after the last frame tiles; no frame points here"),
@@ -355,7 +348,7 @@ FISHING_BANKS = tuple(range(0x50, 0x57))
 # RAM at start-up and then calls there: RAM address -> name. The ROM copies
 # are named ..._Code in tools/names.py.
 FE_RAM_NAMES = {
-    0xC886: "FE_FarCopy",        # $F0:40EB, by Func_f0_40e0: copy de bytes hl -> bc from bank [$c800]
+    0xC886: "FE_FarCopy",        # $F0:40EB, by FE_InstallFarCopy: copy de bytes hl -> bc from bank [$c800]
     0xC8A3: "FE_FarReadWord",    # $F0:4108: bc = word at hl in bank [$c800], hl += 2
     0xC8B9: "FE_FarReadByte",    # $F0:411E: c = byte at hl in bank [$c800], hl += 1
     0xC8CD: "FE_HDMA",           # $F0:4020, by FE_InstallRAMRoutines: bank a, hl -> bc, d blocks

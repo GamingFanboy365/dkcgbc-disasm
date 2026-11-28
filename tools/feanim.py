@@ -1,4 +1,4 @@
-"""The front end's sprite animation table ($F0:5A24, drawn by Func_f0_4fa8).
+"""The front end's sprite animation table ($F0:5A24, drawn by FE_DrawSpriteAnim).
 
 47 entries of 4 bytes: a type, 0, and a pointer to an array of records,
 indexed by the variant number the caller puts in [$ff82]. A record is
@@ -10,7 +10,7 @@ Types: 0 relative layout (dx, dy per sprite, signed, from the previous
 one), 1 absolute layout (x, y), 2 relative + attributes, 3 absolute +
 attributes, 4 relative with 8x8 sprites + attributes. The sprites are 8x16
 except for type 4; the attribute list holds one byte per sprite, added to
-its OAM attributes (Func_f0_517f).
+its OAM attributes (FE_AddSpriteAttributes).
 
   python3 tools/feanim.py [baserom.gbc]   prints the decoded table
 """

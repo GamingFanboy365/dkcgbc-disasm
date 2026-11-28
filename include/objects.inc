@@ -19,9 +19,9 @@ DEF OBJ_FLAGS         EQU $00 ; bit 2: counted in a spawn group (see OBJ_VAR_2D)
 DEF OBJ_BANK          EQU $01 ; ROM bank of OBJ_HANDLER
 DEF OBJ_HANDLER       EQU $02 ; (word) code run every frame by RunObjects
 DEF OBJ_TOUCH_HANDLER EQU $04 ; (word) routine in bank 9 jumped to when the player touches the object
-DEF OBJ_GROUND_Y      EQU $06 ; (word) height of the terrain under the object (Func_00_2214)
-DEF OBJ_TERRAIN_A     EQU $08 ; attribute of the tile under the object (Func_00_2214)
-DEF OBJ_TERRAIN_B     EQU $09 ; second attribute of that tile (Func_00_2214)
+DEF OBJ_GROUND_Y      EQU $06 ; (word) height of the terrain under the object (GetTerrainUnderObject)
+DEF OBJ_TERRAIN_A     EQU $08 ; attribute of the tile under the object (GetTerrainUnderObject)
+DEF OBJ_TERRAIN_B     EQU $09 ; second attribute of that tile (GetTerrainUnderObject)
 DEF OBJ_VAR_0A        EQU $0a
 DEF OBJ_VAR_0B        EQU $0b
 DEF OBJ_VAR_0C        EQU $0c
@@ -37,7 +37,7 @@ DEF OBJ_YSUB          EQU $1c ; Y position, fraction
 DEF OBJ_Y             EQU $1d ; (word) Y position in pixels
 DEF OBJ_OAM_ATTR      EQU $1f ; OAM attributes for every sprite of the object (palette, flip)
 DEF OBJ_FRAME         EQU $20 ; (word) current sprite frame pointer, set by the animation
-DEF OBJ_ANIM          EQU $22 ; (word) animation script pointer (bank $04), run by Func_00_127d
+DEF OBJ_ANIM          EQU $22 ; (word) animation script pointer (bank $04), run by AnimateObject
 DEF OBJ_ANIM_SPEED    EQU $24 ; frames per animation step
 DEF OBJ_ANIM_TIMER    EQU $25 ; frames left in the current animation step
 DEF OBJ_ANIM_FLAGS    EQU $26 ; bit 7 is cleared by an animation command (tentative)
@@ -45,7 +45,7 @@ DEF OBJ_SPAWN_INDEX   EQU $27 ; index into the level object tables at $a8xx-$afx
 DEF OBJ_ANIM_PARAM    EQU $28 ; set by an animation command, read by handlers (tentative)
 DEF OBJ_COLLISION     EQU $29 ; collision/interaction flags, cleared on delete (tentative)
 DEF OBJ_PALETTE       EQU $2a ; object palette slot, allocated by InitObject
-DEF OBJ_LAYER         EQU $2b ; sprite layer used when drawing (Func_00_1341)
+DEF OBJ_LAYER         EQU $2b ; sprite layer used when drawing (DrawObject)
 DEF OBJ_VAR_2C        EQU $2c
 DEF OBJ_VAR_2D        EQU $2d
 DEF OBJ_VAR_2E        EQU $2e
@@ -66,17 +66,6 @@ DEF OBJ_VAR_3C        EQU $3c
 DEF OBJ_VAR_3D        EQU $3d
 DEF OBJ_VAR_3E        EQU $3e
 DEF OBJ_VAR_3F        EQU $3f
-
-; Other RAM (from RAM_NAMES in tools/hints.py)
-DEF wBGPalettes       EQU $c100
-DEF wOBJPalettes      EQU $c180
-DEF wBGPalettesOut    EQU $c200
-DEF wOBJPalettesOut   EQU $c280
-DEF wPaletteUpdate    EQU $c311
-DEF wPaletteBrightness EQU $c312
-DEF wObjectFreeList   EQU $c400
-DEF wObjectFreeCount  EQU $c440
-DEF wLevelEntrance    EQU $c449
 
 ; Front-end routines copied to RAM (FE_RAM_NAMES in tools/hints.py)
 DEF FE_FarCopy        EQU $c886

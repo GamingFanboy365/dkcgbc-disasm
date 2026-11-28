@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Funky's Fishing's sprite animations (bank $52, drawn by Func_52_4097).
+"""Funky's Fishing's sprite animations (bank $52, drawn by Fishing_DrawAnimFrame).
 
 FishingAnimTable ($52:41EE) holds 21 pointers. An animation starts with 4
 bytes: a number, 8 (or 12, 20), the last frame's index and the bank ($52).

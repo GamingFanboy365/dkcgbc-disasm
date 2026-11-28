@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $f2", ROMX[$4000], BANK[$f2]
 
-Func_f2_4000::
+FE_Alphabet::
 	ld a, BANK(FE_Alphabet_Reset)
 	ld hl, FE_Alphabet_Reset
 	call FarCall_A_HL
@@ -56,7 +56,7 @@ Func_f2_4000::
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
-	call Func_f2_4350
+	call FE_ClearBGMap9C00AndTiles
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
@@ -65,7 +65,7 @@ Func_f2_4000::
 	ld a, BANK(FE_FadeToColours)
 	ld hl, FE_FadeToColours
 	call FarCall_A_HL
-	call Func_f2_4112
+	call FE_Alphabet_Loop
 	ld a, BANK(FE_FadeOut)
 	ld hl, FE_FadeOut
 	call FarCall_A_HL
@@ -113,8 +113,8 @@ Func_f2_4000::
 	ret
 
 
-Func_f2_4112::
-	call Func_f2_414d
+FE_Alphabet_Loop::
+	call FE_Alphabet_DrawArrows
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
@@ -134,20 +134,20 @@ Func_f2_4112::
 	ldh a, [$ff93]
 	and $05
 	and b
-	call z, Func_f2_41f9
+	call z, FE_Alphabet_OpenMenu
 .jump_4139:
 	ldh a, [$ff91]
 	bit 4, a
-	call nz, Func_f2_41a3
+	call nz, FE_Alphabet_Next
 	ldh a, [$ff91]
 	bit 5, a
-	call nz, Func_f2_41b4
+	call nz, FE_Alphabet_Previous
 	ld hl, $ff9a
 	inc [hl]
-	jr Func_f2_4112
+	jr FE_Alphabet_Loop
 
 
-Func_f2_414d::
+FE_Alphabet_DrawArrows::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -192,7 +192,7 @@ Func_f2_414d::
 	ret
 
 
-Func_f2_41a3::
+FE_Alphabet_Next::
 	ld a, [$c9e5]
 	inc a
 	cp $34
@@ -200,11 +200,11 @@ Func_f2_41a3::
 	ld a, $00
 .jump_41ad:
 	ld [$c9e5], a
-	call Func_f2_41c5
+	call FE_Alphabet_ShowLetter
 	ret
 
 
-Func_f2_41b4::
+FE_Alphabet_Previous::
 	ld a, [$c9e5]
 	dec a
 	cp $ff
@@ -212,11 +212,11 @@ Func_f2_41b4::
 	ld a, $33
 .jump_41be:
 	ld [$c9e5], a
-	call Func_f2_41c5
+	call FE_Alphabet_ShowLetter
 	ret
 
 
-Func_f2_41c5::
+FE_Alphabet_ShowLetter::
 	ld hl, $ff40
 	set 3, [hl]
 	ld a, [$c9e5]
@@ -246,7 +246,7 @@ Func_f2_41c5::
 	ret
 
 
-Func_f2_41f9::
+FE_Alphabet_OpenMenu::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -294,11 +294,11 @@ Func_f2_41f9::
 	ld a, BANK(FE_SetPrintDarkness)
 	ld hl, FE_SetPrintDarkness
 	call FarCall_A_HL
-	call Func_f2_4278
+	call FE_Alphabet_OpenPrintMenu
 	ld a, BANK(FE_SlideSpritesDown)
 	ld hl, FE_SlideSpritesDown
 	call FarCall_A_HL
-	jp Func_f2_41f9
+	jp FE_Alphabet_OpenMenu
 
 .jump_426f:
 	ld a, BANK(FE_SlideSpritesDown)
@@ -307,7 +307,7 @@ Func_f2_41f9::
 	ret
 
 
-Func_f2_4278::
+FE_Alphabet_OpenPrintMenu::
 	xor a
 	ld [$c994], a
 	ld a, BANK(FE_SlideSpritesDown)
@@ -344,11 +344,11 @@ Func_f2_4278::
 	ld a, [$c994]
 	cp $01
 	ret z
-	call Func_f2_42ce
+	call FE_Alphabet_Print
 	jp .jump_42b5
 
 
-Func_f2_42ce::
+FE_Alphabet_Print::
 	ld a, BANK(FE_SaveBGMap)
 	ld hl, FE_SaveBGMap
 	call FarCall_A_HL
@@ -407,7 +407,7 @@ Func_f2_42ce::
 	ret
 
 
-Func_f2_4350::
+FE_ClearBGMap9C00AndTiles::
 	ld a, $00
 	ldh [rVBK], a
 	ld hl, $9c00
@@ -418,7 +418,7 @@ Func_f2_4350::
 	cp $01
 	jr nz, .jump_435a
 	xor a
-	call Func_f2_4376
+	call FE_ClearBGMap9C00_Loop
 	ld a, $01
 	ldh [rVBK], a
 	ld hl, $9c00
@@ -430,7 +430,7 @@ Func_f2_4350::
 	jr nz, .jump_436e
 	ld a, $08
 
-Func_f2_4376::
+FE_ClearBGMap9C00_Loop::
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
@@ -440,7 +440,7 @@ Func_f2_4376::
 	ld [hli], a
 	ld [hli], a
 	bit 4, h
-	jr nz, Func_f2_4376
+	jr nz, FE_ClearBGMap9C00_Loop
 	ld hl, $9000
 	ld d, $10
 	xor a
@@ -463,15 +463,15 @@ PictureByItem::
 	db $68, $69, $6a, $6b, $6c, $6d, $6e, $6f, $70, $71, $72, $73, $74, $75, $79, $85
 	db $86, $87, $88, $89
 
-Func_f2_43cb::
+FE_MakeFlag::
 	ld a, BANK(FE_ClearBGMap)
 	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
 	ld a, BANK(FE_MakeFlag_Reset)
 	ld hl, FE_MakeFlag_Reset
 	call FarCall_A_HL
-	ld a, BANK(Func_f2_4600)
-	ld hl, Func_f2_4600
+	ld a, BANK(FE_MakeFlag_LoadKey)
+	ld hl, FE_MakeFlag_LoadKey
 	call FarCall_A_HL
 	ld a, BANK(FE_FadeToWhite)
 	ld hl, FE_FadeToWhite
@@ -530,17 +530,17 @@ Func_f2_43cb::
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
-	call Func_f2_4946
+	call FE_LoadMenuFrameTiles
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
-	call Func_f2_4714
+	call FE_MakeFlag_DrawKeyboard
 	ld hl, $ff40
 	res 4, [hl]
 	ld a, BANK(FE_FadeToColours)
 	ld hl, FE_FadeToColours
 	call FarCall_A_HL
-	call Func_f2_4500
+	call FE_MakeFlag_Input
 	ld a, BANK(FE_FadeOut)
 	ld hl, FE_FadeOut
 	call FarCall_A_HL
@@ -588,38 +588,38 @@ Func_f2_43cb::
 	ret
 
 
-Func_f2_4500::
+FE_MakeFlag_Input::
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 1, a
-	call nz, Func_f2_466e
+	call nz, FE_MakeFlag_Backspace
 	ldh a, [$ff91]
 	and $09
-	call nz, Func_f2_4626
+	call nz, FE_MakeFlag_TypeKey
 	ldh a, [$ff91]
 	bit 2, a
-	call nz, Func_f2_47c6
+	call nz, FE_MakeFlag_Menu
 	ldh a, [$ff91]
 	bit 7, a
-	call nz, Func_f2_45df
+	call nz, FE_MakeFlag_MoveDown
 	ldh a, [$ff91]
 	bit 6, a
-	call nz, Func_f2_45d4
+	call nz, FE_MakeFlag_MoveUp
 	ldh a, [$ff91]
 	bit 5, a
-	call nz, Func_f2_45ea
+	call nz, FE_MakeFlag_MoveLeft
 	ldh a, [$ff91]
 	bit 4, a
-	call nz, Func_f2_45f5
-	call Func_f2_4544
-	call Func_f2_46b2
+	call nz, FE_MakeFlag_MoveRight
+	call FE_MakeFlag_DrawCursor
+	call FE_MakeFlag_DrawLines
 	call FE_OAMDMA
-	jr Func_f2_4500
+	jr FE_MakeFlag_Input
 
 
-Func_f2_4544::
+FE_MakeFlag_DrawCursor::
 	ld de, $c040
 	ld a, [$c98f]
 	add a, $ff
@@ -719,39 +719,39 @@ Func_f2_4544::
 	ret
 
 
-Func_f2_45d4::
+FE_MakeFlag_MoveUp::
 	ld a, [$c98a]
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr Func_f2_4600
+	jr FE_MakeFlag_LoadKey
 
 
-Func_f2_45df::
+FE_MakeFlag_MoveDown::
 	ld a, [$c98b]
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr Func_f2_4600
+	jr FE_MakeFlag_LoadKey
 
 
-Func_f2_45ea::
+FE_MakeFlag_MoveLeft::
 	ld a, [$c98c]
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr Func_f2_4600
+	jr FE_MakeFlag_LoadKey
 
 
-Func_f2_45f5::
+FE_MakeFlag_MoveRight::
 	ld a, [$c98d]
 	cp $ff
 	ret z
 	ld [$c9a0], a
-	jr Func_f2_4600
+	jr FE_MakeFlag_LoadKey
 
 
-Func_f2_4600::
+FE_MakeFlag_LoadKey::
 	ld hl, $4e0c
 	ld a, [$c9a0]
 	add a, a
@@ -775,7 +775,7 @@ Func_f2_4600::
 	ret
 
 
-Func_f2_4626::
+FE_MakeFlag_TypeKey::
 	ld a, [$c9a0]
 	ld c, a
 	ld b, $00
@@ -825,18 +825,18 @@ Func_f2_4626::
 	ret
 
 
-Func_f2_466e::
+FE_MakeFlag_Backspace::
 	ld a, [$c9a2]
 	cp $00
-	jr nz, Func_f2_467e
+	jr nz, FE_MakeFlag_DeleteCharacter
 	ld a, [$c9a3]
 	cp $00
-	jr nz, Func_f2_467e
+	jr nz, FE_MakeFlag_DeleteCharacter
 	pop hl
 	ret
 
 
-Func_f2_467e::
+FE_MakeFlag_DeleteCharacter::
 	ld a, [$c9a1]
 	cp $00
 	jr z, .jump_469e
@@ -871,10 +871,10 @@ Func_f2_467e::
 	ret
 
 
-Func_f2_46b2::
+FE_MakeFlag_DrawLines::
 	ld a, $02
 	ldh [rSVBK], a
-	call Func_f2_46ea
+	call FE_MakeFlag_ClearLines
 	ld a, $09
 	ldh [$ff99], a
 	ld a, $80
@@ -897,31 +897,31 @@ Func_f2_46b2::
 	ret
 
 
-Func_f2_46ea::
+FE_MakeFlag_ClearLines::
 	ld hl, $d1e1
 	ld a, $09
 	ld d, $12
-	call Func_f2_470f
+	call FE_FillBytesD
 	ld hl, $d201
 	ld a, $09
 	ld d, $12
-	call Func_f2_470f
+	call FE_FillBytesD
 	ld hl, $d5e1
 	ld a, $80
 	ld d, $12
-	call Func_f2_470f
+	call FE_FillBytesD
 	ld hl, $d601
 	ld a, $80
 	ld d, $12
 
-Func_f2_470f::
+FE_FillBytesD::
 	ld [hli], a
 	dec d
-	jr nz, Func_f2_470f
+	jr nz, FE_FillBytesD
 	ret
 
 
-Func_f2_4714::
+FE_MakeFlag_DrawKeyboard::
 	xor a
 	ldh [$ff98], a
 	ld a, $04
@@ -1003,16 +1003,16 @@ Func_f2_4714::
 	ret
 
 
-Func_f2_47c6::
+FE_MakeFlag_Menu::
 	xor a
 	ld [$c994], a
 	ld a, $04
 	ld [$c995], a
 .jump_47cf:
-	call Func_f2_4857
-	call Func_f2_4814
+	call FE_MakeFlag_MenuDraw
+	call FE_MakeFlag_MenuInput
 	push af
-	call Func_f2_490a
+	call FE_HideMenuCursor
 	pop af
 	bit 1, a
 	ret nz
@@ -1020,15 +1020,15 @@ Func_f2_47c6::
 	ret nz
 	ld a, [$c994]
 	cp $01
-	jp z, Func_f2_4a39.jump_4a4f
+	jp z, FE_MakeFlag_PrintMenu.jump_4a4f
 	ld a, [$c994]
 	cp $02
-	call z, Func_f2_467e
+	call z, FE_MakeFlag_DeleteCharacter
 	ld a, [$c994]
 	cp $03
-	call z, Func_f2_480a
-	call Func_f2_4544
-	call Func_f2_46b2
+	call z, FE_MakeFlag_SwitchLine
+	call FE_MakeFlag_DrawCursor
+	call FE_MakeFlag_DrawLines
 	call FE_OAMDMA
 	ld a, [$c994]
 	cp $00
@@ -1037,7 +1037,7 @@ Func_f2_47c6::
 	ret
 
 
-Func_f2_480a::
+FE_MakeFlag_SwitchLine::
 	ld a, [$c9a1]
 	inc a
 	and $01
@@ -1045,7 +1045,7 @@ Func_f2_480a::
 	ret
 
 
-Func_f2_4814::
+FE_MakeFlag_MenuInput::
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
@@ -1058,50 +1058,50 @@ Func_f2_4814::
 	ret nz
 	ldh a, [$ff91]
 	bit 5, a
-	call nz, Func_f2_4864
+	call nz, FE_MakeFlag_MenuPrevious
 	ldh a, [$ff91]
 	bit 4, a
-	call nz, Func_f2_4842
-	call Func_f2_4544
-	call Func_f2_46b2
+	call nz, FE_MakeFlag_MenuNext
+	call FE_MakeFlag_DrawCursor
+	call FE_MakeFlag_DrawLines
 	call FE_OAMDMA
 	jr .jump_481c
 
 
-Func_f2_4842::
-	call Func_f2_490a
+FE_MakeFlag_MenuNext::
+	call FE_HideMenuCursor
 	ld a, [$c994]
 	inc a
 	ld [$c994], a
 	ld b, a
 	ld a, [$c995]
 	cp b
-	jr nz, Func_f2_4857
+	jr nz, FE_MakeFlag_MenuDraw
 	xor a
 	ld [$c994], a
 
-Func_f2_4857::
-	call Func_f2_4928
-	call Func_f2_4544
-	call Func_f2_46b2
+FE_MakeFlag_MenuDraw::
+	call FE_ShowMenuCursor
+	call FE_MakeFlag_DrawCursor
+	call FE_MakeFlag_DrawLines
 	call FE_OAMDMA
 	ret
 
 
-Func_f2_4864::
-	call Func_f2_490a
+FE_MakeFlag_MenuPrevious::
+	call FE_HideMenuCursor
 	ld a, [$c994]
 	dec a
 	ld [$c994], a
 	cp $ff
-	jr nz, Func_f2_4857
+	jr nz, FE_MakeFlag_MenuDraw
 	ld a, [$c995]
 	dec a
 	ld [$c994], a
-	jr Func_f2_4857
+	jr FE_MakeFlag_MenuDraw
 
 
-Func_f2_487b::
+FE_PrintMenuInput::
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
@@ -1116,10 +1116,10 @@ Func_f2_487b::
 .jump_4890:
 	ldh a, [$ff91]
 	bit 6, a
-	call nz, Func_f2_48f3
+	call nz, FE_PrintMenuPrevious
 	ldh a, [$ff91]
 	bit 7, a
-	call nz, Func_f2_48b8
+	call nz, FE_PrintMenuNext
 	xor a
 	ldh [$ff80], a
 .jump_48a1:
@@ -1133,10 +1133,10 @@ Func_f2_487b::
 	ldh a, [rSCY]
 	add a, $fc
 	ldh [rSCY], a
-	jr Func_f2_487b
+	jr FE_PrintMenuInput
 
 
-Func_f2_48b8::
+FE_PrintMenuNext::
 	ld a, BANK(FE_MenuCursorUnhighlight)
 	ld hl, FE_MenuCursorUnhighlight
 	call FarCall_A_HL
@@ -1169,20 +1169,20 @@ Func_f2_48b8::
 	ret
 
 
-Func_f2_48f3::
-	call Func_f2_490a
+FE_PrintMenuPrevious::
+	call FE_HideMenuCursor
 	ld a, [$c994]
 	dec a
 	ld [$c994], a
 	cp $ff
-	jr nz, Func_f2_48b8.jump_48d2
+	jr nz, FE_PrintMenuNext.jump_48d2
 	ld a, [$c995]
 	dec a
 	ld [$c994], a
-	jr Func_f2_48b8.jump_48d2
+	jr FE_PrintMenuNext.jump_48d2
 
 
-Func_f2_490a::
+FE_HideMenuCursor::
 	ld a, BANK(FE_MenuCursorUnhighlight)
 	ld hl, FE_MenuCursorUnhighlight
 	call FarCall_A_HL
@@ -1203,7 +1203,7 @@ Func_f2_490a::
 	ret
 
 
-Func_f2_4928::
+FE_ShowMenuCursor::
 	ld a, BANK(FE_MenuCursorHighlight)
 	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
@@ -1224,7 +1224,7 @@ Func_f2_4928::
 	ret
 
 
-Func_f2_4946::
+FE_LoadMenuFrameTiles::
 	ld a, $01
 	ldh [rVBK], a
 	ld hl, $7f60
@@ -1242,7 +1242,7 @@ Func_f2_4946::
 	ret
 
 
-Func_f2_4965::
+FE_SlideSpritesRight::
 	ld e, $1e
 	ld bc, $0004
 .jump_496a:
@@ -1274,7 +1274,7 @@ Func_f2_4965::
 	ret
 
 
-Func_f2_4993::
+FE_ShiftSpritesX::
 	ld bc, $0004
 	ld hl, $c001
 	ld d, $28
@@ -1288,11 +1288,11 @@ Func_f2_4993::
 	ret
 
 
-Func_f2_49a4::
-	call Func_f2_4965
-	call Func_f2_4b91
-	call Func_f2_4a15
-	call Func_f2_4b64
+FE_MakeFlag_DarknessMenu::
+	call FE_SlideSpritesRight
+	call FE_MakeFlag_OpenDarkness
+	call FE_MakeFlag_DarknessInput
+	call FE_SlideSpritesDownScroll
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -1316,7 +1316,7 @@ Func_f2_49a4::
 	ld hl, FE_DrawSpriteAnim
 	call FarCall_A_HL
 .jump_49e3:
-	call Func_f2_4993
+	call FE_ShiftSpritesX
 	xor a
 	ldh [$ff80], a
 .jump_49e9:
@@ -1338,13 +1338,13 @@ Func_f2_49a4::
 	ldh a, [rSCY]
 	add a, $fc
 	ldh [rSCY], a
-	call Func_f2_4965
+	call FE_SlideSpritesRight
 	pop hl
-	jp Func_f2_4c27
+	jp FE_MakeFlag_BorderMenu
 
 
-Func_f2_4a15::
-	call Func_f2_487b
+FE_MakeFlag_DarknessInput::
+	call FE_PrintMenuInput
 	ldh a, [$ff91]
 	bit 1, a
 	ret nz
@@ -1356,17 +1356,17 @@ Func_f2_4a15::
 	ld a, BANK(FE_SetPrintDarkness)
 	ld hl, FE_SetPrintDarkness
 	call FarCall_A_HL
-	call Func_f2_4bdb
-	call Func_f2_4a39
-	call Func_f2_4b91
-	jr Func_f2_4a15
+	call FE_MakeFlag_OpenPrintChoice
+	call FE_MakeFlag_PrintMenu
+	call FE_MakeFlag_OpenDarkness
+	jr FE_MakeFlag_DarknessInput
 
 .unreached_4a38:
 	db $c9 ; ret, never reached
 
-Func_f2_4a39::
-	call Func_f2_487b
-	call Func_f2_4b64
+FE_MakeFlag_PrintMenu::
+	call FE_PrintMenuInput
+	call FE_SlideSpritesDownScroll
 	ldh a, [$ff91]
 	bit 1, a
 	ret nz
@@ -1408,7 +1408,7 @@ Func_f2_4a39::
 	ld a, BANK(FE_LoadRing)
 	ld hl, FE_LoadRing
 	call FarCall_A_HL
-	call Func_f2_4c5e
+	call FE_MakeFlag_DrawBorderChoice
 	ld a, BANK(FE_LoadViewItemsScreen)
 	ld hl, FE_LoadViewItemsScreen
 	call FarCall_A_HL
@@ -1425,7 +1425,7 @@ Func_f2_4a39::
 	ld a, BANK(FE_FadeInScreenSlow)
 	ld hl, FE_FadeInScreenSlow
 	call FarCall_A_HL
-	call Func_f2_4c27
+	call FE_MakeFlag_BorderMenu
 	ld a, BANK(FE_FadeOutScreenSlow)
 	ld hl, FE_FadeOutScreenSlow
 	call FarCall_A_HL
@@ -1460,12 +1460,12 @@ Func_f2_4a39::
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
-	call Func_f2_4946
+	call FE_LoadMenuFrameTiles
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
-	call Func_f2_4714
-	call Func_f2_46b2
+	call FE_MakeFlag_DrawKeyboard
+	call FE_MakeFlag_DrawLines
 	ld a, $04
 	ld [$c96e], a
 	ld a, BANK(FE_LoadRing)
@@ -1476,10 +1476,10 @@ Func_f2_4a39::
 	call FarCall_A_HL
 	xor a
 	ld [$c96c], a
-	jp Func_f2_47c6
+	jp FE_MakeFlag_Menu
 
 
-Func_f2_4b37::
+FE_SlideSpritesUpScroll::
 	ld a, $20
 .jump_4b39:
 	push af
@@ -1510,7 +1510,7 @@ Func_f2_4b37::
 	ret
 
 
-Func_f2_4b64::
+FE_SlideSpritesDownScroll::
 	ld a, $20
 .jump_4b66:
 	push af
@@ -1541,7 +1541,7 @@ Func_f2_4b64::
 	ret
 
 
-Func_f2_4b91::
+FE_MakeFlag_OpenDarkness::
 	ld a, $01
 	ld [$c994], a
 	ld a, $02
@@ -1574,14 +1574,14 @@ Func_f2_4b91::
 	ld a, BANK(FE_MenuCursorHighlight)
 	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
-	call Func_f2_4b37
+	call FE_SlideSpritesUpScroll
 	ret
 
 
-Func_f2_4bdb::
+FE_MakeFlag_OpenPrintChoice::
 	xor a
 	ld [$c994], a
-	call Func_f2_4b64
+	call FE_SlideSpritesDownScroll
 	ld a, $03
 	ld [$c989], a
 	ld a, BANK(FE_ClearOAM)
@@ -1612,21 +1612,21 @@ Func_f2_4bdb::
 	ld a, BANK(FE_MenuCursorHighlight)
 	ld hl, FE_MenuCursorHighlight
 	call FarCall_A_HL
-	call Func_f2_4b37
+	call FE_SlideSpritesUpScroll
 	ret
 
 
-Func_f2_4c27::
-	call Func_f2_4c5e
+FE_MakeFlag_BorderMenu::
+	call FE_MakeFlag_DrawBorderChoice
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 4, a
-	call nz, Func_f2_4d7a
+	call nz, FE_TurnChoiceRight
 	ldh a, [$ff91]
 	bit 5, a
-	call nz, Func_f2_4dc4
+	call nz, FE_TurnChoiceLeft
 	ldh a, [$ff91]
 	and $09
 	jr z, .jump_4c4f
@@ -1634,20 +1634,20 @@ Func_f2_4c27::
 	ldh a, [$ff93]
 	and $09
 	and b
-	jp z, Func_f2_4cba.jump_4cf8
+	jp z, FE_MakeFlag_BorderLoop.jump_4cf8
 .jump_4c4f:
 	ldh a, [$ff91]
 	and $02
-	jr z, Func_f2_4c27
+	jr z, FE_MakeFlag_BorderMenu
 	ld b, a
 	ldh a, [$ff93]
 	and $02
 	and b
 	ret z
-	jr Func_f2_4c27
+	jr FE_MakeFlag_BorderMenu
 
 
-Func_f2_4c5e::
+FE_MakeFlag_DrawBorderChoice::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -1695,7 +1695,7 @@ Func_f2_4c5e::
 	ret
 
 
-Func_f2_4cba::
+FE_MakeFlag_BorderLoop::
 	ld a, BANK(FE_ClearOAM)
 	ld hl, FE_ClearOAM
 	call FarCall_A_HL
@@ -1729,7 +1729,7 @@ Func_f2_4cba::
 	ret
 
 .jump_4cf8:
-	call Func_f2_49a4
+	call FE_MakeFlag_DarknessMenu
 	ld a, BANK(FE_FadeOutScreenSlow)
 	ld hl, FE_FadeOutScreenSlow
 	call FarCall_A_HL
@@ -1764,12 +1764,12 @@ Func_f2_4cba::
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
-	call Func_f2_4946
+	call FE_LoadMenuFrameTiles
 	ld a, BANK(FE_LoadMenuFont)
 	ld hl, FE_LoadMenuFont
 	call FarCall_A_HL
-	call Func_f2_4714
-	call Func_f2_46b2
+	call FE_MakeFlag_DrawKeyboard
+	call FE_MakeFlag_DrawLines
 	ld a, $04
 	ld [$c96e], a
 	ld a, BANK(FE_LoadRing)
@@ -1780,12 +1780,12 @@ Func_f2_4cba::
 	call FarCall_A_HL
 	xor a
 	ld [$c96c], a
-	call Func_f2_4fb0
+	call FE_MakeFlag_PrintBanner
 	pop hl
-	jp Func_f2_47c6
+	jp FE_MakeFlag_Menu
 
 
-Func_f2_4d7a::
+FE_TurnChoiceRight::
 	ld a, [$c9ae]
 	push af
 	ld a, $06
@@ -1814,7 +1814,7 @@ Func_f2_4d7a::
 	dec a
 .jump_4daa:
 	ld [$c961], a
-	call Func_f2_4cba
+	call FE_MakeFlag_BorderLoop
 	pop af
 	dec a
 	jr nz, .jump_4d9d
@@ -1831,7 +1831,7 @@ Func_f2_4d7a::
 	ret
 
 
-Func_f2_4dc4::
+FE_TurnChoiceLeft::
 	ld a, [$c9ae]
 	push af
 	ld a, $06
@@ -1861,7 +1861,7 @@ Func_f2_4dc4::
 	xor a
 .jump_4df4:
 	ld [$c961], a
-	call Func_f2_4cba
+	call FE_MakeFlag_BorderLoop
 	pop af
 	dec a
 	jr nz, .jump_4de7
@@ -1946,8 +1946,8 @@ MenuItemBytes::
 	db $37, $38, $39, $30, $c4, $c1, $c0, $c9, $c8, $cd, $cc, $d6
 	db $d3, $d2, $dc, $da, $d9, $d1, $c7, $20, $df, $20, $20, $20
 
-Func_f2_4fb0::
-	call Func_f2_501e
+FE_MakeFlag_PrintBanner::
+	call FE_MakeFlag_SetUpLines
 	ld a, BANK(FE_SaveBGMap)
 	ld hl, FE_SaveBGMap
 	call FarCall_A_HL
@@ -1973,29 +1973,29 @@ Func_f2_4fb0::
 	ld [$c9b0], a
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_51b8
-	call Func_f2_5074
-	call Func_f2_5084
-	call Func_f2_501e
+	call FE_MakeFlag_PrintFirstStrip
+	call FE_ClearBannerBuffer
+	call FE_ClearBannerTail
+	call FE_MakeFlag_SetUpLines
 .jump_4ff9:
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_52b0
+	call FE_MakeFlag_GetLine1
 	cp $87
-	call nz, Func_f2_52d8
-	call Func_f2_5288
-	call Func_f2_52c4
+	call nz, FE_DrawBannerText
+	call FE_MakeFlag_SetLine1
+	call FE_MakeFlag_GetLine2
 	cp $87
-	call nz, Func_f2_52d8
-	call Func_f2_529c
-	call Func_f2_545c
-	call Func_f2_50cd
+	call nz, FE_DrawBannerText
+	call FE_MakeFlag_SetLine2
+	call FE_DrawBannerBorder
+	call FE_MakeFlag_PrintNextStrip
 	cp $87
 	jr nz, .jump_4ff9
 	ret
 
 
-Func_f2_501e::
+FE_MakeFlag_SetUpLines::
 	ld a, [$c9b1]
 	cp $87
 	jr z, .jump_506b
@@ -2005,33 +2005,33 @@ Func_f2_501e::
 	ld de, $d3f0
 	ld hl, $c9c4
 	ld a, [hl]
-	call Func_f2_529c
+	call FE_MakeFlag_SetLine2
 	ld de, $d470
 	ld hl, $c9b1
 	ld a, [hl]
-	call Func_f2_5288
+	call FE_MakeFlag_SetLine1
 	ret
 
 .jump_5041:
 	ld de, $d3f0
 	ld hl, $c9c4
 	ld a, [hl]
-	call Func_f2_529c
+	call FE_MakeFlag_SetLine2
 	ld de, $d430
 	ld hl, $c9b1
 	ld a, [hl]
-	call Func_f2_5288
+	call FE_MakeFlag_SetLine1
 	ret
 
 .jump_5056:
 	ld de, $d430
 	ld hl, $c9c4
 	ld a, [hl]
-	call Func_f2_529c
+	call FE_MakeFlag_SetLine2
 	ld de, $d470
 	ld hl, $c9b1
 	ld a, [hl]
-	call Func_f2_5288
+	call FE_MakeFlag_SetLine1
 	ret
 
 .jump_506b:
@@ -2042,30 +2042,30 @@ Func_f2_501e::
 	ret
 
 
-Func_f2_5074::
+FE_ClearBannerBuffer::
 	ld hl, $d000
 	ld de, $0a00
 	xor a
 
-Func_f2_507b::
+FE_ClearBytes::
 	ld [hli], a
 	dec de
 	cp e
-	jr nz, Func_f2_507b
+	jr nz, FE_ClearBytes
 	cp d
-	jr nz, Func_f2_507b
+	jr nz, FE_ClearBytes
 	ret
 
 
-Func_f2_5084::
+FE_ClearBannerTail::
 	ld hl, $d780
 	ld de, $0280
 	xor a
-	call Func_f2_507b
+	call FE_ClearBytes
 	ret
 
 
-Func_f2_508f::
+FE_ScrollBannerBuffer::
 	ld hl, $d280
 	ld bc, $d000
 	ld de, $0780
@@ -2082,7 +2082,7 @@ Func_f2_508f::
 	ret
 
 
-Func_f2_50a4::
+FE_AdvanceBannerLines::
 	ld a, [$c9a8]
 	ld e, a
 	ld a, [$c9a9]
@@ -2106,21 +2106,21 @@ Func_f2_50a4::
 	ret
 
 
-Func_f2_50cd::
+FE_MakeFlag_PrintNextStrip::
 	ld a, [$c9ac]
 	cp $88
-	jp z, Func_f2_51b8.jump_5229
+	jp z, FE_MakeFlag_PrintFirstStrip.jump_5229
 	ld a, [$c9ad]
 	cp $87
-	jp nz, Func_f2_51b8.jump_5229
+	jp nz, FE_MakeFlag_PrintFirstStrip.jump_5229
 	jr .jump_5104
 
 .jump_50df:
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_5418
-	jp c, Func_f2_51b8.jump_5250
+	call FE_PrintBannerStripShort
+	jp c, FE_MakeFlag_PrintFirstStrip.jump_5250
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
@@ -2136,10 +2136,10 @@ Func_f2_50cd::
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_543a
+	call FE_PrintBannerEnd
 	ld a, b
 	or a
-	jp nz, Func_f2_51b8.jump_5250
+	jp nz, FE_MakeFlag_PrintFirstStrip.jump_5250
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
@@ -2148,44 +2148,44 @@ Func_f2_50cd::
 	jr z, .jump_50df
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_5074
-	call Func_f2_545c
-	call Func_f2_54eb
+	call FE_ClearBannerBuffer
+	call FE_DrawBannerBorder
+	call FE_DrawBannerStartPiece
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_543a
+	call FE_PrintBannerEnd
 	ld a, b
 	or a
-	jp nz, Func_f2_51b8.jump_5250
+	jp nz, FE_MakeFlag_PrintFirstStrip.jump_5250
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_508f
-	call Func_f2_5084
+	call FE_ScrollBannerBuffer
+	call FE_ClearBannerTail
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_543a
+	call FE_PrintBannerEnd
 	ld a, b
 	or a
-	jp nz, Func_f2_51b8.jump_5250
+	jp nz, FE_MakeFlag_PrintFirstStrip.jump_5250
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_508f
-	call Func_f2_5084
+	call FE_ScrollBannerBuffer
+	call FE_ClearBannerTail
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_5418
+	call FE_PrintBannerStripShort
 	ld a, b
 	or a
-	jp nz, Func_f2_51b8.jump_5250
+	jp nz, FE_MakeFlag_PrintFirstStrip.jump_5250
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
@@ -2201,10 +2201,10 @@ Func_f2_50cd::
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_53f6
+	call FE_PrintBannerStrip
 	ld a, b
 	or a
-	jp nz, Func_f2_51b8.jump_5250
+	jp nz, FE_MakeFlag_PrintFirstStrip.jump_5250
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
@@ -2213,16 +2213,16 @@ Func_f2_50cd::
 	ret
 
 
-Func_f2_51b8::
-	call Func_f2_5074
+FE_MakeFlag_PrintFirstStrip::
+	call FE_ClearBannerBuffer
 	ld a, [$c9ae]
 	cp $04
-	jr z, Func_f2_50cd.jump_519b
-	call Func_f2_54aa
+	jr z, FE_MakeFlag_PrintNextStrip.jump_519b
+	call FE_DrawBannerEndPiece
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_53f6
+	call FE_PrintBannerStrip
 	ld a, b
 	or a
 	jp nz, .jump_5250
@@ -2231,12 +2231,12 @@ Func_f2_51b8::
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_508f
-	call Func_f2_5084
+	call FE_ScrollBannerBuffer
+	call FE_ClearBannerTail
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_543a
+	call FE_PrintBannerEnd
 	ld a, b
 	or a
 	jp nz, .jump_5250
@@ -2245,13 +2245,13 @@ Func_f2_51b8::
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_508f
-	call Func_f2_5084
-	call Func_f2_545c
+	call FE_ScrollBannerBuffer
+	call FE_ClearBannerTail
+	call FE_DrawBannerBorder
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_543a
+	call FE_PrintBannerEnd
 	ld a, b
 	or a
 	jp nz, .jump_5250
@@ -2266,7 +2266,7 @@ Func_f2_51b8::
 	ld a, BANK(FE_EnableInterrupts_Printer)
 	ld hl, FE_EnableInterrupts_Printer
 	call FarCall_A_HL
-	call Func_f2_543a
+	call FE_PrintBannerEnd
 	ld a, b
 	or a
 	jr nz, .jump_5250
@@ -2275,9 +2275,9 @@ Func_f2_51b8::
 	call FarCall_A_HL
 	ld a, $05
 	ldh [rSVBK], a
-	call Func_f2_508f
-	call Func_f2_5084
-	call Func_f2_50a4
+	call FE_ScrollBannerBuffer
+	call FE_ClearBannerTail
+	call FE_AdvanceBannerLines
 	ld a, $88
 	ret
 
@@ -2308,7 +2308,7 @@ Func_f2_51b8::
 	ret
 
 
-Func_f2_5288::
+FE_MakeFlag_SetLine1::
 	ld [$c9ac], a
 	ld a, l
 	ld [$c9a4], a
@@ -2321,7 +2321,7 @@ Func_f2_5288::
 	ret
 
 
-Func_f2_529c::
+FE_MakeFlag_SetLine2::
 	ld [$c9ad], a
 	ld a, l
 	ld [$c9a6], a
@@ -2334,7 +2334,7 @@ Func_f2_529c::
 	ret
 
 
-Func_f2_52b0::
+FE_MakeFlag_GetLine1::
 	ld a, [$c9a4]
 	ld l, a
 	ld a, [$c9a5]
@@ -2347,7 +2347,7 @@ Func_f2_52b0::
 	ret
 
 
-Func_f2_52c4::
+FE_MakeFlag_GetLine2::
 	ld a, [$c9a6]
 	ld l, a
 	ld a, [$c9a7]
@@ -2360,8 +2360,8 @@ Func_f2_52c4::
 	ret
 
 
-Func_f2_52d8::
-	call Func_f2_5300
+FE_DrawBannerText::
+	call FE_BannerHasRoom
 .jump_52db:
 	ld a, [hli]
 	cp $87
@@ -2369,23 +2369,23 @@ Func_f2_52d8::
 	cp $20
 	jr z, .jump_52f3
 	push hl
-	call Func_f2_5313
+	call FE_DrawBigLetter
 	ld hl, $0140
-	call Func_f2_530f
+	call FE_AddHLToDE
 	pop hl
-	call Func_f2_5300
+	call FE_BannerHasRoom
 	jr .jump_52db
 
 .jump_52f3:
 	push hl
 	ld hl, $0500
-	call Func_f2_530f
+	call FE_AddHLToDE
 	pop hl
-	call Func_f2_5300
+	call FE_BannerHasRoom
 	jr .jump_52db
 
 
-Func_f2_5300::
+FE_BannerHasRoom::
 	push hl
 	ld hl, $2d80
 	add hl, de
@@ -2400,14 +2400,14 @@ Func_f2_5300::
 	ret
 
 
-Func_f2_530f::
+FE_AddHLToDE::
 	add hl, de
 	ld d, h
 	ld e, l
 	ret
 
 
-Func_f2_5313::
+FE_DrawBigLetter::
 	push de
 	sub $20
 	ld l, a
@@ -2484,7 +2484,7 @@ Func_f2_5313::
 	ldh a, [$ff83]
 .jump_538c:
 	push af
-	call Func_f2_53a8
+	call FE_DrawBigLetterTile
 	pop af
 	dec a
 	jr nz, .jump_538c
@@ -2495,7 +2495,7 @@ Func_f2_5313::
 	pop de
 	push hl
 	ld hl, $0140
-	call Func_f2_530f
+	call FE_AddHLToDE
 	pop hl
 	pop af
 	dec a
@@ -2503,7 +2503,7 @@ Func_f2_5313::
 	ret
 
 
-Func_f2_53a8::
+FE_DrawBigLetterTile::
 	push hl
 	push bc
 	push bc
@@ -2544,7 +2544,7 @@ Func_f2_53a8::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_53e2::
+FE_DrawBigLetterTile_Copy::
 	push de
 	ld b, d
 	ld c, e
@@ -2552,14 +2552,14 @@ Func_f2_53e2::
 	call FE_FarCopy
 	pop de
 	ld hl, $0010
-	call Func_f2_530f
+	call FE_AddHLToDE
 	pop bc
 	pop hl
 	inc hl
 	ret
 
 
-Func_f2_53f6::
+FE_PrintBannerStrip::
 	ld a, $8c
 	ld [$ccb9], a
 	ld a, $02
@@ -2576,7 +2576,7 @@ Func_f2_53f6::
 	ret
 
 
-Func_f2_5418::
+FE_PrintBannerStripShort::
 	ld a, $8c
 	ld [$ccb9], a
 	ld a, $02
@@ -2593,7 +2593,7 @@ Func_f2_5418::
 	ret
 
 
-Func_f2_543a::
+FE_PrintBannerEnd::
 	ld a, $50
 	ld [$ccb9], a
 	ld a, $02
@@ -2610,7 +2610,7 @@ Func_f2_543a::
 	ret
 
 
-Func_f2_545c::
+FE_DrawBannerBorder::
 	ld a, [$c9ae]
 	cp $04
 	ret z
@@ -2632,11 +2632,11 @@ Func_f2_545c::
 	ld de, $d000
 	ld bc, $d120
 	ld a, $20
-	call Func_f2_549a
+	call FE_CopyFarBytesTwice
 	ld de, $d140
 	ld bc, $d260
 	ld a, $20
-	call Func_f2_549a
+	call FE_CopyFarBytesTwice
 	ld a, [$c9b0]
 	inc a
 	and $03
@@ -2644,7 +2644,7 @@ Func_f2_545c::
 	ret
 
 
-Func_f2_549a::
+FE_CopyFarBytesTwice::
 	push af
 	push bc
 	call FE_FarReadByte
@@ -2656,11 +2656,11 @@ Func_f2_549a::
 	inc bc
 	pop af
 	dec a
-	jr nz, Func_f2_549a
+	jr nz, FE_CopyFarBytesTwice
 	ret
 
 
-Func_f2_54aa::
+FE_DrawBannerEndPiece::
 	ld a, BANK(FE_Random)
 	ld hl, FE_Random
 	call FarCall_A_HL
@@ -2672,7 +2672,7 @@ Func_f2_54aa::
 	ld a, $f2
 	ld [$c800], a
 	ld de, $d000
-	call Func_f2_555d
+	call FE_CopyBannerPieceRows
 	ldh a, [$ff94]
 	and $70
 	swap a
@@ -2680,7 +2680,7 @@ Func_f2_54aa::
 	add a, h
 	ld h, a
 	ld de, $d100
-	call Func_f2_555d
+	call FE_CopyBannerPieceRows
 	ld a, $f2
 	ld [$c800], a
 	ld a, [$c9ae]
@@ -2688,11 +2688,11 @@ Func_f2_54aa::
 	add a, h
 	ld h, a
 	ld de, $d040
-	call Func_f2_552c
+	call FE_CopyBannerPiece
 	ret
 
 
-Func_f2_54eb::
+FE_DrawBannerStartPiece::
 	ld a, BANK(FE_Random)
 	ld hl, FE_Random
 	call FarCall_A_HL
@@ -2704,7 +2704,7 @@ Func_f2_54eb::
 	ld a, $f2
 	ld [$c800], a
 	ld de, $d280
-	call Func_f2_555d
+	call FE_CopyBannerPieceRows
 	ldh a, [$ff94]
 	and $70
 	swap a
@@ -2712,7 +2712,7 @@ Func_f2_54eb::
 	add a, h
 	ld h, a
 	ld de, $d380
-	call Func_f2_555d
+	call FE_CopyBannerPieceRows
 	ld a, $f2
 	ld [$c800], a
 	ld a, [$c9ae]
@@ -2720,19 +2720,19 @@ Func_f2_54eb::
 	add a, h
 	ld h, a
 	ld de, $d540
-	call Func_f2_552c
+	call FE_CopyBannerPiece
 	ret
 
 
-Func_f2_552c::
+FE_CopyBannerPiece::
 	push hl
 	push de
 	push hl
 	ld b, $80
-	call Func_f2_5553
+	call FE_FarCopyB
 	pop hl
 	ld b, $40
-	call Func_f2_5553
+	call FE_FarCopyB
 	pop de
 	ld hl, $0140
 	add hl, de
@@ -2743,30 +2743,30 @@ Func_f2_552c::
 	add hl, bc
 	push hl
 	ld b, $80
-	call Func_f2_5553
+	call FE_FarCopyB
 	pop hl
 	ld b, $40
-	call Func_f2_5553
+	call FE_FarCopyB
 	ret
 
 
-Func_f2_5553::
+FE_FarCopyB::
 	call FE_FarReadByte
 	ld a, c
 	ld [de], a
 	inc de
 	dec b
-	jr nz, Func_f2_5553
+	jr nz, FE_FarCopyB
 	ret
 
 
-Func_f2_555d::
+FE_CopyBannerPieceRows::
 	ld a, $04
 .jump_555f:
 	push af
 	push de
 	ld b, $40
-	call Func_f2_5553
+	call FE_FarCopyB
 	pop de
 	push hl
 	ld hl, $0140
@@ -2849,7 +2849,7 @@ LetterPiecesEnd::
 BGTiles_f2_5760::
 	INCBIN "gfx/bgtiles/f2/5760.2bpp"
 
-Func_f2_6760::
+FE_IR_Init::
 	ld a, $c0
 	ldh [rRP], a
 	ld a, $ff
@@ -2889,25 +2889,25 @@ Func_f2_6760::
 	ret
 
 
-Func_f2_6798::
+FE_IR_WaitHigh::
 	inc d
 	ret z
 	ldh a, [c]
 	bit 1, a
-	jr z, Func_f2_6798
+	jr z, FE_IR_WaitHigh
 	ret
 
 
-Func_f2_67a0::
+FE_IR_WaitLow::
 	inc d
 	ret z
 	ldh a, [c]
 	bit 1, a
-	jr nz, Func_f2_67a0
+	jr nz, FE_IR_WaitLow
 	ret
 
 
-Func_f2_67a8::
+FE_IR_LightOn::
 	ld a, $c1
 	ldh [c], a
 .jump_67ab:
@@ -2916,7 +2916,7 @@ Func_f2_67a8::
 	ret
 
 
-Func_f2_67af::
+FE_IR_LightOff::
 	ld a, $c0
 	ldh [c], a
 .jump_67b2:
@@ -2925,91 +2925,91 @@ Func_f2_67af::
 	ret
 
 
-Func_f2_67b6::
+FE_IR_ReceiveHandshake::
 	ld b, $1a
 	ld c, $56
 	ld d, $00
 	ld e, d
-	call Func_f2_67a0
+	call FE_IR_WaitLow
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, e
-	call Func_f2_6798
+	call FE_IR_WaitHigh
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
-	call Func_f2_67a0
+	jp z, FE_IR_SendBytes.jump_691a
+	call FE_IR_WaitLow
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
-	call Func_f2_6798
+	jp z, FE_IR_SendBytes.jump_691a
+	call FE_IR_WaitHigh
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	cp $08
-	jp c, Func_f2_68a5.jump_691a
+	jp c, FE_IR_SendBytes.jump_691a
 	cp $2a
-	jp nc, Func_f2_68a5.jump_691a
+	jp nc, FE_IR_SendBytes.jump_691a
 	ld a, $aa
 	ld [$dd1f], a
 	ld d, b
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ld d, b
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld d, b
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ld d, b
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld d, b
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ret
 
 
-Func_f2_6802::
+FE_IR_SendHandshake::
 	ld a, $02
 	ld [$dd1e], a
 	ld b, $1a
 	ld c, $56
 	ld d, b
 	ld e, $00
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ld d, b
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld d, b
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ld d, b
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld d, b
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ld d, e
-	call Func_f2_67a0
+	call FE_IR_WaitLow
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, e
-	call Func_f2_6798
+	call FE_IR_WaitHigh
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, e
-	call Func_f2_67a0
+	call FE_IR_WaitLow
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, e
-	call Func_f2_6798
+	call FE_IR_WaitHigh
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, $1a
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ld a, $aa
 	ld [$dd1f], a
 	ret
 
 
-Func_f2_6850::
+FE_IR_Off::
 	xor a
 	ldh [rRP], a
 	ld a, $ff
@@ -3017,7 +3017,7 @@ Func_f2_6850::
 	ret
 
 
-Func_f2_6859::
+FE_IR_SendPacket::
 	xor a
 	ld [$de2b], a
 	ld [$de2c], a
@@ -3030,22 +3030,22 @@ Func_f2_6859::
 	dec hl
 	ld b, $02
 	ld d, $1e
-	call Func_f2_67af
-	call Func_f2_68a5
+	call FE_IR_LightOff
+	call FE_IR_SendBytes
 	pop bc
 	pop hl
-	call Func_f2_6a1c
-	call Func_f2_68a5
+	call FE_IR_Nop
+	call FE_IR_SendBytes
 	ld a, [$de2b]
 	ld [$de29], a
 	ld a, [$de2c]
 	ld [$de2a], a
 	ld hl, $de29
 	ld b, $02
-	call Func_f2_68a5
+	call FE_IR_SendBytes
 	ld hl, $dd1f
 	ld b, $01
-	call Func_f2_698d
+	call FE_IR_ReceiveBytes
 	ld a, [$de29]
 	ld [$de2b], a
 	ld a, [$de2a]
@@ -3053,12 +3053,12 @@ Func_f2_6859::
 	ret
 
 
-Func_f2_68a5::
+FE_IR_SendBytes::
 	ld c, $56
 	ld d, $16
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld d, $16
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ld a, b
 	cpl
 	ld b, a
@@ -3079,7 +3079,7 @@ Func_f2_68a5::
 	jr .jump_68d2
 
 .jump_68cf:
-	call Func_f2_6a1c
+	call FE_IR_Nop
 .jump_68d2:
 	ld a, e
 	rlca
@@ -3087,39 +3087,39 @@ Func_f2_68a5::
 	jr nc, .jump_68e7
 	ld a, [$dd20]
 	ld d, a
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld a, [$dd21]
 	ld d, a
-	call Func_f2_67af
+	call FE_IR_LightOff
 	jr .jump_68f5
 
 .jump_68e7:
 	ld a, [$dd22]
 	ld d, a
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld a, [$dd23]
 	ld d, a
-	call Func_f2_67af
+	call FE_IR_LightOff
 .jump_68f5:
 	ldh a, [$ff82]
 	dec a
 	ldh [$ff82], a
 	jr z, .jump_6904
-	call Func_f2_6a1d
-	call Func_f2_6a1d
+	call FE_IR_Delay
+	call FE_IR_Delay
 	jr .jump_68d2
 
 .jump_6904:
 	jr .jump_68b4
 
 .jump_6906:
-	call Func_f2_6a1c
-	call Func_f2_6a1c
-	call Func_f2_6a1d
+	call FE_IR_Nop
+	call FE_IR_Nop
+	call FE_IR_Delay
 	ld d, $16
-	call Func_f2_67a8
+	call FE_IR_LightOn
 	ld d, $16
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ret
 
 .jump_691a:
@@ -3128,7 +3128,7 @@ Func_f2_68a5::
 	ret
 
 
-Func_f2_6920::
+FE_IR_SetError::
 	ld a, [$dd1f]
 	or $01
 	ld [$dd1f], a
@@ -3141,22 +3141,22 @@ Func_f2_6920::
 	ret
 
 
-Func_f2_6932::
+FE_IR_ReceivePacket::
 	xor a
 	ld [$de2b], a
 	ld [$de2c], a
 	push hl
 	ld hl, $de29
 	ld b, $02
-	call Func_f2_698d
+	call FE_IR_ReceiveBytes
 	ld a, [$de2a]
 	ld [$de2d], a
 	ld b, a
 	pop hl
 	ld a, [$de29]
 	cp $5a
-	jp nz, Func_f2_6920.jump_6929
-	call Func_f2_698d
+	jp nz, FE_IR_SetError.jump_6929
+	call FE_IR_ReceiveBytes
 	ld a, [$de2b]
 	ld d, a
 	ld a, [$de2c]
@@ -3164,7 +3164,7 @@ Func_f2_6932::
 	push de
 	ld hl, $de29
 	ld b, $02
-	call Func_f2_698d
+	call FE_IR_ReceiveBytes
 	pop de
 	ld hl, $de29
 	ld a, [hli]
@@ -3181,7 +3181,7 @@ Func_f2_6932::
 	push de
 	ld hl, $dd1f
 	ld b, $01
-	call Func_f2_68a5
+	call FE_IR_SendBytes
 	pop de
 	ld a, d
 	ld [$de2b], a
@@ -3190,25 +3190,25 @@ Func_f2_6932::
 	ret
 
 
-Func_f2_698d::
+FE_IR_ReceiveBytes::
 	ld c, $56
 	ld d, $00
-	call Func_f2_67a0
+	call FE_IR_WaitLow
 	ld a, d
 	or a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, $00
-	call Func_f2_6798
+	call FE_IR_WaitHigh
 	ld a, d
 	or a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, $00
-	call Func_f2_67a0
+	call FE_IR_WaitLow
 	ld a, d
 	or a
-	jp z, Func_f2_68a5.jump_691a
-	call Func_f2_6a1d
-	call Func_f2_6a1d
+	jp z, FE_IR_SendBytes.jump_691a
+	call FE_IR_Delay
+	call FE_IR_Delay
 	push af
 	pop af
 	ld a, b
@@ -3221,8 +3221,8 @@ Func_f2_698d::
 	ldh [$ff82], a
 .jump_69bf:
 	ld d, $00
-	call Func_f2_6798
-	call Func_f2_67a0
+	call FE_IR_WaitHigh
+	call FE_IR_WaitLow
 	ld a, [$dd24]
 	cp d
 	jr nc, .jump_69d3
@@ -3243,8 +3243,8 @@ Func_f2_698d::
 	ld a, e
 	rlca
 	ld e, a
-	call Func_f2_6a1d
-	call Func_f2_6a1d
+	call FE_IR_Delay
+	call FE_IR_Delay
 	jr .jump_69bf
 
 .jump_69e9:
@@ -3260,36 +3260,36 @@ Func_f2_698d::
 	jr .jump_6a00
 
 .jump_69fd:
-	call Func_f2_6a1c
+	call FE_IR_Nop
 .jump_6a00:
 	jr .jump_69b8
 
 .jump_6a02:
 	ld d, $00
-	call Func_f2_6798
+	call FE_IR_WaitHigh
 	ld a, d
 	and a
-	jp z, Func_f2_68a5.jump_691a
+	jp z, FE_IR_SendBytes.jump_691a
 	ld d, $11
-	call Func_f2_67af
+	call FE_IR_LightOff
 	ret
 
 
-Func_f2_6a12::
+FE_IR_SendPacket_Entry::
 	ld b, $00
-	jp Func_f2_6859
+	jp FE_IR_SendPacket
 
 
-Func_f2_6a17::
+FE_IR_ReceivePacket_Entry::
 	ld b, $00
-	jp Func_f2_6932
+	jp FE_IR_ReceivePacket
 
 
-Func_f2_6a1c::
+FE_IR_Nop::
 	ret
 
 
-Func_f2_6a1d::
+FE_IR_Delay::
 	jr z, .jump_6a1f
 .jump_6a1f:
 	jr nz, .jump_6a21
@@ -3313,7 +3313,7 @@ PictureScreens::
 	db 144, 0, 0, 0
 	db 96, 2, 2, 8
 
-Func_f2_6a5a::
+FE_LinkFishingResults::
 	push bc
 	ld a, l
 	push af
@@ -3350,11 +3350,11 @@ Func_f2_6a5a::
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	call Func_f2_6f6e
-	call Func_f2_6fb6
+	call FE_DrawText_Player1Draws
+	call FE_DrawText_Player2Draws
 	pop bc
 	ld hl, $d506
-	call Func_f2_6bf6
+	call FE_DrawScore
 	jp .jump_6b2c
 
 .jump_6ab4:
@@ -3366,23 +3366,23 @@ Func_f2_6a5a::
 	ldh a, [$ffad]
 	cp $66
 	jr nz, .jump_6adc
-	call Func_f2_6f56
-	call Func_f2_6f86
+	call FE_DrawText_Player1Loses
+	call FE_DrawText_Player2Wins
 	pop bc
 	ld hl, $d4c6
-	call Func_f2_6bf6
+	call FE_DrawScore
 	ld hl, $d5a3
-	call Func_f2_6bf6
+	call FE_DrawScore
 	jr .jump_6b2c
 
 .jump_6adc:
-	call Func_f2_6f3e
-	call Func_f2_6f9e
+	call FE_DrawText_Player1Wins
+	call FE_DrawText_Player2Loses
 	pop bc
 	ld hl, $d5a3
-	call Func_f2_6bf6
+	call FE_DrawScore
 	ld hl, $d4c6
-	call Func_f2_6bf6
+	call FE_DrawScore
 	jr .jump_6b2c
 
 .jump_6af1:
@@ -3394,23 +3394,23 @@ Func_f2_6a5a::
 	ldh a, [$ffad]
 	cp $66
 	jr nz, .jump_6b19
-	call Func_f2_6f3e
-	call Func_f2_6f9e
+	call FE_DrawText_Player1Wins
+	call FE_DrawText_Player2Loses
 	pop bc
 	ld hl, $d4c6
-	call Func_f2_6bf6
+	call FE_DrawScore
 	ld hl, $d5a3
-	call Func_f2_6bf6
+	call FE_DrawScore
 	jr .jump_6b2c
 
 .jump_6b19:
-	call Func_f2_6f56
-	call Func_f2_6f86
+	call FE_DrawText_Player1Loses
+	call FE_DrawText_Player2Wins
 	pop bc
 	ld hl, $d5a3
-	call Func_f2_6bf6
+	call FE_DrawScore
 	ld hl, $d4c6
-	call Func_f2_6bf6
+	call FE_DrawScore
 .jump_6b2c:
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
@@ -3426,11 +3426,11 @@ Func_f2_6a5a::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_6b41
-	call Func_f2_7987
+	call FE_RestorePalette7
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
-	call nz, Func_f2_7971
+	call nz, FE_ClearPalette7
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
@@ -3442,7 +3442,7 @@ Func_f2_6a5a::
 	ret
 
 
-Func_f2_6b67::
+FE_BonusGameResults::
 	push de
 	push bc
 	ld a, BANK(FE_EnableInterrupts_VBlankOnly)
@@ -3470,11 +3470,11 @@ Func_f2_6b67::
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	call Func_f2_6f26
+	call FE_DrawText_GameOver
 	pop bc
 	pop de
 	ld hl, $d526
-	call Func_f2_6c24
+	call FE_DrawScore4
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
@@ -3489,15 +3489,15 @@ Func_f2_6b67::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_6bc4
-	ld a, BANK(Func_f2_7987)
-	ld hl, Func_f2_7987
+	ld a, BANK(FE_RestorePalette7)
+	ld hl, FE_RestorePalette7
 	call FarCall_A_HL
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
 	jr z, .jump_6be2
-	ld a, BANK(Func_f2_7971)
-	ld hl, Func_f2_7971
+	ld a, BANK(FE_ClearPalette7)
+	ld hl, FE_ClearPalette7
 	call FarCall_A_HL
 .jump_6be2:
 	ld a, BANK(FE_ReadJoypadHeld)
@@ -3511,7 +3511,7 @@ Func_f2_6b67::
 	ret
 
 
-Func_f2_6bf6::
+FE_DrawScore::
 	ld a, $02
 	ldh [rSVBK], a
 	ld a, $04
@@ -3544,23 +3544,23 @@ Func_f2_6bf6::
 	ret
 
 
-Func_f2_6c24::
+FE_DrawScore4::
 	ld a, $02
 	ldh [rSVBK], a
 	ld a, b
-	call Func_f2_6c3d
+	call FE_DrawBCDByte
 	ld a, c
-	call Func_f2_6c3d
+	call FE_DrawBCDByte
 	ld a, d
-	call Func_f2_6c3d
+	call FE_DrawBCDByte
 	ld a, e
-	call Func_f2_6c3d
+	call FE_DrawBCDByte
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f2_6c3d::
+FE_DrawBCDByte::
 	push af
 	swap a
 	and $0f
@@ -3581,7 +3581,7 @@ Func_f2_6c3d::
 	ret
 
 
-Func_f2_6c5a::
+FE_LinkGameResults::
 	ld a, $00
 	cp h
 	ret nz
@@ -3634,23 +3634,23 @@ Func_f2_6c5a::
 	jp hl
 
 
-Func_f2_6caa::
-	jp Func_f2_6cb6
+FE_LinkResult_Compare::
+	jp FE_LinkResult_CompareBody
 
 
-Func_f2_6cad::
-	jp Func_f2_6d43
+FE_LinkResult_GameOver::
+	jp FE_LinkResult_GameOverBody
 
 
-Func_f2_6cb0::
-	jp Func_f2_6d9c
+FE_LinkResult_TwoScores::
+	jp FE_LinkResult_TwoScoresBody
 
 
-Func_f2_6cb3::
-	jp Func_f2_6e68
+FE_LinkResult_Zero::
+	jp FE_LinkResult_ZeroBody
 
 
-Func_f2_6cb6::
+FE_LinkResult_CompareBody::
 	pop de
 	pop bc
 	ld a, b
@@ -3664,7 +3664,7 @@ Func_f2_6cb6::
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	call Func_f2_6edd
+	call FE_DrawText_YouDraw
 	jr .jump_6cf4
 
 .jump_6cd2:
@@ -3673,7 +3673,7 @@ Func_f2_6cb6::
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	call Func_f2_6ef5
+	call FE_DrawText_YouWin
 	jr .jump_6cf4
 
 .jump_6ce4:
@@ -3682,7 +3682,7 @@ Func_f2_6cb6::
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	call Func_f2_6f0d
+	call FE_DrawText_YouLose
 .jump_6cf4:
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
@@ -3699,15 +3699,15 @@ Func_f2_6cb6::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_6d0b
-	ld a, BANK(Func_f2_7987)
-	ld hl, Func_f2_7987
+	ld a, BANK(FE_RestorePalette7)
+	ld hl, FE_RestorePalette7
 	call FarCall_A_HL
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
 	jr z, .jump_6d29
-	ld a, BANK(Func_f2_7971)
-	ld hl, Func_f2_7971
+	ld a, BANK(FE_ClearPalette7)
+	ld hl, FE_ClearPalette7
 	call FarCall_A_HL
 .jump_6d29:
 	ld a, BANK(FE_ReadJoypadHeld)
@@ -3726,7 +3726,7 @@ Func_f2_6cb6::
 	ret
 
 
-Func_f2_6d43::
+FE_LinkResult_GameOverBody::
 	pop de
 	pop bc
 	ld a, $09
@@ -3734,7 +3734,7 @@ Func_f2_6d43::
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	call Func_f2_6f26
+	call FE_DrawText_GameOver
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
 	call FarCall_A_HL
@@ -3749,15 +3749,15 @@ Func_f2_6d43::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_6d6a
-	ld a, BANK(Func_f2_7987)
-	ld hl, Func_f2_7987
+	ld a, BANK(FE_RestorePalette7)
+	ld hl, FE_RestorePalette7
 	call FarCall_A_HL
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
 	jr z, .jump_6d88
-	ld a, BANK(Func_f2_7971)
-	ld hl, Func_f2_7971
+	ld a, BANK(FE_ClearPalette7)
+	ld hl, FE_ClearPalette7
 	call FarCall_A_HL
 .jump_6d88:
 	ld a, BANK(FE_ReadJoypadHeld)
@@ -3771,7 +3771,7 @@ Func_f2_6d43::
 	ret
 
 
-Func_f2_6d9c::
+FE_LinkResult_TwoScoresBody::
 	pop de
 	pop bc
 	ld a, b
@@ -3789,14 +3789,14 @@ Func_f2_6d9c::
 
 .jump_6dae:
 	ld hl, $d508
-	call Func_f2_6ff2
+	call FE_DrawBCD3
 	ld a, $09
 	call FE_PlaySong
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
 	call FarCall_A_HL
-	call Func_f2_6f6e
-	call Func_f2_6fb6
+	call FE_DrawText_Player1Draws
+	call FE_DrawText_Player2Draws
 	jr .jump_6e2d
 
 .jump_6dc9:
@@ -3812,17 +3812,17 @@ Func_f2_6d9c::
 	ldh a, [$ffad]
 	cp $66
 	jr nz, .jump_6dee
-	call Func_f2_6fce
-	call Func_f2_6fe7
-	call Func_f2_6f56
-	call Func_f2_6f86
+	call FE_DrawScorePlayer1
+	call FE_DrawScorePlayer2_DE
+	call FE_DrawText_Player1Loses
+	call FE_DrawText_Player2Wins
 	jr .jump_6e2d
 
 .jump_6dee:
-	call Func_f2_6fd5
-	call Func_f2_6fe0
-	call Func_f2_6f3e
-	call Func_f2_6f9e
+	call FE_DrawScorePlayer1_DE
+	call FE_DrawScorePlayer2
+	call FE_DrawText_Player1Wins
+	call FE_DrawText_Player2Loses
 	jr .jump_6e2d
 
 .jump_6dfc:
@@ -3838,17 +3838,17 @@ Func_f2_6d9c::
 	ldh a, [$ffad]
 	cp $66
 	jr nz, .jump_6e21
-	call Func_f2_6fce
-	call Func_f2_6fe7
-	call Func_f2_6f3e
-	call Func_f2_6f9e
+	call FE_DrawScorePlayer1
+	call FE_DrawScorePlayer2_DE
+	call FE_DrawText_Player1Wins
+	call FE_DrawText_Player2Loses
 	jr .jump_6e2d
 
 .jump_6e21:
-	call Func_f2_6fd5
-	call Func_f2_6fe0
-	call Func_f2_6f56
-	call Func_f2_6f86
+	call FE_DrawScorePlayer1_DE
+	call FE_DrawScorePlayer2
+	call FE_DrawText_Player1Loses
+	call FE_DrawText_Player2Wins
 .jump_6e2d:
 	ld a, BANK(FE_UploadBGMap)
 	ld hl, FE_UploadBGMap
@@ -3864,11 +3864,11 @@ Func_f2_6d9c::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_6e42
-	call Func_f2_7987
+	call FE_RestorePalette7
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
-	call nz, Func_f2_7971
+	call nz, FE_ClearPalette7
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
@@ -3880,7 +3880,7 @@ Func_f2_6d9c::
 	ret
 
 
-Func_f2_6e68::
+FE_LinkResult_ZeroBody::
 	pop de
 	pop bc
 	ld a, b
@@ -3897,8 +3897,8 @@ Func_f2_6e68::
 	or a
 	jr nz, .jump_6e8f
 .jump_6e7a:
-	call Func_f2_6f3e
-	call Func_f2_6f86
+	call FE_DrawText_Player1Wins
+	call FE_DrawText_Player2Wins
 	ld a, $09
 	call FE_PlaySong
 	ld a, BANK(FE_EnableInterrupts_Plain)
@@ -3907,8 +3907,8 @@ Func_f2_6e68::
 	jr .jump_6ea2
 
 .jump_6e8f:
-	call Func_f2_6f56
-	call Func_f2_6f9e
+	call FE_DrawText_Player1Loses
+	call FE_DrawText_Player2Loses
 	ld a, $0a
 	call FE_PlaySong
 	ld a, BANK(FE_EnableInterrupts_Plain)
@@ -3929,11 +3929,11 @@ Func_f2_6e68::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_6eb7
-	call Func_f2_7987
+	call FE_RestorePalette7
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
-	call nz, Func_f2_7971
+	call nz, FE_ClearPalette7
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
 	call FarCall_A_HL
@@ -3945,7 +3945,7 @@ Func_f2_6e68::
 	ret
 
 
-Func_f2_6edd::
+FE_DrawText_YouDraw::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -3959,7 +3959,7 @@ Func_f2_6edd::
 	ret
 
 
-Func_f2_6ef5::
+FE_DrawText_YouWin::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -3973,7 +3973,7 @@ Func_f2_6ef5::
 	ret
 
 
-Func_f2_6f0d::
+FE_DrawText_YouLose::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -3989,7 +3989,7 @@ Func_f2_6f0d::
 .unreached_6f25:
 	db $c9 ; ret, never reached
 
-Func_f2_6f26::
+FE_DrawText_GameOver::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -4003,7 +4003,7 @@ Func_f2_6f26::
 	ret
 
 
-Func_f2_6f3e::
+FE_DrawText_Player1Wins::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -4017,7 +4017,7 @@ Func_f2_6f3e::
 	ret
 
 
-Func_f2_6f56::
+FE_DrawText_Player1Loses::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -4031,7 +4031,7 @@ Func_f2_6f56::
 	ret
 
 
-Func_f2_6f6e::
+FE_DrawText_Player1Draws::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -4045,7 +4045,7 @@ Func_f2_6f6e::
 	ret
 
 
-Func_f2_6f86::
+FE_DrawText_Player2Wins::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -4059,7 +4059,7 @@ Func_f2_6f86::
 	ret
 
 
-Func_f2_6f9e::
+FE_DrawText_Player2Loses::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -4073,7 +4073,7 @@ Func_f2_6f9e::
 	ret
 
 
-Func_f2_6fb6::
+FE_DrawText_Player2Draws::
 	ld a, $0f
 	ldh [$ff99], a
 	ld a, $80
@@ -4087,57 +4087,57 @@ Func_f2_6fb6::
 	ret
 
 
-Func_f2_6fce::
+FE_DrawScorePlayer1::
 	ld hl, $d4cb
-	call Func_f2_6ff2
+	call FE_DrawBCD3
 	ret
 
 
-Func_f2_6fd5::
+FE_DrawScorePlayer1_DE::
 	push bc
 	ld b, d
 	ld c, e
 	ld hl, $d4cb
-	call Func_f2_6ff2
+	call FE_DrawBCD3
 	pop bc
 	ret
 
 
-Func_f2_6fe0::
+FE_DrawScorePlayer2::
 	ld hl, $d5a8
-	call Func_f2_6ff2
+	call FE_DrawBCD3
 	ret
 
 
-Func_f2_6fe7::
+FE_DrawScorePlayer2_DE::
 	push bc
 	ld b, d
 	ld c, e
 	ld hl, $d5a8
-	call Func_f2_6ff2
+	call FE_DrawBCD3
 	pop bc
 	ret
 
 
-Func_f2_6ff2::
+FE_DrawBCD3::
 	ld a, $02
 	ldh [rSVBK], a
 	ld a, b
 	and $0f
-	call Func_f2_700f
+	call FE_DrawDigitTile
 	ld a, c
 	swap a
 	and $0f
-	call Func_f2_700f
+	call FE_DrawDigitTile
 	ld a, c
 	and $0f
-	call Func_f2_700f
+	call FE_DrawDigitTile
 	ld a, $01
 	ldh [rSVBK], a
 	ret
 
 
-Func_f2_700f::
+FE_DrawDigitTile::
 	add a, $ee
 	ld [hl], a
 	res 2, h
@@ -4147,7 +4147,7 @@ Func_f2_700f::
 	ret
 
 
-Func_f2_701a::
+FE_RestartFrontEnd::
 	ld a, $87
 	ldh [rLCDC], a
 	ld a, $0e
@@ -4216,7 +4216,7 @@ Func_f2_701a::
 	ret
 
 
-Func_f2_70bd::
+FE_Link::
 	ld a, BANK(FE_ClearBGMap)
 	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
@@ -4306,8 +4306,8 @@ Func_f2_70bd::
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
-	call Func_f2_77a0
-	call Func_f2_77c5
+	call FE_Link_StartHandshake
+	call FE_Link_WaitForPartner
 	ldh a, [$ff91]
 	push af
 	ld a, BANK(FE_EnableInterrupts_Plain)
@@ -4323,11 +4323,11 @@ Func_f2_70bd::
 	jr nz, .jump_71c0
 	ldh a, [$ff91]
 	bit 1, a
-	jp nz, Func_f2_77c5.jump_7831
+	jp nz, FE_Link_WaitForPartner.jump_7831
 .jump_71c0:
 	ldh a, [$ffac]
 	cp $66
-	jp z, Func_f2_73c9.jump_73eb
+	jp z, FE_Link_ExchangeSettings.jump_73eb
 .jump_71c7:
 	ld b, $60
 	ld a, BANK(FE_LoadPicture)
@@ -4359,7 +4359,7 @@ Func_f2_70bd::
 	call FarCall_A_HL
 	ldh a, [$ff91]
 	bit 1, a
-	jp nz, Func_f2_7a1c
+	jp nz, FE_Link_Disconnected
 .jump_7214:
 	ldh a, [rSTAT]
 	and $03
@@ -4370,11 +4370,11 @@ Func_f2_70bd::
 	and $03
 	dec a
 	jr nz, .jump_721b
-	call Func_f2_7987
+	call FE_RestorePalette7
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
-	call nz, Func_f2_7971
+	call nz, FE_ClearPalette7
 	ldh a, [$ffaa]
 	cp $0c
 	jr c, .jump_7205
@@ -4384,8 +4384,8 @@ Func_f2_70bd::
 	ld a, BANK(FE_FadeOutScreen)
 	ld hl, FE_FadeOutScreen
 	call FarCall_A_HL
-	call Func_f2_7943
-	call Func_f2_75d0
+	call FE_Link_AgreeOnChoices
+	call FE_Link_Nop
 	di
 	xor a
 	ldh [rIF], a
@@ -4395,14 +4395,14 @@ Func_f2_70bd::
 	call FarCall_A_HL
 	ld a, [$c96e]
 	cp $03
-	jp z, Func_f2_7303.jump_7306
+	jp z, FE_LinkFishing1_Start.jump_7306
 	cp $0f
 	jp z, .jump_7268
-	jp Func_f2_7a1c
+	jp FE_Link_Disconnected
 
 .jump_7268:
 	xor a
-	call Func_f2_75d0
+	call FE_Link_Nop
 	di
 	xor a
 	ldh [rIF], a
@@ -4446,7 +4446,7 @@ Func_f2_70bd::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_72b1::
+FE_LinkFishing1_Return::
 	di
 	xor a
 	ldh [rIF], a
@@ -4475,10 +4475,10 @@ Func_f2_72b1::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_72d7::
+FE_LinkFishing1_AfterGame::
 	ld a, h
 	cp $00
-	jp nz, Func_f2_7987.jump_79ea
+	jp nz, FE_RestorePalette7.jump_79ea
 	ld a, [$c96c]
 	add a, $07
 	ld l, a
@@ -4496,22 +4496,22 @@ Func_f2_72d7::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f2_6c5a)
+	ld a, HIGH(FE_LinkGameResults)
 	push af
 	inc sp
-	ld a, LOW(Func_f2_6c5a)
+	ld a, LOW(FE_LinkGameResults)
 	push af
 	inc sp
-	ld a, BANK(Func_f2_6c5a)
+	ld a, BANK(FE_LinkGameResults)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_7303::
-	jp Func_f2_7987.jump_79a7
+FE_LinkFishing1_Start::
+	jp FE_RestorePalette7.jump_79a7
 
 .jump_7306:
 	ld a, $01
-	call Func_f2_75d0
+	call FE_Link_Nop
 	di
 	xor a
 	ldh [rIF], a
@@ -4571,8 +4571,8 @@ Func_f2_7303::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_736f::
-	call Func_f2_73c9
+FE_LinkFishing1_Restore::
+	call FE_Link_ExchangeSettings
 	di
 	xor a
 	ldh [rIF], a
@@ -4601,10 +4601,10 @@ Func_f2_736f::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_7398::
+FE_LinkFishing1_Results::
 	ld a, h
 	cp $00
-	jp nz, Func_f2_7987.jump_79ea
+	jp nz, FE_RestorePalette7.jump_79ea
 	ld bc, $cf80
 	ld a, $73
 	push af
@@ -4620,23 +4620,23 @@ Func_f2_7398::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f2_6a5a)
+	ld a, HIGH(FE_LinkFishingResults)
 	push af
 	inc sp
-	ld a, LOW(Func_f2_6a5a)
+	ld a, LOW(FE_LinkFishingResults)
 	push af
 	inc sp
-	ld a, BANK(Func_f2_6a5a)
+	ld a, BANK(FE_LinkFishingResults)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_73c1::
+FE_LinkFishing1_Quit::
 	ld a, $00
 	call FE_PlaySong
-	jp Func_f2_7987.jump_79a7
+	jp FE_RestorePalette7.jump_79a7
 
 
-Func_f2_73c9::
+FE_Link_ExchangeSettings::
 	ld de, $cf80
 	ld a, [bc]
 	inc bc
@@ -4722,19 +4722,19 @@ Func_f2_73c9::
 	ld a, BANK(FE_EnableInterrupts_SerialFlag)
 	ld hl, FE_EnableInterrupts_SerialFlag
 	call FarCall_A_HL
-	call Func_f2_7640
+	call FE_LinkMenu
 	ld a, BANK(FE_ClearBGMap)
 	ld hl, FE_ClearBGMap
 	call FarCall_A_HL
-	call Func_f2_78fd
+	call FE_Link_ExchangeChoices
 	ld a, BANK(FE_FadeOutScreen_NoInput)
 	ld hl, FE_FadeOutScreen_NoInput
 	call FarCall_A_HL
 	ld a, [$c96e]
 	cp $03
-	jp z, Func_f2_752f.jump_7532
+	jp z, FE_LinkFishing2_Start.jump_7532
 	ld a, $00
-	call Func_f2_75d0
+	call FE_Link_Nop
 	di
 	xor a
 	ldh [rIF], a
@@ -4780,7 +4780,7 @@ Func_f2_73c9::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_74dd::
+FE_LinkFishing2_Return::
 	di
 	xor a
 	ldh [rIF], a
@@ -4809,10 +4809,10 @@ Func_f2_74dd::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_7503::
+FE_LinkFishing2_AfterGame::
 	ld a, h
 	cp $00
-	jp nz, Func_f2_7987.jump_79ea
+	jp nz, FE_RestorePalette7.jump_79ea
 	ld a, [$c96c]
 	add a, $07
 	ld l, a
@@ -4830,22 +4830,22 @@ Func_f2_7503::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f2_6c5a)
+	ld a, HIGH(FE_LinkGameResults)
 	push af
 	inc sp
-	ld a, LOW(Func_f2_6c5a)
+	ld a, LOW(FE_LinkGameResults)
 	push af
 	inc sp
-	ld a, BANK(Func_f2_6c5a)
+	ld a, BANK(FE_LinkGameResults)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_752f::
-	jp Func_f2_7987.jump_79a7
+FE_LinkFishing2_Start::
+	jp FE_RestorePalette7.jump_79a7
 
 .jump_7532:
 	ld a, $01
-	call Func_f2_75d0
+	call FE_Link_Nop
 	ld a, $00
 	call FE_PlaySong
 	di
@@ -4886,8 +4886,8 @@ Func_f2_752f::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_7576::
-	call Func_f2_73c9
+FE_LinkFishing2_Restore::
+	call FE_Link_ExchangeSettings
 	di
 	xor a
 	ldh [rIF], a
@@ -4916,10 +4916,10 @@ Func_f2_7576::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_759f::
+FE_LinkFishing2_Results::
 	ld a, h
 	cp $00
-	jp nz, Func_f2_7987.jump_79ea
+	jp nz, FE_RestorePalette7.jump_79ea
 	ld bc, $cf80
 	ld a, $75
 	push af
@@ -4935,27 +4935,27 @@ Func_f2_759f::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f2_6a5a)
+	ld a, HIGH(FE_LinkFishingResults)
 	push af
 	inc sp
-	ld a, LOW(Func_f2_6a5a)
+	ld a, LOW(FE_LinkFishingResults)
 	push af
 	inc sp
-	ld a, BANK(Func_f2_6a5a)
+	ld a, BANK(FE_LinkFishingResults)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_75c8::
+FE_LinkFishing2_Quit::
 	ld a, $00
 	call FE_PlaySong
-	jp Func_f2_7987.jump_79a7
+	jp FE_RestorePalette7.jump_79a7
 
 
-Func_f2_75d0::
+FE_Link_Nop::
 	ret
 
 
-Func_f2_75d1::
+FE_Link_ShowScreen::
 	push af
 	ld a, BANK(FE_EnableInterrupts_Plain)
 	ld hl, FE_EnableInterrupts_Plain
@@ -5012,11 +5012,11 @@ Func_f2_75d1::
 	ret
 
 
-Func_f2_7640::
+FE_LinkMenu::
 	ldh a, [$ff9a]
 	inc a
 	ldh [$ff9a], a
-	call Func_f2_765f
+	call FE_LinkMenu_Input
 	ld a, [$c96c]
 	ld hl, $c970
 	ld c, a
@@ -5024,14 +5024,14 @@ Func_f2_7640::
 	add hl, bc
 	ld a, [hli]
 	cp $fe
-	jr z, Func_f2_7640
+	jr z, FE_LinkMenu
 	cp $ff
 	ret z
-	call Func_f2_76a2
-	jr Func_f2_7640
+	call FE_LinkMenu_Select
+	jr FE_LinkMenu
 
 
-Func_f2_765f::
+FE_LinkMenu_Input::
 	ld a, BANK(FE_ReadJoypadHeld_Link)
 	ld hl, FE_ReadJoypadHeld_Link
 	call FarCall_A_HL
@@ -5051,17 +5051,17 @@ Func_f2_765f::
 .jump_7683:
 	ldh a, [$ff91]
 	and $09
-	call nz, Func_f2_769b
+	call nz, FE_LinkMenu_IgnoreOther
 	ldh a, [$ff91]
 	bit 1, a
-	call nz, Func_f2_7742
+	call nz, FE_LinkMenu_Back
 	ld a, BANK(FE_DrawMenu)
 	ld hl, FE_DrawMenu
 	call FarCall_A_HL
-	jr Func_f2_765f
+	jr FE_LinkMenu_Input
 
 
-Func_f2_769b::
+FE_LinkMenu_IgnoreOther::
 	ldh a, [$ff91]
 	and $f6
 	ret nz
@@ -5069,7 +5069,7 @@ Func_f2_769b::
 	ret
 
 
-Func_f2_76a2::
+FE_LinkMenu_Select::
 	ld a, [$c96c]
 	ld hl, $c970
 	ld c, a
@@ -5144,7 +5144,7 @@ Func_f2_76a2::
 	ret
 
 
-Func_f2_7742::
+FE_LinkMenu_Back::
 	ld a, [$c96e]
 	cp $03
 	jr z, .jump_7752
@@ -5199,7 +5199,7 @@ Func_f2_7742::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_77a0::
+FE_Link_StartHandshake::
 	xor a
 	ldh [$ffb1], a
 	ldh [$ffac], a
@@ -5221,21 +5221,21 @@ Func_f2_77a0::
 	ret
 
 
-Func_f2_77c5::
+FE_Link_WaitForPartner::
 	ldh a, [rSTAT]
 	and $03
 	dec a
-	jr z, Func_f2_77c5
+	jr z, FE_Link_WaitForPartner
 .jump_77cc:
 	ldh a, [rSTAT]
 	and $03
 	dec a
 	jr nz, .jump_77cc
-	call Func_f2_7987
+	call FE_RestorePalette7
 	ld hl, $ff9a
 	inc [hl]
 	bit 4, [hl]
-	call nz, Func_f2_7971
+	call nz, FE_ClearPalette7
 	ld a, BANK(FE_ReadJoypadPressed)
 	ld hl, FE_ReadJoypadPressed
 	call FarCall_A_HL
@@ -5254,7 +5254,7 @@ Func_f2_77c5::
 	ldh [rSC], a
 	ld a, $82
 	ldh [rSC], a
-	jr Func_f2_77c5
+	jr FE_Link_WaitForPartner
 
 .jump_7804:
 	ld a, $01
@@ -5282,7 +5282,7 @@ Func_f2_77c5::
 	ldh [rSC], a
 	ld a, $82
 	ldh [rSC], a
-	jr Func_f2_77c5
+	jr FE_Link_WaitForPartner
 
 .jump_7831:
 	ld a, BANK(FE_EnableInterrupts_Plain)
@@ -5335,7 +5335,7 @@ Func_f2_77c5::
 	ret
 
 
-Func_f2_78ae::
+FE_Link_ExchangeByte::
 	xor a
 	ldh [$ffab], a
 .jump_78b1:
@@ -5381,18 +5381,18 @@ Func_f2_78ae::
 	ld a, BANK(FE_ClearGradientColours)
 	ld hl, FE_ClearGradientColours
 	call FarCall_A_HL
-	jp Func_f2_7a1c
+	jp FE_Link_Disconnected
 
 
-Func_f2_78fd::
+FE_Link_ExchangeChoices::
 	ld a, [$c96e]
 	ld b, a
 	ld c, $03
-	call Func_f2_78ae
+	call FE_Link_ExchangeByte
 	ld a, [$c96c]
 	ld b, a
 	ld c, $03
-	call Func_f2_78ae
+	call FE_Link_ExchangeByte
 	ldh a, [$ff9a]
 	ld b, a
 	ld a, BANK(FE_SeedRandom)
@@ -5405,7 +5405,7 @@ Func_f2_78fd::
 	push af
 	ld b, a
 	ld c, $03
-	call Func_f2_78ae
+	call FE_Link_ExchangeByte
 	ld b, $2c
 	ld a, BANK(FE_RandomBelow)
 	ld hl, FE_RandomBelow
@@ -5415,29 +5415,29 @@ Func_f2_78fd::
 	ld a, b
 	ldh [$ff95], a
 	ld c, $03
-	call Func_f2_78ae
+	call FE_Link_ExchangeByte
 	pop af
 	ldh [$ff94], a
 	ret
 
 
-Func_f2_7943::
+FE_Link_AgreeOnChoices::
 	ld hl, $ff9d
-	call Func_f2_7966
+	call FE_Link_MajorityOfThree
 	ld [$c96e], a
 	ld hl, $ffa0
-	call Func_f2_7966
+	call FE_Link_MajorityOfThree
 	ld [$c96c], a
 	ld hl, $ffa3
-	call Func_f2_7966
+	call FE_Link_MajorityOfThree
 	ldh [$ff94], a
 	ld hl, $ffa6
-	call Func_f2_7966
+	call FE_Link_MajorityOfThree
 	ldh [$ff95], a
 	ret
 
 
-Func_f2_7966::
+FE_Link_MajorityOfThree::
 	ld a, [hli]
 	ld b, a
 	ld a, [hli]
@@ -5451,7 +5451,7 @@ Func_f2_7966::
 	ret
 
 
-Func_f2_7971::
+FE_ClearPalette7::
 	ld a, $b8
 	ldh [rBCPS], a
 	xor a
@@ -5466,7 +5466,7 @@ Func_f2_7971::
 	ret
 
 
-Func_f2_7987::
+FE_RestorePalette7::
 	ld hl, $c83e
 	ld a, $b8
 	ldh [rBCPS], a
@@ -5505,7 +5505,7 @@ Func_f2_7987::
 	ldh [$ffaa], a
 	ldh a, [$ffad]
 	cp $bb
-	jp z, Func_f2_70bd.jump_71c7
+	jp z, FE_Link.jump_71c7
 	ld a, $01
 	ldh [rSVBK], a
 	ld a, BANK(FE_AskSure_FromF2)
@@ -5517,7 +5517,7 @@ Func_f2_7987::
 	ld a, [$c994]
 	cp $01
 	jr z, .jump_79ea
-	jp Func_f2_73c9.jump_73eb
+	jp FE_Link_ExchangeSettings.jump_73eb
 
 .jump_79ea:
 	ld a, $77
@@ -5553,7 +5553,7 @@ Func_f2_7987::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_7a1c::
+FE_Link_Disconnected::
 	ld a, $87
 	ldh [rLCDC], a
 	ld a, BANK(FE_EnableInterrupts_Plain)
@@ -5591,7 +5591,7 @@ Func_f2_7a1c::
 	jp RestoreBankAndReturn.jump_3fdc
 
 
-Func_f2_7a5b::
+FE_Padding_F2::
 	nop
 	nop
 	nop

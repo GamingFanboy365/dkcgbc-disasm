@@ -201,13 +201,13 @@ FE_CallF2_6c5a::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f2_6c5a)
+	ld a, HIGH(FE_LinkGameResults)
 	push af
 	inc sp
-	ld a, LOW(Func_f2_6c5a)
+	ld a, LOW(FE_LinkGameResults)
 	push af
 	inc sp
-	ld a, BANK(Func_f2_6c5a)
+	ld a, BANK(FE_LinkGameResults)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -318,8 +318,8 @@ FE_ShowCrankyUnlocked::
 	ldh a, [$ff80]
 	cp $01
 	jr nz, .jump_4238
-	ld a, BANK(Func_f2_7987)
-	ld hl, Func_f2_7987
+	ld a, BANK(FE_RestorePalette7)
+	ld hl, FE_RestorePalette7
 	call FarCall_A_HL
 	ld a, BANK(FE_ReadJoypadHeld)
 	ld hl, FE_ReadJoypadHeld
@@ -1978,8 +1978,8 @@ FE_ViewItems_Start::
 
 
 FE_Alphabet_Start::
-	ld a, BANK(Func_f2_4000)
-	ld hl, Func_f2_4000
+	ld a, BANK(FE_Alphabet)
+	ld hl, FE_Alphabet
 	call FarCall_A_HL
 	ret
 
@@ -2207,8 +2207,8 @@ FE_AfterBonusGame::
 	jr nz, FE_ReturnToMenu
 	push de
 	push bc
-	ld a, BANK(Func_f2_6b67)
-	ld hl, Func_f2_6b67
+	ld a, BANK(FE_BonusGameResults)
+	ld hl, FE_BonusGameResults
 	call FarCall_A_HL
 	ld a, $00
 	call FE_PlaySong
@@ -2276,8 +2276,8 @@ FE_HiScore_Return::
 
 
 FE_ReturnToMenu::
-	ld a, BANK(Func_f2_701a)
-	ld hl, Func_f2_701a
+	ld a, BANK(FE_RestartFrontEnd)
+	ld hl, FE_RestartFrontEnd
 	call FarCall_A_HL
 	ret
 
@@ -2327,8 +2327,8 @@ FE_RestoreAndReturnToMenu::
 	ld a, BANK(FE_RestoreState)
 	ld hl, FE_RestoreState
 	call FarCall_A_HL
-	ld a, BANK(Func_f2_701a)
-	ld hl, Func_f2_701a
+	ld a, BANK(FE_RestartFrontEnd)
+	ld hl, FE_RestartFrontEnd
 	call FarCall_A_HL
 	ret
 
@@ -2390,18 +2390,18 @@ FE_ReturnToMenuFromLink::
 	call FarCall_A_HL
 	ld a, [$c96c]
 	ld e, a
-	ld a, BANK(Func_f2_6c5a)
-	ld hl, Func_f2_6c5a
+	ld a, BANK(FE_LinkGameResults)
+	ld hl, FE_LinkGameResults
 	call FarCall_A_HL
-	ld a, BANK(Func_f2_701a)
-	ld hl, Func_f2_701a
+	ld a, BANK(FE_RestartFrontEnd)
+	ld hl, FE_RestartFrontEnd
 	call FarCall_A_HL
 	ret
 
 
 FE_Link_Start::
-	ld a, BANK(Func_f2_70bd)
-	ld hl, Func_f2_70bd
+	ld a, BANK(FE_Link)
+	ld hl, FE_Link
 	call FarCall_A_HL
 	ret
 
@@ -2503,8 +2503,8 @@ FE_CopyTo_Confirm::
 
 
 FE_MakeFlag_Start::
-	ld a, BANK(Func_f2_43cb)
-	ld hl, Func_f2_43cb
+	ld a, BANK(FE_MakeFlag)
+	ld hl, FE_MakeFlag
 	call FarCall_A_HL
 	ret
 
@@ -6297,8 +6297,8 @@ FE_StickerBook::
 	call FE_FadeToColours
 	ld a, $04
 	ld [$c981], a
-	ld a, BANK(Func_f2_6760)
-	ld hl, Func_f2_6760
+	ld a, BANK(FE_IR_Init)
+	ld hl, FE_IR_Init
 	call FarCall_A_HL
 	call FE_StickerBook_Input
 	ld a, $00
@@ -7578,8 +7578,8 @@ FE_IR_Receive::
 	ret
 
 .jump_78e0:
-	ld a, BANK(Func_f2_67b6)
-	ld hl, Func_f2_67b6
+	ld a, BANK(FE_IR_ReceiveHandshake)
+	ld hl, FE_IR_ReceiveHandshake
 	call FarCall_A_HL
 	ld a, [$dd1f]
 	cp $aa
@@ -7599,13 +7599,13 @@ FE_IR_Receive::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f2_6932)
+	ld a, HIGH(FE_IR_ReceivePacket)
 	push af
 	inc sp
-	ld a, LOW(Func_f2_6932)
+	ld a, LOW(FE_IR_ReceivePacket)
 	push af
 	inc sp
-	ld a, BANK(Func_f2_6932)
+	ld a, BANK(FE_IR_ReceivePacket)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -7655,8 +7655,8 @@ FE_IR_Send::
 	ret
 
 .jump_796a:
-	ld a, BANK(Func_f2_6802)
-	ld hl, Func_f2_6802
+	ld a, BANK(FE_IR_SendHandshake)
+	ld hl, FE_IR_SendHandshake
 	call FarCall_A_HL
 	ld a, [$dd1f]
 	cp $aa
@@ -7677,13 +7677,13 @@ FE_IR_Send::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_f2_6859)
+	ld a, HIGH(FE_IR_SendPacket)
 	push af
 	inc sp
-	ld a, LOW(Func_f2_6859)
+	ld a, LOW(FE_IR_SendPacket)
 	push af
 	inc sp
-	ld a, BANK(Func_f2_6859)
+	ld a, BANK(FE_IR_SendPacket)
 	jp RestoreBankAndReturn.jump_3fdc
 
 
@@ -8297,15 +8297,15 @@ FE_LanguageSelect_Input::
 	ldh a, [$ff91]
 	bit 4, a
 	jr z, .jump_7d15
-	ld a, BANK(Func_f2_4d7a)
-	ld hl, Func_f2_4d7a
+	ld a, BANK(FE_TurnChoiceRight)
+	ld hl, FE_TurnChoiceRight
 	call FarCall_A_HL
 .jump_7d15:
 	ldh a, [$ff91]
 	bit 5, a
 	jr z, .jump_7d23
-	ld a, BANK(Func_f2_4dc4)
-	ld hl, Func_f2_4dc4
+	ld a, BANK(FE_TurnChoiceLeft)
+	ld hl, FE_TurnChoiceLeft
 	call FarCall_A_HL
 .jump_7d23:
 	ldh a, [$ff91]

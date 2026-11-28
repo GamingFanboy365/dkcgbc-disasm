@@ -378,6 +378,10 @@ FISHING_RAM_NAMES = {
     0xCCA5: "Fishing_VBlank",            # updates the sound
     0xCCC0: "Fishing_STATScroll",        # scroll split at lines $2a and $3f
     0xCCE2: "Fishing_SampleTimer",       # one sample byte to NR50 per tick
+    # operands the game rewrites inside that code
+    0xCCDE: "Fishing_STATPatch",         # 2 bytes of Fishing_STATScroll, set to nop nop when samples stop
+    0xCCE3: "Fishing_SampleBank",        # operand of Fishing_SampleTimer's ld a, n (the sample's bank)
+    0xCCE8: "Fishing_SamplePos",         # operand of its ld a, [nn] (next sample byte)
 }
 
 RAM_CODE = [

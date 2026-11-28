@@ -153,7 +153,7 @@ Fishing_DrawAnimFrame::
 Fishing_AllocOAM::
 	push bc
 	push hl
-	ld hl, $ffd3
+	ld hl, hFishing_OAMPos
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -168,26 +168,26 @@ Fishing_AllocOAM::
 	cp $a0
 	jr c, .jump_40d4
 .jump_40d4:
-	ldh [$ffd3], a
+	ldh [hFishing_OAMPos], a
 	ld a, h
 	cp $ca
 	jr c, .jump_40db
 .jump_40db:
-	ldh [$ffd4], a
+	ldh [hFishing_OAMPos + 1], a
 	pop hl
 	pop bc
-	ldh a, [$ffd5]
+	ldh a, [hFishing_TileCount]
 	ld c, a
 	ld a, b
 	sla a
 	add a, c
-	ldh [$ffd5], a
+	ldh [hFishing_TileCount], a
 	ret
 
 
 Fishing_AllocTileBuffer::
 	push bc
-	ld hl, $ffd6
+	ld hl, hFishing_TileBufferPos
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -200,12 +200,12 @@ Fishing_AllocTileBuffer::
 	add hl, hl
 	add hl, de
 	ld a, l
-	ldh [$ffd6], a
+	ldh [hFishing_TileBufferPos], a
 	ld a, h
 	cp $d8
 	jr c, .jump_4101
 .jump_4101:
-	ldh [$ffd7], a
+	ldh [hFishing_TileBufferPos + 1], a
 	ld l, e
 	ld h, d
 	pop bc
@@ -213,19 +213,19 @@ Fishing_AllocTileBuffer::
 
 
 Fishing_WriteSprites::
-	ld a, [$c8a4]
+	ld a, [wFishing_TileBufferHalf]
 	xor $04
 	add a, a
 	add a, a
 	add a, a
 	add a, a
 	add a, c
-	ldh [$ffcb], a
+	ldh [hFishing_Scratch + 3], a
 	ld a, b
-	ldh [$ffcc], a
-	ldh a, [$ffc8]
+	ldh [hFishing_Scratch + 4], a
+	ldh a, [hFishing_Scratch]
 	ld c, a
-	ldh a, [$ffc9]
+	ldh a, [hFishing_Scratch + 1]
 	ld b, a
 .jump_411c:
 	ld a, [hli]
@@ -239,18 +239,18 @@ Fishing_WriteSprites::
 	ld a, c
 	ld [de], a
 	inc e
-	ldh a, [$ffcb]
+	ldh a, [hFishing_Scratch + 3]
 	ld [de], a
 	inc e
 	add a, $02
-	ldh [$ffcb], a
-	ldh a, [$ffca]
+	ldh [hFishing_Scratch + 3], a
+	ldh a, [hFishing_Scratch + 2]
 	or $08
 	ld [de], a
 	inc e
-	ldh a, [$ffcc]
+	ldh a, [hFishing_Scratch + 4]
 	dec a
-	ldh [$ffcc], a
+	ldh [hFishing_Scratch + 4], a
 	jr nz, .jump_411c
 	ret
 
@@ -358,19 +358,19 @@ Fishing_CopyFrameTiles::
 
 
 Fishing_BeginFrame::
-	ld a, [$c8a4]
+	ld a, [wFishing_TileBufferHalf]
 	xor $04
 	ld d, a
 	srl a
 	srl a
-	ld bc, $c800
+	ld bc, wFishing_OAMBuffer
 	add a, b
-	ld hl, $ffd4
+	ld hl, hFishing_OAMPos + 1
 	ld [hld], a
 	ld [hl], c
 	xor a
-	ldh [$ffd5], a
-	ld hl, $ffd6
+	ldh [hFishing_TileCount], a
+	ld hl, hFishing_TileBufferPos
 	ld [hli], a
 	ld a, d
 	and $0f

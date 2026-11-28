@@ -94,6 +94,9 @@ DEF Fishing_PlaySample         EQU $cc4e
 DEF Fishing_PlaySong           EQU $cc91
 DEF Fishing_VBlank             EQU $cca5
 DEF Fishing_STATScroll         EQU $ccc0
+DEF Fishing_STATPatch          EQU $ccde
 DEF Fishing_SampleTimer        EQU $cce2
+DEF Fishing_SampleBank         EQU $cce3
+DEF Fishing_SamplePos          EQU $cce8
 
 ENDC

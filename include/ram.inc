@@ -1,8 +1,9 @@
 ; RAM variables (generated from tools/ramnames.py).
 ; The main game, the front end (banks $F0-$FE) and Funky's Fishing
 ; (banks $50+) each have their own memory map: w/h names are the main
-; game's, wFE_/hFE_ the front end's and wCranky_/hCranky_ Crosshair
-; Cranky's. Save RAM (s) means the same to all of them.
+; game's, wFE_/hFE_ the front end's, wCranky_/hCranky_ Crosshair
+; Cranky's and wFishing_/hFishing_ Funky's Fishing's. Save RAM (s)
+; means the same to all of them.
 
 IF !DEF(RAM_INC)
 DEF RAM_INC EQU 1
@@ -344,6 +345,131 @@ DEF hCranky_LinkRole       EQU $ffd3 ; $66 or $bb
 DEF hCranky_LinkMode       EQU $ffd4 ; $bb while playing by link
 DEF hCranky_LinkReceivePos EQU $ffd6 ; (2 bytes) where the next packet goes
 DEF hCranky_LinkDelay      EQU $ffd8
+
+; Funky's Fishing (banks $50-$52)
+DEF wFishing_OAMBuffer     EQU $c800 ; (160 bytes) sprites built during the frame (Fishing_CopyOAM)
+DEF wFishing_LinkFrameIn   EQU $c8a0 ; frame number in the last packet from the other Game Boy
+DEF wFishing_LinkFrameOut  EQU $c8a1 ; frame number sent
+DEF wFishing_LinkTimeout   EQU $c8a2 ; frames left to wait for the other Game Boy ($1e)
+DEF wFishing_PartnerFlags  EQU $c8a3 ; flags received from the other Game Boy (tentative)
+DEF wFishing_TileBufferHalf EQU $c8a4 ; which half of the sprite tile buffer is streamed to VRAM by HDMA
+DEF wFishing_PauseCursor   EQU $c8a5 ; pause menu option (CONTINUE, QUIT?)
+DEF wFishing_PauseConfirm  EQU $c8a6 ; QUIT? answer
+DEF wFishing_PartnerPaused EQU $c8a9 ; the other player has paused
+DEF wFishing_FrameReady    EQU $c8aa ; set when a frame's VBlank work is done (tentative)
+DEF wFishing_Palettes      EQU $c9a0 ; (96 bytes) palettes being faded (Fishing_FadePalettes)
+DEF wFishing_LinkBuffer    EQU $ca00 ; (256 bytes) link packets (tentative)
+DEF wFishing_StackTop      EQU $cffb
+DEF wFishing_BGPalettes    EQU $d800 ; (128 bytes) palettes a fade goes to: BG, then OBJ at $d880
+DEF wFishing_OBJPalettes   EQU $d880 ; (128 bytes) 
+DEF wFishing_FadeWork      EQU $d900 ; (96 bytes) (tentative)
+DEF wFishing_InitArg       EQU $d960 ; (2 bytes) bc given to Fishing_Init
+DEF wFishing_StartArg      EQU $d962 ; (2 bytes) de given to Fishing_Start (tentative)
+DEF wFishing_Product       EQU $d964 ; (4 bytes) Fishing_MultiplySigned and Fishing_Multiply16's result
+DEF wFishing_Multiplier    EQU $d968 ; (2 bytes) 
+DEF wFishing_ProductSign   EQU $d96a ; bit 7: negative
+DEF wFishing_FrameCounter  EQU $d96c
+DEF wFishing_RandomState   EQU $d96d ; (3 bytes) Fishing_RandomRange's state
+DEF wFishing_JoyHeld       EQU $dd6f ; buttons held (Fishing_ReadJoypad)
+DEF wFishing_JoyPressed    EQU $dd70 ; buttons newly pressed
+DEF wFishing_Unused_dd73   EQU $dd73 ; (2 bytes) cleared by Fishing_Init, never read
+DEF wFishing_RodX          EQU $dd75 ; tip of the rod
+DEF wFishing_RodY          EQU $dd76
+DEF wFishing_HookX         EQU $dd77
+DEF wFishing_HookY         EQU $dd78
+DEF wFishing_HookTargetX   EQU $dd79 ; where the line is reeled in to
+DEF wFishing_HookXSpeed    EQU $dd7a ; (2 bytes) 
+DEF wFishing_HookYSpeed    EQU $dd7c ; (2 bytes) 
+DEF wFishing_Reeling       EQU $dd7e ; set while the hook is reeled in
+DEF wFishing_HookInWater   EQU $dd7f
+DEF wFishing_HookState     EQU $dd80 ; 0: on the rod (tentative)
+DEF wFishing_FunkyAnim     EQU $dd81 ; (12 bytes) Funky's animation (Fishing_SetAnim): +8 x, +$a y
+DEF wFishing_RodAnim       EQU $dd8d ; (12 bytes) the rod's animation
+DEF wFishing_HookAnim      EQU $dd99 ; (12 bytes) the hook's animation
+DEF wFishing_CastState     EQU $dda5 ; (3 bytes) casting: power and direction (tentative)
+DEF wFishing_Fish          EQU $dda8 ; (128 bytes) eight fish slots of 16 bytes (Fishing_SpawnFish, Fishing_MoveFish)
+DEF wFishing_FishCount     EQU $de28 ; fish swimming
+DEF wFishing_LineState     EQU $de29 ; (3 bytes) line and hook flags (tentative)
+DEF wFishing_Hooked        EQU $de2c ; (96 bytes) fish on the hook, rising with the line; $ff = empty
+DEF wFishing_HookedCount   EQU $de8c
+DEF wFishing_Catch         EQU $de8d ; (8 bytes) kinds of the fish in this catch; $ff = none
+DEF wFishing_CatchCount    EQU $de95
+DEF wFishing_CatchByKind   EQU $de96 ; (5 bytes) fish of each kind in this catch, for combos
+DEF wFishing_Score         EQU $de9b ; (4 bytes) score (BCD, lowest byte first)
+DEF wFishing_ScoreDigits   EQU $de9f ; (4 bytes) score digits being drawn
+DEF wFishing_PointsToAdd   EQU $dea3
+DEF wFishing_PartnerScore  EQU $dea4 ; (5 bytes) link play: the other player's score (and a flag before it)
+DEF wFishing_ScoreRow      EQU $dea9 ; (8 bytes) tiles of the score row, uploaded by Fishing_UploadScoreRow
+DEF wFishing_Meter         EQU $deb1 ; line meter; it rises with catches and falls over time
+DEF wFishing_PartnerMeter  EQU $deb2 ; link play: the other player's meter
+DEF wFishing_MeterStart    EQU $deb3 ; the meter's value at the start of the level
+DEF wFishing_MeterRow      EQU $deb4 ; (10 bytes) tiles of the meter
+DEF wFishing_PartnerMeterRow EQU $debe ; (10 bytes) 
+DEF wFishing_WaterScroll   EQU $dec8 ; (6 bytes) water scroll positions and speeds (Fishing_ScrollWater)
+DEF wFishing_LinkPacketIn  EQU $dece ; set when a packet has arrived
+DEF wFishing_PauseFade     EQU $ded0
+DEF wFishing_PauseTextPos  EQU $ded1 ; (2 bytes) 
+DEF wFishing_Unused_ded3   EQU $ded3 ; (2 bytes) set by Fishing_InitPause, never read
+DEF wFishing_MeterTimer    EQU $ded5
+DEF wFishing_LevelMeter    EQU $ded6 ; meter value the level starts with
+DEF wFishing_PointsByKind  EQU $ded7 ; (5 bytes) points for each fish kind
+DEF wFishing_HookedKind    EQU $dedc ; kind of the fish being scored (tentative)
+DEF wFishing_HookTimer     EQU $dedd
+DEF wFishing_SampleMeter   EQU $dede ; meter level the last speech sample was played for
+DEF wFishing_Combo         EQU $dedf ; combo picked by Fishing_ComboByCount
+DEF wFishing_ComboKind     EQU $dee0
+DEF wFishing_ComboTextTimer EQU $dee1 ; frames the combo text stays
+DEF wFishing_ComboText     EQU $dee2 ; (5 bytes) combo text tiles
+DEF wFishing_LinkCombo     EQU $dee7 ; (5 bytes) link play: the combo shown to the other player
+DEF wFishing_MessagePointer EQU $deec ; (2 bytes) message that blinks between levels
+DEF wFishing_MessageTimers EQU $deee ; (4 bytes) 
+DEF wFishing_MessageTiles  EQU $def2 ; (8 bytes) 
+DEF wFishing_Level         EQU $defa
+DEF wFishing_LevelMeters   EQU $defb ; (9 bytes) meter start of each level ($46, $41, ..., $1e)
+DEF wFishing_LinkComboSprite EQU $df04 ; (12 bytes) link play: the combo sprite
+DEF wFishing_EndState      EQU $df10 ; (5 bytes) end of the game: who finished, and the meter drain in link play
+DEF wFishing_WaterAnim     EQU $df15 ; (9 bytes) water tile animation (Fishing_AnimateWater)
+DEF wFishing_PauseWindow   EQU $df1e ; (12 bytes) pause window size and position
+DEF wFishing_PauseText     EQU $df2a ; (66 bytes) the pause menu's lines, $0b bytes each
+DEF wFishing_PauseCursorPos EQU $df6c ; (2 bytes) 
+DEF wFishing_PauseTextInfo EQU $df6e ; (6 bytes) 
+DEF wFishing_Unused_df74   EQU $df74 ; (2 bytes) cleared by Fishing_Init, never read
+DEF wFishing_Fanfare       EQU $df76 ; a fanfare is playing (Fishing_StartFanfare)
+DEF wFishing_Reached500    EQU $df77 ; the score has passed 500
+DEF wFishing_SpawnTimer    EQU $df78 ; (3 bytes) frames to the next fish, and how many may swim
+DEF wFishing_PartnerState  EQU $df7b ; link play: the other player's state
+DEF hFishing_LinkOut       EQU $ff8a ; (16 bytes) packet sent to the other Game Boy
+DEF hFishing_LinkInA       EQU $ff9a ; (16 bytes) packet received; checksum in its last word
+DEF hFishing_LinkInB       EQU $ffaa ; (16 bytes) second receive buffer
+DEF hFishing_LinkLength    EQU $ffba ; bytes in a packet ($10)
+DEF hFishing_LinkPos       EQU $ffbb ; low byte of the next byte to send
+DEF hFishing_LinkLeft      EQU $ffbc ; bytes left
+DEF hFishing_LinkRetries   EQU $ffbd
+DEF hFishing_LinkFlags     EQU $ffbe
+DEF hFishing_LinkBuffer    EQU $ffbf ; receive buffer in use (0 or 1)
+DEF hFishing_SerialDone    EQU $ffc0 ; set by Fishing_SerialHandler
+DEF hFishing_LinkRole      EQU $ffc2 ; b given to Fishing_Start: $ff one player, else the link side
+DEF hFishing_LinkRole2     EQU $ffc3 ; $bb on one side of the link
+DEF hFishing_PacketOK      EQU $ffc4 ; Fishing_LinkCheckPacket's result
+DEF hFishing_ROMBank       EQU $ffc5 ; current ROM bank (Fishing_FarJump keeps it)
+DEF hFishing_VRAMBank      EQU $ffc6 ; rVBK as last set
+DEF hFishing_VBlankDone    EQU $ffc7
+DEF hFishing_Scratch       EQU $ffc8 ; (6 bytes) scratch: numbers being compared, fish records, text
+DEF hFishing_FrameBank     EQU $ffcf ; bank of the routine the runtime calls each frame (tentative)
+DEF hFishing_FrameRoutine  EQU $ffd0 ; (2 bytes) that routine
+DEF hFishing_RuntimeTemp   EQU $ffd2
+DEF hFishing_OAMPos        EQU $ffd3 ; (2 bytes) next free entry in wFishing_OAMBuffer
+DEF hFishing_TileCount     EQU $ffd5 ; sprite tiles to stream this frame
+DEF hFishing_TileBufferPos EQU $ffd6 ; (2 bytes) next free byte in the sprite tile buffer ($d000)
+DEF hFishing_SavedSP       EQU $ffd8 ; (2 bytes) stack pointer at Fishing_Start, restored by Fishing_RestartMainLoop
+DEF hFishing_LinkSynced    EQU $ffda ; the serial handler skips the handshake while it is set (tentative)
+DEF hFishing_Language      EQU $ffdb ; c given to Fishing_Start
+DEF hFishing_SampleFrames  EQU $ffdc ; frames the sample still plays; at 0 the VBlank work stops it
+DEF hFishing_SampleBank    EQU $ffdd ; bank of SampleTable
+DEF hFishing_SampleTable   EQU $ffde ; (2 bytes) 
+DEF hFishing_Scroll        EQU $ffe0 ; (9 bytes) scroll positions and speeds of the water layers (Fishing_InitScroll)
+DEF hFishing_FinalScore    EQU $ffe9 ; (4 bytes) link play: this player's score at the end
+DEF hFishing_FinalPartnerScore EQU $ffed ; (4 bytes) and the other player's
 
 ; Front-end code copied to RAM (FE_RAM_CODE)
 DEF Cranky_SerialHandler   EQU $cc0e

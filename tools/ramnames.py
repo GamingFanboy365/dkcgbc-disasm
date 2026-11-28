@@ -291,8 +291,9 @@ def write_inc(path):
     out = ["; RAM variables (generated from tools/ramnames.py).\n",
            "; The main game, the front end (banks $F0-$FE) and Funky's Fishing\n",
            "; (banks $50+) each have their own memory map: w/h names are the main\n",
-           "; game's, wFE_/hFE_ the front end's and wCranky_/hCranky_ Crosshair\n",
-           "; Cranky's. Save RAM (s) means the same to all of them.\n\n",
+           "; game's, wFE_/hFE_ the front end's, wCranky_/hCranky_ Crosshair\n",
+           "; Cranky's and wFishing_/hFishing_ Funky's Fishing's. Save RAM (s)\n",
+           "; means the same to all of them.\n\n",
            "IF !DEF(RAM_INC)\nDEF RAM_INC EQU 1\n"]
 
     written = set()
@@ -311,6 +312,7 @@ def write_inc(path):
     block("Front end (banks $F0-$FE): shared by the menus and Crosshair Cranky", FE_COMMON + FE_COMMON_HRAM)
     block("Front end: the menus (banks $F0-$F4)", FE_MENUS + FE_MENUS_HRAM)
     block("Crosshair Cranky (banks $F5, $FE)", CRANKY + CRANKY_HRAM)
+    block("Funky's Fishing (banks $50-$52)", FISHING + FISHING_HRAM)
     out.append("\n; Front-end code copied to RAM (FE_RAM_CODE)\n")
     for a, n in sorted(list(FE_RAM_CODE.items()) + list(CRANKY_RAM_CODE.items())):
         out.append("DEF %-22s EQU $%04x\n" % (n, a))
@@ -606,3 +608,143 @@ def fe_lookup(v, bank):
     if bank in CRANKY_BANKS:
         return CRANKY_TABLE.get(v)
     return FE_MENU_TABLE.get(v)
+
+
+# ---------------------------------------------------------------------------
+# Funky's Fishing (code in banks $50-$52). Its own memory map again; its
+# runtime in RAM ($cb00-$ccf9) is named in hints.FISHING_RAM_NAMES.
+FISHING = [
+    (0xC800, 0xA0, "wFishing_OAMBuffer", "sprites built during the frame (Fishing_CopyOAM)"),
+    (0xC8A0, 1, "wFishing_LinkFrameIn", "frame number in the last packet from the other Game Boy"),
+    (0xC8A1, 1, "wFishing_LinkFrameOut", "frame number sent"),
+    (0xC8A2, 1, "wFishing_LinkTimeout", "frames left to wait for the other Game Boy ($1e)"),
+    (0xC8A3, 1, "wFishing_PartnerFlags", "flags received from the other Game Boy (tentative)"),
+    (0xC8A4, 1, "wFishing_TileBufferHalf", "which half of the sprite tile buffer is streamed to VRAM by HDMA"),
+    (0xC8A5, 1, "wFishing_PauseCursor", "pause menu option (CONTINUE, QUIT?)"),
+    (0xC8A6, 1, "wFishing_PauseConfirm", "QUIT? answer"),
+    (0xC8A9, 1, "wFishing_PartnerPaused", "the other player has paused"),
+    (0xC8AA, 1, "wFishing_FrameReady", "set when a frame's VBlank work is done (tentative)"),
+    (0xC9A0, 0x60, "wFishing_Palettes", "palettes being faded (Fishing_FadePalettes)"),
+    (0xCA00, 0x100, "wFishing_LinkBuffer", "link packets (tentative)"),
+    (0xCFFB, 0, "wFishing_StackTop", ""),
+    (0xD800, 0x80, "wFishing_BGPalettes", "palettes a fade goes to: BG, then OBJ at $d880"),
+    (0xD880, 0x80, "wFishing_OBJPalettes", ""),
+    (0xD900, 0x60, "wFishing_FadeWork", "(tentative)"),
+    (0xD960, 2, "wFishing_InitArg", "bc given to Fishing_Init"),
+    (0xD962, 2, "wFishing_StartArg", "de given to Fishing_Start (tentative)"),
+    (0xD964, 4, "wFishing_Product", "Fishing_MultiplySigned and Fishing_Multiply16's result"),
+    (0xD968, 2, "wFishing_Multiplier", ""),
+    (0xD96A, 1, "wFishing_ProductSign", "bit 7: negative"),
+    (0xD96C, 1, "wFishing_FrameCounter", ""),
+    (0xD96D, 3, "wFishing_RandomState", "Fishing_RandomRange's state"),
+    (0xDD6F, 1, "wFishing_JoyHeld", "buttons held (Fishing_ReadJoypad)"),
+    (0xDD70, 1, "wFishing_JoyPressed", "buttons newly pressed"),
+    (0xDD73, 2, "wFishing_Unused_dd73", "cleared by Fishing_Init, never read"),
+    (0xDD75, 1, "wFishing_RodX", "tip of the rod"),
+    (0xDD76, 1, "wFishing_RodY", ""),
+    (0xDD77, 1, "wFishing_HookX", ""),
+    (0xDD78, 1, "wFishing_HookY", ""),
+    (0xDD79, 1, "wFishing_HookTargetX", "where the line is reeled in to"),
+    (0xDD7A, 2, "wFishing_HookXSpeed", ""),
+    (0xDD7C, 2, "wFishing_HookYSpeed", ""),
+    (0xDD7E, 1, "wFishing_Reeling", "set while the hook is reeled in"),
+    (0xDD7F, 1, "wFishing_HookInWater", ""),
+    (0xDD80, 1, "wFishing_HookState", "0: on the rod (tentative)"),
+    (0xDD81, 12, "wFishing_FunkyAnim", "Funky's animation (Fishing_SetAnim): +8 x, +$a y"),
+    (0xDD8D, 12, "wFishing_RodAnim", "the rod's animation"),
+    (0xDD99, 12, "wFishing_HookAnim", "the hook's animation"),
+    (0xDDA5, 3, "wFishing_CastState", "casting: power and direction (tentative)"),
+    (0xDDA8, 0x80, "wFishing_Fish", "eight fish slots of 16 bytes (Fishing_SpawnFish, Fishing_MoveFish)"),
+    (0xDE28, 1, "wFishing_FishCount", "fish swimming"),
+    (0xDE29, 3, "wFishing_LineState", "line and hook flags (tentative)"),
+    (0xDE2C, 0x60, "wFishing_Hooked", "fish on the hook, rising with the line; $ff = empty"),
+    (0xDE8C, 1, "wFishing_HookedCount", ""),
+    (0xDE8D, 8, "wFishing_Catch", "kinds of the fish in this catch; $ff = none"),
+    (0xDE95, 1, "wFishing_CatchCount", ""),
+    (0xDE96, 5, "wFishing_CatchByKind", "fish of each kind in this catch, for combos"),
+    (0xDE9B, 4, "wFishing_Score", "score (BCD, lowest byte first)"),
+    (0xDE9F, 4, "wFishing_ScoreDigits", "score digits being drawn"),
+    (0xDEA3, 1, "wFishing_PointsToAdd", ""),
+    (0xDEA4, 5, "wFishing_PartnerScore", "link play: the other player's score (and a flag before it)"),
+    (0xDEA9, 8, "wFishing_ScoreRow", "tiles of the score row, uploaded by Fishing_UploadScoreRow"),
+    (0xDEB1, 1, "wFishing_Meter", "line meter; it rises with catches and falls over time"),
+    (0xDEB2, 1, "wFishing_PartnerMeter", "link play: the other player's meter"),
+    (0xDEB3, 1, "wFishing_MeterStart", "the meter's value at the start of the level"),
+    (0xDEB4, 10, "wFishing_MeterRow", "tiles of the meter"),
+    (0xDEBE, 10, "wFishing_PartnerMeterRow", ""),
+    (0xDEC8, 6, "wFishing_WaterScroll", "water scroll positions and speeds (Fishing_ScrollWater)"),
+    (0xDECE, 1, "wFishing_LinkPacketIn", "set when a packet has arrived"),
+    (0xDED0, 1, "wFishing_PauseFade", ""),
+    (0xDED1, 2, "wFishing_PauseTextPos", ""),
+    (0xDED3, 2, "wFishing_Unused_ded3", "set by Fishing_InitPause, never read"),
+    (0xDED5, 1, "wFishing_MeterTimer", ""),
+    (0xDED6, 1, "wFishing_LevelMeter", "meter value the level starts with"),
+    (0xDED7, 5, "wFishing_PointsByKind", "points for each fish kind"),
+    (0xDEDC, 1, "wFishing_HookedKind", "kind of the fish being scored (tentative)"),
+    (0xDEDD, 1, "wFishing_HookTimer", ""),
+    (0xDEDE, 1, "wFishing_SampleMeter", "meter level the last speech sample was played for"),
+    (0xDEDF, 1, "wFishing_Combo", "combo picked by Fishing_ComboByCount"),
+    (0xDEE0, 1, "wFishing_ComboKind", ""),
+    (0xDEE1, 1, "wFishing_ComboTextTimer", "frames the combo text stays"),
+    (0xDEE2, 5, "wFishing_ComboText", "combo text tiles"),
+    (0xDEE7, 5, "wFishing_LinkCombo", "link play: the combo shown to the other player"),
+    (0xDEEC, 2, "wFishing_MessagePointer", "message that blinks between levels"),
+    (0xDEEE, 4, "wFishing_MessageTimers", ""),
+    (0xDEF2, 8, "wFishing_MessageTiles", ""),
+    (0xDEFA, 1, "wFishing_Level", ""),
+    (0xDEFB, 9, "wFishing_LevelMeters", "meter start of each level ($46, $41, ..., $1e)"),
+    (0xDF04, 12, "wFishing_LinkComboSprite", "link play: the combo sprite"),
+    (0xDF10, 5, "wFishing_EndState", "end of the game: who finished, and the meter drain in link play"),
+    (0xDF15, 9, "wFishing_WaterAnim", "water tile animation (Fishing_AnimateWater)"),
+    (0xDF1E, 0x0C, "wFishing_PauseWindow", "pause window size and position"),
+    (0xDF2A, 0x42, "wFishing_PauseText", "the pause menu's lines, $0b bytes each"),
+    (0xDF6C, 2, "wFishing_PauseCursorPos", ""),
+    (0xDF6E, 6, "wFishing_PauseTextInfo", ""),
+    (0xDF74, 2, "wFishing_Unused_df74", "cleared by Fishing_Init, never read"),
+    (0xDF76, 1, "wFishing_Fanfare", "a fanfare is playing (Fishing_StartFanfare)"),
+    (0xDF77, 1, "wFishing_Reached500", "the score has passed 500"),
+    (0xDF78, 3, "wFishing_SpawnTimer", "frames to the next fish, and how many may swim"),
+    (0xDF7B, 1, "wFishing_PartnerState", "link play: the other player's state"),
+]
+FISHING_HRAM = [
+    (0xFF8A, 0x10, "hFishing_LinkOut", "packet sent to the other Game Boy"),
+    (0xFF9A, 0x10, "hFishing_LinkInA", "packet received; checksum in its last word"),
+    (0xFFAA, 0x10, "hFishing_LinkInB", "second receive buffer"),
+    (0xFFBA, 1, "hFishing_LinkLength", "bytes in a packet ($10)"),
+    (0xFFBB, 1, "hFishing_LinkPos", "low byte of the next byte to send"),
+    (0xFFBC, 1, "hFishing_LinkLeft", "bytes left"),
+    (0xFFBD, 1, "hFishing_LinkRetries", ""),
+    (0xFFBE, 1, "hFishing_LinkFlags", ""),
+    (0xFFBF, 1, "hFishing_LinkBuffer", "receive buffer in use (0 or 1)"),
+    (0xFFC0, 1, "hFishing_SerialDone", "set by Fishing_SerialHandler"),
+    (0xFFC2, 1, "hFishing_LinkRole", "b given to Fishing_Start: $ff one player, else the link side"),
+    (0xFFC3, 1, "hFishing_LinkRole2", "$bb on one side of the link"),
+    (0xFFC4, 1, "hFishing_PacketOK", "Fishing_LinkCheckPacket's result"),
+    (0xFFC5, 1, "hFishing_ROMBank", "current ROM bank (Fishing_FarJump keeps it)"),
+    (0xFFC6, 1, "hFishing_VRAMBank", "rVBK as last set"),
+    (0xFFC7, 1, "hFishing_VBlankDone", ""),
+    (0xFFC8, 6, "hFishing_Scratch", "scratch: numbers being compared, fish records, text"),
+    (0xFFCF, 1, "hFishing_FrameBank", "bank of the routine the runtime calls each frame (tentative)"),
+    (0xFFD0, 2, "hFishing_FrameRoutine", "that routine"),
+    (0xFFD2, 1, "hFishing_RuntimeTemp", ""),
+    (0xFFD3, 2, "hFishing_OAMPos", "next free entry in wFishing_OAMBuffer"),
+    (0xFFD5, 1, "hFishing_TileCount", "sprite tiles to stream this frame"),
+    (0xFFD6, 2, "hFishing_TileBufferPos", "next free byte in the sprite tile buffer ($d000)"),
+    (0xFFD8, 2, "hFishing_SavedSP", "stack pointer at Fishing_Start, restored by Fishing_RestartMainLoop"),
+    (0xFFDA, 1, "hFishing_LinkSynced", "the serial handler skips the handshake while it is set (tentative)"),
+    (0xFFDB, 1, "hFishing_Language", "c given to Fishing_Start"),
+    (0xFFDC, 1, "hFishing_SampleFrames", "frames the sample still plays; at 0 the VBlank work stops it"),
+    (0xFFDD, 1, "hFishing_SampleBank", "bank of SampleTable"),
+    (0xFFDE, 2, "hFishing_SampleTable", ""),
+    (0xFFE0, 9, "hFishing_Scroll", "scroll positions and speeds of the water layers (Fishing_InitScroll)"),
+    (0xFFE9, 4, "hFishing_FinalScore", "link play: this player's score at the end"),
+    (0xFFED, 4, "hFishing_FinalPartnerScore", "and the other player's"),
+]
+FISHING_CODE_BANKS = (0x50, 0x51, 0x52)
+FISHING_TABLE = _table(FISHING + FISHING_HRAM)
+
+
+def fishing_lookup(v, bank):
+    if bank in FISHING_CODE_BANKS:
+        return FISHING_TABLE.get(v)
+    return None

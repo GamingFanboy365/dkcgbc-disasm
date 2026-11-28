@@ -226,6 +226,10 @@ class Emitter:
             if 0xA000 <= v < 0xC000:
                 return ramnames.lookup(v, 0xF0, False)
             return ramnames.fe_lookup(v, 0xF0 if fe_home else bank)
+        if bank in ramnames.FISHING_CODE_BANKS:
+            if v in hints.FISHING_RAM_NAMES:
+                return hints.FISHING_RAM_NAMES[v]
+            return ramnames.fishing_lookup(v, bank)
         return ramnames.lookup(v, bank, bank not in hints.SECOND_PROGRAM_BANKS)
 
     def hl_pointer(self, t, o, i):
@@ -459,23 +463,26 @@ class Emitter:
                 insns = {x: i for x, i in self.t.insns.items() if x // BANK_SIZE in pbanks}
             ents = ramcode.entries_from(_T, self.rom, dst, n) | set(extra)
             fe = 0xF0 <= bank <= 0xFE
+            fish = bank in ramnames.FISHING_CODE_BANKS
 
             def name_of(a):
                 if fe and ramnames.fe_ram_code(a, bank):
                     return ramnames.fe_ram_code(a, bank)
+                if fish and a in hints.FISHING_RAM_NAMES:
+                    return hints.FISHING_RAM_NAMES[a]
                 return "RAMCode_%02x_%04x" % (bank, a)
 
             def ext_name(v, tmpl):
                 if tmpl == "ldh" or (v >= 0xFF00 and ("[{n16}]" in tmpl or tmpl.startswith("ld hl,"))):
-                    return HW_REGS.get(v) or (self.ram_name_at(v, bank, 0) if fe else None)
+                    return HW_REGS.get(v) or (self.ram_name_at(v, bank, 0) if fe or fish else None)
                 if (tmpl.startswith("jp") or tmpl.startswith("call")) and v < 0x4000:
                     return self.qref(0, v)
-                if fe and 0xA000 <= v < 0xFF00 and not tmpl.startswith("ld bc,"):
+                if (fe or fish) and 0xA000 <= v < 0xFF00 and not tmpl.startswith("ld bc,"):
                     return self.ram_name_at(v, bank, 0)
                 return None
             consts, body = ramcode.lines(buf, dst, ents, name_of, ext_name)
             # entry points named in ramnames.FE_RAM_CODE are defined in ram.inc
-            consts = [(nm, a) for nm, a in consts if not nm.startswith(("FE_", "Cranky_"))]
+            consts = [(nm, a) for nm, a in consts if not nm.startswith(("FE_", "Cranky_", "Fishing_"))]
             res = [(o, "; runs from $%04x" % dst)]
             res += [(None, "DEF %s EQU $%04x" % (nm, a)) for nm, a in consts]
             # comment lines and blank lines go out unindented (marked with \0)

@@ -226,6 +226,7 @@ class Tracer:
         pushbytes = []
         pushinsns = []
         pushwords = []
+        pushwordinsns = []
         objfield = None
         player = False
         prev = None
@@ -274,16 +275,24 @@ class Tracer:
             # this bank's ROM area are return points
             if i.op == 0xE5:
                 pushwords.append(None if None in (regs["h"], regs["l"]) else regs["h"] << 8 | regs["l"])
+                pushwordinsns.append(hl_insn if hl_insn is not None and pushwords[-1] == hl_insn.imm else None)
             if i.flow in ("jp", "call") and i.target in self.farjump_hl_stack and pushwords:
                 a = regs["a"]
                 if a is not None and pushwords[-1] is not None:
                     self.add(a, pushwords[-1], "func", a)
-                    for w in pushwords[:-1]:
+                    if pushwordinsns[-1] is not None:
+                        pushwordinsns[-1].farref = (a, pushwords[-1], "addr")
+                    if a_insn is not None and a_insn.imm == a:
+                        a_insn.farref = (a, pushwords[-1], "BANK")
+                    for w, ins in zip(pushwords[:-1], pushwordinsns[:-1]):
                         if w is not None and 0x4000 <= w < 0x8000 and bank:
                             self.candidates.append((bank, w))
+                            if ins is not None:
+                                ins.farref = (bank, w, "addr")  # where the far call returns to
                 else:
                     self.unresolved.append((bank, addr, "farjump-hl"))
                 pushwords = []
+                pushwordinsns = []
             if i.flow in ("jp", "call") and i.target in self.farjump_stack and len(pushbytes) >= 2:
                 hi, lo, a = pushbytes[-2], pushbytes[-1], regs["a"]
                 if None not in (hi, lo, a):

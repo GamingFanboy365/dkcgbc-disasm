@@ -2162,13 +2162,13 @@ FE_FunkysFishing_Start::
 	ld a, $d5
 	push af
 	inc sp
-	ld a, HIGH(Func_50_4000)
+	ld a, HIGH(Fishing_Start)
 	push af
 	inc sp
-	ld a, LOW(Func_50_4000)
+	ld a, LOW(Fishing_Start)
 	push af
 	inc sp
-	ld a, BANK(Func_50_4000)
+	ld a, BANK(Fishing_Start)
 	jp RestoreBankAndReturn.jump_3fdc
 
 

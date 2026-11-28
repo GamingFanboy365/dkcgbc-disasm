@@ -3,15 +3,15 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $51", ROMX[$4000], BANK[$51]
 
-Func_51_4000::
+Fishing_LoadScreen::
 	push de
 	ld bc, $0040
 	ld de, $7090
-	call $cbcb
+	call Fishing_CopyBytes
 	pop hl
 	ld bc, $0040
 	ld de, $70d0
-	call $cbcb
+	call Fishing_CopyBytes
 	push bc
 	ld c, $41
 .jump_4017:
@@ -26,19 +26,19 @@ Func_51_4000::
 	jr nz, .jump_401d
 	pop bc
 	ld hl, $70d0
-	call Func_51_426d
+	call Fishing_UploadOBJPalettes_51
 	ldh a, [$ffc2]
 	cp $ff
 	jr nz, .jump_403b
 	ld bc, $6a90
-	call Func_51_40ae
-	call Func_51_410f
+	call Fishing_UploadScreenMap
+	call Fishing_LoadTiles
 	jr .jump_4044
 
 .jump_403b:
 	ld bc, $6d60
-	call Func_51_40ae
-	call Func_51_410f
+	call Fishing_UploadScreenMap
+	call Fishing_LoadTiles
 .jump_4044:
 	ld a, $01
 	ldh [$ffc6], a
@@ -119,7 +119,7 @@ Func_51_4000::
 	ret
 
 
-Func_51_40ae::
+Fishing_UploadScreenMap::
 	ld a, $01
 	ldh [$ffc6], a
 	ldh [rVBK], a
@@ -195,7 +195,7 @@ Func_51_40ae::
 	ret
 
 
-Func_51_410f::
+Fishing_LoadTiles::
 	push bc
 	ld c, $41
 .jump_4112:
@@ -215,7 +215,7 @@ Func_51_410f::
 	ld hl, $54e0
 	ld de, $9000
 	ld b, $7f
-	call Func_51_41d6
+	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
 .jump_4133:
@@ -235,7 +235,7 @@ Func_51_410f::
 	ld hl, $5ce0
 	ld de, $8800
 	ld b, $77
-	call Func_51_41d6
+	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
 .jump_4154:
@@ -255,7 +255,7 @@ Func_51_410f::
 	ld hl, $6460
 	ld de, $9000
 	ld b, $01
-	call Func_51_41d6
+	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
 .jump_4175:
@@ -275,7 +275,7 @@ Func_51_410f::
 	ld hl, $4d00
 	ld de, $8000
 	ld b, $7d
-	call Func_51_41d6
+	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
 .jump_4196:
@@ -295,7 +295,7 @@ Func_51_410f::
 	ld hl, $6480
 	ld de, $8ca0
 	ld b, $35
-	call Func_51_41d6
+	call Fishing_StartHDMA_51
 	push bc
 	ld c, $41
 .jump_41b7:
@@ -315,11 +315,11 @@ Func_51_410f::
 	ld hl, $67e0
 	ld de, $8800
 	ld b, $2a
-	call Func_51_41d6
+	call Fishing_StartHDMA_51
 	ret
 
 
-Func_51_41d6::
+Fishing_StartHDMA_51::
 	ld a, h
 	ldh [rHDMA1], a
 	ld a, l
@@ -333,7 +333,7 @@ Func_51_41d6::
 	ret
 
 
-Func_51_41e6::
+Fishing_UploadBGPalettes_51::
 	ld a, $80
 	ldh [rBCPS], a
 	ld c, $69
@@ -468,7 +468,7 @@ Func_51_41e6::
 	ret
 
 
-Func_51_426d::
+Fishing_UploadOBJPalettes_51::
 	ld a, $80
 	ldh [rOCPS], a
 	ld c, $6b

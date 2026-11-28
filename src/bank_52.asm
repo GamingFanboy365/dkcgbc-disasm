@@ -3,7 +3,7 @@ INCLUDE "include/common.inc"
 
 SECTION "Bank $52", ROMX[$4000], BANK[$52]
 
-Func_52_4000::
+Fishing_SetAnimRecord::
 	push hl
 	ld hl, $41ee
 	ld c, b
@@ -60,7 +60,7 @@ Func_52_4000::
 	ret
 
 
-Func_52_404b::
+Fishing_SetAnimRecordKeepFrame::
 	push bc
 	push hl
 	ld hl, $41ee
@@ -119,7 +119,7 @@ Func_52_404b::
 	ret
 
 
-Func_52_4097::
+Fishing_DrawAnimFrame::
 	inc hl
 	ld a, c
 	sla c
@@ -140,17 +140,17 @@ Func_52_4097::
 	ld h, [hl]
 	ld l, a
 	push de
-	call Func_52_40bd
+	call Fishing_AllocOAM
 	push bc
-	call Func_52_4107
+	call Fishing_WriteSprites
 	pop bc
-	call Func_52_40e9
+	call Fishing_AllocTileBuffer
 	pop de
-	call Func_52_413d
+	call Fishing_CopyFrameTiles
 	ret
 
 
-Func_52_40bd::
+Fishing_AllocOAM::
 	push bc
 	push hl
 	ld hl, $ffd3
@@ -185,7 +185,7 @@ Func_52_40bd::
 	ret
 
 
-Func_52_40e9::
+Fishing_AllocTileBuffer::
 	push bc
 	ld hl, $ffd6
 	ld a, [hli]
@@ -212,7 +212,7 @@ Func_52_40e9::
 	ret
 
 
-Func_52_4107::
+Fishing_WriteSprites::
 	ld a, [$c8a4]
 	xor $04
 	add a, a
@@ -255,7 +255,7 @@ Func_52_4107::
 	ret
 
 
-Func_52_413d::
+Fishing_CopyFrameTiles::
 	ld a, [de]
 	inc de
 	ld [hli], a
@@ -353,11 +353,11 @@ Func_52_413d::
 	inc de
 	ld [hli], a
 	dec b
-	jr nz, Func_52_413d
+	jr nz, Fishing_CopyFrameTiles
 	ret
 
 
-Func_52_41a1::
+Fishing_BeginFrame::
 	ld a, [$c8a4]
 	xor $04
 	ld d, a

@@ -65,6 +65,9 @@ def write_objects_inc(path):
     lines.append("\n; Front-end routines copied to RAM (FE_RAM_NAMES in tools/hints.py)\n")
     for a, n in sorted(hints.FE_RAM_NAMES.items()):
         lines.append("DEF %-17s EQU $%04x\n" % (n, a))
+    lines.append("\n; Funky's Fishing's runtime in RAM (FISHING_RAM_NAMES in tools/hints.py)\n")
+    for a, n in sorted(hints.FISHING_RAM_NAMES.items()):
+        lines.append("DEF %-26s EQU $%04x\n" % (n, a))
     lines.append("\nENDC\n")
     with open(path, "w") as f:
         f.write("".join(lines))
@@ -232,6 +235,8 @@ class Emitter:
             txt = None
             if 0xF0 <= bank <= 0xFE and v in hints.FE_RAM_NAMES:
                 txt = hints.FE_RAM_NAMES[v]
+            elif 0x50 <= bank <= 0x56 and v in hints.FISHING_RAM_NAMES:
+                txt = hints.FISHING_RAM_NAMES[v]
             elif i.flow in ("jp", "jpc", "call", "callc"):
                 if v < 0x4000:
                     txt = self.ref(0, v, o)

@@ -365,6 +365,28 @@ FE_RAM_NAMES = {
     0xFF87: "FE_OAMDMA",         # $F0:4016 (HRAM)
 }
 
+# Funky's Fishing's runtime (FishingRuntime, $51:42F4 copied to $CB00): entry
+# points it calls in RAM, used in banks $50-$56
+FISHING_RAM_NAMES = {
+    0xCB00: "Fishing_SerialHandler",     # link play: exchanges the two Game Boys' state ($44/$66/$bb)
+    0xCB99: "Fishing_FarJump",           # bank a; ret jumps to the target pushed last
+    0xCBA7: "Fishing_FarReturn",         # pushed before a far jump: restores the caller's bank
+    0xCBB2: "Fishing_FarReturnKeepFlags",
+    0xCBCB: "Fishing_CopyBytes",         # bc bytes de -> hl
+    0xCBD4: "Fishing_CopyBytesShort",    # b bytes
+    0xCBDB: "Fishing_FillBytes",         # de bytes of b
+    0xCBE3: "Fishing_FillBytesShort",    # d bytes of b
+    0xCBE9: "Fishing_LinkStoreReceived",
+    0xCBFF: "Fishing_LinkSendNext",
+    0xCC21: "Fishing_RestartMainLoop",   # resets the stack, back to $50:41B6
+    0xCC32: "Fishing_ReadWordTable51",   # bc = word c of the table at $51:44F1
+    0xCC4E: "Fishing_PlaySample",        # sample c of the table in bank [$ffdd]
+    0xCC91: "Fishing_PlaySong",
+    0xCCA5: "Fishing_VBlank",            # updates the sound
+    0xCCC0: "Fishing_STATScroll",        # scroll split at lines $2a and $3f
+    0xCCE2: "Fishing_SampleTimer",       # one sample byte to NR50 per tick
+}
+
 RAM_CODE = [
     (0x51, 0x42F4, 0x1FD, 0xCB00, FISHING_BANKS, (0xCBB2, 0xCCA5, 0xCCC0, 0xCCE2), "=FishingRuntime"),
     (0xF1, 0x57F0, 65, 0xCCBA, FE_BANKS, (), None),

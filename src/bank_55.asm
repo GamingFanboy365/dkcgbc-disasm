@@ -43,7 +43,7 @@ Func_55_4000::
 	ld a, [$004a]
 	ld h, a
 	inc hl
-	ld bc, $cca5
+	ld bc, Fishing_VBlank
 	ld a, c
 	ld [hli], a
 	ld [hl], b
@@ -102,7 +102,7 @@ Func_55_4000::
 	push bc
 	push de
 	ld b, $0e
-	call $cc91
+	call Fishing_PlaySong
 	pop de
 	pop bc
 	call Func_55_41f9
@@ -206,16 +206,16 @@ Func_55_4000::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, $4155
+	ld hl, Func_55_4155
 	push hl
 	ldh a, [$ffc5]
 	push af
-	ld hl, $cba7
+	ld hl, Fishing_FarReturn
 	push hl
-	ld hl, $6198
+	ld hl, Fishing_ReadJoypad
 	push hl
-	ld a, $50
-	jp $cb99
+	ld a, BANK(Fishing_ReadJoypad)
+	jp Fishing_FarJump
 
 
 Func_55_4155::
@@ -262,7 +262,7 @@ Func_55_4161::
 	ld e, l
 	push de
 	ld hl, $ddbf
-	call $cbcb
+	call Fishing_CopyBytes
 	pop hl
 	pop bc
 	ld a, b
@@ -278,7 +278,7 @@ Func_55_4161::
 	ld c, a
 	ld b, $00
 	ld de, $ddbf
-	call $cbcb
+	call Fishing_CopyBytes
 	ldh a, [$ffc9]
 	ld b, a
 	add a, a
@@ -298,7 +298,7 @@ Func_55_4161::
 	ld e, l
 	push de
 	ld hl, $ddbf
-	call $cbcb
+	call Fishing_CopyBytes
 	pop hl
 	pop de
 	ld a, [de]
@@ -314,7 +314,7 @@ Func_55_4161::
 	ld c, a
 	ld b, $00
 	ld de, $ddbf
-	call $cbcb
+	call Fishing_CopyBytes
 	ret
 
 .jump_41e0:
@@ -430,16 +430,16 @@ Func_55_425c::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, $4278
+	ld hl, Func_55_4278
 	push hl
 	ldh a, [$ffc5]
 	push af
-	ld hl, $cba7
+	ld hl, Fishing_FarReturn
 	push hl
-	ld hl, $61c9
+	ld hl, Fishing_SetDoubleSpeed
 	push hl
-	ld a, $50
-	jp $cb99
+	ld a, BANK(Fishing_SetDoubleSpeed)
+	jp Fishing_FarJump
 
 
 Func_55_4278::
@@ -448,16 +448,16 @@ Func_55_4278::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, $4294
+	ld hl, Func_55_4294
 	push hl
 	ldh a, [$ffc5]
 	push af
-	ld hl, $cba7
+	ld hl, Fishing_FarReturn
 	push hl
-	ld hl, $6209
+	ld hl, Fishing_InitLCD
 	push hl
-	ld a, $50
-	jp $cb99
+	ld a, BANK(Fishing_InitLCD)
+	jp Fishing_FarJump
 
 
 Func_55_4294::
@@ -719,11 +719,11 @@ Func_55_43ec::
 	push de
 	ld bc, $0040
 	ld de, $60b0
-	call $cbcb
+	call Fishing_CopyBytes
 	pop hl
 	ld bc, $0040
 	ld de, $60f0
-	call $cbcb
+	call Fishing_CopyBytes
 	push bc
 	ld c, $41
 .jump_4403:
@@ -1257,16 +1257,16 @@ Func_55_4676::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, $46a4
+	ld hl, Func_55_46a4
 	push hl
 	ldh a, [$ffc5]
 	push af
-	ld hl, $cba7
+	ld hl, Fishing_FarReturn
 	push hl
-	ld hl, $6860
+	ld hl, Fishing_FadePalettes
 	push hl
-	ld a, $50
-	jp $cb99
+	ld a, BANK(Fishing_FadePalettes)
+	jp Fishing_FarJump
 
 
 Func_55_46a4::
@@ -1287,16 +1287,16 @@ Func_55_46a5::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, $46d0
+	ld hl, Func_55_46d0
 	push hl
 	ldh a, [$ffc5]
 	push af
-	ld hl, $cba7
+	ld hl, Fishing_FarReturn
 	push hl
-	ld hl, $68e1
+	ld hl, Fishing_FadeAllPalettes
 	push hl
-	ld a, $50
-	jp $cb99
+	ld a, BANK(Fishing_FadeAllPalettes)
+	jp Fishing_FarJump
 
 
 Func_55_46d0::
@@ -1414,16 +1414,16 @@ Func_55_4754::
 	ldh [$ffd1], a
 	ld a, l
 	ldh [$ffd0], a
-	ld hl, $4786
+	ld hl, Func_55_4786
 	push hl
 	ldh a, [$ffc5]
 	push af
-	ld hl, $cba7
+	ld hl, Fishing_FarReturn
 	push hl
-	ld hl, $6198
+	ld hl, Fishing_ReadJoypad
 	push hl
-	ld a, $50
-	jp $cb99
+	ld a, BANK(Fishing_ReadJoypad)
+	jp Fishing_FarJump
 
 
 Func_55_4786::
@@ -1535,7 +1535,7 @@ Func_55_481e::
 	ldh [$ffc5], a
 	ld [rROMB0], a
 	ld bc, $01fd
-	ld de, $cb00
+	ld de, Fishing_SerialHandler
 	ld hl, $42f4
 .jump_4831:
 	ld a, [hli]

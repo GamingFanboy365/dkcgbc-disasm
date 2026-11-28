@@ -1494,4 +1494,190 @@ NAMES = {
     (0xFE, 0x7740): "Cranky_LinkReceiveState",
     (0xFE, 0x5A39): "Cranky_RemoteEvent0",
     (0xFE, 0x5A3C): "Cranky_RemoteEvent1",
+    # --- Funky's Fishing (banks $50-$52). WRAM: joypad held/pressed $dd6f/$dd70; three characters
+    #     ($dd81 Funky, $dd8d the rod, $dd99 the hook: anim records of 12 bytes); fish in 8 slots of
+    #     16 bytes at $dda8 ([$de28] in use); 8 slots of 12 bytes at $de2c for hooked fish ([$de8c]);
+    #     score BCD $de9b-$de9e, points to add $de9f; line meter [$deb1] (0-$4f)
+    (0x50, 0x4000): "Fishing_Start",  # far-jumped to from the front end: saves the stack, installs the runtime, loads the screen
+    (0x50, 0x4091): "Fishing_LinkGame",  # set-up and loop for two players; with no partner ([$ffc2] = $ff) the one-player loop
+    (0x50, 0x41B6): "Fishing_OnePlayerGame",
+    (0x50, 0x429C): "Fishing_InstallRuntime",  # FishingRuntime ($51:42f4) -> $cb00
+    (0x50, 0x42BE): "Fishing_LinkFrame",
+    (0x50, 0x43AC): "Fishing_LinkDrawCharacters",
+    (0x50, 0x43DF): "Fishing_LinkFinishOAM",
+    (0x50, 0x43EA): "Fishing_OnePlayerFrame",
+    (0x50, 0x444F): "Fishing_DrawCharacters",
+    (0x50, 0x4463): "Fishing_StartFanfare",
+    (0x50, 0x4479): "Fishing_CheckScore500",
+    (0x50, 0x44A7): "Fishing_LinkCheckEnd",
+    (0x50, 0x44DC): "Fishing_LinkDrainMeter",
+    (0x50, 0x4571): "Fishing_InitSound",
+    (0x50, 0x45F8): "Fishing_SetSTATHandler",
+    (0x50, 0x460A): "Fishing_InitScroll",  # the water drifts
+    (0x50, 0x4645): "Fishing_InitCharacters",  # Funky (anim $0d), the rod (9), the hook ($0e)
+    (0x50, 0x46B7): "Fishing_ClearCatchList",
+    (0x50, 0x46D6): "Fishing_InitFish",
+    (0x50, 0x4707): "Fishing_InitLevels",  # score thresholds per level ($defa)
+    (0x50, 0x4764): "Fishing_InitWaterAnim",
+    (0x50, 0x478D): "Fishing_Init",
+    (0x50, 0x492F): "Fishing_LinkSendState",  # score and meter to the other Game Boy
+    (0x50, 0x4981): "Fishing_LinkReceiveState",
+    (0x50, 0x49B3): "Fishing_LinkApplyReceived",
+    (0x50, 0x49F7): "Fishing_LinkCheckPacket",  # checksum of the 14 bytes received
+    (0x50, 0x4A24): "Fishing_LinkVBlankWork",
+    (0x50, 0x4A67): "Fishing_VBlankWork",  # OAM DMA from the back buffer, HUD rows, water tiles
+    (0x50, 0x4AB6): "Fishing_CopyOAM",
+    (0x50, 0x4CA5): "Fishing_UploadMeterRow",
+    (0x50, 0x4CD5): "Fishing_UploadLinkMeterRow",
+    (0x50, 0x4D05): "Fishing_UploadScoreRow",
+    (0x50, 0x4D43): "Fishing_LinkUploadScoreRow",
+    (0x50, 0x4D6D): "Fishing_UploadComboRow",
+    (0x50, 0x4D8E): "Fishing_AnimateAll",
+    (0x50, 0x4DAA): "Fishing_MoveRod",
+    (0x50, 0x4E01): "Fishing_RodFollowScroll",
+    (0x50, 0x4E19): "Fishing_MoveHook",
+    (0x50, 0x4E95): "Fishing_HookFollowScroll",
+    (0x50, 0x4EAC): "Fishing_ScrollWater",
+    (0x50, 0x4F3F): "Fishing_AnimateFish",
+    (0x50, 0x4F6A): "Fishing_UpdateHookedFish",
+    (0x50, 0x4F97): "Fishing_UpdateHookedOne",
+    (0x50, 0x5002): "Fishing_StopRod",
+    (0x50, 0x500A): "Fishing_MoveFish",
+    (0x50, 0x507A): "Fishing_LinkComboTimer",
+    (0x50, 0x509A): "Fishing_LinkStartCombo",
+    (0x50, 0x50C2): "Fishing_LinkDrawComboSprite",
+    (0x50, 0x50FC): "Fishing_Return50FC",
+    (0x50, 0x50FD): "Fishing_DrawFish",
+    (0x50, 0x5149): "Fishing_DrawFish_Next",
+    (0x50, 0x5157): "Fishing_DrawFunky",
+    (0x50, 0x518C): "Fishing_DrawRod",
+    (0x50, 0x51C1): "Fishing_Return51C1",
+    (0x50, 0x51C2): "Fishing_DrawHook",
+    (0x50, 0x51F7): "Fishing_Return51F7",
+    (0x50, 0x522A): "Fishing_HookPhysics",
+    (0x50, 0x532B): "Fishing_ReelInHookedFish",
+    (0x50, 0x5369): "Fishing_ReelInOne",  # a fish on the hook rises with it; at the top it is caught
+    (0x50, 0x549F): "Fishing_IsInRect",
+    (0x50, 0x54C4): "Fishing_ReelHook",  # the hook moves towards its target depth
+    (0x50, 0x55AF): "Fishing_Input",  # A casts (and reels), B the combo attack
+    (0x50, 0x56D4): "Fishing_CheckHookOnFish",
+    (0x50, 0x5734): "Fishing_HookFish",
+    (0x50, 0x57A2): "Fishing_FishHitbox",  # by fish type 1-6
+    (0x50, 0x580B): "Fishing_FindFreeFishSlot",
+    (0x50, 0x581C): "Fishing_SetFishType",  # speed and animation by type 1-6
+    (0x50, 0x5881): "Fishing_SpawnFish",  # random side and depth
+    (0x50, 0x58FF): "Fishing_RemoveFish",
+    (0x50, 0x5911): "Fishing_CheckNextLevel",  # score against the thresholds at $77f7
+    (0x50, 0x59C4): "Fishing_Compare24",
+    (0x50, 0x59E3): "Fishing_DrawMeter",  # [$deb1] / 8 full tiles
+    (0x50, 0x5A1A): "Fishing_DrawLinkMeter",
+    (0x50, 0x5A51): "Fishing_AddBonusPoints",
+    (0x50, 0x5AF3): "Fishing_LinkShowCombo",
+    (0x50, 0x5B12): "Fishing_ScoreCatch",  # points for the fish caught, combos, meter
+    (0x50, 0x5CCF): "Fishing_PointsByType",
+    (0x50, 0x5D70): "Fishing_AddToMeter",  # c, clamped to 0-$4f
+    (0x50, 0x5D8E): "Fishing_CheckCombo",
+    (0x50, 0x5DCA): "Fishing_ComboByCount",
+    (0x50, 0x5E17): "Fishing_DrawComboText",
+    (0x50, 0x5E90): "Fishing_ComboTextTimer",
+    (0x50, 0x5EBA): "Fishing_StartHDMA",
+    (0x50, 0x5ECA): "Fishing_PlayMeterSample",  # speech by the meter's level
+    (0x50, 0x5F10): "Fishing_CheckEnd",
+    (0x50, 0x5F98): "Fishing_AnimateWater",
+    (0x50, 0x6010): "Fishing_UploadWaterTiles",
+    (0x50, 0x6034): "Fishing_BlinkMessage",
+    (0x50, 0x6086): "Fishing_FadeIn",
+    (0x50, 0x609C): "Fishing_FadeOut",
+    (0x50, 0x60AF): "Fishing_ClearRestOfOAM",
+    (0x50, 0x60B9): "Fishing_SetAnim",  # anim b of FishingAnimTable for the record at hl ($52:4000)
+    (0x50, 0x60D5): "Fishing_Return60D5",
+    (0x50, 0x60D6): "Fishing_SetAnimKeepFrame",  # ($52:404b)
+    (0x50, 0x60F2): "Fishing_Return60F2",
+    (0x50, 0x60F3): "Fishing_ScaleWord",
+    (0x50, 0x611B): "Fishing_ScaleWord2",
+    (0x50, 0x614B): "Fishing_ScaleWord3",
+    (0x50, 0x617E): "Fishing_ScaleWordRead",
+    (0x50, 0x618A): "Fishing_SignedDifference",
+    (0x50, 0x6198): "Fishing_ReadJoypad",  # hl = held, de = pressed; A+B+Select+Start resets
+    (0x50, 0x61BC): "Fishing_FindButton",
+    (0x50, 0x61C9): "Fishing_SetDoubleSpeed",
+    (0x50, 0x61EB): "Fishing_ToggleCPUSpeed",
+    (0x50, 0x6209): "Fishing_InitLCD",  # also copies the OAM DMA routine to $ff80
+    (0x50, 0x6223): "Fishing_ClearWRAM",
+    (0x50, 0x6231): "Fishing_ClearVRAM",
+    (0x50, 0x6256): "Fishing_ClearHRAM",
+    (0x50, 0x6261): "Fishing_ClearOAMBuffer",
+    (0x50, 0x626C): "Fishing_OAMDMA_Code",  # runs at $ff80
+    (0x50, 0x6276): "Fishing_HighestBitMask",
+    (0x50, 0x62B1): "Fishing_RangeMask16",
+    (0x50, 0x62C3): "Fishing_InitRandomFromDIV",
+    (0x50, 0x62E8): "Fishing_InitRandom",  # the generator's 1 KB state from $7885
+    (0x50, 0x630E): "Fishing_InitRandomIndices",
+    (0x50, 0x631C): "Fishing_RandomSeedFromDIV",
+    (0x50, 0x635B): "Fishing_RandomStep",  # lagged Fibonacci over $d96f, indices $d96d/$d96e
+    (0x50, 0x639D): "Fishing_RandomRange",  # b <= result <= c
+    (0x50, 0x63D4): "Fishing_RandomRange16",
+    (0x50, 0x640A): "Fishing_SignedDifference2",
+    (0x50, 0x6418): "Fishing_MultiplySigned",
+    (0x50, 0x6498): "Fishing_Multiply16",
+    (0x50, 0x64D4): "Fishing_Multiply8",
+    (0x50, 0x6523): "Fishing_Divide",
+    (0x50, 0x6561): "Fishing_IsWithin",
+    (0x50, 0x657A): "Fishing_IsBelow",
+    (0x50, 0x6585): "Fishing_CompareBCDE",
+    (0x50, 0x658B): "Fishing_CompareBCHL",
+    (0x50, 0x6591): "Fishing_CompareDEHL",
+    (0x50, 0x6597): "Fishing_AddDEToBC",
+    (0x50, 0x659E): "Fishing_SubDEFromBC",
+    (0x50, 0x65A5): "Fishing_LoadPalette",
+    (0x50, 0x65F2): "Fishing_ReadBGPalettes",
+    (0x50, 0x66FC): "Fishing_UploadBGPalettes",
+    (0x50, 0x6783): "Fishing_UploadOBJPalettes",
+    (0x50, 0x6791): "Fishing_UploadOBJPalettesN",
+    (0x50, 0x67A3): "Fishing_UploadBGPalettesN",
+    (0x50, 0x67B5): "Fishing_MultiplyFade",
+    (0x50, 0x67D8): "Fishing_ScalePalettes",
+    (0x50, 0x6828): "Fishing_UnpackPalettes",
+    (0x50, 0x6860): "Fishing_FadePalettes",  # from level h to l in b steps
+    (0x50, 0x68E1): "Fishing_FadeAllPalettes",
+    (0x50, 0x6996): "Fishing_SubClamped",
+    (0x50, 0x69AE): "Fishing_AddClamped",
+    (0x50, 0x69C5): "Fishing_AnimTimer",
+    (0x50, 0x69DE): "Fishing_UpdateAnim",
+    (0x50, 0x6A23): "Fishing_Return6A23",
+    (0x50, 0x6A24): "Fishing_Animate",  # next frame of an anim record
+    (0x50, 0x6B58): "Fishing_DrawPauseWindow",
+    (0x50, 0x6BB6): "Fishing_DrawPauseText",
+    (0x50, 0x6D19): "Fishing_LinkDrawPauseWindow",
+    (0x50, 0x6D77): "Fishing_LinkDrawPauseText",
+    (0x50, 0x6F2A): "Fishing_DrawPauseCursor",
+    (0x50, 0x6FEB): "Fishing_LinkWaitForPartner",
+    (0x50, 0x7061): "Fishing_Pause",  # Start: CONTINUE / QUIT
+    (0x50, 0x70C8): "Fishing_LinkPause",
+    (0x50, 0x7159): "Fishing_PauseInput",
+    (0x50, 0x71C7): "Fishing_LinkPauseInput",
+    (0x50, 0x724E): "Fishing_PartnerPaused",
+    (0x50, 0x72C4): "Fishing_DimForPause",
+    (0x50, 0x72EA): "Fishing_UndimAfterPause",
+    (0x50, 0x730B): "Fishing_LinkDimForPause",
+    (0x50, 0x7331): "Fishing_LinkUndimAfterPause",
+    (0x50, 0x7352): "Fishing_PauseFade",
+    (0x50, 0x7379): "Fishing_InitPause",
+    (0x50, 0x7396): "Fishing_SetUpPauseText",  # FishingPauseText in the chosen language, through CharTileTable_50
+    (0x50, 0x7686): "Fishing_TextToTiles",
+    (0x51, 0x4000): "Fishing_LoadScreen",  # one-player screen ($6a90) or the two-player one ($6d60), palettes, box
+    (0x51, 0x40AE): "Fishing_UploadScreenMap",
+    (0x51, 0x410F): "Fishing_LoadTiles",
+    (0x51, 0x41D6): "Fishing_StartHDMA_51",
+    (0x51, 0x41E6): "Fishing_UploadBGPalettes_51",
+    (0x51, 0x426D): "Fishing_UploadOBJPalettes_51",
+    (0x52, 0x4000): "Fishing_SetAnimRecord",  # from FishingAnimTable
+    (0x52, 0x404B): "Fishing_SetAnimRecordKeepFrame",
+    (0x52, 0x4097): "Fishing_DrawAnimFrame",  # sprites and tiles of the record's current frame
+    (0x52, 0x40BD): "Fishing_AllocOAM",
+    (0x52, 0x40E9): "Fishing_AllocTileBuffer",
+    (0x52, 0x4107): "Fishing_WriteSprites",
+    (0x52, 0x413D): "Fishing_CopyFrameTiles",
+    (0x52, 0x41A1): "Fishing_BeginFrame",  # resets the OAM and tile buffers (double-buffered by [$c8a4])
+    (0x50, 0x5EA8): "Fishing_IsPointInBox",
 }

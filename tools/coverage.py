@@ -12,6 +12,8 @@ Categories (by byte):
   empty      padding (runs of 16+ identical $00/$ff bytes nothing claims)
   unknown    not identified yet, INCBIN'd from the base ROM
 --banks also prints the unknown bytes per bank; --runs lists each unknown run.
+It then measures the names (from the generated sources and the name lists);
+--names prints only that part, without tracing the ROM.
 """
 import os
 import sys
@@ -95,5 +97,78 @@ def main():
                 i += 1
 
 
+INSNS = set("ld ldh jp jr call ret reti push pop inc dec add adc sub sbc and or xor cp bit set res "
+            "rl rr rlc rrc sla sra srl swap di ei halt nop stop daa cpl scf ccf rla rra rlca rrca "
+            "rst rst_farcall".split())
+
+
+def naming():
+    """[(what, done, total, note)] for the names in the generated sources."""
+    import glob
+    import re
+    import hints
+    import names as name_list
+    import ramnames
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    placeholder = re.compile(r"_[0-9a-f]{2}_[0-9a-f]{4}$")
+    structural = re.compile(r"^(loop|else|skip|continue|done|return|back|entry|jp_\w+)(_[0-9a-f]{4})?$")
+    code = code_named = data = data_named = local = local_named = 0
+    for f in sorted(glob.glob(os.path.join(root, "src", "*.asm"))):
+        lines = open(f).read().split("\n")
+        for i, ln in enumerate(lines):
+            m = re.match(r"^\.([A-Za-z_]\w*):", ln)
+            if m:
+                local += 1
+                local_named += not structural.match(m.group(1))
+                continue
+            m = re.match(r"^([A-Za-z_]\w*)::?\s*$", ln)
+            if not m:
+                continue
+            j = i + 1
+            while j < len(lines) and (not lines[j].strip() or lines[j].lstrip().startswith((";", "DEF "))):
+                j += 1
+            word = lines[j].split()[0] if j < len(lines) and lines[j].split() else ""
+            named = not placeholder.search(m.group(1)) and not m.group(1).startswith("Func_")
+            if word in INSNS:
+                code, code_named = code + 1, code_named + named
+            else:
+                data, data_named = data + 1, data_named + named
+    tentative_routines = sum("tentative" in ln for ln in open(name_list.__file__))
+    ram = (ramnames.WRAM + ramnames.WRAM_EXTRA + ramnames.SRAM + ramnames.HRAM + ramnames.FE_COMMON
+           + ramnames.FE_COMMON_HRAM + ramnames.FE_MENUS + ramnames.FE_MENUS_HRAM + ramnames.CRANKY
+           + ramnames.CRANKY_HRAM + ramnames.FISHING + ramnames.FISHING_HRAM + ramnames.HISCORE)
+    ram_tentative = sum("tentative" in d for *_, d in ram)
+    fields = sum(sz for _, sz, _ in hints.OBJ_FIELD_TABLE.values())
+    return [
+        ("Routines with a name", code_named, code, "%d marked tentative" % tentative_routines),
+        ("RAM variables the code reaches by address, named", 1, 1,
+         "%d names, %d marked tentative" % (len(ram), ram_tentative)),
+        ("Object fields with a name (bytes of the $40-byte slot)", fields, 0x40,
+         "the rest are OBJ_VAR_xx, whose use depends on the object type"),
+        ("Local labels with a descriptive name", local_named, local,
+         "all others have structural names (.loop, .skip, .done...)"),
+        ("Data labels with a descriptive name", data_named, data,
+         "the others are named by kind and address (Frame_20_..., ObjInit_0e_...)"),
+    ]
+
+
+def print_naming():
+    rows = naming()
+    print("| Names | Done | Share | Note |")
+    print("|---|---|---|---|")
+    for what, done, total, note in rows:
+        share = 100 * done / total
+        amount = "all" if done == total and total == 1 else "%d of %d" % (done, total)
+        print("| %s | %s | %.0f%% | %s |" % (what, amount, share, note))
+    step3 = sum(100 * d / t for _, d, t, _ in rows) / len(rows)
+    print("\nStep 3 (names), average of the rows: %.0f%%" % step3)
+    print("Overall, average of steps 1-3 (steps 1 and 2 at 100%%): %.0f%%" % ((200 + step3) / 3))
+
+
 if __name__ == "__main__":
-    main()
+    if "--names" in sys.argv:
+        print_naming()
+    else:
+        main()
+        print()
+        print_naming()
